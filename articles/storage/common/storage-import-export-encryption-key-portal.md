@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ddcb47bfe8ba2b77efd8ff0aed52f1412107f0c5
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: d3e4535c05ef077d14ef74310459a84af0f02fd5
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81456496"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176326"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Utiliser des clés gérées par le client dans Azure Key Vault pour le service Import/Export
 
@@ -101,9 +101,8 @@ Si vous recevez des erreurs liées à votre clé gérée par le client, utilisez
 | Code d'erreur     |Détails     | Récupérable ?    |
 |----------------|------------|-----------------|
 | CmkErrorAccessRevoked | Une clé gérée par le client a été appliquée, mais l’accès à la clé est actuellement révoqué. Pour plus d’informations, consultez [Activer l’accès à la clé](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).                                                      | Oui, vérifier si : <ol><li>Le coffre de clés contient toujours le fichier MSI dans la stratégie d’accès.</li><li>La stratégie d’accès fournit des autorisations pour recevoir, envelopper, désenvelopper.</li><li>Si le coffre de clés se trouve dans un réseau virtuel derrière le pare-feu, vérifiez si **Autoriser les services de confiance Microsoft** est activé.</li></ol>                                                                                            |
-| CmkErrorDisabled      | A appliqué une clé gérée par le client, mais la clé est désactivée. Pour plus d’informations, consultez [Activer la clé](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).                                                                             | Oui, en activant la version de clé     |
-| CmkErrorNotFound      | A appliqué une clé gérée par le client, mais impossible de trouver la clé. <br>Si la clé est supprimée et purgée après la période de rétention, vous ne pouvez pas récupérer la clé. Si vous avez sauvegardé la clé, vous pouvez restaurer la clé pour résoudre ce problème. | Non, la clé a été supprimée et est également purgée après la période de rétention. <br>Oui, uniquement si le client dispose de la clé sauvegardée et la restaure.  |
-| CmkErrorVaultNotFound | Application d’une clé gérée par le client, mais impossible de trouver le coffre de clés associé à la clé.<br>Si vous avez supprimé le coffre de clés, vous ne pouvez pas récupérer la clé gérée par le client.  Si vous avez migré le coffre de clés vers un autre locataire, consultez [Modifier l’ID de client du coffre de clés après un déplacement d’abonnement](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   Non, si le client a supprimé le coffre de clés.<br> Oui, si le coffre de clés a subi une migration de locataire ; effectuez l’une des opérations suivantes : <ol><li>Replacez le coffre de clés sur l’ancien locataire.</li><li>Définissez Identity = None, puis à nouveau sur Identity = SystemAssigned, ce qui supprime et recrée l’identité</li></ol>|
+| CmkErrorKeyDisabled      | A appliqué une clé gérée par le client, mais la clé est désactivée. Pour plus d’informations, consultez [Activer la clé](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).                                                                             | Oui, en activant la version de clé     |
+| CmkErrorKeyNotFound      | Application d’une clé gérée par le client, mais impossible de trouver le coffre de clés associé à la clé.<br>Si vous avez supprimé le coffre de clés, vous ne pouvez pas récupérer la clé gérée par le client.  Si vous avez migré le coffre de clés vers un autre locataire, consultez [Modifier l’ID de client du coffre de clés après un déplacement d’abonnement](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   Si vous avez supprimé le coffre de clés :<ol><li>Oui, s’il s’agit de la durée de la protection contre le vidage, à l’aide des étapes de [Récupérer un coffre de clés](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault).</li><li>Non au-delà de la durée de la protection contre le vidage.</li></ol><br>Sinon, si le coffre de clés a subi une migration de locataire, oui, il peut être récupéré à l’aide d’une des étapes ci-dessous : <ol><li>Restaurez le coffre de clés sur l’ancien locataire.</li><li>Définissez `Identity = None`, puis redéfinissez la valeur sur `Identity = SystemAssigned`. Cela supprime et recrée l’identité une fois que la nouvelle identité a été créée. Activez les autorisations `Get`, `Wrap` et `Unwrap` sur la nouvelle identité dans la stratégie d’accès du coffre de clés.</li></ol>|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

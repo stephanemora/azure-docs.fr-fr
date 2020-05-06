@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: d2e7e157156a4049a5db37b1d5c0e02773adbcc3
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: a02abd931dddd410882dd67a73a5b5fab6dc8cf9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879545"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82194888"
 ---
 # <a name="what-is-azure-security-center"></a>Qu’est-ce que le Centre de sécurité Azure ?
 
@@ -61,7 +61,7 @@ Azure Security Center vous permet de renforcer votre posture de sécurité. Cela
 
 ### <a name="manage-organization-security-policy-and-compliance"></a>Gérer la conformité et la stratégie de sécurité de l’organisation
 
-Garantir la sécurité de vos charges de travail est une règle de base en matière de sécurité, et cela commence par la mise en place de stratégies de sécurité personnalisées. Étant donné que toutes les stratégies dans Security Center reposent sur des contrôles de stratégie Azure, vous obtenez la palette complète et la flexibilité d’une **solution de stratégie de niveau international**. Dans Security Center, vous pouvez définir vos stratégies de façon qu’elles s’exécutent sur des groupes d’administration, dans l’ensemble des abonnements et même pour un locataire.
+Garantir la sécurité de vos charges de travail est une règle de base en matière de sécurité, et cela commence par la mise en place de stratégies de sécurité personnalisées. Étant donné que toutes les stratégies dans Security Center reposent sur des contrôles Azure Policy, vous obtenez l’éventail complet et la flexibilité totale offerts par une **solution de stratégie de niveau international**. Dans Security Center, vous pouvez définir vos stratégies de façon qu’elles s’exécutent sur des groupes d’administration, dans l’ensemble des abonnements et même pour un locataire.
 
 ![Tableau de bord de Security Center](media/security-center-intro/sc-dashboard.png)
 

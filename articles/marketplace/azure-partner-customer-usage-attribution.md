@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: e061baa8e7eb73bae0a78f4215f0d48610e85fcb
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 4dd42c6eabf02bc7a4eb956b9cd5ab2aec28176b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686727"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186201"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Attribution de partenaires de place de marché et d’utilisation de client
 
@@ -37,10 +37,10 @@ L’attribution de l’utilisation de client prend en charge trois options de d�
 
 ## <a name="create-guids"></a>Créer des GUID
 
-Un GUID désigne un identificateur de référence unique à 32 chiffres hexadécimaux. Pour créer un GUID et effectuer son suivi, vous devez utiliser un générateur GUID. L’équipe de stockage Azure a créé un [formulaire générateur de GUID](https://aka.ms/StoragePartners) qui vous enverra par e-mail un GUID au format approprié et pourra être réutilisé dans les différents systèmes de suivi.
+Un GUID désigne un identificateur de référence unique à 32 chiffres hexadécimaux. Pour créer un GUID et effectuer son suivi, vous devez utiliser un générateur GUID. L’équipe de stockage Azure a créé un [formulaire générateur de GUID](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUMVRVVFFLTDFLS0E2QzNYSkFZR1U3WVJCTSQlQCN0PWcu) qui vous enverra par e-mail un GUID au format approprié et pourra être réutilisé dans les différents systèmes de suivi.
 
 > [!NOTE]
-> Nous vous recommandons vivement d’utiliser le [formulaire Générateur de GUID de stockage Azure](https://aka.ms/StoragePartners) pour créer votre GUID. Pour plus d’informations, consultez notre [Forum Aux Questions (FAQ)](#faq).
+> Nous vous recommandons vivement d’utiliser le [formulaire Générateur de GUID de stockage Azure](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUMVRVVFFLTDFLS0E2QzNYSkFZR1U3WVJCTSQlQCN0PWcu) pour créer votre GUID. Pour plus d’informations, consultez notre [Forum Aux Questions (FAQ)](#faq).
 
 Nous vous recommandons de créer un GUID unique pour chaque offre et canal de distribution de chaque produit. Si vous ne souhaitez pas que les rapports soient scindés, vous pouvez choisir d'utiliser un GUID unique pour les différents canaux de distribution du produit.
 
@@ -61,7 +61,7 @@ Une fois que vous avez ajouté un GUID à votre modèle ou dans l’agent utilis
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard).
 
-1. Inscrivez-vous en tant qu’[éditeur de la place de marché commerciale](https://aka.ms/JoinMarketplace).
+1. Inscrivez-vous en tant qu’[éditeur de la place de marché commerciale](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv).
 
    * Les partenaires doivent [avoir un profil dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/become-publisher). Vous êtes invité à répertorier l’offre dans la Place de marché Azure ou AppSource.
    * Les partenaires peuvent inscrire plusieurs GUID.
@@ -286,7 +286,7 @@ Un consultant technique partenaire Microsoft peut également vous fournir des co
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>Comment envoyer une demande de consultation technique
 
-1. Rendez-vous sur [https://aka.ms/TechnicalJourney](https://aka.ms/TechnicalJourney).
+1. Visitez [Services techniques des partenaires](https://partner.microsoft.com/training/partner-technical-services).
 1. Sélectionnez Gestion et infrastructure cloud, puis une nouvelle page affichant le parcours technique s’ouvrira pour vous.
 1. Sous Services de déploiement, cliquez sur le bouton Envoyer une demande.
 1. Connectez-vous à l’aide de votre MSA (compte MPN) ou de votre AAD (compte Tableau de bord du partenaire). En fonction de vos informations d’identification de connexion, un formulaire de demande en ligne s’affichera :
@@ -295,7 +295,7 @@ Un consultant technique partenaire Microsoft peut également vous fournir des co
     * Entrez un titre et la description du problème (fournissez autant de détails que possible).
 1. Cliquez sur Envoyer.
 
-Consultez les instructions pas à pas présentes sur les captures d’écran sur [https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions).
+Consultez des instructions pas à pas avec captures d’écran dans [Utilisation des services techniques de prévente et de déploiement](https://support.microsoft.com/help/3121537/using-technical-presales-and-deployment-services#request%20a%20technical%20consultation).
 
 ### <a name="whats-next"></a>Étapes suivantes
 

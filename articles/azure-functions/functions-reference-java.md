@@ -3,12 +3,12 @@ title: Informations de référence pour Azure Functions destinées aux développ
 description: Découvrez comment développer des fonctions à l’aide de Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 4b1f39ff4fd48a3ed99b34391e9cc6efdad86a5d
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 19a290fe7717d7838e8fcd1d1f5cddb3f54eb812
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673000"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82145327"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guide des développeurs Java sur Azure Functions
 
@@ -159,6 +159,9 @@ Azure Functions vous permet de personnaliser la machine virtuelle Java (JVM) uti
 
 Vous pouvez fournir des arguments supplémentaires dans le paramètre d’application nommé `JAVA_OPTS`. Vous pouvez ajouter des paramètres d’application à votre application de fonction déployée sur Azure dans le portail Azure ou Azure CLI.
 
+> [!IMPORTANT]  
+> Dans le plan Consommation, vous devez également ajouter le paramètre WEBSITE_USE_PLACEHOLDER avec la valeur 0 pour que la personnalisation fonctionne. Ce paramètre n’augmente pas les temps de démarrage à froid pour les fonctions Java.
+
 ### <a name="azure-portal"></a>Portail Azure
 
 Dans le [portail Azure](https://portal.azure.com), utilisez l’[onglet Paramètres d’application](functions-how-to-use-azure-function-app-settings.md#settings) pour ajouter le paramètre `JAVA_OPTS`.
@@ -167,16 +170,22 @@ Dans le [portail Azure](https://portal.azure.com), utilisez l’[onglet Paramèt
 
 Vous pouvez utiliser la commande [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) pour définir `JAVA_OPTS`, comme le montre l’exemple suivant :
 
+#### <a name="consumption-plan"></a>[Plan Consommation](#tab/consumption)
 ```azurecli-interactive
-az functionapp config appsettings set --name <APP_NAME> \
---resource-group <RESOURCE_GROUP> \
---settings "JAVA_OPTS=-Djava.awt.headless=true"
+az functionapp config appsettings set \
+--settings "JAVA_OPTS=-Djava.awt.headless=true" \
+"WEBSITE_USE_PLACEHOLDER=0" \
+--name <APP_NAME> --resource-group <RESOURCE_GROUP>
 ```
-Cet exemple active le mode « headless ». Remplacez également `<APP_NAME>` par le nom de votre application de fonction, et `<RESOURCE_GROUP>` par le groupe de ressources.
+#### <a name="dedicated-plan--premium-plan"></a>[Plan dédié/plan Premium](#tab/dedicated+premium)
+```azurecli-interactive
+az functionapp config appsettings set \
+--settings "JAVA_OPTS=-Djava.awt.headless=true" \
+--name <APP_NAME> --resource-group <RESOURCE_GROUP>
+```
+---
 
-> [!WARNING]  
-> Dans [Plan de consommation](functions-scale.md#consumption-plan), vous devez ajouter le paramètre `WEBSITE_USE_PLACEHOLDER` avec une valeur de `0`.  
-Ce paramètre n’augmente pas les temps de démarrage à froid pour les fonctions Java.
+Cet exemple active le mode « headless ». Remplacez également `<APP_NAME>` par le nom de votre application de fonction, et `<RESOURCE_GROUP>` par le groupe de ressources. 
 
 ## <a name="third-party-libraries"></a>Bibliothèques tierces 
 
@@ -446,6 +455,9 @@ public class Function {
 }
 
 ```
+
+> [!NOTE]
+> La valeur du paramètre d’application (AppSetting) FUNCTIONS_EXTENSION_VERSION doit être ~2 ou ~3 pour une expérience de démarrage à froid optimisée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

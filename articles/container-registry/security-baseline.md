@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 9225cfd9793a84f371387d6450a3dfa80ba74de3
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 95864f932fe255d561eaeb2d803b5fcc79cb2802
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547543"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184093"
 ---
 # <a name="azure-security-baseline-for-azure-container-registry"></a>Ligne de base de sécurité Azure pour Azure Container Registry
 
@@ -873,7 +873,7 @@ Comment corriger les recommandations Azure Security Center :  https://docs.micr
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3 : Gérer les configurations de ressources Azure sécurisées
 
-**Conseils** : Utilisez Azure Policy [refuser] et [déployer s’il n’existe pas] pour appliquer des paramètres sécurisés à vos ressources Azure.
+**Aide** : Utilisez Azure Policy [refuser] et [déployer s’il n’existe pas] pour appliquer des paramètres sécurisés à vos ressources Azure.
 
 Auditer la conformité des registres de conteneurs Azure à l’aide d’Azure Policy :  https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
 
@@ -897,7 +897,7 @@ Comprendre les effets d’Azure Policy :  https://docs.microsoft.com/azure/gove
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5 : Stocker en toute sécurité la configuration des ressources Azure
 
-**Aide** : Si vous utilisez des définitions de stratégie Azure personnalisées, utilisez Azure Repos pour stocker et gérer votre code en toute sécurité.
+**Aide** : Si vous utilisez des définitions Azure Policy personnalisées, utilisez Azure Repos pour stocker et gérer votre code en toute sécurité.
 
 Comment stocker du code dans Azure DevOps :  https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 

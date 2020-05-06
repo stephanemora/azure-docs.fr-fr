@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: c899d3b4d132ee51679f8c7b4fd1c578417500db
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 3b5f371a936c850ad4d09cfb6a8c75ffad32cba2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605272"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195602"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel
 
@@ -293,7 +293,7 @@ Ces ressources sont créées au démarrage de votre Azure-SSIS IR. Elles sont su
 
 Vérifiez que vous n’avez pas de verrou sur le groupe de ressources ou l’abonnement auquel appartiennent le réseau virtuel ou vos adresses IP publiques statiques. Si vous configurez un verrou en lecture seule ou de suppression, le démarrage et l’arrêt du runtime d’intégration Azure-SSIS IR échoueront ou celui-ci ne répondra plus.
 
-Vérifiez qu’aucune stratégie Azure n’empêche la création des ressources suivantes dans le groupe de ressources ou l’abonnement auquel appartiennent le réseau virtuel ou vos adresses IP publiques statiques : 
+Vérifiez qu’aucune affectation Azure Policy n’empêche la création des ressources suivantes dans le groupe de ressources ou l’abonnement auquel appartiennent le réseau virtuel ou vos adresses IP publiques statiques : 
 - Microsoft.Network/LoadBalancers 
 - Microsoft.Network/NetworkSecurityGroups 
 - Microsoft.Network/PublicIPAddresses 

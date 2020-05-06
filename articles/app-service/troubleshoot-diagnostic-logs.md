@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6f22d5b2140e42f5f4b8ef5787d22b4be399c7e8
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: e945fd77c2615e6f5213a9aa4fc996f0c4d2f3dd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272523"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81769999"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications dans Azure App Service
 ## <a name="overview"></a>Vue d’ensemble
@@ -26,9 +26,9 @@ Cet article utilise le [portail Azure](https://portal.azure.com) et Azure CLI po
 |Type|Plateforme|Emplacement|Description|
 |-|-|-|-|
 | Journalisation des applications | Windows, Linux | Système de fichiers App Service et/ou objets blob de stockage Azure | Consigne les messages générés par votre code d’application. Les messages peuvent être générés par l’infrastructure web de votre choix ou directement à partir de votre code d’application à l’aide du modèle de journalisation standard de votre langage. Chaque message se voit attribuer l’une des catégories suivantes : **Critique**, **Erreur**, **Avertissement**, **Info**, **Débogage** ou **Trace**. Vous pouvez sélectionner le degré de détail de la journalisation en définissant le niveau de gravité lorsque vous activez la journalisation des applications.|
-| Journalisation du serveur web| Windows | Système de fichiers App Service ou objets blob de stockage Azure| Données de requête HTTP brutes au [format de fichier journal étendu W3C](/windows/desktop/Http/w3c-logging). Chaque message de journalisation comprend des données telles que la méthode HTTP, l’URI de ressource, l’adresse IP du client, le port client, l’agent utilisateur, le code de réponse, etc. |
-| Messages d’erreur détaillés| Windows | Système de fichiers App Service | Copies des pages d’erreur *.htm* qui auraient été envoyées au navigateur client. Pour des raisons de sécurité, les pages d’erreur détaillées ne doivent pas être envoyées aux clients en production, mais App Service peut enregistrer la page d’erreur chaque fois qu’une erreur d’application se produit avec le code HTTP 400 ou supérieur. La page peut contenir des informations permettant de déterminer la raison pour laquelle le serveur renvoie ce code d’erreur. |
-| Suivi des demandes ayant échoué | Windows | Système de fichiers App Service | Informations de suivi détaillées des demandes qui ont échoué, y compris une trace des composants IIS utilisés pour traiter la demande et la durée dans chaque composant. Ces informations sont utiles si vous souhaitez améliorer les performances du site ou isoler une erreur HTTP spécifique. Un dossier est généré pour chaque demande ayant échoué, qui contient le fichier journal XML et la feuille de style XSL permettant d’afficher le fichier journal. |
+| Journalisation du serveur web|  Windows | Système de fichiers App Service ou objets blob de stockage Azure| Données de requête HTTP brutes au [format de fichier journal étendu W3C](/windows/desktop/Http/w3c-logging). Chaque message de journalisation comprend des données telles que la méthode HTTP, l’URI de ressource, l’adresse IP du client, le port client, l’agent utilisateur, le code de réponse, etc. |
+| Messages d’erreur détaillés|  Windows | Système de fichiers App Service | Copies des pages d’erreur *.htm* qui auraient été envoyées au navigateur client. Pour des raisons de sécurité, les pages d’erreur détaillées ne doivent pas être envoyées aux clients en production, mais App Service peut enregistrer la page d’erreur chaque fois qu’une erreur d’application se produit avec le code HTTP 400 ou supérieur. La page peut contenir des informations permettant de déterminer la raison pour laquelle le serveur renvoie ce code d’erreur. |
+| Suivi des demandes ayant échoué |  Windows | Système de fichiers App Service | Informations de suivi détaillées des demandes qui ont échoué, y compris une trace des composants IIS utilisés pour traiter la demande et la durée dans chaque composant. Ces informations sont utiles si vous souhaitez améliorer les performances du site ou isoler une erreur HTTP spécifique. Un dossier est généré pour chaque demande ayant échoué, qui contient le fichier journal XML et la feuille de style XSL permettant d’afficher le fichier journal. |
 | Journalisation du déploiement | Windows, Linux | Système de fichiers App Service | Journaux relatifs à votre publication de contenu dans une application. La journalisation du déploiement se déroule automatiquement et il n’existe aucun paramètre de configuration de la journalisation du déploiement. Elle vous aide à déterminer la raison de l’échec d’un déploiement. Par exemple, si vous utilisez un [script de déploiement personnalisé](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script), vous pouvez recourir à la journalisation de déploiement pour déterminer la cause de l’échec du script. |
 
 > [!NOTE]
@@ -38,6 +38,9 @@ Cet article utilise le [portail Azure](https://portal.azure.com) et Azure CLI po
 >
 
 ## <a name="enable-application-logging-windows"></a>Activer la journalisation des applications (Windows)
+
+> [!NOTE]
+> La journalisation des applications pour le stockage de blobs peut uniquement utiliser des comptes de stockage dans la même région que l’App Service.
 
 Pour activer la journalisation des applications Windows dans le [portail Azure](https://portal.azure.com), accédez à votre application et sélectionnez **Journaux App Service**.
 

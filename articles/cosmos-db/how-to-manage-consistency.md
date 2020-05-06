@@ -1,17 +1,17 @@
 ---
 title: Gérer la cohérence dans Azure Cosmos DB
-description: Découvrez comment configurer et gérer les niveaux de cohérence dans Azure Cosmos DB avec le portail Azure, le SDK .Net, le SDK Java et différents kits SDK
+description: Découvrez comment configurer et gérer les niveaux de cohérence dans Azure Cosmos DB avec le portail Azure, le SDK .NET, le SDK Java et différents kits SDK
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 04/24/2020
 ms.author: mjbrown
-ms.openlocfilehash: 651daa0af8188b386220d97390e7a61615f94120
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e18abf5d8e26dba7a48bd1deb7d53102b9971690
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79369401"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184280"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gérer les niveaux de cohérence dans Azure Cosmos DB
 
@@ -21,42 +21,32 @@ Cet article explique comment gérer les niveaux de cohérence dans Azure Cosmos 
 
 ## <a name="configure-the-default-consistency-level"></a>Configurer le niveau de cohérence par défaut
 
-Le [niveau de cohérence par défaut](consistency-levels.md) est le niveau de cohérence que les clients utilisent par défaut. Les clients peuvent toujours le remplacer.
+Le [niveau de cohérence par défaut](consistency-levels.md) est le niveau de cohérence que les clients utilisent par défaut.
 
 ### <a name="cli"></a>Interface de ligne de commande
 
+Créez un compte Cosmos avec cohérence de session, puis mettez à jour la cohérence par défaut.
+
 ```azurecli
-# create with a default consistency
-az cosmosdb create --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level Session
+# Create a new account with Session consistency
+az cosmosdb create --name $accountName --resource-group $resourceGroupName --default-consistency-level Session
 
 # update an existing account's default consistency
-az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level Eventual
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --default-consistency-level Strong
 ```
 
 ### <a name="powershell"></a>PowerShell
 
-Cet exemple crée un compte Azure Cosmos DB avec plusieurs régions d’écriture activées, dans les régions USA Est et USA Ouest. Le niveau de cohérence par défaut est défini sur la cohérence *Session*.
+Créez un compte Cosmos avec cohérence de session, puis mettez à jour la cohérence par défaut.
 
 ```azurepowershell-interactive
-$locations = @(@{"locationName"="East US"; "failoverPriority"=0},
-             @{"locationName"="West US"; "failoverPriority"=1})
+# Create a new account with Session consistency
+New-AzCosmosDBAccount -ResourceGroupName $resourceGroupName `
+  -Location $locations -Name $accountName -DefaultConsistencyLevel "Session"
 
-$iprangefilter = ""
-
-$consistencyPolicy = @{"defaultConsistencyLevel"="Session"}
-
-$CosmosDBProperties = @{"databaseAccountOfferType"="Standard";
-                        "locations"=$locations;
-                        "consistencyPolicy"=$consistencyPolicy;
-                        "ipRangeFilter"=$iprangefilter;
-                        "enableMultipleWriteLocations"="true"}
-
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-  -ApiVersion "2015-04-08" `
-  -ResourceGroupName "myResourceGroup" `
-  -Location "East US" `
-  -Name "myCosmosDbAccount" `
-  -Properties $CosmosDBProperties
+# Update an existing account's default consistency
+Update-AzCosmosDBAccount -ResourceGroupName $resourceGroupName `
+  -Name $accountName -DefaultConsistencyLevel "Strong"
 ```
 
 ### <a name="azure-portal"></a>Portail Azure
@@ -68,6 +58,9 @@ Pour afficher ou modifier le niveau de cohérence par défaut, connectez-vous au
 ## <a name="override-the-default-consistency-level"></a>Remplacer le niveau de cohérence par défaut
 
 Les clients peuvent remplacer le niveau de cohérence par défaut, qui est défini par le service. Le niveau de cohérence peut être défini pour chaque demande, ce qui a pour effet de remplacer le niveau de cohérence par défaut défini au niveau du compte.
+
+> [!TIP]
+> La cohérence ne peut être que **souple** au niveau de la demande. Pour passer d’une cohérence plus faible à une cohérence renforcée, mettez à jour la cohérence par défaut du compte Cosmos.
 
 ### <a name="net-sdk-v2"></a><a id="override-default-consistency-dotnet"></a>Kit SDK .NET V2
 
@@ -89,8 +82,8 @@ ItemRequestOptions requestOptions = new ItemRequestOptions { ConsistencyLevel = 
 
 var response = await client.GetContainer(databaseName, containerName)
     .CreateItemAsync(
-        item, 
-        new PartitionKey(itemPartitionKey), 
+        item,
+        new PartitionKey(itemPartitionKey),
         requestOptions);
 ```
 
@@ -234,7 +227,6 @@ item = client.ReadItem(doc_link, options)
 Quel est le degré d’éventualité de la cohérence éventuelle ? Pour le cas moyen, pouvons-nous offrir des limites d’obsolescence par rapport à l’historique de version et au moment ? La métrique [**PBS (Probabilistically Bounded Staleness)** ](https://pbs.cs.berkeley.edu/) essaie de quantifier la probabilité d’obsolescence et l’affiche sous forme de métrique. Pour afficher la métrique PBS, accédez à votre compte Azure Cosmos DB sur le portail Azure. Ouvrez le volet **Métriques**, puis sélectionnez l’onglet **Cohérence**. Examinez le graphe intitulé **Probability of strongly consistent reads based on your workload (see PBS)** .
 
 ![Graphe PBS dans le portail Azure](./media/how-to-manage-consistency/pbs-metric.png)
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

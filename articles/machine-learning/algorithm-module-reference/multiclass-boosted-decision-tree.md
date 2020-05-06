@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/19/2020
-ms.openlocfilehash: 7d51e3007b7773e28d846f8d30178426f5668cfb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cfe35f81526a729092edf522f693ccd18494d1ec
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77920057"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82137822"
 ---
 # <a name="multiclass-boosted-decision-tree"></a>Arbre de décision optimisé à plusieurs classes
 
@@ -56,8 +56,19 @@ Vous pouvez effectuer l’apprentissage de ce type de modèle à l’aide de l�
 
          The random seed is set by default to 42. Successive runs using different random seeds can have different results.
 
-> [!Note]
-> Si vous définissez **Create trainer mode** (Créer un mode d’apprentissage) sur **Single Parameter** (Paramètre unique), connectez un jeu de données balisé au module [Entraîner le modèle](./train-model.md).
+1. Effectuez l’apprentissage du modèle :
+
+    + Si vous définissez **Create trainer mode** (Créer un mode d’apprentissage) sur **Single Parameter** (Paramètre unique), connectez un jeu de données balisé au module [Entraîner le modèle](train-model.md).  
+  
+    + Si vous définissez le mode **Créer un formateur** sur **Plage de paramètre**, connectez un jeu de données balisé et formez le modèle à l’aide d’[Optimiser des hyperparamètres de modèles](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > Si vous transmettez une plage de paramètres à [Effectuer l'apprentissage du modèle](train-model.md), elle utilise uniquement la valeur par défaut dans la liste de paramètres unique.  
+    > 
+    > Si vous transmettez un ensemble unique de valeurs de paramètre au module [Optimiser des hyperparamètres de modèles](tune-model-hyperparameters.md), quand il attend une plage de paramètres de configuration pour chaque paramètre, il ignore les valeurs et utilise les valeurs par défaut pour l’apprenant.  
+    > 
+    > Si vous sélectionnez l’option **Plage de paramètres** et que vous entrez une valeur unique pour un paramètre, cette valeur unique que vous avez spécifiée est utilisée tout au long du balayage, même si d’autres paramètres changent sur une plage de valeurs.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

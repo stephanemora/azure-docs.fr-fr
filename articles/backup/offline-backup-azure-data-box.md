@@ -3,19 +3,19 @@ title: Sauvegarde hors connexion avec Azure Data Box
 description: Découvrez comment vous pouvez utiliser Azure Data Box pour amorcer des données de sauvegarde initiales volumineuses hors connexion à partir de l’agent MARS dans un coffre Recovery Services.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: a031a8cac357e7d212f8f6a3a5dbec749fbccc21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e45b8e26d332019b03ac41c3993e311480494040
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78672964"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160953"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Sauvegarde hors connexion Sauvegarde Microsoft Azure avec Azure Data Box
 
 Vous pouvez utiliser [Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) pour amorcer vos sauvegardes Microsoft Azure Recovery Services (MARS) initiales volumineuses hors connexion (sans utiliser de réseau) dans un coffre Recovery Services. Ce processus permet de gagner du temps et d’économiser de la bande passante réseau, qui serait sinon consommée pour déplacer de grandes quantités de données de sauvegarde en ligne sur un réseau à latence élevée. Cette amélioration est actuellement en préversion. La sauvegarde hors connexion basée sur Azure Data Box offre deux avantages distincts par rapport à la [sauvegarde hors connexion basée sur le service Azure Import/Export](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export) :
 
-* Vous n’avez pas besoin de fournir vos propres disques et connecteurs compatibles avec Azure. Azure Data Box fournit les disques associés à la [référence SKU Data Box](https://azure.microsoft.com/services/databox/data/) sélectionnée.
-* Le service Sauvegarde Azure (agent MARS) peut écrire directement des données de sauvegarde sur les références SKU prises en charge d’Azure Data Box. Grâce à cette capacité, vous n’avez plus besoin d’approvisionner un emplacement intermédiaire pour vos données de sauvegarde initiales. Vous n’avez pas non plus besoin d’utilitaires pour formater et copier ces données sur les disques.
+- Vous n’avez pas besoin de fournir vos propres disques et connecteurs compatibles avec Azure. Azure Data Box fournit les disques associés à la [référence SKU Data Box](https://azure.microsoft.com/services/databox/data/) sélectionnée.
+- Le service Sauvegarde Azure (agent MARS) peut écrire directement des données de sauvegarde sur les références SKU prises en charge d’Azure Data Box. Grâce à cette capacité, vous n’avez plus besoin d’approvisionner un emplacement intermédiaire pour vos données de sauvegarde initiales. Vous n’avez pas non plus besoin d’utilitaires pour formater et copier ces données sur les disques.
 
 ## <a name="azure-data-box-with-the-mars-agent"></a>Azure Data Box avec l’agent MARS
 
@@ -60,10 +60,10 @@ Le processus d’amorçage des données à partir de l’agent MARS avec Azure D
 
 ### <a name="azure-subscription-and-required-permissions"></a>Abonnement Azure et autorisations nécessaires
 
-* Le processus nécessite un abonnement Azure.
-* Le processus exige que l’utilisateur désigné pour exécuter la stratégie de sauvegarde hors connexion soit propriétaire de l’abonnement Azure.
-* Le travail Data Box et le coffre Recovery Services (dans lequel les données doivent être amorcées) ont l’obligation de se trouver dans le même abonnement.
-* Nous vous recommandons de situer le compte de stockage cible associé au travail Azure Data Box et le coffre Recovery Services dans la même région. Toutefois, cela n’est pas une obligation.
+- Le processus nécessite un abonnement Azure.
+- Le processus exige que l’utilisateur désigné pour exécuter la stratégie de sauvegarde hors connexion soit propriétaire de l’abonnement Azure.
+- Le travail Data Box et le coffre Recovery Services (dans lequel les données doivent être amorcées) ont l’obligation de se trouver dans le même abonnement.
+- Nous vous recommandons de situer le compte de stockage cible associé au travail Azure Data Box et le coffre Recovery Services dans la même région. Toutefois, cela n’est pas une obligation.
 
 ### <a name="get-azure-powershell-370"></a>Obtenir Azure PowerShell 3.7.0
 
@@ -77,7 +77,7 @@ Le processus d’amorçage des données à partir de l’agent MARS avec Azure D
     Get-Module -ListAvailable AzureRM*
     ```
 
-1.  Si la sortie indique une version supérieure à 3.7.0, effectuez l’étape 2. Sinon, passez à l’étape 3.
+1. Si la sortie indique une version supérieure à 3.7.0, effectuez l’étape 2. Sinon, passez à l’étape 3.
 
 #### <a name="step-2-uninstall-the-powershell-version"></a>Étape 2 : Désinstaller la version de PowerShell
 
@@ -99,11 +99,11 @@ Désinstallez la version actuelle de PowerShell.
 
 Après avoir vérifié qu’aucun module AzureRM n’est présent, installez la version 3.7.0 à l’aide de l’une des méthodes suivantes :
 
-* À partir de GitHub, utilisez [ce lien](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
+- À partir de GitHub, utilisez [ce lien](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
 
 Vous pouvez également :
 
-* Exécutez la commande suivante dans la fenêtre PowerShell :
+- Exécutez la commande suivante dans la fenêtre PowerShell :
 
     ```powershell
     Install-Module -Name AzureRM -RequiredVersion 3.7.0
@@ -148,7 +148,7 @@ Si vous avez commandé une instance Azure Data Box (jusqu’à 100 To), suivez 
 
 #### <a name="mount-your-azure-data-box-instance-as-a-local-system"></a>Monter votre instance Azure Data Box en tant que système local
 
-L’agent MARS fonctionne dans le contexte du système local : il est donc nécessaire de fournir le même niveau de privilège au chemin de montage où l’instance Azure Data Box est connectée. 
+L’agent MARS fonctionne dans le contexte du système local : il est donc nécessaire de fournir le même niveau de privilège au chemin de montage où l’instance Azure Data Box est connectée.
 
 Pour vous assurer de pouvoir monter votre appareil Data Box en tant que système local à l’aide du protocole NFS :
 
@@ -238,14 +238,14 @@ Une fois la sauvegarde des données terminée, vous verrez une page sur l’agen
 
 Cette section explique les étapes à suivre une fois que la sauvegarde des données a été correctement effectuée sur le disque Azure Data Box.
 
-* Suivez les étapes décrites dans cet article pour [expédier le disque Azure Data Box à Azure](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up). Si vous avez utilisé un appareil Azure Data Box de 100 To, effectuez ces étapes pour [expédier l’appareil Azure Data Box à Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up).
+- Suivez les étapes décrites dans cet article pour [expédier le disque Azure Data Box à Azure](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up). Si vous avez utilisé un appareil Azure Data Box de 100 To, effectuez ces étapes pour [expédier l’appareil Azure Data Box à Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up).
 
-* [Supervisez le travail Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) dans le portail Azure. Une fois le travail Azure Data Box terminé, l’agent MARS déplace automatiquement les données du compte de stockage vers le coffre Recovery Services au moment de la sauvegarde planifiée suivante. Le travail de sauvegarde est alors marqué *Travail effectué* si un point de récupération a correctement été créé.
+- [Supervisez le travail Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) dans le portail Azure. Une fois le travail Azure Data Box terminé, l’agent MARS déplace automatiquement les données du compte de stockage vers le coffre Recovery Services au moment de la sauvegarde planifiée suivante. Le travail de sauvegarde est alors marqué *Travail effectué* si un point de récupération a correctement été créé.
 
     >[!NOTE]
     >L’agent MARS déclenche des sauvegardes aux heures planifiées pendant la création de la stratégie. Ces travaux indiquent « En attente de la fin du travail Azure Data Box » tant que le travail à l’heure prévue n’est pas terminé.
 
-* Une fois que l’agent MARS a réussi à créer un point de récupération correspondant à la sauvegarde initiale, vous pouvez supprimer le compte de stockage ou son contenu spécifique associé au travail Azure Data Box.
+- Une fois que l’agent MARS a réussi à créer un point de récupération correspondant à la sauvegarde initiale, vous pouvez supprimer le compte de stockage ou son contenu spécifique associé au travail Azure Data Box.
 
 ## <a name="troubleshooting"></a>Dépannage
 
@@ -307,8 +307,8 @@ Si aucun autre serveur n’a d’amorçage hors connexion configuré et si aucun
     >[!NOTE]
     > Pour récupérer l’identifiant utilisateur Azure, effectuez l’une des actions suivantes :
     >
-    >* À partir du PowerShell connecté à Azure, exécutez la commande `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"`.
-    > * Accédez au chemin d’accès au registre *Ordinateur\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup* avec le nom *CurrentUserId*.
+    >- À partir du PowerShell connecté à Azure, exécutez la commande `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"`.
+    > - Accédez au chemin du Registre `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup` portant le nom *CurrentUserId*.
 
 6. Cliquez avec le bouton droit sur la chaîne ajoutée à l’étape précédente, puis sélectionnez **Modifier**. Dans la valeur, fournissez l’empreinte du certificat que vous avez exporté à l’étape 2. Sélectionnez **OK**.
 

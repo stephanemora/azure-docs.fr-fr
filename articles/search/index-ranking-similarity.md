@@ -8,27 +8,29 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.openlocfilehash: c327440649300533c94c2a1956e3c45f433c9780
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1975c13162316b4132bae34659b1c5af8e416573
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409959"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231609"
 ---
 # <a name="ranking-algorithm-in-azure-cognitive-search"></a>Algorithme de classement dans la Recherche cognitive Azure
 
 > [!IMPORTANT]
-> À compter du 15 juillet 2020, les services de recherche nouvellement créés utiliseront la fonction de classement BM25, qui s’est avérée efficace, dans la plupart des cas, pour fournir des classements de recherche répondant mieux aux attentes des utilisateurs que le classement par défaut actuel.  Au-delà du classement plus élevé, BM25 active également des options de configuration pour les résultats de paramétrage en fonction de facteurs tels que la taille des documents.  
+> À compter du 15 juillet 2020, les services de recherche nouvellement créés utiliseront automatiquement la fonction de classement BM25, qui s’est avérée efficace, dans la plupart des cas, pour fournir des classements de recherche répondant mieux aux attentes des utilisateurs que le classement par défaut actuel. Au-delà du classement plus élevé, BM25 active également des options de configuration pour les résultats de paramétrage en fonction de facteurs tels que la taille des documents.  
 >
-> Avec ce changement, vous verrez probablement de légères différences dans l’ordre de vos résultats de recherche.   Pour ceux qui souhaitent tester l’impact de ce changement, nous avons rendu disponible dans l’API 2019-05-06-Preview la possibilité d’activer le scoring de BM25 sur les nouveaux index.  
+> Avec ce changement, vous verrez probablement de légères différences dans l’ordre de vos résultats de recherche. Pour ceux qui souhaitent tester l’impact de cette modification, l’algorithme BM25 est disponible dans la version d’API 2019-05-06-Preview.  
 
-Cet article explique comment vous pouvez mettre à jour un service créé avant le 15 juillet 2020 pour utiliser le nouvel algorithme de classement BM25.
+Cet article explique comment utiliser le nouvel algorithme de classement BM25 sur les services de recherche existants pour les nouveaux index créés et interrogés à l’aide de l’API en préversion.
 
-La Recherche cognitive Azure utilisera l’implémentation Lucene officielle de l’algorithme Okapi BM25, *BM25Similarity*, qui remplacera l’implémentation de *ClassicSimilarity* précédemment utilisée. Comme l’ancien algorithme ClassicSimilarity, BM25Similarity est une fonction de récupération semblable à TF-IDF qui utilise la fréquence du terme (TF) et la fréquence de document inverse (IDF) comme variables pour calculer les notes de pertinence pour chaque paire document-requête, qui sont ensuite utilisées pour le classement. Bien que semblable d’un point de vue conceptuel à l’ancien algorithme de similarité classique, BM25 prend racine dans la récupération d’informations probabilistes pour les améliorer. BM25 propose également des options de personnalisation avancées, comme permettre à l’utilisateur de décider comment la note de pertinence est mise à l’échelle avec la fréquence du terme des termes correspondants.
+La Recherche cognitive Azure est en train d’adopter l’implémentation Lucene officielle de l’algorithme Okapi BM25, *BM25Similarity*, qui remplacera l’implémentation de *ClassicSimilarity* précédemment utilisée. Comme l’ancien algorithme ClassicSimilarity, BM25Similarity est une fonction de récupération semblable à TF-IDF qui utilise la fréquence du terme (TF) et la fréquence de document inverse (IDF) comme variables pour calculer les notes de pertinence pour chaque paire document-requête, qui sont ensuite utilisées pour le classement. 
+
+Bien que semblable d’un point de vue conceptuel à l’ancien algorithme de similarité classique, BM25 prend racine dans la récupération d’informations probabilistes pour les améliorer. BM25 propose également des options de personnalisation avancées, comme permettre à l’utilisateur de décider comment la note de pertinence est mise à l’échelle avec la fréquence du terme des termes correspondants.
 
 ## <a name="how-to-test-bm25-today"></a>Comment tester BM25 aujourd’hui
 
-Quand vous créez un index, vous pouvez définir une propriété de « similarité ». Vous devez utiliser la version *2019-05-06-Preview*, comme indiqué ci-dessous.
+Quand vous créez un index, vous pouvez définir une propriété **similarity** pour spécifier l’algorithme. Vous devrez utiliser `api-version=2019-05-06-Preview`, comme indiqué ci-dessous.
 
 ```
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=2019-05-06-Preview
@@ -57,16 +59,19 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 }
 ```
 
-Pour les services créés avant le 15 juillet 2020 : Si la similarité est omise ou définie sur la valeur Null, l’index utilise l’ancien algorithme de similarité classique.
+La propriété **similarity** est utile pendant cette période intermédiaire lorsque les deux algorithmes sont disponibles, uniquement sur les services existants. 
 
-Pour les services créés après le 15 juillet 2020 : Si la similarité est omise ou définie sur la valeur Null, l’index utilise le nouvel algorithme de similarité BM25.
+| Propriété | Description |
+|----------|-------------|
+| similarity | facultatif. Les valeurs valides sont *"#Microsoft.Azure.Search.ClassicSimilarity"* ou *"#Microsoft.Azure.Search.BM25Similarity"* . <br/> Requiert `api-version=2019-05-06-Preview` ou version ultérieure sur un service de recherche créé avant le 15 juillet 2020. |
 
-Vous pouvez également définir explicitement la valeur de similarité sur l’une des deux valeurs suivantes : *"#Microsoft.Azure.Search.ClassicSimilarity"* ou *"#Microsoft.Azure.Search.BM25Similarity"* .
+Pour les nouveaux services créés après le 15 juillet 2020, BM25 est utilisé automatiquement et est l’unique algorithme de similarité. Si vous essayez de définir **similarity** sur `ClassicSimilarity` pour un nouveau service, une erreur 400 est renvoyée, car cet algorithme n’est pas pris en charge sur un nouveau service.
 
+Pour les services existants créés avant le 15 juillet 2020, la similarité classique demeure l’algorithme par défaut. Si la propriété **similarity** est omise ou a la valeur null, l’index utilise l’algorithme classique. Si vous souhaitez utiliser le nouvel algorithme, vous devez définir **similarity** comme décrit ci-dessus.
 
 ## <a name="bm25-similarity-parameters"></a>Paramètres de similarité de BM25
 
-La similarité de BM25 ajoute deux paramètres personnalisables par l’utilisateur pour contrôler la note de pertinence calculée :
+La similarité de BM25 ajoute deux paramètres personnalisables par l’utilisateur pour contrôler la note de pertinence calculée.
 
 ### <a name="k1"></a>k1
 
@@ -98,10 +103,9 @@ L’algorithme de similarité ne peut être défini qu’au moment de la créati
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true
 ```
 
-
 ## <a name="see-also"></a>Voir aussi  
 
- [REST de Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice/)   
- [Ajouter des profils de scoring à votre index](index-add-scoring-profiles.md)    
- [Créer un index &#40;API REST de Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)   
-  [Kit de développement logiciel (SDK) de Recherche cognitive Azure .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
++ [Référence d’API REST](https://docs.microsoft.com/rest/api/searchservice/)   
++ [Ajouter des profils de scoring à votre index](index-add-scoring-profiles.md)    
++ [Créer une API d’index](https://docs.microsoft.com/rest/api/searchservice/create-index)   
++ [Kit de développement logiciel (SDK) de Recherche cognitive Azure .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: f20d0d38a7fbd831d3e97a69373bac04b9b330aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b3f5963572368cb9c884984418140b4bbc0dea3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74133421"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82131185"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Superviser Site Recovery avec les journaux Azure Monitor
 
 Cet article explique comment superviser des machines répliquées par Azure [Site Recovery](site-recovery-overview.md) à l’aide des [journaux Azure Monitor](../azure-monitor/platform/data-platform-logs.md) et de [Log Analytics](../azure-monitor/log-query/log-query-overview.md).
 
-Les journaux Azure Monitor constituent une plateforme permettant de collecter les données des journaux d’activité et des journaux de diagnostic, ainsi que d’autres données de supervision. Dans les journaux Azure Monitor, vous utilisez Log Analytics pour écrire et tester des requêtes de journal, ainsi que pour analyser interactivement les données de journal. Vous pouvez visualiser et interroger les résultats du journal, et configurer des alertes en fonction des données analysées.
+Les journaux Azure Monitor constituent une plateforme permettant de collecter les données des journaux d’activité et des journaux de ressources, ainsi que d’autres données de supervision. Dans les journaux Azure Monitor, vous utilisez Log Analytics pour écrire et tester des requêtes de journal, ainsi que pour analyser interactivement les données de journal. Vous pouvez visualiser et interroger les résultats du journal, et configurer des alertes en fonction des données analysées.
 
 Pour Site Recovery, les journaux Azure Monitor vous permettent d’effectuer les opérations suivantes :
 
@@ -44,7 +44,7 @@ Avant de commencer, il est recommandé de consulter les [questions courantes con
 
 1. Dans le coffre, cliquez sur **Paramètres de diagnostic** > **Ajouter un paramètre de diagnostic**.
 
-    ![Sélectionner la journalisation des diagnostics](./media/monitoring-log-analytics/add-diagnostic.png)
+    ![Sélectionner la journalisation de ressources](./media/monitoring-log-analytics/add-diagnostic.png)
 
 2. Dans **Paramètres de diagnostic**, spécifiez un nom, puis cochez la case **Envoyer à Log Analytics**.
 3. Sélectionnez l’abonnement Journaux Azure Monitor et l’espace de travail Log Analytics.

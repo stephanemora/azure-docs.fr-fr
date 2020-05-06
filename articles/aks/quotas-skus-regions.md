@@ -5,12 +5,12 @@ description: Découvrez les quotas par défaut, les tailles des références SKU
 services: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
-ms.openlocfilehash: 054d6ff4fc105d84192ac81feda97515f6cfae49
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: e3edbcf9603657ce0c747b01b3c59c2923bc0181
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886770"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208021"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Quotas, restrictions de taille de machine virtuelle et disponibilité des régions dans Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,7 @@ Cet article détaille les limites par défaut des ressources Azure Kubernetes Se
 Toutes les autres limitations réseau, de calcul et de stockage s’appliquent à l’infrastructure approvisionnée. Pour connaître les limites appropriées, consultez [Limites du service et de l’abonnement Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 > [!IMPORTANT]
-> Lorsque vous mettez à niveau un cluster AKS, des ressources supplémentaires sont consommées momentanément. Ces ressources incluent les adresses IP disponibles d’un sous-réseau de réseau virtuel ou le quota de processeurs virtuels de machine virtuelle. Si vous utilisez des conteneurs Windows Server (actuellement en préversion dans AKS), la seule méthode approuvée pour appliquer les dernières mises à jour aux nœuds consiste à effectuer une mise à niveau. Une mise à niveau de cluster en échec peut indiquer que vous ne disposez pas de l’espace d’adressage IP ou du quota de processeurs virtuels disponibles pour gérer ces ressources temporaires. Pour plus d’informations sur la mise à niveau d’un nœud Windows Server, voir [Mettre à niveau un pool de nœuds dans AKS][nodepool-upgrade].
+> Lorsque vous mettez à niveau un cluster AKS, des ressources supplémentaires sont consommées momentanément. Ces ressources incluent les adresses IP disponibles d’un sous-réseau de réseau virtuel ou le quota de processeurs virtuels de machine virtuelle. Si vous utilisez des conteneurs Windows Server, la seule méthode approuvée pour appliquer les dernières mises à jour aux nœuds consiste à effectuer une mise à niveau. Une mise à niveau de cluster en échec peut indiquer que vous ne disposez pas de l’espace d’adressage IP ou du quota de processeurs virtuels disponibles pour gérer ces ressources temporaires. Pour plus d’informations sur la mise à niveau d’un nœud Windows Server, voir [Mettre à niveau un pool de nœuds dans AKS][nodepool-upgrade].
 
 ## <a name="restricted-vm-sizes"></a>Tailles de machines virtuelles limitées
 

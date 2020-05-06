@@ -1,17 +1,17 @@
 ---
 title: Gérer les stratégies d’indexation dans Azure Cosmos DB
 description: Découvrir comment gérer les stratégies d’indexation, inclure ou exclure une propriété de l’indexation et définir l’indexation à l’aide de différents Kits de développement logiciel (SDK) Azure Cosmos DB
-author: ThomasWeiss
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.author: thweiss
-ms.openlocfilehash: 58a1ee13afa76b152723cb71d4037f9c31cc8d4e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/28/2020
+ms.author: tisande
+ms.openlocfilehash: bdd5d986752e9d80d2967a8f5fd32491154fa236
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227345"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233925"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gérer les stratégies d’indexation dans Azure Cosmos DB
 
@@ -137,7 +137,7 @@ Cette stratégie d’indexation est équivalente à celle ci-dessous, qui permet
     }
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Il est généralement recommandé d’utiliser une stratégie d’indexation de **refus** pour permettre à Azure Cosmos DB d’indexer de manière proactive toute nouvelle propriété qui peut être ajoutée à votre modèle.
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Utilisation d’un index spatial uniquement sur un chemin de propriété spécifique
@@ -173,6 +173,9 @@ Cette stratégie d’indexation est équivalente à celle ci-dessous, qui permet
 ## <a name="composite-indexing-policy-examples"></a>Exemples de stratégies d’indexation composite
 
 En plus d’inclure ou d’exclure des chemins pour les propriétés individuelles, vous pouvez également spécifier un index composite. Si vous souhaitez effectuer une requête qui a une `ORDER BY` clause pour plusieurs propriétés, un [index composite](index-policy.md#composite-indexes) sur ces propriétés est requis. De plus, les index composites présentent un avantage en matière de performances pour les requêtes qui ont un filtre et dont la clause ORDER BY spécifie des propriétés différentes.
+
+> [!NOTE]
+> Un chemin composite a un `/?` implicite, car seule la valeur scalaire sur ce chemin est indexée. Le caractère générique `/*` n’est pas pris en charge dans les chemins composites. Vous ne devez pas spécifier `/?` ou `/*` dans un chemin composite.
 
 ### <a name="composite-index-defined-for-name-asc-age-desc"></a>Index composite défini pour (name asc, age desc) :
 

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 4fbb3e83692ec058c03b22654e82d4093fe3541d
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: d5edfab0963ec3fca24969d7a54038066ba08765
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756573"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188393"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sécurité de l’entreprise pour Azure Machine Learning
 
@@ -78,7 +78,7 @@ Le tableau suivant liste certaines des principales opérations Azure Machine Lea
 Si les rôles prédéfinis ne répondent pas à vos besoins, vous pouvez créer des rôles personnalisés. Les rôles personnalisés sont pris en charge uniquement pour les opérations effectuées sur l’espace de travail et la capacité de calcul Machine Learning. Les rôles personnalisés peuvent disposer d’autorisations en lecture, écriture ou suppression sur l’espace de travail et sur la ressource de calcul dans cet espace de travail. Vous pouvez rendre le rôle disponible au niveau d’un espace de travail spécifique, d’un groupe de ressources spécifique ou d’un abonnement spécifique. Pour plus d’informations, consultez [Gérer des utilisateurs et des rôles dans un espace de travail Azure Machine Learning](how-to-assign-roles.md).
 
 > [!WARNING]
-> Azure Machine Learning n’est pas pris en charge dans le cadre de la collaboration interentreprises d’Azure Active Directory.
+> Azure Machine Learning est pris en charge avec la collaboration interentreprises Azure Active Directory, mais n’est pas actuellement pris en charge avec la collaboration entreprise-client Azure Active Directory.
 
 ### <a name="securing-compute-targets-and-data"></a>Sécurisation des cibles et données de calcul
 
@@ -183,7 +183,7 @@ Pour activer l’approvisionnement d’une instance de Cosmos DB dans votre abon
         > [!NOTE]
         > Cette instance de coffre de clés peut être différente du coffre de clés créé par Azure Machine Learning lorsque vous configurez l’espace de travail. Si vous voulez utiliser la même instance de coffre de clés pour l’espace de travail, passez le même coffre de clés pendant la configuration de l’espace de travail en utilisant le [paramètre key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
-Cette instance de Cosmos DB est créée dans un groupe de ressources managées par Microsoft dans votre abonnement. 
+Cette instance de Cosmos DB est créée dans un groupe de ressources managées par Microsoft dans votre abonnement. Le groupe de ressources managée est nommé au format `<AML Workspace Resource Group Name><GUID>`.
 
 > [!IMPORTANT]
 > * Si vous avez besoin de supprimer cette instance de Cosmos DB, vous devez supprimer l’espace de travail Azure Machine Learning qui l’utilise. 
@@ -243,9 +243,9 @@ Vous pouvez utiliser la plateforme Azure Databricks dans des pipelines Azure Mac
 
 ### <a name="encryption-in-transit"></a>Chiffrement en transit
 
-Vous pouvez utiliser TLS pour sécuriser les communications internes entre les microservices Azure Machine Learning et pour sécuriser les appels externes au point de terminaison de scoring. Tout l’accès au stockage Azure se produit également sur un canal sécurisé.
+Azure Machine Learning utilise le protocole TLS pour sécuriser la communication interne entre ses différents microservices. Tout l’accès au stockage Azure se produit également sur un canal sécurisé.
 
-Pour plus d’informations, consultez [Utiliser TLS pour sécuriser un service web par le biais d’Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
+Pour sécuriser les appels externes au point de terminaison de scoring, Azure Machine Learning utilise le protocole TLS. Pour plus d’informations, consultez [Utiliser TLS pour sécuriser un service web par le biais d’Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
 
 ### <a name="using-azure-key-vault"></a>Utilisation d’Azure Key Vault
 
@@ -385,10 +385,7 @@ Voici les détails :
 
 * [Sécuriser les services web Azure Machine Learning avec TLS](how-to-secure-web-service.md)
 * [Utiliser un modèle Machine Learning déployé en tant que service web](how-to-consume-web-service.md)
-* [Exécuter des prédictions par lots](how-to-use-parallel-run-step.md)
-* [Superviser vos modèles Azure Machine Learning avec Application Insights](how-to-enable-app-insights.md)
-* [Collecter des données pour des modèles en production](how-to-enable-data-collection.md)
-* [Kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Utiliser Azure Machine Learning avec un pare-feu Azure](how-to-access-azureml-behind-firewall.md)
 * [Utiliser Azure Machine Learning avec un réseau virtuel Azure](how-to-enable-virtual-network.md)
 * [Bonnes pratiques pour la création de systèmes de recommandation](https://github.com/Microsoft/Recommenders)
 * [Générer une API de recommandation en temps réel sur Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

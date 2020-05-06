@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 396e5bc31723768ada334dd5043bca724af5e84f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5c1180acec726d0863e11a3fe0825ffc7c48e3f
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595856"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232528"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Options de mise à l’échelle des applications dans AKS (Azure Kubernetes Service)
 
@@ -46,7 +46,7 @@ Pour vous familiariser avec l’autoscaler de pods élastique dans AKS, consulte
 
 Étant donné que l’autoscaler de pods élastique vérifie l’API de métriques toutes les 30 secondes, les événements de mise à l’échelle précédents peuvent ne pas être totalement terminés avant la vérification suivante. Ce comportement peut pousser l’autoscaler de pods élastique à modifier le nombre de réplicas avant même que l’événement de mise à l’échelle précédent ait pu recevoir la charge de travail de l’application, et que les demandes en ressources soient ajustées en conséquence.
 
-Pour réduire ces événements de concurrence, les valeurs de ralentissement ou de délai sont définies. Ces valeurs précisent la durée pendant laquelle l’autoscaler de pods élastique doit attendre, entre la fin d’un événement de mise à l’échelle et le déclenchement d’un autre événement de mise à l’échelle. Ce comportement permet au nouveau nombre de réplicas d’être pris en compte, et à l’API de métriques de refléter la charge de travail distribuée. Par défaut, le délai des événements de mise à l’échelle par augmentation est de 3 minutes, par diminution de 5 minutes
+Pour réduire le nombre d’événements de concurrence, une valeur de délai est définie. Cette valeur précise la durée pendant laquelle l’autoscaler de pods élastique doit attendre, entre la fin d’un événement de mise à l’échelle et le déclenchement d’un autre événement de mise à l’échelle. Ce comportement permet au nouveau nombre de réplicas d’être pris en compte, et à l’API de métriques de refléter la charge de travail distribuée. Il n’y a [aucun délai pour les événements de scale-up à partir de Kubernetes 1.12](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#support-for-cooldown-delay). Toutefois, le délai des événements de scale-down est de 5 minutes par défaut.
 
 Actuellement, vous ne pouvez pas paramétrer ces valeurs de ralentissement à partir de la valeur par défaut.
 

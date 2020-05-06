@@ -6,15 +6,17 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 03/11/2020
-ms.openlocfilehash: 4baf7974bdb0a5efe4cb556e820e9d13aeac5d8a
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.date: 04/27/2020
+ms.openlocfilehash: 8ea26fc041f3fa6194ced65b3e3b9055848ead49
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409838"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188759"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Les flux de données de mappage dans Azure Data Factory fournissent une interface sans code pour concevoir, déployer et orchestrer des transformations de données à grande échelle. Si vous n’êtes pas familiarisé avec les flux de données de mappage, consultez [Vue d’ensemble des flux de données de mappage](concepts-data-flow-overview.md).
 
@@ -37,7 +39,7 @@ Lors de la conception de flux de données de mappage, vous pouvez effectuer un t
 
 ## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Augmentation de la taille de calcul dans Azure Integration Runtime
 
-Un runtime d’intégration avec davantage de cœurs augmente le nombre de nœuds dans les environnements de calcul Spark et fournit davantage de puissance de traitement pour lire, écrire et transformer vos données.
+Un runtime d’intégration avec davantage de cœurs augmente le nombre de nœuds dans les environnements de calcul Spark et fournit davantage de puissance de traitement pour lire, écrire et transformer vos données. Les flux de données ADF utilisent Spark comme moteur de calcul. L'environnement Spark fonctionne très bien sur les ressources à mémoire optimisée.
 * Essayez un cluster **optimisé pour le calcul** si vous voulez que votre vitesse de traitement soit supérieure à votre vitesse d’entrée.
 * Essayez un cluster **à mémoire optimisée** si vous voulez mettre en cache plus de données en mémoire. L’option À mémoire optimisée a un coût plus élevé par cœur que l’option Optimisé pour le calcul, mais elle permettra probablement d’obtenir des vitesses de transformation plus rapides.
 
@@ -49,7 +51,11 @@ Pour plus d’informations sur la création d’un runtime d’intégration, con
 
 Par défaut, l’activation du débogage utilise le runtime d’intégration Azure par défaut qui est créé automatiquement pour chaque fabrique de données. Ce runtime d’intégration Azure par défaut est défini pour huit cœurs, dont quatre pour un nœud pilote et quatre pour un nœud Worker, à l’aide des propriétés de calcul général. Quand vous effectuez un test avec des données plus volumineuses, vous pouvez augmenter la taille de votre cluster de débogage en créant un runtime d’intégration Azure avec des configurations plus grandes et choisir ce dernier quand vous passez au débogage. ADF utilise alors ce runtime d’intégration Azure pour le débogage dans l’aperçu des données ou de pipeline avec des flux de données.
 
-## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Optimisation pour Azure SQL Database et Azure SQL Data Warehouse
+### <a name="decrease-cluster-compute-start-up-time-with-ttl"></a>Réduire le temps de démarrage du calcul de cluster avec TTL
+
+Azure IR comporte une propriété, située sous Propriétés du flux de données, qui vous permet de constituer un pool de ressources de calcul de cluster pour votre fabrique. Avec ce pool, vous pouvez soumettre séquentiellement des activités de flux de données à des fins d'exécution. Une fois le pool établi, 1 à 2 minutes sont nécessaires pour permettre au cluster Spark à la demande d'exécuter chacune des tâches ultérieures. La configuration initiale du pool de ressources prend environ 6 minutes. Spécifiez la durée pendant laquelle vous souhaitez conserver le pool de ressources dans le paramètre de durée de vie (TTL).
+
+## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse-synapse"></a>Optimisation pour Azure SQL Database et Azure SQL Data Warehouse Synapse
 
 ### <a name="partitioning-on-source"></a>Partitionnement sur la source
 
@@ -145,7 +151,13 @@ La définition des propriétés de débit et de lot sur les récepteurs CosmosDB
 
 ## <a name="join-performance"></a>Performances de jointure
 
-La gestion des performances des jointures dans votre flux de données est une opération très courante que vous effectuerez tout au long du cycle de vie de vos transformations de données. Dans ADF, les flux de données ne nécessitent pas de tri des données avant les jointures, car ces opérations sont exécutées en tant que jointures hachées dans Spark. Toutefois, vous pouvez bénéficier de performances améliorées grâce à l’optimisation de jointure de « diffusion ». Cela permet d’éviter les lectures aléatoires en poussant le contenu de chaque côté de votre relation de jointure dans le nœud Spark. Cela fonctionne bien pour les tables plus petites utilisées pour les recherches de référence. Les tables volumineuses, qui peuvent ne pas être contenues dans la mémoire du nœud, ne sont pas de bons candidats pour l’optimisation de la diffusion.
+La gestion des performances des jointures dans votre flux de données est une opération très courante que vous effectuerez tout au long du cycle de vie de vos transformations de données. Dans ADF, les flux de données ne nécessitent pas de tri des données avant les jointures, car ces opérations sont exécutées en tant que jointures hachées dans Spark. Toutefois, vous pouvez bénéficier de performances améliorées grâce à l’optimisation de jointure de « diffusion » qui s’applique aux transformations de jointure, d’existence et de recherche.
+
+Cela permet d’éviter les lectures aléatoires à la volée en poussant le contenu de chaque côté de votre relation de jointure dans le nœud Spark. Cela fonctionne bien pour les tables plus petites utilisées pour les recherches de référence. Les tables volumineuses, qui peuvent ne pas être contenues dans la mémoire du nœud, ne sont pas de bons candidats pour l’optimisation de la diffusion.
+
+La configuration recommandée pour les flux de données avec de nombreuses opérations de jointure consiste à définir systématiquement le paramètre d’optimisation « Diffusion » sur « Auto » et à utiliser une configuration Azure Integration Runtime à mémoire optimisée. Si vous rencontrez des erreurs de mémoire insuffisante ou des délais d’expiration de diffusion au cours des exécutions de flux de données, vous pouvez désactiver l’optimisation de la diffusion. Toutefois, cela se traduit par des flux de données plus lents. Si vous le souhaitez, vous pouvez indiquer au flux de données de pousser uniquement le côté gauche ou droit de la jointure, ou les deux.
+
+![Paramètres de diffusion](media/data-flow/newbroad.png "Paramètres de diffusion")
 
 Une autre optimisation de jointure consiste à créer vos jointures de manière à éviter que Spark n’implémente des jointures croisées. Par exemple, si vos conditions de jointure contiennent des valeurs littérales, Spark peut considérer qu’il faut d’abord exécuter un produit cartésien complet, puis filtrer les valeurs jointes. Mais si vous vous assurez d'avoir des valeurs de colonne des deux côtés de votre condition de jointure, vous pouvez éviter ce produit cartésien généré par Spark et améliorer les performances de vos jointures et de vos flux de données.
 

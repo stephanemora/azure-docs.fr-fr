@@ -1,25 +1,14 @@
 ---
-title: Azure Batch exécute des travaux parallèles à grande échelle dans le cloud | Microsoft Docs
+title: Azure Batch exécute des travaux parallèles à grande échelle dans le cloud
 description: Découvrez l’utilisation d’Azure Batch pour les charges de travail HPC et parallèles à grande échelle
-services: batch
-documentationcenter: ''
-author: mscurrell
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 01/19/2018
-ms.author: markscu
-ms.custom: mvc
-ms.openlocfilehash: 7ca2a5e91a0ec0d765e106baca20f135996bc26e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f2bdaeec47b50b715920b27d6adf6e078a354964
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77022798"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82116347"
 ---
 # <a name="what-is-azure-batch"></a>Présentation d’Azure Batch
 

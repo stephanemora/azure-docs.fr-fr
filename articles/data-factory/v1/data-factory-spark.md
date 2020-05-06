@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ce5fb014c7d954b3e8430a86430c6a666adff204
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ea719a26f47da98e80abd9e3fcd1785ed8efa69
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75969245"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185589"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Appeler des programmes Spark à partir des pipelines Azure Data Factory
 
@@ -42,7 +42,7 @@ L’activité Spark est l’une des [activités de transformation des données](
 > - L’activité Spark ne prend pas en charge les clusters Spark HDInsight qui utilisent Azure Data Lake Store en tant que stockage principal.
 > - L’activité Spark prend en charge uniquement les clusters Spark HDInsight existants (c’est-à-dire vos propres clusters). Elle ne prend pas en charge les services liés HDInsight à la demande.
 
-## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Procédure pas à pas : création d’un pipeline avec une activité Spark
+## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Procédure pas à pas : Créer un pipeline avec une activité Spark
 Voici les étapes classiques pour créer un pipeline de fabrique de données avec une activité Spark :
 
 * Créer une fabrique de données.
@@ -51,7 +51,7 @@ Voici les étapes classiques pour créer un pipeline de fabrique de données ave
 * Créez un jeu de données faisant référence au service lié Stockage. Actuellement, vous devez spécifier un jeu de données de sortie d’une activité même si aucune sortie n’est produite.
 * Créez un pipeline avec une activité Spark faisant référence au service lié HDInsight que vous avez créé. L’activité est configurée avec le jeu de données que vous avez créé à l’étape précédente comme un jeu de données de sortie. Le jeu de données de sortie pilote la planification (horaire, quotidienne). Par conséquent, vous devez spécifier le jeu de données de sortie même si l’activité ne produit pas vraiment de sortie.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 1. Créez un compte de stockage à usage général en suivant les instructions fournies dans [Créer un compte de stockage](../../storage/common/storage-account-create.md).
 
 1. Créez un cluster Spark dans HDInsight en suivant les instructions fournies dans le didacticiel [Créer un cluster Spark dans HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Associez le compte de stockage que vous avez créé à l’étape 1 à ce cluster.
@@ -70,7 +70,7 @@ Pour créer une fabrique de données, procédez comme suit :
 1. Dans le panneau **Nouvelle fabrique de données**, entrez **SparkDF** dans le champ **Nom**.
 
    > [!IMPORTANT]
-   > Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur « Data factory name SparkDF is not available » (Le nom de fabrique de données SparkDF n’est pas disponible) s’affiche, changez le nom de la fabrique de données. Par exemple, utilisez votrenomSparkDF et recréez la fabrique de données. Pour plus d’informations sur les règles d’affectation des noms, consultez [Data Factory : Règles d’affectation des noms](data-factory-naming-rules.md).
+   > Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur « Data factory name SparkDF is not available » (Le nom de fabrique de données SparkDF n’est pas disponible) s’affiche, changez le nom de la fabrique de données. Par exemple, utilisez votrenomSparkDF et recréez la fabrique de données. Pour plus d’informations sur les règles de nommage, consultez [Data Factory : règles de nommage](data-factory-naming-rules.md).
 
 1. Sous **Abonnement**, sélectionnez l’abonnement Azure dans lequel vous souhaitez créer la fabrique de données.
 
@@ -247,7 +247,7 @@ Dans cette étape, vous créez un pipeline avec une activité HDInsightSpark. À
 
 ### <a name="verify-the-results"></a>Vérifier les résultats
 
-1. Ouvrez le bloc-notes Jupyter de votre cluster Spark HDInsight en accédant à [ce site web](https://CLUSTERNAME.azurehdinsight.net/jupyter). Vous pouvez également ouvrir un tableau de bord de votre cluster Spark HDInsight, puis ouvrir le bloc-notes Jupyter.
+1. Ouvrez le bloc-notes Jupyter de votre cluster Spark HDInsight en accédant à `https://CLUSTERNAME.azurehdinsight.net/jupyter`. Vous pouvez également ouvrir un tableau de bord de votre cluster Spark HDInsight, puis ouvrir le bloc-notes Jupyter.
 
 1. Sélectionnez **Nouveau** > **PySpark** pour ouvrir un nouveau bloc-notes.
 
@@ -327,17 +327,17 @@ Le tableau suivant décrit les propriétés JSON utilisées dans la définition 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
 | name | Nom de l'activité dans le pipeline. | Oui |
-| description | Texte qui décrit l’activité. | Non |
+| description | Texte qui décrit l’activité. | Non  |
 | type | Cette propriété doit être définie sur HDInsightSpark. | Oui |
 | linkedServiceName | Nom d’un service lié HDInsight sur lequel s’exécute le programme Spark. | Oui |
 | rootPath | Conteneur d’objets Blob et dossier contenant le fichier Spark. Le nom de fichier est sensible à la casse. | Oui |
 | entryFilePath | Chemin d’accès relatif au dossier racine du code/package Spark. | Oui |
-| ClassName | Classe principale Java/Spark de l’application. | Non |
-| arguments | Liste d’arguments de ligne de commande du programme Spark. | Non |
-| proxyUser | Compte d’utilisateur à emprunter pour exécuter le programme Spark. | Non |
-| sparkConfig | Spécifiez les valeurs des propriétés de configuration de Spark répertoriées dans la rubrique : [Configuration Spark : Propriétés de l’application](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Non |
-| getDebugInfo | Spécifie quand les fichiers journaux de Spark sont copiés vers le stockage utilisé par le cluster HDInsight (ou) spécifié par sparkJobLinkedService. Les valeurs autorisées sont Aucun, Toujours ou Échec. La valeur par défaut est Aucun. | Non |
-| sparkJobLinkedService | Service lié Stockage qui contient le fichier de travail, les dépendances et les journaux d’activité Spark. Si vous ne spécifiez pas de valeur pour cette propriété, le stockage associé au cluster HDInsight est utilisé. | Non |
+| ClassName | Classe principale Java/Spark de l’application. | Non  |
+| arguments | Liste d’arguments de ligne de commande du programme Spark. | Non  |
+| proxyUser | Compte d’utilisateur à emprunter pour exécuter le programme Spark. | Non  |
+| sparkConfig | Spécifiez les valeurs des propriétés de configuration de Spark lisétes dans la rubrique [Configuration Spark : Propriétés de l’application](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Non  |
+| getDebugInfo | Spécifie quand les fichiers journaux de Spark sont copiés vers le stockage utilisé par le cluster HDInsight (ou) spécifié par sparkJobLinkedService. Les valeurs autorisées sont Aucun, Toujours ou Échec. La valeur par défaut est Aucun. | Non  |
+| sparkJobLinkedService | Service lié Stockage qui contient le fichier de travail, les dépendances et les journaux d’activité Spark. Si vous ne spécifiez pas de valeur pour cette propriété, le stockage associé au cluster HDInsight est utilisé. | Non  |
 
 ## <a name="folder-structure"></a>Structure de dossiers
 L’activité Spark ne prend pas en charge un script en ligne, contrairement aux activités Pig et Hive. Les travaux Spark sont également plus extensibles que les travaux Pig/Hive. Pour les travaux Spark, vous pouvez fournir plusieurs dépendances, telles que des packages jar (placés dans le CLASSPATH Java), des fichiers Python (placés dans le PYTHONPATH) et tout autre fichier.
@@ -348,11 +348,11 @@ Créez la structure de dossiers suivante dans le stockage Blob référencé par 
 | ---- | ----------- | -------- | ---- |
 | . | Chemin d’accès racine du travail Spark dans le service lié de stockage. | Oui | Dossier |
 | &lt;défini par l’utilisateur &gt; | Chemin d’accès qui pointe vers le fichier d’entrée du travail Spark. | Oui | Fichier |
-| ./jars | Tous les fichiers dans ce dossier sont chargés et placés dans le classpath Java du cluster. | Non | Dossier |
-| ./pyFiles | Tous les fichiers dans ce dossier sont chargés et placés dans le PYTHONPATH du cluster. | Non | Dossier |
-| ./files | Tous les fichiers dans ce dossier sont chargés et placés dans le répertoire de travail de l’exécuteur. | Non | Dossier |
-| ./archives | Tous les fichiers dans ce dossier sont décompressés. | Non | Dossier |
-| ./logs | Dossier dans lequel sont stockés les journaux d’activité du cluster Spark| Non | Dossier |
+| ./jars | Tous les fichiers dans ce dossier sont chargés et placés dans le classpath Java du cluster. | Non  | Dossier |
+| ./pyFiles | Tous les fichiers dans ce dossier sont chargés et placés dans le PYTHONPATH du cluster. | Non  | Dossier |
+| ./files | Tous les fichiers dans ce dossier sont chargés et placés dans le répertoire de travail de l’exécuteur. | Non  | Dossier |
+| ./archives | Tous les fichiers dans ce dossier sont décompressés. | Non  | Dossier |
+| ./logs | Dossier dans lequel sont stockés les journaux d’activité du cluster Spark| Non  | Dossier |
 
 Voici un exemple de stockage qui contient deux fichiers de travail Spark dans le stockage Blob référencé par le service lié HDInsight :
 

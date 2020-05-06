@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: 7470af23059ccd07e48050e6dc34521e299a986f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 3dd2be9a9f618f19ae71de8b19115013896b10cf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418607"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195551"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>Configurer un runtime d’intégration (IR) Azure-SQL Server Integration Services (SSIS) pour joindre un réseau virtuel
 
@@ -53,7 +53,7 @@ Procédez comme suit :
 
     - Vérifiez qu’il n’existe aucun [verrou de ressource](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) sur le groupe de ressources/abonnement auquel appartient le réseau virtuel. Si vous configurez un verrou en lecture seule ou de suppression, le démarrage et l’arrêt du runtime d’intégration Azure-SSIS IR échoueront ou celui-ci ne répondra plus.
 
-    - Vérifiez qu’aucune stratégie Azure n’empêche la création des ressources suivantes sous le groupe de ressources/abonnement auquel appartient le réseau virtuel :
+    - Vérifiez qu’aucune affectation Azure Policy n’empêche la création des ressources suivantes sous le groupe de ressources/abonnement auquel appartient le réseau virtuel :
         - Microsoft.Network/LoadBalancers
         - Microsoft.Network/NetworkSecurityGroups
 

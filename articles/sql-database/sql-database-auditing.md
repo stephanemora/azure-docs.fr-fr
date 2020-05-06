@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 4e20129502e7538bd2f3354b75b33095970e1595
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 57c4b22dfe6ef6cf44be64a4b5c042403f64ccf2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411861"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82096654"
 ---
 # <a name="azure-sql-auditing"></a>Audit Azure SQL
 
@@ -41,28 +41,28 @@ Vous pouvez utiliser l’audit de bases de données SQL pour :
 > [!IMPORTANT]
 > - L’audit Azure SQL Database est optimisé pour la disponibilité et les performances. En cas de très forte activité, Azure SQL Database permet aux opérations de se poursuivre et peut ne pas enregistrer certains événements audités.
 
-#### <a name="auditing-limitations"></a>Limitations de l’audit
+### <a name="auditing-limitations"></a>Limitations de l’audit
 
 - Le **stockage Premium** n'est actuellement **pas pris en charge**.
 - **L’espace de noms hiérarchique** pour un **compte de stockage Azure Data Lake Storage Gen2** n’est actuellement **pas pris en charge**.
 - L’activation de l’audit sur un entrepôt de données **Azure SQL Data Warehouse** interrompu n’est pas prise en charge. Pour activer l’audit, reprenez l’exécution de l’entrepôt de données.
 
-## <a name="define-server-level-vs-database-level-auditing-policy"></a><a id="server-vs-database-level"></a>Définir une stratégie d’audit au niveau du serveur ou au niveau de la base de données
+#### <a name="define-server-level-vs-database-level-auditing-policy"></a><a id="server-vs-database-level"></a>Définir une stratégie d’audit au niveau du serveur ou au niveau de la base de données
 
 Une stratégie d’audit peut être définie pour une base de données spécifique ou en tant que stratégie de serveur par défaut :
 
 - Une stratégie de serveur s’applique aux bases de données existantes et à celles qui sont nouvellement créées sur le serveur.
 
-- Si *l’audit d’objets blob serveur est activé*, il *s’applique toujours à la base de données*. La base de données est auditée, quels que soient les paramètres d’audit de la base de données.
+- Si *l’audit du serveur est activé*, il *s’applique toujours à la base de données*. La base de données est auditée, quels que soient les paramètres d’audit de la base de données.
 
-- L’activation de l’audit d’objets blob dans la base de données ou l’entrepôt de données, en plus de son activation sur le serveur, ne remplace *pas* et ne modifie pas non plus les paramètres de l’audit d’objets blob serveur. Les deux audits coexistent. En d’autres termes, la base de données est auditée deux fois en parallèle (une fois par la stratégie du serveur et une autre fois par la stratégie de la base de données).
+- L’activation de l’audit dans la base de données ou l’entrepôt de données, en plus de son activation sur le serveur, ne remplace *pas* et ne modifie pas non plus les paramètres de l’audit du serveur. Les deux audits coexistent. En d’autres termes, la base de données est auditée deux fois en parallèle (une fois par la stratégie du serveur et une autre fois par la stratégie de la base de données).
 
    > [!NOTE]
-   > Vous devez éviter d’activer à la fois l’audit d’objets blob du serveur et l’audit d’objets blob de la base de données, sauf si :
+   > Vous devez éviter d’activer à la fois l’audit du serveur et l’audit de la base de données, sauf si :
     > - Vous voulez utiliser un autre *compte de stockage*, une autre *période de rétention* ou un *espace de travail Log Analytics* pour une base de données spécifique.
     > - Vous souhaitez auditer des types ou des catégories d’événements pour une base de données qui sont différents de ceux qui sont audités pour les autres bases de données du serveur. Par exemple, il est possible que des insertions de table doivent être auditées uniquement pour une base de données spécifique.
    >
-   > Sinon, nous vous recommandons d’activer uniquement l’audit d’objets blob au niveau du serveur et de laisser l’audit au niveau de la base de données désactivé pour toutes les bases de données.
+   > Sinon, nous vous recommandons d’activer uniquement l’audit au niveau du serveur et de laisser l’audit au niveau de la base de données désactivé pour toutes les bases de données.
 
 ## <a name="set-up-auditing-for-your-server"></a><a id="setup-auditing"></a>Configurer l’audit de votre serveur
 
@@ -89,7 +89,7 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
   
    ![Options de stockage](./media/sql-database-auditing-get-started/auditing-select-destination.png)
    
-### <a name=""></a><a id="audit-storage-destination">Écriture des journaux d’audit dans un compte de stockage</a>
+### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>Écriture des journaux d’audit dans un compte de stockage
 
 Pour configurer l’écriture des journaux d’audit dans un compte de stockage, sélectionnez **Stockage**, puis ouvrez **Détails du stockage**. Sélectionnez le compte de stockage Azure dans lequel les journaux d’activité seront enregistrés, puis sélectionnez la période de rétention. Cliquez ensuite sur **OK**. Une fois la période de conservation écoulée, les journaux sont supprimés.
 
@@ -98,7 +98,7 @@ Pour configurer l’écriture des journaux d’audit dans un compte de stockage,
 
   ![compte de stockage](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-#### <a name="remarks"></a>Notes
+#### <a name="remarks"></a>Notes 
 
 - Les journaux d’audit sont écrits dans des **Blobs d’ajout** dans un stockage Blob Azure avec votre abonnement Azure.
 - Pour configurer un magasin de journaux immuable pour les événements d’audit au niveau du serveur ou de la base de données, suivez les [instructions fournies par Stockage Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes). (Assurez-vous d’avoir sélectionné **Autoriser les ajouts supplémentaires** lorsque vous configurez le stockage blob non modifiable.)
@@ -108,16 +108,13 @@ Pour configurer l’écriture des journaux d’audit dans un compte de stockage,
 - Quand vous utilisez l’authentification AAD, les échecs de connexion ne sont *pas* enregistrés dans le journal d’audit SQL. Pour voir les enregistrements d’audit des échecs de connexion, accédez au [portail Azure Active Directory]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), qui affiche les détails de ces événements.
 - L’audit sur les [réplicas en lecture seule](sql-database-read-scale-out.md) est activé automatiquement. Pour plus d’informations sur la hiérarchie des dossiers de stockage, sur les conventions de nommage et sur le format des journaux, consultez la documentation relative au [Format des journaux d’audit SQL Database](sql-database-audit-log-format.md). 
 
-### <a name=""></a><a id="audit-log-analytics-destination">Écriture des journaux d’audit dans Log Analytics</a>
+### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Écriture des journaux d’audit dans Log Analytics
   
 Pour configurer l’écriture des journaux d’audit dans un espace de travail Log Analytics, sélectionnez **Log Analytics (préversion)** , puis ouvrez **Détails de Log Analytics**. Sélectionnez ou créez l’espace de travail Log Analytics où les journaux d’activité doivent être écrits, puis cliquez sur **OK**.
-    
-  > [!WARNING]
-   > L’activation de l’audit sur Log Analytics implique des frais selon les taux d’ingestion. Notez le coût associé à l’utilisation de cette [option](https://azure.microsoft.com/pricing/details/monitor/), ou envisagez de stocker les journaux d’audit dans un compte de stockage Azure.
    
    ![LogAnalyticsworkspace](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
-### <a name=""></a><a id="audit-event-hub-destination">Écriture des journaux d’audit dans un hub d’événements</a>
+### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Écriture des journaux d’audit dans Event Hub
 
 > [!WARNING]
 > L’activation de l’audit sur un serveur disposant d’un pool SQL **entraîne la reprise et la remise en pause du pool SQL**, ce qui peut donner lieur à des frais de facturation.
@@ -202,7 +199,7 @@ Si vous choisissez d’écrire les journaux d’audit dans un compte de stockage
 
 <!--The description in this section refers to preceding screen captures.-->
 
-#### <a name="auditing-geo-replicated-databases"></a>Audit des bases de données géorépliquées
+### <a name="auditing-geo-replicated-databases"></a>Audit des bases de données géorépliquées
 
 Avec les bases de données géorépliquées, lorsque vous activez l’audit dans la base de données primaire, la même stratégie d’audit est appliquée à la base de données secondaire. Il est également possible de configurer l’audit dans la base de données secondaire en activant l’audit dans le **serveur secondaire**, indépendamment de la base de données primaire.
 
@@ -214,7 +211,7 @@ Avec les bases de données géorépliquées, lorsque vous activez l’audit dans
     >[!IMPORTANT]
     >Avec l’audit au niveau de la base de données, les paramètres de stockage de la base de données secondaire sont identiques à ceux de la base de données primaire, ce qui entraîne un trafic entre régions. Il est conseillé d’activer uniquement l’audit d’objets blob au niveau du serveur et de laisser l’audit au niveau de la base de données désactivé pour toutes les bases de données.
 
-#### <a name="storage-key-regeneration"></a>Régénération des clés de stockage
+### <a name="storage-key-regeneration"></a>Régénération des clés de stockage
 
 Dans un environnement de production, vous allez probablement actualiser périodiquement vos clés de stockage. Si vous écrivez les journaux d’audit dans le stockage Azure, vous devez réenregistrer votre stratégie d’audit lors de l’actualisation de vos clés. Pour ce faire, procédez comme suit :
 
@@ -229,7 +226,7 @@ Dans un environnement de production, vous allez probablement actualiser périodi
 
 ## <a name="manage-azure-sql-server-and-database-auditing"></a><a id="manage-auditing"></a>Gérer Azure SQL Server et l’audit de base de données
 
-#### <a name="using-azure-powershell"></a>Utilisation de Microsoft Azure PowerShell
+### <a name="using-azure-powershell"></a>Utilisation de Microsoft Azure PowerShell
 
 **Applets de commande PowerShell (y compris prise en charge de la clause WHERE pour un filtrage supplémentaire)**  :
 
@@ -242,7 +239,7 @@ Dans un environnement de production, vous allez probablement actualiser périodi
 
 Pour obtenir un exemple de script, consultez [Configurer l’audit et la détection des menaces avec PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
-#### <a name="using-rest-api"></a>Utilisation de l'API REST
+### <a name="using-rest-api"></a>Utilisation de l'API REST
 
 **API REST** :
 
@@ -258,7 +255,7 @@ Prise en charge de la stratégie étendue avec la clause WHERE pour un filtrage 
 - [Obtenir la stratégie d’audit *étendue* de base de données](/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Obtenir la stratégie d’audit *étendue* de serveur](/rest/api/sql/server%20auditing%20settings/get)
 
-#### <a name="using-azure-resource-manager-templates"></a>Utilisation de modèles Azure Resource Manager
+### <a name="using-azure-resource-manager-templates"></a>Utilisation de modèles Azure Resource Manager
 
 Vous pouvez gérer l’audit de bases de données Azure SQL à l’aide de modèles [Azure Resource Manager](../azure-resource-manager/management/overview.md), comme indiqué dans ces exemples :
 

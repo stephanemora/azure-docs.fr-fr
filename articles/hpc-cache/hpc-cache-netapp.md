@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 38f9d0338ce4c47024d670e6d3ee89a97faecc91
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d4dd69b30acb26d02218fe05a60ace9aa855ddc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80238677"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194956"
 ---
 # <a name="use-azure-hpc-cache-with-azure-netapp-files"></a>Utiliser Azure HPC Cache avec Azure NetApp Files
 
@@ -50,7 +50,7 @@ Utilisez la taille minimale du sous-réseau délégué lors de la création d’
 
 La taille minimale, spécifiée avec le masque réseau /28, fournit 16 adresses IP. Dans la pratique, Azure NetApp Files utilise uniquement trois des adresses IP disponibles pour l’accès au volume. Cela signifie que vous n’avez qu’à créer trois cibles de stockage dans votre cache Azure HPC Cache pour couvrir tous les volumes.
 
-Si le sous-réseau délégué est trop grand, il est possible que les volumes Azure NetApp Files utilisent davantage d’adresses IP que ce que peut gérer une seule instance de cache Azure HPC Cache. Un seul cache peut avoir au maximum dix cibles de stockage.
+Si le sous-réseau délégué est trop grand, il est possible que les volumes Azure NetApp Files utilisent davantage d’adresses IP que ce que peut gérer une seule instance de cache Azure HPC Cache. Un seul cache peut avoir au maximum 10 cibles de stockage.
 
 L’exemple de démarrage rapide dans la Documentation Azure NetApp Files utilise 10.7.0.0/16 pour le sous-réseau délégué, ce qui donne un sous-réseau trop grand.
 
@@ -66,7 +66,7 @@ Notez que vous pouvez modifier le quota de stockage d’un volume et la taille d
 
 ## <a name="create-storage-targets-in-the-cache"></a>Créer des cibles de stockage dans le cache
 
-Une fois votre système Azure NetApp Files configuré et le cache Azure HPC Cache{1}{2}créé, définissez des cibles de stockage dans le cache qui pointent vers les volumes du système de fichiers.
+Une fois votre système Azure NetApp Files configuré et le cache Azure HPC Cachecréé, définissez des cibles de stockage dans le cache qui pointent vers les volumes du système de fichiers.
 
 Créez une cible de stockage pour chaque adresse IP utilisée par vos volumes Azure NetApp Files. L’adresse IP est indiquée dans la page des instructions de montage du volume.
 

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: dcb12da680d70e1f0ce4cd763bee340bb3416c6b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 88aaa3d54ea44a15f7900aba093bf28c70c19695
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76169948"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82129859"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Utiliser votre modèle avec l’API de prédiction
 
@@ -134,8 +134,4 @@ Lorsque vous exécutez l’application, vous êtes invité à saisir un chemin d
 
 Dans ce guide, vous avez appris à envoyer des images sur votre détecteur/classifieur d’images personnalisé et recevoir une réponse par programmation avec le SDK C#. Nous allons maintenant apprendre à exécuter des scénarios de bout en bout avec C#, ou commencer à utiliser une autre langue de SDK.
 
-* [Démarrage rapide : SDK .NET](csharp-tutorial.md)
-* [Démarrage rapide : SDK Python](python-tutorial.md)
-* [Démarrage rapide : SDK Java](java-tutorial.md)
-* [Démarrage rapide : SDK Node](node-tutorial.md)
-* [Démarrage rapide : SDK Go](go-tutorial.md)
+* [Démarrage rapide : SDK Custom Vision](quickstarts/image-classification.md)

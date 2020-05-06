@@ -1,25 +1,15 @@
 ---
-title: Requêtes de liste efficaces dans Azure Batch | Microsoft Docs
+title: Concevoir des requêtes de liste efficaces
 description: Améliorez les performances en filtrant vos requêtes lorsque vous demandez des informations sur des ressources Batch comme les pools, les travaux, les tâches et les nœuds de calcul.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 12/07/2018
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: df923ac479ce5f5a3668c18c616b11348dc6c0b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fea8efd4e4946b67754bad98589b728e8d696425
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022237"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82116109"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Créer des requêtes pour répertorier les ressources Batch efficacement
 

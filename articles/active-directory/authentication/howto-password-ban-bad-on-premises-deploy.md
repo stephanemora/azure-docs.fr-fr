@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ac9b76dd8d3c950b14f6d7b331f15647427ac89
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 7870b62dea01f680126f5b4aac3dc2328407cd61
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652733"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82143218"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planifiez et déployez localement la protection par mot de passe Azure Active Directory
 
@@ -134,7 +134,7 @@ Le service du programme de mise à jour de l’agent Microsoft Azure AD Connect 
 * Le service du programme de mise à jour de l’agent Microsoft Azure AD Connect nécessite également les étapes 1.2 spécifiées dans [Exigences relatives à TLS](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#tls-requirements).
 
 > [!WARNING]
-> Le proxy de protection par mot de passe et le proxy d’application Azure AD installent différentes versions du service du programme de mise à jour de l’agent Microsoft Azure AD Connect. Cela explique pourquoi les instructions font référence au contenu du proxy d’application. Ces différentes versions étant incompatibles lorsqu’elles sont installées côte à côte, il n’est pas recommandé d’installer le proxy de protection par mot de passe et le proxy d’application Azure AD côte à côte sur la même machine.
+> Le proxy de protection par mot de passe et le proxy d’application Azure AD installent différentes versions du service du programme de mise à jour de l’agent Microsoft Azure AD Connect. Cela explique pourquoi les instructions font référence au contenu du proxy d’application. Ces différentes versions sont incompatibles quand elles sont installées côte à côte, car cela empêche le service de mise à jour de l’agent de contacter Azure pour les mises à jour logicielles. Vous ne devez donc jamais installer le proxy de protection par mot de passe Azure AD et le proxy d’application sur le même ordinateur.
 
 ## <a name="download-required-software"></a>Télécharger les logiciels requis
 

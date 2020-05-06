@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: c1d1daea71ea8b69ef24031c643caf8dcd0d1fb7
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 0a394c14842fe0c4eb4baa18cbb13acb8ca3170a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983328"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82142458"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Onglet Références de modules IoT Edge
 
 >[!Important]
->À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres de module IoT Edge vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions fournies dans [Créer une offre de module Azure IoT Edge](https://aka.ms/AzureCreateIoT) pour gérer vos offres migrées.
+>À partir du 13 avril 2020, nous commencerons à déplacer la gestion de vos offres de module IoT Edge vers l’Espace partenaires. Après la migration, vous créerez et gérerez vos offres dans l’Espace partenaires. Suivez les instructions fournies dans [Créer une offre de module Azure IoT Edge](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation) pour gérer vos offres migrées.
 
 L’onglet **Références** de la page **Nouvelle offre** permet de créer une ou plusieurs références SKU et de les associer à votre nouvelle offre.  Vous pouvez utiliser différentes références SKU pour différencier une solution par des ensembles de fonctionnalités, des modèles de facturation ou d’autres caractéristiques.
 
@@ -44,7 +44,7 @@ L’onglet **Références** est actualisé et affiche les champs que vous modifi
 
 ## <a name="sku-details"></a>Détails de la référence SKU
 
-Configurez la section **Détails de la référence SKU** pour définir la façon dont votre référence SKU va être affichée sur la Place de marché Microsoft Azure et les sites web du Portail Azure.
+Configurez la section **Détails de la référence SKU** pour définir la façon dont votre référence SKU va être affichée sur la Place de marché Microsoft Azure et les sites web du portail Azure.
 
 ![Métadonnées de référence SKU de module IoT Edge](media/iot-edge-module-skus-tab-metadata.png)
 
@@ -52,9 +52,9 @@ Le tableau suivant décrit l’objectif, le contenu et le format des champs sous
 
 |  **Champ**       |     **Description**                                                          |
 |  ---------       |     ---------------                                                          |
-| **Titre\***        | Titre de cette référence SKU. Longueur maximale de 50 caractères. <br/> Il est affiché dans le Portail Azure et utilisé en tant que nom de module par défaut (sans espaces ni caractères spéciaux) une fois déployé. Consultez les images ci-dessous pour voir où est affiché exactement ce champ.|
+| **Titre\***        | Titre de cette référence SKU. Longueur maximale de 50 caractères. <br/> Il est affiché dans le portail Azure et utilisé en tant que nom de module par défaut (sans espaces ni caractères spéciaux) une fois déployé. Consultez les images ci-dessous pour voir où est affiché exactement ce champ.|
 | **Résumé\***      | Court résumé de cette référence SKU. Longueur maximale de 100 caractères. Ne résumez **PAS** l’offre, juste la référence SKU.  Ce résumé est affiché dans la Place de marché Microsoft Azure. Consultez les images ci-dessous pour voir où est affiché exactement ce champ.|
-| **Description\***  | Brève description de cette référence SKU. Longueur maximale de 3 000 caractères. Ne décrivez PAS l’offre, juste cette référence SKU. Cette description est affichée dans la Place de marché Microsoft Azure et dans le Portail Azure. Dans le Portail Azure, elle est ajoutée à la description de la Place de marché qui fait référence à l’offre définie dans l’onglet Place de marché.  Cette description peut être identique au résumé de la référence SKU. Consultez les images ci-dessous pour voir où est affiché exactement ce champ.|
+| **Description\***  | Brève description de cette référence SKU. Longueur maximale de 3 000 caractères. Ne décrivez PAS l’offre, juste cette référence SKU. Cette description est affichée dans la Place de marché Azure et dans le portail Azure. Dans le Portail Azure, elle est ajoutée à la description de la Place de marché qui fait référence à l’offre définie dans l’onglet Place de marché.  Cette description peut être identique au résumé de la référence SKU. Consultez les images ci-dessous pour voir où est affiché exactement ce champ.|
 | **Masquer cette référence (SKU)\*** | Conservez le paramètre par défaut, ici **Non**. |
 |  |  |
 

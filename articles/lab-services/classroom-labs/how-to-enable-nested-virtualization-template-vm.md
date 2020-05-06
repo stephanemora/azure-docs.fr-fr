@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 59b32834369f76d39bb4a253dad4ec541e7ef999
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c954c4689281838ea8c61c932cdcc3b74bac442
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502015"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184671"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services"></a>Activer la virtualisation imbriquée pour une machine virtuelle modèle dans Azure Lab Services
 
@@ -40,8 +40,8 @@ Pour plus d’informations sur la visualisation imbriquée, consultez les articl
 Avant de configurer un laboratoire pour la virtualisation imbriquée, voici quelques éléments à prendre en compte.
 
 - Lorsque vous créez un laboratoire, sélectionnez **Moyenne (virtualisation imbriquée)** ou **Grande (virtualisation imbriquée)** pour la taille de la machine virtuelle. Ces tailles de machine virtuelle prennent en charge la virtualisation imbriquée.
-- Choisissez une taille qui fournira de bonnes performances pour les machines virtuelles clientes et les machines virtuelles hôtes.  N’oubliez pas que lorsque vous utilisez la virtualisation, la taille que vous choisissez doit être adaptée non seulement à la machine, mais également à l’hôte, ainsi qu’aux machines clientes qui doivent être exécutées simultanément.
-- Les machines virtuelles clientes n’ont pas accès aux ressources Azure, telles que les serveurs DNS du réseau virtuel Azure.
+- Choisissez une taille qui fournira de bonnes performances pour les machines virtuelles clientes et les machines virtuelles hôtes.  N’oubliez pas que quand vous utilisez la virtualisation, la taille que vous choisissez doit être adaptée non seulement à la machine, mais également à l’hôte ainsi qu’aux machines Hyper-V s’exécutant simultanément.
+- Les machines virtuelles clientes n’ont pas accès aux ressources Azure, telles que les serveurs DNS, sur réseau virtuel Azure.
 - La machine virtuelle hôte nécessite que la configuration autorise la machine cliente à être connectée à Internet.
 - Les machines virtuelles clientes sont concédées sous licence comme des machines indépendantes. Pour plus d’informations sur les licences des systèmes d’exploitation et des produits Microsoft, consultez [Licences Microsoft](https://www.microsoft.com/licensing/default). Vérifiez les contrats de licence de tous les autres logiciels que vous utilisiez avant de configurer la machine modèle.
 
@@ -53,6 +53,17 @@ Cet article suppose que vous avez déjà créé un compte de labo et un labo.  P
 >Sélectionnez **Grande (virtualisation imbriquée)** ou **Moyenne (virtualisation imbriquée)** pour la taille de la machine virtuelle lorsque vous créez le labo.  Sinon, la virtualisation imbriquée ne fonctionnera pas.  
 
 Pour vous connecter à la machine modèle, consultez [Créer et gérer un modèle de salle de classe](how-to-create-manage-template.md).
+
+Pour activer la virtualisation imbriquée, vous devez accomplir quelques tâches.  
+
+- **Activation du rôle Hyper-V**. Le rôle Hyper-V doit être activé pour la création et l’exécution de machines virtuelles Hyper-V sur la machine virtuelle Lab Services.
+- **Activation de DHCP**.  Quand le rôle DHCP est activé sur la machine virtuelle Lab Services, les machines virtuelles Hyper-V peuvent recevoir automatiquement une adresse IP.
+- **Création d’un réseau NAT pour les machines virtuelles Hyper-V**.  Le réseau NAT est configuré pour permettre aux machines virtuelles Hyper-V d’accéder à Internet.  Les machines virtuelles Hyper-V peuvent communiquer entre elles.
+
+>[!NOTE]
+>Le réseau NAT créé sur la machine virtuelle Lab Services permet à une machine virtuelle Hyper-V d’accéder à Internet et à d’autres machines virtuelles Hyper-V sur la même machine virtuelle Lab Services.  La machine virtuelle Hyper-V ne peut pas accéder aux ressources Azure, telles que les serveurs DNS, sur le réseau virtuel Azure.
+
+Vous pouvez accomplir les tâches ci-dessus à l’aide d’un script ou d’outils Windows.  Pour plus d’informations, lisez les sections ci-dessous.
 
 ### <a name="using-script-to-enable-nested-virtualization"></a>Utilisation d’un script pour activer la virtualisation imbriquée
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 5b94a97f1286e1273300014e4eef140be412436b
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 1e41eb02f4b02078dbf4d42c46cab574cf8d0701
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637180"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204064"
 ---
 # <a name="azure-storage-analytics-logging"></a>Journalisation Azure Storage Analytics
 
@@ -158,7 +158,11 @@ Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations non
 
  Outre l’utilisation du Portail Azure ou des cmdlets Azure PowerShell pour contrôler la journalisation du stockage, vous pouvez également utiliser l’une des API Stockage Azure. Par exemple, si vous utilisez un langage .NET, vous pouvez utiliser la bibliothèque cliente de stockage.  
 
- Les classes **CloudBlobClient**, **CloudQueueClient** et **CloudTableClient** ont toutes des méthodes comme **SetServiceProperties** et **SetServicePropertiesAsync** qui utilisent un objet **ServiceProperties** en tant que paramètre. Vous pouvez utiliser l’objet **ServiceProperties** pour configurer la journalisation du stockage. Par exemple, l’extrait de code C# suivant montre comment modifier ce qui est consigné et la période de rétention de la journalisation de file d’attente :  
+# <a name="net-v12-sdk"></a>[SDK \.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
+
+# <a name="net-v11-sdk"></a>[SDK \.NET v11](#tab/dotnet11)
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -170,6 +174,9 @@ serviceProperties.Logging.RetentionDays = 2;
 
 queueClient.SetServiceProperties(serviceProperties);  
 ```  
+
+---
+
 
  Pour plus d’informations sur l’utilisation d’un langage .NET pour configurer la journalisation du stockage, consultez la [référence sur la bibliothèque cliente de stockage](https://msdn.microsoft.com/library/azure/dn261237.aspx).  
 

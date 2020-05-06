@@ -3,12 +3,12 @@ title: Résoudre les problèmes de sauvegarde de base de données SQL Server
 description: Informations de résolution des problèmes de sauvegarde de bases de données SQL Server exécutées sur des machines virtuelles Azure avec Sauvegarde Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 8d49adb0ab741903ccb2989cfeb4ceaef2e8a38d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cec3f8530d8a48a870c672d418d42d12a62aa2a4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79408614"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183328"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Résoudre les problèmes de sauvegarde des bases de données SQL Server avec Sauvegarde Azure
 
@@ -171,27 +171,25 @@ La machine virtuelle ne peut pas contacter le service Sauvegarde Azure en raison
 
 Vérifiez la présence d’un ou plusieurs des symptômes suivants avant de déclencher l’opération de réinscription :
 
-* Toutes les opérations (comme la sauvegarde, la restauration et la configuration de la sauvegarde) échouent sur la machine virtuelle avec un des codes d’erreur suivants : **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
-* Si la zone de l’**État de la sauvegarde** de l’élément de sauvegarde affiche **Inaccessible**, excluez toutes les autres causes susceptibles d’entraîner le même état :
+- Toutes les opérations (comme la sauvegarde, la restauration et la configuration de la sauvegarde) échouent sur la machine virtuelle avec un des codes d’erreur suivants : **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
+- Si la zone de l’**État de la sauvegarde** de l’élément de sauvegarde affiche **Inaccessible**, excluez toutes les autres causes susceptibles d’entraîner le même état :
 
-  * absence d’autorisation pour effectuer les opérations liées à la sauvegarde sur la machine virtuelle ;
-  * arrêt de la machine virtuelle, de sorte que les sauvegardes ne peuvent pas avoir lieu ;
-  * problèmes de réseau.
+  - absence d’autorisation pour effectuer les opérations liées à la sauvegarde sur la machine virtuelle ;
+  - arrêt de la machine virtuelle, de sorte que les sauvegardes ne peuvent pas avoir lieu ;
+  - problèmes de réseau.
 
    ![Réinscription de machine virtuelle](./media/backup-azure-sql-database/re-register-vm.png)
 
-
-
-* Avec un groupe de disponibilité Always On, les sauvegardes échouent après la modification d’une préférence de sauvegarde ou après un basculement.
+- Avec un groupe de disponibilité Always On, les sauvegardes échouent après la modification d’une préférence de sauvegarde ou après un basculement.
 
 Ces symptômes peuvent survenir pour une ou plusieurs des raisons suivantes :
 
-* Une extension a été supprimée ou désinstallée sur le portail.
-* Une extension a été désinstallée depuis le **Panneau de configuration** de la machine virtuelle sous **Désinstaller ou modifier un programme**.
-* La machine virtuelle a été restaurée à un point dans le temps via une restauration de disques sur place.
-* La machine virtuelle a été arrêtée pendant une période prolongée, entraînant l’expiration de la configuration d’extension qui s’y trouvait.
-* La machine virtuelle a été supprimée et une autre machine virtuelle a été créée avec le même nom et le même groupe de ressources que la machine virtuelle supprimée.
-* Un des nœuds du groupe de disponibilité n’a pas reçu la configuration de sauvegarde complète. Ceci peut se produire quand le groupe de disponibilité est inscrit dans le coffre ou quand un nouveau nœud est ajouté.
+- Une extension a été supprimée ou désinstallée sur le portail.
+- Une extension a été désinstallée depuis le **Panneau de configuration** de la machine virtuelle sous **Désinstaller ou modifier un programme**.
+- La machine virtuelle a été restaurée à un point dans le temps via une restauration de disques sur place.
+- La machine virtuelle a été arrêtée pendant une période prolongée, entraînant l’expiration de la configuration d’extension qui s’y trouvait.
+- La machine virtuelle a été supprimée et une autre machine virtuelle a été créée avec le même nom et le même groupe de ressources que la machine virtuelle supprimée.
+- Un des nœuds du groupe de disponibilité n’a pas reçu la configuration de sauvegarde complète. Ceci peut se produire quand le groupe de disponibilité est inscrit dans le coffre ou quand un nouveau nœud est ajouté.
 
 Dans les scénarios précédents, nous vous recommandons de déclencher une opération de réinscription sur la machine virtuelle. Pour savoir comment effectuer cette tâche dans PowerShell, cliquez [ici](https://docs.microsoft.com/azure/backup/backup-azure-sql-automation#enable-backup).
 
@@ -221,7 +219,7 @@ Si la taille de la chaîne du contenu dépasse 20 000 octets, les fichiers de b
 
 ### <a name="override-the-default-target-restore-file-path"></a>Remplacer le chemin de fichier de restauration cible par défaut
 
-Vous pouvez remplacer le chemin du fichier de restauration cible pendant l’opération de restauration en plaçant un fichier JSON contenant le mappage du fichier de base de données au chemin de restauration cible. Créez un fichier `database_name.json` et placez-le à l’emplacement *C:\Program Files\Azure Workload Backup\bin\plugins\SQL*.
+Vous pouvez remplacer le chemin du fichier de restauration cible pendant l’opération de restauration en plaçant un fichier JSON contenant le mappage du fichier de base de données au chemin de restauration cible. Créez un fichier `database_name.json` et placez-le à l’emplacement `C:\Program Files\Azure Workload Backup\bin\plugins\SQL*`.
 
 Le contenu du fichier doit être à ce format :
 

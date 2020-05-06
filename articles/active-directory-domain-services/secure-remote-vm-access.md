@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 8bc36dfdf3010b2bde485228f6ee110b0b826d31
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: a17f27831dd0a674c1d55cde6974aba5e1bfcfc3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654746"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82105724"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>Sécuriser l’accès à distance aux machines virtuelles dans Azure Active Directory Domain Services
 
@@ -61,6 +61,7 @@ Le déploiement de l’environnement de Bureau à distance contient un certain n
 
 1. Connectez-vous aux machines virtuelles créées pour l’environnement de Bureau à distance à l’aide d’un compte faisant partie du groupe *Administrateurs Azure AD DC*, par exemple, *contosoadmin*.
 1. Pour créer et configurer des services Bureau à distance, utilisez le [Guide de déploiement de l’environnement de Bureau à distance][deploy-remote-desktop] existant. Distribuez les composants du serveur Bureau à distance sur vos machines virtuelles Azure à votre guise.
+    * Spécificité d’Azure AD DS : lorsque vous configurez le gestionnaire de licences des services Bureau à distance, définissez-le sur mode **Par appareil**, non **Par utilisateur** comme indiqué dans le Guide de déploiement.
 1. Si vous souhaitez fournir l’accès à l’aide d’un navigateur web, [Configurez le client web Bureau à distance pour vos utilisateurs][rd-web-client].
 
 Avec le Bureau à distance déployé dans le domaine managé Azure AD DS, vous pouvez gérer et utiliser le service comme vous le feriez avec un domaine AD DS local.

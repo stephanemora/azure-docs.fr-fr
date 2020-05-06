@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 02/12/2019
-ms.openlocfilehash: 35f6b74f3b6cce5a0af812d4613f9da2f9fbd552
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.date: 04/27/2020
+ms.openlocfilehash: 1874e3536a3dda123c7fff9726c02e5d92d88804
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606265"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204336"
 ---
 # <a name="azure-data-factory-mapping-data-flow-union-transformation"></a>Transformation d’union de flux de données de mappage Azure Data Factory
 
@@ -22,6 +22,10 @@ ms.locfileid: "81606265"
 L'union combinera plusieurs flux de données en un, avec l'union SQL de ces flux en tant que nouvelle sortie de la transformation d’union. Tous les schémas de chaque flux d’entrée sont combinés à l’intérieur de votre flux de données, sans avoir à disposer d’une clé de jointure.
 
 Vous pouvez combiner des n flux dans le tableau de paramètres en sélectionnant l’icône « + » en regard de chaque ligne configurée, notamment la source de données et des flux de transformations existantes dans votre flux de données.
+
+Voici une brève vidéo illustrant la transformation d’union dans le flux de données de mappage d’ADF :
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vngz]
 
 ![Transformation d’union](media/data-flow/union.png "Union")
 

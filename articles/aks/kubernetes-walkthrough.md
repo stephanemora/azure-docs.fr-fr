@@ -3,7 +3,7 @@ title: 'Démarrage rapide : Déployer un cluster Azure Kubernetes Service'
 description: Découvrez comment créer rapidement un cluster Kubernetes, déployer une application et superviser les performances dans AKS (Azure Kubernetes Service) à l’aide d’Azure CLI.
 services: container-service
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 04/28/2020
 ms.custom:
 - H1Hack27Feb2017
 - mvc
@@ -11,18 +11,18 @@ ms.custom:
 - seo-javascript-september2019
 - seo-javascript-october2019
 - seo-python-october2019
-ms.openlocfilehash: 369e0da49064197524ee20bb8a0050c00c242260
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 2b45154a0198fe0845649167d0fa35aabfd0625e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392758"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82207392"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>Démarrage rapide : Déployer un cluster Azure Kubernetes Service à l’aide d’Azure CLI
 
 Dans ce guide de démarrage rapide, vous déployez un cluster AKS (Azure Kubernetes Service) à l’aide de l’interface Azure CLI. AKS est un service Kubernetes géré qui vous permet de déployer et de gérer rapidement des clusters. Une application multiconteneur composée d’un front-end web et d’une instance Redis est exécutée dans le cluster. Vous pouvez ainsi voir comment superviser l’intégrité du cluster et des pods qui exécutent votre application.
 
-Si vous souhaitez utiliser des conteneurs Windows Server (actuellement en préversion dans AKS), consultez [Créer un cluster AKS prenant en charge les conteneurs Windows Server][windows-container-cli].
+Pour en savoir plus sur la création d’un pool de nœuds Windows Server, consultez [Créer un cluster AKS qui prend en charge les conteneurs Windows Server][windows-container-cli].
 
 ![Application de vote déployée dans Azure Kubernetes Service](./media/container-service-kubernetes-walkthrough/voting-app-deployed-in-azure-kubernetes-service.png)
 
@@ -249,7 +249,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Lorsque vous supprimez le cluster, le principal de service Azure Active Directory utilisé par le cluster AKS n’est pas supprimé. Pour obtenir des instructions sur la façon de supprimer le principal de service, consultez [Considérations et suppression du principal de service AKS][sp-delete]. Si vous avez utilisé une identité managée, l’identité est managée par la plateforme et ne nécessite pas de suppression.
+> Lorsque vous supprimez le cluster, le principal de service Azure Active Directory utilisé par le cluster AKS n’est pas supprimé. Pour obtenir des instructions sur la façon de supprimer le principal de service, consultez [Considérations et suppression du principal de service AKS][sp-delete]. Si vous avez utilisé une identité managée, l’identité est managée par la plateforme et n’a pas besoin d’être supprimée.
 
 ## <a name="get-the-code"></a>Obtenir le code
 

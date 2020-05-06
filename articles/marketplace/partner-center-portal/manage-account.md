@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/06/2019
-ms.openlocfilehash: 2e057ca16e2e4f7fcb16ee39d090be853639fc12
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.date: 04/27/2020
+ms.openlocfilehash: 54b45825f2322dc127d5db818b7abe52e4a98967
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81731444"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208395"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gérer votre compte Place de marché commerciale dans l’Espace partenaires
 
@@ -66,15 +66,12 @@ Dans la section Informations de contact, vous pouvez voir le **nom d’affichage
 
 Un compte de paiement est le compte bancaire auquel les recettes sont envoyées en fonction de vos ventes. Ce compte doit se trouver dans le même pays que celui dans lequel vous avez enregistré votre compte Espace partenaires.
 
-Pour configurer votre compte de paiement, vous devez **associer votre compte Microsoft** :
-1. Accédez à la [page Vue d’ensemble de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) dans l’Espace partenaires.
-2. Dans la section profil, sélectionnez **Associer votre compte Microsoft**.
-3. Lorsque vous y êtes invité, connectez-vous avec votre compte Microsoft. Ce compte ne peut pas être déjà associé à un autre compte Espace partenaires.
-4. Pour terminer la configuration de votre compte de paiement, déconnectez-vous de l’Espace partenaires, puis reconnectez-vous avec votre compte Microsoft (plutôt qu’avec votre compte professionnel).
+Pour configurer votre compte de paiement :
 
-Maintenant que votre compte Microsoft est associé, pour ajouter un compte de paiement, vous devez :
-- **Choisir un mode de paiement** : Compte bancaire ou PayPal
-- **Ajouter des informations de paiement** : Il peut s’agir du type de compte (courant ou épargne), du nom du titulaire du compte, le numéro de compte, le numéro de routage, l’adresse de facturation, le numéro de téléphone ou l’adresse e-mail PayPal. *Pour plus d’informations sur l’utilisation de PayPal comme mode de paiement du compte, et pour savoir s’il est pris en charge dans votre région, consultez [PayPal info](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
+1. Accédez à la [page Vue d’ensemble de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) dans l’Espace partenaires.
+2. Dans la section Profil, à côté de **Profil de paiement**, sélectionnez **Mettre à jour**.
+3. **Choisir un mode de paiement** : Compte bancaire ou PayPal.
+4. **Ajouter des informations de paiement** : Il peut s’agir du type de compte (courant ou épargne), du nom du titulaire du compte, le numéro de compte, le numéro de routage, l’adresse de facturation, le numéro de téléphone ou l’adresse e-mail PayPal. *Pour plus d’informations sur l’utilisation de PayPal comme mode de paiement du compte, et pour savoir s’il est pris en charge dans votre région, consultez [PayPal info](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
 
 > [!IMPORTANT]
 > La modification de votre compte de paiement peut retarder vos paiements jusqu’à un cycle de paiement. Ce retard se produit parce que nous devons vérifier le changement de compte, comme nous l’avons fait lorsque vous avez configuré le compte de paiement pour la première fois. Vous serez payé pour le montant total une fois que votre compte aura été vérifié. Tout paiement dû dans le cycle de paiement actuel sera ajouté au cycle suivant  

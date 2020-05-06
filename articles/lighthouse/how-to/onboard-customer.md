@@ -1,14 +1,14 @@
 ---
 title: Intégrer un client dans la gestion des ressources déléguées Azure
 description: Découvrez comment intégrer un client à la gestion des ressources déléguées Azure, permettant ainsi que ses ressources soient accessibles et gérables via votre propre locataire.
-ms.date: 04/16/2020
+ms.date: 04/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 22c96d43f3d5f284c2cba995eb33f5f8cd238659
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 2b8bf3125dd97397f83a2a2cbf23090bce41ad40
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81481687"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82161106"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Intégrer un client dans la gestion des ressources déléguées Azure
 
@@ -107,7 +107,7 @@ az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output ts
 az role definition list --name "<roleName>" | grep name
 ```
 > [!TIP]
-> Nous vous recommandons d’attribuer le [rôle de suppression de l’affectation d’inscription des services managés](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) lors de l’intégration d’un client, afin que les utilisateurs de votre locataire puissent [supprimer l’accès à la délégation](#remove-access-to-a-delegation) ultérieurement si nécessaire. Si ce rôle n’est pas attribué, les ressources déléguées ne peuvent être supprimées que par un utilisateur dans le locataire du client.
+> Nous vous recommandons d’attribuer le [rôle de suppression de l’affectation d’inscription des services managés](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) lors de l’intégration d’un client, afin que les utilisateurs de votre locataire puissent [supprimer l’accès à la délégation](remove-delegation.md) ultérieurement si nécessaire. Si ce rôle n’est pas attribué, les ressources déléguées ne peuvent être supprimées que par un utilisateur dans le locataire du client.
 
 ## <a name="create-an-azure-resource-manager-template"></a>Créer un modèle Azure Resource Manager
 
@@ -199,6 +199,8 @@ Comme il s’agit d’un déploiement au niveau de l’abonnement, il ne peut pa
 
 > [!IMPORTANT]
 > Ce déploiement au niveau de l’abonnement doit être effectué par un compte non invité dans le locataire du client qui a le [rôle intégré Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) pour l’abonnement en cours d’intégration (ou qui contient les groupes de ressources en cours d’intégration). Pour voir tous les utilisateurs qui peuvent déléguer l’abonnement, un utilisateur du locataire du client peut sélectionner l’abonnement dans le portail Azure, ouvrir **Contrôle d’accès (IAM)** et [afficher tous les utilisateurs ayant le rôle Propriétaire](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
+>
+> Si l’abonnement a été créé par le biais du [programme Fournisseur de solutions Cloud (CSP)](../concepts/cloud-solution-provider.md), tout utilisateur disposant du rôle [Agent d’administration](https://docs.microsoft.com/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) dans le locataire de votre fournisseur de services peut effectuer le déploiement.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -280,77 +282,8 @@ Get-AzContext
 az account list
 ```
 
-## <a name="remove-access-to-a-delegation"></a>Supprimer l’accès à une délégation
-
-Par défaut, les utilisateurs résidant dans le locataire du client qui disposent des autorisations appropriées peuvent supprimer l’accès au fournisseur de services aux ressources déléguées dans la [page Fournisseurs de services](view-manage-service-providers.md#add-or-remove-service-provider-offers) du Portail Azure. Dans ce cas, aucun utilisateur du locataire du fournisseur de services ne pourra accéder aux ressources précédemment déléguées.
-
-Si vous avez intégré des utilisateurs avec le [rôle Supprimer l’attribution de l’inscription des services managés](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) lors de l’intégration d’un client dans le cadre de la gestion des ressources déléguées Azure, ces utilisateurs pourront également supprimer la délégation.
-
-L’exemple ci-dessous montre une affectation octroyant le **rôle Supprimer l’attribution de l’inscription des services managés** pouvant être inclus dans un fichier de paramètres :
-
-```json
-    "authorizations": [ 
-        { 
-            "principalId": "cfa7496e-a619-4a14-a740-85c5ad2063bb", 
-            "principalIdDisplayName": "MSP Operators", 
-            "roleDefinitionId": "91c1777a-f3dc-4fae-b103-61d183457e46" 
-        } 
-    ] 
-```
-
-Un utilisateur disposant de cette autorisation peut supprimer une délégation de l’une des manières suivantes.
-
-### <a name="azure-portal"></a>Portail Azure
-
-1. Accédez à la [page Mes clients](view-manage-customers.md).
-2. Sélectionnez **Délégations**.
-3. Recherchez la délégation que vous souhaitez supprimer, puis sélectionnez l’icône de corbeille qui apparaît dans sa ligne.
-
-### <a name="powershell"></a>PowerShell
-
-```azurepowershell-interactive
-# Log in first with Connect-AzAccount if you're not using Cloud Shell
-
-# Sign in as a user from the managing tenant directory 
-
-Login-AzAccount
-
-# Select the subscription that is delegated - or contains the delegated resource group(s)
-
-Select-AzSubscription -SubscriptionName "<subscriptionName>"
-
-# Get the registration assignment
-
-Get-AzManagedServicesAssignment -Scope "/subscriptions/{delegatedSubscriptionId}"
-
-# Delete the registration assignment
-
-Remove-AzManagedServicesAssignment -ResourceId "/subscriptions/{delegatedSubscriptionId}/providers/Microsoft.ManagedServices/registrationAssignments/{assignmentGuid}"
-```
-
-### <a name="azure-cli"></a>Azure CLI
-
-```azurecli-interactive
-# Log in first with az login if you're not using Cloud Shell
-
-# Sign in as a user from the managing tenant directory
-
-az login
-
-# Select the subscription that is delegated – or contains the delegated resource group(s)
-
-az account set -s <subscriptionId/name>
-
-# List registration assignments
-
-az managedservices assignment list
-
-# Delete the registration assignment
-
-az managedservices assignment delete --assignment <id or full resourceId>
-```
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez les [Expériences de gestion inter-locataire](../concepts/cross-tenant-management-experience.md).
 - [Affichez et gérez les clients](view-manage-customers.md) en accédant à **Mes clients** sur le portail Azure.
+- Découvrez comment [supprimer l’accès à une délégation](remove-delegation.md) qui a été intégrée.

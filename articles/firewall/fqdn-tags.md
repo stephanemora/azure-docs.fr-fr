@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 04/24/2020
 ms.author: victorh
-ms.openlocfilehash: 6396f8292a4c54f7fce237439f37c3e8156d59e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4fcadb6d930f7863c733dad105432a64127b59b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74169049"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232647"
 ---
 # <a name="fqdn-tags-overview"></a>Présentation des balises FQDN
 
@@ -36,10 +36,11 @@ Le tableau suivant présente les balises FQDN que vous pouvez actuellement utili
 |App Service Environment (ASE)|Autoriser l’accès sortant au trafic de plateforme ASE. Cette balise ne concerne pas les points de terminaison SQL et de stockage propres au client créés par ASE. Ceux-ci doivent être activés via les [points de terminaison de service](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou ajoutés manuellement.<br><br>Pour plus d’informations sur l’intégration du Pare-feu Azure avec l’ASE, consultez [Verrouillage d’un App Service Environment](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
 |Sauvegarde Azure|Autoriser l’accès sortant aux services de sauvegarde Azure.|
 |Azure HDInsight|Autoriser l’accès sortant au trafic de plateforme HDInsight. Cette balise ne concerne pas le trafic SQL et de stockage propre au client provenant de HDInsight. Activer à l’aide de [points de terminaison de service](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou ajouter manuellement.|
+|WindowsVirtualDesktop (WVD)|Autorise le trafic sortant de la plateforme Windows Virtual Desktop. Cette étiquette ne concerne pas les points de terminaison Service Bus et de stockage propres au déploiement créés par WVD. En outre, des règles de réseau DNS et KMS sont requises. Pour plus d’informations sur l’intégration du Pare-feu Azure à WVD, consultez [Utiliser le Pare-feu Azure pour protéger les déploiements de Windows Virtual Desktop](protect-windows-virtual-desktop.md). 
 
 > [!NOTE]
 > Lorsque vous sélectionnez une balise FQDN dans une règle d’application, le champ protocol:port doit être défini sur **https**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour apprendre à déployer un pare-feu Azure, voir [Didacticiel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure](tutorial-firewall-deploy-portal.md).
+Pour savoir comment déployer un pare-feu Azure, consultez le [didacticiel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure](tutorial-firewall-deploy-portal.md)

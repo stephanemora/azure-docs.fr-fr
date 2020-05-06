@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: c6b845eda1df39ccf5e4b2b1d6a615f3bc932b66
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 42d3360b7defaab2ff0a62dc125a213860b13a6a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474939"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133614"
 ---
 # <a name="azure-networking-services-overview"></a>Vue d’ensemble des services de mise en réseau Azure
 
@@ -74,7 +74,7 @@ Azure Virtual WAN est un service réseau qui offre une connectivité de branche 
 Azure DNS est un service d’hébergement pour les domaines DNS qui offre une résolution de noms à l’aide de l’infrastructure Microsoft Azure. En hébergeant vos domaines dans Azure, vous pouvez gérer vos enregistrements DNS à l’aide des mêmes informations d’identification, les mêmes API, les mêmes outils et la même facturation que vos autres services Azure. Pour plus d’informations, consultez [Présentation d’Azure DNS](../dns/dns-overview.md).
 
 ### <a name="azure-bastion"></a><a name="bastion"></a>Azure Bastion
-Le service Azure Bastion est un nouveau service PaaS complètement managé par la plateforme que vous provisionnez au sein de votre réseau virtuel. Il fournit une connectivité RDP/SSH sécurisée et fluide à vos machines virtuelles directement dans le Portail Azure via TLS. Lorsque vous vous connectez via Azure Bastion, vos machines virtuelles n’ont pas besoin d’une adresse IP publique. Pour plus d’informations, consultez [Présentation d’Azure Bastion](../bastion/bastion-overview.md).
+Le service Azure Bastion est un nouveau service PaaS complètement managé par la plateforme que vous provisionnez au sein de votre réseau virtuel. Il fournit une connectivité RDP/SSH sécurisée et fluide à vos machines virtuelles, directement dans le portail Azure via TLS. Lorsque vous vous connectez via Azure Bastion, vos machines virtuelles n’ont pas besoin d’une adresse IP publique. Pour plus d’informations, consultez [Présentation d’Azure Bastion](../bastion/bastion-overview.md).
 
 ![Architecture d’Azure Bastion](./media/networking-overview/architecture.png)
 
@@ -196,7 +196,7 @@ Cette section décrit les services de mise en réseau dans Azure qui permettent 
 ### <a name="network-watcher"></a><a name="networkwatcher"></a>Network Watcher
 Azure Network Watcher offre des outils permettant d’effectuer un monitoring et des diagnostics, d’afficher les métriques et d’activer et de désactiver les journaux d’activité pour les ressources se trouvant sur un réseau virtuel Azure. Pour plus d’informations, consultez [Présentation de Network Watcher](../network-watcher/network-watcher-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 ### <a name="expressroute-monitor"></a><a name="expressroutemonitor"></a>Moniteur ExpressRoute
-Pour en savoir plus sur l’affichage des indicateurs de performance de circuit ExpressRoute, les journaux de diagnostic et les alertes, consultez [Surveillance, métriques et alertes ExpressRoute](../expressroute/expressroute-monitoring-metrics-alerts.md?toc=%2fazure%2fnetworking%2ftoc.json).
+Pour en savoir plus sur l’affichage des métriques de circuit ExpressRoute, les journaux de ressources et les alertes, consultez [Supervision, métriques et alertes ExpressRoute](../expressroute/expressroute-monitoring-metrics-alerts.md?toc=%2fazure%2fnetworking%2ftoc.json).
 ### <a name="azure-monitor"></a><a name="azuremonitor"></a>Azure Monitor
 Azure Monitor optimise la disponibilité et les performances de vos applications en fournissant une solution complète pour collecter, analyser et agir sur les données de télémétrie de vos environnements cloud et locaux. Il vous aide à comprendre le fonctionnement de vos applications et identifie de façon proactive les problèmes qui les affectent et les ressources dont elles dépendent. Pour plus d’informations, consultez [Vue d’ensemble d’Azure Monitor](../azure-monitor/overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 ### <a name="virtual-network-tap"></a><a name="vnettap"></a>TAP de réseau virtuel

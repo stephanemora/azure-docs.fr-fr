@@ -1,25 +1,14 @@
 ---
-title: Partage de fichiers Azure pour des pools Azure Batch | Microsoft Docs
+title: Partage de fichiers Azure pour des pools Azure Batch
 description: Guide pratique pour monter un partage Azure Files à partir de nœuds de calcul dans un pool Linux ou Windows dans Azure Batch.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: big-compute
 ms.date: 05/24/2018
-ms.author: labrenne
-ms.custom: ''
-ms.openlocfilehash: 156dad25af5abd1b4d5db32569faf09a23fadfb1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 666ee6bd0e6287545c107427dffcc9f2ccde900a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022509"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82115446"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Utiliser un partage de fichiers Azure avec un pool Batch
 

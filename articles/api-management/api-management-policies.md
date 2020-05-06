@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 2b6e056fbfb134f0b1218b4281b9f971a0e24202
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4a29c7cb7e35e69eb9410dd7ddc9f07757e3565
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71219472"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82128730"
 ---
 # <a name="api-management-policies"></a>Stratégies API Management
 Cette section est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](api-management-howto-policies.md).  
@@ -50,7 +50,7 @@ Cette section est une ressource de référence au sujet des stratégies Gestion 
     -   [Set variable](api-management-advanced-policies.md#set-variable) : conserve une valeur dans une variable de contexte nommée pour permettre d’y accéder ultérieurement.  
     -   [Set request method](api-management-advanced-policies.md#SetRequestMethod) : permet de modifier la méthode HTTP d’une demande.  
     -   [Set status code](api-management-advanced-policies.md#SetStatus) : permet de donner la valeur spécifiée au code d’état HTTP.  
-    -   [Trace](api-management-advanced-policies.md#Trace) : ajoute des traces personnalisées à la sortie [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/), aux données de télémétrie Application Insights et aux journaux de diagnostic.  
+    -   [Trace](api-management-advanced-policies.md#Trace) : ajoute des traces personnalisées à la sortie [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/), aux données de télémétrie Application Insights et aux journaux de ressources.  
     -   [Wait](api-management-advanced-policies.md#Wait) : attend l’exécution des stratégies [Send request](api-management-advanced-policies.md#SendRequest), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey) ou [Control flow](api-management-advanced-policies.md#choose) pour continuer.  
 -   [Stratégies d’authentification](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Authenticate with Basic](api-management-authentication-policies.md#Basic) : authentification avec un service principal à l’aide de l’authentification de base.  

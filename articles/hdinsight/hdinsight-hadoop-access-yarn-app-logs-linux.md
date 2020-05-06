@@ -6,24 +6,24 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 01/23/2020
-ms.openlocfilehash: 2a7d71c6d751d4a48ec93f020e657a4d43114cfc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/23/2020
+ms.openlocfilehash: 726cf362e62f0ef914dfaea090a08c224bd5d8d6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76764377"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192499"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Accéder aux journaux des applications Apache Hadoop YARN dans HDInsight basé sur Linux
 
-Découvrez comment accéder aux journaux des applications [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) (Yet Another Resource Negotiator) sur un cluster [Apache Hadoop](https://hadoop.apache.org/) dans Azure HDInsight.
+Découvrez comment accéder aux journaux des applications [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) (Yet Another Resource Negotiator) sur un cluster Apache Hadoop dans Azure HDInsight.
 
 ## <a name="what-is-apache-yarn"></a>Qu’est-ce qu’Apache YARN ?
 
-YARN (Yet Another Resource Negotiator) prend en charge plusieurs modèles de programmation (dont [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html)) en séparant la gestion des ressources de la planification et de l’analyse des applications. YARN utilise les éléments suivant : *ResourceManager* (RM) global, *NodeManagers* (NM) par nœud worker et *ApplicationMasters* (AM) par application. Le maître d'application, propre à chaque application, négocie les ressources nécessaires (processeur, mémoire, disque, réseau) pour exécuter l'application avec le gestionnaire de ressources. Le gestionnaire de ressources fonctionne avec les gestionnaires de nœuds pour octroyer ces ressources sous forme de *conteneurs*. Le maître d'application est chargé de suivre la progression des conteneurs qui lui sont assignés par le gestionnaire de ressources. Selon la nature de l'application, celle-ci peut nécessiter de nombreux conteneurs.
+YARN (Yet Another Resource Negotiator) prend en charge plusieurs modèles de programmation (dont Apache Hadoop MapReduce) en séparant la gestion des ressources de la planification et de la supervision des applications. YARN utilise les éléments suivants : *`ResourceManager`* (RM) global, *NodeManagers* (NM) par nœud worker et *ApplicationMasters* (AM) par application. Le maître d'application, propre à chaque application, négocie les ressources nécessaires (processeur, mémoire, disque, réseau) pour exécuter l'application avec le gestionnaire de ressources. Le gestionnaire de ressources fonctionne avec les gestionnaires de nœuds pour octroyer ces ressources sous forme de *conteneurs*. Le maître d'application est chargé de suivre la progression des conteneurs qui lui sont assignés par le gestionnaire de ressources. Selon la nature de l'application, celle-ci peut nécessiter de nombreux conteneurs.
 
-Chaque application peut comporter plusieurs *tentatives d’application*. Si une application échoue, vous pouvez la relancer. Il s’agit alors d’une nouvelle tentative. Chaque tentative est exécutée dans un conteneur. D’une certaine manière, un conteneur fournit le contexte pour l’unité de base du travail effectué par une application YARN. Tout le travail réalisé dans le contexte d’un conteneur est effectué sur l’unique nœud Worker auquel le conteneur a été alloué. Pour plus d’informations, consultez [Hadoop : Écriture d’applications YARN](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html) ou [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html).
+Chaque application peut comporter plusieurs *tentatives d’application*. Si une application échoue, vous pouvez la relancer. Il s’agit alors d’une nouvelle tentative. Chaque tentative est exécutée dans un conteneur. D’une certaine manière, un conteneur fournit le contexte pour l’unité de base du travail effectué par une application YARN. Tout le travail réalisé dans le contexte d’un conteneur est effectué sur l’unique nœud Worker auquel le conteneur a été donné. Pour plus d’informations, consultez [Hadoop : Écriture d’applications YARN](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html) ou [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html).
 
 Pour mettre à l’échelle votre cluster de manière à prendre en charge un plus grand débit de traitement, vous pouvez utiliser [Mettre à l’échelle automatiquement](hdinsight-autoscale-clusters.md) ou [Mettre à l’échelle vos clusters manuellement à l’aide de différents langages](hdinsight-scaling-best-practices.md#utilities-to-scale-clusters).
 
@@ -40,11 +40,9 @@ YARN Timeline Server inclut le type de données suivant :
 
 ## <a name="yarn-applications-and-logs"></a>Applications et journaux d’activité YARN
 
-YARN (Yet Another Resource Negotiator) prend en charge plusieurs modèles de programmation (dont [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html)) en séparant la gestion des ressources de la planification et de l’analyse des applications. YARN utilise les éléments suivant : *ResourceManager* (RM) global, *NodeManagers* (NM) par nœud worker et *ApplicationMasters* (AM) par application. Le maître d'application, propre à chaque application, négocie les ressources nécessaires (processeur, mémoire, disque, réseau) pour exécuter l'application avec le gestionnaire de ressources. Le gestionnaire de ressources fonctionne avec les gestionnaires de nœuds pour octroyer ces ressources sous forme de *conteneurs*. Le maître d'application est chargé de suivre la progression des conteneurs qui lui sont assignés par le gestionnaire de ressources. Selon la nature de l'application, celle-ci peut nécessiter de nombreux conteneurs.
+Les journaux des applications (et les journaux d’activité des conteneurs associés) sont essentiels pour déboguer des applications Hadoop problématiques. YARN fournit une infrastructure adaptée à la collecte, à l’agrégation et au stockage des journaux des applications avec l’[agrégation des journaux](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
 
-Chaque application peut comporter plusieurs *tentatives d’application*. Si une application échoue, vous pouvez la relancer. Il s’agit alors d’une nouvelle tentative. Chaque tentative est exécutée dans un conteneur. D’une certaine manière, un conteneur fournit le contexte pour l’unité de base du travail effectué par une application YARN. Tout le travail réalisé dans le contexte d’un conteneur est effectué sur l’unique nœud Worker auquel le conteneur a été alloué. Pour plus d’informations, consultez la rubrique [Concepts relatifs à Apache Hadoop YARN](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html).
-
-Les journaux des applications (et les journaux d’activité des conteneurs associés) sont essentiels pour déboguer des applications Hadoop problématiques. La fonctionnalité [Agrégation de journaux d’activité](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/) de YARN fournit une infrastructure adaptée à la collecte, à l’agrégation et au stockage des journaux des applications. La fonction d’agrégation de journaux d’activité rend l’accès aux journaux des applications plus déterministe. Il regroupe les journaux d’activité de tous les conteneurs sur un nœud Worker et les stocke dans un fichier journal agrégé par nœud Worker. Le journal est stocké sur le système de fichiers par défaut après la fin d’une application. Votre application peut utiliser des centaines voire des milliers de conteneurs, mais les journaux d’activité de tous les conteneurs exécutés sur un nœud worker unique sont toujours regroupés dans un fichier unique. Cela se traduit par l’existence d’un seul fichier journal par nœud worker utilisé par votre application. L’agrégation de journaux est activée par défaut sur les clusters HDInsight version 3.0 et versions ultérieures. Les journaux d’activité agrégés sont situés dans le stockage par défaut pour le cluster. Le chemin d’accès suivant est le chemin d’accès HDFS pour les journaux d’activité :
+La fonction d’agrégation de journaux d’activité rend l’accès aux journaux des applications plus déterministe. Il regroupe les journaux d’activité de tous les conteneurs sur un nœud Worker et les stocke dans un fichier journal agrégé par nœud Worker. Le journal est stocké sur le système de fichiers par défaut après la fin d’une application. Votre application peut utiliser des centaines voire des milliers de conteneurs, mais les journaux d’activité de tous les conteneurs exécutés sur un nœud worker unique sont toujours regroupés dans un fichier unique. Cela se traduit par l’existence d’un seul fichier journal par nœud worker utilisé par votre application. L’agrégation de journaux est activée par défaut sur les clusters HDInsight version 3.0 et versions ultérieures. Les journaux d’activité agrégés sont situés dans le stockage par défaut pour le cluster. Le chemin d’accès suivant est le chemin d’accès HDFS pour les journaux d’activité :
 
 ```
 /app-logs/<user>/logs/<applicationId>
@@ -52,7 +50,7 @@ Les journaux des applications (et les journaux d’activité des conteneurs asso
 
 Dans le chemin d’accès, `user` est le nom de l’utilisateur qui a démarré l’application. Le `applicationId` est l’identificateur unique affecté à une application par le Gestionnaire de ressources YARN.
 
-Les journaux d’activité agrégés ne sont pas lisibles directement, car ils sont écrits dans un [TFile](https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf), un [format binaire](https://issues.apache.org/jira/browse/HADOOP-3315) indexé par conteneur. Utilisez les journaux d’activité ResourceManager YARN ou les outils CLI pour afficher ces journaux d’activité au format texte brut pour les applications ou les conteneurs qui présentent un intérêt.
+Les journaux agrégés ne sont pas lisibles directement, car ils sont écrits dans un TFile, format binaire indexé par conteneur. Utilisez les journaux `ResourceManager` YARN ou les outils CLI pour afficher ces journaux au format texte brut pour les applications ou les conteneurs qui présentent un intérêt.
 
 ## <a name="yarn-logs-in-an-esp-cluster"></a>Journaux Yarn dans un cluster ESP
 
@@ -87,13 +85,13 @@ Deux configurations doivent être ajoutées à l'élément `mapred-site` personn
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Répertoriez les ID de toutes les applications Yarn en cours d’exécution à l’aide de la commande suivante :
+1. Dressez la liste des ID de toutes les applications Yarn en cours d’exécution à l’aide de la commande suivante :
 
     ```bash
     yarn top
     ```
 
-    Notez l'ID d'application de la colonne `APPLICATIONID` dont les journaux d’activité doivent être téléchargés.
+    Notez l’ID d’application de la colonne `APPLICATIONID` dont les journaux doivent être téléchargés.
 
     ```output
     YARN top - 18:00:07, up 19d, 0:14, 0 active users, queue(s): root
@@ -119,7 +117,7 @@ Deux configurations doivent être ajoutées à l'élément `mapred-site` personn
 
 ### <a name="other-sample-commands"></a>Autres exemples de commandes
 
-1. Télécharger les journaux d’activité de conteneurs Yarn pour tous les processus maîtres d’application à l’aide de la commande ci-dessous. Le fichier journal nommé `amlogs.txt` est créé au format texte.
+1. Télécharger les journaux d’activité de conteneurs Yarn pour tous les processus maîtres d’application à l’aide de la commande ci-dessous. Cette étape crée le fichier journal nommé `amlogs.txt` au format texte.
 
     ```bash
     yarn logs -applicationId <application_id> -am ALL > amlogs.txt
@@ -149,9 +147,9 @@ Deux configurations doivent être ajoutées à l'élément `mapred-site` personn
     yarn logs -applicationId <application_id> -containerId <container_id> > containerlogs.txt
     ```
 
-## <a name="yarn-resourcemanager-ui"></a>Interface utilisateur de ResourceManager YARN
+## <a name="yarn-resourcemanager-ui"></a>Interface utilisateur `ResourceManager` YARN
 
-L’interface utilisateur ResourceManager YARN s’exécute sur le nœud principal du cluster. Il est accessible via l’interface utilisateur web d’Ambari. Procédez comme suit pour afficher les journaux d’activité YARN :
+L’interface utilisateur `ResourceManager` YARN s’exécute sur le nœud principal du cluster. Il est accessible via l’interface utilisateur web d’Ambari. Procédez comme suit pour afficher les journaux d’activité YARN :
 
 1. Dans votre navigateur web, accédez à `https://CLUSTERNAME.azurehdinsight.net`. Remplacez CLUSTERNAME par le nom de votre cluster HDInsight.
 
@@ -159,8 +157,13 @@ L’interface utilisateur ResourceManager YARN s’exécute sur le nœud princip
 
     ![Apache Ambari - Service Yarn sélectionné](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)
 
-3. Dans la liste déroulante **Liens rapides**, sélectionnez un des nœuds principaux du cluster, puis **Journal ResourceManager**.
+3. Dans la liste déroulante **Liens rapides**, sélectionnez un des nœuds principaux du cluster, puis **`ResourceManager Log`** .
 
     ![Apache Ambari - Liens rapides Yarn](./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png)
 
     Une liste de liens menant vers les journaux d’activité YARN s’affiche.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Architecture Apache Hadoop dans HDInsight](hdinsight-hadoop-architecture.md)
+* [Résoudre les problèmes d’Apache Hadoop YARN avec Azure HDInsight](hdinsight-troubleshoot-yarn.md)

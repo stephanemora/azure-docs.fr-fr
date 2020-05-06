@@ -7,21 +7,31 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0684f626553946619a0db2cd895df39576bd17b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a079f42f63e232c21a52bd108b34c3b022dcee5b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228281"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176088"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
-Le service [Azure Files](storage-files-introduction.md) peut être déployé de deux façons : en procédant à un montage direct des partages de fichiers Azure serverless ou en mettant en cache des partages de fichiers Azure localement à l'aide d'Azure File Sync. L'option de déploiement que vous choisissez détermine les éléments à prendre en compte lors de la planification de votre déploiement. 
+
+:::row:::
+    :::column:::
+        [![Interview et démo de présentation d’Azure File Sync - cliquez pour lancer la lecture](./media/storage-sync-files-planning/azure-file-sync-interview-video-snapshot.png)](https://www.youtube.com/watch?v=nfWLO7F52-s)
+    :::column-end:::
+    :::column:::
+        Azure File Sync est un service qui vous permet de mettre en cache un certain nombre de partages de fichiers Azure sur un serveur Windows local ou une machine virtuelle cloud. 
+        
+        Cet article vous présente les concepts et fonctionnalités d’Azure File Sync. Une fois que vous êtes familiarisé avec Azure File Sync, vous pouvez consulter le [Guide de déploiement Azure File Sync](storage-sync-files-deployment-guide.md) pour tester ce service.        
+    :::column-end:::
+:::row-end:::
+
+Les fichiers sont stockés sur le cloud dans les [partages de fichiers Azure](storage-files-introduction.md). Les partages de fichiers Azure peuvent être utilisés de deux façons : en montant directement ces partages de fichiers Azure serverless (SMB), ou en mettant en cache les partages de fichiers Azure en local avec Azure File Sync. L'option de déploiement que vous choisissez détermine les aspects à prendre en compte lors de la planification de votre déploiement. 
 
 - **Montage direct d'un partage de fichiers Azure** : étant donné qu'Azure Files fournit un accès SMB, vous pouvez monter des partages de fichiers Azure localement ou dans le cloud à l'aide du client SMB standard disponible sous Windows, macOS et Linux. Dans la mesure où les partages de fichiers Azure sont serverless, vous n'avez aucun serveur de fichiers ou appareil NAS à gérer lors des déploiements liés à des scénarios de production. Concrètement, cela signifie que vous n'avez aucun correctif logiciel à appliquer ni aucun disque physique à remplacer. 
 
-- **Mise en cache d'un partage de fichiers Azure localement à l'aide d'Azure File Sync** : Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d'un serveur de fichiers local. Azure File Sync transforme une instance locale (ou cloud) de Windows Server en un cache rapide de votre partage de fichiers Azure. 
-
-Cet article traite principalement des considérations relatives au déploiement d'Azure File Sync. Pour planifier un déploiement de partages de fichiers Azure à monter directement par un client local ou cloud, consultez [Planification d'un déploiement Azure Files](storage-files-planning.md).
+- **Mise en cache d'un partage de fichiers Azure localement à l'aide d'Azure File Sync** : Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d'un serveur de fichiers local. Azure File Sync transforme une instance Windows Server locale (ou cloud) en cache rapide de votre partage de fichiers Azure. 
 
 ## <a name="management-concepts"></a>Concepts de gestion
 Un déploiement Azure File Sync repose sur les trois objets de gestion suivants :
@@ -50,7 +60,7 @@ Lors du déploiement d'Azure File Sync, suivez les recommandations ci-dessous :
 - Lors du déploiement de partages de fichiers Azure, soyez attentif aux limitations d'IOPS d'un compte de stockage. Dans l'idéal, une correspondance 1:1 doit être respectée entre les partages de fichiers et les comptes de stockage, mais cela n'est pas toujours possible en raison des différentes limites et restrictions imposées par votre organisation et Azure. Lorsqu'il est impossible de déployer un seul partage de fichiers sur un seul compte de stockage, il convient d'identifier les partages qui seront plus ou moins actifs afin de veiller à ce que les plus actifs ne soient pas regroupés sur le même compte de stockage.
 
 ## <a name="windows-file-server-considerations"></a>Considérations relatives aux serveurs de fichiers Windows
-Pour activer la fonctionnalité de synchronisation sur Windows Server, vous devez installer l'agent téléchargeable Azure File Sync. L'agent Azure File Sync fournit deux composants principaux : `FileSyncSvc.exe`, le service Windows d'arrière-plan chargé de la supervision des modifications sur les points de terminaison de serveur et du lancement des sessions de synchronisation, et `StorageSync.sys`, un filtre de système de fichiers qui permet la hiérarchisation cloud et la récupération d'urgence rapide.  
+Pour activer la fonctionnalité de synchronisation sur Windows Server, vous devez installer l'agent téléchargeable Azure File Sync. L’agent Azure File Sync fournit deux composants principaux : `FileSyncSvc.exe`, le service Windows en arrière-plan chargé de la supervision des modifications sur les points de terminaison de serveur et du lancement des sessions de synchronisation, et `StorageSync.sys`, un filtre de système de fichiers qui permet la hiérarchisation cloud et une récupération d’urgence rapide.  
 
 ### <a name="operating-system-requirements"></a>Système d'exploitation requis
 Azure File Sync est pris en charge avec les versions suivantes de Windows Server :
@@ -227,7 +237,7 @@ Si la hiérarchisation cloud est activée sur un point de terminaison de serveur
 Aucune autre solution HSM ne doit être utilisée avec Azure File Sync.
 
 ## <a name="identity"></a>Identité
-Azure File Sync fonctionne avec votre identité AD standard sans aucune configuration particulière en plus de la configuration de la synchronisation. En utilisant Azure File Sync, vous vous attendez probablement à ce que la plupart des accès passent par les serveurs de mise en cache Azure File Sync plutôt que par le partage de fichiers Azure. Comme les points de terminaison de serveur se trouvent sur Windows Server, et que Windows Server prend en charge AD et les listes de contrôle d'accès de type Windows depuis très longtemps, la seule chose à faire est de s'assurer que les serveurs de fichiers Windows inscrits auprès du service de synchronisation de stockage sont joints au domaine. Azure File Sync stocke les listes de contrôle d'accès sur les fichiers du partage de fichiers Azure et les réplique sur tous les points de terminaison de serveur.
+Azure File Sync fonctionne avec votre identité AD standard sans aucune configuration particulière en plus de la configuration de la synchronisation. En utilisant Azure File Sync, vous vous attendez probablement à ce que la plupart des accès passent par les serveurs de mise en cache Azure File Sync plutôt que par le partage de fichiers Azure. Comme les points de terminaison de serveur se trouvent sur Windows Server, et que Windows Server prend en charge AD et les listes de contrôle d’accès de type Windows depuis longtemps, la seule chose à faire est de s’assurer que les serveurs de fichiers Windows inscrits auprès du service de synchronisation de stockage sont joints au domaine. Azure File Sync stocke les listes de contrôle d'accès sur les fichiers du partage de fichiers Azure et les réplique sur tous les points de terminaison de serveur.
 
 Même si les modifications apportées directement au partage de fichiers Azure mettent plus longtemps à se synchroniser avec les points de terminaison de serveur au sein du groupe de synchronisation, vous pouvez également vous assurer qu'il vous est possible d'appliquer vos autorisations AD sur votre partage de fichiers directement dans le cloud. Pour ce faire, vous devez effectuer une jonction de domaine de votre compte de stockage à votre instance locale d'AD, tout comme vos serveurs de fichiers Windows sont joints à un domaine. Pour en savoir plus sur la jonction de domaine de votre compte de stockage à une instance d'Active Directory détenue par le client, consultez [Présentation d'Azure Files Active Directory](storage-files-active-directory-overview.md).
 
@@ -256,13 +266,17 @@ Sur Windows Server, deux stratégies de chiffrement des données fonctionnent g�
 
 Pour assurer le chiffrement sous le système de fichiers, Windows Server fournit la boîte de réception BitLocker. BitLocker est entièrement transparent pour Azure File Sync. L'utilisation d'un mécanisme de chiffrement comme BitLocker permet d'empêcher l'exfiltration physique des données de votre centre de données local en cas de vol des disques et d'empêcher le chargement indépendant d'un système d'exploitation non autorisé pour effectuer des lectures/écritures non autorisées sur vos données. Pour en savoir plus sur BitLocker, consultez [Présentation de BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview).
 
-Les produits tiers qui fonctionnent de la même façon que BitLocker, en ce sens qu'ils se trouvent sous le volume NTFS, doivent également fonctionner de manière totalement transparente avec Azure File Sync. 
+Les produits tiers qui fonctionnent de la même façon que BitLocker, en ce sens qu’ils se trouvent sous le volume NTFS, doivent également fonctionner de manière totalement transparente avec Azure File Sync. 
 
 L'autre méthode principale de chiffrement des données consiste à chiffrer le flux de données du fichier lorsque l'application enregistre ce dernier. Certaines applications peuvent effectuer cette opération en mode natif, mais ce n'est généralement pas le cas. Azure Information Protection (AIP)/Azure Rights Management Services (Azure RMS)/Active Directory RMS sont des exemples de méthodes de chiffrement du flux de données du fichier. L'utilisation d'un mécanisme de chiffrement comme AIP/RMS permet d'empêcher l'exfiltration des données de votre partage de fichiers si quelqu'un venait à les copier à un autre emplacement, comme une clé USB, ou à les envoyer par e-mail à une personne non autorisée. Lorsque le flux de données d'un fichier est chiffré au sein du format de fichier, ce fichier reste chiffré sur le partage de fichiers Azure. 
 
 Azure File Sync n'interagit pas avec NTFS EFS (NTFS Encrypted File System) ou des solutions de chiffrement tierces situées au-dessus du système de fichiers mais en dessous du flux de données du fichier. 
 
 ### <a name="encryption-in-transit"></a>Chiffrement en transit
+
+> [!NOTE]
+> Le service Azure File Sync supprimera la prise en charge des protocoles TLS 1.0 et 1.1 en août 2020. Toutes les versions prises en charge de l’agent Azure File Sync utilisent déjà le protocole TLS 1.2 par défaut. L’utilisation d’une version antérieure de TLS peut se produire si le protocole TLS 1.2 a été désactivé sur votre serveur ou si un proxy est utilisé. Si vous utilisez un proxy, nous vous recommandons de vérifier la configuration du proxy. Les régions de service Azure File Sync ajoutées après le 1/5/2020 prennent uniquement en charge le protocole TLS 1.2, et la prise en charge des protocoles TLS 1.0 et 1.1 sera supprimée des régions existantes en août 2020.  Pour plus d’informations, consultez le [guide de résolution des problèmes](storage-sync-files-troubleshoot.md#tls-12-required-for-azure-file-sync).
+
 L'agent Azure File Sync communique avec votre service de synchronisation de stockage et votre partage de fichiers Azure à l'aide du protocole Azure File Sync REST et du protocole FileREST, qui utilisent tous deux HTTPS sur le port 443. Azure File Sync n'envoie pas de requêtes non chiffrées sur HTTP. 
 
 Les comptes de stockage Azure contiennent un commutateur permettant d'exiger le chiffrement en transit, qui est activé par défaut. Même si le commutateur est désactivé au niveau du compte de stockage, ce qui signifie que des connexions non chiffrées à vos partages de fichiers Azure sont possibles, Azure File Sync utilisera toujours des canaux chiffrés pour accéder à votre partage de fichiers.

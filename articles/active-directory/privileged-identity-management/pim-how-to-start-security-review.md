@@ -14,12 +14,12 @@ ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f7e9ef503a9a3469ecbc835be8d9229fbd0167f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6b4c8c1a1f846d8d04d7758c8d7bdcd932ac3c90
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73847107"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185714"
 ---
 # <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Créer une révision d’accès des rôles Azure AD dans Privileged Identity Management
 
@@ -37,9 +37,9 @@ Cet article explique comment créer une ou plusieurs révisions d’accès pour 
 
 1. Ouvrez **Azure AD Privileged Identity Management**.
 
-1. Dans le menu de gauche, sélectionnez **Rôles Azure AD**, puis cliquez sur **Révisions d’accès**.
+1. Sélectionnez des **rôles Azure AD**.
 
-1. Sous Gérer, sélectionnez **Révisions d’accès**.
+1. Sous Gérer, sélectionnez **Révisions d’accès**, puis sélectionnez **Nouveau**.
 
     ![Rôles d’Azure AD : liste des révisions d’accès indiquant l’état de toutes les révisions](./media/pim-how-to-start-security-review/access-reviews.png)
 

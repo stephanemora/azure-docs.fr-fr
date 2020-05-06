@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 80881d96d713f3dc4127c94fd324e925e3c68792
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: fee4e16bd77664e541eeb36cb807a77d13191899
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382930"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82165720"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Créer une fonction sur Linux avec un conteneur personnalisé
 
@@ -150,7 +150,7 @@ mvn clean package
 mvn azure-functions:run
 ```
 ::: zone-end
-Quand vous voyez le point de terminaison `HttpExample` dans la sortie, accédez à [`http://localhost:7071/api/HttpExample?name=Functions`](http://localhost:7071/api/HttpExample?name=Functions). Le navigateur doit afficher un message « hello » qui renvoie `Functions` par écho, c’est-à-dire la valeur fournie au paramètre de requête `name`.
+Une fois que le point de terminaison `HttpExample` apparaît dans la sortie, accédez à `http://localhost:7071/api/HttpExample?name=Functions`. Le navigateur doit afficher un message « hello » qui renvoie `Functions` par écho, c’est-à-dire la valeur fournie au paramètre de requête `name`.
 
 Utilisez **Ctrl**-**C** pour arrêter l’hôte.
 
@@ -179,7 +179,7 @@ Une fois que l’image s’exécute dans un conteneur local, ouvrez un navigateu
 
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-Une fois que l’image s’exécute dans un conteneur local, accédez à [`http://localhost:8080/api/HttpExample?name=Functions`](http://localhost:8080/api/HttpExample?name=Functions), qui doit afficher le même message « hello » que précédemment. Étant donné que l’archétype Maven génère une fonction HTTP déclenchée qui utilise une autorisation anonyme, vous pouvez toujours appeler la fonction même si elle est déjà exécutée dans le conteneur. 
+Une fois que l’image s’exécute dans un conteneur local, accédez à `http://localhost:8080/api/HttpExample?name=Functions`, qui doit afficher le même message « hello » que précédemment. Étant donné que l’archétype Maven génère une fonction HTTP déclenchée qui utilise une autorisation anonyme, vous pouvez toujours appeler la fonction même si elle est déjà exécutée dans le conteneur. 
 ::: zone-end  
 
 Après avoir vérifié l’application de fonction dans le conteneur, arrêtez Docker avec **Ctrl**+**C**.

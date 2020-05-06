@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 5dbf32610e54df4ff009d4cb0a0b080babb4ec73
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: b0ebbbb64e173e1501f08f8385b14c365759a804
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74112065"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82116279"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Comment filtrer par langue dans la Recherche cognitive Azure 
 
@@ -32,7 +32,7 @@ Le succès de cette technique dépend de l’intégrité du contenu des champs. 
 
 Dans la Recherche cognitive Azure, les requêtes ciblent un index unique. Les développeurs qui souhaitent fournir des chaînes spécifiques d’une langue dans une expérience de recherche unique définissent généralement des champs dédiés pour stocker les valeurs : un champ pour les chaînes en français, un autre pour les chaînes en anglais, et ainsi de suite. 
 
-Dans nos exemples, y compris l’[exemple d’immobilier](search-get-started-portal.md) ci-dessous, il se peut que vous ayez vu des définitions de champ semblables à la capture d’écran suivante. Vous pouvez constater que l’exemple présente les assignations de l’analyseur de langue pour les champs de cet index. Les champs qui contiennent des chaînes produisent de meilleurs résultats en lien avec une recherche en texte intégral quand ils sont associés à un analyseur conçu pour traiter les règles linguistiques de la langue cible.
+L'exemple suivant est extrait de l'[exemple d’immobilier](search-get-started-portal.md), qui comporte plusieurs champs de chaîne avec du contenu dans différentes langues. Notez les assignations de l’analyseur de langue pour les champs de cet index. Les champs qui contiennent des chaînes produisent de meilleurs résultats en lien avec une recherche en texte intégral quand ils sont associés à un analyseur conçu pour traiter les règles linguistiques de la langue cible.
 
   ![](./media/search-filters-language/lang-fields.png)
 
@@ -58,7 +58,7 @@ parameters =
     };
 ```
 > [!Note]
-> Bien que la requête ne contienne pas d’argument $filter, ce cas d’utilisation est étroitement apparenté aux concepts de filtre. C’est pourquoi nous le présentons comme un scénario de filtrage.
+> Bien que la requête ne contienne pas d’argument $filter, ce cas d’utilisation est étroitement apparenté aux concepts de filtre. C’est pourquoi il est présenté comme un scénario de filtrage.
 
 ## <a name="see-also"></a>Voir aussi
 

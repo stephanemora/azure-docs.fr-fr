@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.openlocfilehash: fe7d076fab6a70736843fc644cd56bef44a55df2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/25/2020
+ms.openlocfilehash: 68355ac4238aba3deaa951881bc164fe9dc08e28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415124"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183430"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Sécurité et confidentialité des données dans Recherche cognitive Azure
 
@@ -40,7 +40,7 @@ Le chiffrement s’étend à tout le pipeline d’indexation : des connexions au
 
 | Calque de sécurité | Description |
 |----------------|-------------|
-| Chiffrement en transit <br>(HTTPS/SSL/TLS) | Recherche cognitive Azure écoute le port HTTPS 443. Sur la plateforme, les connexions aux services Azure sont chiffrées. <br/><br/>Toutes les interactions client-service de Recherche cognitive Azure sont compatibles SSL/TLS 1.2.  Veillez à utiliser TLSv1.2 pour les connexions SSL à votre service.|
+| Chiffrement en transit <br>(HTTPS/TLS) | Recherche cognitive Azure écoute le port HTTPS 443. Sur la plateforme, les connexions aux services Azure sont chiffrées. <br/><br/>Toutes les interactions client-service de Recherche cognitive Azure utilisent le chiffrement TLS 1.2. Les versions antérieures (1.0 et 1.1) ne sont pas prises en charge.|
 | Chiffrement au repos <br>Clés gérées par Microsoft | Le chiffrement est entièrement internalisé dans le processus d’indexation, sans aucun impact mesurable sur la durée d’exécution de l’indexation ou la taille de l’index. Il se produit automatiquement lors de toutes les indexations, y compris lors des mises à jour incrémentielles d’un index qui n’est pas entièrement chiffré (créé avant janvier 2018).<br><br>En interne, le chiffrement est basé sur le [chiffrement du service de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits.<br><br> Le chiffrement est interne à Recherche cognitive Azure, tandis que les certificats et les clés de chiffrement sont gérés en interne par Microsoft et appliqués universellement. Vous ne pouvez pas activer ou désactiver le chiffrement, gérer ou substituer vos propres clés, ni afficher les paramètres de chiffrement dans le portail ou par programme.<br><br>Le chiffrement au repos a été annoncé le 24 janvier 2018 et s’applique à tous les niveaux de service, y compris au niveau gratuit, dans toutes les régions. Pour un chiffrement complet, les index créés avant cette date doivent être supprimés et recréés afin que le chiffrement soit effectué. Dans le cas contraire, seules les nouvelles données ajoutées après le 24 janvier sont chiffrées.|
 | Chiffrement au repos <br>Clés gérées par le client | Le chiffrement avec des clés gérées par le client est désormais mis à la disposition générale pour les services de recherche créés à partir de janvier 2019. Il n’est pas pris en charge sur les services gratuits (partagés).<br><br>Les index et les cartes de synonymes Recherche cognitive Azure peuvent désormais être chiffrés au repos à l’aide de clés gérées par le client dans Azure Key Vault. Pour en savoir plus, consultez [Gérer les clés de chiffrement dans Recherche cognitive Azure](search-security-manage-encryption-keys.md).<br><br>Cette fonctionnalité ne remplace pas la fonctionnalité de chiffrement au repos par défaut, mais la complète.<br><br>L’activation de cette fonctionnalité a pour effet d’augmenter la taille de l’index et dégrader les performances des requêtes. Sur la base des observations effectuées à ce jour, vous pouvez vous attendre à une augmentation de 30 à 60 % des temps de requête, même si les performances réelles varient en fonction de la définition d’index et des types de requêtes. En raison de cet incidence sur les performances, nous vous recommandons de n’activer cette fonctionnalité que sur les index qui en ont réellement besoin.
 

@@ -9,21 +9,18 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 03/31/2020
 ms.author: apimpm
-ms.openlocfilehash: 1f2184c7c62887a98a76877528b167d173c3d75b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dacf1329d35117c65bcc48a82ac27a767ebd2b3b
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335948"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203180"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configuration d’un nom de domaine personnalisé
 
 Lorsque vous configurez une [passerelle de gestion des API Azure auto-hébergée](self-hosted-gateway-overview.md), aucun nom d’hôte ne lui est pas attribué et vous devez y faire référence par adresse IP. Cet article montre comment mapper un nom DNS personnalisé existant (également appelé nom d'hôte) à une passerelle auto-hébergée.
-
-> [!NOTE]
-> La fonctionnalité de passerelle auto-hébergée est en version préliminaire. Pendant la version préliminaire, la passerelle auto-hébergée est disponible uniquement pour les niveaux Développeur et Premium, sans frais supplémentaires. Le niveau Développeur est limité à un seul déploiement de passerelle auto-hébergée.
 
 ## <a name="prerequisites"></a>Prérequis
 

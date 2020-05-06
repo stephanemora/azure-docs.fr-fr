@@ -6,22 +6,22 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 04/22/2020
 ms.author: memildin
-ms.openlocfilehash: c709890ae6c57a001c6a0e9df4e973bd3bd24602
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d703ea38c39ed556102271ac0cf9a609ce449bc3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258258"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195916"
 ---
 # <a name="using-custom-security-policies"></a>Utilisation de stratégies de sécurité personnalisées
 
 Pour vous aider à sécuriser vos systèmes et votre environnement, Azure Security Center génère des recommandations de sécurité. Ces recommandations sont basées sur les meilleures pratiques du secteur, qui sont incorporées à la stratégie de sécurité par défaut générique fournie à tous les clients. Elles peuvent également provenir des connaissances que Security Center a des normes et réglementations du secteur.
 
-Avec cette fonctionnalité, vous pouvez ajouter vos propres initiatives *personnalisées*. Vous recevez ensuite des recommandations si votre environnement ne suit pas les stratégies que vous créez. Toutes les initiatives personnalisées que vous créez apparaîtront à côté des initiatives intégrées dans le tableau de bord de conformité à la réglementation décrit dans le tutoriel [Améliorer votre conformité aux normes](security-center-compliance-dashboard.md).
+Avec cette fonctionnalité, vous pouvez ajouter vos propres initiatives *personnalisées*. Vous recevez ensuite des recommandations si votre environnement ne suit pas les stratégies que vous créez. Toutes les initiatives personnalisées que vous créez apparaîtront à côté des initiatives intégrées dans le tableau de bord de conformité à la réglementation, comme décrit dans le tutoriel [Améliorer votre conformité aux normes](security-center-compliance-dashboard.md).
 
-Comme nous l’avons vu [ici](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location) dans la documentation Azure Policy, quand vous spécifiez un emplacement pour votre initiative personnalisée, il doit correspondre à un groupe d’administration ou à un abonnement. 
+Comme nous l’avons vu dans la [documentation Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location), quand vous spécifiez un emplacement pour votre initiative personnalisée, il doit correspondre à un groupe d’administration ou à un abonnement. 
 
 ## <a name="to-add-a-custom-initiative-to-your-subscription"></a>Pour ajouter une initiative personnalisée à votre abonnement 
 
@@ -53,7 +53,7 @@ Comme nous l’avons vu [ici](https://docs.microsoft.com/azure/governance/policy
     1. Sélectionnez les stratégies à inclure, puis cliquez sur **Ajouter**.
     1. Entrez les paramètres souhaités.
     1. Cliquez sur **Enregistrer**.
-    1. Dans la page Ajouter des initiatives personnalisées, cliquez sur Actualiser ; votre nouvelle initiative s’affichera comme étant disponible.
+    1. Dans la page Ajouter des initiatives personnalisées, cliquez sur Actualiser. Votre nouvelle initiative apparaîtra comme étant disponible.
     1. Cliquez sur **Ajouter** et affectez-la à votre abonnement.
 
     > [!NOTE]
@@ -68,6 +68,75 @@ Comme nous l’avons vu [ici](https://docs.microsoft.com/azure/governance/policy
 1. Pour afficher les recommandations qui en résultent pour votre stratégie, cliquez sur **Recommandations** dans la barre latérale pour ouvrir la page de recommandations. Les recommandations apparaissent avec une étiquette « Personnalisée » et sont disponibles dans un délai d’une heure environ.
 
     [![Recommandations personnalisées](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
+
+## <a name="enhancing-your-custom-recommendations-with-detailed-information"></a>Amélioration de vos recommandations personnalisées avec des informations détaillées
+
+Les recommandations intégrées fournies avec Azure Security Center incluent des détails tels que des niveaux de gravité et des instructions de correction. Si vous souhaitez ajouter ce type d’informations à vos recommandations personnalisées afin qu’elles apparaissent dans le portail Azure ou à l’endroit où vous accédez à vos recommandations, vous devez utiliser l’API REST. 
+
+Les deux types d’informations que vous pouvez ajouter sont les suivants :
+
+- **RemediationDescription** : chaîne
+- **Severity** – Enum [Low, Medium, High]
+
+Les métadonnées doivent être ajoutées à la définition de stratégie pour une stratégie qui fait partie de l’initiative personnalisée. Elles doivent figurer dans la propriété « securityCenter », comme indiqué ci-dessous :
+
+```json
+ "metadata": {
+    "securityCenter": {
+        "RemediationDescription": "Custom description goes here",
+        "Severity": "High",
+    },
+```
+
+Voici un exemple de stratégie personnalisée incluant la propriété metadata/securityCenter :
+
+  ```json
+  {
+"properties": {
+    "displayName": "Security - ERvNet - AuditRGLock",
+    "policyType": "Custom",
+    "mode": "All",
+    "description": "Audit required resource groups lock",
+    "metadata": {
+        "securityCenter": {
+            "remediationDescription": "Resource Group locks can be set via Azure Portal -> Resource Group -> Locks",
+            "severity": "High",
+        },
+    },
+    "parameters": {
+        "expressRouteLockLevel": {
+            "type": "String",
+            "metadata": {
+                "displayName": "Lock level",
+                "description": "Required lock level for ExpressRoute resource groups."
+            },
+            "allowedValues": [
+                "CanNotDelete",
+                "ReadOnly"
+            ]
+        }
+    },
+    "policyRule": {
+        "if": {
+            "field": "type",
+            "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+        },
+        "then": {
+            "effect": "auditIfNotExists",
+            "details": {
+                "type": "Microsoft.Authorization/locks",
+                "existenceCondition": {
+                    "field": "Microsoft.Authorization/locks/level",
+                    "equals": "[parameters('expressRouteLockLevel')]"
+                }
+            }
+        }
+    }
+}
+}
+  ```
+
+Pour obtenir un autre exemple d’utilisation de la propriété securityCenter, consultez [cette section de la documentation de l’API REST](https://docs.microsoft.com/rest/api/securitycenter/assessmentsmetadata/createinsubscription#examples).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

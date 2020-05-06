@@ -1,18 +1,16 @@
 ---
-title: Fonctionnalités de rendu – Azure Batch
+title: Fonctionnalités de rendu
 description: Les fonctionnalités Standard d’Azure Batch sont utilisées pour exécuter des applications et des charges de travail de rendu. Batch inclut des fonctionnalités spécifiques qui prennent en charge les charges de travail de rendu.
-services: batch
-ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 697e2640b7215e0bbb9202c672f936535831eb99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3efe1dfa69de5ce41aed2152baa88b313fd928f1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75449721"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82115752"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Fonctionnalités de rendu Azure Batch
 

@@ -4,12 +4,12 @@ description: Découvrez les composants de charge de travail et de cluster de bas
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 019c886aba1c8fe34211e73e4d960b14e79303b9
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 13169628aff2fe4bff64fed36db54d18d4f830b8
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617435"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208157"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)
 
@@ -88,7 +88,7 @@ Pour conserver les fonctionnalités et les performances des nœuds, les ressourc
 
 - **Processeur** : le processeur réservé dépend du type de nœud et de la configuration du cluster, ce qui peut aboutir à un processeur moins allouable en raison de l’exécution de fonctionnalités supplémentaires
 
-| Cœurs de processeur sur l’hôte | 1 | 2 | 4 | 8 | 16 | 32|64|
+| Cœurs de processeur sur l’hôte | 1    | 2    | 4    | 8    | 16 | 32|64|
 |---|---|---|---|---|---|---|---|
 |Réservés par Kube (millicores)|60|100|140|180|260|420|740|
 
@@ -126,7 +126,7 @@ Pour en savoir plus sur l’utilisation de plusieurs pools de nœuds dans AKS, v
 
 ### <a name="node-selectors"></a>Sélecteurs de nœud
 
-Dans un cluster AKS qui contient plusieurs pools de nœuds, vous devrez peut-être indiquer au planificateur Kubernetes Scheduler le pool de nœuds qui devra être utilisé pour une ressource donnée. Par exemple, les contrôleurs d’entrée ne doivent pas s’exécuter sur des nœuds Windows Server (actuellement en préversion dans AKS). Les sélecteurs de nœud vous permettent de définir différents paramètres, comme le système d’exploitation des nœuds, pour contrôler à quel endroit un pod doit être planifié.
+Dans un cluster AKS qui contient plusieurs pools de nœuds, vous devrez peut-être indiquer au planificateur Kubernetes Scheduler le pool de nœuds qui devra être utilisé pour une ressource donnée. Par exemple, les contrôleurs d’entrée ne doivent pas s’exécuter sur des nœuds Windows Server. Les sélecteurs de nœud vous permettent de définir différents paramètres, comme le système d’exploitation des nœuds, pour contrôler à quel endroit un pod doit être planifié.
 
 L’exemple de base suivant planifie une instance NGINX sur un nœud Linux en utilisant le sélecteur de nœud *"beta.kubernetes.io/os": linux* :
 

@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: 98c15fe11b64e8c177e60a2ea1eb7c50eaf69353
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f1611e6d3524cc78fc20fed9d1aac6f3fd453fa
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124805"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82106438"
 ---
 # <a name="authorizing-database-access-to-authenticated-users-to-sql-database-and-azure-synapse-analytics-using-logins-and-user-accounts"></a>Autoriser l’accès aux bases de données aux utilisateurs authentifiés à SQL Database et Azure Synapse Analytics à l’aide de connexions et de comptes d’utilisateur
 
@@ -39,7 +39,7 @@ Lorsqu’un utilisateur tente de se connecter à une base de données, il fourni
 
 - [Authentification SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
 
-  Avec cette méthode d’authentification, l’utilisateur envoie un nom de compte d’utilisateur et un mot de passe associé pour établir une connexion. Ce mot de passe est stocké dans la base de données master pour les comptes d’utilisateur liés à une connexion ou stockés dans la base de données contenant le compte d’utilisateur pour les comptes d’utilisateur non liés à une connexion.
+  Avec cette méthode d’authentification, l’utilisateur envoie un nom de compte d’utilisateur et un mot de passe associé pour établir une connexion. Ce mot de passe est stocké dans la base de données master pour les comptes d’utilisateur liés à une connexion ou stockés dans la base de données contenant les comptes d’utilisateur *non* liés à une connexion.
 - [Authentification Azure Active Directory](sql-database-aad-authentication.md)
 
   Avec cette méthode d’authentification, l’utilisateur envoie un nom de compte d’utilisateur et demande que le service utilise les informations d’identification stockées dans Azure Active Directory.

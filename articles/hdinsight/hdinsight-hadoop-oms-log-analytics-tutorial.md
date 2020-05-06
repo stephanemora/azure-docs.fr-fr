@@ -6,25 +6,26 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/06/2020
-ms.openlocfilehash: e4b33e132e660fba7d06ff33c7db06c7727dd26c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: seoapr2020
+ms.date: 04/24/2020
+ms.openlocfilehash: 41688792330214943eeb116dc4b5aaf7eebfeebf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77162784"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192040"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Utiliser les journaux d’activité Azure Monitor pour superviser les clusters HDInsight
 
-Découvrez comment activer les journaux d’activité Azure Monitor pour surveiller les opérations de cluster Hadoop dans HDInsight, et comment ajouter une solution de supervision HDInisght.
+Découvrez comment activer les journaux Azure Monitor pour superviser les opérations de cluster Hadoop dans HDInsight et comment ajouter une solution de supervision HDInsight.
 
-[Journaux Azure Monitor](../log-analytics/log-analytics-overview.md) est un service dans Azure Monitor qui supervise vos environnements cloud et locaux tout en assurant leur disponibilité et leurs performances. Il collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils d’analyse pour fournir une analyse sur plusieurs sources.
+Les [journaux Azure Monitor](../log-analytics/log-analytics-overview.md) sont un service Azure Monitor qui supervise vos environnements Cloud et locaux. La supervision consiste à maintenir leur disponibilité et leurs performances. Elle collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils de supervision. Les données sont utilisées pour fournir une analyse englobant plusieurs sources.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un espace de travail Log Analytics. Considérez cet espace de travail comme un environnement des journaux d’activité Azure Monitor avec son propre référentiel de données, et ses propres sources de données et solutions. Pour obtenir des instructions, consultez la rubrique [Créer un espace de travail Log Analytics](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
 
@@ -46,9 +47,9 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="enable-azure-monitor-logs-by-using-the-portal"></a>Activer des journaux Azure Monitor avec le portail
 
-Cette section vous explique comment configurer un cluster Hadoop HDInsight existant pour utiliser un espace de travail Azure Log Analytics pour surveiller les travaux, les journaux d’activité de débogage, etc.
+Cette section vous explique comment configurer un cluster Hadoop HDInsight existant pour utiliser un espace de travail Azure Log Analytics afin de superviser les travaux, les journaux de débogage, etc.
 
-1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre cluster.  Pour obtenir des instructions, consultez la page [Énumération et affichage des clusters](./hdinsight-administer-use-portal-linux.md#showClusters). Le cluster est ouvert dans une nouvelle page du portail.
+1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre cluster. Le cluster est ouvert dans une nouvelle page du portail.
 
 1. À gauche, sous **Supervision**, sélectionnez **Azure Monitor**.
 
@@ -102,9 +103,9 @@ Disable-AzHDInsightMonitoring -Name "<your-cluster>"
 
 ## <a name="install-hdinsight-cluster-management-solutions"></a>Installer des solutions de gestion de clusters HDInsight
 
-HDInsight fournit des solutions de gestion de clusters que vous pouvez ajouter pour les journaux d’activité Azure Monitor. Les [solutions de gestion](../log-analytics/log-analytics-add-solutions.md) ajoutent des fonctionnalités aux journaux d’activité Azure Monitor en fournissant des données et des outils d’analyse supplémentaires. Ces solutions collectent des indicateurs de performance importants de vos clusters HDInsight et fournissent les outils pour rechercher les indicateurs. Elles fournissent également des visualisations et des tableaux de bord pour la plupart des types de cluster pris en charge dans HDInsight. En vous appuyant sur les mesures collectées avec la solution, vous êtes en mesure de créer des règles et des alertes personnalisées de surveillance.
+HDInsight fournit des solutions de gestion de clusters que vous pouvez ajouter pour les journaux d’activité Azure Monitor. Les [solutions de gestion](../log-analytics/log-analytics-add-solutions.md) ajoutent des fonctionnalités aux journaux d’activité Azure Monitor en fournissant des données et des outils d’analyse supplémentaires. Ces solutions collectent des métriques de performance importantes de vos clusters HDInsight et fournissent les outils permettant d’explorer les métriques. Elles fournissent également des visualisations et des tableaux de bord pour la plupart des types de cluster pris en charge dans HDInsight. En vous appuyant sur les mesures collectées avec la solution, vous êtes en mesure de créer des règles et des alertes personnalisées de surveillance.
 
-Voici les solutions HDInsight disponibles :
+Solutions HDInsight disponibles :
 
 * HDInsight Hadoop Monitoring
 * HDInsight HBase Monitoring
@@ -113,7 +114,7 @@ Voici les solutions HDInsight disponibles :
 * HDInsight Spark Monitoring
 * HDInsight Storm Monitoring
 
-Pour obtenir des instructions sur l’installation d’une solution de gestion, consultez la rubrique sur les [solutions de gestion dans Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Pour faire des essais, installez une solution de supervision HDInsight Hadoop. Vous voyez alors une vignette **HDInsightHadoop** sous **Résumé**. Sélectionnez la vignette **HDInsightHadoop**. La solution HDInsightHadoop ressemble à ceci :
+Pour obtenir des instructions sur les solutions de gestion, consultez [Solutions de gestion dans Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Pour faire des essais, installez une solution de supervision HDInsight Hadoop. Vous voyez alors une vignette **HDInsightHadoop** sous **Résumé**. Sélectionnez la vignette **HDInsightHadoop**. La solution HDInsightHadoop ressemble à ceci :
 
 ![Vue de la solution de supervision HDInsight](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 
@@ -121,7 +122,7 @@ Pour obtenir des instructions sur l’installation d’une solution de gestion, 
 
 ## <a name="configuring-performance-counters"></a>Configuration des compteurs de performances
 
-Azure Monitor prend également en charge la collecte et l’analyse des métriques de performances pour les nœuds de votre cluster. Pour plus d’informations sur l’activation et la configuration de cette fonctionnalité, voir [Sources de données de performances Linux dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#linux-performance-counters).
+Azure Monitor prend en charge la collecte et l’analyse des métriques de performances pour les nœuds de votre cluster. Pour plus d’informations, consultez [Sources de données de performances Linux dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#linux-performance-counters).
 
 ## <a name="cluster-auditing"></a>Audit de cluster
 
@@ -135,3 +136,4 @@ HDInsight prend en charge l’audit de cluster avec des journaux Azure Monitor e
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Interroger les journaux Azure Monitor pour surveiller les clusters HDInsight](hdinsight-hadoop-oms-log-analytics-use-queries.md)
+* [Superviser la disponibilité des clusters à l’aide d’Apache Ambari et des journaux Azure Monitor](./hdinsight-cluster-availability.md)

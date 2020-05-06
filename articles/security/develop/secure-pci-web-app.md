@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: terrylan
-ms.openlocfilehash: 4fe612db65d985be2f1f1c81d03c3ee735c03889
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4ab3697824ff4a47e7b8f281b531cae610ffdc3b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69992389"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187577"
 ---
 # <a name="develop-a-secure-infrastructure-for-a-pci-app"></a>Développer une infrastructure sécurisée pour une application PCI
 
@@ -48,10 +48,10 @@ Lors du développement et du déploiement de cette application, vous allez appre
 
 - Créer une instance Azure Key Vault, y stocker des secrets et en récupérer.
 - Déployer Azure Database pour Azure SQL, sécuriser les données et en autoriser l’accès.
-- Déployer l’application web Azure dans un environnement App Service dédié qui est isolé avec un pare-feu front-end aEcess.
+- Déployer l’application web Azure dans un environnement App Service dédié qui est isolé avec un accès au pare-feu front-end.
 - Créer et configurer une instance Azure Application Gateway avec un pare-feu utilisant les [10 principaux ensembles de règles OWASP](https://coreruleset.org/).
 - Activer le chiffrement des données en transit comme au repos à l’aide des services Azure.
-- Configurer la stratégie Azure et les blueprints pour évaluer les conformités
+- Configurer Azure Policy et Azure Blueprints pour évaluer la conformité.
 
 Après avoir développé et déployé cette application, vous aurez configuré l’exemple d’application web suivant avec la configuration et les mesures de sécurité décrites.
 

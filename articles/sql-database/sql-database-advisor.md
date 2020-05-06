@@ -4,19 +4,19 @@ description: Azure SQL Database fournit des recommandations pour les bases de do
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: ''
+ms.custom: fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: bd7473813722fd413947535413b98d493058634a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f5b0aeec851c8f514492e32792f48e955597ced5
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79214133"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82096569"
 ---
 # <a name="database-advisor-performance-recommendations-for-single-and-pooled-databases"></a>Recommandations en performances des conseillers de base de données pour les bases de données uniques et mises en pool
 
@@ -39,10 +39,10 @@ Les options de recommandations en matière de performances disponibles pour les 
 
 | Recommandation en matière de performances | Prise en charge d’une base de données unique et d’une base de données mise en pool | Prise en charge de la base de données d’instance |
 | :----------------------------- | ----- | ----- |
-| **Recommandations de création d’index** : recommande de créer des index susceptibles d’améliorer les performances de votre charge de travail. | Oui | Non |
-| **Recommandations de suppression d’index** : recommande la suppression quotidienne des index redondants et en double, excepté pour les index uniques ainsi que ceux qui n’ont pas été utilisés depuis longtemps (>90 jours). Notez que l’option n’est pas compatible avec les applications utilisant la commutation de partition et les indicateurs d’index. La suppression des index inutilisés n’est pas prise en charge pour les niveaux de service Premium et Critique pour l’entreprise. | Oui | Non |
-| **Recommandations de paramétrage de requêtes (préversion)**  : recommande le paramétrage forcé dans les cas où une ou plusieurs requêtes sont constamment recompilées mais ont en fin de compte le même plan d’exécution de requête. | Oui | Non |
-| **Recommandations de résolution des problèmes de schéma (préversion)**  : des recommandations pour la correction de schéma s’affichent lorsque le service SQL Database détecte une anomalie dans le nombre d’erreurs SQL liées au schéma qui se produisent sur votre base de données SQL. Microsoft déconseille actuellement la recommandation « Résoudre les problèmes de schéma ». | Oui | Non |
+| **Recommandations de création d’index** : recommande de créer des index susceptibles d’améliorer les performances de votre charge de travail. | Oui | Non  |
+| **Recommandations de suppression d’index** : recommande la suppression quotidienne des index redondants et en double, excepté pour les index uniques ainsi que ceux qui n’ont pas été utilisés depuis longtemps (>90 jours). Notez que l’option n’est pas compatible avec les applications utilisant la commutation de partition et les indicateurs d’index. La suppression des index inutilisés n’est pas prise en charge pour les niveaux de service Premium et Critique pour l’entreprise. | Oui | Non  |
+| **Recommandations de paramétrage de requêtes (préversion)**  : recommande le paramétrage forcé dans les cas où une ou plusieurs requêtes sont constamment recompilées mais ont en fin de compte le même plan d’exécution de requête. | Oui | Non  |
+| **Recommandations de résolution des problèmes de schéma (préversion)**  : des recommandations pour la correction de schéma s’affichent lorsque le service SQL Database détecte une anomalie dans le nombre d’erreurs SQL liées au schéma qui se produisent sur votre base de données SQL. Microsoft déconseille actuellement la recommandation « Résoudre les problèmes de schéma ». | Oui | Non  |
 
 ![Recommandations relatives aux performances pour Azure SQL Database](./media/sql-database-performance/performance-recommendations-annotated.png)
 
@@ -52,7 +52,7 @@ Vous trouverez également un historique complet des actions de réglage qui ont 
 
 ## <a name="create-index-recommendations"></a>Recommandations relatives à la création d’un index
 
-SQL Database surveille continuellement les requêtes en cours d’exécution et identifie les index susceptibles d’améliorer le niveau de performance. Lorsque le service détermine avec certitude qu’un index spécifique est manquant, une recommandation **Créer un index** est créée.
+Azure SQL Database supervise continuellement les requêtes en cours d’exécution et identifie les index susceptibles d’améliorer les performances. Lorsque le service détermine avec certitude qu’un index spécifique est manquant, une recommandation **Créer un index** est créée.
 
 Azure SQL Database établit un climat de confiance en estimant le gain de performances que l’index pourrait offrir au fil du temps. Selon le gain estimé, les recommandations sont réparties en trois catégories : gain de performances élevé, moyen ou faible.
 
@@ -60,9 +60,9 @@ Les index créés à l’aide de recommandations sont toujours indiqués comme a
 
 Si vous tentez de supprimer la colonne qui comporte un index créé automatiquement, la commande aboutit. L’index créé automatiquement est également supprimé dans le cadre de l’exécution de la commande. Les index standard bloquent la commande ALTER/RENAME sur les colonnes indexées.
 
-Une fois que la recommandation de création d’index a été appliquée, Azure SQL Database compare le niveau de performance des requêtes avec le niveau de performance de référence. Si le nouvel index a amélioré les performances, la recommandation est indiquée comme étant fructueuse, et le rapport d’impact est disponible. Si l’index n’a pas entraîné d’amélioration des performances, il est automatiquement annulé. SQL Database applique ce processus pour garantir le fait que les recommandations optimisent les performances de base de données.
+Une fois que la recommandation de création d’index a été appliquée, Azure SQL Database compare le niveau de performance des requêtes avec le niveau de performance de référence. Si le nouvel index a amélioré les performances, la recommandation est indiquée comme étant fructueuse, et le rapport d’impact est disponible. Si l’index n’a pas entraîné d’amélioration des performances, il est automatiquement annulé. Azure SQL Database applique ce processus pour garantir que les recommandations améliorent les performances de la base de données.
 
-Toutes les recommandations **Créer un index** comportent une stratégie d’abstention qui empêche la mise en œuvre de la recommandation si l’utilisation des ressources d’une base de données ou d’un pool est élevée. La stratégie d’abstention prend en compte le processeur, les E/S de données, les E/S de journal et le stockage disponible.
+Toutes les recommandations **Créer un index** comportent une stratégie d’abstention qui empêche la mise en œuvre de la recommandation si l’utilisation des ressources d’une base de données ou d’un pool est élevée. La stratégie d’abstention prend en compte l’UC, les E/S de données, les E/S de journal et le stockage disponible.
 
 Si le processeur, les E/S de données ou les E/S de journal dépassent 80 % au cours des dernières 30 minutes, la recommandation de création d’index est reportée. Si l’espace de stockage disponible est inférieur à 10 % une fois que l’index a été créé, la recommandation passe en état d’erreur. Si après deux jours, le paramétrage automatique estime toujours que cet index peut être avantageux, le processus redémarre.
 
@@ -70,7 +70,7 @@ Ce processus est répété jusqu’à ce que le stockage disponible soit suffisa
 
 ## <a name="drop-index-recommendations"></a>Recommandations relatives à la suppression d’index
 
-Outre la détection des index manquants, SQL Database procède à l’analyse continue du niveau de performance des index existants. Si un index n’est pas utilisé, Azure SQL Database recommande sa suppression. Il est recommandé de supprimer un index dans deux cas :
+Outre la détection des index manquants, Azure SQL Database procède à l’analyse continue du niveau de performance des index existants. Si un index n’est pas utilisé, Azure SQL Database recommande sa suppression. Il est recommandé de supprimer un index dans deux cas :
 
 - L’index est un doublon d’un autre index (mêmes colonne, schéma de partition et filtres indexés et inclus).
 - L’index n’a pas été utilisé pendant une période prolongée (93 jours).
@@ -96,7 +96,7 @@ Une fois cette recommandation appliquée, le paramétrage forcé est activé en 
 > [!IMPORTANT]
 > Microsoft déconseille actuellement la recommandation « Résoudre les problèmes de schéma ». Nous vous recommandons d’utiliser [Intelligent Insights](sql-database-intelligent-insights.md) pour analyser vos problèmes de performances de base de données, y compris les problèmes de schéma précédemment couverts par la recommandation de résolution de ce type de problèmes.
 
-La recommandation **Résoudre les problèmes de schéma** s’affiche lorsque le service SQL Database détecte une anomalie dans le nombre d’erreurs SQL liées au schéma qui se produisent sur votre base de données SQL. Cette recommandation apparaît généralement lorsque votre base de données rencontre plusieurs erreurs liées au schéma (nom de colonne non valide, nom d’objet incorrect, etc.) en l’espace d’une heure.
+La recommandation **Résoudre les problèmes de schéma** s’affiche quand le service Azure SQL Database détecte une anomalie dans le nombre d’erreurs SQL liées au schéma qui se produisent sur votre base de données SQL. Cette recommandation apparaît généralement lorsque votre base de données rencontre plusieurs erreurs liées au schéma (nom de colonne non valide, nom d’objet incorrect, etc.) en l’espace d’une heure.
 
 Les « problèmes de schéma » désignent une classe d’erreurs de syntaxe dans SQL Server. Ils surviennent lorsque la définition de la requête SQL et la définition du schéma de base de données ne sont pas alignées. Par exemple, il est possible que l’une des colonnes attendues par la requête soit absente de la table cible, ou inversement.
 

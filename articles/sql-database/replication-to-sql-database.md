@@ -10,19 +10,22 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: mathoma
-ms.date: 01/25/2019
-ms.openlocfilehash: f28269b067ee98d69a97799911fd2d84a7f91e34
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.date: 04/28/2020
+ms.openlocfilehash: 49be53febc1783edfa16fd019a094a7e80e1cdf7
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381145"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231643"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Réplication des bases de données uniques et mises en pool SQL Database
 
 La réplication SQL Server peut être configurée pour les bases de données uniques et mises en pool d’un [serveur SQL Database](sql-database-servers.md) dans Azure SQL Database.  
 
-## <a name="supported-configurations"></a>**Configurations prises en charge :**
+> [!NOTE]
+> Cet article décrit l’utilisation de la [réplication transactionnelle](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) dans Azure SQL Database. Elle n’est pas liée à la [géo-réplication active](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication), une fonctionnalité Azure SQL Database qui vous permet de créer des réplicas lisibles complets de bases de données individuelles.
+
+## <a name="supported-configurations"></a>Configurations prises en charge
   
 - Le serveur SQL Server peut être une instance SQL Server exécutée localement ou une instance SQL Server exécutée sur une machine virtuelle Azure dans le cloud. Pour plus d’informations, consultez [Présentation de SQL Server sur les machines virtuelles Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/).  
 - La base de données Azure SQL doit être abonnée à un abonnement par push sur un serveur de publication SQL Server.  
@@ -44,7 +47,7 @@ Les serveurs de publication et de distribution SQL Server locaux doivent utilis
 Pour bénéficier de toutes les fonctionnalités Azure SQL Database, vous devez utiliser les dernières versions de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) et de [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
   
-## <a name="remarks"></a>Notes
+## <a name="remarks"></a>Notes 
 
 - La réplication peut être configurée à l’aide de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou en exécutant des instructions Transact-SQL sur le serveur de publication. Vous ne pouvez pas configurer la réplication dans le portail Azure.  
 - La réplication peut uniquement utiliser des connexions d’authentification SQL Server pour se connecter à une base de données Azure SQL.
@@ -111,7 +114,7 @@ Créez une publication et un abonnement par émission de données. Pour plus d'i
 - [Créer une publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Créer un abonnement par push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) en utilisant le nom du serveur Azure SQL Database en tant qu’abonné (par exemple **N'azuresqldbdns.database.windows.net'** ) et le nom de la base de données Azure SQL comme base de données de destination (par exemple **AdventureWorks**).  
 
-## <a name="see-also"></a>Voir aussi  
+## <a name="see-also"></a> Voir aussi  
 
 - [Réplication transactionnelle](sql-database-managed-instance-transactional-replication.md)
 - [Créer une publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)

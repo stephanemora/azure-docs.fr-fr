@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 0c39ffe40a490ee23ac65f892c46fba2578bce74
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 103545225b15a74d8c2ea0be5e88caa18f3c31cc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75441101"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82184773"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Créer une application Angular avec l’API d’Azure Cosmos DB pour MongoDB - Ajouter des fonctions CRUD à l’application
 
@@ -27,7 +27,7 @@ Ce tutoriel en plusieurs parties montre comment créer une application écrite e
 
 > [!VIDEO https://www.youtube.com/embed/Y5mdAlFGZjc]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer cette partie du didacticiel, assurez-vous d’avoir effectué les étapes de la [partie 5](tutorial-develop-mongodb-nodejs-part5.md) du didacticiel.
 
@@ -86,7 +86,7 @@ Avant de commencer cette partie du didacticiel, assurez-vous d’avoir effectué
 
 5. Vérifiez que tout fonctionne en exécutant l’application. Dans Visual Studio Code, enregistrez les modifications, sélectionnez le bouton **Déboguer**![Icône de débogage dans Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) sur le côté gauche, puis le bouton **Démarrer le débogage**![Icône Démarrer le débogage dans Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
 
-6. Retournez sur votre navigateur Internet et ouvrez l’onglet Réseau d’outils développeur (en appuyant sur F12 sur la plupart des ordinateurs). Accédez à [http://localhost:3000](http://localhost:3000) pour voir les appels effectués sur le réseau.
+6. Retournez sur votre navigateur Internet et ouvrez l’onglet Réseau d’outils développeur (en appuyant sur F12 sur la plupart des ordinateurs). Accédez à `http://localhost:3000` pour voir les appels effectués sur le réseau.
 
     ![Onglet Mise en réseau dans Chrome qui affiche l’activité du réseau](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: 1f88df186526c2f9903337bb3331940be0989c3d
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 46bfabfb2ccf091fd5dc0fcf0e9b447bad7c34d1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892459"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82208616"
 ---
 # <a name="what-is-batch-transcription"></a>Qu’est-ce que la transcription par lots ?
 
@@ -288,7 +288,7 @@ La fonctionnalité de sentiment évalue le sentiment exprimé dans l’audio. Le
 - Identifier pourquoi un appel négatif a pris une orientation positive
 - Identifier ce que les clients aiment et ce qu’ils n’aiment pas dans un produit ou service
 
-Le sentiment est évalué par segment audio en fonction de la forme lexicale. L’intégralité du texte au sein du segment audio est utilisée pour calculer les sentiments. Aucun sentiment d’agrégat n’est calculé pour l’intégralité de la transcription. Actuellement, l’analyse des sentiments est disponible uniquement pour la langue anglaise.
+Le sentiment est évalué par segment audio en fonction de la forme lexicale. L’intégralité du texte au sein du segment audio est utilisée pour calculer les sentiments. Aucun sentiment d’agrégat n’est calculé pour l’intégralité de la transcription. Actuellement, l’analyse des sentiments est disponible uniquement en anglais.
 
 > [!NOTE]
 > Nous vous recommandons d’utiliser à la place l’API Analyse de texte Microsoft. Elle offre des fonctionnalités plus avancées qui vont au-delà de l’analyse des sentiments, comme l’extraction d’expressions clés, la détection automatique de la langue et bien plus encore. Vous trouverez des informations et des exemples dans la [documentation Analyse de texte](https://azure.microsoft.com/services/cognitive-services/text-analytics/).

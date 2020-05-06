@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: edf5a6a6a0f17c21abb818a0d41d0d0b1c39949c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 561ea1a4f3577e037708c3b090188c59bd3c4aad
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419723"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82187543"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Se connecter à Synapse SQL avec Azure Data Studio (préversion)
 
@@ -61,11 +61,11 @@ Pour utiliser Azure Active Directory, vous devez choisir le type d’authentific
 
 ![Authentification AAD](./media/get-started-azure-data-studio/3-aad-auth.png)
 
-Cette capture d’écran montre les **Détails de la connexion** pour l’**Authentification Windows** :
+La capture d’écran suivante montre les **Détails de la connexion** pour l’**Authentification Windows** :
 
 ![Authentification Windows](./media/get-started-azure-data-studio/3-windows-auth.png)
 
-Cette capture d’écran montre les **Détails de la connexion** lors de l’utilisation de la **Connexion SQL** :
+La capture d’écran suivante montre les **Détails de la connexion** lors de l’utilisation d’une **Connexion SQL** :
 
 ![Connexion SQL](./media/get-started-azure-data-studio/2-database-details.png)
 
