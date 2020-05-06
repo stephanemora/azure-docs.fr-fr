@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/14/2020
-ms.openlocfilehash: 317d12f6d5dee92d998266d4e9b6d52e6ef9c7a5
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/29/2020
+ms.openlocfilehash: 48602cb65430bcf6720b4d6f4ba05c771a7bd55b
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381382"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559964"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Gérer des clusters HDInsight à l’aide de l’API REST d’Apache Ambari
 
@@ -23,7 +23,7 @@ Découvrez comment utiliser l’API REST d’Apache Ambari pour gérer et survei
 
 ## <a name="what-is-apache-ambari"></a>Qu’est-ce qu’Apache Ambari ?
 
-[Apache Ambari](https://ambari.apache.org) simplifie la gestion et la supervision des clusters Hadoop en fournissant une interface utilisateur web simple d’emploi, adossée à ses [API REST](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  Ambari est fourni par défaut avec les clusters HDInsight Linux.
+Apache Ambari simplifie la gestion et la supervision des clusters Hadoop en fournissant une interface utilisateur web simple d’emploi, adossée à ses [API REST](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  Ambari est fourni par défaut avec les clusters HDInsight Linux.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -33,7 +33,7 @@ Découvrez comment utiliser l’API REST d’Apache Ambari pour gérer et survei
 
 * jq, processeur JSON en ligne de commande.  Voir [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
-* Windows PowerShell.  Ou vous pouvez utiliser [Bash](https://www.gnu.org/software/bash/).
+* Windows PowerShell.  Ou vous pouvez utiliser Bash.
 
 ## <a name="base-uniform-resource-identifier-for-ambari-rest-api"></a>Uniform Resource Identifier (URI) de base pour l’API REST Ambari
 

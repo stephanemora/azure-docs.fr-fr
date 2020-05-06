@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: routlaw
-ms.openlocfilehash: 61be6bcd957a4e81147d5ef472b8f850e5605e41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8621dde43ff38cee15feb1d30b6ea80ab681c855
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70309278"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594778"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Utilisation de modules Node.js avec des applications Azure
 Ce document fournit des instructions sur l'utilisation de modules Node.js avec des applications hébergées sur Azure. Il vous explique comment vous assurer que votre application utilise une version spécifique d’un module et vous présente l’utilisation de modules natifs avec Azure.
@@ -85,7 +85,7 @@ Lorsque votre application est prête pour la production, vous pouvez verrouiller
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous savez comment utiliser les modules Node.js avec Azure, découvrez comment [spécifier la version de Node.js](https://github.com/squillace/staging/blob/master/articles/nodejs-specify-node-version-azure-apps.md), [créer et déployer une application web Node.js](app-service/app-service-web-get-started-nodejs.md) et [utiliser l'interface de ligne de commande Azure pour Mac et Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
+Maintenant que vous savez comment utiliser les modules Node.js avec Azure, découvrez comment [spécifier la version de Node.js](https://github.com/squillace/nodejs-microservice), [créer et déployer une application web Node.js](app-service/app-service-web-get-started-nodejs.md) et [utiliser l'interface de ligne de commande Azure pour Mac et Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
 
 Pour plus d’informations, consultez le [Centre pour développeurs Node.js](/azure/javascript/).
 

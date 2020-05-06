@@ -3,12 +3,12 @@ title: Stocker des charts Helm
 description: Découvrez comment stocker des graphiques Helm pour vos applications Kubernetes en utilisant des référentiels dans Azure Container Registry
 ms.topic: article
 ms.date: 03/20/2020
-ms.openlocfilehash: 3f1a68258b758380a66b63e3c3137f1d460d288c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cf9f9667438519443f857e43c0bbc94d6c239e0a
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81399389"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583347"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Envoyer (push) et tirer (pull) des graphiques Helm vers un registre de conteneurs Azure
 
@@ -31,8 +31,7 @@ Vous pouvez utiliser Helm 3 ou Helm 2 pour stocker des graphiques Helm dans Az
 ### <a name="additional-information"></a>Informations supplémentaires
 
 * Pour la plupart des scénarios, nous vous recommandons d’utiliser le workflow Helm 3 avec les commandes `helm chart` natives pour gérer les graphiques en tant qu’artefacts OCI.
-* Vous pouvez utiliser les commandes [az acr helm][az-acr-helm] héritées d’Azure CLI avec le workflow du client et des graphiques Helm 3. Sachez toutefois que certaines commandes comme `az acr helm list` ne sont pas compatibles avec les graphiques Helm 3.
-* Dans Helm 3, les commandes [az acr helm][az-acr-helm] sont prises en charge dans le but principal d’assurer la compatibilité avec le client Helm 2 et son format de graphiques. Le développement ultérieur de ces commandes n’est pas prévu pour le moment.
+* À compter de Helm 3, les commandes [az acr helm][az-acr-helm] sont prises en charge dans le but d’assurer la compatibilité avec le client Helm 2 et son format de graphiques. Le développement ultérieur de ces commandes n’est pas prévu pour le moment. Consultez la [feuille de route du produit](https://github.com/Azure/acr/blob/master/docs/acr-roadmap.md#acr-helm-ga).
 
 ## <a name="use-the-helm-3-client"></a>Utiliser le client Helm 3
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 5a05f2973ac17460250fb3e80eb7bc0da9849940
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 05ff56c904fc48a1041ad40f00110a8ff0fd01f1
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262874"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592041"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Recherche de termes partiels et modèles avec des caractères spéciaux (caractère générique, expression régulière, modèles)
 
@@ -24,7 +24,7 @@ La recherche partielle et de modèle peut être problématique si les termes de 
 La solution consiste à appeler un analyseur qui conserve une chaîne complète, dont les espaces et les caractères spéciaux si nécessaire, afin que vous puissiez mettre en correspondance les termes partiels et les modèles. La création d’un champ supplémentaire pour une chaîne intacte associée à l’utilisation d’un analyseur préservant le contenu est la base de la solution.
 
 > [!TIP]
-> Vous êtes familiarisé avec Postman et les API REST ? [Téléchargez la collection d’exemples de requêtes](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/full-syntax-examples) pour interroger les termes partiels et les caractères spéciaux décrits dans cet article.
+> Vous êtes familiarisé avec Postman et les API REST ? [Téléchargez la collection d’exemples de requêtes](https://github.com/Azure-Samples/azure-search-postman-samples/) pour interroger les termes partiels et les caractères spéciaux décrits dans cet article.
 
 ## <a name="what-is-partial-search-in-azure-cognitive-search"></a>Qu’est-ce que la recherche partielle dans la Recherche cognitive Azure ?
 

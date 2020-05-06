@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: ba788518951e72c1701d99decf46350e8665dbae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: 912d6b80914232d1a2ed2b1fe987ebdf949a1abc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79455806"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82136496"
 ---
 # <a name="two-class-support-vector-machine-module"></a>Module Two-Class Support Vector Machine (Machine à vecteurs de support à deux classes)
 
@@ -64,9 +64,19 @@ Pour ce type de modèle, il est recommandé de normaliser le jeu de données ava
   
 7.  Sous **Random number seed** (Valeur de départ aléatoire), tapez une valeur entière à utiliser comme valeur de départ si vous souhaitez garantir la reproductibilité entre les exécutions.  Sinon, une valeur d’horloge système est utilisée comme valeur de départ, ce qui peut entraîner des résultats légèrement différents entre les exécutions.
   
-9. Connectez un jeu de données étiqueté et l’un des [modules de formation](module-reference.md) :
+9. Connectez un jeu de données étiqueté et entraînez le modèle :
+
+    + Si vous définissez **Create trainer mode** (Créer un mode d’apprentissage) sur **Single Parameter** (Paramètre unique), connectez un jeu de données balisé au module [Entraîner le modèle](train-model.md).  
   
-    -   Si vous définissez **Créer un mode d’apprentissage** sur **Paramètre unique**, utilisez le module [Entraîner le du modèle](train-model.md).
+    + Si vous définissez **Créer un mode d’entraînement** sur **Plage de paramètres**, connectez un jeu de données avec balises et entraînez le modèle en utilisant [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > Si vous transmettez une plage de paramètres à [Entraîner le modèle](train-model.md), elle utilise uniquement la valeur par défaut dans la liste de paramètres unique.  
+    > 
+    > Si vous transmettez un ensemble unique de valeurs de paramètre au module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md), quand il attend une plage de paramètres pour chaque paramètre, il ignore les valeurs et utilise les valeurs par défaut pour l’apprenant.  
+    > 
+    > Si vous sélectionnez l’option **Plage de paramètres** et que vous entrez une valeur unique pour un paramètre, cette valeur unique que vous avez spécifiée est utilisée tout au long du balayage, même si d’autres paramètres changent dans une plage de valeurs.
   
 10. Envoyez le pipeline.
 

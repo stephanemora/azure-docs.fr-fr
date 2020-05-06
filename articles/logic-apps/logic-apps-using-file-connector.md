@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam, estfan, logicappspm
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: ab17137f162b893b54942d870b07a36f87d1b71d
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 79c99a8ba2712fe69ec6d3b9b9d32ddf6aa081cb
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115068"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580637"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Se connecter aux systèmes de fichiers locaux avec Azure Logic Apps
 
@@ -36,6 +36,9 @@ Cet article vous explique comment vous connecter à un système de fichiers loca
 * Un accès à l’ordinateur qui héberge le système de fichiers que vous souhaitez utiliser. Par exemple, si vous installez la passerelle de données sur le même ordinateur que votre système de fichiers, vous avez besoin des informations d'identification du compte pour cet ordinateur.
 
 * Un compte de messagerie d'un fournisseur pris en charge par Azure Logic Apps, comme Office 365 Outlook, Outlook.com ou Gmail. Pour les autres fournisseurs, [passez en revue la liste des connecteurs ici](https://docs.microsoft.com/connectors/). Cette application logique utilise un compte Office 365 Outlook. Si vous utilisez un autre compte de messagerie, les étapes générales sont identiques, mais votre interface utilisateur peut-être légèrement différente.
+
+  > [!IMPORTANT]
+  > Si vous souhaitez utiliser le connecteur Gmail, seuls les comptes professionnels G-Suite peuvent utiliser ce connecteur sans restriction dans Logic Apps. Si vous disposez d’un compte de consommateur Gmail, vous pouvez utiliser ce connecteur avec seulement certains services approuvés par Google, ou vous pouvez [créer une application cliente Google à utiliser pour l’authentification avec votre connecteur Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Pour plus d’informations, consultez [Stratégies de confidentialité et de sécurité des données pour les connecteurs Google dans Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour cet exemple, vous avez besoin d’une application logique vide.
 
@@ -69,8 +72,8 @@ Cet article vous explique comment vous connecter à un système de fichiers loca
    | -------- | -------- | ----- | ----------- |
    | **Nom de connexion** | Oui | <*connection-name*> | Le nom souhaité pour votre connexion |
    | **Dossier racine** | Oui | <*root-folder-name*> | Dossier racine de votre système de fichiers, par exemple, si vous avez installé votre passerelle de données locale, comme un dossier local sur l'ordinateur où la passerelle de données locale est installée, ou le dossier d'un partage réseau auquel l'ordinateur peut accéder. <p>Par exemple : `\\PublicShare\\DropboxFiles` <p>Le dossier racine est le dossier parent principal qui est utilisé pour les chemins relatifs de toutes les actions liées aux fichiers. |
-   | **Type d'authentification** | Non | <*auth-type*> | Type d’authentification utilisé par votre système de fichiers : **Windows** |
-   | **Nom d’utilisateur** | Oui | <*domaine*>\\<*nom d’utilisateur*> | Nom d'utilisateur de l'ordinateur qui héberge votre système de fichiers |
+   | **Type d'authentification** | Non  | <*auth-type*> | Type d’authentification utilisé par votre système de fichiers : **Windows** |
+   | **Nom d’utilisateur** | Oui | <*domaine*>\\<*nom d’utilisateur*> <p>-ou- <p><*ordinateur local*>\\<*nom d’utilisateur*> | Nom d’utilisateur de l’ordinateur qui héberge le dossier de votre système de fichiers. <p>Si le dossier de votre système de fichiers se trouve sur le même ordinateur que la passerelle de données locale, vous pouvez utiliser <*ordinateur local*>\\<*nom d’utilisateur*>. |
    | **Mot de passe** | Oui | <*your-password*> | Mot de passe de l'ordinateur qui héberge votre système de fichiers |
    | **gateway** | Oui | <*installed-gateway-name*> | Le nom de la passerelle que vous avez installée précédemment |
    |||||

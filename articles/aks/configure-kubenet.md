@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/26/2019
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 119265efa7b6504f3faf2e89cb68b9e9bd70bf9f
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 09fd5326c2532e115dbab0752af31a809488f04c
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617258"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559691"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utiliser la mise en réseau kubenet avec vos propres plages d’adresses IP dans Azure Kubernetes Service (AKS)
 
@@ -30,7 +30,7 @@ Cet article vous montre comment utiliser la mise en réseau *kubenet* pour crée
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
 > [!WARNING]
-> Pour utiliser des pools de nœuds Windows Server (actuellement en préversion dans AKS), vous devez utiliser Azure CNI. L’utilisation de kubenet comme modèle de réseau n’est pas disponible pour les conteneurs Windows Server.
+> Pour utiliser des pools de nœuds Windows Server, vous devez utiliser Azure CNI. L’utilisation de kubenet comme modèle de réseau n’est pas disponible pour les conteneurs Windows Server.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -199,7 +199,7 @@ Quand vous créez un cluster AKS, un groupe de sécurité réseau et une table d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant qu’un cluster AKS est déployé dans votre sous-réseau de réseau virtuel existant, vous pouvez utiliser le cluster comme d’habitude. Commencez avec la [génération d’applications à l’aide d’Azure Dev Spaces][dev-spaces] ou l’[utilisation de Draft][use-draft], ou [déployez des applications à l’aide de Helm][use-helm].
+Maintenant qu’un cluster AKS est déployé dans votre sous-réseau de réseau virtuel existant, vous pouvez utiliser le cluster comme d’habitude. Commencez par [créer des applications à l’aide d’Azure Dev Spaces][dev-spaces], [déployer des applications existantes à l’aide de Helm][use-helm], ou [créer des applications à l’aide de Helm][develop-helm].
 
 <!-- LINKS - External -->
 [dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
@@ -217,8 +217,8 @@ Maintenant qu’un cluster AKS est déployé dans votre sous-réseau de réseau 
 [az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[develop-helm]: quickstart-helm.md
 [use-helm]: kubernetes-helm.md
-[use-draft]: kubernetes-draft.md
 [virtual-nodes]: virtual-nodes-cli.md
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md

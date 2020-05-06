@@ -10,34 +10,34 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 03/18/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 130ce05e332f4705feb4acd54cbeb25d25a82532
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9c61bbc794438c34a4bda27c8048ac0b21f9fc1
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227649"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582711"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Affecter des licences aux utilisateurs par appartenance aux groupes dans Azure Active Directory
 
 Cet article présente l’affectation de licences de produit à un groupe d’utilisateurs, puis la vérification que les licences ont été correctement reçues dans Azure Active Directory (Azure AD).
 
-Dans cet exemple, le locataire contient un groupe de sécurité appelé **HR Department**. Ce groupe inclut tous les membres du département des ressources humaines (environ 1 000 utilisateurs). Vous souhaitez attribuer des licences Office 365 Entreprise E3 à l’ensemble du département. Le service Yammer Enterprise inclus dans le produit doit être temporairement désactivé jusqu’à ce que le département soit prêt à l’utiliser. L’administrateur souhaite également déployer des licences Enterprise Mobility + Security vers le même groupe d’utilisateurs.
+Dans cet exemple, l’organisation Azure AD contient un groupe de sécurité appelé **HR Department**. Ce groupe inclut tous les membres du département des ressources humaines (environ 1 000 utilisateurs). Vous souhaitez attribuer des licences Office 365 Entreprise E3 à l’ensemble du département. Le service Yammer Enterprise inclus dans le produit doit être temporairement désactivé jusqu’à ce que le département soit prêt à l’utiliser. L’administrateur souhaite également déployer des licences Enterprise Mobility + Security vers le même groupe d’utilisateurs.
 
 > [!NOTE]
 > Certains services Microsoft ne sont pas disponibles dans tous les emplacements. Avant de pouvoir attribuer une licence à un utilisateur, l’administrateur doit spécifier la propriété Emplacement d’utilisation sur l’utilisateur.
 >
 > Pour l’affectation d’une licence à un groupe, tous les utilisateurs sans emplacement d’utilisation spécifié héritent de l’emplacement du répertoire. Si vos utilisateurs sont situés à plusieurs emplacements, nous vous recommandons de définir systématiquement l’emplacement d’utilisation dans le cadre de votre flux de création d’utilisateur dans Azure AD (par exemple, par le biais d’une configuration AAD Connect). Cela garantit que le résultat de l’affectation de licence est toujours correct et que les utilisateurs ne reçoivent pas de services à des emplacements non autorisés.
 
-## <a name="step-1-assign-the-required-licenses"></a>Étape 1 : Affecter les licences requises
+## <a name="step-1-assign-the-required-licenses"></a>Étape 1 : Affecter les licences requises
 
 1. Connectez-vous au [**Centre d’administration Azure AD**](https://aad.portal.azure.com) avec un compte administrateur de licences. Pour gérer les licences, le compte doit être un rôle administrateur de licences, administrateur d’utilisateurs ou administrateur général.
 
-1. Sélectionnez **Licences** afin d’ouvrir une page vous permettant de voir et gérer tous les produits sous licence du locataire.
+1. Sélectionnez **Licences** afin d’ouvrir une page vous permettant de voir et gérer tous les produits sous licence dans l’organisation.
 
 1. Sous **Tous les produits**, sélectionnez Office 365 Enterprise E5 et Enterprise Mobility + Security E3 en sélectionnant les noms de produits. Pour démarrer l’affectation, sélectionnez **Affecter** en haut de la page.
 
@@ -79,7 +79,7 @@ Lorsque vous attribuez des licences à un groupe, Azure AD traite tous les memb
 
    [Lisez cette section](licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) pour en savoir plus sur l’utilisation des journaux d’audit pour analyser les modifications apportées par une gestion des licences basée sur un groupe.
 
-## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Étape 3 : Rechercher des problèmes de licences et les résoudre
+## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Étape 3 : Rechercher des problèmes de licences et les résoudre
 
 1. Accédez à **Azure Active Directory** > **Groupes** et recherchez les groupes auquel les licences ont été affectées.
 1. Dans la page du groupe, sélectionnez **Licences**. La notification en haut de la page indique que des licences n’ont pas pu être affectées à 10 utilisateurs. Ouvrez cette notification pour accéder à une liste de tous les utilisateurs associés à une erreur de licence pour ce groupe.

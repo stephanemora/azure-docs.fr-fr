@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 7eb1ad00c3c947c3ed6d4ca450bddc0956a08d71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: d746b942f624fc83515ba29b0a092c2e592f1f25
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79455823"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82137618"
 ---
 # <a name="two-class-logistic-regression-module"></a>Module de régression logistique à deux classes
 
@@ -71,9 +71,19 @@ Par exemple, la colonne d’étiquette peut être [Voté], avec les valeurs poss
 6.  Pour la **valeur initiale aléatoire**, saisissez une valeur entière. Il est important de définir une valeur de départ si vous souhaitez obtenir des résultats reproductibles sur plusieurs exécutions du même pipeline.  
   
   
-8. Ajoutez un jeu de données avec balises au pipeline, puis connectez l’un des [modules de formation](module-reference.md).  
+8. Ajoutez un jeu de données étiqueté au pipeline, puis entraînez le modèle :
+
+    + Si vous définissez **Create trainer mode** (Créer un mode d’apprentissage) sur **Single Parameter** (Paramètre unique), connectez un jeu de données balisé au module [Entraîner le modèle](train-model.md).  
   
-    -   Si vous définissez **Créer un mode d’apprentissage** sur **Paramètre unique**, utilisez le module [Entraîner le du modèle](./train-model.md).  
+    + Si vous définissez **Créer un mode d’entraînement** sur **Plage de paramètres**, connectez un jeu de données avec balises et entraînez le modèle en utilisant [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > Si vous transmettez une plage de paramètres à [Entraîner le modèle](train-model.md), elle utilise uniquement la valeur par défaut dans la liste de paramètres unique.  
+    > 
+    > Si vous transmettez un ensemble unique de valeurs de paramètre au module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md), quand il attend une plage de paramètres pour chaque paramètre, il ignore les valeurs et utilise les valeurs par défaut pour l’apprenant.  
+    > 
+    > Si vous sélectionnez l’option **Plage de paramètres** et que vous entrez une valeur unique pour un paramètre, cette valeur unique que vous avez spécifiée est utilisée tout au long du balayage, même si d’autres paramètres changent dans une plage de valeurs.  
   
 9. Envoyez le pipeline.  
   

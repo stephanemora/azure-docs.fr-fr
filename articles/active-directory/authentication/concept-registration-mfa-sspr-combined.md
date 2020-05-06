@@ -1,26 +1,31 @@
 ---
 title: Inscription combinée pour SSPR et MFA - Azure Active Directory
-description: Inscription à l’authentification multifacteur et à la réinitialisation de mot de passe en libre-service Azure AD (préversion)
+description: Inscription à Azure AD Multi-Factor Authentication et à la réinitialisation de mot de passe en libre-service
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/06/2020
+ms.date: 04/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26656b6dafd91d47c05c2d1f923e53f4ba790cf8
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 4d4caaf8704f2ee49f8f094ad22065ae462154be
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309910"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82143918"
 ---
-# <a name="combined-security-information-registration-preview"></a>Inscription d’informations de sécurité combinée (préversion)
+# <a name="combined-security-information-registration-overview"></a>Présentation de l’inscription combinée des informations de sécurité
 
 Avant l’inscription combinée, les utilisateurs s’inscrivaient séparément à des méthodes d’authentification pour Azure Multi-Factor Authentication et la réinitialisation de mot de passe en libre-service (SSPR). Certains étaient troublés par le fait que des méthodes similaires servaient pour l’authentification multifacteur et la réinitialisation SSPR, mais qu’ils devaient s’inscrire aux deux fonctionnalités. Désormais, avec l’inscription combinée, les utilisateurs peuvent s’inscrire une seule fois et bénéficier des avantages de l’authentification multifacteur et de la réinitialisation SSPR.
+
+Cet article explique ce qu’est l’inscription de sécurité combinée. Pour prendre en main l’inscription de sécurité combinée, consultez l’article suivant :
+
+> [!div class="nextstepaction"]
+> [Activer l’inscription de sécurité combinée](howto-registration-mfa-sspr-combined.md)
 
 ![Page Mon profil affichant les informations de sécurité d’un utilisateur inscrit](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
@@ -28,16 +33,10 @@ Avant d’activer la nouvelle expérience, passez en revue cette documentation a
 
 L’inscription combinée d’informations de sécurité Azure AD n’est pas disponible actuellement sur les clouds nationaux tels qu’Azure US Government, Azure Allemagne et Azure China 21Vianet.
 
-|     |
-| --- |
-| L’inscription combinée d’informations de sécurité pour la réinitialisation de mot de passe en libre-service Azure Active Directory (Azure AD) et l’authentification multifacteur est une fonctionnalité d’évaluation publique d’Azure AD. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
-
 > [!IMPORTANT]
 > Les utilisateurs activés pour la préversion d’origine et l’expérience d’inscription combinée améliorée voient le nouveau comportement. Les utilisateurs activés pour les deux expériences voient uniquement la nouvelle expérience de la page Mon profil. La nouvelle page Mon profil s’aligne sur l’apparence de l’inscription combinée et offre une expérience transparente pour les utilisateurs. Les utilisateurs peuvent voir la page Mon profil en accédant à [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
-
-> [!NOTE] 
-> Un message d’erreur peut s’afficher lors de la tentative d’accès à l’option Informations de sécurité. Par exemple, « Désolé, nous ne pouvons pas vous connecter ». Dans ce cas, vérifiez que vous n’avez pas d’objet de configuration ou de stratégie de groupe qui bloque les cookies tiers sur le navigateur Web. 
+>
+> Un message d’erreur peut s’afficher lors de la tentative d’accès à l’option Informations de sécurité. Par exemple, « Désolé, nous ne pouvons pas vous connecter ». Dans ce cas, vérifiez que vous n’avez pas d’objet de configuration ou de stratégie de groupe qui bloque les cookies tiers sur le navigateur Web.
 
 Les pages Mon profil sont localisées sur la base des paramètres de langue de l’ordinateur qui accède à ces pages. Microsoft stocke la dernière langue utilisée dans le cache du navigateur, afin que les tentatives suivantes d’accès aux pages continuent de s’afficher dans la dernière langue utilisée. Si vous effacez le cache, les pages seront réaffichées. Pour imposer l’utilisation d’une langue spécifique, vous pouvez ajouter `?lng=<language>` à la fin de l’URL, où `<language>` est le code de la langue que vous souhaitez utiliser.
 
@@ -49,15 +48,15 @@ L’inscription combinée prend en charge les méthodes et les actions d’authe
 
 |   | Inscrire | Modifier | DELETE |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Oui (jusqu'à 5) | Non | Oui |
-| Autre application d’authentification | Oui (jusqu'à 5) | Non | Oui |
-| Jeton matériel | Non | Non | Oui |
+| Microsoft Authenticator | Oui (jusqu'à 5) | Non  | Oui |
+| Autre application d’authentification | Oui (jusqu'à 5) | Non  | Oui |
+| Jeton matériel | Non  | Non  | Oui |
 | Téléphone | Oui | Oui | Oui |
 | Autre téléphone | Oui | Oui | Oui |
-| Téléphone de bureau | Non | Non | Non |
+| Téléphone de bureau | Non  | Non  | Non  |
 | E-mail | Oui | Oui | Oui |
-| Questions de sécurité | Oui | Non | Oui |
-| Mots de passe d'application | Oui | Non | Oui |
+| Questions de sécurité | Oui | Non  | Oui |
+| Mots de passe d'application | Oui | Non  | Oui |
 | Clés de sécurité FIDO2<br />*Mode géré uniquement à partir de la page [Informations de sécurité](https://mysignins.microsoft.com/security-info)*| Oui | Oui | Oui |
 
 > [!NOTE]
@@ -77,10 +76,9 @@ Au fur et à mesure que nous ajouterons de nouvelles méthodes d’authentificat
 Il existe deux modes d’inscription combinée : le mode d’interruption et le mode de gestion.
 
 - Le **mode d’interruption** est une expérience de type Assistant, présentée aux utilisateurs lorsqu’ils s’inscrivent ou actualisent les informations de sécurité à la connexion.
-
 - Le **mode de gestion** fait partie du profil utilisateur et permet aux utilisateurs de gérer leurs informations de sécurité.
 
-Pour ces deux modes, les utilisateurs qui se sont inscrits précédemment à une méthode pouvant être utilisée pour l’authentification multifacteur doivent effectuer une authentification multifacteur avant de pouvoir accéder à leurs informations de sécurité.
+Pour ces deux modes, les utilisateurs qui se sont inscrits précédemment à une méthode pouvant être utilisée pour l’authentification multifacteur doivent effectuer une authentification multifacteur avant de pouvoir accéder à leurs informations de sécurité. Les utilisateurs doivent confirmer leurs informations avant de continuer à utiliser leurs méthodes précédemment inscrites. 
 
 ### <a name="interrupt-mode"></a>Mode d’interruption
 
@@ -139,14 +137,8 @@ Un utilisateur qui a configuré précédemment au moins une méthode pouvant êt
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Obliger les utilisateurs à réinscrire les méthodes d’authentification](howto-mfa-userdevicesettings.md#manage-user-authentication-options)
+Pour commencer, consultez les didacticiels pour [activer la réinitialisation de mot de passe en libre-service](tutorial-enable-sspr.md) et [activer Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 
-[Activer une inscription combinée dans votre locataire](howto-registration-mfa-sspr-combined.md)
+Découvrez comment [activer l’inscription combinée dans votre locataire](howto-registration-mfa-sspr-combined.md) ou [obliger les utilisateurs à se réinscrire à certaines méthodes d’authentification](howto-mfa-userdevicesettings.md#manage-user-authentication-options).
 
-[Rapport d’utilisation et d’insights SSPR et MFA](howto-authentication-methods-usage-insights.md)
-
-[Méthodes disponibles pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service](concept-authentication-methods.md)
-
-[Configurer la réinitialisation du mot de passe en libre-service](howto-sspr-deployment.md)
-
-[Configurer Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+Vous pouvez également consulter les [méthodes disponibles pour Azure Multi-Factor Authentication et SSPR](concept-authentication-methods.md).

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb14369275a111476867f2263766e1bb87b7c87d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 622950c394d59d8ba504901f5bb0eea6bc04707f
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295331"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160713"
 ---
 # <a name="conditional-access-conditions"></a>Accès conditionnel : Conditions
 
@@ -41,8 +41,11 @@ L’accès conditionnel Azure AD prend en charge les plateformes d’appareil su
 - Android
 - iOS
 - Windows Phone
-- Windows
+-  Windows
 - macOS
+
+> [!WARNING]
+> Microsoft a connaissance d’un problème concernant les stratégies d’accès conditionnel et les appareils macOS 10.15.4. Pour plus d’informations, consultez le billet de blog suivant : [Known Issue: Conditional access unexpectedly blocking macOS 10.15.4 native mail client/other apps](https://techcommunity.microsoft.com/t5/intune-customer-success/known-issue-conditional-access-unexpectedly-blocking-macos-10-15/ba-p/1322283).
 
 Si vous bloquez l’authentification héritée à l’aide de la condition **Autres clients**, vous pouvez également définir la condition de plateforme de l’appareil.
 
@@ -108,7 +111,7 @@ Sur des systèmes Windows 7, iOS, Android et macOS, Azure AD identifie l’appar
 
 #### <a name="chrome-support"></a>Prise en charge Chrome
 
-Dans **Windows 10 Creators Update (version 1703)** ou version ultérieure, la prise en charge de Chrome nécessite l’installation de l’[extension Comptes Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Cette extension est requise lorsqu’une stratégie d’accès conditionnel requiert des détails spécifiques sur l’appareil.
+Dans **Windows 10 Creators Update (version 1703)** ou version ultérieure, la prise en charge de Chrome nécessite l’installation de l’[extension Comptes Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Cette extension est nécessaire lorsqu’une stratégie d’accès conditionnel exige des informations concernant l’appareil.
 
 Pour déployer automatiquement cette extension sur les navigateurs Chrome, créez la clé de Registre suivante :
 

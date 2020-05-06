@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
-ms.openlocfilehash: d5af557a62f4bd35c242d334c28a38c3d632f7cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 94c132421f1e113b667341b094acad8047e5f465
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "67177523"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561762"
 ---
 1. [Connectez-vous à l’interface PowerShell](#connect-to-the-powershell-interface).
 2. Utilisez `Get-HcsApplianceInfo` pour obtenir les informations pour votre appareil.
@@ -49,9 +49,9 @@ ms.locfileid: "67177523"
     |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
     | FriendlyName                   | Nom convivial configuré pour l’appareil via l’interface utilisateur web locale lors du déploiement de l’appareil. Le nom convivial par défaut est le numéro de série de l’appareil.  |   |
     | SerialNumber                   | Le numéro de série de l’appareil est un numéro unique attribué en usine.                                                                             |   |
-    | Modèle                          | Le modèle pour votre appareil Data Box Edge ou data Box Gateway. Le modèle est virtuel pour Data Box Gateway et physique pour Data Box Edge.                   |   |
+    | Modèle                          | Le modèle de votre appareil Azure Stack Edge ou Data Box Gateway. Le modèle est physique pour Azure Stack Edge et virtuel pour Data Box Gateway.                   |   |
     | FriendlySoftwareVersion        | Chaîne conviviale qui correspond à la version du logiciel de l’appareil. Pour un système exécutant la préversion, la version conviviale du logiciel serait Data Box Edge 1902. |   |
-    | HcsVersion                     | Version du logiciel HCS exécutée sur votre appareil. Par exemple, la version du logiciel HCS correspondant à Data Box Edge 1902 is 1.4.771.324.            |   |
+    | HcsVersion                     | Version du logiciel HCS exécutée sur votre appareil. Par exemple, la version du logiciel HCS correspondant à Data Box Edge 1902 est 1.4.771.324.            |   |
     | LocalCapacityInMb              | Capacité totale locale de l’appareil en mégabits.                                                                                                        |   |
     | IsRegistered                   | Cette valeur indique si votre appareil est activé avec le service.                                                                                         |   |
 

@@ -3,14 +3,14 @@ title: 'Tutoriel : Accéder aux données avec une identité managée'
 description: Découvrez comment sécuriser la connectivité de la base de données à l’aide d’une identité managée, et comment appliquer cette technique à d’autres services Azure.
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/18/2019
+ms.date: 04/27/2020
 ms.custom: mvc, cli-validate
-ms.openlocfilehash: b66874cf95ed29d9be0a2d1ea397704131c7b21d
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 142cd2611e0dcf3227474efadded7bac88a4390a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085432"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82207630"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutoriel : Sécuriser la connexion Azure SQL Database à partir d’App Service à l’aide d’une identité managée
 
@@ -24,8 +24,8 @@ Lorsque vous aurez terminé, votre exemple d’application se connectera à SQL 
 > [!NOTE]
 > Les étapes décrites dans ce tutoriel prennent en charge les versions suivantes :
 > 
-> - .NET Framework 4.7.2
-> - .NET Core 2.2
+> - .NET Framework 4.7.2 et ultérieur
+> - .NET Core 2.2 et ultérieur
 >
 
 Contenu :
@@ -74,7 +74,7 @@ Pour plus d’informations sur l’ajout d’un administrateur Active Directory,
 
 ## <a name="set-up-visual-studio"></a>Configuration de Visual Studio
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 Visual Studio pour Windows est intégré avec l’authentification Azure AD. Pour activer le développement et le débogage dans Visual Studio, ajoutez votre utilisateur Azure AD dans Visual Studio en sélectionnant **Fichier** > **Paramètres du compte** à partir du menu, puis cliquez sur **Ajouter un compte**.
 
 Pour définir l’utilisateur Azure AD pour l’authentification de service Azure, sélectionnez **Outils** > **Options** dans le menu, puis sélectionnez **Authentification du service Azure** > **Sélection du compte**. Sélectionnez l’utilisateur Azure AD que vous avez ajouté, puis cliquez sur **OK**.
@@ -104,7 +104,7 @@ Les étapes que vous suivez pour votre projet varient selon qu’il s’agit d�
 Dans Visual Studio, ouvrez la Console du gestionnaire de package et ajoutez le package NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) :
 
 ```powershell
-Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.3.1
+Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
 ```
 
 Dans *Web.config*, depuis le début du fichier, apportez les modifications suivantes :
@@ -139,7 +139,7 @@ Entrez `Ctrl+F5` pour réexécuter l’application. La même application CRUD da
 Dans Visual Studio, ouvrez la Console du gestionnaire de package et ajoutez le package NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) :
 
 ```powershell
-Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.3.1
+Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
 ```
 
 Dans le [tutoriel ASP.NET Core et SQL Database](app-service-web-tutorial-dotnetcore-sqldb.md), la chaîne de connexion `MyDbConnection` n’est pas du tout utilisée, car l’environnement de développement local utilise un fichier de base de données SQLite, et l’environnement de production Azure, une chaîne de connexion depuis App Service. Avec l’authentification Active Directory, vous voulez que les deux environnements utilisent la même chaîne de connexion. Dans le fichier *appsettings. json*, remplacez la valeur de la chaîne de connexion `MyDbConnection` par :
@@ -148,33 +148,10 @@ Dans le [tutoriel ASP.NET Core et SQL Database](app-service-web-tutorial-dotnetc
 "Server=tcp:<server-name>.database.windows.net,1433;Database=<database-name>;"
 ```
 
-Dans *Startup.cs*, supprimez la section de code que vous avez ajoutée précédemment :
-
-```csharp
-// Use SQL Database if in Azure, otherwise, use SQLite
-if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
-    services.AddDbContext<MyDatabaseContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
-else
-    services.AddDbContext<MyDatabaseContext>(options =>
-            options.UseSqlite("Data Source=localdatabase.db"));
-
-// Automatically perform database migration
-services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
-```
-
-Remplacez-la par le code suivant :
-
-```csharp
-services.AddDbContext<MyDatabaseContext>(options => {
-    options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection"));
-});
-```
-
 Ensuite, vous fournissez le contexte de base de données Entity Framework avec le jeton d’accès pour l’instance SQL Database. Dans *Data\MyDatabaseContext.cs*, ajoutez le code suivant à l’intérieur des accolades du constructeur `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)` vide :
 
 ```csharp
-var conn = (System.Data.SqlClient.SqlConnection)Database.GetDbConnection();
+var conn = (Microsoft.Data.SqlClient.SqlConnection)Database.GetDbConnection();
 conn.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
 ```
 
@@ -233,7 +210,7 @@ Dans le Cloud Shell, connectez-vous à SQL Database en utilisant la commande SQL
 sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
 ```
 
-À l’invite SQL de la base de données souhaitée, exécutez les commandes suivantes pour ajouter le groupe Azure AD et accorder les autorisations dont votre application a besoin. Par exemple, 
+À l’invite SQL de la base de données souhaitée, exécutez les commandes suivantes pour accorder les autorisations dont votre application a besoin. Par exemple, 
 
 ```sql
 CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER;

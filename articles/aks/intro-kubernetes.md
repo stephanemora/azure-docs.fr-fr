@@ -5,18 +5,18 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: f78b65169899107bcd4626bbed65bd4fddd8af43
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c36d651fde4c10157979e12fda12604153aefdfc
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77595448"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561877"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
 Azure Kubernetes Service (AKS) simplifie le déploiement d’un cluster Kubernetes géré dans Azure. AKS permet de réduire la complexité et la surcharge opérationnelle de la gestion d’un cluster Kubernetes en déléguant une grande partie de cette responsabilité à Azure. En tant que service Kubernetes hébergé, Azure gère pour vous des tâches critiques telles que l’analyse de l'intégrité et la maintenance. Les maîtres Kubernetes sont gérés par Azure. Vous gérez uniquement les nœuds de l’agent. En tant que service Kubernetes managé, AKS est gratuit. Vous payez uniquement pour les nœuds de l’agent au sein de vos clusters, pas pour les maîtres.
 
-Vous pouvez créer un cluster AKS dans le portail Azure, avec Azure CLI ou des options de déploiement piloté par modèle, comme les modèles Resource Manager et Terraform. Lors du déploiement d’un cluster AKS, le maître Kubernetes et tous les nœuds sont déployés et configurés pour vous. Des fonctionnalités supplémentaires telles que la mise en réseau avancée, l’intégration d’Azure Active Directory et la surveillance peuvent aussi être configurées lors du processus de déploiement. Le support des conteneurs Windows Server dans AKS est actuellement disponible en préversion.
+Vous pouvez créer un cluster AKS dans le portail Azure, avec Azure CLI ou des options de déploiement piloté par modèle, comme les modèles Resource Manager et Terraform. Lors du déploiement d’un cluster AKS, le maître Kubernetes et tous les nœuds sont déployés et configurés pour vous. Des fonctionnalités supplémentaires telles que la mise en réseau avancée, l’intégration d’Azure Active Directory et la surveillance peuvent aussi être configurées lors du processus de déploiement. Les conteneurs Windows Server sont pris en charge dans AKS.
 
 Pour plus d’informations sur les principes fondamentaux de Kubernetes, consultez [Concepts de base de Kubernetes pour AKS][concepts-clusters-workloads].
 
@@ -44,7 +44,7 @@ Pour plus d’informations, consultez [Superviser l’intégrité des conteneurs
 
 ## <a name="clusters-and-nodes"></a>Clusters et nœuds
 
-Les nœuds AKS s’exécutent sur des machines virtuelles Azure. Vous pouvez connecter le stockage à des nœuds et des pods, mettre à niveau les composants du cluster et utiliser des GPU. AKS prend en charge les clusters Kubernetes qui exécutent plusieurs pools de nœuds pour prendre en charge des systèmes d’exploitation mixtes et des conteneurs Windows Server (actuellement en préversion). Les nœuds Linux exécutent une image de système d’exploitation Ubuntu personnalisée et les nœuds Windows Server exécutent une image de système d’exploitation Windows Server 2019 personnalisée.
+Les nœuds AKS s’exécutent sur des machines virtuelles Azure. Vous pouvez connecter le stockage à des nœuds et des pods, mettre à niveau les composants du cluster et utiliser des GPU. AKS prend en charge les clusters Kubernetes qui exécutent plusieurs pools de nœuds pour prendre en charge des systèmes d’exploitation mixtes et des conteneurs Windows Server. Les nœuds Linux exécutent une image de système d’exploitation Ubuntu personnalisée et les nœuds Windows Server exécutent une image de système d’exploitation Windows Server 2019 personnalisée.
 
 ### <a name="cluster-node-and-pod-scaling"></a>Nœud de cluster et la mise à l’échelle de pod
 
@@ -88,7 +88,7 @@ Pour vous familiariser avec le trafic d’entrée, consultez [Routage d’applic
 
 ## <a name="development-tooling-integration"></a>Intégration d’outils de développement
 
-Kubernetes dispose d’un écosystème riche en outils de gestion et de développement, tels que Helm,Draft et l’extension Kubernetes pour Visual Studio Code. Ces outils fonctionnent parfaitement avec AKS.
+Kubernetes dispose d’un écosystème riche en outils de gestion et de développement, dont Helm et l’extension Kubernetes pour Visual Studio Code. Ces outils fonctionnent parfaitement avec AKS.
 
 De plus, Azure Dev Spaces offre aux équipes une expérience de développement Kubernetes rapide et itérative. Avec une configuration minimale, vous pouvez exécuter et déboguer des conteneurs directement dans AKS. Pour commencer, consultez [Azure Dev Spaces][azure-dev-spaces].
 

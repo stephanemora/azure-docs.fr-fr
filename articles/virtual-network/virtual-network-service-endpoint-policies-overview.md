@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 926da07ffaf0c61ca2a7fd02351ef3635ec4d73b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 495d0bce905a980f840527f4cc8cd9e2116e3e66
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651290"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133747"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Stratégies de points de terminaison de service de réseau virtuel pour le stockage Azure
 
@@ -90,7 +90,7 @@ Examinons rapidement l’objet de stratégie de point de terminaison de service.
 - **Filtrage du trafic local vers les services Azure** : Les stratégies de point de terminaison de service s’appliquent uniquement au trafic en provenance des sous-réseaux associés aux stratégies. Pour autoriser l’accès à des ressources de service Azure spécifiques en local, le trafic doit être filtré à l’aide d’appliances de réseau virtuel ou de pare-feu.
 
 ## <a name="logging-and-troubleshooting"></a>Journalisation et résolution des problèmes
-Aucun enregistrement centralisé n’est disponible pour les stratégies de point de terminaison de service. Pour les journaux de diagnostic de service, consultez [Service endpoints logging](virtual-network-service-endpoints-overview.md#logging-and-troubleshooting) (Enregistrement des points de terminaison de service).
+Aucun enregistrement centralisé n’est disponible pour les stratégies de point de terminaison de service. Pour les journaux de ressources de service, consultez [Journalisation des points de terminaison de service](virtual-network-service-endpoints-overview.md#logging-and-troubleshooting).
 
 ### <a name="troubleshooting-scenarios"></a>Scénarios de résolution des problèmes
 - Accès refusé aux comptes de stockage qui fonctionnaient dans la préversion (et non dans la région géographiquement associée)

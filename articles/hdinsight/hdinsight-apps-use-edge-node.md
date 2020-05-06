@@ -1,56 +1,58 @@
 ---
 title: Utiliser des nœuds de périphérie vides sur des clusters Apache Hadoop dans Azure HDInsight
-description: Découvrez comment ajouter un nœud de périphérie vide à un cluster HDInsight, qui peut être utilisé en tant que client, et comment tester / héberger vos applications HDInsight.
+description: Comment ajouter un nœud de périphérie vide à un cluster HDInsight. Utilisé comme client, puis teste ou héberge vos applications HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 01/27/2020
-ms.openlocfilehash: d7723ea63cbb9bab6adf42d7e92f84a6b8b2ab9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: f6dea00bf3b3e8a58f42da8fd8ad59ccec2dea72
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233661"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81537795"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Utiliser des nœuds de périphérie vides sur des clusters Apache Hadoop dans HDInsight
 
-Découvrez comment ajouter un nœud de périphérie vide à un cluster HDInsight. Un nœud de périphérie vide est une machine virtuelle Linux sur laquelle sont installés et configurés les mêmes outils clients que dans les nœuds principaux, sans que des services [Apache Hadoop](https://hadoop.apache.org/) s’exécutent. Vous pouvez utiliser le nœud de périmètre pour accéder au cluster, tester vos applications clientes et héberger vos applications clientes.
+Découvrez comment ajouter un nœud de périphérie vide à un cluster HDInsight. Un nœud de périmètre vide est une machine virtuelle Linux avec les mêmes outils client installés et configurés comme dans les nœuds principaux. Mais aucun service [Apache Hadoop](./hadoop/apache-hadoop-introduction.md) ne s’exécute. Vous pouvez utiliser le nœud de périmètre pour accéder au cluster, tester vos applications clientes et héberger vos applications clientes.
 
 Vous pouvez ajouter un nœud de périmètre vide à un cluster HDInsight existant et à un nouveau cluster, lorsque vous créez le cluster. L’ajout d’un nœud de périmètre vide est effectué à l’aide du modèle Azure Resource Manager.  L’exemple suivant montre comment procéder à l’aide d’un modèle :
 
-    "resources": [
-        {
-            "name": "[concat(parameters('clusterName'),'/', variables('applicationName'))]",
-            "type": "Microsoft.HDInsight/clusters/applications",
-            "apiVersion": "2015-03-01-preview",
-            "dependsOn": [ "[concat('Microsoft.HDInsight/clusters/',parameters('clusterName'))]" ],
-            "properties": {
-                "marketPlaceIdentifier": "EmptyNode",
-                "computeProfile": {
-                    "roles": [{
-                        "name": "edgenode",
-                        "targetInstanceCount": 1,
-                        "hardwareProfile": {
-                            "vmSize": "{}"
-                        }
-                    }]
-                },
-                "installScriptActions": [{
-                    "name": "[concat('emptynode','-' ,uniquestring(variables('applicationName')))]",
-                    "uri": "[parameters('installScriptAction')]",
-                    "roles": ["edgenode"]
-                }],
-                "uninstallScriptActions": [],
-                "httpsEndpoints": [],
-                "applicationType": "CustomApplication"
-            }
+```json
+"resources": [
+    {
+        "name": "[concat(parameters('clusterName'),'/', variables('applicationName'))]",
+        "type": "Microsoft.HDInsight/clusters/applications",
+        "apiVersion": "2015-03-01-preview",
+        "dependsOn": [ "[concat('Microsoft.HDInsight/clusters/',parameters('clusterName'))]" ],
+        "properties": {
+            "marketPlaceIdentifier": "EmptyNode",
+            "computeProfile": {
+                "roles": [{
+                    "name": "edgenode",
+                    "targetInstanceCount": 1,
+                    "hardwareProfile": {
+                        "vmSize": "{}"
+                    }
+                }]
+            },
+            "installScriptActions": [{
+                "name": "[concat('emptynode','-' ,uniquestring(variables('applicationName')))]",
+                "uri": "[parameters('installScriptAction')]",
+                "roles": ["edgenode"]
+            }],
+            "uninstallScriptActions": [],
+            "httpsEndpoints": [],
+            "applicationType": "CustomApplication"
         }
-    ],
+    }
+],
+```
 
-Comme indiqué dans l’exemple, vous pouvez éventuellement appeler une [action de script](hdinsight-hadoop-customize-cluster-linux.md) pour effectuer une configuration supplémentaire, telle que l’installation [d’Apache Hue](hdinsight-hadoop-hue-linux.md) dans le nœud de périmètre. Le script d’action de script doit être publiquement accessible sur Internet.  Par exemple, si le script est stocké dans Stockage Azure, utilisez des conteneurs ou blobs publics.
+Comme illustré dans l’exemple, vous pouvez éventuellement appeler une [action de script](hdinsight-hadoop-customize-cluster-linux.md) pour effectuer une configuration supplémentaire. Par exemple, l’installation d’[Apache Hue](hdinsight-hadoop-hue-linux.md) dans le nœud de périphérie. Le script d’action de script doit être publiquement accessible sur Internet.  Par exemple, si le script est stocké dans Stockage Azure, utilisez des conteneurs ou blobs publics.
 
 La taille de la machine virtuelle de nœud de périmètre doit respecter les exigences de taille de machine virtuelle du nœud Worker du cluster HDInsight. Pour connaître les tailles de machine virtuelle de nœud Worker recommandées, voir [Créer des clusters Apache Hadoop dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-type).
 
@@ -119,7 +121,7 @@ Dans cette section, vous allez utiliser un modèle Resource Manager pour créer 
 
 ## <a name="add-multiple-edge-nodes"></a>Ajouter plusieurs nœuds de périphérie
 
-Vous pouvez ajouter plusieurs nœuds de périphérie à un cluster HDInsight.  La configuration de plusieurs nœuds de périphérie peut uniquement être effectuée à l’aide de modèles Azure Resource Manager.  Consultez l’exemple de modèle au début de cet article.  Vous devez mettre à jour l’élément **targetInstanceCount** afin de refléter le nombre de nœuds de périphérie que vous souhaitez créer.
+Vous pouvez ajouter plusieurs nœuds de périphérie à un cluster HDInsight.  La configuration de plusieurs nœuds de périphérie peut uniquement être effectuée à l’aide de modèles Azure Resource Manager.  Consultez l’exemple de modèle au début de cet article.  Mettez à jour l’élément **targetInstanceCount** afin de refléter le nombre de nœuds de périphérie que vous souhaitez créer.
 
 ## <a name="access-an-edge-node"></a>Accéder à un nœud de périmètre
 

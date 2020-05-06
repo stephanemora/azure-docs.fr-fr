@@ -7,12 +7,12 @@ ms.author: spelluru
 ms.date: 03/13/2020
 ms.service: service-bus-messaging
 ms.topic: article
-ms.openlocfilehash: b8c4248b7275ac96acce96f890f6ff0148116f48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33e6ce1d5feb50080b00fcbecdeb9e512980eab6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473818"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82141947"
 ---
 # <a name="integrate-azure-service-bus-with-azure-private-link-preview"></a>Intégrer Azure Service Bus à Azure Private Link (préversion)
 
@@ -22,7 +22,21 @@ Un point de terminaison privé est une interface réseau qui vous permet de vous
 
 Pour plus d’informations, consultez [Qu’est-ce qu’Azure Private Link ?](../private-link/private-link-overview.md)
 
-> [!NOTE]
+>[!WARNING]
+> L’implémentation de points de terminaison privés peut empêcher d’autres services Azure d’interagir avec Service Bus.
+>
+> Les services Microsoft de confiance ne sont pas pris en charge lors de l’utilisation de réseaux virtuels.
+>
+> Scénarios courants Azure qui ne fonctionnent pas avec les réseaux virtuels (Notez que cette liste **N’EST PAS** exhaustive) :
+> - Intégration à Azure Event Grid
+> - Routes Azure IoT Hub
+> - Azure IoT Device Explorer
+>
+> Les services Microsoft suivants doivent être sur un réseau virtuel
+> - Azure App Service
+> - Azure Functions
+
+> [!IMPORTANT]
 > Cette fonctionnalité est prise en charge avec le niveau **Premium** d’Azure Service Bus. Pour plus d’informations sur le niveau Premium, consultez l’article [Couches de messagerie Service Bus Premium et Standard](service-bus-premium-messaging.md).
 >
 > Cette fonctionnalité est actuellement en **préversion**. 
@@ -57,7 +71,7 @@ Si vous avez déjà un espace de noms, vous pouvez créer un point de terminaiso
     1. Sélectionnez l’**abonnement Azure** où créer le point de terminaison privé. 
     2. Sélectionnez le **groupe de ressources** pour la ressource de point de terminaison privé.
     3. Entrez un **nom** pour le point de terminaison privé. 
-    5. Sélectionnez une **région** pour le point de terminaison privé. Votre point de terminaison privé doit être dans la même région que celle de votre réseau virtuel, mais peut être différente de celle de la ressource de liaison privée à laquelle vous vous connectez. 
+    5. Sélectionnez une **région** pour le point de terminaison privé. La région de votre point de terminaison privé doit être la même que celle de votre réseau virtuel, mais elle peut être différente de celle de la ressource de lien privé à laquelle vous vous connectez. 
     6. Sélectionnez **Suivant : Bouton Ressource >** en bas de la page.
 
         ![Créer un point de terminaison privé - page Informations de base](./media/private-link-service/create-private-endpoint-basics-page.png)
@@ -71,7 +85,7 @@ Si vous avez déjà un espace de noms, vous pouvez créer un point de terminaiso
         
             ![Créer un point de terminaison privé - page Ressource](./media/private-link-service/create-private-endpoint-resource-page.png)
     2. Si vous sélectionnez **Se connecter à une ressource Azure par alias ou ID de ressource**, suivez ces étapes :
-        1. Entrez l’**ID de ressource** ou l’**alias**. Il peut s’agir de l’ID de ressource ou de l’alias que des utilisateurs ont partagés avec vous.
+        1. Entrez l’**ID de ressource** ou l’**alias**. Il peut s’agir de l’ID de ressource ou de l’alias que quelqu’un a partagé avec vous. Le moyen le plus simple d’obtenir l’ID de ressource est d’accéder à l’espace de noms Service Bus dans le portail Azure et de copier la partie de l’URI à partir de `/subscriptions/`. L’image suivante montre un exemple. 
         2. Pour **Sous-ressource cible**, entrez **espace de noms**. Il s’agit du type de la sous-ressource à laquelle votre point de terminaison privé peut accéder. 
         3. (facultatif) Entrez un **message de demande**. Le propriétaire de la ressource voit ce message quand il gère la connexion de point de terminaison privé. 
         4. Ensuite, sélectionnez **Suivant : Bouton Configuration >** en bas de la page. 

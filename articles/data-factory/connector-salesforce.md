@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
-ms.openlocfilehash: 184c5f23ae18a58f26f4b18a884209941343e2e1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 68480f5b3b52d2347369f878802c71672213940a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418097"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82146878"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copier des données depuis et vers Salesforce à l’aide d’Azure Data Factory
 
@@ -42,7 +42,7 @@ Ce connecteur Salesforce prend en charge :
 - Développeur Salesforce, éditions professionnelle, d’entreprise ou illimitées.
 - La copie de données depuis et vers le domaine de production, le bac à sable et le domaine personnalisé de Salesforce.
 
-Le connecteur Salesforce est basé sur l'API REST/en bloc Salesforce. Par défaut, le connecteur utilise [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) pour copier les données à partir de Salesforce, et [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) pour copier les données dans Salesforce. Vous pouvez aussi définir explicitement la version de l’API utilisée pour lire/écrire des données via la [`apiVersion`prorpiété](#linked-service-properties) dans le service lié.
+Le connecteur Salesforce repose sur l’API REST/en bloc de Salesforce (le connecteur en choisit automatiquement un pour de meilleures performances). Par défaut, le connecteur utilise [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) pour copier les données à partir de Salesforce, et [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) pour copier les données dans Salesforce. Vous pouvez aussi définir explicitement la version de l’API utilisée pour lire/écrire des données via la [`apiVersion`prorpiété](#linked-service-properties) dans le service lié.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -70,11 +70,11 @@ Les propriétés suivantes sont prises en charge pour le service lié Salesforce
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type |La propriété de type doit être définie sur **Salesforce**. |Oui |
-| environmentUrl | Spécifiez l’URL de l’instance Salesforce. <br> - La valeur par défaut est `"https://login.salesforce.com"`. <br> - Pour copier des données du bac à sable, spécifiez `"https://test.salesforce.com"`. <br> - Pour copier les données du domaine personnalisé, spécifiez, par exemple, `"https://[domain].my.salesforce.com"`. |Non |
+| environmentUrl | Spécifiez l’URL de l’instance Salesforce. <br> - La valeur par défaut est `"https://login.salesforce.com"`. <br> - Pour copier des données du bac à sable, spécifiez `"https://test.salesforce.com"`. <br> - Pour copier les données du domaine personnalisé, spécifiez, par exemple, `"https://[domain].my.salesforce.com"`. |Non  |
 | username |Spécifiez un nom d’utilisateur pour le compte d’utilisateur. |Oui |
 | mot de passe |Spécifiez le mot de passe du compte d’utilisateur.<br/><br/>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
-| securityToken |Spécifiez le jeton de sécurité du compte d’utilisateur. <br/><br/>Pour en savoir plus sur les jetons de sécurité, consultez l’article [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sécurité et API). Le jeton de sécurité peut être uniquement ignoré si vous ajoutez l’adresse IP d'Integration Runtime à la [liste d'adresses IP approuvées](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) sur Salesforce. Lorsque vous utilisez Azure IR, consultez [Adresses IP Azure Integration Runtime](azure-integration-runtime-ip-addresses.md).<br/><br/>Pour des instructions sur l'obtention et la réinitialisation d’un jeton de sécurité, consultez l’article [Obtenir un jeton de sécurité](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Non |
-| apiVersion | Spécifiez la version de l’API REST/en bloc de Salesforce à utiliser, par exemple `48.0`. Par défaut, le connecteur utilise [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) pour copier les données à partir de Salesforce, et [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) pour copier les données dans Salesforce. | Non |
+| securityToken |Spécifiez le jeton de sécurité du compte d’utilisateur. <br/><br/>Pour en savoir plus sur les jetons de sécurité, consultez l’article [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sécurité et API). Le jeton de sécurité peut être uniquement ignoré si vous ajoutez l’adresse IP d'Integration Runtime à la [liste d'adresses IP approuvées](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) sur Salesforce. Lorsque vous utilisez Azure IR, consultez [Adresses IP Azure Integration Runtime](azure-integration-runtime-ip-addresses.md).<br/><br/>Pour des instructions sur l'obtention et la réinitialisation d’un jeton de sécurité, consultez l’article [Obtenir un jeton de sécurité](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Non  |
+| apiVersion | Spécifiez la version de l’API REST/en bloc de Salesforce à utiliser, par exemple `48.0`. Par défaut, le connecteur utilise [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) pour copier les données à partir de Salesforce, et [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) pour copier les données dans Salesforce. | Non  |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non pour la source, oui pour le récepteur si le service lié à la source n’a pas de runtime d’intégration |
 
 >[!IMPORTANT]
@@ -195,7 +195,7 @@ Pour copier des données à partir de Salesforce, définissez le type de source 
 |:--- |:--- |:--- |
 | type | La propriété de type de la source d’activité de copie doit être définie sur **SalesforceSource**. | Oui |
 | query |Utilise la requête personnalisée pour lire des données. Vous pouvez utiliser une requête SQL-92 ou [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Retrouvez d’autres conseils dans la section [Conseils de requête](#query-tips). Si la requête n’est pas spécifiée, toutes les données de l’objet Salesforce spécifié au niveau de la propriété « objectApiName » du jeu de données seront récupérées. | Non (si « objectApiName » est spécifié dans le jeu de données) |
-| readBehavior | Indique si seuls les enregistrements existants doivent être interrogés ou si tous les enregistrements, y compris ceux qui ont été supprimés, doivent être interrogés. Si rien n’est spécifié, le comportement par défaut appliqué est le premier. <br>Valeurs autorisées : **query** (valeur par défaut), **queryAll**.  | Non |
+| readBehavior | Indique si seuls les enregistrements existants doivent être interrogés ou si tous les enregistrements, y compris ceux qui ont été supprimés, doivent être interrogés. Si rien n’est spécifié, le comportement par défaut appliqué est le premier. <br>Valeurs autorisées : **query** (valeur par défaut), **queryAll**.  | Non  |
 
 > [!IMPORTANT]
 > La partie « __c » du **nom de l’API** est requise pour tout objet personnalisé.

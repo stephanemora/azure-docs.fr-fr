@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: 17802228c8f08e3c8f1533296e2d39080f6f8b7a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5d4990fd806aed75d9b5e5ddd3e9a615631d9d65
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75456632"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82146521"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Tutoriel : Créer des workflows automatisés périodiques basés sur la planification à l’aide d’Azure Logic Apps
 
@@ -37,6 +37,9 @@ Lorsque vous avez terminé, votre application logique ressemble au flux de trava
 * Un abonnement Azure. Si vous n’avez pas d’abonnement, [créez un compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 * Un compte de messagerie d’un fournisseur de messagerie pris en charge par Logic Apps, par exemple Office 365 Outlook, Outlook.com ou Gmail. Pour les autres fournisseurs, [passez en revue la liste des connecteurs ici](https://docs.microsoft.com/connectors/). Ce guide de démarrage rapide utilise un compte Office 365 Outlook. Si vous utilisez un autre compte de messagerie, les étapes générales sont identiques, mais l’interface utilisateur peut être légèrement différente.
+
+  > [!IMPORTANT]
+  > Si vous souhaitez utiliser le connecteur Gmail, seuls les comptes professionnels G-Suite peuvent utiliser ce connecteur sans restriction dans Logic Apps. Si vous disposez d’un compte de consommateur Gmail, vous pouvez utiliser ce connecteur uniquement avec certains services approuvés par Google, ou vous pouvez [créer une application cliente Google pour servir lors de l’authentification avec votre connecteur Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Pour plus d’informations, consultez [Stratégies de confidentialité et de sécurité des données pour les connecteurs Google dans Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Pour obtenir la durée de trajet d’un itinéraire, vous avez besoin d’une clé d’accès pour l’API Bing Cartes. Pour obtenir cette clé, suivez les étapes décrites dans l’article indiquant [comment obtenir une clé Bing Cartes](https://docs.microsoft.com/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
 
@@ -162,9 +165,9 @@ Maintenant que vous disposez d’un déclencheur, ajoutez une [action](../logic-
    |----------|----------|-------|-------------|
    | **Étape 1** | Oui | <*start-location*> | Début de l’itinéraire. |
    | **Étape 2** | Oui | <*end-location*> | Destination de l’itinéraire. |
-   | **Optimize** | Non | timeWithTraffic | Paramètre permettant d’optimiser votre itinéraire, par exemple la distance, la durée du trajet avec le trafic en cours, etc. Sélectionnez le paramètre « timeWithTraffic ». |
-   | **Unité de distance** | Non | <*your-preference*> | Unité de distance utilisé pour l’itinéraire. Cet exemple utilise « Mile » comme unité. |
-   | **Mode de déplacement** | Non | Conduite | Mode de déplacement pour parcourir l’itinéraire. Sélectionnez le mode « Driving » (Conduite). |
+   | **Optimize** | Non  | timeWithTraffic | Paramètre permettant d’optimiser votre itinéraire, par exemple la distance, la durée du trajet avec le trafic en cours, etc. Sélectionnez le paramètre « timeWithTraffic ». |
+   | **Unité de distance** | Non  | <*your-preference*> | Unité de distance utilisé pour l’itinéraire. Cet exemple utilise « Mile » comme unité. |
+   | **Mode de déplacement** | Non  | Conduite | Mode de déplacement pour parcourir l’itinéraire. Sélectionnez le mode « Driving » (Conduite). |
    ||||
 
    Pour plus d’informations sur ces paramètres, voir [Calculate a route (Calculer un itinéraire)](https://docs.microsoft.com/bingmaps/rest-services/routes/calculate-a-route).
@@ -193,7 +196,7 @@ Par défaut, l’action **Get route** (Obtenir l’itinéraire) précédente ret
    |----------|----------|-------|-------------|
    | **Nom** | Oui | travelTime | Nom de la variable. Cet exemple utilise « travelTime ». |
    | **Type** | Oui | Integer | Type de données de la variable. |
-   | **Valeur** | Non| Expression qui convertit la durée du trajet actuel de secondes en minutes (voir les étapes décrites sous ce tableau). | Valeur initiale de votre variable. |
+   | **Valeur** | Non | Expression qui convertit la durée du trajet actuel de secondes en minutes (voir les étapes décrites sous ce tableau). | Valeur initiale de votre variable. |
    ||||
 
    1. Pour créer l’expression pour la propriété **Valeur**, cliquez dans la zone pour faire apparaître la liste à contenu dynamique. Si nécessaire, élargissez la fenêtre du navigateur jusqu’à ce que la liste apparaisse. Dans la liste à contenu dynamique, sélectionnez **Expression**.

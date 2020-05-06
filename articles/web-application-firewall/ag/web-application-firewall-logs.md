@@ -7,14 +7,14 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: cb1af86e04c0b4ba0b59398161fa111fd8065042
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 4bc2aa055c40fb33edade8f7815311e392633885
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310048"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133877"
 ---
-# <a name="diagnostic-logs-for-azure-web-application-firewall"></a>Journaux de diagnostic pour le pare-feu d’applications web Azure
+# <a name="resource-logs-for-azure-web-application-firewall"></a>Journaux de ressources pour le pare-feu d’applications web Azure
 
 Vous pouvez superviser les ressources du pare-feu d’applications web à l’aide de journaux. Vous pouvez enregistrer les performances, les accès et autres données ou les consommer à partir d’une ressource dans le but de les superviser.
 
@@ -24,10 +24,10 @@ Vous pouvez superviser les ressources du pare-feu d’applications web à l’ai
 
 Vous pouvez utiliser différents types de journaux d’activité dans Azure pour gérer les passerelles Application Gateway et résoudre les problèmes associés. Vous pouvez accéder à certains de ces journaux d’activité via le portail. Tous les journaux d’activité peuvent être extraits à partir d’un stockage Blob Azure et affichés dans différents outils, comme les [journaux d’activité Azure Monitor](../../azure-monitor/insights/azure-networking-analytics.md), Excel et Power BI. Pour en savoir plus sur les différents types de journaux d’activité, consultez la liste suivante :
 
-* **Journal d’activité** : vous pouvez utiliser le [Journal d’activité Azure](../../azure-resource-manager/management/view-activity-logs.md) (anciennement journaux d’activité des opérations et journaux d’audit) pour voir toutes les opérations soumises à votre abonnement Azure, ainsi que leur état. Les entrées du journal d’activité sont recueillies par défaut et vous pouvez les afficher dans le Portail Azure.
-* **Journal d’accès** : Vous pouvez utiliser ce journal pour voir les modèles d’accès Application Gateway et analyser les informations importantes. Ceci comprend l’adresse IP de l’appelant, l’URL demandée, la latence de réponse, le code de retour et les octets d’entrée et de sortie. Un journal d’accès est collecté toutes les 300 secondes. Ce journal contient un enregistrement par instance Application Gateway. L’instance de la passerelle Application Gateway est identifiée par la propriété instanceId.
-* **Journaux de performances** : vous pouvez utiliser ce journal pour afficher les performances des instances de la passerelle Application Gateway. Ce journal capture des informations sur les performances de chaque instance, notamment le nombre total de requêtes traitées, le débit en octets, le nombre total de requêtes présentées, le nombre de requêtes ayant échoué, le nombre d’instances du serveur principal intègres et défectueuses. Le journal des performances est collecté toutes les 60 secondes. Le journal des performances est uniquement disponible pour la référence SKU v1. S’il s’agit de la référence SKU v2, utilisez les [Métriques](../../application-gateway/application-gateway-metrics.md) pour les données de performances.
-* **Journal du pare-feu** : vous pouvez utiliser ce journal pour afficher les requêtes consignées via le mode de détection ou de prévention d’une passerelle Application Gateway configuré avec un pare-feu d’applications web.
+* **Journal d’activité** : vous pouvez utiliser les [journaux d’activité Azure](../../azure-resource-manager/management/view-activity-logs.md) pour voir toutes les opérations soumises à votre abonnement Azure, ainsi que leur état. Les entrées du journal d’activité sont recueillies par défaut et vous pouvez les afficher dans le Portail Azure.
+* **Journal de ressources d’accès** : Vous pouvez utiliser ce journal pour voir les modèles d’accès Application Gateway et analyser les informations importantes. Ceci comprend l’adresse IP de l’appelant, l’URL demandée, la latence de réponse, le code de retour et les octets d’entrée et de sortie. Un journal d’accès est collecté toutes les 300 secondes. Ce journal contient un enregistrement par instance Application Gateway. L’instance de la passerelle Application Gateway est identifiée par la propriété instanceId.
+* **Journal de ressources de performances** : vous pouvez utiliser ce journal pour afficher les performances des instances de la passerelle Application Gateway. Ce journal capture des informations sur les performances de chaque instance, notamment le nombre total de requêtes traitées, le débit en octets, le nombre total de requêtes présentées, le nombre de requêtes ayant échoué, le nombre d’instances du serveur principal intègres et défectueuses. Le journal des performances est collecté toutes les 60 secondes. Le journal des performances est uniquement disponible pour la référence SKU v1. S’il s’agit de la référence SKU v2, utilisez les [Métriques](../../application-gateway/application-gateway-metrics.md) pour les données de performances.
+* **Journal de ressources de pare-feu** : vous pouvez utiliser ce journal pour afficher les requêtes consignées via le mode de détection ou de prévention d’une passerelle Application Gateway configuré avec un pare-feu d’applications web.
 
 > [!NOTE]
 > Les journaux d’activité ne sont disponibles que pour les ressources déployées dans le modèle de déploiement Azure Resource Manager. Vous ne pouvez pas les utiliser pour les ressources utilisant le modèle de déploiement classique. Pour mieux comprendre ces deux modèles, consultez l’article [Présentation du déploiement de Resource Manager et du déploiement classique](../../azure-resource-manager/management/deployment-models.md) .
@@ -50,7 +50,7 @@ La journalisation d’activité est automatiquement activée pour chaque ressour
 
     ![Portail : ID de ressource de la passerelle Application Gateway](../media/web-application-firewall-logs/diagnostics2.png)
 
-3. Activez la journalisation des diagnostics à l’aide de l’applet de commande PowerShell suivante :
+3. Activez la journalisation des ressources à l’aide de l’applet de commande PowerShell suivante :
 
     ```powershell
     Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
@@ -73,7 +73,7 @@ La journalisation d’activité est automatiquement activée pour chaque ressour
 
    ![Activation des diagnostics][1]
 
-3. La page **Paramètres de diagnostic** contient les paramètres des journaux de diagnostic. Dans cet exemple, Log Analytics stocke les journaux d’activité. Vous pouvez également utiliser des concentrateurs d’événements et un compte de stockage pour enregistrer les journaux de diagnostic.
+3. La page **Paramètres de diagnostic** contient les paramètres des journaux de ressources. Dans cet exemple, Log Analytics stocke les journaux d’activité. Vous pouvez également utiliser des hubs d’événements et un compte de stockage pour enregistrer les journaux de ressources.
 
    ![Démarrage du processus de configuration][2]
 
@@ -101,7 +101,7 @@ Le journal d’accès n’est généré que si vous l’avez activé sur chaque 
 |receivedBytes     | Taille du paquet reçu, en octets.        |
 |sentBytes| Taille du paquet envoyé, en octets.|
 |timeTaken| Durée (en millisecondes) nécessaire pour le traitement d’une requête et l’envoi de la réponse. Elle est calculée en fonction de l’intervalle entre le moment où Application Gateway reçoit le premier octet d’une requête HTTP et le moment où l’opération d’envoi d’une réponse se termine. Il est important de noter que le champ Time-Taken inclut généralement l’heure à laquelle la requête et les paquets de réponse circulent sur le réseau. |
-|sslEnabled| Détermine si la communication avec les pools principaux utilisait TLS/SSL. Les valeurs valides sont On (Activé) et Off (Désactivé).|
+|sslEnabled| Détermine si la communication avec les pools principaux a utilisé TLS/SSL. Les valeurs valides sont On (Activé) et Off (Désactivé).|
 |host| Nom d’hôte avec lequel la requête a été envoyée au serveur back-end. Si le nom d’hôte du serveur principal est remplacé, ce nom le reflète.|
 |originalHost| Nom d’hôte avec lequel la requête a été reçue par Application Gateway à partir du client.|
 ```json

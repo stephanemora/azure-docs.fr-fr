@@ -1,69 +1,281 @@
 ---
-title: Résoudre les problèmes de sauvegarde des partages de fichiers Azure
+title: Résoudre des problèmes de sauvegarde de partages de fichiers Azure
 description: Cet article contient des informations de dépannage concernant les problèmes qui se produisent lors de la protection de vos partages de fichiers Azure.
-ms.date: 08/20/2019
+ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 050df5b96c265e468346535ff011e1baf7d86ad5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a9b3514b4c1a00cc2f9bb1e1922975bf0bb70d24
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227441"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562081"
 ---
-# <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Résoudre les problèmes de sauvegarde des partages de fichiers Azure
+# <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Résoudre des problèmes lors de la sauvegarde de partages de fichiers Azure
 
-Vous pouvez résoudre les problèmes et les erreurs rencontrés pendant l’utilisation d’une sauvegarde des partages de fichiers Azure à l’aide des informations figurant dans les tables suivantes.
+Cet article fournit des informations pour vous aider à résoudre des problèmes que vous rencontrez lors de la configuration de la sauvegarde ou de la restauration de partages de fichiers Azure à l’aide du service Sauvegarde Azure.
 
-## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitations pour la sauvegarde de partage de fichiers Azure en préversion
+## <a name="common-configuration-issues"></a>Problèmes de configuration courants
 
-La sauvegarde des partages de fichiers Azure est disponible en préversion. Les partages de fichiers Azure dans les comptes de stockage à usage général v1 et v2 sont pris en charge. Les scénarios de sauvegarde suivants ne sont pas pris en charge pour les partages de fichiers Azure :
+### <a name="could-not-find-my-storage-account-to-configure-backup-for-the-azure-file-share"></a>Mon compte de stockage pour configurer la sauvegarde du partage de fichiers Azure est introuvable
 
-- Il n’y a aucune interface CLI disponible pour la protection des fichiers Azure à l’aide de Sauvegarde Azure.
-- Vous pouvez effectuer une seule sauvegarde planifiée par jour.
-- Vous pouvez effectuer quatre sauvegardes à la demande par jour maximum.
-- Utilisez les [verrous de ressources](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) sur le compte de stockage pour empêcher la suppression accidentelle des sauvegardes de votre coffre Recovery Services.
-- Ne supprimez pas les instantanés créés par Sauvegarde Azure. La suppression d’instantanés peut provoquer une perte de points de récupération et/ou des échecs de restauration.
-- Ne supprimez pas les partages de fichiers qui sont protégés par Sauvegarde Azure. La solution actuelle supprimera toutes les captures instantanées prises par Sauvegarde Azure une fois que le partage de fichiers aura été supprimé et qu’il aura donc perdu tous ses points de restauration.
+- Attendez la fin de la découverte.
+- Vérifiez si un partage de fichiers du compte de stockage est déjà protégé par un autre coffre Recovery Services.
 
-La sauvegarde des partages de fichiers Azure dans les comptes de stockage avec réplication de [stockage redondant interzone](../storage/common/storage-redundancy-zrs.md) (ZRS) est actuellement disponible uniquement dans les régions USA Centre (CUS), USA Est (EUS), USA Est 2 (EUS2), Europe Nord (NE), Asie Sud-Est (SEA), Europe Ouest (WE) et USA Ouest 2 (WUS2).
+  >[!NOTE]
+  >Tous les partages de fichiers dans un compte de stockage peuvent être protégés sous un seul coffre Recovery Services. [Ce script](scripts/backup-powershell-script-find-recovery-services-vault.md) vous aide à trouver le coffre Recovery Services dans lequel votre compte de stockage est inscrit.
 
-## <a name="configuring-backup"></a>Configuration de la sauvegarde
+- Assurez-vous que le partage de fichiers ne figure pas dans un des compte de stockage non pris en charge. Pour trouver les comptes de stockage pris en charge, vous pouvez consulter la [Matrice de prise en charge pour la sauvegarde de partage de fichiers Azure](azure-file-share-support-matrix.md).
+- Vérifiez les paramètres de pare-feu du compte de stockage pour vous assurer que l’option autorisant les services Microsoft approuvés à accéder au compte de stockage est activée.
 
-Le tableau suivant concerne la configuration de la sauvegarde :
+### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Erreur dans le portail indiquant que la découverte des comptes de stockage a échoué
 
-| Messages d’erreur | Conseils de résolution ou solution de contournement |
-| ------------------ | ----------------------------- |
-| Mon compte de stockage pour configurer la sauvegarde du partage de fichiers Azure est introuvable | <ul><li>Attendez la fin de la découverte. <li>Vérifiez si un partage de fichiers du compte de stockage est déjà protégé par un autre coffre Recovery Services. **Remarque**: tous les partages de fichiers dans un compte de stockage peuvent être protégés sous un seul coffre Recovery Services. <li>Assurez-vous que le partage de fichiers ne fait pas partie d’un compte de stockage non pris en charge.<li> Assurez-vous que la case **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** est cochée dans le compte de stockage.[En savoir plus.](../storage/common/storage-network-security.md)|
-| Erreur : échec de la découverte des états du portail des comptes de stockage. | Si votre abonnement est partenaire (CSP activé), ignorez l’erreur. Si votre abonnement ne dispose pas du CSP activé, et que vos comptes de stockage ne peuvent pas être découverts, contactez le support technique.|
-| Échec de la validation ou de l’enregistrement du compte de stockage sélectionné.| Réessayez l’opération et contactez le support technique si le problème persiste.|
-| Impossible de répertorier ou de trouver les partages de fichiers du compte de stockage sélectionné. | <ul><li> Assurez-vous que le compte de stockage existe dans le groupe de ressources (et qu’il n’a pas été supprimé ou déplacé après la dernière validation ou le dernier enregistrement dans le coffre).<li>Assurez-vous que le partage de fichiers que vous souhaitez protéger n’a pas été supprimé. <li>Assurez-vous que le compte de stockage est bien pris en charge par la sauvegarde de partage de fichiers.<li>Vérifiez si le partage de fichiers est déjà protégé dans le même coffre Recovery Services.|
-| La configuration de la sauvegarde de partage de fichiers (ou la configuration de la stratégie de protection) échoue. | <ul><li>Réessayez l’opération pour voir si le problème persiste. <li> Assurez-vous que le partage de fichiers que vous souhaitez protéger n’a pas été supprimé. <li> Si vous essayez de protéger plusieurs partages de fichiers en même temps, et si l’échec touche certains partages de fichiers, recommencez la configuration de la sauvegarde pour les partages de fichiers ayant échoué. |
-| Impossible de supprimer le coffre Recovery Services après avoir ôté la protection d’un partage de fichiers. | Dans le portail Azure, ouvrez votre coffre > **Infrastructure de sauvegarde** > **Comptes de stockage** et cliquez sur **Annuler l’enregistrement** pour supprimer le compte de stockage du coffre Recovery Services.|
+Si vous avez un abonnement partenaire (compatible fournisseur de solutions Cloud), ignorez l’erreur. Si votre abonnement n’est pas compatible fournisseur de solutions Cloud, et que vos comptes de stockage ne peuvent pas être découverts, contactez le support technique.
 
-## <a name="error-messages-for-backup-or-restore-job-failures"></a>Messages d’erreur pour les échecs des travaux de sauvegarde ou de restauration
+### <a name="selected-storage-account-validation-or-registration-failed"></a>Échec de la validation ou de l’inscription du compte de stockage sélectionné
 
-| Messages d’erreur | Conseils de résolution ou solution de contournement |
-| -------------- | ----------------------------- |
-| Échec de l’opération car le partage de fichiers est introuvable. | Assurez-vous que le partage de fichiers que vous souhaitez protéger n’a pas été supprimé.|
-| Compte de stockage introuvable ou non pris en charge. | <ul><li>Assurez-vous que le compte de stockage existe dans le groupe de ressources et qu’il n’a pas été supprimé ou retiré après la dernière validation. <li> Assurez-vous que le compte de stockage est bien pris en charge par la sauvegarde de partage de fichiers.|
-| Vous avez atteint la limite maximale d’instantanés pour ce partage de fichiers, vous serez en mesure d’en effectuer davantage une fois que les anciens ont expiré. | <ul><li> Cette erreur peut se produire lorsque vous créez plusieurs sauvegardes à la demande pour un fichier. <li> Il existe une limite de 200 instantanés par partage de fichiers, y compris ceux pris par Azure Backup. Les anciennes sauvegardes (ou instantanés) planifiées sont nettoyées automatiquement. Les sauvegardes (ou instantanés) à la demande doivent être supprimées si la limite maximale est atteinte.<li> Supprimez les sauvegardes à la demande (instantanés du partage de fichiers Azure) à partir du portail de fichiers Azure. **Remarque**: Si vous supprimez les instantanés créés par Sauvegarde Azure, vous perdez les points de récupération. |
-| La sauvegarde ou la restauration du partage de fichiers a échoué en raison d’une limitation de bande passante du service de stockage. Cela peut être dû au fait que le service de stockage est occupé à traiter d’autres demandes pour le compte de stockage donné.| Réessayez l’opération après un certain temps. |
-| Échec de la restauration avec le partage de fichier cible introuvable. | <ul><li>Assurez-vous que le compte de stockage sélectionné existe et que le partage de fichiers cible n’est pas supprimé. <li> Assurez-vous que le compte de stockage est bien pris en charge par la sauvegarde de partage de fichiers. |
-| Échec des travaux de sauvegarde ou de restauration en raison de l’état verrouillé du compte de stockage. | Supprimez le verrou sur le compte de stockage ou utilisez supprimer verrou au lieu de lire verrou et recommencez l’opération. |
-| Échec de la récupération, car le nombre de fichiers ayant échoué dépasse le seuil. | <ul><li> Les raisons des échecs de la récupération sont répertoriées dans un fichier (chemin d’accès fourni dans les détails du travail). Traitez les échecs et recommencez l’opération de restauration uniquement pour les fichiers ayant échoué. <li> Causes courantes des échecs d’une restauration de fichiers : <br/> -vérifiez que les fichiers ayant échoué ne sont actuellement pas en cours d’utilisation, <br/> -un répertoire portant le même nom que le fichier ayant échoué existe dans le répertoire parent. |
-| Échec de la récupération, car aucun fichier ne peut être récupéré. | <ul><li> Les raisons des échecs de la récupération sont répertoriées dans un fichier (chemin d’accès fourni dans les détails du travail). Traitez les échecs et recommencez l’opération de restauration uniquement pour les fichiers ayant échoué. <li> Causes courantes d’un échec de restauration de fichiers : <br/> -vérifiez que les fichiers ayant échoué ne sont actuellement pas en cours d’utilisation. <br/> -un répertoire portant le même nom que le fichier ayant échoué existe dans le répertoire parent. |
-| Échec de la restauration, car l’un des fichiers de la source n’existe pas. | <ul><li> Les éléments sélectionnés ne sont pas présents dans les données du point de récupération. Pour restaurer les fichiers, fournissez la liste de fichiers correcte. <li> L’instantané du partage de fichiers qui correspond au point de récupération est supprimé manuellement. Sélectionnez un autre point de récupération et recommencez l’opération de restauration. |
-| Un travail de récupération est en cours à la même destination. | <ul><li>La sauvegarde de partage de fichiers ne prend pas en charge la récupération parallèle au même partage de fichiers cible. <li>Attendez que la récupération en cours se termine, puis réessayez. Si vous ne trouvez pas un travail de récupération dans le coffre Recovery Services, vérifiez les autres coffres Recovery Services de l’abonnement. |
-| Échec de l’opération de restauration, car le partage de fichiers cible est plein. | Augmentez le quota de taille du partage de fichiers cible pour prendre en charge les données de restauration, puis recommencez l’opération. |
-| L’opération de restauration a échoué car une erreur s’est produite lors de l’exécution d’opérations de pré-restauration sur les ressources du service de synchronisation de fichiers associées au partage de fichiers cible. | Réessayez après quelques instants et, si le problème persiste, contactez le support technique Microsoft. |
-| Un ou plusieurs fichiers n’ont pas pu être récupérés avec succès. Pour plus d’informations, vérifiez la liste des fichiers ayant échoué dans le chemin d’accès indiqué ci-dessus. | <ul> <li> Les raisons d’un échec de récupération sont répertoriées dans le fichier (chemin d’accès fourni dans les détails du travail), traitez les raisons et recommencez l’opération de restauration uniquement pour les fichiers ayant échoué. <li> Les causes courantes des échecs d’une restauration de fichiers sont : <br/> -Vérifiez que les fichiers ayant échoué ne sont pas en cours d’utilisation. <br/> -un répertoire portant le même nom que les fichiers ayant échoué existe dans le répertoire parent. |
+Réessayez l’inscription. Si le problème persiste, contactez le support technique.
 
-## <a name="modify-policy"></a>Modifier la stratégie
+### <a name="could-not-list-or-find-file-shares-in-the-selected-storage-account"></a>Impossible de répertorier ou de trouver des partages de fichiers dans le compte de stockage sélectionné
 
-| Messages d’erreur | Conseils de résolution ou solution de contournement |
-| ------------------ | ----------------------------- |
-| Une autre opération de configuration de la protection est en cours pour cet élément. | Attendez que l’opération précédente de modification de la stratégie soit terminée pour réessayer.|
-| Une autre opération est en cours sur l’élément sélectionné. | Attendez que l’autre opération en cours soit terminée, puis réessayez. |
+- Assurez-vous que le compte de stockage existe dans le groupe de ressources et qu’il n’a pas été supprimé ou déplacé après la dernière validation ou le dernier enregistrement dans le coffre.
+- Assurez-vous que le partage de fichiers que vous souhaitez protéger n’a pas été supprimé.
+- Assurez-vous que le compte de stockage est bien pris en charge pour la sauvegarde de partage de fichiers. Pour trouver les comptes de stockage pris en charge, vous pouvez consulter la [Matrice de prise en charge pour la sauvegarde de partage de fichiers Azure](azure-file-share-support-matrix.md).
+- Vérifiez si le partage de fichiers est déjà protégé dans le même coffre Recovery Services.
+
+### <a name="backup-file-share-configuration-or-the-protection-policy-configuration-is-failing"></a>La configuration du partage de fichiers de sauvegarde (ou la configuration de la stratégie de protection) échoue
+
+- Réessayez l’opération pour voir si le problème persiste.
+- Assurez-vous que le partage de fichiers que vous souhaitez protéger n’a pas été supprimé.
+- Si vous essayez de protéger plusieurs partages de fichiers en même temps, et si l’échec touche certains partages de fichiers, réessayez de configurer la sauvegarde pour les partages de fichiers ayant échoué.
+
+### <a name="unable-to-delete-the-recovery-services-vault-after-unprotecting-a-file-share"></a>Impossible de supprimer le coffre Recovery Services après avoir ôté la protection d’un partage de fichiers
+
+Dans le portail Azure, ouvrez **Coffre** > **Infrastructure de sauvegarde** > **Comptes de stockage**, puis cliquez sur **Annuler l’enregistrement** pour supprimer le compte de stockage du coffre Recovery Services.
+
+>[!NOTE]
+>Vous ne pouvez supprimer un coffre Recovery Services qu’après avoir annulé l’enregistrement de tous les comptes de stockage inscrits auprès du coffre.
+
+## <a name="common-backup-or-restore-errors"></a>Erreurs courantes de sauvegarde ou de restauration
+
+### <a name="filesharenotfound--operation-failed-as-the-file-share-is-not-found"></a>FileShareNotFound : échec de l’opération parce que le partage de fichiers est introuvable
+
+Code d’erreur : FileShareNotFound
+
+Message d’erreur : L’opération a échoué parce que le partage de fichiers est introuvable
+
+Assurez-vous que le partage de fichiers que vous tentez de protéger n’a pas été supprimé.
+
+### <a name="usererrorfileshareendpointunreachable--storage-account-not-found-or-not-supported"></a>UserErrorFileShareEndpointUnreachable : compte de stockage introuvable ou non pris en charge
+
+Code d’erreur : UserErrorFileShareEndpointUnreachable
+
+Message d’erreur : Compte de stockage introuvable ou non pris en charge
+
+- Assurez-vous que le compte de stockage existe dans le groupe de ressources et n’a pas été supprimé ou retiré de celui-ci après la dernière validation.
+
+- Assurez-vous que le compte de stockage est bien pris en charge pour la sauvegarde de partage de fichiers.
+
+### <a name="afsmaxsnapshotreached--you-have-reached-the-max-limit-of-snapshots-for-this-file-share-you-will-be-able-to-take-more-once-the-older-ones-expire"></a>AFSMaxSnapshotReached : Vous avez atteint la limite maximale d’instantanés pour ce partage de fichiers, vous serez en mesure d’en effectuer davantage une fois que les anciens ont expiré
+
+Code d’erreur : AFSMaxSnapshotReached
+
+Message d’erreur : Vous avez atteint la limite maximale d’instantanés pour ce partage de fichiers, vous serez en mesure d’en effectuer davantage une fois que les anciens ont expiré.
+
+- Cette erreur peut se produire lorsque vous créez plusieurs sauvegardes à la demande pour un partage de fichiers.
+- Il existe une limite de 200 instantanés par partage de fichiers, ceux pris par Sauvegarde Azure compris. Les anciennes sauvegardes (ou instantanés) planifiées sont nettoyées automatiquement. Les sauvegardes (ou instantanés) à la demande doivent être supprimées si la limite maximale est atteinte.
+
+Supprimez les sauvegardes à la demande (instantanés du partage de fichiers Azure) à partir du portail de fichiers Azure.
+
+>[!NOTE]
+> Si vous supprimez les instantanés créés par Sauvegarde Azure, vous perdez les points de récupération.
+
+### <a name="usererrorstorageaccountnotfound--operation-failed-as-the-specified-storage-account-does-not-exist-anymore"></a>UserErrorStorageAccountNotFound : L’opération a échoué, car le compte de stockage spécifié n’existe plus
+
+Code d’erreur : UserErrorStorageAccountNotFound
+
+Message d’erreur : L’opération a échoué, car le compte de stockage spécifié n’existe plus.
+
+Assurez-vous que le compte de stockage existe toujours et qu’il n’a pas été supprimé.
+
+### <a name="usererrordtsstorageaccountnotfound--the-storage-account-details-provided-are-incorrect"></a>UserErrorDTSStorageAccountNotFound : les détails du compte de stockage fournis sont incorrects
+
+Code d’erreur : UserErrorDTSStorageAccountNotFound
+
+Message d’erreur : Les détails du compte de stockage fournis sont incorrects.
+
+Assurez-vous que le compte de stockage existe toujours et qu’il n’a pas été supprimé.
+
+### <a name="usererrorresourcegroupnotfound--resource-group-doesnt-exist"></a>UserErrorResourceGroupNotFound : le groupe de ressources n’existe pas
+
+Code d’erreur : UserErrorResourceGroupNotFound
+
+Message d’erreur : Le groupe de ressources n’existe pas.
+
+Sélectionnez ou créez un groupe de ressources.
+
+### <a name="parallelsnapshotrequest--a-backup-job-is-already-in-progress-for-this-file-share"></a>ParallelSnapshotRequest : un travail de sauvegarde est déjà en cours pour ce partage de fichiers
+
+Code d’erreur : ParallelSnapshotRequest
+
+Message d’erreur : Un travail de sauvegarde est déjà en cours pour ce partage de fichiers.
+
+- La sauvegarde du partage de fichiers ne prend pas en charge les demandes d’instantanés parallèles sur le même partage de fichiers.
+
+- Attendez que la sauvegarde en cours se termine, puis réessayez. Si vous ne trouvez pas un travail de sauvegarde dans le coffre Recovery Services, vérifiez les autres coffres Recovery Services du même abonnement.
+
+### <a name="filesharebackupfailedwithazurerprequestthrottling-filesharerestorefailedwithazurerprequestthrottling--file-share-backup-or-restore-failed-due-to-storage-service-throttling-this-may-be-because-the-storage-service-is-busy-processing-other-requests-for-the-given-storage-account"></a>FileshareBackupFailedWithAzureRpRequestThrottling/FileshareRestoreFailedWithAzureRpRequestThrottling : la sauvegarde ou la restauration du partage de fichiers ont échoué en raison d’une limitation de bande passante du service de stockage Cela peut être dû au fait que le service de stockage est occupé à traiter d’autres demandes pour le compte de stockage donné
+
+Code d’erreur : FileshareBackupFailedWithAzureRpRequestThrottling/ FileshareRestoreFailedWithAzureRpRequestThrottling
+
+Message d’erreur : La sauvegarde ou la restauration du partage de fichiers a échoué en raison d’une limitation de bande passante du service de stockage. Cela peut être dû au fait que le service de stockage est occupé à traiter d’autres demandes pour le compte de stockage donné.
+
+Réessayez l’opération de sauvegarde/restauration ultérieurement.
+
+### <a name="targetfilesharenotfound--target-file-share-not-found"></a>TargetFileShareNotFound : partage de fichiers cible introuvable
+
+Code d’erreur : TargetFileShareNotFound
+
+Message d’erreur : Partage de fichiers cible introuvable.
+
+- Assurez-vous que le compte de stockage sélectionné existe et que le partage de fichiers cible n’a pas été supprimé.
+
+- Assurez-vous que le compte de stockage est bien pris en charge pour la sauvegarde de partage de fichiers.
+
+### <a name="usererrorstorageaccountislocked--backup-or-restore-jobs-failed-due-to-storage-account-being-in-locked-state"></a>UserErrorStorageAccountIsLocked : échec des travaux de sauvegarde ou de restauration en raison de l’état verrouillé du compte de stockage
+
+Code d’erreur : UserErrorStorageAccountIsLocked
+
+Message d’erreur : Échec des travaux de sauvegarde ou de restauration en raison de l’état verrouillé du compte de stockage.
+
+Supprimez le verrou sur le compte de stockage ou utilisez **supprimer verrou** au lieu de **verrou de lecture**, puis réessayez l’opération de sauvegarde ou de restauration.
+
+### <a name="datatransferservicecoflimitreached--recovery-failed-because-number-of-failed-files-are-more-than-the-threshold"></a>DataTransferServiceCoFLimitReached : échec de la récupération, car le nombre de fichiers ayant échoué dépasse le seuil
+
+Code d’erreur : DataTransferServiceCoFLimitReached
+
+Message d’erreur : Échec de la récupération, car le nombre de fichiers ayant échoué dépasse le seuil.
+
+- Les raisons des échecs de la récupération sont répertoriées dans un fichier (chemin d’accès fourni dans les détails du travail). Traitez les échecs et recommencez l’opération de restauration uniquement pour les fichiers dont la récupération a échoué.
+
+- Causes courantes des échecs de restauration de fichiers :
+
+  - les fichiers dont la récupération a échoué sont en cours d’utilisation
+  - un répertoire du même nom que le fichier dont la récupération a échoué existe dans le répertoire parent.
+
+### <a name="datatransferserviceallfilesfailedtorecover--recovery-failed-as-no-file-could-be-recovered"></a>DataTransferServiceAllFilesFailedToRecover : échec de la récupération, car aucun fichier ne peut être récupéré
+
+Code d’erreur : DataTransferServiceAllFilesFailedToRecover
+
+Message d’erreur : Échec de la récupération, car aucun fichier ne peut être récupéré.
+
+- Les raisons des échecs de la récupération sont répertoriées dans un fichier (chemin d’accès fourni dans les détails du travail). Traitez les échecs et recommencez l’opération de restauration uniquement pour les fichiers ayant échoué.
+
+- Causes courantes des échecs de restauration de fichiers :
+
+  - les fichiers dont la restauration a échoué sont en cours d’utilisation
+  - un répertoire du même nom que le fichier dont la récupération a échoué existe dans le répertoire parent.
+
+### <a name="usererrordtssourceurinotvalid---restore-fails-because-one-of-the-files-in-the-source-does-not-exist"></a>UserErrorDTSSourceUriNotValid : échec de la restauration, car l’un des fichiers de la source n’existe pas
+
+Code d’erreur : DataTransferServiceSourceUriNotValid
+
+Message d’erreur : Échec de la restauration, car l’un des fichiers de la source n’existe pas.
+
+- Les éléments sélectionnés ne sont pas présents dans les données du point de récupération. Pour restaurer les fichiers, fournissez la liste de fichiers correcte.
+- L’instantané du partage de fichiers qui correspond au point de récupération est supprimé manuellement. Sélectionnez un autre point de récupération et recommencez l’opération de restauration.
+
+### <a name="usererrordtsdestlocked--a-recovery-job-is-in-process-to-the-same-destination"></a>UserErrorDTSDestLocked : un travail de récupération est en cours vers la même destination
+
+Code d’erreur : UserErrorDTSDestLocked
+
+Message d’erreur : Un travail de récupération est en cours vers la même destination.
+
+- La sauvegarde de partage de fichiers ne prend pas en charge la récupération parallèle au même partage de fichiers cible.
+
+- Attendez que la récupération en cours se termine, puis réessayez. Si vous ne trouvez pas de travail de récupération dans le coffre Recovery Services, vérifiez les autres coffres Recovery Services dans le même abonnement.
+
+### <a name="usererrortargetfilesharefull--restore-operation-failed-as-target-file-share-is-full"></a>UserErrorTargetFileShareFull : échec de l’opération de restauration, car le partage de fichiers cible est plein
+
+Code d’erreur : UserErrorTargetFileShareFull
+
+Message d’erreur : Échec de l’opération de restauration, car le partage de fichiers cible est plein.
+
+Augmentez le quota de taille du partage de fichiers cible pour prendre en charge les données de restauration, puis recommencez l’opération de restauration.
+
+### <a name="usererrortargetfilesharequotanotsufficient--target-file-share-does-not-have-sufficient-storage-size-quota-for-restore"></a>UserErrorTargetFileShareQuotaNotSufficient : le partage de fichiers cible n’a pas un quota de taille de stockage suffisant pour la restauration
+
+Code d’erreur : UserErrorTargetFileShareQuotaNotSufficient
+
+Message d’erreur : Le partage de fichiers cible n’a pas un quota de taille de stockage suffisant pour la restauration.
+
+Augmentez le quota de taille du partage de fichiers cible pour prendre en charge les données de restauration, puis recommencez l’opération.
+
+### <a name="file-sync-prerestorefailed--restore-operation-failed-as-an-error-occurred-while-performing-pre-restore-operations-on-file-sync-service-resources-associated-with-the-target-file-share"></a>File Sync PreRestoreFailed : l’opération de restauration a échoué car une erreur s’est produite lors de l’exécution d’opérations de pré-restauration sur les ressources du service de synchronisation de fichiers associées au partage de fichiers cible
+
+Code d’erreur : File Sync PreRestoreFailed
+
+Message d’erreur : L’opération de restauration a échoué car une erreur s’est produite lors de l’exécution d’opérations de pré-restauration sur les ressources du service de synchronisation de fichiers associées au partage de fichiers cible.
+
+Essayez de restaurer les données ultérieurement. Si le problème persiste, contactez le support technique Microsoft.
+
+### <a name="azurefilesyncchangedetectioninprogress--azure-file-sync-service-change-detection-is-in-progress-for-the-target-file-share-the-change-detection-was-triggered-by-a-previous-restore-to-the-target-file-share"></a>AzureFileSyncChangeDetectionInProgress : la détection des modifications Azure File Sync est en cours pour le partage de fichiers cible La détection des modifications a été déclenchée par une restauration précédente sur le partage de fichiers cible
+
+Code d’erreur : AzureFileSyncChangeDetectionInProgress
+
+Message d’erreur : La détection des modifications Azure File Sync est en cours pour le partage de fichiers cible. La détection des modifications a été déclenchée par une restauration précédente sur le partage de fichiers cible.
+
+Utilisez un autre partage de fichiers cible. Sinon, vous pouvez attendre la fin de la détection de changements du service Azure File Sync sur le partage de fichiers cible avant de réessayer la restauration.
+
+### <a name="usererrorafsrecoverysomefilesnotrestored--one-or-more-files-could-not-be-recovered-successfully-for-more-information-check-the-failed-file-list-in-the-path-given-above"></a>UserErrorAFSRecoverySomeFilesNotRestored : un ou plusieurs fichiers n’ont pas pu être récupérés avec succès Pour plus d’informations, vérifiez la liste des fichiers ayant échoué dans le chemin d’accès indiqué ci-dessus.
+
+Code d’erreur : UserErrorAFSRecoverySomeFilesNotRestored
+
+Message d’erreur : Un ou plusieurs fichiers n’ont pas pu être récupérés avec succès. Pour plus d’informations, vérifiez la liste des fichiers ayant échoué dans le chemin d’accès indiqué ci-dessus.
+
+- Les raisons des échecs de récupération sont répertoriées dans le fichier (chemin d’accès fourni dans les détails du travail). Traitez les raisons et recommencez l’opération de restauration uniquement pour les fichiers dont la récupération a échoué.
+- Causes courantes des échecs de restauration de fichiers :
+
+  - les fichiers dont la restauration a échoué sont en cours d’utilisation
+  - un répertoire du même nom que le fichier dont la récupération a échoué existe dans le répertoire parent.
+
+### <a name="usererrorafssourcesnapshotnotfound--azure-file-share-snapshot-corresponding-to-recovery-point-cannot-be-found"></a>UserErrorAFSSourceSnapshotNotFound : l’instantané de partage de fichiers Azure correspondant à ce point de récupération est introuvable
+
+Code d’erreur : UserErrorAFSSourceSnapshotNotFound
+
+Message d’erreur : L’instantané de partage de fichiers Azure correspondant à ce point de récupération est introuvable.
+
+- Assurez-vous que l’instantané de partage de fichiers, correspondant au point de récupération que vous tentez d’utiliser pour la récupération existe toujours.
+
+  >[!NOTE]
+  >Si vous supprimez un instantané de partage de fichiers créé par Sauvegarde Azure, les points de récupération correspondants deviennent inutilisables. Nous vous recommandons de ne pas supprimer les instantanés pour garantir la récupération.
+
+- Essayez de sélectionner un autre point de restauration pour récupérer vos données.
+
+### <a name="usererroranotherrestoreinprogressonsametarget--another-restore-job-is-in-progress-on-the-same-target-file-share"></a>UserErrorAnotherRestoreInProgressOnSameTarget : un autre travail de restauration est en cours sur le même partage de fichiers cible
+
+Code d’erreur : UserErrorAnotherRestoreInProgressOnSameTarget
+
+Message d’erreur : Un autre travail de restauration est en cours sur le même partage de fichiers cible.
+
+Utilisez un partage de fichiers cible différent. Vous pouvez également annuler l’autre restauration ou attendre qu’elle se termine.
+
+## <a name="common-modify-policy-errors"></a>Erreurs courantes de stratégie de modification
+
+### <a name="bmsusererrorconflictingprotectionoperation--another-configure-protection-operation-is-in-progress-for-this-item"></a>BMSUserErrorConflictingProtectionOperation : une autre opération de configuration de la protection est en cours pour cet élément
+
+Code d’erreur : BMSUserErrorConflictingProtectionOperation
+
+Message d’erreur : Une autre opération de configuration de la protection est en cours pour cet élément.
+
+Attendez que l’opération précédente de stratégie de modification soit terminée, puis réessayer.
+
+### <a name="bmsusererrorobjectlocked--another-operation-is-in-progress-on-the-selected-item"></a>BMSUserErrorObjectLocked : une autre opération est en cours sur l’élément sélectionné
+
+Code d’erreur : BMSUserErrorObjectLocked
+
+Message d’erreur : Une autre opération est en cours sur l’élément sélectionné.
+
+Attendez que l’autre opération en cours soit terminée, puis réessayez.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

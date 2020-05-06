@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: a76852a6e3cc5ffcdfcac62ce29fe47c97af3df1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b16c60130836cf0e3b38092b894129f503ee6e83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136157"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82141680"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Suggestions et bonnes pratiques pour Azure Active Directory B2C
 
@@ -43,7 +43,7 @@ Définissez l’architecture de vos applications et services, inventoriez les sy
 | Créer un plan de migration |Une planification anticipée peut rendre la migration plus fluide. Apprenez-en davantage sur la [migration utilisateur](user-migration.md).|
 | Facilité d’utilisation et sécurité | Votre solution doit bien équilibrer la facilité d’utilisation des applications et le niveau de risque que votre organisation peut accepter. |
 | Déplacer les dépendances locales vers le cloud | Pour garantir une solution résiliente, envisagez de déplacer les dépendances des applications existantes vers le cloud. |
-| Migrer les applications existantes vers b2clogin.com | La dépréciation de login.microsoftonline.com a pris effet pour tous les locataires Azure AD B2C le 4 décembre 2020. [En savoir plus](b2clogin.md). |
+| Migrer les applications existantes vers b2clogin.com | La dépréciation de login.microsoftonline.com prendra effet pour tous les locataires Azure AD B2C le 4 décembre 2020. [Plus d’informations](b2clogin.md) |
 
 ## <a name="implementation"></a>Implémentation
 

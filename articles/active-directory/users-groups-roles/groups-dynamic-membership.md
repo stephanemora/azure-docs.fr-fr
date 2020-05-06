@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/27/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6f8237ac13744e56baa8551f8cced12b2785a48
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: a399ee43ef0ce97274f060b7a5b7df46fb523605
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81114742"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582889"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -31,7 +31,7 @@ Lorsqu’un attribut d’un utilisateur ou d’un appareil change, le système �
 - Vous ne pouvez pas créer un groupe d’appareils basé sur des attributs des propriétaires d’appareils. Des règles d’appartenance d’appareil ne peuvent référencer que des attributs d’appareils.
 
 > [!NOTE]
-> Cette fonctionnalité nécessite une licence Azure AD Premium P1 pour chaque utilisateur unique membre d’un ou de plusieurs groupes dynamiques. Vous n’avez pas à attribuer des licences aux utilisateurs pour qu’ils soient membres de groupes dynamiques, mais vous devez posséder le nombre minimum de licences dans le locataire pour couvrir tous les utilisateurs de ce type. Par exemple, si vous avez un total de 1 000 utilisateurs uniques dans tous les groupes dynamiques de votre locataire, vous devez disposer d’au moins 1 000 licences pour Azure AD Premium P1 pour répondre aux exigences de licence.
+> Cette fonctionnalité nécessite une licence Azure AD Premium P1 pour chaque utilisateur unique membre d’un ou de plusieurs groupes dynamiques. Vous n’avez pas à attribuer des licences aux utilisateurs pour qu’ils soient membres de groupes dynamiques. Toutefois, vous devez disposer du nombre minimal de licences dans l’organisation Azure AD pour couvrir tous les utilisateurs de ce type. Par exemple, si vous avez un total de 1 000 utilisateurs uniques dans tous les groupes dynamiques de votre organisation, vous devez disposer d’au moins 1 000 licences Azure AD Premium P1 pour répondre aux exigences de licence.
 > Aucune licence n’est requise pour les appareils qui sont membres d’un groupe d’appareils dynamique.
 
 ## <a name="rule-builder-in-the-azure-portal"></a>Générateur de règles dans le portail Azure
@@ -310,20 +310,20 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 Les conseils suivants peuvent vous aider à utiliser la règle correctement.
 
 - **Manager ID** est l’ID d’objet du responsable. Il figure dans le **Profil** du responsable.
-- Pour que la règle fonctionne, assurez-vous que la propriété **Manager** est correctement définie pour les utilisateurs dans votre client. Vous pouvez vérifier la valeur actuelle dans le **Profil** de l’utilisateur.
+- Pour que la règle fonctionne, vérifiez que la propriété **Manager** est correctement définie pour les utilisateurs de votre organisation. Vous pouvez vérifier la valeur actuelle dans le **Profil** de l’utilisateur.
 - Cette règle prend en charge uniquement les collaborateurs directs du responsable. En d’autres termes, vous ne peut pas créer de groupe avec les collaborateurs directs du responsable *et* leurs collaborateurs.
 - Cette règle ne peut pas être combinée avec d’autres règles d’appartenance.
 
 ### <a name="create-an-all-users-rule"></a>Créer une règle « Tous les utilisateurs »
 
-Vous pouvez créer un groupe contenant tous les utilisateurs d’un client à l’aide d’une règle d’appartenance. Lors de l’ajout ou de la suppression ultérieurs d’utilisateurs dans le client, l’appartenance du groupe est ajustée automatiquement.
+Vous pouvez créer un groupe contenant tous les utilisateurs d’une organisation à l’aide d’une règle d’appartenance. Lors de l’ajout ou de la suppression d’utilisateurs de l’organisation, l’appartenance du groupe est ajustée automatiquement.
 
 La règle « Tous les utilisateurs » est construite à l’aide d’une expression unique utilisant l’opérateur -ne et la valeur null. Cette règle ajoute au groupe les utilisateurs invités B2B, ainsi que les utilisateurs membres.
 
 ```
 user.objectId -ne null
 ```
-Si vous souhaitez que votre groupe exclue les utilisateurs invités et inclue uniquement les membres de votre locataire, vous pouvez utiliser la syntaxe suivante :
+Si vous souhaitez que votre groupe exclue les utilisateurs invités et inclue uniquement les membres de votre organisation, vous pouvez utiliser la syntaxe suivante :
 
 ```
 (user.objectId -ne null) -and (user.userType -eq "Member")
@@ -331,7 +331,7 @@ Si vous souhaitez que votre groupe exclue les utilisateurs invités et inclue un
 
 ### <a name="create-an-all-devices-rule"></a>Créer une règle « Tous les appareils »
 
-Vous pouvez créer un groupe contenant tous les appareils d’un client à l’aide d’une règle d’appartenance. Lors de l’ajout ou de la suppression ultérieurs d’appareils dans le client, l’appartenance du groupe est ajustée automatiquement.
+Vous pouvez créer un groupe contenant tous les appareils d’une organisation à l’aide d’une règle d’appartenance. Lors de l’ajout ou de la suppression d’appareils de l’organisation, l’appartenance du groupe est ajustée automatiquement.
 
 La règle « Tous les appareils » est construite à l’aide d’une expression unique utilisant l’opérateur -ne et la valeur null :
 
@@ -374,7 +374,7 @@ Vous pouvez également créer une règle qui sélectionne des objets d’apparei
 
 Les attributs d’appareil suivants peuvent être utilisés.
 
- Attribut d’appareil  | Valeurs | Exemple
+ Attribut d’appareil  | Valeurs |  Exemple
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
  displayName | Toute valeur de chaîne. |(device.displayName -eq "Rob iPhone")

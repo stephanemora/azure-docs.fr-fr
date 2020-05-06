@@ -1,5 +1,5 @@
 ---
-title: Tutoriel `:` Utiliser une identité managée pour accéder à Azure Cosmos DB - Windows - Azure AD
+title: 'Tutoriel : Utiliser une identité managée pour accéder à Azure Cosmos DB - Windows - Azure AD'
 description: Un didacticiel qui vous guide tout au long du processus d’utilisation d’une identité managée et attribuée par le système sur une machine virtuelle Windows en vue d’accéder à Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9648c714ddbac93bcc76d84e7f6d8f2fcfaed992
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 11b7f8eeb94fb2d6f197af2d40b120c5f74d6128
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78248232"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583063"
 ---
-# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Didacticiel : Utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder à Azure Cosmos DB
+# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutoriel : Utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder à Azure Cosmos DB
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -34,7 +34,7 @@ Ce didacticiel vous indique comment utiliser une identité managée attribuée p
 > * Obtenir un jeton d’accès à l’aide de l’identité managée attribuée par le système de machine virtuelle Windows pour appeler Azure Resource Manager
 > * Obtenir les clés d’accès à partir d’Azure Resource Manager pour effectuer des appels Cosmos DB
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 

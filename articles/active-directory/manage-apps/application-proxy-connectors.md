@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f1b8b9af8f90629d087246edf0cb3426bd9b66c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 3737603360d3fce9d6e11e6c4ce9b2de58f76a6d
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81406833"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583110"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Présentation des connecteurs de proxy d’application Azure AD
 
@@ -49,7 +49,7 @@ TLS 1.2 doit être activé sur le serveur Windows Server avant l’installation 
 
 Pour plus d’informations sur la configuration réseau requise pour le serveur du connecteur, consultez [Prise en main du proxy d’application et de l’installation d’un connecteur](application-proxy-add-on-premises-application.md).
 
-## <a name="maintenance"></a>Maintenance
+## <a name="maintenance"></a>Maintenance 
 
 Les connecteurs et le service se chargent de toutes les tâches de haut niveau de disponibilité. Vous pouvez les ajouter ou supprimer de manière dynamique. Chaque fois qu’une nouvelle requête arrive, elle est acheminée vers un des connecteurs actuellement disponibles. Si un connecteur est temporairement indisponible, il ne répond pas à ce trafic.
 
@@ -136,7 +136,7 @@ Pour plus d’informations sur l’optimisation de votre réseau, consultez [Con
 
 Les connecteurs peuvent s’exécuter sur une machine qui n’est pas jointe à un domaine. Toutefois, si vous souhaitez utiliser l’authentification unique (SSO) pour les applications qui utilisent l’authentification Windows intégrée (IWA), vous avez besoin d’un ordinateur joint à un domaine. Dans ce cas, les ordinateurs du connecteur doivent être joints à un domaine qui peut effectuer la délégation [Kerberos](https://web.mit.edu/kerberos) contrainte pour le compte des utilisateurs pour les applications publiées.
 
-Les connecteurs peuvent également être joints à des domaines ou forêts qui disposent d’une approbation partielle ou pour les contrôleurs de domaine en lecture seule.
+Les connecteurs peuvent également être joints à des domaines ou forêts qui disposent d’une approbation partielle, ou à des contrôleurs de domaine en lecture seule.
 
 ## <a name="connector-deployments-on-hardened-environments"></a>Déploiements des connecteurs sur les environnements de sécurité renforcés
 

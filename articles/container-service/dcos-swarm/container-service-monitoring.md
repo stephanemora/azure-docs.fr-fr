@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 530092dfabacb0b07f4002a82078dd3535cd7e8f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fcb005e39f89298b35bf0f3a0ad1e19601ae4d13
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76275248"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166141"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>(DÉCONSEILLÉ) Surveiller un cluster DC/OS Azure Container Service avec Datadog
 
@@ -20,7 +20,7 @@ ms.locfileid: "76275248"
 
 Dans cet article, nous allons déployer des agents Datadog sur tous les nœuds d’agent de votre cluster Azure Container Service. Vous aurez besoin d’un compte Datadog pour cette configuration. 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 [Déployez](container-service-deployment.md) et [connectez](../container-service-connect.md) un cluster configuré par Azure Container Service. Explorez [l’interface utilisateur Marathon](container-service-mesos-marathon-ui.md). Accédez à [https://datadoghq.com](https://datadoghq.com) pour configurer un compte Datadog. 
 
 ## <a name="datadog"></a>Datadog
@@ -31,7 +31,7 @@ Datadog est un service de surveillance qui regroupe les données de surveillance
 ## <a name="configure-a-datadog-deployment-with-marathon"></a>Configurer un déploiement Datadog avec Marathon
 Ces étapes vous expliquent comment configurer et déployer des applications Datadog dans votre cluster avec Marathon. 
 
-Accédez à l’interface utilisateur de votre DC/OS via [http://localhost:80/](http://localhost:80/). Une fois dans l’interface utilisateur, accédez à Universe « Univers » en bas à gauche de la page, recherchez « Datadog », puis cliquez sur « Installer ».
+Accédez à l’interface utilisateur de votre DC/OS via `http://localhost:80/`. Une fois dans l’interface utilisateur, accédez à Universe « Univers » en bas à gauche de la page, recherchez « Datadog », puis cliquez sur « Installer ».
 
 ![Package Datadog dans l’Univers DC/OS](./media/container-service-monitoring/datadog1.png)
 

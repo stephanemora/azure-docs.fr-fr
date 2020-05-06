@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/13/2019
+ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: ce98d2db86c87ac6aa8fa4872bc076714467d32f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9709cd3b6036b384fd9212a522c191d0695b9bb4
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230721"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82161722"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossaire du développeur de la plateforme d’identité Microsoft
 
@@ -26,6 +26,8 @@ Cet article contient des définitions pour certains des principaux concepts et t
 ## <a name="access-token"></a>access token
 
 Un type de [jeton de sécurité](#security-token) émis par un [serveur d’autorisation](#authorization-server) et utilisé par une [application cliente](#client-application) pour accéder à un [serveur de ressources protégé](#resource-server). Apparaissant généralement sous la forme d’un jeton [JSON Web Token (JWT)][JWT], le jeton représente l’autorisation accordée au client par le [propriétaire de la ressource](#resource-owner) pour un niveau d’accès demandé. Le jeton contient toutes les [revendications](#claim) applicables sur le sujet, permettant à l’application cliente de l’utiliser en guise d’informations d’identification lors de l’accès à une ressource donnée. Le propriétaire de la ressource n’a ainsi pas non plus besoin d’exposer ses informations d’identification au client.
+
+Les jetons d’accès ne sont valides que pendant une brève période de temps et ne peuvent pas être révoqués. Un serveur d’autorisation peut également émettre un [jeton d’actualisation](#refresh-token) lors de l’émission du jeton d’accès. Les jetons d’actualisation sont généralement fournis uniquement aux applications clientes confidentielles.
 
 Les jetons d’accès sont parfois qualifiés de « utilisateur + Application » ou « d’application uniquement », selon les informations d’identification représentées. Par exemple, lorsqu’une application cliente utilise :
 
@@ -138,6 +140,12 @@ Elles apparaissent également pendant le processus de [consentement](#consent) ,
 
 Vous pouvez configurer des requêtes d’autorisation dans la page **Autorisations de l’API** d’une application dans le [portail Azure][AZURE-portal] en sélectionnant les « Autorisations déléguées » et les « Autorisations d’application » souhaitées (ces dernières nécessitent l’appartenance au rôle Administrateur général). Du fait qu’un [client public](#client-application) ne peut pas conserver de façon sécurisée les informations d’identification, il peut demander uniquement des autorisations déléguées, alors qu’un [client confidentiel](#client-application) peut demander des autorisations déléguées et des autorisations d’application. L’[objet application](#application-object) du client stocke les autorisations déclarées dans sa [propriété requiredResourceAccess][Graph-App-Resource].
 
+## <a name="refresh-token"></a>jeton d'actualisation
+
+Un type de [jeton de sécurité](#security-token) émis par un [serveur d’autorisation](#authorization-server) et utilisé par une [application cliente](#client-application) pour demander un nouveau [jeton d’accès](#access-token) avant l’expiration du jeton d’accès. Généralement sous la forme d’un [JSON Web Token (JWT)][JWT].
+
+Contrairement aux jetons d’accès, les jetons d’actualisation peuvent être révoqués. Si une application cliente tente de demander un nouveau jeton d’accès à l’aide d’un jeton d’actualisation qui a été révoqué, le serveur d’autorisation refuse la demande et l’application cliente n’a plus l’autorisation d’accéder au [serveur de ressources](#resource-server) pour le compte du [propriétaire de la ressource](#resource-owner).
+
 ## <a name="resource-owner"></a>propriétaire de la ressource
 
 Comme le définit [l’infrastructure d’autorisation OAuth2][OAuth2-Role-Def], entité capable d’octroyer l’accès à une ressource protégée. Lorsque le propriétaire de ressource est une personne, on le désigne sous le nom d’utilisateur final. Par exemple, lorsqu’une [application cliente](#client-application) souhaite accéder à la boîte aux lettres d’un utilisateur via l’[API Graph Microsoft][Microsoft-Graph], l’autorisation du propriétaire de ressources de la boîte aux lettres est nécessaire.
@@ -146,7 +154,7 @@ Comme le définit [l’infrastructure d’autorisation OAuth2][OAuth2-Role-Def],
 
 Comme le définit l’[infrastructure d’autorisation OAuth2][OAuth2-Role-Def], serveur hébergeant des ressources protégées capable d’accepter et de répondre aux demandes de ressources protégées effectuées par les [applications clientes](#client-application) qui présentent un [jeton d’accès](#access-token). Également appelé serveur de ressources protégées ou application de ressources.
 
-Un serveur de ressources expose des API et applique l’accès à ses ressources protégées via des [étendues](#scopes) et des [rôles](#roles), en s’appuyant sur l’infrastructure d’autorisation OAuth 2.0. Citons par exemple l’[API Microsoft Graph][Microsoft-Graph], qui fournit un accès aux données du client Azure AD, et les API Office 365, qui fournissent un accès à des données telles que le courrier et le calendrier. 
+Un serveur de ressources expose des API et applique l’accès à ses ressources protégées via des [étendues](#scopes) et des [rôles](#roles), en s’appuyant sur l’infrastructure d’autorisation OAuth 2.0. Citons par exemple l’[API Microsoft Graph][Microsoft-Graph], qui fournit un accès aux données du client Azure AD, et les API Office 365, qui fournissent un accès à des données telles que le courrier et le calendrier.
 
 Tout comme une application cliente, la configuration d’identité d’une application de ressources est établie via [l’inscription](#application-registration) dans un client Azure AD, fournissant à la fois l’objet application et l’objet principal du service. Certaines API fournies par Microsoft, telles que l’API Microsoft Graph, proposent des principaux du service préinscrits mis à disposition dans tous les clients lors du provisionnement.
 
@@ -168,7 +176,7 @@ Une convention d’affectation de noms recommandée consiste à utiliser le form
 
 ## <a name="security-token"></a>jeton de sécurité
 
-Document signé contenant des revendications, tel qu’un jeton OAuth2 ou une assertion SAML 2.0. Pour un [octroi d’autorisation](#authorization-grant) OAuth2, un [jeton d’accès](#access-token) (OAuth2) et un [jeton d’ID](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) sont des types de jetons de sécurité, qui sont tous deux implémentés sous forme de jetons [JSON Web Token (JWT)][JWT].
+Document signé contenant des revendications, tel qu’un jeton OAuth2 ou une assertion SAML 2.0. Pour un [octroi d’autorisation](#authorization-grant) OAuth2, un [jeton d’accès](#access-token) (OAuth2), un [jeton d’actualisation](#refresh-token) et un [jeton d’ID](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) sont des types de jetons de sécurité, qui sont tous deux implémentés sous forme de jetons [JSON Web Token (JWT)][JWT].
 
 ## <a name="service-principal-object"></a>objet principal du service
 
