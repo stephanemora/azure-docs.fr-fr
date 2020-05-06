@@ -4,11 +4,11 @@ description: Ce didacticiel décrit en détail la sauvegarde de serveurs Windows
 ms.topic: tutorial
 ms.date: 08/22/2018
 ms.custom: mvc
-ms.openlocfilehash: 906901ce4792e8b363a3a9b77c9bf6bb4b59aec5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d29983bec7dbe379bfb2898e0f068a02b01ae726
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79222466"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Sauvegarder Windows Server dans Azure
@@ -23,7 +23,7 @@ Vous pouvez utiliser Sauvegarde Azure pour protéger votre serveur Windows contr
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure sur https://portal.azure.com.
+Connectez-vous au portail Azure sur <https://portal.azure.com.>
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
@@ -96,7 +96,7 @@ L’agent Microsoft Azure Recovery Services (MARS) crée une association entre W
 
 Vous utilisez l’agent Microsoft Azure Recovery Services pour planifier quand les sauvegardes dans Azure se produisent sur Windows Server. Exécutez les étapes suivantes sur le serveur où vous avez téléchargé l’agent.
 
-1. Ouvrez l’agent Microsoft Azure Recovery Services. Vous pouvez le trouver en recherchant **Sauvegarde Microsoft Azure** sur votre ordinateur.
+1. Ouvrez l’agent Microsoft Azure Recovery Services. Vous pouvez le trouver en recherchant **Microsoft Azure Backup**sur votre ordinateur.
 
 2. Dans la console de l’agent Recovery Services, cliquez sur **Planifier la sauvegarde** sous le **volet Actions**.
 
