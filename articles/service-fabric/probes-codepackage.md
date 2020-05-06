@@ -1,64 +1,66 @@
 ---
 title: Probes (diagnostics) Azure Service Fabric
-description: Comment modéliser le diagnostic Probe Liveness dans Azure Service Fabric à l’aide de fichiers manifestes d’application et de service.
+description: Explique comment modéliser un diagnostic probe liveness dans Azure Service Fabric à l’aide de fichiers manifestes d’application et de service.
 ms.topic: conceptual
+author: tugup
+ms.author: tugup
 ms.date: 3/12/2020
-ms.openlocfilehash: 38f3888a29bf505b723d40bc7cd08fb0c7e29eff
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 07a1b836ca7ea79244e303f54654dfcaa6e5fcb9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427441"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82137584"
 ---
-# <a name="liveness-probe"></a>Diagnostic Probe Liveness
-À partir de la version 7.1 Service Fabric prend en charge le mécanisme Probe Liveness pour les applications [en conteneur][containers-introduction-link]. Le diagnostic Probe Liveness vous aide à annoncer l’activité de l’application en conteneur et lorsqu’il ne répond pas dans les délais, cela entraîne un redémarrage.
-Cet article fournit une vue d’ensemble de la manière de définir un diagnostic Probe Liveness à l’aide de fichiers manifeste.
+# <a name="liveness-probe"></a>Probe liveness
+À partir de la version 7.1, Azure Service Fabric prend en charge un mécanisme de diagnostic probe liveness pour les applications [conteneurisées][containers-introduction-link]. Un probe liveness permet de signaler l’activité d’une application conteneurisée, qui redémarrera si elle ne répond pas rapidement.
+Cet article fournit une vue d’ensemble de la manière de définir un probe liveness à l’aide de fichiers manifeste.
 
-Avant de poursuivre la lecture de cet article, nous vous recommandons de vous familiariser avec le [modèle d’application Service Fabric][application-model-link] et le [modèle d’hébergement Service Fabric][hosting-model-link].
+Avant de poursuivre la lecture de cet article, familiarisez-vous avec le [modèle d’application Service Fabric][application-model-link] et le [modèle d’hébergement Service Fabric][hosting-model-link].
 
 > [!NOTE]
-> Le diagnostic Probe Liveness est uniquement pris en charge pour les conteneurs en mode de mise en réseau NAT.
+> Probe liveness est pris en charge uniquement pour les conteneurs en mode de mise en réseau NAT.
 
 ## <a name="semantics"></a>Sémantique
-Vous ne pouvez spécifier qu’un seul diagnostic Probe Liveness par conteneur et vous pouvez contrôler son comportement avec les champs suivants :
+Vous ne pouvez spécifier qu’un seul probe liveness par conteneur, et vous pouvez contrôler son comportement à l’aide des champs suivants :
 
-* `initialDelaySeconds`: Délai initial, en secondes, avant le début de l’exécution du diagnostic probe une fois que le conteneur a démarré. La valeur prise en charge est int. La valeur par défaut est 0. La valeur minimale est 0.
+* `initialDelaySeconds`: délai initial, en secondes, avant le début de l’exécution du diagnostic probe après que le conteneur a démarré. La valeur prise en charge est **int**. La valeur par défaut est 0 et la valeur minimale est 0.
 
-* `timeoutSeconds`: Période en secondes après laquelle nous considérons le diagnostic probe comme ayant échoué s’il ne s’est pas terminé avec succès. La valeur prise en charge est int. 1 constitue la valeur par défaut. Le minimum est 1.
+* `timeoutSeconds`: délai, en secondes, après lequel nous considérons le diagnostic probe comme ayant échoué s’il ne s’est pas terminé avec succès. La valeur prise en charge est **int**. La valeur par défaut est 1 et la valeur minimale est 1.
 
-* `periodSeconds`: Période en secondes pour spécifier la fréquence d’utilisation du diagnostic probe. La valeur prise en charge est int. La valeur par défaut est 10. Le minimum est 1.
+* `periodSeconds`: période, en secondes, pour spécifier la fréquence du diagnostic. La valeur prise en charge est **int**. La valeur par défaut est 10 et la valeur minimale est 1.
 
-* `failureThreshold`: Une fois que nous avons atteint FailureThreshold, le conteneur redémarre. La valeur prise en charge est int. La valeur par défaut est 3. Le minimum est 1.
+* `failureThreshold`: quand cette valeur est atteinte, le conteneur redémarre. La valeur prise en charge est **int**. La valeur par défaut est 3 et la valeur minimale est 1.
 
-* `successThreshold`: En cas d’échec, pour que le diagnostic probe soit considéré comme ayant réussi, il doit s’exécuter correctement pour SuccessThreshold. La valeur prise en charge est int. 1 constitue la valeur par défaut. Le minimum est 1.
+* `successThreshold`: en cas d’échec, pour que le diagnostic soit considéré comme réussi, il doit s’exécuter correctement pour cette valeur. La valeur prise en charge est **int**. La valeur par défaut est 1 et la valeur minimale est 1.
 
-Il y aura au maximum 1 diagnostic probe par conteneur à tout moment donné. Si le diagnostic probe ne se termine pas dans le délai **timeoutSeconds** nous continuons d’attendre et de l’inclure dans le décompte **failureThreshold**. 
+Il peut y avoir, au plus, un diagnostic sur un conteneur à tout moment. Si le diagnostic ne se termine pas avant l’expiration du délai défini dans **timeoutSeconds**, patientez et comptez le temps jusqu’au **FailureThreshold**. 
 
-En outre, ServiceFabric déclenche les [rapports d’intégrité][health-introduction-link] du diagnostic probe suivants sur DeployedServicePackage :
+En outre, ServiceFabric déclenche les [rapports d’intégrité][health-introduction-link] du diagnostic probe suivants sur **DeployedServicePackage** :
 
-* `Ok`: Si le diagnostic probe réussit pour **successThreshold**, nous signalons l’intégrité comme OK.
+* `OK`: le diagnostic réussit pour la valeur définie dans **successThreshold**.
 
-* `Error`: Si failureCount pour le diagnostic probe == **failureThreshold**, avant de redémarrer le conteneur, nous signalons une erreur.
+* `Error`: **failureCount** ==  **failureThreshold** avant le redémarrage du conteneur.
 
 * `Warning`: 
-    1. Si le diagnostic probe échoue et que failureCount < **failureThreshold** nous émettons un avertissement. Ce rapport d’intégrité reste jusqu’à ce que failureCount atteigne **failureThreshold** ou **successThreshold**.
-    2. En cas de réussite après échec, nous émettons toujours un avertissement, mais avec une réussite consécutive mise à jour.
+    * le diagnostic échoue et **failureCount** < **failureThreshold**. Ce rapport d’intégrité reste jusqu’à ce que **failureCount** atteigne la valeur définie dans **failureThreshold** ou **successThreshold**.
+    * En cas de réussite après un échec, l’avertissement reste, mais avec les réussites consécutives mises à jour.
 
-## <a name="specifying-liveness-probe"></a>Spécification du diagnostic Probe Liveness
+## <a name="specifying-a-liveness-probe"></a>Spécification d’un diagnostic probe liveness
 
-Vous pouvez spécifier le diagnostic probe dans le fichier ApplicationManifest.xml sous ServiceManifestImport :
+Vous pouvez spécifier un diagnostic probe liveness dans le fichier ApplicationManifest.xml sous **ServiceManifestImport**.
 
-Le diagnostic probe peut être :
+Le diagnostic peut concerner l’un des éléments suivants :
 
-1. HTTP
-2. TCP
-3. Exec 
+* HTTP
+* TCP
+* Exec 
 
-## <a name="http-probe"></a>Probe HTTP
+### <a name="http-probe"></a>Diagnostic HTTP
 
-Pour le diagnostic probe HTTP, Service Fabric envoie une requête HTTP au port et au chemin d’accès spécifiés. Le code de retour supérieur ou égal à 200 et inférieur à 400 indique une réussite.
+Pour un diagnostic HTTP, Service Fabric envoie une requête HTTP au port et au chemin que vous spécifiez. Un code de retour supérieur ou égal à 200, et inférieur à 400, indique une réussite.
 
-Voici un exemple de spécification d’un diagnostic probe HttpGet :
+Voici un exemple qui montre comment spécifier un diagnostic HTTP :
 
 ```xml
   <ServiceManifestImport>
@@ -79,21 +81,21 @@ Voici un exemple de spécification d’un diagnostic probe HttpGet :
   </ServiceManifestImport>
 ```
 
-Le diagnostic probe HttpGet contient des propriétés supplémentaires que vous pouvez définir :
+Le diagnostic HTTP a des propriétés supplémentaires que vous pouvez définir :
 
-* `path`: Chemin d’accès à la requête HTTP.
+* `path`: chemin à utiliser dans la requête HTTP.
 
-* `port`: Port auquel accéder pour les diagnostics probes. La plage est comprise entre 1 et 65535. Mandatory.
+* `port`: port à utiliser pour les diagnostics. Cette propriété est obligatoire. La plage est comprise entre 1 et 65 535.
 
-* `scheme`: Schéma à utiliser pour la connexion au package de code. Si la valeur est HTTPS, la vérification du certificat est ignorée. La valeur par défaut est HTTP
+* `scheme`: schéma à utiliser pour la connexion au package de code. Si cette propriété a la valeur HTTPS, la vérification du certificat est ignorée. Le paramètre par défaut est HTTP.
 
-* `httpHeader`: En-têtes à définir dans la requête. Vous pouvez en spécifier plusieurs.
+* `httpHeader`: en-têtes à définir dans la requête. Vous pouvez spécifier plusieurs en-têtes.
 
-* `host`: IP hôte à laquelle se connecter.
+* `host`: adresse IP de l’hôte à laquelle se connecter.
 
-## <a name="tcp-probe"></a>Probe TCP
+### <a name="tcp-probe"></a>Diagnostic TCP
 
-Pour le diagnostic probe TCP, Service Fabric essaye d’ouvrir un socket sur le conteneur avec le port spécifié. S’il peut établir une connexion, le diagnostic probe est considéré comme ayant réussi. Voici un exemple de spécification du diagnostic probe qui utilise le socket TCP :
+Pour un diagnostic TCP, Service Fabric essaie d’ouvrir un socket sur le conteneur à l’aide du port spécifié. S’il peut établir une connexion, le diagnostic est considéré comme ayant réussi. Voici un exemple montrant comment spécifier un diagnostic qui utilise un socket TCP :
 
 ```xml
   <ServiceManifestImport>
@@ -111,13 +113,13 @@ Pour le diagnostic probe TCP, Service Fabric essaye d’ouvrir un socket sur le 
   </ServiceManifestImport>
 ```
 
-## <a name="exec-probe"></a>Probe Exec
+### <a name="exec-probe"></a>Diagnostic Exec
 
-Ce diagnostic probe émet un exec dans le conteneur et attend que la commande se termine.
+Ce diagnostic émet une commande **exec** dans le conteneur et attend que la commande se termine.
 
 > [!NOTE]
-> La commande exec prend une chaîne séparée par des virgules. Dans l’exemple, la commande suivante fonctionne pour le conteneur Linux.
-> Si vous essayez un conteneur Windows, utilisez <Command>cmd</Command>
+> La commande **exec** prend une chaîne séparée par des virgules. La commande de l’exemple suivant fonctionne pour un conteneur Linux.
+> Si vous essayez de diagnostiquer un conteneur Windows, utilisez **cmd**.
 
 ```xml
   <ServiceManifestImport>
@@ -138,8 +140,8 @@ Ce diagnostic probe émet un exec dans le conteneur et attend que la commande se
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour accéder à des informations connexes, consultez les articles suivants.
-* [Service Fabric et conteneurs.][containers-introduction-link]
+Pour accéder à des informations connexes, consultez l’article suivant :
+* [Service Fabric et conteneurs][containers-introduction-link]
 
 <!-- Links -->
 [containers-introduction-link]: service-fabric-containers-overview.md

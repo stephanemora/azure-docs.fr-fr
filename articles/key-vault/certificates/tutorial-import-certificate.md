@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/03/2020
+ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 754f30f7931f9fad6a95328cbf8ab34f70cb75a0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9496173ee006c6ca3cab557f4e63ec21647ad0fd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426108"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82105571"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>Tutoriel : Importer un certificat dans Azure Key Vault
 
@@ -76,11 +76,14 @@ Pour importer un certificat dans le coffre, vous devez disposer d’un fichier d
     - **Méthode de création de certificat** : Importation.
     - **Nom du certificat** : ExampleCertificate.
     - **Charger le fichier de certificat** : sélectionnez le fichier de certificat à partir du disque
-    - Conservez les valeurs par défaut des autres options. Cliquez sur **Créer**.
+    - **Mot de passe** : Si vous chargez un fichier de certificat protégé par mot de passe, indiquez ce mot de passe ici. Autrement, laissez le champ vide. Une fois le fichier de certificat importé, le coffre de clés supprime ce mot de passe.
+4. Cliquez sur **Créer**.
 
 ![Propriétés du certificat](../media/certificates/tutorial-import-cert/cert-import.png)
 
-Quand vous recevez le message confirmant que le certificat a été correctement importé, vous pouvez cliquer dessus dans la liste. Certaines de ses propriétés s’affichent alors. 
+En ajoutant un certificat à l’aide de la méthode d’**importation**, Azure Key Vault renseigne automatiquement les paramètres de certificat (c’est-à-dire la période de validité, le nom de l’émetteur, la date d’activation, etc.).
+
+Quand vous recevez le message confirmant que le certificat a été correctement importé, vous pouvez cliquer dessus dans la liste pour afficher ses propriétés. 
 
 ![Propriétés du certificat](../media/certificates/tutorial-import-cert/current-version-hidden.png)
 
@@ -101,6 +104,22 @@ az keyvault certificate import --file
 ```
 Découvrez-en plus sur les paramètres [ici](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import).
 
+Après l’importation du certificat, vous pouvez voir le certificat au moyen de [Certificate show](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show)
+
+
+```azurecli
+az keyvault certificate show [--id]
+                             [--name]
+                             [--only-show-errors]
+                             [--subscription]
+                             [--vault-name]
+                             [--version]
+```
+
+
+
+Vous venez de créer un coffre de clés, d’importer un certificat et d’afficher les propriétés du certificat.
+
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 D’autres démarrages rapides et didacticiels sur les coffres de clés reposent sur ce démarrage rapide. Si vous prévoyez d’utiliser d’autres démarrages rapides et didacticiels, il peut être utile de conserver ces ressources.
@@ -115,6 +134,6 @@ Si vous n’en avez plus besoin, supprimez le groupe de ressources. Ce faisant, 
 
 Dans ce tutoriel, vous avez créé un coffre de clés et vous y avez importé un certificat. Pour en savoir plus sur Key Vault et sur la manière de l’intégrer à vos applications, consultez les articles ci-dessous.
 
-- En savoir plus sur la [Gestion des certificats dans Azure Key Vault](/archive/blogs/kv/manage-certificates-via-azure-key-vault)
+- En savoir plus sur la [Gestion de la création de certificats dans Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios)
 - Consulter des exemples d’[importation de certificats à l’aide d’API REST](/rest/api/keyvault/importcertificate/importcertificate)
 - Passer en revue les [bonnes pratiques relatives à Azure Key Vault](../general/best-practices.md)

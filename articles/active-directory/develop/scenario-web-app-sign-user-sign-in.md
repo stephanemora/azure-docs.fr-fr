@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2ab5697ceff612e65174fdb7f9ef6137e2c8b9a5
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: df02c7d2ace6c58d86f4044607eca386f1790e1d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537064"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734312"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Application web qui connecte les utilisateurs : Se connecter et se déconnecter
 
@@ -33,20 +33,26 @@ La connexion comprend deux parties :
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Dans ASP.NET Core, le bouton de connexion est exposé dans `Views\Shared\_LoginPartial.cshtml`. Il s’affiche uniquement lorsqu’il y a un compte authentifié. Autrement dit, il s’affiche lorsque l’utilisateur ne s’est pas encore connecté ou qu’il s’est déconnecté.
+Dans ASP.NET Core, pour les applications de plateforme d’identité Microsoft, le bouton **Se connecter** est exposé dans `Views\Shared\_LoginPartial.cshtml` (pour une application MVC) ou `Pages\Shared\_LoginPartial.cshtm` (pour une application Razor). Il s’affiche uniquement lorsque l’utilisateur n’est pas authentifié. Autrement dit, il s’affiche lorsque l’utilisateur ne s’est pas encore connecté ou qu’il s’est déconnecté. Au contraire, le bouton **Se déconnecter** s’affiche lorsque l’utilisateur est déjà connecté. Notez que le contrôleur de compte est défini dans le **package NuGet Microsoft.Identity.Web.UI**, dans la zone nommée **MicrosoftIdentity**
 
 ```html
-@using Microsoft.Identity.Web
-@if (User.Identity.IsAuthenticated)
-{
- // Code omitted code for clarity
-}
-else
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li><a asp-area="AzureAD" asp-controller="Account" asp-action="SignIn">Sign in</a></li>
-    </ul>
-}
+<ul class="navbar-nav">
+  @if (User.Identity.IsAuthenticated)
+  {
+    <li class="nav-item">
+        <span class="navbar-text text-dark">Hello @User.Identity.Name!</span>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign out</a>
+    </li>
+  }
+  else
+  {
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Sign in</a>
+    </li>
+  }
+</ul>
 ```
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
@@ -68,7 +74,7 @@ else
 
 # <a name="java"></a>[Java](#tab/java)
 
-Dans notre guide de démarrage rapide Java, le bouton de déconnexion se trouve dans le fichier [main/resources/templates/index.html](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/src/main/resources/templates/index.html).
+Dans notre guide de démarrage rapide Java, le bouton de déconnexion se trouve dans le fichier [main/resources/templates/index.html](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/msal-java-webapp-sample/src/main/resources/templates/index.html).
 
 ```html
 <!DOCTYPE html>
@@ -106,9 +112,9 @@ def index():
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Dans ASP.NET, sélectionner le bouton **Connexion** de l’application web déclenche l’action `SignIn` sur le contrôleur `AccountController`. Dans les versions précédentes des modèles ASP.NET Core, le contrôleur `Account` était incorporé avec l’application web. Ce n’est plus le cas car le contrôleur fait maintenant partie de l’infrastructure ASP.NET Core.
+Dans ASP.NET, sélectionner le bouton **Connexion** de l’application web déclenche l’action `SignIn` sur le contrôleur `AccountController`. Dans les versions précédentes des modèles ASP.NET Core, le contrôleur `Account` était incorporé avec l’application web. Ce n’est plus le cas, car le contrôleur fait maintenant partie du package NuGet **Microsoft.Identity.Web.UI**. Pour plus d’informations, consultez [AccountController.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs).
 
-Le code pour `AccountController` est disponible dans le référentiel ASP.NET Core à partir de [AccountController.cs](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs). Le contrôle de compte demande un effort à l’utilisateur en le redirigeant vers le point de terminaison de la plateforme d’identités Microsoft. Pour plus d’informations, consultez la méthode [SignIn](https://github.com/aspnet/AspNetCore/blob/f3e6b74623d42d5164fd5f97a288792c8ad877b6/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs#L23-L31) fournie dans le cadre d’ASP.NET Core.
+Ce contrôleur gère également les applications Azure AD B2C.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -235,23 +241,26 @@ Au cours de l’inscription de l’application, vous n’avez pas besoin d’ins
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Dans ASP.NET Core, le bouton de déconnexion est exposé dans `Views\Shared\_LoginPartial.cshtml`. Cela s’affiche uniquement lorsqu’il y a un compte authentifié. Autrement dit, cela s’affiche lorsque l’utilisateur s’est connecté précédemment.
+Dans ASP.NET, sélectionner le bouton **Déconnexion** de l’application web déclenche l’action `SignOut` sur le contrôleur `AccountController` (voir ci-dessous)
 
 ```html
-@using Microsoft.Identity.Web
-@if (User.Identity.IsAuthenticated)
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li class="navbar-text">Hello @User.GetDisplayName()!</li>
-        <li><a asp-area="AzureAD" asp-controller="Account" asp-action="SignOut">Sign out</a></li>
-    </ul>
-}
-else
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li><a asp-area="AzureAD" asp-controller="Account" asp-action="SignIn">Sign in</a></li>
-    </ul>
-}
+<ul class="navbar-nav">
+  @if (User.Identity.IsAuthenticated)
+  {
+    <li class="nav-item">
+        <span class="navbar-text text-dark">Hello @User.Identity.Name!</span>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign out</a>
+    </li>
+  }
+  else
+  {
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Sign in</a>
+    </li>
+  }
+</ul>
 ```
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
@@ -320,15 +329,13 @@ Dans le guide de démarrage rapide Python, le bouton de déconnexion se trouve d
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Dans ASP.NET, sélectionner le bouton **Déconnexion** de l’application web déclenche l’action `SignOut` sur le contrôleur `AccountController`. Dans les versions précédentes des modèles ASP.NET Core, le contrôleur `Account` était incorporé avec l’application web. Ce n’est plus le cas car le contrôleur fait maintenant partie de l’infrastructure ASP.NET Core.
-
-Le code pour `AccountController` est disponible dans le référentiel ASP.NET Core dans [AccountController.cs](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs). Le contrôle de compte a plusieurs fonctions :
+Dans les versions précédentes des modèles ASP.NET Core, le contrôleur `Account` était incorporé avec l’application web. Ce n’est plus le cas, car le contrôleur fait maintenant partie du package NuGet **Microsoft.Identity.Web.UI**. Pour plus d’informations, consultez [AccountController.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs).
 
 - Définir un URI de redirection OpenID sur `/Account/SignedOut` afin que le contrôleur soit rappelé quand Azure AD a effectué la déconnexion.
 - Appeler `Signout()`, ce qui permet à l’intergiciel OpenID Connect de contacter le point de terminaison `logout` de la plateforme d’identités Microsoft. Ensuite, le point de terminaison :
 
   - efface le cookie de session du navigateur.
-  - Rappelle l’URL de déconnexion. Par défaut, l’URL de déconnexion affiche la page de la vue déconnectée, [SignedOut.html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml). Cette page est également fournie dans le cadre d’ASP.NET Core.
+  - Rappelle l’URL de déconnexion. Par défaut, l’URL de déconnexion affiche la page de la vue déconnectée, [SignedOut.html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml). Cette page est également fournie dans le cadre de Microsoft.Identity.Web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -390,15 +397,7 @@ L’URI Post-déconnexion permet aux applications de participer à la déconnexi
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-L’intergiciel OpenID Connect ASP.NET Core permet à votre application d’intercepter l’appel au point de terminaison `logout` de la plateforme d’identités Microsoft en fournissant un événement OpenID Connect nommé `OnRedirectToIdentityProviderForSignOut`. Pour obtenir un exemple illustrant comment s’abonner à cet événement (pour effacer le cache de jeton), voir [Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156).
-
-```csharp
-    // Handling the global sign-out
-    options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
-    {
-        // Forget about the signed-in user
-    };
-```
+L’intergiciel OpenID Connect ASP.NET Core permet à votre application d’intercepter l’appel au point de terminaison `logout` de la plateforme d’identités Microsoft en fournissant un événement OpenID Connect nommé `OnRedirectToIdentityProviderForSignOut`. Cela est géré automatiquement par Microsoft.Identity.Web (qui efface les comptes dans le cas où votre application web appelle des API web)
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

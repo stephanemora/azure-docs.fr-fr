@@ -1,25 +1,19 @@
 ---
-title: Sécuriser et utiliser des stratégies sur des machines virtuelles Windows dans Azure
-description: Découvrez-en plus sur la sécurité et les stratégies pour les machines virtuelles et Windows dans Azure.
-services: virtual-machines-windows
-documentationcenter: ''
+title: Sécuriser et utiliser des stratégies sur vos machines virtuelles dans Azure
+description: Découvrez-en plus sur la sécurité et les stratégies pour les machines virtuelles dans Azure.
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: security
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.date: 11/26/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 4ae87a7a7a62d2cbf9b712fdd99b9a275aaf4f22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4910acd99abd6059de40e67a1b1629259c8215cc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74073305"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82099408"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Sécuriser et utiliser des stratégies sur des machines virtuelles dans Azure
 

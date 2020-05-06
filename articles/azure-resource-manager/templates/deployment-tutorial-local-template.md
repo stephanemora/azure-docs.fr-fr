@@ -4,12 +4,12 @@ description: Découvrez comment déployer un modèle Azure Resource Manager à p
 ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c8e3eb62fa52caeaa63808b6b9ea199bdff5c4da
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7f134bb836d05d006ef2e474ea48382a671957fe
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80081818"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82188822"
 ---
 # <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>Tutoriel : Déployer un modèle Azure Resource Manager local
 
@@ -37,9 +37,7 @@ Les modèles sont des fichiers JSON. Pour examiner/modifier des modèles, vous a
 
 ## <a name="review-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce tutoriel est semblable à celui utilisé dans le [tutoriel sur les modèles de démarrage rapide](template-tutorial-quickstart-template.md). Si vous êtes intéressé par la création du modèle, vous pouvez suivre ce tutoriel. Toutefois, cela n’est pas obligatoire pour effectuer ce tutoriel.
-
-Le modèle déploie un compte de stockage, un plan App Service et une application web.
+Le modèle déploie un compte de stockage, un plan App Service et une application web. Si vous êtes intéressé par la création du modèle, vous pouvez suivre le [tutoriel sur les modèles de démarrage rapide](template-tutorial-quickstart-template.md). Toutefois, cela n’est pas obligatoire pour effectuer ce tutoriel.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 

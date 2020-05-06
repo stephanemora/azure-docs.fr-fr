@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/23/2020
 ms.author: aschhab
-ms.openlocfilehash: 1e22641e9d4f9959c26cd2043ea2acd7e260e0f0
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: a4bc2dcfd1826623516a40be0aff7688d0b6168c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314056"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82116687"
 ---
 # <a name="message-sessions"></a>Sessions de message
 Les sessions Microsoft Azure Service Bus permettent un traitement conjoint et chronologique de séquences illimitées de messages associés. Vous pouvez utiliser des sessions dans des modèles premier entré, premier sorti (FIFO) et requête-réponse. Cet article explique comment utiliser des sessions pour implémenter ces modèles lors de l’utilisation de Service Bus. 
@@ -64,7 +64,7 @@ Lorsque plusieurs destinataires simultanés extraient des données de la file d�
 
 L’illustration précédente montre trois récepteurs de session simultanée. Une Session avec `SessionId` = 4 ne contenant aucun client actif, propriétaire, aucun message n’est remis à partir de cette session. Une session se comporte à maints égards comme une sous-file d’attente.
 
-Le verrouillage de session détenu par le destinataire de session constitue une protection pour les verrouillages de message utilisés par le mode de règlement *peek-lock*. Un destinataire ne peut pas avoir deux messages « en cours » simultanément, mais les messages doivent être traités dans l’ordre. Un nouveau message ne peut être obtenu que lorsque le message précédent a été traité ou placé dans la file d’attente de lettres mortes. L’abandon d’un message entraîne un nouveau traitement de ce message lors de l’opération de réception suivante.
+Le verrouillage de session détenu par le destinataire de session constitue une protection pour les verrouillages de message utilisés par le mode de règlement *peek-lock*. Un seul destinataire peut avoir un verrou sur une session. Un destinataire peut avoir de nombreux messages en vol, mais les messages seront reçus dans l’ordre. L’abandon d’un message entraîne un nouveau traitement de ce message lors de l’opération de réception suivante.
 
 ### <a name="message-session-state"></a>État d’une session de messagerie
 
@@ -89,7 +89,7 @@ La définition du nombre de livraisons par message dans le contexte de sessions 
 | Scénario | Le nombre de livraisons du message est-il incrémenté |
 |----------|---------------------------------------------|
 | La session est acceptée, mais le verrouillage de session expire (en raison du délai d’expiration) | Oui |
-| La session est acceptée, les messages de la session ne sont pas terminés (même s’ils sont verrouillés) et la session est fermée | Non |
+| La session est acceptée, les messages de la session ne sont pas terminés (même s’ils sont verrouillés) et la session est fermée | Non  |
 | La session est acceptée, les messages sont terminés, puis la session est explicitement fermée | S.O. (il s’agit du flux standard. Ici, les messages sont supprimés de la session) |
 
 ## <a name="request-response-pattern"></a>Modèle requête-réponse

@@ -1,26 +1,25 @@
 ---
-title: 'Tutoriel : Déployer des applications ASP.NET sur Azure Functions avec Azure DevOps Projects'
-description: Azure DevOps Projects facilite la prise en main d’Azure. Avec DevOps Projects, vous pouvez déployer votre application ASP.NET sur Azure Functions en quelques étapes rapides.
+title: 'Tutoriel : Déployer des applications ASP.NET sur Azure Functions avec Azure DevOps Starter'
+description: Azure DevOps Starter facilite la prise en main d’Azure. Avec DevOps Starter, vous pouvez déployer votre application ASP.NET sur Azure Functions en quelques étapes rapides.
 ms.author: mlearned
 ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 03/24/2020
 author: mlearned
-monikerRange: vsts
-ms.openlocfilehash: 4e7e9428af86f131632650f18d45e7dd48f4b5cb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6f68fede0257086cc3a23fe6f7a0a3cc9466ad1b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71971571"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233156"
 ---
-# <a name="continuously-deploy-to-azure-functions-with-devops-projects"></a>Déployer en continu sur Azure Functions avec DevOps Projects
+# <a name="deploy-to-azure-functions-with-devops-starter"></a>Effectuer un déploiement sur Azure Functions avec DevOps Starter
 
-Azure DevOps Projects offre une expérience simplifiée dans laquelle vous pouvez apporter vos code et dépôt Git existants ou choisir un exemple d’application pour créer un pipeline d’intégration continue (CI) et de livraison continue (CD) dans Azure.
+Azure DevOps Starter offre une expérience simplifiée dans laquelle vous pouvez apporter vos code et dépôt Git existants ou choisir un exemple d’application pour créer un pipeline d’intégration continue (CI) et de livraison continue (CD) dans Azure.
 
-De plus, DevOps Projects :
+En outre, DevOps Starter :
 
 * Crée automatiquement des ressources Azure comme des fonctions Azure.
 
@@ -29,7 +28,7 @@ De plus, DevOps Projects :
 Ce didacticiel présente les procédures suivantes :
 
 > [!div class="checklist"]
->* Utiliser DevOps Projects pour déployer une application ASP.NET sur Azure Functions
+>* Utiliser DevOps Starter pour déployer une application ASP.NET sur Azure Functions
 >* Configurer Azure DevOps et un abonnement Azure
 >* Examiner la fonction Azure
 >* Examiner le pipeline CI
@@ -43,17 +42,15 @@ Actuellement, les runtimes pris en charge pour les fonctions sont **.NET** et **
 
 * Un abonnement Azure. Vous pouvez en obtenir un gratuit par le biais de [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)
 
-## <a name="use-devops-projects-to-deploy-an-aspnet-app-to-azure-functions"></a>Utiliser DevOps Projects pour déployer une application ASP.NET sur Azure Functions
+## <a name="use-devops-starter-to-deploy-an-aspnet-app-to-azure-functions"></a>Utiliser DevOps Starter pour déployer une application ASP.NET sur Azure Functions
 
-DevOps Projects crée un pipeline CI/CD dans Azure Pipelines. Vous pouvez créer une organisation Azure DevOps ou utiliser une organisation existante. DevOps Projects crée également des ressources Azure, telles qu’un hub IoT, dans l’abonnement Azure de votre choix.
+DevOps Starter crée un pipeline CI/CD dans Azure Pipelines. Vous pouvez créer une organisation Azure DevOps ou utiliser une organisation existante. DevOps Projects crée également des ressources Azure, telles qu’un hub IoT, dans l’abonnement Azure de votre choix.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com)
 
-1. Dans le volet de gauche, sélectionnez **Créer une ressource**.
+1. Dans la zone de recherche, tapez, puis sélectionnez **DevOps Starter**. Cliquez sur le **signe +** pour créer une ressource.
 
-1. Dans la zone de recherche, tapez **DevOps Projects**, puis cliquez sur **Ajouter**.
-
-   ![DevOps Projects](_img/azure-devops-project-functions/devops-project.png)
+    ![Tableau de bord DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 
 1. Sélectionnez **.NET**, puis sélectionnez **Suivant**. Sous **Choisir un framework d’application**, sélectionnez **ASP.NET** et cliquez sur **Suivant**.
 
@@ -67,23 +64,23 @@ DevOps Projects crée un pipeline CI/CD dans Azure Pipelines. Vous pouvez créer
 
 1. Sélectionnez votre abonnement Azure.
 
-1. Pour voir d’autres paramètres de configuration Azure et pour identifier le niveau tarifaire et l’emplacement, cliquez sur Paramètres supplémentaires. Ce volet regroupe différentes options pour la configuration du niveau tarifaire et de l’emplacement des services Azure.
+1. Pour voir d’autres paramètres de configuration Azure et pour identifier le niveau tarifaire et l’emplacement, cliquez sur **Paramètres supplémentaires**. Ce volet regroupe différentes options pour la configuration du niveau tarifaire et de l’emplacement des services Azure.
 
-1. Quittez la zone de configuration Azure, puis sélectionnez Terminé.
+1. Quittez la zone de configuration Azure, puis sélectionnez **Terminé**.
 
 1. Le processus est achevé au bout de quelques minutes. Un exemple d’application ASP.NET est configuré dans un dépôt Git de votre organisation Azure DevOps, une application de fonction, Application Insights est créé, un pipeline CI/CD est exécuté, et votre application est déployée sur Azure.
 
-   Une fois toutes ces opérations terminées, le tableau de bord Azure DevOps Projects s’affiche dans le portail Azure. Vous pouvez également accéder au tableau de bord DevOps Projects directement à partir de **Toutes les ressources** dans le portail Azure.
+   Une fois toutes ces opérations terminées, le tableau de bord Azure DevOps Starter s’affiche dans le portail Azure. Vous pouvez également accéder au tableau de bord DevOps Starter directement à partir de **Toutes les ressources** dans le portail Azure.
 
    Ce tableau de bord permet de visualiser votre dépôt de code Azure DevOps, le pipeline CI/CD et votre fonction Azure. Vous pouvez configurer d’autres options de CI/CD dans votre pipeline Azure DevOps. Sur la droite, sélectionnez **Application de fonction** pour la voir.
 
 ## <a name="examine-the-function-app"></a>Examiner l’application de fonction
 
-DevOps Projects configure automatiquement une application de fonction, que vous pouvez explorer et personnaliser. Pour vous familiariser avec l’application de fonction, effectuez les étapes suivantes :
+DevOps Starter configure automatiquement une application de fonction, que vous pouvez explorer et personnaliser. Pour vous familiariser avec l’application de fonction, effectuez les étapes suivantes :
 
-1. Accédez au tableau de bord DevOps Projects.
+1. Accédez au tableau de bord DevOps Starter.
 
-    ![Tableau de bord DevOps Projects](_img/azure-devops-project-functions/devops-projects-dashboard.png)
+    ![Tableau de bord DevOps Projects](_img/azure-devops-project-functions/fapp-dashboard.png)
 
 1. Sur la droite, sélectionnez l’application de fonction. Un volet s’ouvre pour l’application de fonction. À partir de cette vue, vous pouvez effectuer diverses actions, par exemple superviser les opérations et effectuer des recherches dans les journaux.
 
@@ -91,9 +88,9 @@ DevOps Projects configure automatiquement une application de fonction, que vous 
 
 ## <a name="examine-the-ci-pipeline"></a>Examiner le pipeline CI
 
-DevOps Projects configure automatiquement un pipeline CI/CD dans votre organisation Azure DevOps. Vous pouvez explorer et personnaliser le pipeline. Pour vous familiariser avec celui-ci, procédez comme suit :
+DevOps Starter configure automatiquement un pipeline CI/CD dans votre organisation Azure DevOps. Vous pouvez explorer et personnaliser le pipeline. Pour vous familiariser avec celui-ci, procédez comme suit :
 
-1. Accédez au tableau de bord DevOps Projects.
+1. Accédez au tableau de bord DevOps Starter.
 
 1. Cliquez sur le lien hypertexte sous **Build**. Un onglet du navigateur affiche le pipeline de build de votre nouveau projet.
 
@@ -101,7 +98,7 @@ DevOps Projects configure automatiquement un pipeline CI/CD dans votre organisat
 
 1. Sélectionnez **Modifier**. Dans ce volet, vous pouvez examiner les différentes tâches de votre pipeline de build. La build effectue différentes tâches, telles que l’extraction du code source à partir du dépôt git, la génération de l’application, l’exécution de tests unitaires et la publication des sorties utilisées pour les déploiements.
 
-1. Sélectionnez **Déclencheurs**. DevOps Projects crée automatiquement un déclencheur CI tandis que chaque validation dans le dépôt lance une nouvelle build. Si vous le souhaitez, vous pouvez choisir d’inclure ou d’exclure des branches dans le processus CI.
+1. Sélectionnez **Déclencheurs**. DevOps Starter crée automatiquement un déclencheur CI tandis que chaque validation dans le dépôt lance une nouvelle build. Si vous le souhaitez, vous pouvez choisir d’inclure ou d’exclure des branches dans le processus CI.
 
 1. Sélectionnez **Rétention**. En fonction de votre scénario, vous pouvez spécifier des stratégies pour conserver ou supprimer un certain nombre de builds.
 
@@ -113,7 +110,7 @@ DevOps Projects configure automatiquement un pipeline CI/CD dans votre organisat
 
 ## <a name="examine-the-cd-release-pipeline"></a>Examiner le pipeline de mise en production CD
 
-DevOps Projects crée et configure automatiquement les étapes nécessaires au déploiement entre votre organisation Azure DevOps et votre abonnement Azure. Ces étapes comprennent la configuration d’une connexion au service Azure pour authentifier Azure DevOps auprès de votre abonnement Azure. L’automatisation crée également un pipeline de mise en production, qui fournit le déploiement continu vers Azure. Pour en savoir plus sur le pipeline de mise en production, suivez ces étapes :
+DevOps Starter crée et configure automatiquement les étapes nécessaires au déploiement entre votre organisation Azure DevOps et votre abonnement Azure. Ces étapes comprennent la configuration d’une connexion au service Azure pour authentifier Azure DevOps auprès de votre abonnement Azure. L’automatisation crée également un pipeline de mise en production, qui fournit le déploiement continu vers Azure. Pour en savoir plus sur le pipeline de mise en production, suivez ces étapes :
 
 1. Accédez à **Pipelines | Mises en production**.
 
@@ -142,26 +139,26 @@ Vous êtes maintenant prêt à collaborer avec une équipe sur votre application
 
 1. Le dépôt contient déjà du code appelé **SampleFunctionApp** basé sur le langage de l’application que vous avez sélectionné lors du processus de création. Ouvrez le fichier **application/SampleFunctionApp/fonction1.cs**.
 
-1. Sélectionnez **Modifier**, puis apportez une modification à la **ligne numéro 31**. Par exemple, vous pouvez la mettre à jour pour qu’elle indique **Bonjour. Bienvenue dans Azure Functions à l’aide de DevOps Projects**.
+1. Sélectionnez **Modifier**, puis apportez une modification à la **ligne numéro 31**. Par exemple, vous pouvez la mettre à jour pour qu’elle indique **Bonjour. Bienvenue dans Azure Functions via DevOps Starter**
 
 1. En haut à droite, sélectionnez **Valider**, puis **Valider** à nouveau pour transmettre votre modification.
 
 1. Ouvrez le fichier **Application/SampleFunctionApp.Test/Function1TestRunner.cs**. 
 
-1. Sélectionnez **Modifier**, puis apportez une modification à la **ligne numéro 21**. Par exemple, vous pouvez la mettre à jour pour qu’elle indique **Bonjour. Bienvenue dans Azure Functions via Azure DevOps Projects**.
+1. Sélectionnez **Modifier**, puis apportez une modification à la **ligne numéro 21**. Par exemple, vous pouvez la mettre à jour pour qu’elle indique **Bonjour. Bienvenue dans Azure Functions via Azure DevOps Starter**.
 
-     Au bout de quelques instants, une build est démarrée dans Azure DevOps tandis qu’une mise en production est exécutée pour déployer les modifications. Supervisez l’état de la build dans le tableau de bord DevOps Projects, ou dans le navigateur avec votre organisation Azure DevOps.
+     Au bout de quelques instants, une build est démarrée dans Azure DevOps tandis qu’une mise en production est exécutée pour déployer les modifications. Supervisez l’état de la build sur le tableau de bord DevOps Starter, ou dans le navigateur avec votre organisation Azure DevOps.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Quand vous n’en avez plus besoin, vous pouvez supprimer les ressources associées que vous avez créées. Utilisez la fonctionnalité **Supprimer** du tableau de bord DevOps Projects.
+Quand vous n’en avez plus besoin, vous pouvez supprimer les ressources associées que vous avez créées. Utilisez la fonctionnalité **Supprimer** du tableau de bord DevOps Starter.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Si vous le souhaitez, vous pouvez modifier ces pipelines de build et de mise en production afin qu’ils répondent aux besoins de votre équipe. Vous pouvez également utiliser ce modèle CI/CD comme modèle pour vos autres pipelines. Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
-> * Utiliser DevOps Projects pour déployer une application ASP.NET Core sur Azure Functions
+> * Utiliser DevOps Starter pour déployer une application ASP.NET Core sur Azure Functions
 > * Configurer Azure DevOps et un abonnement Azure 
 > * Examiner la fonction Azure
 > * Examiner le pipeline CI

@@ -1,28 +1,26 @@
 ---
-title: Fonctions des modèles - tableaux et objets
-description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des tableaux et des objets.
+title: Fonctions de modèle - tableaux
+description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des tableaux.
 ms.topic: conceptual
-ms.date: 07/31/2019
-ms.openlocfilehash: 0b4bb80f6d7a7cc20a8b2dcc71e890f2ada7c5be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: f34ba74847ac394e37e6ef33f859304128daacde
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156373"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203809"
 ---
-# <a name="array-and-object-functions-for-arm-templates"></a>Fonctions de tableau et d’objet pour les modèles ARM
+# <a name="array-functions-for-arm-templates"></a>Fonctions de tableau pour les modèles ARM
 
-Resource Manager fournit plusieurs fonctions pour travailler avec des tableaux et des objets dans votre modèle Azure Resource Manager (ARM).
+Resource Manager fournit plusieurs fonctions pour travailler avec des tableaux dans votre modèle Azure Resource Manager (ARM).
 
 * [array](#array)
-* [coalesce](#coalesce)
 * [concat](#concat)
 * [contains](#contains)
 * [createArray](#createarray)
 * [empty](#empty)
 * [first](#first)
 * [intersection](#intersection)
-* [json](#json)
 * [last](#last)
 * [length](#length)
 * [max](#max)
@@ -50,7 +48,7 @@ Convertit la valeur en tableau.
 
 Tableau.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/array.json) suivant montre comment utiliser la fonction array avec des types différents.
 
@@ -99,105 +97,6 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | stringOutput | Array | ["efgh"] |
 | objectOutput | Array | [{"a": "b", "c": "d"}] |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
-```
-
-## <a name="coalesce"></a>coalesce
-
-`coalesce(arg1, arg2, arg3, ...)`
-
-Retourne la première valeur non null à partir des paramètres. Les chaînes vides, les tableaux vides et les objets vides ne sont pas null.
-
-### <a name="parameters"></a>Paramètres
-
-| Paramètre | Obligatoire | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Oui |int, string, array ou object |La première valeur dans laquelle rechercher des valeurs null. |
-| arguments supplémentaires |Non |int, string, array ou object |Valeurs supplémentaires dans lesquelles rechercher des valeurs null. |
-
-### <a name="return-value"></a>Valeur retournée
-
-Valeur des premiers paramètres non null. Il peut s’agir d’une chaîne, d’un entier, d’un tableau ou d’un objet. Null si tous les paramètres sont null.
-
-### <a name="example"></a>Exemple
-
-[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json) suivant montre la sortie de différentes utilisations de la fonction coalesce.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "objectToTest": {
-            "type": "object",
-            "defaultValue": {
-                "null1": null,
-                "null2": null,
-                "string": "default",
-                "int": 1,
-                "object": {"first": "default"},
-                "array": [1]
-            }
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "stringOutput": {
-            "type": "string",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').string)]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').int)]"
-        },
-        "objectOutput": {
-            "type": "object",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').object)]"
-        },
-        "arrayOutput": {
-            "type": "array",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').array)]"
-        },
-        "emptyOutput": {
-            "type": "bool",
-            "value": "[empty(coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2))]"
-        }
-    }
-}
-```
-
-La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
-
-| Nom | Type | Valeur |
-| ---- | ---- | ----- |
-| stringOutput | String | default |
-| intOutput | Int | 1 |
-| objectOutput | Object | {"first": "default"} |
-| arrayOutput | Array | [1] |
-| emptyOutput | Bool | True |
-
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
-```
-
 ## <a name="concat"></a>concat
 
 `concat(arg1, arg2, arg3, ...)`
@@ -209,7 +108,7 @@ Combine plusieurs tableaux et retourne le tableau concaténé, ou combine plusie
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |tableau ou chaîne |Le premier tableau ou la première chaîne à concaténer. |
-| arguments supplémentaires |Non |tableau ou chaîne |Tableaux ou chaînes supplémentaires en ordre séquentiel pour la concaténation. |
+| arguments supplémentaires |Non  |tableau ou chaîne |Tableaux ou chaînes supplémentaires en ordre séquentiel pour la concaténation. |
 
 Cette fonction peut prendre n’importe quel nombre d’arguments et accepter à la fois des chaînes ou des tableaux pour les paramètres. Toutefois, vous ne pouvez pas fournir à la fois des tableaux et des chaînes pour les paramètres. Les tableaux sont concaténés uniquement avec d’autres tableaux.
 
@@ -217,7 +116,7 @@ Cette fonction peut prendre n’importe quel nombre d’arguments et accepter à
 
 Chaîne ou tableau de valeurs concaténées.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) suivant montre comment combiner deux tableaux.
 
@@ -260,18 +159,6 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
-```
-
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) suivant montre comment combiner deux valeurs de chaîne et retourner une chaîne concaténée.
 
 ```json
@@ -300,18 +187,6 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
-```
-
 ## <a name="contains"></a>contains
 
 `contains(container, itemToFind)`
@@ -329,7 +204,7 @@ Vérifie si un tableau contient une valeur, un objet contient une clé ou une ch
 
 **True** si l’élément est trouvé ; sinon, **False**.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) suivant montre comment utiliser contains avec différents types :
 
@@ -393,18 +268,6 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | arrayTrue | Bool | True |
 | arrayFalse | Bool | False |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
-```
-
 ## <a name="createarray"></a>createarray
 
 `createArray (arg1, arg2, arg3, ...)`
@@ -416,13 +279,13 @@ Crée un tableau à partir des paramètres.
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |Chaîne, entier, tableau ou objet |La première valeur dans le tableau. |
-| arguments supplémentaires |Non |Chaîne, entier, tableau ou objet |Valeurs supplémentaires dans le tableau. |
+| arguments supplémentaires |Non  |Chaîne, entier, tableau ou objet |Valeurs supplémentaires dans le tableau. |
 
 ### <a name="return-value"></a>Valeur retournée
 
 Tableau.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/createarray.json) suivant montre comment utiliser createArray avec différents types :
 
@@ -472,18 +335,6 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | objectArray | Array | [{"one": "a", "two": "b", "three": "c"}] |
 | arrayArray | Array | [["one", "two", "three"]] |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
-```
-
 ## <a name="empty"></a>empty
 
 `empty(itemToTest)`
@@ -500,7 +351,7 @@ Détermine si un tableau, un objet ou une chaîne est vide.
 
 Retourne **True** si la valeur est vide ; sinon, **False**.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) suivant vérifie si un tableau, un objet et une chaîne sont vides.
 
@@ -549,18 +400,6 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | objectEmpty | Bool | True |
 | stringEmpty | Bool | True |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
-```
-
 ## <a name="first"></a>first
 
 `first(arg1)`
@@ -577,7 +416,7 @@ Retourne le premier élément du tableau ou le premier caractère de la chaîne.
 
 Type (chaîne, entier, tableau ou objet) du premier élément d’un tableau ou premier caractère d’une chaîne.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) suivant montre comment utiliser la première fonction avec un tableau et une chaîne.
 
@@ -613,18 +452,6 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | arrayOutput | String | one |
 | stringOutput | String | O |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
-```
-
 ## <a name="intersection"></a>intersection
 
 `intersection(arg1, arg2, arg3, ...)`
@@ -637,13 +464,13 @@ Retourne un tableau ou un objet unique avec les éléments communs à partir des
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |objet ou tableau |La première valeur à utiliser pour rechercher des éléments communs. |
 | arg2 |Oui |objet ou tableau |La seconde valeur à utiliser pour rechercher des éléments communs. |
-| arguments supplémentaires |Non |objet ou tableau |Les valeur supplémentaires à utiliser pour rechercher des éléments communs. |
+| arguments supplémentaires |Non  |objet ou tableau |Les valeur supplémentaires à utiliser pour rechercher des éléments communs. |
 
 ### <a name="return-value"></a>Valeur retournée
 
 Tableau ou objet avec les éléments communs.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/intersection.json) suivant indique comment utiliser intersection avec des tableaux et des objets :
 
@@ -691,91 +518,6 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
-```
-
-## <a name="json"></a>json
-
-`json(arg1)`
-
-Renvoie un objet JSON.
-
-### <a name="parameters"></a>Paramètres
-
-| Paramètre | Obligatoire | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Oui |string |La valeur à convertir au format JSON. |
-
-### <a name="return-value"></a>Valeur retournée
-
-L’objet JSON à partir de la chaîne spécifiée ou un objet vide lorsque **nul** est spécifié.
-
-### <a name="remarks"></a>Notes
-
-Si vous devez inclure une valeur de paramètre ou une variable dans l’objet JSON, utilisez la fonction [concat](template-functions-string.md#concat) pour créer la chaîne que vous passez à la fonction.
-
-### <a name="example"></a>Exemple
-
-[L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) suivant indique comment utiliser la fonction json avec des tableaux et des objets :
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testValue": {
-            "type": "string",
-            "defaultValue": "demo value"
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "jsonOutput": {
-            "type": "object",
-            "value": "[json('{\"a\": \"b\"}')]"
-        },
-        "nullOutput": {
-            "type": "bool",
-            "value": "[empty(json('null'))]"
-        },
-        "paramOutput": {
-            "type": "object",
-            "value": "[json(concat('{\"a\": \"', parameters('testValue'), '\"}'))]"
-        }
-    }
-}
-```
-
-La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
-
-| Nom | Type | Valeur |
-| ---- | ---- | ----- |
-| jsonOutput | Object | {"a": "b"} |
-| nullOutput | Boolean | True |
-| paramOutput | Object | {"a": "valeur pour démonstration"}
-
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
-```
-
 ## <a name="last"></a>last
 
 `last (arg1)`
@@ -792,7 +534,7 @@ Retourne le dernier élément du tableau ou le dernier caractère de la chaîne.
 
 Type (chaîne, entier, tableau ou objet) du dernier élément d’un tableau ou dernier caractère d’une chaîne.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) suivant montre comment utiliser la dernière fonction avec un tableau et une chaîne.
 
@@ -828,18 +570,6 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | arrayOutput | String | three |
 | stringOutput | String | e |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
-```
-
 ## <a name="length"></a>length
 
 `length(arg1)`
@@ -856,7 +586,7 @@ Retourne le nombre d’éléments d’un tableau, les caractères d’une chaîn
 
 Un entier.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) suivant montre comment utiliser length avec un tableau et une chaîne :
 
@@ -916,18 +646,6 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | stringLength | Int | 13 |
 | objectLength | Int | 4 |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
-```
-
 Vous pouvez utiliser cette fonction avec un tableau pour spécifier le nombre d’itérations lors de la création de ressources. Dans l’exemple ci-après, le paramètre **siteNames** fait référence à un tableau de noms à utiliser lors de la création de sites web.
 
 ```json
@@ -955,7 +673,7 @@ Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste s�
 
 Entier représentant la valeur maximale.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) suivant montre comment utiliser max avec un tableau et une liste d’entiers :
 
@@ -990,18 +708,6 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
-```
-
 ## <a name="min"></a>min
 
 `min(arg1)`
@@ -1018,7 +724,7 @@ Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste s�
 
 Entier représentant la valeur minimale.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) suivant montre comment utiliser min avec un tableau et une liste d’entiers :
 
@@ -1053,18 +759,6 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
-```
-
 ## <a name="range"></a>range
 
 `range(startIndex, count)`
@@ -1082,7 +776,7 @@ Crée un tableau d’entiers à partir d’un entier de départ et contenant un 
 
 Tableau d’entiers.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/range.json) suivant montre comment utiliser la fonction range :
 
@@ -1116,18 +810,6 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | ---- | ---- | ----- |
 | rangeOutput | Array | [5, 6, 7] |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
-```
-
 ## <a name="skip"></a>skip
 
 `skip(originalValue, numberToSkip)`
@@ -1145,7 +827,7 @@ Retourne un tableau avec tous les éléments après le nombre spécifié dans le
 
 Tableau ou chaîne.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) suivant ignore le nombre spécifié d’éléments dans le tableau et le nombre spécifié de caractères dans une chaîne.
 
@@ -1196,18 +878,6 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | arrayOutput | Array | ["three"] |
 | stringOutput | String | two three |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
-```
-
 ## <a name="take"></a>take
 
 `take(originalValue, numberToTake)`
@@ -1225,7 +895,7 @@ Retourne un tableau avec le nombre spécifié d’éléments à partir du début
 
 Tableau ou chaîne.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) suivant prend le nombre spécifié d’éléments du tableau, et les caractères d’une chaîne.
 
@@ -1276,18 +946,6 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | arrayOutput | Array | ["one", "two"] |
 | stringOutput | String | sur |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
-```
-
 ## <a name="union"></a>union
 
 `union(arg1, arg2, arg3, ...)`
@@ -1300,13 +958,13 @@ Retourne un tableau ou un objet unique avec tous les éléments communs à parti
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |objet ou tableau |La première valeur à utiliser pour joindre des éléments. |
 | arg2 |Oui |objet ou tableau |La seconde valeur à utiliser pour joindre des éléments. |
-| arguments supplémentaires |Non |objet ou tableau |Valeurs supplémentaires à utiliser pour joindre des éléments. |
+| arguments supplémentaires |Non  |objet ou tableau |Valeurs supplémentaires à utiliser pour joindre des éléments. |
 
 ### <a name="return-value"></a>Valeur retournée
 
 Objet ou tableau.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/union.json) suivant montre comment utiliser intersection avec des tableaux et des objets :
 
@@ -1354,22 +1012,6 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
-```
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](template-syntax.md).
-* Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](linked-templates.md).
-* Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](copy-resources.md).
-* Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](deploy-powershell.md).
-
+* Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).

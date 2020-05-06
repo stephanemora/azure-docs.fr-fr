@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 741d4718b5e6140f4ddd2bb22e1a2ec830763176
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9a2bb636ba749cae50195cefeb8e7237d382fb99
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79224036"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82182342"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurer la récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
@@ -127,7 +127,7 @@ Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comp
 2. Dans **Créer et associer une stratégie**, indiquez le nom de la stratégie. Nous utilisons **ContosoReplicationPolicy**.
 3. Pour ce tutoriel, nous allons laisser les paramètres par défaut :
     - **Fréquence de copie** indique la fréquence de réplication des données delta (après la réplication initiale). Il effectue une synchronisation toutes les cinq minutes par défaut.
-    - **Rétention des points de récupération** indique que les points de récupération vont être conservés pendant deux heures.
+    - **Rétention des points de récupération** indique que les points de récupération vont être conservés pendant deux heures. La valeur maximale autorisée de conservation pour la protection des machines virtuelles hébergées sur des hôtes Hyper-V est de 24 heures.
     - **Fréquence des instantanés de cohérence des applications** indique que les points de récupération contenant des instantanés de cohérence des applications sont créés toutes les heures.
     - **Heure de début de la réplication initiale** indique que la réplication initiale démarre immédiatement.
 4. Après avoir créé la stratégie, sélectionnez **OK**. Quand vous créez une stratégie, celle-ci est automatiquement associée au site Hyper-V spécifié. Dans notre tutoriel, il s’agit de **ContosoHyperVSite**.

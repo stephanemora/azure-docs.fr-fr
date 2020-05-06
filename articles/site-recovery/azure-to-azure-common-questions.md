@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7d3bcc32dc8f1412a5adbc175a5f8618628bce83
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: b6f665c5b0f2fbd291d20ef21d0a447d20f7c2da
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547886"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738046"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Questions courantes : Récupération d'urgence d'Azure vers Azure
 
@@ -194,10 +194,10 @@ Vous pouvez répliquer 16 machines virtuelles ensemble dans un groupe de répli
 La cohérence multimachine virtuelle étant une fonction faisant un usage intensif du processeur, son activation peut affecter les performances de la charge de travail. Ne l’utilisez que si les machines exécutent la même charge de travail et si vous avez besoin de cohérence entre plusieurs machines virtuelles. Par exemple, si vous avez deux instances SQL Server et deux serveurs web dans une application, vous n’avez besoin de cohérence multimachine virtuelle que pour les instances SQL Server.
 
 ### <a name="can-you-add-an-already-replicating-vm-to-a-replication-group"></a>Pouvez-vous ajouter une machine virtuelle en cours de réplication à un groupe de réplication ?
-
 Vous pouvez ajouter une machine virtuelle à un nouveau groupe de réplication tout en activant la réplication. Vous pouvez également ajouter une machine virtuelle à un groupe de réplication existant tout en activant la réplication. Toutefois, vous ne pouvez pas ajouter une machine virtuelle en cours de réplication à un nouveau groupe de réplication ou à un groupe de réplication existant.
-
+ 
 ## <a name="failover"></a>Basculement
+
 
 ### <a name="how-is-capacity-ensured-in-the-target-region-for-azure-vms"></a>Comment est assurée la capacité dans la région cible pour les machines virtuelles Azure ?
 

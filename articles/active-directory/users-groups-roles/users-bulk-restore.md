@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/16/2020
+ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,16 +13,37 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f75fe224491c2853f819a45db678e87849dc72d1
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 11f35c7615135f5aa6c63d5d05898d139df61d0d
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81532705"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203292"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Restaurer en bloc des utilisateurs supprimés dans Azure Active Directory
 
-Azure Active Directory (Azure AD) prend en charge les opérations de création, de suppression et d’invitation en bloc d’utilisateurs, ainsi que le téléchargement de listes d’utilisateurs, de groupes et de membres de groupes.
+Azure Active Directory (Azure AD) prend en charge les opérations de restauration en bloc d’utilisateurs, ainsi que le téléchargement de listes d’utilisateurs, de groupes et de membres de groupes.
+
+## <a name="understand-the-csv-template"></a>Comprendre le modèle CSV
+
+Téléchargez et renseignez le modèle CSV pour vous aider à restaurer les utilisateurs Azure AD en bloc. Le modèle CSV que vous téléchargez peut se présenter comme dans l’exemple suivant :
+
+![Feuille de calcul pour le chargement et les appels expliquant l’objectif et les valeurs de chaque ligne et colonne](./media/users-bulk-restore/understand-template.png)
+
+### <a name="csv-template-structure"></a>Structure du modèle CSV
+
+Les lignes d’un modèle CSV téléchargé sont les suivantes :
+
+- **Numéro de version** : La première ligne contenant le numéro de version doit être incluse dans le fichier CSV chargé.
+- **En-têtes de colonne** : Le format des en-têtes de colonne est &lt;*Nom d’élément*&gt; [PropertyName] &lt;*Obligatoire ou vide*&gt;. Par exemple : `Object ID [objectId] Required`. Certaines anciennes versions du modèle peuvent avoir de légères variations.
+- **Exemples de lignes** : Nous avons inclus dans le modèle une ligne d’exemples de valeurs acceptables pour chaque colonne. Vous devez supprimer la ligne des exemples et la remplacer par vos propres entrées.
+
+### <a name="additional-guidance"></a>Conseils supplémentaires
+
+- Les deux premières lignes du modèle chargé ne doivent pas être supprimées ou modifiées, ou le chargement ne pourra pas être traité.
+- Les colonnes requises sont répertoriées en premier.
+- Nous vous déconseillons d’ajouter de nouvelles colonnes au modèle. Toutes les colonnes supplémentaires que vous ajoutez sont ignorées et ne sont pas traitées.
+- Nous vous recommandons de télécharger la version la plus récente du modèle CSV aussi souvent que possible.
 
 ## <a name="to-bulk-restore-users"></a>Pour restaurer des utilisateurs en bloc
 
@@ -32,7 +53,7 @@ Azure Active Directory (Azure AD) prend en charge les opérations de création, 
 
    ![Sélectionner la commande Restaurer en bloc dans la page Utilisateurs supprimés](./media/users-bulk-restore/bulk-restore.png)
 
-1. Ouvrez le fichier CSV et ajoutez une ligne pour chaque utilisateur à restaurer. La seule valeur obligatoire est **ObjectID**. Puis enregistrez le fichier.
+1. Ouvrez le modèle CSV et ajoutez une ligne pour chaque utilisateur à restaurer. La seule valeur obligatoire est **ObjectID**. Puis enregistrez le fichier.
 
    ![Sélectionner un fichier CSV local dans lequel vous répertoriez les utilisateurs à ajouter](./media/users-bulk-restore/upload-button.png)
 

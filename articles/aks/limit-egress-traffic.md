@@ -4,12 +4,12 @@ description: Découvrez les ports et adresses requis pour contrôler le trafic d
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: 2cd7aeea272d22615d3ba3d3db6acc2c84d22cca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d723f7b1e7331e65d17dca5873b891ec46d76c0e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79080174"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207171"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Contrôler le trafic de sortie pour les nœuds de cluster dans Azure Kubernetes Service (AKS)
 
@@ -165,19 +165,15 @@ Les noms de domaine complets/règles d’application suivants sont requis pour l
 | *.gk.\<location\>.azmk8s.io | HTTPS:443    | Le module complémentaire Azure Policy communique avec le point de terminaison d’audit d’opérateur de contrôle en cours d’exécution sur le serveur maître pour obtenir les résultats d’audit. |
 | dc.services.visualstudio.com | HTTPS:443 | Le module complémentaire Azure Policy envoie des données de télémétrie au point de terminaison Applications Insights. |
 
-## <a name="required-by-windows-server-based-nodes-in-public-preview-enabled"></a>Requis par les nœuds basés sur Windows Server (en préversion publique) activés
+## <a name="required-by-windows-server-based-nodes-enabled"></a>Exigences des nœuds Windows Server activés
 
-> [!CAUTION]
-> Certaines des fonctionnalités ci-dessous sont en préversion.  Les suggestions de cet article sont susceptibles de changer à mesure que la fonctionnalité passe à la préversion publique et aux étapes de mise en production ultérieures.
-
-Les noms de domaine complets/règles d’application suivants sont requis pour les clusters AKS basés sur Windows Server :
+Les noms de domaine complets et les règles d’application ci-dessous sont nécessaires à l’utilisation des pools de nœuds Windows Server :
 
 | FQDN                                    | Port      | Utilisation      |
 |-----------------------------------------|-----------|----------|
 | onegetcdn.azureedge.net, winlayers.blob.core.windows.net, winlayers.cdn.mscr.io, go.microsoft.com | HTTPS:443 | Pour installer les fichiers binaires liés à Windows |
 | mp.microsoft.com, www<span></span>.msftconnecttest.com, ctldl.windowsupdate.com | HTTP:80 | Pour installer les fichiers binaires liés à Windows |
 | kms.core.windows.net | TCP:1688 | Pour installer les fichiers binaires liés à Windows |
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

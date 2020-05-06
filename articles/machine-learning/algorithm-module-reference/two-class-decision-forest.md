@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: c9388da449e75dee00fd43af9a4e0407c46f597a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: c98935781699510d84247f80367d5c57cb388f6b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77916708"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82137635"
 ---
 # <a name="two-class-decision-forest-module"></a>Module Forêt d’arbres décisionnels à deux classes
 
@@ -32,7 +32,7 @@ Il existe de nombreuses façons de créer des modèles individuels et de les com
 
 + De nombreux arbres de classification individuels sont créés, avec l’ensemble du jeu de données, mais différents points de départ (généralement randomisés). Cette approche est différente de celle de la forêt aléatoire, selon laquelle les arbres de décision individuels peuvent n’utiliser qu’une partie randomisée des données ou des fonctionnalités.
 + Chacun des arbres de la forêt d’arbres décisionnels donne en sortie un histogramme à fréquence non normalisée d’étiquettes. 
-+ Le processus d’agrégation additionne ces histogrammes et normalise le résultat pour obtenir les « probabilités » de chaque étiquette. 
++ Le processus d’agrégation additionne ces histogrammes et normalise le résultat pour obtenir les « probabilités » de chaque étiquette. 
 + Les arbres présentant un niveau de confiance élevé en matière de prédiction pèsent davantage dans la décision finale de l’ensemble.
 
 Les arbres de décision présentent en général de nombreux avantages pour les tâches de classification :
@@ -57,7 +57,7 @@ Pour plus d’informations, voir [Arbres de décision](https://go.microsoft.com/
   
     -   **Bagging** : le bagging, également appelé *agrégation boostrap*, est une méthode selon laquelle chaque arbre est développé sur un nouvel échantillon, créé en échantillonnant le jeu de données d’origine de manière aléatoire à l’aide d’un ensemble de remplacement jusqu’à obtenir un jeu de données de taille identique à l’original.  
   
-         Les sorties des modèles sont combinées grâce à un *vote* qui est une forme d’agrégation. Chacun des arbres de la forêt d’arbres décisionnels de classification donne en sortie un histogramme à fréquence non normalisée d’étiquettes. L’agrégation consiste à additionner et à normaliser ces histogrammes pour obtenir les « probabilités » de chaque étiquette. Ainsi, les arbres présentant un niveau de confiance élevé en matière de prédiction pèseront davantage dans la décision finale de l’ensemble.  
+         Les sorties des modèles sont combinées grâce à un *vote* qui est une forme d’agrégation. Chacun des arbres de la forêt d’arbres décisionnels de classification donne en sortie un histogramme à fréquence non normalisée d’étiquettes. L’agrégation consiste à additionner et à normaliser ces histogrammes pour obtenir les « probabilités » de chaque étiquette. Ainsi, les arbres présentant un niveau de confiance élevé en matière de prédiction pèseront davantage dans la décision finale de l’ensemble.  
   
          Pour plus d’informations, voir l’entrée Wikipedia Bootstrap aggregating (en anglais).  
   
@@ -86,9 +86,19 @@ Pour plus d’informations, voir [Arbres de décision](https://go.microsoft.com/
 
      Si cette option est désélectionnée, le modèle n’accepte que les valeurs contenues dans les données d’apprentissage.
   
-9. Joignez un jeu de données étiqueté et l’un des [modules d’apprentissage](module-reference.md) :  
+9. Attachez un jeu de données étiqueté et entraînez le modèle :
+
+    + Si vous définissez **Create trainer mode** (Créer un mode d’apprentissage) sur **Single Parameter** (Paramètre unique), connectez un jeu de données balisé au module [Entraîner le modèle](train-model.md).  
   
-    -   Si vous définissez **Créer un mode d’apprentissage** sur **Paramètre unique**, utilisez le module [Entraîner le du modèle](./train-model.md).  
+    + Si vous définissez **Créer un mode d’entraînement** sur **Plage de paramètres**, connectez un jeu de données étiqueté et entraînez le modèle en utilisant [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > Si vous transmettez une plage de paramètres à [Entraîner le modèle](train-model.md), elle utilise uniquement la valeur par défaut dans la liste de paramètres unique.  
+    > 
+    > Si vous transmettez un ensemble unique de valeurs de paramètre au module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md), quand il attend une plage de paramètres pour chaque paramètre, il ignore les valeurs et utilise les valeurs par défaut pour l’apprenant.  
+    > 
+    > Si vous sélectionnez l’option **Plage de paramètres** et que vous entrez une valeur unique pour un paramètre, cette valeur unique que vous avez spécifiée est utilisée tout au long du balayage, même si d’autres paramètres changent dans une plage de valeurs.  
     
 ## <a name="results"></a>Résultats
 

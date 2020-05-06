@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 02736b63b900600c51eda8666aff0117b9307824
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 1aeab1a7dcdf2b12efc268ed0d47834b24d34b87
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310767"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734975"
 ---
 # <a name="azure-security-center-for-iot-frequently-asked-questions"></a>Questions fréquentes sur Azure Security Center pour IoT
 
@@ -66,7 +66,7 @@ L’agent Azure Security Center pour IoT couvre les menaces au niveau de l’app
 
 ## <a name="where-can-i-get-the-azure-security-center-for-iot-security-agent"></a>Où puis-je obtenir l’agent de sécurité Azure Security Center pour IoT ?
 
-L’agent de sécurité Azure Security Center pour IoT est open source et disponible sur GitHub en versions 32 64 bits pour Windows et Linux : https://github.com/Azure/Azure-Security-IoT.
+L’agent de sécurité Azure Security Center pour IoT est open source et disponible sur GitHub en versions 32 64 bits pour Windows et Linux : https://github.com/Azure/Azure-IoT-Security.
 
 ## <a name="where-does-the-azure-security-center-for-iot-agent-get-installed"></a>Où est installé l’agent Azure Security Center pour IoT ?
 

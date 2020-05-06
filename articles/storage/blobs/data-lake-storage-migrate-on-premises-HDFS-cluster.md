@@ -8,22 +8,22 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: c0c6a8637223727a9b0c88245d939605f6a8530e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7f7793016d2a408d6b286f417e3e89e7a22ca91
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78301998"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232374"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Migrer un magasin HDFS local vers Stockage Azure à l’aide d’Azure Data Box
 
-Vous pouvez migrer les données d'un magasin HDFS en local de votre cluster Hadoop vers Stockage Azure (Stockage Blob Azure ou Data Lake Storage Gen2) en utilisant un appareil Data Box. Vous pouvez choisir entre une Data Box de 80 To ou une Data Box Heavy de 770 To.
+Vous pouvez migrer les données d'un magasin HDFS en local de votre cluster Hadoop vers Stockage Azure (Stockage Blob Azure ou Data Lake Storage Gen2) en utilisant un appareil Data Box. Vous pouvez choisir entre les appareils Data Box Disk, Data Box de 80 To ou Data Box Heavy de 770 To.
 
 Cet article vous aide à effectuer les étapes suivantes :
 
 > [!div class="checklist"]
 > * Se préparer à la migration de vos données.
-> * Copier vos données vers une Data Box ou une Data Box Heavy.
+> * Copier vos données sur un appareil Data Box Disk, Data Box ou Data Box Heavy.
 > * Retourner l'appareil à Microsoft
 > * Appliquer des autorisations d’accès aux fichiers et aux répertoires (Data Lake Storage Gen2 uniquement)
 

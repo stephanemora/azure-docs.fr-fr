@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/23/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 94b351ddb18ca596f47e8ef40cff8229c838d7bd
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 2b4b94c05b39dddcef83644638a105d5b6c75118
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239204"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82184977"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutoriel : Utiliser des scripts de déploiement pour créer un certificat auto-signé (préversion)
 
@@ -48,13 +48,12 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
   ```
 
-  Utilisez le script PowerShell suivant pour obtenir l’ID en fournissant le nom du groupe de ressources et le nom de l’identité.
+  Utilisez le script d’interface de ligne de commande suivant pour obtenir l’ID en fournissant le nom du groupe de ressources et le nom de l’identité.
 
-  ```azurepowershell-interactive
-  $idGroup = Read-Host -Prompt "Enter the resource group name for the managed identity"
-  $idName = Read-Host -Prompt "Enter the name of the managed identity"
-
-  $id = (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name idName).Id
+  ```azurecli-interactive
+  echo "Enter the Resource Group name:" &&
+  read resourceGroupName &&
+  az identity list -g $resourceGroupName
   ```
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
@@ -285,35 +284,43 @@ Le script de déploiement ajoute un certificat au coffre de clés. Configurez le
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
-Reportez-vous à la section [Déployer le modèle](./quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template) dans le guide de démarrage rapide de Visual Studio Code pour ouvrir l’interpréteur de commandes Shell et charger le fichier du modèle dans cet interpréteur. Ensuite, exécutez le script PowerShell suivant :
+1. Se connecter à [Azure Cloud Shell](https://shell.azure.com)
 
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$upn = Read-Host -Prompt "Enter your email address used to sign in to Azure"
-$identityId = Read-Host -Prompt "Enter the user-assigned managed identity ID"
+1. Choisissez votre environnement préféré en sélectionnant **PowerShell** ou **Bash** (pour CLI) en haut à gauche.  Il est nécessaire de redémarrer l’interpréteur de commandes lors d’un tel changement.
 
-$adUserId = (Get-AzADUser -UserPrincipalName $upn).Id
-$resourceGroupName = "${projectName}rg"
-$keyVaultName = "${projectName}kv"
+    ![Fichier de chargement du Cloud Shell du portail Azure](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
+1. Sélectionnez **Charger/Télécharger des fichiers**, puis **Charger**. Consultez la capture d’écran précédente.  Sélectionnez le fichier que vous avez enregistré dans la section précédente. Après avoir chargé le fichier, vous pouvez utiliser la commande **ls** et la commande **cat** pour vérifier que le chargement a été correctement effectué.
 
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json" -identityId $identityId -keyVaultName $keyVaultName -objectId $adUserId
+1. Exécutez le script PowerShell suivant pour déployer le modèle.
 
-Write-Host "Press [ENTER] to continue ..."
-```
+    ```azurepowershell-interactive
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $upn = Read-Host -Prompt "Enter your email address used to sign in to Azure"
+    $identityId = Read-Host -Prompt "Enter the user-assigned managed identity ID"
 
-Le service de script de déploiement a besoin de créer des ressources de script de déploiement supplémentaires pour l’exécution du script. La préparation et le processus de nettoyage peuvent prendre jusqu’à une minute, en plus de la durée réelle d’exécution du script.
+    $adUserId = (Get-AzADUser -UserPrincipalName $upn).Id
+    $resourceGroupName = "${projectName}rg"
+    $keyVaultName = "${projectName}kv"
 
-Le déploiement a échoué en raison de la commande non valide, **Write-Output1**, utilisée dans le script. Vous devez recevoir une erreur indiquant :
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
 
-```error
-The term 'Write-Output1' is not recognized as the name of a cmdlet, function, script file, or operable
-program.\nCheck the spelling of the name, or if a path was included, verify that the path is correct and try again.\n
-```
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json" -identityId $identityId -keyVaultName $keyVaultName -objectId $adUserId
 
-Le résultat de l’exécution du script de déploiement est stocké dans les ressources de script de déploiement à des fins de résolution des problèmes.
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+    Le service de script de déploiement a besoin de créer des ressources de script de déploiement supplémentaires pour l’exécution du script. La préparation et le processus de nettoyage peuvent prendre jusqu’à une minute, en plus de la durée réelle d’exécution du script.
+
+    Le déploiement a échoué en raison de la commande non valide, **Write-Output1**, utilisée dans le script. Vous devez recevoir une erreur indiquant :
+
+    ```error
+    The term 'Write-Output1' is not recognized as the name of a cmdlet, function, script file, or operable
+    program.\nCheck the spelling of the name, or if a path was included, verify that the path is correct and try again.\n
+    ```
+
+    Le résultat de l’exécution du script de déploiement est stocké dans les ressources de script de déploiement à des fins de résolution des problèmes.
 
 ## <a name="debug-the-failed-script"></a>Déboguer le script qui a échoué
 

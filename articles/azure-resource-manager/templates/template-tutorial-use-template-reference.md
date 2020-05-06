@@ -2,16 +2,16 @@
 title: Utiliser les informations de référence des modèles
 description: Utilisez les informations de référence des modèles Azure Resource Manager pour créer un modèle.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: b713d508a5e28291778d3727c15e12972eea3a77
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 12990238455046d837b175318225bb4f3d317706
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878489"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82185045"
 ---
 # <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Tutoriel : Utiliser les informations de référence des modèles Resource Manager
 
@@ -102,21 +102,42 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
-Reportez-vous à la section [Déployer le modèle](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) dans le guide de démarrage rapide Visual Studio Code pour connaître la procédure de déploiement. Au moment de déployer le modèle, spécifiez le paramètre **storageAccountType** avec une valeur nouvellement ajoutée, par exemple **Premium_ZRS**. Si vous utilisez le modèle de démarrage rapide d’origine, le déploiement échoue, car **Premium_ZRS** n’était pas une valeur autorisée.  Pour passer la valeur du paramètre, ajoutez le commutateur suivant à la commande de déploiement :
+1. Se connecter à [Azure Cloud Shell](https://shell.azure.com)
 
-# <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/CLI)
+1. Choisissez votre environnement préféré en sélectionnant **PowerShell** ou **Bash** (pour CLI) en haut à gauche.  Il est nécessaire de redémarrer l’interpréteur de commandes lors d’un tel changement.
 
-```azurecli
---parameters storageAccountType='Premium_ZRS'
-```
+    ![Fichier de chargement du Cloud Shell du portail Azure](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+1. Sélectionnez **Charger/Télécharger des fichiers**, puis **Charger**. Consultez la capture d’écran précédente. Sélectionnez le fichier que vous avez enregistré dans la section précédente. Après avoir chargé le fichier, vous pouvez utiliser la commande **ls** et la commande **cat** pour vérifier que le chargement a été correctement effectué.
 
-```azurepowershell
--storageAccountType "Premium_ZRS"
-```
+1. Dans le Cloud Shell, exécutez les commandes suivantes. Sélectionnez l’onglet pour afficher le code PowerShell ou CLI.
 
----
+    # <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/CLI)
+
+    ```azurecli
+    echo "Enter a project name that is used to generate resource group name:" &&
+    read projectName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    resourceGroupName="${projectName}rg" &&
+    az group create --name $resourceGroupName --location "$location" &&
+    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json" --parameters storageAccountType='Standard_RAGRS'
+    ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+    ```azurepowershell
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $resourceGroupName = "${projectName}rg"
+
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json" -storageAccountType "Standard_RAGRS"
+    ```
+
+    ---
+
+ Au moment de déployer le modèle, spécifiez le paramètre **storageAccountType** avec une valeur nouvellement ajoutée, par exemple **Standard_RAGRS**. Si vous utilisez le modèle de démarrage rapide d’origine, le déploiement échoue, car **Standard_RAGRS** n’était pas une valeur autorisée.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

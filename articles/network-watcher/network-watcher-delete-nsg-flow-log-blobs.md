@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2019
 ms.author: damendo
-ms.openlocfilehash: 6d535bcc2e0831baae658796f76c8087d74c6a85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 948347f38b4b0fefe1e61cc4560eaa46e1bfd6f0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77587207"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187968"
 ---
 # <a name="delete-network-security-group-flow-log-storage-blobs-in-network-watcher"></a>Supprimer les blobs de stockage pour les journaux de flux des groupes de sécurité réseau dans Network Watcher
 
-Un problème empêche actuellement la suppression automatique des [journaux de flux de groupe de sécurité réseau](network-watcher-nsg-flow-logging-overview.md) pour Network Watcher du stockage Blob en fonction des paramètres de stratégie de conservation. Vous devez donc exécuter un script PowerShell pour supprimer manuellement les journaux de flux de votre compte de stockage, comme décrit dans cet article.
+Si vous avez besoin de supprimer manuellement les journaux de flux de votre compte de stockage, vous pouvez utiliser le script PowerShell ci-dessous.
+Ce script supprime uniquement les objets blob de stockage antérieurs à la stratégie de conservation existante spécifiée par l’utilisateur.
 
 ## <a name="run-powershell-script-to-delete-nsg-flow-logs"></a>Exécuter un script PowerShell pour supprimer les journaux de flux des groupes de sécurité réseau
  

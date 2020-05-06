@@ -3,12 +3,12 @@ title: Créer une application Azure Service Fabric Reliable Actors Java sur Linu
 description: Découvrez comment créer et déployer une application Java Service Fabric Reliable Actors en cinq minutes.
 ms.topic: conceptual
 ms.date: 06/18/2018
-ms.openlocfilehash: 82d4446d76254657adfe64ed41386c06a0a873eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d09666bad7b4e03b8598191d99a9db717c277d4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458166"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193562"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Création de votre première application Java Service Fabric Reliable Actors
 > [!div class="op_single_selector"]
@@ -204,7 +204,7 @@ L’application générée se déploie de la même manière qu’une autre appli
 
 Vous pourrez retrouver les paramètres de ces commandes dans les manifestes générés au sein du package d’application.
 
-Une fois l’application déployée, ouvrez un navigateur et accédez à [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), à l’adresse [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
+Une fois l’application déployée, ouvrez un navigateur et accédez à [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), à l’adresse `http://localhost:19080/Explorer`.
 Ensuite, développez le nœud **Applications** et notez qu’il existe désormais une entrée pour votre type d’application et une autre pour la première instance de ce type.
 
 > [!IMPORTANT]

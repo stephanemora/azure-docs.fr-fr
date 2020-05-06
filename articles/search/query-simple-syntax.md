@@ -7,24 +7,23 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/12/2020
-ms.openlocfilehash: 066190ff6b735d30db351ff90c0b6e5173b7f583
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 04/24/2020
+ms.openlocfilehash: dfd75ad2c6ae246bfe6ee8b983744b3db07a841f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258862"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194939"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Syntaxe de requête simple dans la recherche cognitive Azure
 
-La recherche cognitive Azure implémente deux langages de requête basés sur Lucene : L’[analyseur de requêtes simples](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) et l’[analyseur de requêtes Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). 
+La recherche cognitive Azure implémente deux langages de requête basés sur Lucene : L’[analyseur de requêtes simples](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) et l’[analyseur de requêtes Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
-Dans Recherche cognitive Azure, la syntaxe des requêtes simples exclut les opérations de recherche approximative. Pour la [recherche approximative](search-query-fuzzy.md), utilisez plutôt la syntaxe Lucene complète.
+L’analyseur simple est plus flexible, et tente d’interpréter une requête même si elle n’est pas parfaitement composée. Pour cette raison, il s’agit de l’analyseur par défaut pour les requêtes dans Recherche cognitive Azure. 
 
-> [!NOTE]
-> La syntaxe de requête simple est utilisée pour les expressions de requête passées dans le paramètre **search** de l’API [Recherche dans des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) et ne doit pas être confondue avec la [syntaxe OData](query-odata-filter-orderby-syntax.md) utilisée pour le paramètre [$Filter](search-filters.md) de cette API. Ces différentes syntaxes ont leurs propres règles pour la construction de requêtes, l’échappement de chaînes, etc.
->
-> Recherche cognitive Azure fournit une autre [syntaxe des requêtes Lucene](query-lucene-syntax.md) pour les requêtes plus complexes dans le paramètre **search**. Pour plus d’informations sur l’architecture de l’analyse des requêtes et les avantages de chacune des syntaxes, consultez [Fonctionnement de la recherche en texte intégral dans la recherche cognitive Azure](search-lucene-query-architecture.md).
+La syntaxe simple est utilisée pour les expressions de requête passées dans le paramètre `search` d’une [requête de recherche dans des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents), et ne doit pas être confondue avec la [syntaxe OData](query-odata-filter-orderby-syntax.md) utilisée pour le paramètre d’[expressions $filter](search-filters.md) de la même API de recherche dans des documents. Les paramètres `search` et `$filter` ont une syntaxe différente, avec leurs propres règles pour la construction de requêtes, l’échappement de chaînes, et ainsi de suite.
+
+Bien que l’analyseur simple soit basé sur la classe de l’[analyseur de requêtes simple Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html), l’implémentation dans Recherche cognitive Azure exclut la recherche approximative. Si vous avez besoin de la [recherche approximative](search-query-fuzzy.md) ou d’autres formes de requête avancée, utilisez plutôt la [syntaxe de requête Lucene complète](query-lucene-syntax.md).
 
 ## <a name="invoke-simple-parsing"></a>Appeler une analyse simple
 
@@ -38,24 +37,24 @@ Aussi simple que cela puisse paraître, un aspect de l’exécution des requête
 
 ### <a name="precedence-operators-grouping"></a>Opérateurs de priorité (regroupement)
 
-Vous pouvez utiliser des parenthèses pour créer des sous-requêtes, en incluant des opérateurs au sein de l’instruction entre parenthèses. Par exemple, `motel+(wifi||luxury)` recherche les documents contenant le terme « motel », et « wifi » ou « luxury » (ou les deux).
+Vous pouvez utiliser des parenthèses pour créer des sous-requêtes, en incluant des opérateurs au sein de l’instruction entre parenthèses. Par exemple, `motel+(wifi|luxury)` recherche les documents contenant le terme « motel », et « wifi » ou « luxury » (ou les deux).
 
-Le regroupement de champs est similaire, mais il délimite le regroupement à un seul champ. Par exemple, `hotelAmenities:(gym+(wifi||pool))` recherche « gym » et « wifi », ou « gym » et « pool », dans le champ « hotelAmenities ».  
+Le regroupement de champs est similaire, mais il délimite le regroupement à un seul champ. Par exemple, `hotelAmenities:(gym+(wifi|pool))` recherche « gym » et « wifi », ou « gym » et « pool », dans le champ « hotelAmenities ».  
 
 ### <a name="escaping-search-operators"></a>Échappement des opérateurs de recherche  
 
-Pour utiliser un opérateur de recherche dans le texte de recherche, placez le caractère dans une séquence d'échappement en le faisant précéder d'une barre oblique inverse (`\`). Par exemple, pour une recherche avec caractères génériques sur `https://`, sachant que `://` fait partie de la chaîne de requête, vous devez spécifier `search=https\:\/\/*`. De même, un modèle de numéro de téléphone placé dans une séquence d'échappement peut se présenter comme suit : `\+1 \(800\) 642\-7676`.
+Dans la syntaxe simple, les opérateurs de recherche incluent les caractères suivants : `+ | " ( ) ' \`  
 
-Les caractères spéciaux qui doivent être placés dans une séquence d'échappement sont les suivants : `- * ? \ /`  
+Si l’un de ces caractères fait partie d’un jeton dans l’index, échappez-le en le faisant précéder d’une barre oblique inverse (`\`) dans la requête. Par exemple, supposez que vous avez utilisé un analyseur personnalisé pour la création de jetons de termes entiers, et que votre index contient la chaîne « Luxury+Hotel ». Pour obtenir une correspondance exacte sur ce jeton, insérez un caractère d’échappement :  `search=luxury\+hotel`. 
 
-Afin de simplifier les choses pour les cas les plus classiques, il existe deux exceptions à cette règle où l’échappement n’est pas nécessaire :  
+Pour simplifier les choses pour les cas les plus classiques, il existe deux exceptions à cette règle où l’échappement n’est pas nécessaire :  
 
-+ L’opérateur NOT `-` doit être placé en échappement seulement s’il est le premier caractère après un espace, et donc pas s’il est au milieu d’un terme. Par exemple, le GUID suivant est valide sans le caractère d'échappement : `3352CDD0-EF30-4A2E-A512-3B30AF40F3FD`.
++ L’opérateur NOT `-` doit être placé en échappement seulement s’il s’agit du premier caractère après un espace. Si le `-` apparaît au milieu (par exemple `3352CDD0-EF30-4A2E-A512-3B30AF40F3FD`), aucun échappement n’est nécessaire.
 
-+ L’opérateur de suffixe `*` doit être placé en échappement seulement s’il est le dernier caractère avant un espace, et donc pas s’il est au milieu d’un terme. Par exemple, `4*4=16` ne nécessite pas de barre oblique inverse.
++ L’opérateur de suffixe `*` doit être placé en échappement seulement s’il s’agit du dernier caractère avant un espace. Si le `*` apparaît au milieu (par exemple `4*4=16`), aucun échappement n’est nécessaire.
 
 > [!NOTE]  
-> Bien que l'échappement maintienne les jetons ensemble, l'[analyse lexicale](search-lucene-query-architecture.md#stage-2-lexical-analysis) pendant l'indexation peut les supprimer. Par exemple, l'analyseur Lucene standard supprime et coupe les mots sur les traits d'union, les espaces et autres caractères. Si vous avez besoin de caractères spéciaux dans la chaîne de requête, vous aurez peut-être également besoin d'un analyseur qui les conserve dans l'index. Parmi les choix possibles figurent les [analyseurs de langage](index-add-language-analyzers.md) naturel de Microsoft, qui conservent les mots avec trait d'union, ou un analyseur personnalisé pour les modèles plus complexes. Pour plus d'informations, consultez [Termes partiels, modèles et caractères spéciaux](search-query-partial-matching.md).
+> Par défaut, l’analyseur standard supprime et coupe les mots sur les traits d’union, les espaces, les esperluettes et autres caractères pendant l’[analyse lexicale](search-lucene-query-architecture.md#stage-2-lexical-analysis). Si vous avez besoin que les caractères spéciaux restent dans la chaîne de requête, vous aurez peut-être besoin d’un analyseur qui les conserve dans l’index. Parmi les choix possibles figurent les [analyseurs de langage](index-add-language-analyzers.md) naturel de Microsoft, qui conservent les mots avec trait d'union, ou un analyseur personnalisé pour les modèles plus complexes. Pour plus d'informations, consultez [Termes partiels, modèles et caractères spéciaux](search-query-partial-matching.md).
 
 ### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Encodage de caractères dangereux et réservés dans les URL
 
@@ -73,7 +72,7 @@ Vous pouvez incorporer des opérateurs booléens (AND, OR, NOT) dans une chaîne
 
 ### <a name="and-operator-"></a>Opérateur AND `+`
 
-L’opérateur AND est un signe plus. Par exemple, `wifi+luxury` recherche les documents contenant à la fois `wifi` et `luxury`.
+L’opérateur AND est un signe plus. Par exemple, `wifi + luxury` recherche les documents contenant à la fois `wifi` et `luxury`.
 
 ### <a name="or-operator-"></a>Opérateur OR `|`
 
@@ -109,8 +108,9 @@ Une recherche de termes est une requête portant sur un ou plusieurs termes et d
 
 ## <a name="see-also"></a>Voir aussi  
 
++ [Fonctionnement de la recherche en texte intégral dans la Recherche cognitive Azure](search-lucene-query-architecture.md)
 + [Exemples de requêtes pour une recherche simple](search-query-simple-examples.md)
 + [Exemples de requêtes pour une recherche Lucene complète](search-query-lucene-examples.md)
-+ [Rechercher des documents &#40;API REST de la recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
++ [API REST de recherche de documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [Syntaxe de requête Lucene](query-lucene-syntax.md)
 + [Syntaxe d’expression OData](query-odata-filter-orderby-syntax.md) 

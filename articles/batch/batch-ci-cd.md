@@ -1,23 +1,20 @@
 ---
-title: Utiliser Azure Pipelines pour créer et déployer des solutions HPC - Azure Batch
+title: Utiliser Azure Pipelines pour créer et déployer des solutions HPC
 description: Découvrez comment déployer un pipeline de build/mise en production pour une application HPC en cours d’exécution sur Azure Batch.
 author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: conceptual
-ms.custom: fasttrack-new
-services: batch
-ms.service: batch
-ms.openlocfilehash: 50cb711dfd16c2a8718d13ba9255ace1e7e3e26d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79c4e74086acc0f74bcc43f6b4543afe12916364
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79533128"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82117384"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Utiliser Azure Pipelines pour créer et déployer des solutions HPC
 
-Les services Azure DevOps proposent une gamme d’outils utilisés par les équipes de développement lors de la création d’une application personnalisée. Les outils fournis par Azure DevOps peuvent entraîner la création automatique et le test de solutions de calcul hautes performances. Cet article montre comment configurer une intégration continue (CI) et un déploiement continu (CD) à l’aide d’Azure Pipelines pour une solution de calcul haute performance déployée sur Azure Batch.
+Azure DevOps Services propose une gamme d’outils utilisés par les équipes de développement lors de la création d’une application personnalisée. Les outils fournis par Azure DevOps peuvent entraîner la création automatique et le test de solutions de calcul hautes performances. Cet article montre comment configurer une intégration continue (CI) et un déploiement continu (CD) à l’aide d’Azure Pipelines pour une solution de calcul haute performance déployée sur Azure Batch.
 
 Azure Pipelines fournit une gamme de processus CI/CD pour créer, déployer, tester et surveiller les logiciels. Ces processus accélèrent la livraison des logiciels, ce qui vous permet de vous concentrer sur votre code plutôt que de prendre en charge l’infrastructure et les opérations.
 

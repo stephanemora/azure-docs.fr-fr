@@ -3,12 +3,12 @@ title: Surveiller les instances de conteneur
 description: Comment superviser la consommation des ressources de calcul comme le processeur et la mémoire par vos conteneurs dans Azure Container Instances
 ms.topic: article
 ms.date: 04/24/2019
-ms.openlocfilehash: b4a66254c18d7e01b6d56e64e6b62721b620d499
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8d41e419abe43530186e256ac6253e2d4783f9b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250031"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82116365"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Surveiller les ressources des conteneurs dans Azure Container Instances
 
@@ -25,13 +25,13 @@ Ce document décrit en détail la collecte des métriques Azure Monitor pour les
 
 ## <a name="available-metrics"></a>Métriques disponibles
 
-Azure Monitor fournit les [métriques suivantes pour Azure Container Instances][supported-metrics]. Ces métriques sont disponibles pour un groupe de conteneurs et des conteneurs individuels.
+Azure Monitor fournit les [métriques suivantes pour Azure Container Instances][supported-metrics]. Ces métriques sont disponibles pour un groupe de conteneurs et des conteneurs individuels. Par défaut, les métriques sont agrégées en tant que moyennes.
 
-* **Utilisation de l’UC** : mesurée en **millicœurs**. Un millicœur représente 1/1 000e de cœur de processeur, donc 500 millicœurs (ou 500 m) représentent 50 % d’utilisation d’un cœur de processeur. Agrégée en tant qu’**utilisation moyenne** pour tous les cœurs.
+* **Utilisation de l’UC** : mesurée en **millicœurs**. Un millicœur représente 1/1000e de cœur de processeur, donc 500 millicœurs représentent une utilisation de 0,5 cœur de processeur.
 
-* **Utilisation de la mémoire** : agrégée en tant que **nombre d’octets moyens**.
+* **Utilisation de la mémoire** : en octets.
 
-* **Octets réseau reçus par seconde** et **Octets réseau transmis par seconde** : agrégées en tant que **nombre d’octets moyen par seconde**. 
+* **Octets réseau reçus par seconde** et **Octets réseau transmis par seconde**. 
 
 ## <a name="get-metrics---azure-portal"></a>Obtenir des métriques : portail Azure
 

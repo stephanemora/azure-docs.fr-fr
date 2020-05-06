@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 03/11/2020
-ms.openlocfilehash: 38936000e426d560237295105b5456429d9ae16d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: cd4e7c8e2693c25f3fc092fb53874a97cfd62434
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79126363"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82113202"
 ---
 # <a name="azure-cache-for-redis-description"></a>Description du cache Azure pour Redis
 
@@ -19,7 +19,7 @@ Azure Cache pour Redis fournit un magasin de données en mémoire basé sur le l
 
 Azure Cache pour Redis peut être utilisé comme magasin de structure de données en mémoire, comme base de données non relationnelle distribuée et comme répartiteur de messages. Les performances des applications sont améliorées en tirant parti des performances à faible latence et à débit élevé du moteur Redis.
 
-Azure Cache pour Redis permet d’accéder à un cache Redis dédié et sécurisé. Le cache Azure pour Redis est géré par Microsoft, hébergé dans Azure et accessible à toute application à l’intérieur ou à l’extérieur d’Azure.
+Azure Cache pour Redis permet d’accéder à un cache Redis dédié et sécurisé. Le cache Azure pour Redis est géré par Microsoft, hébergé dans Azure et accessible à toute application à l’intérieur ou à l’extérieur d’Azure. De plus, Azure Cache pour Redis utilise la stratégie de réplication sans disque, ce qui améliore la compatibilité avec le secteur des cartes de paiement.
 
 ## <a name="using-azure-cache-for-redis"></a>Utilisation du cache Azure pour Redis
 

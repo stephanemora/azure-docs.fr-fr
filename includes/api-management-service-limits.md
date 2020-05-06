@@ -6,15 +6,15 @@ author: vladvino
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: api-management
 ms.topic: include
-ms.date: 01/10/2020
+ms.date: 04/14/2020
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 5608683578a796ae0fffff7544a749043e8698fd
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 072f13f5a0884cf95fe760e17ff0d770111f4da0
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656222"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204456"
 ---
 | Ressource | Limite |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -24,21 +24,24 @@ ms.locfileid: "80656222"
 | Taille maximale de la réponse mise en cache | 2 Mio |
 | Taille maximale du document de stratégie | 256 Kio<sup>5</sup> |
 | Nombre maximal de domaines de passerelle personnalisés par instance de service<sup>6</sup> | 20 |
-| Nombre maximal de certificats de site par instance de service | 10 |
-| Nombre maximal d’instances de service par abonnement<sup>7</sup> | 20 |
-| Nombre maximal d’abonnements par instance de service<sup>7</sup> | 500 |
-| Nombre maximal de certificats clients par instance de service<sup>7</sup> | 50 |
-| Nombre maximal d’API par instance de service<sup>7</sup> | 50 |
-| Nombre maximal d’opérations d’API par instance de service<sup>7</sup> | 1 000 |
-| Durée totale maximale des requêtes<sup>7</sup> | 30 secondes |
-| Taille maximale de la charge utile mise en mémoire tampon<sup>7</sup> | 2 Mio |
-| Taille maximale de l’URL de requête<sup>8</sup> | 4096 octets |
+| Nombre maximal de certificats d’autorité de certification par instance de service<sup>7</sup> | 10 |
+| Nombre maximal d’instances de service par abonnement<sup>8</sup> | 20 |
+| Nombre maximal d’abonnements par instance de service<sup>8</sup> | 500 |
+| Nombre maximal de certificats clients par instance de service<sup>8</sup> | 50 |
+| Nombre maximal d’API par instance de service<sup>8</sup> | 50 |
+| Nombre maximal d’opérations d’API par instance de service<sup>8</sup> | 1 000 |
+| Durée totale maximale des requêtes<sup>8</sup> | 30 secondes |
+| Taille maximale de la charge utile mise en mémoire tampon<sup>8</sup> | 2 Mio |
+| Taille maximale de l’URL de requête<sup>9</sup> | 4096 octets |
+| Nombre maximal de passerelles auto-hébergées<sup>10</sup> | 25 |
 
-<sup>1</sup>Les limites de mise à l’échelle varient selon le niveau tarifaire. Pour consulter les niveaux tarifaires et leurs limites de mise à l’échelle, voir [Tarification de la gestion des API](https://azure.microsoft.com/pricing/details/api-management/).<br/>
+<sup>1</sup>Les limites de mise à l’échelle varient selon le niveau tarifaire. Pour plus de détails sur les niveaux tarifaires et leurs limites de mise à l’échelle, consultez [Tarification de la gestion des API](https://azure.microsoft.com/pricing/details/api-management/).<br/>
 <sup>2</sup>La taille du cache par unité varie selon le niveau tarifaire. Pour consulter les niveaux tarifaires et leurs limites de mise à l’échelle, voir [Tarification de la gestion des API](https://azure.microsoft.com/pricing/details/api-management/).<br/>
 <sup>3</sup>Les connexions sont regroupées et réutilisées, sauf si elles sont explicitement fermées par le back-end.<br/>
 <sup>4</sup>Cette limite est appliquée par unité des niveaux De base, Standard et Premium. Le niveau Développeur est limité à 1 024. Cette limite ne s’applique pas au niveau Consommation.<br/>
-<sup>5</sup>Cette limite est appliquée aux niveaux De base, Standard et Premium. Dans le niveau Consommation, la taille des documents de stratégie est limitée à 16 Kio.<br/>
-<sup>6</sup>Cette ressource est disponible dans le niveau Premium uniquement.<br/>
-<sup>7</sup>Cette ressource s’applique au niveau Consommation uniquement.<br/>
-<sup>8</sup>S’applique au niveau Consommation uniquement. Comprend une chaîne de requête longue allant jusqu’à 2048 octets.<br/>
+<sup>5</sup>Cette limite est appliquée aux niveaux De base, Standard et Premium. Dans le niveau Consommation, la taille des documents de stratégies est limitée à 4 Kio.<br/>
+<sup>6</sup>Les domaines personnalisés multiples sont pris en charge uniquement dans les niveaux Développeur et Premium.<br/>
+<sup>7</sup>Les certificats d’autorité de certification ne sont pas pris en charge dans le niveau Consommation.<br/>
+<sup>8</sup>Cette ressource s’applique au niveau Consommation uniquement.<br/>
+<sup>9</sup> S’applique au niveau Consommation uniquement. Comprend une chaîne de requête longue allant jusqu’à 2048 octets.<br/>
+<sup>10</sup>Les passerelles auto-hébergées sont prises en charge uniquement dans les niveaux Développeur et Premium. Cette limite s’applique au nombre de [ressources des passerelles auto-hébergées](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/gateway). Pour augmenter cette limite, contactez le [support](https://azure.microsoft.com/support/options/). Notez que le nombre de nœuds (ou réplicas) associés à une ressource de passerelle auto-hébergée est illimité dans le niveau Premium, mais limité à un seul nœud dans le niveau Développeur.

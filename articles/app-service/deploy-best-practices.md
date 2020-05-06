@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: 14946a05f021a9b155fd9a9621f73bde980970fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4dd959d75fd582d787e68db4a415a4a694b9cda8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75750465"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81770680"
 ---
 # <a name="deployment-best-practices"></a>Meilleures pratiques de déploiement
 
@@ -37,6 +37,92 @@ Le mécanisme de déploiement est l’action utilisée pour placer votre applica
 
 Les outils de déploiement, tels qu’Azure Pipelines, Jenkins et les plug-ins d’éditeur utilisent un de ces mécanismes de déploiement.
 
+## <a name="use-deployment-slots"></a>Utiliser des emplacements de déploiement
+
+Dans la mesure du possible, utilisez des [emplacements de déploiement](deploy-staging-slots.md) lors du déploiement d’un nouveau build de production. Lorsque vous utilisez un plan App Service Standard ou mieux, vous pouvez déployer votre application dans un environnement intermédiaire, valider vos modifications et effectuer des tests de vérification de build. Lorsque vous êtes prêt, vous pouvez échanger vos emplacements intermédiaires et de production. L’opération d’échange préchauffe les instances de worker nécessaires pour correspondre à votre échelle de production, ce qui élimine les temps d’arrêt.
+
+### <a name="continuously-deploy-code"></a>Déployer du code en continu
+
+Si votre projet a désigné des branches pour le test, l’assurance qualité et la mise en lots, chacune de ces branches doit être déployée en continu vers un emplacement de préproduction. (C’est ce que l’on appelle la [conception Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).) Cela permet à vos parties prenantes d’évaluer et de tester facilement la branche déployée. 
+
+Le déploiement continu ne doit jamais être activé pour votre emplacement de production. Au lieu de cela, votre branche de production (souvent maître) doit être déployée sur un emplacement de non-production. Lorsque vous êtes prêt à mettre en production la branche de base, échangez-la dans l’emplacement de production. Un échange en production, au lieu d’un déploiement en production, vous permet d’éviter les temps d’arrêt et de restaurer les modifications en les échangeant à nouveau. 
+
+![Contrôle de l’utilisation de l’emplacement](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
+
+### <a name="continuously-deploy-containers"></a>Déployer des conteneurs en continu
+
+Pour les conteneurs personnalisés de Docker ou d’autres registres de conteneurs, déployez l’image dans un emplacement de préproduction et échangez en production pour éviter les temps d’arrêt. L’automatisation est plus complexe que le déploiement du code, car vous devez envoyer (push) l’image vers un registre de conteneurs et mettre à jour la balise d’image sur l’application web.
+
+Pour chaque branche que vous souhaitez déployer sur un emplacement, configurez l’automatisation pour effectuer les opérations suivantes à chaque validation de la branche.
+
+1. **Générez et balisez l’image**. Dans le cadre du pipeline de build, balisez l’image avec l’ID de validation git, l’horodateur ou d’autres informations identifiables. Il est préférable de ne pas utiliser la balise « latest » par défaut. Sinon, il est difficile de retracer le code actuellement déployé, ce qui rend le débogage beaucoup plus compliqué.
+1. **Envoyez (push) l’image balisée**. Une fois l’image générée et balisée, le pipeline envoie (push) l’image à notre registre de conteneurs. À l’étape suivante, l’emplacement de déploiement extraira l’image balisée du registre de conteneurs.
+1. **Mettez à jour l’emplacement de déploiement avec la nouvelle balise d’image**. Lorsque cette propriété est mise à jour, le site redémarre automatiquement et extrait la nouvelle image conteneur.
+
+![Contrôle de l’utilisation de l’emplacement](media/app-service-deploy-best-practices/slot_flow_container_diagram.png)
+
+Vous trouverez ci-dessous des exemples d’infrastructures d’automatisation courantes.
+
+### <a name="use-azure-devops"></a>Utiliser Azure DevOps
+
+App Service est doté de la [livraison continue intégrée](deploy-continuous-deployment.md) pour les conteneurs via le centre de déploiement. Accédez à votre application dans le [Portail Azure](https://portal.azure.com/) et sélectionnez **Centre de déploiement** sous **Déploiement**. Suivez les instructions pour sélectionner votre référentiel et votre branche. Cela permet de configurer un pipeline de build et de mise en production DevOps pour générer, baliser et déployer automatiquement votre conteneur lorsque de nouvelles validations sont envoyées (push) à la branche que vous avez sélectionnée.
+
+### <a name="use-github-actions"></a>Utiliser GitHub Actions
+
+Vous pouvez également automatiser le déploiement de vos conteneurs à l’aide de [GitHub Actions](containers/deploy-container-github-action.md).  Le fichier de workflow ci-dessous génère et balise le conteneur avec l’ID de validation, l’envoie (push) à un registre de conteneurs et met à jour l’emplacement de site spécifié avec la nouvelle balise d’image.
+
+```yaml
+name: Build and deploy a container image to Azure Web Apps
+
+on:
+  push:
+    branches:
+    - <your-branch-name>
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@master
+
+    -name: Authenticate using a Service Principal
+      uses: azure/actions/login@v1
+      with:
+        creds: ${{ secrets.AZURE_SP }}
+
+    - uses: azure/container-actions/docker-login@v1
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build and push the image tagged with the git commit hash
+      run: |
+        docker build . -t contoso/demo:${{ github.sha }}
+        docker push contoso/demo:${{ github.sha }}
+
+    - name: Update image tag on the Azure Web App
+      uses: azure/webapps-container-deploy@v1
+      with:
+        app-name: '<your-webapp-name>'
+        slot-name: '<your-slot-name>'
+        images: 'contoso/demo:${{ github.sha }}'
+```
+
+### <a name="use-other-automation-providers"></a>Utiliser d’autres fournisseurs d’automatisation
+
+Les étapes répertoriées ci-dessus s’appliquent à d’autres utilitaires d’automatisation tels que CircleCI ou Travis CI. Toutefois, vous devez utiliser Azure CLI pour mettre à jour les emplacements de déploiement avec de nouvelles balises d’image lors de la dernière étape. Pour utiliser Azure CLI dans votre script d’automatisation, générez un principal de service à l’aide de la commande suivante.
+
+```shell
+az ad sp create-for-rbac --name "myServicePrincipal" --role contributor \
+   --scopes /subscriptions/{subscription}/resourceGroups/{resource-group} \
+   --sdk-auth
+```
+
+Dans votre script, connectez-vous en utilisant `az login --service-principal` et en fournissant les informations du principal. Vous pouvez ensuite utiliser `az webapp config container set` pour définir le nom du conteneur, la balise, l’URL du registre et le mot de passe du registre. Vous trouverez ci-dessous quelques liens utiles pour créer votre processus CI de conteneur.
+
+- [Connexion à Azure CLI sur Circle CI](https://circleci.com/orbs/registry/orb/circleci/azure-cli) 
+
 ## <a name="language-specific-considerations"></a>Considérations spécifiques au langage
 
 ### <a name="java"></a>Java
@@ -49,13 +135,9 @@ Par défaut, Kudu exécute les étapes de génération de votre application Node
 
 ### <a name="net"></a>.NET 
 
-Par défaut, Kudu exécute les étapes de génération de votre application .Net (`dotnet build`). Si vous utilisez un service de build tel qu’Azure DevOps, la build Kudu n’est pas nécessaire. Pour désactiver la build Kudu, créez un paramètre d’application `SCM_DO_BUILD_DURING_DEPLOYMENT`, avec une valeur de `false`.
+Par défaut, Kudu exécute les étapes de génération de votre application .NET (`dotnet build`). Si vous utilisez un service de build tel qu’Azure DevOps, la build Kudu n’est pas nécessaire. Pour désactiver la build Kudu, créez un paramètre d’application `SCM_DO_BUILD_DURING_DEPLOYMENT`, avec une valeur de `false`.
 
 ## <a name="other-deployment-considerations"></a>Autres points à prendre en considération pour le déploiement
-
-### <a name="use-deployment-slots"></a>Utiliser des emplacements de déploiement
-
-Dans la mesure du possible, utilisez des [emplacements de déploiement](deploy-staging-slots.md) lors du déploiement d’un nouveau build de production. Lorsque vous utilisez un plan App Service Standard ou mieux, vous pouvez déployer votre application dans un environnement intermédiaire, valider vos modifications et effectuer des tests de vérification de build. Lorsque vous êtes prêt, vous pouvez échanger vos emplacements intermédiaires et de production. L’opération d’échange préchauffe les instances de worker nécessaires pour correspondre à votre échelle de production, ce qui élimine les temps d’arrêt. 
 
 ### <a name="local-cache"></a>cache local
 

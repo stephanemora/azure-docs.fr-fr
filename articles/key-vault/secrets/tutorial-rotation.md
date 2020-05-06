@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 70eb2449c5c54750831c30ff7d5c948173a38594
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8f9c0dca29d173eb2c7893a20b2ab41dd31522e1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426348"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183209"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-single-usersingle-password-authentication"></a>Automatiser la permutation d’un secret pour les ressources qui utilisent l’authentification par utilisateur/mot de passe uniques
 
@@ -263,7 +263,7 @@ Accédez à l’application déployée, puis sélectionnez l’URL :
  
 ![Sélectionner l’URL](../media/rotate10.png)
 
-Vous devez voir la valeur du secret généré avec une valeur de base de données connectée définie sur true.
+Lorsque l’application s’ouvre dans le navigateur, vous voyez la **Valeur du secret généré** et une **Base de données connectée** dont la valeur est *true*.
 
 ## <a name="learn-more"></a>En savoir plus
 

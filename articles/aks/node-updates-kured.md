@@ -5,18 +5,18 @@ description: Découvrez comment mettre à jour des nœuds Linux et les redémarr
 services: container-service
 ms.topic: article
 ms.date: 02/28/2019
-ms.openlocfilehash: 8006baa3025ee1e794359bed854094cc9005dd14
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 955e5323769a7b9bf80413c045aaa3d55547eb02
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668380"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208072"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Appliquer des mises à jour de sécurité et du noyau à des nœuds Linux dans Azure Kubernetes Service (AKS)
 
 Pour protéger vos clusters, les mises à jour de sécurité sont appliquées automatiquement aux nœuds Linux dans AKS. Ces mises à jour incluent des correctifs de sécurité ou des mises à jour du noyau. Certaines de ces mises à jour nécessitent un redémarrage du nœud pour terminer le processus. AKS ne redémarre pas automatiquement ces nœuds Linux pour terminer le processus de mise à jour.
 
-Le processus de maintien à jour des nœuds Windows Server (actuellement en préversion dans ACS) est légèrement différent. Les nœuds Windows Server ne reçoivent pas les mises à jour quotidiennes. À la place, vous effectuez une mise à niveau AKS qui déploie les nouveaux nœuds avec les derniers correctifs et la dernière image Windows Server de base. Pour connaître les clusters AKS qui utilisent des nœuds Windows Server, consultez [Mettre à niveau un pool de nœuds dans AKS][nodepool-upgrade].
+Le processus de maintien à jour des nœuds Windows Server est légèrement différent. Les nœuds Windows Server ne reçoivent pas les mises à jour quotidiennes. À la place, vous effectuez une mise à niveau AKS qui déploie les nouveaux nœuds avec les derniers correctifs et la dernière image Windows Server de base. Pour connaître les clusters AKS qui utilisent des nœuds Windows Server, consultez [Mettre à niveau un pool de nœuds dans AKS][nodepool-upgrade].
 
 Cet article vous montre comment utiliser le démon open source [kured (KUbernetes REboot Daemon)][kured] pour rechercher les nœuds Linux nécessitant un redémarrage, puis pour gérer automatiquement la replanification des pods en cours d’exécution et du processus de redémarrage des nœuds.
 

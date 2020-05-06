@@ -6,22 +6,23 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.openlocfilehash: 87eb04b7323186175195babf6a602fa12d25176f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: seoapr2020
+ms.date: 04/27/2020
+ms.openlocfilehash: d5dde8c45331cf8c443aba86c96ba12c8277472c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78206705"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192482"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Ajouter des comptes de stockage supplémentaires à HDInsight
 
-Découvrez comment utiliser des actions de script pour ajouter des *comptes* Stockage Azure supplémentaires à HDInsight. Les étapes décrites dans ce document permettent d’ajouter un *compte* de stockage à un cluster HDInsight existant. Cet article s’applique au *comptes* de stockage (différents des comptes de stockage en cluster par défaut) et au stockage de base comme [Azure Data Lake Storage Gen1](hdinsight-hadoop-use-data-lake-store.md) et [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Découvrez comment utiliser des actions de script pour ajouter des *comptes* Stockage Azure supplémentaires à HDInsight. Les étapes décrites dans ce document permettent d’ajouter un *compte* de stockage à un cluster HDInsight existant. Cet article s’applique aux *comptes* de stockage (différents du compte de stockage en cluster par défaut) et pas à un stockage supplémentaire comme [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-store.md) et [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 > [!IMPORTANT]  
 > Les informations contenues dans ce document portent sur l’ajout d’un ou de plusieurs comptes de stockage supplémentaires à un cluster après sa création. Pour plus d’informations sur l’ajout de comptes de stockage lors de la création du cluster, consultez [Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc](hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un cluster Hadoop sur HDInsight. Consultez [Bien démarrer avec HDInsight sur Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Nom et clé du compte de stockage. Consultez [Gérer les clés d’accès au compte de stockage](../storage/common/storage-account-keys-manage.md).
@@ -39,7 +40,7 @@ Pendant le traitement, le script effectue les opérations suivantes :
 
 * Il ajoute le compte de stockage dans le fichier core-site.xml.
 
-* Arrête et redémarre les services [Apache Oozie](https://oozie.apache.org/), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Hadoop MapReduce2](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) et [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html). L’arrêt et le redémarrage de ces services leur permettent d’utiliser le nouveau compte de stockage.
+* Arrête et redémarre les services Apache Oozie, Apache Hadoop YARN, Apache Hadoop MapReduce2 et Apache Hadoop HDFS. L’arrêt et le redémarrage de ces services leur permettent d’utiliser le nouveau compte de stockage.
 
 > [!WARNING]  
 > L’utilisation d’un compte de stockage dans un autre emplacement que le cluster HDInsight n’est pas prise en charge.
@@ -118,13 +119,13 @@ Après avoir supprimé ces clés et enregistré la configuration, vous devez red
 
 ### <a name="storage-firewall"></a>Pare-feu de stockage
 
-Si vous choisissez de sécuriser votre compte de stockage à l’aide des restrictions de **pare-feu et réseaux virtuels** sur des **réseaux sélectionnés**, veillez à activer l’exception **Autoriser les services approuvés de Microsoft...** afin que HDInsight puisse accéder à votre compte de stockage.
+Si vous choisissez de sécuriser votre compte de stockage à l’aide des restrictions de **pare-feu et réseaux virtuels** sur des **réseaux sélectionnés**, veillez à activer l’exception **Autoriser les services approuvés de Microsoft...** afin que HDInsight puisse accéder à votre compte de stockage`.`
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>Impossible d’accéder au stockage après avoir modifié la clé
 
 Si vous modifiez la clé d’un compte de stockage, HDInsight ne peut plus accéder au compte de stockage. HDInsight utilise une copie de la clé mise en cache dans le fichier core-site.xml pour le cluster. Cette copie mise en cache doit être mise à jour pour correspondre à la nouvelle clé.
 
-Si vous exécutez de nouveau l’action de script, la clé n’est __pas__ mise à jour, car le script vérifie s’il existe déjà une entrée pour le compte de stockage. S’il existe déjà une entrée, aucune modification n’est apportée.
+Si vous exécutez de nouveau l’action de script, la clé n’est **pas** mise à jour, car le script vérifie s’il existe déjà une entrée pour le compte de stockage. S’il existe déjà une entrée, aucune modification n’est apportée.
 
 Pour contourner ce problème :  
 1. Supprimez le compte de stockage.
@@ -135,7 +136,7 @@ Pour contourner ce problème :
 
 ### <a name="poor-performance"></a>Problèmes de performances
 
-Si le compte de stockage se trouve dans une région différente de celle du cluster HDInsight, il se peut que vous rencontriez des problèmes de performances. Lorsque vous accédez à des données stockées dans une autre région, le trafic réseau sort du centre de données Azure régional, puis est acheminé via l’Internet public, ce qui peut entraîner de la latence.
+Si le compte de stockage se trouve dans une région différente de celle du cluster HDInsight, il se peut que vous rencontriez des problèmes de performances. Quand vous accédez à des données stockées dans une autre région, le trafic réseau sort du centre de données Azure régional. Il emprunte ensuite l’Internet public, ce qui peut entraîner de la latence.
 
 ### <a name="additional-charges"></a>Frais supplémentaires
 

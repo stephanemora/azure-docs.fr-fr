@@ -11,12 +11,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 04/02/2020
-ms.openlocfilehash: 1c4ed77112e8c06db1946d756239e02cb187f3ef
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: b8958d9a035c3cc502384e2f378bf428d517a1fc
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618490"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208701"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Haute disponibilité et Azure SQL Database
 
@@ -33,7 +33,7 @@ Comme Azure SQL Database s’exécute sur la dernière version stable du moteur 
 
 ## <a name="basic-standard-and-general-purpose-service-tier-availability"></a>Disponibilité des niveaux de service De base, Standard et Usage général
 
-Ces niveaux de service tirent parti de l’architecture de disponibilité standard. L’illustration suivante montre quatre nœuds distincts, avec les couches de calcul et de stockage séparées.
+Les niveaux de service de base, standard et d’usage général tirent parti de l’architecture de disponibilité standard pour le calcul provisionné et serverless. L’illustration suivante montre quatre nœuds distincts, avec les couches de calcul et de stockage séparées.
 
 ![Séparation du calcul et du stockage](media/sql-database-high-availability/general-purpose-service-tier.png)
 
@@ -78,7 +78,7 @@ Par défaut, le cluster de nœuds pour le modèle de disponibilité Premium est 
 Les bases de données de redondance de zone, ayant des réplicas dans différents centres de données avec une certaine distance entre eux, la latence accrue du réseau peut augmenter le temps de validation et ainsi avoir un impact sur les performances de certaines charges de travail OLTP. Vous pouvez toujours revenir à la configuration de zone unique en désactivant le paramètre de redondance de zone. Ce processus est une opération en ligne, semblable à la mise à niveau des niveaux de service ordinaires. À la fin du processus, la base de données ou le pool est migré à partir d’un anneau de redondance de zone vers un anneau de zone unique, ou vice versa.
 
 > [!IMPORTANT]
-> Les bases de données avec redondance de zone et les pools élastiques ne sont actuellement pris en charge que dans les niveaux de service Premium et Critique pour l’entreprise, dans les régions sélectionnées. Lorsque vous utilisez le niveau Critique pour l’entreprise, la configuration de zone redondante est uniquement disponible lorsque le matériel de calcul Gen5 est sélectionné. Pour obtenir des informations à jour sur les régions qui prennent en charge les bases de données redondantes dans une zone, consultez [Prise en charge des services par région](../availability-zones/az-overview.md#services-support-by-region).  
+> Les bases de données avec redondance de zone et les pools élastiques ne sont actuellement pris en charge que dans les niveaux de service Premium et Critique pour l’entreprise, dans les régions sélectionnées. Lorsque vous utilisez le niveau Critique pour l’entreprise, la configuration de zone redondante est uniquement disponible lorsque le matériel de calcul Gen5 est sélectionné. Pour obtenir des informations à jour sur les régions qui prennent en charge les bases de données redondantes dans une zone, consultez [Prise en charge des services par région](../availability-zones/az-region.md).  
 > Cette fonctionnalité n’est pas disponible dans une instance managée.
 
 La version avec redondance de zone de l’architecture de haute disponibilité est illustrée dans le diagramme suivant :

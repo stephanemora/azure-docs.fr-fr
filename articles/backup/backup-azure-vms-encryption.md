@@ -3,12 +3,12 @@ title: Sauvegarder et restaurer des machines virtuelles Azure chiffrées
 description: Décrit comment sauvegarder et restaurer des machines virtuelles Azure chiffrées avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 98febe9f91cb4b71d546300d4e65ade073d19e67
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: ea4d2830fb9db9f95ba8ab87626a79d94aaecb8a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461767"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187934"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Sauvegarder et restaurer une machine virtuelle Azure chiffrée
 
@@ -103,7 +103,7 @@ La sauvegarde initiale s’exécutera conformément à la planification, mais vo
 
 ## <a name="provide-permissions"></a>Fournir des autorisations
 
-L’agent de machine virtuelle Azure a besoin d’un accès en lecture seule aux clés et secrets ainsi qu’aux machines virtuelles associées.
+Sauvegarde Azure a besoin d’un accès en lecture seule pour sauvegarder les clés et secrets ainsi que les machines virtuelles associées.
 
 - Votre coffre de clés est associé au locataire Azure AD de l’abonnement Azure. Si vous êtes **utilisateur membre**, Sauvegarde Azure acquiert l’accès au coffre de clés sans qu’aucune autre action soit nécessaire.
 - Si vous êtes **utilisateur invité**, vous devez accorder des autorisations afin que Sauvegarde Azure puisse accéder au coffre de clés.
