@@ -4,10 +4,10 @@ description: Explique comment utiliser Azure Resource Manager pour les tâches d
 ms.topic: overview
 ms.date: 04/21/2020
 ms.openlocfilehash: 253fc2f296fa764a6c22fa1331221df60ca21bb5
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81870493"
 ---
 # <a name="what-is-azure-resource-manager"></a>Qu’est-ce qu’Azure Resource Manager ?
@@ -40,21 +40,21 @@ Si vous êtes un nouvel utilisateur d’Azure Resource Manager, vous pouvez ne p
 
 Avec Resource Manager, vous pouvez :
 
-* Gérer votre infrastructure à l’aide de modèles déclaratifs plutôt que de scripts.
+* Gérer votre infrastructure à l’aide de modèles déclaratifs plutôt que de scripts
 
-* Déployer, gérer et superviser toutes les ressources de votre solution sous forme de groupe, plutôt qu’individuellement.
+* Déployer, gérer et superviser toutes les ressources de votre solution sous forme de groupe, plutôt qu’individuellement
 
-* Redéployer votre solution tout au long du cycle de vie de développement et vérifier que vos ressources sont déployées dans un état cohérent.
+* Redéployer votre solution tout au long du cycle de vie de développement et vérifier que vos ressources sont déployées dans un état cohérent
 
-* Définir les dépendances entre les ressources pour qu’elles soient déployées dans le bon ordre.
+* Définir les dépendances entre les ressources pour qu’elles soient déployées dans le bon ordre
 
 * Appliquer le contrôle d’accès à tous les services, car le contrôle d’accès en fonction du rôle (RBAC) est intégré de manière native à la plateforme de gestion.
 
-* Appliquer des étiquettes aux ressources pour organiser de manière logique toutes les ressources de votre abonnement.
+* Appliquer des étiquettes aux ressources pour organiser de manière logique toutes les ressources de votre abonnement
 
-* Clarifier la facturation de votre organisation en affichant les coûts d’un groupe de ressources qui partagent la même étiquette.
+* Clarifier la facturation de votre organisation en affichant les coûts d’un groupe de ressources qui partagent la même étiquette
 
-## <a name="understand-scope"></a>Comprendre l’étendue.
+## <a name="understand-scope"></a>Comprendre la portée
 
 Azure fournit quatre niveaux d’étendue : [Groupes d’administration](../../governance/management-groups/overview.md), Abonnements, [Groupes de ressource](#resource-groups) et Ressources. L’image suivante représente un exemple de ces couches.
 

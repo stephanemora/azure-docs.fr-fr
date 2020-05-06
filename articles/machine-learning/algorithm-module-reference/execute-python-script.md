@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2020
-ms.openlocfilehash: 0f86d1ad03062797764af6a0d49beacaa3458a8f
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 79dc1b188e91028a98f43dc24972228f2d2101be
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365550"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81684730"
 ---
 # <a name="execute-python-script-module"></a>Module Exécuter un script Python
 
@@ -164,7 +164,7 @@ L’exemple suivant montre comment charger un fichier image dans le module **Ex�
 # imports up here can be used to
 import pandas as pd
 
-# The entry point function can contain up to two input arguments:
+# The entry point function must have two input arguments:
 #   Param<dataframe1>: a pandas.DataFrame
 #   Param<dataframe2>: a pandas.DataFrame
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -217,10 +217,17 @@ Le module **Exécuter un script Python** contient un exemple de code Python que 
 
 5. Dans la zone de texte **Script Python**, saisissez ou collez un script Python valide.
 
+    > [!NOTE]
+    > Soyez très prudent lorsque vous écrivez votre script et assurez-vous qu’il n’existe pas d’erreur de syntaxe, telle que l’utilisation d’un objet non déclaré ou d’un module non importé. Portez également une attention particulière à la liste des modules préinstallés. Pour importer des modules qui ne sont pas répertoriés, installez les packages correspondants dans votre script, par exemple :
+    >  ``` Python
+    > import os
+    > os.system(f"pip install scikit-misc")
+    > ```
+    
     La zone de texte **Script Python** est préremplie avec certaines instructions en commentaires, ainsi qu’avec un exemple de code pour l’accès aux données et la sortie. Vous devez modifier ou remplacer ce code. Veillez à suivre les conventions Python concernant la mise en retrait et la casse.
 
     + Le script doit contenir une fonction nommée `azureml_main` comme point d’entrée pour ce module.
-    + La fonction de point d’entrée peut contenir jusqu’à deux arguments d’entrée : `Param<dataframe1>` et `Param<dataframe2>`.
+    + La fonction de point d’entrée doit avoir deux arguments d’entrée : `Param<dataframe1>` et `Param<dataframe2>`, même lorsque ces arguments ne sont pas utilisés dans votre script.
     + Les fichiers zip connectés au troisième port d’entrée sont décompressés et stockés dans le répertoire `.\Script Bundle`, qui est également ajouté à l’élément `sys.path` Python. 
 
     Par conséquent, si votre fichier zip contient `mymodule.py`, importez-le à l’aide de `import mymodule`.

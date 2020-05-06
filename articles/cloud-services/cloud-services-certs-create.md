@@ -8,19 +8,19 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
-ms.openlocfilehash: 173f5c698ab44ea269995665bcbc33c726d4f03a
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: cf2106302064df5ede02d18f253436047a5d33d8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811457"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82024606"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Vue d’ensemble des certificats pour Azure Cloud Services
 Dans Azure, des certificats sont utilisés pour les services cloud ([certificats de service](#what-are-service-certificates)) et pour l’authentification auprès de l’API de gestion ([certificats de gestion](#what-are-management-certificates)). Cette rubrique offre une vue d’ensemble de ces deux types de certificats et vous explique comment les [créer](#create) et les déployer dans Azure.
 
 Les certificats utilisés dans Azure sont des certificats x.509 v3 et peuvent être signés par un autre certificat approuvé ou être auto-signés. Un certificat auto-signé est signé par son propre créateur et n’est donc pas approuvé par défaut. La plupart des navigateurs peuvent ignorer ce problème. Les certificats auto-signés ne doivent être utilisés que par vous au moment où vous développez et testez vos services cloud. 
 
-Les certificats utilisés par Azure peuvent contenir une clé privée ou publique. Les certificats comportent une empreinte numérique qui permet de les identifier sans ambiguïté. Cette empreinte numérique est utilisée dans le [fichier de configuration](cloud-services-configure-ssl-certificate-portal.md) Azure pour identifier le certificat qu’un service cloud doit utiliser. 
+Les certificats utilisés par Azure peuvent contenir une clé publique. Les certificats comportent une empreinte numérique qui permet de les identifier sans ambiguïté. Cette empreinte numérique est utilisée dans le [fichier de configuration](cloud-services-configure-ssl-certificate-portal.md) Azure pour identifier le certificat qu’un service cloud doit utiliser. 
 
 >[!Note]
 >Azure Cloud Services n’accepte pas de certificat chiffré AES256-SHA256.
@@ -51,7 +51,7 @@ Le nombre de certificats de gestion est limité à 100 par abonnement. Il existe
 Vous pouvez créer un certificat auto-signé au moyen de n’importe quel outil disponible, à condition qu’il remplisse les conditions suivantes :
 
 * Certificat X.509.
-* Contient une clé privée.
+* Contient une clé publique.
 * Créé pour l’échange de clés (fichier .pfx).
 * Le nom du sujet doit correspondre au domaine servant à accéder au service cloud.
 

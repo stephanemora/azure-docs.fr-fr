@@ -8,12 +8,12 @@ ms.topic: conceptual
 manager: gwallace
 description: Découvrez comment configurer l’intégration continue/le déploiement continu à l’aide d’Azure DevOps avec Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, conteneurs
-ms.openlocfilehash: 66ff2080ad44098757a5d9360fd3307e65f7431a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2eb9449518b32ab74f2dbbca6b5489aed325db7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75438443"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81685631"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Utiliser CI/CD avec Azure Dev Spaces
 
@@ -131,7 +131,7 @@ Un processus de mise en production automatisé commence, déployant les graphiqu
 La mise en production est terminée quand toutes les tâches sont terminées.
 
 > [!TIP]
-> Si votre mise en production échoue avec un message d’erreur de type *ÉCHEC DE LA MISE À NIVEAU : expiration du délai d’attente pour la condition*, essayez d’inspecter les pods dans votre cluster [à l’aide du tableau de bord Kubernetes](../../aks/kubernetes-dashboard.md). Si vous voyez que les pods ne parviennent pas à démarrer avec des messages d’erreur comme *Échec de l’extraction de l’image « azdsexample.azurecr.io/mywebapi:122 » : erreur rpc : code = inconnu desc = Réponse d’erreur du démon : Obtention de https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: non autorisée : authentification obligatoire*, cela peut signifier que votre cluster n’a pas été autorisé à tirer de votre registre Azure Container Registry. Vérifiez que vous avez rempli le prérequis [Autoriser votre cluster AKS à tirer (pull) de votre registre Azure Container Registry](../../aks/cluster-container-registry-integration.md).
+> Si votre mise en production échoue avec un message d’erreur de type *ÉCHEC DE LA MISE À NIVEAU : expiration du délai d’attente pour la condition*, essayez d’inspecter les pods dans votre cluster [à l’aide du tableau de bord Kubernetes](../../aks/kubernetes-dashboard.md). Si vous voyez que les pods ne parviennent pas à démarrer avec des messages d’erreur comme *Échec de l’extraction de l’image « azdsexample.azurecr.io/mywebapi:122 » : erreur rpc : code = inconnu desc = Réponse d’erreur du démon : Obtention de https:\//azdsexample.azurecr.io/v2/mywebapi/manifests/122 : non autorisée : authentification requise*, cela peut signifier que votre cluster n’a pas été autorisé à tirer de votre registre Azure Container Registry. Vérifiez que vous avez rempli le prérequis [Autoriser votre cluster AKS à tirer (pull) de votre registre Azure Container Registry](../../aks/cluster-container-registry-integration.md).
 
 Vous disposez maintenant d’un pipeline CI/CD entièrement automatisé pour votre duplication GitHub des exemples d’applications Dev Spaces. Chaque fois que vous validez et envoyez le code, le pipeline de build va générer et transmettre les images *mywebapi* et *webfrontend* à votre instance ACR personnalisée. Ensuite, le pipeline de mise en production va déployer le graphique Helm pour chaque application dans l’espace _dev_ sur votre cluster compatible Dev Spaces.
 

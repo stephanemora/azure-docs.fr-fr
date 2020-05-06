@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/12/2019
-ms.openlocfilehash: fed411ea171274513308ec3efa68da80e4d25f8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e1e718fa4e6660d72203ac98bb6d427cdba2059
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77116765"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82024555"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Planifier des pipelines Machine Learning avec le kit de développement logiciel (SDK) Azure Machine Learning pour Python
 
@@ -91,13 +91,17 @@ Si le pipeline a été construit avec un [DataPath](https://docs.microsoft.com/p
 ```python
 datastore = Datastore(workspace=ws, name="workspaceblobstore")
 
-reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="Based on time",
+reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="Based on input file change.",
                             pipeline_id=pipeline_id, experiment_name=experiment_name, datastore=datastore, data_path_parameter_name="input_data")
 ```
 
 ### <a name="optional-arguments-when-creating-a-schedule"></a>Arguments facultatifs lors de la création d’une planification
 
 En plus des arguments susmentionnés, vous pouvez définir l’argument `status` sur `"Disabled"` pour créer une planification inactive. Enfin, `continue_on_step_failure` vous permet de transmettre une valeur booléenne qui remplacera le comportement d’échec par défaut du pipeline.
+
+### <a name="use-azure-logic-apps-for-more-complex-workflows"></a>Utiliser Azure Logic Apps pour les workflows plus complexes
+
+Azure Logic Apps prend en charge des workflows plus complexes et est bien plus intégré que les pipelines Azure Machine Learning. Consultez [Déclencher l’exécution d’un pipeline Machine Learning à partir d’une application logique](how-to-trigger-published-pipeline.md) pour plus d’informations.
 
 ## <a name="view-your-scheduled-pipelines"></a>Afficher vos tâches planifiées
 

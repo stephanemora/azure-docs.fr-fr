@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 9dbf65522d5c85e1054ed3f1f6ca9f86180e7f7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1766ffb579bb1a86da91ac73a396ce0d008f89e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79454979"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82117622"
 ---
 # <a name="configure-virtual-network-service-endpoints-for-azure-service-bus"></a>Configurer des points de terminaison de service de réseau virtuel pour Azure Service Bus
 
@@ -24,6 +24,20 @@ L’intégration de Service Bus à des [points de terminaison de service de rés
 Une fois configuré pour être lié à au moins un point de terminaison de service de sous-réseau de réseau virtuel, l’espace de noms Service Bus respectif n’accepte que le trafic provenant de réseaux virtuels autorisés. Du point de vue du réseau virtuel, la liaison d’un espace de noms Service Bus à un point de terminaison de service configure un tunnel de mise en réseau isolé allant du sous-réseau de réseau virtuel au service de messagerie.
 
 Il en résulte une relation privée et isolée entre les charges de travail liées au sous-réseau et l’espace de noms Service Bus respectif, et ce malgré le fait que l’adresse réseau observable du point de terminaison du service de messagerie figure dans une plage d’adresses IP publique.
+
+>[!WARNING]
+> L’implémentation de l’intégration de réseaux virtuels peut empêcher d’autres services Azure d’interagir avec Service Bus.
+>
+> Les services Microsoft de confiance ne sont pas pris en charge quand les réseaux virtuels sont implémentés.
+>
+> Scénarios courants Azure qui ne fonctionnent pas avec les réseaux virtuels (Notez que cette liste **N’EST PAS** exhaustive) :
+> - Intégration à Azure Event Grid
+> - Routes Azure IoT Hub
+> - Azure IoT Device Explorer
+>
+> Les services Microsoft suivants doivent être sur un réseau virtuel
+> - Azure App Service
+> - Azure Functions
 
 > [!IMPORTANT]
 > Les réseaux virtuels sont pris en charge uniquement dans les espaces de noms du [niveau Premium](service-bus-premium-messaging.md) de Service Bus.
@@ -52,7 +66,7 @@ Cette section montre comment utiliser le portail Azure pour ajouter un point de 
 1. Accédez à votre **espace de noms Service Bus** dans le [portail Azure](https://portal.azure.com).
 2. Dans le menu de gauche, sélectionnez l’option **Mise en réseau**. Par défaut, l’option **Tous les réseaux** est sélectionnée. Votre espace de noms accepte les connexions à partir de n’importe quelle adresse IP. Ce paramètre par défaut est équivalent à une règle qui accepte la plage d’adresses IP 0.0.0.0/0. 
 
-    ![Option Pare-feu – Tous les réseaux sélectionnée](./media/service-endpoints/firewall-all-networks-selected.png)
+    ![Option Pare-feu - Tous les réseaux sélectionnée](./media/service-endpoints/firewall-all-networks-selected.png)
 1. Sélectionnez l’option **Réseaux sélectionnés** en haut de la page.
 2. Dans la section **Réseau virtuel** de la page, sélectionnez **+Ajouter un réseau virtuel existant**. 
 

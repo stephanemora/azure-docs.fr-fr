@@ -7,12 +7,15 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: ravokkar
-ms.openlocfilehash: ea6ece7e34ddb9c25f9f8349239ab3a1c3405abf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 213fc3412a2dfad77946e52a355a30774d6860c7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74973371"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81680688"
 ---
 # <a name="communicate-with-your-dps-using-the-mqtt-protocol"></a>Communiquer avec votre DPS à l’aide du protocole MQTT
 
@@ -23,7 +26,7 @@ Grâce à Device Provisioning Service (DPS), les appareils peuvent communiquer a
 
 DPS n’est pas un répartiteur MQTT complet et ne prend pas en charge tous les comportements spécifiés dans la norme MQTT v3.1.1. Cet article décrit comment les appareils peuvent utiliser des comportements MQTT pris en charge pour communiquer avec DPS.
 
-Toutes les communications des appareils avec DPS doivent être sécurisées à l’aide de TLS/SSL. Par conséquent, DPS ne prend pas en charge les connexions non sécurisées sur le port 1883.
+Toutes les communications des appareils avec DPS doivent être sécurisées à l’aide de TLS/SSL. Par conséquent, DPS ne prend pas en charge les connexions non sécurisées sur le port 1883.
 
  > [!NOTE] 
  > Actuellement, DPS ne prend pas en charge les appareils utilisant le [mécanisme d'attestation](https://docs.microsoft.com/azure/iot-dps/concepts-device#attestation-mechanism) TPM via le protocole MQTT.

@@ -2,21 +2,26 @@
 title: Configurer une appliance Azure Migrate pour VMware
 description: Découvrez comment configurer une appliance Azure Migrate pour évaluer et migrer des machines virtuelles VMware.
 ms.topic: article
-ms.date: 03/23/2020
-ms.openlocfilehash: 7a7d0007d2824abc781411f9529f9fa4ac89e55c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: b32c6a9b703e4d341fe353d6b472ea7a18adadf3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336789"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81538254"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurer une appliance pour les machines virtuelles VMware
 
-Cet article explique comment configurer l’appliance Azure Migrate pour l’évaluation avec l’outil [Azure Migrate : Évaluation de serveurs](migrate-services-overview.md#azure-migrate-server-assessment-tool) et pour la migration sans agent en utilisant l’outil [Azure Migrate : Migration de serveurs](migrate-services-overview.md#azure-migrate-server-migration-tool).
+Suivez cet article pour configurer l’appliance Azure Migrate pour l’évaluation avec l’outil [Azure Migrate : Évaluation de serveurs](migrate-services-overview.md#azure-migrate-server-assessment-tool) et pour la migration sans agent en utilisant l’outil [Azure Migrate : Migration de serveurs](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 L’[appliance Azure Migrate](migrate-appliance.md) est un appareil léger utilisé par Azure Migrate : Évaluation de serveurs et Migration de serveurs pour découvrir les machines virtuelles VMware locales, pour envoyer des données de métadonnées/de performances des machines virtuelles à Azure et pour la réplication des machines virtuelles VMware pendant la migration sans agent.
 
-Vous pouvez configurer l’appliance Azure Migrate pour l’évaluation de machines virtuelles VMware avec un modèle OVA que vous téléchargez ou avec un script d’installation PowerShell. Cet article explique comment configurer l’appliance avec le modèle OVA. Si vous voulez configurer l’appliance avec le script, suivez les instructions fournies dans [cet article](deploy-appliance-script.md).
+Vous pouvez déployer l’appliance à l’aide de deux méthodes :
+
+- Configuration sur une machine virtuelle VMware au moyen d’un modèle OVA téléchargé. Il s’agit de la méthode décrite dans cet article.
+- Configuration sur une machine virtuelle VMware ou une machine physique avec un script d’installation PowerShell. Vous devez utiliser [cette méthode](deploy-appliance-script.md) si vous ne pouvez pas configurer une machine virtuelle à l’aide d’un modèle OVA, ou si vous êtes dans Azure Government.
+
+Après avoir créé l’appliance, vérifiez qu’elle peut se connecter à Azure Migrate Server Assessment, configurez-la pour la première fois, puis inscrivez-la auprès du projet Azure Migrate.
 
 
 ## <a name="appliance-deployment-ova"></a>Déploiement de l’appliance (OVA)
@@ -62,9 +67,9 @@ Importez le fichier téléchargé, puis créez une machine virtuelle.
 9. Passez en revue les paramètres, confirmez-les, puis cliquez sur **Finish** (Terminer).
 
 
-### <a name="verify-appliance-access-to-azure"></a>Vérifier l’accès de l’appliance à Azure
+## <a name="verify-appliance-access-to-azure"></a>Vérifier l’accès de l’appliance à Azure
 
-Vérifiez que la machine virtuelle de l’appliance peut se connecter aux [URL Azure](migrate-appliance.md#url-access).
+Vérifiez que la machine virtuelle de l’appliance peut se connecter aux URL Azure pour les clouds [publics](migrate-appliance.md#public-cloud-urls) et du [secteur public](migrate-appliance.md#government-cloud-urls).
 
 
 ## <a name="configure-the-appliance"></a>Configurer l’appliance

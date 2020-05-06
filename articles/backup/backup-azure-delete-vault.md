@@ -1,18 +1,18 @@
 ---
 title: Supprimer un coffre Recovery Services Microsoft Azure
-description: Dans cet article, découvrez comment supprimer les dépendances, puis supprimer un coffre Recovery Services Sauvegarde Microsoft Azure (MARS).
+description: Dans cet article, découvrez comment supprimer les dépendances, puis supprimer un coffre Azure Backup Recovery Services.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: f33f52048729b50015ba86db71118b9a21e1a2fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5fcf8004cd5792b30ec57537d5d8ab0bc085dfb3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500393"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183753"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Supprimer un coffre Azure Backup Recovery Services
 
-Cet article explique comment supprimer un coffre Recovery Services [Sauvegarde Microsoft Azure](backup-overview.md). Il indique comment supprimer des dépendances, puis un coffre.
+Cet article explique comment supprimer un coffre Recovery Services [Sauvegarde Azure](backup-overview.md). Il indique comment supprimer des dépendances, puis un coffre.
 
 ## <a name="before-you-start"></a>Avant de commencer
 
@@ -90,6 +90,7 @@ Commencez par lire la section **[Avant de commencer](#before-you-start)** pour c
 
      Consultez le message d’avertissement et les instructions fournies dans la case à cocher de consentement.
     > [!NOTE]
+    >
     >- Si le serveur protégé est synchronisé avec les services Azure et que les éléments de sauvegarde existent, la case à cocher de consentement indique le nombre d’éléments de sauvegarde dépendants et le lien pour les consulter.
     >- Si le serveur protégé n’est pas synchronisé avec les services Azure et que les éléments de sauvegarde existent, la case à cocher de consentement présente uniquement le nombre d’éléments de sauvegarde.
     >- En l’absence d’éléments de sauvegarde, la case à cocher de consentement demande une suppression.

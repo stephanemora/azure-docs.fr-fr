@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 001a77734a8cedf08c5523380c1cbd00dce89f40
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: fd510f90887353d7486908ee076d5308db72c59d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679199"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81687083"
 ---
 # <a name="get-service-access-tokens"></a>Obtenir des jetons d’accès au service
 
@@ -24,7 +24,7 @@ Cet article explique comment créer ce type de jeton d’accès.
 
 ## <a name="token-service-rest-api"></a>API REST du service de jetons
 
-Le *service d’émission de jeton de sécurité* fournit une API REST unique pour la création de jetons d’accès. L’URL du service STS ARR est [https://sts.mixedreality.azure.com](https://sts.mixedreality.azure.com).
+Le *service d’émission de jeton de sécurité* fournit une API REST unique pour la création de jetons d’accès. L’URL du service STS ARR est https:\//sts.mixedreality.azure.com.
 
 ### <a name="get-token-request"></a>Demande d’obtention de jeton
 

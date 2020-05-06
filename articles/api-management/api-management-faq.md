@@ -13,20 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: c32fdc67c74e100e0e31dad3afde128c05c356d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 219681351159de6ac6bb48ff979cc68aa4ee18d3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335966"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233480"
 ---
 # <a name="azure-api-management-faqs"></a>FAQ sur la gestion des API Azure
 Découvrez les réponses aux questions les plus fréquentes, les modèles et les meilleures pratiques pour la gestion des API Azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="contact-us"></a>Nous contacter
-* [Comment dois-je procéder pour poser une question à l’équipe de gestion des API Microsoft Azure ?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 * [Qu’est-ce que cela signifie lorsqu’une fonctionnalité est disponible en version préliminaire ?](#what-does-it-mean-when-a-feature-is-in-preview)
@@ -48,15 +45,8 @@ Découvrez les réponses aux questions les plus fréquentes, les modèles et les
 * [Puis-je déplacer un service Gestion des API d’un abonnement à un autre ?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
 * [Existe-t-il des restrictions ou des problèmes connus liés à l’importation de mon API ?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
-### <a name="how-can-i-ask-the-microsoft-azure-api-management-team-a-question"></a>Comment dois-je procéder pour poser une question à l’équipe de gestion des API Microsoft Azure ?
-Vous pouvez nous contacter de l’une des façons suivantes :
-
-* Publiez vos questions sur notre [forum MSDN de gestion des API](https://social.msdn.microsoft.com/forums/azure/home?forum=azureapimgmt).
-* Envoyez-nous un e-mail à l’adresse <mailto:apimgmt@microsoft.com>.
-* Envoyez-nous une demande de fonctionnalité sur le [forum de commentaires Azure](https://feedback.azure.com/forums/248703-api-management).
-
 ### <a name="what-does-it-mean-when-a-feature-is-in-preview"></a>Qu’est-ce que cela signifie lorsqu’une fonctionnalité est disponible en version préliminaire ?
-Lorsqu’une fonctionnalité est disponible en version préliminaire, cela signifie que nous souhaitons avoir votre avis sur le fonctionnement de la fonctionnalité. Une fonctionnalité en version préliminaire est complète et opérationnelle, mais peut être modifiée par nos soins en réponse aux commentaires client. Nous vous recommandons de ne pas intégrer de manière définitive une fonctionnalité en version préliminaire à votre environnement de production. Si vous avez des commentaires sur les fonctionnalités en version préliminaire, n’hésitez pas à nous le faire savoir en nous contactant via l’une des méthodes décrites dans la section [Comment dois-je procéder pour poser une question à l’équipe de gestion des API Microsoft Azure ?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question).
+Lorsqu’une fonctionnalité est disponible en version préliminaire, cela signifie que nous souhaitons avoir votre avis sur le fonctionnement de la fonctionnalité. Une fonctionnalité en version préliminaire est complète et opérationnelle, mais peut être modifiée par nos soins en réponse aux commentaires client. Nous vous recommandons de ne pas intégrer de manière définitive une fonctionnalité en version préliminaire à votre environnement de production.
 
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>Comment sécuriser la connexion entre la passerelle de gestion des API et mes services principaux ?
 Il existe plusieurs manières de sécuriser la connexion entre la passerelle de gestion des API et vos services principaux. Vous pouvez :

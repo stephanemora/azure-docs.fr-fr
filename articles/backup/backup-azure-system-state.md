@@ -4,12 +4,12 @@ description: Découvrez comment sauvegarder l’état du système des ordinateur
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 847ed8fc5a6c102284a03fa593587792767d7913
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4089815f8f76d9868f8fa56f8b2eab3de89541d9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "76294012"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82128158"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Sauvegarder l’état du système Windows dans un déploiement Resource Manager
 
@@ -179,7 +179,7 @@ Pour effectuer la sauvegarde initiale, utilisez l’agent Microsoft Azure Reco
 
 ### <a name="to-schedule-the-backup-job"></a>Pour planifier un travail de sauvegarde
 
-1. Ouvrez l’agent Microsoft Azure Recovery Services. Vous pouvez le trouver en recherchant **Sauvegarde Microsoft Azure** sur votre ordinateur.
+1. Ouvrez l’agent Microsoft Azure Recovery Services. Vous pouvez le trouver en recherchant **Microsoft Azure Backup**sur votre ordinateur.
 
     ![Lancer l’agent Azure Recovery Services](./media/backup-try-azure-backup-in-10-mins/snap-in-search.png)
 
@@ -224,10 +224,10 @@ Une fois la sauvegarde initiale terminée, le statut **Tâche terminée** appara
 
 ## <a name="questions"></a>Des questions ?
 
-Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](https://aka.ms/azurebackup_feedback).
+Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](https://feedback.azure.com/forums/258995-azure-backup).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Approfondissez vos connaissances sur la [sauvegarde de machines Windows](backup-configure-vault.md).
+* Approfondissez vos connaissances sur la [sauvegarde de machines Windows](backup-windows-with-mars-agent.md).
 * L’état du système Windows Server étant sauvegardé, vous pouvez [gérer vos archivages et vos serveurs](backup-azure-manage-windows-server.md).
 * Si vous avez besoin de restaurer une sauvegarde, utilisez cet article pour [restaurer des fichiers sur un ordinateur Windows](backup-azure-restore-windows-server.md).

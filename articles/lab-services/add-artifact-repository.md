@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/21/2019
 ms.author: spelluru
-ms.openlocfilehash: a0dbd92533703a56f1ec2478fab8944656129247
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2bb871119bece71c705ad9621a7c76c4b5ed0bc7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295510"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81770254"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Ajouter un référentiel d’artefacts à votre laboratoire dans Azure DevTest Labs.
 Azure DevTest Labs vous permet de spécifier l’ajout d’un artefact à une machine virtuelle pendant ou après la création de cette dernière. Cet artefact peut être un outil ou une application que vous souhaitez installer sur la machine virtuelle. Les artefacts sont définis dans un fichier JSON chargé à partir d’un référentiel Git Azure DevOps ou GitHub.
@@ -52,13 +52,13 @@ Pour ajouter un dépôt à votre laboratoire, obtenez d’abord des informations
 4. Enregistrez l’URL. Vous l’utiliserez ultérieurement.
 5. Pour créer un jeton d’accès personnel, dans le menu déroulant du compte d’utilisateur, sélectionnez **Mon profil**.
 6. Sur la page d’informations du profil, sélectionnez **Sécurité**.
-7. Sous l’onglet **Sécurité**, sélectionnez **Ajouter**.
-8. Dans la page **Créer un jeton d’accès personnel** :
-   1. Entrez une **Description** pour le jeton.
-   2. Dans la liste **Expire dans**, sélectionnez **180 jours**.
-   3. Dans la liste **Comptes**, sélectionnez **Tous les comptes accessibles**.
-   4. Sélectionnez l’option **Toutes les étendues**.
-   5. Sélectionnez **Créer le jeton**.
+7. Dans l’onglet **Sécurité > Jetons d’accès personnels**, sélectionnez **+ Nouveau jeton**.
+8. Sur la page **Créer un jeton d’accès personnel** :
+   1. Entrez un **nom** pour le jeton.
+   2. Dans la liste**Organisation**, sélectionnez **Toutes les organisations accessibles**.
+   3. Dans la liste **Expiration (UTC)** , sélectionnez **90 jours** ou une période d’expiration personnalisée.
+   4. Sélectionnez l’option **Accès complet** pour les étendues.
+   5. Sélectionnez **Create** (Créer).
 9. Le nouveau jeton apparaît dans la liste **Jetons d’accès personnels**. Sélectionnez **Copier le jeton**puis enregistrez la valeur du jeton pour utilisation ultérieure.
 10. Passez à la section Connecter votre laboratoire au référentiel.
 
