@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: fe15c02286223ec0829b31664811b7f589cf16aa
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1dd20d94737df3e799876323d2aeb555dcb9a381
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74774830"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82146809"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Démarrage rapide : Utiliser une commande Azure CLI, az postgres up (préversion), pour créer une base de données Azure pour PostgreSQL (serveur unique)
 
@@ -63,7 +63,7 @@ sku-name | GP_Gen5_2 | Nom du la référence SKU. Suit la convention {niveau tar
 backup-retention | 7 | Durée de conservation d’une sauvegarde. Exprimée en jours.
 geo-redundant-backup | Désactivé | Indique si les sauvegardes géoredondantes doivent être activées ou non pour ce serveur.
 location | westus2 | Emplacement Azure du serveur.
-ssl-enforcement | Désactivé | Indique si le protocole SSL doit être activé ou non pour ce serveur.
+ssl-enforcement | Désactivé | Indique si le protocole TLS/SSL doit être activé ou non pour ce serveur.
 storage-size | 5120 | Capacité de stockage du serveur (en mégaoctets).
 version | 10 | La version principale de PostgreSQL.
 admin-user | Générée par le système | Le nom d’utilisateur pour l’administrateur.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: a82481c5cb3d12b11179b41999f73e67583ec43b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab6bb116c93aad8501da21dc5688d7e39f4195fe
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76277744"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166187"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>(DÉPRÉCIÉ) Superviser un cluster DC/OS Azure Container Service avec Dynatrace SaaS/Managé
 
@@ -27,13 +27,13 @@ La figure suivante illustre l’interface utilisateur de Dynatrace :
 
 ![IU de Dynatrace](./media/container-service-monitoring-dynatrace/dynatrace.png)
 
-## <a name="prerequisites"></a>Conditions préalables requises 
+## <a name="prerequisites"></a>Prérequis 
 [Déployez](container-service-deployment.md) et [connectez](./../container-service-connect.md) sur un cluster configuré par Azure Container Service. Explorez [l’interface utilisateur Marathon](container-service-mesos-marathon-ui.md). Accédez à [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) pour configurer un compte SaaS Dynatrace.  
 
 ## <a name="configure-a-dynatrace-deployment-with-marathon"></a>Configurer un déploiement Dynatrace avec Marathon
 Ces étapes vous expliquent comment configurer et déployer des applications Dynatrace dans votre cluster avec Marathon.
 
-1. Accédez à l’interface utilisateur de votre DC/OS via [http://localhost:80/](http://localhost:80/). Une fois dans l’interface utilisateur de DC/OS, accédez à l’onglet **Univers**, puis recherchez **Dynatrace**.
+1. Accédez à l’interface utilisateur de votre DC/OS via `http://localhost:80/`. Une fois dans l’interface utilisateur de DC/OS, accédez à l’onglet **Univers**, puis recherchez **Dynatrace**.
 
     ![Dynatrace dans l’Univers DC/OS](./media/container-service-monitoring-dynatrace/dynatrace-universe.png)
 
