@@ -2,13 +2,13 @@
 title: Analyse des dépendances dans l’outil d’évaluation de serveur Azure Migrate
 description: Décrit comment utiliser l’analyse des dépendances pour l’évaluation à l’aide de l’outil d’évaluation de serveur Azure Migrate.
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: f96496b66d6bcfd397fb0a7303d3dbfb4fd6f6b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: f0b956620895ae2264b53916015d440f5e586eb2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79455636"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82024759"
 ---
 # <a name="dependency-analysis"></a>Analyse des dépendances
 
@@ -30,7 +30,7 @@ Deux options permettent de déployer l’analyse des dépendances.
 - **Sans agent** : avec l’analyse sans agent, vous n’avez pas besoin d’installer d’agents sur les machines qui doivent faire l’objet d’une vérification croisée. Cette option est en préversion et est disponible uniquement pour les machines virtuelles VMware.
 
 > [!NOTE]
-> L’analyse des dépendances n’est pas disponible dans Azure Government.
+> L’analyse des dépendances basée sur les agents n’est pas disponible dans Azure Government. Vous pouvez utiliser l’analyse des dépendances sans agent.
 
 ## <a name="agentless-analysis"></a>Analyse sans agent
 
@@ -51,7 +51,7 @@ Pour l’analyse basée sur les agents, l’outil d’évaluation de serveur uti
 
 ### <a name="collected-data"></a>Données collectées
 
-Pour la visualisation basée sur les agents, les données suivantes sont collectées :
+Pour l’analyse basée sur les agents, les données suivantes sont collectées :
 
 - Nom du serveur de l’ordinateur source, processus, nom de l’application.
 - Nom du serveur de l’ordinateur de destination, processus, nom de l’application et port.

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: f68f973882af28d80b3a27bc4591c5ee932404a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c9ad45ac1cf59f05454cba0babff8c3b7368f72
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443598"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839111"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Sortie d’Azure Stream Analytics dans Azure SQL Database
 
@@ -24,7 +24,7 @@ Les configurations présentées ci-après pour chaque service peuvent vous aider
 
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 
-- **Héritage du partitionnement** – Cette option de configuration de la sortie SQL permet d’hériter le schéma de partitionnement de l’entrée ou l’étape de requête précédente. L’activation de cette option contribue à améliorer les débits lors de l’écriture dans une table sur disque et l’utilisation d’une topologie de travail [massivement parallèle](stream-analytics-parallelization.md#embarrassingly-parallel-jobs). Ce partitionnement est déjà automatiquement activé pour beaucoup d’autres [sorties](stream-analytics-parallelization.md#partitions-in-sources-and-sinks). Le verrouillage de table (TABLOCK) est également désactivé pour les insertions en bloc effectuées avec cette option.
+- **Héritage du partitionnement** – Cette option de configuration de la sortie SQL permet d’hériter le schéma de partitionnement de l’entrée ou l’étape de requête précédente. L’activation de cette option contribue à améliorer les débits lors de l’écriture dans une table sur disque et l’utilisation d’une topologie de travail [massivement parallèle](stream-analytics-parallelization.md#embarrassingly-parallel-jobs). Ce partitionnement est déjà automatiquement activé pour beaucoup d’autres [sorties](stream-analytics-parallelization.md#partitions-in-inputs-and-outputs). Le verrouillage de table (TABLOCK) est également désactivé pour les insertions en bloc effectuées avec cette option.
 
 > [!NOTE] 
 > Quand il y a plus de huit partitions d’entrée, l’héritage du schéma de partitionnement d’entrée n’est pas toujours une option appropriée. Cette limite supérieure a été observée sur une table contenant une seule colonne d’identité et un index cluster. Dans ce cas, envisagez d’utiliser [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 8 dans votre requête pour spécifier explicitement le nombre de générateurs de sortie. Les résultats observés peuvent varier en fonction du schéma et des index choisis.

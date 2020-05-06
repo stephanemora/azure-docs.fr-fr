@@ -594,11 +594,13 @@
           href: ./partner-center-portal/get-paid.md
         - name: Configurer votre compte de paiement et vos déclarations de taxe
           href: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
-        - name: Détails de facturation
-          href: ./partner-center-portal/billing-details.md
         - name: 'Seuils, modes et délais de paiement'
           href: ./partner-center-portal/payment-thresholds-methods-timeframes.md
-        - name: Récapitulatif des paiements
+        - name: Vue d’ensemble des récapitulatifs des paiements
+          href: ./partner-center-portal/payout-summary-overview.md
+        - name: Récapitulatifs des paiements
           href: ./partner-center-portal/payout-summary.md
+        - name: Détails de la stratégie des paiements
+          href: ./partner-center-portal/payout-policy-details.md
         - name: Détails des taxes
           href: ./partner-center-portal/tax-details-paid-transactions.md

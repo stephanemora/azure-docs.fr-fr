@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: 34805c4eaae5d969fc2338c24f9f92404e065d15
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: ca4dc888af414ede270118eff72652f098d3306c
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725878"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779040"
 ---
 # <a name="localization"></a>Localisation #
 
@@ -44,7 +44,7 @@ Le Lecteur multimédia Azure prend actuellement en charge les langues suivantes 
 | Français              | fr   | Norvégien - Nynorsk     | nn     | Chinois - simplifié    | zh-hans      |
 | Galicien            | gl   | Polonais                  | pl     | Chinois - traditionnel   | zh-hant      |
 | Hébreu              | he   | Portugais - Brésil     | pt-br  |                         |              |
-| Hindi               | hu   | Portugais - Portugal   | pt-pt  |                         |              |
+| Hindi               | hi   | Portugais - Portugal   | pt-pt  |                         |              |
 
 
 > [!NOTE]

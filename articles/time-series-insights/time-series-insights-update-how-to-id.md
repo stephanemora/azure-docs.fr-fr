@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 05/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: a62c2460698408f6a2bfa51c6638bdeaf88bb31f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: faf98d4fc5bf6c7028cf7d20bdf8df89fb3d533b
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77083527"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838720"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Meilleures pratiques pour choisir un ID de série chronologique
 
@@ -27,6 +27,7 @@ Il est essentiel de sélectionner un ID de série chronologique approprié. Le c
 
 > [!IMPORTANT]
 > Les ID des séries chronologiques sont les suivants :
+>
 > * Une propriété *respectant la casse* : les cachants de lettres et de caractères sont utilisés dans les recherches, les comparaisons, les mises à jour et le partitionnement.
 > * Une *propriété immuable* : une fois créée, elle ne peut pas être modifiée.
 
@@ -56,7 +57,7 @@ Les scénarios suivants décrivent la sélection de plusieurs propriétés de cl
 
 ### <a name="example-2-time-series-id-with-a-composite-key"></a>Exemple 2 : ID de série chronologique avec une clé composite
 
-* Plusieurs propriétés doivent être uniques au sein du même parc d’actifs. 
+* Plusieurs propriétés doivent être uniques au sein du même parc d’actifs.
 * Vous construisez des bâtiments intelligents et déployez des capteurs dans chaque pièce. Dans chaque pièce, vous avez généralement les mêmes valeurs pour **sensorId**, telles que **sensor1**, **sensor2** et **sensor3**.
 * Votre bâtiment a des numéros d’étages et de pièces qui se chevauchent sur les différents sites dans la propriété **flrRm**, qui ont des valeurs telles que **1a**, **2b**, **3a**, et ainsi de suite.
 * Vous disposez d’une propriété, **location**, qui contient des valeurs telles que **Redmond**, **Barcelona** et **Tokyo**. Pour créer l’unicité, vous désignez les trois propriétés suivantes en tant que clés d’ID de série chronologique : **sensorId**, **flrRm**, et **location**.
@@ -72,7 +73,7 @@ Exemple d’événement brut :
 }
 ```
 
-Dans le portail Azure, vous pouvez ensuite saisir cette clé composite sous la forme : 
+Dans le portail Azure, vous pouvez ensuite saisir cette clé composite sous la forme :
 
 ```JSON
 [{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]

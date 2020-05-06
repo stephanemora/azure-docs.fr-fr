@@ -4,17 +4,17 @@ description: Réalimentez vos objets blob à partir du stockage d’archive pour
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/14/2019
+ms.date: 04/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 0a7012d9daa808933a51ac05862a8a9aa4cfcf77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82ea4ad23e3207f5641ade196f69595cd1e7b323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77614796"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81684103"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Réalimenter les données d’objets blob à partir du niveau Archive
 
@@ -31,15 +31,21 @@ Lorsqu’un objet blob se trouve dans le niveau d’accès Archive, il est consi
 
 ## <a name="copy-an-archived-blob-to-an-online-tier"></a>Copier un objet blob archivé dans un niveau en ligne
 
-Si vous ne souhaitez pas réalimenter votre blob d’archive, vous pouvez choisir d’effectuer une opération [Copier le blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob). Votre blob d’origine reste inchangé dans le niveau archive pendant qu’un nouveau blob est créé dans le niveau chaud ou froid en ligne pour que vous travailliez dessus. Dans l’opération Copier le blob, vous pouvez également définir la propriété facultative *x-ms-réhydrate-priorité* sur Standard ou Haute (préversion) pour spécifier la priorité à laquelle vous souhaitez créer votre copie de blob.
-
-Les blobs d’archive peuvent uniquement être copiés vers des niveaux de destination en ligne au sein du même compte de stockage. La copie d’un blob d’archive vers un autre blob d’archive n’est pas prise en charge.
+Si vous ne souhaitez pas réalimenter votre blob d’archive, vous pouvez choisir d’effectuer une opération [Copier le blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob). Votre blob d’origine reste inchangé dans le niveau archive pendant qu’un nouveau blob est créé dans le niveau chaud ou froid en ligne pour que vous travailliez dessus. Dans l’opération Copier le blob, vous pouvez également définir la propriété facultative *x-ms-réhydrate-priorité* sur Standard ou Haute pour spécifier la priorité à laquelle vous souhaitez créer votre copie de blob.
 
 La copie d’un blob à partir d’une archive peut prendre plusieurs heures, selon la priorité de réalimentation sélectionnée. En arrière-plan, l’opération **Copier le blob** lit votre blob source d’archive pour créer un blob en ligne dans le niveau de destination sélectionné. Le nouveau blob peut être visible lorsque vous répertoriez les blobs, mais les données ne sont pas disponibles tant que la lecture du blob d’archive source n’est pas terminée et que les données ne sont pas écrites dans le nouveau blob de destination en ligne. Le nouveau blob est une copie indépendante et toute modification ou suppression de celui-ci ne se répercute pas sur le blob d’archive source.
 
+Les blobs d’archive peuvent uniquement être copiés vers des niveaux de destination en ligne au sein du même compte de stockage. La copie d’un blob d’archive vers un autre blob d’archive n’est pas prise en charge. Le tableau suivant indique les fonctionnalités de CopyBlob.
+
+|                                           | **Source de niveau chaud**   | **Source de niveau froid** | **Source de niveau d’archive**    |
+| ----------------------------------------- | --------------------- | -------------------- | ------------------- |
+| **Destination de niveau chaud**                  | Prise en charge             | Prise en charge            | Pris en charge dans le même compte ; en attente de réactivation               |
+| **Destination de niveau froid**                 | Prise en charge             | Prise en charge            | Pris en charge dans le même compte ; en attente de réactivation               |
+| **Destination du niveau d’archive**              | Prise en charge             | Prise en charge            | Non pris en charge         |
+
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 
-La réalimentation d’objets blob hors du niveau archive vers les niveaux chaud ou froid est facturée comme une opération de lecture et de récupération des données. L’utilisation de la haute priorité (préversion) a des coûts d’exploitation et de récupération des données plus élevés par rapport à la priorité standard. La réalimentation à priorité élevée apparaît sous la forme d’un élément de ligne distinct sur votre facture. Si une requête de priorité élevée pour retourner un blob d’archive de quelques gigaoctets prend plus de 5 heures, le tarif de récupération haute priorité n’est pas facturé. Toutefois, les tarifs de récupération standard s’appliquent toujours, car la réalimentation a été traitée en prioritaire par rapport à d’autres requêtes.
+La réalimentation d’objets blob hors du niveau archive vers les niveaux chaud ou froid est facturée comme une opération de lecture et de récupération des données. L’utilisation de la haute priorité a des coûts d’exploitation et d’extraction de données plus élevés par rapport à la priorité standard. La réalimentation à priorité élevée apparaît sous la forme d’un élément de ligne distinct sur votre facture. Si une requête de priorité élevée pour retourner un blob d’archive de quelques gigaoctets prend plus de 5 heures, le tarif de récupération haute priorité n’est pas facturé. Toutefois, les tarifs de récupération standard s’appliquent toujours, car la réalimentation a été traitée en prioritaire par rapport à d’autres requêtes.
 
 La copie d’objets blob depuis le niveau archive vers les niveaux chaud ou froid est facturée comme une opération de lecture et de récupération des données. Une opération d’écriture est facturée pour la création de la nouvelle copie du blob. Aucun frais de suppression précoce n’est appliqué lorsque vous copiez vers un objet blob en ligne car l’objet blob source reste inchangé dans le niveau archive. Les frais de récupération à priorité élevée s’appliquent si cette option est sélectionnée.
 
@@ -68,9 +74,10 @@ Les objets blob dans le niveau Archive doivent être stockés pendant un minimum
 
 1. Sélectionnez **Enregistrer** en bas.
 
-![Changer le niveau du compte de stockage](media/storage-tiers/blob-access-tier.png)
+![Modifier le niveau du compte de stockage](media/storage-tiers/blob-access-tier.png)
+![Vérifier l’état de réactivation](media/storage-tiers/rehydrate-status.png)
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Le script PowerShell suivant peut être utilisé pour modifier le niveau d’objet blob d’un objet blob d’archive. La variable `$rgName` doit être initialisée avec le nom de votre groupe de ressources. La variable `$accountName` doit être initialisée avec le nom de votre compte de stockage. La variable `$containerName` doit être initialisée avec le nom de votre conteneur. La variable `$blobName` doit être initialisée avec le nom de votre objet blob. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names

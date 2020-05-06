@@ -4,10 +4,10 @@ description: Les dernières mises à jour du Kits de développement logiciel (SD
 ms.topic: conceptual
 ms.date: 05/17/2017
 ms.openlocfilehash: fcd20e1d14cebb9a5f5cc8ff2f7ae3f16fa594cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671509"
 ---
 # <a name="sdk-release-notes---application-insights"></a>Notes de publication du Kit de développement logiciel (SDK) : Application Insights

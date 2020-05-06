@@ -4,12 +4,12 @@ description: 'Découvrez-en plus sur la mise à niveau de la version ou la confi
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.custom: sfrev
-ms.openlocfilehash: 6897854820339fc78dd9083c82147dce95ab68b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d92ac90e0e41d534231bafbe991a05764dbee07d
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229369"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789553"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Mise à niveau et mise à jour d’un cluster Azure Service Fabric
 
@@ -105,7 +105,7 @@ L’application d’orchestration des correctifs est une application Service Fab
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez comment personnaliser certains [paramètres de la structure du cluster Service Fabric](service-fabric-cluster-fabric-settings.md)
-* Découvrez comment [mettre votre cluster à l’échelle](service-fabric-cluster-scale-up-down.md)
+* Découvrez comment [mettre votre cluster à l’échelle](service-fabric-cluster-scale-in-out.md)
 * Découvrez les [mises à niveau de l’application](service-fabric-application-upgrade.md)
 
 <!--Image references-->

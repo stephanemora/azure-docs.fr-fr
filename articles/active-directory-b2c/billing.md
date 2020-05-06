@@ -11,10 +11,10 @@ ms.date: 10/25/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 30ecb1e6faa29482a8d69dd1d08e4f127f515596
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78190005"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modèle de facturation pour Azure Active Directory B2C
@@ -58,7 +58,7 @@ Voici comment effectuer le basculement vers la facturation MAU pour une ressourc
 
 Le compteur MAU est activé dès que vous, le propriétaire de l’abonnement ou de la ressource, confirmez la modification. Votre facture mensuelle reflète les unités d’authentification facturées jusqu’à la modification et les nouvelles unités MAU à compter de la modification.
 
-Les utilisateurs ne sont pas comptés deux fois pendant le mois de transition. Les utilisateurs actifs uniques qui s’authentifient avant la modification sont facturés par authentification dans un mois civil. Ces mêmes utilisateurs ne sont pas inclus dans le calcul MAU pour le reste du cycle de facturation de l’abonnement. Par exemple :
+Les utilisateurs ne sont pas comptés deux fois pendant le mois de transition. Les utilisateurs actifs uniques qui s’authentifient avant la modification sont facturés par authentification dans un mois civil. Ces mêmes utilisateurs ne sont pas inclus dans le calcul MAU pour le reste du cycle de facturation de l’abonnement. Par exemple : 
 
 * Le locataire Contoso B2C a 1 000 utilisateurs. 250 utilisateurs sont actifs dans un mois donné. L’administrateur de l’abonnement passe de la facturation par authentification à celle par utilisateurs actifs mensuels (MAU) le 10 du mois.
 * La facturation du 1er au 10 est facturée à l’aide du modèle par authentification.
@@ -82,7 +82,7 @@ Le lien de l’abonnement est obtenu en créant une *ressource* Azure AD B2C dan
 
 Un abonnement lié à un locataire Azure AD B2C peut être utilisé pour la facturation de l’utilisation d’Azure AD B2C ou d’autres ressources Azure, y compris des ressources Azure AD B2C supplémentaires. Il ne peut pas être utilisé pour ajouter d’autres services Azure basés sur une licence ou des licences Office 365 au sein du locataire Azure AD B2C.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 * [Abonnement Azure](https://azure.microsoft.com/free/)
 * [Locataire Azure AD B2C](tutorial-create-tenant.md) que vous souhaitez lier à un abonnement

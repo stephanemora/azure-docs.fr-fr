@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 346fc3d5a4e7b165caafd9847b9797abae0c9113
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3eca498e5716ae7c0a03e5e624d618899da8dc8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659983"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81770399"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Mise à niveau d’Azure Internal Load Balancer avec connexion sortante nécessaire
 [Azure Standard Load Balancer](load-balancer-overview.md) offre un ensemble complet de fonctionnalités et une haute disponibilité avec la redondance de zone. Pour en savoir plus sur la référence SKU de Load Balancer, consultez le [tableau comparatif](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus). Comme Standard Internal Load Balancer ne fournit pas de connexion sortante, nous proposons à la place une solution permettant de créer un équilibreur de charge Standard Public Load Balancer.
@@ -21,8 +21,7 @@ Une mise à niveau se compose de quatre phases :
 
 1. Migration de la configuration vers Standard Public Load Balancer
 2. Ajout de machines virtuelles aux pools back-end de Standard Public Load Balancer
-3. Créer une règle de trafic sortant sur l’équilibreur de charge pour une connexion sortante
-4. Configuration de règles NSG pour le sous-réseau/les machines virtuelles dont la communication à partir de/vers Internet doit être bloquée
+3. Configuration de règles NSG pour le sous-réseau/les machines virtuelles dont la communication à partir de/vers Internet doit être bloquée
 
 Cet article couvre la migration de la configuration. L’ajout de machines virtuelles aux pools de back-ends peut varier en fonction de votre environnement spécifique. Toutefois, certaines suggestions générales de haut niveau [sont fournies](#add-vms-to-backend-pools-of-standard-load-balancer).
 
@@ -32,6 +31,7 @@ Un script Azure PowerShell est disponible qui effectue les opérations suivantes
 
 * Il crée un équilibreur de charge Standard Public Load Balancer dans le groupe de ressources et à l’emplacement spécifiés.
 * Il copie à l’identique les configurations de l’équilibreur de charge Basic Internal Load Balancer sur l’équilibreur de charge Standard Public Load Balancer ainsi créé.
+* Il crée une règle de trafic sortant qui active la connectivité de sortie.
 
 ### <a name="caveatslimitations"></a>Mises en garde/Limitations
 
@@ -42,7 +42,7 @@ Un script Azure PowerShell est disponible qui effectue les opérations suivantes
 
 ## <a name="download-the-script"></a>Télécharger le script
 
-Téléchargez le script de migration à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/1.0).
+Téléchargez le script de migration à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureLBUpgrade/2.0).
 ## <a name="use-the-script"></a>Utiliser le script
 
 Vous disposez de deux options selon vos préférences et votre configuration de l’environnement PowerShell local :

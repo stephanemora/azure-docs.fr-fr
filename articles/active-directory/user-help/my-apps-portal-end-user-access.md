@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: ab3ab25df6ce41d4045a270754830d501fe40689
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8eb59eebd29c2cc94e20b71b467866686deec2f1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80347170"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81869722"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Se connecter et démarrer des applications à partir du portail Mes applications
 
@@ -110,7 +110,7 @@ Si vous êtes autorisé à accéder à et utiliser les applications cloud de vot
 
 Consultez et utilisez les applications de votre organisation dans Intune Managed Browser sur vos appareils iOS et Android.
 
-1. Sur votre appareil mobile, téléchargez et installez l’application Intune Managed Browser dans l’[Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) ou [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
+1. Sur votre appareil mobile, téléchargez et installez l’application Intune Managed Browser à partir de l’App Store d’Apple ou de Google Play Store.
 
 2. Ouvrez l’application Intune Managed Browser, accédez à https://myapps.microsoft.com ou utilisez le lien fourni par votre organisation si celle-ci vous dirige vers une page personnalisée telle que https://myapps.microsoft.com/contoso.com.
 

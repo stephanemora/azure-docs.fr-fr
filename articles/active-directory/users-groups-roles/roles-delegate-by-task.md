@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/03/2020
+ms.date: 05/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd24650c9bf0c4de155b5bfc8723cfa1fef01548
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: de89b7f5a4b14bd4142ea3e9b9c8c0dceabd63dd
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81755415"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779958"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Rôles d'administrateur par tâche administrateur dans Azure Active Directory
 
@@ -76,9 +76,9 @@ Configurer les propriétés de l’entreprise | Administrateur général |
 
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
-Authentification directe | Administrateur d’identité hybride | 
-Lire toute la configuration | Lecteur général | Administrateur d’identité hybride |
-Authentification unique homogène | Administrateur d’identité hybride | 
+Authentification directe | Administrateur d’identité hybride  | 
+Lire toute la configuration | Lecteur général | Administrateur d’identité hybride  |
+Authentification unique homogène | Administrateur d’identité hybride  | 
 
 ## <a name="connect-health"></a>Connect Health
 

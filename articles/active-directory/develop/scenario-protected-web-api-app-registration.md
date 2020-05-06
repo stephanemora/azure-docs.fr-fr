@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2cdf3ff45a400d4b8d0b2605bf7ddc364aff1fe6
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 214d379525f2ee534415d713aa298ec858a84c92
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80882384"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81868843"
 ---
 # <a name="protected-web-api-app-registration"></a>API web protégée : Inscription d'application
 
@@ -108,7 +108,7 @@ Pour exposer les permissions d’application, vous devez modifier le manifeste.
 
 L’exemple suivant montre le contenu de `appRoles`, où la valeur de `id` peut être n’importe quel GUID unique.
 
-```JSon
+```json
 "appRoles": [
     {
     "allowedMemberTypes": [ "Application" ],

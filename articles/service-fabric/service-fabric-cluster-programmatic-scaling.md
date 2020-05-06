@@ -5,16 +5,16 @@ author: mjrousos
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: ffe07960c6d32bea8ec31b1fe8248b6abc2b63af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd7c57f3089115e4da861fc8fd20331ab92bc33e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458287"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787105"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Mettre à l’échelle un cluster Service Fabric par programmation 
 
-Les clusters Service Fabric s’exécutant dans Azure s’appuient sur les groupes de machines virtuelles identiques.  La [mise à l’échelle du cluster](./service-fabric-cluster-scale-up-down.md) décrit comment les clusters Service Fabric peuvent être mis à l’échelle manuellement ou selon des règles de mise à l’échelle automatique. Cet article décrit comment gérer les informations d’identification et monter ou réduire en puissance un cluster à l’aide du Kit de développement logiciel (SDK) Azure Fluent, qui est un scénario plus avancé. Pour obtenir une vue d’ensemble, consultez les [méthodes de programmation de coordination des opérations de mise à l’échelle Azure](service-fabric-cluster-scaling.md#programmatic-scaling). 
+Les clusters Service Fabric s’exécutant dans Azure s’appuient sur les groupes de machines virtuelles identiques.  La [mise à l’échelle du cluster](./service-fabric-cluster-scale-in-out.md) décrit comment les clusters Service Fabric peuvent être mis à l’échelle manuellement ou selon des règles de mise à l’échelle automatique. Cet article décrit comment gérer les informations d’identification et monter ou réduire en puissance un cluster à l’aide du Kit de développement logiciel (SDK) Azure Fluent, qui est un scénario plus avancé. Pour obtenir une vue d’ensemble, consultez les [méthodes de programmation de coordination des opérations de mise à l’échelle Azure](service-fabric-cluster-scaling.md#programmatic-scaling). 
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -119,6 +119,6 @@ await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 
 Pour commencer à implémenter votre propre logique de mise à l’échelle automatique, vous devez vous familiariser avec les API utiles et les concepts suivants :
 
-- [Augmenter ou diminuer la taille des instances d’un cluster Service Fabric à l’aide de règles de mise à l’échelle automatique](./service-fabric-cluster-scale-up-down.md)
+- [Augmenter ou diminuer la taille des instances d’un cluster Service Fabric à l’aide de règles de mise à l’échelle automatique](./service-fabric-cluster-scale-in-out.md)
 - [Bibliothèques Azure Management fluides pour .NET](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (utiles pour interagir avec les groupes de machines virtuelles identiques sous-jacents d’un cluster Service Fabric)
 - [System.Fabric.FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) (utile pour interagir avec un cluster Service Fabric et ses nœuds)

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 05d73ae09d95879c37e86f5f3e73e35ed4607296
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 409ba6cd192f65c73aba6bd6eb11a26ec1f820fa
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82560954"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790879"
 ---
 # <a name="what-is-azure-iot-central"></a>Qu’est-ce que Azure IoT Central
 
@@ -29,19 +29,6 @@ Cet article décrit, en ce qui concerne IoT Central :
 - Comment gérer votre application.
 - Fonctionnalités Azure IoT Edge dans IoT Central
 - Comment connecter vos appareils fonctionnant avec Azure IoT Edge à votre application.
-
-## <a name="known-issues"></a>Problèmes connus
-
-- L’exportation continue des données ne prend pas en charge le format Avro (incompatibilité).
-- GeoJSON n’est pas actuellement pris en charge.
-- La mosaïque n’est pas actuellement prise en charge.
-- Les travaux ne prennent pas en charge les types complexes.
-- Les types de schémas de tableaux ne sont pas pris en charge.
-- Seuls le SDK d’appareil C et les SDK de service et d’appareil Node.js sont pris en charge.
-- IoT Central est disponible aux États-Unis, en Europe, en Asie-Pacifique, en Australie, au Royaume-Uni et au Japon.
-- Vous ne pouvez pas utiliser le modèle d’application **Application personnalisée (hérité)** au Royaume-Uni et au Japon.
-- Les modèles de capacité d’appareil doivent avoir toutes les interfaces définies inline dans le même fichier.
-- La prise en charge d’[IoT Plug-and-Play](../../iot-pnp/overview-iot-plug-and-play.md) est en préversion et réservée à certaines régions.
 
 ## <a name="personas"></a>Rôles
 
@@ -152,7 +139,7 @@ Les administrateurs gèrent l’accès à votre application avec des [rôles d�
 
 Pour toute solution IoT conçue pour fonctionner à grande échelle, il est important d’avoir une approche structurée de la gestion des appareils. Il ne vous suffit pas de connecter vos appareils au cloud ; ceux-ci doivent rester connectés et sains. Un opérateur peut utiliser les capacités IoT Central suivantes pour gérer vos appareils tout au long du cycle de vie de l’application :
 
-### <a name="dashboards"></a>Tableaux de bord 
+### <a name="dashboards"></a>Tableaux de bord
 
 Les [tableaux de bord](./howto-set-up-template.md#generate-default-views) intégrés proposent une interface utilisateur personnalisable qui permet de superviser la télémétrie et l’intégrité des appareils. Commencez avec un tableau de bord prédéfini dans un [modèle d’application](howto-use-app-templates.md) ou créez vos propres tableaux de bord en fonction des besoins de vos opérateurs. Vous pouvez partager les tableaux de bord avec tous les utilisateurs de votre application ou les maintenir privés.
 
@@ -193,6 +180,18 @@ Générez les types de solutions IoT suivants :
 ## <a name="quotas"></a>Quotas
 
 Chaque abonnement Azure a des quotas par défaut qui peuvent impacter l’étendue de votre solution IoT. IoT Central limite actuellement à 10 le nombre d’applications que vous pouvez déployer dans un abonnement. Pour augmenter cette limite, contactez le [support Microsoft](https://azure.microsoft.com/support/options/).
+
+## <a name="known-issues"></a>Problèmes connus
+
+- L’exportation continue des données ne prend pas en charge le format Avro (incompatibilité).
+- GeoJSON n’est pas actuellement pris en charge.
+- La mosaïque n’est pas actuellement prise en charge.
+- Les types de schémas de tableaux ne sont pas pris en charge.
+- Seuls le SDK d’appareil C et les SDK de service et d’appareil Node.js sont pris en charge.
+- IoT Central est disponible aux États-Unis, en Europe, en Asie-Pacifique, en Australie, au Royaume-Uni et au Japon.
+- Vous ne pouvez pas utiliser le modèle d’application **Application personnalisée (hérité)** au Royaume-Uni et au Japon.
+- Les modèles de capacité d’appareil doivent avoir toutes les interfaces définies inline dans le même fichier.
+- La prise en charge d’[IoT Plug-and-Play](../../iot-pnp/overview-iot-plug-and-play.md) est en préversion et réservée à certaines régions.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

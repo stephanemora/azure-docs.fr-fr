@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: e06e71d4436ac6c64ff2edc876d7849d084482f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df8f68e47776f46ae2d1331f85bd76d6cfe17b80
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74671634"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81869944"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Présentation des diagnostics Azure App Service
 
@@ -31,6 +31,10 @@ Pour Azure Functions, accédez à votre application de fonction puis, dans le vo
 Sur la page d’accueil des diagnostics App Service, vous pouvez choisir la catégorie qui décrit le mieux le problème rencontré avec votre application. Vous pouvez pour cela utiliser les mots clés dans chaque vignette de page d’accueil. C’est également sur cette page que vous trouverez les **Outils de diagnostic** pour les applications Windows. Consultez la section [Outils de diagnostic (uniquement pour une application Windows)](#diagnostic-tools-only-for-windows-app).
 
 ![Page d’accueil](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
+
+> [!NOTE]
+> Si votre application est en panne ou s’exécute lentement, vous pouvez [collecter une trace de profilage](https://azure.github.io/AppService/2018/06/06/App-Service-Diagnostics-Profiling-an-ASP.NET-Web-App-on-Azure-App-Service.html) pour identifier la cause racine du problème. Le profilage est léger et est conçu pour les scénarios de production.
+>
 
 ## <a name="interactive-interface"></a>Interface interactive
 

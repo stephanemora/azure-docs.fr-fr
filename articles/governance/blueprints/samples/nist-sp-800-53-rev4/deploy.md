@@ -4,10 +4,10 @@ description: Étapes de déploiement pour l’exemple de blueprint NIST SP 800-5
 ms.date: 11/18/2019
 ms.topic: sample
 ms.openlocfilehash: db8c2302a6c2311e096be2cdc78935bdab2ef9c7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74546604"
 ---
 # <a name="deploy-the-nist-sp-800-53-r4-blueprint-sample"></a>Déployer l’exemple de blueprint NIST SP 800-53 R4

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 83dfd1b4df37018329b5d7a707e9b65fdf0782a6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 80414ccd6d5797614dd15bd61af8f37b3d2be05c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426401"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81870365"
 ---
 # <a name="add-and-manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Ajouter et gérer des bibliothèques pour Apache Spark dans Azure Synapse Analytics
 
@@ -53,6 +53,16 @@ L’interface utilisateur pour l’ajout de bibliothèques figure sous l’ongle
 Chargez le fichier de configuration de l’environnement à l’aide du sélecteur de fichiers dans la section **Packages** de la page.
 
 ![Ajouter des bibliothèques Python](./media/apache-spark-azure-portal-add-libraries/add-python-libraries.png "Ajouter des bibliothèques Python")
+
+### <a name="verifying-installed-libraries"></a>Vérification des bibliothèques installées
+
+Pour vérifier si les bonnes versions des bibliothèques appropriées sont installées, exécutez le code suivant :
+
+```python
+import pip #needed to use the pip functions
+for i in pip.get_installed_distributions(local_only=True):
+    print(i)
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

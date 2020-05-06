@@ -8,11 +8,11 @@
   items:
     - name: les connexions hybrides
       items:
-        - name: Envoyer et recevoir des messages - Websockets .NET
+        - name: Envoyer et recevoir des messages - WebSockets .NET
           href: relay-hybrid-connections-dotnet-get-started.md
         - name: Envoyer et recevoir des messages - HTTP .NET
           href: relay-hybrid-connections-http-requests-dotnet-get-started.md
-        - name: Envoyer et recevoir des messages - Websockets Node
+        - name: Envoyer et recevoir des messages - WebSockets Node
           href: relay-hybrid-connections-node-get-started.md
         - name: Envoyer et recevoir des messages - HTTP Node
           href: relay-hybrid-connections-http-requests-node-get-started.md
@@ -59,10 +59,12 @@
               href: relay-hybrid-connections-dotnet-api-overview.md
             - name: Nœud
               href: relay-hybrid-connections-node-ws-api-overview.md
-    - name: Gérer
+    - name: Gestion et surveillance
       items:
         - name: Analyser Azure Relay avec la surveillance Azure
           href: relay-metrics-azure-monitor.md
+        - name: Configurer les journaux de diagnostic
+          href: diagnostic-logs.md
 - name: Informations de référence
   items:
     - name: .NET

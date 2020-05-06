@@ -8,12 +8,12 @@ ms.author: pafarley
 ms.service: cognitive-search
 ms.topic: article
 ms.date: 01/21/2020
-ms.openlocfilehash: 713b790c432f0e416392243262aed4b0fcda8892
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 050848b0bff65b19e2b17bd170e1d3e9ff0176f1
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81275878"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792001"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Exemple : Créer une compétence personnalisée Form Recognizer
 
@@ -164,8 +164,8 @@ Pour utiliser cette compétence dans un pipeline de Recherche cognitive, vous de
 
 Dans ce guide, vous avez créé une compétence personnalisée à partir du service Azure Form Recognizer. Pour en savoir plus sur les compétences personnalisées, consultez les ressources suivantes. 
 
-* [Super compétences de la Recherche Azure : un dépôt de compétences personnalisées](https://github.com/*zure-Samples/azure-search-power-skills)
+* [Super compétences de la Recherche Azure : un dépôt de compétences personnalisées](https://github.com/Azure-Samples/azure-search-power-skills)
 * [Ajouter une qualification personnalisée à un pipeline d’enrichissement par IA](cognitive-search-custom-skill-interface.md)
 * [How to create a skillset in an enrichment pipeline](cognitive-search-defining-skillset.md) (Créer un ensemble de compétences dans un pipeline d’enrichissement)
-* [Créer un ensemble de compétences (REST)](https://docs.microsoft.com/rest/api/*earchservice/create-skillset)
+* [Créer un ensemble de compétences (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 * [Mapper des champs enrichis](cognitive-search-output-field-mapping.md)

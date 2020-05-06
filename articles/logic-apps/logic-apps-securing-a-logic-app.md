@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 4fc4960eb3af8a3d3c9902c9b24505bb5610b709
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: ee8bee832e48dc7354b4136e25be9bcc43eb90c5
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657176"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81870554"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Accès et données sécurisés dans Azure Logic Apps
 
@@ -182,7 +182,7 @@ Pour empêcher la modification ou la suppression de votre application logique, v
 
 Pendant l’exécution d’une application logique, toutes les données sont [chiffrées pendant le transit](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) à l’aide de Transport Layer Security (TLS) et [au repos](../security/fundamentals/encryption-atrest.md). À la fin de l’exécution de votre application logique, vous pouvez afficher l’historique de l’exécution. Celui-ci comprend notamment les étapes exécutées, ainsi que l’état, la durée, les entrées et les sorties associés à chaque action. Ces informations détaillées fournissent des insights sur la façon dont votre application logique s’est exécutée et vous permettent de résoudre les problèmes qui peuvent survenir.
 
-Lorsque vous affichez l’historique des exécutions de votre application logique, Logic Apps authentifie votre accès, et fournit des liens vers les entrées et les sorties des requêtes et des réponses pour chaque exécution. Toutefois, pour les actions qui gèrent des mots de passe, des secrets, des clés ou d’autres informations sensibles, vous devez empêcher les autres utilisateurs d’accéder à ces données. Par exemple, si votre application logique obtient un secret dans [Azure Key Vault](../key-vault/key-vault-overview.md) en vue de l’utiliser lors de l’authentification d’une action HTTP, vous devez empêcher l’affichage de ce secret.
+Lorsque vous affichez l’historique des exécutions de votre application logique, Logic Apps authentifie votre accès, et fournit des liens vers les entrées et les sorties des requêtes et des réponses pour chaque exécution. Toutefois, pour les actions qui gèrent des mots de passe, des secrets, des clés ou d’autres informations sensibles, vous devez empêcher les autres utilisateurs d’accéder à ces données. Par exemple, si votre application logique obtient un secret dans [Azure Key Vault](../key-vault/general/overview.md) en vue de l’utiliser lors de l’authentification d’une action HTTP, vous devez empêcher l’affichage de ce secret.
 
 Pour contrôler l’accès aux entrées et aux sorties dans l’historique des exécutions de votre application logique, vous disposez des options suivantes :
 
@@ -370,7 +370,7 @@ Pour en savoir plus, consultez les sections suivantes de la présente rubrique :
 
 Si vous [automatisez le déploiement d’applications logiques à l’aide de modèles Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), vous pouvez définir des [paramètres de modèles](../azure-resource-manager/templates/template-parameters.md) sécurisés, qui sont évalués au moment du déploiement, à l’aide des types `securestring` et `secureobject`. Pour définir des paramètres de modèle, utilisez la section `parameters` de niveau supérieur de votre modèle, qui est différente de la section `parameters` de votre définition de workflow. Pour fournir les valeurs des paramètres de modèle, utilisez un autre [fichier de paramètres](../azure-resource-manager/templates/parameter-files.md).
 
-Par exemple, si vous utilisez des secrets, vous pouvez définir et utiliser des paramètres de modèles sécurisés qui récupèrent ces secrets à partir d’[Azure Key Vault](../key-vault/key-vault-overview.md) lors du déploiement. Vous pouvez ensuite référencer le coffre de clés et le secret dans votre fichier de paramètres. Pour plus d’informations, consultez les rubriques suivantes :
+Par exemple, si vous utilisez des secrets, vous pouvez définir et utiliser des paramètres de modèles sécurisés qui récupèrent ces secrets à partir d’[Azure Key Vault](../key-vault/general/overview.md) lors du déploiement. Vous pouvez ensuite référencer le coffre de clés et le secret dans votre fichier de paramètres. Pour plus d’informations, consultez les rubriques suivantes :
 
 * [Transmettre des valeurs sensibles au déploiement à l’aide d’Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 * [Sécuriser des paramètres dans des modèles Azure Resource Manager](#secure-parameters-deployment-template) plus loin dans cette rubrique
@@ -425,7 +425,7 @@ Pour protéger des informations sensibles dans la définition de workflow de vot
 
 ### <a name="secure-parameters-in-azure-resource-manager-templates"></a>Sécuriser des paramètres dans des modèles Azure Resource Manager
 
-Un [modèle Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) d’une application logique comporte plusieurs sections `parameters`. Pour protéger les mots de passe, les clés, les secrets et d’autres informations sensibles, configurez des paramètres sécurisés au niveau du modèle et au niveau de la définition de workflow à l’aide du type `securestring` ou `secureobject`. Vous pouvez ensuite stocker ces valeurs dans [Azure Key Vault](../key-vault/key-vault-overview.md) et utiliser le [fichier de paramètres](../azure-resource-manager/templates/parameter-files.md) pour référencer le coffre de clés et le secret. Votre modèle récupère ensuite ces informations au moment du déploiement. Pour plus d’informations, consultez [Transmettre des valeurs sensibles au déploiement à l’aide d’Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md).
+Un [modèle Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) d’une application logique comporte plusieurs sections `parameters`. Pour protéger les mots de passe, les clés, les secrets et d’autres informations sensibles, configurez des paramètres sécurisés au niveau du modèle et au niveau de la définition de workflow à l’aide du type `securestring` ou `secureobject`. Vous pouvez ensuite stocker ces valeurs dans [Azure Key Vault](../key-vault/general/overview.md) et utiliser le [fichier de paramètres](../azure-resource-manager/templates/parameter-files.md) pour référencer le coffre de clés et le secret. Votre modèle récupère ensuite ces informations au moment du déploiement. Pour plus d’informations, consultez [Transmettre des valeurs sensibles au déploiement à l’aide d’Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md).
 
 Voici plus d’informations sur les sections `parameters` :
 
@@ -655,9 +655,9 @@ Si l’option [Certificat client](../active-directory/authentication/active-dire
 
 | Propriété (concepteur) | Propriété (JSON) | Obligatoire | Valeur | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **Authentification** | `type` | Oui | **Certificat client** <br>or <br>`ClientCertificate` | Type d’authentification à utiliser pour les certificats clients TLS/SSL. Bien que les certificats autosignés sont pris en charge, les certificats autosignés pour TLS/SSL ne sont pas pris en charge. |
+| **Authentification** | `type` | Oui | **Certificat client** <br>or <br>`ClientCertificate` | Type d’authentification à utiliser pour les certificats clients TLS/SSL <p><p>**Remarque** : Bien que les certificats autosignés sont pris en charge, les certificats autosignés pour TLS/SSL ne sont pas pris en charge. Le connecteur HTTP ne prend pas en charge les certificats TLS/SSL intermédiaires. |
 | **Pfx** | `pfx` | Oui | <*encoded-pfx-file-content*> | Contenu encodé en base64 à partir d’un fichier Personal Information Exchange (PFX) <p><p>Pour convertir le fichier PFX au format encodé en base64, vous pouvez utiliser PowerShell en procédant comme suit : <p>1. Enregistrez le contenu du certificat dans une variable : <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Convertissez le contenu du certificat à l’aide de la fonction `ToBase64String()` et enregistrez ce contenu dans un fichier texte : <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
-| **Mot de passe** | `password`| Non | <*password-for-pfx-file*> | Mot de passe pour accéder au fichier PFX |
+| **Mot de passe** | `password`| Non  | <*password-for-pfx-file*> | Mot de passe pour accéder au fichier PFX |
 |||||
 
 Lorsque vous utilisez des [paramètres sécurisés](#secure-action-parameters) pour gérer et protéger des informations sensibles, par exemple dans un [modèle Azure Resource Manager pour l’automatisation du déploiement](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), vous pouvez utiliser des expressions pour accéder à ces valeurs de paramètre au moment de l’exécution. Cet exemple de définition d’action HTTP spécifie l’authentification `type` en tant que `ClientCertificate` et utilise la fonction [parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) pour récupérer les valeurs des paramètres :
@@ -695,7 +695,7 @@ Si l’option [OAuth Active Directory](../active-directory/develop/about-microso
 | Propriété (concepteur) | Propriété (JSON) | Obligatoire | Valeur | Description |
 |---------------------|-----------------|----------|-------|-------------|
 | **Authentification** | `type` | Oui | **OAuth Active Directory** <br>or <br>`ActiveDirectoryOAuth` | Type d’authentification à utiliser. Logic Apps suit actuellement le [protocole OAuth 2.0](../active-directory/develop/v2-overview.md). |
-| **Authority** | `authority` | Non | <*URL de l’autorité émettrice du jeton*> | URL de l’autorité qui fournit le jeton d’authentification. Par défaut, cette valeur est définie sur `https://login.windows.net`. |
+| **Authority** | `authority` | Non  | <*URL de l’autorité émettrice du jeton*> | URL de l’autorité qui fournit le jeton d’authentification. Par défaut, cette valeur est définie sur `https://login.windows.net`. |
 | **Locataire** | `tenant` | Oui | <*ID de locataire*> | Identificateur du locataire Azure AD |
 | **Public ciblé** | `audience` | Oui | <*ressource à autoriser*> | Ressource à utiliser pour l’autorisation, par exemple, `https://management.core.windows.net/` |
 | **ID client** | `clientId` | Oui | <*ID client*> | ID client pour l’application demandant l’autorisation |

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: ff7f8bc27d358c667b10c0bd3383e78b20494303
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02cc2ddc793906ff79cbb8619a43d54d696b42ed
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "64680134"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594081"
 ---
 # <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>Utiliser PowerShell pour créer une application Azure AD à utiliser avec l’API Azure Media Services
 
@@ -62,7 +62,7 @@ Pour plus d’informations, consultez les articles suivants :
 
 - [Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 - [Gérer le contrôle d’accès en fonction du rôle à l’aide d’Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Comment configurer manuellement des applications démons à l’aide de certificats](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/Manual-Configuration-Steps.md#add-the-certificate-as-a-key-for-the-todolistdaemonwithcert-application-in-azure-ad)
+- [Comment configurer manuellement des applications démons à l’aide de certificats](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

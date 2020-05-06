@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: josels
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1ccfb1b008a7e3e48f56b1af62087d303522ed73
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 49bd251b7f76a844a0d3fd1b1a09f7e15c5e7ddb
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81676727"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792205"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Démarrage rapide : Créer un espace de travail Azure Synapse Analytics (préversion)
 
@@ -41,7 +41,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/)
     | Paramètre | Valeur suggérée | Description |
     | :------ | :-------------- | :---------- |
     | **Abonnement** | *Votre abonnement* | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
-    | **Groupe de ressources** | *N’importe quel groupe de ressources* | Pour les noms de groupe de ressources valides, consultez [Naming conventions](/azure/architecture/best-practices/resource-naming.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (Conventions d’affectation de nom). |
+    | **Groupe de ressources** | *N’importe quel groupe de ressources* | Pour les noms de groupe de ressources valides, consultez [Naming conventions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (Conventions d’affectation de nom). |
     | **Nom de l’espace de travail** | mysampleworkspace | Spécifie le nom de l’espace de travail, qui sera également utilisé pour les points de terminaison de connexion.|
     | **Région** | USA Est 2 | Spécifie l’emplacement de l’espace de travail.|
     | **Data Lake Storage Gen2** | Compte : `storage account name` </br> Système de fichiers : `root file system to use` | Spécifie le nom du compte de stockage ADLS Gen2 à utiliser comme stockage principal et le système de fichiers à utiliser.|

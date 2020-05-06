@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 8e7e01dac29cb9ba91c83270dac4e46c73b2089e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d0279cc323f7eee87feb2a596a4c2df0b4667e1
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75610118"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790845"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Mettre à niveau la configuration d’un cluster autonome 
 
@@ -75,7 +75,7 @@ Quatre options sont prises en charge :
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment personnaliser certains [paramètres de clusters Service Fabric](service-fabric-cluster-fabric-settings.md).
-* Découvrez comment [diminuer et augmenter la taille de votre cluster](service-fabric-cluster-scale-up-down.md).
+* Découvrez comment [diminuer et augmenter la taille de votre cluster](service-fabric-cluster-scale-in-out.md).
 * Découvrez les [mises à niveau d’applications](service-fabric-application-upgrade.md).
 
 <!--Image references-->

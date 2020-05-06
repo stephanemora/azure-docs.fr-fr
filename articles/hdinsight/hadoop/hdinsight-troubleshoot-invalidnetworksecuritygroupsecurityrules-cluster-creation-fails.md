@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/31/2019
-ms.openlocfilehash: a73e1e9f7a9c017dd29b627a24c25ae2e064c0a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2cf4859d3bf4c34fff4cb076eec11bcd2d81e4ab
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75894144"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780774"
 ---
 # <a name="scenario-invalidnetworksecuritygroupsecurityrules---cluster-creation-fails-in-azure-hdinsight"></a>Scénario : InvalidNetworkSecurityGroupSecurityRules – Échec de la création d’un cluster dans Azure HDInsight
 
@@ -28,7 +28,7 @@ Ce problème est probablement lié aux règles du [groupe de sécurité réseau]
 
 ## <a name="resolution"></a>Résolution
 
-Accédez au Portail Microsoft Azure et identifiez le groupe de sécurité réseau associé au sous-réseau dans lequel le cluster est en cours de déploiement. Dans la section **Règles de sécurité de trafic entrant**, assurez-vous que les règles autorisent l’accès entrant au port 443 pour les adresses IP indiquées [ici](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ip).
+Accédez au Portail Microsoft Azure et identifiez le groupe de sécurité réseau associé au sous-réseau dans lequel le cluster est en cours de déploiement. Dans la section **Règles de sécurité de trafic entrant**, assurez-vous que les règles autorisent l’accès entrant au port 443 pour les adresses IP indiquées [ici](../control-network-traffic.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

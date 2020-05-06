@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1730939de399cacd13c62988259904ba84ee78ff
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 053b052abf6f23c385dc7447639aa40b6c2c58a1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654143"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81680186"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Utilisation de méthodes d’authentification et informations (préversion)
 
@@ -93,6 +93,8 @@ En utilisant les contrôles en haut de la liste, vous pouvez rechercher un utili
 Les données présentées dans ces rapports seront différées jusqu’à 60 minutes. Le portail Azure contient un champ « Dernière actualisation » qui permet d’identifier à quel point vos données sont récentes.
 
 Les données d’utilisation et les informations ne remplacent pas les rapports d’activité Azure Multi-Factor Authentication ni les informations contenues dans le rapport d’ouverture de session d’Azure AD.
+
+Actuellement , le rapport ne peut pas être filtré de manière à exclure les utilisateurs externes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

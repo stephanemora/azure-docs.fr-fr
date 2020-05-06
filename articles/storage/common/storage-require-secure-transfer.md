@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/12/2019
+ms.date: 04/21/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 3b2d78bd929e23d49a57f337022f6678114bb5fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 125f4188ed3f12f366c619af9efe3aa203987c19
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75457451"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81870530"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>Exiger un transfert sécurisé pour garantir des connexions sécurisées
 
@@ -25,7 +25,7 @@ Lorsque le transfert sécurisé est exigé, un appel vers une opération de l’
 
 La connexion à un partage de fichiers Azure via SMB sans chiffrement échoue lorsque le transfert sécurisé est requis pour le compte de stockage. Parmi les exemples de connexions non sécurisées figurent celles effectuées sur SMB 2.1, SMB 3.0 sans chiffrement ou certaines versions du client SMB Linux.
 
-Par défaut, la propriété **Transfert sécurisé requis** est activée quand vous créez un compte de stockage dans le portail Azure. Toutefois, elle est désactivée lorsque vous créez un compte de stockage avec un kit de développement logiciel (SDK).
+Par défaut, la propriété **Transfert sécurisé requis** est activée quand vous créez un compte de stockage.
 
 > [!NOTE]
 > Étant donné que Stockage Azure ne prend pas en charge le protocole HTTPS pour les noms de domaine personnalisés, cette option n’est pas appliquée lorsque vous utilisez un nom de domaine personnalisé. En outre, les comptes de stockage classiques ne sont pas pris en charge.

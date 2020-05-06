@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e52c37e293941a767621cf56ef75f8cc83b1925
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 541deb5cf44ad5440e31641b673ed5da5b5d2b26
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79298001"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81768542"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Configurer la gestion de groupes en libre-service dans Azure Active Directory 
 
@@ -55,6 +55,9 @@ Groupes créés dans | Comportement par défaut des groupes de sécurité | Comp
 Vous pouvez également utiliser **Propriétaires qui peuvent attribuer des membres en tant que propriétaires de groupes dans les portails Azure** et **Propriétaires qui peuvent attribuer des membres en tant que propriétaires de groupes dans les portails Azure** pour un contrôle d’accès plus granulaire en termes de gestion de groupes en libre-service pour vos utilisateurs.
 
 Lorsque tous les utilisateurs peuvent créer des groupes, tous les utilisateurs de votre organisation sont autorisés à créer des groupes, puis à ajouter, comme le propriétaire par défaut, des membres à ces groupes. Vous ne pouvez pas spécifier les personnes qui peuvent créer leurs propres groupes. Vous ne pouvez spécifier une personne du groupe que si vous la promouvez propriétaire celui-ci.
+
+> [!NOTE]
+> Une licence Azure Active Directory Premium (P1 ou P2) est requise pour que les utilisateurs puissent demander à rejoindre un groupe de sécurité ou un groupe Office 365 et pour permettre aux propriétaires d’approuver ou de refuser les demandes d’adhésion. Sans licence Azure Active Directory Premium, les utilisateurs peuvent toujours gérer leurs groupes dans le volet d’accès, mais ils ne peuvent pas créer de groupe qui nécessite l’approbation du propriétaire dans le volet d’accès ni demander à rejoindre un groupe. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
