@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 196d941c5c3b18b737f7a11c25ebbb9eab91be1e
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 40e788099a159e1f60c0af02deccd7e3bef82744
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885036"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181730"
 ---
 # <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>Application web qui appelle des API web : Acquérir un jeton pour l’application
 
 Vous avez généré l’objet de votre application cliente. À présent, vous allez l’utiliser pour acquérir un jeton afin d’appeler une API web. Dans ASP.NET ou ASP.NET Core, l’appel d’une API web s’effectue dans le contrôleur :
 
-- Obtenir un jeton pour l’API web en utilisant le cache de jetons. Pour obtenir ce jeton, vous appelez la méthode `AcquireTokenSilent`.
+- Obtenir un jeton pour l’API web en utilisant le cache de jetons. Pour recevoir ce jeton, vous appelez la méthode MSAL `AcquireTokenSilent` (ou l’équivalent dans Microsoft.Identity.Web).
 - Appelez l’API protégée, en lui transmettant le jeton d’accès en tant que paramètre.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
@@ -54,7 +54,7 @@ public async Task<IActionResult> Profile()
 {
  // Acquire the access token.
  string[] scopes = new string[]{"user.read"};
- string accessToken = await tokenAcquisition.GetAccessTokenOnBehalfOfUserAsync(scopes);
+ string accessToken = await tokenAcquisition.GetAccessTokenForUserAsync(scopes);
 
  // Use the access token to call a protected web API.
  HttpClient client = new HttpClient();
@@ -160,6 +160,8 @@ def graphcall():
         ).json()
     return render_template('display.html', result=graph_data)
 ```
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

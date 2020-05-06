@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/16/2019
-ms.openlocfilehash: a303c8fa1e23460fb906232eedb6bfb1930b4bc9
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 9c43b141608e5a9051499fdfb2adb5d8b0b593df
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606461"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232466"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>Transformation Exists dans le flux de données de mappage
 
@@ -42,6 +42,14 @@ Pour créer une expression de forme libre qui contient des opérateurs autres qu
 
 ![Paramètres personnalisés de transformation Exists](media/data-flow/exists1.png "Transformation Exists personnalisée")
 
+## <a name="broadcast-optimization"></a>Optimisation de la diffusion
+
+![Jonction de diffusion](media/data-flow/broadcast.png "Jonction de diffusion")
+
+Dans les transformations de jointures, de recherches et d’existences, si l’un des flux de données ou les deux tiennent dans la mémoire de nœud Worker, vous pouvez optimiser les performances en activant la **diffusion**. Par défaut, le moteur Spark détermine automatiquement s’il faut diffuser $$$d’un côté. Pour choisir manuellement $$$le côté à diffuser, sélectionnez **$$$Fixe**.
+
+Il n’est pas recommandé de désactiver la diffusion à l’aide de l’option **Désactivé$$$** à moins que vos jointures ne rencontrent des erreurs de délai d’attente.
+
 ## <a name="data-flow-script"></a>Script de flux de données
 
 ### <a name="syntax"></a>Syntaxe
@@ -51,11 +59,11 @@ Pour créer une expression de forme libre qui contient des opérateurs autres qu
     exists(
         <conditionalExpression>,
         negate: { true | false },
-        broadcast: {'none' | 'left' | 'right' | 'both'}
+        broadcast: { 'auto' | 'left' | 'right' | 'both' | 'off' }
     ) ~> <existsTransformationName>
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 L’exemple ci-dessous illustre une transformation Exists nommée `checkForChanges`, qui utilise le flux de gauche `NameNorm2` et le flux de droite `TypeConversions`.  La condition d’existence est l’expression `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region` qui retourne true si les colonnes `EMPID` et `Region` de chaque flux correspondent. Comme nous vérifions l’existence, `negate` a la valeur false. Par ailleurs, comme nous n’autorisons aucune diffusion dans l’onglet Optimiser, `broadcast` a la valeur `'none'`.
 
@@ -70,7 +78,7 @@ NameNorm2, TypeConversions
     exists(
         NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region,
         negate:false,
-        broadcast: 'none'
+        broadcast: 'auto'
     ) ~> checkForChanges
 ```
 

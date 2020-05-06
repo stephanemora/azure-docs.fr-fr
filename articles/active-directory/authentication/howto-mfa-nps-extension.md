@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c8606f0b7ab47d624ec66c8cda539e571cec6ce
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: cc1be4637d56d7205d50ebfc6f7d1d5d22e62edf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393050"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81617653"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Intégrer votre infrastructure NPS existante dans Azure Multi-Factor Authentication
 
@@ -142,6 +142,14 @@ Pour créer un compte de test, suivez la procédure suivante :
 1. Connectez-vous à [https://aka.ms/mfasetup](https://aka.ms/mfasetup) avec un compte de test.
 2. Suivez les instructions pour configurer une méthode de vérification.
 3. [Créez une stratégie d’accès conditionnel](howto-mfa-getstarted.md#create-conditional-access-policy) afin de demander l’authentification multifacteur pour le compte de test.
+
+> [!IMPORTANT]
+>
+> Vérifiez que les utilisateurs sont bien inscrits à Azure Multi-Factor Authentication. S’ils ne disposent que d’une inscription à la réinitialisation de mot de passe en libre-service (SSPR), *StrongAuthenticationMethods* est activé pour leur compte. Azure Multi-Factor Authentication est appliqué lorsque *StrongAuthenticationMethods* est configuré, même avec une simple inscription à SSPR.
+>
+> L’inscription de sécurité combinée peut être activée pour configurer SSPR et Azure Multi-Factor Authentication en même temps. Pour plus d’informations, consultez [Activation de l’inscription combinée des informations de sécurité dans Azure Active Directory](howto-registration-mfa-sspr-combined.md).
+>
+> Vous pouvez également [obliger les utilisateurs à se réinscrire à certaines méthodes d’authentification](howto-mfa-userdevicesettings.md#manage-user-authentication-options) s’ils n’avaient activé que SSPR.
 
 ## <a name="install-the-nps-extension"></a>Installer l’extension NPS
 

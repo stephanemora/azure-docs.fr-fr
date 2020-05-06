@@ -4,12 +4,12 @@ description: Dans ce guide de démarrage rapide, vous allez utiliser un modèle 
 ms.date: 03/16/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: ae6b2d151baaa904215639276c7fb74766810c6a
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 646e2e064618e70fd9e9e747926f0886d85fde26
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606594"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82187781"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Démarrage rapide : Créer une affectation de stratégie pour identifier des ressources non conformes à l’aide d’un modèle Resource Manager
 
@@ -70,7 +70,7 @@ Ressources supplémentaires :
 
 Sélectionnez **Conformité** dans la partie gauche de la page. Recherchez ensuite l’affectation de stratégie **Auditer les machines virtuelles qui n’utilisent pas de disques managés** que vous avez créée.
 
-![Page de la vue d’ensemble de la conformité à la stratégie](./media/assign-policy-template/policy-compliance.png)
+:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Page de la vue d’ensemble de la conformité à la stratégie" border="false":::
 
 Si des ressources existantes ne sont pas conformes à cette nouvelle affectation, elles apparaissent sous **Ressources non conformes**.
 
@@ -84,7 +84,7 @@ Pour supprimer l’affectation créée, procédez comme suit :
 
 1. Cliquez avec le bouton droit sur l’affectation de stratégie **Auditer les machines virtuelles qui n’utilisent pas de disques managés** et sélectionnez **Supprimer l’attribution**.
 
-   ![Supprimer une affectation dans la page de la vue d’ensemble de la conformité](./media/assign-policy-template/delete-assignment.png)
+   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Supprimer une affectation dans la page de la vue d’ensemble de la conformité" border="false":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 11/04/2019
-ms.openlocfilehash: abc16ae7f7ab8bf15173248a6e7668e689e127de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5330c751aaa3fcbd5c7fc268e4a4de08d336d474
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77561967"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735434"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox pour Microsoft Azure
 
@@ -49,7 +49,7 @@ Les étapes suivantes décrivent un workflow classique pour une demande Customer
 
     La demande a désormais l’état **Client averti** : elle attend l’approbation du client avant que l’accès soit accordé.
 
-7. Dans l’organisation du client, l’utilisateur qui a le [rôle de propriétaire](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles) pour l’abonnement Azure reçoit un e-mail de la part de Microsoft l’informant de la demande d’accès en attente. Pour les demandes Customer Lockbox, cette personne est l’approbateur désigné.
+7. Dans l’organisation du client, l’utilisateur qui a le [rôle de propriétaire](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) pour l’abonnement Azure reçoit un e-mail de la part de Microsoft l’informant de la demande d’accès en attente. Pour les demandes Customer Lockbox, cette personne est l’approbateur désigné.
 
     Exemple d’e-mail :
 

@@ -5,18 +5,18 @@ services: container-service
 author: saudas
 manager: saudas
 ms.topic: article
-ms.date: 03/10/2019
+ms.date: 04/02/2020
 ms.author: saudas
-ms.openlocfilehash: 85efc6d9d203ca06c5f7566376993b4c13950788
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 00ecc077ba55ab9f91fc58f8a47fcdf7440deea6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369969"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82112964"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Utiliser les identités managées dans Azure Kubernetes Service
 
-Actuellement, un cluster Azure Kubernetes Service ou AKS (plus précisément, le fournisseur cloud Kubernetes) nécessite un *principal de service* pour créer des ressources supplémentaires telles que des équilibreurs de charge et des disques managés dans Azure. Soit vous fournissez un principal de service, soit AKS en crée un en votre nom. Les principaux de service ont généralement une date d’expiration. Les clusters finissent par atteindre un état dans lequel le principal de service doit être renouvelé pour que le cluster continue de fonctionner. Gérer les principaux de service n'est pas une mince affaire.
+Actuellement, un cluster Azure Kubernetes Service ou AKS (plus précisément, le fournisseur cloud Kubernetes) nécessite une identité pour créer des ressources supplémentaires comme des équilibreurs de charge et des disques managés dans Azure ; cette identité peut être une *identité managée* ou un *principal de service*. Si vous utilisez un [principal de service](kubernetes-service-principal.md), vous devez en fournir un ; sinon, AKS en crée un en votre nom. Si vous utilisez une identité managée, elle est automatiquement créée pour vous par AKS. Les clusters utilisant des principaux de service finissent par atteindre un état dans lequel le principal de service doit être renouvelé pour que le cluster continue de fonctionner. La gestion des principaux de service ajoute de la complexité : c’est pourquoi il est plus facile d’utiliser à la place des identités managées. Les mêmes exigences d’autorisation s’appliquent aux principaux de service et aux identités managées.
 
 Les *identités managées* correspondent essentiellement à un wrapper autour des principaux de service, ce qui simplifie leur gestion. Pour en savoir plus, découvrez les [identités managées pour les ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
@@ -25,7 +25,7 @@ AKS crée deux identités managées :
 - **Identité managée affectée par le système** : identité utilisée par le fournisseur de cloud Kubernetes pour créer des ressources Azure au nom de l’utilisateur. Le cycle de vie de l’identité affectée par le système est lié à celui du cluster. L’identité est supprimée en même temps que le cluster.
 - **Identité managée affectée par l’utilisateur** : identité utilisée pour l’autorisation dans le cluster. Par exemple, l’identité affectée par l’utilisateur permet d’autoriser AKS à utiliser des registres Azure Container Registry et d’autoriser le kubelet à obtenir des métadonnées d’Azure.
 
-Les modules complémentaires s’authentifient également à l’aide d’une identité managée. Pour chaque module complémentaire, une identité managée est créée par AKS et la durée de vie de celle-ci sera la même que celle du module complémentaire. Pour créer et utiliser votre propre réseau virtuel, une adresse IP statique ou un disque Azure attaché où les ressources se trouvent en dehors du groupe de ressources MC_*, utilisez le PrincipalID du cluster pour effectuer une attribution de rôle. Pour plus d’informations sur l’attribution de rôle, consultez [Déléguer l’accès à d’autres ressources Azure](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
+Les modules complémentaires s’authentifient également à l’aide d’une identité managée. Pour chaque module complémentaire, une identité managée est créée par AKS et la durée de vie de celle-ci sera la même que celle du module complémentaire. 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -58,6 +58,11 @@ Un cluster créé à l’aide d’identités managées contient les informations
     "secret": null
   }
 ```
+
+> [!NOTE]
+> Pour créer et utiliser votre propre réseau virtuel, une adresse IP statique ou un disque Azure attaché où les ressources se trouvent en dehors du groupe de ressources MC_*, utilisez le PrincipalID du cluster Identité managée affectée par le système pour effectuer une attribution de rôle. Pour plus d’informations sur l’attribution de rôle, consultez [Déléguer l’accès à d’autres ressources Azure](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
+>
+> L'octroi d'une autorisation à une identité managée en cluster utilisée par le fournisseur Azure Cloud peut prendre jusqu'à 60 minutes.
 
 Obtenez enfin les informations d’identification pour accéder au cluster :
 

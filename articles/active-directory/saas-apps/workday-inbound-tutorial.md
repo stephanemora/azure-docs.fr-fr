@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/16/2019
+ms.date: 04/23/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7eb01f3997ac4ab2e439c00f07990c51ec3e3d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0fa43eae906c918cad940b8f5efafeea07020098
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370364"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82201633"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutoriel : Configurer Workday pour l'approvisionnement automatique d'utilisateurs
 
@@ -232,7 +232,7 @@ En général, tous les connecteurs d'approvisionnement Workday ont besoin des in
 > [!NOTE]
 > Il est possible d’ignorer cette procédure et d’utiliser à la place un compte d’administrateur général Workday en tant que compte d’intégration système. Cette procédure, bien qu’adaptée aux démonstrations, n’est pas recommandée pour les déploiements de production.
 
-### <a name="creating-an-integration-system-user"></a>Création d’un utilisateur système d’intégration
+### <a name="creating-an-integration-system-user"></a>Création d’un utilisateur système d’intégration 
 
 **Pour créer un utilisateur de système d’intégration :**
 
@@ -281,6 +281,7 @@ Dans cette étape, vous accordez au groupe de sécurité des autorisations de st
     ![Stratégies de sécurité de domaine](./media/workday-inbound-tutorial/wd_isu_06.png "Stratégies de sécurité de domaine")  
 2. Dans la zone de texte **Domain** (Domaine), recherchez les domaines suivants et ajoutez-les au filtre un par un.  
    * *External Account Provisioning*
+   * *Worker Data: Workers*
    * *Worker Data: Public Worker Reports*
    * *Person Data: Work Contact Information*
    * *Worker Data: All Positions*
@@ -312,6 +313,7 @@ Dans cette étape, vous accordez au groupe de sécurité des autorisations de st
    | ---------- | ---------- |
    | Get et Put | Worker Data: Public Worker Reports |
    | Get et Put | Person Data: Work Contact Information |
+   | Obtenir | Worker Data: Workers |
    | Obtenir | Worker Data: All Positions |
    | Obtenir | Worker Data: Current Staffing Information |
    | Obtenir | Worker Data: Business Title on Worker Profile |
@@ -327,17 +329,18 @@ Dans cette étape, vous accordez des autorisations de stratégies de sécurité 
 
     ![Stratégies de sécurité de processus métier](./media/workday-inbound-tutorial/wd_isu_12.png "Stratégies de sécurité de processus métier")  
 
-2. Dans la zone de texte **Business Process Type** (Type de processus métier), recherchez *Contact*, sélectionnez le processus métier **Contact change** (Modification du contact) et cliquez sur **OK**.
+2. Dans la zone de texte **Business Process Type** (Type de processus métier), recherchez *Contact*, sélectionnez le processus métier **Work Contact Change** (Modification du contact professionnel) et cliquez sur **OK**.
 
     ![Stratégies de sécurité de processus métier](./media/workday-inbound-tutorial/wd_isu_13.png "Stratégies de sécurité de processus métier")  
 
-3. Sur la page **Edit Business Process Security Policy** (Modifier la stratégie de sécurité de processus métier), faites défiler jusqu’à la section **Maintain Contact Information (Web Service)** (Gérer les informations de contact (service web)).
+3. Sur la page **Edit Business Process Security Policy** (Modifier la stratégie de sécurité de processus métier), faites défiler jusqu’à la section **Change Work Contact Information** (Modifier les informations de contact professionnel (service web)).
+    
 
-    ![Stratégies de sécurité de processus métier](./media/workday-inbound-tutorial/wd_isu_14.png "Stratégies de sécurité de processus métier")  
-
-4. Sélectionnez et ajoutez le nouveau groupe de sécurité du système d’intégration à la liste des groupes de sécurité qui peuvent lancer la demande de services web. Cliquez sur **Done** (Terminé). 
+4. Sélectionnez et ajoutez le nouveau groupe de sécurité du système d’intégration à la liste des groupes de sécurité qui peuvent lancer la demande de services web. 
 
     ![Stratégies de sécurité de processus métier](./media/workday-inbound-tutorial/wd_isu_15.png "Stratégies de sécurité de processus métier")  
+
+5. Cliquez sur **Done** (Terminé). 
 
 ### <a name="activating-security-policy-changes"></a>Activation des modifications de stratégie de sécurité
 
@@ -451,11 +454,18 @@ Lors de cette étape, nous allons établir la connectivité avec Workday et Acti
 
 1. Fermez la section **Informations d’identification de l’administrateur**, comme suit :
 
-   * **Nom d'utilisateur administrateur** : entrez le nom d'utilisateur du compte du système d'intégration Workday, avec le nom de domaine du locataire. Le résultat doit ressembler à : **nom d’utilisateur\@nom_locataire**
+   * **Nom d'utilisateur Workday** : entrez le nom d'utilisateur du compte du système d'intégration Workday, avec le nom de domaine du locataire. Le résultat doit ressembler à : **nom d’utilisateur\@nom_locataire**
 
-   * **Mot de passe administrateur :** entrez le mot de passe du compte du système d'intégration Workday.
+   * **Mot de passe Workday :** entrez le mot de passe du compte du système d'intégration Workday.
 
-   * **URL du client :** entrez l'URL du point de terminaison des services web Workday de votre locataire. Cette URL doit être semblable à : https://wd3-impl-services1.workday.com/ccx/service/contoso4, où *contoso4* est remplacé par le nom de votre locataire et *wd3-impl* par la chaîne d'environnement qui convient.
+   * **URL de l'API Services web Workday :** entrez l'URL du point de terminaison des services web Workday de votre locataire. Cette URL doit être semblable à : `https://wd3-impl-services1.workday.com/ccx/service/contoso4`, où *contoso4* est remplacé par le nom de votre locataire et *wd3-impl* par la chaîne d'environnement qui convient.
+
+     > [!NOTE]
+     > Par défaut, l’application utilise Workday Web Services (WWS) v21.1 si aucune information de version n’est spécifiée dans l’URL. Pour utiliser une version spécifique de l’API WWS, utilisez le format d’URL : https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
+     > Exemple : `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0` <br>
+     
+     > [!NOTE]
+     > Si vous utilisez une API WWS v 30.0 ou version ultérieure, avant d’activer le travail d’approvisionnement, mettez à jour les **expressions API XPATH** sous **Mappage d’attributs -> Options avancées -> Modifier la liste d’attributs de Workday** en vous reportant à la section [Gestion de votre configuration](#managing-your-configuration) et aux [Informations de référence sur l’attribut Workday](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30).  
 
    * **Forêt Active Directory :** « nom » de votre domaine Active Directory, tel qu'il est inscrit auprès de l'agent. Utilisez le menu déroulant pour sélectionner le domaine cible à approvisionner. Cette valeur correspond généralement à une chaîne de type : *contoso.com*
 
@@ -552,7 +562,7 @@ Dans cette section, vous allez configurer le flux des données de l’utilisateu
 | **WorkerID**  |  EmployeeID | **Oui** | Écrit lors de la création uniquement |
 | **PreferredNameData**    |  cn    |   |   Écrit lors de la création uniquement |
 | **SelectUniqueValue( Join("\@", Join(".",  \[FirstName\], \[LastName\]), "contoso.com"), Join("\@", Join(".",  Mid(\[FirstName\], 1, 1), \[LastName\]), "contoso.com"), Join("\@", Join(".",  Mid(\[FirstName\], 1, 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | Écrit lors de la création uniquement 
-| **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Écrit lors de la création uniquement |
+| `Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )`      |    sAMAccountName            |     |         Écrit lors de la création uniquement |
 | **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | Créer + mettre à jour |
 | **FirstName**   | givenName       |     |    Créer + mettre à jour |
 | **LastName**   |   sn   |     |  Créer + mettre à jour |
@@ -607,11 +617,16 @@ Les sections suivantes décrivent les étapes à suivre afin de configurer l'app
 
 8. Fermez la section **Informations d’identification de l’administrateur**, comme suit :
 
-   * **Nom d’utilisateur de l’administrateur** : entrez le nom d’utilisateur du compte de système d’intégration Workday, avec le nom du domaine client ajouté. Le résultat doit être le suivant : username@contoso4
+   * **Nom d'utilisateur Workday** : entrez le nom d'utilisateur du compte du système d'intégration Workday, avec le nom de domaine du locataire. Le résultat doit être le suivant : username@contoso4
 
-   * **Mot de passe administrateur :** entrez le mot de passe du compte du système d'intégration Workday.
+   * **Mot de passe Workday :** entrez le mot de passe du compte du système d'intégration Workday.
 
-   * **URL du client :** entrez l'URL du point de terminaison des services web Workday de votre locataire. Cette URL doit être semblable à : https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources, où *contoso4* est remplacé par le nom de votre locataire et *wd3-impl* par la chaîne d'environnement qui convient. Si cette URL n’est pas connue, collaborez avec votre partenaire d’intégration Workday ou votre représentant du support technique pour déterminer l’URL appropriée à utiliser.
+   * **URL de l'API Services web Workday :** entrez l'URL du point de terminaison des services web Workday de votre locataire. Cette URL doit être semblable à : `https://wd3-impl-services1.workday.com/ccx/service/contoso4`, où *contoso4* est remplacé par le nom de votre locataire et *wd3-impl* par la chaîne d'environnement qui convient. Si cette URL n’est pas connue, collaborez avec votre partenaire d’intégration Workday ou votre représentant du support technique pour déterminer l’URL appropriée à utiliser.
+
+     > [!NOTE]
+     > Par défaut, l’application utilise Workday Web Services v21.1 si aucune information de version n’est spécifiée dans l’URL. Pour utiliser une version spécifique de l’API Workday Web Services, utilisez le format d’URL : https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
+     > Exemple : `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0`
+
 
    * **E-mail de notification :** entrez votre adresse e-mail et cochez la case « Envoyer un e-mail en cas de défaillance ».
 
@@ -708,7 +723,7 @@ Suivez ces instructions pour configurer l’écriture différée des adresses e-
 
    * **Mot de passe administrateur :** entrez le mot de passe du compte du système d'intégration Workday.
 
-   * **URL du client :**  entrez l’URL du point de terminaison des services web Workday pour votre client. Cette URL doit être semblable à : https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources, où *contoso4* est remplacé par le nom de votre locataire et *wd3-impl* par la chaîne d'environnement qui convient (si nécessaire).
+   * **URL du client :**  entrez l’URL du point de terminaison des services web Workday pour votre client. Cette URL doit être semblable à : `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources`, où *contoso4* est remplacé par le nom de votre locataire et *wd3-impl* par la chaîne d'environnement qui convient (si nécessaire).
 
    * **E-mail de notification :** entrez votre adresse e-mail et cochez la case « Envoyer un e-mail en cas de défaillance ».
 
@@ -807,9 +822,13 @@ Cette fonctionnalité n'est actuellement pas prise en charge. La solution de con
 
 La solution utilise actuellement les API Workday suivantes :
 
-* Get_Workers (v21.1) pour récupérer les informations relatives aux employés
-* Maintain_Contact_Information (v26.1) pour la fonctionnalité de réécriture des adresses e-mail professionnelles
-* Update_Workday_Account (v31.2) pour la fonctionnalité de réécriture des noms d’utilisateurs
+* Le format de l'**URL Workday Web Services API URL** utilisée dans la section **Informations d'identification de l'administrateur**, détermine la version d'API utilisée pour Get_Workers
+  * Si le format d’URL est : https://\#\#\#\#\.workday\.com/ccx/service/tenantName, l'API v21.1 est utilisée. 
+  * Si le format d’URL est : https://\#\#\#\#\.workday\.com/ccx/service/tenantName/Human\_Resources, l'API v21.1 est utilisée. 
+  * Si le format d’URL est : https://\#\#\#\#\.workday\.com/ccx/service/tenantName/Human\_Resources/v\#\#\.\#, la version d'API spécifiée est utilisée. (Exemple : si v34.0 est spécifiée, elle est utilisée.)  
+   
+* La fonctionnalité de réécriture des adresses e-mail Workday utilise Change_Work_Contact_Information (v30.0) 
+* La fonctionnalité de réécriture des noms d’utilisateurs Workday utilise Update_Workday_Account (v31.2) 
 
 #### <a name="can-i-configure-my-workday-hcm-tenant-with-two-azure-ad-tenants"></a>Puis-je configurer mon locataire Workday HCM avec deux locataires Azure AD ?
 
@@ -1239,7 +1258,7 @@ Il vous faut pour cela utiliser [Workday Studio](https://community.workday.com/s
 
 1. Téléchargez et installez [Workday Studio](https://community.workday.com/studio-download). Vous aurez besoin d’un compte Communauté Workday pour accéder au programme d’installation.
 
-2. Téléchargez le fichier WSDL Workday Human_Resources à partir de l'URL suivante : https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
+2. Téléchargez le fichier WSDL Workday **Human_Resources** spécifique à la version de l’API WWS que vous envisagez d’utiliser dans [l’annuaire Workday Web Services](https://community.workday.com/sites/default/files/file-hosting/productionapi/index.html)
 
 3. Lancez Workday Studio.
 
@@ -1259,7 +1278,7 @@ Il vous faut pour cela utiliser [Workday Studio](https://community.workday.com/s
 
 9. Sélectionnez **OK**.
 
-10. Dans le volet **Requête**, collez le code XML ci-dessous et définissez **Employee_ID** sur l'ID employé d'un utilisateur réel de votre locataire Workday. Sélectionnez un utilisateur dont l’attribut à extraire est rempli.
+10. Dans le volet de **Requête**, collez le code XML ci-dessous. Définissez **Employee_ID** sur l’ID d’employé d’un utilisateur réel de votre locataire Workday. Définissez **wd:version** sur la version de WWS que vous prévoyez d’utiliser. Sélectionnez un utilisateur dont l’attribut à extraire est rempli.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>

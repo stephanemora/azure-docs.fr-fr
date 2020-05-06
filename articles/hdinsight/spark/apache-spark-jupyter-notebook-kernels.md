@@ -1,20 +1,19 @@
 ---
 title: Noyaux pour bloc-notes Jupyter sur les clusters Spark dans Azure HDInsight
 description: Découvrez les noyaux PySpark, PySpark3 et Spark pour bloc-notes Jupyter qui sont disponibles avec les clusters Spark sur Azure HDInsight.
-keywords: bloc-notes jupyter sur spark,jupyter spark
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 03/20/2020
-ms.openlocfilehash: a04b8fee31ffa5280bc8ad0fca35495bb87e0e8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
+ms.date: 04/24/2020
+ms.openlocfilehash: f7f460b01674359847427296e4526fc5771658f0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064461"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82191955"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Noyaux pour Jupyter Notebook sur des clusters Apache Spark dans Azure HDInsight
 
@@ -53,7 +52,7 @@ Un cluster Apache Spark dans HDInsight. Pour obtenir des instructions, consulte
 
 Voici quelques avantages liés à l’utilisation des nouveaux noyaux avec bloc-notes Jupyter sur des clusters Spark HDInsight.
 
-- **Contextes prédéfinis**. Avec les noyaux **PySpark**, **PySpark3** ou **Spark**, vous n’avez pas besoin de définir les contextes Spark ou Hive explicitement avant de commencer à utiliser vos applications. Ils sont disponibles par défaut. Ces contextes sont les suivants :
+- **Contextes prédéfinis**. Avec les noyaux **PySpark**, **PySpark3** ou **Spark**, vous n’avez pas besoin de définir les contextes Spark ou Hive explicitement avant de commencer à utiliser vos applications. Ces contextes sont disponibles par défaut. Ces contextes sont les suivants :
 
   - **sc** : pour le contexte Spark
   - **sqlContext** : pour le contexte Hive
@@ -69,15 +68,15 @@ Voici quelques avantages liés à l’utilisation des nouveaux noyaux avec bloc-
 
     Le tableau suivant répertorie les différentes commandes magiques disponibles par le biais des noyaux.
 
-   | Commande magique | Exemple | Description |
+   | Commande magique |  Exemple | Description |
    | --- | --- | --- |
    | help |`%%help` |Génère une table de toutes les commandes magiques disponibles, accompagnées d’un exemple et d’une description |
    | info |`%%info` |Génère des informations de session pour le point de terminaison Livy actuel |
-   | CONFIGURER |`%%configure -f`<br>`{"executorMemory": "1000M"`<br>`"executorCores": 4`} |Configure les paramètres de création d’une session. L’indicateur de forçage (-f) est obligatoire si une session a déjà été créée, afin de garantir que la session est supprimée et recréée. Consultez la section [POST /sessions Request Body de Livy](https://github.com/cloudera/livy#request-body) pour obtenir la liste des paramètres valides. Les paramètres doivent être passés en tant que chaîne JSON et être spécifiés sur la ligne suivant la commande magique, comme indiqué dans l’exemple de colonne. |
+   | CONFIGURER |`%%configure -f`<br>`{"executorMemory": "1000M"`<br>`"executorCores": 4`} |Configure les paramètres de création d’une session. L’indicateur de forçage (`-f`) est obligatoire si une session a déjà été créée, afin de garantir que la session est supprimée et recréée. Consultez la section [POST /sessions Request Body de Livy](https://github.com/cloudera/livy#request-body) pour obtenir la liste des paramètres valides. Les paramètres doivent être passés en tant que chaîne JSON et être spécifiés sur la ligne suivant la commande magique, comme indiqué dans l’exemple de colonne. |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Exécute une requête Hive sur sqlContext. Si le paramètre `-o` est passé, le résultat de la requête est conservé dans le contexte Python %%local en tant que trame de données [Pandas](https://pandas.pydata.org/) . |
-   | local |`%%local`<br>`a=1` |Tout le code dans les lignes suivantes est exécuté localement. Le code doit être un code Python2 valide, même s’il ne correspond pas au noyau que vous utilisez. Donc, même si vous avez sélectionné les noyaux **PySpark3** ou **Spark** en créant le notebook, si vous utilisez la commande magique `%%local` dans une cellule, cette cellule doit uniquement comporter un code Python2 valide. |
+   | local |`%%local`<br>`a=1` |Tout le code dans les lignes suivantes est exécuté localement. Le code doit être un code Python2 valide, peu importe quel noyau vous utilisez. Donc, même si vous avez sélectionné les noyaux **PySpark3** ou **Spark** en créant le notebook, si vous utilisez la commande magique `%%local` dans une cellule, cette cellule doit uniquement comporter un code Python2 valide. |
    | logs |`%%logs` |Génère les journaux d’activité de la session Livy en cours. |
-   | supprimer |`%%delete -f -s <session number>` |Supprime une session spécifique du point de terminaison Livy actuel. Vous ne pouvez pas supprimer la session qui est lancée pour le noyau lui-même. |
+   | supprimer |`%%delete -f -s <session number>` |Supprime une session spécifique du point de terminaison Livy actuel. Vous ne pouvez pas supprimer la session qui est démarrée pour le noyau lui-même. |
    | cleanup |`%%cleanup -f` |Supprime toutes les sessions pour le point de terminaison Livy actuel, y compris la session de ce bloc-notes. L’indicateur de forçage -f est obligatoire. |
 
    > [!NOTE]  
@@ -89,11 +88,11 @@ Voici quelques avantages liés à l’utilisation des nouveaux noyaux avec bloc-
 
 La commande magique `%%sql` prend en charge différents paramètres qui vous permettent de contrôler le type de sortie que vous recevez quand vous exécutez des requêtes. Le tableau suivant répertorie les paramètres de sortie.
 
-| Paramètre | Exemple | Description |
+| Paramètre |  Exemple | Description |
 | --- | --- | --- |
 | -o |`-o <VARIABLE NAME>` |Utilisez ce paramètre pour conserver le résultat de la requête dans le contexte Python %%local en tant que trame de données [Pandas](https://pandas.pydata.org/) . Le nom de la variable dataframe est le nom de variable que vous spécifiez. |
 | -q |`-q` |Utilisez ce paramètre pour désactiver les visualisations pour la cellule. Si vous ne voulez pas visualiser automatiquement le contenu d’une cellule et préférez simplement capturer le contenu comme une trame de données, utilisez `-q -o <VARIABLE>`. Si vous souhaitez désactiver les visualisations sans capturer les résultats (par exemple, pour exécuter une requête SQL, comme une instruction `CREATE TABLE`), utilisez `-q` sans spécifier d’argument `-o`. |
-| -M |`-m <METHOD>` |**METHOD** prend la valeur **take** ou **sample** (**take** est la valeur par défaut). Si la méthode est **take**, le noyau sélectionne des éléments à partir du haut du jeu de données de résultats spécifié par la valeur MAXROWS (décrite plus bas dans ce tableau). Si la méthode est **sample**, le noyau échantillonne de façon aléatoire les éléments du jeu de données en fonction du paramètre `-r` (décrit ci-après dans ce tableau). |
+| -M |`-m <METHOD>` |**METHOD** prend la valeur **take** ou **sample** (**take** est la valeur par défaut). Si la méthode est **`take`** , le noyau sélectionne des éléments à partir du haut du jeu de données de résultats spécifié par la valeur MAXROWS (décrite plus bas dans ce tableau). Si la méthode est **sample**, le noyau échantillonne de façon aléatoire les éléments du jeu de données en fonction du paramètre `-r` (décrit ci-après dans ce tableau). |
 | -r |`-r <FRACTION>` |Ici, **FRACTION** est un nombre à virgule flottante compris entre 0,0 et 1,0. Si l’exemple de méthode de la requête SQL est `sample`, le noyau échantillonne de façon aléatoire la fraction spécifiée des éléments du jeu de résultats. Par exemple, si vous exécutez une requête SQL avec les arguments `-m sample -r 0.01`, 1 % des lignes de résultat sont échantillonnées de façon aléatoire. |
 | -n |`-n <MAXROWS>` |**MAXROWS** est une valeur entière. Le noyau limite le nombre de lignes de la sortie au nombre défini par **MAXROWS**. Si **MAXROWS** est un nombre négatif comme **-1**, le nombre de lignes dans le jeu de résultats n’est pas limité. |
 
@@ -111,22 +110,22 @@ L’instruction ci-dessus effectue les actions suivantes :
 
 ## <a name="considerations-while-using-the-new-kernels"></a>Points à prendre en compte lors de l'utilisation des nouveaux noyaux
 
-Quel que soit le noyau que vous utilisez, laisser les blocs-notes s’exécuter consomme vos ressources de cluster.  Étant donné que les contextes sont prédéfinis, le simple fait de quitter les notebooks avec ces noyaux n’arrête pas le contexte. Par conséquent, les ressources du cluster restent en cours d’utilisation. Une bonne pratique consiste à utiliser l’option **Fermer et arrêter** à partir du menu **Fichier** du notebook lorsque vous avez fini d’utiliser le notebook, ce qui supprime le contexte puis quitte le notebook.
+Quel que soit le noyau que vous utilisez, laisser les blocs-notes s’exécuter consomme vos ressources de cluster.  Étant donné que les contextes sont prédéfinis, le simple fait de quitter les notebooks avec ces noyaux n’arrête pas le contexte. Par conséquent, les ressources du cluster restent en cours d’utilisation. Une bonne pratique consiste à utiliser l’option **Fermer et arrêter** à partir du menu **Fichier** du notebook lorsque vous avez fini d’utiliser le notebook. Cette fermeture supprime le contexte puis ferme le bloc-notes.
 
 ## <a name="where-are-the-notebooks-stored"></a>Où sont stockés les blocs-notes ?
 
-Si votre cluster utilise le stockage Azure comme compte de stockage par défaut, les bloc-notes Jupyter sont enregistrés dans le compte de stockage sous le dossier **/HdiNotebooks**.  Les blocs-notes, les fichiers texte et les dossiers que vous créez dans Jupyter sont accessibles à partir du compte de stockage.  Par exemple, si vous utilisez Jupyter pour créer un dossier **myfolder** et un bloc-notes **myfolder/mynotebook.ipynb**, vous pouvez accéder à ce bloc-notes dans `/HdiNotebooks/myfolder/mynotebook.ipynb` au sein du compte de stockage.  L’inverse est également vrai : si vous chargez un bloc-notes directement dans votre compte de stockage dans `/HdiNotebooks/mynotebook1.ipynb`, le bloc-notes est également accessible à partir de Jupyter.  Les blocs-notes sont conservés dans le compte de stockage même après la suppression du cluster.
+Si votre cluster utilise le stockage Azure comme compte de stockage par défaut, les bloc-notes Jupyter sont enregistrés dans le compte de stockage sous le dossier **/HdiNotebooks**.  Les blocs-notes, les fichiers texte et les dossiers que vous créez dans Jupyter sont accessibles à partir du compte de stockage.  Par exemple, si vous utilisez Jupyter pour créer un dossier **`myfolder`** et un bloc-notes **myfolder/mynotebook.ipynb**, vous pouvez accéder à ce bloc-notes dans `/HdiNotebooks/myfolder/mynotebook.ipynb` au sein du compte de stockage.  L’inverse est également vrai : si vous chargez un bloc-notes directement dans votre compte de stockage dans `/HdiNotebooks/mynotebook1.ipynb`, le bloc-notes est également accessible à partir de Jupyter.  Les blocs-notes sont conservés dans le compte de stockage même après la suppression du cluster.
 
 > [!NOTE]  
 > Les clusters HDInsight utilisant Azure Data Lake Storage comme stockage par défaut ne stockent pas les bloc-notes dans le stockage associé.
 
-Les blocs-notes sont enregistrés dans le compte de stockage dans un mode compatible avec [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html). Si vous utilisez SSH dans le cluster, vous pouvez donc exécuter des commandes de gestion des fichiers telles que celles de l’extrait de code suivant :
+Les blocs-notes sont enregistrés dans le compte de stockage dans un mode compatible avec [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html). Si vous utilisez SSH dans le cluster, vous pouvez exécuter des commandes de gestion des fichiers :
 
     hdfs dfs -ls /HdiNotebooks                            # List everything at the root directory – everything in this directory is visible to Jupyter from the home page
     hdfs dfs –copyToLocal /HdiNotebooks                   # Download the contents of the HdiNotebooks folder
     hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it's visible from Jupyter
 
-Que le cluster utilise le stockage Azure ou Azure Data Lake Storage comme compte de stockage par défaut, les bloc-notes sont aussi enregistrés sur le nœud principal du cluster à l’emplacement `/var/lib/jupyter`.
+Que le cluster utilise le stockage Azure ou Azure Data Lake Storage comme compte de stockage par défaut, les blocs-notes sont aussi enregistrés sur le nœud principal du cluster à l’emplacement `/var/lib/jupyter`.
 
 ## <a name="supported-browser"></a>Navigateur pris en charge
 
@@ -134,33 +133,11 @@ Les blocs-notes Jupyter sur clusters Spark HDInsight sont pris en charge uniquem
 
 ## <a name="feedback"></a>Commentaires
 
-Les nouveaux noyaux sont en phase d’évolution et gagneront en maturité avec le temps. Les API pourront également être amenés à évoluer au fur et à mesure des évolutions des noyaux. Nous aimerions recevoir vos commentaires concernant l'utilisation de ces nouveaux noyaux. Cela nous est utile pour préparer la version finale de ces noyaux. Vous pouvez laisser vos commentaires dans la section **Commentaires** en bas de cet article.
+Les nouveaux noyaux sont en phase d’évolution et gagneront en maturité avec le temps. Les API pourront donc évoluer au fur et à mesure des évolutions des noyaux. Nous aimerions recevoir vos commentaires concernant l'utilisation de ces nouveaux noyaux. Ce retour nous est utile pour préparer la version finale de ces noyaux. Vous pouvez laisser vos commentaires dans la section **Commentaires** en bas de cet article.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Vue d’ensemble : Apache Spark sur Azure HDInsight](apache-spark-overview.md)
-
-### <a name="scenarios"></a>Scénarios
-
-- [Apache Spark avec BI : effectuer une analyse interactive des données à l’aide de Spark sur HDInsight avec des outils décisionnels](apache-spark-use-bi-tools.md)
-- [Apache Spark avec Machine Learning : utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide des données des systèmes HVAC](apache-spark-ipython-notebook-machine-learning.md)
-- [Apache Spark avec Machine Learning : utiliser Spark dans HDInsight pour prédire les résultats de l’inspection d’aliments](apache-spark-machine-learning-mllib-ipython.md)
-- [Analyse des journaux de site web à l’aide d’Apache Spark dans HDInsight](apache-spark-custom-library-website-log-analysis.md)
-
-### <a name="create-and-run-applications"></a>Création et exécution d’applications
-
-- [Créer une application autonome avec Scala](apache-spark-create-standalone-application.md)
-- [Exécuter des tâches à distance avec Apache Livy sur un cluster Apache Spark](apache-spark-livy-rest-interface.md)
-
-### <a name="tools-and-extensions"></a>Outils et extensions
-
-- [Utilisation du plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](apache-spark-intellij-tool-plugin.md)
-- [Utiliser le plug-in Azure HDInsight Tools pour IntelliJ IDEA afin de déboguer des applications Apache Spark à distance](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 - [Utiliser des blocs-notes Apache Zeppelin avec un cluster Apache Spark sur HDInsight](apache-spark-zeppelin-notebook.md)
 - [Utiliser des packages externes avec les blocs-notes Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 - [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](apache-spark-jupyter-notebook-install-locally.md)
-
-### <a name="manage-resources"></a>Gestion des ressources
-
-- [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](apache-spark-resource-manager.md)
-- [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](apache-spark-job-debugging.md)

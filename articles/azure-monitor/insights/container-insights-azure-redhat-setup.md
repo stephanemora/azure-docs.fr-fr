@@ -1,18 +1,18 @@
 ---
-title: Configurer des clusters Azure Red Hat OpenShift avec Azure Monitor pour les conteneurs | Microsoft Docs
-description: Cet article explique comment configurer la supervision d’un cluster Kubernetes avec Azure Monitor hébergé sur Azure Red Hat OpenShift.
+title: Configurer Azure Red Hat OpenShift v3.x avec Azure Monitor pour les conteneurs | Microsoft Docs
+description: Cet article explique comment configurer la supervision d’un cluster Kubernetes avec Azure Monitor hébergé sur Azure Red Hat OpenShift versions 3 et ultérieures.
 ms.topic: conceptual
-ms.date: 02/12/2020
-ms.openlocfilehash: c2fd3568be2c51296bb1377e91031ebfb7ca6ee3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: c39eda03fc5fb7521bcf08c52eaabc28d4cb1256
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234557"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204132"
 ---
-# <a name="configure-azure-red-hat-openshift-clusters-with-azure-monitor-for-containers"></a>Configurer des clusters Azure Red Hat OpenShift avec Azure Monitor pour les conteneurs
+# <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Configurer Azure Red Hat OpenShift v3.x avec Azure Monitor pour les conteneurs
 
-Azure Monitor pour les conteneurs offre une expérience d’analyse riche pour les clusters Azure Kubernetes Service (AKS) et Moteur AKS. Cet article explique comment activer la surveillance des clusters Kubernetes hébergés [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) pour obtenir une expérience de surveillance similaire.
+Azure Monitor pour les conteneurs offre une expérience d’analyse riche pour les clusters Azure Kubernetes Service (AKS) et Moteur AKS. Cet article explique comment activer la supervision des clusters Kubernetes hébergés sur [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 3.x et dernière évolution prise en charge de la version 3 pour obtenir une expérience de supervision similaire.
 
 >[!NOTE]
 >La prise en charge d’Azure Red Hat OpenShift est actuellement une fonctionnalité en préversion publique.
@@ -30,7 +30,7 @@ Azure Monitor pour conteneurs prend en charge la surveillance d’Azure Red Hat 
 - Données actives (préversion)
 - [Collecter les métriques](container-insights-update-metrics.md) à partir des nœuds de cluster et des Pod, et les stocker dans la base de données de métriques Azure Monitor
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Pour activer et accéder aux fonctionnalités d’Azure Monitor pour les conteneurs, vous devez au minimum être membre du rôle Azure *Contributeur* dans l’abonnement Azure et membre du rôle [*Contributeur Log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) de l’espace de travail Log Analytics configuré avec Azure Monitor pour les conteneurs.
 
@@ -38,7 +38,7 @@ Azure Monitor pour conteneurs prend en charge la surveillance d’Azure Red Hat 
 
 ## <a name="enable-for-a-new-cluster-using-an-azure-resource-manager-template"></a>Activer pour un nouveau cluster à l’aide d’un modèle Resource Manager
 
-Effectuez les étapes suivantes pour déployer un cluster Azure Red Hat OpenShift avec la surveillance activée. Avant de continuer, consultez le didacticiel [Créer un cluster Azure Red Hat OpenShift](../../openshift/tutorial-create-cluster.md#prerequisites) pour comprendre les dépendances que vous devez configurer afin que votre environnement soit correctement configuré.
+Effectuez les étapes suivantes pour déployer un cluster Azure Red Hat OpenShift avec la surveillance activée. Avant de continuer, consultez le didacticiel [Créer un cluster Azure Red Hat OpenShift](../../openshift/tutorial-create-cluster.md) pour comprendre les dépendances que vous devez configurer afin que votre environnement soit correctement configuré.
 
 Cette méthode inclut deux modèles JSON. Le premier modèle spécifie la configuration permettant de déployer le cluster avec la surveillance activée, tandis que l’autre modèle contient des valeurs de paramètre que vous configurez pour spécifier les éléments suivants :
 
@@ -204,5 +204,9 @@ L’espace de travail Log Analytics doit être créé avant d’activer la surv
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Une fois l’analyse activée pour collecter l’utilisation des ressources et l’intégrité de votre cluster Red Hat OpenShift et charges de travail s’y exécutant, découvrez [comment utiliser](container-insights-analyze.md) Azure Monitor pour les conteneurs.
+
+- Par défaut, l’agent conteneurisé collecte les journaux de conteneurs stdout/ stderr de tous les conteneurs en cours d’exécution dans tous les espaces de noms, sauf kube-system. Pour configurer la collecte des journaux de conteneurs spécifiques d’un ou plusieurs espaces de noms particuliers, consultez [Configurer la collecte de données de l’agent pour Azure Monitor pour conteneurs](container-insights-agent-config.md) afin de configurer les paramètres de collecte de données souhaités dans votre fichier de configurations ConfigMap.
+
+- Pour scraper et analyser des métriques Prometheus à partir de votre cluster, consultez [Configurer la capture des métriques Prometheus avec Azure Monitor pour conteneurs](container-insights-prometheus-integration.md).
 
 - Pour savoir comment arrêter la surveillance de votre cluster avec Azure Monitor pour conteneurs, consultez [Comment arrêter la surveillance de votre cluster Azure Red Hat OpenShift](container-insights-optout-openshift.md).

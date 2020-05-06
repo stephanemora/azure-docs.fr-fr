@@ -3,12 +3,12 @@ title: Sauvegarder des partages de fichiers Azure dans le portail Azure
 description: Découvrir comment utiliser le portail Azure pour sauvegarder des partages de fichiers Azure sauvegardés dans le coffre Recovery Services
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: c1dea6925bad96be178f875567077fafa4db9326
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: da2c7fa4cc5c3b7b948604a6f6d3999671cb3697
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76938161"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82101278"
 ---
 # <a name="back-up-azure-file-shares-in-a-recovery-services-vault"></a>Sauvegarder des partages de fichiers Azure dans un coffre Recovery Services
 
@@ -20,22 +20,10 @@ Dans cet article, vous allez apprendre à :
 * Détectez les partages de fichiers et configurez les sauvegardes.
 * Exécutez un travail de sauvegarde à la demande pour créer un point de restauration.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Identifiez ou créez un [coffre Recovery Services](#create-a-recovery-services-vault) dans la même région que le compte de stockage hébergeant le partage de fichiers.
-* Assurez-vous que le partage de fichiers est présent dans l’un des [types de comptes de stockage pris en charge](#limitations-for-azure-file-share-backup-during-preview).
-
-## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limites des sauvegardes de partage de fichiers Azure dans la préversion
-
-La sauvegarde de partages de fichiers Azure est disponible en préversion. Les partages de fichiers Azure dans les comptes de stockage v1 et v2 universels sont pris en charge. Voici les limitations liées à la sauvegarde des partages de fichiers Azure :
-
-* La prise en charge de la sauvegarde des partages de fichiers Azure dans des comptes de stockage avec réplication de [stockage redondant interzone](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) (ZRS) est actuellement limitée à [ces régions](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#in-which-geos-can-i-back-up-azure-file-shares).
-* Sauvegarde Azure prend actuellement en charge la configuration de sauvegardes planifiées une fois par jour des partages de fichiers Azure.
-* Vous pouvez effectuer une seule sauvegarde planifiée par jour.
-* Vous pouvez effectuer quatre sauvegardes à la demande par jour maximum.
-* Utilisez les [verrous de ressources](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) sur le compte de stockage pour empêcher la suppression accidentelle des sauvegardes de votre coffre Recovery Services.
-* Ne supprimez pas d’instantanés créés par Sauvegarde Azure. La suppression d’instantanés peut provoquer une perte de points de récupération ou des échecs de restauration.
-* Ne supprimez pas de partages de fichiers protégés par Sauvegarde Azure. La solution actuelle supprime tous les instantanés pris par Sauvegarde Azure une fois le partage de fichiers supprimé, entraînant la perte de tous les points de restauration.
+* Assurez-vous que le partage de fichiers est présent dans l’un des [types de comptes de stockage pris en charge](azure-file-share-support-matrix.md).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -80,19 +68,22 @@ Modifiez le type de réplication de stockage :
 
 1. Lorsque vous sélectionnez **Sauvegarde**, le panneau **Sauvegarde** s’ouvre et vous invite à sélectionner un compte de stockage dans la liste des comptes de stockage pris en charge découverts. Ceux-ci sont associés à ce coffre ou présents dans la même région que le coffre, mais pas encore associés à un coffre Recovery Services.
 
-   ![Sélectionner le compte de stockage](./media/backup-afs/select-storage-account.png)
-
 1. Dans la liste des comptes de stockage détectés, sélectionnez un compte, puis **OK**. Azure recherche dans le compte de stockage les partages de fichiers qui peuvent être sauvegardés. Si vous avez récemment ajouté vos partages de fichiers et ne les voyez pas dans la liste, patientez un peu jusqu’à ce qu’ils s’affichent.
 
     ![Découverte de partages de fichiers](./media/backup-afs/discovering-file-shares.png)
 
 1. Dans la liste **Partages de fichiers**, sélectionnez un ou plusieurs partages de fichiers à sauvegarder. Sélectionnez **OK**.
 
+   ![Sélectionner les partages de fichiers](./media/backup-afs/select-file-shares.png)
+
 1. Une fois vos partages de fichiers choisis, le menu **Sauvegarde** bascule vers **Stratégie de sauvegarde**. Dans ce menu, sélectionnez ou créez une stratégie de sauvegarde. Sélectionnez **Activer la sauvegarde**.
 
     ![Sélectionner la stratégie de sauvegarde](./media/backup-afs/select-backup-policy.png)
 
 Une fois que vous avez défini une stratégie de sauvegarde, un instantané des partages de fichiers est pris à l’heure planifiée. Le point de récupération est également conservé pendant la période choisie.
+
+>[!NOTE]
+>Sauvegarde Azure prend désormais en charge les stratégies de conservation quotidienne, hebdomadaire, mensuelle et annuelle pour la sauvegarde des fichiers partagés Azure.
 
 ## <a name="create-an-on-demand-backup"></a>Créer une sauvegarde à la demande
 
@@ -122,10 +113,20 @@ Vous pouvez occasionnellement générer un instantané de sauvegarde ou un point
 
 1. Cliquez sur **OK** pour confirmer l’exécution du travail de sauvegarde à la demande.
 
-1. Surveillez les notifications du portail pour conserver une trace de la bonne exécution des tâches de sauvegarde. Vous pouvez surveiller la progression du travail dans le tableau de bord du coffre. Sélectionnez **Travaux de sauvegarde** > **En cours**.
+1. Surveillez les notifications du portail pour conserver une trace de la bonne exécution des tâches de sauvegarde. Vous pouvez surveiller la progression du travail dans le tableau de bord du coffre. Sélectionnez **Travaux de sauvegarde** ** > En cours**.
+
+>[!NOTE]
+>Sauvegarde Azure verrouille le compte de stockage lorsque vous configurez la protection pour tout partage de fichiers dans le compte correspondant. Cette méthode offre une protection contre la suppression accidentelle d'un compte de stockage avec des partages de fichiers sauvegardés.
+
+## <a name="best-practices"></a>Meilleures pratiques
+
+* Ne supprimez pas d’instantanés créés par Sauvegarde Azure. La suppression d’instantanés peut provoquer une perte de points de récupération et/ou des échecs de restauration.
+
+* Ne supprimez pas le verrou effectué par Sauvegarde Azure au niveau du compte de stockage. Si vous supprimez le verrou, votre compte de stockage risque d’être supprimé accidentellement et, dans ce cas, vous perdrez vos instantanés ou vos sauvegardes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment :
+
 * [Restaurer des partages de fichiers Azure](restore-afs.md)
 * [Gérer les sauvegardes de partage de fichiers Azure](manage-afs-backup.md)

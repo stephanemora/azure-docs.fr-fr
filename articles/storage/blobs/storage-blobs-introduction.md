@@ -1,5 +1,6 @@
 ---
-title: Introduction au Stockage (d’objets) Blob – Stockage Azure
+title: Introduction au Stockage (d’objets) Blob
+titleSuffix: Azure Storage
 description: Le stockage Blob Azure stocke de grandes quantités de données d’objet non structurées, telles que des données texte ou binaires. Le stockage Blob Azure est hautement évolutif et disponible. Les clients peuvent accéder aux objets de données dans le stockage Blob avec PowerShell ou Azure CLI, par programmation via des bibliothèques clientes de stockage Azure, ou par REST.
 services: storage
 author: tamram
@@ -8,12 +9,12 @@ ms.topic: overview
 ms.date: 03/18/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f7d1967c8a9585fbf5131da986595761030f0e5f
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 084b364f4a1414febb7b6f11c9cf70958ee823c4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631999"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82176667"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Présentation du Stockage Blob Azure
 

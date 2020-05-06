@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ad821036047dcf46821b2b2722e3dd17f8e318c2
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 5d2d33dc2ef135fde0955336a40f851d6ed4e0e7
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80386091"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82204430"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>L’utilisateur doit-il disposer d’une architecture hub-and-spoke avec des appareils SD-WAN/VPN pour utiliser Azure Virtual WAN ?
 
@@ -49,7 +49,7 @@ Il existe deux options pour ajouter des serveurs DNS pour les clients P2S.
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>Pour un VPN utilisateur (point à site), combien de clients sont pris en charge ?
 
-Chaque passerelle P2S VPN utilisateur compte deux instances, chacune d’elles prenant en charge un certain nombre d’utilisateurs à mesure que l’unité d’échelle change. L’unité d’échelle 1-3 prend en charge 500 connexions, l’unité d’échelle 4-6 1 000 connexions, l’unité d’échelle 7-10 5 000 connexions et l’unité d’échelle 11+ jusqu’à 10 000 connexions. Supposons que l’utilisateur choisisse l’unité d’échelle 1. Chaque unité d’échelle implique le déploiement d’une passerelle active-active. Dans ce cas, chacune des 2 instances prend en charge jusqu’à 500 connexions. Étant donné que vous pouvez obtenir 500 connexions * 2 par passerelle, cela ne signifie pas que vous devez planifier 1 000 connexions au lieu des 500 pour cette unité d’échelle. En effet, il peut être nécessaire de réparer les instances, ce qui peut entraîner l’interruption de la connectivité pour les 500 connexions supplémentaires si vous dépassez le nombre recommandé.
+Chaque passerelle P2S VPN utilisateur compte deux instances, chacune d’elles prenant en charge un certain nombre d’utilisateurs à mesure que l’unité d’échelle change. L’unité d’échelle 1-3 prend en charge 500 connexions, l’unité d’échelle 4-6 1 000 connexions, l’unité d’échelle 7-12 5 000 connexions et l’unité d’échelle 13-20 jusqu’à 10 000 connexions. Supposons que l’utilisateur choisisse l’unité d’échelle 1. Chaque unité d’échelle implique le déploiement d’une passerelle active-active. Dans ce cas, chacune des 2 instances prend en charge jusqu’à 500 connexions. Étant donné que vous pouvez obtenir 500 connexions * 2 par passerelle, cela ne signifie pas que vous devez planifier 1 000 connexions au lieu des 500 pour cette unité d’échelle. En effet, il peut être nécessaire de réparer les instances, ce qui peut entraîner l’interruption de la connectivité pour les 500 connexions supplémentaires si vous dépassez le nombre recommandé.
 
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Quelle est la différence entre une passerelle de réseau virtuel Azure (passerelle VPN) et une passerelle VPN Azure Virtual WAN ?
 
@@ -131,6 +131,8 @@ Oui. Consultez la page [Tarification](https://azure.microsoft.com/pricing/detail
 
 * Si vous aviez une passerelle ExpressRoute en raison des circuits ExpressRoute qui se connectent à un hub virtuel, vous payez le prix unitaire d’échelle. Chaque unité d’échelle dans ER est de 2 Gbits/s et chaque unité de connexion est facturée au même taux que l’unité de connexion VPN.
 
+* Si des réseaux virtuels en étoile (Spoke) étaient connectés au hub, les frais d’appairage au niveau de ces derniers s’appliquent toujours. 
+
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>Comment les nouveaux partenaires qui ne figurent pas dans votre liste de partenaires de lancement sont-ils intégrés ?
 
 Toutes les API de réseau étendu virtuel sont des API ouvertes. Vous pouvez consulter la documentation pour évaluer la faisabilité technique. Si vous avez des questions, envoyez un e-mail à azurevirtualwan@microsoft.com. Un partenaire idéal dispose d’un appareil qui peut être approvisionné pour une connectivité IPsec IKEv1 ou IKEv2.
@@ -206,6 +208,17 @@ Oui. Une connexion Internet et un appareil physique qui prend en charge IPsec, d
 ### <a name="how-do-i-enable-default-route-00000-in-a-connection-vpn-expressroute-or-virtual-network"></a>Comment activer l’itinéraire par défaut (0.0.0.0/0) dans une connexion (VPN, ExpressRoute ou Réseau virtuel Microsoft Azure) :
 
 Un hub virtuel peut propager un itinéraire par défaut appris à une connexion de réseau virtuel/VPN site à site/ExpressRoute si l’indicateur est « Activé » sur la connexion. Cet indicateur est visible lorsque l’utilisateur modifie une connexion de réseau virtuel, une connexion VPN ou une connexion ExpressRoute. Par défaut, cet indicateur est désactivé lorsqu’un site ou un circuit ExpressRoute est connecté à un hub. Il est activé par défaut lorsqu’une connexion de réseau virtuel est ajoutée pour connecter un réseau virtuel à un hub virtuel. L’itinéraire par défaut ne provient pas du hub Virtual WAN ; il est propagé s’il est déjà appris par le hub Virtual WAN suite au déploiement d’un pare-feu dans le hub, ou si le tunneling forcé est activé sur un autre site connecté.
+
+### <a name="how-does-the-virtual-hub-in-a-virtual-wan-select-the-best-path-for-a-route-from-multiple-hubs"></a>Comment le hub virtuel d’un réseau étendu virtuel sélectionne le meilleur chemin pour une route à partir de plusieurs hubs ?
+
+Si un hub virtuel apprend la même route à partir de plusieurs hubs distants, l’ordre dans lequel il prend sa décision est le suivant :
+1) Origine de la route a) Routes réseau : préfixes de réseau virtuel directement appris par les passerelles de hub virtuel b) Table de routage de hub (routes configurées statiquement)  c) BGP  d) Routes interhubs
+2)  Métrique de la route : le réseau étendu virtuel privilégie ExpressRoute à VPN. Le pair ExpressRoute pèse plus lourd que le pair VPN
+3)  Longueur des chemins entre les systèmes autonomes
+
+### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>IPv6 est-il pris en charge dans Virtual WAN ?
+
+IPv6 n’est pas pris en charge dans le hub Virtual WAN et ses passerelles. Si vous disposez d’un réseau virtuel qui prend en charge IPv6 et que vous voulez le connecter à Virtual WAN, ce scénario n’est pas non plus pris en charge. 
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Quelles sont les différences entre les types de Virtual WAN (de base et standard) ?
 

@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
-ms.openlocfilehash: 33c85752903edd618044ccbab06aff7df9a791da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9cfb44fbf84ad85f3e2684dfec21cc83d4aaa666
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74046195"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82131251"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Résoudre les problèmes liés au pare-feu d’applications web (WAF) pour Azure Application Gateway
 
@@ -178,7 +178,7 @@ Il s’agit d’un champ que vous pouvez exclure. Pour en savoir plus sur les li
 
 ![Exclusion du WAF](../media/web-application-firewall-troubleshoot/waf-exclusion-02.png)
 
-L’examen des journaux du pare-feu peut vous renseigner sur les éléments que vous devez ajouter à la liste d’exclusion. Pour activer la journalisation, consultez [Intégrité du serveur principal, journaux de diagnostic et métriques pour la passerelle Application Gateway](../../application-gateway/application-gateway-diagnostics.md).
+L’examen des journaux du pare-feu peut vous renseigner sur les éléments que vous devez ajouter à la liste d’exclusion. Pour activer la journalisation, consultez [Intégrité du serveur principal, journaux de ressources et métriques pour la passerelle Application Gateway](../../application-gateway/application-gateway-diagnostics.md).
 
 Examinez le journal du pare-feu et consultez le fichier PT1H.json correspondant à l’heure à laquelle s’est produite la demande que vous voulez inspecter.
 

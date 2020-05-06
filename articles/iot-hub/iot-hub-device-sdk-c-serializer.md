@@ -8,12 +8,13 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: robinsh
-ms.openlocfilehash: dfea53e62383409411925f2fe2f18d61a6855ec1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: amqp
+ms.openlocfilehash: d4916d651638f0d1dbb4f10e0e0732f5c330d300
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75429381"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81767012"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Kit de développement logiciel (SDK) Azure IoT device pour C : en savoir plus sur serializer
 
@@ -270,7 +271,7 @@ static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned 
 }
 ```
 
-Ce code est un sous-ensemble de l’outil d’assistance **SendAsync** décrit dans la section précédente. Nous n’allons donc pas revenir dessus.
+Ce code est un sous-ensemble de l’assistance **SendAsync** décrite dans la section précédente. Nous ne reviendrons donc pas dessus.
 
 Lorsque nous exécutons le code précédent pour envoyer l’événement de température, ce format sérialisé de l’événement est envoyé à IoT Hub :
 
@@ -291,7 +292,7 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Humidity) == IOT_AGENT
 }
 ```
 
-Le format sérialisé envoyé à IoT Hub se présente comme suit :
+Le formulaire sérialisé envoyé à IoT Hub se présente comme suit :
 
 ```C
 {"Humidity":45, "Time":"2015-09-17T18:45:56Z"}
@@ -317,7 +318,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 
 Dans ce cas, nous avons éliminé les macros **DECLARE\_STRUCT** et nous définissons simplement les éléments de données à partir de notre scénario à l’aide de types simples du langage de modélisation.
 
-Pour le moment, ignorez l’événement **Time**. Ceci mis à part, voici le code pour entrer l’événement **Temperature**:
+Pour le moment, ignorez l’événement **Time**. Ceci mis à part, voici le code permettant d’entrer l’événement **Temperature** :
 
 ```C
 time_t now;
@@ -369,7 +370,7 @@ L’on peut supposer que le résultat de ce code est l’envoi de deux événeme
 
 [ {"Temperature":75}, {"Humidity":45} ]
 
-En d’autres termes, vous pouvez vous attendre à ce que ce code soit identique à l’envoi de **Temperature** et de **Humidity** séparément. C’est pour des raisons de commodité que nous transmettons les événements à **SERIALISER** dans le même appel. Toutefois, ce n’est pas le cas. Au lieu de cela, le code ci-dessus envoie cet événement de données unique à IoT Hub :
+En d’autres termes, vous pouvez vous attendre à ce que ce code soit identique à l’envoi de **Temperature** et de **Humidity** séparément. C’est pour des raisons de commodité que nous transmettons les deux événements à **SERIALIZE** dans le même appel. Toutefois, ce n’est pas le cas. Au lieu de cela, le code ci-dessus envoie cet événement de données unique à IoT Hub :
 
 {"Temperature":75, "Humidity":45}
 
@@ -437,7 +438,7 @@ Ici, le point important est que si vous transmettez plusieurs événements de do
 
 La meilleure façon de faire dépend de vous et de la façon dont vous pensez votre modèle. Si vous envoyez des « événements » dans le cloud et que chaque événement contient un ensemble défini de propriétés, la première approche est judicieuse. Dans ce cas, vous utiliseriez **DECLARE\_STRUCT** pour définir la structure de chaque événement et l’inclure dans votre modèle avec la macro **WITH\_DATA**. Vous envoyez ensuite chaque événement, comme nous l’avons fait dans le premier exemple ci-dessus. Dans cette approche, vous transmettez un seul événement de données à **SERIALIZER**.
 
-Si vous envisagez votre modèle comme un modèle orienté objet, la seconde approche peut vous correspondre. Dans ce cas, les éléments définis à l’aide de **WITH\_DATA** sont les « propriétés » de votre objet. Vous transmettez à **SERIALIZE** n’importe quel sous-ensemble d’événements de votre choix, selon la quantité de votre « objet » à envoyer dans le cloud.
+Si vous envisagez votre modèle comme un modèle orienté objet, la seconde approche peut vous correspondre. Dans ce cas, les éléments définis à l’aide de **WITH\_DATA** sont les « propriétés » de votre objet. Vous transmettez à **SERIALIZE** n’importe quel sous-ensemble d’événements de votre choix, en fonction de la proportion de votre « objet » à envoyer dans le cloud.
 
 Aucune approche n’est meilleure que l’autre. Sachez que la bibliothèque **serializer** fonctionne ainsi et sélectionnez l’approche de modélisation qui correspond le mieux à vos besoins.
 
@@ -653,7 +654,7 @@ serializer_init(NULL);
 
 Cet appel doit être effectué juste avant l’appel de **IoTHubClient\_CreateFromConnectionString**.
 
-De même, quand vous avez fini d’utiliser la bibliothèque, le dernier appel effectué est normalement l’appel de **serializer\_deinit** :
+De même, quand vous avez fini d’utiliser la bibliothèque, le dernier appel effectué est normalement l’appel **serializer\_deinit** :
 
 ```C
 serializer_deinit();

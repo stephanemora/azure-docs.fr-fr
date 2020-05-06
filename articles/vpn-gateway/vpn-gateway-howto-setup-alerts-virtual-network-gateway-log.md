@@ -1,28 +1,28 @@
 ---
-title: 'Passerelle VPN Azure : Configurer des alertes pour les événements du journal de diagnostic'
-description: Étapes de configuration des alertes sur les événements des journaux de diagnostic de la passerelle VPN
+title: 'Passerelle VPN Azure : Configurer des alertes sur des événements de journalisation de ressource de diagnostic'
+description: Étapes de configuration d’alertes sur des événements de journalisation de ressource de diagnostic de la passerelle VPN
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 49510b26e0b2a9c69dd65faf0f343e86d1a068db
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 95c55242baf2ceb3620ed71026af2bad0195c22d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878899"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82127979"
 ---
-# <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>Configurer des alertes sur les événements des journaux de diagnostic à partir de la passerelle VPN
+# <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>Configurer des alertes sur des événements de journalisation de ressource de la passerelle VPN
 
-Cet article vous permet de configurer des alertes basées sur les événements des journaux de diagnostic depuis la passerelle VPN Azure avec Azure Log Analytics. 
+Cet article vous permet de configurer des alertes basées sur des événements de journalisation de ressource de la passerelle VPN Azure avec Azure Monitor Log Analytics. 
 
-Les journaux suivants sont disponibles dans Azure :
+Les journaux de ressources suivants sont disponibles dans Azure :
 
 |***Nom*** | ***Description*** |
 |---        | ---               |
-|GatewayDiagnosticLog | Contient les journaux de diagnostic des événements de configuration de passerelle, des modifications principales et des événements de maintenance |
+|GatewayDiagnosticLog | Contient des journaux de ressources pour des événements de configuration de passerelle, des modifications principales et des événements de maintenance. |
 |TunnelDiagnosticLog | Contient des événements de changement d’état de tunnel. Les événements de connexion/déconnexion de tunnel affichent une brève explication du changement d’état, le cas échéant |
 |RouteDiagnosticLog | Consigne les modifications apportées aux routes statiques et aux événements BGP qui se produisent sur la passerelle |
 |IKEDiagnosticLog | Consigne les événements et messages de contrôle IKE sur la passerelle |
@@ -30,7 +30,7 @@ Les journaux suivants sont disponibles dans Azure :
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a><a name="setup"></a>Configurer des alertes dans le portail Azure
 
-Les étapes de l’exemple suivant crée une alerte pour un événement de déconnexion qui implique un tunnel VPN de site à site :
+L’exemple de procédure suivant crée une alerte pour un événement de déconnexion qui implique un tunnel VPN de site à site :
 
 
 1. Dans le portail Azure, recherchez **Log Analytics** sous **Tous les services** et sélectionnez **Espaces de travail Log Analytics**.

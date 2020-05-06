@@ -10,12 +10,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 03/11/2020
-ms.openlocfilehash: fe6125682f669e453100488b7e0afc4c49409588
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a1440dcda27a487c89be4ac63e624a2bb6b393a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79129734"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82111876"
 ---
 # <a name="create-event-driven-machine-learning-workflows-preview"></a>Créer des flux de travail Machine Learning basés sur les événements (préversion)
 
@@ -34,7 +34,7 @@ Utilisez Event Grid pour activer des scénarios courants tels que :
 > Actuellement, les événements runStatusChanged se déclenchent uniquement lorsque l’état d’exécution est **échec**
 >
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 * Accès du contributeur ou du propriétaire à l’espace de travail Azure Machine Learning pour lequel vous allez créer des événements.
 
 ### <a name="configure-eventgrid-using-the-azure-portal"></a>Configurer EventGrid à l’aide du portail Azure
@@ -87,15 +87,13 @@ Lors de la configuration de vos événements, vous pouvez appliquer des filtres 
 
 1. Accédez au Portail Azure, sélectionnez un nouvel abonnement ou un abonnement existant. 
 
-1. Sélectionnez l’onglet Filtres et faites défiler jusqu’à Filtres avancés. Dans les champs **Clé** et **Valeur**, fournissez les types de propriété par lesquels vous souhaitez filtrer. Ici, vous pouvez voir que l’événement se déclenche uniquement lorsque le type d’exécution est une exécution de pipeline ou une exécution d’étape de pipeline.  
+1. Sélectionnez l’onglet Filtres et faites défiler jusqu’à Filtres avancés. Pour les champs **Clé** et **Valeur**, fournissez les types de propriété par lesquels vous souhaitez filtrer. Ici, vous pouvez voir que l’événement se déclenche uniquement lorsque le type d’exécution est une exécution de pipeline ou une exécution d’étape de pipeline.  
 
     :::image type="content" source="media/how-to-use-event-grid/select-event-filters.png" alt-text="Filtrer les événements":::
 
-## <a name="sample-scenarios"></a>Exemples de scénarios
+## <a name="sample-send-email-alerts"></a>Exemple : Envoyer des alertes par e-mail
 
-### <a name="use-a-logic-app-to-send-email-alerts"></a>Utiliser une application logique pour envoyer des alertes par e-mail
-
-Tirez parti de [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) pour configurer des e-mails pour tous vos événements. Personnalisez avec des conditions et spécifiez des destinataires pour permettre la collaboration et la sensibilisation entre les équipes travaillant ensemble.
+Utilisez [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) pour configurer des e-mails pour tous vos événements. Personnalisez avec des conditions et spécifiez des destinataires pour permettre la collaboration et la sensibilisation entre les équipes travaillant ensemble.
 
 1. Dans la Portail Azure, accédez à votre espace de travail Azure Machine Learning et sélectionnez l’onglet Événements dans la barre de gauche. À partir de là, sélectionnez __Applications logiques__. 
 
@@ -126,7 +124,7 @@ Tirez parti de [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) 
     ![confirm-logic-app-create](./media/how-to-use-event-grid/confirm-logic-app-create.png)
 
 
-### <a name="use-a-logic-app-to-trigger-retraining-workflows-when-data-drift-occurs"></a>Utiliser une application logique pour déclencher des flux de travail de reformation lorsque la dérive de données se produit
+## <a name="sample-trigger-retraining-when-data-drift-occurs"></a>Exemple : Déclencher une reformation lorsqu’une dérive de données se produit
 
 Les modèles deviennent obsolètes au fil du temps et ne restent pas fonctionnels dans le contexte dans lequel ils s’exécutent. Pour savoir s’il est temps de reformer le modèle, vous pouvez détecter la dérive des données. 
 
@@ -173,7 +171,7 @@ Désormais, le pipeline Data Factory est déclenché lorsque la dérive se produ
 
 ![view-in-workspace](./media/how-to-use-event-grid/view-in-workspace.png)
 
-### <a name="use-azure-functions-to-deploy-a-model-based-on-tags"></a>Utiliser Azure Functions pour déployer un modèle basé sur des balises
+## <a name="sample-deploy-a-model-based-on-tags"></a>Exemple : Déployer un modèle basé sur des balises
 
 Un objet de modèle Azure Machine Learning contient des paramètres sur lesquels vous pouvez baser les déploiements, tels que le nom du modèle, la version, la balise et la propriété. L’événement d’inscription du modèle peut déclencher un point de terminaison et vous pouvez utiliser une fonction Azure pour déployer un modèle en fonction de la valeur de ces paramètres.
 

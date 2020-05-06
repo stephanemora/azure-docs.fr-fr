@@ -11,10 +11,10 @@ ms.date: 09/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.openlocfilehash: 0da1a3019124f62aba6a959ce9104c85bd85d3fc
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81616484"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Recommandations de sécurité pour Azure Key Vault

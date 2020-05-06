@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: e263ecde532a8aaed420932bf355910da201723e
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 600f19a6fc0b44fa8cb4b3ba6d37fcc601605dc5
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365849"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82206729"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory
 
@@ -134,7 +134,7 @@ Pour obtenir les étapes de déploiement à suivre, consultez [Implémentation d
 
 * **Expérience utilisateur**. L’expérience utilisateur de l’authentification fédérée dépend de l’implémentation de fonctionnalités, de la topologie et de la configuration de la batterie de serveurs de fédération. Certaines organisations ont besoin de cette souplesse pour configurer l’accès à la batterie de serveurs de fédération en fonction de leurs exigences en matière de sécurité. Par exemple, il est possible de configurer en interne des utilisateurs connectés et des appareils capables de connecter automatiquement les utilisateurs. Aucune information d’identification n’est donc demandée aux utilisateurs. Cette configuration fonctionne car ils sont déjà connectés à leur appareil. Si nécessaire, certaines fonctionnalités de sécurité avancées compliquent le processus de connexion des utilisateurs.
 
-* **Scénarios avancés**. Une solution d’authentification fédérée est généralement requise lorsque les clients ont une exigence d’authentification non prise en charge par Azure AD en mode natif. Affichez des informations détaillées pour vous aider à [choisir l’option de connexion adaptée](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/). Examinez les exigences courantes suivantes :
+* **Scénarios avancés**. Une solution d’authentification fédérée est requise lorsque les clients ont une exigence d’authentification non prise en charge par Azure AD en mode natif. Affichez des informations détaillées pour vous aider à [choisir l’option de connexion adaptée](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/). Examinez les exigences courantes suivantes :
 
   * Authentification nécessitant des cartes à puce ou des certificats.
   * Les serveurs MFA locaux ou fournisseurs d’authentification multifacteur tiers nécessitent un fournisseur d’identité fédéré.
@@ -177,7 +177,7 @@ Les diagrammes suivants présentent les composants architecturaux de haut niveau
 |Où l’authentification se produit-elle ?|Dans le cloud|Dans le cloud, après un échange de vérification de mot de passe sécurisé avec l’agent d’authentification local|Local|
 |Quelles sont les exigences pour le serveur local au-delà du système de provisionnement : Azure AD Connect ?|None|Un serveur par agent d’authentification supplémentaire|Deux ou plusieurs serveurs AD FS<br><br>Deux ou plusieurs serveurs WAP dans le réseau de périmètre/DMZ|
 |Quelles sont les exigences Internet et réseau locales au-delà du système de provisionnement ?|None|[Accès Internet sortant](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) à partir des serveurs exécutant des agents d’authentification|[Accès Internet entrant](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) pour les serveurs WAP dans le périmètre<br><br>Accès réseau entrant aux serveurs AD FS à partir des serveurs WAP dans le périmètre<br><br>Équilibrage de charge réseau|
-|Y a-t-il une exigence de certificat TLS/SSL ?|Non|Non|Oui|
+|Y a-t-il une exigence de certificat TLS/SSL ?|Non |Non |Oui|
 |Existe-t-il une solution de supervision de l’intégrité ?|Non requis|État de l’agent fourni par le [Centre d’administration Azure Active Directory](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
 |Les utilisateurs obtiennent-ils une authentification unique auprès des ressources cloud à partir d’appareils joints au domaine au sein du réseau d’entreprise ?|Oui avec [authentification unique fluide](../../active-directory/hybrid/how-to-connect-sso.md)|Oui avec [authentification unique fluide](../../active-directory/hybrid/how-to-connect-sso.md)|Oui|
 |Quels types de connexion sont pris en charge ?|UserPrincipalName + mot de passe<br><br>Authentification Windows intégrée avec [authentification unique transparente](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[ID de connexion de substitution](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + mot de passe<br><br>Authentification Windows intégrée avec [authentification unique transparente](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[ID de connexion de substitution](../../active-directory/hybrid/how-to-connect-pta-faq.md)|UserPrincipalName + mot de passe<br><br>sAMAccountName + mot de passe<br><br>Authentification Windows intégrée<br><br>[Authentification par certificat et carte à puce](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[ID de connexion de substitution](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
@@ -203,7 +203,7 @@ Utilisez ou activez la synchronisation de hachage du mot de passe, quelle que so
 
 2. **Survie à une panne locale**.  Les conséquences d’une panne locale à la suite d’une cyberattaque ou d’un sinistre peuvent être considérables, de l’atteinte à l’image de marque à la paralysie de l’organisation si celle-ci ne parvient pas à gérer l’attaque. Récemment, de nombreuses organisations ont été victimes d’attaques menées par des programmes malveillants, notamment des ransomwares (rançongiciels), qui ont provoqué la mise hors service de leurs serveurs locaux. Lorsque Microsoft aide les clients à gérer ces types d’attaques, deux catégories d’organisations se dégagent :
 
-   * Les organisations qui avaient auparavant activé la synchronisation de hachage du mot de passe ont modifié leur méthode d’authentification pour utiliser la synchronisation de hachage du mot de passe. Ils étaient de nouveau en ligne après quelques heures. En accédant aux e-mails par le biais d’Office 365, elles ont pu résoudre les problèmes et accéder à d’autres charges de travail sur le cloud.
+   * Les organisations qui utilisaient précédemment la synchronisation de hachage de mot de passe en plus de l’authentification fédérée ou directe ont modifié leur méthode d’authentification principale pour utiliser la synchronisation de hachage de mot de passe. Ils étaient de nouveau en ligne après quelques heures. En accédant aux e-mails par le biais d’Office 365, elles ont pu résoudre les problèmes et accéder à d’autres charges de travail sur le cloud.
 
    * Les organisations n’ayant pas auparavant activé la synchronisation de hachage du mot de passe ont dû faire appel à des systèmes de messagerie externes non fiables pour la communication et la résolution des problèmes. Dans ce cas, il leur a fallu des semaines pour restaurer leur infrastructure d’identité locale, avant que les utilisateurs ne puissent se connecter à nouveau aux applications basées sur le Cloud.
 

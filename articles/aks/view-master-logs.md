@@ -4,12 +4,12 @@ description: Découvrez comment activer et afficher les journaux d’activité r
 services: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.openlocfilehash: f759f15cf98546cb95ba0adb5890885f85ca6aa1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 504d6a5216f3345f22a601c4ae084488aeb97c8d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229593"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82128967"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Activer et consulter les journaux d’activité du nœud principal Kubernetes dans Azure Kubernetes Service (AKS)
 
@@ -19,9 +19,9 @@ Avec Azure Kubernetes Service (AKS), les composants principaux tels que *kube-ap
 
 Cet article requiert l’exécution d’un cluster AKS existant dans votre compte Azure. Si vous ne disposez pas encore d’un cluster AKS, créez-en un à l’aide de l’[interface de ligne de commande Azure (Azure CLI)][cli-quickstart] ou du [portail Azure][portal-quickstart]. Les journaux d’activité Azure Monitor fonctionne avec des clusters AKS sur lesquels le contrôle d’accès en fonction du rôle (RBAC) est activé ou non.
 
-## <a name="enable-diagnostics-logs"></a>Activer les journaux de diagnostic
+## <a name="enable-resource-logs"></a>Activer les journaux de ressources
 
-Pour faciliter la collecte et l’analyse des données provenant de plusieurs sources, les journaux d’activité Azure Monitor fournissent un langage de requêtes et un moteur d’analyse vous permettant d’obtenir des insights sur votre environnement. Un espace de travail est utilisé pour assembler et analyser les données, et peut s’intégrer à d’autres services Azure tels qu’Application Insights et Security Center. Si vous souhaitez analyser les journaux d’activité à l’aide d’une autre plateforme, vous pouvez plutôt choisir d’envoyer les journaux de diagnostic à un compte de stockage ou à un Event Hub Azure. Pour plus d’informations, voir [Présentation des journaux d’activité Azure Monitor][log-analytics-overview].
+Pour faciliter la collecte et l’analyse des données provenant de plusieurs sources, les journaux d’activité Azure Monitor fournissent un langage de requêtes et un moteur d’analyse vous permettant d’obtenir des insights sur votre environnement. Un espace de travail est utilisé pour assembler et analyser les données, et peut s’intégrer à d’autres services Azure tels qu’Application Insights et Security Center. Si vous souhaitez analyser les journaux d’activité à l’aide d’une autre plateforme, vous pouvez plutôt choisir d’envoyer les journaux de ressources à un compte de stockage ou à un Event Hub Azure. Pour plus d’informations, voir [Présentation des journaux d’activité Azure Monitor][log-analytics-overview].
 
 Les journaux Azure Monitor sont activés et gérés sur le portail Azure. Pour activer la collecte des journaux relatifs aux composants principaux Kubernetes dans votre cluster AKS, ouvrez le Portail Azure dans un navigateur web et procédez comme suit :
 

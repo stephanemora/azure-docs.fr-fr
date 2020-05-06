@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: reference
-ms.openlocfilehash: 73bbfad4c0535fa00b1aa53764eb52acb83124f8
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 9bb8818d2bb91c14eafc272774e0b633c51e58e1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80678947"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81617880"
 ---
 # <a name="network-requirements"></a>Configuration requise pour le réseau
 
@@ -28,6 +28,9 @@ La configuration réseau requise exacte dépend de votre utilisation spécifique
 * Il est essentiel d’avoir une **bonne intensité du signal Wi-Fi**. Si possible, restez près du point d’accès Wi-Fi et évitez de placer des obstacles entre votre appareil client et les points d’accès.
 * Assurez-vous de toujours vous connecter au **centre de données Azure le plus proche** de votre [région](regions.md). Plus le centre de données est proche, plus la latence du réseau est faible, ce qui a un effet considérable sur la stabilité de l’hologramme.
 
+> [!NOTE]
+> La bande passante dans le sens descendant est principalement utilisée par le flux vidéo, qui est à son tour divisé entre les informations de couleur et de profondeur (60 Hz, stéréo pour les deux).
+
 ## <a name="network-performance-tests"></a>Tests de performances réseau
 
 Si vous souhaitez savoir si la qualité de la connectivité réseau est suffisante pour exécuter Azure Remote Rendering, vous pouvez utiliser les outils en ligne existants. Nous vous recommandons vivement d’exécuter ces outils en ligne à partir d’un ordinateur portable raisonnablement puissant connecté au même Wi-Fi que l’appareil sur lequel vous envisagez d’exécuter votre application cliente Azure Remote Rendering. Les résultats obtenus lors de l’exécution des tests sur un téléphone mobile ou HoloLens2 sont généralement moins utiles, car il a été prouvé qu’ils présentent des variations significatives sur les appareils de point de terminaison de faible puissance. L’endroit où vous placez l’ordinateur portable doit être à peu près le même que celui où vous prévoyez d’utiliser l’appareil qui exécute votre application cliente Azure Remote Rendering.
@@ -39,7 +42,7 @@ Choisissez le serveur le plus proche de vous et exécutez le test. Bien que le s
    * **Configuration minimale requise** pour Azure Remote Rendering : Environ 40 Mbits/s en aval et 5 Mbits/s en amont.
    * **Configuration recommandée** pour Azure Remote Rendering : Environ 100 Mbits/s en aval et 10 Mbits/s en amont.
 Nous vous recommandons d’exécuter le test plusieurs fois et de tenir compte du pire résultat.
-1. **Utilisez un outil comme www.azurespeed.com qui mesure la latence vers les centres de données Azure**. Sélectionnez le centre de données Azure pris en charge par Azure Remote Rendering qui est le plus proche de vous (voir [les régions prises en charge](regions.md)) et exécutez un **test de latence**. S’il existe des variations dans les nombres que vous observez, accordez aux résultats un peu de temps pour qu’ils se stabilisent.
+1. **Utilisez un outil comme www.azurespeed.com qui mesure la latence vers les centres de données Azure**. Sélectionnez le centre de données Azure pris en charge par Azure Remote Rendering le plus proche de vous (cf. [régions prises en charge](regions.md)) et exécutez un **test de latence**. S’il existe des variations dans les nombres que vous observez, accordez aux résultats un peu de temps pour qu’ils se stabilisent.
    * **Configuration minimale requise** pour Azure Remote Rendering : La latence doit toujours être inférieure à 100 ms.
    * **Configuration recommandée** pour Azure Remote Rendering : La latence doit toujours être inférieure à 70 ms.
 

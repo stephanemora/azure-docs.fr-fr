@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 08/27/2018
+ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 5440333360549c5df2da57c97b24dcc77436ba4b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 644e29c3b5e37cd95280cfd2261e644b20bbda98
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70072702"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82203265"
 ---
 # <a name="add-an-api-manually"></a>Ajouter une API manuellement
 
@@ -35,24 +35,14 @@ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion d
 
 ## <a name="create-an-api"></a>Création d'une API
 
-1. Sélectionnez **API** sous **Gestion des API**.
+1. À partir du portail Azure, accédez à votre service Gestion des API, puis sélectionnez **API** dans le menu.
 2. Dans le menu de gauche, cliquez sur **Ajouter l’API**.
-3. Sélectionnez **API vide** dans la liste.
-
-    ![API vide](media/add-api-manually/blank-api.png)
-4. Entrez des paramètres pour l’API.
-
-    |**Nom**|**Valeur**|**Description**|
-    |---|---|---|
-    |**Nom complet**|*API vide*|Ce nom s’affiche dans le portail des développeurs.|
-    |**Nom**|*blank-api*|Fournit un nom unique pour l’API.|
-    |**URL du service Web** (facultatif)|*https://httpbin.org*| Si vous souhaitez simuler une API, vous pouvez ne rien entrer. <br/>Dans ce cas, nous entrons [https://httpbin.org](https://httpbin.org). Il s’agit d’un service de test public. <br/>Si vous souhaitez importer une API qui est mappée à un serveur principal automatiquement, consultez l’une des rubriques dans la section [Rubriques connexes](#related-topics).|
-    |**Modèle d’URL**|*HTTPS*|Ici, même si le serveur principal a un accès HTTP non sécurisé, nous spécifions un accès APIM HTTPS sécurisé au serveur principal. <br/>Ce type de scénario (HTTPS vers HTTP) est appelé arrêt du protocole HTTPS. Vous pouvez le faire si votre API existe dans un réseau virtuel (dans lequel vous savez que l’accès est sécurisé même si HTTPS n’est pas utilisé). <br/>Vous souhaiterez peut-être utiliser « l’arrêt du protocole HTTPS » pour effectuer un enregistrement sur des cycles de processeur.|
-    |**URL suffix** (Suffixe de l’URL)|*hbin*| Le suffixe est un nom qui identifie cette API spécifique dans cette instance APIM. Il doit être unique dans cette instance APIM.|
-    |**Produits**|*Illimité*|Publiez l’API en l’associant à un produit. Si vous souhaitez que l’API soit publiée et mise à la disposition des développeurs, ajoutez-la à un produit. Vous pouvez effectuer cette opération durant la création de l’API ou ultérieurement.<br/><br/>Les produits sont des associations d’une ou de plusieurs API. Vous pouvez inclure un certain nombre d’API et les proposer aux développeurs dans le portail des développeurs. <br/>Les développeurs doivent s’abonner à un produit pour obtenir l’accès à l’API. Quand ils s’abonnent à un produit, ils obtiennent une clé d’abonnement qui est valable pour toutes les API de ce produit. Si vous avez créé l’instance APIM, vous êtes abonné à chaque produit par défaut, car vous êtes déjà administrateur.<br/><br/> Par défaut, chaque instance Gestion des API est fournie avec deux exemples de produits : **Starter** et **Unlimited**.| 
+3. Sélectionnez **API vide** dans la liste.  
+    ![API vide](media/add-api-manually/blank-api.png)  
+4. Entrez des paramètres pour l’API. Les paramètres sont expliqués dans le tutoriel [Importer et publier votre première API](import-and-publish.md#-import-and-publish-a-backend-api).
 5. Sélectionnez **Create** (Créer).
 
-À ce stade, vous ne disposez d’aucune opération dans APIM qui correspond aux opérations dans votre API de serveur principal. Si vous appelez une opération qui est exposée via le serveur principal, mais pas via l’APIM, vous obtenez une erreur **404**.
+À ce stade, vous ne disposez d’aucune opération dans Gestion des API qui correspond aux opérations dans votre API de serveur principal. Si vous appelez une opération qui est exposée via le serveur principal, mais pas par l’intermédiaire de Gestion des API, vous obtenez une erreur **404**.
 
 >[!NOTE] 
 > Par défaut, lorsque vous ajoutez une API, même si elle est connectée à un service de serveur principal, APIM n’exposera pas d’opérations tant que vous ne les mettez pas sur liste verte. Pour mettre une opération de votre service de serveur principal sur liste verte, créez une opération APIM qui correspond à l’opération de serveur principal.

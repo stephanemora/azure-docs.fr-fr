@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 04ef72f7ec70b370305395ae8de8180f4594b43b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f3b84ba1c3571e3660d1d71a0167a7489c6ec4ff
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76277342"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82145129"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Intégrer Cloud Foundry avec Azure
 
@@ -38,9 +38,9 @@ Azure Availability Zone permet d’obtenir des fonctionnalités de haute disponi
 > Azure Availability Zone n’est pas disponible dans toutes les régions ; reportez-vous à la [liste la plus récente des régions prises en charge](https://docs.microsoft.com/azure/availability-zones/az-overview). Pour Cloud Foundry open source, consultez les [conseils d’utilisation d’Azure Availability Zone pour Cloud Foundry open source](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/availability-zone).
 
 ## <a name="2-network-routing"></a>2. Routage réseau
-Par défaut, l’équilibreur de charge de base Azure est utilisé pour les demandes d’API/d’applications CF entrantes et il les transmet aux Gorouters. Les composants CF, tels que Diego Brain, MySQL et ERT, peuvent également utiliser l’équilibreur de charge afin d’équilibrer le trafic pour améliorer la haute disponibilité. Azure fournit aussi un ensemble de solutions d’équilibrage de charge complètement managées. Si vous recherchez une terminaison TLS (« déchargement SSL ») ou un traitement de couche d’application par requête HTTP/HTTPS, envisagez d’utiliser Application Gateway. Pour un équilibrage de charge de haute disponibilité et d’évolutivité sur la couche 4, envisagez d’utiliser un équilibreur de charge standard.
+Par défaut, l’équilibreur de charge de base Azure est utilisé pour les demandes d’API/d’applications CF entrantes et il les transmet aux Gorouters. Les composants CF, tels que Diego Brain, MySQL et ERT, peuvent également utiliser l’équilibreur de charge afin d’équilibrer le trafic pour améliorer la haute disponibilité. Azure fournit aussi un ensemble de solutions d’équilibrage de charge complètement managées. Si vous recherchez une terminaison TLS/SSL (« déchargement SSL ») ou un traitement de couche d’application par requête HTTP/HTTPS, envisagez d’utiliser Application Gateway. Pour un équilibrage de charge de haute disponibilité et d’évolutivité sur la couche 4, envisagez d’utiliser un équilibreur de charge standard.
 ### <a name="azure-application-gateway-"></a>Azure Application Gateway*
-[Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) offre différentes fonctionnalités d’équilibrage de charge de Couche 7, notamment le déchargement SSL et SSL de bout en bout, le pare-feu d’application web, l’affinité de session basée sur les cookies, et bien plus encore. Vous pouvez [configurer Application Gateway dans Cloud Foundry open source](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/application-gateway). Pour PCF, consultez les [notes de publication de PCF 2.1](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway) en vue d’un test de preuve de concept.
+[Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) offre différentes fonctionnalités d’équilibrage de charge de Couche 7, notamment le déchargement SSL, le protocole TLS de bout en bout, le pare-feu d’application web, l’affinité de session basée sur les cookies, et bien plus encore. Vous pouvez [configurer Application Gateway dans Cloud Foundry open source](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/application-gateway). Pour PCF, consultez les [notes de publication de PCF 2.1](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway) en vue d’un test de preuve de concept.
 
 ### <a name="azure-standard-load-balancer-"></a>Azure Standard Load Balancer*
 Azure Load Balancer est un équilibrage de charge de type Couche 4. Il permet de répartir le trafic entre les instances de services dans un jeu d'équilibrage de la charge. La version standard offre des [fonctionnalités avancées](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) au-dessus de la version de base. Par exemple 1. La limite maximale du pool principal est passée de 100 VM à 1 000 VM.  2. Les points de terminaison prennent désormais en charge plusieurs ensembles de disponibilité au lieu d’un seul.  3. Des fonctionnalités supplémentaires comme les ports HA, des données de surveillance plus riches, etc. Si vous optez pour une zone de disponibilité Azure, un équilibreur de charge standard est requis. Pour un nouveau déploiement, nous vous recommandons de démarrer avec le Standard Load Balancer d’Azure. 

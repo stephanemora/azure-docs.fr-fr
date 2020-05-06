@@ -4,12 +4,12 @@ description: Réponses aux questions fréquemment posées sur le service Azure C
 author: dkkapur
 ms.topic: article
 ms.date: 04/10/2020
-ms.openlocfilehash: 8730dcb24af61730d7f93ea37a53cf87435eb9f9
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 4fca198356c8db006c4190e0f16b20f78dc1d477
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261616"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82115225"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Forum aux questions sur Azure Container Instances
 
@@ -55,9 +55,12 @@ Utiliser l’image la plus petite qui répond à vos besoins. Pour Linux, vous p
 
 ### <a name="how-many-cores-and-memory-should-i-allocate-for-my-containers-or-the-container-group"></a>Combien cœurs et de mémoire dois-je allouer à mes conteneurs ou au groupe de conteneurs ?
 
-Cela dépend vraiment de votre charge de travail. Commencez petit et testez les performances pour voir comment vos conteneurs évoluent. [Surveillez l’utilisation des ressources d’UC et de mémoire](container-instances-monitor.md), puis ajoutez des cœurs ou de la mémoire en fonction du type de processus que vous déployez dans le conteneur. 
+Cela dépend vraiment de votre charge de travail. Commencez petit et testez les performances pour voir comment vos conteneurs évoluent. [Surveillez l’utilisation des ressources d’UC et de mémoire](container-instances-monitor.md), puis ajoutez des cœurs ou de la mémoire en fonction du type de processus que vous déployez dans le conteneur.
 
 Veillez également à vérifier la [disponibilité des ressources](container-instances-region-availability.md#availability---general) pour la région dans laquelle vous effectuez le déploiement, ainsi que les limites supérieures sur les cœurs d’UC et la mémoire disponibles par groupe de conteneurs. 
+
+> [!NOTE]
+> Une petite quantité des ressources d’un groupe de conteneurs est utilisée par l’infrastructure sous-jacente du service. Vos conteneurs pourront accéder à la plupart des ressources allouées au groupe, mais pas à toutes. Pour cette raison, planifiez une petite mémoire tampon de ressources en cas de demande de ressources pour les conteneurs du groupe.
 
 ### <a name="what-underlying-infrastructure-does-aci-run-on"></a>Sur quelle infrastructure sous-jacente ACI s’exécute-t-il ?
 

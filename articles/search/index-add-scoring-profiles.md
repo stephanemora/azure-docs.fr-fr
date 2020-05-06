@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 516637b812afece1966006ce6d894dd1e32e6293
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c702ce72492201413d6c72af9dbf37347e49afdd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225309"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231099"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Ajouter des profils de score à un index Recherche cognitive Azure
 
-  Le calcul de score consiste à calculer un *score de recherche* pour chaque élément renvoyé dans des résultats de recherche. Le score est un indicateur de la pertinence d'un élément dans le contexte de l'opération de recherche en cours. Plus le score est élevé, plus l'élément est pertinent. Dans des résultats de recherche, les éléments sont classés par ordre décroissant de pertinence, sur la base des résultats de recherche calculés pour chacun d'eux.  
+Un *scoring* détermine un score de recherche pour chaque élément dans un jeu de résultats classés par rang. Un score de recherche est attribué à chaque élément d'un jeu de résultats de recherche. Ils sont ensuite classés du rang le plus élevé au rang le plus bas.
 
  Le service Recherche cognitive Azure utilise un score par défaut pour calculer un score initial, mais vous pouvez personnaliser le calcul à l'aide d'un *profil de score*. Les profils de score vous permettent de mieux contrôler le classement d'éléments dans des résultats de recherche. Par exemple, vous pouvez privilégier des éléments en fonction de leur revenu potentiel, promouvoir des éléments plus récents, voire en favoriser d'autres restés trop longtemps en stock.  
 
@@ -285,6 +285,7 @@ Le score de recherche est calculé sur la base de propriétés statistiques des 
  Pour plus d’exemples, consultez [Schéma XML : types de données (site web W3.org)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
 
 ## <a name="see-also"></a>Voir aussi  
- [REST de Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice/)   
- [Créer un index &#40;API REST de Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)   
- [Kit de développement logiciel (SDK) de Recherche cognitive Azure .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
+
++ [Référence d’API REST](https://docs.microsoft.com/rest/api/searchservice/)   
++ [Créer une API d’index](https://docs.microsoft.com/rest/api/searchservice/create-index)   
++ [Kit de développement logiciel (SDK) de Recherche cognitive Azure .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

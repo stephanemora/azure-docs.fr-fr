@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f508de35470043cc71bfc8607367f28c04440b57
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: dad01212be3589af7167082ff22c624fa776772a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81408316"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193120"
 ---
 # <a name="security-control-network-security"></a>Contrôle de sécurité : Sécurité réseau
 
@@ -118,7 +118,7 @@ Déployez la solution de pare-feu de votre choix dans les limites réseau de vot
 |--|--|--|
 | 1.7 | 12.9, 12.10 | Customer |
 
-Déployez Azure Application Gateway pour les applications web en activant le protocole HTTPS/SSL pour les certificats approuvés.
+Déployez Azure Application Gateway pour les applications web en activant le protocole HTTPS/TLS pour les certificats approuvés.
 
 - [Guide pratique pour déployer Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
 
@@ -164,7 +164,7 @@ Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiemen
 
 Utilisez des balises pour les groupes de sécurité réseau (NSG) et autres ressources liées à la sécurité réseau et au trafic. Concernant les règles NSG individuelles, utilisez le champ « Description » afin de spécifier le besoin métier et/ou la durée (etc.) pour toutes les règles qui autorisent le trafic vers/depuis un réseau.
 
-Utilisez l’une des définitions de stratégie Azure intégrées en lien avec l’étiquetage, comme « Exiger une étiquette et sa valeur », pour garantir que toutes les ressources créées sont étiquetées et être informé de l’existence de ressources non étiquetées.
+Utilisez l’une des définitions de stratégie Azure intégrée en lien avec l’étiquetage comme « Exiger une étiquette et sa valeur » pour vous assurer que toutes les ressources créées sont étiquetées et être informé de l’existence de ressources non étiquetées.
 
 Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressources ou effectuer des actions sur des ressources en fonction de leurs étiquettes.
 

@@ -17,12 +17,12 @@ ms.date: 04/19/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05002c1b11ef31b61fb4036f09dc8edcdafca767
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f03b146331069371106c1857f2acc68b566d3c5d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75608378"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82129229"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Intégrer des journaux d’activité Azure Active Directory à ArcSight à l’aide d’Azure Monitor
 
@@ -53,7 +53,7 @@ Téléchargez et ouvrez le [guide de configuration d’ArcSight SmartConnector p
     * Les paramètres d’application de votre déploiement sont conservés dans les paramètres d’application d’Azure Function Apps. 
     * Un nouveau groupe de ressources pour ArcSight est créé dans Azure, avec une application Azure AD pour le connecteur ArcSight et des comptes de stockage contenant les fichiers mappés au format CEF.
 
-4. Enfin, effectuez les étapes post-déploiement décrites dans la section **Configurations post-déploiement** du guide de configuration. Cette section explique comment effectuer une configuration supplémentaire si vous utilisez un plan App Service pour empêcher que les applications de fonction deviennent inactives après un certain délai d’attente, configurer la diffusion en continu des journaux de diagnostic à partir du hub d’événements et mettre à jour le certificat de magasins de clés SysLog NG Daemon SmartConnector pour l’associer avec le compte de stockage nouvellement créé.
+4. Enfin, effectuez les étapes post-déploiement décrites dans la section **Configurations post-déploiement** du guide de configuration. Cette section explique comment effectuer une configuration supplémentaire si vous utilisez un plan App Service pour empêcher que les applications de fonction deviennent inactives après un certain délai d’attente, configurer la diffusion en continu des journaux de ressources à partir du hub d’événements et mettre à jour le certificat de magasins de clés SysLog NG Daemon SmartConnector pour l’associer avec le compte de stockage nouvellement créé.
 
 5. Le guide de configuration explique également comment personnaliser les propriétés du connecteur dans Azure, et comment le mettre à niveau et le désinstaller. Il contient également une section sur les améliorations des performances, notamment sur la mise à niveau vers un [plan de consommation Azure](https://azure.microsoft.com/pricing/details/functions) et la configuration d’ArcSight Load Balancer si la charge de l’événement est supérieure à ce qu’un seul Syslog NG Daemon SmartConnector peut gérer.
 

@@ -10,17 +10,20 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
-ms.date: 02/07/2019
-ms.openlocfilehash: 9af7b471210ca3cc69428e68aef4aafaee159344
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/28/2020
+ms.openlocfilehash: 9ac30b6d502bb0fbdb454d7a3c36cde23a57fb6b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299071"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231626"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurer la réplication dans une base de données d’instances managées Azure SQL Database
 
-La réplication transactionnelle vous permet de répliquer des données dans une base de données d’instances managées Azure SQL Database à partir d’une base de données SQL Server ou d’une autre base de données d’instances. 
+La réplication transactionnelle vous permet de répliquer des données dans une base de données d’instances managées Azure SQL Database à partir d’une base de données SQL Server ou d’une autre base de données d’instances.
+
+> [!NOTE]
+> Cet article décrit l’utilisation de la [réplication transactionnelle](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) dans SQL Database Managed Instance. Celle-ci n’est pas liée à la géo-réplication active ou aux [groupes de basculement](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), une fonctionnalité d’Azure SQL Managed Instance qui vous permet de créer des réplicas lisibles complets d’instances individuelles.
 
 Cet article explique comment configurer la réplication entre un serveur de publication/distribution Managed Instance et un abonné Managed Instance. 
 
@@ -337,7 +340,7 @@ GO
 Vous pouvez nettoyer vos ressources Azure en [supprimant les ressources d’instance gérée du groupe de ressources](../azure-resource-manager/management/manage-resources-portal.md#delete-resources), puis en supprimant le groupe de ressources `SQLMI-Repl`. 
 
    
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a> Voir aussi
 
 - [Réplication transactionnelle](sql-database-managed-instance-transactional-replication.md)
 - [Tutoriel : Configurer la réplication transactionnelle entre un serveur de publication MI et un abonné SQL Server](sql-database-managed-instance-configure-replication-tutorial.md)

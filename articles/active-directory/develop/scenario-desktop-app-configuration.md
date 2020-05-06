@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e0b43f7563c9dfac6374590f6b081197536fe31e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d07add7950da531330fe9f64629299cef9fad1ac
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869009"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734584"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>Application de bureau qui appelle des API web : Configuration de code
 
@@ -184,7 +184,7 @@ Avant l'appel à la méthode `.Build()`, vous pouvez remplacer votre configurati
 
 # <a name="java"></a>[Java](#tab/java)
 
-Voici la classe utilisée dans les exemples de développement MSAL Java pour configurer les échantillons : [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
+Voici la classe utilisée dans les exemples de développement MSAL Java pour configurer les échantillons : [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/).
 
 ```Java
 PublicClientApplication pca = PublicClientApplication.builder(CLIENT_ID)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2019
 ms.author: memildin
-ms.openlocfilehash: 64a9600a3014f7e85a7f924d38882bfadaf631db
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 08ad761e81909e6ab23c7c07f5ce05865136bc47
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387816"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204098"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Fournir les détails du contact de sécurité dans Azure Security Center
 Azure Security Center vous recommande de fournir des coordonnées de sécurité pour votre abonnement Azure, si vous ne l’avez pas déjà fait. Ces informations seront être utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que vos données client ont été utilisées par un tiers illégal ou non autorisé. MSRC procède à une surveillance de la sécurité sur l'infrastructure et le réseau Azure et reçoit des plaintes concernant l’intelligence des menaces et des mauvaises utilisations de tiers.
@@ -36,12 +36,12 @@ Des notifications d’alertes par courrier électronique sont envoyées :
  
 Par exemple, si un message a été déjà envoyé pour vous alerter d’une attaque RDP, vous ne recevrez pas d’autre message concernant une attaque RDP le même jour, même si une autre alerte est déclenchée. 
 
-> [!NOTE]
+> [!IMPORTANT]
 > Ce document présente le service à l’aide d’un exemple de déploiement.  Il ne s’agit pas d’un guide pas à pas.
 
 ## <a name="set-up-email-notifications-for-alerts"></a>Configurer des notifications par e-mail pour les alertes <a name="email"></a>
 
-1. Ouvrez la page **Notifications par e-mail** :
+1. En tant qu’utilisateur avec le rôle Administrateur de la sécurité ou Propriétaire de l’abonnement, ouvrez la page **Notifications par e-mail** :
 
     - Pour les alertes, ouvrez **Tarification et paramètres**, sélectionnez l’abonnement approprié, puis **Notifications par e-mail**.
 

@@ -1,31 +1,35 @@
 ---
-title: Résoudre les problèmes d’inscription Azure
-description: Résolution d’un problème que vous pouvez rencontrer un problème quand vous tentez de créer un compte dans le centre des comptes du Portail Microsoft Azure.
+title: Résoudre les problèmes liés à l’inscription pour obtenir un nouveau compte dans le portail Azure ou le centre des comptes Azure
+description: Résolution d’un problème que vous pouvez rencontrer quand vous tentez de créer un compte dans le centre des comptes du Portail Microsoft Azure.
+services: cost-management-billing
 author: v-miegge
-ms.reviewer: dcscontentpm
+manager: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: 540cb5b4ca8f78c734fbc7dcd16358be8eb391c0
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 7bcf3197ae218c469983200814cecf551dc42a6b
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409455"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133180"
 ---
-# <a name="troubleshoot-azure-sign-up"></a>Résoudre les problèmes d’inscription Azure
+# <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Résoudre les problèmes liés à l’inscription pour obtenir un nouveau compte dans le portail Azure ou le centre des comptes Azure
 
 Vous pouvez rencontrer un problème quand vous tentez de créer un compte dans le Portail Microsoft Azure ou le centre des comptes Azure. Avant d’essayer de résoudre le problème, vérifiez ce qui suit :
 
-- Les informations que vous avez fournies pour votre profil de compte Azure (notamment l’adresse e-mail du contact, l’adresse postale et le numéro de téléphone) sont correctes.
+- Les informations que vous avez fournies pour votre profil de compte Azure (notamment l’adresse e-mail, l’adresse postale et le numéro de téléphone du contact) sont correctes.
 - Les informations de la carte de crédit sont correctes.
 - Vous n’avez pas déjà un compte Microsoft avec les mêmes informations.
 
+> [!NOTE]
+> Si vous disposez déjà d’un compte existant et que vous recherchez des conseils pour résoudre les problèmes de connexion, consultez [Résoudre les problèmes de connexion à un abonnement Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue).
+
 ## <a name="resolutions"></a>Résolutions
 
-Pour résoudre les erreurs éventuelles, sélectionnez le problème que vous rencontrez lorsque vous essayez de vous inscrire à Azure.
+Pour résoudre les erreurs éventuelles, sélectionnez le problème que vous rencontrez quand vous essayez de vous inscrire à Azure.
 
 ### <a name="error-we-cannot-proceed-with-sign-up-due-to-an-issue-with-your-account-please-contact-billing-support"></a>Erreur : *En raison d’un problème lié à votre compte, nous ne pouvons pas procéder à l’inscription. Veuillez contacter le support de facturation.*
 
@@ -116,7 +120,7 @@ Pour résoudre ce problème, vérifiez que les points suivants sont vrais :
 
 Ce problème peut se produire si le compte est inscrit dans un [répertoire Azure AD non managé](../../active-directory/users-groups-roles/directory-self-service-signup.md) et ne se trouve pas dans le répertoire Azure AD de votre organisation.
 
-Pour résoudre ce problème, inscrivez-vous au compte Azure en utilisant un autre compte, ou prenez en charge le répertoire AD non managé. Pour plus d’informations, consultez [Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory](../../active-directory/users-groups-roles/domains-admin-takeover.md).
+Pour résoudre ce problème, inscrivez le compte Azure en utilisant un autre compte, ou prenez en charge le répertoire AD non managé. Pour plus d’informations, consultez [Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory](../../active-directory/users-groups-roles/domains-admin-takeover.md).
 
 ## <a name="additional-help-resources"></a>Ressources d'aide supplémentaires
 

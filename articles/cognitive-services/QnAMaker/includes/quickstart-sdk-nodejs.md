@@ -2,13 +2,13 @@
 title: 'Démarrage rapide : Bibliothèque de client QnA Maker pour Node.js'
 description: Ce guide de démarrage rapide montre comment commencer avec la bibliothèque cliente QnA Maker pour Node.js.
 ms.topic: quickstart
-ms.date: 01/13/2020
-ms.openlocfilehash: 05e6d2c77a351c22c73f0bdb54daeaf0e03f4a9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: 48038c8e7e8250190d79aba7901567e18881e912
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76021119"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204011"
 ---
 Utilisez la bibliothèque de client QnA Maker pour Node.js afin de :
 
@@ -27,6 +27,9 @@ Utilisez la bibliothèque de client QnA Maker pour Node.js afin de :
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/)
 * Version actuelle de [Node.js](https://nodejs.org).
+* Une fois en possession de votre abonnement Azure, créez une [ressource QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) sur le portail Azure pour obtenir vos clé et point de terminaison de création. À la fin du déploiement, sélectionnez **Accéder à la ressource**.
+    * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API QnA Maker. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
+    * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
 
 ## <a name="setting-up"></a>Configuration
 
@@ -91,7 +94,7 @@ Créez un fichier appelé `index.js`. Ajoutez la bibliothèque QnA Maker et les 
 
 Créez des variables pour le point de terminaison et la clé Azure de votre ressource. Si vous avez créé la variable d’environnement après avoir lancé l’application, vous devez fermer et rouvrir l’éditeur, l’IDE ou le shell qui l’exécute pour accéder à la variable.
 
-|Variable d’environnement|Variable Node.js|Exemple|
+|Variable d’environnement|Variable Node.js| Exemple|
 |--|--|--|
 |`QNAMAKER_AUTHORING_KEY`|`authoring_key`|La clé est une chaîne de 32 caractères qui est disponible sur le portail Azure, dans la ressource QnA Maker, dans la page Démarrage rapide. Il ne s’agit pas de la clé du point de terminaison de prédiction.|
 |`QNAMAKER_ENDPOINT`|`endpoint`| Votre point de terminaison de création, au format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`, comprend votre **nom de ressource**. Il ne s’agit pas de l’URL employée pour interroger le point de terminaison de prédiction.|
@@ -132,7 +135,7 @@ Veillez à inclure la fonction [`wait_for_operation`](#get-status-of-an-operatio
 
 ## <a name="publish-a-knowledge-base"></a>Publier une base de connaissances
 
-Publiez la base de connaissances à l’aide de la méthode [publish](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#publish-string--msrest-requestoptionsbase-). Celle-ci prend le modèle actuel enregistré et entraîné, référencé par l’ID de base de connaissances, et le publie sur un point de terminaison. Examinez le code de réponse HTTP pour vérifier si la publication a réussi.
+Publiez la base de connaissances à l’aide de la méthode [publish](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#publish-string--msrest-requestoptionsbase-). Celle-ci prend le modèle actuel enregistré et entraîné, référencé par l’ID de base de connaissances, et le publie sur un point de terminaison. Examinez le code de réponse HTTP pour vérifier que la publication a abouti.
 
 [!code-javascript[Publish a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=publishKnowledgeBase&highlight=3)]
 

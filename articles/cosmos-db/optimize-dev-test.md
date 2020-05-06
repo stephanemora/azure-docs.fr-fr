@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
-ms.openlocfilehash: d2ca7b7e4b637802df6a78c2493e3cc088f09881
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: 3fe5ea98f8db633eed7ce4e2c0ac0cafa56408ef
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225685"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194514"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Optimiser les coûts de développement et de test dans Azure Cosmos DB
 
@@ -21,8 +21,9 @@ Cet article décrit les différentes options qui permettent d’utiliser gratuit
 
 L’[émulateur Azure Cosmos DB](local-emulator.md) est une version téléchargeable en local qui simule le service cloud Azure Cosmos DB. Vous pouvez écrire et tester du code qui utilise les API Azure Cosmos DB même si vous ne disposez d’aucune connexion réseau, et sans frais. L’émulateur Azure Cosmos DB fournit un environnement local qui reproduit de façon fidèle le service Azure Cosmos DB à des fins de développement. Vous pouvez développer et tester votre application localement, sans créer d’abonnement Azure et sans frais. Lorsque vous êtes prêt à déployer votre application dans le cloud, mettez à jour la chaîne de connexion pour vous connecter au point de terminaison Azure Cosmos DB dans le cloud. Aucune autre modification n’est nécessaire. Vous pouvez aussi [configurer un pipeline CI/CD avec la tâche de génération d’émulateur Azure Cosmos DB](tutorial-setup-ci-cd.md) dans Azure DevOps pour effectuer des tests. Pour vous lancer, consultez l’article [Émulateur Azure Cosmos DB](local-emulator.md).
 
-## <a name="azure-cosmos-db-free-tier"></a>Niveau gratuit d’Azure Cosmos DB 
-Le niveau gratuit d’Azure Cosmos DB facilite le démarrage, le développement et le test de vos applications, voire l’exécution de petites charges de travail de production, gratuitement. Quand le niveau gratuit est activé sur un compte, vous obtenez gratuitement 400 RU/s et 5 Go de stockage. Vous pouvez également créer une base de données de débit partagé avec 25 conteneurs qui partagent 400 RU/s au niveau de la base de données, tous couverts par le niveau gratuit (limite de 5 bases de données de débit partagé dans un compte de niveau gratuit). Le niveau gratuit est valable pendant toute la durée de vie du compte et comprend tous les [avantages et fonctionnalités](introduction.md#key-benefits) d’un compte Azure Cosmos DB standard, y compris un stockage et un débit (RU/s) illimités, des contrats SLA, une haute disponibilité, une distribution mondiale clé en main dans toutes les régions Azure et plus encore. Vous pouvez avoir un seul compte Azure Cosmos DB de niveau gratuit par abonnement Azure et vous devez le choisir à la création du compte. Pour commencer, [créez un compte avec le niveau gratuit activé](create-cosmosdb-resources-portal.md). Pour plus d’informations, consultez la [page sur la tarification](https://azure.microsoft.com/pricing/details/cosmos-db/). 
+## <a name="azure-cosmos-db-free-tier"></a>Niveau gratuit d’Azure Cosmos DB
+
+Le niveau gratuit d’Azure Cosmos DB facilite le démarrage, le développement et le test de vos applications, voire l’exécution de petites charges de travail de production, gratuitement. Quand le niveau gratuit est activé sur un compte, vous obtenez gratuitement 400 RU/s et 5 Go de stockage. Vous pouvez également créer une base de données de débit partagé avec 25 conteneurs qui partagent 400 RU/s au niveau de la base de données, tous couverts par le niveau gratuit (limite de 5 bases de données de débit partagé dans un compte de niveau gratuit). Le niveau gratuit est valable pendant toute la durée de vie du compte et comprend tous les [avantages et fonctionnalités](introduction.md#key-benefits) d’un compte Azure Cosmos DB standard, y compris un stockage et un débit (RU/s) illimités, des contrats SLA, une haute disponibilité, une distribution mondiale clé en main dans toutes les régions Azure et plus encore. Vous pouvez avoir un seul compte Azure Cosmos DB de niveau gratuit par abonnement Azure et vous devez le choisir à la création du compte. Pour commencer, [créez un nouveau compte dans le portail Azure avec l’option tarifaire gratuite activée](create-cosmosdb-resources-portal.md) ou utilisez un modèle [ARM](manage-sql-with-resource-manager.md#free-tier). Pour plus d’informations, consultez la [page sur la tarification](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Essayez gratuitement Azure Cosmos DB
 
@@ -34,7 +35,7 @@ Azure Cosmos DB est inclus dans le [compte gratuit Azure](https://azure.microsof
 
 ## <a name="use-shared-throughput-databases"></a>Utiliser des bases de données de débit partagé
 
-Dans une [base de données de débit partagé](set-throughput.md#set-throughput-on-a-database), tous les conteneurs à l’intérieur de la base de données partagent le débit provisionné (RU/s) de la base de données. Par exemple, si vous provisionnez une base de données avec 400 RU/s et que vous avez quatre conteneurs, les quatre conteneurs partagent les 400 RU/s. Dans un environnement de développement ou de test, où chaque conteneur peut être consulté moins souvent et nécessite donc moins que les 400 RU/s minimales, le fait de placer des conteneurs dans une base de données de débit partagé peut permettre d’optimiser les coûts. 
+Dans une [base de données de débit partagé](set-throughput.md#set-throughput-on-a-database), tous les conteneurs à l’intérieur de la base de données partagent le débit provisionné (RU/s) de la base de données. Par exemple, si vous provisionnez une base de données avec 400 RU/s et que vous avez quatre conteneurs, les quatre conteneurs partagent les 400 RU/s. Dans un environnement de développement ou de test, où chaque conteneur peut être consulté moins souvent et nécessite donc moins que les 400 RU/s minimales, le fait de placer des conteneurs dans une base de données de débit partagé peut permettre d’optimiser les coûts.
 
 Par exemple, supposons que votre compte de développement ou de test a quatre conteneurs. Si vous créez quatre conteneurs avec un débit dédié (400 RU/s minimum), le nombre total de RU/s est 1 600 RU/s. En revanche, si vous créez une base de données de débit partagé (400 RU/s minimum) et que vous y placez vos conteneurs, le nombre total de RU/s est seulement 400 RU/s. En général, les bases de données de débit partagé conviennent parfaitement aux scénarios où vous n’avez pas besoin d’un débit garanti sur un conteneur individuel.  Découvrez plus d’informations sur les [bases de données de débit partagé.](set-throughput.md#set-throughput-on-a-database)
 
@@ -49,4 +50,3 @@ Vous pouvez commencer à utiliser l’émulateur ou les comptes Azure Cosmos DB 
 * En savoir plus sur l’[optimisation du coût des lectures et écritures](optimize-cost-reads-writes.md)
 * En savoir plus sur l’[optimisation du coût des requêtes](optimize-cost-queries.md)
 * En savoir plus sur l’[optimisation du coût des comptes Azure Cosmos sur plusieurs régions](optimize-cost-regions.md)
-

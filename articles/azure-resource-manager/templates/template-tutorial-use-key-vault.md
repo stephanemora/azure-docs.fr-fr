@@ -2,20 +2,20 @@
 title: Utiliser Azure Key Vault dans les modèles
 description: Découvrez comment utiliser Azure Key Vault pour transmettre des valeurs de paramètre sécurisées lors d’un déploiement de modèle Resource Manager.
 author: mumian
-ms.date: 05/23/2019
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 440835f50d2ef9c03dabc7a66e8f162e3fa15b2f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 7fd84fc2e98578772c806f358cb8d6c400e0d994
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260698"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82185011"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutoriel : Intégrer Azure Key Vault à votre déploiement de modèle ARM
 
-Découvrez comment récupérer les secrets d’un coffre de clés Azure et les passer en tant que paramètres quand vous déployez un modèle Azure Resource Manager (ARM). La valeur du paramètre n’est jamais exposée, car vous référencez uniquement son ID de coffre de clés. Pour plus d’informations, consultez l’article [Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement](./key-vault-parameter.md).
+Découvrez comment récupérer les secrets d’un coffre de clés Azure et les passer en tant que paramètres quand vous déployez un modèle Azure Resource Manager (ARM). La valeur du paramètre n’est jamais exposée, car vous référencez uniquement son ID de coffre de clés. Vous pouvez référencer le secret du coffre de clés à l’aide d’un ID statique ou d’un ID dynamique. Ce tutoriel utilise un ID statique. Avec l’approche d’ID statique, vous référencez le coffre de clés dans le fichier de paramètres de modèle, et non dans le fichier de modèle. Pour plus d’informations sur les deux approches, consultez [Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement](./key-vault-parameter.md).
 
 Dans le tutoriel [Définir l’ordre de déploiement des ressources](./template-tutorial-create-templates-with-dependent-resources.md), vous créez une machine virtuelle. Vous devez fournir le nom d’utilisateur et le mot de passe de l’administrateur de la machine virtuelle. Au lieu de fournir le mot de passe, vous pouvez le stocker au préalable dans le coffre de clés Azure Key Vault. Il vous suffit ensuite de personnaliser le modèle pour récupérer le mot de passe à partir du coffre de clés au cours du déploiement.
 
@@ -33,8 +33,6 @@ Ce tutoriel décrit les tâches suivantes :
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
@@ -49,7 +47,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 ## <a name="prepare-a-key-vault"></a>Préparer un coffre de clés
 
-Dans cette section, vous créez un coffre de clés auquel vous ajoutez un secret pour pouvoir le récupérer quand vous déployez votre modèle. Il existe de nombreuses façons de créer un coffre de clés. Dans ce tutoriel, vous utilisez Azure PowerShell pour déployer un [modèle ARM](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json). Ce modèle effectue les actions suivantes :
+Dans cette section, vous créez un coffre de clés auquel vous ajoutez un secret pour pouvoir le récupérer quand vous déployez votre modèle. Il existe de nombreuses façons de créer un coffre de clés. Dans ce tutoriel, vous utilisez Azure PowerShell pour déployer un [modèle ARM](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json). Ce modèle effectue deux opérations :
 
 * Crée un coffre de clés avec activation de la propriété `enabledForTemplateDeployment`. Cette propriété doit avoir la valeur *true* pour que le processus de déploiement de modèle puisse accéder aux secrets définis dans le coffre de clés.
 * Ajoute un secret au coffre de clés. Le secret stocke le mot de passe d’administrateur de la machine virtuelle.
@@ -72,14 +70,16 @@ $templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -keyVaultName $keyVaultName -adUserId $adUserId -secretValue $secretValue
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 > [!IMPORTANT]
 > * Le nom du groupe de ressources correspond au nom du projet auquel est ajouté **rg**. Pour faciliter le [nettoyage des ressources créées dans ce tutoriel](#clean-up-resources), utilisez le même nom de projet et le même nom de groupe de ressources quand vous [déployez le modèle suivant](#deploy-the-template).
 > * Le nom par défaut du secret est **vmAdminPassword**. Il est codé en dur dans le modèle.
-> * Pour permettre au modèle de récupérer le secret, vous devez activer une stratégie d’accès appelée « Activer l’accès à Azure Resource Manager pour le déploiement de modèles » pour le coffre de clés. Cette stratégie est activée dans le modèle. Pour plus d’informations sur la stratégie d’accès, consultez [Déployer des coffres de clés et des secrets](./key-vault-parameter.md#deploy-key-vaults-and-secrets).
+> * Pour permettre au modèle de récupérer le secret, vous devez activer une stratégie d’accès appelée **Activer l’accès à Azure Resource Manager pour le déploiement de modèles** pour le coffre de clés. Cette stratégie est activée dans le modèle. Pour plus d’informations sur la stratégie d’accès, consultez [Déployer des coffres de clés et des secrets](./key-vault-parameter.md#deploy-key-vaults-and-secrets).
 
-Le modèle contient une seule valeur de sortie appelée *keyVaultId*. Notez la valeur de l’ID à utiliser plus tard quand vous déploierez la machine virtuelle. Le format d’ID de ressource est le suivant :
+Le modèle contient une seule valeur de sortie appelée *keyVaultId*. Vous utiliserez cet ID avec le nom du secret pour récupérer la valeur du secret plus loin dans le tutoriel. Le format d’ID de ressource est le suivant :
 
 ```json
 /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
@@ -108,13 +108,14 @@ Le dépôt Modèles de démarrage rapide Azure contient les modèles ARM. Au lie
     ```
 
 1. Sélectionnez **Ouvrir** pour ouvrir le fichier. Le scénario est identique à celui utilisé dans [Tutoriel : Créer des modèles ARM avec des ressources dépendantes](./template-tutorial-create-templates-with-dependent-resources.md).
-   Le modèle définit cinq ressources :
+   Le modèle définit six ressources :
 
-   * `Microsoft.Storage/storageAccounts`. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-   * `Microsoft.Network/publicIPAddresses`. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-   * `Microsoft.Network/virtualNetworks`. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-   * `Microsoft.Network/networkInterfaces`. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-   * `Microsoft.Compute/virtualMachines`. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts).
+   * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses).
+   * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups).
+   * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks).
+   * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
+   * [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
 
    Il est préférable d’avoir des notions de base sur ce modèle avant de le personnaliser.
 
@@ -128,7 +129,7 @@ Le dépôt Modèles de démarrage rapide Azure contient les modèles ARM. Au lie
 
 ## <a name="edit-the-parameters-file"></a>Modifier le fichier de paramètres
 
-Aucune modification de ce fichier de modèle n’est nécessaire.
+En utilisant la méthode d’ID statique, aucune modification du fichier de modèle n’est nécessaire. La récupération de la valeur du secret s’effectue en configurant le fichier de paramètres de modèle.
 
 1. Dans Visual Studio Code, ouvrez *azuredeploy.parameters.json*, s’il n’est pas déjà ouvert.
 1. Mettez à jour le paramètre `adminPassword` comme suit :
@@ -145,7 +146,7 @@ Aucune modification de ce fichier de modèle n’est nécessaire.
     ```
 
     > [!IMPORTANT]
-    > Remplacez la valeur de **id** par l’ID de ressource du coffre de clés que vous avez créé au cours de la procédure précédente.
+    > Remplacez la valeur de **id** par l’ID de ressource du coffre de clés que vous avez créé au cours de la procédure précédente. Le secretName est codé en dur en tant que **vmAdminPassword**.  Consultez [Préparer un coffre de clés](#prepare-a-key-vault).
 
     ![Fichier de paramètres de déploiement de machine virtuelle pour l’intégration d’un coffre de clés à un modèle Resource Manager](./media/template-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
 
@@ -160,22 +161,30 @@ Aucune modification de ce fichier de modèle n’est nécessaire.
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
-Suivez les instructions dans [Déployer le modèle](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Chargez *azuredeploy.json* et *azuredeploy.parameters.json* dans Cloud Shell, puis utilisez le script PowerShell suivant pour déployer le modèle :
+1. Se connecter à [Azure Cloud Shell](https://shell.azure.com)
 
-```azurepowershell
-$projectName = Read-Host -Prompt "Enter the same project name that is used for creating the key vault"
-$location = Read-Host -Prompt "Enter the same location that is used for creating the key vault (i.e. centralus)"
-$resourceGroupName = "${projectName}rg"
+1. Choisissez votre environnement préféré en sélectionnant **PowerShell** ou **Bash** (pour CLI) en haut à gauche.  Il est nécessaire de redémarrer l’interpréteur de commandes lors d’un tel changement.
 
-New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -TemplateFile "$HOME/azuredeploy.json" `
-    -TemplateParameterFile "$HOME/azuredeploy.parameters.json"
+    ![Fichier de chargement du Cloud Shell du portail Azure](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-Write-Host "Press [ENTER] to continue ..."
-```
+1. Sélectionnez **Charger/Télécharger des fichiers**, puis **Charger**. Chargez *azuredeploy.json* et *azuredeploy.parameters.json* dans Cloud Shell. Après avoir chargé le fichier, vous pouvez utiliser la commande **ls** et la commande **cat** pour vérifier que le chargement a été correctement effectué.
 
-Quand vous déployez le modèle, utilisez le même groupe de ressources que celui que vous avez utilisé dans le coffre de clés. Cette approche facilite le nettoyage des ressources, car vous devez supprimer uniquement un seul groupe de ressources au lieu de deux.
+1. Exécutez le script PowerShell suivant pour déployer le modèle.
+
+    ```azurepowershell
+    $projectName = Read-Host -Prompt "Enter the same project name that is used for creating the key vault"
+    $location = Read-Host -Prompt "Enter the same location that is used for creating the key vault (i.e. centralus)"
+    $resourceGroupName = "${projectName}rg"
+
+    New-AzResourceGroupDeployment `
+        -ResourceGroupName $resourceGroupName `
+        -TemplateFile "$HOME/azuredeploy.json" `
+        -TemplateParameterFile "$HOME/azuredeploy.parameters.json"
+
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+    Quand vous déployez le modèle, utilisez le même groupe de ressources que celui que vous avez utilisé dans le coffre de clés. Cette approche facilite le nettoyage des ressources, car vous devez supprimer uniquement un seul groupe de ressources au lieu de deux.
 
 ## <a name="validate-the-deployment"></a>Valider le déploiement
 

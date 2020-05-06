@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
-ms.openlocfilehash: 55acea360de11c5fcc699d65daf92cf24dfd691d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c5c13b3aae33b098de79a3429a299cc33f1c4f6
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475474"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82202874"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Protéger le back-end d’une application monopage avec OAuth 2.0 à l’aide d’Azure Active Directory B2C et de Gestion des API Azure
 
@@ -148,7 +148,7 @@ Ouvrez le panneau Azure AD B2C dans le portail et effectuez les étapes ci-desso
 5. Revenez à l’onglet HttpTrigger1, cliquez sur « Obtenir l’URL de la fonction », puis copiez l’URL qui s’affiche.
 
    > [!NOTE]
-   > Les liaisons que vous venez de créer indiquent simplement à Functions qu’il faut répondre aux requêtes GET HTTP anonymes envoyées à l’URL que vous venez de copier. (https://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey) Nous disposons désormais d’une API HTTPS serverless scalable qui est capable de retourner une charge utile très simple.
+   > Les liaisons que vous venez de créer indiquent simplement à Functions qu’il faut répondre aux requêtes GET HTTP anonymes envoyées à l’URL que vous venez de copier. (`https://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey`) Nous disposons désormais d’une API HTTPS serverless scalable qui est capable de retourner une charge utile très simple.
    > Vous pouvez maintenant tester l’appel de cette API à partir d’un navigateur web à l’aide de l’URL ci-dessus. Vous pouvez aussi supprimer la partie ?code=secret de l’URL et prouver qu’Azure Functions retournera une erreur 401.
 
 ## <a name="configure-and-secure-the-function-api"></a>Configurer et sécuriser l’API de fonction

@@ -8,21 +8,18 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: 35cea2e6df311d2f4071686c21c8e4c36477abc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c45b8f634868024a84f9f3b75bb23031c09b40c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225117"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82114001"
 ---
 # <a name="azure-event-grid-event-schema"></a>Schéma d’événement Azure Event Grid
 
 Cet article décrit les propriétés et les schémas qui sont présents dans tous les événements. Les événements se composent de cinq propriétés de chaîne et d’un objet de données obligatoires. Les propriétés sont communes à tous les événements, quel que soit le serveur de publication. L’objet de données a des propriétés spécifiques à chaque serveur de publication. Dans les rubriques du système, ces propriétés sont spécifiques au fournisseur de ressources tel que Stockage Azure ou Azure Event Hubs.
 
-Les sources d’événements envoient des événements à Azure Event Grid dans un tableau qui peut avoir plusieurs objets d’événement. Lorsque les événements sont envoyés vers une rubrique Event Grid, le tableau peut avoir une taille totale de 1 Mo. Chaque événement du tableau est limité à 64 Ko (disponibilité générale) ou 1 Mo (préversion). Si un événement ou si le tableau dépasse la taille maximale autorisée, vous recevez le message suivant : **413 Payload Too Large** (413 : charge utile maximale dépassée).
-
-> [!NOTE]
-> Tout événement d’une taille jusqu’à 64 Ko est couvert par le contrat de niveau de service (SLA) en disponibilité générale. La prise en charge des événements d’une taille jusqu’à 1 Mo est actuellement en préversion. Les événements de plus de 64 Ko donnent lieu à une facturation par incréments de 64 Ko. 
+Les sources d’événements envoient des événements à Azure Event Grid dans un tableau qui peut avoir plusieurs objets d’événement. Lorsque les événements sont envoyés vers une rubrique Event Grid, le tableau peut avoir une taille totale de 1 Mo. Chaque événement du tableau est limité à 1 Mo. Si un événement ou si le tableau dépasse la taille maximale autorisée, vous recevez le message suivant : **413 Payload Too Large** (413 : charge utile maximale dépassée). Toutefois, les opérations sont facturées par incréments de 64 Ko. Ainsi, les événements de plus de 64 Ko entraînent des frais d’opération comme s’il s’agissait de plusieurs événements. Par exemple, un événement d’une taille de 130 Ko entraîne des opérations équivalents à 3 événements distincts.
 
 Event Grid envoie les événements aux abonnés sous forme de tableau ne contenant qu’un seul événement. Ce comportement est susceptible de changer.
 
@@ -90,7 +87,7 @@ Tous les événements contiennent les mêmes données de supérieur suivantes :
 | eventType | string | Oui | Un des types d’événements inscrits pour cette source d’événement. |
 | eventTime | string | Oui | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
 | id | string | Oui | Identificateur unique de l’événement. |
-| data | object | Non | Données d’événement spécifiques au fournisseur de ressources. |
+| data | object | Non  | Données d’événement spécifiques au fournisseur de ressources. |
 | dataVersion | string | Non, mais sera marqué avec une valeur vide. | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
 | metadataVersion | string | Non obligatoire, mais s’il est inclus, il doit correspondre exactement au schéma Event Grid `metadataVersion` (actuellement, uniquement `1`). S’il n’est pas inclus, Event Grid placera un tampon sur l’événement. | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 

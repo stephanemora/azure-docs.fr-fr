@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 59f5733009424c60f2b9c48e68d70bbc29ad7095
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 7f47dd05035772744fb212ef8914b25979af61e2
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81263367"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82137159"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transférer des données avec AzCopy et le stockage de fichiers 
 
@@ -148,7 +148,7 @@ Cette section contient les exemples suivants :
 > |---|---|
 > |Copier des listes de contrôle d’accès (ACL) avec les fichiers|**--preserve-smb-permissions**=\[true\|false\]|
 > |Copier des informations de propriété SMB avec les fichiers|**--preserve-smb-info**=\[true\|false\]|
-> |Décompresser automatiquement les fichiers|**--decompress**=\[gzip\|deflate\]|
+> |Décompresser automatiquement les fichiers|**DECOMPRESS**|
 > 
 > Pour obtenir la liste complète, consultez [Options](storage-ref-azcopy-copy.md#options).
 

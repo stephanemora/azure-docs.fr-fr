@@ -1,21 +1,21 @@
 ---
-title: Ressources prises en charge pour Azure Red Hat OpenShift
+title: Ressources prises en charge pour Azure Red Hat OpenShift 3.11
 description: Découvrez les régions Azure et les tailles de machine virtuelle qui sont prises en charge par Microsoft Azure Red Hat OpenShift.
 author: jimzim
 ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 1b794852390141d31a3218a1a434c21133db914c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 38203cede755d776ba9142ad16e1bea1fd1637a6
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79224757"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203673"
 ---
 # <a name="azure-red-hat-openshift-resources"></a>Ressources Azure Red Hat OpenShift
 
-Cette rubrique liste les régions Azure et les tailles de machine virtuelle qui sont prises en charge par le service Microsoft Azure Red Hat OpenShift.
+Cette rubrique liste les régions Azure et les tailles de machine virtuelle qui sont prises en charge par le service Microsoft Azure Red Hat OpenShift 3.11.
 
 ## <a name="azure-regions"></a>Régions Azure
 
@@ -34,7 +34,7 @@ Voici les tailles de machine virtuelle prises en charge que vous pouvez spécifi
 
 Les tailles de nœud de calcul suivantes sont prises en charge par l’API REST Azure Red Hat OpenShift :
 
-|Size|Processeurs virtuels|RAM|
+|Taille|Processeurs virtuels|RAM|
 |-|-|-|
 |Standard D4s v3|4|16 Go|
 |Standard D8s v3|8|32 Go|
@@ -54,7 +54,7 @@ Les tailles de nœud de calcul suivantes sont prises en charge par l’API REST 
 
 Les tailles de nœud principal/d’infrastructure suivantes sont prises en charge par l’API REST Azure Red Hat OpenShift :
 
-|Size|Processeurs virtuels|RAM|
+|Taille|Processeurs virtuels|RAM|
 |-|-|-|
 |Standard D4s v3|4|16 Go|
 |Standard D8s v3|8|32 Go|

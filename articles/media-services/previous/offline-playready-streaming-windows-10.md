@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
-ms.openlocfilehash: 350b8d111652511627ddf67236f63248a5489015
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 001d408eaa7ce637bd7cc1f1183dd8748cddf539
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74970446"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189520"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Diffusion en continu de PlayReady en mode hors connexion pour Windows 10  
 
@@ -65,12 +65,12 @@ Voici deux jeux de ressources de test. Le premier utilise la distribution de lic
 Ressource 1 :
 
 * URL de téléchargement progressif : [https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* PlayReady LA_URL (AMS) : [https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
+* PlayReady LA_URL (AMS) : `https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/`
 
 Ressource 2 :
 
 * URL de téléchargement progressif : [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* PlayReady LA_URL (local) : [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
+* PlayReady LA_URL (local) : `https://willzhan12.cloudapp.net/playready/rightsmanager.asmx`
 
 Pour tester la lecture, j’ai utilisé une application Windows universelle sur Windows 10. Dans [Exemples Windows 10 Universel](https://github.com/Microsoft/Windows-universal-samples) se trouve un exemple de lecteur de base appelé [Exemple de diffusion en continu adaptative](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). Il suffit d’ajouter le code pour sélectionner la vidéo téléchargée et l’utiliser comme source, à la place d’une source de diffusion en continu adaptative. Les modifications figurent dans le gestionnaire d’événements Click :
 

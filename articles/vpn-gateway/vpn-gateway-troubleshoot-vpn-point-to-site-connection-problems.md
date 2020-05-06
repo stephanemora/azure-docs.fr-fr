@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: 119f9c28b5413b8d2db5fa14ea839d1743f3d64a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a273ccad0d30ede3f0ed4ee532d61161074d304
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297625"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188291"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Résolution des problèmes : problèmes de connexion point à site Azure
 
@@ -282,7 +282,7 @@ Lorsque le client se connecte à Azure à l’aide d’une connexion VPN de poin
 
 ### <a name="cause"></a>Cause
 
-Le client VPN de point à site utilise des serveurs Azure DNS configurés dans le réseau virtuel Azure. Les serveurs Azure DNS sont prioritaires sur les serveurs DNS locaux qui sont configurés dans le client, de sorte que toutes les requêtes DNS sont envoyées aux serveurs Azure DNS. Si les serveurs Azure DNS ne disposent pas des enregistrements pour les ressources locales, la requête échoue.
+Le client VPN de point à site utilise normalement des serveurs Azure DNS configurés dans le réseau virtuel Azure. Les serveurs Azure DNS étant prioritaires sur les serveurs DNS locaux qui sont configurés dans le client (sauf si les métriques de l’interface Ethernet sont inférieures), toutes les requêtes DNS sont envoyées aux serveurs Azure DNS. Si les serveurs Azure DNS ne disposent pas des enregistrements pour les ressources locales, la requête échoue.
 
 ### <a name="solution"></a>Solution
 

@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 03/31/2020
 ms.author: tamram
-ms.openlocfilehash: 3b005bc359b3c1b0cafe663b7ce2b599b10973a1
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: bca04317acf589e8bae46f086c6c79dfc82152a8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474006"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82176649"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>Démarrage rapide : Charger, télécharger et lister des blobs avec PowerShell
 
@@ -116,10 +116,10 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez transféré des fichiers entre un disque local et le stockage Blob Azure. Pour en savoir plus sur le fonctionnement de stockage d’objets Blob à l’aide de PowerShell, continuer avec le guide d’utilisation d’Azure PowerShell avec le stockage Azure.
+Dans ce guide de démarrage rapide, vous avez transféré des fichiers entre un système de fichiers local et le Stockage Blob Azure. Pour en savoir plus sur l’utilisation du Stockage Blob à l’aide de PowerShell, explorez les exemples PowerShell afin de découvrir le Stockage Blob.
 
 > [!div class="nextstepaction"]
-> [Utilisation d'Azure PowerShell avec Azure Storage](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Exemples Azure PowerShell pour le Stockage Blob Azure](storage-samples-blobs-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets-reference"></a>Référence des applets de commande de stockage Microsoft Azure PowerShell
 

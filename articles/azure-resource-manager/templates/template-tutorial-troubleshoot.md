@@ -5,12 +5,12 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 30b66414e87f642bc72b8723ebff57f2e9009f17
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 737e8a247a232278db73de716647fc5bb890fe39
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239249"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82184994"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Tutoriel : Résoudre les problèmes des déploiements de modèles ARM
 
@@ -26,20 +26,18 @@ Les deux types d’erreurs retournent un code d’erreur qui vous permet de rés
 Ce tutoriel décrit les tâches suivantes :
 
 > [!div class="checklist"]
-> * Créer un modèle problématique
-> * Résoudre les erreurs de validation
-> * Résoudre les erreurs de déploiement
-> * Nettoyer les ressources
+> - Créer un modèle problématique
+> - Résoudre les erreurs de validation
+> - Résoudre les erreurs de déploiement
+> - Nettoyer les ressources
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-* Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Utiliser Visual Studio Code pour créer des modèles ARM](use-vs-code-to-create-template.md).
+- Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Utiliser Visual Studio Code pour créer des modèles ARM](use-vs-code-to-create-template.md).
 
 ## <a name="create-a-problematic-template"></a>Créer un modèle problématique
 
@@ -51,12 +49,14 @@ Ouvrez un modèle nommé [Créer un compte de stockage standard](https://azure.m
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
+
 3. Sélectionnez **Ouvrir** pour ouvrir le fichier.
 4. Remplacez la ligne **apiVersion** par la ligne suivante :
 
     ```json
     "apiVersion1": "2018-07-02",
     ```
+
     - **apiVersion1** est un nom d’élément non valide. Il s’agit d’une erreur de validation.
     - La version de l’API doit être « 2018-07-01 ».  Il s’agit d’une erreur de déploiement.
 
@@ -64,7 +64,7 @@ Ouvrez un modèle nommé [Créer un compte de stockage standard](https://azure.m
 
 ## <a name="troubleshoot-the-validation-error"></a>Résoudre l’erreur de validation
 
-Reportez-vous à la section [Déployer le modèle](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) pour déployer le modèle.
+Reportez-vous à la section [Déployer le modèle](template-tutorial-create-multiple-instances.md#deploy-the-template) pour déployer le modèle.
 
 Vous devez obtenir une erreur similaire à la suivante depuis l’interpréteur de commandes :
 
@@ -78,7 +78,7 @@ Utilisez Visual Studio Code pour remédier au problème en remplaçant **apiVers
 
 ## <a name="troubleshoot-the-deployment-error"></a>Résoudre l’erreur de déploiement
 
-Reportez-vous à la section [Déployer le modèle](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) pour déployer le modèle.
+Reportez-vous à la section [Déployer le modèle](template-tutorial-create-multiple-instances.md#deploy-the-template) pour déployer le modèle.
 
 Vous devez obtenir une erreur similaire à la suivante depuis l’interpréteur de commandes :
 

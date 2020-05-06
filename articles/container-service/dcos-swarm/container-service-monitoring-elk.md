@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 3d34ebe22344be8acc6ec3cc974071639293e2b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 586b8d25a9f391487640e9b1f8adb3be0e4be6db
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76277775"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166170"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-elk"></a>(DÉPRÉCIÉ) Superviser un cluster Azure Container Service avec ELK
 
@@ -20,7 +20,7 @@ ms.locfileid: "76277775"
 
 Dans cet article, nous montrons comment déployer la pile ELK (Elasticsearch, Logstash, Kibana) sur un cluster DC/OS dans Azure Container Service. 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 [Déployez](container-service-deployment.md) et [connectez](../container-service-connect.md) un cluster DC/OS configuré par Azure Container Service. Explorez le tableau de bord DC/OS et les services Marathon [ici](container-service-mesos-marathon-ui.md). Installez également [l’équilibrage de charge Marathon](container-service-load-balancing.md).
 
 
@@ -28,7 +28,7 @@ Dans cet article, nous montrons comment déployer la pile ELK (Elasticsearch, Lo
 La pile ELK est une combinaison d’Elasticsearch, de Logstash et de Kibana qui fournit une pile de bout en bout pouvant être utilisée pour surveiller et analyser les journaux d’activité de votre cluster.
 
 ## <a name="configure-the-elk-stack-on-a-dcos-cluster"></a>Configurer la pile ELK sur un cluster DC/OS
-Accéder à votre interface utilisateur DC/OS via [http://localhost:80/](http://localhost:80/), puis rendez-vous dans **Univers**. Recherchez et installez Elasticsearch, Logstash et Kibana dans l’univers du contrôleur de domaine/système d’exploitationDC/OS et dans cet ordre spécifique. Vous pouvez en savoir plus sur la configuration en cliquant sur le lien **Advanced Installation (Installation avancée)** .
+Accédez à votre interface utilisateur DC/OS via `http://localhost:80/`, puis rendez-vous dans **Univers**. Recherchez et installez Elasticsearch, Logstash et Kibana dans l’univers du contrôleur de domaine/système d’exploitationDC/OS et dans cet ordre spécifique. Vous pouvez en savoir plus sur la configuration en cliquant sur le lien **Advanced Installation (Installation avancée)** .
 
 ![ELK1](./media/container-service-monitoring-elk/elk1.PNG) ![ELK2](./media/container-service-monitoring-elk/elk2.PNG) ![ELK3](./media/container-service-monitoring-elk/elk3.PNG) 
 

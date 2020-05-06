@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
-ms.openlocfilehash: 95dd7be118e869aed02bb55918ab0cefa0d05d03
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 4601a7f5da8d6e4eda2ee433fe52d08a6341ce6c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998872"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186014"
 ---
 # <a name="plan-virtual-networks"></a>Planifier des réseaux virtuels
 
@@ -111,7 +111,7 @@ Azure utilise le [contrôle d’accès en fonction du rôle](../role-based-acces
 
 Azure Policy vous permet de créer, d’assigner et de gérer des définitions de stratégie. Les définitions de stratégie appliquent différentes règles sur vos ressources, qui restent donc conformes aux normes et aux contrats de niveau de service de l’organisation. Azure Policy exécute une évaluation de vos ressources, en analysant les ressources qui ne sont pas conformes avec les définitions de stratégie dont vous disposez. Par exemple, vous pouvez définir et appliquer une stratégie qui autorise la création de réseaux virtuels dans seulement une région ou un groupe de ressources spécifique. Une autre stratégie peut exiger qu’un groupe de sécurité réseau soit associé à chaque sous-réseau. Les stratégies sont alors évaluées lors de la création et de la mise à jour des ressources.
 
-Les stratégies sont appliquées à la hiérarchie suivante : groupe d’administration, abonnement et groupe de ressources. En savoir plus sur [Azure Policy](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou déployez des exemples de [modèle de stratégie](policy-samples.md) de réseau virtuel.
+Les stratégies sont appliquées à la hiérarchie suivante : groupe d’administration, abonnement et groupe de ressources. Apprenez-en plus sur [Azure Policy](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou déployez des [définitions Azure Policy](policy-samples.md) de réseau virtuel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

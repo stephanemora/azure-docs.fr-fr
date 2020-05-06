@@ -3,12 +3,12 @@ title: Sauvegarder Azure Files avec PowerShell
 description: Dans cet article, découvrez comment sauvegarder Azure Files à l’aide du service Sauvegarde Azure et de PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: f85451e0da6458de34aea936836b46781f4c4a21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 865cfc6daa7568236b0306ba591b42a9f7704dd4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233949"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82101176"
 ---
 # <a name="back-up-azure-files-with-powershell"></a>Sauvegarder Azure Files avec PowerShell
 
@@ -26,7 +26,6 @@ Cet article explique comment :
 ## <a name="before-you-start"></a>Avant de commencer
 
 * [En savoir plus](backup-azure-recovery-services-vault-overview.md) sur les coffres Recovery Services.
-* En savoir plus sur les fonctionnalités en préversion de [sauvegarde de partages de fichiers Azure](backup-afs.md).
 * Passez en revue la hiérarchie des objets PowerShell pour Recovery Services.
 
 ## <a name="recovery-services-object-hierarchy"></a>Hiérarchie des objets dans Recovery Services
@@ -35,7 +34,7 @@ La hiérarchie des objets est résumée dans le schéma suivant.
 
 ![Hiérarchie des objets dans Recovery Services](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
-Passez en revue la **référence sur la cmdlet** [Az.RecoveryServices](/powershell/module/az.recoveryservices) dans la bibliothèque Azure.
+Passez en revue la [référence sur la cmdlet](/powershell/module/az.recoveryservices) **Az.RecoveryServices** dans la bibliothèque Azure.
 
 ## <a name="set-up-and-install"></a>Configurer et installer
 
@@ -45,12 +44,12 @@ Configurez PowerShell comme suit :
 
 1. [Téléchargez la dernière version d’Az PowerShell](/powershell/azure/install-az-ps). La version 1.0.0 est la version minimale requise.
 
-> [!WARNING]
-> La version minimale de PowerShell nécessaire pour la préversion était « Az 1.0.0 ». En raison des modifications à venir pour la disponibilité générale, la version minimale nécessaire de PowerShell sera « Az.RecoveryServices 2.6.0 ». Il est très important de mettre à niveau toutes les versions existantes de PowerShell vers cette version. Sinon, les scripts existants cesseront de fonctionner correctement après la version en disponibilité générale. Installez la version minimale avec les commandes PowerShell suivantes
+    > [!WARNING]
+    > La version PowerShell minimale requise pour la sauvegarde du partage de fichiers Azure est **Az.RecoveryServices 2.6.0**. Mettez à niveau votre version pour éviter tout problème avec les scripts existants. Installez la version minimale avec la commande PowerShell suivante :
 
-```powershell
-Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
-```
+    ```powershell
+    Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
+    ```
 
 2. Recherchez les cmdlets PowerShell Sauvegarde Azure avec cette commande :
 
@@ -287,14 +286,12 @@ testAzureFS       Backup               Completed            11/12/2018 2:42:07 P
 
 Lors des sauvegardes, nous utilisons les captures instantanées de partages de fichiers Azure. Par conséquent, le travail est généralement terminé au moment où la commande retourne cette sortie.
 
-### <a name="using-on-demand-backups-to-extend-retention"></a>Utilisation de sauvegardes à la demande pour étendre la conservation
+### <a name="using-a-runbook-to-schedule-backups"></a>Utilisation d’un runbook pour planifier des sauvegardes
 
-Vous pouvez utiliser des sauvegardes à la demande pour conserver vos captures instantanées pendant 10 ans. Vous pouvez utiliser des planificateurs pour exécuter des scripts PowerShell à la demande avec la conservation choisie, puis pour prendre des captures instantanées à intervalles réguliers chaque semaine, mois ou année. Quand vous prenez régulièrement des captures instantanées, reportez-vous aux [limitations des sauvegardes à la demande](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share) à l’aide de Sauvegarde Azure.
+Si vous recherchez des exemples de scripts, vous pouvez vous référer à l’[exemple de script sur GitHub](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) utilisant un runbook Azure Automation.
 
-Si vous recherchez des exemples de scripts, vous pouvez vous référer à l’exemple de script sur GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup>) qui utilise un runbook Azure Automation permettant de planifier des sauvegardes régulières et de les conserver jusqu’à 10 ans.
-
-> [!WARNING]
-> Vérifiez que la version de PowerShell est mise à niveau vers la version minimale pour « Az.RecoveryServices 2.6.0 » pour les sauvegardes AFS dans vos runbooks Automation. Vous devrez remplacer l’ancien module « AzureRM » par le module « Az ». Avec cette version, le filtre « friendlyName » est disponible pour la commande ```Get-AzRecoveryServicesBackupItem```. Passez le nom du partage de fichiers Azure au paramètre friendlyName. Si vous passez le nom du partage de fichiers Azure au paramètre « Name », cette version génère un avertissement indiquant de passer ce nom convivial au paramètre du nom convivial.
+>[!NOTE]
+> La stratégie de sauvegarde de partage de fichiers Azure prend désormais en charge la configuration d’une sauvegarde avec rétention quotidienne/hebdomadaire/mensuelle/annuelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

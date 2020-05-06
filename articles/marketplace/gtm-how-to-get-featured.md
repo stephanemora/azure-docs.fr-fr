@@ -1,18 +1,18 @@
 ---
-title: Services Go-To-Market - Guide pratique pour apparaître sur la place de marché | Azure
+title: Services Go-To-Market – Guide pratique pour apparaître sur la place de marché | Place de marché Azure
 description: 'Services Go-To-Market : cette section explique comment faire apparaître une annonce sur la Place de marché Microsoft Azure'
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/21/2018
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 266070a6292e41af6ce1b4258774d20a9bd90312
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe18ca41942ff58b8d9eefef3122c90980029766
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286283"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81684617"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Guide pratique pour apparaître dans AppSource et dans la Place de marché Microsoft Azure
 
@@ -38,7 +38,7 @@ Vous pouvez effectuer les actions suivantes pour améliorer votre score :
 Les promotions Applications proposées fonctionne séparément de l’algorithme de recherche.
 
 >[!Note]
->Si votre solution n’apparaît pas correctement dans les résultats de la recherche, envoyez un ticket de support par le biais du menu Aide dans le [Portail Microsoft Cloud Partner](https://cloudpartner.azure.com/).
+>Si votre solution n’apparaît pas correctement dans les résultats de la recherche, envoyez un ticket de support par le biais du menu Aide dans l’[Espace partenaires](https://partner.microsoft.com/).
 
 Votre prise en charge GTM inclut également une bibliothèque complète de modèles d’auto-assistance, de contenu web, de formation et d’outils pour vous aider à promouvoir davantage vos annonces et votre entreprise.
 
@@ -46,6 +46,6 @@ Votre prise en charge GTM inclut également une bibliothèque complète de modè
 
 Apprenez-en plus sur les [avantages de la place de marché commerciale](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
 
-Connectez-vous au [portail Cloud Partner](https://cloudpartner.azure.com) pour créer et configurer votre offre.
+Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) pour créer et configurer votre offre.
 
 ---

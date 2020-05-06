@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: 1e92a9f0b9ba007b289c634995b04f4f1575310a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: caea8d515964510fce432eb0497e3af19ecc1369
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79300592"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82101635"
 ---
 # <a name="update-pricing-tier"></a>Mettre à jour un niveau tarifaire 
 Cet article explique comment mettre à jour le niveau tarifaire d’une rubrique ou d’un domaine Azure Event Grid à l’aide du portail Azure, d’Azure CLI et d’Azure PowerShell. 
@@ -55,40 +55,40 @@ Vous pouvez **passer** du niveau De base au niveau Premium via la page **Mise en
 
 
 ## <a name="use-azure-cli"></a>Utiliser l’interface de ligne de commande Microsoft Azure
-Cette section montre comment utiliser les commandes Azure CLI pour modifier le niveau tarifaire d’une rubrique ou d’un domaine. 
+Cette section montre comment utiliser des commandes Azure CLI pour modifier le niveau tarifaire d’une rubrique. Pour mettre à jour le niveau tarifaire d’un domaine, utilisez la commande `az eventgrid domain update` de la même manière.
+
+### <a name="prerequisites"></a>Prérequis
+Mettez à jour l’extension Azure Event Grid pour Azure CLI en exécutant la commande suivante : 
+
+```azurecli-interactive
+az extension update -n eventgrid
+```
+
+Si l’extension n’est pas installée, exécutez la commande suivante pour l’installer : 
+
+```azurecli-interactive
+az extension add -n eventgrid
+```
 
 ### <a name="upgrade-a-topic-from-basic-to-premium"></a>Faire monter une rubrique du niveau De base au niveau Premium
 
 ```azurecli-interactive
-az rest --method patch \
-        --uri "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" \
-        --body "{\""sku\"": {\""name\"": \""premium\""}}"
+az eventgrid topic update \
+    --resource-group $resourceGroupName \
+    --name $topicName \
+    --location $location \
+    --sku "Premium" 
 ```
 
 ### <a name="downgrade-a-topic-from-premium-to-basic"></a>Faire descendre une rubrique du niveau Premium au niveau De base
 
 ```azurecli-interactive
-az rest --method patch \
-        --uri "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" \
-        --body "{\""sku\"": {\""name\"": \""basic\""}}"
+az eventgrid topic update \
+    --resource-group $resourceGroupName \
+    --name $topicName \
+    --location $location \
+    --sku "Basic" 
 ```
-
-### <a name="upgrade-a-domain-from-basic-to-premium"></a>Faire monter un domaine du niveau De base au niveau Premium
-
-```azurecli-interactive
-az rest --method patch \
-        --uri "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/domains/<EVENT GRID DOMAIN NAME>?api-version=2020-04-01-preview" \
-        --body "{\""sku\"": {\""name\"": \""premium\""}}"
-```
-
-### <a name="downgrade-a-domain-from-premium-to-basic"></a>Faire descendre un domaine du niveau Premium au niveau De base
-
-```azurecli-interactive
-az rest --method patch \
-        --uri "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/domains/<EVENT GRID DOMAIN NAME>?api-version=2020-04-01-preview" \
-        --body "{\""sku\"": {\""name\"": \""basic\""}}"
-```
-
 
 
 ## <a name="use-azure-powershell"></a>Utilisation d'Azure PowerShell

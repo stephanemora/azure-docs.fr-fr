@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 2a30222902fd8797908202562a04018209842af2
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 484dfd7834a206dce6805dc38b0eabeae2ee352a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115060"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82114562"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Évaluer des serveurs à l’aide de données importées
 
@@ -68,7 +68,7 @@ Pour configurer un nouveau projet Azure Migrate
 5. Dans **Projet de migration**, sélectionnez votre abonnement Azure, puis créez un groupe de ressources si vous n’en avez pas.
 6. Dans **Détails du projet**, spécifiez le nom du projet ainsi que la zone géographique où vous souhaitez le créer. Pour plus d'informations :
 
-    - Passez en revue les [zones géographiques prises en charge](migrate-support-matrix.md#supported-geographies). La géographie du projet sert uniquement à stocker les métadonnées rassemblées à partir des machines virtuelles locales.
+    - Passez en revue les zones géographiques prises en charge pour les clouds [publics](migrate-support-matrix.md#supported-geographies-public-cloud) et du [secteur public](migrate-support-matrix.md#supported-geographies-azure-government).
     - Vous pouvez sélectionner n’importe quelle région cible quand vous exécutez une migration.
 
     ![Créer un projet Azure Migrate](./media/tutorial-assess-import/migrate-project.png)
@@ -106,27 +106,27 @@ Le tableau suivant récapitule les champs du fichier à remplir :
 **Nom du champ** | **Obligatoire** | **Détails**
 --- | --- | ---
 **Nom du serveur** | Oui | Nous vous recommandons de spécifier le nom de domaine complet (FQDN).
-**Adresse IP** | Non | Adresse du serveur.
+**Adresse IP** | Non  | Adresse du serveur.
 **Cœurs** | Oui | Nombre de cœurs de processeur alloués au serveur.
 **Mémoire** | Oui | RAM totale, en Mo, allouée au serveur.
 **Nom du système d’exploitation** | Oui | Système d’exploitation du serveur. <br/> Les noms de système d’exploitation qui correspondent aux noms ou qui contiennent les noms figurant dans [cette liste](#supported-operating-system-names) sont reconnus par l’évaluation.
-**Version du SE** | Non | Version du système d’exploitation du serveur.
-**Nombre de disques** | Non | Inutile si les détails sur le disque individuel sont fournis.
-**Taille du disque 1**  | Non | Taille maximale du disque, en Go<br/>Vous pouvez ajouter les détails d’autres disques en [ajoutant des colonnes](#add-multiple-disks) dans le modèle. Vous pouvez ajouter jusqu’à huit disques.
-**Opérations de lecture sur le disque 1** | Non | Opérations de lecture sur le disque par seconde.
-**Opérations d’écriture sur le disque 1** | Non | Opérations d’écriture sur le disque par seconde.
-**Débit de lecture sur le disque 1** | Non | Données lues à partir du disque par seconde, en Mo par seconde.
-**Débit d’écriture sur le disque 1** | Non | Données écrites sur le disque par seconde, en Mo par seconde.
-**Pourcentage d’utilisation du processeur** | Non | Pourcentage d’utilisation du processeur.
-**Pourcentage d’utilisation de la mémoire** | Non | Pourcentage de RAM utilisé.
-**Total des opérations de lecture sur les disques** | Non | Opérations de lecture sur le disque par seconde.
-**Total des opérations d’écriture sur les disques** | Non | Opérations d’écriture sur le disque par seconde.
-**Total du débit de lecture sur les disques** | Non | Données lues à partir du disque, en Mo par seconde.
-**Total du débit d’écriture sur les disques** | Non | Données écrites sur le disque, en Mo par seconde.
-**Débit d’entrée réseau** | Non | Données reçues par le serveur, en Mo par seconde.
-**Débit de sortie réseau** | Non | Données transmises par le serveur, en Mo par seconde.
-**Type de microprogramme** | Non | Microprogramme du serveur. Les valeurs peuvent être « BIOS » ou « UEFI ».
-**Adresse MAC**| Non | Adresse MAC du serveur.
+**Version du SE** | Non  | Version du système d’exploitation du serveur.
+**Nombre de disques** | Non  | Inutile si les détails sur le disque individuel sont fournis.
+**Taille du disque 1**  | Non  | Taille maximale du disque, en Go<br/>Vous pouvez ajouter les détails d’autres disques en [ajoutant des colonnes](#add-multiple-disks) dans le modèle. Vous pouvez ajouter jusqu’à huit disques.
+**Opérations de lecture sur le disque 1** | Non  | Opérations de lecture sur le disque par seconde.
+**Opérations d’écriture sur le disque 1** | Non  | Opérations d’écriture sur le disque par seconde.
+**Débit de lecture sur le disque 1** | Non  | Données lues à partir du disque par seconde, en Mo par seconde.
+**Débit d’écriture sur le disque 1** | Non  | Données écrites sur le disque par seconde, en Mo par seconde.
+**Pourcentage d’utilisation du processeur** | Non  | Pourcentage d’utilisation du processeur.
+**Pourcentage d’utilisation de la mémoire** | Non  | Pourcentage de RAM utilisé.
+**Total des opérations de lecture sur les disques** | Non  | Opérations de lecture sur le disque par seconde.
+**Total des opérations d’écriture sur les disques** | Non  | Opérations d’écriture sur le disque par seconde.
+**Total du débit de lecture sur les disques** | Non  | Données lues à partir du disque, en Mo par seconde.
+**Total du débit d’écriture sur les disques** | Non  | Données écrites sur le disque, en Mo par seconde.
+**Débit d’entrée réseau** | Non  | Données reçues par le serveur, en Mo par seconde.
+**Débit de sortie réseau** | Non  | Données transmises par le serveur, en Mo par seconde.
+**Type de microprogramme** | Non  | Microprogramme du serveur. Les valeurs peuvent être « BIOS » ou « UEFI ».
+**Adresse MAC**| Non  | Adresse MAC du serveur.
 
 
 ### <a name="add-operating-systems"></a>Ajouter des systèmes d’exploitation
@@ -248,6 +248,8 @@ Cette vue montre une estimation des coûts de calcul et de stockage liés à l�
 > Les niveaux de confiance ne sont pas attribuées aux évaluations des serveurs importés dans Server Assessment à l’aide d’un fichier CSV.
 
 ## <a name="supported-operating-system-names"></a>Noms des systèmes d’exploitation pris en charge
+
+Les noms des systèmes d’exploitation fournis dans le fichier CSV doivent correspondre aux noms de cette liste ou les contenir. C’est nécessaire pour les noms spécifiés qui doivent être reconnus comme étant valides par l’évaluation.
 
 <!-- BEGIN A - H -->
 

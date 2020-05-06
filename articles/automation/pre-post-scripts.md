@@ -1,50 +1,29 @@
 ---
-title: Configurer des pré-scripts et des post-scripts sur votre déploiement Update Management dans Azure
+title: Gérer des pré-scripts et des post-scripts dans votre déploiement Update Management dans Azure
 description: Cet article explique comment configurer et gérer des pré-scripts et des post-scripts pour les déploiements de mises à jour.
 services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: bbf7f2945ad6a94c51cfd0c7db1e8c85d739c6ed
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 00cde5255f9c9a2baa7c7042ae2a8f73448da0ae
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631617"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81679985"
 ---
-# <a name="manage-pre-and-post-scripts"></a>Gérer des pré-scripts et des post-scripts
+# <a name="manage-pre-scripts-and-post-scripts"></a>Gérer des pré-scripts et des post-scripts
 
-Les pré-scripts et les post-scripts vous permettent d’exécuter des runbooks PowerShell dans votre compte Azure Automation avant (tâche préalable) et après (tâche postérieure) un déploiement de mises à jour. Tous ces scripts s’exécutent dans le contexte Azure, pas localement. Les pré-scripts s’exécutent au début du déploiement de la mise à jour. Les post-scripts s’exécutent à la fin du déploiement et après chaque redémarrage qui a été configuré.
+Les pré-scripts et les post-scripts sont des runbooks à exécuter dans votre compte Azure Automation avant (tâche préalable) et après (tâche postérieure) un déploiement de mises à jour. Les pré-scripts et les post-scripts s’exécutent dans le contexte Azure, pas localement. Les pré-scripts s’exécutent au début du déploiement de la mise à jour. Les post-scripts s’exécutent à la fin du déploiement et après chaque redémarrage qui a été configuré.
 
-## <a name="runbook-requirements"></a>Exigences en matière de runbook
+>[!NOTE]
+>Cet article a été mis à jour pour tenir compte de l’utilisation du nouveau module Az d’Azure PowerShell. Vous pouvez toujours utiliser le module AzureRM, qui continue à recevoir des correctifs de bogues jusqu’à au moins décembre 2020. Pour en savoir plus sur le nouveau module Az et la compatibilité avec AzureRM, consultez [Présentation du nouveau module Az d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Pour obtenir des instructions relatives à l’installation du module Az sur votre Runbook Worker hybride, voir [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Pour votre compte Automation, vous pouvez mettre à jour vos modules vers la dernière version en suivant les instructions du [Guide de mise à jour des modules Azure PowerShell dans Azure Automation](automation-update-azure-modules.md).
 
-Le runbook que vous souhaitez utiliser en tant que pré ou post-script doit être importé dans votre compte Automation et publié. Pour plus d’informations sur ce processus, consultez [Publier un runbook](manage-runbooks.md#publishing-a-runbook).
+## <a name="pre-script-and-post-script-requirements"></a>Configuration requise pour les pré-scripts et les post-scripts
 
-## <a name="using-a-pre-script-or-post-script"></a>Utilisation d’un pré-script ou d’un post-script
+Pour être utilisé en tant que pré-script ou post-script, un runbook doit être importé dans votre compte Automation et [publié](manage-runbooks.md#publishing-a-runbook).
 
-Pour utiliser un pré-script ou un post-script dans un déploiement de mises à jour, commencez par créer un déploiement de mises à jour. Sélectionnez **Pre-scripts + Post-scripts**. Cette action ouvre la page **Select Pre-scripts + Post-scripts** (Sélectionner des pré-scripts et post-scripts).
-
-![Sélection des scripts](./media/pre-post-scripts/select-scripts.png)
-
-Sélectionnez le script que vous souhaitez utiliser. Dans cet exemple, nous utilisons le runbook **UpdateManagement-TurnOnVms**. Lorsque vous sélectionnez le runbook, la page **Configurer un script** s’affiche. Sélectionnez **Pré-script**, puis **OK**.
-
-Répétez ce processus pour le script **UpdateManagement-TurnOffVms**. Par contre, lorsque vous choisissez le **Type de script**, sélectionnez **Post-script**.
-
-La section **Éléments sélectionnés** affiche à présent vos deux scripts sélectionnés. L’un est un pré-script, et l’autre un post-script :
-
-![Éléments sélectionnés](./media/pre-post-scripts/selected-items.png)
-
-Achevez la configuration de votre déploiement de mises à jour.
-
-Une fois votre déploiement de mises à jour terminé, vous pouvez accéder à **Déploiements de mises à jour** pour visualiser les résultats. Comme vous pouvez le constater, l’état est fourni pour le pré-script et le post-script :
-
-![Résultats des mises à jour](./media/pre-post-scripts/update-results.png)
-
-Lorsque vous sélectionnez l’exécution du déploiement de mises à jour, vous obtenez des détails supplémentaires sur les pré-scripts et les post-scripts. Un lien d’accès à la source du script au moment de l’exécution est fourni.
-
-![Résultats de l’exécution du déploiement](./media/pre-post-scripts/deployment-run.png)
-
-## <a name="passing-parameters"></a>Transmission des paramètres
+## <a name="pre-script-and-post-script-parameters"></a>Paramètres des pré-script et des post-scripts
 
 Lorsque vous configurez des pré-scripts et des post-scripts, vous pouvez transmettre des paramètres tout comme vous planifieriez un runbook. Les paramètres sont définis au moment de la création du déploiement de mises à jour. Les pré-scripts et les post-scripts prennent en charge les types suivants :
 
@@ -58,13 +37,11 @@ Lorsque vous configurez des pré-scripts et des post-scripts, vous pouvez transm
 * [DateTime]
 * [string]
 
+Les paramètres de runbooks de pré-scripts et de post-scripts ne prennent pas en charge les types booléen, objet ou tableau. Ces valeurs provoquent l’échec des runbooks. 
+
 Si vous avez besoin d’un autre type d’objet, vous pouvez le caster en un autre type avec votre propre logique dans le runbook.
 
-En plus de vos paramètres de runbook standard, un autre paramètre est fourni : **SoftwareUpdateConfigurationRunContext**
-
-Ce paramètre est une chaîne JSON, et si vous le définissez dans votre pré- ou post-script, il est automatiquement transmis par le déploiement de mises à jour. Le paramètre contient des informations sur le déploiement de mises à jour, qui constitue un sous-ensemble des informations retournées par [l’API SoftwareUpdateconfigurations](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). 
-
-Le tableau ci-après présente les propriétés fournies dans la variable.
+En plus de vos paramètres de runbook standard, le paramètre `SoftwareUpdateConfigurationRunContext` (type chaîne JSON) est fourni. Si vous le définissez le paramètre dans votre runbook de pré- ou post-script, il est automatiquement transmis par le déploiement de mises à jour. Le paramètre contient des informations sur le déploiement de mises à jour, qui constitue un sous-ensemble des informations retournées par [l’API SoftwareUpdateconfigurations](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). Les sections ci-dessous définissent les propriétés associées.
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>Propriétés SoftwareUpdateConfigurationRunContext
 
@@ -74,7 +51,7 @@ Le tableau ci-après présente les propriétés fournies dans la variable.
 |SoftwareUpdateConfigurationRunId     | ID unique de l’exécution        |
 |SoftwareUpdateConfigurationSettings     | Collection de propriétés relatives à la configuration de mises à jour logicielles.         |
 |SoftwareUpdateConfigurationSettings.operatingSystem     | Systèmes d’exploitation ciblés pour le déploiement de mises à jour.         |
-|SoftwareUpdateConfigurationSettings.duration     | Durée maximale de l’exécution du déploiement de mises à jour, exprimée sous la forme `PT[n]H[n]M[n]S` conformément à ISO8601 ; également appelée *fenêtre de maintenance*.          |
+|SoftwareUpdateConfigurationSettings.duration     | Durée maximale de l’exécution du déploiement de mises à jour, exprimée sous la forme `PT[n]H[n]M[n]S` conformément à ISO8601 ; également appelée fenêtre de maintenance.          |
 |SoftwareUpdateConfigurationSettings.Windows     | Collection de propriétés relatives aux ordinateurs Windows.         |
 |SoftwareUpdateConfigurationSettings.Windows.excludedKbNumbers     | Liste des bases de connaissances qui sont exclues du déploiement de mises à jour.        |
 |SoftwareUpdateConfigurationSettings.Windows.includedUpdateClassifications     | Classifications des mises à jour sélectionnées pour le déploiement de mises à jour.        |
@@ -115,8 +92,33 @@ Voici un exemple de chaîne JSON transmise dans le paramètre **SoftwareUpdateCo
 Un exemple complet avec toutes les propriétés est disponible ici : [Obtenir la configuration de mises à jour logicielles par nom](/rest/api/automation/softwareupdateconfigurations/getbyname#examples).
 
 > [!NOTE]
-> L’objet `SoftwareUpdateConfigurationRunContext` peut contenir des entrées en double pour les machines. De ce fait, il se peut que les pré-scripts et les post-scripts s’exécutent plusieurs fois sur la même machine. Pour éviter ce comportement, utilisez le paramètre `Sort-Object -Unique` pour sélectionner uniquement les noms de machine virtuelle uniques dans votre script.
+> L’objet `SoftwareUpdateConfigurationRunContext` peut contenir des entrées en double pour les machines. De ce fait, il se peut que les pré-scripts et les post-scripts s’exécutent plusieurs fois sur la même machine. Pour éviter ce comportement, utilisez le paramètre `Sort-Object -Unique` pour sélectionner uniquement les noms de machine virtuelle uniques.
 
+## <a name="using-a-pre-script-or-post-script-in-a-deployment"></a>Utilisation d’un pré-script ou d’un post-script dans un déploiement
+
+Pour utiliser un pré-script ou un post-script dans un déploiement de mises à jour, commencez par créer un déploiement de mises à jour. Sélectionnez **Pre-scripts + Post-scripts**. Cette action ouvre la page **Select Pre-scripts + Post-scripts** (Sélectionner des pré-scripts et post-scripts).
+
+![Sélection des scripts](./media/pre-post-scripts/select-scripts.png)
+
+Sélectionnez le script que vous souhaitez utiliser. Dans cet exemple, nous utilisons le runbook **UpdateManagement-TurnOnVms**. Lorsque vous sélectionnez le runbook, la page **Configurer un script** s’affiche. Sélectionnez **Pré-script**, puis **OK**.
+
+Répétez ce processus pour le script **UpdateManagement-TurnOffVms**. Par contre, lorsque vous choisissez le **Type de script**, sélectionnez **Post-script**.
+
+La section **Éléments sélectionnés** affiche à présent vos deux scripts sélectionnés. L’un est un pré-script, et l’autre un post-script :
+
+![Éléments sélectionnés](./media/pre-post-scripts/selected-items.png)
+
+Achevez la configuration de votre déploiement de mises à jour.
+
+Une fois votre déploiement de mises à jour terminé, vous pouvez accéder à **Déploiements de mises à jour** pour visualiser les résultats. Comme vous pouvez le constater, l’état est fourni pour le pré-script et le post-script :
+
+![Résultats des mises à jour](./media/pre-post-scripts/update-results.png)
+
+Lorsque vous sélectionnez l’exécution du déploiement de mises à jour, vous obtenez des détails supplémentaires sur les pré-scripts et les post-scripts. Un lien d’accès à la source du script au moment de l’exécution est fourni.
+
+![Résultats de l’exécution du déploiement](./media/pre-post-scripts/deployment-run.png)
+
+dans votre script.
 
 ## <a name="stopping-a-deployment"></a>Planification d’un déploiement
 
@@ -132,6 +134,44 @@ foreach($summary in $finalStatus)
         #We must throw in order to fail the patch deployment.
         throw $summary.Summary
     }
+}
+```
+
+
+
+## <a name="interacting-with-machines"></a>Interaction avec des machines
+
+Les pré-scripts et les tâches postérieures s’exécutent sous la forme de runbooks dans votre compte Automation, et non directement sur les machines de votre déploiement. Les tâches préalables et les tâches postérieures s’exécutent également dans le contexte Azure et n’ont pas accès aux machines non Azure. Les sections suivantes vous montrent comment interagir directement avec les machines, qu’il s’agisse de machines virtuelles Azure ou de machines non-Azure.
+
+### <a name="interact-with-azure-machines"></a>Interagir avec des machines Azure
+
+Les tâches antérieures et les tâches postérieures s’exécutent sous la forme de runbooks, et non de manière native, sur les machines Azure de votre déploiement. Pour interagir avec vos machines Azure, vous devez disposer des éléments suivants :
+
+* compte d’identification ;
+* runbook à exécuter.
+
+Pour interagir avec des machines Azure, vous devez utiliser la cmdlet [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0) pour interagir avec vos machines virtuelles Azure. Pour savoir comment faire, consultez l’exemple de runbook [Update Management - run script with Run command](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
+
+### <a name="interact-with-non-azure-machines"></a>Interagir avec les machines non Azure
+
+Les tâches antérieures et les tâches postérieures s’exécutent dans le contexte Azure et n’ont pas accès aux machines non Azure. Pour interagir avec les machines non-Azure, vous devez disposer des éléments suivants :
+
+* compte d’identification ;
+* fonctionnalité Runbook Worker hybride installée sur la machine ;
+* runbook à exécuter localement ;
+* runbook parent.
+
+Pour interagir avec les machines non-Azure, un runbook parent est exécuté dans le contexte Azure. Ce runbook appelle un runbook enfant avec l’applet de commande [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0). Vous devez spécifier le paramètre `RunOn` et indiquer le nom du Runbook Worker hybride sur lequel exécuter le script. Consultez l’exemple de runbook [Update Management – exécuter le script localement](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
+
+## <a name="aborting-patch-deployment"></a>Abandon du déploiement de correctifs
+
+Si votre pré-script retourne une erreur, vous serez peut-être amené à annuler le déploiement. Pour cela, vous devez [lever](/powershell/module/microsoft.powershell.core/about/about_throw) une erreur dans votre script pour toute logique pouvant constituer une défaillance.
+
+```powershell
+if (<My custom error logic>)
+{
+    #Throw an error to fail the patch deployment.
+    throw "There was an error, abort deployment"
 }
 ```
 
@@ -152,7 +192,7 @@ Une autre possibilité consiste à rechercher les scripts par leur nom, comme mo
 > [!IMPORTANT]
 > Après avoir importé les runbooks, vous devez les publier avant de pouvoir les utiliser. Pour effectuer cette opération, recherchez le runbook dans votre compte Automation, sélectionnez **Modifier**, puis **Publier**.
 
-Les exemples reposent tous sur le modèle de base qui est défini dans l’exemple suivant. Vous pouvez utiliser ce modèle pour créer votre propre runbook à utiliser avec des pré-scripts et post-scripts. La logique nécessaire à l’authentification auprès d’Azure et à la gestion du paramètre `SoftwareUpdateConfigurationRunContext` est incluse.
+Les exemples reposent tous sur le modèle de base qui est défini dans l’exemple suivant. Vous pouvez utiliser ce modèle pour créer votre propre runbook à utiliser avec des pré-scripts et des post-scripts. La logique nécessaire à l’authentification auprès d’Azure et à la gestion du paramètre `SoftwareUpdateConfigurationRunContext` est incluse.
 
 ```powershell
 <#
@@ -174,13 +214,13 @@ param(
 #This requires a RunAs account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
-Add-AzureRmAccount `
+Add-AzAccount `
     -ServicePrincipal `
     -TenantId $ServicePrincipalConnection.TenantId `
     -ApplicationId $ServicePrincipalConnection.ApplicationId `
     -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
 
-$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+$AzureContext = Select-AzSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
 #endregion BoilerplateAuthentication
 
 #If you wish to use the run context, it must be converted from JSON
@@ -194,7 +234,7 @@ Write-Output $context
 #Example: How to create and write to a variable using the pre-script:
 <#
 #Create variable named after this run so it can be retrieved
-New-AzureRmAutomationVariable -ResourceGroupName $ResourceGroup –AutomationAccountName $AutomationAccount –Name $runId -Value "" –Encrypted $false
+New-AzAutomationVariable -ResourceGroupName $ResourceGroup –AutomationAccountName $AutomationAccount –Name $runId -Value "" –Encrypted $false
 #Set value of variable
 Set-AutomationVariable –Name $runId -Value $vmIds
 #>
@@ -205,45 +245,8 @@ $variable = Get-AutomationVariable -Name $runId
 #>
 ```
 
-## <a name="interacting-with-machines"></a>Interaction avec des machines
-
-Les tâches antérieures et postérieures s’exécutent sous la forme d’un runbook dans votre compte Automation, et non directement sur les machines de votre déploiement. Elles s’exécutent également dans le contexte Azure et n’ont pas accès aux machines non-Azure. Les sections suivantes vous montrent comment interagir directement avec les machines, qu’il s’agisse de machines virtuelles Azure ou de machines non-Azure.
-
-### <a name="interacting-with-azure-machines"></a>Interaction avec des machines Azure
-
-Les tâches antérieures et postérieures s’exécutent sous la forme d’un runbook, et non de manière native, sur les machines Azure de votre déploiement. Pour interagir avec vos machines Azure, vous devez disposer des éléments suivants :
-
-* compte d’identification ;
-* runbook à exécuter.
-
-Pour interagir avec des machines Azure, vous devez utiliser la cmdlet [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand). Pour savoir comment faire, consultez l’exemple de runbook [Update Management - run script with Run command](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
-
-### <a name="interacting-with-non-azure-machines"></a>Interaction avec les machines non-Azure
-
-Les tâches antérieures et postérieures s’exécutent dans le contexte Azure et n’ont pas accès aux machines non-Azure. Pour interagir avec les machines non-Azure, vous devez disposer des éléments suivants :
-
-* compte d’identification ;
-* fonctionnalité Runbook Worker hybride installée sur la machine ;
-* runbook à exécuter localement ;
-* runbook parent.
-
-Pour interagir avec les machines non-Azure, un runbook parent est exécuté dans le contexte Azure. Ce runbook appelle un runbook enfant avec l’applet de commande [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook). Vous devez spécifier le paramètre `-RunOn` et indiquer le nom du Runbook Worker hybride sur lequel exécuter le script. Pour plus d’informations, consultez l’exemple de runbook [Update Management - run script locally](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
-
-## <a name="abort-patch-deployment"></a>À propos du déploiement de correctifs
-
-Si votre pré-script retourne une erreur, vous serez peut-être amené à annuler le déploiement. Pour cela, vous devez [lever](/powershell/module/microsoft.powershell.core/about/about_throw) une erreur dans votre script pour toute logique pouvant constituer une défaillance.
-
-```powershell
-if (<My custom error logic>)
-{
-    #Throw an error to fail the patch deployment.
-    throw "There was an error, abort deployment"
-}
-```
-
-## <a name="known-issues"></a>Problèmes connus
-
-* Vous ne pouvez pas transmettre d’objet, de valeur booléenne ni de tableau aux paramètres lorsque vous utilisez des pré-scripts et des post-scripts. Dans ce cas, le runbook échoue. Pour obtenir la liste complète des types pris en charge, consultez [Transmission des paramètres](#passing-parameters).
+> [!NOTE]
+> Pour les runbooks PowerShell non graphiques, `Add-AzAccount` et `Add-AzureRMAccount` sont des alias de [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Vous pouvez utiliser ces cmdlets ou [mettre à jour vos modules](automation-update-azure-modules.md) dans votre compte Automation vers les dernières versions. Il est possible que vous deviez mettre à jour vos modules, même si vous venez de créer un compte Automation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -251,4 +254,3 @@ Poursuivez avec le tutoriel suivant pour apprendre à gérer les mises à jour d
 
 > [!div class="nextstepaction"]
 > [Gérer les mises à jour et les correctifs pour vos machines virtuelles Windows Azure](automation-tutorial-update-management.md)
-

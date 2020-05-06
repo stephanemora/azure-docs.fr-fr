@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
-ms.date: 04/02/2020
-ms.openlocfilehash: fa33861d86ff8bee3e2a34fb3d93032ac6180880
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.date: 04/09/2020
+ms.openlocfilehash: d960c8225cbb22c221ecaec1b7c49b5bb20c1429
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879621"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203639"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutoriel : Créer un projet d’étiquetage pour la classification d’images multiclasse 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -75,18 +75,6 @@ Les magasins de données Azure Machine Learning permettent de stocker les inform
 
 1. Sélectionnez **Créer** pour créer le magasin de données.
 
-### <a name="add-labelers-to-workspace"></a>Ajouter des étiqueteurs à l’espace de travail
-
-Configurez votre espace de travail de façon à inclure toutes les personnes qui étiquettent les données pour tous vos projets.  Plus tard, vous ajouterez ces étiqueteurs à votre projet d’étiquetage spécifique.
-
-1. Sur le côté gauche, sélectionnez **Étiquetage des données**.
-
-1. En haut de la page, sélectionnez **Étiqueteurs**.
-
-1. Sélectionnez **Ajouter un étiqueteur** pour ajouter l’adresse e-mail d’un étiqueteur.
-
-1. Continuez d’ajouter d’autres étiqueteurs jusqu’à ce que vous ayez terminé.
-
 ### <a name="create-a-labeling-project"></a>Créer un projet d’étiquetage
 
 Maintenant que vous disposez de votre liste d’étiqueteurs et de l’accès aux données à étiqueter, créez votre projet d’étiquetage.
@@ -142,51 +130,21 @@ Maintenant que vous disposez de votre liste d’étiqueteurs et de l’accès au
 
 Cette page ne s’actualise pas automatiquement. Après une pause, actualisez manuellement la page jusqu’à ce que l’état du projet indique **Créé**.
 
-### <a name="add-labelers-to-your-project"></a>Ajouter des étiqueteurs à votre projet
-
-Ajoutez une partie ou la totalité de vos étiqueteurs à ce projet.
-
-1. Sélectionnez le nom du projet pour ouvrir le projet.  
-
-1. En haut de la page, sélectionnez **Équipes**.
-
-1. Sélectionnez le lien **labeling_tutorial Default Team**.
-
-1. À présent, utilisez **Affecter des étiqueteurs** pour ajouter les étiqueteurs qui doivent participer à ce projet. 
-
-1. Effectuez votre choix dans la liste des étiqueteurs que vous avez créée précédemment.  Une fois que vous avez sélectionné tous les étiqueteurs que vous souhaitez utiliser, sélectionnez **Affecter des étiqueteurs** pour les ajouter à votre équipe de projet par défaut.
-
 ## <a name="start-labeling"></a>Commencer l’étiquetage
 
 Vous avez maintenant configuré vos ressources Azure et un projet d’étiquetage de données. Il est temps d’ajouter des étiquettes à vos données.
 
-### <a name="notify-labelers"></a>Avertir les étiqueteurs
+### <a name="tag-the-images"></a>Baliser les images
 
-Si vous avez un grand nombre d’images à étiqueter, espérons que vous avez également un grand nombre d’étiqueteurs pour effectuer la tâche.  Vous souhaitez à présent leur envoyer des instructions afin qu’ils puissent accéder aux données et commencer à étiqueter.
+Dans cette partie du tutoriel, vous allez passer du rôle d’*administrateur de projet* à celui d’*étiqueteur*.  Toute personne disposant d’un accès Contributeur à votre espace de travail peut devenir un étiqueteur.
 
 1. Dans [Machine Learning Studio](https://ml.azure.com), sélectionnez **Étiquetage des données** sur le côté gauche pour rechercher votre projet.  
 
-1. Sélectionnez le lien du nom du projet.
+1. Sélectionnez le nom du projet dans la liste.
 
-1. En haut de la page, sélectionnez **Détails**.  Vous voyez un résumé de votre projet.
+1. En dessous du nom du projet, sélectionnez **Label data** (Étiqueter les données).
 
-    ![Détails du projet](media/tutorial-labeling/project-details.png)
-
-1. Copiez le lien **URL du portail d’étiquetage** à envoyer à vos étiqueteurs.
-
-1. Sélectionnez à présent **Équipe** en haut pour rechercher votre équipe d’étiquetage.  
-
-1. Sélectionnez le lien du nom de l’équipe.
-
-1. En haut de la page, sélectionnez **Envoyer un e-mail à l’équipe** pour commencer votre e-mail.  Collez l’URL du portail d’étiquetage que vous venez de copier.  
-
-Chaque fois qu’un étiqueteur accède à l’URL du portail, il reçoit d’autres images à étiqueter, jusqu’à ce que la file d’attente soit vide.  
-
-### <a name="tag-the-images"></a>Baliser les images
-
-Dans cette partie du tutoriel, vous allez passer du rôle d’*administrateur de projet* à celui d’*étiqueteur*.  Utilisez l’URL que vous avez envoyée à l’équipe.  Cette URL vous amène au portail d’étiquetage de votre projet.  Si vous aviez ajouté des instructions, vous les voyez ici quand vous accédez à la page.
-
-1. En haut de la page, sélectionnez **Tâches** pour commencer l’étiquetage.
+1. Lisez les instructions, puis sélectionnez **Tâches**.
 
 1. Sélectionnez une image miniature sur la droite pour afficher le nombre d’images que vous souhaitez étiqueter en une seule fois. Vous devez étiqueter toutes ces images avant de pouvoir continuer. Changez de disposition uniquement quand vous avez une nouvelle page de données non étiquetées. Tout changement de disposition a pour effet d’effacer le travail de balisage en cours de la page.
 

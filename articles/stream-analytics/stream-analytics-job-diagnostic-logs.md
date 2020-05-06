@@ -1,32 +1,32 @@
 ---
-title: Résoudre les problèmes liés à Azure Stream Analytics à l’aide des journaux de diagnostic
-description: Cet article décrit comment analyser les journaux de diagnostic dans Azure Stream Analytics.
+title: Résoudre les problèmes liés à Azure Stream Analytics à l’aide des journaux de ressources
+description: Cet article décrit comment analyser les journaux de ressources dans Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: cdb6629441becd0a8356debe3360830ff11a7a9d
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 40b57af95f9ea4d4212756634c721ddd55f85d7b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398420"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82127748"
 ---
-# <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Résoudre les problèmes liés à Azure Stream Analytics à l’aide des journaux de diagnostic
+# <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Résoudre les problèmes liés à Azure Stream Analytics à l’aide des journaux de ressources
 
-Il arrive parfois qu’un travail Azure Stream Analytics s’arrête de manière inattendue. Il est important d’être en mesure de résoudre ce type de problème. Les échecs peuvent être liés à un résultat de requête inattendu, à une mauvaise connectivité aux périphériques ou à un arrêt inattendu du service. Les journaux de diagnostic dans Stream Analytics peuvent vous aider à identifier la cause des problèmes lorsqu’ils surviennent et à réduire le délai de récupération.
+Il arrive parfois qu’un travail Azure Stream Analytics s’arrête de manière inattendue. Il est important d’être en mesure de résoudre ce type de problème. Les échecs peuvent être liés à un résultat de requête inattendu, à une mauvaise connectivité aux périphériques ou à un arrêt inattendu du service. Les journaux de ressources dans Stream Analytics peuvent vous aider à identifier la cause des problèmes lorsqu’ils surviennent et à réduire le délai de récupération.
 
-Il est vivement recommandé d’activer les journaux de diagnostic pour tous les travaux, ce qui facilite grandement le débogage et la surveillance.
+Il est vivement recommandé d’activer les journaux de ressources pour tous les travaux, ce qui facilite grandement le débogage et la surveillance.
 
 ## <a name="log-types"></a>Types de journaux
 
 Stream Analytics fournit deux types de journaux d’activité :
 
-* Les [journaux d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) (activés en permanence) fournissent des détails sur les opérations effectuées sur les travaux.
+* Les [journaux d’activité](../azure-monitor/platform/platform-logs-overview.md) (activés en permanence) fournissent des détails sur les opérations effectuées sur les travaux.
 
-* Les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (configurables) offrent des informations plus détaillées sur tous les événements liés à un travail. Les journaux de diagnostic enregistrent les événements entre le moment où le travail est créé et celui où le travail est supprimé. Ils consignent les événements qui se produisent lorsque le travail est mis à jour et lors de son exécution.
+* Les [journaux de ressources](../azure-monitor/platform/platform-logs-overview.md) (configurables) offrent des informations plus détaillées sur tous les événements liés à un travail. Les journaux de ressources enregistrent les événements entre le moment où le travail est créé et celui où le travail est supprimé. Ils consignent les événements qui se produisent lorsque le travail est mis à jour et lors de son exécution.
 
 > [!NOTE]
 > Vous pouvez utiliser des services, tels que Stockage Azure, Azure Event Hubs et les journaux Azure Monitor pour analyser les données non conformes. Les frais qui vous seront facturés varient selon le modèle de tarification de chaque service.
@@ -53,33 +53,33 @@ Les journaux d’activité sont activés par défaut et proposent des informatio
 
 5. Vous pouvez effectuer des actions correctives en fonction du message d’erreur dans JSON. Dans cet exemple, il convient d'ajouter des vérifications à la requête pour s'assurer que la valeur de latitude est comprise entre -90 degrés et 90 degrés.
 
-6. Si le message d’erreur présent dans les journaux d’activité ne permet pas d’identifier la cause racine, activez les journaux de diagnostic et utilisez les journaux Azure Monitor.
+6. Si le message d’erreur présent dans les journaux d’activité ne permet pas d’identifier la cause racine, activez les journaux de ressources et utilisez les journaux Azure Monitor.
 
 ## <a name="send-diagnostics-to-azure-monitor-logs"></a>Envoyer des diagnostics aux journaux Azure Monitor
 
-Il est vivement conseillé d’activer les journaux de diagnostic et de les envoyer aux journaux Azure Monitor. Les journaux de diagnostic sont **désactivés** par défaut. Pour activer les journaux de diagnostic, procédez comme suit :
+Il est vivement conseillé d’activer les journaux de ressources et de les envoyer aux journaux Azure Monitor. Ils sont **désactivés** par défaut. Pour les activer, suivez ces étapes :
 
 1.  Connectez-vous au portail Azure et accédez à votre travail Stream Analytics. Sous **Supervision**, sélectionnez **Journaux de diagnostic**. Ensuite, sélectionnez **Activer les diagnostics**.
 
-    ![Navigation dans le panneau jusqu’aux journaux de diagnostic](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
+    ![Navigation du panneau aux journaux de ressources](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
 2.  Créez un **nom** dans **Paramètres de diagnostic** et cochez la case située en regard de **Envoyer à Log Analytics**. Ajoutez ou créez ensuite un **espace de travail Log Analytics**. Cochez les cases **Exécution** et **Création** sous **JOURNAL**, ainsi que **AllMetrics** sous **MÉTRIQUE** . Cliquez sur **Enregistrer**. Il est recommandé d’utiliser un espace de travail Log Analytics dans la même région Azure que votre travail Stream Analytics, afin d’éviter des frais supplémentaires.
 
-    ![Paramètres des journaux de diagnostic](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
+    ![Paramètres des journaux de ressources](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
-3. Lorsque votre tâche Stream Analytics démarre, les journaux de diagnostic sont routés vers votre espace de travail Log Analytics. Pour afficher les journaux de diagnostic de votre travail, sélectionnez **Journaux** sous la section **Surveillance**.
+3. Lorsque votre tâche Stream Analytics démarre, les journaux de ressources sont routés vers votre espace de travail Log Analytics. Pour afficher les journaux de ressources de votre travail, sélectionnez **Journaux** sous la section **Surveillance**.
 
-   ![Journaux de diagnostic sous Surveillance](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
+   ![Journaux de ressources sous Surveillance](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
 4. Stream Analytics fournit des requêtes prédéfinies qui vous permettent de rechercher facilement les journaux qui vous intéressent. Les trois catégories sont **Général**, **Erreurs des données d’entrée** et **Erreurs des données de sortie**. Par exemple, pour afficher un résumé de toutes les erreurs de votre travail au cours des sept derniers jours, vous pouvez sélectionner **Exécuter** pour la requête prédéfinie appropriée. 
 
-   ![Journaux de diagnostic sous Surveillance](./media/stream-analytics-job-diagnostic-logs/logs-categories.png)
+   ![Journaux de ressources sous Surveillance](./media/stream-analytics-job-diagnostic-logs/logs-categories.png)
 
    ![Résultats des journaux](./media/stream-analytics-job-diagnostic-logs/logs-result.png)
 
-## <a name="diagnostics-log-categories"></a>Catégories de journaux de diagnostic
+## <a name="resource-log-categories"></a>Catégories de journaux de ressources
 
-Azure Stream Analytics capture deux catégories de journaux de diagnostics :
+Azure Stream Analytics capture deux catégories de journaux de ressources :
 
 * **Création** : capture les événements de journal liés aux opérations de création de travaux (création du travail, ajout et suppression d’entrées et de sorties, ajout et mise à jour de la requête, démarrage et arrêt du travail).
 
@@ -90,7 +90,7 @@ Azure Stream Analytics capture deux catégories de journaux de diagnostics :
         * Erreurs d’évaluation d’expression
     * Autres erreurs et événements
 
-## <a name="diagnostics-logs-schema"></a>Schéma des journaux de diagnostic
+## <a name="resource-logs-schema"></a>Schéma des journaux de ressource
 
 Tous les journaux d’activité sont stockés au format JSON. Chaque entrée comprend les champs de chaîne courants suivants :
 

@@ -7,12 +7,12 @@ ms.service: iot-hub
 ms.topic: tutorial
 ms.date: 11/21/2019
 ms.author: robinsh
-ms.openlocfilehash: 334b7b2c59b328e8eff3c7c2b9c3ed46bffc3442
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 889c5e68759a94682150ac88970b7123ad0fc412
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74706434"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82201735"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Tutoriel : Envoyer des notifications par e-mail concernant des événements Azure IoT Hub à l’aide d’Event Grid et de Logic Apps
 
@@ -22,9 +22,14 @@ Cet article présente un exemple de configuration qui utilise IoT Hub et Event�
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un compte e-mail auprès de n’importe quel fournisseur d’e-mail pris en charge par Azure Logic Apps, tel qu’Outlook Office 365, Outlook.com ou Gmail. Ce compte e-mail permet d’envoyer les notifications d’événements. Pour obtenir la liste complète des connecteurs d’application logique pris en charge, consultez la [Vue d’ensemble des connecteurs](https://docs.microsoft.com/connectors/).
-* Un compte Azure actif. Si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
-* Un Hub IoT dans Azure. Si vous n’en avez pas encore créé un, consultez [Prise en main d’IoT Hub](../iot-hub/iot-hub-csharp-csharp-getstarted.md) pour obtenir une procédure pas à pas. 
+* Un abonnement Azure actif. Si vous ne disposez d’aucun abonnement, vous pouvez [créer un compte Azure gratuit](https://azure.microsoft.com/pricing/free-trial/).
+
+* Un compte e-mail auprès de n’importe quel fournisseur de messagerie pris en charge par Azure Logic Apps, tel qu’Outlook Office 365, Outlook.com ou Gmail. Ce compte e-mail permet d’envoyer les notifications d’événements. Pour obtenir la liste complète des connecteurs d’application logique pris en charge, consultez la [Vue d’ensemble des connecteurs](https://docs.microsoft.com/connectors/).
+
+  > [!IMPORTANT]
+  > Avant d’utiliser Gmail, veillez à disposer d’un compte professionnel G-Suite (adresse e-mail avec un domaine personnalisé) ou d’un compte de consommateur Gmail (adresse e-mail avec @gmail.com ou @googlemail.com). Seuls les comptes professionnels G-Suite peuvent utiliser le connecteur Gmail avec d’autres connecteurs sans restriction dans Logic Apps. Si vous disposez d’un compte de consommateur Gmail, vous pouvez utiliser le connecteur Gmail uniquement avec certains services approuvés par Google, ou vous pouvez [créer une application cliente Google à utiliser pour l’authentification](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Pour plus d’informations, consultez [Stratégies de confidentialité et de sécurité des données pour les connecteurs Google dans Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+
+* Un Hub IoT dans Azure. Si vous n’en avez pas encore créé un, consultez [Prise en main d’IoT Hub](../iot-hub/iot-hub-csharp-csharp-getstarted.md) pour obtenir une procédure pas à pas.
 
 ## <a name="create-a-logic-app"></a>Créer une application logique
 

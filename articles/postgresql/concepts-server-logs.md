@@ -6,14 +6,15 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: 2636e9a225002148e4cd79bb2176e0883aed623a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70520b464bcb26ff8f1ea10f87bbf30537dc58a0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236089"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82131215"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Journaux dans Azure Database pour PostgreSQL - Serveur unique
+
 Azure Database pour PostgreSQL vous permet de configurer et d’accéder aux journaux standard de Postgres. Les journaux d’activité peuvent servir à identifier, résoudre et réparer les erreurs de configuration et les problèmes de performances. Les informations de journalisation que vous pouvez configurer et auxquelles vous pouvez accéder incluent les erreurs, les informations de requête, les enregistrements de nettoyage automatique, les connexions et les points de contrôle. (L’accès aux journaux d’activité des transactions n’est pas disponible).
 
 L’enregistrement d'audit est mis à disposition via une extension Postgres, pgaudit. Pour plus d’informations, consultez l’article [Concepts d’audit](concepts-audit.md).
@@ -46,7 +47,8 @@ Pour une conservation à long terme des journaux et l’analyse des journaux, vo
 
 Vous pouvez arrêter la génération de fichiers .log en définissant le paramètre `logging_collector` sur Désactivé. Désactiver la génération du fichier .log est recommandée si vous utilisez les paramètres de diagnostic d’Azure Monitor. Cette configuration permet de réduire l’impact sur les performances de la journalisation supplémentaire.
 
-## <a name="diagnostic-logs"></a>Journaux de diagnostic
+## <a name="resource-logs"></a>Journaux d’activité de ressources
+
 Azure Database pour PostgreSQL est intégré aux journaux des paramètres de diagnostic d’Azure Monitor. Les paramètres de diagnostic vous permettent d’envoyer vos journaux Postgres au format JSON aux journaux Azure Monitor à des fins d’analyse et d’alerte, à Event Hubs pour la diffusion en continu et au stockage Azure pour l’archivage. 
 
 > [!IMPORTANT]
@@ -54,9 +56,10 @@ Azure Database pour PostgreSQL est intégré aux journaux des paramètres de dia
 
 
 ### <a name="configure-diagnostic-settings"></a>Configurer les paramètres de diagnostic
+
 Vous pouvez activer les paramètres de diagnostic pour votre serveur Postgres à l’aide du portail Azure, de l’interface CLI, de l’API REST et de PowerShell. La catégorie de journal à sélectionner est **PostgreSQLLogs**. (Il existe d’autres journaux que vous pouvez configurer si vous utilisez le [Magasin des requêtes](concepts-query-store.md).)
 
-Pour activer les journaux de diagnostic via le portail Azure :
+Pour activer les journaux de ressources à l’aide du portail Azure :
 
    1. Sur le portail, accédez à *Paramètres de diagnostic* dans le menu de navigation de votre serveur Postgres.
    2. Sélectionnez *Ajouter le paramètre de diagnostic*.
@@ -65,11 +68,11 @@ Pour activer les journaux de diagnostic via le portail Azure :
    5. Sélectionnez le type de journal **PostgreSQLLogs**.
    7. Enregistrez votre paramètre.
 
-Pour activer les journaux de diagnostic à l’aide de PowerShell, de l’interface CLI ou de l’API REST, consultez l’article [Paramètres de diagnostic](../azure-monitor/platform/diagnostic-settings.md).
+Pour activer les journaux de ressources à l’aide de PowerShell, de l’interface de ligne de commande ou de l’API REST, consultez l’article [Paramètres de diagnostic](../azure-monitor/platform/diagnostic-settings.md).
 
-### <a name="access-diagnostic-logs"></a>Accéder aux journaux de diagnostic
+### <a name="access-resource-logs"></a>Accéder aux journaux de ressources
 
-La façon dont vous accédez aux journaux dépend du point de terminaison que vous choisissez. Pour Stockage Azure, consultez l’article [Compte de stockage des journaux](../azure-monitor/platform/resource-logs-collect-storage.md). Pour Event Hubs, consultez l’article [Diffusion des journaux Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md).
+La façon dont vous accédez aux journaux dépend du point de terminaison que vous choisissez. Pour le stockage Azure, consultez l’article [Compte de stockage des journaux](../azure-monitor/platform/resource-logs-collect-storage.md). Pour Event Hubs, consultez l’article [Diffusion des journaux Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md).
 
 Pour les journaux Azure Monitor, les journaux sont envoyés à l’espace de travail que vous avez sélectionné. Les journaux Postgres utilisent le mode de collecte **AzureDiagnostics**, pour qu’ils puissent être interrogés à partir de la table AzureDiagnostics. Les champs de la table sont décrits ci-dessous. En savoir plus sur l’interrogation et la génération d’alertes dans la vue d’ensemble [Interroger les journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 

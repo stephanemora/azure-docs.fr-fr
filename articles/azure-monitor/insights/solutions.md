@@ -5,15 +5,16 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/30/2020
-ms.openlocfilehash: c2690ad7cc4dcaa295bfb08b8c0396438ada0807
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.date: 04/23/2020
+ms.openlocfilehash: 58dbb52cd906d91daec7e4b16625bc264135e90c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437539"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82114851"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Solutions de monitoring dans Azure Monitor
+
 Les solutions de monitoring exploitent les services Azure pour offrir des insights supplémentaires sur le fonctionnement d’une application ou d’un service en particulier. Cet article offre une vue d’ensemble des solutions de monitoring Azure et des informations sur leur utilisation et leur installation.
 
 > [!NOTE]
@@ -26,6 +27,7 @@ Vous pouvez ajouter des solutions de monitoring à Azure Monitor pour toutes les
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="use-monitoring-solutions"></a>Utiliser des solutions de supervision
+
 Ouvrez la page **Vue d’ensemble** d’Azure Monitor pour afficher la vignette de chacune des solutions installées dans l’espace de travail. 
 
 1. Accédez au [portail Azure](https://ms.portal.azure.com). Recherchez et sélectionnez **Surveiller**.
@@ -37,7 +39,8 @@ Ouvrez la page **Vue d’ensemble** d’Azure Monitor pour afficher la vignette 
 
 Les solutions de monitoring peuvent contenir plusieurs types de ressources Azure, que vous pouvez visualiser comme n’importe quelle autre ressource. Par exemple, les requêtes de journal incluses dans la solution apparaissent sous **Requêtes de solutions** dans [Explorateur de requêtes](../log-query/get-started-portal.md#load-queries). Vous pouvez les utiliser lorsque vous effectuez une analyse ad hoc avec des [requêtes de journal](../log-query/log-query-overview.md).
 
-## <a name="list-installed-monitoring-solutions"></a>Lister les solutions de monitoring installées 
+## <a name="list-installed-monitoring-solutions"></a>Lister les solutions de monitoring installées
+
 Suivez la procédure ci-dessous pour lister les solutions de monitoring installées dans votre abonnement.
 
 1. Accédez au [portail Azure](https://ms.portal.azure.com). Recherchez et sélectionnez **Solutions**.
@@ -51,9 +54,8 @@ Cliquez sur le nom d’une solution pour ouvrir la page de résumé de cette der
 
 ![Propriétés d’une solution](media/solutions/solution-properties.png)
 
-
-
 ## <a name="install-a-monitoring-solution"></a>Installer une solution de supervision
+
 Les solutions de monitoring de Microsoft et de ses partenaires sont disponibles sur la [Place de marché Azure](https://azuremarketplace.microsoft.com). Vous pouvez rechercher des solutions disponibles et les installer à l’aide de la procédure suivante. Lorsque vous installez une solution, vous devez sélectionner un [espace de travail Log Analytics](../platform/manage-access.md) dans lequel elles seront installées et où leurs données seront collectées.
 
 1. Dans la [liste des solutions de votre abonnement](#list-installed-monitoring-solutions), cliquez sur **Ajouter**.
@@ -65,6 +67,7 @@ Les solutions de monitoring de Microsoft et de ses partenaires sont disponibles 
 ![Installer une solution](media/solutions/install-solution.png)
 
 ### <a name="install-a-solution-from-the-community"></a>Installer une solution proposée par la communauté
+
 Les membres de la communauté peuvent soumettre des solutions de gestion aux modèles de démarrage rapide Azure. Vous pouvez installer ces solutions directement ou en télécharger les modèles à des fins d’installation ultérieure.
 
 1. Suivez la procédure décrite dans [Espace de travail Log Analytics et compte Automation](#log-analytics-workspace-and-automation-account) pour lier un compte et un espace de travail.
@@ -75,28 +78,29 @@ Les membres de la communauté peuvent soumettre des solutions de gestion aux mod
 6. Vous êtes invité à fournir des informations comme le groupe de ressources et l’emplacement, en plus des valeurs des paramètres de la solution.
 7. Cliquez sur **Achat** pour installer la solution.
 
-
 ## <a name="log-analytics-workspace-and-automation-account"></a>Espace de travail Log Analytics et compte Automation
+
 Toutes les solutions de supervision ont besoin d’un [espace de travail Log Analytics](../platform/manage-access.md) pour stocker les données qu’elles collectent et héberger leurs recherches dans les journaux, ainsi que leurs vues. Certaines solutions nécessitent également un [compte Automation](../../automation/automation-security-overview.md#automation-account-overview) destiné à contenir les runbooks et les ressources associées. L’espace de travail et le compte doivent répondre aux exigences suivantes.
 
 * Chaque installation d’une solution ne peut utiliser qu’un seul espace de travail Log Analytics et un seul compte Automation. Vous pouvez installer la solution séparément dans plusieurs espaces de travail.
 * Si une solution nécessite un compte Automation, l’espace de travail Log Analytics et le compte Automation doivent être liés l’un à l’autre. Un espace de travail Log Analytics ne peut être lié qu’à un seul compte Automation, et un compte Automation ne peut être lié qu’à un seul espace de travail Log Analytics.
-* Pour être liés, l’espace de travail Log Analytics et le compte Automation doivent se trouver dans le même groupe de ressources et la même région. La configuration suivante fait figure d’exception : un espace de travail Log Analytics dans la région USA Est et un compte Automation dans USA Est 2.
+* Pour être liés, l’espace de travail Log Analytics et le compte Automation doivent être inclus dans le même abonnement, mais peuvent se trouver dans des groupes de ressources différents déployés dans la même région. La configuration suivante fait figure d’exception : un espace de travail Log Analytics dans la région USA Est et un compte Automation dans USA Est 2.
 
 Quand vous installez une solution par le biais de la Place de marché Azure, vous êtes invité à choisir un espace de travail et un compte Automation. Un lien est automatiquement créé entre les deux s’il n’existe pas déjà.
 
 ### <a name="verify-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Vérification du lien entre un espace de travail Log Analytics et un compte Automation
+
 Vous pouvez vérifier le lien entre un espace de travail Log Analytics et un compte Automation à l’aide de la procédure suivante.
 
 1. Sélectionnez le compte Automation dans le Portail Azure.
-1. Accédez à la section **Ressources liées** du menu.
-1. Si le paramètre **Espace de travail** est activé, ce compte est lié à un espace de travail Log Analytics. Vous pouvez cliquer sur **Espace de travail** pour afficher les détails de l’espace de travail.
+1. Faites défiler jusqu’à la section **Ressources associées** du menu, puis sélectionnez **Espace de travail lié**.
+1. Si l’**espace de travail** est lié à un compte Automation, cette page répertorie l’espace de travail auquel il est lié. Si vous sélectionnez le nom de l’espace de travail répertorié, vous êtes redirigé vers la page de vue d’ensemble de cet espace de travail.
 
 ## <a name="remove-a-monitoring-solution"></a>Supprimer une solution de supervision
+
 Pour supprimer une solution installée, recherchez cette dernière dans la [liste des solutions installées](#list-installed-monitoring-solutions). Cliquez sur le nom de la solution pour ouvrir la page de résumé correspondante, puis cliquez sur **Supprimer**.
 
-
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Accédez à la [liste des solutions de monitoring de Microsoft](solutions-inventory.md).
 * Apprenez à [créer des requêtes](../log-query/log-query-overview.md) pour analyser les données collectées par les solutions de monitoring.
-

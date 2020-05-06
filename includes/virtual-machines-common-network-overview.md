@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 9e6eafc4e2f6ae4a0cf1d99cb63bfed53db77f69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4559a49a64688545e519f6172798997c2d695672
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77029154"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81461863"
 ---
 Lorsque vous créez une machine virtuelle Azure, vous devez créer un [réseau virtuel](../articles/virtual-network/virtual-networks-overview.md) ou en utiliser un existant. Vous devez également décider de la façon dont vos machines virtuelles doivent accéder au réseau virtuel. Il est essentiel de [planifier les choses avant de créer des ressources](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) et de s’assurer que vous connaissez les [limites des ressources réseau](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
@@ -83,7 +83,7 @@ Si vous travaillez au sein d’une organisation dans laquelle une autre personne
 
 Par défaut, il n’existe aucune limite de sécurité entre les sous-réseaux. Ainsi, les machines virtuelles de chaque sous-réseau peuvent communiquer entre elles. Toutefois, vous pouvez configurer des groupes de sécurité réseau, qui vous permettent de contrôler le flux du trafic vers et depuis les sous-réseaux et les machines virtuelles. 
 
-Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer un réseau virtuel et des sous-réseaux. 
+Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer un réseau virtuel et des sous-réseaux.    
 
 | Méthode | Description |
 | ------ | ----------- |
@@ -100,7 +100,7 @@ Les groupes de sécurité réseau contiennent deux ensembles de règles : les r
 
 Tous les groupes de ressources réseau contiennent un ensemble de règles par défaut. Les règles par défaut ne peuvent pas être supprimées, mais comme la priorité la plus basse leur est attribuée, elles peuvent être remplacées par les règles que vous créez. 
 
-Lorsque vous associez un groupe de sécurité réseau à une carte réseau, les règles d’accès réseau du groupe de sécurité réseau sont appliquées uniquement à cette carte d’interface réseau. Si un groupe de sécurité réseau est appliqué à une seule carte d’interface réseau sur une machine virtuelle comprenant plusieurs cartes d’interface réseau, il n’affecte pas le trafic lié aux autres cartes d’interface réseau. Vous pouvez associer différents groupes de sécurité réseau à une carte d’interface réseau (ou une machine virtuelle, selon le modèle de déploiement) et au sous-réseau auquel une carte d’interface réseau ou une machine virtuelle est liée. La priorité est donnée en fonction de la direction du trafic.
+ Lorsque vous associez un groupe de sécurité réseau à une carte réseau, les règles d’accès réseau du groupe de sécurité réseau sont appliquées uniquement à cette carte d’interface réseau. Si un groupe de sécurité réseau est appliqué à une seule carte d’interface réseau sur une machine virtuelle comprenant plusieurs cartes d’interface réseau, il n’affecte pas le trafic lié aux autres cartes d’interface réseau. Vous pouvez associer différents groupes de sécurité réseau à une carte d’interface réseau (ou une machine virtuelle, selon le modèle de déploiement) et au sous-réseau auquel une carte d’interface réseau ou une machine virtuelle est liée. La priorité est donnée en fonction de la direction du trafic.
 
 Veillez à [planifier](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) vos groupes de sécurité réseau lorsque vous planifiez vos machines virtuelles et votre réseau virtuel.
 
@@ -121,11 +121,12 @@ L’équilibrage de charge mappe le trafic entrant et le trafic sortant entre l�
 
 Lorsque vous créez un équilibrage de charge, vous devez également prendre en compte les éléments de configuration suivants :
 
-- **Configuration d’une adresse IP frontale** : un équilibrage de charge peut inclure une ou plusieurs adresses IP frontales, également appelées « adresses IP virtuelles ». Ces adresses IP servent d'entrée pour le trafic.
+- **Configuration d’une adresse IP frontale** : un équilibrage de charge peut inclure une ou plusieurs adresses IP frontales. Ces adresses IP servent d'entrée pour le trafic.
 - **Pool d’adresses principal** : adresses IP qui sont associées à la carte d’interface réseau vers laquelle la charge est distribuée.
-- **Règles de traduction d’adresses réseau** : définissent le trafic entrant qui transite via l’adresse IP frontale et qui est distribué à l’adresse IP principale.
+- **[Réacheminement de prot](../articles/load-balancer/tutorial-load-balancer-port-forwarding-portal.md)**  : définissent le trafic entrant qui transite via l’adresse IP frontale et qui est distribué à l’adresse IP principale utilisant des règles NAT de trafic entrant.
 - **Règles d’équilibrage de charge** : mappent une combinaison donnée d’adresses IP et de ports frontaux vers un ensemble de combinaisons d’adresses IP et de port principaux. Un même équilibreur de charge peut avoir plusieurs règles d’équilibrage de charge. Chaque règle est une combinaison d’une adresse IP et d’un port frontaux et d’une adresse IP et d’un port principaux associés aux machines virtuelles.
 - **[Sondes](../articles/load-balancer/load-balancer-custom-probe-overview.md)**  : surveillent l’intégrité des machines virtuelles. Lorsqu’une sonde ne répond pas, l’équilibrage de charge n’envoie plus de nouvelles connexions aux machines virtuelles défaillantes. Les connexions existantes ne sont pas affectées et les nouvelles connexions sont envoyées aux machines virtuelles saines.
+- **[Règles de trafic sortant](../articles/load-balancer/load-balancer-outbound-rules-overview.md)** - Une règle de trafic sortant configure la traduction d’adresses réseau (NAT) du trafic sortant pour que toutes les machines virtuelles ou instances identifiées par le pool de back-ends de votre équilibreur de charge De base soient traduites en front-end.
 
 Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer un équilibrage de charge accessible sur Internet.
 
@@ -140,10 +141,14 @@ Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer un éq
 
 | Méthode | Description |
 | ------ | ----------- |
-| Portail Azure | Vous pouvez [équilibrer la charge du trafic interne avec un équilibreur de charge de base sur le portail Azure](../articles/load-balancer/tutorial-load-balancer-basic-internal-portal.md). |
+| Portail Azure | Vous pouvez [équilibrer la charge du trafic interne avec un équilibreur de charge sur le portail Azure](../articles/load-balancer/tutorial-load-balancer-standard-internal-portal.md). |
 | [Azure PowerShell](../articles/load-balancer/load-balancer-get-started-ilb-arm-ps.md) | Pour fournir une adresse IP privée dans le sous-réseau du réseau, utilisez [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig) avec le paramètre **-PrivateIpAddress**. Utilisez [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) pour créer la configuration du pool d’adresses principal. Utilisez [New-AzLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) pour créer des règles NAT de trafic entrant associées à la configuration IP frontale que vous avez créée. Utilisez [New-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerprobeconfig) pour créer les sondes dont vous avez besoin. Utilisez [New-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerruleconfig) pour créer la configuration d’équilibrage de charge. Utilisez [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer) pour créer l’équilibrage de charge.|
 | [Azure CLI](../articles/load-balancer/load-balancer-get-started-ilb-arm-cli.md) | Utilisez la commande [az network lb create](https://docs.microsoft.com/cli/azure/network/lb) pour créer la configuration d’équilibrage de charge initiale. Pour définir l’adresse IP privée, utilisez [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip) avec le paramètre **--private-ip-address**. Utilisez [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool) pour ajouter la configuration du pool d’adresses principal. Utilisez [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule) pour ajouter des règles de traduction d’adresses réseau. Utilisez [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) pour ajouter les règles d’équilibrage de charge. Utilisez [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe) pour ajouter les sondes.|
 | [Modèle](../articles/load-balancer/load-balancer-get-started-ilb-arm-template.md) | Utilisez [2 VMs in a Load Balancer and configure NAT rules on the LB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) comme guide pour le déploiement d’un équilibrage de charge à l’aide d’un modèle. |
+
+### <a name="virtual-machine-scale-sets"></a>Groupes identiques de machines virtuelles 
+
+Pour plus d’informations sur l’équilibreur de charge et les groupes de machines virtuelles identiques, consultez [Mise en réseau pour des groupes de machines virtuelles identiques Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking).
 
 ## <a name="vms"></a>Machines virtuelles
 
