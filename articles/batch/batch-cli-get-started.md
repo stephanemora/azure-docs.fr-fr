@@ -1,25 +1,15 @@
 ---
-title: Prise en main des commandes Batch de la CLI Azure | Microsoft Docs
+title: Bien démarrer avec Azure CLI pour Batch
 description: Obtenez une brève introduction aux commandes Batch dans l’interface de ligne de commande Azure pour la gestion des ressources du service Azure Batch.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
-ms.service: batch
 ms.topic: conceptual
-ms.tgt_pltfrm: multiple
-ms.workload: big-compute
 ms.date: 07/24/2018
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30f71432ca008b87bddfb253f23ae3cef0ac390d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5fe73770dbe8dfe6d69cb08e1fbf44d42bff9e54
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77020180"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82117367"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gérer les ressources Batch avec Azure CLI
 
@@ -167,7 +157,7 @@ Les conseils suivants peuvent vous aider lors de la résolution de problèmes su
 
 * Utilisez `-h` pour obtenir le **texte d’aide** d’une commande d’interface de ligne de commande.
 * Utilisez `-v` et `-vv` pour afficher la sortie de la commande **verbose**. Lorsque l’indicateur `-vv` est inclus, Azure CLI affiche les requêtes REST réelles et les réponses correspondantes. Ces commutateurs sont pratiques pour afficher une sortie complète des erreurs.
-* L’option **permet d’afficher la**sortie de commande au format JSON`--json`. Par exemple, `az batch pool show pool001 --json` affiche les propriétés de pool001 au format JSON. Vous pouvez ensuite copier et modifier cette sortie pour l’utiliser dans un `--json-file` (voir la section Fichiers JSON plus haut dans cet article).
+* L’option `--json` permet d’afficher la **sortie de commande au format JSON**. Par exemple, `az batch pool show pool001 --json` affiche les propriétés de pool001 au format JSON. Vous pouvez ensuite copier et modifier cette sortie pour l’utiliser dans un `--json-file` (voir la section Fichiers JSON plus haut dans cet article).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 8701fe6857e95334a5e1d24bfe70feb130d5512c
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 6e6bd55fbb73113dfbcd01e94753c4fb21219c14
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756031"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780876"
 ---
 # <a name="get-started-with-azcopy"></a>Bien démarrer avec AzCopy
 
@@ -84,7 +84,7 @@ Si vous voulez simplement télécharger les fichiers, vérifiez que le [Lecteur 
 
 Si vous souhaitez télécharger des fichiers, vérifiez qu’un de ces rôles a été attribué à votre principal de sécurité :
 
-- [Contributeur aux données Blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
+- [Contributeur aux données Blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)
 - [Propriétaire des données Blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 Ces rôles peuvent être attribués à votre principal de service sur l’une de ces étendues :
@@ -273,8 +273,8 @@ Pour obtenir le lien, exécutez cette commande :
 
 | Système d’exploitation  | Commande |
 |--------|-----------|
-| **Linux** | `curl -v https://aka.ms/downloadazcopy-v10-linux` |
-| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
+| **Linux** | `curl -s -D- https://aka.ms/downloadazcopy-v10-linux | grep ^Location` |
+| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).headers.location` |
 
 > [!NOTE]
 > Pour Linux, `--strip-components=1` sur la commande `tar` supprime le dossier de niveau supérieur qui contient le nom de version, et extrait le binaire directement dans le dossier courant. Ceci permet de mettre à jour le script avec une nouvelle version de `azcopy` en mettant à jour uniquement l’URL `wget`.

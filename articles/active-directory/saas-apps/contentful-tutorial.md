@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/22/2019
+ms.date: 04/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd218c61114c1e15009ace5a9a9bd7a536996e86
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b58abede48c0e096f3f54989d783b1e455f8e4d4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72968673"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82169640"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-contentful"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Contentful
 
@@ -46,6 +46,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * Contentful prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**
 * Contentful prend en charge le provisionnement d’utilisateur **juste-à-temps**
+* Après avoir configuré Contentful, vous pouvez appliquer le contrôle de session qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > L’identificateur de cette application est une valeur de chaîne fixe. Une seule instance peut être configurée dans un locataire.
@@ -94,6 +95,16 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles en copiant l’URL ACS (Assertion Consumer Service) à partir de la page de configuration de l’authentification unique dans Contentful.
+
+1. Votre application Contentful s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
+
+    ![image](common/default-attributes.png)
+
+1. En plus de ce qui précède, l’application Contentful s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
+    
+    | Nom |  Attribut source|
+    | --------------- | --------- |
+    | email | user.userprincipalname |
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 

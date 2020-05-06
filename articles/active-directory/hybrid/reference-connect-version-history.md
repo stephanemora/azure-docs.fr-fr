@@ -8,20 +8,19 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 10/7/2019
+ms.date: 04/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afb295ca561bfa69805362182dc60ce908e1f206
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7704a758f53b6ba26b1c9cf9e9e2811f533601f0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80331154"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82112199"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
-
 
 Cet article est conçu pour vous aider à conserver la trace des versions publiées, et à comprendre les modifications apportées par la dernière version.
 
@@ -49,6 +48,64 @@ La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD
 >
 >Veuillez consulter [cet article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) pour en savoir plus sur la mise à niveau d'Azure AD Connect vers la version la plus récente.
 
+## <a name="15290"></a>1.5.29.0
+
+### <a name="release-status"></a>État de la version
+23/04/2020 : publiée pour téléchargement
+
+### <a name="fixed-issues"></a>Problèmes résolus
+Ce correctif corrige un problème introduit dans la version 1.5.20.0, dans lequel un administrateur de locataire avec MFA ne pouvait pas activer DSSO.
+
+## <a name="15220"></a>1.5.22.0
+
+### <a name="release-status"></a>État de la version
+20/04/2020 : publiée pour téléchargement
+
+### <a name="fixed-issues"></a>Problèmes résolus
+Ce correctif logiciel résout un problème dans la build 1.5.20.0 si vous avez cloné la règle **In from AD - Group Join** et que vous n’avez pas cloné la règle **In from AD - Group Common**.
+
+## <a name="15200"></a>1.5.20.0
+
+### <a name="release-status"></a>État de la version
+04/09/2020 : publiée pour téléchargement
+
+### <a name="fixed-issues"></a>Problèmes résolus
+Cette build de correctif logiciel résout un problème lié au build 1.5.18.0 si la fonctionnalité de filtrage de groupe est activée et utilise mS-DS-ConsistencyGuid comme point d’ancrage source.
+
+> [!IMPORTANT]
+> Si vous avez cloné la règle de synchronisation **In from AD - Group Join**, que vous n’avez pas cloné la règle de synchronisation **In from AD - Group Common** et que vous envisagez une mise à niveau, effectuez les étapes suivantes dans le cadre de la mise à niveau :
+> 1. Pendant la mise à niveau, désactivez l’option **Démarrez le processus de synchronisation une fois la configuration terminée**.
+> 2. Modifiez la règle de synchronisation de jointure clonée et ajoutez les deux transformations suivantes :
+>     - Définissez le flux direct `objectGUID` sur `sourceAnchorBinary`.
+>     - Définissez le flux d’expression `ConvertToBase64([objectGUID])` sur `sourceAnchor`.     
+> 3. Activez le planificateur à l’aide de `Set-ADSyncScheduler -SyncCycleEnabled $true`.
+
+
+
+## <a name="15180"></a>1.5.18.0
+
+### <a name="release-status"></a>État de la version
+02/04/2020 : publiée pour téléchargement
+
+### <a name="functional-changes-adsyncautoupgrade"></a>Modifications fonctionnelles ADSyncAutoUpgrade 
+
+- Ajout de la prise en charge de la fonctionnalité mS-DS-ConsistencyGuid pour les objets groupe. Cela vous permet de déplacer des groupes entre les forêts et de reconnecter des groupes dans AD à Azure AD lorsque le paramètre objectID du groupe AD a changé, par exemple lorsqu’un serveur AD est reconstruit après un désastre. Pour plus d’informations, consultez [Déplacement de groupes entre des forêts](how-to-connect-migrate-groups.md).
+- L’attribut mS-DS-ConsistencyGuid est défini automatiquement sur tous les groupes synchronisés et vous n’avez rien à faire pour activer cette fonctionnalité. 
+- Suppression de l’applet de commande Get-ADSyncRunProfile, car elle n’est plus utilisée. 
+- Modification de l’avertissement qui s’affiche lorsque vous tentez d’utiliser un compte d’administrateur d’entreprise ou d’administrateur de domaine pour le compte de connecteur AD DS pour fournir davantage de contexte. 
+- Ajout d’une nouvelle applet de commande pour supprimer des objets de l’espace de connecteur. L’ancien outil CSDelete.exe est supprimé et il est remplacé par la nouvelle applet de commande Remove-ADSyncCSObject. L’applet de commande Remove-ADSyncCSObject prend un objet CsObject en entrée. Cet objet peut être récupéré à l’aide de l’applet de commande Get-ADSyncCSObject.
+
+>[!NOTE]
+>L’ancien outil CSDelete.exe a été supprimé et remplacé par la nouvelle applet de commande Remove-ADSyncCSObject. 
+
+### <a name="fixed-issues"></a>Problèmes résolus
+
+- Correction d’un bogue dans le sélecteur de forêt/UO d’écriture différée de groupe lors de la réexécution de l’Assistant Azure AD Connect après la désactivation de la fonctionnalité. 
+- Introduction d’une nouvelle page d’erreur qui s’affiche si les valeurs de Registre DCOM requises sont manquantes avec un nouveau lien d’aide. Les informations sont également écrites dans des fichiers journaux. 
+- Résolution d’un problème lié à la création du compte de synchronisation Azure Active Directory, à cause duquel l’activation des extensions d’annuaire ou de PHS peut échouer parce que le compte n’a pas été propagé sur tous les réplicas de service avant la tentative d’utilisation. 
+- Correction d’un bogue dans l’utilitaire de compression des erreurs de synchronisation qui ne gérait pas correctement les caractères de substitution. 
+- Correction d’un bogue dans la mise à niveau automatique qui a laissé le serveur dans l’état suspendu du planificateur. 
+
 ## <a name="14380"></a>1.4.38.0
 ### <a name="release-status"></a>État de la version
 9/12/2019 : Publication pour le téléchargement. Non disponible par le biais de la mise à niveau automatique.
@@ -68,7 +125,8 @@ La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD
 08/11/2019 : publiée pour téléchargement. Non disponible par le biais de la mise à niveau automatique.
 
 >[!IMPORTANT]
->En raison d’une modification de schéma interne dans cette version d’Azure AD Connect, si vous gérez les paramètres de configuration d’une relation d’approbation ADFS à l’aide de MSOnline PowerShell, vous devez mettre à jour votre module MSOnline PowerShell vers la version 1.1.183.57 ou ultérieure
+>En raison d’une modification de schéma interne dans cette version d’Azure AD Connect, si vous gérez les paramètres de configuration d’une relation d’approbation AD FS à l’aide de MSOnline PowerShell, vous devez mettre à jour votre module MSOnline PowerShell vers la version 1.1.183.57 ou ultérieure
+
 ### <a name="fixed-issues"></a>Problèmes résolus
 
 Cette version résout un problème avec les appareils Azure AD Hybride joints existants. Cette version contient une nouvelle règle de synchronisation d’appareil qui corrige ce problème.
@@ -105,10 +163,10 @@ Nous avons résolu un bogue dans l’utilitaire de compression des erreurs de sy
 - Les clients doivent être informés que les points de terminaison WMI dépréciés pour MIIS_Service sont désormais supprimés. Toutes les opérations WMI doivent à présent être effectuées par le biais des applets de commande PS.
 - Amélioration de la sécurité en réinitialisant la délégation contrainte sur l’objet AZUREADSSOACC
 - Lors de l’ajout ou de la modification d’une règle de synchronisation, si des attributs sont utilisés dans la règle et qu’ils se trouvent dans le schéma du connecteur, mais ne sont pas ajoutés au connecteur, ces attributs sont automatiquement ajoutés au connecteur. Il en va de même pour le type d’objet affecté par la règle. Si quelque chose est ajouté au connecteur, le connecteur sera marqué pour une importation complète au cours du prochain cycle de synchronisation.
-- L’utilisation d’un administrateur d’entreprise ou de domaine en tant que compte de connecteur n’est plus prise en charge dans les nouveaux déploiements d’Azure AD Connect. Cette mise en production n’affectera pas le déploiements en cours d’Azure AD Connect à l’aide d’un administrateur d’entreprise ou de domaine en tant que compte de connecteur.
+- L’utilisation d’un administrateur d’entreprise ou de domaine en tant que compte de connecteur n’est plus prise en charge dans les nouveaux déploiements d’Azure AD Connect. Cette mise en production n’affectera pas le déploiements en cours d’Azure AD Connect à l’aide d’un administrateur d’entreprise ou de domaine en tant que compte de connecteur.
 - Dans le gestionnaire de synchronisation, une synchronisation complète est exécutée lors de la création, de la modification ou de la suppression d’une règle. Une fenêtre contextuelle s’affiche pour toute modification de règle, notifiant l’utilisateur que l’importation complète ou la synchronisation totale va être exécutée.
 - Ajout d’étapes d’atténuation pour les erreurs de mot de passe à la page Connecteurs > Propriétés > Connectivité
-- Ajout, dans la page des propriétés du connecteur, d’un avertissement de dépréciation du gestionnaire du service de synchronisation. Cet avertissement prévient l’utilisateur que des modifications doivent être apportées par le biais de l’Assistant AADC.
+- Ajout, dans la page des propriétés du connecteur, d’un avertissement de dépréciation du gestionnaire du service de synchronisation. Cet avertissement prévient l’utilisateur que des modifications doivent être apportées via l’Assistant Azure AD Connect.
 - Ajout d’une nouvelle erreur pour les problèmes liés à la stratégie de mot de passe d’un utilisateur.
 - Prévention d’une erreur de configuration du filtrage de groupe par les filtres de domaine et d’UO. Le filtrage de groupe affiche une erreur lorsque le domaine ou l’unité d’organisation du groupe entré est déjà filtré et empêche l’utilisateur de poursuivre tant que le problème n’est pas résolu.
 - Les utilisateurs ne peuvent plus créer de connecteur pour Active Directory Domain Services ou Windows Azure Active Directory dans l’interface utilisateur Synchronization Service Manager.
@@ -139,11 +197,11 @@ Nous avons résolu un bogue dans l’utilitaire de compression des erreurs de sy
 >[!IMPORTANT]
 >Il existe un problème connu lié à la mise à niveau d’Azure AD Connect d’une version antérieure vers 1.3.21.0, où le portail Office 365 ne reflète pas la version mise à jour même si Azure AD Connect a été mis à niveau avec succès.
 >
-> Pour résoudre ce problème, vous devez importer le module **AdSync**, puis exécuter la cmdlet PowerShell `Set-ADSyncDirSyncConfiguration` sur le serveur Azure AD Connect.  Vous pouvez procéder comme suit :
+> Pour résoudre ce problème, vous devez importer le module **AdSync**, puis exécuter l’applet de commande PowerShell `Set-ADSyncDirSyncConfiguration` sur le serveur Azure AD Connect.  Vous pouvez procéder comme suit :
 >
->1. Ouvrir PowerShell en mode Administrateur
->2. Exécutez `Import-Module "ADSync"`
->3. Exécutez `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`
+>1. Ouvrez PowerShell en mode Administrateur.
+>2. Exécutez `Import-Module "ADSync"`.
+>3. Exécutez `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`.
  
 ### <a name="release-status"></a>État de la version 
 
@@ -151,7 +209,7 @@ Nous avons résolu un bogue dans l’utilitaire de compression des erreurs de sy
 
 ### <a name="fixed-issues"></a>Problèmes résolus 
 
-- Correction d’une vulnérabilité avec élévation de privilège qui existe dans Microsoft Azure Active Directory Connect build 1.3.20.0.  Sous certaines conditions, cette vulnérabilité peut permettre à un attaquant d’exécuter deux cmdlets PowerShell dans le contexte d’un compte privilégié et d’effectuer des actions privilégiées.  Cette mise à jour de sécurité résout le problème en désactivant ces cmdlets. Pour plus d’informations, reportez-vous à la [mise à jour de sécurité](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1000).
+- Correction d’une vulnérabilité avec élévation de privilège qui existe dans Microsoft Azure Active Directory Connect build 1.3.20.0.  Sous certaines conditions, cette vulnérabilité peut permettre à un attaquant d’exécuter deux applets de commande PowerShell dans le contexte d’un compte privilégié et d’effectuer des actions privilégiées.  Cette mise à jour de sécurité résout le problème en désactivant ces cmdlets. Pour plus d’informations, reportez-vous à la [mise à jour de sécurité](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1000).
 
 ## <a name="13200"></a>1.3.20.0 
 
@@ -256,8 +314,8 @@ Ce correctif logiciel corrige une régression de la build précédente, où la r
 
 
 - La fonctionnalité de réécriture d’attribut a été modifiée pour garantir le bon fonctionnement de la messagerie vocale hébergée.  Dans certains scénarios, Azure AD remplaçait l’attribut msExchUcVoicemailSettings pendant la réécriture par une valeur null.  Désormais, Azure AD n’efface plus la valeur locale de cet attribut si la valeur cloud n’est pas définie.
-- Des diagnostics ont été ajoutés dans l’Assistant Azure AD Connect pour examiner et identifier les problèmes de connectivité à Azure AD. Ces mêmes diagnostics peuvent également être exécutés directement via Powershell à l’aide de l’applet de commande Test- AdSyncAzureServiceConnectivity. 
-- Des diagnostics ont été ajoutés dans l’Assistant Azure AD Connect pour examiner et identifier les problèmes de connectivité à AD. Ces mêmes diagnostics peuvent également être exécutés directement via Powershell à l’aide de la fonction Start-ConnectivityValidation dans le module Powershell ADConnectivityTools.  Pour plus d’informations, consultez [Qu’est-ce que le module PowerShell ADConnectivityTool ?](how-to-connect-adconnectivitytools.md)
+- Des diagnostics ont été ajoutés dans l’Assistant Azure AD Connect pour examiner et identifier les problèmes de connectivité à Azure AD. Ces mêmes diagnostics peuvent également être exécutés directement via PowerShell à l’aide de l’applet de commande Test- AdSyncAzureServiceConnectivity. 
+- Des diagnostics ont été ajoutés dans l’Assistant Azure AD Connect pour examiner et identifier les problèmes de connectivité à AD. Ces mêmes diagnostics peuvent également être exécutés directement via PowerShell à l’aide de la fonction Start-ConnectivityValidation dans le module PowerShell ADConnectivityTools.  Pour plus d’informations, consultez [Qu’est-ce que le module PowerShell ADConnectivityTool ?](how-to-connect-adconnectivitytools.md)
 - Une vérification préalable de la version de schéma AD a été ajoutée pour la réécriture d’appareil et la jointure hybride Azure Active Directory. 
 - La recherche d’attribut de la page Extension d’annuaire a été modifiée de manière à ne plus être sensible à la casse.
 -   La prise en charge complète de TLS 1.2 a été ajoutée. Cette version prend en charge la désactivation de tous les autres protocoles et l’activation de TLS 1.2 uniquement sur la machine où Azure AD Connect est installé.  Pour plus d'informations, consultez [Application de TLS 1.2 pour Azure AD Connect](reference-connect-tls-enforcement.md).
@@ -652,7 +710,7 @@ Pour plus d’informations, consultez [Avis de sécurité Microsoft 4056318](htt
 
 ### <a name="ad-fs-management"></a>Gestion AD FS
 #### <a name="fixed-issues"></a>Problèmes résolus
-* L’applet de commande Initialize-ADSyncNGCKeysWriteBack dans le module PowerShell de préparation AD appliquait incorrectement les ACL au conteneur d’inscription de l’appareil, et n’héritait par conséquent que des autorisations existantes.  Une mise à jour a été appliquée afin que le compte de service de synchronisation dispose des autorisations appropriées.
+* L’applet de commande Initialize-ADSyncNGCKeysWriteBack dans le module PowerShell de préparation AD appliquait incorrectement les listes ACL au conteneur d’inscription de l’appareil, et n’héritait par conséquent que des autorisations existantes.  Une mise à jour a été appliquée afin que le compte de service de synchronisation dispose des autorisations appropriées.
 
 #### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
 * La tâche AAD Connect Vérifier la connexion AD FS a été mise à jour afin de vérifier les connexions par rapport à Microsoft Online, et pas simplement la récupération de jeton à partir des services de fédération Active Directory (AD FS).
@@ -870,8 +928,8 @@ CBool(
 #### <a name="issues-fixed"></a>Problèmes résolus
 
 * Les URL suivantes correspondent à de nouveaux points de terminaison WS-Federation introduits par Azure afin d’améliorer la résilience contre les pannes de courant. Elles seront ajoutées à la configuration de réponse de la partie de confiance AD FS :
-  * https://ests.login.microsoftonline.com/login.srf
-  * https://stamp2.login.microsoftonline.com/login.srf
+  * https:\//ests.login.microsoftonline.com/login.srf
+  * https:\//stamp2.login.microsoftonline.com/login.srf
   * https://ccs.login.microsoftonline.com/login.srf
   * https://ccs-sdf.login.microsoftonline.com/login.srf
   

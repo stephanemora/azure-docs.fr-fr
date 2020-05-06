@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 11/09/2017
 ms.custom: seodec18
-ms.openlocfilehash: f1012f8c00de4b19bbf6206408ec1a806e09e54f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1c44fb9f44eb75e6d2a766213c5db094ebe79b1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77482341"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81537642"
 ---
 # <a name="azure-app-service-plan-overview"></a>Présentation des plans d’Azure App Service
 
@@ -32,7 +32,7 @@ Le _niveau tarifaire_ d’un plan App Service détermine les fonctionnalités Ap
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-En outre, chaque niveau fournit un sous-ensemble spécifique de fonctionnalités App Service. Ces fonctionnalités comprennent, entre autres, les domaines personnalisés et les certificats SSL, la mise à l’échelle automatique, les emplacements de déploiement, les sauvegardes et l’intégration de Traffic Manager. Plus le niveau est élevé, plus de fonctionnalités sont disponibles. Pour savoir quelles fonctionnalités sont prises en charge dans chaque niveau tarifaire, consultez les [détails des plans App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
+En outre, chaque niveau fournit un sous-ensemble spécifique de fonctionnalités App Service. Ces fonctionnalités comprennent, entre autres, les domaines personnalisés et les certificats TLS/SSL, la mise à l’échelle automatique, les emplacements de déploiement, les sauvegardes et l’intégration de Traffic Manager. Plus le niveau est élevé, plus de fonctionnalités sont disponibles. Pour savoir quelles fonctionnalités sont prises en charge dans chaque niveau tarifaire, consultez les [détails des plans App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
 <a name="new-pricing-tier-premiumv2"></a>
 
@@ -71,11 +71,11 @@ Cette section décrit la façon dont les applications App Service sont facturée
 - Dans les niveaux de calcul dédié (**De base**, **Standard**, **Premium**, **PremiumV2**), le plan App Service définit le nombre d’instances de machines virtuelles auquel les applications sont mises à l’échelle ; ainsi, _chaque instance de machine virtuelle_ dans le plan App Service fait l’objet d’une facturation horaire. Ces instances de machine virtuelle sont facturées dans les mêmes proportions, quel que soit le nombre d’applications en cours d’exécution sur ces instances. Pour éviter des frais inattendus, consultez [Nettoyer un plan App Service](app-service-plan-manage.md#delete).
 - Dans le niveau **Isolé**, l’environnement App Service définit le nombre de workers isolés qui exécutent vos applications, et _chaque worker_ est facturé toutes les heures. En outre, l’exécution de l’environnement App Service donne lieu à des frais horaires de base.
 
-Vous ne payez pas pour l’utilisation des fonctionnalités App Service dont vous disposez (configuration de domaines personnalisés, certificats SSL, emplacements de déploiement, sauvegardes, etc.). Les exceptions sont les suivantes :
+Vous ne payez pas pour l’utilisation des fonctionnalités App Service dont vous disposez (configuration de domaines personnalisés, certificats TLS/SSL, emplacements de déploiement, sauvegardes, etc.). Les exceptions sont les suivantes :
 
 - Domaines App Service : vous payez quand vous en achetez un dans Azure et quand vous le renouvelez chaque année.
 - Certificats App Service : vous payez quand vous en achetez un dans Azure et quand vous le renouvelez chaque année.
-- Connexions SSL basées sur IP : il existe un tarif horaire pour chaque connexion SSL basée sur IP, mais certains niveaux (**Standard** ou supérieur) vous octroient gratuitement une connexion SSL basée sur IP. Les connexions SSL basées sur SNI sont gratuites.
+- Connexions TLS basées sur IP : il existe un tarif horaire pour chaque connexion TLS basée sur IP, mais certains niveaux **Standard** ou supérieur vous octroient gratuitement une connexion TLS basée sur IP. Les connexions TLS basées sur SNI sont gratuites.
 
 > [!NOTE]
 > Si vous intégrez App Service à un autre service Azure, vous devrez peut-être prendre en compte les frais liés à ce service. Par exemple, si vous utilisez Azure Traffic Manager pour mettre à l’échelle votre application géographiquement, Azure Traffic Manager facture votre utilisation en sus. Pour estimer le coût global des services dans Azure, consultez [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/). 
@@ -86,7 +86,7 @@ Vous ne payez pas pour l’utilisation des fonctionnalités App Service dont vou
 
 Votre plan App Service peut être mis à l’échelle à tout moment. C’est aussi simple que de changer le niveau tarifaire du plan. Vous pouvez choisir un niveau tarifaire inférieur dans un premier temps, puis monter en puissance ultérieurement quand vous avez besoin de davantage de fonctionnalités App Service.
 
-Par exemple, vous pouvez commencer par tester votre application web dans un plan App Service **Gratuit**, et ainsi ne rien payer. Quand vous souhaitez ajouter votre [nom DNS personnalisé](app-service-web-tutorial-custom-domain.md) à l’application web, portez simplement votre plan au niveau **Partagé**. Ensuite, quand vous souhaitez [créer une liaison SSL](configure-ssl-bindings.md), portez votre plan au niveau **De base**. Quand vous souhaitez avoir des [environnements de préproduction](deploy-staging-slots.md), passez au niveau **Standard**. Quand vous avez besoin de cœurs, de mémoire ou de stockage supplémentaires, passez à une taille de machine virtuelle supérieure dans le même niveau.
+Par exemple, vous pouvez commencer par tester votre application web dans un plan App Service **Gratuit**, et ainsi ne rien payer. Quand vous souhaitez ajouter votre [nom DNS personnalisé](app-service-web-tutorial-custom-domain.md) à l’application web, portez simplement votre plan au niveau **Partagé**. Ensuite, quand vous souhaitez [créer une liaison TLS](configure-ssl-bindings.md), portez votre plan au niveau **De base**. Quand vous souhaitez avoir des [environnements de préproduction](deploy-staging-slots.md), passez au niveau **Standard**. Quand vous avez besoin de cœurs, de mémoire ou de stockage supplémentaires, passez à une taille de machine virtuelle supérieure dans le même niveau.
 
 Il en va de même dans l’autre sens. Quand vous estimez que vous n’avez plus besoin des fonctions ou fonctionnalités d’un niveau supérieur, vous pouvez passer à un niveau inférieur et économiser ainsi de l’argent.
 

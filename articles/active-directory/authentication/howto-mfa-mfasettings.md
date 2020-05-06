@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da995afba1dc8eff295c9b724a78da95b9caac85
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 9002447df44a1f0c87ec9de03e316d7d12d8a626
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80653976"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82105656"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 
@@ -98,11 +98,11 @@ Configurez la fonctionnalité d’_alerte de fraude_ pour que vos utilisateurs p
 ### <a name="view-fraud-reports"></a>Afficher les rapports de fraude
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Sélectionnez **Azure Active Directory** > **Connexions**. Le rapport de fraude fait désormais partie du rapport de connexions Azure Active Directory standard.
-
+2. Sélectionnez **Azure Active Directory** > **Connexions** > **Informations d’authentification**. Le rapport sur les fraudes fait maintenant partie du rapport des connexions Azure AD standard. Il s’affiche dans **« Détails des résultats »** (accès refusé par MFA, code fraude entré).
+ 
 ## <a name="notifications"></a>Notifications
 
-Configurez les adresses e-mail ici pour les utilisateurs qui recevront les e-mails d’alerte en cas de fraude.
+Configurez les adresses e-mail des utilisateurs qui doivent recevoir des e-mails d’alerte de fraude : **Azure Active Directory** > **Sécurité** > **Authentification multifacteur** > **Notifications**.
 
 ![Exemple d’e-mail d’alerte en cas de fraude](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
 

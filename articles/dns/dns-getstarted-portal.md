@@ -8,16 +8,16 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 26e5386f1c9730f1600e59a002ea7845b82ffe06
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3b34b45cba805d748dcc8a0c31340cd8116e1c80
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76937131"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82160764"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>Démarrage rapide : Créer une zone et un enregistrement Azure DNS à partir du portail Azure
 
-Vous pouvez configurer Azure DNS pour résoudre les noms d’hôtes dans votre domaine public. Par exemple, si vous avez acheté le nom de domaine *contoso.xyz* auprès d’un bureau d’enregistrement de noms de domaine, vous pouvez configurer Azure DNS pour héberger le domaine *contoso.xyz* et résoudre *www.contoso.xyz* dans l’adresse IP de votre serveur web ou application web.
+Vous pouvez configurer Azure DNS pour résoudre les noms d’hôtes dans votre domaine public. Par exemple, si vous avez acheté le nom de domaine *contoso.xyz* auprès d’un bureau d’enregistrement de noms de domaine, vous pouvez configurer Azure DNS pour héberger le domaine *contoso.xyz* et résoudre *`www.contoso.xyz`* dans l’adresse IP de votre serveur web ou application web.
 
 Dans ce guide de démarrage rapide, vous allez créer un domaine test, puis un enregistrement d’adresse pour résoudre *www* en l’adresse *IP 10.10.10.10*.
 

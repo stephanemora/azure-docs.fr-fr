@@ -4,12 +4,12 @@ description: Découvrez la mise en réseau dans AKS (Azure Kubernetes Service), 
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5800254ab44b5b0f1048ce2200f90c06a8d1666a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 51773a46b77cb1e9a89b9c85a5f62c4a6b7af3be
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227917"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82146058"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concepts de réseau pour les applications dans AKS (Azure Kubernetes Service)
 
@@ -131,7 +131,7 @@ Dans AKS, vous pouvez créer une ressource d’entrée à l’aide de NGINX, ou 
 
 Une autre fonctionnalité d’entrée courante est l’arrêt SSL/TLS. Sur les grandes applications web accessibles via HTTPS, l’arrêt TLS peut être géré par la ressource d’entrée plutôt que dans l’application proprement dite. Pour fournir la configuration et la génération automatiques de la certification TLS, vous pouvez configurer la ressource d’entrée pour utiliser des fournisseurs tels que Let's Encrypt. Pour plus d’informations sur la configuration d’un contrôleur d’entrée NGINX avec Let’s Encrypt, consultez [Entrée et TLS][aks-ingress-tls].
 
-Vous pouvez également configurer votre contrôleur d’entrée pour qu’il conserve l’adresse IP source de client dans les requêtes de conteneurs dans votre cluster AKS. Quand la requête d’un client est routée vers un conteneur dans votre cluster AKS via votre contrôleur d’entrée, l’adresse IP source d’origine ne sera pas disponible pour le conteneur cible. Lorsque vous activez la *conservation de l’adresse IP source de client*, l’adresse IP source du client est disponible dans l’en-tête de requête sous *X-Forwarded-For*. Si vous utilisez la conservation de l’adresse IP source du client sur votre contrôleur d’entrée, vous ne pouvez pas utiliser le protocole SSL direct. La conservation de l’adresse IP source de client et le protocole SSL direct peuvent être utilisés avec d’autres services, tels que le type *LoadBalancer*.
+Vous pouvez également configurer votre contrôleur d’entrée pour qu’il conserve l’adresse IP source de client dans les requêtes de conteneurs dans votre cluster AKS. Quand la requête d’un client est routée vers un conteneur dans votre cluster AKS via votre contrôleur d’entrée, l’adresse IP source d’origine ne sera pas disponible pour le conteneur cible. Lorsque vous activez la *conservation de l’adresse IP source de client*, l’adresse IP source du client est disponible dans l’en-tête de requête sous *X-Forwarded-For*. Si vous utilisez la conservation de l’adresse IP source du client sur votre contrôleur d’entrée, vous ne pouvez pas utiliser le protocole TLS direct. La conservation de l’adresse IP source de client et le protocole TLS direct peuvent être utilisés avec d’autres services, tels que le type *LoadBalancer*.
 
 ## <a name="network-security-groups"></a>Groupes de sécurité réseau
 

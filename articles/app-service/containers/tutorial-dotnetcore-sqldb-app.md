@@ -4,16 +4,16 @@ description: Découvrez comment faire fonctionner une application Linux ASP.NET 
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 08/06/2019
+ms.date: 04/23/2020
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 7eed76a6d5272b6e4411497ad4e1d5dbc62b6252
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 5bd20f98b10989da0a66acbf45b99d724664cf5d
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085895"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82208123"
 ---
-# <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Créer une application ASP.NET Core et SQL Database dans Azure App Service sur Linux
+# <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Tutoriel : Créer une application ASP.NET Core et SQL Database dans Azure App Service sur Linux
 
 > [!NOTE]
 > Cet article explique comment déployer une application sur App Service sous Linux. Pour effectuer un déploiement dans App Service sur _Windows_, consultez [Générer une application .NET Core et SQL Database dans Azure App Service](../app-service-web-tutorial-dotnetcore-sqldb.md).
@@ -64,7 +64,7 @@ Cet exemple de projet contient une simple application CRUD (Create-Read-Update-D
 Exécutez la commande suivante pour installer les packages requis, migrer les bases de données et démarrer l’application.
 
 ```bash
-dotnet restore
+dotnet tool install -g dotnet-ef
 dotnet ef database update
 dotnet run
 ```
@@ -91,7 +91,7 @@ Pour l’instance SQL Database, ce tutoriel utilise [Azure SQL Database](/azure/
 
 Dans Cloud Shell, créez un serveur logique Azure SQL Database avec la commande [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create).
 
-Remplacez l’espace réservé *\<server-name>* par un nom unique d’instance SQL Database. Ce nom est utilisé en tant que point de terminaison de l’instance SQL Database `<server-name>.database.windows.net`. Pour cette raison, le nom doit être unique sur l’ensemble des serveurs logiques dans Azure. Le nom ne peut contenir que des minuscules, des chiffres, le tiret -) et doit compter entre 3 et 50 caractères. En outre, remplacez *\<db-username>* et *\<db-password>* par le nom d’utilisateur et le mot de passe de votre choix. 
+Remplacez l’espace réservé *\<nom-du-serveur>* par un nom de base de données SQL *unique*. Ce nom est utilisé dans le point de terminaison global unique de la base de données SQL, `<server-name>.database.windows.net`. Les caractères valides sont `a`-`z`, `0`-`9`, `-`. En outre, remplacez *\<db-username>* et *\<db-password>* par le nom d’utilisateur et le mot de passe de votre choix. 
 
 
 ```azurecli-interactive
@@ -102,7 +102,7 @@ Lorsque le serveur logique SQL Database est créé, l’interface Azure CLI aff
 
 <pre>
 {
-  "administratorLogin": "sqladmin",
+  "administratorLogin": "&lt;db-username&gt;",
   "administratorLoginPassword": null,
   "fullyQualifiedDomainName": "&lt;server-name&gt;.database.windows.net",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/&lt;server-name&gt;",
@@ -126,6 +126,16 @@ Créez une [règle de pare-feu au niveau du serveur Azure SQL Database](../../sq
 az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
+> [!TIP] 
+> Vous pouvez être encore plus restrictif dans votre règle de pare-feu en [choisissant uniquement les adresses IP sortantes que votre application utilise](../overview-inbound-outbound-ips.md#find-outbound-ips).
+>
+
+Dans Cloud Shell, réexécutez la commande pour autoriser l’accès à partir de votre ordinateur local en remplaçant *\<your-ip-address>* par [votre adresse IP IPv4 locale](https://www.whatsmyip.org/).
+
+```azurecli-interactive
+az sql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
+```
+
 ### <a name="create-a-database"></a>Création d'une base de données
 
 Créez une base de données avec un [niveau de performance S0](../../sql-database/sql-database-service-tiers-dtu.md) sur le serveur avec la commande [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create).
@@ -136,13 +146,78 @@ az sql db create --resource-group myResourceGroup --server <server-name> --name 
 
 ### <a name="create-connection-string"></a>Créer une chaîne de connexion
 
-Remplacez la chaîne suivante par les valeurs *\<server-name>* , *\<db-username>* et *\<db-password>* utilisées précédemment.
+Obtenez la chaîne de connexion au moyen de la commande [`az sql db show-connection-string`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-show-connection-string).
 
+```azurecli-interactive
+az sql db show-connection-string --client ado.net --server cephalin-core --name coreDB
 ```
-Server=tcp:<server-name>.database.windows.net,1433;Database=coreDB;User ID=<db-username>;Password=<db-password>;Encrypt=true;Connection Timeout=30;
-```
+
+Dans la sortie de la commande, remplacez *\<nom-utilisateur>* et *\<mot de passe>* par les informations d’identification de l’administrateur de base de données que vous avez utilisées précédemment.
 
 Chaîne de connexion pour votre application .NET Core. Copiez-la pour une utilisation ultérieure.
+
+### <a name="configure-app-to-connect-to-production-database"></a>Configurer l’application pour qu’elle se connecte à la base de données de production
+
+Dans votre référentiel local, ouvrez Startup.cs et recherchez le code suivant :
+
+```csharp
+services.AddDbContext<MyDatabaseContext>(options =>
+        options.UseSqlite("Data Source=localdatabase.db"));
+```
+
+Remplacez-le par le code suivant :
+
+```csharp
+services.AddDbContext<MyDatabaseContext>(options =>
+        options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
+```
+
+> [!IMPORTANT]
+> Pour les applications de production qui doivent effectuer un scale-out, suivez les bonnes pratiques dans [Application des migrations en production](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production).
+> 
+
+### <a name="run-database-migrations-to-the-production-database"></a>Exécuter des migrations de base de données vers la base de données de production
+
+Votre application se connecte actuellement à une base de données SQLite locale. Maintenant que vous avez configuré une base de données SQL Azure, recréez la migration initiale pour la cibler. 
+
+À partir de la racine du dépôt, exécutez les commandes suivantes. Remplacez la *\<chaîne-de-connexion>* par celle que vous avez créée précédemment.
+
+```
+# Delete old migrations
+rm Migrations -r
+# Recreate migrations
+dotnet ef migrations add InitialCreate
+
+# Set connection string to production database
+# PowerShell
+$env:ConnectionStrings:MyDbConnection="<connection-string>"
+# CMD (no quotes)
+set ConnectionStrings:MyDbConnection=<connection-string>
+# Bash
+export ConnectionStrings__MyDbConnection="<connection-string>"
+
+# Run migrations
+dotnet ef database update
+```
+
+### <a name="run-app-with-new-configuration"></a>Exécuter l’application avec la nouvelle configuration
+
+À présent que les migrations de base de données sont exécutées sur la base de données de production, testez votre application en exécutant :
+
+```
+dotnet run
+```
+
+Dans un navigateur, accédez à `http://localhost:5000`. Sélectionnez le lien **Create New** et créez quelques éléments _to-do_. Votre application, désormais, lit et écrit des données dans la base de données de production.
+
+Validez vos modifications locales, puis validez-les dans le dépôt Git. 
+
+```bash
+git add .
+git commit -m "connect to SQLDB in Azure"
+```
+
+Vous êtes maintenant prêt à déployer votre code.
 
 ## <a name="deploy-app-to-azure"></a>Déployer des applications dans Azure
 
@@ -165,86 +240,41 @@ Dans cette étape, vous déployez votre application .NET Core connectée à SQL 
 Pour définir les chaînes de connexion de votre application Azure, utilisez la commande [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) dans Cloud Shell. Dans la commande suivante, remplacez *\<app-name>* ainsi que le paramètre *\<connection-string>* par la chaîne de connexion que vous avez créée précédemment.
 
 ```azurecli-interactive
-az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection-string>' --connection-string-type SQLServer
+az webapp config connection-string set --resource-group myResourceGroup --name <app-name> --settings MyDbConnection="<connection-string>" --connection-string-type SQLAzure
 ```
 
 Dans ASP.NET Core, vous pouvez utiliser cette chaîne de connexion nommée (`MyDbConnection`) à l’aide du modèle standard, comme n’importe quelle chaîne de connexion spécifiée dans *appsettings. json*. Dans ce cas, `MyDbConnection` est également défini dans votre fichier *appsettings.json*. Lors de l’exécution dans App Service, la chaîne de connexion définie dans App Service est prioritaire sur celle qui est définie dans votre fichier *appsettings.json*. Le code utilise la valeur  *appsettings.json* pendant le développement local, et le même code utilise la valeur App Service lorsqu’elle est déployée.
 
-Pour voir comment la chaîne de connexion est référencée dans votre code, consultez [Se connecter à SQL Database en production](#connect-to-sql-database-in-production).
-
-### <a name="configure-environment-variable"></a>Configurer une variable d’environnement
-
-Définissez ensuite le paramètre d’application `ASPNETCORE_ENVIRONMENT` sur _Production_. Ce paramètre vous permet de savoir si vous utilisez Azure, car vous utilisez SQLite pour votre environnement de développement local et SQL Database pour votre environnement Azure.
-
-L’exemple suivant configure un paramètre d’application `ASPNETCORE_ENVIRONMENT` dans votre application Azure. Remplacez l’espace réservé *\<app-name>* .
-
-```azurecli-interactive
-az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
-```
-
-Pour voir comment la variable d’environnement est référencée dans votre code, consultez [Se connecter à SQL Database en production](#connect-to-sql-database-in-production).
-
-### <a name="connect-to-sql-database-in-production"></a>Connexion à SQL Database en production
-
-Dans votre référentiel local, ouvrez Startup.cs et recherchez le code suivant :
-
-```csharp
-services.AddDbContext<MyDatabaseContext>(options =>
-        options.UseSqlite("Data Source=localdatabase.db"));
-```
-
-Remplacez-le par le code suivant, qui utilise les variables d’environnement que vous avez configurées précédemment.
-
-```csharp
-// Use SQL Database if in Azure, otherwise, use SQLite
-if(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
-    services.AddDbContext<MyDatabaseContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
-else
-    services.AddDbContext<MyDatabaseContext>(options =>
-            options.UseSqlite("Data Source=MvcMovie.db"));
-
-// Automatically perform database migration
-services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
-```
-
-Si ce code détecte qu’il s’exécute en production (indiquant l’environnement Azure), il utilise alors la chaîne de connexion que vous avez configurée pour se connecter à SQL Database. Pour plus d’informations sur l’accès aux paramètres d’application dans App Service, consultez [Accéder aux variables d’environnement](configure-language-dotnetcore.md#access-environment-variables).
-
-L’appel `Database.Migrate()` vous aide lorsqu’il est exécuté dans Azure, car il crée automatiquement les bases de données dont votre application .NET Core a besoin, en fonction de sa configuration de migration.
-
-Enregistrez vos modifications, puis validez-les dans le référentiel Git.
-
-```bash
-git add .
-git commit -m "connect to SQLDB in Azure"
-```
+Pour voir comment la chaîne de connexion est référencée dans votre code, consultez [Configurer l’application pour qu’elle se connecte à la base de données de production](#configure-app-to-connect-to-production-database).
 
 ### <a name="push-to-azure-from-git"></a>Effectuer une transmission de type push vers Azure à partir de Git
 
-[!INCLUDE [app-service-plan-no-h](../../../includes/app-service-web-git-push-to-azure-no-h.md)]
+[!INCLUDE [push-to-azure-no-h](../../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
 <pre>
-Counting objects: 98, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (92/92), done.
-Writing objects: 100% (98/98), 524.98 KiB | 5.58 MiB/s, done.
-Total 98 (delta 8), reused 0 (delta 0)
+Enumerating objects: 273, done.
+Counting objects: 100% (273/273), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (175/175), done.
+Writing objects: 100% (273/273), 1.19 MiB | 1.85 MiB/s, done.
+Total 273 (delta 96), reused 259 (delta 88)
+remote: Resolving deltas: 100% (96/96), done.
+remote: Deploy Async
 remote: Updating branch 'master'.
-remote: .
 remote: Updating submodules.
-remote: Preparing deployment for commit id '0c497633b8'.
-remote: Generating deployment script.
-remote: Project file path: ./DotNetCoreSqlDb.csproj
-remote: Generated deployment script files
-remote: Running deployment command...
-remote: Handling ASP.NET Core Web Application deployment.
+remote: Preparing deployment for commit id 'cccecf86c5'.
+remote: Repository path is /home/site/repository
+remote: Running oryx build...
+remote: Build orchestrated by Microsoft Oryx, https://github.com/Microsoft/Oryx
+remote: You can report issues at https://github.com/Microsoft/Oryx/issues
 remote: .
 remote: .
 remote: .
-remote: Finished successfully.
+remote: Done.
 remote: Running post deployment command(s)...
+remote: Triggering recycle (preview mode disabled).
 remote: Deployment successful.
-remote: App container will begin restart within 10 seconds.
+remote: Deployment Logs : 'https://&lt;app-name&gt;.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/cccecf86c56493ffa594e76ea1deb3abb3702d89/log'
 To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
  * [new branch]      master -> master
 </pre>
@@ -269,23 +299,18 @@ Dans cette étape, vous apportez une modification à votre schéma de base de do
 
 ### <a name="update-your-data-model"></a>Mettre à jour votre modèle de données
 
-Ouvrez _Models\Todo.cs_ dans l’éditeur de code. Ajoutez la propriété suivante à la classe `ToDo` :
+Ouvrez _Models/Todo.cs_ dans l’éditeur de code. Ajoutez la propriété suivante à la classe `ToDo` :
 
 ```csharp
 public bool Done { get; set; }
 ```
 
-### <a name="run-code-first-migrations-locally"></a>Exécuter la fonction Code First Migrations en local
+### <a name="rerun-database-migrations"></a>Réexécuter les migrations de base de données
 
-Exécutez quelques commandes pour mettre à jour votre base de données locale.
+Exécutez quelques commandes pour mettre à jour la base de données de production.
 
 ```bash
 dotnet ef migrations add AddProperty
-```
-
-Mettez à jour la base de données locale :
-
-```bash
 dotnet ef database update
 ```
 
@@ -293,15 +318,15 @@ dotnet ef database update
 
 Apportez quelques modifications à votre code pour utiliser la propriété `Done`. Pour plus de simplicité dans ce didacticiel, vous allez uniquement modifier les vues `Index` et `Create` pour voir la propriété en action.
 
-Ouvrez _Controllers\TodosController.cs_.
+Ouvrez _Controllers/TodosController.cs_.
 
-Recherchez la méthode `Create()` et ajoutez `Done` à la liste des propriétés dans l’attribut `Bind`. Lorsque vous avez terminé, la signature de votre méthode `Create()` doit ressembler à ceci :
+Recherchez la méthode `Create([Bind("ID,Description,CreatedDate")] Todo todo)` et ajoutez `Done` à la liste des propriétés dans l’attribut `Bind`. Lorsque vous avez terminé, la signature de votre méthode `Create()` doit ressembler à ceci :
 
 ```csharp
 public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
 ```
 
-Ouvrez _Views\Todos\Create.cshtml_.
+Ouvrez _Views/Todos/Create.cshtml_.
 
 Dans le code Razor, vous devriez voir un élément `<div class="form-group">` pour `Description` et un autre élément `<div class="form-group">` pour `CreatedDate`. Juste après ces deux éléments, ajoutez un autre élément `<div class="form-group">` pour `Done` :
 
@@ -315,7 +340,7 @@ Dans le code Razor, vous devriez voir un élément `<div class="form-group">` po
 </div>
 ```
 
-Ouvrez _Views\Todos\Index.cshtml_.
+Ouvrez _Views/Todos/Index.cshtml_.
 
 Recherchez l’élément `<th></th>` vide. Juste au-dessus de cet élément, ajoutez le code Razor suivant :
 
@@ -353,24 +378,40 @@ git commit -m "added done field"
 git push azure master
 ```
 
-Une fois le `git push` terminé, accédez à votre application Azure et testez la nouvelle fonctionnalité.
+Une fois le `git push` terminé, accédez à votre application App Service et essayez d’ajouter un élément de tâche, puis de cocher la case **Terminé**.
 
 ![Application Azure après l’activation des Migrations Code First](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
 
-Toutes les tâches existantes sont toujours affichées. Lorsque vous republiez votre application .NET Core, les données existantes dans votre instance SQL Database ne sont pas perdues. En outre, Entity Framework Core Migrations modifie uniquement le schéma de données, sans toucher à vos données existantes.
+Toutes les tâches existantes sont toujours affichées. Lorsque vous republiez votre application ASP.NET Core, les données existantes dans votre base de données SQL ne sont pas perdues. En outre, Entity Framework Core Migrations modifie uniquement le schéma de données, sans toucher à vos données existantes.
 
 ## <a name="stream-diagnostic-logs"></a>Diffuser les journaux de diagnostic
+
+Pendant l’exécution de l’application ASP.NET Core dans Azure App Service, vous pouvez acheminer les journaux d’activité de la console vers Cloud Shell. De cette façon, vous pouvez obtenir les mêmes messages de diagnostic pour vous aider à déboguer les erreurs d’application.
 
 L’exemple de projet suit déjà les instructions fournies dans [Journalisation ASP.NET Core dans Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider), et apporte deux changements à la configuration :
 
 - Il inclut une référence à `Microsoft.Extensions.Logging.AzureAppServices` dans *DotNetCoreSqlDb.csproj*.
-- Il appelle `loggerFactory.AddAzureWebAppDiagnostics()` dans *Startup.cs*.
+- Appelle `loggerFactory.AddAzureWebAppDiagnostics()` dans *Program.cs*.
+
+Pour définir le [niveau de journalisation](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level) ASP.NET Core dans App Service sur `Information` à partir du niveau par défaut `Error`, utilisez la commande [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) dans Cloud Shell.
+
+```azurecli-interactive
+az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging true --level information
+```
 
 > [!NOTE]
-> Le niveau de journalisation du projet est défini sur `Information` dans *appsettings.json*.
->
+> Le niveau de journalisation du projet est déjà défini sur `Information` dans *appsettings.json*.
+> 
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+Pour démarrer la diffusion de journaux, utilisez la commande [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) dans Cloud Shell.
+
+```azurecli-interactive
+az webapp log tail --name <app-name> --resource-group myResourceGroup
+```
+
+Une fois que la diffusion a démarré, actualisez l’application Azure dans le navigateur pour générer un trafic web. Vous pouvez maintenant voir les journaux d’activité de la console acheminés vers le terminal. Si vous ne voyez pas les journaux d’activité de la console, attendez 30 secondes et vérifiez à nouveau.
+
+Pour arrêter le streaming des journaux à tout moment, appuyez sur `Ctrl`+`C`.
 
 Pour plus d’informations sur la personnalisation des journaux d’activité ASP.NET Core, consultez [Journalisation dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 

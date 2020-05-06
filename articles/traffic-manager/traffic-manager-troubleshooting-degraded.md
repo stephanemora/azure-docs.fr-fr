@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: rohink
-ms.openlocfilehash: c398763405472c9018a5c30d34fbd3963ecb93b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d720067b619b0d871899f2ac9025a9d8ab24d95
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76938363"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82130765"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Résolution des problèmes liés à l’état détérioré d’Azure Traffic Manager
 
-Cet article décrit comment résoudre les problèmes d’un profil Azure Traffic Manager qui présente un état détérioré. La première étape de la résolution d’un statut de dégradation d’Azure Traffic Manager consiste à activer la journalisation des diagnostics.  Pour plus d’informations, consultez [Activer les journaux de diagnostic](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs). Pour ce scénario, considérez que vous avez configuré un profil Traffic Manager pointant vers certains de vos services hébergés cloudapp.net. Si le statut de l’intégrité de votre Traffic Manager est **Dégradé**, le statut d’un ou plusieurs points de terminaison peut être **Dégradé** :
+Cet article décrit comment résoudre les problèmes d’un profil Azure Traffic Manager qui présente un état détérioré. La première étape de la résolution d’un statut de dégradation d’Azure Traffic Manager consiste à activer la journalisation.  Pour plus d’informations, consultez [Activer les journaux de ressources](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs). Pour ce scénario, considérez que vous avez configuré un profil Traffic Manager pointant vers certains de vos services hébergés cloudapp.net. Si le statut de l’intégrité de votre Traffic Manager est **Dégradé**, le statut d’un ou plusieurs points de terminaison peut être **Dégradé** :
 
 ![statut du point de terminaison dégradé](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 

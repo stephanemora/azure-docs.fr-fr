@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 7d121e9aeb897897322f1253c332e7a1baabdc9e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f6698bcc8125cd00dcb1cd6c86a8d69153242b35
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75768960"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190297"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Créer une fonction qui s’intègre avec Azure Logic Apps
 
@@ -36,7 +36,11 @@ Dans ce tutoriel, vous allez apprendre à :
 
 + Un compte [Twitter](https://twitter.com/) actif. 
 + Un compte [Outlook.com](https://outlook.com/) (pour l’envoi de notifications).
-+ Cet article utilise comme point de départ les ressources créées dans [Créer votre première fonction à partir du portail Azure](functions-create-first-azure-function.md).  
+
+> [!NOTE]
+> Si vous souhaitez utiliser le connecteur Gmail, seuls les comptes professionnels G-Suite peuvent utiliser ce connecteur sans restriction dans Logic Apps. Si vous disposez d’un compte de consommateur Gmail, vous pouvez utiliser le connecteur uniquement avec certains services et applications approuvés par Google, ou vous pouvez [créer une application cliente Google pour servir lors de l’authentification dans votre connecteur Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Pour plus d’informations, consultez [Stratégies de confidentialité et de sécurité des données pour les connecteurs Google dans Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+
++ Cet article utilise comme point de départ les ressources créées dans [Créer votre première fonction à partir du portail Azure](functions-create-first-azure-function.md).
 Si vous ne l’avez pas déjà fait, suivez ces étapes pour créer votre Function App.
 
 ## <a name="create-a-cognitive-services-resource"></a>Créer une ressource Cognitive Services

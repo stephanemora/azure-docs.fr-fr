@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 09/18/2019
 ms.author: cephalin
-ms.openlocfilehash: e00db06346b19ef85eb77626eb2ed169d2224b6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4234acb2ce32980a268e389cb31de9a57ed18e6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "71129690"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82131936"
 ---
 Lorsque vous clonez la configuration depuis un autre emplacement de déploiement, celle-ci est modifiable. Au cours d’un échange, certains éléments de configuration suivent le contenu (éléments non propres à un emplacement) tandis que d’autres restent dans le même emplacement après l’échange (éléments propres à un emplacement). Les listes suivantes représentent les paramètres qui évoluent lorsque vous échangez les emplacements.
 
@@ -37,9 +37,9 @@ Il est prévu que les fonctionnalités marquées d’un astérisque (*) ne soien
 * Planificateurs WebJobs
 * Restrictions d’adresse IP
 * Always On
-* Paramètres des journaux de diagnostic
+* Paramètres de diagnostic
 * Partage des ressources cross-origin (CORS)
 
 > [!NOTE]
-> Certains paramètres d’application qui s’appliquent à des paramètres non échangés ne sont pas non plus échangés. Par exemple, étant donné que les paramètres du journal de diagnostic ne sont pas échangés, les paramètres d’application associés comme `WEBSITE_HTTPLOGGING_RETENTION_DAYS` et `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` ne sont pas non plus échangés, même s’ils n’apparaissent pas comme des paramètres d’emplacement.
+> Certains paramètres d’application qui s’appliquent à des paramètres non échangés ne sont pas non plus échangés. Par exemple, étant donné que les paramètres de diagnostic ne sont pas échangés, les paramètres d’application associés comme `WEBSITE_HTTPLOGGING_RETENTION_DAYS` et `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` ne sont pas non plus échangés, même s’ils n’apparaissent pas comme des paramètres d’emplacement.
 >

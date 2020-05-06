@@ -1,10 +1,10 @@
 ---
 title: Guide d’intégration de Microsoft Security Code Analysis
 description: Cet article explique comme installer l’extension Microsoft Security Code Analysis
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 07/31/2019
+ms.date: 04/24/2020
 ms.topic: article
 ms.service: security
 services: azure
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6132aab98cc8145cb99cf153c64f20fbac00131c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b7e36c12dab65f4bcc6c05a1ee902301c402d5e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78197003"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82147678"
 ---
 # <a name="onboarding-and-installing"></a>Intégration et installation
 
@@ -44,11 +44,12 @@ Si vous n’avez pas l’un des contrats de support susmentionnés, vous pouvez 
 
 **Étapes suivantes :**
 
-Contactez un partenaire de la liste ci-dessous et demandez à acheter l’extension Microsoft Security Code Analysis.
+Si vous disposez des qualifications ci-dessus, contactez un partenaire de la liste ci-dessous pour acheter l’extension Microsoft Security Code Analysis. Sinon, contactez le [support de Microsoft Security Code Analysis](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).
 
 >**Partenaires :**
 
 - Zones – Coordonnées : cloudsupport@zones.com
+- Wortell – Coordonnées : info@wortell.nl
 
 ### <a name="become-a-partner"></a>Devenir partenaire
 

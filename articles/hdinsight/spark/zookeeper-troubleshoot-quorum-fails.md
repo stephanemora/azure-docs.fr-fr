@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/20/2019
-ms.openlocfilehash: 4e46efaf17ae9bad5df6f1f61f401d3e6de58a85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41ac109e5c5379e6085dd57a3fcd8119915558fb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250237"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133271"
 ---
 # <a name="apache-zookeeper-server-fails-to-form-a-quorum-in-azure-hdinsight"></a>Le serveur Apache ZooKeeper ne parvient pas à former un quorum dans Azure HDInsight
 
@@ -34,7 +34,7 @@ Dans les journaux de serveur Zookeeper sur tout hôte Zookeeper à l’emplaceme
 java.nio.channels.CancelledKeyException
 ```
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Lorsque le volume de fichiers d’instantanés est important ou que les fichiers d’instantanés sont endommagés, le serveur ZooKeeper ne parvient pas à former un quorum, ce qui entraîne la non-intégrité des services liés à ZooKeeper. Le serveur ZooKeeper ne supprimera pas les anciens fichiers instantanés de son répertoire de données, il s'agit plutôt d'une tâche périodique que les utilisateurs doivent effectuer pour maintenir l’intégrité de ZooKeeper. Pour en savoir plus, consultez [Atouts et limitations de ZooKeeper](https://zookeeper.apache.org/doc/r3.3.5/zookeeperAdmin.html#sc_strengthsAndLimitations).
 
@@ -42,11 +42,11 @@ Lorsque le volume de fichiers d’instantanés est important ou que les fichiers
 
 Vérifiez le répertoire de données de ZooKeeper `/hadoop/zookeeper/version-2` et `/hadoop/hdinsight-zookeeper/version-2` pour savoir si le fichier des captures instantanées est volumineux. En présence de captures instantanées volumineuses, procédez comme suit :
 
-1. Sauvegardez les instantanés dans `/hadoop/zookeeper/version-2` et `/hadoop/hdinsight-zookeeper/version-2`.
+1. Vérifiez l’état des autres serveurs ZooKeeper dans le même quorum pour vous assurer qu’ils fonctionnent correctement avec la commande « `echo stat | nc {zk_host_ip} 2181 (or 2182)` ».  
 
-1. Nettoyez les instantanés dans `/hadoop/zookeeper/version-2` et `/hadoop/hdinsight-zookeeper/version-2`.
+1. Connectez-vous à l’hôte ZooKeeper problématique, sauvegardez les instantanés et les journaux des transactions dans `/hadoop/zookeeper/version-2` et `/hadoop/hdinsight-zookeeper/version-2`, puis nettoyez ces fichiers dans les deux répertoires. 
 
-1. Redémarrez tous les serveurs ZooKeeper à partir de l’interface utilisateur d’Apache Ambari.
+1. Redémarrez le serveur ZooKeeper problématique dans Ambari ou l’hôte ZooKeeper. Ensuite, redémarrez le service qui rencontre des problèmes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

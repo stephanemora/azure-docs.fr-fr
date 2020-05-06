@@ -6,17 +6,17 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: 61d0a57c541837ab3aebf65e47d757f7ecbe7e40
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 056b9bdd46520790f3ffbd9aca56ad8555e23a3d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435997"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189818"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Collecte de données dans Azure Security Center
-Azure Security Center collecte des données à partir de vos machines virtuelles Azure, groupes de machines virtuelles identiques, conteneurs IaaS et ordinateurs autres qu’Azure (y compris locaux) pour surveiller les menaces et vulnérabilités de sécurité. Les données sont collectées à l’aide du Log Analytics Agent, qui lit divers journaux d’événements et configurations liées à la sécurité de la machine et copie les données dans votre espace de travail à des fins d’analyse. Il peut s’agir des données suivantes : type et version de système d’exploitation, journaux d’activité de système d’exploitation (journaux d’événements Windows), processus en cours d’exécution, nom de machine, adresses IP et utilisateur connecté. Le Log Analytics Agent copie également les fichiers de vidage sur incident dans votre espace de travail.
+Azure Security Center collecte des données à partir de vos machines virtuelles Azure, groupes de machines virtuelles identiques, conteneurs IaaS et ordinateurs autres qu’Azure (y compris locaux) pour surveiller les menaces et vulnérabilités de sécurité. Les données sont collectées à l’aide de l’agent Log Analytics, qui lit divers journaux d’événements et configurations liées à la sécurité de la machine et copie les données dans votre espace de travail à des fins d’analyse. Il peut s’agir des données suivantes : type et version de système d’exploitation, journaux d’activité de système d’exploitation (journaux d’événements Windows), processus en cours d’exécution, nom de machine, adresses IP et utilisateur connecté. Le Log Analytics Agent copie également les fichiers de vidage sur incident dans votre espace de travail.
 
 La collecte de données est requise pour fournir une visibilité des mises à jour manquantes, des paramètres de sécurité du système d’exploitation mal configurés, de l’état de protection du point de terminaison ainsi que de l’intégrité et de la protection contre les menaces. 
 
@@ -29,25 +29,23 @@ Cet article explique comment installer un Log Analytics Agent et de définir un 
 
 ## <a name="enable-automatic-provisioning-of-the-log-analytics-agent"></a>Activer l’approvisionnement automatique du Log Analytics Agent <a name="auto-provision-mma"></a>
 
-Pour collecter les données à partir des machines, vous devez avoir installé le Log Analytics Agent. L’installation de l’agent peut être automatique (recommandé), ou vous pouvez l’installer manuellement.  
+Pour collecter les données à partir des machines, vous devez avoir installé le Log Analytics Agent. L’installation de l’agent peut être automatique (recommandé), ou vous pouvez l’installer manuellement. L’approvisionnement automatique est désactivé par défaut.
 
->[!NOTE]
-> L’approvisionnement automatique est désactivé par défaut. Pour définir que Security Center installe l’approvisionnement par défaut automatique, mettez-le sur **Activé**.
->
-
-Lorsque l’approvisionnement automatique est activé, Security Center approvisionne le Log Analytics Agent sur toutes les machines virtuelles Azure prises en charge et toutes celles nouvellement créées. Le provisionnement automatique est fortement recommandé. Toutefois, l’installation manuelle des agents est également disponible. [Découvrez comment installer l’extension Log Analytics Agent](#manual-agent).
+Lorsque l’approvisionnement automatique est activé, Security Center déploie le Log Analytics Agent sur toutes les machines virtuelles Azure prises en charge et toutes celles nouvellement créées. L’approvisionnement automatique est recommandé, mais vous pouvez installer l’agent manuellement si nécessaire (consultez [Installation manuelle de l’agent Log Analytics](#manual-agent)).
 
 
-
-Pour activer l’approvisionnement automatique du Log Analytics Agent :
-1. Dans le menu principal de Security Center, sélectionnez **Tarification et paramètres**.
-2. Cliquez sur l’abonnement applicable.
+Pour activer le provisionnement automatique de l’agent Log Analytics :
+1. Dans le menu de Security Center dans le portail, sélectionnez **Tarification et paramètres**.
+2. Sélectionnez l’abonnement approprié.
 
    ![Sélectionner un abonnement][7]
 
 3. Sélectionnez **Collection de données**.
 4. Dans **Provisionnement automatique**, sélectionnez **Activé** pour activer le provisionnement automatique.
-5. Sélectionnez **Enregistrer**.
+5. Sélectionnez **Enregistrer**. L’agent sera déployé sur toutes les machines virtuelles dans un délai de 15 minutes. 
+
+>[!TIP]
+> Si un espace de travail doit être approvisionné, l’installation de l’agent peut prendre jusqu’à 25 minutes.
 
    ![Activer l’approvisionnement automatique][1]
 
@@ -59,7 +57,7 @@ Pour activer l’approvisionnement automatique du Log Analytics Agent :
 >
 
 ## <a name="workspace-configuration"></a>Configuration de l’espace de travail
-Les données collectées par Security Center sont stockées dans les espaces de travail Log Analytics. Vous pouvez choisir de stocker les données collectées à partir des machines virtuelles Azure dans des espaces de travail créés par Security Center ou dans un espace de travail existant que vous avez créé. 
+Les données collectées par Security Center sont stockées dans les espaces de travail Log Analytics. Vous pouvez choisir de collecter les données à partir des machines virtuelles Azure dans des espaces de travail créés par Security Center ou dans un espace de travail existant que vous avez créé. 
 
 La configuration de l’espace de travail est définie par abonnement, et plusieurs abonnements peuvent utiliser le même espace de travail.
 
@@ -111,7 +109,7 @@ Pour sélectionner un espace de travail Log Analytics existant :
 3. Sélectionnez **Enregistrer**.
 4. Après avoir sélectionné **Enregistrer**, vous serez invité à reconfigurer les machines virtuelles surveillées précédemment connectées à un espace de travail par défaut.
 
-   - Sélectionnez **Non** si vous souhaitez que les nouveaux paramètres de l’espace de travail s’appliquent uniquement aux nouvelles machines virtuelles. Les nouveaux paramètres de l’espace de travail s’appliquent uniquement aux nouvelles installations d’agent ; machines virtuelles nouvellement détectées sur lesquelles Log Analytics Agent n’est pas installé.
+   - Sélectionnez **Non** si vous souhaitez que les nouveaux paramètres de l’espace de travail s’appliquent uniquement aux nouvelles machines virtuelles. Les nouveaux paramètres de l’espace de travail s’appliquent uniquement aux nouvelles installations d’agent ; machines virtuelles nouvellement détectées sur lesquelles l’agent Log Analytics n’est pas installé.
    - Sélectionnez **Oui** si vous souhaitez que les nouveaux paramètres de l’espace de travail s’appliquent à toutes les machines virtuelles. En outre, chaque machine virtuelle connectée à un espace de travail créé par Security Center est reconnectée au nouvel espace de travail cible.
 
    > [!NOTE]
@@ -194,8 +192,8 @@ Pour choisir votre stratégie de filtrage :
 
 Les cas d’usage suivants spécifient la manière dont l’approvisionnement automatique fonctionne lorsqu’un agent ou une extension sont déjà installés. 
 
-- Log Analytics Agent est installé sur la machine, mais pas en tant qu’extension (agent direct).<br>
-Si le Log Analytics Agent est installé directement sur la machine virtuelle (pas en tant qu’extension Azure), Security Center installe l’extension Log Analytics Agent, et peut mettre à niveau le Log Analytics Agent vers la dernière version.
+- Log Analytics Agent est installé sur la machine, mais pas en tant qu’extension (agent direct)<br>
+Si l’agent Log Analytics est installé directement sur la machine virtuelle (pas en tant qu’extension Azure), Security Center installe l’extension de l’agent Log Analytics, et peut mettre à niveau l’agent Log Analytics vers la dernière version.
 L’agent installé continue de rendre compte à ses espaces de travail déjà configurés et à l’espace de travail configuré dans Security Center (multihébergement pris en charge sur les machines Windows).
 Si l’espace de travail configuré est un espace de travail utilisateur (pas un espace de travail par défaut de Security Center), vous devez installer la solution « security/securityFree » sur ce dernier pour que Security Center démarre le traitement des événements à partir des machines virtuelles et ordinateurs rendant compte à cet espace de travail.<br>
 <br>
@@ -205,8 +203,7 @@ Pour les machines existantes sur les abonnements intégrés à Security Center a
 
   
 - L'agent System Center Operations Manager est installé sur la machine<br>
-Security Center installe l’extension Log Analytics Agent parallèlement à l’instance Operations Manager existante. L’agent Operations Manager existant continue de rendre compte normalement au serveur Operations Manager. Notez que l’agent Operations Manager et Log Analytics Agent partagent des bibliothèques runtime communes, qui sont mises à jour vers la dernière version lors de ce processus.
-Remarque : si la version 2012 de l’agent Operations Manager est installée, ne désactivez **pas** l’approvisionnement automatique.<br>
+Security Center installe l’extension Log Analytics Agent parallèlement à l’instance Operations Manager existante. L’agent Operations Manager existant continue de rendre compte normalement au serveur Operations Manager. L’agent Operations Manager et l’agent Log Analytics partagent des bibliothèques runtime communes, qui sont mises à jour vers la dernière version lors de ce processus. Si la version 2012 de l’agent Operations Manager est installée, n’activez **pas** l’approvisionnement automatique.<br>
 
 - Une extension de machine virtuelle existante est présente<br>
     - Lorsque l’Agent Monitoring est installé en tant qu’extension, la configuration de l’extension permet de rendre compte à un seul espace de travail. Security Center n’écrase pas les connexions existantes des espaces de travail utilisateur. Security Center stocke les données de sécurité à partir d’une machine virtuelle dans un espace de travail qui est déjà connecté, sous réserve que la solution « security » ou « securityFree » y soit installée. Security Center peut mettre à niveau la version de l'extension vers la dernière version lors de ce processus.  
@@ -219,7 +216,7 @@ Vous pouvez désactiver l’approvisionnement automatique à partir des ressourc
 
 1. Retournez au menu principal de Security Center et sélectionnez Stratégie de sécurité.
 2. Cliquez sur **Modifier les paramètres** sur la ligne de l’abonnement pour lequel vous souhaitez désactiver l’approvisionnement automatique.
-3. Dans le panneau **Stratégie de sécurité : collecte de données**, dans **Provisionnement automatique**, sélectionnez **Désactivé**.
+3. Dans la page **Stratégie de sécurité : collecte de données**, dans **Provisionnement automatique**, sélectionnez **Désactivé**.
 4. Sélectionnez **Enregistrer**.
 
    ![Désactiver le provisionnement automatique][6]
@@ -312,7 +309,7 @@ Vous pouvez installer manuellement Microsoft le Log Analytics Agent pour que Sec
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Cet article vous a montré le fonctionnement de la collecte de données et de l’approvisionnement automatique dans Security Center. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
+Cet article vous a montré le fonctionnement de la collecte de données et de l’approvisionnement automatique dans Security Center. Pour plus d’informations sur Security Center, consultez les pages suivantes :
 
 * [FAQ de Azure Security Center](faq-general.md): forum aux questions concernant l’utilisation de ce service.
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md): découvrez comment surveiller l’intégrité de vos ressources Azure.

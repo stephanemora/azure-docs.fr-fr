@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: 6da35cb60dc5f22be01ae25393bd62327db64867
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 4508ef7583760a7ef7503f8a6f37202af2684d81
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655662"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82106506"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prérequis pour Azure HPC Cache
 
@@ -22,7 +22,7 @@ Avant d’utiliser le portail Azure pour créer une nouvelle instance d’Azure 
 Un abonnement payant est recommandé.
 
 > [!NOTE]
-> Durant les premiers mois de la version mise à la disposition générale, l’équipe Azure HPC Cache doit ajouter votre abonnement à la liste d’accès afin que vous puissiez l’utiliser pour créer une instance de cache. Cette procédure garantit à chaque client une très grande réactivité de ses caches. Remplissez [ce formulaire](https://aka.ms/onboard-hpc-cache) pour demander l’accès.
+> L’équipe Azure HPC Cache doit ajouter votre abonnement à la liste d’accès afin que vous puissiez l’utiliser pour créer une instance de cache. Cette procédure garantit à chaque client une très grande réactivité de ses caches. Remplissez [ce formulaire](https://aka.ms/onboard-hpc-cache) pour demander l’accès.
 
 ## <a name="network-infrastructure"></a>Infrastructure réseau
 
@@ -84,11 +84,11 @@ Pour créer un compte de stockage compatible, utilisez les paramètres suivants�
 * Niveau d’accès (par défaut) : **Chaud**
 
 Il est recommandé d’utiliser un compte de stockage se trouvant au même emplacement que votre cache.
-<!-- clarify location - same region or same resource group or same virtual network? -->
 
 Vous devez également autoriser l’application de cache à accéder à votre compte de stockage Azure, tel que mentionné dans [Autorisations](#permissions), ci-dessus. Suivez la procédure indiquée dans [Ajouter des cibles de stockage](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) pour accorder au cache les rôles d’accès requis. Si vous n’êtes pas le propriétaire du compte de stockage, demandez au propriétaire d’effectuer cette étape.
 
 ### <a name="nfs-storage-requirements"></a>Conditions requises pour le stockage NFS
+<!-- linked from configuration.md -->
 
 Si vous utilisez un système de stockage NFS (par exemple, un système NAS matériel local), assurez-vous qu’il répond à ces exigences. Vous devrez peut-être travailler avec les administrateurs réseau ou les managers de pare-feu de votre système de stockage (ou centre de données) pour vérifier ces paramètres.
 

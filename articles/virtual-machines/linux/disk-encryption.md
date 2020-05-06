@@ -2,17 +2,17 @@
 title: Chiffrement côté serveur de Disques managés Azure - Azure CLI
 description: Le Stockage Azure protège vos données en les chiffrant au repos avant de les rendre persistantes dans des clusters de stockage. Vous pouvez compter sur des clés gérées par Microsoft pour le chiffrement de vos disques managés, ou bien utiliser des clés gérées par le client pour gérer le chiffrement avec vos propres clés.
 author: roygara
-ms.date: 04/02/2020
+ms.date: 04/21/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: f7eb63d0bbdce86f4a7195430dc15d6873e9f6e6
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 027efd268ee80fbaf921b42d09cc424c8e8483ba
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754303"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82136921"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Chiffrement côté serveur de disques managés Azure
 
@@ -34,7 +34,7 @@ Par défaut, les disques managés utilisent des clés de chiffrement gérées pa
 
 ## <a name="customer-managed-keys"></a>Clés managées par le client
 
-Vous pouvez choisir de gérer le chiffrement au niveau de chaque disque managé, avec vos propres clés. Le chiffrement côté serveur pour les disques managés avec des clés gérées par le client offre une expérience intégrée avec Azure Key Vault. Vous pouvez importer [vos clés RSA](../../key-vault/key-vault-hsm-protected-keys.md) vers votre Key Vault ou générer de nouvelles clés RSA dans Azure Key Vault. 
+Vous pouvez choisir de gérer le chiffrement au niveau de chaque disque managé, avec vos propres clés. Le chiffrement côté serveur pour les disques managés avec des clés gérées par le client offre une expérience intégrée avec Azure Key Vault. Vous pouvez importer [vos clés RSA](../../key-vault/keys/hsm-protected-keys.md) vers votre Key Vault ou générer de nouvelles clés RSA dans Azure Key Vault. 
 
 Les disques managés Azure gèrent le chiffrement et le déchiffrement de manière entièrement transparente à l’aide du [chiffrement d’enveloppe](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique). Ils chiffrent les données à l’aide d’une clé de chiffrement de données [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256, qui est à son tour protégée à l’aide de vos clés. Le service Stockage génère des clés de chiffrement de données et les chiffre avec des clés gérées par le client à l’aide du chiffrement RSA. Le chiffrement d’enveloppe vous permet de faire pivoter (modifier) régulièrement vos clés en fonction de vos stratégies de conformité sans perturber le fonctionnement de vos machines virtuelles. Lorsque vous faites pivoter vos clés, le service Stockage rechiffre les clés de chiffrement de données avec les nouvelles clés gérées par le client. 
 
@@ -72,7 +72,7 @@ Pour le moment, les clés gérées par le client sont soumises aux restrictions 
 
 - Si cette fonctionnalité est activée pour votre disque, vous ne pouvez pas la désactiver.
     Pour contourner le problème, vous devez [copier toutes les données](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) sur un autre disque managé qui n’utilise pas de clés gérées par le client.
-- Seules les [clés RSA « soft » et « hard »](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) d’une taille de 2048 sont prises en charge ; aucune autre clé ou taille n’est prise en charge.
+- Seules les [clés RSA « soft » et « hard »](../../key-vault/keys/about-keys.md) d’une taille de 2048 sont prises en charge ; aucune autre clé ou taille n’est prise en charge.
 - Les disques créés à partir d’images personnalisées et chiffrées à l’aide du chiffrement côté serveur et des clés gérées par le client doivent être chiffrés à l’aide des mêmes clés gérées par le client et doivent figurer dans le même abonnement.
 - Les instantanés créés à partir de disques chiffrés à l’aide du chiffrement côté serveur et des clés gérées par le client doivent être chiffrés avec les mêmes clés gérées par le client.
 - Les images personnalisées chiffrées à l’aide du chiffrement côté serveur et des clés gérées par le client ne peuvent pas être utilisées dans la galerie d’images partagées.
@@ -148,7 +148,7 @@ az vm create -g $rgName -n $vmName -l $location --image $image --size $vmSize --
 ```
 
 
-#### <a name="encrypt-existing-unattached-managed-disks"></a>Chiffrer des disques managés non attachés existants 
+#### <a name="encrypt-existing-managed-disks"></a>Chiffrer des disques managés existants 
 
 Vos disques existants ne doivent pas être attachés à une machine virtuelle en cours d’exécution pour que vous puissiez les chiffrer à l’aide du script suivant :
 
@@ -238,7 +238,7 @@ az disk show -g yourResourceGroupName -n yourDiskName --query [encryption.type] 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Découvrez les modèles Azure Resource Manager permettant de créer des disques chiffrés avec des clés gérées par le client](https://github.com/ramankumarlive/manageddiskscmkpreview)
-- [Qu’est-ce qu’Azure Key Vault ?](../../key-vault/key-vault-overview.md)
+- [Qu’est-ce qu’Azure Key Vault ?](../../key-vault/general/overview.md)
 - [Répliquer des machines avec des disques activés par les clés gérées par le client](../../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md)
 - [Configurer la reprise d’activité des machines virtuelles VMware sur Azure avec PowerShell](../../site-recovery/vmware-azure-disaster-recovery-powershell.md#replicate-vmware-vms)
 - [Configurer la récupération d’urgence dans Azure pour les machines virtuelles Hyper-V à l’aide de PowerShell et d’Azure Resource Manager](../../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection)

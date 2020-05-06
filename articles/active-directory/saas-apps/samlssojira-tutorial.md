@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 957fee48397bc0b23737157dec0e74cf6505fab5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d6f6cb87cf7628c48ce6adf12336c4b712dc0ff9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160136"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202551"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Tutoriel : Intégration d’Azure Active Directory à SSO SAML pour Jira de resolution GmbH
 
@@ -291,7 +291,7 @@ Dans cette section, vous allez tester la configuration de l’authentification u
 
 Quand vous cliquez sur la vignette SSO SAML pour Jira de resolution GmbH dans le panneau d’accès, vous devez être automatiquement connecté à l’application SSO SAML pour Jira de resolution GmbH pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-Vous pouvez également tester l’authentification unique à partir de [https://\<server-base-url>/plugins/servlet/samlsso](https://\<server-base-url>/plugins/servlet/samlsso). Remplacez **\<server-base-url>** par l’URL de base de votre instance Jira.
+Vous pouvez également tester l’authentification unique à partir de `https://<server-base-url>/plugins/servlet/samlsso`. Remplacez **\<server-base-url>** par l’URL de base de votre instance Jira.
 
 
 ## <a name="enable-single-sign-on-redirection-for-jira"></a>Activer la redirection d’authentification unique pour Jira
@@ -311,7 +311,7 @@ Pour activer la redirection vers l’authentification unique, effectuez les éta
 
 1. Choisissez le bouton **Save Settings** (Enregistrer les paramètres) dans l’angle supérieur droit.
 
-Après avoir activé l’option, vous pouvez toujours accéder à l’invite du nom d’utilisateur/mot de passe si l’option **Enable nosso** (Activer nosso) est cochée en accédant à [https://\<server-base-url>/login.jsp?nosso](https://\<server-base-url>/login.jsp?nosso). Là aussi, remplacez **\<server-base-url>** par votre URL de base.
+Après avoir activé l’option, vous pouvez toujours accéder à l’invite du nom d’utilisateur/mot de passe, si l’option **Enable nosso** (Activer nosso) est cochée, à partir de `https://\<server-base-url>/login.jsp?nosso`. Là aussi, remplacez **\<server-base-url>** par votre URL de base.
 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 03/29/2017
 tags: connectors
-ms.openlocfilehash: 99abd48bde97c2a2e085688cdfbb365e5e4cfd56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fdbf7fd7dded2fc0026e5c819ca579eeddc5cdb6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74789424"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82147811"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Prise en main du connecteur de base de données Oracle
 
@@ -72,7 +72,7 @@ Cet article décrit comment utiliser le connecteur de base de données Oracle da
 
     ![](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
-7. Dans l’étape suivante, vous pouvez utiliser l’un des autres connecteurs pour créer votre workflow. Si vous souhaitez tester l’obtention de données à partir d’Oracle, envoyez-vous un courrier électronique contenant les données Oracle à l’aide de l’un des connecteurs d’envoi de courriers électroniques, comme Office 365 ou Gmail. Utilisez les jetons dynamiques de la table Oracle pour créer les éléments `Subject` et `Body` de votre message électronique :
+7. Dans l’étape suivante, vous pouvez utiliser l’un des autres connecteurs pour créer votre workflow. Si vous souhaitez tester l’obtention de données à partir d’Oracle, envoyez-vous un courrier électronique contenant les données Oracle à l’aide de l’un des connecteurs d’envoi de courriers électroniques, comme Office 365 ou Outlook. Utilisez les jetons dynamiques de la table Oracle pour créer les éléments `Subject` et `Body` de votre message électronique :
 
     ![](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 

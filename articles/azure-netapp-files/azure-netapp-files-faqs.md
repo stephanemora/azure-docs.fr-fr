@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 04/27/2020
 ms.author: b-juche
-ms.openlocfilehash: aebc669a90511e48ddd2a7876553948c04b97710
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: a8c299a6f0e6732d50b40fc29bde07179fc2c412
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80667827"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185640"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Questions fréquentes (FAQ) sur Azure NetApp Files
 
@@ -46,6 +46,10 @@ Oui, vous pouvez le faire si vous créez les entrées DNS requises. Azure NetApp
 > [!NOTE] 
 > Azure NetApp Files peut déployer des adresses IP supplémentaires pour le service en fonction des besoins.  Les entrées DNS peuvent avoir à être mises à jour régulièrement.
 
+### <a name="can-i-set-or-select-my-own-ip-address-for-an-azure-netapp-files-volume"></a>Puis-je définir ou sélectionner ma propre adresse IP pour un volume Azure NetApp Files ?  
+
+Non. L’attribution d’adresses IP aux volumes Azure NetApp Files est dynamique. L’attribution d’adresses IP statiques n’est pas prise en charge. 
+ 
 ## <a name="security-faqs"></a>Forum aux questions sur la sécurité
 
 ### <a name="can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted"></a>Le trafic réseau entre la machine virtuelle Azure et le stockage peut-il être chiffré ?

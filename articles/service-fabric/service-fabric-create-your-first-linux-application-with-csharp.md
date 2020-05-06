@@ -3,12 +3,12 @@ title: Créer votre première application Azure Service Fabric sur Linux à l’
 description: Découvrez comment créer et déployer une application Service Fabric à l’aide de C# et de .NET Core 2.0.
 ms.topic: conceptual
 ms.date: 04/11/2018
-ms.openlocfilehash: 202dde933b41a98c1c119f422d47cbdbb0be84ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 556d8dee4efd492fa98755f1ffd1cdc1c9887856
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458125"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193647"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Créer votre première application Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ L’application générée se déploie de la même manière qu’une autre appli
 
 Vous pourrez retrouver les paramètres de ces commandes dans les manifestes générés au sein du package d’application.
 
-Une fois l’application déployée, ouvrez un navigateur et accédez à [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), à l’adresse [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Ensuite, développez le nœud **Applications** et notez qu’il existe désormais une entrée pour votre type d’application et une autre pour la première instance de ce type.
+Une fois l’application déployée, ouvrez un navigateur et accédez à [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), à l’adresse `http://localhost:19080/Explorer`. Ensuite, développez le nœud **Applications** et notez qu’il existe désormais une entrée pour votre type d’application et une autre pour la première instance de ce type.
 
 > [!IMPORTANT]
 > Pour déployer l’application sur un cluster Linux sécurisé dans Azure, vous devez configurer un certificat pour valider votre application avec le runtime Service Fabric. Ainsi, vos services Reliable Services peuvent communiquer avec les API d’exécution du runtime Service Fabric sous-jacentes. Pour en savoir plus, consultez [Configurer une application Reliable Services à exécuter sur les clusters Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  

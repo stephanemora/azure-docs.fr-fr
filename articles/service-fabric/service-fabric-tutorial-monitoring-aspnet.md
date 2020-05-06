@@ -6,14 +6,14 @@ ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b226c37c36da033862377860be4c413229651fb6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6ce2e5a71d48942642ee01d8d2cc75a232abf259
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614041"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82159947"
 ---
-# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutoriel : surveiller et diagnostiquer une application ASP.NET Core dans Service Fabric
+# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutoriel : Surveiller et diagnostiquer une application ASP.NET Core dans Service Fabric à l’aide d’Application Insights
 
 Ce tutoriel est la cinquième partie de la série. Il décrit les étapes requises pour configurer la surveillance et les diagnostics pour une application ASP.NET Core s’exécutant sur un cluster Service Fabric à l’aide d’Application Insights. Nous collecterons les données de télémétrie à partir de l’application développée dans la première partie du didacticiel [Créer une application .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md).
 
@@ -32,7 +32,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 > * [Configurer CI/CD à l’aide d’Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * Configurer la surveillance et les diagnostics pour l’application
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce tutoriel :
 
@@ -168,7 +168,7 @@ ConfigureServices(services => services
 >[!NOTE]
 >Vous pouvez obtenir une erreur de build si vous n’avez pas une version à jour du SDK .NET Core installé.
 
-Une fois le déploiement de l’application terminé, accédez à [localhost:8080](localhost:8080), où vous devriez être en mesure de voir l’exemple d’application de vote à page unique. Votez pour quelques éléments de votre choix afin de créer des exemples de données et de télémétrie. Personnellement, j’ai choisi les desserts !
+Une fois le déploiement de l’application terminé, accédez à `localhost:8080`, où vous devriez voir l’exemple d’application monopage de vote. Votez pour quelques éléments de votre choix afin de créer des exemples de données et de télémétrie. Personnellement, j’ai choisi les desserts !
 
 ![Exemples de votes AI](./media/service-fabric-tutorial-monitoring-aspnet/vote-sample.png)
 
@@ -251,7 +251,7 @@ public async Task<IActionResult> Delete(string name)
 }
 ```
 
-Une fois ces modifications effectuées, **démarrez** l’application pour qu’elle génère et déploie la dernière version. Une fois le déploiement de l’application terminé, accédez à [localhost:8080](localhost:8080), puis ajoutez et supprimez des options de vote. Ensuite, revenez à votre ressource Application Insights pour voir les traces de la dernière exécution (comme auparavant, les traces peuvent prendre entre 1 et 2 minutes pour s’afficher dans Application Insights). Pour tous les votes que vous avez ajoutés et supprimés, vous devriez maintenant voir un « Événement personnalisé*, ainsi que toutes les données de télémétrie de réponse.
+Une fois ces modifications effectuées, **démarrez** l’application pour qu’elle génère et déploie la dernière version. Une fois le déploiement de l’application terminé, accédez à `localhost:8080`, puis ajoutez et supprimez des options de vote. Ensuite, revenez à votre ressource Application Insights pour voir les traces de la dernière exécution (comme auparavant, les traces peuvent prendre entre 1 et 2 minutes pour s’afficher dans Application Insights). Pour tous les votes que vous avez ajoutés et supprimés, vous devriez maintenant voir un « Événement personnalisé*, ainsi que toutes les données de télémétrie de réponse.
 
 ![événements personnalisés](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Activer la journalisation des diagnostics dans Azure Traffic Manager
-description: Découvrez comment activer la journalisation des diagnostics pour votre profil Traffic Manager et accéder aux fichiers journaux créés par la suite.
+title: Activation de la journalisation des ressources dans Azure Traffic Manager
+description: Découvrez comment activer la journalisation des ressources pour votre profil Traffic Manager et accéder aux fichiers journaux ainsi créés.
 services: traffic-manager
 author: rohinkoul
 manager: twooley
@@ -11,20 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: rohink
-ms.openlocfilehash: 0ed2ecef86795f62aa3fe5798dcd0d07adbaf9cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d0ffcffd7d4a4f2072b640ace03ec819aa416d47
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76938674"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133900"
 ---
-# <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Activer la journalisation des diagnostics dans Azure Traffic Manager
+# <a name="enable-resource-logging-in-azure-traffic-manager"></a>Activation de la journalisation des ressources dans Azure Traffic Manager
 
-Cet article décrit comment activer la journalisation des diagnostics et accéder aux données de journal d’un profil Traffic Manager.
+Cet article explique comment activer la collecte de journaux de ressources de diagnostic et accéder aux données de journal d’un profil Traffic Manager.
 
-Les journaux de diagnostic Azure Traffic Manager peuvent donner un insight du comportement de la ressource de profil Traffic Manager. Par exemple, vous pouvez utiliser les données de journal du profil pour déterminer pourquoi des probes individuels ont expiré par rapport à un point de terminaison.
+Les journaux de ressources Azure Traffic Manager peuvent donner des insights sur le comportement de la ressource de profil Traffic Manager. Par exemple, vous pouvez utiliser les données de journal du profil pour déterminer pourquoi des probes individuels ont expiré par rapport à un point de terminaison.
 
-## <a name="enable-diagnostic-logging"></a>Activer la journalisation des diagnostics
+## <a name="enable-resource-logging"></a>Activer la journalisation de ressources
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -32,15 +32,15 @@ Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https:/
 
 1. **Récupérez le profil Traffic Manager :**
 
-    Pour activer la journalisation des diagnostics, vous avez besoin de l’ID d’un profil Traffic Manager. Récupérez le profil Traffic Manager pour lequel vous voulez activer la journalisation des diagnostics avec [Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile). La sortie inclut les informations d’ID du profil Traffic Manager.
+    L’ID d’un profil Traffic Manager est nécessaire pour activer la journalisation des ressources. Récupérez le profil Traffic Manager pour lequel vous voulez activer la journalisation des ressources avec [Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile). La sortie inclut les informations d’ID du profil Traffic Manager.
 
     ```azurepowershell-interactive
     Get-AzTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
     ```
 
-2. **Activez la journalisation des diagnostics pour le profil Traffic Manager :**
+2. **Activez la journalisation des ressources pour le profil Traffic Manager :**
 
-    Activez la journalisation des diagnostics pour le profil Traffic Manager à l’aide de l’ID obtenu à l’étape précédente avec [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). La commande suivante stocke les journaux d’activité détaillés du profil Traffic Manager dans un compte de stockage Azure spécifié. 
+    Activez la journalisation des ressources pour le profil Traffic Manager à l’aide de l’ID obtenu à l’étape précédente avec [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). La commande suivante stocke les journaux d’activité détaillés du profil Traffic Manager dans un compte de stockage Azure spécifié. 
 
       ```azurepowershell-interactive
     Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
@@ -65,7 +65,7 @@ Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https:/
 
 ## <a name="traffic-manager-log-schema"></a>Schéma des journaux de Traffic Manager
 
-Tous les journaux de diagnostic disponibles via Azure Monitor partagent un schéma commun de niveau supérieur, avec la flexibilité pour chaque service d’émettre des propriétés uniques pour ses propres événements. Pour voir le schéma général des journaux de diagnostic, consultez [Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure](../azure-monitor/platform/tutorial-dashboards.md).
+Tous les journaux de ressource disponibles via Azure Monitor partagent un schéma commun de niveau supérieur, avec la flexibilité pour chaque service d’émettre des propriétés uniques pour ses propres événements. Pour voir le schéma général des journaux de ressources, consultez [Services, schémas et catégories pris en charge pour les journaux de ressources Azure](../azure-monitor/platform/tutorial-dashboards.md).
 
 Le tableau suivant inclut le schéma des journaux d’activité propre à la ressource de profil Azure Traffic Manager.
 

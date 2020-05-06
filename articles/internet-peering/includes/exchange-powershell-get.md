@@ -1,27 +1,27 @@
 ---
-title: Fichier Include
+title: Fichier include
 titleSuffix: Azure
-description: Fichier Include
+description: Fichier include
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 33ae3c3f9a2a213bd8135af846b4e72901b3df0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 34a23ce76ed0e9285a686073e1cbeb95347f7b7d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75773708"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81678662"
 ---
-Pour afficher la liste de peerings, exécutez la commande `Get-AzPeering` :
+Pour afficher la liste des Peerings, exécutez la commande **Get-AzPeering**.
 
 ```powershell
 Get-AzPeering ResourceGroupName "PeeringResourceGroup" -Name "SeattleExchangePeering"
 ```
 
-Voici un exemple de réponse quand le provisionnement de bout en bout a été effectué avec succès :
+Cet exemple illustre la réponse lorsque l’approvisionnement de bout en bout a bien été effectué.
 
 ```powershell
     Name                     : SeattleExchangePeering
