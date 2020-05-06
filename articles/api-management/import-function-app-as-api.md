@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/28/2019
+ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: c393ba081b480408373ed6867624ac6278c1674e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 6f4626a8c42f3a50fa273c55099158750241bfee
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260953"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202918"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importer une application de fonction Azure en tant qu’API dans Gestion des API Azure
 
@@ -46,7 +46,7 @@ Vous apprendrez à :
 
 Suivez les étapes ci-dessous pour créer une nouvelle API à partir d’une application de fonction Azure.
 
-1. Dans votre instance du service **Gestion des API Azure**, sélectionnez **API** dans le menu de gauche.
+1. À partir du portail Azure, accédez à votre service Gestion des API, puis sélectionnez **API** dans le menu.
 
 2. Dans la liste **Ajouter une nouvelle API**, sélectionnez **Application de fonction**.
 
@@ -71,10 +71,7 @@ Suivez les étapes ci-dessous pour créer une nouvelle API à partir d’une app
     > [!NOTE]
     > Vous pouvez importer uniquement des fonctions qui utilisent un déclencheur HTTP et dont le paramètre de niveau d’autorisation est défini sur *Anonyme* ou *Fonction*.
 
-7. Passez à la vue **Complète** et affectez **Produit** à votre nouvelle API. Si nécessaire, modifiez les autres champs préremplis.
-
-    ![Ajouter à partir d’une application de fonction](./media/import-function-app-as-api/add-06.png)
-
+7. Passez à la vue **Complète** et affectez **Produit** à votre nouvelle API. Si nécessaire, spécifiez d’autres champs lors de la création, ou configurez-les ultérieurement en accédant à l’onglet **Paramètres**. Les paramètres sont expliqués dans le tutoriel [Importer et publier votre première API](import-and-publish.md#-import-and-publish-a-backend-api).
 8. Cliquez sur **Créer**.
 
 ## <a name="append-azure-function-app-to-an-existing-api"></a><a name="append-azure-function-app-to-api"></a> Ajouter une application de fonction Azure à une API existante

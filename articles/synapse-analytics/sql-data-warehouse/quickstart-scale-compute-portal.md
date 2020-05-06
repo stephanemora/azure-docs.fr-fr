@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: ''
-ms.date: 04/17/2018
+ms.date: 04/28/2020
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f92152658b9db83740ffc2de2dc6956003849e06
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 96c3c05fea912433731dc7a6a8ab705ab76d3058
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350833"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232221"
 ---
 # <a name="quickstart-scale-compute-for-synapse-sql-pool-with-the-azure-portal"></a>Démarrage rapide : Mettre à l’échelle le calcul pour le pool SQL Synapse à l’aide du portail Azure
 
@@ -37,7 +37,7 @@ Vous pouvez mettre à l’échelle un pool SQL que vous avez déjà ou utiliser
 
 ## <a name="scale-compute"></a>Mise à l’échelle des ressources de calcul
 
-Les ressources de calcul de pool SQL peuvent être mises à l’échelle en augmentant ou en diminuant les unités DWU (Data Warehouse Unit). Le guide de démarrage rapide [Créer et connecter – Portail] (create-data-warehouse-portal.md) a permis de créer **mySampleDataWarehouse** et de l’initialiser avec 400 DWU. Les étapes suivantes ajustent les DWU de **mySampleDataWarehouse**.
+Les ressources de calcul de pool SQL peuvent être mises à l’échelle en augmentant ou en diminuant les unités DWU (Data Warehouse Unit). Le guide [Démarrage rapide : Créer et connecter - Portail](create-data-warehouse-portal.md) a permis de créer **mySampleDataWarehouse** et de l’initialiser avec 400 DWU. Les étapes suivantes ajustent les DWU de **mySampleDataWarehouse**.
 
 Pour modifier les unités Data Warehouse Unit :
 

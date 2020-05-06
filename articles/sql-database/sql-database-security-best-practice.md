@@ -9,12 +9,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 7b3a223ca504bff380afad54afda73880717814f
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 07e8d8690cb07cfde3e0def902bf6d8e7ba5b788
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115389"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232357"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database"></a>Playbook pour répondre aux exigences de sécurité courantes avec Azure SQL Database
 

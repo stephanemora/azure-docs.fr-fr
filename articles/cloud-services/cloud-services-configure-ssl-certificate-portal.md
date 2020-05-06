@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: tagore
-ms.openlocfilehash: 4d397279ac7e5949398d695db615d9a003ab7acd
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: c69b74cf91d8e097f8ad8a9ba2a16f3375f483ae
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811684"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82024844"
 ---
 # <a name="configuring-tls-for-an-application-in-azure"></a>Configuration de TLS pour une application dans Azure
 
@@ -32,7 +32,7 @@ Pour configurer le chiffrement TLS pour une application, vous devez d’abord ob
 
 Le certificat TLS/SSL doit répondre aux prérequis suivants dans Azure :
 
-* Le certificat doit contenir une clé privée.
+* Le certificat doit contenir une clé publique.
 * Le certificat doit être créé pour l'échange de clés et pouvoir faire l'objet d'un export au format Personal Information Exchange (.pfx).
 * Le nom d'objet du certificat doit correspondre au domaine servant à accéder au service cloud. Vous ne pouvez pas obtenir de certificat TLS/SSL d’une autorité de certification pour le domaine cloudapp.net. Vous devez acquérir un nom de domaine personnalisé à utiliser pour accéder à votre service. Lorsque vous demandez un certificat auprès d’une autorité de certification, le nom d’objet du certificat doit correspondre au nom de domaine personnalisé que vous utilisez pour accéder à votre application. Par exemple, si votre nom de domaine personnalisé est **contoso.com**, vous demandez un certificat auprès de votre autorité de certification pour * **.contoso.com** ou **www\.contoso.com**.
 * Le certificat doit utiliser au minimum un chiffrement à 2048 bits.

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2019
+ms.date: 04/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22576be8dec021f0f18a6e2dda16891ce70d4f13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 99103c9994b240e2f45b66acf269b320c90e5135
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77603209"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231728"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutoriel : Configuration de Workplace by Facebook pour l’approvisionnement automatique d’utilisateurs
 
@@ -33,25 +33,16 @@ Si vous avez une intégration existante avec Workplace by Facebook, consultez la
 * Changements du côté Azure AD : historiquement, la méthode d’autorisation pour provisionner les utilisateurs dans Workplace était un jeton secret de longue durée. Cette méthode d’autorisation sera prochainement remplacée par l’octroi d’autorisation OAuth. 
 * Changements du côté Workplace : jusqu’ici, l’application Azure AD était une intégration personnalisée dans Workplace by Facebook. Dorénavant, Azure AD sera présentée comme application tierce dans le répertoire des intégrations avec Workplace. 
 
- 
-
 #### <a name="what-do-i-need-to-do-to-migrate-my-existing-custom-integration-to-the-new-application"></a>Que dois-je faire pour migrer mon intégration personnalisée existante vers la nouvelle application ?
-Si vous avez une intégration existante avec Workplace qui utilise un jeton valide, **aucune action n’est requise** de votre part. Chaque semaine, nous migrons automatiquement les clients vers la nouvelle application. Ce processus est entièrement transparent pour vous. Si vous préférez ne pas attendre et effectuer manuellement la migration vers la nouvelle application, ajoutez une nouvelle instance de Workplace à partir de la Galerie et reconfigurez le provisionnement. Toutes les nouvelles instances de Workplace utiliseront automatiquement la nouvelle version de l’application. 
-
+Si vous avez une intégration existante avec Workplace qui utilise un jeton valide, aucune action n’est requise de votre part. **En date du 28/04/2020, nous avons automatiquement migré toutes les applications qui ne sont pas en quarantaine en raison d’informations d’identification non valides.**
  
-Si votre intégration avec Workplace est mise en quarantaine, vous devrez de nouveau fournir un jeton valide pour nous permettre d’effectuer la migration. La section des informations d’identification de l’administrateur sera grisée, mais vous pourrez ajouter la chaîne **?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true** à votre URL afin d’enregistrer les nouvelles informations d’identification. 
-
-https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true
-
 #### <a name="how-can-i-tell-if-my-application-has-been-migrated"></a>Comment savoir si mon application a été migrée ? 
-Après la migration réussie de votre application, la bannière dans la section d’autorisation relative aux changements à venir est supprimée et le champ du jeton secret est remplacé par un bouton Autoriser de couleur bleu. 
+* Sur le portail Azure : Après la migration réussie de votre application, la bannière dans la section d’autorisation relative aux changements à venir est supprimée et le champ du jeton secret est remplacé par un bouton Autoriser de couleur bleu. 
+* Dans le portail Workplace by Facebook : Passez en revue l’application Azure AD pour vous assurer qu’elle est approuvée.  
 
 #### <a name="the-admin-credentials-section-is-greyed-out-on-my-application-and-i-cant-save-why"></a>Dans mon application, la section des informations d’identification de l’administrateur est grisée, et je ne peux pas enregistrer ces informations. Pourquoi ?
-Nous avons verrouillé la section des informations d’identification de l’administrateur pour les clients existants de Workplace. Quand votre locataire aura été migré vers la nouvelle application Workplace, vous pourrez de nouveau mettre à jour les informations de cette section. Si vous ne voulez pas attendre, utilisez l’URL ci-dessus pour modifier votre application. 
+Nous avons verrouillé la section des informations d’identification de l’administrateur pour les clients de Workplace qui n’ont pas migré. Utilisez l’URL suivante si la section Informations d’identification de l’administrateur est grisée et que vous devez à nouveau autoriser l’accès. **?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true** (https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true)
 
- 
-#### <a name="when-will-these-changes-happen"></a>Quand ces changements seront appliqués ?
-Toutes les nouvelles instances de Workplace utiliseront automatiquement la nouvelle méthode d’intégration/d’autorisation. Les intégrations existantes seront migrées progressivement d’ici au mois de mai. L'équipe Workplace a accordé une prolongation de la date limite, qui passe du 28 février au 1er mai. 
 
 ## <a name="capabilities-supported"></a>Fonctionnalités prises en charge
 > [!div class="checklist"]
