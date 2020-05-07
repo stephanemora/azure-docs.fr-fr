@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce que Video Indexer ?
+title: Qu’est-ce qu’Azure Media Services Video Indexer ?
 titleSuffix: Azure Media Services
 description: Cette article offre une vue d’ensemble du service Video Indexer d’Azure Media Services.
 services: media-services
@@ -8,16 +8,16 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/02/2020
+ms.date: 04/12/2020
 ms.author: juliako
-ms.openlocfilehash: efd8386f464bfdf2ac27d3be07e6572dc27952e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 08dcee28c234183aa2b125d82d046d31d4b50e47
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78163588"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788851"
 ---
-# <a name="what-is-video-indexer"></a>Qu’est-ce que Video Indexer ?
+# <a name="what-is-azure-media-services-video-indexer"></a>Qu’est-ce qu’Azure Media Services Video Indexer ?
 
 Video Indexer (VI) est la solution IA Azure Media Services. Elle fait partie de la marque Azure Cognitive Services. Video Indexer permet d’extraire des insights détaillés (sans avoir besoin de compétences en matière d’analyse des données ou de programmation) à l’aide de modèles Machine Learning basés sur plusieurs canaux (voix, visuel). Vous pouvez affiner la personnalisation et l’entraînement des modèles. Le service permet d’effectuer une recherche détaillée, réduit les coûts d’exploitation, offre de nouvelles opportunités de monétisation et crée de nouvelles expériences utilisateur sur un grand nombre de vidéos archivées (avec de faibles barrières d’entrée).
 
@@ -70,9 +70,9 @@ La liste suivante présente les insights que vous pouvez récupérer à partir d
 
 ### <a name="audio-insights"></a>Insights audio
 
-* **Détection de langue automatique** : Identifie automatiquement la langue parlée dominante. Les langues prises en charge incluent l’anglais, l’espagnol, le français, l’allemand, l’italien, le chinois (simplifié), le japonais, le russe et le portugais (Brésil). Si la langue ne peut pas être identifiée en toute confiance, Video Indexer suppose que la langue parlée est l’anglais. Pour plus d'informations, voir [Modèle d’identification de langues](language-identification-model.md).
+* **Transcription audio** : Convertit la parole en texte dans 12 langues et autorise les extensions. Les langues prises en charge incluent l’anglais, l’espagnol, le français, l’allemand, l’italien, le chinois (mandarin), le japonais, l’arabe, le russe, le portugais (Brésil), l’hindi et le coréen.
+* **Détection de langue automatique** : Identifie automatiquement la langue parlée dominante. Les langues prises en charge incluent l’anglais, l’espagnol, le français, l’allemand, l’italien, le chinois (mandarin), le japonais, le russe et le portugais (Brésil). Si la langue ne peut pas être identifiée en toute confiance, Video Indexer suppose que la langue parlée est l’anglais. Pour plus d'informations, voir [Modèle d’identification de langues](language-identification-model.md).
 * **Identification et transcription de discours en plusieurs langues** (préversion) : Identifie automatiquement la langue parlée dans les segments différents de l’audio. Il envoie chaque segment du fichier multimédia à transcrire, puis regroupe la transcription dans une transcription unifiée. Pour plus d’informations, consultez [Identifier et transcrire automatiquement un contenu multilingue](multi-language-identification-transcription.md).
-* **Transcription audio** : Convertit la parole en texte dans 12 langues et autorise les extensions. Les langues prises en charge incluent l’anglais, l’espagnol, le français, l’allemand, l’italien, le chinois (simplifié), le japonais, l’arabe, le russe, le portugais brésilien, l’hindi et le coréen.
 * **Sous-titrage** : Crée un sous-titrage dans trois formats : VTT, TTML, SRT.
 * **Traitement en deux canaux** : Détecte automatiquement, sépare la transcription et fusionne en une chronologie unique.
 * **Réduction du bruit** : Nettoie les enregistrements contenant du bruit ou de l’audio de téléphonie (en fonction des filtres Skype).

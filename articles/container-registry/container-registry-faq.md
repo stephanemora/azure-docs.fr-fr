@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 7452b5dd3c952a13a28566914d2fe513689d4751
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 39b543c5f886b22d488198873b75cf76555692fa
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618793"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731642"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Forum aux questions sur Azure Container Registry
 
@@ -493,10 +493,10 @@ Nous ne prenons actuellement pas en charge GitLab pour les déclencheurs source.
 
 | Service Git | Contexte source | Build manuelle | Génération automatique via un déclencheur de validation |
 |---|---|---|---|
-| GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | Oui | Oui |
-| Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | Oui | Oui |
-| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | Oui | Non |
-| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | Oui | Non |
+| GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | Oui | Oui |
+| Azure Repos | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | Oui | Oui |
+| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Oui | Non |
+| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Oui | Non |
 
 ## <a name="run-error-message-troubleshooting"></a>Exécuter la résolution des problèmes liés aux messages d’erreur
 
