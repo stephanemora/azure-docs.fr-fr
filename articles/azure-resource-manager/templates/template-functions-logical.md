@@ -2,13 +2,13 @@
 title: Fonctions de modèle - Logique
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour déterminer les valeurs logiques.
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.openlocfilehash: f058baa32e5f93a4177913287a5e9873fa7a9acb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: 0072593e7d7830e75e2386bcfdd2907a873c7a87
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156308"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192312"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Fonctions logiques pour les modèles ARM
 
@@ -32,7 +32,7 @@ Vérifie si toutes les valeurs de paramètres sont true.
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |boolean |La première valeur pour vérifier si c’est true. |
 | arg2 |Oui |boolean |La deuxième valeur pour vérifier si c’est true. |
-| arguments supplémentaires |Non |boolean |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
+| arguments supplémentaires |Non  |boolean |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
 
 ### <a name="return-value"></a>Valeur retournée
 
@@ -144,7 +144,7 @@ Retourne une valeur indiquant si une condition est true ou false.
 
 Retourne le deuxième paramètre lorsque le premier paramètre est **True** ; sinon, retourne le troisième paramètre.
 
-### <a name="remarks"></a>Notes
+### <a name="remarks"></a>Notes 
 
 Lorsque la condition est **True**, seule la valeur true est évaluée. Lorsque la condition est **False**, seule la valeur false est évaluée. Avec la fonction **si**, vous pouvez inclure des expressions qui sont uniquement valides de manière conditionnelle. Par exemple, vous pouvez référencer une ressource qui existe sous une condition, mais pas sous l’autre condition. Vous trouverez un exemple illustrant des expressions évaluant de manière conditionnelle dans la section suivante.
 
@@ -295,6 +295,7 @@ La sortie de l’exemple précédent est :
             "value": "[not(equals(1, 2))]"
         }
     }
+}
 ```
 
 La sortie de l’exemple précédent est :
@@ -315,7 +316,7 @@ Vérifie si l’une des valeurs du paramètre est true.
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |boolean |La première valeur pour vérifier si c’est true. |
 | arg2 |Oui |boolean |La deuxième valeur pour vérifier si c’est true. |
-| arguments supplémentaires |Non |boolean |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
+| arguments supplémentaires |Non  |boolean |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
 
 ### <a name="return-value"></a>Valeur retournée
 
@@ -357,8 +358,5 @@ La sortie de l’exemple précédent est :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](template-syntax.md).
-* Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](linked-templates.md).
-* Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](copy-resources.md).
-* Pour savoir comment déployer le modèle que vous avez créé, consultez [Déployer une application avec un modèle Azure Resource Manager](deploy-powershell.md).
+* Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles Resource Manager](template-syntax.md).
 

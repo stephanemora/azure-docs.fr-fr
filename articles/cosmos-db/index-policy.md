@@ -4,14 +4,14 @@ description: Découvrez comment configurer et modifier la stratégie d’indexat
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 04/28/2020
 ms.author: tisande
-ms.openlocfilehash: 930f156ebec76be860e7af02d41540ce67982f92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f010ec46c41c2302cc9c99a631fd18b1af9661eb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80292063"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232068"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Stratégies d’indexation dans Azure Cosmos DB
 
@@ -97,6 +97,26 @@ Lorsqu’elles ne sont pas spécifiées, ces propriétés ont les valeurs par d�
 
 Consultez [cette section](how-to-manage-indexing-policy.md#indexing-policy-examples) pour obtenir des exemples de stratégie d’indexation pour l’inclusion et l’exclusion de chemins d’accès.
 
+## <a name="includeexclude-precedence"></a>Priorité de l’inclusion ou de l’exclusion
+
+Si les chemins inclus et les chemins exclus présentent un conflit, le chemin plus précis est prioritaire.
+
+Voici un exemple :
+
+**Chemin inclus** : `/food/ingredients/nutrition/*`
+
+**Chemin exclu** : `/food/ingredients/*`
+
+Dans ce cas, le chemin inclus est prioritaire sur le chemin exclu, car il est plus précis. Sur la base de ces chemins, toutes les données du chemin `food/ingredients` ou imbriquées dans celui-ci sont exclues de l’index. Il en va différemment des données du chemin inclus `/food/ingredients/nutrition/*`, qui est indexé.
+
+Voici quelques règles qui déterminent la priorité des chemins inclus et exclus dans Azure Cosmos DB :
+
+- Les chemins plus profonds sont plus précis que les chemins plus étroits. Par exemple, `/a/b/?` est plus précis que `/a/?`.
+
+- `/?` est plus précis que `/*`. Par exemple, `/a/?` étant plus précis que `/a/*`, `/a/?` est prioritaire.
+
+- Le chemin `/*` doit être un chemin inclus ou un chemin exclu.
+
 ## <a name="spatial-indexes"></a>Index spatiaux
 
 Lorsque vous définissez un chemin d’accès spatial dans la stratégie d’indexation, vous devez définir l’index ```type``` à appliquer à ce chemin d’accès. Les types possibles pour les index spatiaux sont les suivants :
@@ -114,6 +134,8 @@ Azure Cosmos DB, par défaut, ne crée pas d’index spatial. Si vous souhaitez 
 ## <a name="composite-indexes"></a>Index composites
 
 Les requêtes qui ont une clause `ORDER BY` avec deux ou plusieurs propriétés nécessitent un index composite. Vous pouvez également définir un index composite pour améliorer les performances de nombreuses requêtes d’égalité et de plage. Par défaut, aucun index composite n’est défini. Vous devez donc [ajouter des index composites](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) en fonction des besoins.
+
+Contrairement aux chemins inclus ou exclus, vous ne pouvez pas créer un chemin avec le caractère générique `/*`. Chaque chemin composite se termine par un `/?` implicite que vous n’avez pas besoin de spécifier. Les chemins composites aboutissent à une valeur scalaire, qui est la seule valeur incluse dans l’index composite.
 
 Lorsque vous définissez un index composite, vous spécifiez :
 

@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/14/2020
+ms.date: 04/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5ad2127b4cb9da3ca83aa04bd1885908a88dba62
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 685c56c7ef270acb416d4b76c6aceb8553e9a07f
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81308969"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82581713"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gestion et maintenance de l’agent Connected Machine
 
@@ -25,7 +25,7 @@ L’agent Azure Connected Machine pour Windows et Linux peut être mis à niveau
 
 | Système d’exploitation | Méthode de mise à niveau |
 |------------------|----------------|
-| Windows | Manuellement<br> Windows Update |
+|  Windows | Manuellement<br> Windows Update |
 | Ubuntu | [Apt](https://help.ubuntu.com/lts/serverguide/apt.html) |
 | SUSE Linux Enterprise Server | [zypper](https://en.opensuse.org/SDB:Zypper_usage_11.3) |
 | RedHat Enterprise, Amazon, CentOS Linux | [yum](https://wiki.centos.org/PackageManagement/Yum) | 
@@ -133,7 +133,7 @@ L’outil Azcmagent (Azcmagent.exe) sert à configurer l’agent Azure Connected
 
 Vous pouvez effectuer une opération **Connect**, **Disconnect** ou **Reconnect** manuellement quand vous êtes connecté de manière interactive, l’automatiser en utilisant le principal de service utilisé pour intégrer plusieurs agents, ou avec un [jeton d’accès](../../active-directory/develop/access-tokens.md) de plateforme d’identité Microsoft. Si vous n’avez pas utilisé de principal de service pour inscrire la machine auprès d’Azure Arc pour serveurs (préversion), consultez l’[article](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) suivant pour créer un principal de service.
 
-### <a name="connect"></a>Connect
+### <a name="connect"></a>Se connecter
 
 Ce paramètre spécifie une ressource dans Azure Resource Manager représentant la machine créée dans Azure. La ressource se trouve dans l’abonnement et le groupe de ressources spécifiés, et les données relatives à la machine sont stockées dans la région Azure spécifiée par le paramètre `--location`. Le nom de ressource par défaut est le nom d’hôte de cette machine s’il n’est pas spécifié.
 
@@ -151,7 +151,7 @@ Pour vous connecter à l’aide de vos informations d’identification d’ouver
 
 `azcmagent connect --tenant-id <TenantID> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
 
-### <a name="disconnect"></a>Disconnect
+### <a name="disconnect"></a>Déconnecter
 
 Ce paramètre spécifie une ressource dans Azure Resource Manager, indiquant que la machine est supprimée dans Azure. Il ne supprime pas l’agent de la machine. Cette opération doit être effectuée en tant qu’étape distincte. Une fois la machine déconnectée, si vous souhaitez la réinscrire auprès d’Azure Arc pour serveurs (préversion), utilisez `azcmagent connect` afin qu’une nouvelle ressource soit créée pour elle dans Azure.
 
@@ -167,7 +167,7 @@ Pour vous déconnecter à l’aide de vos informations d’identification d’ou
 
 `azcmagent disconnect --tenant-id <tenantID>`
 
-### <a name="reconnect"></a>Reconnect
+### <a name="reconnect"></a>Reconnexion
 
 Ce paramètre reconnecte la machine déjà inscrite ou connectée avec Azure Arc pour serveurs (préversion). Cela peut s’avérer nécessaire si la machine a été mise hors tension au moins 45 jours avant que son certificat expire. Cette commande utilise les options d’authentification fournies pour récupérer de nouvelles informations d’identification correspondant à la ressource Azure Resource Manager représentant cet machine.
 
@@ -261,3 +261,49 @@ Si vous envisagez d’arrêter la gestion de l’ordinateur avec les services de
 1. Ouvrez Azure Arc pour serveurs (préversion) en accédant au [portail Azure](https://aka.ms/hybridmachineportal).
 
 2. Sélectionnez la machine dans la liste, sélectionnez les points de suspension ( **...** ), puis sélectionnez **Supprimer**.
+
+## <a name="update-or-remove-proxy-settings"></a>Mettre à jour ou supprimer des paramètres de proxy
+
+Pour configurer l’agent afin qu’il communique avec le service via un serveur proxy ou pour supprimer cette configuration après le déploiement, utilisez l’une des méthodes suivantes.
+
+### <a name="windows"></a> Windows
+
+Pour définir la variable d’environnement du serveur proxy, exécutez la commande suivante :
+
+```powershell
+# If a proxy server is needed, execute these commands with the proxy URL and port.
+[Environment]::SetEnvironmentVariable("https_proxy","http://{proxy-url}:{proxy-port}","Machine")
+$env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
+# For the changes to take effect, the agent service needs to be restarted after the proxy environment variable is set.
+Restart-Service -Name himds
+```
+
+Pour configurer l’agent afin qu’il cesse de communiquer via un serveur proxy, exécutez la commande suivante pour supprimer la variable d’environnement du serveur proxy et redémarrer le service de l’agent :
+
+```powershell
+[Environment]::SetEnvironmentVariable("https_proxy",$null,"Machine")
+$env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
+# For the changes to take effect, the agent service needs to be restarted after the proxy environment variable removed.
+Restart-Service -Name himds
+```
+
+### <a name="linux"></a>Linux
+
+Pour définir le serveur proxy, exécutez la commande suivante à partir du répertoire dans lequel vous avez téléchargé le package d’installation de l’agent :
+
+```bash
+# Reconfigure the connected machine agent and set the proxy server.
+bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
+```
+
+Pour configurer l’agent afin qu’il cesse de communiquer via un serveur proxy, exécutez la commande suivante pour supprimer la configuration du proxy :
+
+```bash
+sudo azcmagent_proxy remove
+```
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- Apprenez à gérer votre machine à l’aide d’[Azure Policy](../../governance/policy/overview.md), par exemple pour la [configuration invité](../../governance/policy/concepts/guest-configuration.md) des machines virtuelles, pour vérifier que l’ordinateur crée des rapports sur l’espace de travail Log Analytics prévu, pour activer l’analyse d’[Azure Monitor sur des machines virtuelles](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md) et bien plus encore.
+
+- En savoir plus sur [l’agent Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L’agent Log Analytics pour Windows et Linux est nécessaire quand vous souhaitez superviser de manière proactive le système d’exploitation et les charges de travail en cours d’exécution sur la machine, gérer le système d’exploitation à l’aide de runbooks Automation ou de fonctionnalités comme Update Management ou utiliser d’autres services Azure tels qu’[Azure Security Center](../../security-center/security-center-intro.md).

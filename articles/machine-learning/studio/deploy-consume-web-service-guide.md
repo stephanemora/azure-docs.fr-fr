@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: ff6ae0de0bbd8c47b81fa5066a97eb0b3e0cf6bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 29852eb0920f7bb32464d91e0be65c7dcb03325c
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79204390"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627957"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Services web Azure Machine Learning Studio (classique) : Déploiement et consommation
 
@@ -81,7 +81,6 @@ Voici un exemple :
 Consultez les articles et les exemples de code suivants pour plus de détails :
 
 * Référence [Cmdlets Azure Machine Learning Studio (classique)](https://docs.microsoft.com/powershell/module/az.machinelearning) sur MSDN
-* Exemple de [procédure pas à pas](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) sur GitHub
 
 ## <a name="consume-the-web-services"></a>Utiliser des services web
 

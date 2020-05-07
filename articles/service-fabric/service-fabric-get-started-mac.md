@@ -5,12 +5,12 @@ author: suhuruli
 ms.topic: conceptual
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: e278bcedc48226a59f258ad7d7064fa224737496
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: c7e2d556c4fb8bebc0b75bdf9d4c209c27f86971
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81308983"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193392"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurer votre environnement de développement sur Mac OS X
 > [!div class="op_single_selector"]
@@ -22,7 +22,7 @@ ms.locfileid: "81308983"
 
 Vous pouvez générer des applications Azure Service Fabric pour qu’elles s’exécutent sur les clusters Linux à l’aide de Mac OS X. Ce document explique comment configurer votre Mac pour le développement.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Azure Service Fabric n’est pas exécuté en mode natif sur Mac OS X. Pour exécuter un cluster Service Fabric local, une image de conteneur Docker préconfigurée est fournie. Avant de commencer, vous avez besoin des éléments suivants :
 
 * Au moins 4 Go de RAM.
@@ -101,7 +101,7 @@ Pour configurer un conteneur Docker local et y exécuter un cluster Service Fabr
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
     >
 
-5. Le cluster prendra quelques instants pour démarrer. Lorsqu’il s’exécute, vous pouvez afficher les journaux d’activité à l’aide de la commande suivante ou accéder au tableau de bord pour afficher l’intégrité des clusters [http://localhost:19080](http://localhost:19080) :
+5. Le cluster prendra quelques instants pour démarrer. Lorsqu’il s’exécute, vous pouvez afficher les journaux à l’aide de la commande suivante ou accéder au tableau de bord pour afficher l’intégrité des clusters `http://localhost:19080` :
 
     ```bash 
     docker logs sftestcluster

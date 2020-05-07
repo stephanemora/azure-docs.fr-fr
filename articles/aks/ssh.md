@@ -4,16 +4,16 @@ description: Découvrez comment créer une connexion SSH avec des nœuds de clus
 services: container-service
 ms.topic: article
 ms.date: 07/31/2019
-ms.openlocfilehash: dfdcda40a24142f85bbeb360aacf0971d72d181f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70ebcb1f340ba28cf80ad3e24a464aad5584b3a4
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77593629"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207154"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Se connecter avec SSH à des nœuds de cluster AKS (Azure Kubernetes Service) pour effectuer des tâches de maintenance ou de dépannage
 
-Tout au long du cycle de vie de votre cluster AKS (Azure Kubernetes Service ), vous pouvez être amené à accéder à un nœud AKS, que ce soit pour effectuer une tâche de maintenance, une collecte de journaux ou d’autres opérations de dépannage. Vous pouvez accéder aux nœuds AKS avec SSH, y compris aux nœuds Windows Server (actuellement en préversion dans AKS). Vous pouvez également [vous connecter aux nœuds Windows Server à l’aide de connexions RDP (Remote Desktop Protocol)][aks-windows-rdp]. Pour des raisons de sécurité, les nœuds AKS ne sont pas exposés à Internet. Pour vous connecter avec SSH aux nœuds AKS, vous utilisez l’adresse IP privée.
+Tout au long du cycle de vie de votre cluster AKS (Azure Kubernetes Service ), vous pouvez être amené à accéder à un nœud AKS, que ce soit pour effectuer une tâche de maintenance, une collecte de journaux ou d’autres opérations de dépannage. Vous pouvez accéder aux nœuds AKS avec SSH, y compris aux nœuds Windows Server. Vous pouvez également [vous connecter aux nœuds Windows Server à l’aide de connexions RDP (Remote Desktop Protocol)][aks-windows-rdp]. Pour des raisons de sécurité, les nœuds AKS ne sont pas exposés à Internet. Pour vous connecter avec SSH aux nœuds AKS, vous utilisez l’adresse IP privée.
 
 Cet article vous montre comment créer une connexion SSH avec un nœud AKS à l’aide de ses adresses IP privées.
 
@@ -145,7 +145,7 @@ Pour créer une connexion SSH à un nœud AKS, vous exécutez un pod d’assista
     ```
 
     > [!TIP]
-    > Si vous utilisez des nœuds Windows Server (actuellement en préversion dans AKS), ajoutez un sélecteur de nœud à la commande pour planifier le conteneur Debian sur un nœud Linux :
+    > Si vous utilisez des nœuds Windows Server, ajoutez un sélecteur de nœud à la commande pour planifier le conteneur Debian sur un nœud Linux :
     >
     > `kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"apps/v1","spec":{"template":{"spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}}}'`
 

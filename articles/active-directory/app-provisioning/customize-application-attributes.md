@@ -2,24 +2,20 @@
 title: Personnalisation des mappages d’attributs Azure AD | Microsoft Docs
 description: Découvrez ce que sont les mappages d’attributs pour les applications SaaS dans Azure Active Directory et comment les modifier pour répondre aux besoins de votre entreprise.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7003899b59e409a785c3a50e89aae6674e377b4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4abfdd94c57064c86e533234d78f774c45ba8e4a
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231041"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593860"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personnalisation des mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory
 
@@ -73,7 +69,7 @@ Outre cette propriété, les mappages d’attributs prennent en charge les attri
 - **Attribut cible** : attribut utilisateur dans le système cible (par exemple, ServiceNow).
 - **Valeur par défaut si null (facultatif)**  : la valeur qui sera passée au système cible si l’attribut source est null. Cette valeur sera configurée uniquement lors de la création d’un utilisateur. La « valeur par défaut si null » ne sera pas configurée lors de la mise à jour d’un utilisateur existant. Si, par exemple, vous souhaitez configurer tous les utilisateurs existants dans le système cible avec un poste particulier (lorsque la valeur est null dans le système source), vous pouvez utiliser [l’expression](../app-provisioning/functions-for-customizing-application-data.md)suivante : Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Veillez à remplacer la « valeur par défaut » par ce que vous souhaitez configurer lorsque la valeur est null dans le système source. 
 - **Trouver les objets utilisant cet attribut** : indique si ce mappage doit être utilisé ou pas pour identifier les utilisateurs de manière unique entre les systèmes source et cible. Ce champ est généralement défini sur l’attribut userPrincipalName ou mail dans Azure AD, qui est généralement mappé à un champ de nom d’utilisateur dans une application cible.
-- **Priorité des correspondances** : plusieurs attributs de correspondance peuvent être définis. S’il en existe plusieurs, ils sont évalués dans l’ordre défini par ce champ. Dès qu’une correspondance est trouvée, aucun autre attribut correspondant n’est évalué.
+- **Priorité des correspondances** : plusieurs attributs de correspondance peuvent être définis. S’il en existe plusieurs, ils sont évalués dans l’ordre défini par ce champ. Dès qu’une correspondance est trouvée, aucun autre attribut correspondant n’est évalué. Bien que vous puissiez définir autant d’attributs correspondants que vous le souhaitez, déterminez si les attributs que vous utilisez en tant qu’attributs correspondants sont véritablement uniques et doivent être des attributs correspondants. En général, les clients comptent 1 ou 2 attributs correspondants dans leur configuration. 
 - **Appliquer ce mappage**
   - **Toujours** : appliquez ce mappage à la création de l’utilisateur et aux actions de mise à jour.
   - **Lors de la création uniquement** : appliquez ce mappage uniquement aux actions de création d’utilisateur.
@@ -143,7 +139,10 @@ La RFC SCIM définit un schéma d’utilisateur et de groupe principal, tout en 
    4. Sélectionnez **Modifier la liste d’attributs pour AppName**.
    5. En bas de la liste d’attributs, entrez les informations relatives à l’attribut personnalisé dans les champs fournis. Sélectionnez ensuite **Ajouter un attribut**.
 
-Pour les applications SCIM, le nom de l’attribut doit suivre le modèle indiqué dans l’exemple ci-dessous. Les paramètres « CustomExtensionName » et « CustomAttribute » peuvent être personnalisés selon les exigences de votre application ; par exemple : urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute ou urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User.CustomAttributeName:value
+Pour les applications SCIM, le nom de l’attribut doit suivre le modèle indiqué dans l’exemple ci-dessous. « CustomExtensionName » et « CustomAttribute » peuvent être personnalisés selon les besoins de l’application, par exemple :  
+ * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
+ * urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute  
+ * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User.CustomAttributeName:value
 
 Ces instructions s’appliquent uniquement aux applications prenant en charge SCIM. Les applications telles que ServiceNow et Salesforce ne sont pas intégrées à Azure AD à l’aide de SCIM, et n’ont donc pas besoin de cet espace de noms spécifique lors de l’ajout d’un attribut personnalisé.
 
@@ -313,8 +312,10 @@ Cette option entraîne une resynchronisation forcée de tous les utilisateurs pe
 - La mise à jour des mappages d’attributs impacte les performances d’un cycle de synchronisation. Une mise à jour de la configuration des mappages d’attributs nécessite une réévaluation de tous les objets gérés.
 - Il est recommandé d’apporter le moins de modifications consécutives possible à vos mappages d’attributs.
 - L’ajout d’un attribut de photo à approvisionner pour une application n’est pas actuellement pris en charge, car vous ne pouvez pas spécifier le format de synchronisation de la photo. Vous pouvez demander cette fonctionnalité via [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory).
-- L’attribut IsSoftDeleted fait souvent partie des mappages par défaut pour une application. IsSoftdeleted peut avoir la valeur « true » dans l’un des quatre scénarios (l’utilisateur est hors de portée en raison d’une non-affectation de l’application, l’utilisateur est hors de portée en raison de non réponse à un filtre d’étendue, l’utilisateur a été supprimé de manière réversible dans Azure AD ou la propriété AccountEnabled est définie sur « false » pour l’utilisateur). 
-- Le service de provisionnement Azure AD ne prend pas en charge le provisionnement de valeurs Null
+- L’attribut IsSoftDeleted fait souvent partie des mappages par défaut pour une application. IsSoftdeleted peut avoir la valeur « true » dans l’un des quatre scénarios (l’utilisateur est hors de portée en raison d’une non-affectation de l’application, l’utilisateur est hors de portée en raison de non réponse à un filtre d’étendue, l’utilisateur a été supprimé de manière réversible dans Azure AD ou la propriété AccountEnabled est définie sur « false » pour l’utilisateur). Il n’est pas recommandé de supprimer l’attribut IsSoftDeleted de vos mappages d’attributs.
+- Le service d’approvisionnement Azure AD ne prend pas en charge l’approvisionnement de valeurs Null.
+- Leur clé primaire, en général « ID », ne doit pas être incluse en tant qu’attribut cible dans vos mappages d’attributs. 
+- L’attribut role doit généralement être mappé à l’aide d’une expression, au lieu d’un mappage direct. Pour plus d’informations sur le mappage de rôle, consultez la section ci-dessus. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

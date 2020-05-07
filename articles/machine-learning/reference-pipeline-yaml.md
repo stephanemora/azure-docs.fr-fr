@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
 ms.date: 11/11/2019
-ms.openlocfilehash: a677aaa891e21f4c9eeda02eebcb94e9d79a55ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cee6de8fda45c429d0c74a3ecdc966b49e092567
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79368823"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208497"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Définir des pipelines d’apprentissage automatique en YAML
 
@@ -30,11 +30,11 @@ Le tableau suivant répertorie les éléments qui sont ou non actuellement pris 
 | AzureBatchStep | Oui |
 | DatabricksStep | Oui |
 | DataTransferStep | Oui |
-| AutoMLStep | Non |
-| HyperDriveStep | Non |
+| AutoMLStep | Non  |
+| HyperDriveStep | Non  |
 | ModuleStep | Oui |
-| MPIStep | Non |
-| EstimatorStep | Non |
+| MPIStep | Non  |
+| EstimatorStep | Non  |
 
 ## <a name="pipeline-definition"></a>Définition de pipeline
 
@@ -319,7 +319,6 @@ pipeline:
 
 | Clé YAML | Description |
 | ----- | ----- |
-| `compute_target` | Cible de calcul à utiliser pour cette étape. La cible de calcul peut être une capacité de calcul Azure, une machine virtuelle (par exemple, Data Science VM) ou HDInsight. |
 | `inputs` | Les entrées peuvent être [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [DataSet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py) ou [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
 | `outputs` | Les sorties peuvent être [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) ou [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py). |
 | `script_name` | Nom du script Python (relatif à `source_directory`). |
@@ -361,6 +360,65 @@ pipeline:
                     destination: Output4
                     datastore: workspaceblobstore
                     bind_mode: mount
+```
+
+### <a name="pipeline-with-multiple-steps"></a>Pipeline avec plusieurs étapes 
+
+| Clé YAML | Description |
+| ----- | ----- |
+| `steps` | Séquence d’une ou plusieurs définitions PipelineStep. Notez que les clés `destination` du paramètre `outputs` d’une étape deviennent les clés `source` pour le paramètre `inputs` de l’étape suivante.| 
+
+```yaml
+pipeline:
+    name: SamplePipelineFromYAML
+    description: Sample multistep YAML pipeline
+    data_references:
+        TitanicDS:
+            dataset_name: 'titanic_ds'
+            bind_mode: download
+    default_compute: cpu-cluster
+    steps:
+        Dataprep:
+            type: "PythonScriptStep"
+            name: "DataPrep Step"
+            compute: cpu-cluster
+            runconfig: ".\\default_runconfig.yml"
+            script_name: "prep.py"
+            arguments:
+            - '--train_path'
+            - output:train_path
+            - '--test_path'
+            - output:test_path
+            allow_reuse: True
+            inputs:
+                titanic_ds:
+                    source: TitanicDS
+                    bind_mode: download
+            outputs:
+                train_path:
+                    destination: train_csv
+                    datastore: workspaceblobstore
+                test_path:
+                    destination: test_csv
+        Training:
+            type: "PythonScriptStep"
+            name: "Training Step"
+            compute: cpu-cluster
+            runconfig: ".\\default_runconfig.yml"
+            script_name: "train.py"
+            arguments:
+            - "--train_path"
+            - input:train_path
+            - "--test_path"
+            - input:test_path
+            inputs:
+                train_path:
+                    source: train_csv
+                    bind_mode: download
+                test_path:
+                    source: test_csv
+                    bind_mode: download
+
 ```
 
 ## <a name="schedules"></a>Planifications

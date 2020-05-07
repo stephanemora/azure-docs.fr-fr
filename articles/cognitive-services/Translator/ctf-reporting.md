@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 6a197095d97e67f7548e60375148cff57e47b797
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c099584642de1939df5e1e7d9785006e8d25235
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "68595941"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732340"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Guide pratique pour utiliser le compte-rendu CTF (Collaborative Translation Framework)
 
@@ -115,8 +115,8 @@ Le jeu de résultats contient un tableau des éléments **UserTranslationCount**
 > Le quota est ajusté pour garantir l’équité entre tous les utilisateurs du service.
 
 **Affichage d’exemples de code sur GitHib**
-* [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-csharp.md)
-* [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-php.md)
+* [C#](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp)
+* [PHP](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP)
 
 ## <a name="getusertranslations-method"></a>Méthode GetUserTranslations
 
@@ -188,5 +188,5 @@ Le jeu de résultats contient un tableau des éléments **UserTranslation**. Cha
 > Le quota est ajusté pour garantir l’équité entre tous les utilisateurs du service.
 
 **Affichage d’exemples de code sur GitHib**
-* [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
-* [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)
+* [C#](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp)
+* [PHP](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP)

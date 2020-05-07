@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 07/31/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: c1d30a9cdd2cd6ca288edd609a2e2e7bee9174d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 66ce267581d4748ea51a3dcbd7caa61907115cc1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68718160"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82131161"
 ---
 # <a name="common-questions-about-site-recovery-monitoring"></a>Questions fréquentes sur la supervision Site Recovery
 
@@ -52,7 +52,7 @@ Seules les machines sur lesquelles la réplication initiale est terminée sont i
 ## <a name="azure-monitor-logging"></a>Journalisation d’Azure Monitor
 
 
-### <a name="how-often-does-site-recovery-send-diagnostic-logs-to-azure-monitor-log"></a>À quelle fréquence Site Recovery envoie des journaux de diagnostic aux journaux Azure Monitor ? 
+### <a name="how-often-does-site-recovery-send-resource-logs-to-azure-monitor-log"></a>À quelle fréquence Site Recovery envoie-t-il des journaux de ressources aux journaux d’activité Azure Monitor ? 
 
 - Le journal des statistiques de réplication (AzureSiteRecoveryReplicationStats) et le journal des points de récupération (AzureSiteRecoveryRecoveryPoints) sont envoyés toutes les 15 minutes.  
 - Le journal des taux de chargement des données de réplication (AzureSiteRecoveryReplicationDataUploadRate) et le journal de l’évolution des données des disques protégés (AzureSiteRecoveryProtectedDiskDataChurn) sont envoyés toutes les 5 minutes. 
@@ -64,7 +64,7 @@ Seules les machines sur lesquelles la réplication initiale est terminée sont i
 
 Par défaut, la période de conservation est de 31 jours. Vous pouvez augmenter cette durée dans la section **Coûts d’utilisation et estimations** de l’espace de travail Log Analytics. Cliquez sur **Conservation des données**, puis sélectionnez une plage.
 
-### <a name="whats-the-size-of-the-diagnostic-logs"></a>Quelle est la taille d’un journal de diagnostic ? 
+### <a name="whats-the-size-of-the-resource-logs"></a>Quelle est la taille d’un journal de ressources ? 
 
 En règle générale, la taille d’un journal est de 15 à 20 Ko. 
 

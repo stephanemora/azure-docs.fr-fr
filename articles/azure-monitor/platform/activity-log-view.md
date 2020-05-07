@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: d2423d04ead9040cce53d847d24efe75be680d94
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 4ea29888d4dcf589e3e5d4dfe594f5f4bff2287e
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397307"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559981"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>Afficher et récupérer les événements du journal d’activité Azure
 
@@ -71,7 +71,7 @@ Pour en savoir plus sur l’historique des modifications, consultez [Obtenir les
 Utilisez la cmdlet [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) pour récupérer le journal d’activité à partir de PowerShell. Voici quelques exemples courants.
 
 > [!NOTE]
-> `Get-AzLog` fournit uniquement 15 jours d'historique. Utilisez le paramètre **-MaxEvents** pour interroger les N derniers événements, au-delà de 15 jours. Pour accéder aux événements antérieurs à 15 jours, utilisez l'API REST ou le kit de développement logiciel (SDK). Si vous n'incluez pas **StartTime**, la valeur par défaut est **EndTime** moins une heure. Si vous n'incluez pas **EndTime**, la valeur par défaut est l'heure actuelle. Toutes les heures sont exprimées en heure UTC.
+> `Get-AzLog` fournit uniquement 15 jours d'historique. Utilisez le paramètre **-MaxRecord** pour interroger les N derniers événements, au-delà de 15 jours. Pour accéder aux événements antérieurs à 15 jours, utilisez l'API REST ou le kit de développement logiciel (SDK). Si vous n'incluez pas **StartTime**, la valeur par défaut est **EndTime** moins une heure. Si vous n'incluez pas **EndTime**, la valeur par défaut est l'heure actuelle. Toutes les heures sont exprimées en heure UTC.
 
 
 Obtenir les entrées de journal créées après une date/heure donnée :
@@ -107,7 +107,7 @@ Get-AzLog -Caller 'myname@company.com'
 Obtenir les 1 000 derniers événements :
 
 ```powershell
-Get-AzLog -MaxEvents 1000
+Get-AzLog -MaxRecord 1000
 ```
 
 

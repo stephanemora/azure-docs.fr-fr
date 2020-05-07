@@ -1,24 +1,15 @@
 ---
-title: Exécuter des applications MPI avec des tâches multi-instances - Azure Batch | Microsoft Docs
+title: Exécuter des applications MPI avec des tâches multi-instances
 description: Découvrez comment exécuter des applications MPI (Message Passing Interface) en utilisant des tâches de type multi-instances dans Azure Batch.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
 ms.date: 03/13/2019
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1896fea3c401299b4f77235ab3c02d85708b7041
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4502fc9632c2cb05d757459d07bcfe17ae96aea2
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77023665"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735264"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Utiliser les tâches multi-instances pour exécuter des applications MPI (Message Passing Interface) dans Batch
 
@@ -190,9 +181,7 @@ Les variables d’environnement suivantes sont créées par le service Batch pou
 Pour plus d’informations sur les variables d’environnement des nœuds de calcul Batch, notamment leur contenu et leur visibilité, consultez la page [Variables d’environnement des nœuds de calcul][msdn_env_var].
 
 > [!TIP]
-> L’exemple de code Batch Linux MPI contient un exemple d’utilisation de plusieurs d’entre elles. Le script Batch [coordination-cmd][coord_cmd_example] télécharge les fichiers d’application et d’entrée communs sur le Stockage Azure, autorise le partage Network File System (NFS) sur le nœud principal et configure les autres nœuds alloués à la tâche multi-instance en tant que clients NFS.
->
->
+> L’exemple de code Batch Linux MPI contient un exemple d’utilisation de plusieurs d’entre elles.
 
 ## <a name="resource-files"></a>Fichiers de ressources
 Il existe deux ensembles de fichiers de ressources à prendre en compte pour les tâches multi-instances : les **fichiers de ressources communs** que *toutes* les tâches téléchargent (tâche principale et tâches subordonnées) et les **fichiers de ressources** indiqués pour la tâche multi-instances elle-même que *seule la tâche principale* télécharge.
@@ -338,7 +327,7 @@ Sample complete, hit ENTER to exit...
 [batch_labs]: https://azure.github.io/BatchExplorer/
 [blog_mpi_linux]: https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/
 [cmd_start]: https://technet.microsoft.com/library/cc770297.aspx
-[coord_cmd_example]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/mpi/data/linux/openfoam/coordination-cmd
+[coord_cmd_example]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/mpi/data/coordination-cmd
 [github_mpi]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip

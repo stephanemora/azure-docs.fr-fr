@@ -3,12 +3,12 @@ title: Remédier aux ressources non conformes
 description: Ce guide explique comment corriger les ressources qui ne sont pas conformes aux stratégies dans Azure Policy.
 ms.date: 02/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 71af5c81e0dce4d5c0a0461534f634db36bd66a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4846b6eb1ea03c6706a610cab16ec376d19b060
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471385"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195228"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corriger les ressources non conformes avec Azure Policy
 
@@ -19,7 +19,7 @@ Les ressources qui ne sont pas conformes à une stratégie **deployIfNotExists**
 Lorsque le logiciel Azure Policy exécute le modèle dans la définition de stratégie **deployIfNotExists**, il utilise une [identité managée](../../../active-directory/managed-identities-azure-resources/overview.md).
 Azure Policy crée automatiquement une identité managée pour chaque affectation, mais doit obtenir des informations sur les rôles à accorder à l’identité managée. S’il manque des rôles à l’identité managée, cette erreur est affichée durant l’affectation de la stratégie ou d’une initiative. Quand vous utilisez le portail, une fois l’affectation lancée, Azure Policy accorde automatiquement à l’identité managée les rôles listés. La _localisation_ de l’identité managée n’impacte pas son fonctionnement avec Azure Policy.
 
-![Identité managée : rôle manquant](../media/remediate-resources/missing-role.png)
+:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Identité managée : rôle manquant" border="false":::
 
 > [!IMPORTANT]
 > Si une ressource modifiée par **deployIfNotExists** ou **modify** est en dehors de l’étendue de l’affectation de stratégie ou que le modèle accède à des propriétés sur des ressources en dehors de l’étendue de l’affectation de stratégie, l’identité managée de l’affectation doit se voir [manuellement accorder l’accès](#manually-configure-the-managed-identity), sinon le déploiement de la correction échoue.
@@ -128,11 +128,11 @@ Pour créer une **tâche de correction**, effectuez les étapes suivantes :
 
 1. Lancez le service Azure Policy dans le portail Azure en cliquant sur **Tous les services**, puis en recherchant et en cliquant sur **Stratégie**.
 
-   ![Rechercher Stratégie dans Tous les services](../media/remediate-resources/search-policy.png)
+   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Rechercher Stratégie dans Tous les services" border="false":::
 
 1. Sélectionnez **Correction** sur le côté gauche de la page Azure Policy.
 
-   ![Sélectionner une correction sur la page Azure Policy](../media/remediate-resources/select-remediation.png)
+   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Sélectionner une correction sur la page Azure Policy" border="false":::
 
 1. Toutes les affectations de stratégie **deployIfNotExists** ou **modify** ayant des ressources non conformes sont incluses sous l’onglet **Stratégies à corriger** et dans la table de données. Cliquez sur une stratégie ayant des ressources non conformes. La page **Nouvelle tâche de correction** s’ouvre.
 
@@ -141,17 +141,17 @@ Pour créer une **tâche de correction**, effectuez les étapes suivantes :
 
 1. Dans la page **Nouvelle tâche de correction**, filtrez les ressources à corriger à l’aide des points de suspension de la section **Étendue** pour sélectionner les ressources enfants à partir de l’endroit où la stratégie est affectée (y compris jusqu’aux objets de ressource individuels). En outre, utilisez la liste déroulante **Emplacements** pour filtrer davantage les ressources. Seules les ressources répertoriées dans la table sont corrigées.
 
-   ![Correction : sélectionner les ressources à corriger](../media/remediate-resources/select-resources.png)
+   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Correction : sélectionner les ressources à corriger" border="false":::
 
 1. Lancez la tâche de correction une fois les ressources filtrées en cliquant sur **Corriger**. La page de conformité à la stratégie s’ouvre sur l’onglet **Tâches de correction**, qui affiche l’état de la progression des tâches. Les déploiements créés par la tâche de correction commencent immédiatement.
 
-   ![Correction : progression des tâches de correction](../media/remediate-resources/task-progress.png)
+   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Correction : progression des tâches de correction" border="false":::
 
 1. Cliquez sur la **tâche de correction** dans la page de conformité à la stratégie pour obtenir plus d’informations sur la progression. Le filtrage utilisé pour la tâche est affiché, ainsi qu’une liste des ressources en cours de correction.
 
 1. Dans la page **Tâche de correction**, cliquez avec le bouton droit sur une ressource pour afficher le déploiement de la tâche de correction ou la ressource. À la fin de la ligne, cliquez sur **Événements associés** pour voir des détails tels qu’un message d’erreur.
 
-   ![Corriger : menu contextuel lié aux tâches réalisables pour une ressource](../media/remediate-resources/resource-task-context-menu.png)
+   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Corriger : menu contextuel lié aux tâches réalisables pour une ressource" border="false":::
 
 Les ressources déployées par le biais d’une **tâche de correction** sont ajoutées à l’onglet **Ressources déployées** sur la page de conformité à la stratégie.
 

@@ -2,13 +2,13 @@
 title: Procédure d’activation d’Azure Monitor pour les conteneurs | Microsoft Docs
 description: Cet article décrit la façon dont vous activez et configurez Azure Monitor pour les conteneurs afin que vous puissiez comprendre les performances de votre conteneur et les problèmes liés aux performances identifiés.
 ms.topic: conceptual
-ms.date: 11/18/2019
-ms.openlocfilehash: 7aad7e7dd5ec2569377f9276c2e4793c7afd631a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/21/2020
+ms.openlocfilehash: 284668dfe2aec809ce9a94e15f7c83cf0f2025b3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234493"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185929"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>Procédure d’activation d’Azure Monitor pour les conteneurs
 
@@ -20,7 +20,9 @@ Cet article offre un aperçu des options disponibles pour configurer Azure Monit
 
 - Clusters Kubernetes automanagés hébergés sur [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) ou localement à l’aide du moteur AKS
 
-- [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
+- [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 3.x et 4.x
+
+- [Red Hat OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4.x
 
 Azure Monitor pour conteneurs peut être activé pour un ou plusieurs déploiements de Kubernetes nouveaux ou existants, à l’aide des méthodes prises en charge suivantes :
 
@@ -62,8 +64,7 @@ Le tableau suivant répertorie les informations de configuration du proxy et du 
 |Ressource de l'agent|Ports |
 |--------------|------|
 | *.ods.opinsights.azure.com | 443 |  
-| *.oms.opinsights.azure.com | 443 | 
-| *.blob.core.windows.net | 443 |
+| *.oms.opinsights.azure.com | 443 |
 | dc.services.visualstudio.com | 443 |
 | *.microsoftonline.com | 443 |
 | *.monitoring.azure.com | 443 |
@@ -75,7 +76,6 @@ Le tableau suivant répertorie les informations de configuration du proxy et du 
 |--------------|------|-------------|
 | *.ods.opinsights.azure.cn | 443 | Ingestion de données |
 | *.oms.opinsights.azure.cn | 443 | Intégration d’OMS |
-| *.blob.core.windows.net | 443 | Utilisé pour surveiller la connectivité sortante. |
 | microsoft.com | 80 | Utilisé pour la connectivité réseau. Cet élément n’est requis que si la version de l’image de l’agent est ciprod09262019 ou antérieure. |
 | dc.services.visualstudio.com | 443 | Pour la télémétrie de l’agent à l’aide d’Azure Public Cloud Application Insights. |
 
@@ -85,7 +85,6 @@ Le tableau suivant répertorie les informations de configuration du proxy et du 
 |--------------|------|-------------|
 | *.ods.opinsights.azure.us | 443 | Ingestion de données |
 | *.oms.opinsights.azure.us | 443 | Intégration d’OMS |
-| *.blob.core.windows.net | 443 | Utilisé pour surveiller la connectivité sortante. |
 | microsoft.com | 80 | Utilisé pour la connectivité réseau. Cet élément n’est requis que si la version de l’image de l’agent est ciprod09262019 ou antérieure. |
 | dc.services.visualstudio.com | 443 | Pour la télémétrie de l’agent à l’aide d’Azure Public Cloud Application Insights. |
 

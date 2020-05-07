@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment créer des coffres Recovery Se
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 439f102e8f13bff63ab388be8f10df07ab2dc7d2
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 6ac1c7e887f80767d6ff1819476e91cb4b06bf1b
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80672845"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744940"
 ---
 # <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
@@ -121,7 +121,7 @@ Nous vous recommandons vivement de consulter les paramètres par défaut pour **
 
 - **Le type de réplication de stockage** par défaut est défini sur **Géo-redondant**. Une fois que vous avez configuré la sauvegarde, l’option de modification est désactivée. Procédez [comme suit](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) pour évaluer et modifier les paramètres.
 
-- **La suppression réversible** par défaut est **activée** sur les coffres nouvellement créés pour protéger les données de sauvegarde des suppressions accidentelles ou malveillantes. Procédez [comme suit](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) pour évaluer et modifier les paramètres.
+- **La suppression réversible** par défaut est **activée** sur les coffres nouvellement créés pour protéger les données de sauvegarde des suppressions accidentelles ou malveillantes. Procédez [comme suit](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) pour évaluer et modifier les paramètres.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

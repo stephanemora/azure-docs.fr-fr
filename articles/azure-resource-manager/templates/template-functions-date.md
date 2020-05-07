@@ -2,13 +2,13 @@
 title: Fonctions de modèle - date
 description: Décrit les fonctions à employer dans un modèle Azure Resource Manager pour utiliser les dates.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 75234a142b9f2fbe61c337bfeb378b47534bac79
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 04/27/2020
+ms.openlocfilehash: 0c31b26361a262a502b2a9e0fb068391846cab4b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986206"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192295"
 ---
 # <a name="date-functions-for-arm-templates"></a>Fonctions de date pour les modèles ARM
 
@@ -21,7 +21,7 @@ Resource Manager fournit les fonctions ci-après pour utiliser les dates dans vo
 
 `dateTimeAdd(base, duration, [format])`
 
-Ajoute une durée à une valeur datetime de base.
+Ajoute une durée à une valeur de base. Le format ISO 8601 est attendu.
 
 ### <a name="parameters"></a>Paramètres
 
@@ -29,7 +29,7 @@ Ajoute une durée à une valeur datetime de base.
 |:--- |:--- |:--- |:--- |
 | base | Oui | string | Valeur datetime de début pour l’ajout. Utilisez le [format d’horodatage ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
 | duration | Oui | string | Valeur de temps à ajouter à la base. Il peut s’agir d’une valeur négative. Utilisez le [format de durée ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
-| format | Non | string | Format de sortie pour le résultat de date et d’heure. S’il n’est pas fourni, le format de la valeur de base est utilisé. Utilisez des [chaînes de format standard](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou des [chaînes de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format | Non  | string | Format de sortie pour le résultat de date et d’heure. S’il n’est pas fourni, le format de la valeur de base est utilisé. Utilisez des [chaînes de format standard](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou des [chaînes de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="return-value"></a>Valeur retournée
 
@@ -144,9 +144,9 @@ Retourne la valeur de date/heure (UTC) actuelle au format spécifié. Si aucun f
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| format |Non |string |Valeur encodée de l’URI à convertir en une chaîne. Utilisez des [chaînes de format standard](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou des [chaînes de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Non  |string |Valeur encodée de l’URI à convertir en une chaîne. Utilisez des [chaînes de format standard](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou des [chaînes de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
-### <a name="remarks"></a>Notes
+### <a name="remarks"></a>Notes 
 
 Vous pouvez uniquement utiliser cette fonction dans une expression pour la valeur par défaut d’un paramètre. Son utilisation partout ailleurs dans un modèle retourne une erreur. La fonction n’est pas autorisée dans d’autres parties du modèle, car elle retourne une valeur différente chaque fois qu’elle est appelée. Le déploiement du même modèle avec les mêmes paramètres ne produit pas forcément les mêmes résultats.
 
@@ -242,3 +242,7 @@ L’exemple suivant montre comment utiliser une valeur de la fonction pour défi
     }
 }
 ```
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).

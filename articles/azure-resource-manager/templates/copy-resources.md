@@ -2,13 +2,13 @@
 title: Déployer plusieurs instances de ressources
 description: Utilisez l’opération copy et les tableaux dans un modèle Azure Resource Manager pour déployer un type de ressource plusieurs fois.
 ms.topic: conceptual
-ms.date: 09/27/2019
-ms.openlocfilehash: e65ab93c21daffa0053e53d953fe95fa9f28e2a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/29/2020
+ms.openlocfilehash: d4f40b606ffd56019b44cc8b67e5629b935bf50c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153316"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583382"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Itération de ressource dans les modèles ARM
 
@@ -18,7 +18,7 @@ Vous pouvez également utiliser l’élément copy avec les éléments [properti
 
 Si vous devez spécifier si une ressource est déployée, consultez la page relative à l’[élément Condition](conditional-resource-deployment.md).
 
-## <a name="resource-iteration"></a>Itération de ressource
+## <a name="syntax"></a>Syntaxe
 
 L’élément copy utilise le format général suivant :
 
@@ -34,6 +34,23 @@ L’élément copy utilise le format général suivant :
 La propriété **name** est toute valeur qui identifie la boucle. La propriété **count** spécifie le nombre d’itérations que vous souhaitez pour le type de ressource.
 
 Utilisez les propriétés **mode** et **batchSize** pour spécifier si les ressources sont déployées en parallèle ou en séquence. Ces propriétés sont décrites dans [Série ou parallèle](#serial-or-parallel).
+
+## <a name="copy-limits"></a>Limites de copie
+
+Le nombre ne peut pas dépasser 800.
+
+Le nombre ne peut pas être négatif. Il peut être zéro si vous déployez le modèle avec une version récente d’Azure CLI, de PowerShell ou de l’API REST. Plus précisément, vous devez utiliser :
+
+* Azure PowerShell **2.6** ou version ultérieure
+* Azure CLI **2.0.74** ou version ultérieure
+* API REST version **2019-05-10** ou ultérieure
+* Les [déploiements liés](linked-templates.md) doivent utiliser la version **2019-05-10** de l’API ou une version ultérieure pour le type de ressource de déploiement
+
+Les versions antérieures de PowerShell, de l’interface CLI et de l’API REST ne prennent pas en charge le nombre zéro.
+
+Soyez prudent lorsque vous utilisez le [déploiement en mode Complet](deployment-modes.md) avec des copies. Si vous redéployez dans un groupe de ressources en mode Complet, toutes les ressources qui ne sont pas spécifiées dans le modèle après la résolution de la boucle de copie sont supprimées.
+
+## <a name="resource-iteration"></a>Itération de ressource
 
 L’exemple suivant crée le nombre de comptes de stockage spécifiés dans le paramètre **storageCount**.
 
@@ -257,14 +274,6 @@ L’exemple ci-après illustre l’implémentation :
   ...
 }]
 ```
-
-## <a name="copy-limits"></a>Limites de copie
-
-Le nombre ne peut pas dépasser 800.
-
-Le nombre ne peut pas être négatif. Si vous déployez un modèle avec Azure PowerShell 2.6 (ou une version ultérieure), l’interface Azure CLI 2.0.74 (ou une version ultérieure) ou l’API REST version **2019-05-10** (ou une version ultérieure), vous pouvez définir le nombre sur zéro. Les versions antérieures de PowerShell, de l’interface CLI et de l’API REST ne prennent pas en charge le nombre zéro.
-
-Soyez prudent lorsque vous utilisez le [déploiement en mode Complet](deployment-modes.md) avec des copies. Si vous redéployez dans un groupe de ressources en mode Complet, toutes les ressources qui ne sont pas spécifiées dans le modèle après la résolution de la boucle de copie sont supprimées.
 
 ## <a name="example-templates"></a>Exemples de modèles
 

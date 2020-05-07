@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 63d90a5239e6bf350d8a6b66f35157e4c7d15aee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: bb7ebee67d65ab37dc037437b7c35d8c19c53096
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79456537"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82137023"
 ---
 # <a name="decision-forest-regression-module"></a>Module Régression de forêt d’arbres de décision
 
@@ -78,9 +78,19 @@ Pour en savoir plus sur l’infrastructure théorique de cet algorithme et son i
      Plus cette valeur est grande, plus le seuil de création de règles augmente. Par exemple, la valeur par défaut de 1, un seul cas suffit à entraîner la création d’une règle. Si la valeur passe à 5, les données d’apprentissage doivent contenir au moins cinq cas remplissant les mêmes conditions.
 
 
-9. Connectez un jeu de données étiqueté, sélectionnez une colonne d’étiquette unique contenant deux résultats maximum et connectez-vous à [Entraîner un modèle](./train-model.md).
+9. Effectuez l’apprentissage du modèle :
 
-    - Si vous définissez l’option **Create trainer mode** (Créer un mode d’apprentissage) sur **Single Parameter** (Paramètre unique), utilisez le module [Entraîner un modèle](./train-model.md) pour entraîner le modèle.
+    + Si vous définissez **Create trainer mode** (Créer un mode d’apprentissage) sur **Single Parameter** (Paramètre unique), connectez un jeu de données balisé au module [Entraîner le modèle](train-model.md).  
+  
+    + Si vous définissez **Créer un mode d’apprentissage** sur **Plage de paramètres**, connectez un jeu de données avec balises et effectuez l’apprentissage du modèle en utilisant [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > Si vous transmettez une plage de paramètres au module [Entraîner le modèle](train-model.md), il utilise uniquement la valeur par défaut dans la liste des paramètres uniques.  
+    > 
+    > Si vous transmettez un ensemble unique de valeurs de paramètre au module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md), quand il attend une plage de paramètres pour chaque paramètre, il ignore les valeurs et utilise les valeurs par défaut pour l’apprenant.  
+    > 
+    > Si vous sélectionnez l’option **Plage de paramètres** et que vous entrez une valeur unique pour un paramètre, cette valeur unique que vous avez spécifiée est utilisée tout au long du balayage, même si d’autres paramètres changent sur une plage de valeurs.
 
    
 

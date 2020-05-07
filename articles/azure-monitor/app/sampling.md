@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: fc9db23f7733f97ca207e834d4543fbdb1b9db5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4989f8dce32e2340357e30541548b3e7e9d8a44
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234653"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508885"
 ---
 # <a name="sampling-in-application-insights"></a>Échantillonnage dans Application Insights
 
@@ -22,7 +22,7 @@ Lorsque les métriques sont présentées dans le portail, elles sont renormalis�
 
 * Il existe trois types d’échantillonnages différents : échantillonnage adaptatif, échantillonnage à fréquence fixe et échantillonnage d’ingestion.
 * L’échantillonnage adaptatif est activé par défaut dans toutes les dernières versions d’ASP.NET Application Insights et des kits SDK ASP.NET Core. Il est également utilisé par [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
-* L’échantillonnage à fréquence fixe est disponible dans les versions récentes des kits SDK Application Insights pour ASP.NET, ASP.NET Core, Java et Python.
+* L’échantillonnage à fréquence fixe est disponible dans les versions récentes des SDK Application Insights pour ASP.NET, ASP.NET Core, Java (à la fois l’agent et le SDK) et Python.
 * L’échantillonnage d’ingestion fonctionne sur le point de terminaison de service Application Insights. Il s’applique seulement quand aucun autre échantillonnage n’est appliqué. Si le SDK échantillonne votre télémétrie, l’échantillonnage d’ingestion est désactivé.
 * Pour les applications web, si vous consignez des événements personnalisés et que vous devez garantir qu’un ensemble d’événements sont conservés ou ignorés conjointement, les événements doivent avoir la même valeur pour `OperationId`.
 * Si vous écrivez des requêtes Analytics, vous devez [tenir compte de l’échantillonnage](../../azure-monitor/log-query/aggregations.md). En particulier, au lieu de compter simplement les enregistrements, vous devez utiliser `summarize sum(itemCount)`.
@@ -34,10 +34,10 @@ Le tableau suivant récapitule les types d’échantillonnage disponibles pour c
 |-|-|-|-|
 | ASP.NET | [Oui (activé par défaut)](#configuring-adaptive-sampling-for-aspnet-applications) | [Oui](#configuring-fixed-rate-sampling-for-aspnet-applications) | Seulement si aucun autre échantillonnage n’est appliqué |
 | ASP.NET Core | [Oui (activé par défaut)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Oui](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Seulement si aucun autre échantillonnage n’est appliqué |
-| Azure Functions | [Oui (activé par défaut)](#configuring-adaptive-sampling-for-azure-functions) | Non | Seulement si aucun autre échantillonnage n’est appliqué |
-| Java | Non | [Oui](#configuring-fixed-rate-sampling-for-java-applications) | Seulement si aucun autre échantillonnage n’est appliqué |
-| Python | Non | [Oui](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Seulement si aucun autre échantillonnage n’est appliqué |
-| Tous les autres | Non | Non | [Oui](#ingestion-sampling) |
+| Azure Functions | [Oui (activé par défaut)](#configuring-adaptive-sampling-for-azure-functions) | Non  | Seulement si aucun autre échantillonnage n’est appliqué |
+| Java | Non  | [Oui](#configuring-fixed-rate-sampling-for-java-applications) | Seulement si aucun autre échantillonnage n’est appliqué |
+| Python | Non  | [Oui](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Seulement si aucun autre échantillonnage n’est appliqué |
+| Tous les autres | Non  | Non  | [Oui](#ingestion-sampling) |
 
 > [!NOTE]
 > Les informations de la majeure partie de cette page s’appliquent aux versions actuelles des SDK Application Insights. Pour plus d’informations sur les versions antérieures des SDK, [consultez la section ci-dessous](#older-sdk-versions).
@@ -306,7 +306,29 @@ Dans Metrics Explorer, les taux tels que le nombre de demandes et d’exceptions
 
 ### <a name="configuring-fixed-rate-sampling-for-java-applications"></a>Configuration de l’échantillonnage à fréquence fixe pour les applications Java
 
-Par défaut, aucun échantillonnage n’est activé dans le SDK Java. Actuellement, il ne prend en charge que l’échantillonnage à fréquence fixe. L’échantillonnage adaptatif n’est pas pris en charge dans le SDK Java.
+Par défaut, aucun échantillonnage n’est activé dans l’agent et le SDK Java. Actuellement, il ne prend en charge que l’échantillonnage à fréquence fixe. L’échantillonnage adaptatif n’est pas pris en charge dans Java.
+
+#### <a name="configuring-java-agent"></a>Configuration de l’agent Java
+
+1. Télécharger [applicationinsights-agent-3.0.0-PREVIEW.4.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.4/applicationinsights-agent-3.0.0-PREVIEW.4.jar)
+
+1. Pour activer l’échantillonnage, ajoutez ceci à votre fichier `ApplicationInsights.json` :
+
+```json
+{
+  "instrumentationSettings": {
+    "preview": {
+      "sampling": {
+        "fixedRate": {
+          "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
+        }
+      }
+    }
+  }
+}
+```
+
+#### <a name="configuring-java-sdk"></a>Configuration du SDK Java
 
 1. Téléchargez et configurez votre application web avec la dernière version du [SDK Java Application Insights](../../azure-monitor/app/java-get-started.md).
 
@@ -366,7 +388,7 @@ tracer = Tracer(
 Vous pouvez configurer l’échantillonnage à fréquence fixe pour `AzureLogHandler` en modifiant l’argument facultatif `logging_sampling_rate`. Si aucun argument n’est fourni, un taux d’échantillonnage de 1,0 est utilisé. Un taux d’échantillonnage de 1,0 représente 100 %, ce qui signifie que toutes vos requêtes sont envoyées sous forme de télémétrie à Application Insights.
 
 ```python
-exporter = metrics_exporter.new_metrics_exporter(
+handler = AzureLogHandler(
     instrumentation_key='00000000-0000-0000-0000-000000000000',
     logging_sampling_rate=0.5,
 )
@@ -534,7 +556,7 @@ La précision de l’approximation dépend en grande partie du pourcentage d’�
 
 * L’échantillonnage d’ingestion peut se produire automatiquement pour toute télémétrie au-dessus d’un certain volume, si le Kit de développement logiciel (SDK)n’effectue pas d’échantillonnage. Cette configuration fonctionne par exemple si vous utilisez une version antérieure du SDK ASP.NET ou du SDK Java.
 * Si vous utilisez les kits SDK ASP.NET ASP.NET Core (hébergés dans Azure ou sur votre propre serveur), vous obtenez l’échantillonnage adaptatif par défaut, mais vous pouvez passer à l’échantillonnage à fréquence fixe comme décrit ci-dessus. Avec l’échantillonnage à taux fixe, le Kit de développement logiciel (SDK) du navigateur se synchronise automatiquement pour échantillonner les événements connexes. 
-* Si vous utilisez le SDK Java actuel, vous pouvez configurer `ApplicationInsights.xml` pour activer l’échantillonnage à fréquence fixe. L’échantillonnage est désactivé par défaut. Avec l’échantillonnage à fréquence fixe, le SDK du navigateur et le serveur se synchronisent automatiquement pour échantillonner les événements associés.
+* Si vous utilisez l’agent Java actuel, vous pouvez configurer `ApplicationInsights.json` (pour le SDK Java, configurez `ApplicationInsights.xml`) pour activer l’échantillonnage à fréquence fixe. L’échantillonnage est désactivé par défaut. Avec l’échantillonnage à fréquence fixe, le SDK du navigateur et le serveur se synchronisent automatiquement pour échantillonner les événements associés.
 
 *Je souhaite que certains événements rares soient toujours affichés. Comment faire en sorte qu’ils soient disponibles hors du module d’échantillonnage ?*
 

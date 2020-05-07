@@ -2,28 +2,24 @@
 title: 'Agent de provisionnement Azure AD Connect : Historique de publication des versions | Microsoft Docs'
 description: Cet article répertorie toutes les publications de l’agent de provisionnement d’Azure AD Connect et détaille les nouvelles fonctionnalités ainsi que les problèmes corrigés
 services: active-directory
-documentationcenter: ''
 author: cmmdesai
-manager: daveba
-editor: ''
-ms.assetid: ''
+manager: CelesteDG
 ms.service: active-directory
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/26/2020
 ms.subservice: app-provisioning
 ms.author: chmutali
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 559bca4f5020cebe06be7f24f7af5ec2e94bec0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: celested
+ms.openlocfilehash: 9a756d276b194aa8d1acb0297a7b4909a8082a84
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78183242"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593244"
 ---
 # <a name="azure-ad-connect-provisioning-agent-version-release-history"></a>Agent de provisionnement Azure AD Connect : Historique de publication des versions
+
 Cet article liste les versions et les fonctionnalités de l’agent de provisionnement Azure Active Directory Connect qui ont été publiées. L’équipe Azure AD met régulièrement à jour l’agent d’approvisionnement avec de nouvelles fonctions et fonctionnalités. L’agent de provisionnement est mis à jour automatiquement quand une nouvelle version est publiée. 
 
 Microsoft offre une prise en charge directe de la version la plus récente de l’agent et de la version précédente.

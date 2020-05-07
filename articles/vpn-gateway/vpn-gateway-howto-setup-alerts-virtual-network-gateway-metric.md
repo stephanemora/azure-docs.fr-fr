@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: alzam
-ms.openlocfilehash: d57663f683ba4e2107ec6813a19fac7b2dcdd26a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01704030ee3142cac9a328e1a3edc024651919a0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67605228"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82127910"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Configurer des alertes sur les métriques de passerelle VPN
 
@@ -71,4 +71,4 @@ L’exemple suivant montre comment créera une alerte sur une passerelle pour :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour configurer des alertes sur les journaux de diagnostic de tunnel, consultez [Configurer des alertes sur les événements du journal de diagnostic à partir de la passerelle VPN](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).
+Pour configurer des alertes sur les journaux de ressources de tunnel, consultez [Configurer des alertes sur les journaux de ressources de la passerelle VPN](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).

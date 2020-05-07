@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5948fba67d3f071d77192f9ad89bc696fdc0c3cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 521982a5cf09e0da9c52bca2fe367432a1d29e57
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227769"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583141"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Délégation contrainte Kerberos pour l’authentification unique à vos applications avec le proxy d’application
 
@@ -100,11 +100,13 @@ La configuration d’Active Directory varie selon que votre connecteur de proxy 
 
 ## <a name="sso-for-non-windows-apps"></a>Authentification unique pour les applications non Windows
 
-Le flux de délégation Kerberos dans le proxy d’application Azure AD démarre quand Azure AD authentifie l’utilisateur dans le cloud. Une fois que la demande est disponible localement, le connecteur du proxy d’application AD Azure émet un ticket Kerberos pour le compte de l’utilisateur en interagissant avec le répertoire Active Directory local. Ce processus est appelé délégation Kerberos contrainte (KCD). Au cours de la phase suivante, une demande est envoyée à l’application principale avec ce ticket Kerberos. 
+Le flux de délégation Kerberos dans le proxy d’application Azure AD démarre quand Azure AD authentifie l’utilisateur dans le cloud. Une fois que la demande est disponible localement, le connecteur du proxy d’application AD Azure émet un ticket Kerberos pour le compte de l’utilisateur en interagissant avec le répertoire Active Directory local. Ce processus est appelé délégation Kerberos contrainte (KCD). 
 
-Plusieurs protocoles définissent la manière d’envoyer ces demandes. La plupart des serveurs non Windows s’attendent à négocier avec SPNEGO. Ce protocole est pris en charge sur le proxy d’application Azure AD, mais il est désactivé par défaut. Un serveur peut être configuré pour SPNEGO ou KCD standard, mais pas les deux.
+Au cours de la phase suivante, une demande est envoyée à l’application principale avec ce ticket Kerberos. 
 
-Si vous configurez un ordinateur connecteur pour SPNEGO, assurez-vous que tous les autres connecteurs de ce groupe Connecteur sont également configurés avec SPNEGO. Les applications qui attendent KCD standard doivent être routées via d’autres connecteurs non configurés pour SPNEGO.
+Il existe plusieurs mécanismes qui définissent la manière d’envoyer le ticket Kerberos dans de telles demandes. La plupart des serveurs non-Windows s’attendent à le recevoir sous forme de jeton SPNEGO. Ce mécanisme est pris en charge sur le Proxy d’application Azure Active Directory, mais il est désactivé par défaut. Un connecteur peut être configuré pour le jeton SPNEGO ou le jeton Kerberos standard, mais pas pour les deux.
+
+Si vous configurez un ordinateur connecteur pour SPNEGO, assurez-vous que tous les autres connecteurs de ce groupe Connecteur sont également configurés avec SPNEGO. Les applications qui attendent un jeton Kerberos standard doivent être acheminées via des connecteurs autres que ceux configurés pour SPNEGO.
  
 
 Pour activer SPNEGO :

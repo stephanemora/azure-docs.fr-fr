@@ -5,12 +5,12 @@ description: Découvrir les meilleures pratiques de l’opérateur relatives à 
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 3d4e8577116ba1d78aaa881887f64e71c04af4f2
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 305d4c15aaf72a47549497902e3027064fbfd608
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668328"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208089"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Meilleures pratiques relatives aux mises à jour et à la sécurité du cluster dans Azure Kubernetes Service (AKS)
 
@@ -195,7 +195,7 @@ Pour plus d’informations sur les mises à niveau dans AKS, consultez [Versions
 
 ## <a name="process-linux-node-updates-and-reboots-using-kured"></a>Traiter les mises à jour et les redémarrages de nœuds Linux avec kured
 
-**Bonnes pratiques** – AKS télécharge et installe automatiquement les correctifs de sécurité sur chacun des nœuds Linux, mais ne les redémarre pas automatiquement si nécessaire. Utilisez `kured` pour surveiller les redémarrages en attente, puis fermez et videz le nœud en toute sécurité pour qu’il puisse redémarrer, appliquer les mises à jour et être aussi sûr que possible à l’égard du système d’exploitation. Pour les nœuds Windows Server (actuellement en préversion dans AKS), effectuez régulièrement une opération de mise à niveau AKS pour isoler et drainer de façon sécurisée les pods et déployer les nœuds mis à jour.
+**Bonnes pratiques** – AKS télécharge et installe automatiquement les correctifs de sécurité sur chacun des nœuds Linux, mais ne les redémarre pas automatiquement si nécessaire. Utilisez `kured` pour surveiller les redémarrages en attente, puis fermez et videz le nœud en toute sécurité pour qu’il puisse redémarrer, appliquer les mises à jour et être aussi sûr que possible à l’égard du système d’exploitation. Pour les nœuds Windows Server, effectuez régulièrement une opération de mise à niveau AKS pour isoler et drainer de façon sécurisée les pods et déployer les nœuds mis à jour.
 
 Chaque soir, les nœuds Linux d’AKS obtiennent les correctifs de sécurité disponibles via le canal de mise à jour de leur distribution. Ce comportement est automatiquement configuré à mesure que les nœuds sont déployés dans un cluster AKS. Pour minimiser les perturbations et l’impact potentiel sur les charges de travail en cours d’exécution, les nœuds ne sont pas automatiquement redémarrés si un correctif de sécurité ou mise à jour du noyau l’exige.
 

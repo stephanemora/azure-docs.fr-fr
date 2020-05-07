@@ -3,12 +3,12 @@ title: Définition de plusieurs instances d’une valeur de sortie
 description: Utilisez l’opération copy dans un modèle Azure Resource Manager pour retourner une valeur à partir d’un déploiement sur plusieurs itérations.
 ms.topic: conceptual
 ms.date: 04/17/2020
-ms.openlocfilehash: 0315af2f083285c4704b08fec608341b6f0b2231
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 50c4b4b8f301ad88d3dfde98ace1aed4431693db
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617838"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583430"
 ---
 # <a name="output-iteration-in-arm-templates"></a>Itération de sortie dans les modèles ARM
 
@@ -16,7 +16,7 @@ Cet article explique comment créer plusieurs valeurs pour une sortie dans votre
 
 Il est également possible d’utiliser copy avec des [ressources](copy-resources.md), des [propriétés dans une ressource](copy-properties.md) et des [variables](copy-variables.md).
 
-## <a name="outputs-iteration"></a>Itération sur les sorties
+## <a name="syntax"></a>Syntaxe
 
 L’élément copy utilise le format général suivant :
 
@@ -30,6 +30,21 @@ L’élément copy utilise le format général suivant :
 La propriété **count** indique le nombre d’itérations souhaité pour la valeur de sortie.
 
 La propriété **input** spécifie les propriétés que vous souhaitez répéter. Vous créez un tableau d’éléments construits à partir de la valeur de la propriété **input**. Il peut s’agir d’une propriété unique (par exemple, une chaîne) ou d’un objet avec plusieurs propriétés.
+
+## <a name="copy-limits"></a>Limites de copie
+
+Le nombre ne peut pas dépasser 800.
+
+Le nombre ne peut pas être négatif. Il peut être zéro si vous déployez le modèle avec une version récente d’Azure CLI, de PowerShell ou de l’API REST. Plus précisément, vous devez utiliser :
+
+* Azure PowerShell **2.6** ou version ultérieure
+* Azure CLI **2.0.74** ou version ultérieure
+* API REST version **2019-05-10** ou ultérieure
+* Les [déploiements liés](linked-templates.md) doivent utiliser la version **2019-05-10** de l’API ou une version ultérieure pour le type de ressource de déploiement
+
+Les versions antérieures de PowerShell, de l’interface CLI et de l’API REST ne prennent pas en charge le nombre zéro.
+
+## <a name="outputs-iteration"></a>Itération sur les sorties
 
 L’exemple suivant crée un nombre variable de comptes de stockage et retourne un point de terminaison pour chacun d’eux :
 

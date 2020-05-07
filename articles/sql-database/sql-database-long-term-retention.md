@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
-ms.openlocfilehash: d015eea21bcfa499d6751e024a882a7316b7f1a5
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: e85c8c0990a2659dba1f254a8f1aa7c7be7852eb
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81380758"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508086"
 ---
 # <a name="azure-sql-database-long-term-retention"></a>Conservation à long terme Azure SQL Database
 
@@ -84,8 +84,7 @@ L'utilisation de la rétention des sauvegardes à long terme avec des instances 
 - **Préversion publique limitée** : cette préversion n'est disponible que pour les abonnements EA et CSP et est soumise à une disponibilité limitée.  
 - [**PowerShell uniquement**](sql-database-managed-instance-long-term-backup-retention-configure.md) : aucune prise en charge du portail Azure n’est actuellement disponible. La rétention à long terme doit être activée à l’aide de PowerShell. 
 
-Pour demander l’inscription, créez un [ticket de support Azure](https://azure.microsoft.com/support/create-ticket/) dans la rubrique de support **Sauvegarde, restauration et continuité de l’activité/rétention des sauvegardes à long terme**.
-
+Pour demander l’inscription, créez un [ticket de support Azure](https://azure.microsoft.com/support/create-ticket/). Pour le type de problème, sélectionnez « Problème technique », pour le service, choisissez « SQL Database Managed Instance » et pour le type de problème, sélectionnez **Sauvegarde, restauration et continuité d’activité/conservation de sauvegarde à long terme.** . Dans votre demande, indiquez que vous souhaitez être inscrit à la préversion publique limitée de LTR pour Managed Instance.
 
 ## <a name="configure-long-term-backup-retention"></a>Configurer la rétention des sauvegardes à long terme
 
@@ -93,7 +92,7 @@ Pour apprendre à configurer la conservation à long terme via le Portail Azure 
 
 ## <a name="restore-database-from-ltr-backup"></a>Restaurer la base de données à partir de la sauvegarde LTR
 
-Pour restaurer une base de données à partir du stockage LTR, vous pouvez sélectionner une sauvegarde spécifique en fonction de son horodatage. Vous pouvez restaurer la base de données sur n’importe quel serveur existant, en utilisant le même abonnement que celui de la base de données d’origine. Pour apprendre à restaurer votre base de données à partir d’une sauvegarde LTR à l’aide du Portail Azure ou de PowerShell, consultez [Gérer la rétention à long terme des sauvegardes Azure SQL Database](sql-database-long-term-backup-retention-configure.md).
+Pour restaurer une base de données à partir du stockage LTR, vous pouvez sélectionner une sauvegarde spécifique en fonction de son horodatage. Vous pouvez restaurer la base de données sur n’importe quel serveur existant, en utilisant le même abonnement que celui de la base de données d’origine. Pour apprendre à restaurer votre base de données à partir d’une sauvegarde LTR à l’aide du Portail Azure ou de PowerShell, consultez [Gérer la rétention à long terme des sauvegardes Azure SQL Database](sql-database-long-term-backup-retention-configure.md). Dans votre demande, indiquez que vous souhaitez être inscrit à la préversion publique limitée de LTR pour Managed Instance.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

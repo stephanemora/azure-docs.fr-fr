@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/07/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f7167cbb26e69941cade01ab8c0b8d9dc633f0d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e2a950037aed2a8ded4d4e55920721285cbfc05c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72168384"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204660"
 ---
 Quand vous utilisez des stratégies IPsec personnalisées, gardez à l’esprit les exigences suivantes :
 
@@ -28,9 +28,9 @@ Quand vous utilisez des stratégies IPsec personnalisées, gardez à l’esprit 
 
 | Paramètre | Paramètres |
 |--- |--- |
-| Chiffrement IKE | AES256, AES192, AES128 |
-| Intégrité IKE | SHA384, SHA256, SHA1 |
-| Groupe DH | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2 |
-| Chiffrement IPsec | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128 |
-| Intégrité IPsec | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1 |
-| Groupe PFS | PFS24, ECP384, ECP256, PFS2048, PFS2 |
+| Chiffrement IKE | GCMAES256, GCMAES128, AES256, AES128 |
+| Intégrité IKE | SHA384, SHA256 |
+| Groupe DH | ECP384, ECP256, DHGroup24, DHGroup14 |
+| Chiffrement IPsec | GCMAES256, GCMAES128, AES256, AES128, aucun |
+| Intégrité IPsec | GCMAES256, GCMAES128, SHA256 |
+| Groupe PFS | ECP384, ECP256, PFS24, PFS14, aucun |

@@ -4,12 +4,12 @@ description: Application Insights réalise une analyse télémétrique intellige
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 3d8de08605d3dd693eb74a84a29c2efa6cad669a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c5b19c7e03993ef973cd708ed7a6fe89feb01a5
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671730"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81687690"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Détection intelligente - anomalies de performances
 
@@ -107,7 +107,7 @@ Ouvrez le panneau métrique des navigateurs. L'affichage segmenté du temps de c
 ### <a name="improve-slow-pages"></a>Améliorer les pages lentes
 Il existe un site web plein de conseils sur l’amélioration des temps de chargement des réponses serveur et des pages, et nous n’essaierons pas de tous les répéter ici. Voici quelques conseils que vous connaissez sans doute déjà, simplement pour susciter votre réflexion :
 
-* Chargement lent du à de gros fichiers : charger des scripts et les autres éléments de façon asynchrone. Utiliser le regroupement de scripts. Divisez la page principale en widgets chargeant leurs données séparément. N’envoyez pas d’ancien langage HTML pour les longs tableaux : utilisez un script pour demander les données JSON ou un autre format compact, puis renseignez le tableau sur place. Il existe de grandes structures pour aider à cela. (Elles aussi comportent des scripts volumineux, bien sûr.)
+* Chargement lent dû à de gros fichiers : charger des scripts et les autres éléments de façon asynchrone. Utiliser le regroupement de scripts. Divisez la page principale en widgets chargeant leurs données séparément. N’envoyez pas d’ancien langage HTML pour les longs tableaux : utilisez un script pour demander les données JSON ou un autre format compact, puis renseignez le tableau sur place. Il existe de grandes structures pour aider à cela. (Elles aussi comportent des scripts volumineux, bien sûr.)
 * Ralentir les dépendances de serveur : prendre en compte des emplacements géographiques de vos composants. Par exemple, si vous utilisez Azure, assurez-vous que le serveur web et la base de données se trouvent dans la même région. Les requêtes récupèrent-elles plus d’informations que nécessaire ? La mise en mémoire cache ou en lot peut-elle aider ?
 * Problèmes de capacité : examinez les métriques de serveur des temps de réponse et le nombre de demandes. Si les temps de réponse présentent des pics disproportionnés en termes de nombre de requêtes, vos serveurs sont étirés.
 
@@ -125,11 +125,11 @@ La notification de dégradation du temps de réponse indique :
   * Suivis du Profileur pour vous aider à savoir ce à quoi la durée de l’opération est consacrée (le lien est disponible si des exemples de suivi du Profileur ont été collectés pour cette opération pendant la période de détection). 
   * Rapports de performance dans l’Explorateur de mesures, dans lequel vous pouvez segmenter et traiter une plage de temps/des filtres pour cette opération.
   * Recherche de cet appel pour afficher certaines de ses propriétés.
-  * Rapports d’échecs : si le nombre > 1, cela signifie que des erreurs dans cette opération ont pu contribuer à la dégradation des performances.
+  * Rapports d’échecs : si le nombre > 1, cela signifie que des erreurs dans cette opération ont pu contribuer à la détérioration des performances.
 
 ## <a name="dependency-duration-degradation"></a>Dégradation de la durée de dépendance
 
-Les applications modernes adoptent de plus en plus l’approche de conception de microservices qui, dans de nombreux cas, confère aux services externes une haute fiabilité. Par exemple, si votre application s’appuie sur une plateforme de données ou si vous créez votre propre service bot, vous vous appuierez probablement sur un fournisseur de services cognitifs pour que vos bots interagissent de manière plus humaine et sur des services de banque de données dans lequel le bot extraira les réponses.  
+Les applications modernes adoptent de plus en plus l’approche de conception de microservices qui, dans de nombreux cas, conduit à une forte dépendance vis-à-vis des services externes. Par exemple, si votre application s’appuie sur une plateforme de données ou si vous créez votre propre service bot, vous vous appuierez probablement sur un fournisseur de services cognitifs pour que vos bots interagissent de manière plus humaine et sur des services de banque de données dans lequel le bot extraira les réponses.  
 
 Exemple de notification de dégradation de dépendance :
 

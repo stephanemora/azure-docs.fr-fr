@@ -3,12 +3,12 @@ title: Définir plusieurs instances d’une variable
 description: Utilisez l’opération copy dans un modèle Azure Resource Manager pour effectuer une itération à plusieurs reprises lors de la création d’une variable.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: ed0c2d87c48a18b0a065f6c76e1e69142a9df048
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4fbe392e8a0fb477b6986fc9c7584291590eb4e7
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153299"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583375"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Itération de variable dans les modèles ARM
 
@@ -16,7 +16,7 @@ Cet article explique comment créer plusieurs valeurs pour une variable dans vot
 
 Vous pouvez également utiliser l’élément copy avec des [ressources](copy-resources.md), des [propriétés dans une ressource](copy-properties.md) et des [sorties](copy-outputs.md).
 
-## <a name="variable-iteration"></a>Itération de variable
+## <a name="syntax"></a>Syntaxe
 
 L’élément copy utilise le format général suivant :
 
@@ -33,6 +33,21 @@ L’élément copy utilise le format général suivant :
 La propriété **name** est toute valeur qui identifie la boucle. La propriété **count** spécifie le nombre d’itérations que vous souhaitez pour la variable.
 
 La propriété **input** spécifie les propriétés que vous souhaitez répéter. Vous créez un tableau d’éléments construits à partir de la valeur de la propriété **input**. Il peut s’agir d’une propriété unique (par exemple, une chaîne) ou d’un objet avec plusieurs propriétés.
+
+## <a name="copy-limits"></a>Limites de copie
+
+Le nombre ne peut pas dépasser 800.
+
+Le nombre ne peut pas être négatif. Il peut être zéro si vous déployez le modèle avec une version récente d’Azure CLI, de PowerShell ou de l’API REST. Plus précisément, vous devez utiliser :
+
+* Azure PowerShell **2.6** ou version ultérieure
+* Azure CLI **2.0.74** ou version ultérieure
+* API REST version **2019-05-10** ou ultérieure
+* Les [déploiements liés](linked-templates.md) doivent utiliser la version **2019-05-10** de l’API ou une version ultérieure pour le type de ressource de déploiement
+
+Les versions antérieures de PowerShell, de l’interface CLI et de l’API REST ne prennent pas en charge le nombre zéro.
+
+## <a name="variable-iteration"></a>Itération de variable
 
 L’exemple suivant montre comment créer un tableau de valeurs de chaîne :
 
@@ -295,12 +310,6 @@ L’exemple suivant montre les différentes façons d’utiliser copy avec des v
 }
 ```
 
-## <a name="copy-limits"></a>Limites de copie
-
-Le nombre ne peut pas dépasser 800.
-
-Le nombre ne peut pas être négatif. Si vous déployez un modèle avec Azure PowerShell 2.6 (ou une version ultérieure), l’interface Azure CLI 2.0.74 (ou une version ultérieure) ou l’API REST version **2019-05-10** (ou une version ultérieure), vous pouvez définir le nombre sur zéro. Les versions antérieures de PowerShell, de l’interface CLI et de l’API REST ne prennent pas en charge le nombre zéro.
-
 ## <a name="example-templates"></a>Exemples de modèles
 
 Les exemples suivants illustrent des scénarios courants de création de plusieurs valeurs pour une variable.
@@ -312,11 +321,11 @@ Les exemples suivants illustrent des scénarios courants de création de plusieu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour effectuer un didacticiel, consultez [Tutoriel : créer plusieurs instances de ressources à l’aide de modèles ARM](template-tutorial-create-multiple-instances.md).
+* Pour suivre un tutoriel, consultez [Tutoriel : Créer plusieurs instances de ressource à l’aide de modèles ARM](template-tutorial-create-multiple-instances.md).
 * Pour connaître les autres utilisations de l’élément copy, consultez :
   * [Itération de ressource dans les modèles ARM](copy-resources.md)
   * [Itération de propriété dans les modèles ARM](copy-properties.md)
   * [Itération de sortie dans les modèles ARM](copy-outputs.md)
 * Pour en savoir plus sur les sections d’un modèle, consultez [Création de modèles ARM](template-syntax.md).
-* Pour savoir comment déployer votre modèle, consultez [Déploiement d’une application avec un modèle ARM](deploy-powershell.md).
+* Pour savoir comment déployer votre modèle, consultez [Déployer une application avec un modèle ARM](deploy-powershell.md).
 

@@ -4,12 +4,12 @@ description: Découvrez comment configurer un réseau (avancé) Azure CNI dans A
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 6f194cb97850fcb24e4789ac0ba39b6f03d99e6e
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 17778c367eb731a7e41f5017c3ae630dc152454e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617380"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207494"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurer un réseau Azure CNI dans AKS (Azure Kubernetes Service)
 
@@ -39,7 +39,7 @@ Les adresses IP des pods et des nœuds de cluster sont affectées à partir du s
 > Le nombre d’adresses IP requises doit prendre en compte des considérations relatives aux opérations de mise à niveau et à l’échelle. Si vous définissez la plage d’adresses IP pour prendre en charge uniquement un nombre fixe de nœuds, vous ne pouvez pas mettre à niveau ou à l’échelle votre cluster.
 >
 > - Lorsque vous **mettez à niveau** votre cluster AKS, un nouveau nœud est déployé dans le cluster. Les services et charges de travail commencent à s’exécuter sur le nouveau nœud, et le nœud plus ancien est supprimé du cluster. Ce processus de mise à niveau propagée nécessite la disponibilité d’un minimum d’adresses IP ou de bloc supplémentaires. Le nombre de nœuds est alors `n + 1`.
->   - Cette considération est particulièrement importante lorsque vous utilisez des pools de nœuds Windows Server (actuellement en version préliminaire dans AKS). Les nœuds Windows Server dans AKS n’appliquent pas automatiquement de mises à jour ; à la place, vous effectuez une mise à niveau sur le pool de nœuds. Cette mise à niveau déploie les nouveaux nœuds avec les derniers correctifs de sécurité et image de nœud de base Windows Server 2019. Pour plus d’informations sur la mise à niveau d’un pool de nœuds Windows Server, consultez [Upgrade a node pool][nodepool-upgrade] (Mettre à niveau un pool de nœuds).
+>   - Cette considération est particulièrement importante lorsque vous utilisez des pools de nœuds Windows Server. Les nœuds Windows Server dans AKS n’appliquent pas automatiquement de mises à jour ; à la place, vous effectuez une mise à niveau sur le pool de nœuds. Cette mise à niveau déploie les nouveaux nœuds avec les derniers correctifs de sécurité et image de nœud de base Windows Server 2019. Pour plus d’informations sur la mise à niveau d’un pool de nœuds Windows Server, consultez [Upgrade a node pool][nodepool-upgrade] (Mettre à niveau un pool de nœuds).
 >
 > - Lorsque vous **mettez à l’échelle** un cluster AKS, un nouveau nœud est déployé dans le cluster. Les services et charges de travail commencent à s’exécuter sur le nouveau nœud. Votre plage d’adresses IP doit prendre en compte la manière dont vous voulez augmenter le nombre de nœuds et de pods que votre cluster prend en charge. Un nœud supplémentaire pour les opérations de mise à niveau doit également être inclus. Le nombre de nœuds est alors `n + number-of-additional-scaled-nodes-you-anticipate + 1`.
 
@@ -63,7 +63,7 @@ Le nombre maximal de pods par nœud dans un cluster AKS est de 250. Le nombre ma
 | -- | :--: | :--: | -- |
 | Azure CLI | 110 | 30 | Oui (jusqu’à 250) |
 | Modèle Resource Manager | 110 | 30 | Oui (jusqu’à 250) |
-| Portail | 110 | 30 | Non |
+| Portail | 110 | 30 | Non  |
 
 ### <a name="configure-maximum---new-clusters"></a>Configurer un maximum : nouveaux clusters
 

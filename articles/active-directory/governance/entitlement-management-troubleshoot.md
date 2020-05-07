@@ -16,12 +16,12 @@ ms.date: 03/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c38e1a61827da547bb39a699a0e92043e63466c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5ddd8e1c64f4db8221937abc54e88d9a884acf3e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128473"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207242"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Résoudre les problèmes de gestion des droits d’utilisation Azure AD
 
@@ -87,13 +87,19 @@ Cet article décrit certains éléments que vous devriez vérifier pour vous aid
 
     Si la requête contient des erreurs de remise, l’état de la demande sera **Non remis** ou **Partiellement remis**.
 
-    Le cas échéant, le panneau des détails de la requête indique le nombre d’erreurs de livraison.
+    Le cas échéant, un décompte des erreurs de livraison sera affiché dans le volet Détails de la demande.
 
 1. Cliquez sur ce nombre pour voir toutes les erreurs de livraison de la requête.
 
 ### <a name="reprocess-a-request"></a>Retraiter une demande
 
-Si une demande rencontre une erreur, vous pouvez la retraiter pour faire une nouvelle tentative. Vous ne pouvez retraiter qu’une demande dont l’état est **Échec de livraison** ou **Partiellement remis** avec une date de fin inférieure à une semaine.
+Si une erreur est rencontrée après le déclenchement d’une demande de retraitement d’un package d’accès, vous devez patienter pendant que le système retraite la demande. Le système essaie de retraiter à plusieurs reprises et sur une période de plusieurs heures, vous ne pouvez donc pas forcer le retraitement pendant cette période. 
+
+Vous ne pouvez retraiter qu’une demande dont l’état est **Échec de livraison** ou **Partiellement remis** avec une date de fin inférieure à une semaine.
+
+- Si l’erreur est corrigée dans la fenêtre des essais, l’état de la demande passe à **Livraison en cours**. La demande sera retraitée sans aucune action supplémentaire de la part de l’utilisateur.
+
+- Si l’erreur n’a pas été corrigée dans la fenêtre des essais, l’état de la demande peut être **Échec de livraison** ou **Partiellement remis**. Vous pouvez ensuite utiliser le bouton **Retraiter**. Vous aurez sept jours pour retraiter la demande.
 
 **Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
 

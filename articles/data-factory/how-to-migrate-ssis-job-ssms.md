@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: 6e357e98d6c5190c6dfef675dc1ab9cf30a717c1
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: b27fe2abc50396b527e61487acf9797db59c1cce
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81455085"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627583"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migrer des travaux SQL Server Agent vers ADF avec SSMS
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Quand vous [migrez des charges de travail SQL Server Integration Services (SSIS) locales vers SSIS dans ADF](scenario-ssis-migration-overview.md), une fois les packages SSIS migrés, vous pouvez effectuer la migration par lots des travaux SQL Server Agent avec le type d’étape de travail Package SQL Server Integration Services vers des pipelines/activités/déclencheurs de planification Azure Data Factory (ADF) par le biais de l’**Assistant Migration des travaux SSIS** de SQL Server Management Studio (SSMS).
 

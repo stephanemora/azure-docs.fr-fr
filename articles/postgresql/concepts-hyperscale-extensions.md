@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 5d0798c77135b15e26c9787d9844cd9525cf12c5
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: ba8f4591782a4e34fbde26d9669ef01f24450486
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81532015"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82146412"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Extensions PostgreSQL dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 
@@ -116,7 +116,7 @@ Les tables suivantes répertorient les extensions PostgreSQL standard actuelleme
 > | [pgrowlocks](https://www.postgresql.org/docs/current/static/pgrowlocks.html) | Fournit un moyen d’afficher des informations de verrouillage au niveau des lignes. |
 > | [pgstattuple](https://www.postgresql.org/docs/current/static/pgstattuple.html) | Fournit un moyen d’afficher les statistiques au niveau du tuple. |
 > | [postgres\_fdw](https://www.postgresql.org/docs/current/static/postgres-fdw.html) | Wrapper de données externes permettant d’accéder aux données stockées dans des serveurs externes PostgreSQL. Pour plus d'informations sur cette extension, consultez la section « dblink et postgres_fdw ».|
-> | [sslinfo](https://www.postgresql.org/docs/current/sslinfo.html) | Informations sur les certificats SSL. |
+> | [sslinfo](https://www.postgresql.org/docs/current/sslinfo.html) | Informations sur les certificats TLS/SSL. |
 > | [tsm\_system\_rows](https://www.postgresql.org/docs/current/tsm-system-rows.html) | Méthode TABLESAMPLE, qui accepte le nombre de lignes en tant que limite. |
 > | [tsm\_system\_time](https://www.postgresql.org/docs/current/tsm-system-time.html) | Méthode TABLESAMPLE, qui accepte le temps en millisecondes en tant que limite. |
 > | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Fournit un moyen de créer des index hypothétiques qui ne consomment pas de ressources processeur ou disque. |

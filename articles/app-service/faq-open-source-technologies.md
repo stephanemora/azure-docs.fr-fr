@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 33590f9fc7e6c4d46123cbc7088086a3197d52ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3a7a00e59db677e156037c007537ab1b54c1cfaf
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74672439"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159964"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>FAQ sur les technologies open source pour Azure Web Apps
 
@@ -26,7 +26,7 @@ Cet article contient des réponses aux questions fréquemment posées sur les pr
 
 Pour activer la journalisation PHP :
 
-1. Connectez-vous à votre [site web Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Connectez-vous à votre **site web Kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
 2. Dans le menu principal, sélectionnez **Console de débogage** > **CMD**.
 3. Sélectionnez le dossier **Site**.
 4. Sélectionnez le dossier **wwwroot**.
@@ -56,7 +56,7 @@ Pour modifier la version de l’application Node.js, vous pouvez utiliser l’un
   1. Dans le portail Azure, accédez à votre application web.
   2. Dans le panneau **Paramètres**, sélectionnez **Paramètres de l’application**.
   3. Dans **Paramètres de l’application**, vous pouvez inclure WEBSITE_NODE_DEFAULT_VERSION en tant que clé et la version de Node.js souhaitée en tant que valeur.
-  4. Accédez à votre [console Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
+  4. Accédez à votre **console Kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
   5. Pour vérifier la version de Node.js, entrez la commande suivante :  
      ```
      node -v
@@ -91,7 +91,7 @@ Si cette erreur s’affiche dans vos fichiers debug.log ou php_errors.log, votre
 
 ## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>Comment déboguer une application Node.js hébergée dans App Service ?
 
-1.  Accédez à votre [console Kudu](https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole).
+1.  Accédez à votre **console Kudu** (`https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole`).
 2.  Accédez à votre dossier de journaux d’activité d’application (D:\home\LogFiles\Application).
 3.  Vérifiez le contenu du fichier logging_errors.txt.
 

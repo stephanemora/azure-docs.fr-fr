@@ -3,24 +3,24 @@ title: Guide de référence pour les fonctions dans les expressions
 description: Guide de référence sur les fonctions dans les expressions pour Azure Logic Apps et Power Automate
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 02/03/2020
-ms.openlocfilehash: 87798c93bbc1098daea2f7258a3af3e26bb4bb93
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/30/2020
+ms.openlocfilehash: e1ebc0257082ecfacc708352ba0a68e38e10717f
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79237141"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607790"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guide de référence sur l’utilisation des fonctions dans les expressions pour Azure Logic Apps et Power Automate
 
-Pour les définitions de flux de travail dans [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et [Power Automate](https://docs.microsoft.com/flow/getting-started), certaines [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) obtiennent leurs valeurs à partir d’actions runtime qui peuvent ne pas encore exister au début de l’exécution de votre flux de travail. Pour référencer ou traiter ces valeurs dans ces expressions, vous pouvez faire appel à des *fonctions* fournies par le [Langage de définition de workflow](../logic-apps/logic-apps-workflow-definition-language.md). 
+Pour les définitions de flux de travail dans [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et [Power Automate](https://docs.microsoft.com/flow/getting-started), certaines [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) obtiennent leurs valeurs à partir d’actions runtime qui peuvent ne pas encore exister au début de l’exécution de votre flux de travail. Pour référencer ou traiter ces valeurs dans ces expressions, vous pouvez faire appel à des *fonctions* fournies par le [Langage de définition de workflow](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
 > Cette page de référence s’applique à Azure Logic Apps et à Power Automate, mais apparaît dans la documentation Azure Logic Apps. Bien que cette page se rapporte spécifiquement aux applications logiques, ces fonctions fonctionnement pour les flux et les applications logiques. Pour plus d’informations sur les fonctions et expressions dans Power Automate, consultez [Utiliser des expressions dans des conditions](https://docs.microsoft.com/flow/use-expressions-in-conditions).
 
-Par exemple, vous pouvez calculer des valeurs à l’aide de fonctions mathématiques, telles que la [fonction add()](../logic-apps/workflow-definition-language-functions-reference.md#add), lorsque vous souhaitez la somme d’entiers ou de nombres décimaux. Voici d’autres exemples de tâches que vous pouvez réaliser avec les fonctions :
+Par exemple, vous pouvez calculer des valeurs à l’aide de fonctions mathématiques, telles que la fonction [add()](../logic-apps/workflow-definition-language-functions-reference.md#add), lorsque vous souhaitez obtenir la somme d’entiers ou de nombres décimaux. Voici d’autres exemples de tâches que vous pouvez réaliser avec les fonctions :
 
 | Tâche | Syntaxe de la fonction | Résultats |
 | ---- | --------------- | ------ |
@@ -31,8 +31,7 @@ Par exemple, vous pouvez calculer des valeurs à l’aide de fonctions mathémat
 Pour rechercher des fonctions [selon leur usage général](#ordered-by-purpose), examinez les tables suivantes. Ou, pour plus d’informations sur chaque fonction, consultez la [liste alphabétique](#alphabetical-list).
 
 > [!NOTE]
-> Dans la syntaxe des définitions de paramètres, un point d’interrogation (?) affiché après un paramètre signifie que ce paramètre est facultatif.
-> Par exemple, consultez [getFutureTime()](#getFutureTime).
+> Dans la syntaxe des définitions de paramètres, un point d’interrogation (?) affiché après un paramètre signifie que ce paramètre est facultatif. Par exemple, consultez [getFutureTime()](#getFutureTime).
 
 ## <a name="functions-in-expressions"></a>Fonctions dans les expressions
 
@@ -74,8 +73,7 @@ Voici les fonctions disponibles triées par usage général, ou vous pouvez parc
 
 ## <a name="string-functions"></a>Fonctions de chaînes
 
-Pour travailler avec des chaînes, vous pouvez utiliser ces fonctions de chaîne, ainsi que certaines [fonctions de collection](#collection-functions).
-Les fonctions de chaîne sont uniquement utilisables sur des chaînes.
+Pour travailler avec des chaînes, vous pouvez utiliser ces fonctions de chaîne, ainsi que certaines [fonctions de collection](#collection-functions). Les fonctions de chaîne sont uniquement utilisables sur des chaînes.
 
 | Fonction de chaîne | Tâche |
 | --------------- | ---- |
@@ -119,8 +117,7 @@ Pour travailler avec des collections, généralement des tableaux, des chaînes 
 
 ## <a name="logical-comparison-functions"></a>Fonctions de comparaison logiques
 
-Pour travailler avec des conditions, comparer des valeurs et des résultats d’expressions, ou évaluer différents types de logique, vous pouvez utiliser ces fonctions de comparaison logiques.
-Pour obtenir des informations complètes sur chaque fonction, consultez la [liste alphabétique](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+Pour travailler avec des conditions, comparer des valeurs et des résultats d’expressions, ou évaluer différents types de logique, vous pouvez utiliser ces fonctions de comparaison logiques. Pour obtenir des informations complètes sur chaque fonction, consultez la [liste alphabétique](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 | Fonction de comparaison logique | Tâche |
 | --------------------------- | ---- |
@@ -139,10 +136,10 @@ Pour obtenir des informations complètes sur chaque fonction, consultez la [list
 
 ## <a name="conversion-functions"></a>Fonctions de conversion
 
-Pour modifier le type ou le format d’une valeur, vous pouvez utiliser ces fonctions de conversion.
-Par exemple, vous pouvez convertir une valeur booléenne en entier.
-Pour plus d’informations sur la manière dont Logic Apps gère les types de contenu lors de la conversion, consultez [Gérer les types de contenu](../logic-apps/logic-apps-content-type.md).
-Pour obtenir des informations complètes sur chaque fonction, consultez la [liste alphabétique](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+Pour modifier le type ou le format d’une valeur, vous pouvez utiliser ces fonctions de conversion. Par exemple, vous pouvez convertir une valeur booléenne en entier. Pour plus d’informations sur la manière dont Logic Apps gère les types de contenu lors de la conversion, consultez [Gérer les types de contenu](../logic-apps/logic-apps-content-type.md). Pour obtenir des informations complètes sur chaque fonction, consultez la [liste alphabétique](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+> [!NOTE]
+> Azure Logic Apps convertit automatiquement les valeurs entre certains types de données, ce qui signifie que vous n’avez pas à effectuer manuellement ces conversions. Toutefois, si vous le faites, vous risquez d’être confronté à des comportements d’affichage inattendus, qui n’influent pas sur les conversions réelles, mais sur la manière dont elles sont présentées. Pour plus d’informations, consultez [Conversions de types de données implicites](#implicit-data-conversions).
 
 | Fonction de conversion | Tâche |
 | ------------------- | ---- |
@@ -169,6 +166,35 @@ Pour obtenir des informations complètes sur chaque fonction, consultez la [list
 | [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | Renvoyer la version de type chaîne d’une chaîne encodée dans un URI. |
 | [xml](../logic-apps/workflow-definition-language-functions-reference.md#xml) | Renvoyer la version de type entier d’une chaîne. |
 |||
+
+<a name="implicit-data-conversions"></a>
+
+## <a name="implicit-data-type-conversions"></a>Conversions de types de données implicites
+
+Azure Logic Apps effectue automatiquement ou implicitement les conversions entre certains types de données, vous n’avez donc pas à convertir manuellement ces derniers. Par exemple, si vous utilisez des valeurs qui ne sont pas des chaînes alors que les entrées sont supposées être des chaînes, Logic Apps convertit automatiquement les valeurs non-chaînes en chaînes.
+
+Par exemple, supposons qu’un déclencheur retourne une valeur numérique comme sortie :
+
+`triggerBody()?['123']`
+
+Si vous utilisez cette sortie numérique là où une entrée de chaîne est attendue, par exemple une URL, Logic Apps convertit automatiquement la valeur en chaîne en utilisant la notation des accolades (`{}`) :
+
+`@{triggerBody()?['123']}`
+
+### <a name="base64-encoding-and-decoding"></a>Encodage et décodage base64
+
+Logic Apps effectue automatiquement ou implicitement l’encodage ou le décodage base64, de sorte que vous n’avez pas à effectuer manuellement ces opérations à l’aide des expressions correspondantes :
+
+* `base64(<value>)`
+* `base64ToBinary(<value>)`
+* `base64ToString(<value>)`
+* `base64(decodeDataUri(<value>))`
+* `concat('data:;base64,',<value>)`
+* `concat('data:,',encodeUriComponent(<value>))`
+* `decodeDataUri(<value>)`
+
+> [!NOTE]
+> Si vous ajoutez manuellement ces expressions à votre application logique, par exemple, à l’aide de l’éditeur d’expressions, que vous quittez le concepteur d’application logique puis revenez au concepteur, ce dernier affiche uniquement les valeurs de paramètres. Les expressions sont conservées en mode code uniquement si vous ne modifiez pas les valeurs de paramètre. Dans le cas contraire, Logic Apps supprime les expressions du mode code, ce qui laisse uniquement les valeurs des paramètres. Ce comportement est sans incidence sur le codage ou le décodage, mais perturbe l’affichage des expressions.
 
 <a name="math-functions"></a>
 
@@ -321,7 +347,7 @@ action().outputs.body.<property>
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*property*> | Non | String | Nom de propriété de l’objet d’action dont vous souhaitez la valeur : **name**, **startTime**, **endTime**, **inputs**, **outputs**, **status**, **code**, **trackingId** et **clientTrackingId**. Vous trouverez ces propriétés dans le portail Azure en passant en revue les détails d’un historique des exécutions spécifique. Pour plus d’informations, consultez [API REST - Actions d’exécution du workflow](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). |
+| <*property*> | Non  | String | Nom de propriété de l’objet d’action dont vous souhaitez la valeur : **name**, **startTime**, **endTime**, **inputs**, **outputs**, **status**, **code**, **trackingId** et **clientTrackingId**. Vous trouverez ces propriétés dans le portail Azure en passant en revue les détails d’un historique des exécutions spécifique. Pour plus d’informations, consultez [API REST - Actions d’exécution du workflow](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -459,7 +485,7 @@ actions('<actionName>').outputs.body.<property>
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*actionName*> | Oui | String | Nom de l’objet d’action dont vous souhaitez la sortie  |
-| <*property*> | Non | String | Nom de propriété de l’objet d’action dont vous souhaitez la valeur : **name**, **startTime**, **endTime**, **inputs**, **outputs**, **status**, **code**, **trackingId** et **clientTrackingId**. Vous trouverez ces propriétés dans le portail Azure en passant en revue les détails d’un historique des exécutions spécifique. Pour plus d’informations, consultez [API REST - Actions d’exécution du workflow](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). |
+| <*property*> | Non  | String | Nom de propriété de l’objet d’action dont vous souhaitez la valeur : **name**, **startTime**, **endTime**, **inputs**, **outputs**, **status**, **code**, **trackingId** et **clientTrackingId**. Vous trouverez ces propriétés dans le portail Azure en passant en revue les détails d’un historique des exécutions spécifique. Pour plus d’informations, consultez [API REST - Actions d’exécution du workflow](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -521,7 +547,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
 | <*days*> | Oui | Integer | Nombre de jours positif ou négatif à ajouter |
-| <*format*> | Non | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*format*> | Non  | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -563,7 +589,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
 | <*hours*> | Oui | Integer | Nombre d’heures positif ou négatif à ajouter |
-| <*format*> | Non | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*format*> | Non  | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -605,7 +631,7 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
 | <*minutes*> | Oui | Integer | Nombre de minutes positif ou négatif à ajouter |
-| <*format*> | Non | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*format*> | Non  | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -746,7 +772,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
 | <*seconds*> | Oui | Integer | Nombre de secondes positif ou négatif à ajouter |
-| <*format*> | Non | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*format*> | Non  | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -790,7 +816,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
 | <*interval*> | Oui | Integer | Nombre d’unités de temps spécifiées à ajouter |
 | <*timeUnit*> | Oui | String | L’unité de temps à utiliser avec *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | Non | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*format*> | Non  | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -908,6 +934,9 @@ Et retourne ce résultat : `["hello"]`
 
 Retourne la version encodée en Base64 d’une chaîne.
 
+> [!NOTE]
+> Azure Logic Apps effectue automatiquement l’encodage et le décodage base64, ce qui signifie que vous n’avez pas à effectuer manuellement ces opérations. Toutefois, si vous le faites, vous risquez d’être confronté à des comportements d’affichage inattendus, qui n’influent pas sur les conversions réelles, mais sur la manière dont elles sont présentées. Pour plus d’informations, consultez [Conversions de types de données implicites](#implicit-data-conversions).
+
 ```
 base64('<value>')
 ```
@@ -937,6 +966,9 @@ Et retourne ce résultat : `"aGVsbG8="`
 ### <a name="base64tobinary"></a>base64ToBinary
 
 Retourne la version binaire d’une chaîne encodée en Base64.
+
+> [!NOTE]
+> Azure Logic Apps effectue automatiquement l’encodage et le décodage base64, ce qui signifie que vous n’avez pas à effectuer manuellement ces opérations. Toutefois, si vous le faites, vous risquez d’être confronté à des comportements d’affichage inattendus, qui n’influent pas sur les conversions réelles, mais sur la manière dont elles sont présentées. Pour plus d’informations, consultez [Conversions de types de données implicites](#implicit-data-conversions).
 
 ```
 base64ToBinary('<value>')
@@ -968,9 +1000,10 @@ Et retourne ce résultat :
 
 ### <a name="base64tostring"></a>base64ToString
 
-Retourne la version de type chaîne d’une chaîne encodée en Base64, en décodant efficacement la chaîne Base64.
-Utilisez cette fonction plutôt que la fonction [decodeBase64()](#decodeBase64).
-Bien que les deux fonctions agissent de manière identique, la fonction `base64ToString()` est préférée.
+Retourne la version de type chaîne d’une chaîne encodée en Base64, en décodant efficacement la chaîne Base64. Utilisez cette fonction plutôt que la fonction [decodeBase64()](#decodeBase64), qui est déconseillée.
+
+> [!NOTE]
+> Azure Logic Apps effectue automatiquement l’encodage et le décodage base64, ce qui signifie que vous n’avez pas à effectuer manuellement ces opérations. Toutefois, si vous le faites, vous risquez d’être confronté à des comportements d’affichage inattendus, qui n’influent pas sur les conversions réelles, mais sur la manière dont elles sont présentées. Pour plus d’informations, consultez [Conversions de types de données implicites](#implicit-data-conversions).
 
 ```
 base64ToString('<value>')
@@ -1236,7 +1269,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
 | <*destinationTimeZone*> | Oui | String | Nom du fuseau horaire cible. Pour les noms de fuseau horaire, consultez [Valeurs d’index de fuseau horaire Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), mais vous devrez peut-être supprimer les signes de ponctuation du nom de fuseau horaire. |
-| <*format*> | Non | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*format*> | Non  | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -1279,7 +1312,7 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
 | <*sourceTimeZone*> | Oui | String | Nom du fuseau horaire source. Pour les noms de fuseau horaire, consultez [Valeurs d’index de fuseau horaire Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), mais vous devrez peut-être supprimer les signes de ponctuation du nom de fuseau horaire. |
 | <*destinationTimeZone*> | Oui | String | Nom du fuseau horaire cible. Pour les noms de fuseau horaire, consultez [Valeurs d’index de fuseau horaire Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), mais vous devrez peut-être supprimer les signes de ponctuation du nom de fuseau horaire. |
-| <*format*> | Non | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*format*> | Non  | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -1321,7 +1354,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
 | <*sourceTimeZone*> | Oui | String | Nom du fuseau horaire source. Pour les noms de fuseau horaire, consultez [Valeurs d’index de fuseau horaire Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), mais vous devrez peut-être supprimer les signes de ponctuation du nom de fuseau horaire. |
-| <*format*> | Non | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*format*> | Non  | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -1535,7 +1568,7 @@ Cet exemple retourne le numéro du jour de la semaine à partir de cet horodatag
 dayOfWeek('2018-03-15T13:27:36Z')
 ```
 
-Et retourne ce résultat : `3`
+Et retourne ce résultat : `4`
 
 <a name="dayOfYear"></a>
 
@@ -1569,43 +1602,18 @@ Et retourne ce résultat : `74`
 
 <a name="decodeBase64"></a>
 
-### <a name="decodebase64"></a>decodeBase64
+### <a name="decodebase64-deprecated"></a>decodeBase64 (déconseillée)
 
-Retourne la version de type chaîne d’une chaîne encodée en Base64, en décodant efficacement la chaîne Base64.
-Pensez à utiliser la fonction [base64ToString()](#base64ToString) plutôt que la fonction `decodeBase64()`.
-Bien que les deux fonctions agissent de manière identique, la fonction `base64ToString()` est préférée.
-
-```
-decodeBase64('<value>')
-```
-
-| Paramètre | Obligatoire | Type | Description |
-| --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | String | Chaîne encodée en Base64 à décoder |
-|||||
-
-| Valeur retournée | Type | Description |
-| ------------ | ---- | ----------- |
-| <*decoded-base64-string*> | String | Version de type chaîne d’une chaîne encodée en Base64 |
-||||
-
-*Exemple*
-
-Cet exemple illustre la création d’une chaîne pour une chaîne encodée en Base64 :
-
-```
-decodeBase64('aGVsbG8=')
-```
-
-Et retourne ce résultat : `"hello"`
+Cette fonction étant déconseillée, utilisez [base64ToString()](#base64ToString) à la place.
 
 <a name="decodeDataUri"></a>
 
 ### <a name="decodedatauri"></a>decodeDataUri
 
-Retourne la version binaire d’un URI (Uniform Resource Identifier) de données.
-Pensez à utiliser la fonction [dataUriToBinary()](#dataUriToBinary) plutôt que la fonction `decodeDataUri()`.
-Bien que les deux fonctions agissent de manière identique, la fonction `dataUriToBinary()` est préférée.
+Retourne la version binaire d’un URI (Uniform Resource Identifier) de données. Pensez à utiliser la fonction [dataUriToBinary()](#dataUriToBinary) plutôt que la fonction `decodeDataUri()`. Bien que les deux fonctions agissent de manière identique, la fonction `dataUriToBinary()` est préférée.
+
+> [!NOTE]
+> Azure Logic Apps effectue automatiquement l’encodage et le décodage base64, ce qui signifie que vous n’avez pas à effectuer manuellement ces opérations. Toutefois, si vous le faites, vous risquez d’être confronté à des comportements d’affichage inattendus, qui n’influent pas sur les conversions réelles, mais sur la manière dont elles sont présentées. Pour plus d’informations, consultez [Conversions de types de données implicites](#implicit-data-conversions).
 
 ```
 decodeDataUri('<value>')
@@ -1703,9 +1711,10 @@ Et retourne ce résultat : `2`
 
 ### <a name="encodeuricomponent"></a>encodeUriComponent
 
-Retourne une version encodée sous forme d’URI d’une chaîne en remplaçant les caractères non sécurisés pour les URL par des caractères d’échappement.
-Pensez à utiliser la fonction [uriComponent()](#uriComponent) plutôt que la fonction `encodeUriComponent()`.
-Bien que les deux fonctions agissent de manière identique, la fonction `uriComponent()` est préférée.
+Retourne une version encodée sous forme d’URI d’une chaîne en remplaçant les caractères non sécurisés pour les URL par des caractères d’échappement. Pensez à utiliser la fonction [uriComponent()](#uriComponent) plutôt que la fonction `encodeUriComponent()`. Bien que les deux fonctions agissent de manière identique, la fonction `uriComponent()` est préférée.
+
+> [!NOTE]
+> Azure Logic Apps effectue automatiquement l’encodage et le décodage base64, ce qui signifie que vous n’avez pas à effectuer manuellement ces opérations. Toutefois, si vous le faites, vous risquez d’être confronté à des comportements d’affichage inattendus, qui n’influent pas sur les conversions réelles, mais sur la manière dont elles sont présentées. Pour plus d’informations, consultez [Conversions de types de données implicites](#implicit-data-conversions).
 
 ```
 encodeUriComponent('<value>')
@@ -1924,7 +1933,7 @@ formatDateTime('<timestamp>', '<format>'?)
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
-| <*format*> | Non | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*format*> | Non  | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -2019,7 +2028,7 @@ formatNumber(<number>, <format>, <locale>?)
 | --------- | -------- | ---- | ----------- |
 | <*number*> | Oui | Integer ou Double | La valeur que vous souhaitez formater. |
 | <*format*> | Oui | String | Chaîne de format composite qui spécifie le format que vous souhaitez utiliser. Pour les chaînes de format numériques prises en charge, consultez [Chaînes de format numériques standard](https://docs.microsoft.com/dotnet/standard/base-types/standard-numeric-format-strings), qui sont prises en charge par `number.ToString(<format>, <locale>)`. |
-| <*locale*> | Non | String | Paramètres régionaux à utiliser tels qu’ils sont pris en charge par `number.ToString(<format>, <locale>)`. Si elle n’est pas spécifiée, la valeur par défaut est `en-us`. |
+| <*locale*> | Non  | String | Paramètres régionaux à utiliser tels qu’ils sont pris en charge par `number.ToString(<format>, <locale>)`. Si elle n’est pas spécifiée, la valeur par défaut est `en-us`. |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -2073,7 +2082,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | Oui | Integer | Nombre d’unités de temps spécifiées à ajouter |
 | <*timeUnit*> | Oui | String | L’unité de temps à utiliser avec *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | Non | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*format*> | Non  | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -2117,7 +2126,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | Oui | Integer | Nombre d’unités de temps spécifiées à soustraire |
 | <*timeUnit*> | Oui | String | L’unité de temps à utiliser avec *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | Non | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*format*> | Non  | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -2239,7 +2248,7 @@ guid('<format>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | Non | String | Un seul [spécificateur de format](https://msdn.microsoft.com/library/97af8hh4) pour le GUID retourné. Par défaut, il s’agit du format « D », mais vous pouvez utiliser « N », « D », « B », « P » ou « X ». |
+| <*format*> | Non  | String | Un seul [spécificateur de format](https://msdn.microsoft.com/library/97af8hh4) pour le GUID retourné. Par défaut, il s’agit du format « D », mais vous pouvez utiliser « N », « D », « B », « P » ou « X ». |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -2426,9 +2435,11 @@ iterationIndexes('<loopName>')
 
 *Exemple* 
 
-Cet exemple crée une variable de compteur et incrémente cette variable par un au cours de chaque itération dans une boucle Until jusqu’à ce que la valeur du compteur atteigne 5. L’exemple crée également une variable qui assure le suivi de l’index actuel pour chaque itération. Lors de chaque itération, l’exemple incrémente le compteur dans la boucle Until, assigne la valeur du compteur à la valeur d’index actuelle, puis incrémente le compteur. Vous pouvez déterminer à tout moment le numéro d’itération actuel en récupérant la valeur d’index actuelle.
+Cet exemple crée une variable de compteur et incrémente cette variable par un au cours de chaque itération dans une boucle Until jusqu’à ce que la valeur du compteur atteigne 5. L’exemple crée également une variable qui assure le suivi de l’index actuel pour chaque itération. Lors de chaque itération, l’exemple incrémente le compteur dans la boucle Until, assigne la valeur du compteur à la valeur d’index actuelle, puis incrémente le compteur. Dans la boucle, cet exemple fait référence à l’index d’itération actuel à l’aide de la fonction `iterationIndexes` :
 
-```
+`iterationIndexes('Until_Max_Increment')`
+
+```json
 {
    "actions": {
       "Create_counter_variable": {
@@ -2459,7 +2470,7 @@ Cet exemple crée une variable de compteur et incrémente cette variable par un 
             "Create_counter_variable": [ "Succeeded" ]
          }
       },
-      "Until": {
+      "Until_Max_Increment": {
          "type": "Until",
          "actions": {
             "Assign_current_index_to_counter": {
@@ -2472,6 +2483,15 @@ Cet exemple crée une variable de compteur et incrémente cette variable par un 
                   "Increment_variable": [ "Succeeded" ]
                }
             },
+            "Compose": {
+               "inputs": "'Current index: ' @{iterationIndexes('Until_Max_Increment')}",
+               "runAfter": {
+                  "Assign_current_index_to_counter": [
+                     "Succeeded"
+                    ]
+                },
+                "type": "Compose"
+            },           
             "Increment_variable": {
                "type": "IncrementVariable",
                "inputs": {
@@ -2481,7 +2501,7 @@ Cet exemple crée une variable de compteur et incrémente cette variable par un 
                "runAfter": {}
             }
          },
-         "expression": "@equals(variables('myCounter'), 5),
+         "expression": "@equals(variables('myCounter'), 5)",
          "limit": {
             "count": 60,
             "timeout": "PT1H"
@@ -3654,7 +3674,7 @@ startOfDay('<timestamp>', '<format>'?)
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
-| <*format*> | Non | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*format*> | Non  | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -3685,7 +3705,7 @@ startOfHour('<timestamp>', '<format>'?)
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
-| <*format*> | Non | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*format*> | Non  | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -3716,7 +3736,7 @@ startOfMonth('<timestamp>', '<format>'?)
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
-| <*format*> | Non | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*format*> | Non  | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -3897,7 +3917,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
 | <*interval*> | Oui | Integer | Nombre d’unités de temps spécifiées à soustraire |
 | <*timeUnit*> | Oui | String | L’unité de temps à utiliser avec *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | Non | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*format*> | Non  | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -4533,7 +4553,7 @@ Si vous le souhaitez, vous pouvez spécifier un autre format avec le paramètre 
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | Non | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*format*> | Non  | String | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -4606,7 +4626,7 @@ workflow().<property>
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*property*> | Non | String | Nom de la propriété de flux de travail dont vous souhaitez la valeur <p>Un objet de flux de travail possède ces propriétés : **name**, **type**, **id**, **location** et **run**. La valeur de la propriété **run** est également un objet qui possède ces propriétés : **name**, **type** et **id**. |
+| <*property*> | Non  | String | Nom de la propriété de flux de travail dont vous souhaitez la valeur <p>Un objet de flux de travail possède ces propriétés : **name**, **type**, **id**, **location** et **run**. La valeur de la propriété **run** est également un objet qui possède ces propriétés : **name**, **type** et **id**. |
 |||||
 
 *Exemple*

@@ -13,13 +13,12 @@ ms.date: 07/16/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76e614b605cd07cd5dc454824dd204447f806907
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7125559dd39e1626634dae7c45b0744bfff57d8c
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230617"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652658"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>Considérations relatives à l’utilisation de Xamarin iOS avec MSAL.NET
 Lorsque vous utilisez la Bibliothèque d’authentification Microsoft pour .NET (MSAL.NET) sur Xamarin iOS, vous devez : 
