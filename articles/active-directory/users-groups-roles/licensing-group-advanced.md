@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 139d7e0cf2b57cc466dc97370b90a599257ce755
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0af897ca284b1d51867808c2c74496c73e9bdcc3
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231717"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582777"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scénarios, limitations et problèmes connus liés à l’utilisation de groupes dans le cadre de la gestion des licences dans Azure Active Directory
 
@@ -43,7 +43,7 @@ Par exemple, vous pouvez créer un groupe dynamique pour un jeu de produits que 
 
 Les licences sont attribuées aux utilisateurs peu de temps après leur ajout au groupe. En cas de modification de son attribut, l’utilisateur quitte les groupes et les licences sont supprimées.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 Considérez l’exemple d’une solution locale de gestion des identités, qui détermine quels utilisateurs doivent pouvoir accéder aux services web Microsoft. Elle utilise **extensionAttribute1** pour stocker une valeur de chaîne représentant les licences que l’utilisateur doit avoir. Azure AD Connect la synchronise avec Azure AD.
 
@@ -100,7 +100,7 @@ Initialement, l’utilisateur hérite uniquement de la licence du groupe *E3 - 
 
 ## <a name="managing-new-services-added-to-products"></a>Gestion des nouveaux services ajoutés aux produits
 
-Lorsque Microsoft ajoute un nouveau service à un plan de licence de produit, ce service est activé par défaut dans tous les groupes auxquels vous avez attribué la licence du produit. Les utilisateurs de votre client qui sont abonnés aux notifications relatives aux modifications apportées au produit reçoivent des e-mails à l’avance, les informant des ajouts de service à venir.
+Lorsque Microsoft ajoute un nouveau service à un plan de licence de produit, ce service est activé par défaut dans tous les groupes auxquels vous avez attribué la licence du produit. Les utilisateurs de votre organisation qui sont abonnés aux notifications relatives aux modifications apportées au produit reçoivent des e-mails à l’avance, les informant des ajouts de service à venir.
 
 En tant qu’administrateur, vous pouvez passer en revue tous les groupes affectés par la modification et prendre des mesures telles que la désactivation du nouveau service dans tous les groupes. Par exemple, si vous avez créé des groupes ciblant uniquement des services spécifiques pour le déploiement, vous pouvez réexaminer ces groupes pour vous assurer que les nouveaux services ajoutés sont désactivés.
 
@@ -108,7 +108,7 @@ Voici un exemple de ce à quoi ce processus peut ressembler :
 
 1. À l’origine, vous avez affecté le produit *Office 365 Enterprise E5* à plusieurs groupes. L’un de ces groupes, nommé *O365 E5 - Exchange uniquement* a été conçu pour activer uniquement le service *Exchange Online (Plan 2)* pour ses membres.
 
-2. Vous avez reçu de Microsoft une notification signalant que le produit E5 va être étendu avec un nouveau service, *Microsoft Stream*. Lorsque le service devient disponible dans votre client, vous pouvez procéder comme suit :
+2. Vous avez reçu de Microsoft une notification signalant que le produit E5 va être étendu avec un nouveau service, *Microsoft Stream*. Lorsque le service devient disponible dans votre organisation, vous pouvez procéder de la façon suivante :
 
 3. Accédez au panneau [**Azure Active Directory > Licences > Tous les produits**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products), sélectionnez *Office 365 Entreprise E5*, puis **Groupes sous licence** pour afficher la liste de tous les groupes disposant de ce produit.
 
@@ -128,9 +128,9 @@ Voici un exemple de ce à quoi ce processus peut ressembler :
 ## <a name="use-powershell-to-see-who-has-inherited-and-direct-licenses"></a>Utiliser PowerShell pour voir qui dispose de licences héritées et directes
 Vous pouvez utiliser un script PowerShell pour vérifier si les utilisateurs disposent d’une licence attribuée directement ou héritée d’un groupe.
 
-1. Exécutez l’applet de commande `connect-msolservice` pour vous authentifier et vous connecter à votre locataire.
+1. Exécutez l’applet de commande `connect-msolservice` pour vous authentifier et vous connecter à votre organisation.
 
-2. `Get-MsolAccountSku` peut être utilisé pour connaître toutes les licences de produit configurées dans le locataire.
+2. `Get-MsolAccountSku` peut être utilisé pour connaître toutes les licences de produit provisionnées dans l’organisation Azure AD.
 
    ![Capture d’écran de l’applet de commande Get-Msolaccountsku](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 

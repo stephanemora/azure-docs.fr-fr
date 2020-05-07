@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: 6dd4db999cb130c9816ad023888a4333e968c224
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1fb5b78f210a9bd817a2987dcb30fa25d156d5d2
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76720382"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780434"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>La création du cluster échoue avec InvalidNetworkConfigurationErrorCode in Azure HDInsight
 
@@ -54,7 +54,7 @@ La description de l’erreur contient le message « Échec de la connexion au co
 
 ### <a name="cause"></a>Cause :
 
-Stockage Azure et SQL n’ont pas d’adresses IP fixes. Nous devons donc autoriser les connexions sortantes vers toutes les adresses IP pour autoriser l’accès à ces services. Les étapes de résolution exactes varient selon que vous avez configuré un groupe de sécurité réseau (NSG) ou des règles définies par l’utilisateur (UDR). Pour plus d’informations sur ces configurations, reportez-vous à la section sur le [contrôle du trafic réseau avec HDInsight avec les groupes de sécurité réseau et les itinéraires définis par l’utilisateur](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ip).
+Stockage Azure et SQL n’ont pas d’adresses IP fixes. Nous devons donc autoriser les connexions sortantes vers toutes les adresses IP pour autoriser l’accès à ces services. Les étapes de résolution exactes varient selon que vous avez configuré un groupe de sécurité réseau (NSG) ou des règles définies par l’utilisateur (UDR). Pour plus d’informations sur ces configurations, reportez-vous à la section sur le [contrôle du trafic réseau avec HDInsight avec les groupes de sécurité réseau et les itinéraires définis par l’utilisateur](../control-network-traffic.md).
 
 ### <a name="resolution"></a>Résolution
 

@@ -11,6 +11,9 @@
   items:
     - name: Répliquer une machine virtuelle Azure vers une autre région
       href: azure-to-azure-quickstart.md
+    - name: Créer un coffre - Modèle ARM
+      displayName: Resource Manager
+      href: quickstart-create-vault-template.md
 - name: Tutoriels
   items:
     - name: Récupération d’urgence de machine virtuelle Azure vers Azure

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d56bb7c30a8289fe7f261979dca6a4ffe2bfe99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b50118dcd4bf0fafa3e25399cf7d82558b7c776c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80048156"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582793"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Configuration des paramètres de groupe avec les applets de commande Azure Active Directory
 
@@ -160,7 +160,7 @@ Voici les paramètres définis dans l’objet SettingsTemplate Group.Unified. Sa
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Tapez : Boolean<li>Valeur par défaut : False | Valeur booléenne indiquant si un utilisateur invité peut être ou non un propriétaire de groupes. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Tapez : Boolean<li>Valeur par défaut : True | Valeur booléenne indiquant si un utilisateur invité peut avoir ou non accès au contenu des groupes Office 365.  Ce paramètre ne nécessite pas une licence Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Tapez : String<li>Par défaut : "" | URL d’un lien vers les instructions d’utilisation de l’invité. |
-|  <ul><li>AllowToAddGuests<li>Tapez : Boolean<li>Valeur par défaut : True | Une valeur booléenne indiquant si l’utilisateur est autorisé ou non à ajouter des invités à ce répertoire. <br>Ce paramètre peut être remplacé et devenir en lecture seule si *EnableMIPLabels* est défini sur *True* et qu’une stratégie invité est associée à l’étiquette de sensibilité attribuée au groupe.<br>Si le paramètre AllowToAddGuests a la valeur False au niveau du locataire, tout paramètre AllowToAddGuests au niveau du groupe est ignoré. Si vous ne souhaitez activer l’accès invité que pour quelques groupes, vous devez définir AllowToAddGuests sur True au niveau du locataire, puis le désactiver de manière sélective pour des groupes spécifiques. |
+|  <ul><li>AllowToAddGuests<li>Tapez : Boolean<li>Valeur par défaut : True | Une valeur booléenne indiquant si l’utilisateur est autorisé ou non à ajouter des invités à ce répertoire. <br>Ce paramètre peut être remplacé et devenir en lecture seule si *EnableMIPLabels* est défini sur *True* et qu’une stratégie invité est associée à l’étiquette de sensibilité attribuée au groupe.<br>Si le paramètre AllowToAddGuests a la valeur False au niveau de l’organisation, tout paramètre AllowToAddGuests au niveau du groupe est ignoré. Si vous ne souhaitez activer l’accès invité que pour quelques groupes, vous devez définir AllowToAddGuests sur True au niveau de l’organisation, puis le désactiver de manière sélective pour des groupes spécifiques. |
 |  <ul><li>ClassificationList<li>Tapez : String<li>Par défaut : "" | Liste de valeurs de classification valides séparées par des virgules qui peuvent être appliquées à des groupes Office 365. <br>Ce paramètre ne s’applique pas lorsque EnableMIPLabels == True.|
 |  <ul><li>EnableMIPLabels<li>Tapez : Boolean<li>Valeur par défaut : « False » (faux) |Indicateur qui spécifie si les étiquettes de sensibilité publiées dans Microsoft 365 Compliance Center peuvent être appliquées aux Groupes Office 365. Pour plus d’informations, consultez [Attribuer des étiquettes de sensibilité pour les groupes Office 365](groups-assign-sensitivity-labels.md). |
 

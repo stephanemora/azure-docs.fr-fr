@@ -1,7 +1,7 @@
 ---
 title: Caractéristiques de l’interaction de locataires multiples – Azure AD | Microsoft Docs
-description: Comprendre vos locataires Azure Active Directory en tant qu’organisations entièrement indépendantes
-services: active-tenant
+description: Compréhension de l’indépendance des données de vos organisations Azure Active Directory
+services: active-directory
 documentationcenter: ''
 author: curtand
 manager: daveba
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 04/07/2020
+ms.date: 04/29/2020
 ms.author: curtand
 ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 175d9ce7db1657e0e654f46adaf8a8d8ef28c25e
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: bbe7b0211775e59504443d30fa253cfa14af13b1
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878117"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582741"
 ---
 # <a name="understand-how-multiple-azure-active-directory-organizations-interact"></a>Comprendre l’interaction entre plusieurs organisations Azure Active Directory
 
-Dans Azure Active Directory (Azure AD), chaque locataire est une organisation entièrement indépendante, c’est-à-dire un homologue logiquement indépendant des autres organisations Azure AD que vous gérez. Cette indépendance entre les organisations vaut pour les ressources, l’administration et la synchronisation. Il n’existe pas de relation parent-enfant entre les organisations.
+Dans Azure Active Directory (Azure AD), chaque organisation Azure AD est entièrement indépendante, c’est-à-dire une homologue logiquement indépendante des autres organisations Azure AD que vous gérez. Cette indépendance entre les organisations vaut pour les ressources, l’administration et la synchronisation. Il n’existe pas de relation parent-enfant entre les organisations.
 
 ## <a name="resource-independence"></a>Indépendance des ressources
 

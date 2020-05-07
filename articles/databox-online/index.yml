@@ -12,12 +12,12 @@ metadata:
   author: alkohli
   ms.author: alkohli
   ms.date: 11/04/2019
-  ms.openlocfilehash: 61cda4ccab69396c13581598f399104b0a4fb181
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: bf4f5d7589bdf9ae9b456f7dbe24c8d5fc02afaf
+  ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "73570112"
+  ms.lasthandoff: 04/29/2020
+  ms.locfileid: "82562353"
 landingContent:
 - title: À propos d’Azure Stack Edge et de Data Box Gateway
   linkLists:
@@ -26,7 +26,7 @@ landingContent:
     - text: Qu’est-ce que Data Box Gateway ?
       url: data-box-gateway-overview.md
     - text: Qu’est-ce qu’Azure Stack Edge ?
-      url: data-box-edge-overview.md
+      url: azure-stack-edge-overview.md
   - linkListType: architecture
     links:
     - text: Choisir des options de transfert de données Azure
@@ -44,11 +44,11 @@ landingContent:
     - text: Configuration requise Data Box Gateway
       url: data-box-gateway-system-requirements.md
     - text: Configuration requise d’Azure Stack Edge
-      url: data-box-edge-system-requirements.md
+      url: azure-stack-edge-system-requirements.md
     - text: Limites Data Box Gateway
       url: data-box-gateway-limits.md
     - text: Limites Azure Stack Edge
-      url: data-box-edge-limits.md
+      url: azure-stack-edge-limits.md
 - title: Déployer
   linkLists:
   - linkListType: tutorial
@@ -56,13 +56,13 @@ landingContent:
     - text: Data Box Gateway
       url: data-box-gateway-deploy-prep.md
     - text: Azure Stack Edge
-      url: data-box-edge-deploy-prep.md
+      url: azure-stack-edge-deploy-prep.md
 - title: Développer
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Module de computing en périphérie C#
-      url: data-box-edge-create-iot-edge-module.md
+      url: azure-stack-edge-create-iot-edge-module.md
   - linkListType: download
     links:
     - text: Exemples – C# pour Azure Stack Edge
@@ -74,11 +74,11 @@ landingContent:
     - text: Partages Data Box Gateway
       url: data-box-gateway-manage-shares.md
     - text: Partages Azure Stack Edge
-      url: data-box-edge-manage-shares.md
+      url: azure-stack-edge-manage-shares.md
     - text: Computing en périphérie
-      url: data-box-edge-manage-compute.md
+      url: azure-stack-edge-manage-compute.md
     - text: Réseau du computing en périphérie
-      url: data-box-edge-extend-compute-access-modules.md
+      url: azure-stack-edge-extend-compute-access-modules.md
 - title: Dépanner
   linkLists:
   - linkListType: how-to-guide
@@ -86,10 +86,10 @@ landingContent:
     - text: Data Box Gateway
       url: data-box-gateway-troubleshoot.md
     - text: Azure Stack Edge
-      url: data-box-edge-troubleshoot.md
+      url: azure-stack-edge-troubleshoot.md
     - text: Modules de computing en périphérie
-      url: data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules
+      url: azure-stack-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules
     - text: Retourner ou remplacer Azure Stack Edge
-      url: data-box-edge-return-device.md
+      url: azure-stack-edge-return-device.md
     - text: Ouverture d’un ticket de support
-      url: data-box-edge-contact-microsoft-support.md
+      url: azure-stack-edge-contact-microsoft-support.md
