@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
-ms.openlocfilehash: 166076d366cbbf7bef24648772beaba9b3a88253
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fcae1ed9064d38457ede73c675afb75ce4872fe6
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225621"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611776"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guide de conception de table de stockage Table Azure : tables scalables et performantes
 
@@ -208,7 +208,7 @@ Voici quelques recommandations générales pour la conception de requêtes de st
 * La deuxième solution consiste à utiliser une *requête de plage de données*. Elle utilise la `PartitionKey` et filtre sur une plage de valeurs `RowKey` pour retourner plusieurs entités. La valeur de `PartitionKey` identifie une partition spécifique, tandis que la valeur de `RowKey` identifie un sous-ensemble des entités de cette partition. Par exemple : `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
 * La troisième solution consiste à effectuer une *analyse de partition*. Elle utilise la `PartitionKey` et filtre sur une autre propriété non-clé, et peut retourner plusieurs entités. La valeur de `PartitionKey` identifie une partition spécifique, et les valeurs des propriétés sélectionnent un sous-ensemble d’entités dans cette partition. Par exemple : `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
 * Une *analyse de table* n’inclut pas la valeur de `PartitionKey`, et s’avère inefficace car elle lance une recherche sur toutes les partitions qui composent la table pour toutes les entités correspondantes. Elle effectue une analyse de table, que votre filtre utilise la valeur de `RowKey` ou non. Par exemple : `$filter=LastName eq 'Jones'`.  
-* Les requêtes de stockage Table Azure qui retournent plusieurs entités les trient par ordre de `PartitionKey` et `RowKey`. Pour éviter un nouveau tri des entités dans le client, sélectionnez une valeur de `RowKey` qui définit l’ordre de tri le plus répandu. Les résultats de la requête renvoyés par l’API Table Azure dans Azure Cosmos DB ne sont pas triés par clé de partition ou clé de ligne. Pour obtenir la liste détaillée des différences de fonctionnalités, consultez [Différences entre l'API Table dans Azure Cosmos DB et Stockage Table Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+* Les requêtes de stockage Table Azure qui retournent plusieurs entités les trient par ordre de `PartitionKey` et `RowKey`. Pour éviter un nouveau tri des entités dans le client, sélectionnez une valeur de `RowKey` qui définit l’ordre de tri le plus répandu. Les résultats de la requête renvoyés par l’API Table Azure dans Azure Cosmos DB ne sont pas triés par clé de partition ou clé de ligne. Pour obtenir la liste détaillée des différences de fonctionnalités, consultez [Différences entre l'API Table dans Azure Cosmos DB et Stockage Table Azure](table-api-faq.md#table-api-vs-table-storage).
 
 L’utilisation d’un connecteur « **or** » pour spécifier un filtre selon les valeurs de `RowKey` déclenche une analyse de partition, et n’est pas traitée en tant que requête de plage de données. Par conséquent, évitez les requêtes qui utilisent des filtres tels que : `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`.  
 
@@ -250,7 +250,7 @@ De nombreuses conceptions doivent répondre aux conditions requises pour permett
 Le stockage Table retourne les résultats de requête triés par ordre croissant, en fonction de `PartitionKey` puis de `RowKey`.
 
 > [!NOTE]
-> Les résultats de la requête renvoyés par l’API Table Azure dans Azure Cosmos DB ne sont pas triés par clé de partition ou clé de ligne. Pour obtenir la liste détaillée des différences de fonctionnalités, consultez [Différences entre l'API Table dans Azure Cosmos DB et Stockage Table Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Les résultats de la requête renvoyés par l’API Table Azure dans Azure Cosmos DB ne sont pas triés par clé de partition ou clé de ligne. Pour obtenir la liste détaillée des différences de fonctionnalités, consultez [Différences entre l'API Table dans Azure Cosmos DB et Stockage Table Azure](table-api-faq.md#table-api-vs-table-storage).
 
 Les clés dans le stockage Table sont des valeurs de chaîne. Pour être sûr que les valeurs numériques sont triées correctement, vous devez les convertir en une longueur fixe et les remplir avec des zéros. Par exemple, si la valeur d’ID d’un employé que vous utilisez comme `RowKey` est une valeur de nombre entier, vous devez convertir l’ID de cet employé, **123**, en **00000123**. 
 
@@ -733,7 +733,7 @@ Les modèles et les conseils suivants peuvent aussi présenter un intérêt quan
 Récupérez les *n* dernières entités ajoutées à une partition en utilisant une valeur de `RowKey` qui effectue un tri dans l’ordre inverse de la date et de l’heure.  
 
 > [!NOTE]
-> Les résultats de la requête renvoyés par l’API Table Azure dans Azure Cosmos DB ne sont pas triés par clé de partition ou clé de ligne. Ainsi, ce modèle convient au stockage Table, mais pas à Azure Cosmos DB. Pour obtenir la liste détaillée des différences de fonctionnalités, consultez [Différences entre l'API Table dans Azure Cosmos DB et Stockage Table Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Les résultats de la requête renvoyés par l’API Table Azure dans Azure Cosmos DB ne sont pas triés par clé de partition ou clé de ligne. Ainsi, ce modèle convient au stockage Table, mais pas à Azure Cosmos DB. Pour obtenir la liste détaillée des différences de fonctionnalités, consultez [Différences entre l'API Table dans Azure Cosmos DB et Stockage Table Azure](table-api-faq.md#table-api-vs-table-storage).
 
 #### <a name="context-and-problem"></a>Contexte et problème
 Une exigence courante est de pouvoir récupérer les toutes dernières entités créées, par exemple les dix dernières notes de frais soumises par un employé. Les requêtes de table prennent en charge une opération de requête `$top` pour retourner les *n* premières entités d’un ensemble. Il n’existe aucune opération de requête équivalente pour retourner les *n* dernières entités d’un ensemble.  

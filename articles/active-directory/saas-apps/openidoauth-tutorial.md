@@ -16,18 +16,19 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8a2c962c69ead28c4e79b663010eab77a499f5c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: has-adal-ref
+ms.openlocfilehash: 13c3a7f8376d4c852a74be75e323c6bb042b5407
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80048417"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610987"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurer une application OpenID/OAuth à partir de la galerie d’applications Azure AD
 
 ## <a name="process-of-adding-an-openid-application-from-the-gallery"></a>Processus d’ajout d’une application OpenID à partir de la galerie
 
-1. Dans le volet gauche du [portail Azure](https://portal.azure.com), sélectionnez **Azure Active Directory**. 
+1. Dans le volet gauche du [portail Azure](https://portal.azure.com), sélectionnez **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png))
 
@@ -61,17 +62,17 @@ Le flux d’authentification le plus élémentaire comprend les étapes suivante
 
 ![Flux d’authentification à l’aide d’OpenID Connect](./media/openidoauth-tutorial/authenticationflow.png)
 
-### <a name="multitenant-application"></a>Application mutualisée 
-Une application mutualisée est destinée à être utilisée dans plusieurs organisations, et pas dans une seule. Il s’agit généralement d’applications SaaS (software-as-a-service) écrites par un éditeur de logiciels indépendant. 
+### <a name="multitenant-application"></a>Application mutualisée
+Une application mutualisée est destinée à être utilisée dans plusieurs organisations, et pas dans une seule. Il s’agit généralement d’applications SaaS (software-as-a-service) écrites par un éditeur de logiciels indépendant.
 
-Les applications mutualisées doivent être approvisionnées dans chaque répertoire où elles seront utilisées. Leur inscription nécessite le consentement de l’utilisateur ou de l’administrateur. Ce processus de consentement démarre quand une application a été enregistrée dans l’annuaire et accède à l’API Graph ou à une autre API web. Lorsqu’un utilisateur ou un administrateur d’une autre organisation s’inscrit pour utiliser l’application, une boîte de dialogue contenant les autorisations nécessaires à l’application s’affiche. 
+Les applications mutualisées doivent être approvisionnées dans chaque répertoire où elles seront utilisées. Leur inscription nécessite le consentement de l’utilisateur ou de l’administrateur. Ce processus de consentement démarre quand une application a été enregistrée dans l’annuaire et accède à l’API Graph ou à une autre API web. Lorsqu’un utilisateur ou un administrateur d’une autre organisation s’inscrit pour utiliser l’application, une boîte de dialogue contenant les autorisations nécessaires à l’application s’affiche.
 
 L’utilisateur ou l’administrateur peut alors donner son consentement pour l’application. Le consentement permet à l’application d’accéder aux données indiquées, et enregistre l’application dans le répertoire.
 
 > [!NOTE]
 > Si vous mettez votre application à la disposition des utilisateurs dans plusieurs répertoires, vous devez disposer d’un mécanisme permettant de déterminer le locataire dans lequel ils se trouvent. Une application à locataire unique ne doit regarder que dans son propre répertoire pour y rechercher un utilisateur. Une application mutualisée doit identifier un utilisateur spécifique dans tous les répertoires d’Azure AD.
-> 
-> À cet effet, Azure AD fournit un point de terminaison d’authentification commun vers lequel une application mutualisée peut diriger les demandes de connexion, plutôt que vers un point de terminaison propre au locataire. Ce point de terminaison est `https://login.microsoftonline.com/common` pour tous les répertoires dans Azure AD. Un point de terminaison propre à un locataire peut être `https://login.microsoftonline.com/contoso.onmicrosoft.com`. 
+>
+> À cet effet, Azure AD fournit un point de terminaison d’authentification commun vers lequel une application mutualisée peut diriger les demandes de connexion, plutôt que vers un point de terminaison propre au locataire. Ce point de terminaison est `https://login.microsoftonline.com/common` pour tous les répertoires dans Azure AD. Un point de terminaison propre à un locataire peut être `https://login.microsoftonline.com/contoso.onmicrosoft.com`.
 >
 > Il est important de tenir compte du point de terminaison commun lorsque vous développez votre application. Vous avez besoin de la logique nécessaire pour gérer plusieurs locataires pendant la connexion, la déconnexion et la validation des jetons.
 
@@ -80,9 +81,9 @@ Par défaut, Azure AD promeut les applications mutualisées. Elles sont facileme
 ## <a name="consent-framework"></a>Framework de consentement
 
 Vous pouvez utiliser l’infrastructure de consentement d’Azure AD pour développer des applications clientes natives et web mutualisées. Ces applications autorisent la connexion au moyen de comptes d’utilisateurs d’un locataire Azure AD différent de celui où l’application a été inscrite. Elles peuvent également avoir besoin d’accéder à des API web, par exemple :
-- API Microsoft Graph pour accéder à Azure AD, à Intune et aux services d’Office 365 
+- API Microsoft Graph pour accéder à Azure AD, à Intune et aux services d’Office 365
 - API des autres services Microsoft
-- Vos propres API web 
+- Vos propres API web
 
 L’infrastructure est basée sur le consentement d’un utilisateur ou d’un administrateur à l’inscription d’une application dans son répertoire. Cette inscription peut impliquer l’accès aux données de répertoire. Une fois le consentement donné, l’application cliente peut appeler l’API Microsoft Graph au nom de l’utilisateur et utiliser les informations en fonction des besoins.
 
@@ -146,7 +147,7 @@ En tant qu’administrateur, vous pouvez également donner votre consentement po
 
 Les autorisations d’application uniquement nécessitent toujours le consentement de l’administrateur d’un locataire. Si votre application demande une autorisation application seule et qu’un utilisateur tente de se connecter à l’application, un message d’erreur s’affiche. Le message indique que l’utilisateur n’est pas en mesure de donner son consentement.
 
-Si votre application utilise des autorisations qui nécessitent un consentement administrateur, vous devez y intégrer une option comme un bouton ou un lien afin que l’administrateur puisse démarrer l’action. La requête que votre application envoie pour cette action est une demande d’autorisation OAuth2/OpenID Connect ordinaire. Cette requête inclut le paramètre de chaîne de requête *prompt=admin_consent*. 
+Si votre application utilise des autorisations qui nécessitent un consentement administrateur, vous devez y intégrer une option comme un bouton ou un lien afin que l’administrateur puisse démarrer l’action. La requête que votre application envoie pour cette action est une demande d’autorisation OAuth2/OpenID Connect ordinaire. Cette requête inclut le paramètre de chaîne de requête *prompt=admin_consent*.
 
 Une fois que l’administrateur a donné son consentement et que le principal de service est créé dans le locataire du client, les demandes de connexion ultérieures n’ont pas besoin du paramètre *prompt=admin_consent*. Comme l’administrateur a décidé que les autorisations demandées sont acceptables, les autres utilisateurs du locataire n’ont plus à donner leur consentement par la suite.
 

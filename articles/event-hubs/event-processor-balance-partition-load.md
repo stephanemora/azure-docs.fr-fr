@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2020
 ms.author: shvija
-ms.openlocfilehash: bf90120157bf64bd62a3b5ec9d8a6b2c6260e024
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: e7f17c589b043a055bd541a0850d9efc8e1d96be
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398293"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628859"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Équilibrer la charge de partition sur plusieurs instances de votre application
 Pour mettre à l’échelle votre application de traitement des événements, vous pouvez exécuter plusieurs instances de l’application et faire en sorte que celle-ci équilibre la charge entre elles. Dans les versions plus anciennes, [EventProcessorHost](event-hubs-event-processor-host.md) vous permettait d’équilibrer la charge entre plusieurs instances de votre programme et des événements de point de contrôle lors de la réception. Dans les versions plus récentes (à partir de 5.0), **EventProcessorClient** (.NET et Java) ou **EventHubConsumerClient** (Python et JavaScript) vous permet d’en faire de même. Le modèle de développement est simplifié par l’utilisation d’événements. Vous vous abonnez aux événements qui vous intéressent en inscrivant un gestionnaire d’événements.
@@ -86,9 +86,9 @@ Lorsque le point de contrôle est appliqué pour marquer un événement comme tr
 > [!NOTE]
 > Si vous utilisez le stockage Blob Azure comme magasin de points de contrôle dans un environnement qui prend en charge une autre version du kit de développement logiciel (SDK) de stockage Blob que ceux généralement disponibles sur Azure, vous devez utiliser le code pour remplacer la version de l’API de service de stockage par la version prise en charge par cet environnement. Par exemple, si vous exécutez [Event Hubs sur Azure Stack Hub version 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), la version la plus élevée disponible pour le service de stockage est la version 2017-11-09. Dans ce cas, vous devez utiliser le code pour cibler la version de l’API de service de stockage 2017-11-09. Pour obtenir un exemple sur la façon de cibler une version spécifique de l’API de stockage, consultez les exemples suivants sur GitHub : 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
-> - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithOlderStorageVersion.java)
-> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.js) ou [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.ts)
-> - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/event_processor_blob_storage_example_with_storage_api_version.py)
+> - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
+> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) ou [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)
+> - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/)
 
 ## <a name="thread-safety-and-processor-instances"></a>Cohérence de thread et instances de processeur
 

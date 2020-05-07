@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 489a90180454e2b4a9dad34730fbd3c4f235a2ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5921fc9038e53f34e23f6fd97111c71b29699dc5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77598100"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793140"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>Mettre à niveau la version de Service Fabric qui s’exécute sur votre cluster 
 
@@ -162,7 +162,7 @@ Pour plus d’informations sur l’utilisation, reportez-vous à la commande Pow
 ## <a name="next-steps"></a>Étapes suivantes
 * [Mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md)
 * Personnalisez certains [paramètres de cluster Service Fabric](service-fabric-cluster-fabric-settings.md).
-* [Effectuez un scale-in et un scale-out de votre cluster](service-fabric-cluster-scale-up-down.md).
+* [Effectuez un scale-in et un scale-out de votre cluster](service-fabric-cluster-scale-in-out.md).
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG

@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 00d5b86c8cae01d342d55b7ad20ec59c3f7530bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1de7b1412a242e1b658128ba11f482a2d9dc3107
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67707836"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594795"
 ---
 # <a name="scaling-hpc-applications"></a>Mise à l’échelle d’applications HPC
 
@@ -37,7 +37,7 @@ Clang est un compilateur C, C++ et Objective-C qui gère le prétraitement, l’
 
 ### <a name="flang"></a>FLANG
 
-Le compilateur FLANG est un ajout récent à la suite AOCC (au mois d’avril 2018). Il est actuellement en préversion, afin que les développeurs puissent le télécharger et le tester. Basée sur Fortran 2008, l’architecture AMD étend la version GitHub de FLANG (https://github.com/flangcompiler/flang). Le compilateur FLANG prend en charge toutes les options de compilateur Clang, ainsi qu’un nombre supplémentaire d’options de compilateur FLANG spécifiques.
+Le compilateur FLANG est un ajout récent à la suite AOCC (au mois d’avril 2018). Il est actuellement en préversion, afin que les développeurs puissent le télécharger et le tester. Basée sur Fortran 2008, l’architecture AMD étend la version GitHub de FLANG (https://github.com/flang-compiler/flang). Le compilateur FLANG prend en charge toutes les options de compilateur Clang, ainsi qu’un nombre supplémentaire d’options de compilateur FLANG spécifiques.
 
 ### <a name="dragonegg"></a>DragonEgg
 

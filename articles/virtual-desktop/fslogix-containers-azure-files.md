@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1dc5d54fa24217c91e14a8f37e092888b2bb6474
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7728ff96ccc3da5a36d919e61518a3ce3d13581c
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127878"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611974"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Conteneurs de profil FSLogix et fichiers Azure
 
@@ -98,7 +98,7 @@ Pour garantir que votre environnement Windows Virtual Desktop suit les bonnes pr
 
 Utilisez les guides suivants pour configurer un environnement Windows Virtual Desktop.
 
-- Pour commencer à créer votre solution de virtualisation de poste de travail, consultez [Créer un locataire dans Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
+- Pour commencer à créer votre solution de virtualisation de poste de travail, consultez [Créer un locataire dans Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
 - Pour créer un pool d’hôtes au sein de votre locataire Windows Virtual Desktop, consultez [Créer un pool d’hôtes avec la Place de marché Azure](create-host-pools-azure-marketplace.md).
 - Pour configurer des partages de fichiers complètement managés dans le cloud, consultez [Configurer un partage Azure Files](/azure/storage/files/storage-files-active-directory-enable/).
 - Pour configurer des conteneurs de profils FSLogix, consultez [Créer un conteneur de profils pour un pool d'hôtes à l'aide d'un partage de fichiers](create-host-pools-user-profile.md).

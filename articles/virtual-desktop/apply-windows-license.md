@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: chrimo
-ms.openlocfilehash: 2543dd12e8a75a038a1fc04371b8c562ef696e25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 994edf26e43c7ad67d4f8822d4ed0d18d53b510b
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228009"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612450"
 ---
 # <a name="apply-windows-license-to-session-host-virtual-machines"></a>Appliquer la licence Windows pour machines virtuelles hôtes de session
 
@@ -23,7 +23,7 @@ La gestion des licences Windows Virtual Desktop vous permet d’appliquer une li
 
 Il existe plusieurs façons d’utiliser la licence Windows Virtual Desktop :
 - Vous pouvez créer un pool d’hôtes et ses machines virtuelles hôtes de session à l’aide de l’[offre de la Place de marché Azure](./create-host-pools-azure-marketplace.md). La licence est automatiquement appliquée aux machines virtuelles créées de cette manière.
-- Vous pouvez créer un pool d’hôtes et ses machines virtuelles hôtes de session à l’aide du [Modèle Azure Resource Manager sur GitHub](./create-host-pools-arm-template.md). La licence est automatiquement appliquée aux machines virtuelles créées de cette manière.
+- Vous pouvez créer un pool d’hôtes et ses machines virtuelles hôtes de session à l’aide du [Modèle Azure Resource Manager sur GitHub](./virtual-desktop-fall-2019/create-host-pools-arm-template.md). La licence est automatiquement appliquée aux machines virtuelles créées de cette manière.
 - Vous pouvez appliquer une licence à une machine virtuelle hôte de session existante. Pour ce faire, suivez d’abord les instructions fournies dans [Créer un pool d’hôtes avec PowerShell](./create-host-pools-powershell.md) afin de créer un pool d’hôtes et les machines virtuelles associées, puis revenez à cet article pour découvrir comment appliquer la licence.
 
 ## <a name="apply-a-windows-license-to-a-session-host-vm"></a>Appliquer une licence Windows à une machine virtuelle hôte de session

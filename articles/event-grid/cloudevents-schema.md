@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: 404052984cb99e37f7404a47f3ac374088d32d6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2e4de91034de0d036cd99e265949ba85a5939180
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393475"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629325"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Utiliser le schéma CloudEvents v1.0 avec Event Grid
 En plus de son [schéma d’événement par défaut](event-schema.md), Azure Event Grid prend en charge en mode natif les événements dans l’[implémentation JSON de CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) et la [liaison de protocole HTTP](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) est une [spécification ouverte](https://github.com/cloudevents/spec/blob/v1.0/spec.md) qui décrit les données d’événement.
@@ -139,7 +139,7 @@ New-AzureRmEventGridSubscription `
 
  ## <a name="endpoint-validation-with-cloudevents-v10"></a>Validation de point de terminaison avec CloudEvents v1.0
 
-Si vous êtes déjà familiarisé avec Event Grid, vous pouvez être conscient de la négociation de validation de point de terminaison de Event Grid pour empêcher les abus. CloudEvents v1.0 implémente sa propre [sémantique de protection contre les abus](security-authentication.md#webhook-event-delivery) à l’aide de la méthode HTTP OPTIONS. Pour plus d'informations à ce sujet, cliquez [ici](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Lors de l’utilisation du schéma CloudEvents pour la sortie, Event Grid l’utilise avec la protection contre les abus CloudEvents v1.0 à la place du mécanisme d’événement de validation Event Grid.
+Si vous êtes déjà familiarisé avec Event Grid, vous pouvez être conscient de la négociation de validation de point de terminaison de Event Grid pour empêcher les abus. CloudEvents v1.0 implémente sa propre [sémantique de protection contre les abus](webhook-event-delivery.md) à l’aide de la méthode HTTP OPTIONS. Pour plus d'informations à ce sujet, cliquez [ici](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Lors de l’utilisation du schéma CloudEvents pour la sortie, Event Grid l’utilise avec la protection contre les abus CloudEvents v1.0 à la place du mécanisme d’événement de validation Event Grid.
 
 <a name="azure-functions"></a>
 
@@ -147,7 +147,7 @@ Si vous êtes déjà familiarisé avec Event Grid, vous pouvez être conscient d
 
 La [liaison Event Grid Azure Functions](../azure-functions/functions-bindings-event-grid.md) ne prend pas en charge CloudEvents de façon native. Des fonctions déclenchées par HTTP sont donc utilisées pour lire les messages CloudEvents. Si vous utilisez un déclencheur HTTP pour lire CloudEvents, vous devrez écrire du code pour accomplir les actions que le déclencheur Event Grid effectue automatiquement :
 
-* Envoyer une réponse de validation à une [requête de validation d’abonnement](../event-grid/security-authentication.md#webhook-event-delivery).
+* Envoyer une réponse de validation à une [requête de validation d’abonnement](../event-grid/webhook-event-delivery.md).
 * Appeler la fonction une fois par élément du tableau d’événements contenu dans le corps de la requête.
 
 Pour plus d’informations sur l’URL à utiliser pour appeler la fonction en local ou en cas d’exécution dans Azure, consultez la [documentation de référence des liaisons de déclencheurs HTTP](../azure-functions/functions-bindings-http-webhook.md).

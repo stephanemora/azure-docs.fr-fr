@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: e273a44c1cbc5a6a6161f059038c7e87973a33d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d43b2bd5912375c3bb2010f0f2ae75a119512f03
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77062487"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625831"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>Gérer vos appareils connectés à partir de la page Appareils
 
@@ -31,7 +31,7 @@ La page **Appareils** du portail **Mon compte** vous permet de gérer les appare
 
 ## <a name="view-your-connected-devices"></a>Afficher vos appareils connectés
 
-1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page **Mon compte** (https://myprofile.microsoft.com/) ).
+1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page **Mon compte** (https://myaccount.microsoft.com/) ).
 
 2. Sélectionnez **Appareils** dans le volet de navigation gauche ou sélectionnez le lien **Gérer les appareils** à partir du bloc **Appareils**.
 

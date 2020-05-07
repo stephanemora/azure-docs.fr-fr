@@ -4,12 +4,13 @@ description: Comment authentifier des demandes et utiliser l’API REST d’Azur
 ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.openlocfilehash: f52776fc6b5f5f530cc368a2f148a2ff63fb5b40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: has-adal-ref
+ms.openlocfilehash: 1de3afc380c5c3c82a869de0ff2319b013e26438
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294618"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610885"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Procédure pas à pas d’utilisation de l’API REST d’Azure Monitor
 
@@ -311,7 +312,7 @@ Utilisez la valeur « value » du nom de la métrique (et non « localizedValue 
 
 **Méthode** : GET
 
-**URI de la requête** : https://management.azure.com/subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/ *{resource-provider-namespace}* / *{resource-type}* / *{resource-name}* /providers/microsoft.insights/metrics?metricnames= *{metric}* &timespan= *{starttime/endtime}* &$filter= *{filter}* &interval= *{timeGrain}* &aggregation= *{aggreation}* &api-version= *{apiVersion}*
+**URI de demande** : https:\//management.azure.com/subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/ *{resource-provider-namespace}* / *{resource-type}* / *{resource-name}* /providers/microsoft.insights/metrics?metricnames= *{metric}* &timespan= *{starttime/endtime}* &$filter= *{filter}* &interval= *{timeGrain}* &aggregation= *{aggreation}* &api-version= *{apiVersion}*
 
 Par exemple, pour récupérer les 3 premières API, dans l’ordre décroissant des valeurs, par le nombre de « Transactions » pendant une plage de 5 minutes, où le GeotType était « Principal », la requête se présente comme suit :
 
@@ -463,7 +464,7 @@ Une fois les définitions de mesures disponibles connues, il est possible de ré
 
 **Méthode** : GET
 
-**URI de demande** : `https://management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
+**URI de demande** : `https:\//management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
 
 Par exemple, pour retrouver les points de données de mesure RunsSucceeded pour la plage de temps spécifiée et avec un fragment de temps de 1 heure, la requête est la suivante :
 

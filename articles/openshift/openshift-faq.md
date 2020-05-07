@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f468cb294d79c44f92ef95437c0d88639a78b9a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92529c2d60b32e9c8b57b897008b5333adc2a4d4
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77619499"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594965"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>FAQ sur Azure Red Hat OpenShift
 
@@ -23,7 +23,7 @@ Consultez [Ressources prises en charge](supported-resources.md#azure-regions) po
 
 ## <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>Puis-je déployer un cluster dans un réseau virtuel existant ?
 
-Non. Vous pouvez toutefois connecter un cluster Azure Red Hat OpenShift à un réseau virtuel existant via le peering. Consultez [Connecter le réseau virtuel d’un cluster à un réseau virtuel existant](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) pour plus d’informations.
+Non. Vous pouvez cependant connecter un cluster Azure Red Hat OpenShift à un réseau virtuel existant via le peering. Consultez [Connecter le réseau virtuel d’un cluster à un réseau virtuel existant](tutorial-create-cluster.md#create-the-cluster) pour plus d’informations.
 
 ## <a name="what-cluster-operations-are-available"></a>Quelles opérations de cluster sont disponibles ?
 
@@ -135,7 +135,7 @@ Les clients peuvent accéder aux indicateurs de performance de l’UC/la mémoir
 
 ## <a name="what-is-the-default-pod-scheduler-configuration-for-aro"></a>Quelle est la configuration par défaut du planificateur pod pour ARO ?
 
-ARO utilise le planificateur par défaut fourni avec OpenShift. Il existe quelques mécanismes supplémentaires qui ne sont pas pris en charge dans ARO. Pour plus d’informations, consultez la [documentation default scheduler](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler.html#generic-scheduler) et la [documentation master scheduler](https://github.com/openshift/openshift-azure/blob/master/pkg/startup/v6/data/master/etc/origin/master/scheduler.json).
+ARO utilise le planificateur par défaut fourni avec OpenShift. Il existe quelques mécanismes supplémentaires qui ne sont pas pris en charge dans ARO. Pour plus d’informations, consultez la [documentation default scheduler](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler.html#generic-scheduler) et la [documentation master scheduler](https://github.com/openshift/openshift-azure/blob/master/pkg/startup/v16/data/master/etc/origin/master/scheduler.json).
 
 La planification avancée ou personnalisée n’est pas prise en charge. Pour plus d’informations, consultez la [documentation sur la planification](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/index.html).
 

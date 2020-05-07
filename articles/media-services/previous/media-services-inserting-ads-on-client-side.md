@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 274ee09ae98dd229b255e58261f462e322be9f89
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e5f6b7fa505890dc6bc818d1bd2578e5d974ff0
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77565738"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594863"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Insertion de publicités du côté client
 Cet article contient des informations sur l’insertion de différents types de publicité du côté client.
@@ -586,7 +586,7 @@ Cet exemple utilise VmapSchedulerPlugin pour planifier des publicités à l’ai
 ```
 
 ## <a name="implementing-an-ios-video-player-with-ad-support"></a>Implémentation d'un lecteur vidéo iOS avec prise en charge de publicités
-Plateforme multimédia Microsoft : infrastructure de lecteur pour iOS contient une collection d’exemples d’applications qui vous montrent comment implémenter une application de lecteur vidéo à l’aide de l’infrastructure. Vous pouvez télécharger l'infrastructure de lecteur et les exemples depuis la page [Azure Media Player Framework](https://github.com/Azure/azure-media-player-framework). La page GitHub comporte un lien vers un site Wiki qui contient des informations supplémentaires sur l'infrastructure de lecteur, ainsi qu'une présentation de l'exemple de lecteur : [Lecteur multimédia Azure Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
+Plateforme multimédia Microsoft : infrastructure de lecteur pour iOS contient une collection d’exemples d’applications qui vous montrent comment implémenter une application de lecteur vidéo à l’aide de l’infrastructure. Vous pouvez télécharger l'infrastructure de lecteur et les exemples depuis la page [Azure Media Player Framework](https://github.com/CloudMetal/azure-media-player-framework). La page GitHub comporte un lien vers un site Wiki qui contient des informations supplémentaires sur l'infrastructure de lecteur, ainsi qu'une présentation de l'exemple de lecteur : [Lecteur multimédia Azure Wiki](https://github.com/CloudMetal/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
 
 ### <a name="scheduling-ads-with-vmap"></a>Planification de publicités avec VMAP
 L’exemple ci-dessous montre comment planifier des publicités à l’aide d’un fichier VMAP.

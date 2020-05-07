@@ -1,28 +1,25 @@
 ---
-title: Comment une remise de réservation est-elle appliquée à Azure Database for MariaDB ?
-description: Comment une remise de réservation est-elle appliquée à Azure Database for MariaDB ?
+title: Comprendre la remise de réservation - Azure Database for MariaDB
+description: Découvrir comment une remise de réservation est appliquée à vos serveurs Azure Database for MariaDB
 author: kummanish
 ms.author: manishku
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/17/2019
-ms.openlocfilehash: 340d395278eb924570e07d106308e63be3c2f9af
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 02/13/2020
+ms.openlocfilehash: b7d258f88212c8c97e3b0dbb8e803d1c767c51d0
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75986741"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509446"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-mariadb"></a>Comment une remise de réservation est-elle appliquée à Azure Database for MariaDB ?
 
-Lorsque vous achetez une capacité réservée Azure Database for MariaDB, la remise de réservation est automatiquement appliquée aux serveurs MariaDB qui correspondent aux attributs et à la quantité de la réservation. Une réservation couvre uniquement les coûts de calcul de votre Azure Database for MariaDB. Les frais de stockage et de réseau vous sont facturés aux tarifs normaux. 
+Lorsque vous achetez une capacité réservée Azure Database for MariaDB, la remise de réservation est automatiquement appliquée aux serveurs MariaDB qui correspondent aux attributs et à la quantité de la réservation. Une réservation couvre uniquement les coûts de calcul de votre Azure Database for MariaDB. Les frais de stockage et de réseau vous sont facturés aux tarifs normaux.
 
 ## <a name="how-reservation-discount-is-applied"></a>Comment la remise de réservation est-elle appliquée ?
 
-Une remise de réservation repose sur le principe de ***capacité utilisée ou perdue***. Ainsi, si vous ne disposez pas des ressources correspondantes pour une heure donnée, vous perdez une quantité de réservation pour cette heure. Vous ne pouvez pas reporter les heures réservées inutilisées.</br>
+Une remise de réservation repose sur le principe de ***capacité utilisée ou perdue***. Ainsi, si vous ne disposez pas des ressources correspondantes pour une heure donnée, vous perdez une quantité de réservation pour cette heure. Vous ne pouvez pas reporter les heures réservées inutilisées.
 
 Lorsque vous arrêtez une ressource, la remise de réservation s'applique automatiquement à une autre ressource correspondante dans l'étendue spécifiée. Si aucune ressource correspondante n’est trouvée dans l’étendue spécifiée, les heures réservées sont perdues.
 
@@ -32,7 +29,7 @@ La remise de capacité réservée Azure Database for MariaDB est appliquée aux 
 
 Les exemples suivants montrent comment la remise de capacité réservée Azure Database for MariaDB s’applique en fonction du nombre de cœurs achetés et du moment où ils s’exécutent.
 
-* **Exemple 1** : Vous achetez une capacité réservée Azure Database for MariaDB pour un 8 vCore. Si vous exécutez un serveur Azure Database for MariaDB 16 vCore qui correspond au reste des attributs de la réservation, vous êtes facturé au prix du paiement à l’utilisation pour 8 vCore de votre utilisation de calcul de serveur MariaDB et vous bénéficiez de la remise de réservation pour une heure de calcul utilisé de serveur MariaDB 8 vCore.</br>
+* **Exemple 1** : Vous achetez une capacité réservée Azure Database for MariaDB pour un 8 vCore. Si vous exécutez un serveur Azure Database for MariaDB 16 vCore qui correspond au reste des attributs de la réservation, vous êtes facturé au prix du paiement à l’utilisation pour 8 vCore de votre utilisation de calcul de serveur MariaDB et vous bénéficiez de la remise de réservation pour une heure de calcul utilisé de serveur MariaDB 8 vCore.
 
 Dans le reste de ces exemples, nous supposons que la capacité réservée Azure Database for MariaDB que vous achetez est pour un serveur Azure Database for MariaDB 16 vCore et que le reste des attributs de réservation correspond aux serveurs MariaDB en cours d’exécution.
 
@@ -44,5 +41,6 @@ Dans le reste de ces exemples, nous supposons que la capacité réservée Azure 
 
 Pour comprendre et voir l’application de vos réservations Azure dans les rapports de facturation d’utilisation, consultez [Comprendre l’utilisation des réservations Azure](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
 
-## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
+## <a name="next-steps"></a>Étapes suivantes
+
 Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).

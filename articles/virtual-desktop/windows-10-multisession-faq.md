@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d7ea99e2ee8e2882c211ee17acec70222dc058a8
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 143410f0bf0659161427f4b5391124f53f712972
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637096"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611991"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>FAQ sur Windows 10 Entreprise multisession
 
@@ -104,4 +104,4 @@ Pour plus d’informations sur Windows Virtual Desktop et Windows 10 Entreprise
 
 - Lisez notre [Documentation de la préversion de Windows Virtual Desktop](overview.md).
 - Consultez le site de la [Tech Community Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
-- Configurez votre déploiement Windows Virtual Desktop à l’aide des [tutoriels Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
+- Configurez votre déploiement Windows Virtual Desktop à l’aide des [tutoriels Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
