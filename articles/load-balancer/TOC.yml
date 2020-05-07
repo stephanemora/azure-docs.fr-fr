@@ -4,6 +4,8 @@
   items:
     - name: Qu’est-ce qu’Azure Load Balancer ?
       href: load-balancer-overview.md
+    - name: Forum aux questions
+      href: load-balancer-faqs.md
 - name: Démarrage rapide
   items:
     - name: Créer un équilibreur de charge - Portail

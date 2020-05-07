@@ -1010,6 +1010,8 @@
         - name: Présentation de la sécurité
           href: /azure/databricks/security/index
           maintainContext: true
+        - name: Base de référence de la sécurité
+          href: security-baseline.md
         - name: Contrôle d’accès
           items:
             - name: Présentation du contrôle d’accès
@@ -1631,7 +1633,7 @@
                     - name: Obtenir un jeton AAD avec un principal de service
                       href: /azure/databricks/dev-tools/api/latest/aad/service-prin-aad-token
                       maintainContext: true
-                    - name: Résoudre les problèmes des jetons d’accès AAD
+                    - name: Détecter un problème de jetons d’accès AAD
                       href: /azure/databricks/dev-tools/api/latest/aad/troubleshoot-aad-token
                       maintainContext: true
             - name: Clusters
