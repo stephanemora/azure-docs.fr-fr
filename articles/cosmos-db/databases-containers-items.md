@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/01/2019
+ms.date: 04/24/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 43a842c3b6d6d421eca4196c7f3facc7876318cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b3874bbe7a5830b0a80b658ac32952fe8985c1c3
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225717"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82161688"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Utiliser des bases de données, des conteneurs et des éléments dans Azure Cosmos DB
 
@@ -64,9 +64,9 @@ Un conteneur Azure Cosmos est un conteneur d’éléments indépendant de tout s
 
 Vous pouvez définir la [durée de vie (TTL)](time-to-live.md) de certains éléments du conteneur Azure Cosmos ou de l’intégralité du conteneur afin de supprimer définitivement ces éléments du système. Azure Cosmos DB supprime automatiquement les éléments lorsque ceux-ci expirent. Cela permet également d’éviter qu’une requête envoyée au conteneur ne retourne des éléments ayant expiré. Pour plus d’informations, consultez [Configurer la durée de vie de votre conteneur](how-to-time-to-live.md).
 
-Vous pouvez utiliser la fonctionnalité [Flux de modification](change-feed.md) pour vous abonner au journal des opérations de chacune des partitions logiques de votre conteneur. Flux de modification fournit le journal de toutes les mises à jour appliquées au conteneur ainsi que les images des éléments avant et après mise à jour. Pour plus d’informations, consultez [Générer des applications réactives en utilisant la fonctionnalité Flux de modification](serverless-computing-database.md). Vous pouvez également configurer la durée de conservation du flux de modification à l’aide de la stratégie de flux de modification du conteneur. 
+Vous pouvez utiliser la fonctionnalité [Flux de modification](change-feed.md) pour vous abonner au journal des opérations de chacune des partitions logiques de votre conteneur. Flux de modification fournit le journal de toutes les mises à jour appliquées au conteneur ainsi que les images des éléments avant et après mise à jour. Pour plus d’informations, consultez [Générer des applications réactives en utilisant la fonctionnalité Flux de modification](serverless-computing-database.md). Vous pouvez également configurer la durée de conservation du flux de modification à l’aide de la stratégie de flux de modification du conteneur.
 
-Vous pouvez inscrire des [procédures stockées, des déclencheurs, des fonctions définies par l’utilisateur](stored-procedures-triggers-udfs.md) et des [procédures de fusion](how-to-manage-conflicts.md) dans votre conteneur Azure Cosmos. 
+Vous pouvez inscrire des [procédures stockées, des déclencheurs, des fonctions définies par l’utilisateur](stored-procedures-triggers-udfs.md) et des [procédures de fusion](how-to-manage-conflicts.md) dans votre conteneur Azure Cosmos.
 
 Vous pouvez spécifier une [contrainte de clé unique](unique-keys.md) dans votre conteneur Azure Cosmos. En créant une stratégie de clé unique, vous garantissez l’unicité d’une ou de plusieurs valeurs par clé de partition logique. Si vous créez un conteneur à l’aide d’une stratégie clé unique, aucun élément nouveau ou mis à jour dont les valeurs dupliquent les valeurs spécifiées par la contrainte de clé unique ne peut être créé. Pour plus d’informations, consultez [Contraintes de clés uniques](unique-keys.md).
 
@@ -76,21 +76,24 @@ Un conteneur Azure Cosmos est spécialisé dans les entités d’API, comme l’
 | --- | --- | --- | --- | --- | --- |
 |Conteneur Azure Cosmos | Conteneur | Table de charge de travail | Collection | Graph | Table de charge de travail |
 
+> [!NOTE]
+> Lorsque vous créez des conteneurs, veillez à ne pas créer deux conteneurs dont les noms ne se distinguent que par la casse. En effet, certaines parties de la plateforme Azure ne respectant pas la casse, cela peut entraîner une confusion ou collision de la télémétrie et des actions sur les conteneurs ainsi nommés.
+
 ### <a name="properties-of-an-azure-cosmos-container"></a>Propriétés d’un conteneur Azure Cosmos
 
 Un conteneur Azure Cosmos comprend un ensemble de propriétés définies par le système. Selon l’API que vous utilisez, il est possible que certaines propriétés ne soient pas directement exposées. Le tableau suivant répertorie les propriétés définies par le système :
 
 | Propriété définie par le système | Générée par le système ou configurable par l’utilisateur | Objectif | API SQL | API Cassandra | API Azure Cosmos DB pour MongoDB | API Gremlin | API de table |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_rid | Générée par le système | Identificateur unique du conteneur | Oui | Non | Non | Non | Non |
-|\_etag | Générée par le système | Étiquette d’entité utilisée pour le contrôle de l’accès concurrentiel optimiste | Oui | Non | Non | Non | Non |
-|\_ts | Générée par le système | Dernière mise à jour de l’horodatage du conteneur | Oui | Non | Non | Non | Non |
-|\_self | Générée par le système | URI adressable du conteneur | Oui | Non | Non | Non | Non |
+|\_rid | Générée par le système | Identificateur unique du conteneur | Oui | Non  | Non  | Non  | Non  |
+|\_etag | Générée par le système | Étiquette d’entité utilisée pour le contrôle de l’accès concurrentiel optimiste | Oui | Non  | Non  | Non  | Non  |
+|\_ts | Générée par le système | Dernière mise à jour de l’horodatage du conteneur | Oui | Non  | Non  | Non  | Non  |
+|\_self | Générée par le système | URI adressable du conteneur | Oui | Non  | Non  | Non  | Non  |
 |id | Configurable par l’utilisateur | Nom unique du conteneur défini par l’utilisateur | Oui | Oui | Oui | Oui | Oui |
-|indexingPolicy | Configurable par l’utilisateur | Permet de modifier le chemin d’accès de l’index, le type d’index et le mode d’indexation | Oui | Non | Non | Non | Oui |
-|timeToLive | Configurable par l’utilisateur | Permet de supprimer automatiquement les éléments d’un conteneur après une période donnée. Pour plus d’informations, consultez [Durée de vie](time-to-live.md). | Oui | Non | Non | Non | Oui |
-|changeFeedPolicy | Configurable par l’utilisateur | Utilisé pour lire les modifications apportées aux éléments d’un conteneur. Pour plus d’informations, consultez [Flux de modification](change-feed.md). | Oui | Non | Non | Non | Oui |
-|uniqueKeyPolicy | Configurable par l’utilisateur | Utilisée pour garantir l’unicité d’une ou plusieurs valeurs au sein d’une partition logique. Pour plus d’informations, consultez [Contraintes de clé unique](unique-keys.md). | Oui | Non | Non | Non | Oui |
+|indexingPolicy | Configurable par l’utilisateur | Permet de modifier le chemin d’accès de l’index, le type d’index et le mode d’indexation | Oui | Non  | Non  | Non  | Oui |
+|timeToLive | Configurable par l’utilisateur | Permet de supprimer automatiquement les éléments d’un conteneur après une période donnée. Pour plus d’informations, consultez [Durée de vie](time-to-live.md). | Oui | Non  | Non  | Non  | Oui |
+|changeFeedPolicy | Configurable par l’utilisateur | Utilisé pour lire les modifications apportées aux éléments d’un conteneur. Pour plus d’informations, consultez [Flux de modification](change-feed.md). | Oui | Non  | Non  | Non  | Oui |
+|uniqueKeyPolicy | Configurable par l’utilisateur | Utilisée pour garantir l’unicité d’une ou plusieurs valeurs au sein d’une partition logique. Pour plus d’informations, consultez [Contraintes de clé unique](unique-keys.md). | Oui | Non  | Non  | Non  | Oui |
 
 ### <a name="operations-on-an-azure-cosmos-container"></a>Actions effectuées sur un conteneur Azure Cosmos
 
@@ -118,10 +121,10 @@ Chaque élément Azure Cosmos comprend des propriétés définies par le systèm
 
 | Propriété définie par le système | Générée par le système ou configurable par l’utilisateur| Objectif | API SQL | API Cassandra | API Azure Cosmos DB pour MongoDB | API Gremlin | API de table |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_rid | Générée par le système | Identificateur unique de l’élément | Oui | Non | Non | Non | Non |
-|\_etag | Générée par le système | Étiquette d’entité utilisée pour le contrôle de l’accès concurrentiel optimiste | Oui | Non | Non | Non | Non |
-|\_ts | Générée par le système | Horodatage de la dernière mise à jour de l’élément | Oui | Non | Non | Non | Non |
-|\_self | Générée par le système | URI adressable de l’élément | Oui | Non | Non | Non | Non |
+|\_rid | Générée par le système | Identificateur unique de l’élément | Oui | Non  | Non  | Non  | Non  |
+|\_etag | Générée par le système | Étiquette d’entité utilisée pour le contrôle de l’accès concurrentiel optimiste | Oui | Non  | Non  | Non  | Non  |
+|\_ts | Générée par le système | Horodatage de la dernière mise à jour de l’élément | Oui | Non  | Non  | Non  | Non  |
+|\_self | Générée par le système | URI adressable de l’élément | Oui | Non  | Non  | Non  | Non  |
 |id | Vous pouvez soit utiliser | Nom unique défini par l’utilisateur dans une partition logique. | Oui | Oui | Oui | Oui | Oui |
 |Propriétés arbitraires définies par l’utilisateur | Défini par l’utilisateur | Propriétés définies par l’utilisateur représentées sous forme d’API native (notamment JSON, BSON et CQL) | Oui | Oui | Oui | Oui | Oui |
 
@@ -134,7 +137,7 @@ Les éléments Azure Cosmos prennent en charge les opérations suivantes. Vous p
 
 | Opération | Azure CLI | API SQL | API Cassandra | API Azure Cosmos DB pour MongoDB | API Gremlin | API de table |
 | --- | --- | --- | --- | --- | --- | --- |
-| Insérer, remplacer, supprimer, upsert, lire | Non | Oui | Oui | Oui | Oui | Oui |
+| Insérer, remplacer, supprimer, upsert, lire | Non  | Oui | Oui | Oui | Oui | Oui |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

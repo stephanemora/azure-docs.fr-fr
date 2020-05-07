@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: 1d22f66ad5f7adf5bb8196c3e72a2a343f4558b0
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: aad830ba7c7198077fe6073d6351c72ac9a8e662
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536095"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82144390"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Démarrage rapide : Connecter des utilisateurs et obtenir un jeton d’accès dans une application SPA JavaScript
 
@@ -25,7 +25,7 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour décou
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Un abonnement Azure – [Créer un abonnement Azure gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.JS](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download) (pour modifier des fichiers projet)
 
@@ -165,7 +165,7 @@ Une fois que l’application est chargée dans le navigateur, sélectionnez **Se
 
 ### <a name="how-the-sample-works"></a>Fonctionnement de l’exemple
 
-![Fonctionnement de l’exemple d’application dans ce guide de démarrage rapide](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+![Fonctionnement de l’exemple d’application monopage JavaScript : 1. L’application monopage initie la connexion. 2. L’application monopage acquiert un jeton d’ID auprès de la plateforme d’identités Microsoft. 3. Les appels de l’application monopage acquièrent le jeton. 4. La plateforme d’identités Microsoft retourne un jeton d’accès à l’application monopage. 5. L’application monopage adresse une requête HTTP GET à l’API Microsoft Graph avec le jeton d’accès. 6. L’API Graph retourne une réponse HTTP à l’application monopage.](media/quickstart-v2-javascript/javascriptspa-intro.svg)
 
 ### <a name="msaljs"></a>msal.js
 

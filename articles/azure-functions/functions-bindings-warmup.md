@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
-ms.openlocfilehash: c3ed780bc50b690b2f5c3285024695ec6426b9b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 72a6f97f45ec1adaa42d1f17a1916af137845392
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77167325"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559988"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Déclencheur de préchauffage Azure Functions
 
@@ -240,7 +240,7 @@ Aucune information supplémentaire n’est fournie à une fonction de déclenche
 ## <a name="trigger---limits"></a>Déclencheur : limites
 
 * Le déclencheur de préchauffage est uniquement disponible pour les applications qui s’exécutent dans le cadre d’un [plan Premium](./functions-premium-plan.md).
-* Le déclencheur de préchauffage est uniquement appelé pendant les opérations de montée en puissance, et non lors des redémarrages ou d’autres démarrages sans échelle. Vous devez vous assurer que votre logique peut charger toutes les dépendances nécessaires sans utiliser le déclencheur de préchauffage. Le chargement différé est un bon modèle pour y parvenir.
+* Le déclencheur de préchauffage est uniquement appelé pendant les opérations de scale-out, et non lors des redémarrages ou d’autres démarrages sans mise à l’échelle. Vous devez vous assurer que votre logique peut charger toutes les dépendances nécessaires sans utiliser le déclencheur de préchauffage. Le chargement différé est un bon modèle pour y parvenir.
 * Le déclencheur de préchauffage ne peut pas être appelé une fois qu’une instance est déjà en cours d’exécution.
 * Il ne peut y avoir qu’une seule fonction de déclencheur de préchauffage par application de fonction.
 

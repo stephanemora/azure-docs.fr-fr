@@ -7,12 +7,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/24/2020
-ms.openlocfilehash: 618033e24236d26601fafaf7b0678ee83ec973e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e01ac332e61f51909ff1617f1716cd719b67c319
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77650142"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82127867"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Visualiser les journaux et les métriques Recherche cognitive Azure avec Power BI
 [Recherche cognitive Azure](https://docs.microsoft.com/azure/search/search-what-is-azure-search) vous permet de stocker les journaux des opérations et les métriques de service relatifs à votre service de recherche dans un compte de stockage Azure. Cette page fournit des instructions sur la façon dont vous pouvez visualiser ces informations par le biais d’une application modèle Power BI. L’application fournit des informations détaillées sur votre service de recherche, notamment des informations sur les métriques Recherche, Indexation, Opérations et Service.
@@ -20,7 +20,9 @@ ms.locfileid: "77650142"
 L’application modèle Power BI **Recherche cognitive Azure : Analyser les journaux et les métriques** est accessible dans le [marketplace d’applications Power BI](https://appsource.microsoft.com/marketplace/apps).
 
 ## <a name="how-to-get-started-with-the-app"></a>Prise en main de l’application
-1. Activez la journalisation des diagnostics pour votre service de recherche :
+
+1. Activez la journalisation des métriques et des ressources pour votre service de recherche :
+
     1. Créez ou identifiez un [compte Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) existant dans lequel vous pouvez archiver les journaux.
     1. Accédez à votre service Recherche cognitive Azure dans le Portail Azure.
     1. Dans la section Supervision de la colonne gauche, sélectionnez **Paramètres de diagnostic**.

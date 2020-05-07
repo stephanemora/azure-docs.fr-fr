@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/09/2020
+ms.date: 04/27/2020
 ms.author: allensu
-ms.openlocfilehash: 4095b0b48e86b0aafcc86d74ca1fa25bacddf0ec
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 6bb53539c105cda99c842b6b0fa236f0e18a85ea
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011716"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82182478"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Conception de réseaux virtuels avec des ressources de passerelle NAT
 
-Les ressources de passerelle NAT font partie du [service NAT de Réseau virtuel](nat-overview.md) et offrent une connectivité Internet sortante à un ou plusieurs sous-réseaux d’un réseau virtuel. Le sous-réseau du réseau virtuel indique quelle passerelle NAT est utilisée. Le service NAT fournit la traduction d’adresses réseau sources (SNAT) à un sous-réseau.  Les ressources de passerelle NAT spécifient les adresses IP statiques utilisées par les machines virtuelles lors de la création de flux sortants. Les adresses IP statiques proviennent des ressources d’adresses IP publiques, des ressources de préfixes d’adresses IP publiques ou des deux. Une ressource de passerelle NAT peut utiliser jusqu’à 16 adresses IP statiques.
+Les ressources de passerelle NAT font partie du [service NAT de Réseau virtuel](nat-overview.md) et offrent une connectivité Internet sortante à un ou plusieurs sous-réseaux d’un réseau virtuel. Le sous-réseau du réseau virtuel indique quelle passerelle NAT est utilisée. Le service NAT fournit la traduction d’adresses réseau sources (SNAT) à un sous-réseau.  Les ressources de passerelle NAT spécifient les adresses IP statiques utilisées par les machines virtuelles lors de la création de flux sortants. Les adresses IP statiques proviennent des ressources d’adresses IP publiques, des ressources de préfixes d’adresses IP publiques ou des deux. Si une ressource de préfixe d’adresse IP publique est utilisée, toutes les adresses IP de l’ensemble de la ressource de préfixe d’adresse IP publique sont consommées par une ressource de passerelle NAT. Une ressource de passerelle NAT peut utiliser jusqu’à 16 adresses IP statiques.
 
 
 <p align="center">
@@ -60,7 +60,8 @@ Le diagramme suivant montre les références accessibles en écriture entre les 
 
 La traduction d’adresses réseau (NAT) est recommandée pour la plupart des charges de travail, sauf si vous avez une dépendance spécifique vis-à-vis d’une [connectivité sortante Load Balancer basée sur un pool](../load-balancer/load-balancer-outbound-connections.md).  
 
-Vous pouvez migrer à partir de scénarios d’équilibreur de charge standard, [règles de trafic sortant](../load-balancer/load-balancer-outbound-rules-overview.md) comprises, vers une passerelle NAT. Pour migrer, déplacez les ressources d’adresses IP publiques et les ressources de préfixes d’adresses IP publiques des front-ends de l’équilibreur de charge vers la passerelle NAT. Les nouvelles adresses IP de la passerelle NAT ne sont pas nécessaires. L’adresse IP publique et le préfixe standard peuvent être réutilisés tant que le total ne dépasse pas 16 adresses IP. Planifiez la migration sans oublier l’interruption de service pendant la transition.  Vous pouvez réduire cette interruption au minimum en automatisant le processus. Testez d’abord la migration dans un environnement intermédiaire.  Pendant la transition, les flux entrants ne sont pas affectés.
+Vous pouvez migrer à partir de scénarios d’équilibreur de charge standard, [règles de trafic sortant](../load-balancer/load-balancer-outbound-rules-overview.md) comprises, vers une passerelle NAT. Pour migrer, déplacez les ressources d’adresses IP publiques et les ressources de préfixes d’adresses IP publiques des front-ends de l’équilibreur de charge vers la passerelle NAT. Les nouvelles adresses IP de la passerelle NAT ne sont pas nécessaires. Les ressources d’adresses IP publiques et ressources de préfixes d’adresses IP publiques standard peuvent être réutilisées tant que le total ne dépasse pas 16 adresses IP. Planifiez la migration sans oublier l’interruption de service pendant la transition.  Vous pouvez réduire cette interruption au minimum en automatisant le processus. Testez d’abord la migration dans un environnement intermédiaire.  Pendant la transition, les flux entrants ne sont pas affectés.
+
 
 L’exemple suivant est un extrait de code tiré d’un modèle Azure Resource Manager.  Ce modèle déploie plusieurs ressources, y compris une passerelle NAT.  Dans cet exemple, le modèle a les paramètres suivants :
 
@@ -197,10 +198,10 @@ Une défaillance dans une zone autre que celle où se trouve votre scénario est
 
 Si votre scénario nécessite des points de terminaison entrants, deux options s’offrent à vous :
 
-| Option | Modèle | Exemple | Avantage | Inconvénient |
+| Option | Modèle |  Exemple | Avantage | Inconvénient |
 |---|---|---|---|---|
 | (1) | **Aligner** les points de terminaison entrants sur les **piles zonales** respectives que vous créez pour le trafic sortant. | Créez un équilibreur de charge standard avec un front-end zonal. | Même modèle d’intégrité et même mode d’échec pour le trafic entrant et sortant. Plus simple à utiliser. | Il peut être nécessaire de masquer les adresses IP individuelles par zone à l’aide d’un nom DNS commun. |
-| (2) | **Superposer** les piles zonales avec un point de terminaison entrant **entre les zones**. | Créez un équilibreur de charge standard avec un front-end redondant interzone. | Adresse IP unique pour un point de terminaison entrant. | Modèle d’intégrité et modes d’échec variables pour le trafic entrant et sortant.  Plus complexe à utiliser. |
+|  (2) | **Superposer** les piles zonales avec un point de terminaison entrant **entre les zones**. | Créez un équilibreur de charge standard avec un front-end redondant interzone. | Adresse IP unique pour un point de terminaison entrant. | Modèle d’intégrité et modes d’échec variables pour le trafic entrant et sortant.  Plus complexe à utiliser. |
 
 >[!NOTE]
 > Une passerelle NAT isolée dans une zone exige que les adresses IP correspondent à la zone de la passerelle NAT. Les ressources de passerelle NAT avec des adresses IP d’une autre zone ou sans zone ne sont pas autorisées.
@@ -224,6 +225,12 @@ Même si le scénario semble fonctionner, son modèle d’intégrité et son mod
 
 >[!NOTE] 
 >Les adresses IP ne sont pas par elles-mêmes redondantes dans une zone, si aucune zone n’est spécifiée.  Le front-end d’un service [Standard Load Balancer est redondant dans une zone](../load-balancer/load-balancer-standard-availability-zones.md#frontend) si aucune adresse IP n’est créée dans une zone spécifique.  Cela ne s’applique pas au service NAT.  Seul l’isolement régional ou de zone est pris en charge.
+
+## <a name="performance"></a>Performances
+
+Chaque ressource de passerelle NAT peut fournir un débit maximal de 50 Gbits/s. Vous pouvez diviser vos déploiements entre plusieurs sous-réseaux et affecter à chaque sous-réseau ou groupe de sous-réseaux une passerelle NAT pour un scale-out.
+
+Chaque passerelle NAT peut prendre en charge 64 000 connexions par adresse IP sortante attribuée.  Consultez la section suivante sur la traduction d’adresses réseau sources (SNAT, Source Network Address Translation) pour plus de détails, ainsi que l’[article dédié à la résolution des problèmes](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat) pour obtenir des conseils de résolution des problèmes spécifiques.
 
 ## <a name="source-network-address-translation"></a>Traduction d’adresses réseau sources
 
@@ -277,7 +284,10 @@ Une fois qu’un port SNAT est libéré, il devient disponible pour être utilis
 
 ### <a name="scaling"></a>Mise à l'échelle
 
-La mise à l’échelle NAT est principalement une fonction de gestion de l’inventaire des ports SNAT partagés et disponibles. NAT a besoin d’un inventaire de ports SNAT suffisant pour traiter les flux sortant maximaux attendus pour tous les sous-réseaux attachés à une ressource de passerelle NAT.  Vous pouvez utiliser des ressources d’adresses publiques IP, des ressources de préfixes d’adresses IP publiques, ou des deux, pour créer un inventaire des ports SNAT.
+La mise à l’échelle NAT est principalement une fonction de gestion de l’inventaire des ports SNAT partagés et disponibles. NAT a besoin d’un inventaire de ports SNAT suffisant pour traiter les flux sortant maximaux attendus pour tous les sous-réseaux attachés à une ressource de passerelle NAT.  Vous pouvez utiliser des ressources d’adresses publiques IP, des ressources de préfixes d’adresses IP publiques, ou des deux, pour créer un inventaire des ports SNAT.  
+
+>[!NOTE]
+>Si vous attribuez une ressource de préfixe d’adresse IP publique, l’ensemble du préfixe d’adresse IP publique entier est utilisé.  Vous ne pouvez pas attribuer une ressource de préfixe d’adresse IP publique puis séparer des adresses IP individuelles pour les attribuer à d’autres ressources.  Si vous voulez attribuer des adresses IP individuelles à partir d’un préfixe d’adresse IP publique à plusieurs ressources, vous devez créer des adresses IP publiques individuelles à partir de la ressource de préfixe d’adresse IP publique, puis les attribuer en fonction des besoins plutôt que d’attribuer la ressource de préfixe d’adresse IP publique elle-même.
 
 SNAT mappe des adresses privées à une ou plusieurs adresses IP publiques, en réécrivant l’adresse source et le port source dans les processus. Une ressource de passerelle NAT utilise 64 000 ports (ports SNAT) par adresse IP publique configurée pour cette traduction. Les ressources de passerelle NAT peuvent comprendre jusqu’à 16 adresses IP et 1 million de ports SNAT. Si une ressource de préfixe d’adresse IP publique est fournie, chaque adresse IP présente dans le préfixe fournit un inventaire des ports SNAT. L’ajout d’autres adresses IP publiques augmente les ports SNAT disponibles dans l’inventaire. Les protocoles TCP et UDP sont des inventaires de ports SNAT distincts qui ne sont pas liés.
 

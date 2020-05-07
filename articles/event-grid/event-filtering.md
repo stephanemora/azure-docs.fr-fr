@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/21/2019
+ms.date: 04/28/2020
 ms.author: spelluru
-ms.openlocfilehash: f9fca0a9fefb5959747a4492139ae422a118db02
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab5dd716253875e4a992b94a4e143cb3e806a4b0
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70390172"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509650"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Comprendre le filtrage d’événements pour les abonnements Event Grid
 
@@ -59,7 +59,7 @@ Pour filtrer sur des valeurs dans les champs de données et spécifier l’opér
 
 * type d'opérateur : type de comparaison.
 * clé : champ des données d’événement que vous utilisez pour le filtrage. Ce peut être un nombre, une valeur booléenne ou une chaîne.
-* valeur ou valeurs : valeur ou valeurs à comparer à la clé.
+* valeurs : valeur ou valeurs à comparer à la clé.
 
 Si vous spécifiez un seul filtre avec plusieurs valeurs, une opération **OU** est effectuée : la valeur du champ clé doit donc être une de ces valeurs. Voici un exemple :
 
@@ -97,9 +97,9 @@ Si vous spécifiez plusieurs filtres différents, une opération **ET** est effe
 ]
 ```
 
-### <a name="operator"></a>Opérateur
+### <a name="operators"></a>Opérateurs
 
-Les opérateurs disponibles pour les nombres sont les suivants :
+Les opérateurs disponibles pour les **nombres** sont les suivants :
 
 * NumberGreaterThan
 * NumberGreaterThanOrEquals
@@ -108,9 +108,10 @@ Les opérateurs disponibles pour les nombres sont les suivants :
 * NumberIn
 * NumberNotIn
 
-L’opérateur disponible pour les valeurs booléennes est : BoolEquals
+L’opérateur disponible pour les valeurs **booléennes** est : 
+- BoolEquals
 
-Les opérateurs disponibles pour les chaînes sont les suivants :
+Les opérateurs disponibles pour les **chaînes** sont les suivants :
 
 * StringContains
 * StringBeginsWith
@@ -118,7 +119,7 @@ Les opérateurs disponibles pour les chaînes sont les suivants :
 * StringIn
 * StringNotIn
 
-Aucune des comparaisons de chaînes n’est sensible à la casse.
+Les comparaisons de chaînes ne sont **pas toutes** sensibles à la casse.
 
 ### <a name="key"></a>Clé
 
@@ -159,6 +160,155 @@ Le filtrage avancé présente les limites suivantes :
 * Cinq valeurs pour les opérateurs **dans** et **pas dans**
 
 La même clé peut être utilisée dans plusieurs filtres.
+
+### <a name="examples"></a>Exemples
+
+### <a name="stringcontains"></a>StringContains
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringContains",
+    "key": "data.key1",
+    "values": [
+        "microsoft", 
+        "azure"
+    ]
+}]
+```
+
+### <a name="stringbeginswith"></a>StringBeginsWith
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringBeginsWith",
+    "key": "data.key1",
+    "values": [
+        "event", 
+        "grid"
+    ]
+}]
+```
+
+### <a name="stringendswith"></a>StringEndsWith
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringEndsWith",
+    "key": "data.key1",
+    "values": [
+        "jpg", 
+        "jpeg", 
+        "png"
+    ]
+}]
+```
+
+### <a name="stringin"></a>StringIn
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringIn",
+    "key": "data.key1",
+    "values": [
+        "exact", 
+        "string", 
+        "matches"
+    ]
+}]
+```
+
+### <a name="stringnotin"></a>StringNotIn
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringNotIn",
+    "key": "data.key1",
+    "values": [
+        "aws", 
+        "bridge"
+    ]
+}]
+```
+
+### <a name="numberin"></a>NumberIn
+
+```json
+
+"advancedFilters": [{
+    "operatorType": "NumberIn",
+    "key": "data.counter",
+    "values": [
+        5,
+        1
+    ]
+}]
+
+```
+
+### <a name="numbernotin"></a>NumberNotIn
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberNotIn",
+    "key": "data.counter",
+    "values": [
+        41,
+        0,
+        0
+    ]
+}]
+```
+
+### <a name="numberlessthan"></a>NumberLessThan
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberLessThan",
+    "key": "data.counter",
+    "value": 100
+}]
+```
+
+### <a name="numbergreaterthan"></a>NumberGreaterThan
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberGreaterThan",
+    "key": "data.counter",
+    "value": 20
+}]
+```
+
+### <a name="numberlessthanorequals"></a>NumberLessThanOrEquals
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberLessThanOrEquals",
+    "key": "data.counter",
+    "value": 100
+}]
+```
+
+### <a name="numbergreaterthanorequals"></a>NumberGreaterThanOrEquals
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberGreaterThanOrEquals",
+    "key": "data.counter",
+    "value": 30
+}]
+```
+
+### <a name="boolequals"></a>BoolEquals
+
+```json
+"advancedFilters": [{
+    "operatorType": "BoolEquals",
+    "key": "data.isEnabled",
+    "value": true
+}]
+```
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

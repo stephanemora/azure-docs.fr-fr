@@ -7,20 +7,20 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 09/06/2019
 ms.author: victorh
-ms.openlocfilehash: e1bc3b58f425b374e4cae1da6e9800579e503f0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d6b984fd451a835afaa51482f0158e9f315f8fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73511438"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82130909"
 ---
 # <a name="use-log-analytics-to-examine-application-gateway-web-application-firewall-logs"></a>Utiliser Azure Log Analytics pour examiner les journaux du pare-feu d’applications web sur Application Gateway
 
-Une fois que votre WAF Application Gateway est opérationnel, vous pouvez activer les journaux pour examiner ce qui se produit avec chaque requête. Les journaux de pare-feu donnent des informations sur ce que le WAF évalue, met en correspondance et bloque. Avec Log Analytics, vous pouvez examiner les données contenues dans les journaux de pare-feu pour obtenir encore plus d’informations. Pour plus d’informations sur la création d’un espace de travail Log Analytics, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../../azure-monitor/learn/quick-create-workspace.md). Pour plus d’informations sur les requêtes de journal, consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+Une fois que votre WAF Application Gateway est opérationnel, vous pouvez activer les journaux pour examiner ce qui se produit avec chaque requête. Les journaux de pare-feu donnent des informations sur ce que le WAF évalue, met en correspondance et bloque. Avec Azure Monitor Log Analytics, vous pouvez examiner les données contenues dans les journaux de pare-feu pour obtenir encore plus d’informations. Pour plus d’informations sur la création d’un espace de travail Log Analytics, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../../azure-monitor/learn/quick-create-workspace.md). Pour plus d’informations sur les requêtes de journal, consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="import-waf-logs"></a>Importer les journaux du WAF
 
-Pour importer les journaux du pare-feu dans Log Analytics, consultez [Intégrité du serveur principal, journaux de diagnostic et métriques pour la passerelle Application Gateway](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging). Une fois les journaux du pare-feu dans votre espace de travail Log Analytics, vous pouvez afficher les données, écrire des requêtes, créer des visualisations, et ajouter ces dernières au tableau de bord de votre portail.
+Pour importer les journaux du pare-feu dans Log Analytics, consultez [Intégrité du serveur principal, journaux de ressources et métriques pour la passerelle Application Gateway](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging). Une fois les journaux du pare-feu dans votre espace de travail Log Analytics, vous pouvez afficher les données, écrire des requêtes, créer des visualisations, et ajouter ces dernières au tableau de bord de votre portail.
 
 ## <a name="explore-data-with-examples"></a>Explorer les données avec des exemples
 
@@ -83,4 +83,4 @@ Une fois que vous créez une requête, vous pouvez l’ajouter à votre tableau 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Intégrité du serveur principal, journaux de diagnostic et métriques pour la passerelle Application Gateway](../../application-gateway/application-gateway-diagnostics.md)
+[Intégrité du serveur principal, journaux de ressources et métriques pour la passerelle Application Gateway](../../application-gateway/application-gateway-diagnostics.md)

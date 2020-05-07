@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 04/21/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01f969c3bc6f546025b3bbe5826181efdfa69be0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b827c2e949502ad8bd19378a84ea89947929459d
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76983630"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509361"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à DocuSign
 
@@ -45,7 +45,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * DocuSign prend en charge l’authentification unique lancée par le fournisseur de services.
 
-* DocuSign prend en charge le provisionnement d’utilisateurs *juste-à-temps*.
+* DocuSign prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
 
 * DocuSign prend en charge le [provisionnement automatique d’utilisateurs](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial).
 * Après avoir configuré DocuSign, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
@@ -87,12 +87,20 @@ Pour activer l’authentification unique Azure AD dans le portail Azure, effectu
 
 1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    a. Dans la zone **URL de connexion**, entrez une URL au format suivant : `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/sp/<IDPID>`
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant :
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , entrez une URL au format suivant : `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
+    `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/sp/<IDPID>`
+
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , entrez une URL au format suivant :
+
+    `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
+
+    c. Dans la zone de texte **URL de réponse**, entrez une URL au format suivant :
+    
+    `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login`
 
     > [!NOTE]
-    > Ces valeurs entre crochets sont des espaces réservés. Remplacez-les par les valeurs d’URL de connexion et d’identificateur réels. Ces détails sont expliqués dans la section « Afficher les points de terminaison SAML 2.0 » plus loin dans ce tutoriel.
+    > Ces valeurs entre crochets sont des espaces réservés. Remplacez ces valeurs par les valeurs réelles de l’URL de connexion, de l’identificateur et de l’URL de réponse. Ces détails sont expliqués dans la section « Afficher les points de terminaison SAML 2.0 » plus loin dans ce tutoriel.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** . Sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -206,20 +214,23 @@ Dans cette section, vous allez accorder à B.Simon l’accès à DocuSign afin q
        ![Identity Providers/Endpoints][59]
 
     l. Dans la section **View SAML 2.0 Endpoints** (Afficher les points de terminaison SAML 2.0) du portail d’administration DocuSign, effectuez les étapes suivantes :
-       1. Copiez la valeur **Service Provider Issuer URL** (URL de l’émetteur du fournisseur d’identité) et collez-la dans la zone **Identificateur** de la section **Configuration SAML de base** du portail Azure.
-
-       1. Copiez la valeur **Service Provider Login URL** (URL de connexion du fournisseur de services) et collez-la dans la zone **URL de connexion** de la section **Configuration SAML de base** du portail Azure.
-
-       1. Sélectionnez **Fermer**.
 
        ![Afficher les points de terminaison SAML 2.0][60]
+       
+       1. Copiez la valeur **Service Provider Issuer URL** (URL de l’émetteur du fournisseur d’identité) et collez-la dans la zone **Identificateur** de la section **Configuration SAML de base** du portail Azure.
+       
+       1. Copiez la valeur **Service Provider Assertion Consumer Service URL** (URL du service consommateur d’assertion) et collez-la dans la zone **URL de réponse** de la section **Configuration SAML de base** dans le Portail Azure.
+       
+       1. Copiez la valeur **Service Provider Login URL** (URL de connexion du fournisseur de services) et collez-la dans la zone **URL de connexion** de la section **Configuration SAML de base** du portail Azure. La valeur IDPID est indiquée à la fin de **Service Provider Login URL**.
+
+       1. Sélectionnez **Fermer**.
 
 ### <a name="create-docusign-test-user"></a>Créer un utilisateur de test DocuSign
 
 Dans cette section, un utilisateur appelé B.Simon est créé dans DocuSign. DocuSign prend en charge le provisionnement d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans DocuSign, il est créé après l’authentification.
 
->[!Note]
->Si vous devez créer un utilisateur manuellement, contactez l’[équipe du support DocuSign](https://support.docusign.com/).
+> [!Note]
+> Si vous devez créer un utilisateur manuellement, contactez l’[équipe du support DocuSign](https://support.docusign.com/).
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

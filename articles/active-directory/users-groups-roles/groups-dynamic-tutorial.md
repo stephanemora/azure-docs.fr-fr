@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 382f3b59142aee7ddfbec4aceb153a174874ac1a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7ee5fa52f59ea2ef3332fe66c81c24ff44c64e81
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74027109"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582877"
 ---
-# <a name="tutorial-add-or-remove-group-members-automatically"></a>Didacticiel : Ajouter ou supprimer automatiquement des membres dans un groupe
+# <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutoriel : Ajouter ou supprimer automatiquement des membres dans un groupe
 
-Dans Azure Active Directory (Azure AD), vous pouvez ajouter ou supprimer automatiquement des utilisateurs dans des groupes de sécurité ou des groupes Office 365, ce qui vous évite d’avoir à le faire manuellement. Chaque fois que l’une des propriétés d’un utilisateur ou d’un appareil change, Azure AD évalue toutes les règles de groupe dynamique dans votre locataire pour déterminer si cette modification doit ajouter ou supprimer des membres.
+Dans Azure Active Directory (Azure AD), vous pouvez ajouter ou supprimer automatiquement des utilisateurs dans des groupes de sécurité ou des groupes Office 365, ce qui vous évite d’avoir à le faire manuellement. Chaque fois que l’une des propriétés d’un utilisateur ou d’un appareil change, Azure AD évalue toutes les règles de groupe dynamique dans votre organisation Azure AD afin de déterminer si cette modification doit ajouter ou supprimer des membres.
 
 Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
@@ -33,17 +33,17 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-Pour utiliser cette fonctionnalité, vous devez disposer d’une licence Azure AD Premium en tant qu’administrateur général du locataire. Si vous ne possédez pas cette licence, accédez à Azure AD et sélectionnez **Licences** > **Produits** > **Essayer/Acheter**.
+Pour utiliser cette fonctionnalité, vous devez disposer d’une licence Azure AD Premium en tant qu’administrateur général de l’organisation. Si vous ne possédez pas cette licence, accédez à Azure AD et sélectionnez **Licences** > **Produits** > **Essayer/Acheter**.
 
-Vous n’êtes pas tenu d’attribuer des licences aux utilisateurs pour que ces derniers puissent appartenir à des groupes dynamiques. Vous devez uniquement disposer du nombre minimal de licences Azure AD Premium P1 disponibles dans le locataire pour couvrir l’ensemble de ces utilisateurs. 
+Vous n’êtes pas tenu d’attribuer des licences aux utilisateurs pour que ces derniers puissent appartenir à des groupes dynamiques. Vous devez seulement disposer du nombre minimal de licences Azure AD Premium P1 disponibles dans l’organisation pour couvrir l’ensemble de ces utilisateurs. 
 
 ## <a name="create-a-group-of-guest-users"></a>Créer un groupe d’utilisateurs invités
 
 Vous allez commencer par créer un groupe de vos utilisateurs invités qui proviennent tous d’une même entreprise partenaire. Ces utilisateurs nécessitent une licence spéciale ; il est donc généralement plus efficace de créer un groupe à cet effet.
 
-1. Connectez-vous au portail Azure (https://portal.azure.com) en utilisant le compte d’administrateur général de votre locataire.
+1. Connectez-vous au portail Azure (https://portal.azure.com) en utilisant le compte d’administrateur général de votre organisation.
 2. Sélectionnez **Azure Active Directory** > **Groupes** > **Nouveau groupe**.
    ![Sélectionner la commande permettant de démarrer un nouveau groupe](./media/groups-dynamic-tutorial/new-group.png)
 3. Dans le panneau **Groupe** :
@@ -80,7 +80,7 @@ Maintenant que vous disposez de votre nouveau groupe, vous pouvez appliquer les 
 
 ## <a name="remove-guests-from-all-users-group"></a>Supprimer les invités du groupe Tous les utilisateurs
 
-Votre plan administratif final consiste peut-être à répartir l’ensemble de vos utilisateurs invités dans des groupes correspondant à l’entreprise à laquelle ils appartiennent. Vous pouvez également modifier le groupe **Tous les utilisateurs** afin de le réserver exclusivement aux utilisateurs membres de votre locataire. Vous pouvez ensuite utiliser ce groupe pour attribuer des applications et des licences propres à votre organisation d’origine.
+Votre plan administratif final consiste peut-être à répartir l’ensemble de vos utilisateurs invités dans des groupes correspondant à l’entreprise à laquelle ils appartiennent. Vous pouvez également modifier le groupe **Tous les utilisateurs** afin de le réserver exclusivement aux utilisateurs membres de votre organisation. Vous pouvez ensuite utiliser ce groupe pour attribuer des applications et des licences propres à votre organisation d’origine.
 
    ![Modifier le groupe Tous les utilisateurs pour le réserver aux membres](./media/groups-dynamic-tutorial/all-users-edit.png)
 
@@ -88,7 +88,7 @@ Votre plan administratif final consiste peut-être à répartir l’ensemble de 
 
 **Pour supprimer le groupe d’utilisateurs invités**
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com) en utilisant le compte d’administrateur général de votre locataire.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant le compte d’administrateur général de votre organisation.
 2. Sélectionnez **Azure Active Directory** > **Groupes**. Sélectionnez le groupe **Guest users Contoso**, sélectionnez les points de suspension (...), puis sélectionnez **Supprimer**. Lorsque vous supprimez le groupe, toutes les licences attribuées sont également supprimées.
 
 **Pour restaurer le groupe Tous les utilisateurs**

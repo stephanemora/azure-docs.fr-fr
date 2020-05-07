@@ -10,20 +10,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/07/2020
+ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2020
-ms.openlocfilehash: 4da96df50e961f4291029a37e883fdcf88c6c87f
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: a87f3563b995081de8e7cbb4b4499718f77b02ff
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885750"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583252"
 ---
 # <a name="transport-layer-security-tls"></a>TLS (Transport Layer Security)
 
-Pour garantir un niveau de sécurité élevé, Notification Hubs désactivera la prise en charge des versions 1.0 et 1.1 de TLS le 31 mai 2020 (et non le 30 avril 2020). Ces protocoles anciens offrent un faible niveau de chiffrement et sont vulnérables aux attaques BEAST et POODLE. Les applications déployées sur des appareils exécutant Android version 5 ou ultérieure, ou iOS version 5 ou ultérieure, ne sont pas concernées par ce changement car ces systèmes d'exploitation prennent en charge TLS 1.2. Le client et le serveur négocieront la version la plus élevée mutuellement prise en charge lors de la connexion.
+Pour garantir un niveau de sécurité élevé, Notification Hubs désactivera la prise en charge des versions 1.0 et 1.1 de TLS le **31 décembre 2020** (et non le 30 avril 2020). Ces protocoles anciens offrent un faible niveau de chiffrement et sont vulnérables aux attaques BEAST et POODLE. Les applications déployées sur des appareils exécutant Android version 5 ou ultérieure, ou iOS version 5 ou ultérieure, ne sont pas concernées par ce changement car ces systèmes d'exploitation prennent en charge TLS 1.2. Le client et le serveur négocieront la version la plus élevée mutuellement prise en charge lors de la connexion.
 
 Nous vous recommandons d'examiner toutes les applications qui utilisent Azure Notification Hubs pour vous assurer qu'elles utilisent les bibliothèques les plus pertinentes et des piles TLS qui prennent en charge TLS 1.2.
 
