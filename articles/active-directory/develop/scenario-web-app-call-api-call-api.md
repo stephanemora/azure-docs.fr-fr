@@ -11,16 +11,20 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c07241345a724e4489fb137cfe862cde6518b318
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 12802ab6dcfbbe5a1c5576ab672ead864dd0b4ae
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81868718"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559876"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Application web appelant des API web : Appeler une API web
 
 Maintenant que vous avez un jeton, vous pouvez appeler une API web protégée.
+
+## <a name="call-a-protected-web-api"></a>Appeler une API web protégée
+
+L’appel d’une API web protégée dépend du langage et de l’infrastructure de votre choix :
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -40,41 +44,25 @@ Voici le code simplifié pour l’action du `HomeController`. Ce code obtient un
 ```csharp
 public async Task<IActionResult> Profile()
 {
- var application = BuildConfidentialClientApplication(HttpContext, HttpContext.User);
- string accountIdentifier = claimsPrincipal.GetMsalAccountId();
- string loginHint = claimsPrincipal.GetLoginHint();
+ // Acquire the access token.
+ string[] scopes = new string[]{"user.read"};
+ string accessToken = await tokenAcquisition.GetAccessTokenForUserAsync(scopes);
 
- // Get the account.
- IAccount account = await application.GetAccountAsync(accountIdentifier);
+ // Use the access token to call a protected web API.
+ HttpClient client = new HttpClient();
+ client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+ 
+  var response = await httpClient.GetAsync($"{webOptions.GraphApiUrl}/beta/me");
 
- // Special case for guest users, because the guest ID / tenant ID are not surfaced.
- if (account == null)
- {
-  var accounts = await application.GetAccountsAsync();
-  account = accounts.FirstOrDefault(a => a.Username == loginHint);
- }
+  if (response.StatusCode == HttpStatusCode.OK)
+  {
+   var content = await response.Content.ReadAsStringAsync();
 
- AuthenticationResult result;
- result = await application.AcquireTokenSilent(new []{"user.read"}, account)
-                            .ExecuteAsync();
- var accessToken = result.AccessToken;
+   dynamic me = JsonConvert.DeserializeObject(content);
+   ViewData["Me"] = me;
+  }
 
- // Calls the web API (Microsoft Graph in this case).
- HttpClient httpClient = new HttpClient();
- httpClient.DefaultRequestHeaders.Authorization =
-     new AuthenticationHeaderValue(Constants.BearerAuthorizationScheme,accessToken);
- var response = await httpClient.GetAsync($"{webOptions.GraphApiUrl}/beta/me");
-
- if (response.StatusCode == HttpStatusCode.OK)
- {
-  var content = await response.Content.ReadAsStringAsync();
-
-  dynamic me = JsonConvert.DeserializeObject(content);
-  return me;
- }
-
- ViewData["Me"] = me;
- return View();
+  return View();
 }
 ```
 

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f685ac63e3b4a8cf466be4eb4561472fb084d49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 689a528a75613ac6a38bed74d6597d492f498e8b
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74026539"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582720"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>Dépanner et résoudre des problèmes de groupes
 
@@ -43,7 +43,7 @@ Pour désactiver la création de groupe par des utilisateurs non-administrateurs
    ```
 
 <br/>**En tentant de créer un groupe dynamique dans Powershell, j’ai reçu un message d’erreur me signalant que le nombre maximal de groupes autorisé était atteint**<br/>
-Si vous recevez dans Powershell le message d’erreur indiquant que _le nombre maximal de groupes a été atteint dans les stratégies de groupe dynamiques_, cela signifie que vous avez atteint la limite maximale du nombre de groupes dynamiques pouvant être créés dans votre locataire. Le nombre maximal de groupes dynamiques par locataire est de 5 000.
+Si vous recevez dans Powershell le message d’erreur _le nombre maximal de groupes a été atteint dans les stratégies de groupe dynamiques_, cela signifie que vous avez atteint la limite maximale du nombre de groupes dynamiques que votre organisation peut compter. Le nombre maximal de groupes dynamiques par organisation est de 5 000.
 
 Pour créer de nouveaux groupes dynamiques, vous devez commencer par supprimer des groupes dynamiques existants. Il n’existe aucun moyen d’augmenter cette limite.
 
@@ -53,7 +53,7 @@ Pour créer de nouveaux groupes dynamiques, vous devez commencer par supprimer d
 1. Vérifiez les valeurs d’attributs d’utilisateur ou d’appareil dans la règle. Vérifiez que les utilisateurs satisfont à la règle. Pour les appareils, vérifiez leurs propriétés pour vous assurer que les attributs synchronisés contiennent les valeurs attendues.<br/>
 2. Vérifiez l’état du traitement de l’appartenance pour vous assurer que le traitement est terminé. Vous pouvez voir l’**État du traitement de l’appartenance** et la date de la dernière mise à jour dans la page [Vue d’ensemble](groups-create-rule.md#check-processing-status-for-a-rule) du groupe.
 
-Si tout semble correct, attendez quelque temps avant que le groupe se remplisse. Selon la taille de votre client, cela peut prendre jusqu'à 24 heures pour que le groupe soit rempli la première fois ou après une modification de la règle.
+Si tout semble correct, attendez quelque temps avant que le groupe se remplisse. Selon la taille de votre organisation Azure AD, le remplissage du groupe peut prendre jusqu’à 24 heures la première fois ou après une modification de la règle.
 
 **J’ai configuré une règle, mais les membres existants sur celle-ci sont à présent supprimés**<br/>Ce comportement est normal. Lors de l’activation ou de la modification d’une règle, les membres existants du groupe sont supprimés. Les utilisateurs provenant de l’évaluation de la règle sont ajoutés en tant que membres du groupe.
 

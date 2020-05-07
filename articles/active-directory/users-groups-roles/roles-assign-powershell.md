@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a2096b7899039e7a9d3455bc0c6fb3ec84ebd1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bfcb00f56a3cc6f71729fbeaf317ce9447e120ed
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74025318"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582612"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Assigner des rôles personnalisés avec une étendue de ressources à l’aide de PowerShell dans Azure Active Directory
 
@@ -28,7 +28,7 @@ Pour plus d’informations sur les rôles d’administrateur Azure AD, consultez
 
 ## <a name="required-permissions"></a>Autorisations requises
 
-Connectez-vous à votre locataire Azure AD à l’aide d’un compte administrateur d’entreprise pour attribuer ou supprimer des rôles.
+Connectez-vous à votre organisation Azure AD à l’aide d’un compte administrateur d’entreprise pour attribuer ou supprimer des rôles.
 
 ## <a name="prepare-powershell"></a>Préparer PowerShell
 

@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f4f6de807628704051cdddf74bcefbed678f8fcd
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 01d94b39354333a8840ded8725625d6a91cf56b7
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457890"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592160"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurer une application Java Linux pour Azure App Service
 
@@ -561,21 +561,25 @@ Pour utiliser Tomcat avec Redis, vous devez configurer votre application pour qu
 
 8. Mettez à jour la configuration `azure-webapp-maven-plugin` dans le fichier *pom.xml* de votre application pour faire référence à vos informations de compte Redis. Ce fichier utilise les variables d’environnement que vous avez définies précédemment pour conserver les informations de votre compte dans vos fichiers sources.
 
-    Si nécessaire, replacez `1.7.0` par la version actuelle du [plug-in Maven pour Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
+    Si nécessaire, replacez `1.9.1` par la version actuelle du [plug-in Maven pour Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
 
     ```xml
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.7.0</version>
-        <configuration>
-
+        <version>1.9.1</version>
+        <configuration>            
             <!-- Web App information -->
+            <schemaVersion>v2</schemaVersion>
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appServicePlanName>${WEBAPP_PLAN_NAME}-${REGION}</appServicePlanName>
             <appName>${WEBAPP_NAME}-${REGION}</appName>
-            <region>${REGION}</region>
-            <linuxRuntime>tomcat 9.0-jre8</linuxRuntime>
+            <region>${REGION}</region>            
+            <runtime>
+                <os>linux</os>
+                <javaVersion>jre8</javaVersion>
+                <webContainer>tomcat 9.0</webContainer>
+            </runtime>
 
             <appSettings>
                 <property>

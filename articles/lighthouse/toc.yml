@@ -10,6 +10,9 @@
     - name: Index
       displayName: 'template, sample'
       href: ./samples/index.md
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./samples/policy-samples.md
 - name: Concepts
   items:
     - name: Gestion des ressources déléguées Azure
@@ -33,6 +36,9 @@
     - name: Azure Lighthouse dans les scénarios d’entreprise
       displayName: 'corporation, IT, consolidate'
       href: ./concepts/enterprise.md
+    - name: Applications managées Azure et Azure Lighthouse
+      displayName: 'managed apps, ama'
+      href: ./concepts/managed-applications.md
 - name: Guides pratiques
   items:
     - name: Intégrer un client dans la gestion des ressources déléguées Azure

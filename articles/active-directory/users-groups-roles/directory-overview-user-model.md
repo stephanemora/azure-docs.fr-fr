@@ -14,12 +14,12 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3cc2de5a2f297e8133011905ff2961b44476d6b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8052bb44df6d29e17304763051fa2099009b9701
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77046340"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583022"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>Utilisateurs, groupes, licences et rôles pour grandes entreprises
 
@@ -60,7 +60,7 @@ De nouveaux rôles d’administrateur Azure AD sont ajoutés. Consultez le Porta
 
 ## <a name="assign-app-access"></a>Assigner l’accès aux applications
 
-Vous pouvez utiliser Azure AD pour assigner l’accès de groupe aux [applications d’entreprise qui sont déployées dans votre locataire Azure AD](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context). Si vous combinez des groupes dynamiques avec affectation de groupe aux applications, vous pouvez automatiser vos affectations d’accès utilisateur aux applications à mesure que votre entreprise se développe. Vous aurez besoin d’une licence Azure Active Directory Premium P1 ou Premium P2 pour assigner l’accès aux applications d’entreprise.
+Vous pouvez utiliser Azure AD pour attribuer l’accès de groupe aux [applications d’entreprise déployées dans votre organisation Azure AD](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context). Si vous combinez des groupes dynamiques avec affectation de groupe aux applications, vous pouvez automatiser vos affectations d’accès utilisateur aux applications à mesure que votre entreprise se développe. Vous aurez besoin d’une licence Azure Active Directory Premium P1 ou Premium P2 pour assigner l’accès aux applications d’entreprise.
 
 Azure AD vous permet également de contrôler plus précisément les données qui transitent entre l’application et les groupes auxquels vous assignez l’accès. Dans [Applications d’entreprise](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps), ouvrez une application et sélectionnez **Provisioning** (Approvisionnement) pour :
 

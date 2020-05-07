@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 11/08/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5387daffcd3dd231aef5eade1c896db50947b386
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5c5a483ff7a5a93a6908538fd237cb4cf2dacec6
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77484857"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582674"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Exemples PowerShell et Graph pour les licences basées sur les groupes dans Azure AD
 
@@ -29,7 +29,7 @@ Toutes les fonctionnalités pour les licences basées sur les groupes sont dispo
 > Avant de commencer à exécuter des applets de commande, veillez d’abord à vous connecter à votre organisation en exécutant l’applet de commande `Connect-MsolService` .
 
 > [!WARNING]
-> Ce code est fourni à titre d’exemple à des fins de démonstration. Si vous voulez l’utiliser dans votre environnement, testez-le au préalable à petite échelle ou dans un locataire de test distinct. Vous devez peut-être modifier le code pour répondre aux besoins spécifiques de votre environnement.
+> Ce code est fourni à titre d’exemple à des fins de démonstration. Si vous voulez l’utiliser dans votre environnement, testez-le au préalable à petite échelle ou dans une organisation de test distincte. Vous devez peut-être modifier le code pour répondre aux besoins spécifiques de votre environnement.
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>Afficher les licences de produit attribuées à un groupe
 
@@ -251,12 +251,12 @@ HTTP/1.1 200 OK
 
 ```
 
-## <a name="get-all-users-with-license-errors-in-the-entire-tenant"></a>Obtenir tous les utilisateurs avec des erreurs de licence dans le client entier
+## <a name="get-all-users-with-license-errors-in-the-entire-organization"></a>Obtenir tous les utilisateurs avec des erreurs de licence dans l’organisation entière
 
 Le script suivant peut être utilisé pour répertorier tous les utilisateurs qui ont des erreurs de licence à partir d’un ou plusieurs groupes. Ce script imprime une ligne par utilisateur et par erreur de licence, ce qui vous permet d’identifier clairement la source de chaque erreur.
 
 > [!NOTE]
-> Ce script énumère tous les utilisateurs dans le client, ce qui peut ne pas être optimal pour les locataires volumineux.
+> Ce script énumère tous les utilisateurs dans l’organisation, ce qui peut ne pas être optimal pour les organisations de grande taille.
 
 ```powershell
 Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
@@ -364,10 +364,10 @@ function UserHasLicenseAssignedFromGroup
 }
 ```
 
-Ce script exécute ces fonctions sur chaque utilisateur dans le locataire, à l’aide de l’ID de référence SKU en tant qu’entrée : dans cet exemple, nous nous intéressons à la licence pour *Enterprise Mobility + Security*, qui, dans notre locataire, est représentée par l’ID *contoso:EMS*:
+Ce script exécute ces fonctions sur chaque utilisateur dans l’organisation, en utilisant l’ID de référence SKU en tant qu’entrée : dans cet exemple, nous nous intéressons à la licence pour *Enterprise Mobility + Security* qui, dans notre organisation, est représentée par l’ID *contoso:EMS* :
 
 ```powershell
-#the license SKU we are interested in. use Get-MsolAccountSku to see a list of all identifiers in your tenant
+#the license SKU we are interested in. use Get-MsolAccountSku to see a list of all identifiers in your organization
 $skuId = "contoso:EMS"
 
 #find all users that have the SKU license assigned

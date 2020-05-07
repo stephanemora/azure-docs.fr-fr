@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/30/2020
+ms.date: 04/28/2020
 ms.author: allensu
-ms.openlocfilehash: c012a8d83761b88cc59b62d11fd3d5542ca7f7a1
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: c9b5aaefeb8ab21eed850f5bf291d38981239aab
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396088"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508426"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Résoudre les problèmes de connectivité du service NAT de réseau virtuel Azure
 
@@ -95,12 +95,13 @@ Le tableau suivant peut être utilisé comme point de départ pour savoir quels 
 | Système d’exploitation | Test de connexion TCP générique | Test de la couche Application TCP | UDP |
 |---|---|---|---|
 | Linux | nc (test de connexion générique) | curl (test de la couche Application TCP) | spécifique à l’application |
-| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) de PowerShell | spécifique à l’application |
+|  Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) de PowerShell | spécifique à l’application |
 
 ### <a name="connectivity-failures"></a>Échecs de connectivité
 
 Les échecs de connectivité avec le service [NAT de réseau virtuel](nat-overview.md) peuvent être dus à différents problèmes :
 
+* Défaillances permanentes dues à des erreurs de configuration
 * [Épuisement des ressources SNAT](#snat-exhaustion) de la passerelle NAT (temporaire ou persistant)
 * Défaillances temporaires au niveau de l’infrastructure Azure 
 * Défaillances temporaires au niveau du chemin entre Azure et la destination Internet publique 
@@ -111,7 +112,14 @@ Utilisez des outils tels que ceux mentionnés ci-après pour la validation de la
 | Système d’exploitation | Test de connexion TCP générique | Test de la couche Application TCP | UDP |
 |---|---|---|---|
 | Linux | nc (test de connexion générique) | curl (test de la couche Application TCP) | spécifique à l’application |
-| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) de PowerShell | spécifique à l’application |
+|  Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) de PowerShell | spécifique à l’application |
+
+#### <a name="configuration"></a>Configuration
+
+Vérifiez les points suivants :
+1. La ressource de passerelle NAT a-t-elle au moins une ressource d’adresse IP publique ou une ressource de préfixe d’adresse IP publique ? Au moins une adresse IP doit être associée à la passerelle NAT pour qu’elle puisse fournir une connectivité sortante.
+2. Le sous-réseau du réseau virtuel est-il configuré pour utiliser la passerelle NAT ?
+3. Utilisez-vous des routes définies par l’utilisateur (UDR) et remplacez-vous la destination ?  Les ressources de passerelle NAT deviennent la route par défaut (0/0) sur les sous-réseaux configurés.
 
 #### <a name="snat-exhaustion"></a>Épuisement des ressources SNAT
 

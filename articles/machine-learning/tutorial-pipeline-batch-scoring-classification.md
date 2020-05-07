@@ -10,18 +10,18 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: laobri
 ms.date: 03/11/2020
-ms.openlocfilehash: 1ccd7a7f33c6ee5cab8b7173d8eb93365b6cb587
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 41d68c58c43262b36b93af0008e7d35de13dff4d
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79472218"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562268"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutoriel : Créer un pipeline Azure Machine Learning pour le scoring par lots
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Découvrez comment créer un pipeline Azure Machine Learning pour exécuter un travail de scoring par lots. Les pipelines Machine Learning optimisent votre workflow à divers niveaux : vitesse, portabilité et réutilisation. Ainsi, vous pouvez vous concentrer sur le Machine Learning, plutôt que sur l’infrastructure et l’automatisation. Après avoir créé et publié un pipeline, vous configurez un point de terminaison REST qui vous permet de déclencher ce pipeline à partir de n’importe quelle bibliothèque HTTP sur n’importe quelle plateforme. 
+Dans ce tutoriel avancé, vous allez découvrir comment créer un pipeline Azure Machine Learning pour exécuter un travail de scoring par lots. Les pipelines Machine Learning optimisent votre workflow à divers niveaux : vitesse, portabilité et réutilisation. Ainsi, vous pouvez vous concentrer sur le Machine Learning, plutôt que sur l’infrastructure et l’automatisation. Après avoir créé et publié un pipeline, vous configurez un point de terminaison REST qui vous permet de déclencher ce pipeline à partir de n’importe quelle bibliothèque HTTP sur n’importe quelle plateforme. 
 
 L’exemple utilise un modèle de réseau neuronal convolutif [Inception-V3](https://arxiv.org/abs/1512.00567) préentraîné implémenté dans Tensorflow pour classifier les images sans étiquette. [En savoir plus sur les pipelines Machine Learning](concept-ml-pipelines.md).
 

@@ -426,6 +426,8 @@
               href: faq-voice-assistants.md
     - name: Mot clé personnalisé
       items:
+        - name: Vue d’ensemble des mots clés personnalisés
+          href: custom-keyword-overview.md
         - name: Instructions de nommage des mots clés personnalisés
           href: speech-devices-sdk-kws-guidelines.md
         - name: Détection de mots-clés personnalisés
@@ -519,6 +521,10 @@
           href: speech-devices-sdk-roobo-v1.md
         - name: "Détails de Roobo\_v2"
           href: speech-devices-sdk-roobo-v2.md
+    - name: Guides pratiques
+      items:
+        - name: Guide pratique pour configurer un tableau de microphones
+          href: how-to-devices-microphone-array-configuration.md
     - name: Démarrage rapide
       items:
         - name: Utiliser le SDK d’appareils Speech

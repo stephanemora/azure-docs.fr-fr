@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 720cc157111293146b796f8567f94a4f1f4830c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce0cd0866cc6daa36d598767a486faeabac8076d
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75376934"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791814"
 ---
 # <a name="monitoring-the-cluster"></a>Surveillance du cluster
 
@@ -74,7 +74,7 @@ Si vous devez contacter le support technique Microsoft pour obtenir de l’aide 
 
 ## <a name="measuring-performance"></a>Mesure des performances
 
-Mesurer les performances de votre cluster vous permet de comprendre comment il parvient à gérer la charge et à orienter les décisions concernant la mise à l’échelle de votre cluster (en savoir plus sur la mise à l’échelle d’un cluster [sur Azure](service-fabric-cluster-scale-up-down.md) ou [local](service-fabric-cluster-windows-server-add-remove-nodes.md)). Les données de performances sont également utiles quand elles sont comparées aux actions que vous-même, ou vos applications et services, avez prises, lorsque vous analysez plus tard des journaux d’activité. 
+Mesurer les performances de votre cluster vous permet de comprendre comment il parvient à gérer la charge et à orienter les décisions concernant la mise à l’échelle de votre cluster (en savoir plus sur la mise à l’échelle d’un cluster [sur Azure](service-fabric-cluster-scale-in-out.md) ou [local](service-fabric-cluster-windows-server-add-remove-nodes.md)). Les données de performances sont également utiles quand elles sont comparées aux actions que vous-même, ou vos applications et services, avez prises, lorsque vous analysez plus tard des journaux d’activité. 
 
 Pour obtenir la liste des compteurs de performances à collecter lors de l’utilisation de Service Fabric, consultez l’article [Compteurs de performances dans Service Fabric](service-fabric-diagnostics-event-generation-perf.md)
 

@@ -3,12 +3,12 @@ title: Définir plusieurs instances d’une propriété
 description: Utilisez l’opération de copie dans un modèle Azure Resource Manager pour effectuer une itération à plusieurs reprises lors de la création d’une propriété sur une ressource.
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: 831ae1af202a1cdf52bdd2bdf0d9a042a97ba52f
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 9fde2ecf14bc5b29bb31ffa78e067b780438578a
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81391334"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583414"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Itération de propriété dans les modèles ARM
 
@@ -16,9 +16,9 @@ Cet article explique comment créer plusieurs instances d’une propriété dans
 
 Vous pouvez également utiliser l’élément copy avec les éléments [resources](copy-resources.md), [variables](copy-variables.md) et [outputs](copy-outputs.md).
 
-## <a name="property-iteration"></a>Itération de propriété
+## <a name="syntax"></a>Syntaxe
 
-L’élément copier utilise le format général suivant :
+L’élément copy utilise le format général suivant :
 
 ```json
 "copy": [
@@ -35,6 +35,21 @@ Pour **name**, indiquez le nom de la propriété de ressource que vous souhaitez
 La propriété **count** spécifie le nombre d’itérations que vous souhaitez pour la propriété.
 
 La propriété **input** spécifie les propriétés que vous souhaitez répéter. Vous créez un tableau d’éléments construits à partir de la valeur de la propriété **input**.
+
+## <a name="copy-limits"></a>Limites de copie
+
+Le nombre ne peut pas dépasser 800.
+
+Le nombre ne peut pas être négatif. Il peut être égal à zéro si vous déployez le modèle avec une version récente d’Azure CLI, PowerShell ou l’API REST. Plus précisément, vous devez utiliser :
+
+* Azure PowerShell **2.6** ou version ultérieure
+* Azure CLI **2.0.74** ou version ultérieure
+* API REST version **2019-05-10** ou ultérieure
+* Les [déploiements liés](linked-templates.md) doivent utiliser la version **2019-05-10** de l’API ou une version ultérieure pour le type de ressource de déploiement
+
+Les versions antérieures de PowerShell, de l’interface CLI et de l’API REST ne prennent pas en charge le nombre zéro.
+
+## <a name="property-iteration"></a>Itération de propriété
 
 L’exemple suivant montre comment appliquer `copy` à la propriété dataDisks sur une machine virtuelle :
 
@@ -232,12 +247,6 @@ Vous pouvez utiliser des itérations de ressource et de propriété ensemble. R�
   }
 }
 ```
-
-## <a name="copy-limits"></a>Limites de copie
-
-Le nombre ne peut pas dépasser 800.
-
-Le nombre ne peut pas être négatif. Si vous déployez un modèle avec Azure PowerShell 2.6 (ou une version ultérieure), l’interface Azure CLI 2.0.74 (ou une version ultérieure) ou l’API REST version **2019-05-10** (ou une version ultérieure), vous pouvez définir le nombre sur zéro. Les versions antérieures de PowerShell, de l’interface CLI et de l’API REST ne prennent pas en charge le nombre zéro.
 
 ## <a name="example-templates"></a>Exemples de modèles
 
