@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: 06e5abe04ed1ec75dcbf1b216bfaab1a7458ce72
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 75564ea463198967c6ed170851058202b5ba3478
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77064051"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625950"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Modifier le mot de passe de votre compte professionnel ou scolaire à partir de la page Modifier le mot de passe
 
@@ -27,7 +27,7 @@ La page **Modifier mot de passe** du portail **Mon compte** vous aide à mettre 
 
 ## <a name="update-a-password-from-the-change-password-page"></a>Mettre à jour un mot de passe à partir de la page Modifier le mot de passe
 
-1. Connectez-vous à votre compte professionnel ou scolaire à l'aide de votre mot de passe existant, puis accédez à **Mon compte** (page https://myprofile.microsoft.com/) ).
+1. Connectez-vous à votre compte professionnel ou scolaire à l'aide de votre mot de passe existant, puis accédez à **Mon compte** (page https://myaccount.microsoft.com/) ).
 
 2. Sélectionnez **Mot de passe** dans le volet de navigation de gauche ou sélectionnez le lien **Modifier le mot de passe** dans le bloc **Mot de passe**.
 
