@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: 544de1b4ac46a58d533f71a46266807a3b93820a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 83b223ab2195516492d55ac85be6e7db0dffbd98
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77920040"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176785"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analyser les journaux et les métriques avec les paramètres de diagnostic
 
@@ -23,18 +23,21 @@ La fonctionnalité de diagnostic d’Azure Spring Cloud vous permet d’analyser
 
 Choisissez la catégorie de journal et de métrique que vous souhaitez analyser.
 
+> [!TIP]
+> Vous souhaitez simplement diffuser vos journaux en continu ? Voyez cette [commande Azure CLI](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs) !
+
 ## <a name="logs"></a>Journaux d’activité
 
 |Journal | Description |
 |----|----|
-| **ApplicationConsole** | Journal de la console de toutes les applications clientes. | 
+| **ApplicationConsole** | Journal de la console de toutes les applications clientes. |
 | **SystemLogs** | Actuellement, seul [Spring Cloud Config Server](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) enregistre dans cette catégorie. |
 
 ## <a name="metrics"></a>Mesures
 
 Pour obtenir la liste complète des métriques, voir [Mesures Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-metrics-options).
 
-Pour commencer, activez l’un de ces services pour recevoir les données. Pour en savoir plus sur la configuration de Log Analytics, consultez [Prise en main de Log Analytics dans Azure Monitor](../azure-monitor/log-query/get-started-portal.md). 
+Pour commencer, activez l’un de ces services pour recevoir les données. Pour en savoir plus sur la configuration de Log Analytics, consultez [Prise en main de Log Analytics dans Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
 
 ## <a name="configure-diagnostics-settings"></a>Configurer les paramètres de diagnostic
 
@@ -49,16 +52,17 @@ Pour commencer, activez l’un de ces services pour recevoir les données. Pour 
 1. Sélectionnez **Enregistrer**.
 
 > [!NOTE]
-> Il peut s’écouler jusqu’à 15 minutes entre le moment où les journaux ou les métriques sont émis et le moment où ils apparaissent dans votre compte de stockage, votre hub d’événements ou Log Analytics.
+> 1. Il peut s’écouler jusqu’à 15 minutes entre le moment où les journaux ou les métriques sont émis et le moment où ils apparaissent dans votre compte de stockage, votre hub d’événements ou Log Analytics.
+> 1. Si l’instance Azure Spring Cloud est supprimée ou déplacée, l’opération ne s’exécute pas en cascade vers les ressources **Paramètres de diagnostic**. Les ressources **Paramètres de diagnostic** doivent être supprimées manuellement avant l’opération sur son parent, c.-à-d. l’instance Azure Spring Cloud. Dans le cas contraire, si une nouvelle instance Azure Spring Cloud est configurée avec le même ID de ressource que celle qui a été supprimée, ou si l’instance Azure Spring Cloud est redéplacée dans son emplacement d’origine, les ressources **Paramètres de diagnostic** précédentes continuent de l’étendre.
 
 ## <a name="view-the-logs-and-metrics"></a>Afficher les journaux et les métriques
 Il existe plusieurs méthodes pour afficher les journaux et les métriques, comme décrit dans les titres suivants.
 
-### <a name="use-logs-blade"></a>Utiliser le panneau Journaux
+### <a name="use-the-logs-blade"></a>Utiliser le panneau Journaux
 
 1. Dans le Portail Azure, accédez à votre instance Azure Spring Cloud.
 1. Pour ouvrir le volet **Recherche dans les journaux**, sélectionnez **Journaux**.
-1. Dans la zone de recherche **Journal**
+1. Dans la zone de recherche **Tables**
    * Pour afficher les journaux, saisissez une requête simple telle que :
 
     ```sql
@@ -78,7 +82,7 @@ Il existe plusieurs méthodes pour afficher les journaux et les métriques, comm
 1. Dans le Portail Azure, dans le volet de gauche, sélectionnez **Log Analytics**.
 1. Sélectionnez l’espace de travail Log Analytics que vous avez choisi quand vous avez ajouté vos paramètres de diagnostic.
 1. Pour ouvrir le volet **Recherche dans les journaux**, sélectionnez **Journaux**.
-1. Dans la zone de recherche **Journal**,
+1. Dans la zone de recherche **Tables**,
    * pour afficher les journaux, saisissez une requête simple telle que :
 
     ```sql
@@ -100,15 +104,14 @@ Il existe plusieurs méthodes pour afficher les journaux et les métriques, comm
     | where ServiceName == "YourServiceName" and AppName == "YourAppName" and InstanceName == "YourInstanceName"
     | limit 50
     ```
-> [!NOTE]  
+> [!NOTE]
 > `==` respecte la casse, mais pas `=~`.
 
 Pour en savoir plus sur le langage de requête qui est utilisé dans Log Analytics, consultez [Requêtes de journal Azure Monitor](../azure-monitor/log-query/query-language.md).
 
-### <a name="use-your-storage-account"></a>Utiliser votre compte de stockage 
+### <a name="use-your-storage-account"></a>Utiliser votre compte de stockage
 
-1. Dans le Portail Azure, dans le volet de gauche, sélectionnez **Comptes de stockage**.
-
+1. Sur le Portail Azure, recherchez **Comptes de stockage** dans le volet de navigation gauche ou dans la zone de recherche.
 1. Sélectionnez le compte de stockage que vous avez choisi quand vous avez ajouté vos paramètres de diagnostic.
 1. Pour ouvrir le volet **Conteneur d’objets blob**, sélectionnez **Objets blob**.
 1. Pour consulter les journaux d’application, recherchez un conteneur appelé **insights-logs-applicationconsole**.
@@ -118,7 +121,7 @@ Pour en savoir plus sur l’envoi d’informations de diagnostic à un compte de
 
 ### <a name="use-your-event-hub"></a>Utiliser votre hub d’événements
 
-1. Dans le Portail Azure, dans le volet de gauche, sélectionnez **Hubs d’événements**.
+1. Sur le Portail Azure, recherchez **Event Hubs** dans le volet de navigation gauche ou dans la zone de recherche.
 
 1. Recherchez et sélectionnez le hub d’événements que vous avez choisi quand vous avez ajouté vos paramètres de diagnostic.
 1. Pour ouvrir le volet **Liste des hubs d’événements**, sélectionnez **Hubs d’événements**.
@@ -153,7 +156,7 @@ AppPlatformLogsforSpring
 | where Log contains "error" or Log contains "exception"
 ```
 
-Utilisez cette requête pour rechercher des erreurs, ou modifiez les termes de la requête afin de rechercher des codes d’erreur ou des exceptions spécifiques. 
+Utilisez cette requête pour rechercher des erreurs, ou modifiez les termes de la requête afin de rechercher des codes d’erreur ou des exceptions spécifiques.
 
 ### <a name="show-the-number-of-errors-and-exceptions-reported-by-your-application-over-the-last-hour"></a>Afficher le nombre d’erreurs et d’exceptions signalées par votre application au cours de la dernière heure
 

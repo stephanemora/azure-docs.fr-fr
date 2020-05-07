@@ -1,30 +1,25 @@
 ---
-title: Vue d’ensemble de la passerelle Gestion des API Azure auto-hébergée | Microsoft Docs
-description: Découvrez comment la passerelle Gestion des API Azure auto-hébergée aide les organisations à gérer les API dans les environnements hybrides et multiclouds.
+title: Vue d’ensemble de la passerelle auto-hébergée | Microsoft Docs
+description: Découvrez comment la fonctionnalité de passerelle auto-hébergée Gestion des API Azure aide les organisations à gérer les API dans des environnements hybrides et multiclouds.
 services: api-management
 documentationcenter: ''
 author: vlvinogr
 manager: gwallace
 editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: 415f0e209e607a863d715b1a66a2435603a662f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b560b02544eeb96167e68ed305d4d9942d2b1e0f
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73510554"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232970"
 ---
-# <a name="self-hosted-api-management-gateway-overview"></a>Vue d’ensemble de la passerelle Gestion des API auto-hébergée
+# <a name="self-hosted-gateway-overview"></a>Vue d’ensemble de la passerelle auto-hébergée
 
-Cet article explique comment la fonctionnalité de passerelle auto-hébergée active la gestion des API hybrides et multiclouds, présente son architecture de haut niveau et met en évidence ses fonctionnalités fondamentales.
-
-> [!NOTE]
-> La fonctionnalité de passerelle auto-hébergée est en version préliminaire. Pendant la version préliminaire, la passerelle auto-hébergée est disponible uniquement pour les niveaux Développeur et Premium, sans frais supplémentaires. Le niveau Développeur est limité à un seul déploiement de passerelle auto-hébergée.
+Cet article explique comment la fonctionnalité de passerelle auto-hébergée de Gestion des API Azure permet la gestion des API hybrides et multiclouds, présente son architecture de haut niveau et met en évidence ses capacités.
 
 ## <a name="hybrid-and-multi-cloud-api-management"></a>Gestion des API hybrides et multiclouds
 
@@ -42,20 +37,27 @@ Par défaut, tous ces composants sont déployés dans Azure, ce qui entraîne le
 
 ![Flux de trafic d’API sans passerelles auto-hébergées](media/self-hosted-gateway-overview/without-gateways.png)
 
-Le déploiement de passerelles auto-hébergées dans les mêmes environnements en tant qu’implémentations d’API back-end et leur ajout au service Gestion des API permet au trafic d’API de circuler directement vers les API back-end. Ceci améliore la latence, optimise les coûts de transfert de données et assure la conformité tout en conservant les avantages d’un point unique de gestion et de découverte de toutes les API au sein de l’organisation, quel que soit l’emplacement d’hébergement de leurs implémentations.
+Le déploiement de passerelles auto-hébergées dans les mêmes environnements où sont hébergées les implémentations d’API back-end permet au trafic d’API de circuler directement vers les API back-end. Ceci améliore la latence, optimise les coûts de transfert de données et assure la conformité tout en conservant les avantages d’un point unique de gestion, d’observabilité et de découverte de toutes les API au sein de l’organisation, quel que soit l’emplacement où leurs implémentations sont hébergées.
 
 ![Flux de trafic d’API avec passerelles auto-hébergées](media/self-hosted-gateway-overview/with-gateways.png)
 
 ## <a name="packaging-and-features"></a>Empaquetage et caractéristiques
 
-La passerelle auto-hébergée est une version en conteneur, fonctionnellement équivalente, de la passerelle managée déployée sur Azure dans le cadre de chaque service Gestion des API. La passerelle auto-hébergée est disponible sous la forme d’un conteneur Docker basé sur Linux à partir du Microsoft Container Registry. Il peut être déployé sur Docker, Kubernetes ou toute autre solution d’orchestration de conteneur sur un ordinateur de bureau, un cluster de serveurs ou une infrastructure cloud.
+La passerelle auto-hébergée est une version en conteneur, fonctionnellement équivalente, de la passerelle managée déployée sur Azure dans le cadre de chaque service Gestion des API. La passerelle auto-hébergée est disponible sous la forme d’un [conteneur](https://aka.ms/apim/sputnik/dhub) Docker basé sur Linux à partir de Microsoft Container Registry. Elle peut être déployée sur Docker, Kubernetes ou toute autre solution d’orchestration de conteneurs s’exécutant sur un cluster de serveurs local, sur une infrastructure cloud ou, à des fins d’évaluation et de développement, sur un ordinateur personnel.
 
-> [!IMPORTANT]
-> Certaines fonctionnalités disponibles dans la passerelle managée ne sont pas encore disponibles en version préliminaire. Notamment : Connexion à la stratégie Event Hub, integration de Service Fabric, HTTP/2 en aval. Il n’est pas prévu de rendre un cache intégré disponible dans la passerelle auto-hébergée.
+Les fonctionnalités suivantes, présentes dans les passerelles gérées, **ne sont pas disponibles** dans les passerelles auto-hébergées :
+
+- Journaux d’activité Azure Monitor
+- Gestion du chiffrement et de la version TLS en amont (côté principal)
+- Validation des certificats serveur et client à l’aide de [certificats racine de l’autorité de certification](api-management-howto-ca-certificates.md) chargés vers le service Gestion des API. Pour ajouter la prise en charge d’une autorité de certification personnalisée, ajoutez une couche à l’image conteneur de la passerelle auto-hébergée qui installe le certificat racine de l’autorité de certification
+- Intégration à [Service Fabric](../service-fabric/service-fabric-api-management-overview.md)
+- Reprise de session TLS
+- Renégociation du certificat client. Cela signifie que, pour que l’[authentification par certificat client](api-management-howto-mutual-certificates-for-clients.md) fonctionne, les utilisateurs d’API doivent présenter leurs certificats dans le cadre de la négociation TLS initiale. Pour vous en assurer, activez le paramètre de négociation du certificat client lors de la configuration d’un nom d’hôte personnalisé pour une passerelle auto-hébergée
+- Cache intégré. Consultez ce [document](api-management-howto-cache-external.md) pour en savoir plus sur l’utilisation du cache externe dans les passerelles auto-hébergées
 
 ## <a name="connectivity-to-azure"></a>Connectivité à Azure
 
-La passerelle auto-hébergée nécessite une connectivité TCP/IP sortante vers Azure sur le port 443. Chaque passerelle auto-hébergée doit être associée à un seul service Gestion des API et est configurée via son plan de gestion. La passerelle auto-hébergée utilise la connectivité à Azure pour les actions suivantes :
+Les passerelles auto-hébergées nécessitent une connectivité TCP/IP sortante vers Azure sur le port 443. Chaque passerelle auto-hébergée doit être associée à un seul service Gestion des API et est configurée via son plan de gestion. La passerelle auto-hébergée utilise la connectivité à Azure pour les actions suivantes :
 
 -   Signalement de son état en envoyant des messages de pulsations toutes les minutes
 -   Vérification régulière (toutes les 10 secondes) et application des mises à jour de configuration chaque fois qu’elles sont disponibles
@@ -64,22 +66,22 @@ La passerelle auto-hébergée nécessite une connectivité TCP/IP sortante vers 
 
 Lorsque la connectivité à Azure est perdue, la passerelle auto-hébergée ne peut plus recevoir de mises à jour de configuration, signaler son état ou charger les données de télémétrie.
 
-La passerelle auto-hébergée est conçue pour « basculer en mode statique » et peut survivre à la perte temporaire de connectivité à Azure. Elle peut être déployée avec ou sans la sauvegarde de configuration locale activée. Dans le premier cas, les passerelles auto-hébergées enregistrent régulièrement une copie de sauvegarde de la configuration sur un volume persistant attaché au conteneur ou au pod.
+La passerelle auto-hébergée est conçue pour « basculer en mode statique » et peut survivre à une perte temporaire de connectivité à Azure. Elle peut être déployée avec ou sans sauvegarde de configuration locale. Dans le premier cas, les passerelles auto-hébergées enregistrent régulièrement une copie de sauvegarde de la configuration téléchargée la plus récente sur un volume persistant attaché à son conteneur ou à son pod.
 
 Lorsque la sauvegarde de la configuration est désactivée et que la connectivité à Azure est interrompue :
 
--   Les passerelles auto-hébergées qui s’exécutent continuent à fonctionner à l’aide d’une copie en mémoire de la configuration
+-   Les passerelles auto-hébergées en cours d’exécution continuent à fonctionner à l’aide d’une copie en mémoire de la configuration
 -   Les passerelles auto-hébergées arrêtées ne peuvent pas démarrer
 
 Lorsque la sauvegarde de la configuration est activée et que la connectivité à Azure est interrompue :
 
--   Les passerelles auto-hébergées qui s’exécutent continuent à fonctionner à l’aide d’une copie en mémoire de la configuration
--   Les passerelles auto-hébergées arrêtées commencent à utiliser une copie de sauvegarde de la configuration
+-   Les passerelles auto-hébergées en cours d’exécution continuent à fonctionner à l’aide d’une copie en mémoire de la configuration
+-   Les passerelles auto-hébergées arrêtées peuvent démarrer à l’aide d’une copie de sauvegarde de la configuration
 
 Lorsque la connectivité est restaurée, chaque passerelle auto-hébergée affectée par la panne se reconnecte automatiquement à son service Gestion des API associé et télécharge toutes les mises à jour de configuration qui se sont produites pendant que la passerelle était « hors connexion ».
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 -   [Lire un livre blanc pour plus d’informations sur cette rubrique](https://aka.ms/hybrid-and-multi-cloud-api-management)
--   [Déployer une passerelle auto-hébergée sur Docker](api-management-howto-deploy-self-hosted-gateway-to-docker.md)
--   [Déployer une passerelle auto-hébergée sur Kubernetes](api-management-howto-deploy-self-hosted-gateway-to-k8s.md)
+-   [Déployer une passerelle auto-hébergée sur Docker](how-to-deploy-self-hosted-gateway-docker.md)
+-   [Déployer une passerelle auto-hébergée sur Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)

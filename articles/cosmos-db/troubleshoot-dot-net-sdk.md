@@ -8,18 +8,18 @@ ms.author: jawilley
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 5f92d98630c6fb875babeb907f92732b0c24bb52
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e015c1ee335cbdfed7964d63b1f4600bc6a4cb77
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79137952"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208735"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnostiquer et résoudre des problèmes lors de l’utilisation du Kit de développement logiciel (SDK) Azure Cosmos DB
 Cet article traite des problèmes courants, des solutions de contournement, des étapes de diagnostic et des outils quand vous utilisez le [Kit de développement logiciel (SDK) .NET](sql-api-sdk-dotnet.md) avec des comptes d’API SQL Azure Cosmos DB.
 Le Kit de développement logiciel (SDK) .NET fournit la représentation logique côté client pour accéder à l’API SQL Azure Cosmos DB. Cet article décrit les outils et les approches qui peuvent vous aider si vous rencontrez des problèmes.
 
-## <a name="checklist-for-troubleshooting-issues"></a>Liste de contrôle pour la résolution des problèmes :
+## <a name="checklist-for-troubleshooting-issues"></a>Liste de contrôle pour la résolution des problèmes
 Examinez la liste de contrôle avant de mettre votre application en production. L’utilisation de la liste de contrôle empêche l’affichage de plusieurs problèmes courants. Elle permet également de diagnostiquer rapidement quand un problème se produit :
 
 *    Utilisez le dernier [Kit de développement logiciel (SDK)](sql-api-sdk-dotnet-standard.md). Le Kit de développement logiciel (SDK) en préversion ne doit pas être utilisé en production. Cela vous évitera de rencontrer des problèmes connus déjà corrigés.
@@ -101,6 +101,30 @@ Les [métriques de requête](sql-api-query-metrics.md) vous aident à détermine
 * Si la requête principale retourne rapidement des résultats, et passe beaucoup de temps sur le client, vérifiez la charge de la machine. Il est probable que les ressources sont insuffisantes et que le Kit de développement logiciel (SDK) attend que des ressources soient disponibles pour gérer la réponse.
 * Si la requête principale est lente, essayez de l’[optimiser](optimize-cost-queries.md) et d’examiner la [stratégie d’indexation](index-overview.md) actuelle. 
 
+### <a name="http-401-the-mac-signature-found-in-the-http-request-is-not-the-same-as-the-computed-signature"></a>HTTP 401 : la signature MAC trouvée dans la requête HTTP n’est pas la même que la signature calculée
+Si vous avez reçu le message d’erreur 401 suivant : « La signature MAC trouvée dans la requête HTTP n’est pas la même que la signature calculée », cela peut être dû aux scénarios suivants.
+
+1. La clé a été pivotée et n’a pas respecté les [meilleures pratiques](secure-access-to-data.md#key-rotation). Il s’agit du scénario le plus fréquent. La rotation des clés de compte Cosmos DB peut prendre de quelques secondes à plusieurs jours, selon la taille du compte Cosmos DB.
+   1. L’erreur 401 de signature MAC est visible peu après une rotation de clé et finit par s’arrêter sans aucune modification. 
+2. La clé est mal configurée sur l’application, de sorte que la clé ne correspond pas au compte.
+   1. Le problème 401 de signature MAC est cohérent et se produit pour tous les appels.
+3. Il existe une condition de concurrence avec la création d’un conteneur. Une instance d’application tente d’accéder au conteneur avant que la création du conteneur soit terminée. C’est le cas le plus fréquent si l’application est en cours d’exécution et que le conteneur est supprimé et recréé avec le même nom pendant que l’application est en cours d’exécution. Le Kit de développement logiciel (SDK) tentera d’utiliser le nouveau conteneur, mais la création du conteneur est toujours en cours, de sorte qu’il n’en a pas les clés.
+   1. Le problème 401 de signature MAC s’affiche peu après la création d’un conteneur et ne survient que pendant le processus de création du conteneur.
+ 
+ ### <a name="http-error-400-the-size-of-the-request-headers-is-too-long"></a>Erreur HTTP 400. La taille des en-têtes de requête est trop longue.
+ La taille de l’en-tête est devenue trop grande et dépasse la taille maximale autorisée. Il est toujours recommandé d’utiliser le Kit de développement logiciel (SDK) le plus récent. Veillez à utiliser au moins la version [3.x](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) ou [2.x](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md), qui ajoute le suivi de la taille d’en-tête au message d’exception.
+
+Causes :
+ 1. Le jeton de session est devenu trop grand. Le jeton de session croît à mesure que le nombre de partitions dans le conteneur augmente.
+ 2. Le jeton de continuation est devenu trop grand. Différentes requêtes auront des tailles de jeton de continuation différentes.
+ 3. Cela est dû à une combinaison du jeton de session et du jeton de continuation.
+
+Solution :
+   1. Suivez les [conseils sur les performances](performance-tips.md) et convertissez l’application en mode de connexion Direct + TCP. Le mode Direct + TCP n’a pas de restriction de taille d’en-tête comme le protocole HTTP, ce qui évite le problème.
+   2. Si le jeton de session est la cause du problème, une atténuation temporaire consiste à redémarrer l’application. Le redémarrage de l’instance d’application entraîne la réinitialisation du jeton de session. Si les exceptions s’arrêtent après le redémarrage, cela confirme que le jeton de session est bien la cause. Il finira par atteindre à nouveau la taille à l’origine de l’exception.
+   3. Si l’application ne peut pas être convertie en mode Direct + TCP et que le jeton de session est la cause du problème, une atténuation est possible en modifiant le [niveau de cohérence](consistency-levels.md) du client. Le jeton de session est utilisé uniquement pour la cohérence de session, ce qui est le réglage par défaut pour Cosmos DB. Tout autre niveau de cohérence n’utilise pas le jeton de session. 
+   4. Si l’application ne peut pas être convertie en mode Direct + TCP et que le jeton de continuation est la cause du problème, essayez de définir l’option ResponseContinuationTokenLimitInKb. L’option est accessible dans FeedOptions pour v2 ou QueryRequestOptions dans v3.
+
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
 [Enable client SDK logging]: #logging
@@ -108,5 +132,3 @@ Les [métriques de requête](sql-api-query-metrics.md) vous aident à détermine
 [Request Timeouts]: #request-timeouts
 [Azure SNAT (PAT) port exhaustion]: #snat
 [Production check list]: #production-check-list
-
-
