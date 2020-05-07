@@ -12,19 +12,19 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/14/2020
-ms.openlocfilehash: 2564fd0ffd980dae4ca1835f4211fee0a0cf040c
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 1fedf889fa8d39a926067eb227b895d4fe1e3c39
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81380933"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509344"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gérer la conservation à long terme des sauvegardes Azure SQL Database
 
 Dans Azure SQL Database, vous pouvez configurer une base de données unique ou mise en pool avec une stratégie de [conservation des sauvegardes à long terme](sql-database-long-term-retention.md) (LTR) afin de conserver automatiquement les sauvegardes de base de données dans des conteneurs de stockage Blob Azure séparés pendant une durée maximale de 10 ans. Vous pouvez ensuite récupérer une base de données à l’aide de ces sauvegardes via le portail Azure ou PowerShell.
 
 > [!IMPORTANT]
-> L’[instance gérée de base de données Azure SQL](sql-database-managed-instance.md) ne prend pas en charge actuellement la conservation des sauvegardes à long terme.
+> Pour Azure SQL Database Managed Instance, consultez [Prise en charge de LTR pour Managed Instance](sql-database-long-term-retention.md#managed-instance-support).
 
 ## <a name="using-azure-portal"></a>En passant par le portail Azure
 

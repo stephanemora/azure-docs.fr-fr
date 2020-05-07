@@ -11,21 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/19/2020
-ms.openlocfilehash: 24eacb555704593fe44bc2d949de44de163345bc
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.date: 04/29/2020
+ms.openlocfilehash: fba1dcdb8c4e5cfaa8071ae58ad75432b526c887
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677101"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509701"
 ---
 # <a name="manage-azure-sql-database-managed-instance-long-term-backup-retention-powershell"></a>Gestion de la conservation des sauvegardes à long terme Azure SQL Database Managed Instance (PowerShell)
 
 Dans Azure SQL Database Managed Instance, vous pouvez configurer une stratégie de [conservation des sauvegardes à long terme](sql-database-long-term-retention.md#managed-instance-support) (LTR) grâce à une fonctionnalité en préversion publique limitée. Cela vous permet de conserver automatiquement les sauvegardes de base de données dans des conteneurs de Stockage Blob Azure distincts pendant 10 ans. Vous pouvez ensuite récupérer une base de données à l’aide de ces sauvegardes avec PowerShell.
 
    > [!IMPORTANT]
-   > La conservation LTR des instances gérées, actuellement en préversion limitée, est disponible pour les abonnements EA et CSP selon les cas. Pour demander l’inscription, créez un [ticket de support Azure](https://azure.microsoft.com/support/create-ticket/) dans la rubrique de support **Sauvegarde, restauration et continuité de l’activité/conservation des sauvegardes à long terme**. 
-
+   > La conservation LTR des instances gérées, actuellement en préversion limitée, est disponible pour les abonnements EA et CSP selon les cas. Pour demander une inscription, créez un [ticket de support Azure](https://azure.microsoft.com/support/create-ticket/). Pour le type de problème, sélectionnez « Problème technique », pour le service, choisissez « SQL Database Managed Instance » et pour le type de problème, sélectionnez **Sauvegarde, restauration et continuité d’activité/conservation de sauvegarde à long terme**. Dans votre demande, indiquez que vous souhaitez être inscrit à la préversion publique limitée de LTR pour Managed Instance.
 
 Les sections suivantes vous montrent comment utiliser PowerShell pour configurer la rétention des sauvegardes à long terme, afficher des sauvegardes dans le stockage SQL Azure et restaurer à partir d’une sauvegarde dans le stockage SQL Azure.
 

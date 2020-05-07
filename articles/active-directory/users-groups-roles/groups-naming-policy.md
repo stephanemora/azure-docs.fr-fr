@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 141e83e21db18f21468113fd9927c2bdd2ed176d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9018228ec685d69fb03dfbc23de530e1bb8abb4f
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79497878"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582865"
 ---
 # <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Appliquer une stratégie d’attribution de noms sur les groupes Office 365 dans Azure Active Directory
 
-Pour appliquer des conventions de nommage cohérentes pour les groupes Office 365 créés ou modifiés par vos utilisateurs, configurez une stratégie de nommage de groupes pour vos locataires dans Azure Active Directory (Azure AD). Par exemple, vous pouvez utiliser la stratégie de nommage pour communiquer la fonction d’un groupe, l’appartenance, la région géographique ou le nom de la personne qui a créé le groupe. Vous pouvez aussi utiliser la stratégie de nommage pour faciliter le classement des groupes dans le carnet d’adresses. Vous pouvez utiliser la stratégie pour empêcher l’utilisation de certains mots dans les noms et les alias de groupes.
+Pour appliquer des conventions de nommage cohérentes pour les groupes Office 365 créés ou modifiés par vos utilisateurs, configurez une stratégie de nommage de groupes pour vos organisations dans Azure Active Directory (Azure AD). Par exemple, vous pouvez utiliser la stratégie de nommage pour communiquer la fonction d’un groupe, l’appartenance, la région géographique ou le nom de la personne qui a créé le groupe. Vous pouvez aussi utiliser la stratégie de nommage pour faciliter le classement des groupes dans le carnet d’adresses. Vous pouvez utiliser la stratégie pour empêcher l’utilisation de certains mots dans les noms et les alias de groupes.
 
 > [!IMPORTANT]
 > Chaque utilisateur unique membre d’un ou plusieurs groupes Office 365 a besoin de se voir attribuer une licence Azure Active Directory Premium P1 ou Azure AD Basic EDU, mais pas nécessairement de la posséder, pour pouvoir utiliser la stratégie d’attribution de noms de groupes Azure AD pour les groupes Office 365.
@@ -42,7 +42,7 @@ Vous pouvez appliquer une stratégie d’attribution de noms pour des groupes de
 
 ### <a name="prefix-suffix-naming-policy"></a>Stratégie de nommage avec préfixe-suffixe
 
-La structure générale de la convention de nommage est « Préfixe[NomGroupe]Suffixe ». Même s’il ne vous est pas interdit de définir plusieurs préfixes et suffixes, seule une instance de [NomGroupe] doit figurer dans le paramètre. Les préfixes ou les suffixes peuvent être des chaînes fixes ou des attributs utilisateur tels que \[Service\] qui sont substitués en fonction de l’utilisateur qui crée le groupe. Le nombre total de caractères autorisés pour les chaînes combinées de préfixe et de suffixe est de 53 caractères. 
+La structure générale de la convention de nommage est « Préfixe[NomGroupe]Suffixe ». Même s’il ne vous est pas interdit de définir plusieurs préfixes et suffixes, seule une instance de [NomGroupe] doit figurer dans le paramètre. Les préfixes ou les suffixes peuvent être des chaînes fixes ou des attributs utilisateur tels que \[Service\] qui sont substitués en fonction de l’utilisateur qui crée le groupe. Le nombre total de caractères autorisés pour les chaînes de préfixe et de suffixe, nom du groupe compris, est de 53 caractères. 
 
 Les préfixes et les suffixes peuvent contenir les caractères spéciaux pris en charge dans un nom de groupe et un alias de groupe. Les caractères présents dans le préfixe ou le suffixe qui ne sont pas pris en charge dans l’alias de groupe sont quand même appliqués dans le nom de groupe, mais ils sont supprimés de l’alias de groupe. Compte tenu de cette restriction, les préfixes et les suffixes appliqués au nom de groupe peuvent être différents de ceux appliqués à l’alias de groupe. 
 
@@ -138,7 +138,7 @@ Veillez à désinstaller toute version ancienne du module Azure Active Directory
 
    Dans l’écran **Connectez-vous à votre compte** qui s’ouvre, entrez votre compte d’administrateur et votre mot de passe pour vous connecter à votre service, puis sélectionnez **Se connecter**.
 
-1. Suivez les étapes de [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](groups-settings-cmdlets.md) pour créer des paramètres de groupe pour ce locataire.
+1. Si vous souhaitez créer des paramètres de groupe pour cette organisation, suivez les étapes fournies dans [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](groups-settings-cmdlets.md).
 
 ### <a name="view-the-current-settings"></a>Afficher les paramètres actuels
 

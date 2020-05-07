@@ -2,26 +2,21 @@
 title: Provisionnement d’application en état de quarantaine | Microsoft Docs
 description: Une fois que vous avez configuré une application à des fins de provisionnement d’utilisateurs automatique, découvrez ce qu’est un provisionnement en état de quarantaine et comment y mettre fin.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 04/28/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 563c049bf3d1606e87db54e3b003dac987594610
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1e0039133b7f9a7ae827e348640f6379b7f10ac
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80154625"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593928"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisionnement d’application en état de quarantaine
 
@@ -33,7 +28,7 @@ Lors d’une quarantaine, la fréquence des cycles incrémentiels est progressiv
 
 Vous avez trois façons de vérifier si une application est en quarantaine :
   
-- Dans le Portail Azure, accédez à **Azure Active Directory** > **Applications d’entreprise** > &lt;*nom de l’application*&gt; > **Provisionnement** et accédez à la barre de progression tout en bas.  
+- Dans le Portail Azure, accédez à **Azure Active Directory** > **Applications d’entreprise** > &lt;*nom de l’application*&gt; > **Provisionnement** et vérifiez le message de mise en quarantaine dans la barre de progression.   
 
   ![Barre d’état de provisionnement présentant un état de quarantaine](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 
@@ -51,7 +46,13 @@ Vous avez trois façons de vérifier si une application est en quarantaine :
 
 ## <a name="why-is-my-application-in-quarantine"></a>Pourquoi mon application est-elle en quarantaine ?
 
-Une requête Microsoft Graph visant à obtenir l’état du travail de provisionnement indique la raison suivante pour la quarantaine :
+|Description|Action recommandée|
+|---|---|
+|**Problème de conformité SCIM :** Une réponse HTTP/404 introuvable a été retournée au lieu de la réponse HTTP/200 OK attendue. Dans ce cas, le service d’approvisionnement d’Azure AD a fait une demande à l’application cible et reçu une réponse inattendue.|Vérifiez la section Informations d’identification de l’administrateur pour déterminer si l’application requiert la spécification de l’URL du locataire et vous assurer que l’URL est correcte. Si vous ne voyez pas de problème, contactez le développeur de l’application pour vous assurer que son service est conforme à SCIM. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
+|**Informations d’identification non valides :** Lors d’une tentative d’autorisation d’accès à l’application cible, nous avons reçu une réponse de l’application cible qui indique que les informations d’identification fournies ne sont pas valides.|Accédez à la section Informations d’identification de l’administrateur de l’interface utilisateur de configuration de l’approvisionnement et autorisez à nouveau l’accès avec des informations d’identification valides. Si l’application se trouve dans la galerie, consultez le didacticiel sur la configuration de l’application pour connaître les étapes supplémentaires requises.|
+|**Rôles dupliqués :** Les rôles importés à partir de certaines applications, comme Salesforce et Zendesk, doivent être uniques. |Accédez au [manifeste](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) de l’application dans le portail Azure et supprimez le rôle dupliqué.|
+
+ Une requête Microsoft Graph visant à obtenir l’état du travail de provisionnement indique la raison suivante pour la quarantaine :
 
 - `EncounteredQuarantineException` indique que des informations d’identification non valides ont été fournies. Le service de provisionnement n’est pas en mesure d’établir une connexion entre le système source et le système cible.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: yushwang
 ms.reviewer: cherylmc
-ms.openlocfilehash: ec3697208434eb971e47136416f2c2cc541b5cea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 436428c8f4a30706ab16ddace2d491287e620646
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225057"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559838"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configurer des connexions VPN S2S en mode actif/actif avec des passerelles VPN Azure
 
@@ -36,9 +36,7 @@ Si vous avez déjà une passerelle VPN, vous pouvez :
 Vous pouvez combiner ces instructions afin de créer une topologie de réseau plus complexe et hautement disponible correspondant à vos besoins.
 
 > [!IMPORTANT]
-> Notez que le mode actif/actif utilise uniquement les références SKU suivantes : 
->   * VpnGw1, VpnGw2, VpnGw3
->   * HigPerformance (pour les anciennes références héritées)
+> Le mode actif/actif est disponible pour toutes les références (SKU), à l’exception de Basic.
 
 ## <a name="part-1---create-and-configure-active-active-vpn-gateways"></a><a name ="aagateway"></a>Partie 1 : créer et configurer des passerelles VPN en mode actif/actif
 Les étapes suivantes permettent de configurer votre passerelle VPN Azure en modes actif/actif. Les principales différences entre les passerelles en modes actif/actif et actif/passif sont les suivantes :

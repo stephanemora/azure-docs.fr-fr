@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e419ac5c3d292b7e630d1ebb3d3b9f59ef7b8a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4253f5bd702abd061cf1cddd4badd68c9cd5d475
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74026932"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582822"
 ---
-# <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Démarrage rapide : Stratégie d’affectation de noms pour les groupes dans Azure Active Directory
+# <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Démarrage rapide : Stratégie d’affectation de noms pour les groupes dans Azure Active Directory
 
-Dans le cadre de ce démarrage rapide, vous allez configurer une stratégie d’affectation de noms dans votre locataire Azure Active Directory (Azure AD) pour les groupes Office 365 créés par l’utilisateur, afin de faciliter le tri et la recherche des groupes de votre locataire. Par exemple, vous pouvez utiliser la stratégie d’affectation de noms pour :
+Dans ce démarrage rapide, vous allez configurer une stratégie de nommage dans votre organisation Azure Active Directory (Azure AD) pour les groupes Office 365 créés par l’utilisateur, afin de faciliter le tri et la recherche de groupes dans votre organisation. Par exemple, vous pouvez utiliser la stratégie d’affectation de noms pour :
 
 * communiquer la fonction d’un groupe, l’appartenance, la région géographique ou le nom de la personne qui a créé le groupe ;
 * faciliter le classement des groupes dans le carnet d’adresses ;
@@ -31,7 +31,7 @@ Dans le cadre de ce démarrage rapide, vous allez configurer une stratégie d’
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal"></a>Configurer la stratégie de nommage de groupes d’un locataire à l’aide du portail Azure
+## <a name="configure-the-group-naming-policy-in-the-azure-portal"></a>Configurer la stratégie de nommage de groupes sur le portail Azure
 
 1. Se connecter au [centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte administrateur d’utilisateurs.
 1. Sélectionnez **Groupes**, puis **Stratégie d'attribution de noms** pour ouvrir la page Stratégie d'attribution de noms.

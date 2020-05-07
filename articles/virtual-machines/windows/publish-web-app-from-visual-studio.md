@@ -1,24 +1,21 @@
 ---
 title: Publier une application web sur une machine virtuelle Azure à partir de Visual Studio
 description: Publier une application web ASP.NET sur une machine virtuelle Azure à partir de Visual Studio
-services: virtual-machines-windows
 author: ghogen
 manager: jillfra
-tags: azure-service-management
-ms.assetid: 70267837-3629-41e0-bb58-2167ac4932b3
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: 6e5db9b4e46019aa386057d51d956ff11d90f498
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d864230ff524f6c008f9f05c16505cd9d0e9f229
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71970875"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583353"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publier une application web ASP.NET sur une machine virtuelle Azure à partir de Visual Studio
 
@@ -27,7 +24,7 @@ Ce document décrit comment publier une application web ASP.NET sur une machine 
 ## <a name="prerequisites"></a>Prérequis
 Pour pouvoir publier un projet ASP.NET sur une machine virtuelle Azure à l’aide de Visual Studio, vous devez configurer la machine virtuelle correctement.
 
-- Elle doit être configurée pour exécuter une application web ASP.NET et WebDeploy doit être installé.
+- Elle doit être configurée pour exécuter une application web ASP.NET et WebDeploy doit être installé. Pour plus d’informations, consultez [Créer une machine virtuelle ASP.NET avec WebDeploy](https://github.com/aspnet/Tooling/blob/AspNetVMs/docs/create-asp-net-vm-with-webdeploy.md).
 
 - La machine virtuelle doit avoir un nom DNS configuré. Pour en savoir plus, consultez [Créer un nom de domaine complet dans le portail Azure pour une machine virtuelle Windows](portal-create-fqdn.md).
 

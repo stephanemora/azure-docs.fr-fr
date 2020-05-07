@@ -1,71 +1,73 @@
 ---
-title: À propos d’Azure Edge Zone – Préversion
-description: En savoir plus sur les offres Edge Computing de Microsoft.
+title: À propos d’Azure Edge Zone (préversion)
+description: 'Découvrez les offres Edge Computing de Microsoft : Azure Edge Zone.'
 services: vnf-manager
 author: ganesr
 ms.service: vnf-manager
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: ganesr
-ms.openlocfilehash: aaa849633591bfd34a9fca026c820ec2f9137844
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 90e796c244950d6d374a02757b608099c229c1ea
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81410833"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82146946"
 ---
-# <a name="about-azure-edge-zones---preview"></a>À propos d’Azure Edge Zone – Préversion
+# <a name="about-azure-edge-zone-preview"></a>À propos d’Azure Edge Zone (préversion)
 
-Azure Edge Zones est une famille d’offres de Microsoft Azure qui permet le traitement des données à proximité de l’utilisateur. Vous pouvez déployer des machines virtuelles, des conteneurs et certains services Azure dans Edge Zone pour répondre aux exigences de faible latence et de débit élevé des applications.
+Azure Edge Zone est une famille d’offres de Microsoft Azure qui permet de traiter les données à proximité de l’utilisateur. Vous pouvez déployer des machines virtuelles, des conteneurs et certains services Azure dans Edge Zone pour répondre aux exigences de faible latence et de débit élevé des applications.
 
 Les scénarios d’utilisation classiques pour les zones périphériques sont les suivants :
 
 - Commande et contrôle en temps réel en robotique
-- Analytique et inférence en temps réel avec l’intelligence artificielle et le Machine Learning
+- Analytique et inférence en temps réel au moyen de l’intelligence artificielle et du Machine Learning
 - Vision industrielle
 - Rendu à distance pour les scénarios VDI et de réalité mixte
 - Gaming multijoueur immersif
-- Diffusion multimédia en continu et distribution de contenu
-- Surveillance et sécurité
+- Streaming multimédia et distribution de contenu
+- Supervision et sécurité
 
-Azure Edge Zone est disponible en trois offres discrètes :
+Il existe trois types de zones périphériques Azure :
 
-- Azure Edge Zones
-- Azure Edge Zones avec opérateur
-- Azure Private Edge Zones
+- Zones périphériques Azure
+- Zones périphériques Azure avec opérateur
+- Zones périphériques privées Azure
 
-## <a name="azure-edge-zones"></a><a name="edge-zones"></a>Azure Edge Zones
+## <a name="azure-edge-zones"></a><a name="edge-zones"></a>
 
-![Edge Zones](./media/edge-zones-overview/edge-zones.png "Zones périphériques")
+![Zones périphériques Azure](./media/edge-zones-overview/edge-zones.png "Zones périphériques Azure")
 
-Les instances Azure Edge Zone sont des extensions Azure à faible empreinte mémoire qui sont placées dans des centres de population éloignés des régions Azure. Elles prennent en charge les machines virtuelles, les conteneurs et une sélection de services Azure qui permettent d’exécuter des applications soumises à contrainte de latence et gourmandes en débit au plus près des utilisateurs finaux. Elles font partie du réseau mondial de Microsoft et offrent une connectivité sécurisée, fiable et à large bande passante entre les applications qui s’exécutent dans la zone périphérique proche de l’utilisateur ainsi que l’ensemble complet des services Azure s’exécutant dans les régions Azure. Les Azure Edge Zones sont détenues et gérées par Microsoft et vous permettent d’utiliser le même ensemble d’outils et de portail Azure pour gérer et déployer des services dans les zones périphériques.
+Les zones périphériques Azure sont des extensions Azure à faible empreinte mémoire qui sont placées dans des centres de population éloignés des régions Azure. Elles prennent en charge les machines virtuelles, les conteneurs et une sélection de services Azure qui permettent d’exécuter des applications sensibles à la latence et gourmandes en débit au plus près des utilisateurs finaux. Elles font partie du réseau Microsoft mondial. Elles fournissent une connectivité sécurisée, fiable et à large bande passante entre les applications qui s’exécutent à la zone périphérique à proximité de l’utilisateur. De plus, elles offrent l’ensemble complet des services Azure s’exécutant dans les régions Azure. Elles sont détenues et gérées par Microsoft. Vous pouvez utiliser le même ensemble d’outils Azure et le même portail pour gérer et déployer des services dans des zones périphériques.
 
 Les cas d’utilisation classiques sont les suivants :
 
-- Gaming et diffusion de jeux en continu
-- Diffusion multimédia en continu et distribution de contenu
-- Analytique et inférence en temps réel à l’aide de l’intelligence artificielle et du Machine Learning
+- Gaming et streaming de jeux
+- Streaming multimédia et distribution de contenu
+- Analytique et inférence en temps réel au moyen de l’intelligence artificielle et du Machine Learning
 - Rendu pour la réalité mixte
 
-Les Azure Edge Zones seront disponibles dans les zones métropolitaines suivantes :
+Les zones périphériques Azure seront disponibles dans les zones métropolitaines suivantes :
 
 - New York
 - Los Angeles, CA
 - Miami, FL
 
-Pour plus d’informations, [contactez l’équipe Edge Zones](https://aka.ms/EdgeZones).
+Pour plus d’informations, [contactez l’équipe Edge Zone](https://aka.ms/EdgeZones).
 
-## <a name="azure-edge-zones-with-carrier"></a><a name="carrier"></a>Azure Edge Zones avec opérateur
+## <a name="azure-edge-zones-with-carrier"></a><a name="carrier"></a>Zones périphériques Azure avec opérateur
 
-![Edge Zones with Carrier](./media/edge-zones-overview/edge-carrier.png "Edge Zones avec opérateur")
+![Zones périphériques avec opérateur](./media/edge-zones-overview/edge-carrier.png "Zones périphériques avec opérateur")
 
-Les instances Azure Edge Zone avec opérateur sont des extensions Azure à faible empreinte mémoire qui sont placées dans les centres de donnés des opérateurs de téléphonie mobile situés dans des centres de population. L’infrastructure Azure Edge Zone avec opérateur est placée à un tronçon du réseau 5G de l’opérateur de téléphonie mobile, offrant une latence inférieure à 10 millisecondes aux applications d’appareils mobiles. L’offre Azure Edge Zone avec opérateur est déployée dans les centres de données des opérateurs de téléphonie mobile et connectée au réseau mondial de Microsoft. Elle offre une connectivité sécurisée, fiable et à large bande passante entre les applications qui s’exécutent à proximité de l’utilisateur ainsi que l’ensemble complet des services Azure s’exécutant dans les régions Azure. Les développeurs peuvent utiliser le même ensemble d’outils habituels pour créer et déployer des services dans les zones périphériques.
+Les zones périphériques Azure avec opérateur sont des extensions Azure à faible empreinte mémoire qui sont placées dans les centres de donnés des opérateurs de téléphonie mobile situés dans des centres de population. L’infrastructure des zones périphériques Azure avec opérateur est placée à une distance d’un tronçon par rapport au réseau 5G de l’opérateur mobile. Ce placement offre une latence inférieure à 10 millisecondes aux applications des appareils mobiles.
+
+Les zones périphériques Azure avec opérateur sont déployées dans les centres de données des opérateurs de téléphonie mobile et connectées au réseau Microsoft mondial. Elles fournissent une connectivité sécurisée, fiable et à large bande passante entre les applications qui s’exécutent à proximité de l’utilisateur. De plus, elles offrent l’ensemble complet des services Azure s’exécutant dans les régions Azure. Les développeurs peuvent utiliser le même ensemble d’outils habituels pour créer et déployer des services dans les zones périphériques.
 
 Les cas d’utilisation classiques sont les suivants :
 
-- Gaming et diffusion de jeux en continu
-- Diffusion multimédia en continu et distribution de contenu
-- Analytique et inférence en temps réel à l’aide de l’intelligence artificielle et du Machine Learning
+- Gaming et streaming de jeux
+- Streaming multimédia et distribution de contenu
+- Analytique et inférence en temps réel au moyen de l’intelligence artificielle et du Machine Learning
 - Rendu pour la réalité mixte
 - Véhicules connectés
 - Télémédecine
@@ -74,13 +76,19 @@ Les zones périphériques seront proposées en partenariat avec les opérateurs 
 
 - AT&T (Atlanta, Dallas et Los Angeles)
 
-## <a name="azure-private-edge-zones"></a><a name="private-edge-zones"></a>Azure Private Edge Zones
+## <a name="azure-private-edge-zones"></a><a name="private-edge-zones"></a>Zones périphériques privées Azure
 
-![Private Edge Zones](./media/edge-zones-overview/private-edge.png "Private Edge Zones")
+![Zones périphériques privées](./media/edge-zones-overview/private-edge.png "Zones périphériques privées")
 
-Les instances Azure Private Edge Zones sont des extensions Azure à faible empreinte mémoire placées localement. Elles sont basées sur la plateforme [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) et permettent un accès à faible latence aux services de calcul et de stockage déployés localement. Ces zones périphériques privées vous permettent également de déployer des fonctions réseau virtualisées (VNF), telles que des cœurs de paquets mobiles, des routeurs, des pare-feu et des appliances SD-WAN, ainsi que des applications d’éditeurs de logiciels indépendants (ISV) comme les [applications managées Azure](https://azure.microsoft.com/services/managed-applications/) côte à côte avec des machines virtuelles et des conteneurs locaux. L’offre Azure Private Edge Zones est proposée avec une solution d’orchestration native Cloud qui vous permet de gérer le cycle de vie des fonctions réseau virtualisées (VNF) et des applications à partir du Portail Azure.
+Les zones périphériques privées Azure sont des extensions Azure à faible empreinte mémoire qui sont placées localement. Une zone périphérique privée Azure est basée sur la plateforme [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/). Elle permet un accès à faible latence aux services de calcul et de stockage déployés localement. Une zone périphérique privée vous permet également de déployer des applications d’éditeurs de logiciels indépendants (ISV) et des fonctions réseau virtualisées (VNF), comme les [applications managées Azure](https://azure.microsoft.com/services/managed-applications/) avec des machines virtuelles et des conteneurs locaux. Ces fonctions VNF peuvent inclure des cœurs de paquets mobiles, des routeurs, des pare-feu et des appliances SD-WAN. Une zone périphérique privée Azure est proposée avec une solution d’orchestration native cloud qui vous permet de gérer les cycles de vie des fonctions VNF et des applications à partir du portail Azure.
 
-Elle vous permet de développer et de déployer des applications localement à l’aide des mêmes outils habituels utilisés pour créer et déployer des applications dans Azure. Vous pouvez également exécuter des réseaux mobiles privés (LTE privé, 5G privé) et des fonctions de sécurité telles que des pare-feu, étendre vos réseaux locaux sur plusieurs branches et sur Azure à l’aide d’appliances SD-WAN sur les mêmes appliances Private Edge Zone et les gérer à partir d’Azure.
+Elle vous permet de développer et de déployer des applications localement à l’aide des mêmes outils habituels que vous utilisez pour créer et déployer des applications dans Azure. 
+
+Elle vous permet également d’effectuer les opérations suivantes : 
+
+- Exécuter des réseaux mobiles privés (LTE privée, 5G privée)
+- Implémenter des fonctions de sécurité telles que les pare-feu
+- Étendre vos réseaux locaux sur plusieurs succursales et Azure en utilisant des appliances SD-WAN sur les mêmes appliances de zone périphérique privée et les gérer à partir d’Azure
 
 Les cas d’utilisation classiques sont les suivants :
 
@@ -88,17 +96,17 @@ Les cas d’utilisation classiques sont les suivants :
 - Analytique et inférence en temps réel avec l’intelligence artificielle et le Machine Learning
 - Vision industrielle
 - Rendu à distance pour les scénarios VDI et de réalité mixte
-- Surveillance et sécurité
+- Supervision et sécurité
 
-Nous disposons d’un écosystème complet de fournisseurs VNF, d’ISV et de partenaires MSP pour activer des solutions de bout en bout à l’aide d’instances Private Edge Zones. Pour plus d’informations, [contactez l’équipe Private Edge Zones](https://aka.ms/EdgeZonesPartner).
+Nous disposons d’un écosystème complet de fournisseurs VNF, d’ISV et de partenaires MSP pour activer des solutions de bout en bout qui utilisent des zones périphériques privées. Pour plus d’informations, [contactez l’équipe des zones périphériques privées](https://aka.ms/EdgeZonesPartner).
 
-## <a name="private-edge-zones---partners"></a><a name="private-edge-partners"></a>Private Edge Zones – Partenaires
+### <a name="private-edge-zone-partners"></a><a name="private-edge-partners"></a>Partenaires pour les zones périphériques privées
 
-![Private Edge Zone Partners](./media/edge-zones-overview/partners.png "Partenaires Private Edge Zone")
+![Partenaires pour les zones périphériques privées](./media/edge-zones-overview/partners.png "Partenaires pour les zones périphériques privées")
 
-### <a name="virtualized-network-functions-vnfs"></a><a name="vnf"></a>Fonctions réseau virtualisées (VNF)
+#### <a name="virtualized-network-functions-vnfs"></a><a name="vnf"></a>Fonctions réseau virtualisées (VNF)
 
-#### <a name="virtualized-evolved-packet-core-vepc-for-mobile-networks"></a><a name="vEPC"></a>Evolved Packet Core virtualisé (vEPC) pour réseaux mobiles
+##### <a name="virtualized-evolved-packet-core-vepc-for-mobile-networks"></a><a name="vEPC"></a>Evolved Packet Core virtualisé (vEPC) pour réseaux mobiles
 
 - [Affirmed Networks](https://www.affirmednetworks.com/)
 - [Druid Software](https://www.druidsoftware.com/)
@@ -107,65 +115,77 @@ Nous disposons d’un écosystème complet de fournisseurs VNF, d’ISV et de p
 - [Metaswitch](https://www.metaswitch.com/)
 - [Nokia Digital Automation Cloud](https://www.dac.nokia.com/)
 
-#### <a name="mobile-radio-partners"></a><a name="mobile-radio"></a>Partenaires de radio mobile
+##### <a name="mobile-radio-partners"></a><a name="mobile-radio"></a>Partenaires de radio mobile
 
 - [Commscope Ruckus](https://support.ruckuswireless.com/)
 
-#### <a name="sd-wan-vendors"></a><a name="sdwan-vendors"></a>Fournisseurs SD-WAN
+##### <a name="sd-wan-vendors"></a><a name="sdwan-vendors"></a>Fournisseurs SD-WAN
 
 - [NetFoundry](https://netfoundry.io/)
-- [NuageNetworks de Nokia](https://www.nuagenetworks.net/)
+- [Nuage Networks de Nokia](https://www.nuagenetworks.net/)
 - [SD-WAN VMware de Velocloud](https://www.velocloud.com/)
 
-#### <a name="router-vendors"></a><a name="router-vendors"></a>Fournisseurs de routeur
+##### <a name="router-vendors"></a><a name="router-vendors"></a>Fournisseurs de routeur
 
 - [Arista](https://www.arista.com/)
 
-Pour plus d’informations sur la façon de devenir un partenaire, [contactez l’équipe Private Edge Zones](https://aka.ms/EdgeZonesPartner).
+##### <a name="firewall-vendors"></a><a name="firewall-vendors"></a>Fournisseurs de pare-feu
 
-#### <a name="firewall-vendors"></a><a name="firewall-vendors"></a>Fournisseurs de pare-feu
+- [Palo Alto Networks](https://www.paloaltonetworks.com/)
 
-- Palo Alto Networks
-
-### <a name="managed-solutions-providers---mobile-operators-and-global-system-integrators"></a><a name="msp-mobile"></a>Fournisseurs de solutions managées – Opérateurs de téléphonie mobile et intégrateurs de systèmes mondiaux
+##### <a name="managed-solutions-providers-mobile-operators-and-global-system-integrators-gsis"></a><a name="msp-mobile"></a>Fournisseurs de solutions managées : opérateurs de téléphonie mobile et intégrateurs de systèmes mondiaux
 
 | Intégrateurs de systèmes mondiaux et opérateurs | Opérateurs de téléphonie mobile |
 | --- | --- |
 | Amdocs                       | Etisalat             |
 | American Tower               | NTT Communications   |
-| Century Link                 | Proximus             |
+| CenturyLink                  | Proximus             |
 | Expeto                       | Rogers               |
 | Federated Wireless           | SK Telecom           |
 | Infosys                      | Telefonica           |
 | Tech Mahindra                | Telstra              |
-|        *                     | Vodafone             |
+|                              | Vodafone             |
 
-Pour plus d’informations sur la façon de devenir un partenaire, [contactez l’équipe Private Edge Zones](https://aka.ms/EdgeZonesPartner).
+Pour plus d’informations sur la façon de devenir partenaire, [contactez l’équipe des zones périphériques privées](https://aka.ms/EdgeZonesPartner).
 
-## <a name="private-edge-zones---solutions"></a><a name="solutions-private-edge"></a>Private Edge Zones – Solutions
+### <a name="private-edge-zone-solutions"></a><a name="solutions-private-edge"></a>Solutions pour les zones périphériques privées
 
-### <a name="private-mobile-network-on-private-edge-zones"></a><a name="private-mobile-private-edge"></a>Private Mobile Network sur Private Edge Zones
+#### <a name="private-mobile-network-on-private-edge-zones"></a><a name="private-mobile-private-edge"></a>Réseau mobile privé sur les zones périphériques privées
 
-![Private Mobile Network on Private Edge Zones](./media/edge-zones-overview/mobile-networks.png "Private Mobile Network sur Private Edge Zones")
+![Réseau mobile privé sur les zones périphériques privées](./media/edge-zones-overview/mobile-networks.png "Réseau mobile privé sur les zones périphériques privées")
 
-Vous pouvez maintenant déployer un réseau mobile privé sur des zones périphériques privées. Les réseaux mobiles privés permettent d’avoir une latence très faible, une capacité élevée et un réseau sans fil fiable et sécurisé, requis pour les applications stratégiques. Les réseaux mobiles privés peuvent permettre des scénarios tels que la commande et le contrôle des véhicules guidés automatisés (AGV) dans un entrepôt, la communication en temps réel entre les robots dans une usine intelligente et la réalité augmentée et des applications de réalité virtuelle de pointe.
+Vous pouvez maintenant déployer un réseau mobile privé sur les zones périphériques privées. Les réseaux mobiles privés permettent d’avoir une latence très faible, une capacité élevée et le réseau sans fil fiable et sécurisé nécessaire pour les applications stratégiques. 
 
-La fonction réseau vEPC (Evolved Packet Core virtualisé) constitue le cerveau d’un réseau mobile privé. Vous pouvez maintenant déployer un vEPC sur Private Edge Zones. Pour obtenir la liste des partenaires vEPC disponibles sur les zones périphériques privées, consultez [ISV vEPC](#vEPC).
+Les réseaux mobiles privés peuvent permettre des scénarios tels que les suivants : 
+- Commande et contrôle des véhicules guidés automatisés (AGV) dans les entrepôts 
+- Communication en temps réel entre les robots dans les usines intelligentes
+- Réalité augmentée et applications de réalité virtuelle de pointe
 
-Le déploiement d’une solution de réseau mobile privé sur Private Edge Zones requiert d’autres composants tels que des points d’accès mobiles, des cartes SIM et d’autres VNF (p. ex. : des routeurs). L’accès à un spectre sous licence ou sans licence est essentiel à la configuration d’un réseau mobile privé. En outre, vous pouvez avoir besoin d’aide pour la planification RF, la disposition physique, l’installation et le support. Pour obtenir la liste des partenaires, consultez [Partenaires de radio mobile](#mobile-radio).
+La fonction réseau vEPC (Evolved Packet Core virtualisé) est le cerveau d’un réseau mobile privé. Vous pouvez maintenant déployer un vEPC sur Private Edge Zones. Pour obtenir la liste des partenaires vEPC disponibles sur les zones périphériques privées, consultez [ISV vEPC](#vEPC).
 
-Microsoft fournit un écosystème de partenaires qui peut vous aider dans tous les aspects de ce processus : de la planification du réseau à la gestion de la configuration à partir d’Azure, en passant par l’achat des appareils requis et la configuration du matériel. Grâce à un ensemble de partenaires agréés et étroitement intégrés à Microsoft, vous avez l’assurance que la solution sera fiable et facile à utiliser. Vous pouvez vous concentrer sur vos scénarios clés, Microsoft et ses partenaires seront là pour vous aider avec le reste.
+Le déploiement d’une solution de réseau mobile privé sur les zones périphériques privées nécessite d’autres composants, tels que des points d’accès mobiles, des cartes SIM et d’autres VNF (par exemple, des routeurs). L’accès à un spectre sous licence ou sans licence est essentiel à la configuration d’un réseau mobile privé. De plus, vous pouvez avoir besoin d’aide pour la planification RF, la disposition physique, l’installation et le support. Pour obtenir la liste des partenaires, consultez [Partenaires de radio mobile](#mobile-radio).
 
-### <a name="sd-wan-on-private-edge-zones"></a><a name="sdwan-private-edge">SD-WAN sur Private Edge Zones</a>
+Microsoft fournit un écosystème de partenaires qui peut s’avérer utile pour tous les aspects de ce processus. Les partenaires peuvent vous aider à planifier le réseau, à acheter les appareils nécessaires, à configurer le matériel et à gérer la configuration à partir d’Azure. Un ensemble de partenaires agréés et étroitement intégrés à Microsoft garantit la fiabilité et la facilité d’utilisation de votre solution. Vous pouvez vous concentrer sur vos scénarios clés, Microsoft et ses partenaires seront là pour vous aider avec le reste.
+
+#### <a name="sd-wan-on-private-edge-zones"></a><a name="sdwan-private-edge">SD-WAN sur Private Edge Zones</a>
 
 ![SD-WAN on Private Edge Zones](./media/edge-zones-overview/sd-wan.png "SD-WAN sur Private Edge Zones")
  
-La technologie SD-WAN vous permet de créer des réseaux étendus (WAN, Wide Area Networks) de niveau entreprise avec une bande passante accrue, un accès haute performance au cloud, l’insertion de services, la fiabilité, la gestion des stratégies et une visibilité étendue du réseau. SD-WAN fournit une connectivité transparente pour les succursales qui est orchestrée à partir de contrôleurs centraux redondants, à un coût de possession réduit.
-SD-WAN sur Private Edge Zones vous permet de passer du modèle centré sur les investissements à un modèle SaaS (Software-as-a-service) pour réduire les budgets informatiques. Vous pouvez utiliser l’orchestrateur ou le contrôleur des partenaires SD-WAN de votre choix pour activer de nouveaux services et les propager immédiatement sur l’ensemble du réseau.
+SD-WAN vous permet de créer des réseaux étendus (WAN) de niveau entreprise qui présentent les avantages suivants :
+
+- Bande passante accrue
+- Accès haute performance au cloud
+- Insertion de services
+- Fiabilité
+- Gestion des stratégies
+- Visibilité totale du réseau
+    
+SD-WAN fournit une connectivité transparente pour les succursales qui est orchestrée à partir de contrôleurs centraux redondants à un coût de possession réduit.
+SD-WAN sur les zones périphériques privées vous permet de passer d’un modèle centré sur les investissements à un modèle SaaS (software-as-a-service) pour réduire les budgets informatiques. Vous pouvez utiliser les partenaires SD-WAN de votre choix (orchestrateur ou contrôleur) pour activer de nouveaux services et les propager immédiatement sur l’ensemble de votre réseau.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations, contactez les équipes suivantes :
 
-* [Équipe Edge Zones](https://aka.ms/EdgeZones)
-* [Équipe Private Edge Zones : pour devenir partenaire](https://aka.ms/EdgeZonesPartner)
+* [Équipe Edge Zone](https://aka.ms/EdgeZones)
+* [Équipe des zones périphériques privées, pour devenir partenaire](https://aka.ms/EdgeZonesPartner)

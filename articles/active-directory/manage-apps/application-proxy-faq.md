@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: d1929f937d86001a0f2a399b1ebd92e47bbd2c86
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: a6efe74008b2271b960f877f5f0f6b2b6b549a8d
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80990903"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583087"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur la fonctionnalité Proxy d’application Azure Active Directory
 
@@ -95,6 +95,10 @@ Si les serveurs du connecteur et le compte de service de l’application web se 
 
 Si les serveurs du connecteur et le compte de service de l’application web se trouvent dans des domaines différents, la délégation basée sur les ressources est utilisée. Les autorisations de délégation sont configurées sur le serveur web cible et le compte de service de l’application web. Cette méthode de délégation contrainte est relativement nouvelle. Elle a été introduite dans Windows Server 2012, qui prend en charge la délégation interdomaines en permettant au propriétaire de la ressource (service web) de contrôler la machine et les comptes de service qui peuvent déléguer. Il n’y a pas d’interface utilisateur pour faciliter cette configuration. Vous devez donc utiliser PowerShell.
 Pour plus d’informations, consultez le livre blanc [Understanding Kerberos Constrained Delegation with Application Proxy](https://aka.ms/kcdpaper) (Présentation de la délégation contrainte Kerberos avec le proxy d’application).
+
+### <a name="does-ntlm-authentication-work-with-azure-ad-application-proxy"></a>L’authentification NTLM fonctionne-t-elle avec le Proxy d’application Azure AD ?
+
+L’authentification NTLM ne peut pas être utilisée en tant que méthode de pré-authentification ou d’authentification unique. L’authentification NTLM ne peut être utilisée que quand elle peut être négociée directement entre le client et l’application web publiée. L’utilisation de l’authentification NTLM entraîne généralement l’affichage d’une invite de connexion dans le navigateur.
 
 ## <a name="pass-through-authentication"></a>Authentification directe
 

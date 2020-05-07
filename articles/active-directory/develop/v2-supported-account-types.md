@@ -1,5 +1,5 @@
 ---
-title: Types de comptes pris en charge - Plateforme d’identités Microsoft | Azure
+title: Types de comptes pris en charge – Plateforme d’identités Microsoft | Azure
 description: Documentation conceptuelle sur les publics et les types de compte pris en charge dans les applications
 services: active-directory
 author: jmprieur
@@ -12,48 +12,46 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b3b0114bb5d545755fe59c49605d6def341d2275
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d19381094e027bd567ffc503d32f9212ef56a948
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535772"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583109"
 ---
 # <a name="supported-account-types"></a>Types de comptes pris en charge
 
-Cet article présente les types de comptes (parfois appelés publics) pris en charge dans les applications.
+Cet article explique quels types de comptes (parfois appelés *audiences*) sont pris en charge dans les applications de Plateforme d’identités Microsoft.
 
 <!-- This section can be in an include for many of the scenarios (SPA, web app signing-in users, protecting a web API, Desktop (depending on the flows), Mobile -->
 
-## <a name="supported-accounts-types-in-microsoft-identity-platform-applications"></a>Types de comptes pris en charge dans les applications de la plateforme d’identité Microsoft
+## <a name="account-types-in-the-public-cloud"></a>Types de comptes dans le cloud public
 
-Dans le cloud public Microsoft Azure, la plupart des types d’applications peuvent connecter des utilisateurs avec une audience :
+Dans le cloud public Microsoft Azure, la plupart des types d’applications peuvent connecter des utilisateurs avec toute audience :
 
-- Si vous écrivez une application métier (Line of Business, LOB), vous pouvez connecter les utilisateurs à votre propre organisation. Une telle application est parfois nommée **locataire unique**.
-- Si vous êtes un éditeur de logiciels, vous pouvez écrire une application qui connecte les utilisateurs :
+- Si vous écrivez une application métier, vous pouvez connecter des utilisateurs à votre propre organisation. Une telle application est parfois dite *à client unique*.
+- Si vous êtes un éditeur de logiciels, vous pouvez écrire une application qui connecte des utilisateurs :
 
-  - À n’importe quelle organisation. Une telle application est nommée application web **mutualisée**. Vous noterez parfois que ce type d’application connecte les utilisateurs à leurs comptes professionnels ou scolaires.
-  - Avec leur compte Microsoft professionnel, scolaire ou personnel.
-  - Avec un compte Microsoft personnel uniquement.
-    > [!NOTE]
-    > Actuellement, la plateforme d’identité Microsoft prend en charge les comptes Microsoft personnels uniquement par inscription d’une application pour des **comptes Microsoft professionnels ou scolaires**, puis limite la connexion dans le code de l’application en spécifiant une autorité Azure AD lors de la création de l’application, par exemple `https://login.microsoftonline.com/consumers`.
+  - À n’importe quelle organisation. Une telle application est appelée application web *mutualisée*. Vous noterez parfois qu’elle connecte des utilisateurs à leurs comptes professionnels ou scolaires.
+  - Avec leurs comptes Microsoft professionnels, scolaires ou personnels.
+  - Uniquement avec des comptes Microsoft personnels.
+    
+- Si vous écrivez une application B2C, vous pouvez également connecter des utilisateurs avec leurs identités sociales en utilisant Active Directory B2C (Azure AD B2C).
 
-- Si vous écrivez une entreprise B2C (Business to Customer), vous pouvez également connecter les utilisateurs avec leurs identités sociales en utilisant Azure AD B2C.
+## <a name="account-type-support-in-authentication-flows"></a>Prise en charge du type de compte dans les flux d’authentification
 
-## <a name="certain-authentication-flows-dont-support-all-the-account-types"></a>Certains flux d’authentification ne prennent pas en charge tous les types de compte
+Certains types de compte ne peuvent pas être utilisés avec certains flux d’authentification. Par exemple, dans les applications de bureau, UWP ou de démon :
 
-Certains types de compte ne peuvent pas être utilisés avec certains flux d’authentification. Par exemple, dans les applications de bureau, les applications UWP ou démon :
+- Des applications de démon ne peuvent être utilisées qu’avec des organisations Azure AD. Il n’est pas judicieux d’essayer d’utiliser des applications de démon pour manipuler des comptes personnels Microsoft. Le consentement de l’administrateur ne sera jamais accordé.
+- Vous pouvez utiliser le flux de l’authentification Windows intégrée uniquement avec des comptes professionnels ou scolaires (dans votre organisation ou une autre). L’authentification Windows intégrée fonctionne avec des comptes de domaine et nécessite que les ordinateurs soient joints à un domaine ou à Azure AD. Ce flux est inutile pour des comptes Microsoft personnels.
+- L’[octroi d’informations d’identification liées au mot de passe du propriétaire de ressource](./v2-oauth-ropc.md) (nom d’utilisateur/mot de passe) ne peut pas être utilisé avec des comptes Microsoft personnels. Les comptes Microsoft personnels nécessitent que l’utilisateur consente à l’accès aux ressources personnelles à chaque session de connexion. C’est pourquoi ce comportement n’est pas compatible avec des flux non interactifs.
+- Le flux de code d’appareil ne fonctionne pas avec des comptes Microsoft personnels.
 
-- Les applications de démon peuvent uniquement être utilisées avec des organisations Azure Active Directory. Il est inutile d’essayer d’utiliser des applications de démon pour gérer des comptes personnels Microsoft (l’autorisation de l’administrateur ne sera jamais accordée).
-- Vous pouvez uniquement utiliser le flux de l’authentification Windows intégrée avec des comptes professionnels ou scolaires (dans votre organisation ou une autre). En effet, l’authentification Windows intégrée fonctionne avec des comptes de domaine et nécessite que les ordinateurs soient joints à un domaine ou joints à Azure AD. Ce flux est inutile pour les comptes Microsoft personnels.
-- L’[octroi des informations d'identification liées au mot de passe du propriétaire de ressource](./v2-oauth-ropc.md) (nom d’utilisateur/mot de passe) ne peut pas être utilisé avec des comptes Microsoft personnels. En effet, les comptes Microsoft personnels nécessitent que l’utilisateur donne son accord pour l’accès aux ressources personnelles à chaque session de connexion. Pour cette raison, ce comportement n’est pas compatible avec les flux non interactifs.
-- Le flux de code d’appareil ne fonctionne pas encore avec les comptes Microsoft personnels.
+## <a name="account-types-in-national-clouds"></a>Types de compte dans les clouds nationaux
 
-## <a name="supported-account-types-in-national-clouds"></a>Types de compte pris en charge dans les clouds nationaux
-
- Les applications peuvent également connecter les utilisateurs à des [clouds nationaux](authentication-national-cloud.md). Toutefois, les comptes personnels Microsoft ne sont pas pris en charge dans ces clouds (en raison de leur définition). C’est pourquoi les types de comptes pris en charge sont réduits, pour ces clouds, à votre organisation (un seul locataire) ou à toutes les organisations (applications mutualisées).
+Les applications peuvent également connecter les utilisateurs à des [clouds nationaux](authentication-national-cloud.md). Toutefois, les comptes personnels Microsoft ne sont pas pris en charge dans ces clouds. C’est pourquoi les types de comptes pris en charge sont réduits, pour ces clouds, à votre organisation (un seul locataire) ou à toute organisation (applications mutualisées).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur la [location dans Azure Active Directory](./single-and-multi-tenant-apps.md)
-- En savoir plus sur les [clouds nationaux](./authentication-national-cloud.md)
+- En savoir plus sur la [location dans Azure Active Directory](./single-and-multi-tenant-apps.md).
+- En savoir plus sur les [clouds nationaux](./authentication-national-cloud.md).

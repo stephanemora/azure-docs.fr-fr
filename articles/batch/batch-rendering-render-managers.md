@@ -1,18 +1,16 @@
 ---
-title: Prise en charge du gestionnaire de rendus - Azure Batch
+title: Prise en charge du gestionnaire de rendus
 description: Utilisation de l'intégration du gestionnaire de rendu Azure Batch Découvrez-en plus sur la prise en charge intégrée ou les modules complémentaires relatifs aux gestionnaires de rendus courants.
-services: batch
-ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 246907b16534d1a91833cab633a1973c97429f47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9921c68bf6ebe44d6d2a6b7b74afbe3fa98e0803
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75449677"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82115735"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>Utilisation d’Azure Batch avec des gestionnaires de groupe de rendus
 

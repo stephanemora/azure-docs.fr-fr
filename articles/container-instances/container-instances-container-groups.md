@@ -1,15 +1,15 @@
 ---
 title: Présentation des groupes de conteneurs
-description: En savoir plus sur les groupes de conteneurs dans Azure Container Instances, une collection d’instances qui partagent un cycle de vie et des ressources telles que le stockage et le réseau
+description: Apprenez-en davantage sur les groupes de conteneurs dans Azure Container Instances, une collection d’instances qui partagent un cycle de vie et des ressources telles que les processeurs, le stockage et le réseau.
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: 73781418321c3932bf3e0190b646dcd3bb178195
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5f4f834d44294d846495a59af2fb65b231e4820
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225849"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583839"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Groupes de conteneurs dans Azure Container Instances
 
@@ -56,7 +56,10 @@ Chaque instance de conteneur dans un groupe se voit allouer les ressources spéc
     
 Par exemple, dans un groupe ayant deux instances de conteneur qui demandent chacune 1 UC, un de vos conteneurs peut exécuter une charge de travail qui nécessite davantage d’UC que l’autre.
 
-Dans ce scénario, vous pouvez définir une limite de ressources de 2 UC pour l’instance de conteneur. Cette configuration permet à l’instance de conteneur d’utiliser jusqu’à 2 UC complètes si elles sont disponibles.
+Dans ce scénario, vous pouvez définir une limite de ressources allant jusqu’à deux processeurs pour l’instance de conteneur. Cette configuration permet à l’instance de conteneur d’utiliser jusqu’à deux processeurs s’ils sont disponibles.
+
+> [!NOTE]
+> Une petite quantité des ressources d’un groupe de conteneurs est utilisée par l’infrastructure sous-jacente du service. Vos conteneurs pourront accéder à la plupart des ressources allouées au groupe, mais pas à toutes. Pour cette raison, planifiez une petite mémoire tampon de ressources en cas de demande de ressources pour les conteneurs du groupe.
 
 ### <a name="minimum-and-maximum-allocation"></a>Allocation minimale et maximale
 
@@ -66,7 +69,7 @@ Dans ce scénario, vous pouvez définir une limite de ressources de 2 UC pour l
 
 ## <a name="networking"></a>Mise en réseau
 
-Les groupes de conteneurs peuvent partager une adresse IP externe, un ou plusieurs ports sur cette adresse IP et une étiquette DNS avec un nom de domaine complet (FQDN). Pour que les clients externes puissent atteindre un conteneur au sein du groupe, vous devez exposer le port sur l’adresse IP et à partir du conteneur. Étant donné que les conteneurs au sein du groupe partagent un espace de noms de port, le mappage de port n’est pas pris en charge. L’adresse IP et le FQDN d’un groupe de conteneurs seront à nouveau disponibles au moment de la suppression du groupe de conteneurs. 
+Les groupes de conteneurs peuvent partager une adresse IP externe, un ou plusieurs ports sur cette adresse IP et une étiquette DNS avec un nom de domaine complet (FQDN). Pour que les clients externes puissent atteindre un conteneur au sein du groupe, vous devez exposer le port sur l’adresse IP et à partir du conteneur. L’adresse IP et le nom de domaine complet d’un groupe de conteneurs sont à nouveau disponibles quand le groupe de conteneurs est supprimé. 
 
 Dans un groupe de conteneurs, les instances de conteneur peuvent s’atteindre les unes les autres via localhost sur n’importe quel port, même si ce port n’est pas exposé en externe sur l’adresse IP du groupe ou à partir du conteneur.
 
@@ -115,7 +118,7 @@ Découvrez comment déployer un groupe de plusieurs conteneurs avec un modèle A
 [resource-limits]: /rest/api/container-instances/containergroups/createorupdate#resourcelimits
 [resource-requirements]: /rest/api/container-instances/containergroups/createorupdate#resourcerequirements
 [azure-files]: container-instances-volume-azure-files.md
-[virtual-network]: container-instances-vnet.md
+[virtual-network]: container-instances-virtual-network-concepts.md
 [secret]: container-instances-volume-secret.md
 [volume-gitrepo]: container-instances-volume-gitrepo.md
 [gpus]: container-instances-gpu.md
