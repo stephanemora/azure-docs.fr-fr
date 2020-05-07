@@ -1,20 +1,22 @@
 ---
-title: Convertir le code d’une expérience de Machine Learning en code de production
+title: Convertir du code de notebook en scripts Python
 titleSuffix: Azure Machine Learning
-description: Découvrez comment convertir du code expérimental Machine Learning en code de production à l’aide du modèle de code MLOpsPython.
+description: Transformez vos notebooks expérimentaux de Machine Learning en code prêt pour la production à l’aide du modèle de code MLOpsPython. Après quoi, testez, déployez et automatisez ce code.
 author: bjcmit
 ms.author: brysmith
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 03/13/2020
-ms.openlocfilehash: e3c9b16ae3d2b06ec19ecd29d15762a065c0c1ae
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.date: 04/30/2020
+ms.openlocfilehash: a0b66f233de9e1bfdc6d011b65489884a1049a12
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521439"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559662"
 ---
-# <a name="tutorial-convert-ml-experimental-code-to-production-code"></a>Tutoriel : Convertir du code expérimental ML en code de production
+# <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>Tutoriel : Convertir des expériences ML en code Python de production
+
+Dans ce tutoriel, vous allez apprendre à convertir des notebooks Jupyter en scripts Python pour faciliter les tests et l’automatisation en utilisant le modèle de code MLOpsPython et Azure Machine Learning. En général, ce processus sert à extraire le code d’expérimentation/entraînement d’un notebook Jupyter et de le convertir en scripts Python. Ces scripts peuvent ensuite être utilisés pour les tests et l’automatisation CI/CD dans votre environnement de production. 
 
 Un projet de Machine Learning nécessite des expérimentations au cours desquelles des hypothèses sont testées avec des outils Agile comme Jupyter Notebook sur des jeux de données réels. Quand le modèle est prêt pour la production, vous devez placer le code du modèle dans un dépôt de code de production. Dans certains cas, le code du modèle doit être converti en scripts Python qui sont placés dans le dépôt de code de production. Ce tutoriel décrit l’approche recommandée pour exporter du code d’expérimentation en scripts Python.
 

@@ -63,6 +63,9 @@
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Azure Resource Manager
@@ -81,6 +84,8 @@
           href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
         - name: Gérer les domaines d’erreur dans des groupes identiques
           href: virtual-machine-scale-sets-manage-fault-domains.md
+    - name: Images
+      href: shared-image-galleries.md
     - name: Types et tailles des machines virtuelles
       href: ../virtual-machines/windows/sizes.md
       maintainContext: true
@@ -184,6 +189,51 @@
           href: virtual-machine-scale-sets-design-overview.md
         - name: Comprendre les ID d’instance
           href: virtual-machine-scale-sets-instance-ids.md
+    - name: Utiliser des images
+      displayName: 'SIG, AMI, image'
+      items:
+        - name: Galeries d’images partagées
+          items:
+            - name: PowerShell
+              items:
+                - name: Créer une galerie
+                  href: ../virtual-machines/shared-images-powershell.md
+                - name: Créer une image
+                  items:
+                    - name: À partir d’une machine virtuelle
+                      href: ../virtual-machines/image-version-vm-powershell.md
+                    - name: Migrer à partir d’une image managée
+                      href: ../virtual-machines/image-version-managed-image-powershell.md
+                    - name: Copier à partir d’une autre galerie
+                      href: ../virtual-machines/image-version-another-gallery-powershell.md
+                - name: Créer un groupe de machines virtuelles identiques
+                  items:
+                    - name: Spécialisée
+                      href: instance-specialized-image-version-powershell.md
+                    - name: Généralisée
+                      href: instance-generalized-image-version-powershell.md
+                - name: Mettre à jour les ressources d’image
+                  href: ../virtual-machines/update-image-resources-powershell.md
+            - name: Interface de ligne de commande
+              items:
+                - name: Créer une galerie
+                  href: ../virtual-machines/shared-images-cli.md
+                - name: Créer une image
+                  items:
+                    - name: À partir d’une machine virtuelle
+                      href: ../virtual-machines/image-version-vm-cli.md
+                    - name: Migrer à partir d’une image managée
+                      href: ../virtual-machines/image-version-managed-image-cli.md
+                    - name: Copier à partir d’une autre galerie
+                      href: ../virtual-machines/image-version-another-gallery-cli.md
+                - name: Créer un groupe de machines virtuelles identiques
+                  items:
+                    - name: Spécialisée
+                      href: instance-specialized-image-version-cli.md
+                    - name: Généralisée
+                      href: instance-generalized-image-version-cli.md
+                - name: Mettre à jour les ressources d’image
+                  href: ../virtual-machines/update-image-resources-cli.md
     - name: Créer un modèle
       items:
         - name: En savoir plus sur les modèles de groupes identiques
