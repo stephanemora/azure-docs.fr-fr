@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/31/2019
+ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: f2f2e02cdb5698d7569e5be177d54ca4dcb0ae02
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 92011495f5f746b18a7706ed2f9583548cc51286
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086539"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836663"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Forum aux questions sur Application Gateway
 
@@ -28,11 +28,11 @@ Le service Azure Application Gateway fournit un contrôleur de livraison d'appli
 
 ### <a name="what-features-does-application-gateway-support"></a>Quelles sont les fonctionnalités prises en charge par Application Gateway ?
 
-Application Gateway prend en charge la mise à l’échelle automatique, le déchargement SSL et SSL de bout en bout, un pare-feu d’application web (WAF), l’affinité de session basée sur les cookies, le routage basé sur le chemin d’accès de l’URL, l’hébergement de plusieurs sites, et bien plus encore. Pour obtenir une liste complète des fonctionnalités prises en charge, voir [Vue d’ensemble d’Application Gateway](application-gateway-introduction.md).
+Application Gateway prend en charge la mise à l’échelle automatique, le déchargement TLS et TLS de bout en bout, un pare-feu d’application web (WAF), l’affinité de session basée sur les cookies, le routage basé sur le chemin d’accès de l’URL, l’hébergement de plusieurs sites, et bien plus encore. Pour obtenir une liste complète des fonctionnalités prises en charge, voir [Vue d’ensemble d’Application Gateway](application-gateway-introduction.md).
 
 ### <a name="how-do-application-gateway-and-azure-load-balancer-differ"></a>En quoi Application Gateway et Azure Load Balancer diffère-t-il ?
 
-Application Gateway est un équilibreur de charge de couche 7, ce qui signifie qu’il fonctionne uniquement avec le trafic web (HTTP/HTTPS/WebSocket etHTTP/2). Il prend en charge des fonctionnalités telles que la terminaison SSL, l’affinité de session basée sur les cookies et le tourniquet (round robin) pour le trafic d’équilibrage de charge. Load Balancer équilibre la charge du trafic au niveau de la couche 4 (TCP ou UDP).
+Application Gateway est un équilibreur de charge de couche 7, ce qui signifie qu’il fonctionne uniquement avec le trafic web (HTTP/HTTPS/WebSocket etHTTP/2). Il prend en charge des fonctionnalités telles que la terminaison TLS, l’affinité de session basée sur les cookies et le tourniquet (round robin) pour le trafic d’équilibrage de charge. Load Balancer équilibre la charge du trafic au niveau de la couche 4 (TCP ou UDP).
 
 ### <a name="what-protocols-does-application-gateway-support"></a>Quels sont les protocoles pris en charge par Application Gateway ?
 
@@ -66,11 +66,13 @@ Consultez l'[ordre de traitement des écouteurs](https://docs.microsoft.com/azur
 
 Si vous utilisez une adresse IP publique en tant que point de terminaison, vous trouverez les informations d’adresse IP et de DNS dans la ressource d’adresse IP publique. Elles sont également disponibles sur la page Vue d'ensemble de la passerelle d’application. Si vous utilisez des adresses IP internes, ces informations se trouvent dans la page Vue d'ensemble.
 
+Pour la référence SKU v2, ouvrez la ressource IP publique et sélectionnez **Configuration**. Le champ **Étiquette du nom DNS (facultatif)** est disponible pour configurer le nom DNS.
+
 ### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Quels sont les paramètres du délai de maintien de connexion et du délai d’inactivité TCP ?
 
 Le *délai d’expiration Keep-Alive* régit la durée pendant laquelle Application Gateway attend qu’un client envoie une autre requête HTTP sur une connexion permanente avant de la réutiliser ou de la fermer. Le *délai d’inactivité TCP* régit la durée pendant laquelle une connexion TCP est maintenue ouverte en cas d’absence d’activité. 
 
-Le *délai d’expiration Keep-Alive* est de 120 secondes dans la référence SKU Application Gateway v1 et de 75 secondes dans la référence SKU v2. Par défaut, le *délai d’inactivité TCP* est de 4 minutes sur l’adresse IP virtuelle du serveur frontal des SKU v1 et v2 d’Application Gateway. 
+Le *délai d’expiration Keep-Alive* est de 120 secondes dans la référence SKU Application Gateway v1 et de 75 secondes dans la référence SKU v2. Par défaut, le *délai d’inactivité TCP* est de 4 minutes sur l’adresse IP virtuelle du serveur frontal des SKU v1 et v2 d’Application Gateway. Vous ne pouvez pas modifier ces valeurs.
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>L’adresse IP ou le nom DNS changent-ils pendant la durée de vie d’Application Gateway ?
 
@@ -94,6 +96,10 @@ Oui. En plus de plusieurs instances d’un déploiement Application Gateway donn
 
 À lui seul, un sous-réseau n'est pas en mesure de prendre en charge Standard_v2 et Standard Application Gateway.
 
+### <a name="does-application-gateway-v2-support-user-defined-routes-udr"></a>Application Gateway v2 prend-il en charge les itinéraires définis par l’utilisateur (UDR) ?
+
+Oui, mais uniquement dans des scénarios spécifiques. Pour plus d’informations, consultez [Présentation de la configuration d’Application Gateway](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
+
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Application Gateway prend-il en charge les en-têtes x-forwarded-for ?
 
 Oui. Consultez [Modifications apportées à une requête](https://docs.microsoft.com/azure/application-gateway/how-application-gateway-works#modifications-to-the-request).
@@ -106,7 +112,24 @@ Pour la plupart des déploiements qui utilisent la référence SKU v2, le provis
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>Puis-je utiliser Exchange Server en tant que serveur principal avec Application Gateway ?
 
-Non. Application Gateway ne prend pas en charge les protocoles de messagerie tels que SMTP, IMAP et POP3. 
+Non. Application Gateway ne prend pas en charge les protocoles de messagerie tels que SMTP, IMAP et POP3.
+
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Existe-t-il des instructions pour migrer de la référence SKU v1 vers la référence SKU v2 ?
+
+Oui. Pour plus d'informations, consultez [Migrer Azure Application Gateway et le pare-feu d’applications web de v1 à v2](migrate-v1-v2.md).
+
+### <a name="will-the-application-gateway-v1-sku-continue-to-be-supported"></a>Le support de la référence SKU Application Gateway v1 va-t-il continuer ?
+
+Oui. Le support de la référence SKU Application Gateway v1 continue d’être assuré. Cependant, il est fortement recommandé de passer à v2 pour tirer parti des mises à jour des fonctionnalités de cette référence SKU. Pour plus d’informations, consultez [Application Gateway v2 avec mise à l’échelle automatique et redondance interzone](application-gateway-autoscaling-zone-redundant.md).
+
+### <a name="does-application-gateway-v2-support-proxying-requests-with-ntlm-authentication"></a>Application Gateway v2 prend-il en charge les demandes de proxy avec l’authentification NTLM ?
+
+Non. Application Gateway v2 ne prend pas encore en charge les demandes de proxy avec l’authentification NTLM.
+
+### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Le cookie d’affinité d’Application Gateway prend-il en charge l’attribut SameSite ?
+Oui, la [mise à jour v80](https://chromiumdash.appspot.com/schedule) du [navigateur Chromium](https://www.chromium.org/Home) a permis que les cookies HTTP sans attribut SameSite soient traités comme SameSite=Lax. Cela signifie que le cookie d’affinité d’Application Gateway ne sera pas envoyé par le navigateur dans un contexte tiers. 
+
+Pour prendre en charge ce scénario, Application Gateway injecte un autre cookie appelé *ApplicationGatewayAffinityCORS* en plus du cookie *ApplicationGatewayAffinity* existant.  Ces cookies sont similaires, mais le cookie *ApplicationGatewayAffinityCORS* a deux attributs supplémentaires qui lui sont ajoutés : *SameSite=None; Secure*. Ces attributs maintiennent les sessions rémanentes même pour les requêtes cross-origin. Pour plus d’informations, consultez la [section Affinité basée sur les cookies](configuration-overview.md#cookie-based-affinity).
 
 ## <a name="performance"></a>Performances
 
@@ -130,7 +153,7 @@ Non. Aucun temps d’arrêt n’a lieu, les instances sont réparties entre les 
 
 ### <a name="does-application-gateway-support-connection-draining"></a>Application Gateway prend-il en charge le drainage de connexion ?
 
-Oui. Vous pouvez configurer le drainage de connexion afin de modifier des membres au sein d’un pool principal sans interrompre le service. Pour plus d’informations, consultez la [section relative au drainage des connexions d’Application Gateway](overview.md#connection-draining).
+Oui. Vous pouvez configurer le drainage de connexion afin de modifier des membres au sein d’un pool principal sans interrompre le service. Pour plus d’informations, consultez la [section relative au drainage des connexions d’Application Gateway](features.md#connection-draining).
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>Puis-je passer d’une taille moyenne à une grande taille d’instance sans interruption de service ?
 
@@ -198,15 +221,34 @@ Oui. Consultez [Restreindre l’accès à des adresses IP sources spécifiques](
 
 Non.
 
-### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Existe-t-il des instructions pour migrer de la référence SKU v1 vers la référence SKU v2 ?
-
-Oui. Pour plus d'informations, consultez [Migrer Azure Application Gateway et le pare-feu d’applications web de v1 à v2](migrate-v1-v2.md).
-
 ### <a name="does-application-gateway-support-ipv6"></a>Application Gateway prend-il en charge IPv6 ?
 
 Application Gateway v2 ne prend pas en charge IPv6 pour le moment. Il peut fonctionner dans un réseau virtuel à double pile à l’aide de IPv4 uniquement, mais le sous-réseau de passerelle doit être uniquement en IPv4. Application Gateway v1 ne prend pas en charge la double pile Réseaux virtuels. 
 
-## <a name="configuration---ssl"></a>Configuration - SSL
+### <a name="how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address"></a>Comment utiliser Application Gateway v2 avec uniquement une adresse IP frontend privée ?
+
+Application Gateway v2 ne prend actuellement pas en charge le mode IP privé. Cette méthode prend en charge les combinaisons suivantes :
+* adresse IP privée et adresse IP publique
+* adresse IP publique uniquement
+
+Toutefois, si vous souhaitez utiliser Application Gateway v2 avec uniquement une adresse IP privée, vous pouvez suivre le processus ci-dessous :
+1. Créer une Application Gateway avec une adresse IP frontend publique et privée
+2. Ne créez aucun écouteur pour l’adresse IP de serveur frontend public. Application Gateway n’écoute aucun trafic sur l’adresse IP publique si aucun écouteur n’est créé pour celui-ci.
+3. Créez et associez un [groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/security-overview) pour le sous-réseau Application Gateway avec la configuration suivante dans l’ordre de priorité :
+    
+    a. Autorisez le trafic de la source en tant que balise de service **GatewayManager** et de la destination en tant que **N’importe laquelle** et du port de destination en tant que **65200-65535**. Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ces ports sont protégés (verrouillés) par l’authentification par certificat. Les entités externes, y compris les administrateurs d’utilisateurs de la passerelle, ne peuvent pas initier de modifications sur ces points de terminaison sans que les certificats appropriés soient en place.
+    
+    b. Autorisez le trafic de la source en tant que balise de service **AzureLoadBalancer** et de la destination en tant que **N’importe laquelle**.
+    
+    c. Refusez tout trafic entrant à partir de la source en tant que balise de service **Internet** et la destination et port de destination en tant que **N’importe laquelle**. Donnez à cette règle la *priorité la plus faible* dans les règles de trafic entrant
+    
+    d. Conserver les règles par défaut, comme autoriser les VirtualNetwork entrants, afin que l’accès à l’adresse IP privée ne soit pas bloqué
+    
+    e. La connectivité Internet sortante ne peut pas être bloquée. Dans le cas contraire, vous rencontrerez des problèmes avec la journalisation, les mesures, etc.
+
+Exemple de configuration de groupe de sécurité réseau pour un accès d’adresse IP privée uniquement : ![Configuration Application Gateway v2 NSG pour l’accès IP privé uniquement](./media/application-gateway-faq/appgw-privip-nsg.png)
+
+## <a name="configuration---tls"></a>Configuration - TLS
 
 ### <a name="what-certificates-does-application-gateway-support"></a>Quels sont les certificats pris en charge par Application Gateway ?
 
@@ -245,13 +287,13 @@ Application Gateway prend en charge les suites de chiffrement ci-dessous.
 - TLS_RSA_WITH_3DES_EDE_CBC_SHA
 - TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
-Pour savoir comment personnaliser les options SSL, consultez [Configurer les versions de stratégie SSL et les suites de chiffrement sur Application Gateway](application-gateway-configure-ssl-policy-powershell.md).
+Pour savoir comment personnaliser les options TLS, consultez [Configurer les versions de stratégie TLS et les suites de chiffrement sur Application Gateway](application-gateway-configure-ssl-policy-powershell.md).
 
 ### <a name="does-application-gateway-support-reencryption-of-traffic-to-the-backend"></a>Application Gateway prend-il en charge le nouveau chiffrement du trafic sur le back-end ?
 
-Oui. Application Gateway prend en charge le déchargement SSL et SSL de bout en bout, qui chiffre à nouveau le trafic vers le serveur principal.
+Oui. Application Gateway prend en charge le déchargement TLS et TLS de bout en bout, qui chiffre à nouveau le trafic vers le serveur principal.
 
-### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>Puis-je configurer la stratégie SSL pour gérer les versions du protocole SSL ?
+### <a name="can-i-configure-tls-policy-to-control-tls-protocol-versions"></a>Puis-je configurer la stratégie TLS de manière à contrôler les versions du protocole TLS ?
 
 Oui. Vous pouvez configurer Application Gateway pour refuser TLS1.0, TLS1.1 et TLS1.2. Par défaut, SSL 2.0 et 3.0 sont déjà désactivés et ne sont pas configurables.
 
@@ -268,9 +310,9 @@ Oui. Dans Application Gateway, vous pouvez [configurer des suites de chiffrement
 
 Application Gateway utilise SHA256 pour la gestion des serveurs principaux.
 
-### <a name="how-many-ssl-certificates-does-application-gateway-support"></a>Combien de certificats SSL Application Gateway prend-il en charge ?
+### <a name="how-many-tlsssl-certificates-does-application-gateway-support"></a>Combien de certificats TLS/SSL Application Gateway prend-il en charge ?
 
-Application Gateway prend en charge jusqu'à 100 certificats SSL.
+Application Gateway prend en charge jusqu'à 100 certificats TLS/SSL.
 
 ### <a name="how-many-authentication-certificates-for-backend-reencryption-does-application-gateway-support"></a>Combien de certificats d’authentification pour le nouveau chiffrement du back-end Application Gateway prend-il en charge ?
 
@@ -278,7 +320,7 @@ Application Gateway prend en charge jusqu’à 100 certificats d’authentificat
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>Application Gateway s’intègre-t-il en mode natif à Azure Key Vault ?
 
-La référence SKU v2 d’Application Gateway prend en charge Key Vault. Pour plus d'informations, consultez [Arrêt de SSL avec des certificats Key Vault](key-vault-certs.md).
+La référence SKU v2 d’Application Gateway prend en charge Key Vault. Pour plus d'informations, consultez [Arrêt de TLS avec des certificats Key Vault](key-vault-certs.md).
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>Comment configurer des écouteurs HTTPS pour les sites .com et .net ? 
 
@@ -288,51 +330,11 @@ Pour un acheminement (basé sur l'hôte) sur plusieurs domaines, vous pouvez cr�
 
 Non, utilisez uniquement des caractères alphanumériques dans le mot de passe de votre fichier. pfx.
 
-## <a name="configuration---web-application-firewall-waf"></a>Configuration - pare-feu d’applications web (WAF)
-
-### <a name="does-the-waf-sku-offer-all-the-features-available-in-the-standard-sku"></a>La référence SKU de pare-feu d’applications web propose-t-elle toutes les fonctionnalités disponibles dans la référence SKU Standard ?
-
-Oui. Le pare-feu d’applications web prend en charge toutes les fonctionnalités de la référence Standard.
-
-### <a name="how-do-i-monitor-waf"></a>Comment puis-je surveiller le pare-feu d’application web ?
-
-Surveillez le pare-feu d'applications web via la journalisation des diagnostics. Pour plus d'informations, consultez [Journalisation des diagnostics et métriques pour Application Gateway](application-gateway-diagnostics.md).
-
-### <a name="does-detection-mode-block-traffic"></a>Est-ce que le mode de détection bloque le trafic ?
-
-Non. Le mode de détection journalise uniquement le trafic qui déclenche une règle de pare-feu d’applications web.
-
-### <a name="can-i-customize-waf-rules"></a>Puis-je personnaliser les règles de pare-feu d’application web ?
-
-Oui. Pour plus d’informations, consultez [Personnaliser les règles et groupes de règles WAF](application-gateway-customize-waf-rules-portal.md).
-
-### <a name="what-rules-are-currently-available-for-waf"></a>Quelles sont les règles actuellement disponibles pour WAF ?
-
-WAF prend actuellement en charge CRS [2.2.9](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp229), [3.0](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp30) et [3.1](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp31). Ces règles constituent un rempart contre la plupart des 10 principales vulnérabilités identifiées par l'OWASP (Open Web Application Security Project) : 
-
-* Protection contre les injections de code SQL
-* Protection contre les scripts intersites
-* Protection contre les attaques web courantes comme l’injection de commande, les dissimulations de requêtes HTTP, la séparation de réponse HTTP et les attaques RFI (Remote File Inclusion)
-* Protection contre les violations de protocole HTTP
-* Protection contre les anomalies de protocole HTTP comme un agent-utilisateur hôte manquant et les en-têtes Accept
-* Protection contre les robots, les crawlers et les scanneurs
-* Détection des erreurs de configuration d’application courantes (par exemple, Apache, IIS, etc.)
-
-Pour plus d’informations, consultez [Les 10 principales vulnérabilités identifiées par l'OWASP](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013).
-
-### <a name="does-waf-support-ddos-protection"></a>WAF prend-il en charge la protection DDoS ?
-
-Oui. Vous pouvez activer le service de protection DDoS sur le réseau virtuel sur lequel la passerelle d’application est déployée. Ainsi, le service Azure DDoS Protection protège aussi l’adresse IP virtuelle de la passerelle d’application.
-
-### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Existe-t-il des instructions pour migrer de la référence SKU v1 vers la référence SKU v2 ?
-
-Oui. Pour plus d'informations, consultez [Migrer Azure Application Gateway et le pare-feu d’applications web de v1 à v2](migrate-v1-v2.md).
-
 ## <a name="configuration---ingress-controller-for-aks"></a>Configuration - Contrôleur d’entrée pour AKS
 
 ### <a name="what-is-an-ingress-controller"></a>Qu’est-ce qu’un contrôleur d’entrée ?
 
-Kubernetes permet de créer des ressources `deployment` et `service` pour exposer en interne un groupe de pods dans le cluster. Pour exposer le même service en externe, une ressource [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) est définie, ce qui permet l’équilibrage de charge, l’arrêt SSL et l’hébergement virtuel basé sur le nom.
+Kubernetes permet de créer des ressources `deployment` et `service` pour exposer en interne un groupe de pods dans le cluster. Pour exposer le même service en externe, une ressource [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) est définie, ce qui permet l’équilibrage de charge, l’arrêt TLS et l’hébergement virtuel basé sur le nom.
 Pour satisfaire cette ressource `Ingress`, un contrôleur d’entrée est nécessaire, qui écoute les modifications apportées aux ressources `Ingress` et configure les stratégies d’équilibreur de charge.
 
 Le contrôleur d’entrée Application Gateway permet l’utilisation d’[Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) en tant qu’entrée pour un service [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/), également appelé un cluster AKS.
@@ -347,11 +349,11 @@ Actuellement, une instance de contrôleur d’entrée ne peut être associée qu
 
 Application Gateway fournit trois types de journaux : 
 
-* **ApplicationGatewayAccessLog** : le journal d’accès contient toutes les requêtes envoyées au serveur frontal de la passerelle d’application. Les données incluent l’adresse IP de l’appelant, l’URL demandée, la latence de réponse, le code de retour, et les octets d’entrée et de sortie. Un journal d’accès est collecté toutes les 300 secondes. Il contient un enregistrement par instance Application Gateway.
+* **ApplicationGatewayAccessLog** : le journal d’accès contient toutes les requêtes envoyées au serveur frontal de la passerelle d’application. Les données incluent l’adresse IP de l’appelant, l’URL demandée, la latence de réponse, le code de retour, et les octets d’entrée et de sortie. Il contient un enregistrement par instance Application Gateway.
 * **ApplicationGatewayPerformanceLog** : Le journal des performances capture les informations de performances de chaque instance d'Application Gateway. Parmi les informations consignées figurent notamment le débit en octets, le nombre total de requêtes traitées, le nombre de requêtes ayant échoué, ainsi que le nombre d'instances de serveur principal saines ou non saines.
 * **ApplicationGatewayFirewallLog** : Pour les passerelles d’application que vous configurez avec le pare-feu d'applications web, le journal du pare-feu contient les requêtes consignées via le mode de détection ou le mode de prévention.
 
-Pour plus d’informations, consultez [Intégrité du serveur principal, journaux de diagnostics et métriques pour Application Gateway](application-gateway-diagnostics.md).
+Tous les journaux sont collectés toutes les 60 secondes. Pour plus d’informations, consultez [Intégrité du serveur principal, journaux de diagnostics et métriques pour Application Gateway](application-gateway-diagnostics.md).
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>Comment savoir si les membres de mon pool back-end sont intègres ?
 
@@ -399,16 +401,18 @@ Toutefois, si vous souhaitez utiliser Application Gateway v2 avec uniquement une
     
     a. Autorisez le trafic de la source en tant que balise de service **GatewayManager** et de la destination en tant que **N’importe laquelle** et du port de destination en tant que **65200-65535**. Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ces ports sont protégés (verrouillés) par l’authentification par certificat. Les entités externes, y compris les administrateurs d’utilisateurs de la passerelle, ne peuvent pas initier de modifications sur ces points de terminaison sans que les certificats appropriés soient en place.
     
-    b. Autorisez le trafic de la source en tant que balise de service **AzureLoadBalancer** et de la destination en tant que **N’importe laquelle**.
+    b. Autorisez le trafic de la source en tant que balise de service **AzureLoadBalancer** et le port destination en tant que **N’importe lequel**
     
-    c. Refusez tout trafic entrant à partir de la source en tant que balise de service **Internet** et la destination et port de destination en tant que **N’importe laquelle**. Donnez à cette règle la *priorité la plus faible* dans les règles de trafic entrant
+    c. Refusez tout trafic entrant à partir de la source en tant que balise de service **Internet** et le port de destination en tant que **N’importe lequel**. Donnez à cette règle la *priorité la plus faible* dans les règles de trafic entrant
     
     d. Conserver les règles par défaut, comme autoriser les VirtualNetwork entrants, afin que l’accès à l’adresse IP privée ne soit pas bloqué
     
-    e. La connectivité Internet sortante ne peut pas être bloquée. Dans le cas contraire, vous rencontrerez des problèmes avec la journalisation, les mesures, etc.
+    e. La connectivité Internet sortante ne peut pas être bloquée. Dans le cas contraire, vous rencontrerez des problèmes avec la journalisation, les mesures, et ainsi de suite.
 
 Exemple de configuration de groupe de sécurité réseau pour un accès d’adresse IP privée uniquement : ![Configuration Application Gateway v2 NSG pour l’accès IP privé uniquement](./media/application-gateway-faq/appgw-privip-nsg.png)
 
+### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Le cookie d’affinité d’Application Gateway prend-il en charge l’attribut SameSite ?
+Oui, la [mise à jour v80](https://chromiumdash.appspot.com/schedule) du [navigateur Chromium](https://www.chromium.org/Home) a permis que les cookies HTTP sans attribut SameSite soient traités comme SameSite=Lax. Cela signifie que le cookie d’affinité d’Application Gateway ne sera pas envoyé par le navigateur dans un contexte tiers. Pour prendre en charge ce scénario, Application Gateway injecte un autre cookie appelé *ApplicationGatewayAffinityCORS* en plus du cookie *ApplicationGatewayAffinity* existant.  Ces cookies sont similaires, mais le cookie *ApplicationGatewayAffinityCORS* a deux attributs supplémentaires qui lui sont ajoutés : *SameSite=None; Secure*. Ces attributs maintiennent les sessions rémanentes même pour les requêtes cross-origin. Pour plus d’informations, consultez la [section Affinité basée sur les cookies](configuration-overview.md#cookie-based-affinity).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

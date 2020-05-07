@@ -2,14 +2,14 @@
 title: Tableau de prise en charge Azure Migrate
 description: Fournit un résumé des limitations et des paramètres de prise en charge pour le service Azure Migrate.
 ms.topic: conceptual
-ms.date: 03/22/2020
+ms.date: 04/19/2020
 ms.author: raynew
-ms.openlocfilehash: bf719f9179384ec3dca99d2429f569ef209b5daa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 44a971894f53a3f31c068b3c3ed4912bc7e00dab
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80127704"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81680694"
 ---
 # <a name="azure-migrate-support-matrix"></a>Tableau de prise en charge Azure Migrate
 
@@ -25,6 +25,8 @@ Le tableau récapitule les scénarios de détection, d’évaluation et de migra
 **Évaluation locale** | Évaluez les charges de travail et les données locales qui s’exécutent sur des machines virtuelles VMware, des machines virtuelles Hyper-V et des serveurs physiques. Évaluez en utilisant Azure Migrate Server Assessment et l’Assistant Migration de données Microsoft ainsi que d’autres outils et offres ISV.
 **Migration locale vers Azure** | Migrez vers Azure des charges de travail et données exécutées sur des serveurs physiques, des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques et des machines virtuelles cloud vers Azure. Migrez en utilisant Azure Migrate Server Assessment et Azure Database Migration Service ainsi que d’autres outils et offres ISV.
 
+> [!NOTE]
+> Actuellement, les outils ISV ne peuvent pas envoyer de données à Azure Migrate dans Azure Government. Vous pouvez utiliser les outils intégrés de Microsoft, ou utiliser les outils des partenaires de façon indépendante.
 
 ## <a name="supported-tools"></a>Outils pris en charge
 
@@ -69,13 +71,12 @@ Créer un projet Azure Migrate | Votre compte Azure doit être autorisé à cré
 Inscrire l’appliance Azure Migrate| Azure Migrate utilise une [appliance Azure Migrate](migrate-appliance.md) légère pour évaluer les machines avec Azure Migrate Server Assessment ainsi que pour exécuter une [migration sans agent](server-migrate-overview.md) des machines virtuelles VMware avec Azure Migrate Server Migration. Cette appliance découvre les machines, puis envoie les métadonnées et les données de performances à Azure Migrate.<br/><br/> Au cours du processus, les fournisseurs d’inscription (Microsoft.OffAzure, Microsoft.Migrate et Microsoft.KeyVault) sont inscrits auprès de l’abonnement choisi dans l’appliance pour permettre à cet abonnement de fonctionner avec le fournisseur de ressources. Pour vous inscrire, vous devez disposer d’un accès Contributeur ou Propriétaire à l’abonnement.<br/><br/> **VMware** - Durant l’intégration, Azure Migrate crée deux applications Azure Active Directory (Azure AD). La première application assure la communication entre les agents de l’appliance et le service Azure Migrate. L’application n’a pas les autorisations appropriées pour effectuer des appels à la gestion de ressources Azure, ou ne dispose pas d’un accès RBAC aux ressources. La seconde application accède à un coffre de clés Azure Key Vault créé dans l’abonnement de l’utilisateur pour une migration VMware sans agent uniquement. Dans une migration sans agent, Azure Migrate crée un coffre de clés pour gérer les clés d’accès au compte de stockage de réplication de votre abonnement. Il dispose d’un accès RBAC au coffre de clés Azure Key Vault (dans le locataire du client) quand la découverte est lancée à partir de l’appliance.<br/><br/> **Hyper-V** - Durant l’intégration, Azure Migrate crée une seule application Azure AD. L’application assure la communication entre les agents d’appliance et le service Azure Migrate. L’application n’a pas les autorisations appropriées pour effectuer des appels à la gestion de ressources Azure, ou ne dispose pas d’un accès RBAC aux ressources. | Configurez [VMware](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-register-the-appliance) ou des [serveurs physiques](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance).
 Créer un coffre de clés pour la migration sans agent VMware | Pour migrer des machines virtuelles VMware avec Azure Migrate Server Migration sans agent, Azure Migrate crée un coffre de clés afin de gérer les clés d’accès au compte de stockage de réplication de votre abonnement. Pour créer le coffre, vous devez définir des autorisations (Propriétaire ou Contributeur et Administrateur de l’accès utilisateur) sur le groupe de ressources dans lequel réside le projet Azure Migrate. | [Définissez](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault) des autorisations.
 
-## <a name="supported-geographies"></a>Zones géographiques prises en charge
+## <a name="supported-geographies-public-cloud"></a>Zones géographiques prises en charge (cloud public)
 
-Vous pouvez créer un projet Azure Migrate dans un certain nombre de zones géographiques. Même si vous ne pouvez créer des projets que dans ces zones, vous pouvez néanmoins évaluer ou migrer des machines pour d’autres emplacements cibles. La zone géographique du projet est uniquement utilisée pour stocker les métadonnées détectées.
+Vous pouvez créer un projet Azure Migrate dans un certain nombre de zones géographiques dans le cloud public. Même si vous ne pouvez créer des projets que dans ces zones, vous pouvez néanmoins évaluer ou migrer des machines pour d’autres emplacements cibles. La zone géographique du projet est uniquement utilisée pour stocker les métadonnées détectées.
 
 **Zone géographique** | **Emplacement de stockage des métadonnées**
 --- | ---
-Azure Government | Gouvernement américain - Virginie
 Asie-Pacifique | Asie Est ou Asie Sud-Est
 Australie | Australie Est ou Australie Sud-Est
 Brésil | Brésil Sud
@@ -89,9 +90,13 @@ Royaume-Uni | Royaume-Uni Sud ou Royaume-Uni Ouest
 États-Unis | USA Centre ou USA Ouest 2
 
 
- > [!NOTE]
- > La prise en charge d’Azure Government est actuellement disponible pour l’[ancienne version](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) d’Azure Migrate uniquement.
+## <a name="supported-geographies-azure-government"></a>Zones géographiques prises en charge (Azure Government)
 
+**Tâche** | **Zone géographique** | **Détails**
+--- | --- | ---
+Créer un projet | États-Unis | Les métadonnées sont stockées dans les régions US Gov Arizona et US Gov Virginie
+Évaluation cible | États-Unis | Régions cibles : US Gov Arizona, US Gov Virginie, US Gov Texas
+Réplication cible | États-Unis | Régions cibles : US DoD Centre, US DoD Est, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginie
 
 
 ## <a name="vmware-assessment-and-migration"></a>Évaluation et migration VMware

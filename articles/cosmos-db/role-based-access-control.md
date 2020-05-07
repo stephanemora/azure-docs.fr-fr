@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0c7332a42751b35b6ad8ec3f88afb7bc78cc85e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4e028e7a5e7e7b8f747d7a1cfb36c553a8113544
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75445100"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583738"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Contrôle d’accès en fonction du rôle (RBAC) dans Azure Cosmos DB
 
@@ -61,6 +61,12 @@ Le fournisseur de ressources Cosmos peut être verrouillé pour empêcher toute 
         }
     }
 }
+```
+Si vous exportez un modèle Resource Manager existant et le mettez à jour avec cette propriété, toutes les fonctionnalités du modèle peuvent être remplacées. Ainsi, si toutes les valeurs ne sont pas incluses, elles sont réinitialisées à leur valeur par défaut. Une autre façon de désactiver l’accès en écriture aux métadonnées basées sur les clés consiste à utiliser Azure CLI comme indiqué dans la commande suivante :
+
+```cli
+az cosmosdb update  --name CosmosDBAccountName --resource-group ResourceGroupName  --disable-key-based-metadata-write-access true
+
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

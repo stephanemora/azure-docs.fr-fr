@@ -3,18 +3,18 @@ title: Références SKU Machines virtuelles prises en charge pour Azure Policy
 description: Article décrivant les références SKU de machine virtuelle (par éditeur d’image, offre d’image et SKU d’image) qui sont prises en charge pour les stratégies Azure intégrées que fournit le service Sauvegarde
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 1b6a94b0f57ecfea946654c6cae38ac335335e00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4658d1beffe707682e173491edea1eac0db9c811
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74979938"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183617"
 ---
 # <a name="supported-vm-skus-for-azure-policy"></a>Références SKU Machines virtuelles prises en charge pour Azure Policy
 
 Sauvegarde Azure fournit une stratégie intégrée (via Azure Policy) qui peut être attribuée à **toutes les machines virtuelles Azure dans un emplacement spécifié d’un abonnement ou d’un groupe de ressources**. Quand cette stratégie est affectée à une étendue donnée, toutes les machines virtuelles créées dans cette étendue sont automatiquement configurées pour la sauvegarde dans un **coffre existant au même emplacement et dans le même abonnement**. Le tableau ci-dessous liste toutes les références SKU de machine virtuelle prises en charge par cette stratégie.
 
-### <a name="supported-vms"></a>**Machines virtuelles prises en charge**
+## <a name="supported-vms"></a>Machines virtuelles prises en charge*
 
 **Nom de la stratégie :** Configurer la sauvegarde sur les machines virtuelles d’un emplacement dans un coffre central existant au même emplacement
 
@@ -46,7 +46,7 @@ MicrosoftWindowsServer | WindowsServerSemiAnnual | Datacenter-Core-1709-with-Con
 MicrosoftWindowsServer | WindowsServerSemiAnnual | Datacenter-Core-1803-with-Containers-smalldisk
 MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | Toutes les références SKU d’image
 MicrosoftSQLServer | SQL2016SP1-WS2016 | Toutes les références SKU d’image
-MicrosoftSQLServer | SQL2016-WS2016  | Toutes les références SKU d’image
+MicrosoftSQLServer | SQL2016-WS2016 | Toutes les références SKU d’image
 MicrosoftSQLServer | SQL2016SP1-WS2016-BYOL | Toutes les références SKU d’image
 MicrosoftSQLServer | SQL2012SP3-WS2012R2 | Toutes les références SKU d’image
 MicrosoftSQLServer | SQL2016-WS2012R2 | Toutes les références SKU d’image
@@ -57,8 +57,8 @@ MicrosoftSQLServer | SQL2014SP2-WS2012R2-BYOL | Toutes les références SKU d’
 MicrosoftSQLServer | SQL2016-WS2012R2-BYOL | Toutes les références SKU d’image
 MicrosoftRServer | MLServer-WS2016 | Toutes les références SKU d’image
 MicrosoftVisualStudio | VisualStudio | Toutes les références SKU d’image
-MicrosoftVisualStudio | Windows | Toutes les références SKU d’image
-MicrosoftDynamicsAX | Dynamics  | Pre-Req-AX7-Onebox-U8
+MicrosoftVisualStudio |  Windows | Toutes les références SKU d’image
+MicrosoftDynamicsAX | Dynamics | Pre-Req-AX7-Onebox-U8
 microsoft-ads | windows-data-science-vm | Toutes les références SKU d’image
 MicrosoftWindowsDesktop | Windows-10 | Toutes les références SKU d’image
 Red Hat | RHEL | 6.7, 6.8, 6.9, 6.10, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7

@@ -15,12 +15,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 1949b66ee48036163e92cb37c275e9117d6a74b4
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: be2a52f1a9071e9d4bb77ab4439291fd58cd828b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460016"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82129370"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Didacticiel - Gestion des disques Azure avec l’interface de ligne de commande Azure
 
@@ -32,7 +32,6 @@ Les machines virtuelles utilisent des disques pour stocker leur système d’exp
 > * Disques Standard et Premium
 > * Performances des disques
 > * Attachement et préparation des disques de données
-> * Redimensionnement des disques
 > * Captures instantanées de disque
 
 
@@ -265,7 +264,6 @@ Ce didacticiel vous a apporté des connaissances concernant les disques de machi
 > * Disques Standard et Premium
 > * Performances des disques
 > * Attachement et préparation des disques de données
-> * Redimensionnement des disques
 > * Captures instantanées de disque
 
 Passez au didacticiel suivant pour en apprendre davantage sur l’automatisation de la configuration de machine virtuelle.

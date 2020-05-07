@@ -4,22 +4,22 @@ description: Apprenez à identifier, diagnostiquer et résoudre les problèmes d
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 02/10/2020
+ms.date: 04/22/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 852ed8c49eda7f13542eb0bad63d84e1cf770e92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b3c6926f17e8378fd3b53bfd59a7c5ea8141adb4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131374"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82097232"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Résoudre des problèmes de requête lors de l’utilisation d’Azure Cosmos DB
 
 Cet article décrit une approche générale recommandée pour le dépannage des requêtes dans Azure Cosmos DB. Bien que vous ne devriez pas considérer les étapes décrites dans cet article comme une protection complète contre les problèmes de requête potentiels, nous avons inclus ici les conseils sur les performances les plus courants. Vous devez utiliser cet article comme point de départ pour le dépannage des requêtes lentes ou coûteuses dans l’API Core (SQL) d’Azure Cosmos DB. Vous pouvez également utiliser des [journaux de diagnostic](cosmosdb-monitor-resource-logs.md) pour identifier les requêtes qui sont lentes ou qui consomment un débit significatif.
 
-Vous pouvez grosso modo classer les optimisations de requêtes dans Azure Cosmos DB en deux catégories : 
+Vous pouvez grosso modo classer les optimisations de requêtes dans Azure Cosmos DB en deux catégories :
 
 - celles qui réduisent les frais en unités de requête (RU) de la requête
 - Optimisations qui réduisent simplement la latence
@@ -28,29 +28,30 @@ Si vous réduisez les frais en RU d’une requête, vous diminuez presque certai
 
 Cet article fournit des exemples que vous pouvez recréer à l’aide du jeu de données [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
-## <a name="important"></a>Important
+## <a name="common-sdk-issues"></a>Problèmes courants du Kit de développement logiciel (SDK)
+
+Avant de lire ce guide, il est utile de prendre en compte les problèmes courants liés au Kit de développement logiciel (SDK) et qui ne sont pas liés au moteur de requête.
 
 - Pour des performances optimales, suivez les [conseils relatifs aux performances](performance-tips.md).
     > [!NOTE]
     > Le processus hôte Windows 64 bits est recommandé pour améliorer les performances. Le kit de développement logiciel (SDK) SQL intègre un fichier ServiceInterop.dll natif pour analyser et optimiser les requêtes localement. ServiceInterop.dll est uniquement pris en charge sur la plateforme Windows x64. Pour Linux et les autres plateformes non prises en charge où ServiceInterop.dll n’est pas disponible, il procède à un appel réseau supplémentaire à destination de la passerelle afin d'obtenir la requête optimisée.
-- Les requêtes Azure Cosmos DB ne prennent pas en charge un nombre d’éléments minimal.
-    - Le code doit gérer toute taille de page comprise entre zéro et le nombre maximal d’éléments.
-    - Le nombre d’éléments d’une page peut être modifié sans préavis.
-- Des pages vides sont attendues pour les requêtes et peuvent apparaître à tout moment.
-    - Les pages vides sont exposées dans les kits de développement logiciel (SDK), car cette exposition permet d’annuler une requête. Il apparaît également clair que le kit de développement logiciel (SDK) effectue plusieurs appels réseau.
-    - Des pages vides peuvent apparaître dans les charges de travail existantes, car une partition physique est fractionnée dans Azure Cosmos DB. La première partition n’a aucun résultat, ce qui provoque la page vide.
-    - Les pages vides résultent de la préemption d’une requête par le serveur principal en raison du fait que cette requête prend plus de temps sur le serveur principal pour récupérer les documents. Si Azure Cosmos DB préempte une requête, il renvoie un jeton de continuation permettant à la requête de se poursuivre.
-- Veillez à vider complètement la requête. Examinez les exemples du kit de développement logiciel (SDK) et utilisez une boucle `while` sur `FeedIterator.HasMoreResults` pour vider l’intégralité de la requête.
+- Le Kit de développement logiciel (SDK) permet de définir un paramètre `MaxItemCount` pour vos requêtes, mais vous ne pouvez pas spécifier un nombre minimal d’éléments.
+    - Le code doit gérer toute taille de page comprise entre zéro et le `MaxItemCount`.
+    - Le nombre d’éléments dans une page est toujours inférieur ou égal au `MaxItemCount`spécifié. Toutefois, `MaxItemCount` est strictement une valeur maximum et le nombre de résultats peut y être inférieur.
+- Parfois, les requêtes peuvent avoir des pages vides, même si des résultats se trouvent sur une page ultérieure. Les raisons peuvent être les suivantes :
+    - Le Kit de développement logiciel (SDK) peut effectuer plusieurs appels réseau.
+    - La requête peut prendre beaucoup de temps pour récupérer les documents.
+- Toutes les requêtes ont un jeton de continuation qui permet à la requête de continuer. Veillez à vider complètement la requête. Examinez les exemples du kit de développement logiciel (SDK) et utilisez une boucle `while` sur `FeedIterator.HasMoreResults` pour vider l’intégralité de la requête.
 
 ## <a name="get-query-metrics"></a>Obtenir les métriques de requête
 
-Lors de l’optimisation d’une requête dans Azure Cosmos DB, la première étape consiste toujours à [obtenir les métriques de requête](profile-sql-api-query.md) pour votre requête. Ces métriques sont également disponibles par le biais du portail Azure :
+Lors de l’optimisation d’une requête dans Azure Cosmos DB, la première étape consiste toujours à [obtenir les métriques de requête](profile-sql-api-query.md) pour votre requête. Ces métriques sont également disponibles par le biais du portail Azure. Une fois que vous avez exécuté votre requête dans l’Explorateur de données, les métriques de requête apparaissent en regard de l’onglet **Résultats** :
 
 [ ![Obtention de métriques de requête](./media/troubleshoot-query-performance/obtain-query-metrics.png) ](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
 
-Après avoir obtenu les métriques de requête, comparez le nombre de documents récupérés au nombre de documents de sortie pour votre requête. Utilisez cette comparaison pour identifier les sections pertinentes à vérifier dans cet article.
+Après avoir obtenu les métriques de requête, comparez le **nombre de documents récupérés** au **nombre de documents de sortie** pour votre requête. Utilisez cette comparaison pour identifier les sections pertinentes à vérifier dans cet article.
 
-Le nombre de documents récupérés correspond au nombre de documents que la requête a dû charger. Le nombre de documents de sortie correspond au nombre de documents qui ont été nécessaires pour les résultats de la requête. Si le nombre de documents récupérés est beaucoup plus élevé que le nombre de documents de sortie, il y a au moins une partie de votre requête qui n’a pas pu utiliser l’index et qui a dû effectuer une analyse.
+Le **nombre de documents récupérés** correspond au nombre de documents que le moteur de requête a dû charger. Le **nombre de documents de sortie** correspond au nombre de documents qui ont été nécessaires pour les résultats de la requête. Si le **nombre de documents récupérés** est beaucoup plus élevé que le **nombre de documents de sortie**, il y a au moins une partie de votre requête qui n’a pas pu utiliser d’index et qui a dû effectuer une analyse.
 
 Reportez-vous aux sections suivantes pour comprendre les optimisations de requête pertinentes pour votre scénario.
 
@@ -62,7 +63,9 @@ Reportez-vous aux sections suivantes pour comprendre les optimisations de requê
 
 - [Comprenez quelles fonctions système utilisent l’index.](#understand-which-system-functions-use-the-index)
 
-- [Modifiez les requêtes qui ont à la fois un filtre et une clause ORDER BY.](#modify-queries-that-have-both-a-filter-and-an-order-by-clause)
+- [Identifiez les requêtes d’agrégation qui utilisent l’index.](#understand-which-aggregate-queries-use-the-index)
+
+- [Optimisez les requêtes qui ont à la fois un filtre et une clause ORDER BY.](#optimize-queries-that-have-both-a-filter-and-an-order-by-clause)
 
 - [Optimisez les expressions JOIN à l’aide d’une sous-requête.](#optimize-join-expressions-by-using-a-subquery)
 
@@ -70,11 +73,11 @@ Reportez-vous aux sections suivantes pour comprendre les optimisations de requê
 
 #### <a name="retrieved-document-count-is-approximately-equal-to-output-document-count"></a>Le nombre de documents récupérés est à peu près égal au nombre de documents de sortie
 
-- [Évitez les requêtes entre les partitions.](#avoid-cross-partition-queries)
+- [Réduisez les requêtes entre les partitions.](#minimize-cross-partition-queries)
 
 - [Optimisez les requêtes qui ont des filtres sur plusieurs propriétés.](#optimize-queries-that-have-filters-on-multiple-properties)
 
-- [Modifiez les requêtes qui ont à la fois un filtre et une clause ORDER BY.](#modify-queries-that-have-both-a-filter-and-an-order-by-clause)
+- [Optimisez les requêtes qui ont à la fois un filtre et une clause ORDER BY.](#optimize-queries-that-have-both-a-filter-and-an-order-by-clause)
 
 <br>
 
@@ -90,7 +93,7 @@ Reportez-vous aux sections suivantes pour comprendre les optimisations de requê
 
 ## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>Requêtes où le nombre de documents récupérés dépasse le nombre de documents de sortie
 
- Le nombre de documents récupérés correspond au nombre de documents que la requête a dû charger. Le nombre de documents de sortie correspond au nombre de documents qui ont été nécessaires pour les résultats de la requête. Si le nombre de documents récupérés est beaucoup plus élevé que le nombre de documents de sortie, il y a au moins une partie de votre requête qui n’a pas pu utiliser l’index et qui a dû effectuer une analyse.
+ Le **nombre de documents récupérés** correspond au nombre de documents que le moteur de requête a dû charger. Le **nombre de documents de sortie** correspond au nombre de documents retournés par la requête. Si le **nombre de documents récupérés** est beaucoup plus élevé que le **nombre de documents de sortie**, il y a au moins une partie de votre requête qui n’a pas pu utiliser d’index et qui a dû effectuer une analyse.
 
 Voici un exemple de requête d’analyse qui n’a pas été entièrement servie par l’index :
 
@@ -128,20 +131,25 @@ Client Side Metrics
   Request Charge                         :        4,059.95 RUs
 ```
 
-Le nombre de documents récupérés (60 951) est beaucoup plus élevé que le nombre de documents de sortie (7). Cela signifie que cette requête a dû effectuer une analyse. Dans ce cas, la fonction système [UPPER ()](sql-query-upper.md) n’utilise pas l’index.
+Le **nombre de documents récupérés** (60 951) est beaucoup plus élevé que le **nombre de documents de sortie** (7), indiquant que cette requête a entraîné une analyse de document. Dans ce cas, la fonction système [UPPER ()](sql-query-upper.md) n’utilise pas d’index.
 
 ### <a name="include-necessary-paths-in-the-indexing-policy"></a>Inclure les chemins nécessaires dans la stratégie d’indexation
 
-Votre stratégie d’indexation doit couvrir toutes les propriétés incluses dans les clauses `WHERE`, les clauses `ORDER BY`, `JOIN` et la plupart des fonctions système. Le chemin spécifié dans la stratégie d’index doit correspondre (en respectant la casse) à la propriété dans les documents JSON.
+Votre stratégie d’indexation doit couvrir toutes les propriétés incluses dans les clauses `WHERE`, les clauses `ORDER BY`, `JOIN` et la plupart des fonctions système. Les chemins souhaités spécifiés dans la stratégie d’index doivent correspondre aux propriétés dans les documents JSON.
 
-Si vous exécutez une requête simple sur le jeu de données [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json), vous constatez que les frais en RU sont plus faibles quand la propriété de la clause `WHERE` est indexée :
+> [!NOTE]
+> Les propriétés de la stratégie d’indexation Azure Cosmos DB sont sensibles à la casse
+
+Si vous exécutez la requête simple suivante sur le jeu de données [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json), vous constaterez que les frais en RU sont plus faibles quand la propriété de la clause `WHERE` est indexée :
 
 #### <a name="original"></a>Original
 
 Requête :
 
 ```sql
-SELECT * FROM c WHERE c.description = "Malabar spinach, cooked"
+SELECT *
+FROM c
+WHERE c.description = "Malabar spinach, cooked"
 ```
 
 Stratégie d’indexation :
@@ -190,7 +198,7 @@ Vous pouvez ajouter des propriétés à la stratégie d’indexation à tout mom
 
 Si une expression peut être convertie en une plage de valeurs de chaîne, elle peut utiliser l’index. Dans le cas contraire, elle ne peut pas le faire.
 
-Voici la liste des fonctions de chaîne qui peuvent utiliser l’index :
+Voici la liste de certaines fonctions de chaîne courantes qui peuvent utiliser l’index :
 
 - STARTSWITH(str_expr, str_expr)
 - LEFT(str_expr, num_expr) = str_expr
@@ -208,7 +216,64 @@ Voici quelques fonctions système courantes qui n’utilisent pas l’index et d
 
 D’autres parties de la requête peuvent toujours utiliser l’index même si les fonctions système ne le peuvent pas.
 
-### <a name="modify-queries-that-have-both-a-filter-and-an-order-by-clause"></a>Modifier les requêtes qui ont à la fois un filtre et une clause ORDER BY
+### <a name="understand-which-aggregate-queries-use-the-index"></a>Identifier les requêtes d’agrégation qui utilisent l’index
+
+Dans la plupart des cas, les fonctions système d’agrégation dans Azure Cosmos DB utilisent l’index. Toutefois, en fonction des filtres ou des clauses supplémentaires dans une requête d’agrégation, le moteur d’interrogation peut être amené à charger un grand nombre de documents. En règle générale, le moteur d’interrogation applique d’abord les filtres d’égalité et de plage. Après l’application de ces filtres, le moteur d’interrogation peut évaluer des filtres supplémentaires et recourir au chargement des documents restants pour calculer l’agrégat, le cas échéant.
+
+Par exemple, pour ces deux exemples de requêtes, la requête avec les filtres de fonction système d’égalité et `CONTAINS` est généralement plus efficace qu’une requête avec simplement un filtre de fonction système `CONTAINS`. Cela est dû au fait que le filtre d’égalité est appliqué en premier et utilise l’index avant le chargement des documents pour le filtre `CONTAINS`, plus onéreux.
+
+Requête avec le filtre `CONTAINS` seulement (frais RU plus élevés) :
+
+```sql
+SELECT COUNT(1)
+FROM c
+WHERE CONTAINS(c.description, "spinach")
+```
+
+Requête avec le filtre d’égalité et le filtre `CONTAINS` (frais RU réduits) :
+
+```sql
+SELECT AVG(c._ts)
+FROM c
+WHERE c.foodGroup = "Sausages and Luncheon Meats" AND CONTAINS(c.description, "spinach")
+```
+
+Voici des exemples supplémentaires de requêtes d’agrégation qui n’utiliseront pas pleinement l’index :
+
+#### <a name="queries-with-system-functions-that-dont-use-the-index"></a>Requêtes avec des fonctions système qui n’utilisent pas l’index
+
+Vous devez consulter la [page de la fonction système](sql-query-system-functions.md) correspondante pour voir si elle utilise l’index.
+
+```sql
+SELECT MAX(c._ts)
+FROM c
+WHERE CONTAINS(c.description, "spinach")
+```
+
+#### <a name="aggregate-queries-with-user-defined-functionsudfs"></a>Requêtes d’agrégation avec des fonctions définies par l’utilisateur (UDF)
+
+```sql
+SELECT AVG(c._ts)
+FROM c
+WHERE udf.MyUDF("Sausages and Luncheon Meats")
+```
+
+#### <a name="queries-with-group-by"></a>Requêtes avec GROUP BY
+
+Les frais RU de requêtes avec `GROUP BY` augmenteront à mesure que la cardinalité des propriétés de la clause `GROUP BY` augmente. Dans la requête ci-dessous, par exemple, les frais RU de la requête augmentent à mesure que le nombre de descriptions uniques augmente.
+
+Les frais RU d’une fonction d’agrégation avec une clause `GROUP BY` seront supérieurs à ceux d’une fonction d’agrégation seule. Dans cet exemple, le moteur d’interrogation doit charger chaque document qui correspond au filtre `c.foodGroup = "Sausages and Luncheon Meats"`, de sorte que les frais RU devraient être élevés.
+
+```sql
+SELECT COUNT(1)
+FROM c
+WHERE c.foodGroup = "Sausages and Luncheon Meats"
+GROUP BY c.description
+```
+
+Si vous prévoyez d’exécuter fréquemment les mêmes requêtes d’agrégation, il peut être plus efficace de créer un affichage matérialisé en temps réel avec le [flux de modification Azure Cosmos DB](change-feed.md) que d’exécuter des requêtes individuelles.
+
+### <a name="optimize-queries-that-have-both-a-filter-and-an-order-by-clause"></a>Optimiser les requêtes qui ont à la fois un filtre et une clause ORDER BY
 
 Les requêtes avec un filtre et une clause `ORDER BY` utilisent normalement un index de plage, mais elles sont plus efficaces si elles peuvent être servies à partir d’un index composite. En plus de modifier la stratégie d’indexation, vous devez ajouter toutes les propriétés de l’index composite à la clause `ORDER BY`. Cette modification de la requête permet de s’assurer qu’elle utilise l’index composite.  Vous pouvez observer l’impact en exécutant une requête sur le jeu de données [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) :
 
@@ -217,7 +282,10 @@ Les requêtes avec un filtre et une clause `ORDER BY` utilisent normalement un i
 Requête :
 
 ```sql
-SELECT * FROM c WHERE c.foodGroup = "Soups, Sauces, and Gravies" ORDER BY c._ts ASC
+SELECT *
+FROM c
+WHERE c.foodGroup = "Soups, Sauces, and Gravies"
+ORDER BY c._ts ASC
 ```
 
 Stratégie d’indexation :
@@ -243,7 +311,8 @@ Stratégie d’indexation :
 Requête mise à jour (comprend les deux propriétés dans la clause `ORDER BY`) :
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup = "Soups, Sauces, and Gravies"
 ORDER BY c.foodGroup, c._ts ASC
 ```
@@ -279,6 +348,7 @@ Stratégie d’indexation mise à jour :
 **Frais en RU :** 8.86 RU
 
 ### <a name="optimize-join-expressions-by-using-a-subquery"></a>Optimiser les expressions JOIN à l’aide d’une sous-requête
+
 Les sous-requêtes multivaleurs peuvent optimiser des expressions `JOIN` en envoyant les prédicats après chaque expression de sélection multiple, plutôt qu’après toutes les jointures croisées dans la clause `WHERE`.
 
 Prenons par exemple la requête suivante :
@@ -295,7 +365,7 @@ AND n.nutritionValue < 10) AND s.amount > 1
 
 **Frais en RU :** 167.62 RU
 
-Pour cette requête, l’index établit une correspondance avec n’importe quel document qui a une étiquette portant le nom « infant formula », nutritionValue supérieur à 0 et une dose supérieure à 1. Dans ce cas, l’expression `JOIN` effectue le produit croisé de tous les éléments des tableaux tags, nutrients et servings pour chaque document correspondant avant l’application de tout filtre. Ensuite, la clause `WHERE` applique le prédicat de filtre sur chaque tuple `<c, t, n, s>`.
+Pour cette requête, l’index correspond à n’importe quel document qui a une étiquette portant le nom `infant formula`, avec `nutritionValue` supérieure à 0, et `amount` supérieure à 1. Dans ce cas, l’expression `JOIN` effectue le produit croisé de tous les éléments des tableaux tags, nutrients et servings pour chaque document correspondant avant l’application de tout filtre. Ensuite, la clause `WHERE` applique le prédicat de filtre sur chaque tuple `<c, t, n, s>`.
 
 Par exemple, si un document correspondant comporte 10 éléments dans chacun des trois tableaux, l’opération aboutit à 1 x 10 x 10 x 10 (autrement dit, 1 000) tuples. L’utilisation de sous-requêtes ici peut aider à filtrer des éléments de tableaux joints avant d’effectuer une jointure avec l’expression suivante.
 
@@ -315,9 +385,9 @@ Supposons qu’un seul élément du tableau tags correspond au filtre, et qu’i
 
 ## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Requêtes où le nombre de documents récupérés est égal au nombre de documents de sortie
 
-Si le nombre de documents récupérés est à peu près égal au nombre de documents de sortie, la requête n’a pas eu à analyser de nombreux documents inutiles. Pour de nombreuses requêtes, telles que celles qui utilisent le mot clé TOP, le nombre de documents récupérés peut dépasser le nombre de documents de sortie de 1. Vous n’avez pas besoin de vous en préoccuper.
+Si le **nombre de documents récupérés** est à peu près égal au **nombre de documents de sortie**, le moteur de requête n’a pas eu à analyser de nombreux documents inutiles. Pour de nombreuses requêtes, telles que celles qui utilisent le mot clé `TOP`, le **nombre de documents récupérés** peut dépasser le **nombre de documents de sortie** de 1. Vous n’avez pas besoin de vous en préoccuper.
 
-### <a name="avoid-cross-partition-queries"></a>Éviter les requêtes entre les partitions
+### <a name="minimize-cross-partition-queries"></a>Réduire les requêtes entre les partitions
 
 Azure Cosmos DB utilise le [partitionnement](partitioning-overview.md) pour mettre à l’échelle des conteneurs en fonction de l’augmentation des besoins en unités de requête et en stockage des données. Chaque partition physique a un index distinct et indépendant. Si votre requête a un filtre d’égalité qui correspond à la clé de partition de votre conteneur, vous devrez uniquement vérifier l’index de la partition pertinente. Cette optimisation réduit le nombre total de RU requis par la requête.
 
@@ -326,26 +396,30 @@ Si vous disposez d’un grand nombre d’unités de requête provisionnées (plu
 Par exemple, si vous créez un conteneur avec la clé de partition foodGroup, les requêtes suivantes ne devront vérifier qu’une seule partition physique :
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup = "Soups, Sauces, and Gravies" and c.description = "Mushroom, oyster, raw"
 ```
 
-Ces requêtes sont également optimisées en ajoutant la clé de partition dans la requête :
+Les requêtes qui ont un filtre `IN` avec la clé de partition ne vérifient que les partitions physiques pertinentes et n’effectuent pas de distribution ramifiée (fan-out) :
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup IN("Soups, Sauces, and Gravies", "Vegetables and Vegetable Products") and c.description = "Mushroom, oyster, raw"
 ```
 
-Les requêtes qui ont des filtres de plage sur la clé de partition ou qui n’ont aucun filtre sur la clé de partition devront vérifier l’index de chaque partition physique pour obtenir les résultats :
+Les requêtes qui ont des filtres de plage sur la clé de partition ou qui n’ont aucun filtre sur la clé de partition devront vérifier l’index de chaque partition physique pour obtenir les résultats :
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.description = "Mushroom, oyster, raw"
 ```
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup > "Soups, Sauces, and Gravies" and c.description = "Mushroom, oyster, raw"
 ```
 
@@ -356,12 +430,14 @@ Les requêtes avec des filtres sur plusieurs propriétés utilisent normalement 
 Voici quelques exemples de requêtes qui peuvent être optimisées avec un index composite :
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts = 1575503264
 ```
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts > 1575503264
 ```
 

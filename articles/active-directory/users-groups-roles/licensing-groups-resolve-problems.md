@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddfc4bf7ed3bdf214a44a5dfe03259d32b2f3f94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 43eba1b2f3373555e871b586ae633dcb64abfd9b
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74025698"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582696"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identification et résolution des problèmes d’affectation de licences pour un groupe dans Azure Active Directory
 
@@ -100,7 +100,7 @@ Pour résoudre ce problème, retirez du groupe sous licence les utilisateurs ass
 
 ## <a name="duplicate-proxy-addresses"></a>Adresses proxy en double
 
-Si vous utilisez Exchange Online, certains comptes d’utilisateur de votre locataire risquent d’être configurés avec la même valeur d’adresse proxy, de manière incorrecte. Lorsque la fonction de licence basée sur un groupe tente d’affecter une licence à un tel utilisateur, l’opération échoue et le message « L'adresse proxy est déjà utilisée » s’affiche.
+Si vous utilisez Exchange Online, certains comptes d’utilisateur de votre organisation risquent d’être erronément configurés avec la même valeur d’adresse proxy. Lorsque la fonction de licence basée sur un groupe tente d’affecter une licence à un tel utilisateur, l’opération échoue et le message « L'adresse proxy est déjà utilisée » s’affiche.
 
 > [!TIP]
 > Pour cela, exécutez la cmdlet PowerShell suivante par rapport à Exchange Online :
