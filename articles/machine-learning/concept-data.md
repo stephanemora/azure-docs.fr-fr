@@ -1,7 +1,7 @@
 ---
-title: Données dans Azure Machine Learning
+title: Sécuriser l’accès aux données dans le cloud
 titleSuffix: Azure Machine Learning
-description: Découvrez comment Azure Machine Learning se connecte de manière sécurisée à vos données et les utilise pour les tâches de machine learning.
+description: Apprenez à vous connecter en toute sécurité à vos données à partir d’Azure Machine Learning et à utiliser des jeux de données et des magasins de données pour les tâches de ML. Les magasins de données peuvent stocker des données provenant d’un Blob Azure, d’Azure Data Lake Gen 1 et 2, d’une base de données SQL, de Databricks, etc.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 03/20/2020
-ms.openlocfilehash: 982c9c9eadec4403c8116430e1e25092de99f1d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/24/2020
+ms.openlocfilehash: 614cc866529cd4ead8a6ea798526d59aff13d4d0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128487"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82144487"
 ---
-# <a name="data-access-in-azure-machine-learning"></a>Accès aux données dans Azure Machine Learning
+# <a name="secure-data-access-in-azure-machine-learning"></a>Sécuriser l’accès aux données dans Azure Machine Learning
 
 Azure Machine Learning facilite la connexion à vos données dans le cloud.  Il fournit une couche d’abstraction sur le service de stockage sous-jacent, ce qui vous permet d’accéder de manière sécurisée à vos données et de les utiliser sans avoir à écrire du code propre à votre type de stockage. Azure Machine Learning propose également les fonctionnalités de données suivantes :
 

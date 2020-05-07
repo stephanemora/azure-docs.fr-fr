@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 448b14168e85e75b7ed19e189600186ce11c2902
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f62ad6952170f22fe0f94a792a137f991a0e5026
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227265"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208718"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Sécuriser l’accès aux données dans Azure Cosmos DB
 
@@ -43,7 +43,15 @@ Les clés principales primaire, secondaire, en lecture seule et en lecture-écri
 
 ![Contrôle d’accès (IAM) dans le portail Azure - Démonstration de la sécurité de la base de données NoSQL](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
 
-Le processus de rotation de votre clé principale est simple. Accédez au portail Azure pour récupérer votre clé secondaire, puis remplacez votre clé primaire par votre clé secondaire dans votre application. Enfin, faites pivoter la clé primaire dans le portail Azure.
+### <a name="key-rotation"></a>Rotation des clés<a id="key-rotation"></a>
+
+Le processus de rotation de votre clé principale est simple. 
+
+1. Accédez au Portail Azure pour récupérer votre clé secondaire.
+2. Remplacez votre clé primaire par votre clé secondaire dans votre application. Assurez-vous que tous les clients Cosmos DB de tous les déploiements sont redémarrés rapidement et qu’ils démarrent à l’aide de la clé mise à jour.
+3. Faites pivoter la clé primaire dans le Portail Azure.
+4. Vérifiez que la nouvelle clé primaire fonctionne sur toutes les ressources. Le processus de rotation des clés peut prendre de moins d’une minute à plusieurs heures selon la taille du compte Cosmos DB.
+5. Remplacez la clé secondaire par la nouvelle clé primaire.
 
 ![Rotation de clé principale dans le portail Azure - Démonstration de la sécurité de la base de données NoSQL](./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png)
 
@@ -113,8 +121,8 @@ User user = await database.CreateUserAsync("User 1");
 
 Une ressource d’autorisation est associée à un utilisateur et attribuée au conteneur ainsi qu’au niveau de la clé de partition. Chaque utilisateur peut contenir zéro, une ou plusieurs autorisations. Une ressource d’autorisation donne accès à un jeton de sécurité dont l’utilisateur a besoin lorsqu’il tente d’accéder à un conteneur ou à des données spécifiques dans une clé de partition spécifique. Il existe deux niveaux d’accès disponibles qui peuvent être fournis par une ressource d’autorisation :
 
-- Tout : L’utilisateur dispose de toutes les autorisations sur la ressource.
-- Lecture : L’utilisateur peut uniquement lire le contenu de la ressource, mais il ne peut pas procéder à des opérations d’écriture, de mise à jour ou de suppression au niveau de la ressource.
+- Tout : l’utilisateur dispose de toutes les autorisations sur la ressource.
+- Lecture : L’utilisateur peut uniquement lire le contenu de la ressource, il ne peut pas procéder à des opérations d’écriture, de mise à jour ou de suppression au niveau de la ressource.
 
 > [!NOTE]
 > Pour exécuter des procédures stockées, l’utilisateur doit disposer de toutes les autorisations sur le conteneur dans lequel la procédure stockée est exécutée.

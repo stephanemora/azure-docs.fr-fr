@@ -1,25 +1,15 @@
 ---
-title: Vue d’ensemble pour les développeurs - Azure Batch | Microsoft Docs
+title: Présentation pour les développeurs
 description: Découvrez les fonctionnalités du service Batch et de ses API du point de vue du développeur.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
-ms.service: batch
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-compute
 ms.date: 08/29/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 4d6c4ff06783489ea7b6c3488cf6746d579b4c6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 590ce6d6804c25ea9a3c1104f8fea2ea00c66356
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225993"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509191"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Développer des solutions de calcul parallèles à grande échelle avec Batch
 
@@ -439,7 +429,7 @@ Une formule de mise à l’échelle peut être basée sur les mesures suivantes�
 * **mesures de ressources** sont basées sur l’utilisation du processeur, de la bande passante et de la mémoire, et sur le nombre de nœuds.
 * Les **mesures de tâches** sont basées sur l’état de la tâche, tel que *Active* (en file d’attente), *En cours d’exécution* ou *Terminée*.
 
-Lorsque la mise à l’échelle automatique diminue le nombre de nœuds de calcul dans un pool, vous devez réfléchir aux méthodes pour gérer les tâches s’exécutant au moment de cette opération de réduction. Pour ce faire, Batch fournit une *option de désallocation de nœud* que vous pouvez inclure dans vos formules. Par exemple, vous pouvez spécifier d’arrêter immédiatement les tâches en cours, puis les remettre en file d’attente pour une exécution sur un autre nœud, ou les autoriser à terminer avant la suppression du nœud du pool.
+Lorsque la mise à l’échelle automatique diminue le nombre de nœuds de calcul dans un pool, vous devez réfléchir aux méthodes pour gérer les tâches s’exécutant au moment de cette opération de réduction. Pour ce faire, Batch fournit une [*option de désallocation de nœud*](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) que vous pouvez inclure dans vos formules. Par exemple, vous pouvez spécifier d’arrêter immédiatement les tâches en cours, puis les remettre en file d’attente pour une exécution sur un autre nœud, ou les autoriser à terminer avant la suppression du nœud du pool. Notez que le paramétrage de l’option de désallocation de nœud en `taskcompletion` ou `retaineddata` empêchera les opérations de redimensionnement de pool jusqu’à ce que toutes les tâches soient terminées ou que toutes les périodes rétention de tâche aient expiré, respectivement.
 
 Pour plus d’informations sur la mise à l’échelle automatique d’une application, consultez la section [Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch](batch-automatic-scaling.md).
 

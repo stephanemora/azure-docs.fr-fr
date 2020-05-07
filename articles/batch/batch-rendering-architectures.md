@@ -1,20 +1,15 @@
 ---
-title: Architectures de référence de rendu Azure - Azure Batch
+title: Architectures de référence du rendu Azure
 description: Architectures pour utiliser Azure Batch et d’autres services Azure afin d’étendre un groupe de rendus local en évoluant vers le cloud
-services: batch
-ms.service: batch
-author: davefellows
-manager: evansma
-ms.author: labrenne
 ms.date: 02/07/2019
 ms.topic: conceptual
 ms.custom: seodec18
-ms.openlocfilehash: 20442a6618ca9357bb3be95879b68bffca45a40d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bbdb5eb39805ac87bf90216e5fbeedae91b423f0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022951"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82115769"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Architectures de référence pour le rendu Azure
 

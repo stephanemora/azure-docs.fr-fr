@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: b75e0c1e53f1e00579de73897197cdd2f14d79af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ae9d219c376aa704be34088a4f7c48c35baa9669
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81455408"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509497"
 ---
 # <a name="virtual-network-service-endpoints"></a>Points de terminaison de service de réseau virtuel
 
@@ -43,7 +43,7 @@ Cette fonctionnalité est disponible pour les services et régions Azure suivant
 
 **Préversion publique**
 
-- **[Azure Container Registry](../container-registry/container-registry-vnet.md)** (*Microsoft.ContainerRegistry*) : préversion disponible dans toutes les régions Azure où Azure Container Registry est disponible.
+- **[Azure Container Registry](../container-registry/container-registry-vnet.md)** (*Microsoft.ContainerRegistry*) : préversion disponible dans certaines régions Azure où Azure Container Registry est disponible.
 
 Pour obtenir les notifications les plus récentes, vérifiez la page [Mises à jour du réseau virtuel Microsoft Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 

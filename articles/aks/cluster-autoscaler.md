@@ -4,12 +4,12 @@ description: Découvrez comment utiliser le programme de mise à l’échelle au
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 0b94865d81afc56c24d470012c668662f003a1b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ebbeab82031ddc037c7885e7453e603a8f440a1
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596247"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509242"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Mise à l’échelle automatique d’un cluster pour répondre aux demandes applicatives d’Azure Kubernetes Service (AKS)
 
@@ -44,7 +44,7 @@ Ces deux programmes de mise à l’échelle automatique peuvent également rédu
 
 Pour plus d’informations sur l’incapacité du programme de mise à l’échelle automatique de cluster à réduire le nombre de nœuds, consultez l’article [What types of pods can prevent the cluster autoscaler from removing a node?][autoscaler-scaledown] (Quels sont les types de pods pouvant empêcher la suppression d’un nœud par le programme de mise à l’échelle automatique de cluster ?)
 
-Le programme de mise à l’échelle automatique de cluster utilise des paramètres de démarrage pour des éléments tels que les intervalles de temps entre les événements de mise à l’échelle et les seuils de ressources. Ces paramètres sont définis par la plateforme Azure et ne sont pas exposés actuellement pour que vous les ajustiez. Pour plus d’informations sur les paramètres utilisés par le programme de mise à l’échelle automatique de cluster, consultez l’article [What are the cluster autoscaler parameters?][autoscaler-parameters] (Quels sont les paramètres du programme de mise à l’échelle automatique de cluster ?).
+Le programme de mise à l’échelle automatique de cluster utilise des paramètres de démarrage pour des éléments tels que les intervalles de temps entre les événements de mise à l’échelle et les seuils de ressources. Pour plus d’informations sur les paramètres utilisés par le programme de mise à l’échelle automatique de cluster, consultez l’article [What are the cluster autoscaler parameters?][autoscaler-parameters] (Quels sont les paramètres du programme de mise à l’échelle automatique de cluster ?).
 
 Les programmes de mise à l’échelle automatique de cluster et de pods élastique peuvent fonctionner ensemble et sont souvent déployés dans un même cluster. Lorsqu’ils sont combinés, le programme de mise à l’échelle automatique de pods élastique se concentre sur l’exécution du nombre de pods requis pour répondre à la demande applicative. Le programme de mise à l’échelle automatique de cluster est axé sur l’exécution du nombre de nœuds nécessaires pour assurer la prise en charge des pods planifiés.
 
@@ -117,6 +117,7 @@ Vous pouvez également configurer une plus grande précision dans les détails d
 | scale-down-unready-time          | Durée pendant laquelle un nœud non prêt doit être inutile avant d’être éligible pour un scale-down         | 20 minutes    |
 | scale-down-utilization-threshold | Niveau d’utilisation du nœud (défini en tant que somme des ressources demandées, divisée par la capacité) en dessous duquel un nœud peut être pris en compte pour un scale-down | 0.5 |
 | max-graceful-termination-sec     | Nombre maximal de secondes pendant lesquelles la mise à l’échelle automatique de cluster attend l’arrêt d’un pod lors d’une tentative de scale-down d’un nœud. | 600 secondes   |
+| balance-similar-node-groups | Détection des pools de nœuds similaires et équilibrage du nombre de nœuds entre ces pools. | false |
 
 > [!IMPORTANT]
 > Le profil de mise à l’échelle automatique de cluster modifie tous les pools de nœuds qui utilisent la mise à l’échelle automatique de cluster. Vous ne pouvez pas définir de profil de mise à l’échelle automatique par pool de nœuds.
@@ -212,7 +213,7 @@ AKS gère la mise à l’échelle automatique des clusters en votre nom et l’e
 
 Pour configurer les journaux à envoyer (push), de la mise à l’échelle automatique de cluster à Log Analytics, suivez ces étapes.
 
-1. Configurez une règle pour les journaux de diagnostic, afin d’envoyer (push) les journaux de la mise à l’échelle automatique de cluster vers Log Analytics. [Les instructions sont détaillées ici](https://docs.microsoft.com/azure/aks/view-master-logs#enable-diagnostics-logs) ; veillez à cocher la case `cluster-autoscaler` lors de la sélection des options pour « Journaux d’activité ».
+1. Configurez une règle pour les journaux de ressources, afin d’envoyer (push) les journaux de la mise à l’échelle automatique de cluster vers Log Analytics. [Les instructions sont détaillées ici](https://docs.microsoft.com/azure/aks/view-master-logs#enable-resource-logs) ; veillez à cocher la case `cluster-autoscaler` lors de la sélection des options pour « Journaux d’activité ».
 1. Cliquez sur la section « Journaux d’activité » de votre cluster via le Portail Azure.
 1. Dans Log Analytics, entrez l’exemple de requête suivant :
 

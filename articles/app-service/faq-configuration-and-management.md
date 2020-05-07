@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 810219bca5c75e3ee7e65c6b7302531bca89788d
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 867c011cb3086cab736d17501e72bc477d0d2889
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81869959"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159998"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>FAQ sur la configuration et la gestion de Web Apps dans Azure
 
@@ -125,7 +125,7 @@ Pour plus d’informations sur l’utilisation des emplacements de déploiement,
 
 Pour consulter les journaux d’activité de tâche web (WebJob) :
 
-1. Connectez-vous à votre [site web Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Connectez-vous à votre **site web Kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
 2. Sélectionnez la tâche web.
 3. Sélectionnez le bouton **Activer/désactiver la sortie**.
 4. Pour télécharger le fichier de sortie, sélectionnez le lien **Télécharger**.

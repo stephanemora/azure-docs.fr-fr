@@ -87,6 +87,9 @@
       href: cli-samples.md
     - name: Azure Resource Manager
       href: resource-manager-samples.md
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Comparaison des bases de données NoSQL et relationnelles
@@ -136,7 +139,7 @@
         - name: Approvisionner le débit sur les conteneurs et les bases de données
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
-        - name: Provisionner le débit - Mode de mise à l’échelle automatique
+        - name: Provisionner le débit - Mise à l’échelle automatique
           href: provision-throughput-autoscale.md
         - name: Questions fréquentes (FAQ) sur la mise à l’échelle automatique
           href: autoscale-faq.md
@@ -913,6 +916,8 @@
           href: how-to-manage-consistency.md
         - name: Configurer des stratégies de résolution de conflits
           href: how-to-manage-conflicts.md
+        - name: Convertir le format de jeton de session
+          href: how-to-convert-session-token.md
     - name: Débit approvisionné
       items:
         - name: Provisionner le débit sur un conteneur
@@ -1059,7 +1064,7 @@
               href: monitor-server-side-latency.md
             - name: Superviser l’utilisation des unités de requête
               href: monitor-request-unit-usage.md
-        - name: Utiliser les métriques Azure Monitor
+        - name: Utiliser les journaux Azure Monitor
           items:
             - name: Superviser avec les journaux de diagnostic
               href: cosmosdb-monitor-resource-logs.md

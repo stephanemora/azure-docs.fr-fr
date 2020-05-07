@@ -1,20 +1,20 @@
 ---
 title: Obtenir la réponse par défaut - QnA Maker
 description: La réponse par défaut est retournée quand il n’existe aucune correspondance avec la question. Vous souhaiterez peut-être remplacer la réponse par défaut standard.
-ms.topic: conceptual
-ms.date: 01/10/2020
-ms.openlocfilehash: fae5c38fd64435a3fae56862bad04e000916e88b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: how-to
+ms.date: 04/22/2020
+ms.openlocfilehash: db5a79ec612a73066ac37365a1815841fafb3862
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76843274"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82097096"
 ---
-# <a name="set-default-answer-for-a-knowledge-base"></a>Définir la réponse par défaut pour une base de connaissances
+# <a name="change-default-answer-for-a-qna-maker-resource"></a>Modifier la réponse par défaut pour une ressource QnA Maker
 
 La réponse par défaut est retournée quand il n’existe aucune correspondance avec la question. Vous souhaiterez peut-être remplacer la réponse par défaut standard.
 
-## <a name="change-default-answer"></a>Modifier la réponse par défaut
+## <a name="change-default-answer-in-the-azure-portal"></a>Modifier la réponse par défaut dans le Portail Azure
 
 1. Accédez au [portail Azure](https://portal.azure.com) et au groupe de ressources qui représente le service QnA Maker que vous avez créé.
 
@@ -32,4 +32,4 @@ La réponse par défaut est retournée quand il n’existe aucune correspondance
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Créer un bot avec QnA Maker et LUIS](../tutorials/integrate-qnamaker-luis.md)
+* [Créer une base de connaissances](../How-to/manage-knowledge-bases.md)

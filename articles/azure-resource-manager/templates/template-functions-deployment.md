@@ -2,15 +2,15 @@
 title: Fonctions et déploiement du modèle
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des informations de déploiement.
 ms.topic: conceptual
-ms.date: 11/27/2019
-ms.openlocfilehash: 86a1d3d7e05fedacd7a3c044ecab241ca9d059c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: a52b4eae9df4ad3fdf9e481ee0a40aac48f6665b
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156325"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203792"
 ---
-# <a name="deployment-functions-for-arm-templates"></a>Fonctions de déploiement pour les modèles ARM 
+# <a name="deployment-functions-for-arm-templates"></a>Fonctions de déploiement pour les modèles ARM
 
 Resource Manager fournit les fonctions suivantes pour obtenir des valeurs liées au déploiement actuel de votre modèle Azure Resource Manager (ARM) :
 
@@ -29,7 +29,12 @@ Renvoie des informations sur l’opération de déploiement actuelle.
 
 ### <a name="return-value"></a>Valeur retournée
 
-Cette fonction retourne l’objet transmis au cours du déploiement. Les propriétés de l’objet renvoyé diffèrent selon que l’objet de déploiement est passé sous forme de lien ou d’objet inline. Quand l’objet de déploiement est passé inline, comme lors de l’utilisation du paramètre **-TemplateFile** dans Azure PowerShell pour pointer vers un fichier local, l’objet renvoyé a le format suivant :
+Cette fonction retourne l’objet transmis au cours du déploiement. Les propriétés de l’objet retourné diffèrent selon les scénarios suivants :
+
+* Vous déployez un modèle qui est soit un fichier local, soit un fichier distant accessible via un URI.
+* Vous déployez un groupe de ressources ou sur l’une des autres étendues ([abonnement Azure](deploy-to-subscription.md), [groupe d’administration](deploy-to-management-group.md) ou [locataire](deploy-to-tenant.md)).
+
+Lors du déploiement d’un modèle local dans un groupe de ressources, la fonction retourne le format suivant :
 
 ```json
 {
@@ -44,6 +49,7 @@ Cette fonction retourne l’objet transmis au cours du déploiement. Les propri�
             ],
             "outputs": {}
         },
+        "templateHash": "",
         "parameters": {},
         "mode": "",
         "provisioningState": ""
@@ -51,7 +57,7 @@ Cette fonction retourne l’objet transmis au cours du déploiement. Les propri�
 }
 ```
 
-Quand l’objet est passé comme lien, par exemple lors de l’utilisation du paramètre **-TemplateUri** pour pointer vers un objet distant, l’objet est retourné dans le format suivant : 
+Lors du déploiement d’un modèle distant dans un groupe de ressources, la fonction retourne le format suivant :
 
 ```json
 {
@@ -68,6 +74,7 @@ Quand l’objet est passé comme lien, par exemple lors de l’utilisation du pa
             "resources": [],
             "outputs": {}
         },
+        "templateHash": "",
         "parameters": {},
         "mode": "",
         "provisioningState": ""
@@ -75,9 +82,28 @@ Quand l’objet est passé comme lien, par exemple lors de l’utilisation du pa
 }
 ```
 
-Lors d’un [déploiement sur un abonnement Azure](deploy-to-subscription.md), l’objet retourné inclut une propriété `location` au lieu d’un groupe de ressources. La propriété d’emplacement est incluse lors du déploiement d’un modèle local ou d’un modèle externe.
+Lorsque vous déployez sur un abonnement Azure, un groupe d’administration ou un locataire, l’objet retourné comprend une propriété `location`. La propriété d’emplacement est incluse lors du déploiement d’un modèle local ou d’un modèle externe. Le format est le suivant :
 
-### <a name="remarks"></a>Notes
+```json
+{
+    "name": "",
+    "location": "",
+    "properties": {
+        "template": {
+            "$schema": "",
+            "contentVersion": "",
+            "resources": [],
+            "outputs": {}
+        },
+        "templateHash": "",
+        "parameters": {},
+        "mode": "",
+        "provisioningState": ""
+    }
+}
+```
+
+### <a name="remarks"></a>Notes 
 
 Vous pouvez utiliser deployment() pour établir une liaison à un autre modèle en fonction de l’URI du modèle parent.
 
@@ -89,7 +115,7 @@ Vous pouvez utiliser deployment() pour établir une liaison à un autre modèle 
 
 Si vous redéployez un modèle à partir de l’historique de déploiement dans le portail, le modèle est déployé comme un fichier local. La propriété `templateLink` n’est pas retournée dans la fonction de déploiement. Si votre modèle s’appuie sur `templateLink` pour construire un lien vers un autre modèle, n’utilisez pas le portail pour redéployer. À la place, utilisez les commandes dont vous vous êtes servi pour déployer le modèle à l’origine.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json) suivant retourne l’objet de déploiement :
 
@@ -99,7 +125,7 @@ Si vous redéployez un modèle à partir de l’historique de déploiement dans 
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
-        "subscriptionOutput": {
+        "deploymentOutput": {
             "value": "[deployment()]",
             "type" : "object"
         }
@@ -118,20 +144,19 @@ L’exemple précédent retourne l’objet suivant :
       "contentVersion": "1.0.0.0",
       "resources": [],
       "outputs": {
-        "subscriptionOutput": {
+        "deploymentOutput": {
           "type": "Object",
           "value": "[deployment()]"
         }
       }
     },
+    "templateHash": "13135986259522608210",
     "parameters": {},
     "mode": "Incremental",
     "provisioningState": "Accepted"
   }
 }
 ```
-
-Pour un modèle de niveau d’abonnement qui utilise la fonction de déploiement, consultez [Fonction de déploiement d’abonnement](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). Le déploiement s’effectue à l’aide des commandes `az deployment create` ou `New-AzDeployment`.
 
 ## <a name="environment"></a>Environnement
 
@@ -177,7 +202,7 @@ Cette valeur retourne des propriétés pour l’environnement Azure actuel. L’
 }
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 L’exemple de modèle suivant retourne l’objet d’environnement.
 
@@ -247,7 +272,7 @@ Retourne une valeur de paramètre. Le nom de paramètre spécifié doit être d�
 
 La valeur du paramètre spécifié.
 
-### <a name="remarks"></a>Notes
+### <a name="remarks"></a>Notes 
 
 En général, vous utilisez les paramètres pour définir les valeurs de la ressource. L’exemple suivant définit le nom du site web sur la valeur du paramètre transmise au cours du déploiement.
 
@@ -267,7 +292,7 @@ En général, vous utilisez les paramètres pour définir les valeurs de la ress
 ]
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json) suivant montre une utilisation simplifiée de la fonction parameters.
 
@@ -352,7 +377,7 @@ Retourne la valeur de la variable. Le nom de variable spécifié doit être déf
 
 La valeur de la variable spécifiée.
 
-### <a name="remarks"></a>Notes
+### <a name="remarks"></a>Notes 
 
 En général, vous utilisez les variables pour simplifier votre modèle en créant des valeurs complexes une seule fois. L’exemple suivant crée un nom unique pour un compte de stockage.
 
@@ -376,7 +401,7 @@ En général, vous utilisez les variables pour simplifier votre modèle en créa
 ],
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json) suivant retourne différentes valeurs de variables.
 
@@ -428,8 +453,5 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 Pour plus d’informations sur l’utilisation des variables, consultez [Variables dans un modèle Azure Resource Manager](template-variables.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](template-syntax.md).
-* Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](linked-templates.md).
-* Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](copy-resources.md).
-* Pour savoir comment déployer le modèle que vous avez créé, consultez [Déployer une application avec un modèle Azure Resource Manager](deploy-powershell.md).
 
+* Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).

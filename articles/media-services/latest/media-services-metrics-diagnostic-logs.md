@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 75363212684bb09e84a4bc4881af26e6d2a8e7e3
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: f051d02ac06163cf1861ab6bfc6afd0dcbb0ad8a
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585287"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559529"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Surveiller les métriques et journaux de diagnostic Media Services via Azure Monitor
 
@@ -63,7 +63,7 @@ Les métriques de [points de terminaison de streaming](https://docs.microsoft.co
 |Nom de métrique|Nom complet|Description|
 |---|---|---|
 |Demandes|Demandes|Fournit le nombre total de requêtes HTTP traitées par le point de terminaison de streaming.|
-|Sortie|Sortie|Nombre total d’octets de sortie. Par exemple, les octets diffusés en continu par le point de terminaison de streaming.|
+|Sortie|Sortie|Nombre total d’octets de sortie par minute par point de terminaison de streaming.|
 |SuccessE2ELatency|Latence de réussite de bout en bout|Durée à partir de laquelle le point de terminaison de streaming a reçu la requête lorsque le dernier octet de la réponse a été envoyé.|
 
 ### <a name="why-would-i-want-to-use-metrics"></a>Pourquoi utiliser des métriques ?
@@ -78,7 +78,7 @@ Voici quelques exemples de la façon dont la surveillance de métriques Media Se
 * Comment voir combien de demandes TLS ou DASH sont extraites du packager ?
 * Comment définir une alerte pour savoir quand la valeur seuil du nombre de requêtes ayant échoué a été atteinte ?
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 Consultez [Surveiller les métriques Media Services](media-services-metrics-howto.md).
 
@@ -105,7 +105,7 @@ Voici quelques éléments que vous pouvez examiner avec les journaux de diagnost
 * Voir les erreurs par type de DRM ou de stratégie.
 * Voir le nombre de requêtes de licence non autorisées émises par les clients.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 Consultez [Comment surveiller les journaux de diagnostic Media Services](media-services-diagnostic-logs-howto.md).
 

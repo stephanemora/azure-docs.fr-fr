@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8b6a65a964016f702fcf75aa4cbdab33a952e3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1f27c7b91a78da8944c23fd353d3b6791b3e015
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74024249"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582553"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Découverte du domaine d’accueil pour les pages de connexion Azure Active Directory
 
@@ -28,7 +28,7 @@ Nous modifions notre comportement de connexion à Azure Active Directory (Azure 
 
 Historiquement, la découverte du domaine d’accueil était régie par le domaine fourni lors de la connexion ou par une politique de découverte du domaine d’accueil pour certaines applications héritées. Par exemple, dans notre comportement de découverte, lorsqu’un utilisateur Azure Active Directory saisit mal son nom d’utilisateur, il a quand même accès à l’écran de collecte des informations d’identification de son organisation. Cela se produit lorsque l’utilisateur entre correctement le nom de domaine de l’organisation « contoso.com ». Ce comportement n’offre pas la granularité nécessaire pour personnaliser l’expérience d’un utilisateur individuel.
 
-Afin de prendre en charge un plus grand nombre d’informations d’identification et d’augmenter la convivialité, le comportement de recherche de nom d’utilisateur d’Azure Active Directory pendant le processus de connexion est maintenant mis à jour. Le nouveau comportement prend des décisions intelligentes en lisant les paramètres des locataires et des utilisateurs en fonction du nom d’utilisateur entré sur la page de connexion. Pour que ceci soit possible, Azure Active Directory vérifiera si le nom d’utilisateur entré sur la page de connexion existe dans le domaine spécifié ou redirigera l’utilisateur pour qu’il fournisse ses informations d’identification.
+Afin de prendre en charge un plus grand nombre d’informations d’identification et d’augmenter la convivialité, le comportement de recherche de nom d’utilisateur d’Azure Active Directory pendant le processus de connexion est maintenant mis à jour. Le nouveau comportement prend des décisions intelligentes en lisant les paramètres au niveau de l’organisation et au niveau de l’utilisateur en fonction du nom d’utilisateur entré sur la page de connexion. Pour que ceci soit possible, Azure Active Directory vérifiera si le nom d’utilisateur entré sur la page de connexion existe dans le domaine spécifié ou redirigera l’utilisateur pour qu’il fournisse ses informations d’identification.
 
 Un autre avantage de ce travail est l’amélioration de la messagerie d’erreur. Voici quelques exemples de la messagerie d’erreur améliorée lors de la connexion à une application qui supporte uniquement les utilisateurs Azure Active Directory.
 

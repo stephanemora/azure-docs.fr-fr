@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fa3c6bf39dbef601fe64e125999f519f725f2e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 87f5b1ec02400c5cd9d26cc324ddbafdf8d76537
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67083767"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582592"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Déléguer l’administration dans Azure Active Directory
 
@@ -100,7 +100,7 @@ Pour conserver l’accès à votre magasin de gestion d’identité quand un pro
 
 ## <a name="secure-your-administrator-roles"></a>Sécuriser vos rôles d’administrateur
 
-Les attaquants qui obtiennent le contrôle de comptes privilégiés peuvent causer des dommages considérables ; vous devez donc protéger ces comptes en premier, à l’aide de la [stratégie d’accès de référence](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/22/baseline-security-policy-for-azure-ad-admin-accounts-in-public-preview/) qui est disponible par défaut pour tous les locataires Azure AD (en préversion publique). La stratégie met en œuvre l’authentification multifacteur sur les comptes Azure AD privilégiés. Les rôles Azure AD suivants sont couverts par la stratégie de référence Azure AD :
+Les attaquants qui obtiennent le contrôle de comptes privilégiés peuvent causer des dommages considérables ; vous devez donc protéger ces comptes en premier à l’aide de la [stratégie d’accès de référence](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/22/baseline-security-policy-for-azure-ad-admin-accounts-in-public-preview/) qui est disponible par défaut pour toutes les organisations Azure AD (en préversion publique). La stratégie met en œuvre l’authentification multifacteur sur les comptes Azure AD privilégiés. Les rôles Azure AD suivants sont couverts par la stratégie de référence Azure AD :
 
 * Administrateur général
 * Administrateur SharePoint

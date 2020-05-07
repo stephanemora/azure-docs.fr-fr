@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bca9c0e4c0695b6180775051d8b018930f8b808f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 2d78a7e0eaed27fec7f813fa3e6bffaffe5a6540
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81256465"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186167"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Base de référence de sécurité Azure pour Azure Database for MariaDB
 
@@ -151,7 +151,7 @@ Créer une instance Azure Blueprint : https://docs.microsoft.com/azure/governan
 
 **Aide** : Utilisez des étiquettes pour les ressources liées à la sécurité réseau et au flux de trafic pour vos instances MariaDB afin de fournir des métadonnées et une organisation logique.
 
-Utilisez l’une des définitions de stratégie Azure intégrées en lien avec l’étiquetage, comme « Exiger une étiquette et sa valeur », pour garantir que toutes les ressources créées sont étiquetées et être informé de l’existence de ressources non étiquetées.
+Utilisez l’une des définitions Azure Policy intégrée en lien avec l’étiquetage comme, « Exiger une étiquette et sa valeur » pour vous assurer que toutes les ressources créées sont étiquetées et être informé de l’existence de ressources non étiquetées.
 
 Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressources ou effectuer des actions sur des ressources en fonction de leurs étiquettes.
 
@@ -500,7 +500,7 @@ Comprendre la protection des données client dans Azure : https://docs.microsof
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4 : Chiffrer toutes les informations sensibles en transit
 
-**Aide** : Azure Database for MariaDB prend en charge la connexion de votre serveur Azure Database for MariaDB aux applications clientes à l’aide de SSL (Secure Sockets Layer). L’application de connexions SSL entre votre serveur de base de données et vos applications clientes vous protège contre les « attaques de l’intercepteur » en chiffrant le flux de données entre le serveur et votre application. Dans le portail Azure, vérifiez que l’option « Appliquer une connexion SSL » est activée par défaut pour toutes vos instances MariaDB.
+**Aide** : Azure Database for MariaDB prend en charge la connexion de votre serveur Azure Database for MariaDB aux applications clientes via TLS (Transport Layer Security), anciennement SSL (Secure Sockets Layer). L’application de connexions TLS entre votre serveur de base de données et vos applications clientes vous protège contre les « attaques de l’intercepteur » en chiffrant le flux de données entre le serveur et votre application. Dans le portail Azure, vérifiez que l’option « Appliquer une connexion SSL » est activée par défaut pour toutes vos instances MariaDB.
 
 Comment configurer le chiffrement en transit pour MariaDB : https://docs.microsoft.com/azure/mariadb/howto-configure-ssl
 
@@ -620,7 +620,7 @@ Comment créer des alertes pour les événements du journal d’activité Azure�
 
 **Aide** : Utilisez Azure Resource Graph pour interroger et découvrir toutes les ressources (y compris le serveur Azure Database for MariaDB) dans vos abonnements. Vérifiez que vous disposez des autorisations (en lecture) appropriées dans votre locataire et pouvez répertorier tous les abonnements Azure ainsi que les ressources qu’ils contiennent.
 
-Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Créer des requêtes avec Azure Resource Graph : https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Afficher vos abonnements Azure : https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
@@ -664,7 +664,7 @@ Comment créer et utiliser des étiquettes : https://docs.microsoft.com/azure/a
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5 : Analyser les ressources Azure non approuvées
 
-**Instructions** : Appliquez des restrictions quant au type de ressources pouvant être créées dans les abonnements clients, en utilisant une stratégie Azure avec les définitions intégrées suivantes :
+**Conseils** : Appliquez des restrictions quant au type de ressources pouvant être créées dans les abonnements clients, en utilisant Azure Policy avec les définitions intégrées suivantes :
 
 - Types de ressources non autorisés
 
@@ -710,7 +710,7 @@ Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/govern
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9 : Utiliser des services Azure approuvés uniquement
 
-**Instructions** : Appliquez des restrictions quant au type de ressources pouvant être créées dans les abonnements clients, en utilisant une stratégie Azure avec les définitions intégrées suivantes :
+**Aide** : Appliquez des restrictions quant au type de ressources pouvant être créées dans les abonnements clients, en utilisant Azure Policy avec les définitions intégrées suivantes :
 
 - Types de ressources non autorisés
 
@@ -774,7 +774,7 @@ Configurer l’accès conditionnel pour bloquer l’accès à Azure Resource Man
 
 - La sauvegarde géoredondante doit être activée pour Azure Database for MariaDB
 
-Affichage des alias Azure Policy disponibles : https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Affichage des alias Azure Policy disponibles : https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -794,7 +794,7 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3 : Gérer les configurations de ressources Azure sécurisées
 
-**Conseils** : Utilisez Azure Policy [refuser] et [déployer s’il n’existe pas] pour appliquer des paramètres sécurisés à vos ressources Azure.
+**Aide** : Utilisez les stratégies Azure Policy [refuser] et [déployer s’il n’existe pas] pour appliquer des paramètres sécurisés à vos ressources Azure.
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -816,7 +816,7 @@ Comprendre les effets d’Azure Policy : https://docs.microsoft.com/azure/gover
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5 : Stocker en toute sécurité la configuration des ressources Azure
 
-**Aide** : Si vous utilisez des définitions de stratégie Azure personnalisées pour vos instances Azure Database for MariaDB et des ressources associées, utilisez Azure Repos pour stocker et gérer votre code de façon sécurisée.
+**Aide** : Si vous utilisez des définitions Azure Policy personnalisées pour vos serveurs Azure Database for MariaDB et les ressources associées, utilisez Azure Repos pour stocker et gérer votre code de façon sécurisée.
 
 Stocker du code dans Azure DevOps : https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
@@ -856,7 +856,7 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9 : Mettre en place la surveillance de la configuration automatique pour les services Azure
 
-**Aide** : Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.DBforMariaDB » pour créer des stratégies personnalisées d’alerte, d’audit ou d’application de configurations système. Utilisez une stratégie Azure [auditer], [refuser] et [déployer si elle n’existe pas] pour appliquer automatiquement des configurations pour vos instances Azure Database for MariaDB et les ressources associées.
+**Aide** : Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.DBforMariaDB » pour créer des stratégies personnalisées d’alerte, d’audit ou d’application de configurations système. Utilisez une stratégie Azure Policy [auditer], [refuser] et [déployer s’il n’existe pas] afin d’appliquer automatiquement des configurations pour vos instances Azure Database for MariaDB et les ressources associées.
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 

@@ -8,12 +8,12 @@ ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9a653d13137a3067bfaf51c64c09454a08783e31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac37e9bd10caea5c6e58fc797eac73ce6c714162
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131409"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561030"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Intégration continue et déploiement continu dans Azure IoT Edge
 
@@ -100,6 +100,13 @@ Dans cette section, vous créez un pipeline de build. Configurez le pipeline de 
    * **Plateforme par défaut** : Sélectionnez la plateforme appropriée pour vos modules en fonction de votre appareil IoT Edge cible.
    * **Variables de sortie** : Les variables de sortie incluent un nom de référence que vous pouvez utiliser pour configurer le chemin d’accès où votre fichier deployment.json sera généré. Définissez le nom de référence de manière à vous en souvenir, par exemple, **edge**.
 
+
+   Ces configurations utilisent le référentiel et la balise de l’image qui sont définis dans le fichier `module.json` pour nommer et baliser l’image de module. **Générer des images de module** permet également de remplacer les variables par la valeur exacte que vous définissez dans le fichier `module.json`. Dans Visual Studio ou Visual Studio Code, vous spécifiez la valeur réelle dans un fichier `.env`. Dans Azure Pipelines, vous définissez la valeur dans l’onglet **Variables du pipeline**. Sélectionnez l’onglet **Variables** et configurez le nom et la valeur comme suit :
+
+    * **ACR_ADDRESS** : votre adresse Azure Container Registry. 
+
+    Si votre projet contient d’autres variables, vous pouvez spécifier le nom et la valeur dans cet onglet. **Générer des images de module** reconnaît uniquement les variables qui sont au format `${VARIABLE}`. Veillez à utiliser ce format dans vos fichiers `**/module.json`.
+    
 7. Sélectionnez la seconde tâche **Azure IoT Edge** pour la modifier. Cette tâche envoie (push) toutes les images de module vers le registre de conteneurs que vous sélectionnez.
 
    * **Nom d'affichage** : Le nom d’affichage est automatiquement mis à jour lorsque le champ d’action change.

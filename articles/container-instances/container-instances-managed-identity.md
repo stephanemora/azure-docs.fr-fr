@@ -2,13 +2,13 @@
 title: Activer l’identité managée dans le groupe de conteneurs
 description: Découvrez comment utiliser une identité managée pour s’authentifier auprès d’autres services Azure dans Azure Container Instances
 ms.topic: article
-ms.date: 01/29/2020
-ms.openlocfilehash: 003055d5021dd8ad7c3bab6d2900298ffd13b222
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 31dc198bfb2023684f3a9022bec5a5f50f0d9a72
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76901931"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82115718"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Comment utiliser une identité managée avec Azure Container Instances
 
@@ -22,33 +22,28 @@ Dans cet article, vous en apprendrez davantage sur les identités managées dans
 > * Utiliser l’identité managée pour accéder à un coffre de clés à partir d’un conteneur en cours d’exécution
 
 Adaptez les exemples pour activer et utiliser des identités dans Azure Container Instances pour accéder aux autres services Azure. Ces exemples sont interactifs. Toutefois, en pratique, vos images de conteneur exécuteraient du code pour accéder aux services Azure.
-
-> [!NOTE]
-> Actuellement, vous ne pouvez pas utiliser une identité managée dans un groupe de conteneurs déployé sur un réseau virtuel.
+ 
+> [!IMPORTANT]
+> Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale. Actuellement, les identités managées sur Azure Container Instances sont uniquement prises en charge avec des conteneurs Linux, mais pas encore avec des conteneurs Windows.
 
 ## <a name="why-use-a-managed-identity"></a>Pourquoi utiliser une identité managée ?
 
 Utilisez une identité managée dans un conteneur en cours d’exécution pour vous authentifier sur n’importe quel [service prenant en charge l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), sans avoir à gérer les informations d’identification dans le code de votre conteneur. Pour les services qui ne prennent pas en charge l’authentification AD, vous pouvez stocker des codes secrets dans un coffre de clés Azure et utiliser l’identité managée pour accéder à celui-ci afin de récupérer les informations d’identification. Pour en savoir plus sur l’utilisation des identités managées, consultez la section [Que sont les identités managées pour les ressources Azure ?](../active-directory/managed-identities-azure-resources/overview.md)
 
-> [!IMPORTANT]
-> Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale. Actuellement, les identités managées sur Azure Container Instances sont uniquement prises en charge avec des conteneurs Linux, mais pas encore avec des conteneurs Windows.
->  
-
 ### <a name="enable-a-managed-identity"></a>Activer une identité managée
 
- Dans Azure Container Instances, les identités managées pour les ressources Azure sont prises en charge à compter de la version 2018-10-01 de l’API REST et dans les outils et kits de développement logiciel correspondants. Lorsque vous créez un groupe de conteneurs, activez une ou plusieurs identités managées en définissant une propriété [ContainerGroupIdentity](/rest/api/container-instances/containergroups/createorupdate#containergroupidentity). Vous pouvez également activer ou mettre à jour des identités managées après l’exécution d’un groupe de conteneurs. Les deux actions entraînent le redémarrage du groupe de conteneurs. Pour définir les identités sur un nouveau groupe de conteneurs ou sur un groupe existant, utilisez Azure CLI, un modèle Resource Manager ou un fichier YAML. 
+ Lorsque vous créez un groupe de conteneurs, activez une ou plusieurs identités managées en définissant une propriété [ContainerGroupIdentity](/rest/api/container-instances/containergroups/createorupdate#containergroupidentity). Vous pouvez également activer ou mettre à jour des identités managées après l’exécution d’un groupe de conteneurs. Les deux actions entraînent le redémarrage du groupe de conteneurs. Pour définir les identités sur un nouveau groupe de conteneurs ou sur un groupe existant, utilisez Azure CLI, un modèle Resource Manager, un fichier YAML ou un autre outil Azure. 
 
-Azure Container Instances prend en charge les deux types d’identités Azure managées : attribuées par l’utilisateur et attribuées par le système. Sur un groupe de conteneurs, vous pouvez activer une identité attribuée par le système, une ou plusieurs identités attribuées par l’utilisateur, ou les deux types d’identités. 
-
-* Une identité managée **attribuée par l’utilisateur** est créée en tant que ressource Azure autonome dans le locataire Azure AD approuvé dans l’abonnement en cours d’utilisation. Une fois l’identité créée, elle peut être attribuée à une ou plusieurs ressources Azure (dans Azure Container Instances ou d’autres services Azure). Le cycle de vie d’une identité attribuée par l’utilisateur est géré séparément du cycle de vie des groupes de conteneurs ou des autres ressources de service auxquelles elle est affectée. Ce comportement est particulièrement utile dans Azure Container Instances. Étant donné que l’identité s’étend au-delà de la durée de vie d’un groupe de conteneurs, vous pouvez la réutiliser, ainsi que d’autres paramètres standard, pour faire de vos déploiements de groupe de conteneurs des opérations hautement reproductibles.
-
-* Une identité managée **attribuée par le système** est activée directement sur un groupe de conteneurs dans Azure Container Instances. Lorsqu’elle est activée, Azure crée une identité pour le groupe dans le locataire Azure AD approuvé par l’abonnement de l’instance. Une fois l’identité créée, ses informations d’identification sont provisionnées sur chaque conteneur du groupe. Le cycle de vie d’une identité attribuée par le système est directement lié au groupe de conteneurs sur lequel elle est activée. Si le groupe est supprimé, Azure efface automatiquement les informations d’identification et l’identité dans Azure AD.
+Azure Container Instances prend en charge les deux types d’identités Azure managées : attribuées par l’utilisateur et attribuées par le système. Sur un groupe de conteneurs, vous pouvez activer une identité attribuée par le système, une ou plusieurs identités attribuées par l’utilisateur, ou les deux types d’identités. Si vous n’êtes pas familiarisé avec les identités managées pour les ressources Azure, consultez la [présentation](../active-directory/managed-identities-azure-resources/overview.md).
 
 ### <a name="use-a-managed-identity"></a>Utiliser une identité managée
 
-Pour utiliser une identité managée, l’identité doit d’abord être autorisée à accéder à une ou plusieurs ressources de service Azure (par exemple, une application web, un coffre de clés ou un compte de stockage) dans l’abonnement. Pour accéder aux ressources Azure à partir d’un conteneur en cours d’exécution, votre code doit acquérir un *jeton d’accès* à partir d’un point de terminaison Azure AD. Votre code envoie ensuite le jeton d’accès sur un appel à un service qui prend en charge l’authentification Azure AD. 
+Pour utiliser une identité managée, l’identité doit être autorisée à accéder à une ou plusieurs ressources de service Azure (par exemple, une application web, un coffre de clés ou un compte de stockage) dans l’abonnement. L’utilisation d’une identité managée dans un conteneur en cours d’exécution est semblable à l’utilisation d’une identité dans une machine virtuelle Azure. Consultez l’aide relative aux machines virtuelles pour en savoir plus sur l’utilisation d’un [jeton](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), d’[Azure PowerShell ou Azure CLI](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md), ou des [kits de développement logiciel Azure](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md).
 
-L’utilisation d’une identité managée dans un conteneur en cours d’exécution est essentiellement identique à l’utilisation d’une identité dans une machine virtuelle Azure. Consultez l’aide relative aux machines virtuelles pour en savoir plus sur l’utilisation d’un [jeton](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), d’[Azure PowerShell ou Azure CLI](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md), ou des [kits de développement logiciel Azure](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md).
+### <a name="limitations"></a>Limites
+
+* Actuellement, vous ne pouvez pas utiliser d’identité managée dans un groupe de conteneurs déployé sur un réseau virtuel.
+* Vous ne pouvez pas utiliser d’identité managée pour extraire une image d’Azure Container Registry lors de la création d’un groupe de conteneurs. L’identité est disponible uniquement dans un conteneur en cours d’exécution.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -100,15 +95,33 @@ Pour utiliser l’identité dans les étapes suivantes, utilisez la commande [az
 
 ```azurecli-interactive
 # Get service principal ID of the user-assigned identity
-spID=$(az identity show --resource-group myResourceGroup --name myACIId --query principalId --output tsv)
+spID=$(az identity show \
+  --resource-group myResourceGroup \
+  --name myACIId \
+  --query principalId --output tsv)
 
 # Get resource ID of the user-assigned identity
-resourceID=$(az identity show --resource-group myResourceGroup --name myACIId --query id --output tsv)
+resourceID=$(az identity show \
+  --resource-group myResourceGroup \
+  --name myACIId \
+  --query id --output tsv)
 ```
 
-### <a name="enable-a-user-assigned-identity-on-a-container-group"></a>Activer une identité attribuée par l’utilisateur dans un groupe de conteneurs
+### <a name="grant-user-assigned-identity-access-to-the-key-vault"></a>Autoriser l’identité attribuée par l’utilisateur à accéder au coffre de clés
 
-Exécutez la commande [az container create](/cli/azure/container?view=azure-cli-latest#az-container-create) suivante pour créer une instance de conteneur basée sur une image `azure-cli` de Microsoft. Cet exemple fournit un groupe contenant un seul conteneur que vous pouvez utiliser de manière interactive pour accéder à d’autres services Azure. Dans cette section, seul le système d’exploitation Ubuntu de base est utilisé. 
+Exécutez la commande [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest) suivante pour définir une stratégie d’accès sur le coffre de clés. L’exemple suivant permet à l’identité affectée par l’utilisateur d’obtenir des secrets du coffre de clés :
+
+```azurecli-interactive
+ az keyvault set-policy \
+    --name mykeyvault \
+    --resource-group myResourceGroup \
+    --object-id $spID \
+    --secret-permissions get
+```
+
+### <a name="enable-user-assigned-identity-on-a-container-group"></a>Activer une identité attribuée par l’utilisateur dans un groupe de conteneurs
+
+Exécutez la commande [az container create](/cli/azure/container?view=azure-cli-latest#az-container-create) suivante pour créer une instance de conteneur basée sur une image `azure-cli` de Microsoft. Cet exemple fournit un groupe contenant un seul conteneur que vous pouvez utiliser de manière interactive pour accéder à d’autres services Azure. Dans cette section, seul le système d’exploitation de base est utilisé. Pour obtenir un exemple d’utilisation d’Azure CLI dans le conteneur, consultez [Activer l’identité attribuée par le système sur un groupe de conteneurs](#enable-system-assigned-identity-on-a-container-group). 
 
 Le paramètre `--assign-identity` passe votre identité managée attribuée par l’utilisateur au groupe. Cette commande longue laisse le conteneur s’exécuter. Cet exemple utilise le groupe de ressources utilisé pour créer le coffre de clés, mais vous pouvez en spécifier un autre.
 
@@ -147,18 +160,6 @@ La section `identity` de la sortie ressemble à ce qui suit, elle montre la déf
 [...]
 ```
 
-### <a name="grant-user-assigned-identity-access-to-the-key-vault"></a>Autoriser l’identité attribuée par l’utilisateur à accéder au coffre de clés
-
-Exécutez la commande [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest) suivante pour définir une stratégie d’accès sur le coffre de clés. L’exemple suivant permet à l’identité affectée par l’utilisateur d’obtenir des secrets du coffre de clés :
-
-```azurecli-interactive
- az keyvault set-policy \
-    --name mykeyvault \
-    --resource-group myResourceGroup \
-    --object-id $spID \
-    --secret-permissions get
-```
-
 ### <a name="use-user-assigned-identity-to-get-secret-from-key-vault"></a>Utiliser une identité attribuée par l’utilisateur pour obtenir un secret du coffre de clés
 
 Vous pouvez désormais utiliser l’identité managée dans l’instance de conteneur en cours d’exécution pour accéder au coffre de clés. Commencez par lancer un shell bash dans le conteneur :
@@ -189,7 +190,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-Utilisez maintenant le jeton d’accès pour vous authentifier auprès du coffre de clés et lire un secret. Veillez à remplacer le nom de votre coffre de clés dans l’URL ( *https://mykeyvault.vault.azure.net/...* ) :
+Utilisez maintenant le jeton d’accès pour vous authentifier auprès du coffre de clés et lire un secret. Veillez à remplacer le nom de votre coffre de clés dans l’URL (*https:\//mykeyvault.vault.azure.net/...* ) :
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"
@@ -203,11 +204,11 @@ La réponse ressemble à ce qui suit, elle affiche le code secret. Dans votre co
 
 ## <a name="example-2-use-a-system-assigned-identity-to-access-azure-key-vault"></a>Exemple 2 : Utiliser une identité attribuée par le système pour accéder à un coffre de clés Azure
 
-### <a name="enable-a-system-assigned-identity-on-a-container-group"></a>Activer une identité attribuée par le système dans un groupe de conteneurs
+### <a name="enable-system-assigned-identity-on-a-container-group"></a>Activer une identité attribuée par le système dans un groupe de conteneurs
 
 Exécutez la commande [az container create](/cli/azure/container?view=azure-cli-latest#az-container-create) suivante pour créer une instance de conteneur basée sur une image `azure-cli` de Microsoft. Cet exemple fournit un groupe contenant un seul conteneur que vous pouvez utiliser de manière interactive pour accéder à d’autres services Azure. 
 
-Le paramètre `--assign-identity`, sans valeur supplémentaire, active une identité managée attribuée par le système dans le groupe. L’identité est limitée au groupe de ressources du groupe de conteneurs. Cette commande longue laisse le conteneur s’exécuter. Cet exemple utilise le groupe de ressources utilisé pour créer le coffre de clés, mais vous pouvez en spécifier un autre.
+Le paramètre `--assign-identity`, sans valeur supplémentaire, active une identité managée attribuée par le système dans le groupe. L’identité est limitée au groupe de ressources du groupe de conteneurs. Cette commande longue laisse le conteneur s’exécuter. Cet exemple utilise le même groupe de ressources que celui utilisé pour créer le coffre de clés, qui se trouve dans l’étendue de l’identité.
 
 ```azurecli-interactive
 # Get the resource ID of the resource group
@@ -222,7 +223,7 @@ az container create \
   --command-line "tail -f /dev/null"
 ```
 
-Après quelques secondes, vous devez recevoir une réponse d’Azure CLI indiquant que le déploiement est terminé. Vérifiez son état à l’aide de la commande [az container show](/cli/azure/container?view=azure-cli-latest#az-container-show).
+Après quelques secondes, vous devez recevoir une réponse d’Azure CLI indiquant que le déploiement est terminé. Vérifiez son état à l’aide de la commande [az container show](/cli/azure/container#az-container-show).
 
 ```azurecli-interactive
 az container show \
@@ -246,7 +247,10 @@ La section `identity` de la sortie ressemble à ce qui suit. Elle montre qu’un
 Définissez une variable sur la valeur `principalId` (l’ID du principal de service) de l’identité, pour une utilisation ultérieure.
 
 ```azurecli-interactive
-spID=$(az container show --resource-group myResourceGroup --name mycontainer --query identity.principalId --out tsv)
+spID=$(az container show \
+  --resource-group myResourceGroup \
+  --name mycontainer \
+  --query identity.principalId --out tsv)
 ```
 
 ### <a name="grant-container-group-access-to-the-key-vault"></a>Autoriser le groupe de conteneurs à accéder au coffre de clés

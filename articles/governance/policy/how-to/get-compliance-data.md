@@ -3,12 +3,12 @@ title: Obtenir les données de conformité de la stratégie
 description: Les évaluations et les effets d’Azure Policy déterminent la conformité. Découvrez comment obtenir des détails sur la conformité de vos ressources Azure.
 ms.date: 02/01/2019
 ms.topic: how-to
-ms.openlocfilehash: 891c9c72d8e83dc8f9adb930e8ebd11b70f6aad8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d4d9c530a7f9c4683f522a08a30e23437d1774cc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236133"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82194004"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtenir les données de conformité des ressources Azure
 
@@ -96,11 +96,11 @@ Les effets nécessitent également que la condition d’existence ait la valeur 
 
 Supposons, par exemple, que vous disposiez d’un groupe de ressources (ContosoRG), comprenant des comptes de stockage (en rouge) qui sont exposés sur des réseaux publics.
 
-![Comptes de stockage exposés sur des réseaux publics](../media/getting-compliance-data/resource-group01.png)
+:::image type="content" source="../media/getting-compliance-data/resource-group01.png" alt-text="Comptes de stockage exposés sur des réseaux publics" border="false":::
 
 Dans cet exemple, vous devez faire attention aux risques de sécurité. Maintenant que vous avez créé une affectation de stratégie, elle est évaluée pour tous les comptes de stockage du groupe de ressources ContosoRG. Elle effectue l’audit des trois comptes de stockage non conformes et en modifie l’état en conséquence pour afficher un état **Non conforme**.
 
-![Audit des comptes de stockage non conformes](../media/getting-compliance-data/resource-group03.png)
+:::image type="content" source="../media/getting-compliance-data/resource-group03.png" alt-text="Audit des comptes de stockage non conformes" border="false":::
 
 Outre les états **Conforme** et **Non conforme**, les stratégies et les ressources peuvent avoir trois autres états :
 
@@ -113,17 +113,17 @@ La Azure Policy utilise les champs **type** et **nom** de la définition pour d�
 Le pourcentage de conformité est déterminé en divisant le nombre de ressources **conformes** par le _nombre total de ressources_.
 Le _nombre total de ressources_ est défini comme étant la somme des ressources **conformes**, **non conformes** et **en conflit**. La conformité globale est la somme des ressources distinctes **conformes** divisée par la somme de toutes les ressources distinctes. Dans l’image ci-dessous, il y a 20 ressources distinctes applicables et une seule **non conforme**. La conformité globale des ressources est égale à 95 % (soit 19 sur 20).
 
-![Exemple de conformité à la stratégie à partir de la page Conformité](../media/getting-compliance-data/simple-compliance.png)
+:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Exemple de conformité à la stratégie à partir de la page Conformité" border="false":::
 
 ## <a name="portal"></a>Portail
 
 Le portail Azure permet de visualiser et comprendre l’état de conformité de votre environnement selon une représentation graphique. Sur la page **Stratégie**, l’option **Vue d’ensemble** fournit des détails sur les étendues disponibles pour la conformité des stratégies et des initiatives. En complément de l’état de conformité et du nombre par affectation, elle contient un graphique retraçant la conformité au cours des sept derniers jours. La page **Conformité** regroupe essentiellement les mêmes informations (à l’exception du graphique), mais avec également des options de tri et de filtrage supplémentaires.
 
-![Exemple de page de conformité à Azure Policy](../media/getting-compliance-data/compliance-page.png)
+:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Exemple d’une page Conformité Azure Policy" border="false":::
 
 Comme une stratégie ou une initiative peut être affectée à différentes étendues, le tableau comprend l’étendue pour chaque affectation et le type de définition qui a été affecté. Le nombre de ressources et de stratégies non conformes est aussi indiqué pour chaque affectation. En cliquant sur une stratégie ou une initiative dans le tableau, vous obtenez davantage de détails sur la conformité de l’affectation concernée.
 
-![Exemple de page de détails de la conformité à Azure Policy](../media/getting-compliance-data/compliance-details.png)
+:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Exemple d’une page Détails de conformité Azure Policy" border="false":::
 
 La liste des ressources dans l’onglet **Resource compliance (Conformité des ressources)** affiche l’état de l’évaluation des ressources existantes pour l’affectation actuelle. Par défaut, l’onglet est défini sur **Non conforme**, mais un filtre peut être appliqué.
 Les événements (ajouter, effectuer un audit, refuser, déployer) déclenchés par la requête pour créer une ressource sont affichés dans l’onglet **Événements**.
@@ -131,19 +131,17 @@ Les événements (ajouter, effectuer un audit, refuser, déployer) déclenchés 
 > [!NOTE]
 > Pour une stratégie du moteur AKS, la ressource indiquée est le groupe de ressources.
 
-![Exemple d’événements de conformité à Azure Policy](../media/getting-compliance-data/compliance-events.png)
+:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Exemple d’événements Conformité Azure Policy" border="false":::
 
 Pour les ressources du [mode Fournisseur de ressources](../concepts/definition-structure.md#resource-provider-modes), dans l’onglet **Conformité des ressources**, la sélection de la ressource ou un clic droit sur la ligne et la sélection de l’option **Afficher les détails de la conformité** ouvre les détails de conformité du composant. Cette page propose également des onglets pour afficher les stratégies attribuées à cette ressource, les événements, les événements de composant et l’historique des modifications.
 
-![Exemple de détails de la conformité des composants à Azure Policy](../media/getting-compliance-data/compliance-components.png)
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Exemple de détails de la conformité des composants Azure Policy" border="false":::
 
 Une fois de retour sur la page de conformité des ressources, cliquez avec le bouton droit sur la ligne de l’événement pour lequel vous souhaitez obtenir plus de détails et sélectionnez **Afficher les journaux d’activité**. La page Journal d’activité s’ouvre et les critères de recherche sont préfiltrés pour montrer les détails de l’affectation et des événements. Le journal d’activité fournit davantage de contexte ainsi que des informations supplémentaires sur ces événements.
 
-![Exemple de journal d’activité de conformité à Azure Policy](../media/getting-compliance-data/compliance-activitylog.png)
+:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Exemple de journal d’activité Conformité Azure Policy" border="false":::
 
 ### <a name="understand-non-compliance"></a>Comprendre la non-conformité
-
-<a name="change-history-preview"></a>
 
 Lorsque le système détermine qu’une ressource est **non conforme**, plusieurs raisons justifient cela. Pour déterminer la raison d’une **non conformité** d’une ressource ou pour rechercher le ou la responsable de la modification, veuillez consulter [Déterminer une non-conformité](./determine-non-compliance.md).
 
@@ -396,8 +394,7 @@ Trent Baker
 
 Si vous avez un espace de travail [Log Analytics](../../../log-analytics/log-analytics-overview.md) dans lequel `AzureActivity` de la solution [Activity Log Analytics](../../../azure-monitor/platform/activity-log-collect.md) est liée à votre abonnement, vous pouvez également afficher les résultats non conformes à partir du cycle d’évaluation en utilisant de simples Kusto et la table `AzureActivity`. Grâce aux informations des journaux d’activité Azure Monitor, des alertes peuvent être configurées de manière à signaler les problèmes de non-conformité.
 
-
-![Conformité à Azure Policy à l’aide des journaux d’activité Azure Monitor](../media/getting-compliance-data/compliance-loganalytics.png)
+:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Conformité Azure Policy à l’aide de journaux d’activité Azure Monitor" border="false":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
