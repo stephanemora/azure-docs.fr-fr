@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 9f95677211a89c1bb2a18076741dec08e76c5d70
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: bbb2ddaa1fb84590f9dec1c84ac4bc87a8e03022
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81390371"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738114"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Résoudre les erreurs rencontrées lors de la réplication de machines virtuelles Azure vers Azure
 
@@ -172,8 +172,6 @@ Suivez les instructions fournies par le distributeur de votre version du systèm
 ## <a name="outbound-urls-or-ip-ranges-error-code-151037-or-151072"></a>URL ou plages d'adresses IP sortantes (code d'erreur 151037 ou 151072)
 
 Pour que la réplication Site Recovery fonctionne, une connectivité sortante vers des URL spécifiques est nécessaire à partir de la machine virtuelle. Si votre machine virtuelle se trouve derrière un pare-feu ou utilise des règles de groupe de sécurité réseau pour contrôler la connectivité sortante, vous pouvez rencontrer l’un des problèmes ci-après. Même si nous continuons de prendre en charge l’accès sortant via des URL, l’utilisation d’une liste verte de plages d’adresses IP n’est plus prise en charge.
-
-### <a name="issue-1-failed-to-register-azure-vm-with-site-recovery-151195"></a>Problème 1 : Échec de l'inscription de la machine virtuelle Azure auprès de Site Recovery (151195)
 
 #### <a name="possible-causes"></a>Causes possibles
 

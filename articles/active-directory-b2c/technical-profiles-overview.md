@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5d89d123fe757b0502f4c6b3a0d33c185b25224b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 125d89301e9d2cc3fc863bffb9b9e6c41e0c129e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80057311"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82229933"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>À propos des profils techniques dans les stratégies personnalisées d’Azure Active Directory B2C
 
@@ -39,7 +39,7 @@ Un profil technique permet les types de scénarios suivants :
 - [OpenID Connect](openid-connect-technical-profile.md) : fédération avec n'importe quel fournisseur d'identité du protocole OpenID Connect.
 - [Facteur de téléphone](phone-factor-technical-profile.md) : prise en charge de l’inscription et de la vérification des numéros de téléphone.
 - [Fournisseur RESTful](restful-technical-profile.md) : appel aux services d'API REST, comme la validation de l'entrée utilisateur, l'enrichissement des données utilisateur ou l'intégration avec les applications métier.
-- [SAML2](saml-technical-profile.md) : fédération avec n’importe quel fournisseur d’identité du protocole SAML.
+- [Fournisseur d’identité SAML](saml-identity-provider-technical-profile.md) : fédération avec n’importe quel fournisseur d’identité du protocole SAML.
 - [Émetteur de jeton SAML](saml-issuer-technical-profile.md) : émet un jeton SAML qui est retourné à l’application par partie de confiance.
 - [Autodéclaré](self-asserted-technical-profile.md) : interaction avec l’utilisateur. Par exemple, collecter les informations d’identification de l’utilisateur pour se connecter, afficher la page d’inscription ou la réinitialisation du mot de passe.
 - [Gestion des sessions](custom-policy-reference-sso.md) : gère différents types de sessions.

@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 3113f01341d2a1ec6160cfea3eb9d12d18b8495c
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 49a94b8877d46cf95ec8701f470d87e187713f69
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687181"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583297"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connecter un appareil en aval à une passerelle Azure IoT Edge
 
@@ -93,7 +93,7 @@ sudo update-ca-certificates
 
 Vous devez voir un message indiquant « Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done. » (Mise à jour des certificats dans /etc/ssl/certs... 1 ajouté, 0 supprimé ; terminé.)
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 Les étapes suivantes montrent un exemple d’installation d’un certificat d’autorité de certification sur un hôte Windows. Cet exemple suppose que vous utilisez le certificat **azure-iot-test-only.root.ca.cert.pem** tiré des articles sur les prérequis et que vous avez copié le certificat dans un emplacement de l’appareil en aval.
 
@@ -185,9 +185,9 @@ Cette section présente un exemple d’application permettant de connecter un cl
 
 Cette section présente un exemple d’application permettant de connecter un client d’appareil Azure IoT Python à une passerelle IoT Edge.
 
-1. Récupérez l’exemple pour **send_message** à partir des [exemples Azure IoT device SDK pour Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios).
-2. Vérifiez que l’exécution a lieu dans un conteneur IoT Edge ou dans un scénario de débogage, et que les variables d’environnement `EdgeHubConnectionString` et `EdgeModuleCACertificateFile` sont définies.
-3. Consultez la documentation du Kit de développement logiciel pour obtenir des instructions sur la façon d’exécuter l’exemple sur votre appareil.
+1. Récupérez l’exemple pour **send_message_downstream** à partir des [exemples d’Azure IoT device SDK pour Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios).
+2. Définissez les variables d’environnement `IOTHUB_DEVICE_CONNECTION_STRING` et `IOTEDGE_ROOT_CA_CERT_PATH` comme indiqué dans les commentaires du script Python.
+3. Consultez la documentation du Kit de développement logiciel (SDK) pour obtenir des instructions supplémentaires sur la façon d’exécuter l’exemple sur votre appareil.
 
 ## <a name="test-the-gateway-connection"></a>Test de connexion à la passerelle
 
