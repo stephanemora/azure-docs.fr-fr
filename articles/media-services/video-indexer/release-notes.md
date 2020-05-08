@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: f1387273f9736fea70682177d5d48dc2f141bbad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a9c1ba8e6316ea79941fbec1fbd339893afdb35
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76933857"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82131209"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notes de publication d’Azure Media Services Video Indexer
 
@@ -29,6 +29,45 @@ Pour vous informer des développements les plus récents, cet article détaille 
 * Problèmes connus
 * Résolution des bogues
 * Fonctionnalités dépréciées
+
+## <a name="april-2020"></a>Avril 2020
+
+### <a name="new-widget-parameters-capabilities"></a>Nouvelles capacités de paramètres pour les widgets
+
+Le widget **Insights** comprend de nouveaux paramètres : `language` et `control`.
+
+Le widget **Lecteur** a un nouveau paramètre `locale`. Les paramètres `locale` et `language` contrôlent la langue d’affichage du lecteur.
+
+Pour plus d’informations, consultez la section [Types de widgets](video-indexer-embed-widgets.md#widget-types). 
+
+### <a name="new-player-skin"></a>Nouvelle apparence de lecteur
+
+Une nouvelle apparence de lecteur a été lancée avec une conception mise à jour.
+
+### <a name="prepare-for-upcoming-changes"></a>Préparer les modifications à venir
+
+* Aujourd’hui, les API suivantes retournent un objet de compte :
+
+    * [Create-Paid-Account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account)
+    * [Get-Account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account)
+    * [Get-Accounts-Authorization](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-Authorization)
+    * [Get-Accounts-With-Token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-With-Token)
+ 
+    L’objet Compte contient un champ `Url` pointant vers l’emplacement du [site web de Video Indexer](https://www.videoindexer.ai/).
+Pour les comptes payants, le champ `Url` pointe actuellement vers une URL interne au lieu du site web public.
+Dans les semaines à venir, nous changerons cela et renverrons l’URL du [site web de Video Indexer](https://www.videoindexer.ai/) pour tous les comptes (version d’évaluation et payante).
+
+    N’utilisez pas les URL internes, vous devez utiliser les [API publiques Video Indexer](https://api-portal.videoindexer.ai/).
+* Si vous incorporez des URL Video Indexer dans vos applications et que celles-ci ne pointent pas vers le [site web de Video Indexer](https://www.videoindexer.ai/) ou le [point de terminaison d’API Video indexer](https://api.videoindexer.ai), mais plutôt vers un point de terminaison régional (par exemple, `https://wus2.videoindexer.ai`), régénérez les URL.
+
+   Pour ce faire, vous pouvez soit :
+
+    * remplacer l’URL par une URL pointant vers les API du widget Video Indexer (par exemple, le [widget Insights](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget))
+    * utiliser le site web de Video Indexer pour générer une nouvelle URL incorporée :
+         
+         Appuyez sur **Lire** pour accéder à la page de votre vidéo -> cliquez sur le bouton **&lt;/&gt;Incorporer** -> copiez l’URL dans votre application :
+   
+    Les URL régionales ne sont pas prises en charge et seront bloquées dans les semaines à venir.
 
 ## <a name="january-2020"></a>Janvier 2020
  
@@ -46,7 +85,7 @@ Un nouveau dépôt GitHub pour Video Indexer avec différents projets, des guide
  
 ### <a name="swagger-update"></a>Mise à jour du fichier Swagger
 
-**Authentications** et **opérations** de Video Indexer unifiées dans une seule [Spécification OpenAPI de Video Indexer (swagger)](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson). Les API sont disponibles sur le portail [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/).
+**Authentications** et **opérations** de Video Indexer unifiées dans une seule [Spécification OpenAPI de Video Indexer (swagger)](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson). Les API sont accessibles aux développeurs sur le portail [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/).
 
 ## <a name="december-2019"></a>Décembre 2019
 

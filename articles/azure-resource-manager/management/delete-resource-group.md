@@ -4,12 +4,12 @@ description: Décrit comment supprimer des groupes de ressources et des ressourc
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: db56cf0897cd90f1e6e51199032d0d9712530f1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c03296f8bec24da1fc85bae14e91ca742054d02
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234097"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82136479"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Suppression d’un groupe de ressources et de ressources Azure Resource Manager
 
@@ -53,6 +53,9 @@ Si l’opération GET retourne une erreur, Resource Manager relance l’appel GE
 * Supérieur à 500
 
 Pour les autres codes d’erreur, Resource Manager ne parvient pas à supprimer la ressource.
+
+> [!IMPORTANT]
+> La suppression d’un groupe de ressources est irréversible.
 
 ## <a name="delete-resource-group"></a>Supprimer un groupe de ressources
 

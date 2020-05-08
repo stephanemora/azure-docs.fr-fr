@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4bd9c64e1b9219f6752172d9dc518af71ad67e70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2694e0c1536064267faad10517ae58d0709ad1c8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232289"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231762"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utiliser un partage de fichiers Azure avec Windows
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Il est possible d’utiliser sans problème le partage de fichiers Azure dans Windows et Windows Server. Cet article décrit les considérations concernant l’utilisation d’un partage de fichiers Azure avec Windows et Windows Server.
@@ -30,8 +30,8 @@ Vous pouvez utiliser des partages de fichiers Azure sur une installation Window
 | Windows 8.1 | SMB 3.0 | Oui | Oui |
 | Windows Server 2012 R2 | SMB 3.0 | Oui | Oui |
 | Windows Server 2012 | SMB 3.0 | Oui | Oui |
-| Windows 7<sup>3</sup> | SMB 2.1 | Oui | Non |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Oui | Non |
+| Windows 7<sup>3</sup> | SMB 2.1 | Oui | Non  |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Oui | Non  |
 
 <sup>1</sup>Windows 10, versions 1507, 1607, 1709, 1803, 1809, 1903 et 1909.  
 <sup>2</sup>Windows Server, versions 1809, 1903 et 1909.  
@@ -40,12 +40,12 @@ Vous pouvez utiliser des partages de fichiers Azure sur une installation Window
 > [!Note]  
 > Nous vous conseillons de prendre la base de connaissances la plus récente pour votre version de Windows.
 
-## <a name="prerequisites"></a>Conditions préalables requises 
-* **Nom de compte de stockage** : pour monter un partage de fichiers Azure, vous avez besoin du nom du compte de stockage.
+## <a name="prerequisites"></a>Prérequis 
+* **Nom du compte de stockage** : Pour monter un partage de fichiers Azure, vous avez besoin du nom du compte de stockage.
 
-* **Clé du compte de stockage** : pour monter un partage de fichiers Azure, vous avez besoin de la clé de stockage primaire (ou secondaire). Actuellement, les clés SAS ne sont pas prises en charge pour le montage.
+* **Clé du compte de stockage** : Pour monter un partage de fichiers Azure, vous avez besoin de la clé de stockage primaire (ou secondaire). Actuellement, les clés SAS ne sont pas prises en charge pour le montage.
 
-* **Vérifiez que le port 445 est ouvert** : le protocole SMB requiert que le port TCP 445 soit ouvert, les connexions échoueront si ce port est bloqué. Vous pouvez vérifier si votre pare-feu bloque le port 445 avec l’applet de commande `Test-NetConnection`. Vous pouvez en apprendre davantage sur les [différentes manières de contourner un port 445 bloqué ici](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
+* **Vérifiez que le port 445 est ouvert** : Le protocole SMB nécessite que le port TCP 445 soit ouvert, les connexions échoueront si ce port est bloqué. Vous pouvez vérifier si votre pare-feu bloque le port 445 avec l’applet de commande `Test-NetConnection`. Vous pouvez en apprendre davantage sur les [différentes manières de contourner un port 445 bloqué ici](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
 
     Le code PowerShell suivant suppose que vous avez installé le module Azure PowerShell. Consultez [Installer un module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) pour plus d’informations. N’oubliez pas de remplacer `<your-storage-account-name>` et `<your-resource-group-name>` avec les noms appropriés de votre compte de stockage.
 
@@ -126,7 +126,7 @@ Vous devez maintenant être en mesure de monter ou d’accéder au partage sans 
 #### <a name="advanced-cmdkey-scenarios"></a>Scénarios cmdkey avancés
 Il existe deux scénarios supplémentaires à prendre en considération avec cmdkey : le stockage des informations d’identification pour un autre utilisateur sur la machine, par exemple un compte de service, et le stockage des informations d’identification sur un ordinateur distant avec la communication à distance PowerShell.
 
-Stocker les informations d’identification pour un autre utilisateur sur la machine est très simple : lorsque vous êtes connecté à votre compte, exécutez tout simplement la commande PowerShell suivante :
+Stocker les informations d’identification pour un autre utilisateur sur la machine est simple : lorsque vous êtes connecté à votre compte, exécutez tout simplement la commande PowerShell suivante :
 
 ```powershell
 $password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
@@ -182,27 +182,23 @@ Remove-PSDrive -Name <desired-drive-letter>
 
 1. Ouvrez l’Explorateur de fichiers. Pour cela, accédez au menu Démarrer ou appuyez sur les touches Win+E.
 
-2. Accédez à l’élément **Ce PC** sur la gauche de la fenêtre. Cela modifie les menus disponibles dans le ruban. Dans le menu Ordinateur, sélectionnez **Connecter un lecteur réseau**.
+1. Accédez à l’élément **Ce PC** sur la gauche de la fenêtre. Cela modifie les menus disponibles dans le ruban. Dans le menu Ordinateur, sélectionnez **Connecter un lecteur réseau**.
     
     ![Une capture d’écran du menu déroulant « Connecter un lecteur réseau »](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-3. Copiez le chemin d’accès UNC dans le volet de **connexion** du portail Azure. 
-
-    ![Le chemin d’accès UNC du volet Azure Files Connect](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
-
-4. Sélectionnez la lettre de lecteur et entrez le chemin d’accès UNC. 
+1. Sélectionnez la lettre de lecteur et entrez le chemin d’accès UNC, le format du chemin d’accès UNC étant `<storageAccountName>.file.core.windows.net/<fileShareName>`. Par exemple : `anexampleaccountname.file.core.windows.net/example-share-name`.
     
     ![Une capture d’écran de la boîte de dialogue « Connecter un lecteur réseau »](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 
-5. Utilisez le nom du compte de stockage avec le préfixe `AZURE\` comme nom d’utilisateur et une clé de compte de stockage comme mot de passe.
+1. Utilisez le nom du compte de stockage avec le préfixe `AZURE\` comme nom d’utilisateur et une clé de compte de stockage comme mot de passe.
     
     ![Une capture d’écran de la boîte de dialogue des identifiants réseau](./media/storage-how-to-use-files-windows/3_MountOnWindows10.png)
 
-6. Utilisez le partage de fichiers Azure à votre guise.
+1. Utilisez le partage de fichiers Azure à votre guise.
     
     ![Le partage de fichiers Azure est désormais monté](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
-7. Lorsque vous êtes prêt à démonter le partage de fichiers Azure, il vous suffit de cliquer avec le bouton droit de la souris sur l’entrée du partage, sous **Emplacements réseau**, dans l’Explorateur de fichiers et de sélectionner **Déconnecter**.
+1. Lorsque vous êtes prêt à démonter le partage de fichiers Azure, il vous suffit de cliquer avec le bouton droit de la souris sur l’entrée du partage, sous **Emplacements réseau**, dans l’Explorateur de fichiers et de sélectionner **Déconnecter**.
 
 ### <a name="accessing-share-snapshots-from-windows"></a>Accès aux instantanés de partage à partir de Windows
 Si vous avez utilisé un instantané de partage, soit manuellement, soit automatiquement par le biais d’un script ou d’un service tel que Sauvegarde Microsoft Azure, vous pouvez visualiser les versions précédentes d’un partage, d’un répertoire ou d’un fichier spécifique d’un partage de fichiers sur Windows. Vous pouvez prendre un instantané de partage depuis le [portail Azure](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md) et [Azure CLI](storage-how-to-use-files-cli.md).
@@ -222,6 +218,7 @@ Vous pouvez sélectionner **Ouvrir** pour ouvrir un instantané particulier.
 
 #### <a name="restore-from-a-previous-version"></a>Restaurer à partir d’une version précédente
 Sélectionnez **Restaurer** pour copier à l’emplacement d’origine le contenu de l’ensemble du répertoire de façon récursive à l’heure de création de l’instantané de partage.
+
  ![Bouton Restaurer dans un message d’avertissement](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 
 ## <a name="securing-windowswindows-server"></a>Sécurisation de Windows/Windows Server

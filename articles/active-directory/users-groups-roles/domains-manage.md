@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2395aa5984de2a9fe41e4778d16aba69bfef5192
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e21d850f03fdca300085c864a12611acb968aa8
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77559231"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582969"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestion des noms de domaine personnalisés dans Azure Active Directory
 
@@ -41,7 +41,7 @@ Lors de la création du répertoire, le nom de domaine initial, par exemple « c
 
 Vous pouvez modifier le nom de domaine principal de votre répertoire par n’importe quel domaine personnalisé vérifié qui n’est pas fédéré. La modification du domaine principal de votre répertoire ne change pas le nom des utilisateurs existants.
 
-## <a name="add-custom-domain-names-to-your-azure-ad-tenant"></a>Ajouter des noms de domaine personnalisés à votre locataire Azure AD
+## <a name="add-custom-domain-names-to-your-azure-ad-organization"></a>Ajouter des noms de domaine personnalisé à votre organisation Azure AD
 
 Vous pouvez ajouter jusqu’à 900 noms de domaine managé. Si vous configurez tous vos domaines pour la fédération avec le répertoire Active Directory local, vous pouvez ajouter jusqu’à 450 noms de domaine dans chaque répertoire.
 
@@ -72,7 +72,7 @@ Vous pouvez appliquer l’option **ForceDelete** à un nom de domaine dans le [C
 Pour appeler **ForceDelete** dans le Portail Azure, vous devez vous assurer qu’il y a moins de 1 000 références au nom de domaine, et toutes les références dans lesquelles Exchange est le service d’approvisionnement doivent être mises à jour ou supprimées dans le [ Centre d’administration Exchange](https://outlook.office365.com/ecp/). Cela inclut les listes distribuées et les groupes de sécurité à extension messagerie ; pour plus d’informations, consultez [Supprimer les groupes de sécurité à extension messagerie](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups). En outre, l’opération **ForceDelete** échoue si l’un des énoncés suivants est vrai :
 
 * Vous avez acheté un domaine via les services d’abonnement de domaine Office 365
-* Vous êtes un partenaire qui administre le compte d’un autre locataire
+* Vous êtes un partenaire qui administre le compte d’une autre organisation cliente
 
 Les actions suivantes sont effectuées dans le cadre de l’opération **ForceDelete** :
 

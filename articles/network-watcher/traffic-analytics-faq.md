@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: 5e31ed905f05070c8715a63ef3386b0006df0a75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2402e72d2ef9fcda46f2f40bff48759262ee30e0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840619"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189043"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour Traffic Analytics
 
@@ -134,7 +134,7 @@ Oui, votre compte Stockage Azure peut être dans un abonnement spécifique et vo
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Puis-je stocker les journaux d’activité bruts dans un autre abonnement ?
 
-Non. Vous pouvez stocker des journaux d’activité bruts dans n’importe quel compte de stockage dans lequel un NSG est activé pour les journaux de flux. Toutefois, le compte de stockage et les journaux d’activité bruts doivent se trouver dans le même abonnement et la même région.
+Oui. Vous pouvez configurer les journaux de flux NSG pour qu’ils soient envoyés à un compte de stockage situé dans un autre abonnement, à condition que vous disposiez des privilèges appropriés et que le compte de stockage se trouve dans la même région que le NSG. Le NSG et le compte de stockage de destination doivent également partager le même locataire Azure Active Directory.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>Que faire si je ne peux pas configurer un NSG pour l’analytique du trafic en raison d’une erreur « Introuvable » ?
 

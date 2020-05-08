@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 6bae9e871be2a5d56d057d2a077de53329b8c3ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1af0161edb0f833cdd14d8157e6edd9644e21467
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79208940"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82100275"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migration d’une instance SQL Server vers une instance managée Azure SQL Database
 
@@ -30,7 +30,7 @@ Le processus général de migration d’une base de données ressemble à ce qui
 ![processus de migration](./media/sql-database-managed-instance-migration/migration-process.png)
 
 - [Évaluer la compatibilité d’instance gérée](#assess-managed-instance-compatibility) où vous devez vous assurer qu’aucun problème bloquant ne peut empêcher vos migrations.
-  - Cette étape comprend également la création d’une [ligne de base des performances](#create-performance-baseline) pour déterminer l’utilisation des ressources sur votre instance de SQL Server source. Cette étape est nécessaire si vous souhaitez déployer une Managed Instance correctement dimensionnée et vérifier que les performances après la migration ne sont pas affectées.
+  - Cette étape comprend également la création d’une [ligne de base des performances](#create-performance-baseline) pour déterminer l’utilisation des ressources sur votre instance de SQL Server source. Cette étape est nécessaire si vous souhaitez déployer une Managed Instance correctement dimensionnée et vérifier que les performances après la migration ne sont pas altérées.
 - [Choisir des options de connectivité des applications](sql-database-managed-instance-connect-app.md)
 - [Déployer sur une instance gérée dimensionnée de façon optimale](#deploy-to-an-optimally-sized-managed-instance) où vous allez choisir les caractéristiques techniques (nombre de vCores, quantité de mémoire) et le niveau de performance (critique pour l’entreprise, usage général) de votre Managed Instance.
 - [Sélectionner une méthode de migration et effectuer la migration](#select-migration-method-and-migrate) où vous migrez vos bases de données à l’aide de la migration hors connexion (sauvegarde/restauration native, importation/exportation de base de données) ou de la migration en ligne (service de migration des données, réplication transactionnelle).
@@ -41,7 +41,7 @@ Le processus général de migration d’une base de données ressemble à ce qui
 
 ## <a name="assess-managed-instance-compatibility"></a>Évaluer la compatibilité d’instance gérée
 
-Tout d’abord, déterminez si l’instance gérée est compatible avec les exigences de base de données de votre application. L’option de déploiement d’instance gérée est conçue pour faciliter la migration « lift-and-shift » de la plupart des applications existantes qui utilisent SQL Server localement ou sur des machines virtuelles. Toutefois, vous risquez parfois d’avoir besoin de fonctionnalités qui ne sont pas encore prises en charge et dont le coût d’implémentation d’une solution de contournement est trop élevé.
+Tout d’abord, déterminez si l’instance gérée est compatible avec les exigences de base de données de votre application. L’option de déploiement d’instance gérée est conçue pour faciliter la migration « lift-and-shift » de la plupart des applications existantes qui utilisent SQL Server localement ou sur des machines virtuelles. Toutefois, vous risquez parfois d’avoir besoin de fonctionnalités ou de capacités qui ne sont pas encore prises en charge et dont le coût d’implémentation d’une solution de contournement est trop élevé.
 
 Utilisez l’[Assistant Migration de données](https://docs.microsoft.com/sql/dma/dma-overview) pour détecter les éventuels problèmes de compatibilité qui impactent le fonctionnement de la base de données sur Azure SQL Database. Cet Assistant ne prend pas encore en charge une instance managée en tant que destination de migration, mais il est recommandé d’effectuer une évaluation par rapport à Azure SQL Database et d’examiner attentivement la liste des problèmes de compatibilité et de parité de fonctionnalité signalés par rapport à la documentation du produit. Consultez les [fonctionnalités Azure SQL Database](sql-database-features.md) pour savoir si des problèmes de blocage sont signalés dans l’instance gérée, car la plupart des problèmes de blocage empêchant de migrer vers une base de données Azure SQL Database ont été supprimés avec l’instance gérée. Par exemple, des fonctionnalités comme les requêtes entre plusieurs bases de données, les transactions entre plusieurs bases de données au sein de la même instance, un serveur lié à d’autres sources SQL, la prise en charge du Common Language Runtime, les tables temporaires globales, les affichages au niveau de l’instance, Service Broker, etc. sont disponibles dans les instances gérées.
 

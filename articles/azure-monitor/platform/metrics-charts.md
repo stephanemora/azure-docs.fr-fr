@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 2df1e0bb7d586edb13dc86e163f0e5728608d2a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d15c217f2e65877ea3baa18f6ba847492bc7fa1
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371601"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509820"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Fonctionnalités avancées d’Azure Metrics Explorer
 
@@ -47,6 +47,25 @@ Cliquez sur **Ajouter un graphique** et créez un autre graphique avec une autre
 ### <a name="order-or-delete-multiple-charts"></a>Ordonner ou supprimer plusieurs graphiques
 
 Pour ordonner ou supprimer plusieurs graphiques, cliquez sur le bouton de sélection ( **...** ) pour ouvrir le menu des graphiques, puis choisissez l’élément de menu approprié : **Monter**, **Descendre**, ou **Supprimer**.
+
+## <a name="changing-aggregation"></a>Modification de l’agrégation
+
+Lorsque vous ajoutez une métrique à un graphique, Metrics Explorer présélectionne automatiquement son agrégation par défaut. La valeur par défaut est logique dans les scénarios de base, mais vous pouvez utiliser une autre agrégation pour obtenir des informations supplémentaires sur la métrique. Pour afficher différentes agrégations sur un graphique, vous devez comprendre comment Metrics Explorer les gère. 
+
+Les métriques sont la série de mesures (ou « valeurs métriques ») capturées au cours d’une période donnée. Lorsque vous tracez un graphique, les valeurs de la métrique sélectionnée sont agrégées séparément sur le *fragment de temps*. Vous sélectionnez la taille du fragment de temps [à l’aide du panneau du sélecteur d’heure Metrics Explorer](metrics-getting-started.md#select-a-time-range). Si vous n’effectuez pas de sélection explicite du fragment de temps, la granularité du temps est automatiquement sélectionnée en fonction de l’intervalle de temps actuellement sélectionné. Une fois que le fragment de temps est déterminé, les valeurs métriques qui ont été capturées pendant chaque intervalle de fragment de temps sont agrégées et placées sur le graphique (un point de données par fragment de temps).
+
+Par exemple, supposons que le graphique indique la métrique **Temps de réponse du serveur** à l’aide de l’agrégation **Moyenne** au cours de l’intervalle de temps des **dernières 24 heures** :
+
+- Si la granularité du temps est définie sur 30 minutes, le graphique est dessiné à partir de 48 points de données agrégés (par exemple, le graphique linéaire connecte 48 points dans la zone de traçage du graphique). Autrement dit, 24 heures x 2 points de données par heure. Chaque point de données représente la *moyenne* de tous les temps de réponse capturés pour les requêtes au serveur qui se sont produites pendant chacune des périodes de 30 minutes pertinentes.
+- Si vous réglez la granularité du temps à 15 minutes, vous obtenez 96 points de données agrégés.  Autrement dit, 24 heures x 4 points de données par heure.
+
+Metrics Explorer propose cinq types d’agrégation de statistiques de base : **Somme**, **Nombre**, **Min**, **Max** et **Moyenne**. L’agrégation **Somme** est parfois appelée l’agrégation **Total**. Pour de nombreuses mesures, Metrics Explorer masque les agrégations qui sont totalement inutiles et ne peuvent pas être utilisées.
+
+- **Somme** : somme de toutes les valeurs capturées sur l’intervalle d’agrégation
+- **Nombre** : nombre de mesures capturées au cours de l’intervalle d’agrégation. Notez que **Nombre** sera égal à **Somme** dans le cas où la mesure est toujours capturée avec la valeur 1. Cela est courant lorsque la métrique effectue le suivi du nombre d’événements distincts et que chaque mesure représente un événement (autrement dit, le code déclenche un enregistrement de métrique chaque fois qu’une nouvelle requête arrive)
+- **Moyenne** : moyenne des valeurs métriques capturées sur l’intervalle d’agrégation
+- **Min** : la plus petite valeur capturée sur l’intervalle d’agrégation
+- **Max** : la plus grande valeur capturée sur l’intervalle d’agrégation
 
 ## <a name="apply-filters-to-charts"></a>Appliquer des filtres aux graphiques
 
