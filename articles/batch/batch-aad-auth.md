@@ -3,12 +3,13 @@ title: Authentifier les services Azure Batch avec Azure Active Directory
 description: Batch prend en charge Azure AD pour l’authentification auprès du service Batch. Apprenez à vous authentifier de deux manières.
 ms.topic: article
 ms.date: 01/28/2020
-ms.openlocfilehash: e1f95871788b4b9848ba622da1c8eb0cc83c07aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 3fa1aa2bb7389200fe5e5a80598686143344d636
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116177"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608470"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Authentification de solutions de service Batch avec Active Directory
 
@@ -35,9 +36,9 @@ Pour s’authentifier avec Azure AD, vous utilisez ce point de terminaison avec 
 
 `https://login.microsoftonline.com/<tenant-id>`
 
-> [!NOTE] 
-> Le point de terminaison spécifique du client est requis lorsque vous vous authentifiez à l’aide d’un principal de service. 
-> 
+> [!NOTE]
+> Le point de terminaison spécifique du client est requis lorsque vous vous authentifiez à l’aide d’un principal de service.
+>
 > Le point de terminaison spécifique du client est facultatif lorsque vous vous authentifiez à l’aide de l’authentification intégrée, mais est recommandé. Vous pouvez toutefois utiliser également le point de terminaison commun Azure AD. Le point de terminaison commun fournit une interface de collecte d’informations d’identification générique lorsqu’un client spécifique n’est pas spécifié. Le point de terminaison commun est `https://login.microsoftonline.com/common`.
 >
 >
@@ -126,7 +127,7 @@ Pour l’authentification auprès d’un principal de service, vous devez attrib
 1. Dans la section **Paramètres** du compte Batch, sélectionnez **Contrôle d’accès (IAM)** .
 1. Sélectionnez l’onglet **Attributions de rôles**.
 1. Sélectionnez **Ajouter une attribution de rôle**.
-1. Dans la liste déroulante **Rôle**, choisissez le rôle *Collaborateur* ou *Lecteur* pour votre application. Pour plus d’informations sur ces rôles, consultez [Prise en main du contrôle d’accès en fonction du rôle dans le portail Azure](../role-based-access-control/overview.md).  
+1. Dans la liste déroulante **Rôle**, choisissez le rôle *Collaborateur* ou *Lecteur* pour votre application. Pour plus d’informations sur ces rôles, consultez [Prise en main du contrôle d’accès en fonction du rôle dans le portail Azure](../role-based-access-control/overview.md).
 1. Dans le champ **Sélectionner**, entrez le nom de votre application. Sélectionnez votre application dans la liste, puis sélectionnez **Enregistrer**.
 
 Votre application doit maintenant apparaître dans vos paramètres de contrôle d’accès avec un rôle RBAC qui lui est attribué.
@@ -209,7 +210,7 @@ L’ID client identifie le client Azure AD qui fournit des services d’authenti
 Les exemples de code de cette section montrent comment s’authentifier avec Azure AD à l’aide de l’authentification intégrée et d’un principal de service. La plupart de ces exemples de code utilisent .NET, mais les concepts sont similaires pour d’autres langages.
 
 > [!NOTE]
-> Un jeton d’authentification Azure AD expire au bout d’une heure. Lorsque vous utilisez un objet **BatchClient** longue durée, nous vous recommandons de récupérer un jeton à partir d’ADAL à chaque demande pour garantir que vous disposez toujours d’un jeton valide. 
+> Un jeton d’authentification Azure AD expire au bout d’une heure. Lorsque vous utilisez un objet **BatchClient** longue durée, nous vous recommandons de récupérer un jeton à partir d’ADAL à chaque demande pour garantir que vous disposez toujours d’un jeton valide.
 >
 >
 > Pour mettre cela en place dans .NET, écrivez une méthode qui récupère le jeton à partir d’Azure AD et qui transmet cette méthode à un objet **BatchTokenCredentials** en tant que délégué. La méthode du délégué est appelée à chaque demande au service Batch pour garantir qu’un jeton valide est fourni. Par défaut, ADAL met en cache des jetons pour qu’un nouveau jeton soit récupéré à partir d’Azure AD uniquement lorsque cela est nécessaire. Pour plus d’informations sur les jetons dans Azure AD, consultez [Scénarios d’authentification pour Azure AD][aad_auth_scenarios].
@@ -266,9 +267,9 @@ public static async Task<string> GetAuthenticationTokenAsync()
     var authContext = new AuthenticationContext(AuthorityUri);
 
     // Acquire the authentication token from Azure AD.
-    var authResult = await authContext.AcquireTokenAsync(BatchResourceUri, 
-                                                        ClientId, 
-                                                        new Uri(RedirectUri), 
+    var authResult = await authContext.AcquireTokenAsync(BatchResourceUri,
+                                                        ClientId,
+                                                        new Uri(RedirectUri),
                                                         new PlatformParameters(PromptBehavior.Auto));
 
     return authResult.AccessToken;
@@ -307,7 +308,7 @@ Référencez le point de terminaison Azure AD dans votre code, y compris l’ID 
 private const string AuthorityUri = "https://login.microsoftonline.com/<tenant-id>";
 ```
 
-Référencez le point de terminaison de ressource de service Batch :  
+Référencez le point de terminaison de ressource de service Batch :
 
 ```csharp
 private const string BatchResourceUri = "https://batch.core.windows.net/";
@@ -372,7 +373,7 @@ Lorsque vous utilisez un principal de service, vous devez indiquer un ID d’abo
 TENANT_ID = "<tenant-id>"
 ```
 
-Référencez le point de terminaison de ressource de service Batch :  
+Référencez le point de terminaison de ressource de service Batch :
 
 ```python
 RESOURCE = "https://batch.core.windows.net/"
