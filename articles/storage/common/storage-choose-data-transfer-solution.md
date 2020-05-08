@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: ada96d0d4b167e30cb6e271aa02d0d399a9ae7d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df261dbf8af8ffdb4ccb10626594626150245748
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78303084"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176394"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Choisir une solution Azure pour le transfert de données
 
@@ -72,7 +72,7 @@ Vous pouvez également vous rendre sur votre compte Stockage Azure dans le Porta
 
 - [Présentation de l’Explorateur Stockage Azure](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
 - [Vue d’ensemble d’AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10).
-- [Utiliser Azure PowerShell avec le Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-powershell-guide-full)
+- [Démarrage rapide : Charger, télécharger et lister des blobs avec PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 - [Démarrage rapide : Créer, télécharger et lister des objets blob avec Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
 - Vous en saurez plus sur :
 

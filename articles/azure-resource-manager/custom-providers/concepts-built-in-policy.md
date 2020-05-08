@@ -5,14 +5,14 @@ author: msHich
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: hich
-ms.openlocfilehash: 536b95eb07619d0ce2d02ec01e1f51ed52c1b5e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 00cd1d39c0110aac9ea96f73127e83197976c95a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75649201"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190127"
 ---
-# <a name="deploy-associations-for-a-custom-provider-using-azure-policy"></a>Déployer des associations pour un fournisseur personnalisé avec une stratégie Azure
+# <a name="deploy-associations-for-a-custom-provider-using-azure-policy"></a>Déployer des associations pour un fournisseur personnalisé à l’aide d’Azure Policy
 
 Les stratégies Azure peuvent être utilisées pour déployer des associations dans le but d’associer des ressources à un fournisseur personnalisé. Cet article aborde une stratégie intégrée permettant de déployer des associations, et explique comment utiliser cette stratégie.
 

@@ -56,12 +56,10 @@
             - name: Former automatiquement un modèle ML
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
-        - name: Pipelines de Machine Learning (avancé)
-          items:
-            - name: Effectuer un scoring par lots sur un modèle de classification
-              displayName: pipelines
-              href: tutorial-pipeline-batch-scoring-classification.md
-        - name: Passer de l’expérience à la production
+        - name: Scoring des modèles par lot avec des pipelines
+          displayName: pipelines
+          href: tutorial-pipeline-batch-scoring-classification.md
+        - name: Préparer votre code pour la production
           displayName: 'mlops, mlopspython, production'
           href: tutorial-convert-ml-experiment-to-production.md
     - name: SDK R
@@ -93,49 +91,58 @@
   items:
     - name: Prévoir et gérer les coûts
       href: concept-plan-manage-cost.md
+    - name: Concepteur (ML par glisser-déposer)
+      items:
+        - name: Vue d’ensemble du concepteur
+          displayName: studio
+          href: concept-designer.md
+        - name: Aide-mémoire d’algorithme
+          href: /azure/machine-learning/algorithm-cheat-sheet
+        - name: Guide pratique pour sélectionner des algorithmes
+          href: /azure/machine-learning/how-to-select-algorithms
+    - name: ML automatisé
+      items:
+        - name: Vue d’ensemble du ML automatisé
+          displayName: 'automl, auto ml'
+          href: concept-automated-ml.md
+        - name: Surajustement et données déséquilibrées
+          displayName: 'automl, auto ml, risks'
+          href: concept-manage-ml-pitfalls.md
     - name: Espace de travail
       href: concept-workspace.md
     - name: Environnements
       href: concept-environments.md
-    - name: Ingestion de données
-      href: concept-data-ingestion.md
-    - name: Accès aux données
-      href: concept-data.md
-    - name: Apprentissage du modèle
-      displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
-      href: concept-train-machine-learning-model.md
-    - name: Entraînement distribué
-      displayName: 'parallellization, deep learning, deep neural network, dnn'
-      href: concept-distributed-training.md
-    - name: Gestion de modèles (MLOps)
-      displayName: 'deploy, deployment, publish, production, operationalize, operationalization'
-      href: concept-model-management-and-deployment.md
-    - name: Interprétabilité
-      displayName: explainability
-      href: how-to-machine-learning-interpretability.md
-    - name: "Concepteur\_: ML sans code"
-      displayName: studio
-      href: concept-designer.md
-    - name: Aide-mémoire d’algorithme
-      href: /azure/machine-learning/algorithm-cheat-sheet
-    - name: Guide pratique pour sélectionner des algorithmes
-      href: /azure/machine-learning/how-to-select-algorithms
-    - name: ML automatisé
-      displayName: 'automl, auto ml'
-      href: concept-automated-ml.md
-    - name: Surajustement et données déséquilibrées
-      displayName: 'automl, auto ml, risks'
-      href: concept-manage-ml-pitfalls.md
     - name: Instance de calcul
       displayName: 'resource, dsvm, Data Science Virtual Machine'
       href: concept-compute-instance.md
     - name: Cible de calcul
       displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
       href: concept-compute-target.md
+    - name: Données
+      items:
+        - name: Accès aux données
+          href: concept-data.md
+        - name: Ingestion de données
+          href: concept-data-ingestion.md
+    - name: Apprentissage du modèle
+      displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
+      href: concept-train-machine-learning-model.md
+    - name: Entraînement distribué
+      displayName: 'parallellization, deep learning, deep neural network, dnn'
+      href: concept-distributed-training.md
+    - name: Apprentissage approfondi
+      displayName: 'deep learning vs machine learning, deep learning, vs, versus'
+      href: concept-deep-learning-vs-machine-learning.md
+    - name: Gestion de modèles (MLOps)
+      displayName: 'deploy, deployment, publish, production, operationalize, operationalization'
+      href: concept-model-management-and-deployment.md
+    - name: Portabilité de modèles (ONNX)
+      href: concept-onnx.md
+    - name: Interprétabilité de modèles
+      displayName: explainability
+      href: how-to-machine-learning-interpretability.md
     - name: Pipelines ML
       href: concept-ml-pipelines.md
-    - name: ONNX
-      href: concept-onnx.md
     - name: Préparation et sécurité de l’entreprise
       items:
         - name: Sécurité d’entreprise
@@ -167,9 +174,6 @@
           href: monitor-azure-machine-learning.md
     - name: Intégration à Event Grid
       href: concept-event-grid-integration.md
-    - name: Apprentissage approfondi
-      displayName: 'deep learning vs machine learning, deep learning, vs, versus'
-      href: concept-deep-learning-vs-machine-learning.md
 - name: Guides pratiques
   items:
     - name: Créer et gérer des espaces de travail
@@ -188,6 +192,8 @@
         - name: Configurer des environnements de développement
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
+        - name: Exécuter des notebooks Jupyter
+          href: how-to-run-jupyter-notebooks.md
         - name: Configurer des environnements logiciels
           displayName: 'pip, Conda, anaconda'
           href: how-to-use-environments.md
@@ -269,14 +275,14 @@
           href: how-to-train-keras.md
         - name: PyTorch
           href: how-to-train-pytorch.md
-    - name: Expliquer les modèles
+    - name: Interpréter et expliquer les modèles
       displayName: interpretability
       items:
-        - name: Expliquer les modèles de ML
-          displayName: 'SDK, interpret'
+        - name: Interpréter les modèles ML
+          displayName: 'SDK, interpret, explain, explanability, interpretability'
           href: how-to-machine-learning-interpretability-aml.md
         - name: Expliquer les modèles de ML automatisé
-          displayName: 'SDK, interpret, automl'
+          displayName: 'SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml'
           href: how-to-machine-learning-interpretability-automl.md
     - name: Automatiser l’apprentissage automatique
       displayName: 'automl, auto ml'
@@ -295,6 +301,9 @@
         - name: Entraîner automatiquement un modèle de prévision
           displayName: time series
           href: how-to-auto-train-forecast.md
+        - name: Utiliser le ML automatisé dans des pipelines ML (Python)
+          displayName: machine learning automl
+          href: how-to-use-automlstep-in-pipelines.md
         - name: Comprendre les graphiques et les métriques
           href: how-to-understand-automated-ml.md
     - name: Suivre et superviser des expériences
@@ -376,6 +385,9 @@
         - name: Pipelines Azure pour CI/CD
           displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
+        - name: Données de transformation du concepteur
+          displayName: pipeline
+          href: how-to-designer-transform-data.md
         - name: Réentraînement du concepteur avec des pipelines publiés
           displayName: 'retrain, designer, published pipeline'
           href: how-to-retrain-designer.md
@@ -391,6 +403,9 @@
         - name: Déboguer et dépanner l’étape d’exécution parallèle
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
+        - name: Itération et évolution des pipelines de machine learning
+          displayName: modularizing testing
+          href: concept-pipeline-practices-tips.md
     - name: Gérer les quotas de ressources
       displayName: limits
       href: how-to-manage-quotas.md

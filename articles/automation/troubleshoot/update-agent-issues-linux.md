@@ -1,6 +1,6 @@
 ---
-title: Diagnostiquer le Runbook Worker hybride Linux - Azure Update Management
-description: Découvrez comment détecter et résoudre les problèmes liés au Azure Automation Runbook Worker hybride sur Linux qui prend en charge Update Management.
+title: Résolution des problèmes de l’agent de mise à jour Linux dans Azure Automation Update Management
+description: Découvrez comment détecter et résoudre les problèmes liés à l’agent de mise à jour Linux Windows à l’aide de la solution Update Management.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,36 +9,36 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: e60ba71607b99f0ea97e0725ffdd0740f3e9c579
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bba1c7e89a9c3bb1c9aa1567e36dd71a40f14636
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235413"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81679074"
 ---
-# <a name="understand-and-resolve-linux-hybrid-runbook-worker-health-for-update-management"></a>Comprendre et résoudre l’intégrité du Runbook Worker hybride Linux pour Update Management
+# <a name="troubleshoot-linux-update-agent-issues"></a>Résoudre les problèmes de l’agent de mise à jour Linux
 
-De nombreuses raisons peuvent expliquer pourquoi votre machine n’est pas à l’état **Prêt** dans Update Management. Dans Update Management, vous pouvez vérifier l’intégrité d’un agent Runbook Worker hybride pour déterminer le problème sous-jacent. Cet article explique comment exécuter l’utilitaire de résolution des problèmes pour les machines Azure à partir du portail Azure et les machines non-Azure dans le [scénario hors connexion](#troubleshoot-offline).
+De nombreuses raisons peuvent expliquer pourquoi votre machine n’apparaît pas comme étant prête (saine) dans Update Management. Dans Update Management, vous pouvez vérifier l’intégrité d’un agent Runbook Worker hybride pour déterminer le problème sous-jacent. Cet article explique comment exécuter l’utilitaire de résolution des problèmes pour les machines Azure à partir du portail Azure et les machines non-Azure dans le [scénario hors connexion](#troubleshoot-offline). 
 
 Voici les trois états de préparation possibles d’une machine :
 
-* **Prêt** - Le Runbook Worker hybride est déployé et a été vu pour la dernière fois il y a moins de 1 heure.
-* **Déconnecté** - Le Runbook Worker hybride est déployé et a été vu pour la dernière fois il y a plus de 1 heure.
-* **Non configuré** - Le Runbook Worker hybride est introuvable ou n’a pas terminé son intégration.
+* Prêt : le Runbook Worker hybride est déployé et a été vu pour la dernière fois il y a moins d’une heure.
+* Déconnecté : le Runbook Worker hybride est déployé et a été vu pour la dernière fois il y a plus d’une heure.
+* Non configuré : le Runbook Worker hybride est introuvable ou n’a pas terminé son intégration.
 
 > [!NOTE]
-> L’état actuel de la machine peut s’afficher avec un certain retard sur le portail Azure.
+> L’état actuel d’une machine peut s’afficher avec un léger retard sur le Portail Azure.
 
 ## <a name="start-the-troubleshooter"></a>Démarrer l’utilitaire de résolution des problèmes
 
-Pour les machines Azure, cliquez sur le lien **Résolution des problèmes** sous la colonne **Préparation de l’agent de mise à jour** dans le portail pour ouvrir la page **Résoudre les problèmes de l’Agent de mise à jour**. Pour les machines non-Azure, le lien vous dirige vers cet article. Consultez les instructions hors connexion pour résoudre les problèmes d’une machine non-Azure.
+Pour les machines Azure, cliquez sur le lien **Résolution des problèmes** sous la colonne **Préparation de l’agent de mise à jour** dans le portail pour ouvrir la page Résoudre les problèmes de l’agent de mise à jour. Pour les machines non-Azure, le lien vous dirige vers cet article. Consultez les instructions hors connexion pour résoudre les problèmes d’une machine non-Azure.
 
 ![vm list page](../media/update-agent-issues-linux/vm-list.png)
 
 > [!NOTE]
-> Les vérifications nécessitent que la machine virtuelle soit en cours d’exécution. Si la machine virtuelle n’est pas en cours d’exécution, vous voyez un bouton pour **démarrer la machine virtuelle**.
+> Les vérifications nécessitent que la machine virtuelle soit en cours d’exécution. Si la machine virtuelle n’est pas en cours d’exécution, vous voyez un bouton **Démarrer la machine virtuelle**.
 
-Dans la page **Agent de résolution des problèmes de mise à jour**, cliquez sur **Exécuter les vérifications**, pour démarrer l’utilitaire de résolution des problèmes. L’utilitaire de résolution des problèmes utilise la [commande Run](../../virtual-machines/linux/run-command.md) pour exécuter un script sur la machine afin de vérifier les dépendances. Lorsque l’utilitaire de résolution des problèmes a terminé, il retourne le résultat des vérifications.
+Dans la page Résoudre les problèmes de l’agent de mise à jour, cliquez sur **Exécuter les vérifications** pour démarrer l’utilitaire de résolution des problèmes. L’utilitaire de résolution des problèmes utilise la [commande Run](../../virtual-machines/linux/run-command.md) pour exécuter un script sur la machine afin de vérifier les dépendances. Lorsque l’utilitaire de résolution des problèmes a terminé, il retourne le résultat des vérifications.
 
 ![Page de résolution des problèmes](../media/update-agent-issues-linux/troubleshoot-page.png)
 

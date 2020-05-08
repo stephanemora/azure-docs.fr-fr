@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0658a775e40c1fc433c7c2e1d853493544e74ee4
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 327174974affb3b2511eac60755aa1bf047b3b5e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743201"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133463"
 ---
 # <a name="monitor-workload---azure-portal"></a>Superviser une charge de travail dans le portail Azure
 
@@ -38,7 +38,7 @@ Accéder au panneau de navigation des espaces de travail Log Analytics et créer
 
 Pour plus d’informations sur les espaces de travail, consultez cette [documentation](../../azure-monitor/learn/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace).
 
-## <a name="turn-on-diagnostic-logs"></a>Activer les journaux de diagnostic
+## <a name="turn-on-resource-logs"></a>Activer les journaux des ressources
 
 Configurez les paramètres de diagnostic pour émettre des journaux à partir de votre pool SQL. Les journaux se composent de vues de données de télémétrie équivalentes aux vues de gestion dynamique (DMV) de résolution des problèmes de performances les plus fréquentes. À l’heure actuelle, les vues suivantes sont prises en charge :
 
@@ -48,7 +48,7 @@ Configurez les paramètres de diagnostic pour émettre des journaux à partir de
 - [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-![Activation des journaux de diagnostic](./media/sql-data-warehouse-monitor-workload-portal/enable_diagnostic_logs.png)
+![Activation des journaux de ressources](./media/sql-data-warehouse-monitor-workload-portal/enable_diagnostic_logs.png)
 
 Les journaux peuvent être émis dans Stockage Azure, Stream Analytics ou Log Analytics. Pour ce tutoriel, sélectionnez Log Analytics.
 

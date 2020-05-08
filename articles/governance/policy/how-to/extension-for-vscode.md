@@ -3,12 +3,12 @@ title: Extension Azure Policy pour Visual Studio Code
 description: Découvrez comment utiliser l’extension Azure Policy pour Visual Studio Code afin de rechercher des alias Resource Manager.
 ms.date: 03/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 0e9123f2975bda0d61e9d6e9bf894ecd359e6c5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c4e04cc352744fed1c7c2965f8096f0f05c2a50
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231221"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82182563"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Utiliser l’extension Azure Policy pour Visual Studio Code
 
@@ -52,7 +52,7 @@ Dans le cas d’un utilisateur d’un cloud national, suivez d’abord ces étap
 
 1. Sélectionnez le cloud national dans la liste :
 
-   ![Définir la connexion au cloud Azure par défaut pour Visual Studio Code](../media/extension-for-vscode/set-default-azure-cloud-sign-in.png)
+   :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="Définir la connexion au cloud Azure par défaut pour Visual Studio Code" border="false":::
 
 ## <a name="connect-to-an-azure-account"></a>Se connecter à un compte Azure
 
@@ -64,13 +64,13 @@ Pour pouvoir évaluer des ressources et rechercher des alias, vous devez vous co
 
      À partir de l’extension Azure Policy, sélectionnez **Se connecter à Azure**.
 
-     ![Connexion au cloud Azure pour Visual Studio Code à partir de l’extension Azure Policy](../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png)
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Connexion au cloud Azure pour Visual Studio Code à partir de l’extension Azure Policy" border="false":::
 
    - Palette de commandes
 
      À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes**, puis entrez **Azure: Se connecter**.
 
-     ![Connexion au cloud Azure pour Visual Studio Code à partir de la palette de commandes](../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png)
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Connexion au cloud Azure pour Visual Studio Code à partir de la palette de commandes" border="false":::
 
 1. Suivez les instructions de connexion pour vous connecter à Azure. Une fois que vous êtes connecté, le nom de votre compte Azure s’affiche dans la barre d’état, en bas de la fenêtre Visual Studio Code.
 
@@ -125,7 +125,7 @@ Lorsqu’une ressource est sélectionnée, que ce soit par le biais de l’inter
 
 Lorsqu’une ressource est ouverte, pointez sur le nom ou la valeur de la propriété Resource Manager pour afficher l’alias Azure Policy s’il en existe un. Dans cet exemple, la ressource a pour type `Microsoft.Compute/virtualMachines` et le curseur est placé sur la propriété **properties.storageProfile.imageReference.offer**, ce qui affiche les alias correspondants.
 
-![Affichage par pointage des alias de propriété Resource Manager dans l’extension Azure Policy](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Affichage par pointage des alias de propriété Resource Manager dans l’extension Azure Policy" border="false":::
 
 ## <a name="search-for-and-view-policies-and-assignments"></a>Rechercher et afficher des stratégies et des affectations
 
