@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 3e6cfde20d9f4d56af836e06b0c9a84010dea47b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 646254238f83166c53fe94a1821c68ff4dac8f04
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282815"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82651923"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Déployer des modèles Machine Learning sur Azure App Service (préversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -114,7 +114,7 @@ package.wait_for_creation(show_output=True)
 print(package.location)
 ```
 
-Si la condition est `show_output=True`, la sortie du processus de génération Docker s’affiche. Une fois le processus terminé, l’image a été créée dans le registre Azure Container Registry pour votre espace de travail. Une fois que l’image a été créée, son emplacement dans Azure Container Registry s’affiche. L’emplacement est retourné au format `<acrinstance>.azurecr.io/package:<imagename>`. Par exemple : `myml08024f78fd10.azurecr.io/package:20190827151241`.
+Si la condition est `show_output=True`, la sortie du processus de génération Docker s’affiche. Une fois le processus terminé, l’image a été créée dans le registre Azure Container Registry pour votre espace de travail. Une fois que l’image a été créée, son emplacement dans Azure Container Registry s’affiche. L’emplacement est retourné au format `<acrinstance>.azurecr.io/package@sha256:<imagename>`. Par exemple : `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
 
 > [!IMPORTANT]
 > Enregistrez les informations concernant l’emplacement, car vous en aurez besoin lors du déploiement de l’image.
@@ -162,7 +162,7 @@ Si la condition est `show_output=True`, la sortie du processus de génération D
 1. Pour créer une application web, utilisez la commande suivante. Remplacez `<app-name>` par le nom que vous souhaitez utiliser. Remplacez `<acrinstance>` et `<imagename>` par les valeurs du `package.location` retourné précédemment :
 
     ```azurecli-interactive
-    az webapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename>
+    az webapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package@sha256:<imagename>
     ```
 
     Cette commande retourne des informations semblables à celles du document JSON suivant :
@@ -191,7 +191,7 @@ Si la condition est `show_output=True`, la sortie du processus de génération D
 1. Pour fournir à l’application web les informations d’identification nécessaires pour accéder au registre de conteneurs, utilisez la commande suivante. Remplacez `<app-name>` par le nom que vous souhaitez utiliser. Remplacez `<acrinstance>` et `<imagename>` par les valeurs du `package.location` retourné précédemment. Remplacez `<username>` et `<password>` par les informations de connexion ACR récupérées précédemment :
 
     ```azurecli-interactive
-    az webapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package:<imagename> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
+    az webapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package@sha256:<imagename> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
     ```
 
     Cette commande retourne des informations semblables à celles du document JSON suivant :
@@ -220,7 +220,7 @@ Si la condition est `show_output=True`, la sortie du processus de génération D
     },
     {
         "name": "DOCKER_CUSTOM_IMAGE_NAME",
-        "value": "DOCKER|myml08024f78fd10.azurecr.io/package:20190827195524"
+        "value": "DOCKER|myml08024f78fd10.azurecr.io/package@sha256:20190827195524"
     }
     ]
     ```

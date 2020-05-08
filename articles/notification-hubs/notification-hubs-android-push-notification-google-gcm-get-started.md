@@ -18,12 +18,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: c938b6174226ef9ea1104c5e95968d6122e922cf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7e442d85303485ca8800d4bcb31a9afde06d0e69
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72386323"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82595016"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutoriel : Notifications Push aux appareils Android via Azure Notification Hubs et Google Cloud Messaging (déconseillé)
 
@@ -43,7 +43,7 @@ Vous allez créer une application Android vide qui reçoit des notifications Pus
 > [!IMPORTANT]
 > Cette rubrique explique les notifications Push avec Google Cloud Messaging (GCM). Si vous utilisez encore Firebase Cloud Messaging (FCM) de Google, consultez [Sending push notifications to Android with Azure Notification Hubs and FCM](notification-hubs-android-push-notification-google-fcm-get-started.md)(Envoi de notifications Push vers Android avec Azure Notification Hubs et FCM).
 
-Le code complet de ce didacticiel peut être téléchargé depuis GitHub [ici](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted).
+Le code complet de ce didacticiel peut être téléchargé depuis GitHub [ici](https://github.com/Azure/azure-notificationhubs-android/tree/master/FCMTutorialApp).
 
 Dans ce tutoriel, vous allez effectuer les actions suivantes :
 
