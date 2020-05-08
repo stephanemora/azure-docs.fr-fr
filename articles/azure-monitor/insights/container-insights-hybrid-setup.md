@@ -2,17 +2,37 @@
 title: Configurer des clusters Kubernetes hybrides avec Azure Monitor pour les conteneurs | Microsoft Docs
 description: Cet article explique comment configurer Azure Monitor pour les conteneurs afin de surveiller les clusters Kubernetes hébergés sur Azure Stack ou dans un autre environnement.
 ms.topic: conceptual
-ms.date: 01/24/2020
-ms.openlocfilehash: 5a973e7e500906ebe833ec4cc6fd2fa8ee79c19e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 04/22/2020
+ms.openlocfilehash: a0008f7a2d6b808a8ff55d85330801305361d7c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255428"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82185963"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configurer des clusters Kubernetes hybrides avec Azure Monitor pour les conteneurs
 
 Azure Monitor pour les conteneurs offre une expérience d’analyse riche pour Azure Kubernetes Service (AKS) et [Moteur AKS sur Azure](https://github.com/Azure/aks-engine), qui est un cluster Kubernetes automanagé hébergé sur Azure. Cet article explique comment activer la surveillance des clusters Kubernetes hébergés en dehors d’Azure et obtenir une expérience de surveillance similaire.
+
+## <a name="supported-configurations"></a>Configurations prises en charge
+
+Les éléments suivants sont officiellement pris en charge avec Azure Monitor pour les conteneurs.
+
+* Environnements : 
+
+    * Kubernetes en local
+    
+    * Moteur AKS sur Azure et Azure Stack. Pour plus d’informations, consultez [Moteur AKS sur Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)
+    
+    * [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4 et ultérieure, localement ou dans d’autres environnements cloud.
+
+* Les versions de Kubernetes et de la stratégie de support sont les mêmes que celles [prises en charge par AKS](../../aks/supported-kubernetes-versions.md).
+
+* Runtime de conteneurs : Docker, Moby et les runtimes compatibles CRI tels que CRI-O et ContainerD.
+
+* Version du système d’exploitation Linux pour le nœud principal et les nœuds de travail : Ubuntu (18.04 LTS et 16.04 LTS) et Red Hat Enterprise Linux CoreOS 43.81.
+
+* Contrôle d’accès pris en charge : Kubernetes RBAC et non RBAC
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -33,28 +53,17 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 * Les informations de configuration du proxy et du pare-feu suivantes sont requises pour permettre à la version de l’agent Log Analytics pour Linux de communiquer avec Azure Monitor :
 
     |Ressource de l'agent|Ports |
-    |------|---------|   
-    |*.ods.opinsights.azure.com |Port 443 |  
-    |*.oms.opinsights.azure.com |Port 443 |  
-    |*.blob.core.windows.net |Port 443 |  
+    |------|---------|
+    |*.ods.opinsights.azure.com |Port 443 |
+    |*.oms.opinsights.azure.com |Port 443 |
     |*.dc.services.visualstudio.com |Port 443 |
 
-* L’agent en conteneur requiert l’ouverture de `cAdvisor secure port: 10250` ou `unsecure port :10255` de Kubelet sur tous les nœuds du cluster pour collecter les mesures de performance. Nous vous recommandons de configurer `secure port: 10250` sur le cAdvisor de Kubelet s’il n’est pas déjà configuré.
+* L’agent en conteneur requiert l’ouverture de `cAdvisor secure port: 10250` ou `unsecure port :10255` du kubelet sur tous les nœuds du cluster pour collecter les mesures de performance. Nous vous recommandons de configurer `secure port: 10250` sur le cAdvisor du kubelet s’il n’est pas déjà configuré.
 
 * L’agent en conteneur requiert que les variables d’environnement suivantes soient spécifiées sur le conteneur pour pouvoir communiquer avec le service d’API Kubernetes au sein du cluster afin de collecter les données d’inventaire : `KUBERNETES_SERVICE_HOST` et `KUBERNETES_PORT_443_TCP_PORT`.
 
 >[!IMPORTANT]
 >La version minimale prise en charge de l’agent pour la surveillance des clusters Kubernetes hybrides est ciprod10182019.
-
-## <a name="supported-configurations"></a>Configurations prises en charge
-
-Les éléments suivants sont officiellement pris en charge avec Azure Monitor pour les conteneurs.
-
-- Environnements : Kubernetes local, Moteur AKS sur Azure et Azure Stack. Pour plus d’informations, consultez [Moteur AKS sur Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
-- Les versions de Kubernetes et de la stratégie de support sont les mêmes que celles [prises en charge par AKS](../../aks/supported-kubernetes-versions.md).
-- Runtime de conteneurs : Docker et Moby
-- Version du système d’exploitation Linux pour le nœud principal et les nœuds de travail : Ubuntu (18.04 LTS et 16.04 LTS)
-- Contrôle d’accès pris en charge : Kubernetes RBAC et non RBAC
 
 ## <a name="enable-monitoring"></a>Activer la supervision
 
@@ -107,7 +116,7 @@ Pour identifier l’ID de ressource complet de votre espace de travail Log Analy
 
 3. L’exemple suivant affiche la liste des espaces de travail de vos abonnements au format JSON par défaut.
 
-    ```
+    ```azurecli
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
@@ -241,6 +250,9 @@ Pour identifier l’ID de ressource complet de votre espace de travail Log Analy
 
 ## <a name="install-the-chart"></a>Installer le graphique
 
+>[!NOTE]
+>Les commandes suivantes s’appliquent uniquement à Helm version 2. L’utilisation du paramètre `--name` n’est pas applicable avec Helm version 3.
+
 Pour activer le graphique HELM, procédez comme suit :
 
 1. Ajoutez le référentiel de graphiques Azure à votre liste locale en exécutant la commande suivante :
@@ -269,6 +281,28 @@ Pour activer le graphique HELM, procédez comme suit :
     $ helm install --name myrelease-1 \
     --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
     ```
+
+### <a name="enable-the-helm-chart-using-the-api-model"></a>Activer le chart Helm à l’aide du modèle d’API
+
+Vous pouvez spécifier un module complémentaire dans le fichier JSON de spécification de cluster du moteur AKS, également appelé modèle d’API. Dans ce module complémentaire, fournissez la version encodée en base64 de `WorkspaceGUID` et `WorkspaceKey` de l’espace de travail Log Analytics dans lequel sont stockées les données d’analyse collectées.
+
+Les définitions d’API prises en charge pour le cluster Azure Stack Hub sont fournies dans cet exemple : [kubernetes-container-monitoring_existing_workspace_id_and_key.json](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). Recherchez en particulier la propriété **addons** dans **kubernetesConfig** :
+
+```json
+"orchestratorType": "Kubernetes",
+       "kubernetesConfig": {
+         "addons": [
+           {
+             "name": "container-monitoring",
+             "enabled": true,
+             "config": {
+               "workspaceGuid": "<Azure Log Analytics Workspace Guid in Base-64 encoded>",
+               "workspaceKey": "<Azure Log Analytics Workspace Key in Base-64 encoded>"
+             }
+           }
+         ]
+       }
+```
 
 ## <a name="configure-agent-data-collection"></a>Configurer la collecte de données de l’agent
 

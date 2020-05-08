@@ -180,6 +180,9 @@
     - name: Azure NetApp Files
       tocHref: /azure/azure-netapp-files/
       topicHref: /azure/azure-netapp-files/
+    - name: Azure VMware Solution
+      tocHref: /azure/azure-vmware/
+      topicHref: /azure/azure-vmware/
     - name: Azure VMware Solution by CloudSimple
       tocHref: /azure/vmware-cloudsimple/
       topicHref: /azure/vmware-cloudsimple/
@@ -599,7 +602,7 @@
         - name: Event Hubs
           tocHref: /azure/event-hubs/
           topicHref: /azure/event-hubs/
-        - name: Messagerie Service Bus
+        - name: "Messagerie Service Bus\_"
           tocHref: /azure/service-bus-messaging/
           topicHref: /azure/service-bus-messaging/
         - name: Service Bus Relay
