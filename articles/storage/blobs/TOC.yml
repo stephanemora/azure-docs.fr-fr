@@ -90,7 +90,7 @@
             - name: 1 - Rendre votre application hautement disponible
               href: storage-create-geo-redundant-storage.md
             - name: 2 - Simuler une défaillance lors de la lecture de données à partir de la région primaire
-              href: storage-simulate-failure-ragrs-account-app.md
+              href: simulate-primary-region-failure.md
         - name: Chiffrer et déchiffrer des objets Blob à l’aide d’Azure Key Vault
           href: storage-encrypt-decrypt-blobs-key-vault.md
     - name: Exemples
@@ -107,6 +107,9 @@
           href: storage-samples-blobs-powershell.md
         - name: Azure CLI
           href: storage-samples-blobs-cli.md
+        - name: Éléments intégrés Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: ../common/policy-samples.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Concepts
       items:
         - name: Comptes de stockage
@@ -146,13 +149,17 @@
             - name: Utiliser des points de terminaison privés Azure
               href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Redondance des données
+          href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Protection de données
           items:
-            - name: Redondance des données
-              href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Reprise d’activité après sinistre et basculement
-              href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Concevoir des applications hautement disponibles
-              href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Contrôle de version
+              href: versioning-overview.md
+            - name: Suppression réversible
+              href: soft-delete-overview.md
+            - name: Instantanés
+              href: snapshots-overview.md
+            - name: Modifier le flux
+              href: storage-blob-change-feed.md
         - name: Niveaux d’accès et de performances
           items:
             - name: Niveaux d’accès
@@ -163,6 +170,8 @@
               href: storage-blob-performance-tiers.md
             - name: Gérer le cycle de vie du Stockage Blob Azure
               href: storage-lifecycle-management-concepts.md
+        - name: Reprise d’activité après sinistre et basculement
+          href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Optimisation des performances, de la mise à l’échelle et des coûts'
           items:
             - name: Liste de contrôle des performances et de l’évolutivité
@@ -247,8 +256,6 @@
                   href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Gestion des événements
           href: storage-blob-event-overview.md
-        - name: Modifier le flux
-          href: storage-blob-change-feed.md
         - name: Fonctionnalités d’objet blob de pages
           href: storage-blob-pageblob-overview.md
         - name: Sites web statiques
@@ -282,8 +289,6 @@
               href: storage-blob-properties-metadata.md
             - name: Copier un objet blob (.NET)
               href: storage-blob-copy.md
-            - name: Créer et gérer des instantanés d’objet blob (.NET)
-              href: storage-blob-snapshots.md
         - name: Sécuriser les données d’objets blob
           items:
             - name: Autoriser l’accès aux données d’objets blob
@@ -370,16 +375,28 @@
                   href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Définir et gérer des stratégies d’immuabilité
               href: storage-blob-immutability-policies-manage.md
-        - name: Changer le mode de réplication des données
-          href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Récupération d'urgence
+        - name: Gérer la redondance des données
+          items:
+            - name: Changer le mode de réplication des données
+              href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Concevoir des applications hautement disponibles
+              href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Protéger vos données
+          items:
+            - name: Activer la gestion des versions des objets blob
+              href: versioning-enable.md
+            - name: Activer la suppression réversible
+              href: soft-delete-enable.md
+            - name: Créer des instantanés (.NET)
+              href: snapshots-manage-dotnet.md
+            - name: Traiter les journaux de flux de modification
+              href: storage-blob-change-feed-how-to.md
+        - name: Gérer la reprise d’activité après sinistre
           items:
             - name: Vérifier la propriété Heure de la dernière synchronisation
               href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Initier un basculement de compte
               href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Récupérer des objets blob supprimées
-              href: storage-blob-soft-delete.md
         - name: Utiliser un émulateur de stockage
           items:
             - name: Utiliser l’émulateur open source Azurite
@@ -398,8 +415,6 @@
           href: storage-blob-event-quickstart.md
         - name: Utiliser l’index Blob
           href: storage-blob-index-how-to.md
-        - name: Traiter les journaux de flux de modification
-          href: storage-blob-change-feed-how-to.md
         - name: Transfert de données
           items:
             - name: AzCopy
@@ -639,6 +654,11 @@
           href: data-lake-storage-tutorial-extract-transform-load-hive.md
         - name: Insérer des données dans des tables Databricks Delta à l’aide d’Event Grid
           href: data-lake-storage-events.md
+    - name: Exemples
+      items:
+        - name: Éléments intégrés Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: ../common/policy-samples.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Concepts
       items:
         - name: traitement du Big Data
