@@ -1,19 +1,19 @@
 ---
-title: Guide de publication technique de l’application SaaS Place de marché Microsoft Azure
+title: Guide de publication d’applications SaaS sur la Place de marché Microsoft Azure
 description: Guide étape par étape et listes de contrôle de publication pour la publication des applications SaaS sur la Place de marché Azure
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-author: keithcharlie
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/09/2018
-ms.author: kevidal
-ms.openlocfilehash: 641297ea74a08dea163cf768b8e9b245348824a4
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/23/2020
+ms.author: dsindona
+ms.openlocfilehash: 3a3cbe26b9fa82e236acbfd0c7e8ca3e81a7aa75
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80544279"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82117231"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guide de publication de l’offre des applications SaaS
 
@@ -21,19 +21,14 @@ Vous pouvez publier des applications SaaS sur la Place de marché de trois faç
 
 ## <a name="offer-overview"></a>Vue d’ensemble de l’offre  
 
-Des applications SaaS sont disponibles dans les deux vitrines Azure. Le tableau suivant décrit les options actuellement disponibles :
-
-| Option de vitrine | Énumération | Essai/Transaction |  
-| --- | --- | --- |  
-| AppSource | Oui | Oui |
-| Place de marché Azure | Non | Oui |   
+Des applications SaaS sont disponibles dans Microsoft AppSource et sur la Place de marché Azure.  Ces deux vitrines prennent en charge les offres de type Liste, Essai et Transaction.
 
 **Liste** :  l’option de publication Liste consiste en une offre de type Me contacter, et est utilisée quand une participation de niveau Essai ou Transaction n’est pas possible. L’avantage de cette méthode est qu’elle permet aux éditeurs commercialisant une solution de commencer immédiatement à recevoir des prospects convertibles en transactions pour développer leur activité.  
 **Essai/Transaction :**  le client a la possibilité d’acheter directement votre solution ou de demander un essai gratuit pour celle-ci. Proposer une version d’évaluation augmente le niveau d’engagement des clients en leur permettant de découvrir votre solution avant de l’acheter. Avec une expérience d’évaluation, vous augmentez vos chances d’être mieux référencé dans les vitrines, et donc d’obtenir des prospects en plus grand nombre et plus intéressants. Les versions d’essai doivent fournir un support gratuit, au moins pendant la période d’évaluation.  
 
 | Offre d’applications SaaS | Exigences commerciales | Exigences techniques |  
 | --- | --- | --- |  
-| **Nous contacter** | Oui | Non |  
+| **Nous contacter** | Oui | Non  |  
 | **Power BI / Dynamics** | Oui | Oui (Intégration Azure AD) |  
 | **Applications SaaS**| Oui | Oui (Intégration Azure AD) |     
 
@@ -110,8 +105,8 @@ Certifiez votre intégration avec Azure AD de différentes manières, selon que 
 **Pour les applications mutualisées :**  
 
 Si vous prenez déjà en charge Azure AD, procédez comme suit :
-1.  Inscrivez votre application dans le portail Azure
-2.  Activez la fonctionnalité de prise en charge mutualisée dans Azure AD pour bénéficier de l’expérience d’essai en un clic. Des informations plus spécifiques sont accessibles [ici](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
+1.    Inscrivez votre application dans le portail Azure
+2.    Activez la fonctionnalité de prise en charge mutualisée dans Azure AD pour bénéficier de l’expérience d’essai en un clic. Des informations plus spécifiques sont accessibles [ici](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
 
 Si vous découvrez l’authentification unique fédérée Azure AD, procédez comme suit : 
 1.  Inscrivez votre application dans le portail Azure
@@ -144,9 +139,9 @@ Microsoft héberge la transaction commerciale. Microsoft facture votre client po
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous ne l’avez pas déjà fait,
 
-- [Inscrivez-vous](https://azuremarketplace.microsoft.com/sell) sur la place de marché.
+* [En savoir plus](https://azuremarketplace.microsoft.com/sell) sur la place de marché.
 
-Si vous êtes inscrit et créez une nouvelle offre ou travaillez sur une offre existante,
+Pour vous inscrire dans l’Espace partenaires, commencez à créer une offre ou à en utiliser une existante :
 
-- [Connectez-vous au portail Cloud Partner](https://cloudpartner.azure.com) pour créer ou terminer votre offre.
-- Pour plus d’informations, consultez [Offre d’application Azure SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer).
+* [Connectez-vous à Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) pour créer ou terminer votre offre.
+* Pour plus d’informations, consultez [Créer une offre d’application SaaS](./partner-center-portal/create-new-saas-offer.md).

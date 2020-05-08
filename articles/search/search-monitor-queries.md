@@ -1,23 +1,23 @@
 ---
 title: Surveiller les requêtes
 titleSuffix: Azure Cognitive Search
-description: Surveillez les performances et le volume des requêtes à l'aide des métriques. Collectez et analysez les entrées des chaînes de requêtes dans les journaux de diagnostic.
+description: Surveillez les performances et le volume des requêtes à l'aide des métriques. Collectez et analysez les entrées des chaînes de requêtes dans les journaux de ressources.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: a3a313ef9cd74ba901f5a6a2d82a18e3c21145dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: da7a47bf61453c30f5c735b1282ae93d2442598c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462517"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82127692"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Surveiller les demandes de requête dans Recherche cognitive Azure
 
-Cet article explique comment mesurer les performances et le volume des requêtes à l'aide des métriques et de la journalisation des diagnostics. Il explique également comment collecter les termes d'entrée utilisés dans les requêtes - informations nécessaires à l'évaluation de l'utilité et de l'efficacité de votre corpus de recherche.
+Cet article explique comment mesurer les performances et le volume des requêtes à l’aide des métriques et de la journalisation des ressources. Il explique également comment collecter les termes d'entrée utilisés dans les requêtes - informations nécessaires à l'évaluation de l'utilité et de l'efficacité de votre corpus de recherche.
 
 Les données historiques qui alimentent les métriques sont conservées pendant 30 jours. Pour une conservation plus longue, ou pour générer des rapports sur les données opérationnelles et les chaînes de requêtes, activez un [paramètre de diagnostic](search-monitor-logs.md) spécifiant l'option de stockage relative aux métriques et événements consignés persistants.
 
@@ -118,7 +118,7 @@ Pour une exploration plus approfondie, ouvrez Metrics Explorer à partir du menu
 
 ## <a name="identify-strings-used-in-queries"></a>Identifier les chaînes utilisées dans les requêtes
 
-Lorsque vous activez la journalisation des diagnostics, le système capture les demandes de requête dans la table **AzureDiagnostics**. Comme condition préalable, vous devez avoir déjà activé la [journalisation des diagnostics](search-monitor-logs.md), en spécifiant un espace de travail d'analytique des journaux d'activité ou une autre option de stockage.
+Quand vous activez la journalisation des ressources, le système capture les demandes de requête dans la table **AzureDiagnostics**. Comme prérequis, vous devez avoir déjà activé la [journalisation des ressources](search-monitor-logs.md), en spécifiant un espace de travail d’analytique des journaux ou une autre option de stockage.
 
 1. Dans la section Surveillance, sélectionnez **Journaux** afin d'ouvrir une fenêtre de requête vide dans Log Analytics.
 
