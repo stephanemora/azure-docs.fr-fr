@@ -11,13 +11,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.custom: seodec18
-ms.openlocfilehash: beefad41a270233336bb9134268c98341e81a7cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, has-adal-ref
+ms.openlocfilehash: bf959a7ac8c1038c4306a45ba4519374c5d85f29
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380809"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612280"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Authentification et autorisation pour l’API Insights Azure Time Series
 
@@ -93,7 +93,7 @@ Comme indiqué à l'**étape 3**, séparer les informations d'identification de
 
    1. Le jeton peut ensuite être passé dans l’en-tête `Authorization` lorsque l’application appelle l’API Insights Azure Time Series.
 
-* Les développeurs peuvent également choisir de s’authentifier à l’aide de la bibliothèque MSAL. Pour en savoir plus, lisez notre rubrique sur la [migration vers MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) et consultez notre article [Gérer des données de référence pour un environnement Azure Time Series Insights en C#](time-series-insights-manage-reference-data-csharp.md). 
+* Les développeurs peuvent également choisir de s’authentifier à l’aide de la bibliothèque MSAL. Pour en savoir plus, lisez notre rubrique sur la [migration vers MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) et consultez notre article [Gérer des données de référence pour un environnement Azure Time Series Insights en C#](time-series-insights-manage-reference-data-csharp.md).
 
 ## <a name="common-headers-and-parameters"></a>Paramètres et en-têtes communs
 
@@ -104,7 +104,7 @@ Cette section décrit les en-têtes de requête HTTP et les paramètres qui son
 
 ### <a name="authentication"></a>Authentication
 
-Pour exécuter des requêtes authentifiées sur les [API REST Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), un jeton de porteur OAuth 2.0 valide doit être passé dans l’[en-tête d’autorisation](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) à l’aide du client REST de votre choix (Postman, JavaScript, C#). 
+Pour exécuter des requêtes authentifiées sur les [API REST Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), un jeton de porteur OAuth 2.0 valide doit être passé dans l’[en-tête d’autorisation](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) à l’aide du client REST de votre choix (Postman, JavaScript, C#).
 
 > [!TIP]
 > Pour savoir comment s’authentifier par programmation auprès des API Time Series Insights à l’aide du [Kit de développement logiciel (SDK) JavaScript Client](https://tsiclientsample.azurewebsites.net/), lisez l’[exemple de visualisation hébergé du Kit de développement logiciel (SDK) client](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) Azure Time Series Insights ainsi que des graphes et autres graphiques.
@@ -115,7 +115,7 @@ Les en-têtes de requête obligatoires sont décrits ci-dessous.
 
 | En-tête de requête obligatoire | Description |
 | --- | --- |
-| Autorisation | Pour s’authentifier auprès d’Azure Time Series Insights, un jeton de porteur OAuth 2.0 valide doit être passé dans l’en-tête d’**autorisation**. | 
+| Autorisation | Pour s’authentifier auprès d’Azure Time Series Insights, un jeton de porteur OAuth 2.0 valide doit être passé dans l’en-tête d’**autorisation**. |
 
 > [!IMPORTANT]
 > Le jeton doit être émis exactement vers la ressource `https://api.timeseries.azure.com/` (également appelée « audience » du jeton).
