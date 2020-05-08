@@ -3,12 +3,12 @@ title: Prise en charge des opérations de déplacement par type de ressource
 description: Liste les types de ressources Azure qui peuvent être déplacés vers un nouveau groupe de ressources ou un nouvel abonnement.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 90fbec4dc076feb1fee8c38cf9757d3c5ddbafaf
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: a92da04f5b883661d53fd291dc72351a1c4eafb1
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804790"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610834"
 ---
 # <a name="move-operation-support-for-resources"></a>Prise en charge de l’opération de déplacement pour les ressources
 Cet article indique si un type de ressource Azure donné prend en charge l’opération de déplacement. Il fournit également des informations sur les conditions spéciales à prendre en compte lors du déplacement d’une ressource.
@@ -187,23 +187,23 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | domainservices | Non | Non |
+> | domainservices | Non  | Non  |
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | tenants | Non | Non |
+> | tenants | Non  | Non  |
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | configurations | Non | Non |
-> | de films | Non | Non |
-> | suppressions | Non | Non |
+> | configurations | Non  | Non  |
+> | de films | Non  | Non  |
+> | suppressions | Non  | Non  |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
@@ -211,8 +211,8 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
 > | actionrules | Oui | Oui |
-> | alertes | Non | Non |
-> | alertssummary | Non | Non |
+> | alertes | Non  | Non  |
+> | alertssummary | Non  | Non  |
 > | smartdetectoralertrules | Oui | Oui |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
@@ -251,9 +251,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | apiapps | Non | Non |
-> | appidentities | Non | Non |
-> | gateways | Non | Non |
+> | apiapps | Non  | Non  |
+> | appidentities | Non  | Non  |
+> | gateways | Non  | Non  |
 
 > [!IMPORTANT]
 > Consultez les [Conseils de déplacement d’App Service](./move-limitations/app-service-move-limitations.md).
@@ -263,17 +263,17 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | checkaccess | Non | Non |
-> | denyassignments | Non | Non |
-> | findorphanroleassignments | Non | Non |
-> | locks | Non | Non |
-> | autorisations | Non | Non |
-> | policyassignments | Non | Non |
-> | policydefinitions | Non | Non |
-> | policysetdefinitions | Non | Non |
-> | roleassignments | Non | Non |
-> | roleassignmentsusagemetrics | Non | Non |
-> | roledefinitions | Non | Non |
+> | checkaccess | Non  | Non  |
+> | denyassignments | Non  | Non  |
+> | findorphanroleassignments | Non  | Non  |
+> | locks | Non  | Non  |
+> | autorisations | Non  | Non  |
+> | policyassignments | Non  | Non  |
+> | policydefinitions | Non  | Non  |
+> | policysetdefinitions | Non  | Non  |
+> | roleassignments | Non  | Non  |
+> | roleassignmentsusagemetrics | Non  | Non  |
+> | roledefinitions | Non  | Non  |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -299,9 +299,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | hybriddatamanagers | Non | Non |
-> | postgresinstances | Non | Non |
-> | sqlinstances | Non | Non |
+> | hybriddatamanagers | Non  | Non  |
+> | postgresinstances | Non  | Non  |
+> | sqlinstances | Non  | Non  |
 > | sqlserverregistrations | Oui | Oui |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
@@ -323,59 +323,59 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | clusters | Non | Non |
-> | fileservers | Non | Non |
-> | jobs | Non | Non |
-> | workspaces | Non | Non |
+> | clusters | Non  | Non  |
+> | fileservers | Non  | Non  |
+> | jobs | Non  | Non  |
+> | workspaces | Non  | Non  |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | billingperiods | Non | Non |
-> | billingpermissions | Non | Non |
-> | billingroleassignments | Non | Non |
-> | billingroledefinitions | Non | Non |
-> | createbillingroleassignment | Non | Non |
+> | billingperiods | Non  | Non  |
+> | billingpermissions | Non  | Non  |
+> | billingroleassignments | Non  | Non  |
+> | billingroledefinitions | Non  | Non  |
+> | createbillingroleassignment | Non  | Non  |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | mapapis | Non | Non |
+> | mapapis | Non  | Non  |
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | biztalk | Non | Non |
+> | biztalk | Non  | Non  |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | blockchainmembers | Non | Non |
-> | cordamembers | Non | Non |
-> | watchers | Non | Non |
+> | blockchainmembers | Non  | Non  |
+> | cordamembers | Non  | Non  |
+> | watchers | Non  | Non  |
 
 ## <a name="microsoftblockchaintokens"></a>Microsoft.BlockchainTokens
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | tokenservices | Non | Non |
+> | tokenservices | Non  | Non  |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | blueprintassignments | Non | Non |
-> | blueprints | Non | Non |
+> | blueprintassignments | Non  | Non  |
+> | blueprints | Non  | Non  |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
@@ -418,8 +418,8 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | domainnames | Oui | Non |
-> | virtualmachines | Oui | Non |
+> | domainnames | Oui | Non  |
+> | virtualmachines | Oui | Non  |
 
 > [!IMPORTANT]
 > Consultez les [Conseils de déplacement de déploiement classique](./move-limitations/classic-model-move-limitations.md). Les ressources de déploiement classiques peuvent être déplacées entre abonnements avec une opération spécifique à ce scénario.
@@ -429,9 +429,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | networksecuritygroups | Non | Non |
-> | reservedips | Non | Non |
-> | virtualnetworks | Non | Non |
+> | networksecuritygroups | Non  | Non  |
+> | reservedips | Non  | Non  |
+> | virtualnetworks | Non  | Non  |
 
 > [!IMPORTANT]
 > Consultez les [Conseils de déplacement de déploiement classique](./move-limitations/classic-model-move-limitations.md). Les ressources de déploiement classiques peuvent être déplacées entre abonnements avec une opération spécifique à ce scénario.
@@ -441,7 +441,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | storageaccounts | Oui | Non |
+> | storageaccounts | Oui | Non  |
 
 > [!IMPORTANT]
 > Consultez les [Conseils de déplacement de déploiement classique](./move-limitations/classic-model-move-limitations.md). Les ressources de déploiement classiques peuvent être déplacées entre abonnements avec une opération spécifique à ce scénario.
@@ -451,7 +451,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | syntheticsaccounts | Non | Non |
+> | syntheticsaccounts | Non  | Non  |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
@@ -466,21 +466,21 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
 > | availabilitysets | Oui | Oui |
-> | diskencryptionsets | Non | Non |
+> | diskencryptionsets | Non  | Non  |
 > | disks | Oui | Oui |
-> | galleries | Non | Non |
-> | galleries / images | Non | Non |
-> | galleries / images / versions | Non | Non |
-> | hostgroups | Non | Non |
-> | hostgroups / hosts | Non | Non |
+> | galleries | Non  | Non  |
+> | galleries / images | Non  | Non  |
+> | galleries / images / versions | Non  | Non  |
+> | hostgroups | Non  | Non  |
+> | hostgroups / hosts | Non  | Non  |
 > | images | Oui | Oui |
 > | proximityplacementgroups | Oui | Oui |
-> | restorepointcollections | Non | Non |
-> | sharedvmextensions | Non | Non |
-> | sharedvmimages | Non | Non |
-> | sharedvmimages / versions | Non | Non |
+> | restorepointcollections | Non  | Non  |
+> | sharedvmextensions | Non  | Non  |
+> | sharedvmimages | Non  | Non  |
+> | sharedvmimages / versions | Non  | Non  |
 > | snapshots | Oui | Oui |
-> | sshpublickeys | Non | Non |
+> | sshpublickeys | Non  | Non  |
 > | virtualmachines | Oui | Oui |
 > | virtualmachines / extensions | Oui | Oui |
 > | virtualmachinescalesets | Oui | Oui |
@@ -493,43 +493,43 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | aggregatedcost | Non | Non |
-> | balances | Non | Non |
-> | budgets | Non | Non |
-> | charges | Non | Non |
-> | costtags | Non | Non |
-> | credits | Non | Non |
-> | événements | Non | Non |
-> | forecasts | Non | Non |
-> | lots | Non | Non |
-> | marketplaces | Non | Non |
-> | operationresults | Non | Non |
-> | operationstatus | Non | Non |
-> | pricesheets | Non | Non |
-> | products | Non | Non |
-> | reservationdetails | Non | Non |
-> | reservationrecommendations | Non | Non |
-> | reservationsummaries | Non | Non |
-> | reservationtransactions | Non | Non |
-> | tags | Non | Non |
-> | tenants | Non | Non |
-> | terms | Non | Non |
-> | usagedetails | Non | Non |
+> | aggregatedcost | Non  | Non  |
+> | balances | Non  | Non  |
+> | budgets | Non  | Non  |
+> | charges | Non  | Non  |
+> | costtags | Non  | Non  |
+> | credits | Non  | Non  |
+> | événements | Non  | Non  |
+> | forecasts | Non  | Non  |
+> | lots | Non  | Non  |
+> | marketplaces | Non  | Non  |
+> | operationresults | Non  | Non  |
+> | operationstatus | Non  | Non  |
+> | pricesheets | Non  | Non  |
+> | products | Non  | Non  |
+> | reservationdetails | Non  | Non  |
+> | reservationrecommendations | Non  | Non  |
+> | reservationsummaries | Non  | Non  |
+> | reservationtransactions | Non  | Non  |
+> | tags | Non  | Non  |
+> | tenants | Non  | Non  |
+> | terms | Non  | Non  |
+> | usagedetails | Non  | Non  |
 
 ## <a name="microsoftcontainer"></a>Microsoft.Container
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | containergroups | Non | Non |
+> | containergroups | Non  | Non  |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | containergroups | Non | Non |
-> | serviceassociationlinks | Non | Non |
+> | containergroups | Non  | Non  |
+> | serviceassociationlinks | Non  | Non  |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
@@ -537,7 +537,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
 > | registries | Oui | Oui |
-> | registries / agentpools | Non | Non |
+> | registries / agentpools | Non  | Non  |
 > | registries / buildtasks | Oui | Oui |
 > | registries / replications | Oui | Oui |
 > | registries / taskruns | Oui | Oui |
@@ -549,55 +549,55 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | containerservices | Non | Non |
-> | managedclusters | Non | Non |
-> | openshiftmanagedclusters | Non | Non |
+> | containerservices | Non  | Non  |
+> | managedclusters | Non  | Non  |
+> | openshiftmanagedclusters | Non  | Non  |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | applications | Non | Non |
+> | applications | Non  | Non  |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | accounts | Non | Non |
+> | accounts | Non  | Non  |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | alertes | Non | Non |
-> | budgets | Non | Non |
+> | alertes | Non  | Non  |
+> | budgets | Non  | Non  |
 > | connecteurs | Oui | Oui |
-> | dimensions | Non | Non |
-> | exports | Non | Non |
-> | externalsubscriptions | Non | Non |
-> | forecast | Non | Non |
-> | query | Non | Non |
-> | reportconfigs | Non | Non |
-> | reports | Non | Non |
-> | showbackrules | Non | Non |
-> | views | Non | Non |
+> | dimensions | Non  | Non  |
+> | exports | Non  | Non  |
+> | externalsubscriptions | Non  | Non  |
+> | forecast | Non  | Non  |
+> | query | Non  | Non  |
+> | reportconfigs | Non  | Non  |
+> | reports | Non  | Non  |
+> | showbackrules | Non  | Non  |
+> | views | Non  | Non  |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | hubs | Non | Non |
+> | hubs | Non  | Non  |
 
 ## <a name="microsoftcustomproviders"></a>Microsoft.CustomProviders
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | associations | Non | Non |
+> | associations | Non  | Non  |
 > | resourceproviders | Oui | Oui |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
@@ -605,21 +605,21 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | jobs | Non | Non |
+> | jobs | Non  | Non  |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | databoxedgedevices | Non | Non |
+> | databoxedgedevices | Non  | Non  |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | workspaces | Non | Non |
+> | workspaces | Non  | Non  |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 
@@ -627,22 +627,22 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
 > | catalogs | Oui | Oui |
-> | datacatalogs | Non | Non |
+> | datacatalogs | Non  | Non  |
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | connectionmanagers | Non | Non |
+> | connectionmanagers | Non  | Non  |
 
 ## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | packages | Non | Non |
-> | plans | Non | Non |
+> | packages | Non  | Non  |
+> | plans | Non  | Non  |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -657,7 +657,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | datalakeaccounts | Non | Non |
+> | datalakeaccounts | Non  | Non  |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
@@ -678,16 +678,16 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | services | Non | Non |
-> | services / projects | Non | Non |
-> | slots | Non | Non |
+> | services | Non  | Non  |
+> | services / projects | Non  | Non  |
+> | slots | Non  | Non  |
 
 ## <a name="microsoftdataprotection"></a>Microsoft.DataProtection
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | backupvaults | Non | Non |
+> | backupvaults | Non  | Non  |
 
 ## <a name="microsoftdatashare"></a>Microsoft.DataShare
 
@@ -715,7 +715,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | servergroups | Non | Non |
+> | servergroups | Non  | Non  |
 > | servers | Oui | Oui |
 > | serversv2 | Oui | Oui |
 > | singleservers | Oui | Oui |
@@ -737,17 +737,17 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | applicationgroups | Non | Non |
-> | hostpools | Non | Non |
-> | workspaces | Non | Non |
+> | applicationgroups | Non  | Non  |
+> | hostpools | Non  | Non  |
+> | workspaces | Non  | Non  |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | elasticpools | Non | Non |
-> | elasticpools / iothubtenants | Non | Non |
+> | elasticpools | Non  | Non  |
+> | elasticpools / iothubtenants | Non  | Non  |
 > | iothubs | Oui | Oui |
 > | provisioningservices | Oui | Oui |
 
@@ -770,11 +770,11 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | labcenters | Non | Non |
-> | labs | Oui | Non |
+> | labcenters | Non  | Non  |
+> | labs | Oui | Non  |
 > | labs / environments | Oui | Oui |
 > | labs / servicerunners | Oui | Oui |
-> | labs / virtualmachines | Oui | Non |
+> | labs / virtualmachines | Oui | Non  |
 > | schedules | Oui | Oui |
 
 ## <a name="microsoftdigitaltwins"></a>Microsoft.DigitalTwins
@@ -782,7 +782,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | digitaltwinsinstances | Non | Non |
+> | digitaltwinsinstances | Non  | Non  |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
@@ -813,9 +813,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | domaines | Oui | Oui |
 > | eventSubscriptions | Non (non déplaçable indépendamment, mais déplacé automatiquement avec la ressource abonnée) | Non (non déplaçable indépendamment, mais déplacé automatiquement avec la ressource abonnée) |
 > | eventsubscriptions | Non (non déplaçable indépendamment, mais déplacé automatiquement avec la ressource abonnée) | Non (non déplaçable indépendamment, mais déplacé automatiquement avec la ressource abonnée) |
-> | extensiontopics | Non | Non |
+> | extensiontopics | Non  | Non  |
 > | partnernamespaces | Oui | Oui |
-> | partnerregistrations | Non | Non |
+> | partnerregistrations | Non  | Non  |
 > | partnertopics | Oui | Oui |
 > | systemtopics | Oui | Oui |
 > | topics | Oui | Oui |
@@ -833,7 +833,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | experimentworkspaces | Non | Non |
+> | experimentworkspaces | Non  | Non  |
 
 ## <a name="microsoftfalcon"></a>Microsoft.Falcon
 
@@ -847,26 +847,26 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | accounts | Non | Non |
+> | accounts | Non  | Non  |
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | automanagedaccounts | Non | Non |
-> | automanagedvmconfigurationprofiles | Non | Non |
-> | guestconfigurationassignments | Non | Non |
-> | software | Non | Non |
-> | softwareupdateprofile | Non | Non |
-> | softwareupdates | Non | Non |
+> | automanagedaccounts | Non  | Non  |
+> | automanagedvmconfigurationprofiles | Non  | Non  |
+> | guestconfigurationassignments | Non  | Non  |
+> | software | Non  | Non  |
+> | softwareupdateprofile | Non  | Non  |
+> | softwareupdates | Non  | Non  |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | hanainstances | Non | Non |
+> | hanainstances | Non  | Non  |
 > | sapmonitors | Oui | Oui |
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
@@ -894,7 +894,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
 > | machines | Oui | Oui |
-> | machines / extensions | Non | Non |
+> | machines / extensions | Non  | Non  |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 
@@ -908,8 +908,8 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | components | Non | Non |
-> | networkscopes | Non | Non |
+> | components | Non  | Non  |
+> | networkscopes | Non  | Non  |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
@@ -924,32 +924,32 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
 > | actiongroups | Oui | Oui |
-> | activitylogalerts | Non | Non |
+> | activitylogalerts | Non  | Non  |
 > | alertrules | Oui | Oui |
 > | autoscalesettings | Oui | Oui |
-> | baseline | Non | Non |
-> | calculatebaseline | Non | Non |
+> | baseline | Non  | Non  |
+> | calculatebaseline | Non  | Non  |
 > | components | Oui | Oui |
-> | datacollectionrules | Non | Non |
-> | diagnosticsettings | Non | Non |
-> | diagnosticsettingscategories | Non | Non |
-> | eventtypes | Non | Non |
-> | extendeddiagnosticsettings | Non | Non |
-> | guestdiagnosticsettings | Non | Non |
-> | logdefinitions | Non | Non |
-> | logs | Non | Non |
-> | metricalerts | Non | Non |
-> | metricbaselines | Non | Non |
-> | metricdefinitions | Non | Non |
-> | metricnamespaces | Non | Non |
-> | Mesures | Non | Non |
-> | myworkbooks | Non | Non |
-> | notificationgroups | Non | Non |
+> | datacollectionrules | Non  | Non  |
+> | diagnosticsettings | Non  | Non  |
+> | diagnosticsettingscategories | Non  | Non  |
+> | eventtypes | Non  | Non  |
+> | extendeddiagnosticsettings | Non  | Non  |
+> | guestdiagnosticsettings | Non  | Non  |
+> | logdefinitions | Non  | Non  |
+> | logs | Non  | Non  |
+> | metricalerts | Non  | Non  |
+> | metricbaselines | Non  | Non  |
+> | metricdefinitions | Non  | Non  |
+> | metricnamespaces | Non  | Non  |
+> | Mesures | Non  | Non  |
+> | myworkbooks | Non  | Non  |
+> | notificationgroups | Non  | Non  |
 > | privatelinkscopes | Oui | Oui |
 > | scheduledqueryrules | Oui | Oui |
-> | Topologie | Non | Non |
-> | transactions | Non | Non |
-> | vminsightsonboardingstatuses | Non | Non |
+> | Topologie | Non  | Non  |
+> | transactions | Non  | Non  |
+> | vminsightsonboardingstatuses | Non  | Non  |
 > | webtests | Oui | Oui |
 > | workbooks | Oui | Oui |
 > | workbooktemplates | Oui | Oui |
@@ -977,7 +977,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | hsmpools | Non | Non |
+> | hsmpools | Non  | Non  |
 > | vaults | Oui | Oui |
 
 > [!IMPORTANT]
@@ -988,7 +988,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | connectedclusters | Non | Non |
+> | connectedclusters | Non  | Non  |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
@@ -1002,32 +1002,32 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | labaccounts | Non | Non |
+> | labaccounts | Non  | Non  |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | accounts | Non | Non |
+> | accounts | Non  | Non  |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | accounts | Non | Non |
+> | accounts | Non  | Non  |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | hostingenvironments | Non | Non |
+> | hostingenvironments | Non  | Non  |
 > | integrationaccounts | Oui | Oui |
-> | integrationserviceenvironments | Oui | Non |
-> | integrationserviceenvironments / managedapis | Oui | Non |
-> | isolatedenvironments | Non | Non |
+> | integrationserviceenvironments | Oui | Non  |
+> | integrationserviceenvironments / managedapis | Oui | Non  |
+> | isolatedenvironments | Non  | Non  |
 > | workflows | Oui | Oui |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
@@ -1035,8 +1035,8 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | commitmentplans | Non | Non |
-> | webservices | Oui | Non |
+> | commitmentplans | Non  | Non  |
+> | webservices | Oui | Non  |
 > | workspaces | Oui | Oui |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
@@ -1044,77 +1044,77 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | operationalizationclusters | Non | Non |
+> | operationalizationclusters | Non  | Non  |
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | accounts | Non | Non |
-> | accounts / workspaces | Non | Non |
-> | accounts / workspaces / projects | Non | Non |
-> | teamaccounts | Non | Non |
-> | teamaccounts / workspaces | Non | Non |
-> | teamaccounts / workspaces / projects | Non | Non |
+> | accounts | Non  | Non  |
+> | accounts / workspaces | Non  | Non  |
+> | accounts / workspaces / projects | Non  | Non  |
+> | teamaccounts | Non  | Non  |
+> | teamaccounts / workspaces | Non  | Non  |
+> | teamaccounts / workspaces / projects | Non  | Non  |
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | accounts | Non | Non |
+> | accounts | Non  | Non  |
 
 ## <a name="microsoftmachinelearningoperationalization"></a>Microsoft.MachineLearningOperationalization
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | hostingaccounts | Non | Non |
+> | hostingaccounts | Non  | Non  |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | workspaces | Non | Non |
-> | workspaces / computes | Non | Non |
+> | workspaces | Non  | Non  |
+> | workspaces / computes | Non  | Non  |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | applyupdates | Non | Non |
-> | configurationassignments | Non | Non |
+> | applyupdates | Non  | Non  |
+> | configurationassignments | Non  | Non  |
 > | maintenanceconfigurations | Oui | Oui |
-> | updates | Non | Non |
+> | updates | Non  | Non  |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | Identités | Non | Non |
-> | userassignedidentities | Non | Non |
+> | Identités | Non  | Non  |
+> | userassignedidentities | Non  | Non  |
 
 ## <a name="microsoftmanagednetwork"></a>Microsoft.ManagedNetwork
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | managednetworks | Non | Non |
-> | managednetworks / managednetworkgroups | Non | Non |
-> | managednetworks / managednetworkpeeringpolicies | Non | Non |
-> | notification | Non | Non |
+> | managednetworks | Non  | Non  |
+> | managednetworks / managednetworkgroups | Non  | Non  |
+> | managednetworks / managednetworkpeeringpolicies | Non  | Non  |
+> | notification | Non  | Non  |
 
 ## <a name="microsoftmanagedservices"></a>Microsoft.ManagedServices
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | registrationassignments | Non | Non |
-> | registrationdefinitions | Non | Non |
+> | registrationassignments | Non  | Non  |
+> | registrationdefinitions | Non  | Non  |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 
@@ -1129,7 +1129,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | classicdevservices | Non | Non |
+> | classicdevservices | Non  | Non  |
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
 
@@ -1145,7 +1145,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | appclusters | Non | Non |
+> | appclusters | Non  | Non  |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 
@@ -1154,40 +1154,40 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- | ---------- |
 > | assessmentprojects | Oui | Oui |
 > | migrateprojects | Oui | Oui |
-> | movecollections | Non | Non |
-> | projects | Non | Non |
+> | movecollections | Non  | Non  |
+> | projects | Non  | Non  |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | netappaccounts | Non | Non |
-> | netappaccounts / backuppolicies | Non | Non |
-> | netappaccounts / capacitypools | Non | Non |
-> | netappaccounts / capacitypools / volumes | Non | Non |
-> | netappaccounts / capacitypools / volumes / mounttargets | Non | Non |
-> | netappaccounts / capacitypools / volumes / snapshots | Non | Non |
+> | netappaccounts | Non  | Non  |
+> | netappaccounts / backuppolicies | Non  | Non  |
+> | netappaccounts / capacitypools | Non  | Non  |
+> | netappaccounts / capacitypools / volumes | Non  | Non  |
+> | netappaccounts / capacitypools / volumes / mounttargets | Non  | Non  |
+> | netappaccounts / capacitypools / volumes / snapshots | Non  | Non  |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | applicationgateways | Non | Non |
-> | applicationgatewaywebapplicationfirewallpolicies | Non | Non |
+> | applicationgateways | Non  | Non  |
+> | applicationgatewaywebapplicationfirewallpolicies | Non  | Non  |
 > | applicationsecuritygroups | Oui | Oui |
 > | azurefirewalls | Oui | Oui |
-> | bastionhosts | Non | Non |
+> | bastionhosts | Non  | Non  |
 > | connections | Oui | Oui |
 > | ddoscustompolicies | Oui | Oui |
-> | ddosprotectionplans | Non | Non |
+> | ddosprotectionplans | Non  | Non  |
 > | dnszones | Oui | Oui |
-> | expressroutecircuits | Non | Non |
-> | expressroutegateways | Non | Non |
+> | expressroutecircuits | Non  | Non  |
+> | expressroutegateways | Non  | Non  |
 > | firewallpolicies | Oui | Oui |
-> | frontdoors | Non | Non |
-> | frontdoorwebapplicationfirewallpolicies | Non | Non |
+> | frontdoors | Non  | Non  |
+> | frontdoorwebapplicationfirewallpolicies | Non  | Non  |
 > | ipgroups | Oui | Oui |
 > | loadbalancers | Oui - Référence SKU de base<br>Non - Référence SKU Standard | Oui - Référence SKU de base<br>Non - Référence SKU Standard |
 > | localnetworkgateways | Oui | Oui |
@@ -1195,33 +1195,33 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | networkexperimentprofiles | Oui | Oui |
 > | networkintentpolicies | Oui | Oui |
 > | networkinterfaces | Oui | Oui |
-> | networkprofiles | Non | Non |
+> | networkprofiles | Non  | Non  |
 > | networksecuritygroups | Oui | Oui |
-> | networkwatchers | Oui | Non |
-> | networkwatchers / connectionmonitors | Oui | Non |
-> | networkwatchers / flowlogs | Oui | Non |
-> | networkwatchers / pingmeshes | Oui | Non |
-> | p2svpngateways | Non | Non |
+> | networkwatchers | Oui | Non  |
+> | networkwatchers / connectionmonitors | Oui | Non  |
+> | networkwatchers / flowlogs | Oui | Non  |
+> | networkwatchers / pingmeshes | Oui | Non  |
+> | p2svpngateways | Non  | Non  |
 > | privatednszones | Oui | Oui |
 > | privatednszones / virtualnetworklinks | Oui | Oui |
-> | privateendpointredirectmaps | Non | Non |
+> | privateendpointredirectmaps | Non  | Non  |
 > | privateendpoints | Oui | Oui |
-> | privatelinkservices | Non | Non |
+> | privatelinkservices | Non  | Non  |
 > | publicipaddresses | Oui - Référence SKU de base<br>Non - Référence SKU Standard | Oui - Référence SKU de base<br>Non - Référence SKU Standard |
 > | publicipprefixes | Oui | Oui |
-> | routefilters | Non | Non |
+> | routefilters | Non  | Non  |
 > | routetables | Oui | Oui |
 > | serviceendpointpolicies | Oui | Oui |
 > | trafficmanagerprofiles | Oui | Oui |
-> | virtualhubs | Non | Non |
+> | virtualhubs | Non  | Non  |
 > | virtualnetworkgateways | Oui | Oui |
 > | virtualnetworks | Oui | Oui |
-> | virtualnetworktaps | Non | Non |
+> | virtualnetworktaps | Non  | Non  |
 > | virtualrouters | Oui | Oui |
-> | virtualwans | Non | Non |
-> | vpngateways (Virtual WAN) | Non | Non |
-> | vpnserverconfigurations | Non | Non |
-> | vpnsites (Virtual WAN) | Non | Non |
+> | virtualwans | Non  | Non  |
+> | vpngateways (Virtual WAN) | Non  | Non  |
+> | vpnserverconfigurations | Non  | Non  |
+> | vpnsites (Virtual WAN) | Non  | Non  |
 > | webapplicationfirewallpolicies | Oui | Oui |
 
 > [!IMPORTANT]
@@ -1247,8 +1247,8 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | clusters | Non | Non |
-> | storageinsightconfigs | Non | Non |
+> | clusters | Non  | Non  |
+> | storageinsightconfigs | Non  | Non  |
 > | workspaces | Oui | Oui |
 
 > [!IMPORTANT]
@@ -1259,7 +1259,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | managementassociations | Non | Non |
+> | managementassociations | Non  | Non  |
 > | managementconfigurations | Oui | Oui |
 > | solutions | Oui | Oui |
 > | views | Oui | Oui |
@@ -1270,17 +1270,17 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
 > | peerings | Oui | Oui |
-> | peeringservices | Non | Non |
+> | peeringservices | Non  | Non  |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | policyevents | Non | Non |
-> | policystates | Non | Non |
-> | policytrackedresources | Non | Non |
-> | remediations | Non | Non |
+> | policyevents | Non  | Non  |
+> | policystates | Non  | Non  |
+> | policytrackedresources | Non  | Non  |
+> | remediations | Non  | Non  |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 
@@ -1294,7 +1294,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | rootresources | Non | Non |
+> | rootresources | Non  | Non  |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
@@ -1315,36 +1315,36 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | accounts | Non | Non |
+> | accounts | Non  | Non  |
 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | accounts | Non | Non |
+> | accounts | Non  | Non  |
 
 ## <a name="microsoftproviderhub"></a>Microsoft.ProviderHub
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | rollouts | Non | Non |
+> | rollouts | Non  | Non  |
 
 ## <a name="microsoftquantum"></a>Microsoft.Quantum
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | workspaces | Non | Non |
+> | workspaces | Non  | Non  |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | backupprotecteditems | Non | Non |
-> | replicationeligibilityresults | Non | Non |
+> | backupprotecteditems | Non  | Non  |
+> | replicationeligibilityresults | Non  | Non  |
 > | vaults | Oui | Oui |
 
 > [!IMPORTANT]
@@ -1355,7 +1355,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | openshiftclusters | Non | Non |
+> | openshiftclusters | Non  | Non  |
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
@@ -1376,27 +1376,27 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | availabilitystatuses | Non | Non |
-> | childavailabilitystatuses | Non | Non |
-> | childresources | Non | Non |
-> | événements | Non | Non |
-> | Notifications | Non | Non |
+> | availabilitystatuses | Non  | Non  |
+> | childavailabilitystatuses | Non  | Non  |
+> | childresources | Non  | Non  |
+> | événements | Non  | Non  |
+> | Notifications | Non  | Non  |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | deploymentscripts | Non | Non |
-> | liens | Non | Non |
-> | tags | Non | Non |
+> | deploymentscripts | Non  | Non  |
+> | liens | Non  | Non  |
+> | tags | Non  | Non  |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | applications | Oui | Non |
+> | applications | Oui | Non  |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
@@ -1413,44 +1413,44 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | adaptivenetworkhardenings | Non | Non |
-> | advancedthreatprotectionsettings | Non | Non |
-> | assessmentmetadata | Non | Non |
-> | assessments | Non | Non |
+> | adaptivenetworkhardenings | Non  | Non  |
+> | advancedthreatprotectionsettings | Non  | Non  |
+> | assessmentmetadata | Non  | Non  |
+> | assessments | Non  | Non  |
 > | automations | Oui | Oui |
-> | complianceresults | Non | Non |
-> | compliances | Non | Non |
-> | datacollectionagents | Non | Non |
-> | devicesecuritygroups | Non | Non |
-> | informationprotectionpolicies | Non | Non |
+> | complianceresults | Non  | Non  |
+> | compliances | Non  | Non  |
+> | datacollectionagents | Non  | Non  |
+> | devicesecuritygroups | Non  | Non  |
+> | informationprotectionpolicies | Non  | Non  |
 > | iotsecuritysolutions | Oui | Oui |
-> | servervulnerabilityassessments | Non | Non |
+> | servervulnerabilityassessments | Non  | Non  |
 
 ## <a name="microsoftsecurityinsights"></a>Microsoft.SecurityInsights
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | aggregations | Non | Non |
-> | alertrules | Non | Non |
-> | alertruletemplates | Non | Non |
-> | bookmarks | Non | Non |
-> | cas | Non | Non |
-> | dataconnectors | Non | Non |
-> | dataconnectorscheckrequirements | Non | Non |
-> | entities | Non | Non |
-> | entityqueries | Non | Non |
-> | incidents | Non | Non |
-> | officeconsents | Non | Non |
-> | paramètres | Non | Non |
+> | aggregations | Non  | Non  |
+> | alertrules | Non  | Non  |
+> | alertruletemplates | Non  | Non  |
+> | bookmarks | Non  | Non  |
+> | cas | Non  | Non  |
+> | dataconnectors | Non  | Non  |
+> | dataconnectorscheckrequirements | Non  | Non  |
+> | entities | Non  | Non  |
+> | entityqueries | Non  | Non  |
+> | incidents | Non  | Non  |
+> | officeconsents | Non  | Non  |
+> | paramètres | Non  | Non  |
 
 ## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | gateways | Non | Non |
-> | nœuds | Non | Non |
+> | gateways | Non  | Non  |
+> | nœuds | Non  | Non  |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
@@ -1464,16 +1464,16 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | applications | Non | Non |
+> | applications | Non  | Non  |
 > | clusters | Oui | Oui |
-> | clusters / applications | Non | Non |
-> | containergroups | Non | Non |
-> | containergroupsets | Non | Non |
-> | edgeclusters | Non | Non |
-> | managedclusters | Non | Non |
-> | networks | Non | Non |
-> | secretstores | Non | Non |
-> | volumes | Non | Non |
+> | clusters / applications | Non  | Non  |
+> | containergroups | Non  | Non  |
+> | containergroupsets | Non  | Non  |
+> | edgeclusters | Non  | Non  |
+> | managedclusters | Non  | Non  |
+> | networks | Non  | Non  |
+> | secretstores | Non  | Non  |
+> | volumes | Non  | Non  |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 
@@ -1481,7 +1481,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
 > | applications | Oui | Oui |
-> | containergroups | Non | Non |
+> | containergroups | Non  | Non  |
 > | gateways | Oui | Oui |
 > | networks | Oui | Oui |
 > | secrets | Oui | Oui |
@@ -1492,7 +1492,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | rollouts | Non | Non |
+> | rollouts | Non  | Non  |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 
@@ -1506,25 +1506,26 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | hybridusebenefits | Non | Non |
+> | hybridusebenefits | Non  | Non  |
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | applicationdefinitions | Non | Non |
-> | applications | Non | Non |
-> | jitrequests | Non | Non |
+> | applicationdefinitions | Non  | Non  |
+> | applications | Non  | Non  |
+> | jitrequests | Non  | Non  |
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | instancepools | Non | Non |
-> | managedinstances | Non | Non |
-> | managedinstances / databases | Non | Non |
+> | instancepools | Non  | Non  |
+> | locations | Oui | Oui |
+> | managedinstances | Non  | Non  |
+> | managedinstances / databases | Non  | Non  |
 > | servers | Oui | Oui |
 > | servers / databases | Oui | Oui |
 > | servers / elasticpools | Oui | Oui |
@@ -1548,7 +1549,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | dwvm | Non | Non |
+> | dwvm | Non  | Non  |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
@@ -1562,7 +1563,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | caches | Non | Non |
+> | caches | Non  | Non  |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 
@@ -1576,21 +1577,21 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | storagesyncservices | Non | Non |
+> | storagesyncservices | Non  | Non  |
 
 ## <a name="microsoftstoragesyncint"></a>Microsoft.StorageSyncInt
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | storagesyncservices | Non | Non |
+> | storagesyncservices | Non  | Non  |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | managers | Non | Non |
+> | managers | Non  | Non  |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
@@ -1607,42 +1608,42 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | environments | Non | Non |
-> | environments / eventsources | Non | Non |
-> | instances | Non | Non |
-> | instances / environments | Non | Non |
-> | instances / environments / eventsources | Non | Non |
+> | environments | Non  | Non  |
+> | environments / eventsources | Non  | Non  |
+> | instances | Non  | Non  |
+> | instances / environments | Non  | Non  |
+> | instances / environments / eventsources | Non  | Non  |
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | createsubscription | Non | Non |
+> | createsubscription | Non  | Non  |
 
 ## <a name="microsoftsupport"></a>microsoft.support
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | supporttickets | Non | Non |
+> | supporttickets | Non  | Non  |
 
 ## <a name="microsoftsynapse"></a>Microsoft.Synapse
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | workspaces | Non | Non |
-> | workspaces / bigdatapools | Non | Non |
-> | workspaces / sqlpools | Non | Non |
+> | workspaces | Non  | Non  |
+> | workspaces / bigdatapools | Non  | Non  |
+> | workspaces / sqlpools | Non  | Non  |
 
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | providerregistrations | Non | Non |
-> | les ressources | Non | Non |
+> | providerregistrations | Non  | Non  |
+> | les ressources | Non  | Non  |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
@@ -1665,14 +1666,14 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | imagetemplates | Non | Non |
+> | imagetemplates | Non  | Non  |
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | account | Non | Non |
+> | account | Non  | Non  |
 > | account / extension | Oui | Oui |
 > | account / project | Oui | Oui |
 
@@ -1684,17 +1685,17 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | dedicatedcloudnodes | Non | Non |
-> | dedicatedcloudservices | Non | Non |
-> | virtualmachines | Non | Non |
+> | dedicatedcloudnodes | Non  | Non  |
+> | dedicatedcloudservices | Non  | Non  |
+> | virtualmachines | Non  | Non  |
 
 ## <a name="microsoftvnfmanager"></a>Microsoft.VnfManager
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | périphériques | Non | Non |
-> | vnfs | Non | Non |
+> | périphériques | Non  | Non  |
+> | vnfs | Non  | Non  |
 
 ## <a name="microsoftvsonline"></a>Microsoft.VSOnline
 
@@ -1709,17 +1710,17 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | certificates | Non | Oui |
+> | certificates | Non  | Oui |
 > | connectiongateways | Oui | Oui |
 > | connections | Oui | Oui |
 > | customapis | Oui | Oui |
-> | hostingenvironments | Non | Non |
+> | hostingenvironments | Non  | Non  |
 > | kubeenvironments | Oui | Oui |
 > | serverfarms | Oui | Oui |
 > | sites | Oui | Oui |
 > | sites / premieraddons | Oui | Oui |
 > | sites / slots | Oui | Oui |
-> | staticsites | Non | Non |
+> | staticsites | Non  | Non  |
 
 > [!IMPORTANT]
 > Consultez les [Conseils de déplacement d’App Service](./move-limitations/app-service-move-limitations.md).
@@ -1729,24 +1730,24 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | multipleactivationkeys | Non | Non |
+> | multipleactivationkeys | Non  | Non  |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | deviceservices | Non | Non |
+> | deviceservices | Non  | Non  |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Resource group | Abonnement |
 > | ------------- | ----------- | ---------- |
-> | components | Non | Non |
-> | monitorinstances | Non | Non |
-> | monitors | Non | Non |
-> | notificationsettings | Non | Non |
+> | components | Non  | Non  |
+> | monitorinstances | Non  | Non  |
+> | monitors | Non  | Non  |
+> | notificationsettings | Non  | Non  |
 
 ## <a name="third-party-services"></a>Services tiers
 

@@ -5,12 +5,13 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 5b50906fac613a4e7470b0e13d6f068c3872f625
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 3833b27e9f90cbffa2320c84877d4eb5bb6520f7
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82136904"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82613266"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingérer des données de télémétrie historiques
 
@@ -58,7 +59,7 @@ Procédez comme suit :
 5. Accédez à votre répertoire de base.
 
     ```azurepowershell-interactive 
-    cd  
+    cd
     ```
 
 6. Exécutez la commande suivante : Cela permet de télécharger un script dans votre répertoire de base.
@@ -73,7 +74,7 @@ Procédez comme suit :
 
     ```azurepowershell-interactive 
 
-    ./generatePartnerCredentials.ps1   
+    ./generatePartnerCredentials.ps1
 
     ```
 
@@ -92,7 +93,7 @@ Procédez comme suit :
 - /**DeviceModel** : DeviceModel correspond aux métadonnées de l’appareil, telles que le fabricant et le type d’appareil (passerelle ou nœud).
 - /**Device** : Device correspond à un appareil physique présent dans l’exploitation agricole.
 - /**SensorModel** : SensorModel correspond aux métadonnées du capteur, telles que le fabricant, le type de capteur (analogique ou numérique) et la mesure effectuée par le capteur (température ambiante, pression, etc.).
-- /**Sensor** : Sensor correspond à un capteur physique qui enregistre des valeurs. Un capteur est généralement connecté à un appareil avec une identité d’appareil.  
+- /**Sensor** : Sensor correspond à un capteur physique qui enregistre des valeurs. Un capteur est généralement connecté à un appareil avec une identité d’appareil.
 
 
 |        DeviceModel   |  Suggestions   |
@@ -108,7 +109,7 @@ Procédez comme suit :
 |   DeviceModelId     |     ID du modèle d’appareil associé.  |
 |  HardwareId          | ID unique de l’appareil, par exemple l’adresse MAC.
 |  ReportingInterval        |   Intervalle de rapport en secondes.
-|  Emplacement            |  Latitude (-90 à +90), longitude (-180 à 180) et élévation (en mètres) de l’appareil.   
+|  Emplacement            |  Latitude (-90 à +90), longitude (-180 à 180) et élévation (en mètres) de l’appareil.
 |ParentDeviceId       |    ID de l’appareil parent auquel cet appareil est connecté. Par exemple, un nœud connecté à une passerelle. Pour un nœud, le parentDeviceId est l’ID d’une passerelle.  |
 |    Nom            | Nom destiné à identifier la ressource. Les partenaires d’appareil doivent envoyer un nom cohérent avec celui de l’appareil côté partenaire. Si le nom de l’appareil partenaire est défini par l’utilisateur, ce nom doit être propagé sur FarmBeats.|
 |     Description       |      Description explicite. |
@@ -139,7 +140,7 @@ Pour plus d’informations sur les objets, consultez [Swagger](https://aka.ms/Fa
 
 ### <a name="api-request-to-create-metadata"></a>Requête d’API pour la création de métadonnées
 
-Pour effectuer une requête d’API, vous devez associer la méthode HTTP (POST), l’URL du service d’API et l’URI d’une ressource (pour l’interrogation, l’envoi des données, la création ou la suppression d’une requête). Vous ajoutez ensuite un ou plusieurs en-têtes de requête HTTP. L’URL du service d’API est le point de terminaison d’API, c’est-à-dire l’URL du hub de données (https://\<vorehubdedonnées>.azurewebsites.net).  
+Pour effectuer une requête d’API, vous devez associer la méthode HTTP (POST), l’URL du service d’API et l’URI d’une ressource (pour l’interrogation, l’envoi des données, la création ou la suppression d’une requête). Vous ajoutez ensuite un ou plusieurs en-têtes de requête HTTP. L’URL du service d’API est le point de terminaison d’API, c’est-à-dire l’URL du hub de données (https://\<vorehubdedonnées>.azurewebsites.net).
 
 ### <a name="authentication"></a>Authentification
 
@@ -297,10 +298,10 @@ Capteur
 L’exemple de requête suivant crée un appareil. Cette requête comporte du code JSON d’entrée en tant que charge utile avec le corps de la requête.
 
 ```bash
-curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
+curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 "accept: application/json" -H  "Content-Type: application/json" -H
-"Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  
-\"reportingInterval\": 900,  \"name\": \"Device123\",  
+"Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",
+\"reportingInterval\": 900,  \"name\": \"Device123\",
 \"description\": \"Test Device 123\"}" *
 ```
 
