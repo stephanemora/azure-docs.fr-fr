@@ -1,25 +1,15 @@
 ---
-title: Métriques, alertes et journaux de diagnostic - Azure Batch | Microsoft Docs
+title: Métriques, alertes et journaux de diagnostic
 description: Enregistrez et analysez les événements du journal de diagnostic pour des ressources de compte Azure Batch telles que des pools et des tâches.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: big-compute
 ms.date: 12/05/2018
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 68d5976a5a79dbde88b7f80b02b39793ffc86de9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f75a8302c8ba368138e6c8edee6c6069c5031d8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78254859"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82117299"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métriques, alertes et journaux d’activité Batch pour l’évaluation de diagnostic et la supervision
 
@@ -28,7 +18,7 @@ Cet article explique comment surveiller un compte Batch à l’aide de fonctionn
 
 ## <a name="batch-metrics"></a>Métriques Batch
 
-Les métriques sont des données de télémétrie Azure (également appelées compteurs de performance) émises par vos ressources Azure qui sont consommées par le service Azure Monitor. Parmi les métriques d’un compte Batch figurent par exemple : Événements de création de pool, Nombre de nœuds à priorité basse et Événements de fin de tâche. 
+Les métriques sont des données de télémétrie Azure (également appelées compteurs de performance) émises par vos ressources Azure qui sont consommées par le service Azure Monitor. Parmi les métriques d’un compte Batch figurent par exemple : Les événements de création de pool, le nombre de nœuds à priorité basse et les événements de fin de tâche. 
 
 Consultez la [liste des métriques Batch prises en charge](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
 

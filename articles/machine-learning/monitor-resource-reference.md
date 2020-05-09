@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 03/06/2020
-ms.openlocfilehash: 958794cda60d0ce1b0d223b9b5a6c03283022a6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: 1abd52c98cb1fa6ebe1014fc7a65e756d038d683
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78927567"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187594"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Informations de référence sur les données de monitoring Azure Machine Learning
 
@@ -164,6 +164,22 @@ Voici les dimensions qui peuvent être utilisées pour filtrer les métriques de
 | Nom de la famille de machines virtuelles | Pourcentage d’utilisation du quota | Nom de la famille de machines virtuelles utilisée par le cluster. |
 | Priorité de la machine virtuelle | Pourcentage d’utilisation du quota | Priorité de la machine virtuelle.
 
+**Ressource**
+
+| Métrique | Unité | Description |
+| ----- | ----- | ----- |
+| CpuUtilization | Pourcentage | Pourcentage d’utilisation du processeur pour un nœud donné au cours d’une exécution/tâche. Cette métrique est publiée uniquement lorsqu’une tâche est en cours d’exécution sur un nœud. Une tâche peut utiliser un ou plusieurs nœuds. Cette métrique est publiée par nœud. |
+| GpuUtilization | Pourcentage | Pourcentage d’utilisation du processeur graphique (GPU) pour un nœud donné au cours d’une exécution/tâche. Un nœud peut avoir un ou plusieurs processeurs graphiques. Cette métrique est publiée par GPU, par nœud. |
+
+Voici les dimensions qui peuvent être utilisées pour filtrer les métriques de ressources :
+
+| Dimension | Description |
+| ----- | ----- |
+| CreatedTime | |
+| deviceId | ID du dispositif (GPU). Disponible uniquement pour GpuUtilization. |
+| NodeId | ID du nœud créé où la tâche s’exécute. |
+| RunId | ID de l’exécution/tâche. |
+
 **Exécuter**
 
 Informations sur les exécutions d’apprentissage.
@@ -192,7 +208,7 @@ Voici les valeurs valides de la dimension RunType :
 | StepRun | Exécution d’une étape de pipeline. |
 | ReusedStepRun | Exécution d’une étape de pipeline qui réutilise une exécution précédente. |
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a> Voir aussi
 
 - Pour une description du monitoring d’Azure Machine Learning , voir [Monitoring d’Azure Machine Learning](monitor-azure-machine-learning.md).
 - Pour plus d’informations sur le monitoring des ressources Azure, voir [Monitoring des ressources Azure avec Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource).

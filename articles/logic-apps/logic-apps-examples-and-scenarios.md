@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: c64483f18b2deb061704a4eb7171e575fdd561e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad5cc696892764ce68d4714ead98b8afd9c37669
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78164625"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82144152"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Scénarios, exemples, didacticiels et procédures pas à pas courants relatifs à Azure Logic Apps
 
@@ -36,7 +36,12 @@ Voici des exemples qui décrivent les déclencheurs couramment utilisés :
     * [Créer et exécuter des tâches, processus et workflows automatisés récurrents avec Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
     * [Tutoriel : Créer des workflows automatisés périodiques basés sur la planification à l’aide d’Azure Logic Apps](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
 
-  * Le déclencheur **Lors de la réception d’un e-mail** permet à votre application logique de vérifier l’existence de nouveaux e-mails à partir de n’importe quel fournisseur de messagerie pris en charge par Logic Apps, par exemple, [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), [Gmail](https://docs.microsoft.com/connectors/gmail/), [Outlook.com](https://docs.microsoft.com/connectors/outlook/), etc. Pour plus d’informations, consultez les rubriques suivantes :<p>
+  * Le déclencheur **Lors de la réception d’un e-mail** permet à votre application logique de vérifier l’existence de nouveaux e-mails à partir de n’importe quel fournisseur de messagerie pris en charge par Logic Apps, par exemple, [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), [Gmail](https://docs.microsoft.com/connectors/gmail/), [Outlook.com](https://docs.microsoft.com/connectors/outlook/), etc.
+
+    > [!IMPORTANT]
+    > Si vous souhaitez utiliser le connecteur Gmail, seuls les comptes professionnels G-Suite peuvent utiliser ce connecteur sans restriction dans les applications logiques. Si vous disposez d’un compte de consommateur Gmail, vous pouvez utiliser ce connecteur avec seulement certains services approuvés par Google, ou vous pouvez [créer une application cliente Google à utiliser pour l’authentification avec votre connecteur Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Pour plus d’informations, consultez [Stratégies de confidentialité et de sécurité des données pour les connecteurs Google dans Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+
+    Pour plus d’informations, consultez les rubriques suivantes :<p>
 
     * [Tutoriel : Créer des workflows automatisés basés sur l’approbation à l’aide d’Azure Logic Apps](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
     * [Tutoriel : Automatiser les tâches de traitement des e-mails avec Azure Logic Apps, Azure Functions et Stockage Azure](../logic-apps/tutorial-process-email-attachments-workflow.md)
@@ -112,7 +117,7 @@ Vous pouvez développer et déployer des applications logiques entièrement avec
 * [Créer et gérer des comptes d’intégration pour les intégrations d’entreprise B2B](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 * [Gérer un environnement de service d’intégration dans Azure Logic Apps](../logic-apps/ise-manage-integration-service-environment.md)
 
-### <a name="monitor"></a>Moniteur
+### <a name="monitor"></a>Superviser
 
 * [Surveiller l’état d’exécution, examiner l’historique des déclencheurs et configurer des alertes pour Azure Logic Apps](../logic-apps/monitor-logic-apps.md)
 * [Configurer les journaux d’activité Azure Monitor et collecter des données de diagnostic pour Azure Logic Apps](../logic-apps/monitor-logic-apps-log-analytics.md)

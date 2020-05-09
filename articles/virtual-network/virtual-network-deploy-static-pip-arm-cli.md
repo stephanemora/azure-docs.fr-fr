@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: kumud
-ms.openlocfilehash: 4b8f91d7d9fc414ed0ae6387c25f71b1601e0b6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e3e37347c8c23ccc9746bbb98ef6a822743848b
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76043414"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790284"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-cli"></a>Créer une machine virtuelle avec une adresse IP publique statique à l’aide d’Azure CLI
 
@@ -50,7 +50,7 @@ Vous pouvez effectuer les étapes suivantes à partir de votre ordinateur local 
      --public-ip-address-allocation static
    ```
 
-   Si l’adresse IP publique doit être une référence SKU standard, ajoutez `--public-ip-sku Standard` à la commande précédente. Découvrez plus en détail les [références SKU d’adresses IP publiques](virtual-network-ip-addresses-overview-arm.md#sku). Si la machine virtuelle doit être ajoutée au pool backend d’un équilibreur de charge Azure public, la référence SKU de l’adresse IP publique de la machine virtuelle doit correspondre à celle de l’équilibreur de charge. Pour plus d’informations, consultez [Azure Load Balancer](../load-balancer/concepts-limitations.md#skus).
+   Si l’adresse IP publique doit être une référence SKU standard, ajoutez `--public-ip-sku Standard` à la commande précédente. Découvrez plus en détail les [références SKU d’adresses IP publiques](virtual-network-ip-addresses-overview-arm.md#sku). Si la machine virtuelle doit être ajoutée au pool backend d’un équilibreur de charge Azure public, la référence SKU de l’adresse IP publique de la machine virtuelle doit correspondre à celle de l’équilibreur de charge. Pour plus d’informations, consultez [Azure Load Balancer](../load-balancer/skus.md).
 
 4. Examinez l’adresse IP publique qui a été affectée et vérifiez qu’elle a été créée en tant qu’adresse statique de base (référence SKU) via [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) :
 

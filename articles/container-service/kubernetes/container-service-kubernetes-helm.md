@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: a32c9fab3877a693d2df26571b9fae4aa7b4380c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a3423b908ac5e089faa30b19914d3b74ae9a547
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76271080"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735417"
 ---
 # <a name="deprecated-use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>(DÉCONSEILLÉ) Utiliser Helm pour déployer des conteneurs sur un cluster Kubernetes
 
@@ -34,7 +34,7 @@ Helm comprend deux composants :
 
 * [Installer et configurer `kubectl`](../container-service-connect.md) sur un ordinateur local
 
-* [Installer Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md) sur un ordinateur local
+* [Installer Helm](https://helm.sh/docs/intro/quickstart/) sur un ordinateur local
 
 ## <a name="helm-basics"></a>Principes de base Helm 
 
@@ -149,5 +149,5 @@ Vous pouvez à présent utiliser des commandes SQL standard pour créer des base
  
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur la gestion des graphiques Kubernetes, consultez la [documentation de Helm](https://github.com/kubernetes/helm/blob/master/docs/index.md). 
+* Pour plus d’informations sur la gestion des graphiques Kubernetes, consultez la [documentation de Helm](https://helm.sh/docs/). 
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 03/09/2020
+ms.date: 04/27/2020
 ms.author: aahi
-ms.openlocfilehash: b3c112876bfd2578e6ebaa95c6902aa9b8f832d9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 99a62daf6dced88efd9bda591a0ca44a8b259a75
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79203455"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195636"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Procédure : Détecter les sentiments à l’aide de l’API Analyse de texte
 
@@ -58,7 +58,9 @@ Analyse des sentiments v3 classifie le texte avec des étiquettes de sentiment 
 
 ### <a name="sentiment-labeling"></a>Étiquetage des sentiments
 
-Analyse des sentiments v3 peut retourner des scores et des étiquettes au niveau du document et des phrases. Les scores et les étiquettes sont `positive`, `negative` et `neutral`. Au niveau du document, l’étiquette de sentiment `mixed` peut aussi être retournée sans score. Le sentiment du document est déterminé comme suit :
+Analyse des sentiments v3 retourne des étiquettes de sentiment au niveau de la phrase et du document (`positive`, `negative` et `neutral`) ainsi que des scores de confiance. L’étiquette de sentiment `mixed` peut aussi être retournée au niveau du document. 
+
+Le sentiment du document est déterminé comme suit :
 
 | Sentiment des phrases                                                                            | Étiquette de document retournée |
 |-----------------------------------------------------------------------------------------------|-------------------------|

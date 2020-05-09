@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c05b79d2f1da8076b507ca9ee7a06504de21d5ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e09887b8000a0aeb52879d5306bc0a00da5141f5
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72333173"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176139"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Vue d’ensemble des instantanés de partage pour Azure Files 
 Azure Files vous permet de prendre des instantanés de partages de fichiers. Les instantanés de partage capturent l’état d’un partage à ce point dans le temps. Dans cet article, nous décrivons les fonctionnalités fournies par les instantanés de partage et comment vous pouvez en tirer parti dans votre propre cas d’usage.
@@ -37,7 +37,7 @@ Une fois créé, un instantané de partage peut être lu, copié ou supprimé, m
 
 La fonctionnalité d’instantané de partage est fournie au niveau du partage de fichiers. La récupération est fournie au niveau des fichiers individuels pour permettre la restauration de fichiers spécifiques. Vous pouvez restaurer un partage de fichier complet à l’aide de SMB, de l’API REST, du portail, de la bibliothèque cliente ou des outils PowerShell/CLI.
 
-Un instantané d’un partage d’un partage de fichiers est identique au partage de fichiers de base, à ceci près que l’URI du partage présente une valeur **DateTime** à la fin qui indique l’heure à laquelle l’instantané de partage a été pris. Par exemple, si l’URI d’un partage de fichiers est http://storagesample.core.file.windows.net/myshare, l’URI de l’instantané de partage est similaire à ceci :
+Un instantané d’un partage d’un partage de fichiers est identique au partage de fichiers de base, à ceci près que l’URI du partage présente une valeur **DateTime** à la fin qui indique l’heure à laquelle l’instantané de partage a été pris. Par exemple, si l’URI d’un partage de fichiers est http:\//storagesample.core.file.windows.net/myshare, l’URI de l’instantané de partage ressemble à ce qui suit :
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```

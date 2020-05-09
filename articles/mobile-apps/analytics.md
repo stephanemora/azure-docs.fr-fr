@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
 ms.openlocfilehash: 4dc3cea4497c55dda0d8da2ca29201615dadff19
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241072"
 ---
 # <a name="analyze-and-understand-mobile-application-use"></a>Analyser et comprendre l'utilisation des applications mobiles
@@ -38,7 +38,7 @@ Les [données d'analyse de l'App Center](/appcenter/analytics/) vous permettent 
    - Exportation en continu de toutes vos données d'analyse de l'App Center vers Azure pour une conservation illimitée. Prise en charge de l'exportation des données d'analyse de l'App Center vers Stockage Blob Azure et Azure Application Insights.
    - Intégration à Azure Application Insights pour des analyses encore plus approfondies (conservation, analyse en entonnoir, cohortes, etc.).
    - Intégration de SDK en une ligne pour bien démarrer en quelques minutes.
-   - Prise en charge des plateformes iOS, Android, macOS, tvOS, Xamarin, React Native, Unity et Cordova.
+   - Bénéficiez d’une prise en charge de plateforme pour iOS, Android, macOS, tvOS, Xamarin, React Native, Unity et Cordova.
 
    **Informations de référence**
    - [S’inscrire auprès d’App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)

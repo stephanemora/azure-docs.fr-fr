@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 0ed9144116c1d716124025ef0aae39e7783c5934
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 06c344130156ae5f72f6e65baa519c11adff2bae
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77655461"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186439"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Collecter des métriques personnalisées pour une machine virtuelle Linux avec l’agent InfluxData Telegraf
 
@@ -24,11 +24,17 @@ Azure Monitor vous permet de collecter des métriques personnalisées par le bia
 
  ![Présentation de l’agent Telegraf](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
 
+> [!NOTE]  
+> Les métriques personnalisées ne sont pas prises en charge dans toutes les régions. Les régions prises en charge sont répertoriées [ici](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#supported-regions).
+
 ## <a name="send-custom-metrics"></a>Envoyer des métriques personnalisées 
 
 Pour les besoins de ce tutoriel, nous allons déployer une machine virtuelle Linux exécutant le système d’exploitation Ubuntu 16.04 LTS. L’agent Telegraf est pris en charge sur la plupart des systèmes d’exploitation Linux. Les packages Debian et RPM, ainsi que les fichiers binaires décompressés de Linux, sont disponibles sur le [portail de téléchargement InfluxData](https://portal.influxdata.com/downloads). Consultez ce [guide d’installation Telegraf](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) pour obtenir des instructions et connaître les options d’installation supplémentaires. 
 
 Connectez-vous au [portail Azure](https://portal.azure.com).
+
+> [!NOTE]  
+> Si vous souhaitez migrer des règles d’alerte classiques et utiliser une machine virtuelle Linux existante, assurez-vous que la machine virtuelle dispose d’une identité attribuée par le système **activée**.
 
 Créez une machine virtuelle Linux : 
 

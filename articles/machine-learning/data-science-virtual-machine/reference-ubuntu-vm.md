@@ -8,12 +8,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 830668a78929a5e6a7e131ade5c62b81e6d725c3
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 7cfb2001067b70c64274ee1dd3475c142b788c98
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631363"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82161279"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Référence : Ubuntu (Linux) Data Science Virtual Machine
 
@@ -52,7 +52,7 @@ Quelques exemples de bloc-notes sont disponibles dans JupyterHub.
 
 H2O est une plateforme d’analyse prédictive et d’apprentissage automatique rapide, en mémoire et distribuée. Un package Python est installé dans les environnements Anaconda racine et py35. Un package R est également installé. 
 
-Pour ouvrir H2O à partir de la ligne de commande, exécutez `java -jar /dsvm/tools/h2o/current/h2o.jar`. Vous pouvez configurer différentes [options de ligne de commande](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line). Pour commencer, vous pouvez accéder à l’interface utilisateur Flow Web, qui est accessible ici : http://localhost:54321. Des exemples de bloc-notes sont également disponibles dans JupyterHub.
+Pour ouvrir H2O à partir de la ligne de commande, exécutez `java -jar /dsvm/tools/h2o/current/h2o.jar`. Vous pouvez configurer différentes [options de ligne de commande](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line). Pour commencer, vous pouvez accéder à l’interface utilisateur Flow Web, qui est accessible ici : `http://localhost:54321`. Des exemples de bloc-notes sont également disponibles dans JupyterHub.
 
 ### <a name="keras"></a>Keras
 
@@ -66,7 +66,7 @@ MXNet est une infrastructure d’apprentissage approfondi conçue pour offrir ef
 
 NVIDIA propose un système d’entraînement des GPU de type Deep Learning appelé DIGITS, qui permet de simplifier les tâches courantes d’apprentissage profond. Ces tâches incluent la gestion des données, la conception et l’entraînement des réseaux neuronaux sur des systèmes GPU et la supervision des performances en temps réel avec une visualisation avancée.
 
-DIGITS est disponible par le biais du service *digits*. Pour commencer, démarrez le service et accédez à http://localhost:5000.
+DIGITS est disponible par le biais du service *digits*. Pour commencer, démarrez le service et accédez à `http://localhost:5000`.
 
 DIGITS est également installé en tant que module Python dans l’environnement Conda racine.
 
@@ -137,7 +137,7 @@ Si vous travaillez sur une interface graphique ou si le transfert X11 est confi
 
 La distribution Anaconda est également fournie avec un serveur Jupyter Notebook, un environnement conçu pour le partage de code et d’analyses. Le serveur Jupyter Notebook est accessible via JupyterHub. Vous vous connectez en utilisant votre nom d’utilisateur Linux local et votre mot de passe.
 
-Le serveur Jupyter Notebook a été préconfiguré avec Python 2, Python 3 et les noyaux R. Utilisez l’icône de bureau **Jupyter Notebook** pour ouvrir le navigateur et accéder au serveur de notebooks. Si vous vous trouvez sur la machine virtuelle par le biais du client SSH ou X2Go, vous pouvez également accéder au serveur Jupyter Notebook à l’adresse suivante : [https://localhost:8000/](https://localhost:8000/).
+Le serveur Jupyter Notebook a été préconfiguré avec Python 2, Python 3 et les noyaux R. Utilisez l’icône de bureau **Jupyter Notebook** pour ouvrir le navigateur et accéder au serveur de notebooks. Si vous vous trouvez sur la machine virtuelle par le biais du client SSH ou X2Go, vous pouvez également accéder au serveur Jupyter Notebook à l’adresse `https://localhost:8000/`.
 
 > [!NOTE]
 > Si vous recevez des avertissements relatifs au certificat, vous pouvez les ignorer.

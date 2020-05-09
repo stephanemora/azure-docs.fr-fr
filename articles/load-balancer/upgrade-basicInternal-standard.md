@@ -7,40 +7,36 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 02/23/2020
 ms.author: irenehua
-ms.openlocfilehash: c2c909d8ef2be982d4dd4a70b5f35d03e8e71418
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 239dc0f3133a5adf59a23d333131c91d3a655597
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659966"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81770384"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Mettre à niveau l’équilibreur de charge interne Azure – Aucune connexion sortante nécessaire
 [Azure Standard Load Balancer](load-balancer-overview.md) offre un ensemble complet de fonctionnalités et une haute disponibilité avec la redondance de zone. Pour en savoir plus sur la référence SKU de Load Balancer, consultez le [tableau comparatif](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
 
-Une mise à niveau se compose de deux phases :
-
-1. Migrer la configuration
-2. Ajout de machines virtuelles aux pools de back-ends de Standard Load Balancer
-
-Cet article couvre la migration de la configuration. L’ajout de machines virtuelles aux pools de back-ends peut varier en fonction de votre environnement spécifique. Toutefois, certaines suggestions générales de haut niveau [sont fournies](#add-vms-to-backend-pools-of-standard-load-balancer).
+Cet article présente un script PowerShell qui crée une instance Standard Load Balancer avec la même configuration que le Basic Load Balancer et qui migre le trafic de Basic Load Balancer à Standard Load Balancer.
 
 ## <a name="upgrade-overview"></a>Présentation de la mise à niveau
 
 Un script Azure PowerShell est disponible qui effectue les opérations suivantes :
 
 * Crée un équilibreur de charge de référence SKU interne Standard à l’emplacement que vous spécifiez. Notez qu’aucune [connexion sortante](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) ne sera fournie par l’équilibreur de charge interne Standard.
-* Il copie de façon fluide les configurations de l’équilibreur de charge De base sur l’équilibreur de charge Standard nouvellement créé.
+* Il copie de façon fluide les configurations de la référence SKU De base de Load Balancer sur l’instance Standard Load Balancer nouvellement créée.
+* Déplacez de façon fluide les adresses IP privées de Basic Load Balancer vers l’instance Standard Load Balancer nouvellement créée.
+* Déplacez de façon fluide les machines virtuelles du pool principal du Basic Load Balancer vers le pool principal du Standard Load Balancer.
 
 ### <a name="caveatslimitations"></a>Mises en garde/Limitations
 
 * Le script ne prend en charge que la mise à niveau de l’équilibreur de charge interne lorsqu’aucune connexion sortante n’est requise. Si vous avez besoin d’une [connexion sortante](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) pour certaines de vos machines virtuelles, consultez cette [page](upgrade-InternalBasic-To-PublicStandard.md) pour obtenir des instructions. 
-* Standard Load Balancer dispose de nouvelles adresses publiques. Il est impossible de déplacer de façon fluide les adresses IP associées à l’instance Basic Load Balancer existante vers Standard Load Balancer, car il s’agit de deux références SKU différentes.
 * Si l’instance Standard Load Balancer est créée dans une autre région, vous ne pouvez pas associer les machines virtuelles existant dans l’ancienne région avec l’instance Standard Load Balancer nouvellement créée. Pour contourner cette limitation, prenez soin de créer la machine virtuelle dans la nouvelle région.
-* Si votre équilibreur de charge ne dispose pas de configuration d’adresse IP front-end ni de pool de back-ends, vous risquez de rencontrer une erreur lors de l’exécution du script. Assurez-vous qu’ils ne sont pas vides.
+* Si votre équilibreur de charge ne dispose pas de configuration d’adresse IP front-end ni de pool de back-ends, vous risquez de rencontrer une erreur lors de l’exécution du script. Vérifiez qu’ils ne sont pas vides.
 
 ## <a name="download-the-script"></a>Télécharger le script
 
-Téléchargez le script de migration à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureILBUpgrade/1.0).
+Téléchargez le script de migration à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureILBUpgrade/2.0).
 ## <a name="use-the-script"></a>Utiliser le script
 
 Vous disposez de deux options selon vos préférences et votre configuration de l’environnement PowerShell local :
@@ -84,30 +80,6 @@ Pour exécuter le script :
    AzureILBUpgrade.ps1 -rgName "test_InternalUpgrade_rg" -oldLBName "LBForInternal" -newlocation "centralus" -newLbName "LBForUpgrade"
    ```
 
-### <a name="add-vms-to-backend-pools-of-standard-load-balancer"></a>Ajout de machines virtuelles aux pools de back-ends de Standard Load Balancer
-
-Tout d’abord, vérifiez soigneusement que le script a bien créé un nouvel équilibreur de charge interne Standard en migrant la configuration exacte à partir de votre équilibreur de charge interne De base. Vous pouvez vérifier cela à partir du portail Azure.
-
-Veillez à envoyer une petite quantité de trafic via Standard Load Balancer en guise de test manuel.
-  
-Voici quelques scénarios illustrant la façon d’ajouter des machines virtuelles aux pools principaux de l’équilibreur de charge interne Standard nouvellement créé, avec nos recommandations pour chacun de ces scénarios :
-
-* **Déplacement des machines virtuelles existantes depuis les pools principaux de l’ancien équilibreur de charge interne De base vers les pools principaux du nouvel équilibreur de charge interne Standard**.
-    1. Pour toutes les tâches de ce guide de démarrage rapide, connectez-vous au [portail Azure](https://portal.azure.com).
- 
-    1. Sélectionnez **Toutes les ressources** dans le menu de gauche, puis sélectionnez l’instance **Standard Load Balancer nouvellement créée** dans la liste de ressources.
-   
-    1. Sous **Paramètres**, sélectionnez **Backend Pools (Pools principaux)** .
-   
-    1. Sélectionnez le pool de back-ends correspondant au pool de back-ends de Basic Load Balancer, puis sélectionnez la valeur suivante : 
-      - **Machine virtuelle** : Faites défiler et sélectionnez les machines virtuelles dans le pool de back-ends correspondant de Basic Load Balancer.
-    1. Sélectionnez **Enregistrer**.
-    >[!NOTE]
-    >Pour les machines virtuelles avec des adresses IP publiques, vous devez d’abord créer des adresses IP standard là où la même adresse IP n’est pas garantie. Dissociez les machines virtuelles des adresses IP de base et associez-les aux adresses IP standard nouvellement créées. Vous êtes alors en mesure de suivre les instructions permettant d’ajouter des machines virtuelles au pool de back-ends de Standard Load Balancer. 
-
-* **Création de machines virtuelles à ajouter aux pools principaux du nouvel équilibreur de charge interne Standard**.
-    * Des instructions supplémentaires sur la création d’une machine virtuelle et son association à Standard Load Balancer sont disponibles [ici](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
-
 ## <a name="common-questions"></a>Questions courantes
 
 ### <a name="are-there-any-limitations-with-the-azure-powershell-script-to-migrate-the-configuration-from-v1-to-v2"></a>Existe-t-il des restrictions avec le script Azure PowerShell pour migrer la configuration de la version v1 à v2 ?
@@ -116,7 +88,7 @@ Oui. Consultez [Mises en garde/Limitations](#caveatslimitations).
 
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>Le script Azure PowerShell bascule-t-il également le trafic de mon instance Basic Load Balancer nouvellement créée ?
 
-Non. Le script Azure PowerShell migre uniquement la configuration. La migration de trafic réelle est de votre responsabilité et sous votre contrôle.
+Oui, il migre le trafic. Si vous souhaitez migrer le trafic personnellement, utilisez [ce script](https://www.powershellgallery.com/packages/AzureILBUpgrade/1.0) qui ne déplace pas les machines virtuelles à votre place.
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>J’ai rencontré des problèmes en utilisant ce script. Comment obtenir de l’aide ?
   

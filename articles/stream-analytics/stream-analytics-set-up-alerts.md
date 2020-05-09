@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 836b7a489e3c73d745b128cbbc0c3566220ac409
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2bd1f59d5cf33ae7f1f2e33e6c3f1312b5a13e61
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458724"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82127593"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configuration d’alertes pour des tâches Azure Stream Analytics
 
@@ -60,13 +60,13 @@ Les alertes suivantes sont recommandées pour superviser les performances de vot
 |Métrique|Condition|Agrégation de temps|Seuil|Actions correctives|
 |-|-|-|-|-|
 |Utilisation d’unité de streaming (%)|Supérieur à|Maximale|80|Plusieurs facteurs augmentent le pourcentage d’utilisation d’unités de streaming. Vous pouvez effectuer une mise à l’échelle avec la parallélisation de requête ou augmenter le nombre d’unités de streaming. Pour plus d’informations, consultez [Profiter de la parallélisation de requête dans Azure Stream Analytics](stream-analytics-parallelization.md).|
-|Erreurs d’exécution|Supérieur à|Total|0|Examinez l’activité ou les journaux de diagnostic, et effectuez les changements appropriés sur les entrées, la requête ou les sorties.|
+|Erreurs d’exécution|Supérieur à|Total|0|Examinez les journaux d’activité ou de ressources, puis apportez les modifications appropriées aux entrées, requêtes ou sorties.|
 |Délai en filigrane|Supérieur à|Maximale|Quand la valeur moyenne de cette métrique sur les 15 dernières minutes est supérieure à la tolérance d’arrivée tardive (en secondes). Si vous n’avez pas modifié la tolérance d’arrivée tardive, la valeur par défaut est définie sur 5 secondes.|Essayez d’augmenter le nombre d’unités de streaming ou de paralléliser votre requête. Pour plus d’informations sur les unités de streaming, consultez [Comprendre et ajuster les unités de streaming](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job). Pour plus d’informations sur la parallélisation de votre requête, consultez [Tirer parti de la parallélisation de requête dans Azure Stream Analytics](stream-analytics-parallelization.md).|
-|Erreurs de désérialisation d’entrée|Supérieur à|Total|0|Examinez l’activité ou les journaux de diagnostic, et effectuez les changements appropriés sur l’entrée. Pour plus d’informations sur les journaux de diagnostic, consultez [Résoudre les problèmes d’Azure Stream Analytics à l’aide des journaux de diagnostic](stream-analytics-job-diagnostic-logs.md)|
+|Erreurs de désérialisation d’entrée|Supérieur à|Total|0|Examinez les journaux d’activité ou de ressources, puis apportez les modifications appropriées à l’entrée. Pour plus d’informations sur les journaux de ressources, consultez [Résoudre les problèmes liés à Azure Stream Analytics à l’aide des journaux de ressources](stream-analytics-job-diagnostic-logs.md)|
 
 ## <a name="get-help"></a>Obtenir de l’aide
 
-Pour plus d’informations sur la configuration d’alertes dans le portail Azure, consultez [Réception de notifications d’alerte](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).  
+Pour plus d’informations sur la configuration d’alertes dans le portail Azure, consultez [Réception de notifications d’alerte](../azure-monitor/platform/alerts-overview.md).  
 
 Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
