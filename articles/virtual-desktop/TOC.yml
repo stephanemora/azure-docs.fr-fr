@@ -122,6 +122,8 @@
       href: remotefx-graphics-performance-counters.md
 - name: Informations de référence
   items:
+    - name: Bonnes pratiques de sécurité
+      href: security-guide.md
     - name: Prise en charge Linux
       href: linux-overview.md
     - name: Paramètres de fichier RDP pris en charge

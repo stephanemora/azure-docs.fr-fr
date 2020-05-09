@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: f14cbef2ab568962601b3a407fa979e8f982598d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e7eaf49fb8b62259b8c619c89edffd629dfde7f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75475915"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81685510"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Utiliser un broker d’ID pour la gestion des informations d’identification
 
@@ -46,6 +46,46 @@ La fonctionnalité de broker d’ID ajoute une machine virtuelle supplémentaire
 
 ![Option permettant d’activer le broker d’ID](./media/identity-broker/identity-broker-enable.png)
 
+### <a name="using-azure-resource-manager-templates"></a>Utilisation de modèles Azure Resource Manager
+Si vous ajoutez un nouveau rôle appelé `idbrokernode` avec les attributs suivants au profil de calcul de votre modèle, le cluster sera créé avec le nœud de broker d'ID activé :
+
+```json
+.
+.
+.
+"computeProfile": {
+    "roles": [
+        {
+            "autoscale": null,
+            "name": "headnode",
+           ....
+        },
+        {
+            "autoscale": null,
+            "name": "workernode",
+            ....
+        },
+        {
+            "autoscale": null,
+            "name": "idbrokernode",
+            "targetInstanceCount": 1,
+            "hardwareProfile": {
+                "vmSize": "Standard_A2_V2"
+            },
+            "virtualNetworkProfile": {
+                "id": "string",
+                "subnet": "string"
+            },
+            "scriptActions": [],
+            "dataDisksGroups": null
+        }
+    ]
+}
+.
+.
+.
+```
+
 ## <a name="tool-integration"></a>Intégration d’outils
 
 Le plug-in [IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) HDInsight est mis à jour pour prendre en charge OAuth. Vous pouvez utiliser ce plug-in pour vous connecter au cluster et envoyer des travaux.
@@ -55,6 +95,14 @@ Le plug-in [IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-sp
 Une fois le broker d’ID activé, vous avez toujours besoin d’un hachage de Mot de passe stocké dans Azure AD DS pour les scénarios SSH avec des comptes de domaine. Pour utiliser SSH avec une machine virtuelle jointe à un domaine, ou pour exécuter la commande `kinit`, vous devez fournir un Mot de passe. 
 
 L’authentification SSH requiert que le hachage soit disponible dans Azure AD DS. Si vous souhaitez utiliser SSH uniquement pour les scénarios d’administration, vous pouvez créer un compte cloud seulement et l’utiliser pour utiliser SSH pour le cluster. Les autres utilisateurs peuvent toujours utiliser les outils Ambari ou HDInsight (par exemple, le plug-in IntelliJ) sans avoir le hachage de Mot de passe disponible dans Azure AD DS.
+
+## <a name="clients-using-oauth-to-connect-to-hdinsight-gateway-with-id-broker-setup"></a>Clients utilisant OAuth pour se connecter à la passerelle HDInsight avec la configuration du broker d’ID
+
+Dans la configuration du broker d’ID, les applications personnalisées et les clients qui se connectent à la passerelle peuvent être mis à jour pour acquérir, dans un premier temps, le jeton OAuth requis. Vous pouvez suivre les étapes décrites dans ce [document](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) pour obtenir le jeton avec les informations suivantes :
+
+*   URI de ressource OAuth : https://hib.azurehdinsight.net 
+* AppId : 7865c1d2-f040-46cc-875f-831a1ef6a28a
+*   Autorisation : (nom : Cluster.ReadWrite, id: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

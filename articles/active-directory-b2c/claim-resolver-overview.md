@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/30/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1c4bbd98682d964cfdf72031c7d6cb77cf42a809
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 83e1e11fe38a21bbd7c44139fac562342bcab866
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396070"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82229644"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>À propos des résolveurs de revendication dans les stratégies personnalisées d’Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Les sections suivantes répertorient les résolveurs de revendication disponible
 
 ### <a name="culture"></a>Culture
 
-| Revendication | Description | Exemple |
+| Revendication | Description |  Exemple |
 | ----- | ----------- | --------|
 | {Culture:LanguageName} | Code ISO à deux lettres pour la langue. | en |
 | {Culture:LCID}   | LCID du code de langue | 1033 |
@@ -55,7 +55,7 @@ Les sections suivantes répertorient les résolveurs de revendication disponible
 
 ### <a name="policy"></a>Stratégie
 
-| Revendication | Description | Exemple |
+| Revendication | Description |  Exemple |
 | ----- | ----------- | --------|
 | {Policy:PolicyId} | Nom de la stratégie de partie de confiance. | B2C_1A_signup_signin |
 | {Policy:RelyingPartyTenantId} | ID de locataire de la stratégie de partie de confiance. | votre-locataire.onmicrosoft.com |
@@ -64,7 +64,7 @@ Les sections suivantes répertorient les résolveurs de revendication disponible
 
 ### <a name="openid-connect"></a>OpenID Connect
 
-| Revendication | Description | Exemple |
+| Revendication | Description |  Exemple |
 | ----- | ----------- | --------|
 | {OIDC:AuthenticationContextReferences} |Paramètre de chaîne de requête `acr_values`. | N/A |
 | {OIDC:ClientId} |Paramètre de chaîne de requête `client_id`. | 00000000-0000-0000-0000-000000000000 |
@@ -81,7 +81,7 @@ Les sections suivantes répertorient les résolveurs de revendication disponible
 
 ### <a name="context"></a>Context
 
-| Revendication | Description | Exemple |
+| Revendication | Description |  Exemple |
 | ----- | ----------- | --------|
 | {Context:BuildNumber} | Version de l’infrastructure d’expérience d’identité (numéro de build).  | 1.0.507.0 |
 | {Context:CorrelationId} | L’ID de corrélation.  | 00000000-0000-0000-0000-000000000000 |
@@ -90,11 +90,18 @@ Les sections suivantes répertorient les résolveurs de revendication disponible
 | {Context:IPAddress} | Adresse IP utilisateur. | 11.111.111.11 |
 | {Context:KMSI} | Indique si la case [Maintenir la connexion](custom-policy-keep-me-signed-in.md) est cochée. |  true |
 
-### <a name="non-protocol-parameters"></a>Paramètres non liés au protocole
+### <a name="claims"></a>Revendications 
+
+| Revendication | Description |  Exemple |
+| ----- | ----------- | --------|
+| {Claim:claim type} | Identificateur d’un type de revendication déjà défini dans la section ClaimsSchema du fichier de stratégie ou d’un fichier de stratégie parent.  Par exemple : `{Claim:displayName}` ou `{Claim:objectId}`. | Valeur du type de revendication.|
+
+
+### <a name="oauth2-key-value-parameters"></a>Paramètres clé-valeur OAuth2
 
 Tous les noms de paramètre inclus dans le cadre d’une requête OIDC ou OAuth2 peuvent être mappés à une revendication dans le parcours utilisateur. Par exemple, la demande de l’application peut inclure un paramètre de chaîne de requête avec le nom `app_session`, `loyalty_number` ou toute chaîne de requête personnalisée.
 
-| Revendication | Description | Exemple |
+| Revendication | Description |  Exemple |
 | ----- | ----------------------- | --------|
 | {OAUTH-KV:campaignId} | Paramètre de chaîne de requête. | Hawaii |
 | {OAUTH-KV:app_session} | Paramètre de chaîne de requête. | A3C5R |
@@ -103,14 +110,14 @@ Tous les noms de paramètre inclus dans le cadre d’une requête OIDC ou OAuth2
 
 ### <a name="oauth2"></a>OAuth2
 
-| Revendication | Description | Exemple |
+| Revendication | Description |  Exemple |
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | Jeton d’accès. | N/A |
 
 
 ### <a name="saml"></a>SAML
 
-| Revendication | Description | Exemple |
+| Revendication | Description |  Exemple |
 | ----- | ----------- | --------|
 | {SAML:AuthnContextClassReferences} | Valeur de l'élément `AuthnContextClassRef`, provenant de la demande SAML. | urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport |
 | {SAML:NameIdPolicyFormat} | Attribut `Format`, provenant de l'élément `NameIDPolicy` de la demande SAML. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
@@ -118,6 +125,7 @@ Tous les noms de paramètre inclus dans le cadre d’une requête OIDC ou OAuth2
 | {SAML:AllowCreate} | Valeur de l'attribut `AllowCreate`, provenant de l'élément `NameIDPolicy` de la demande SAML. | True |
 | {SAML:ForceAuthn} | Valeur de l'attribut `ForceAuthN`, provenant de l'élément `AuthnRequest` de la demande SAML. | True |
 | {SAML:ProviderName} | Valeur de l'attribut `ProviderName`, provenant de l'élément `AuthnRequest` de la demande SAML.| Contoso.com |
+| {SAML:RelayState} | Paramètre de chaîne de requête `RelayState`.| 
 
 ## <a name="using-claim-resolvers"></a>Utilisation de programmes de résolution de revendications
 
@@ -131,7 +139,7 @@ Vous pouvez utiliser des programmes de résolution de revendications avec les é
 |Profil technique [OpenID Connect](openid-connect-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
 |Profil technique de [transformation de revendications](claims-transformation-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
 |Profil technique du [fournisseur RESTful](restful-technical-profile.md)| `InputClaim`| 1, 2|
-|Profil technique [SAML2](saml-technical-profile.md)| `OutputClaim`| 1, 2|
+|Profil technique du [fournisseur d’identité SAML](saml-identity-provider-technical-profile.md)| `OutputClaim`| 1, 2|
 |Profil technique [Autodéclaré](self-asserted-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
 |[ContentDefinition](contentdefinitions.md)| `LoadUri`| |
 |[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |

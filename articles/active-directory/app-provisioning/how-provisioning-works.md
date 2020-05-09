@@ -2,31 +2,27 @@
 title: Comprendre le fonctionnement du provisionnement Azure AD | Microsoft Docs
 description: Comprendre le fonctionnement du provisionnement Azure AD
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 241d90981ed9ba54d253e6c22c00f9e5a9197863
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 7ee685da3492b6915a687151beea3e82e46185de
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80884883"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593724"
 ---
 # <a name="how-provisioning-works"></a>Comment fonctionne le provisionnement
 
 Le provisionnement automatique correspond à la création d’identités utilisateur et de rôles dans les applications cloud auxquelles les utilisateurs ont besoin d’accéder. En plus de créer des identités utilisateur, l’approvisionnement automatique comprend la maintenance et la suppression d’identités utilisateur en cas de modification de l’état ou des rôles. Avant de commencer un déploiement, vous pouvez consulter cet article pour savoir comment fonctionne le provisionnement Azure AD et pour obtenir des recommandations concernant la configuration. 
 
-Le **service de provisionnement Azure AD** attribue des utilisateurs aux applications SaaS et aux autres systèmes en se connectant au point de terminaison d’API de gestion des utilisateurs SCIM 2.0 qui est fourni par chaque fournisseur d’application. Le point de terminaison SCIM permet à Azure AD de créer, de mettre à jour et de supprimer des utilisateurs programmatiquement. Pour les applications sélectionnées, le service d’approvisionnement peut également créer, mettre à jour et supprimer d’autres objets liés à l’identité, tels que les groupes et les rôles. Le canal utilisé pour le provisionnement entre Azure AD et l’application est chiffré à l’aide du chiffrement HTTPS TLS.
+Le **service de provisionnement Azure AD** attribue des utilisateurs aux applications SaaS et aux autres systèmes en se connectant au point de terminaison d’API de gestion des utilisateurs SCIM 2.0 qui est fourni par chaque fournisseur d’application. Le point de terminaison SCIM permet à Azure AD de créer, de mettre à jour et de supprimer des utilisateurs programmatiquement. Pour les applications sélectionnées, le service d’approvisionnement peut également créer, mettre à jour et supprimer d’autres objets liés à l’identité, tels que les groupes et les rôles. Le canal utilisé pour le provisionnement entre Azure AD et l’application est chiffré à l’aide du chiffrement HTTPS TLS 1.2.
 
 
 ![Service de provisionnement Azure AD](./media/how-provisioning-works/provisioning0.PNG)

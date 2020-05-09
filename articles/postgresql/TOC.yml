@@ -1,4 +1,4 @@
-- name: Documentation Azure DB pour PostgreSQL
+- name: Base de données Azure pour les documents PostgreSQL
   href: index.yml
 - name: Vue d’ensemble
   items:
@@ -60,6 +60,9 @@
   items:
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Serveur unique

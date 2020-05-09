@@ -5,12 +5,12 @@ description: Découvrez les meilleures pratiques de l’opérateur pour les ress
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 1eed6f1f82a8a91b2335760e99ea6b895d15547e
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 560a832821f5e5ff2fbbc2d66252945951d69511
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392710"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208055"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Meilleures pratiques pour la connectivité réseau et la sécurité dans Azure Kubernetes Service (AKS)
 
@@ -45,7 +45,7 @@ Avec une mise en réseau Azure CNI, la ressource de réseau virtuel se trouve da
 
 Pour plus d’informations sur la délégation du principal du service AKS, voir [Déléguer l’accès à d’autres ressources Azure][sp-delegation]. Au lieu d’utiliser le principal de service, vous pouvez aussi utiliser l’identité managée affectée par le système pour les autorisations. Pour plus d’informations, consultez [Utiliser des identités managées](use-managed-identity.md).
 
-Dans la mesure où chaque nœud et chaque pod reçoit sa propre adresse IP, planifiez les plages d’adresses des sous-réseaux AKS. Le sous-réseau doit être assez grand pour offrir une adresse IP à chacun des nœuds, pods et ressources réseau déployés. Chaque cluster AKS doit être placé dans son propre sous-réseau. Pour autoriser la connexion à des réseaux locaux ou en peering dans Azure, n’utilisez pas de plages d’adresses IP qui recouvrent des ressources réseau existantes. Des limites par défaut s’appliquent au nombre de pods qu’exécute chaque nœud avec une mise en réseau Kubenet ou Azure CNI. Pour gérer les événements de scale-out et les mises à niveau de cluster, des adresses IP supplémentaires sont également nécessaires dans le sous-réseau attribué. Cet espace d’adressage supplémentaire est particulièrement important si vous utilisez des conteneurs Windows Server (actuellement en préversion dans AKS), car ces pools de nœuds nécessitent une mise à niveau pour appliquer les derniers correctifs de sécurité. Pour plus d’informations sur les nœuds Windows Server, consultez [Mettre à niveau un pool de nœuds dans AKS][nodepool-upgrade].
+Dans la mesure où chaque nœud et chaque pod reçoit sa propre adresse IP, planifiez les plages d’adresses des sous-réseaux AKS. Le sous-réseau doit être assez grand pour offrir une adresse IP à chacun des nœuds, pods et ressources réseau déployés. Chaque cluster AKS doit être placé dans son propre sous-réseau. Pour autoriser la connexion à des réseaux locaux ou en peering dans Azure, n’utilisez pas de plages d’adresses IP qui recouvrent des ressources réseau existantes. Des limites par défaut s’appliquent au nombre de pods qu’exécute chaque nœud avec une mise en réseau Kubenet ou Azure CNI. Pour gérer les événements de scale-out et les mises à niveau de cluster, des adresses IP supplémentaires sont également nécessaires dans le sous-réseau attribué. Cet espace d’adressage supplémentaire est particulièrement important si vous utilisez des conteneurs Windows Server, car ces pools de nœuds nécessitent une mise à niveau pour appliquer les derniers correctifs de sécurité. Pour plus d’informations sur les nœuds Windows Server, consultez [Mettre à niveau un pool de nœuds dans AKS][nodepool-upgrade].
 
 Pour calculer l’adresse IP requise, voir [Configurer la mise en réseau Azure CNI dans AKS][advanced-networking].
 
@@ -99,7 +99,7 @@ spec:
 
 Un contrôleur d’entrée est un démon qui s’exécute sur un nœud AKS et surveille les demandes entrantes. Le trafic est ensuite distribué selon les règles définies dans la ressource d’entrée. Le contrôleur d’entrée le plus courant est basé sur [NGINX], mais AKS ne limite pas à un contrôleur spécifique : vous pouvez utiliser d’autres contrôleurs comme [Contour][contour], [HAProxy][haproxy] ou [Traefik][traefik].
 
-Les contrôleurs d’entrée doivent être planifiés sur un nœud Linux. Les nœuds Windows Server (actuellement en préversion dans AKS) ne doivent pas exécuter le contrôleur d’entrée. Utilisez un sélecteur de nœud dans votre manifeste YAML ou votre déploiement de graphique Helm pour indiquer que la ressource doit s’exécuter sur un nœud Linux. Pour plus d’informations, consultez [Use node selectors to control where pods are scheduled in AKS (Utiliser des sélecteurs de nœud pour contrôler l’emplacement de planification des pods dans AKS)][concepts-node-selectors].
+Les contrôleurs d’entrée doivent être planifiés sur un nœud Linux. Les nœuds Windows Server ne doivent pas exécuter le contrôleur d’entrée. Utilisez un sélecteur de nœud dans votre manifeste YAML ou votre déploiement de graphique Helm pour indiquer que la ressource doit s’exécuter sur un nœud Linux. Pour plus d’informations, consultez [Use node selectors to control where pods are scheduled in AKS (Utiliser des sélecteurs de nœud pour contrôler l’emplacement de planification des pods dans AKS)][concepts-node-selectors].
 
 Il existe de nombreux scénarios pour l’entrée, notamment ceux des guides pratiques suivants :
 
@@ -110,7 +110,7 @@ Il existe de nombreux scénarios pour l’entrée, notamment ceux des guides pra
 
 ## <a name="secure-traffic-with-a-web-application-firewall-waf"></a>Sécuriser le trafic avec un pare-feu d’applications web (WAF)
 
-**Meilleures pratiques** : pour analyser le risque d’attaques dans le trafic, utilisez un pare-feu d’applications web (WAF) comme [Barracuda pour Azure][barracuda-waf] ou Azure Application Gateway. Ces ressources réseau plus avancées peuvent également acheminer le trafic au-delà des connexions HTTP et HTTPS et de l’arrêt SSL de base.
+**Meilleures pratiques** : pour analyser le risque d’attaques dans le trafic, utilisez un pare-feu d’applications web (WAF) comme [Barracuda pour Azure][barracuda-waf] ou Azure Application Gateway. Ces ressources réseau plus avancées peuvent également acheminer le trafic au-delà des connexions HTTP et HTTPS et de l’arrêt TLS de base.
 
 Un contrôleur d’entrée qui distribue le trafic aux services et applications est généralement une ressource Kubernetes du cluster AKS. Le contrôleur s’exécute en tant que démon sur un nœud AKS et consomme des ressources du nœud, comme le processeur, la mémoire et la bande passante réseau. Dans les environnements de grande taille, il est souvent nécessaire de décharger une partie du routage du trafic ou de l’arrêt TLS sur une ressource réseau située en dehors du cluster AKS. L’objectif est également d’analyser le risque d’attaques dans le trafic entrant.
 

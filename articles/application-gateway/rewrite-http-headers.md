@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: d0b28770940f0e1adeec16aa89cd087299bd4abc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 421c1f4d1abe9be5f5081235e78ebe77b1813e6e
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132994"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562234"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Réécrire des en-têtes HTTP avec Application Gateway
 
@@ -56,7 +56,7 @@ Les actions de réécriture permettent de spécifier les en-têtes de requête e
 
 ## <a name="server-variables"></a>Variables de serveur
 
-Application Gateway utilise des variables de serveur pour stocker des informations utiles sur le serveur, la connexion avec le client et la requête active sur la connexion. L’adresse IP du client et le type de navigateur web sont quelques exemples d’informations stockées. Les variables de serveur changent dynamiquement, par exemple, quand une nouvelle page est chargée ou qu’un formulaire est posté. Vous pouvez utiliser ces variables pour évaluer les conditions de réécriture et réécrire des en-têtes.
+Application Gateway utilise des variables de serveur pour stocker des informations utiles sur le serveur, la connexion avec le client et la requête active sur la connexion. L’adresse IP du client et le type de navigateur web sont quelques exemples d’informations stockées. Les variables de serveur changent dynamiquement, par exemple, quand une nouvelle page est chargée ou qu’un formulaire est posté. Vous pouvez utiliser ces variables pour évaluer les conditions de réécriture et réécrire des en-têtes. Pour utiliser la valeur des variables de serveur afin de réécrire des en-têtes, vous devez spécifier ces variables dans la syntaxe {var_*serverVariable*}
 
 Application Gateway prend en charge ces variables de serveur :
 
@@ -69,20 +69,21 @@ Application Gateway prend en charge ces variables de serveur :
 | client_port                | Port client.                                                  |
 | client_tcp_rtt             | Informations sur la connexion TCP cliente. Disponible sur les systèmes qui prennent en charge l’option de socket TCP_INFO. |
 | client_user                | Quand l’authentification HTTP est utilisée, nom d’utilisateur fourni pour l’authentification. |
-| host                       | Dans cet ordre de priorité : nom d’hôte de la ligne de la requête, nom d’hôte du champ d’en-tête de requête d’hôte ou nom de serveur correspondant à une requête. |
+| host                       | Dans cet ordre de priorité : nom d’hôte de la ligne de la requête, nom d’hôte du champ d’en-tête de requête d’hôte ou nom de serveur correspondant à une requête. Exemple : dans la demande *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , la valeur host sera *contoso.com* |
 | cookie_*name*              | Cookie *name*.                                            |
 | http_method                | Méthode utilisée pour effectuer la requête d’URL. Par exemple, GET ou POST. |
 | HTTP_STATUS                | État de session. Par exemple, 200, 400 ou 403.                       |
 | http_version               | Protocole de requête. Généralement, HTTP/1.0, HTTP/1.1 ou HTTP/2.0. |
-| query_string               | Liste de paires variable/valeur qui suivent le « ? » dans l’URL demandée. |
+| query_string               | Liste de paires variable/valeur qui suivent le « ? » dans l’URL demandée. Exemple : dans la demande *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , la valeur query_string sera *id=123&title=fabrikam* |
 | received_bytes             | Longueur de la requête (incluant la ligne, l’en-tête et le corps de la requête). |
 | request_query              | Arguments dans la ligne de la requête.                                |
 | request_scheme             | Schéma de requête : « http » ou « https ».                            |
-| request_uri                | URI complet de la requête d’origine (avec les arguments).                   |
+| request_uri                | URI complet de la requête d’origine (avec les arguments). Exemple : dans la demande *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , la valeur request_uri sera */article.aspx?id=123&title=fabrikam*   |
 | sent_bytes                 | Nombre d’octets envoyés à un client.                             |
 | server_port                | Port du serveur qui a accepté une requête.                 |
 | ssl_connection_protocol    | Protocole d’une connexion TLS établie.        |
 | ssl_enabled                | Valeur « On » si la connexion opère en mode TLS. Sinon, chaîne vide. |
+| uri_path                   | Identifie la ressource spécifique dans l’hôte à laquelle le client web souhaite accéder. Il s’agit de la partie de l’URI de demande sans les arguments. Exemple : dans la demande *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , la valeur uri_path sera */article.aspx*  |
 
 ## <a name="rewrite-configuration"></a>Configuration de la réécriture
 
@@ -156,6 +157,8 @@ Vous pouvez évaluer un en-tête de requête ou de réponse HTTP pour détermine
 ## <a name="limitations"></a>Limites
 
 - Si une réponse contient plusieurs en-têtes de même nom, la réécriture de la valeur de l’un de ces en-têtes entraîne la suppression des autres en-têtes de la réponse. Cela peut généralement se produire avec l’en-tête Set-Cookie, car une réponse peut en contenir plusieurs. Tel est le cas quand vous utilisez un service d’application avec une passerelle d’application et que vous avez configuré l’affinité de session basée sur les cookies sur la passerelle d’application. Dans ce cas, la réponse contient deux en-têtes Set-Cookie : un utilisé par le service d’application, par exemple `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net`, et un autre pour l’affinité de la passerelle d’application, par exemple `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. La réécriture de l’un des en-têtes Set-Cookie dans ce scénario peut entraîner la suppression de l’autre en-tête Set-Cookie de la réponse.
+
+- Les réécritures ne sont pas prises en charge quand la passerelle d’application est configurée pour rediriger les demandes ou afficher une page d’erreur personnalisée.
 
 - La réécriture des en-têtes de connexion, de mise à niveau et d’hôte n’est actuellement pas prise en charge.
 

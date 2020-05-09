@@ -13,12 +13,12 @@ ms.date: 11/07/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: c1f1cbf85b96aade745cc4248aed4bc89e41b450
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 647dff9e6401322371ef795a25ca5ced2b517e9c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77085153"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81534582"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Acquérir et mettre en cache des jetons à l’aide de Microsoft Authentication Library (MSAL)
 
@@ -63,18 +63,18 @@ MSAL gère un cache de jetons (ou deux caches pour les applications clientes con
 
 ### <a name="recommended-call-pattern-for-public-client-applications"></a>Modèle d’appel recommandé pour les applications clientes publiques
 
-Le code de l’application doit d’abord essayer d’obtenir un jeton silencieusement (à partir du cache).  Si l’appel de méthode retourne une erreur ou exception de type « Interface utilisateur requise », essayez d’acquérir un jeton par d’autres moyens. 
+Le code de l’application doit d’abord essayer d’obtenir un jeton silencieusement (à partir du cache).  Si l’appel de méthode retourne une erreur ou exception de type « Interface utilisateur requise », essayez d’acquérir un jeton par d’autres moyens.
 
 En revanche, il existe deux flux avant lesquels vous **ne devez pas** essayer d’acquérir silencieusement un jeton :
 
 - Le [flux des informations d’identification du client](msal-authentication-flows.md#client-credentials), qui n’utilise pas le cache de jetons d’utilisateur, mais un cache de jeton d’application. Cette méthode se charge de vérifier ce cache de jetons d’application avant d’envoyer une demande au STS.
-- Le [flux du code d’autorisation](msal-authentication-flows.md#authorization-code) dans les applications web, car il accepte un code que l’application a obtenu en connectant l’utilisateur et en leur demandant leur consentement pour d’autres d’étendues. Dans la mesure où du code est passé comme paramètre, et non un compte, la méthode ne peut pas examiner le cache avant d’accepter le code, ce qui exige de toute façon un appel au service.
+- Le [flux du code d’autorisation](msal-authentication-flows.md#authorization-code) dans les applications web, car il accepte un code que l’application a obtenu en connectant l’utilisateur et en lui demandant son consentement pour d’autres d’étendues. Dans la mesure où du code est passé comme paramètre, et non un compte, la méthode ne peut pas examiner le cache avant d’accepter le code, ce qui exige de toute façon un appel au service.
 
 ### <a name="recommended-call-pattern-in-web-apps-using-the-authorization-code-flow"></a>Modèle d’appel recommandé dans les applications web avec le flux du code d’autorisation
 
 Pour les applications web qui utilisent le [flux du code d’autorisation OpenID Connect](v2-protocols-oidc.md), le modèle recommandé dans les contrôleurs consiste à :
 
-- Instancier une application cliente confidentielle avec un cache de jetons avec sérialisation personnalisée. 
+- Instancier une application cliente confidentielle avec un cache de jetons avec sérialisation personnalisée.
 - Acquérir le jeton en utilisant le flux du code d’autorisation
 
 ## <a name="acquiring-tokens"></a>Acquisition des jetons
@@ -92,7 +92,7 @@ Pour les applications clientes publiques (application de bureau ou mobile) :
 ### <a name="confidential-client-applications"></a>Applications clientes confidentielles
 
 Pour les applications clientes confidentielles (application web, API web ou application de démon comme un service Windows) :
-- Vous acquérez des jetons **pour l’application elle-même** et non pour un utilisateur, à l’aide du [flux des informations d’identification du client](msal-authentication-flows.md#client-credentials). Ce dernier peut être utilisé pour des outils de synchronisation ou des outils qui traitent des utilisateurs en général et non un utilisateur spécifique. 
+- Vous acquérez des jetons **pour l’application elle-même** et non pour un utilisateur, à l’aide du [flux des informations d’identification du client](msal-authentication-flows.md#client-credentials). Ce dernier peut être utilisé pour des outils de synchronisation ou des outils qui traitent des utilisateurs en général et non un utilisateur spécifique.
 - Vous utilisez le [flux OBO (On-Behalf-Of)](msal-authentication-flows.md#on-behalf-of) pour une API web afin d’appeler une API pour le compte de l’utilisateur. L’application est identifiée avec des informations d’identification du client afin d’acquérir un jeton basé sur une assertion d’utilisateur (par exemple, SAML ou un jeton JWT). Ce flux est utilisé par les applications qui ont besoin d’accéder aux ressources d’un utilisateur particulier dans des appels de service à service.
 - Vous acquérez des jetons à l’aide du [flux du code d’autorisation](msal-authentication-flows.md#authorization-code) dans les applications web une fois que l’utilisateur s’est connecté par le biais de l’URL de la demande d’autorisation. L’application OpenID Connect utilisent généralement ce mécanisme, ce qui permet à l’utilisateur de se connecter à l’aide d’Open ID Connect, puis d’accéder aux API web pour le compte de l’utilisateur.
 

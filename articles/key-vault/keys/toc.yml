@@ -23,6 +23,11 @@
       href: hsm-protected-keys-vendor-agnostic-byok.md
     - name: Importer des clés protégées par HSM (héritées)
       href: hsm-protected-keys-legacy.md
+- name: Exemples
+  items:
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ../policy-samples.md?toc=/azure/key-vault/keys/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 - name: Informations de référence
   items:
     - name: Azure PowerShell

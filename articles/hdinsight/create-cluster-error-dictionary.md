@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
-ms.openlocfilehash: 803783eddfbffd5c3dbab7353ee00dd7f11a09e5
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 39179c9b6d02d810561485f6a4af0102711ad0ef
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618897"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186632"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight : Erreurs lors de la création du cluster
 
@@ -244,7 +244,7 @@ Les stratégies suivantes ont généralement une incidence sur la création de c
 
 ### <a name="resolution"></a>Résolution
 
-Supprimez ou désactivez la stratégie Azure basée sur un abonnement lors de la création du cluster HDInsight.
+Supprimez ou désactivez l’affectation Azure Policy basée sur un abonnement lors de la création du cluster HDInsight.
 
 ---
 

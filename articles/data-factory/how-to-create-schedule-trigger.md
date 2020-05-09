@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.openlocfilehash: 100f95c20743f70bb4a9f2ac7e74853eab80f3e9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a0a01dad5ae86cf20d57ade845326838f8fd686a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414485"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81641508"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Créer un déclencheur qui exécute un pipeline selon une planification
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -31,38 +31,46 @@ Les sections suivantes indiquent les étapes pour créer un déclencheur de plan
 Vous pouvez créer un **déclencheur de planification** afin de planifier l’exécution périodique d’un pipeline (toutes les heures, tous les jours, etc.). 
 
 > [!NOTE]
-> Pour la procédure complète de création d’un pipeline et d’un déclencheur de planification, en associant le déclencheur au pipeline, et en exécutant et en surveillant le pipeline, consultez [Guide de démarrage rapide : créer une fabrique de données à l’aide de l’interface utilisateur de Data Factory](quickstart-create-data-factory-portal.md).
+> Pour la procédure complète de création d’un pipeline et d’un déclencheur de planification, qui associe le déclencheur au pipeline et exécute et surveille le pipeline, consultez [Démarrage rapide : créer une fabrique de données à l’aide de l’interface utilisateur de Data Factory](quickstart-create-data-factory-portal.md).
 
-1. Basculez vers l’onglet **Modifier**. 
+1. Basculez sur l’onglet **Modifier**, indiqué par un symbole de crayon. 
 
     ![Basculer vers l’onglet Modifier](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
-1. Cliquez sur **Déclencheur** dans le menu, puis cliquez sur **Nouveau/Modifier**. 
+
+1. Sélectionnez **Déclencheur** dans le menu, puis sélectionnez **Nouveau/Modifier**. 
 
     ![Menu de nouveau déclencheur](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
-2. Dans la page **Ajouter un déclencheur**, cliquez sur **Choose trigger...**  (Choisir un déclencheur...), puis cliquez sur **Nouveau**. 
+
+1. Sur la page **Ajouter des déclencheurs**, sélectionnez **Choisir un déclencheur…** , puis **+Nouveau**. 
 
     ![Ajouter un déclencheur - nouveau déclencheur](./media/how-to-create-schedule-trigger/add-trigger-new-button.png)
-3. Dans la page **Nouveau déclencheur**, procédez comme suit : 
+
+1. Sur la page **Nouveau déclencheur**, procédez comme suit : 
 
     1. Vérifiez que **Planifier** est sélectionné pour **Type**. 
-    2. Spécifiez la date/heure de début du déclencheur pour **Date de début (UTC)** . Par défaut, elle est définie sur la date/heure actuelle. 
-    3. Spécifiez la **Périodicité** du déclencheur. Sélectionnez une des valeurs dans la liste déroulante (toutes les minutes, horaire, quotidienne, hebdomadaire et mensuelle). Entrez le multiplicateur dans la zone de texte. Par exemple, si vous souhaitez exécuter le déclencheur toutes les 15 minutes, vous sélectionnez **Toutes les minutes**, puis entrez **15** dans la zone de texte. 
-    4. Si vous ne voulez pas spécifier une date/heure de fin dans le champ **Fin**, sélectionnez **No End** (Pas de fin). Pour spécifier une date/heure de fin, sélectionnez **On Date** (À la date) et spécifiez la date/heure de fin, puis cliquez sur **Appliquer**. Un coût est associé à chaque exécution du pipeline. Si vous effectuez un test, vous souhaiterez peut-être vous assurer que le pipeline n’est déclenché que deux fois. Toutefois, vérifiez que la durée est suffisante entre l’heure de publication et l’heure de fin pour permettre l’exécution du pipeline. Le déclencheur ne s’applique que lorsque vous avez publié la solution dans Data Factory, et non lorsque vous enregistrez le déclencheur dans l’interface utilisateur.
+    1. Spécifiez la date/heure de début du déclencheur pour **Date de début (UTC)** . Par défaut, elle est définie sur la date/heure actuelle. 
+    1. Spécifiez la **Périodicité** du déclencheur. Sélectionnez une des valeurs dans la liste déroulante (toutes les minutes, horaire, quotidienne, hebdomadaire et mensuelle). Entrez le multiplicateur dans la zone de texte. Par exemple, si vous souhaitez exécuter le déclencheur toutes les 15 minutes, vous sélectionnez **Toutes les minutes**, puis entrez **15** dans la zone de texte. 
+    1. Si vous ne voulez pas spécifier une date/heure de fin dans le champ **Fin**, sélectionnez **No End** (Pas de fin). Pour spécifier une date/heure de fin, sélectionnez **On Date** (À la date) et spécifiez la date/heure de fin, puis sélectionnez **OK**. Un coût est associé à chaque exécution du pipeline. Si vous effectuez un test, vous souhaiterez peut-être vous assurer que le pipeline n’est déclenché que deux fois. Toutefois, vérifiez que la durée est suffisante entre l’heure de publication et l’heure de fin pour permettre l’exécution du pipeline. Le déclencheur ne s’applique que lorsque vous avez publié la solution dans Data Factory, et non lorsque vous enregistrez le déclencheur dans l’interface utilisateur.
 
         ![Paramètres du déclencheur](./media/how-to-create-schedule-trigger/trigger-settings.png)
-4. Dans la page **Nouveau déclencheur**, cochez l’option **Activé**, puis cliquez sur **Suivant**. Vous pouvez utiliser cette case à cocher pour désactiver le déclencheur ultérieurement. 
+
+1. Dans la fenêtre **Nouveau déclencheur**, sélectionnez **Oui** dans l’option **Activé**, puis sélectionnez **OK**. Vous pouvez utiliser cette case à cocher pour désactiver le déclencheur ultérieurement. 
 
     ![Paramètres du déclencheur - Bouton Suivant](./media/how-to-create-schedule-trigger/trigger-settings-next.png)
-5. Dans la page **Nouveau déclencheur**, consultez le message d’avertissement, puis cliquez sur **Terminer**.
+
+1. Dans la fenêtre **Nouveau déclencheur**, consultez le message d’avertissement, puis sélectionnez **OK**.
 
     ![Paramètres du déclencheur - Bouton Terminer](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
-6. Cliquez sur **Publier** pour publier les modifications dans Data Factory. Tant les modifications apportées à la fabrique de données ne sont pas publiées, le déclencheur ne démarre pas le déclenchement des exécutions du pipeline. 
+
+1. Sélectionnez **Publier tout** pour publier les changements sur Data Factory. Tant que vous n’avez pas publié les modifications sur Data Factory, le déclencheur ne démarre pas le déclenchement des exécutions du pipeline. 
 
     ![Bouton Publier](./media/how-to-create-schedule-trigger/publish-2.png)
-8. Basculez vers l’onglet **Surveiller** sur la gauche. Cliquez sur **Actualiser** pour actualiser la liste. Vous observez les exécutions du pipeline déclenchées par déclencheur planifié. Notez les valeurs dans la colonne **Déclenché par**. Si vous utilisez l’option **Déclencher maintenant**, l’exécution du déclencheur manuelle apparaît dans la liste. 
+
+1. Basculez sur l’onglet **Exécutions de pipeline** sur la gauche, puis sélectionnez **Actualiser** pour actualiser la liste. Vous observerez les exécutions du pipeline déclenchées par le déclencheur planifié. Notez les valeurs dans la colonne **Déclenché par**. Si vous utilisez l’option **Déclencher maintenant**, l’exécution du déclencheur manuelle apparaît dans la liste. 
 
     ![Surveiller les exécutions déclenchées](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
-9. Cliquez sur la flèche vers le bas en regard de **Exécutions du pipeline** pour basculer vers la vie **Trigger Runs** (Exécutions du déclencheur). 
+
+1. Basculez vers l’affichage **Exécutions du déclencheur**. 
 
     ![Surveiller les exécutions du déclencheur](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
@@ -112,31 +120,31 @@ Cette section montre comment utiliser Azure PowerShell pour créer, démarrer et
     - Le déclencheur est associé au pipeline **Adfv2QuickStartPipeline**. Pour associer plusieurs pipelines à un déclencheur, ajoutez d’autres sections **pipelineReference**.
     - Le pipeline du guide de démarrage rapide prend deux valeurs de **paramètres** : **inputPath** et **outputPath**. Par conséquent, les valeurs de ces paramètres sont transmises à partir du déclencheur.
 
-2. Créez un déclencheur avec l’applet de commande **Set-AzDataFactoryV2Trigger** :
+1. Créez un déclencheur avec l’applet de commande **Set-AzDataFactoryV2Trigger** :
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-3. Vérifiez que l’état du déclencheur est **Stopped** avec l’applet de commande **Get-AzDataFactoryV2Trigger** :
+1. Vérifiez que l’état du déclencheur est **Stopped** avec l’applet de commande **Get-AzDataFactoryV2Trigger** :
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Démarrez le déclencheur avec la cmdlet **Start-AzDataFactoryV2Trigger** :
+1. Démarrez le déclencheur avec la cmdlet **Start-AzDataFactoryV2Trigger** :
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Vérifiez que l’état du déclencheur est **Started** avec l’applet de commande **Get-AzDataFactoryV2Trigger** :
+1. Vérifiez que l’état du déclencheur est **Started** avec l’applet de commande **Get-AzDataFactoryV2Trigger** :
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6.  Récupérez les exécutions du déclencheur dans Azure PowerShell avec l’applet de commande **Get-AzDataFactoryV2TriggerRun**. Pour obtenir les d’informations relatives aux exécutions du déclencheur, exécutez la commande suivante régulièrement. Mettez à jour les valeurs **TriggerRunStartedAfter** et **TriggerRunStartedBefore** pour qu’elles correspondent aux valeurs spécifiées dans la définition du déclencheur :
+1.  Récupérez les exécutions du déclencheur dans Azure PowerShell avec l’applet de commande **Get-AzDataFactoryV2TriggerRun**. Pour obtenir les d’informations relatives aux exécutions du déclencheur, exécutez la commande suivante régulièrement. Mettez à jour les valeurs **TriggerRunStartedAfter** et **TriggerRunStartedBefore** pour qu’elles correspondent aux valeurs spécifiées dans la définition du déclencheur :
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
@@ -324,13 +332,13 @@ Le tableau suivant présente une vue d’ensemble globale des principaux éléme
 
 ### <a name="schema-defaults-limits-and-examples"></a>Valeurs par défaut, limites et exemples du schéma
 
-| Propriété JSON | Type | Obligatoire | Valeur par défaut | Valeurs valides | Exemple |
+| Propriété JSON | Type | Obligatoire | Valeur par défaut | Valeurs valides |  Exemple |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | String | Oui | None | Dates-Heures ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | Object | Oui | None | Objet de périodicité | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | Number | Non | 1 | 1 à 1 000 | `"interval":10` |
+| **interval** | Number | Non  | 1 | 1 à 1 000 | `"interval":10` |
 | **endTime** | String | Oui | None | Une valeur date-heure représentant une heure dans le futur. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | Object | Non | None | Objet de planification | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **schedule** | Object | Non  | None | Objet de planification | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>propriété startTime
 Le tableau suivant vous montre comment la propriété **startTime** contrôle une exécution du déclencheur :
@@ -372,7 +380,7 @@ Vous trouverez dans cette section plusieurs exemples de planifications de pério
 
 Les exemples supposent que la valeur **interval** est 1 et que la valeur **frequency** est correcte selon la définition de planification. Par exemple, vous ne pouvez pas avoir une valeur **frequency** définie sur « jour » et une modification « monthDays » dans l’objet **schedule**. Ces restrictions sont mentionnées dans le tableau de la section précédente.
 
-| Exemple | Description |
+|  Exemple | Description |
 |:--- |:--- |
 | `{"hours":[5]}` | Exécution à 5h00 tous les jours. |
 | `{"minutes":[15], "hours":[5]}` | Exécution à 5h15 tous les jours. |

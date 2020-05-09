@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 5954c8eda370c0734985c47cfff6d073f5d76d17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2b62ee971c2cff84f60bad1be4304631513fed22
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258020"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186320"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compréhension de vos factures Azure Cosmos DB
 
@@ -103,7 +103,7 @@ Supposons que vous disposez d’un conteneur Azure Cosmos dans la région USA Ou
 |Facture de débit pour 3 régions supplémentaires (USA Est, Europe Nord et Asie Est)       | 3 x 10 000 RU/s x 24 x 30    |0,008 $ pour 100 RU/s par heure  |1 728 $|
 |Facture de stockage pour le conteneur de la région USA Ouest      | 250 Go    |0,25 $/Go  |62,50 $|
 |Facture de stockage pour 3 régions supplémentaires (USA Est, Europe Nord et Asie Est)      | 3 x 250 Go    |0,25 $/Go  |187,50 $|
-|**Total**     |     |  |**2 554**|
+|**Total**     |     |  |**2 554** |
 
 *Supposons également que vous faites sortir 100 Go de données chaque mois du conteneur dans la région USA Ouest, afin de répliquer les données dans les régions USA Est, Europe Nord et Asie Est. Vous êtes facturé pour les sorties en fonction du tarif des transferts de données.*
 
@@ -200,7 +200,7 @@ La facture totale mensuelle sera (en supposant une durée de 30 jours/720 heures
 || |**Coût mensuel total**  | |**38 688 $**   |
 
 ## <a name="billing-examples-with-free-tier-accounts"></a>Exemples de facturation avec des comptes de niveau gratuit
-Avec le niveau gratuit Azure Cosmos DB, vous recevez gratuitement les premiers 400 RU/s et 5 Go de stockage dans votre compte, appliqués au niveau du compte. Les RU/s et le stockage au-delà de 400 RU/s et de 5 Go sont facturés selon les tarifs standard indiqués dans la page des tarifs. Sur la facture, vous ne voyez pas de coût ni de ligne pour les 400 RU/s et les 5 Go gratuits, mais seulement les RU/s et le stockage au-delà de ce qui est couvert par le niveau gratuit. Les 400 RU/s s’appliquent à tous les types de RU/s – débit provisionné, Autopilot (préversion) et multimaître.  
+Avec le niveau gratuit Azure Cosmos DB, vous recevez gratuitement les premiers 400 RU/s et 5 Go de stockage dans votre compte, appliqués au niveau du compte. Les RU/s et le stockage au-delà de 400 RU/s et de 5 Go sont facturés selon les tarifs standard indiqués dans la page des tarifs. Sur la facture, vous ne voyez pas de coût ni de ligne pour les 400 RU/s et les 5 Go gratuits, mais seulement les RU/s et le stockage au-delà de ce qui est couvert par le niveau gratuit. Les 400 RU/s s’appliquent à tous les types de RU/s – débit provisionné, mise à l’échelle automatique et multimaître.  
 
 ### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>Exemple de facturation – conteneur ou base de données avec débit provisionné
 - Supposons que nous créons une base de données ou un conteneur dans un compte de niveau gratuit avec 400 RU/s et 5 Go de stockage.
@@ -208,8 +208,8 @@ Avec le niveau gratuit Azure Cosmos DB, vous recevez gratuitement les premiers 4
 - À présent, supposons que nous ajoutons dans le même compte une autre base de données ou un autre conteneur avec 1 000 RU/s et 10 Go de stockage.
 - Votre facture affiche maintenant des frais pour les 1 000 RU/s et 10 Go de stockage. 
 
-### <a name="billing-example---container-or-database-with-autopilot-throughput-preview"></a>Exemple de facturation – conteneur ou base de données avec débit Autopilot (préversion)
-- Supposons que nous créons dans un compte de niveau gratuit une base de données ou un conteneur avec Autopilot activé, avec un maximum de 4 000 RU/s. Cette ressource effectue automatiquement une mise à l’échelle entre 400 RU/s et 4 000 RU/s. 
+### <a name="billing-example---container-or-database-with-autoscale-throughput"></a>Exemple de facturation – conteneur ou base de données avec débit avec mise à l’échelle automatique
+- Supposons que nous créons dans un compte de niveau gratuit une base de données ou un conteneur avec la mise à l’échelle automatique activée, avec un maximum de 4000 RU/s. Cette ressource effectue automatiquement une mise à l’échelle entre 400 RU/s et 4 000 RU/s. 
 - Supposons que pendant les heures 1 à 10 la ressource est au minimum de 400 RU/s. Pendant l’heure 11, la ressource effectue un scale-up jusqu’à 1 000 RU/s, puis revient à 400 RU/s dans l’heure.
 - Pour les heures 1 à 10, il vous est facturé 0 USD pour le débit, car les 400 RU/s sont couvertes par le niveau gratuit. 
 - Pour l’heure 11, il vous est facturé 1 000 RU/s – 400 RU/s = 600 RU/s, car il s’agit du débit le plus élevé dans l’heure. Cela représente 6 unités de 100 RU/s pour l’heure, de sorte que le coût total du débit pour l’heure est de 6 unités * 0,012 USD = 0,072 USD. 

@@ -7,37 +7,17 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: dc47afe9cb6eca1b10f8caca7b85087023c5eadf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1c72c2f606ab653d7e3f1d81f7278571e8e4978
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060135"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82136530"
 ---
-# <a name="preview-control-updates-with-maintenance-control-and-azure-powershell"></a>Aperçu : Contrôler les mises à jour avec le contrôle de maintenance et Azure PowerShell
+# <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Contrôler les mises à jour avec le contrôle de maintenance et Azure PowerShell
 
-Gérer les mises à jour de plateforme qui ne nécessitent pas de redémarrage à l’aide du contrôle de maintenance. Azure met régulièrement à jour son infrastructure pour améliorer la fiabilité, les performances et la sécurité, ou pour lancer de nouvelles fonctionnalités. La plupart des mises à jour sont transparentes pour les utilisateurs. Certaines charges de travail sensibles, comme le gaming, le streaming multimédia et les transactions financières, ne peuvent tolérer (même quelques secondes seulement) le blocage ou la déconnexion d’une machine virtuelle pour maintenance. Le contrôle de maintenance vous donne la possibilité d’attendre les mises à jour de plateforme et de les appliquer dans une fenêtre de 35 jours consécutifs. 
-
-Le contrôle de maintenance vous permet de décider du moment où appliquer les mises à jour sur vos machines virtuelles isolées.
-
-Avec le contrôle de maintenance, vous pouvez :
-- Regrouper des mises à jour dans un package de mise à jour.
-- Attendre jusqu’à 35 jours avant d’appliquer les mises à jour. 
-- Automatiser les mises à jour de plateforme pour votre fenêtre de maintenance avec Azure Functions.
-- Les configurations de maintenance fonctionnent entre les abonnements et les groupes de ressources. 
-
-> [!IMPORTANT]
-> Le contrôle de maintenance est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
-
-## <a name="limitations"></a>Limites
-
-- Les machines virtuelles doivent se trouver sur un [hôte dédié](./linux/dedicated-hosts.md) ou être créées à l’aide d’une [taille de machine virtuelle isolée](./linux/isolation.md).
-- Après 35 jours, une mise à jour est automatiquement appliquée.
-- L’utilisateur doit disposer d’un accès **Contributeur de ressource**.
-
-
+Le contrôle de maintenance vous permet de choisir quand appliquer les mises à jour à vos machines virtuelles isolées et à vos hôtes dédiés Azure. Cette rubrique traite des options de contrôle de maintenance d’Azure PowerShell. Pour plus d’informations sur les avantages du contrôle de maintenance, ses limitations et d’autres options de gestion, consultez [Gestion des mises à jour de plateforme avec le contrôle de maintenance](maintenance-control.md).
+ 
 ## <a name="enable-the-powershell-module"></a>Activer le module PowerShell
 
 Vérifiez que `PowerShellGet` est à jour.
@@ -46,16 +26,9 @@ Vérifiez que `PowerShellGet` est à jour.
 Install-Module -Name PowerShellGet -Repository PSGallery -Force
 ```
 
-Les applets de commande PowerShell Az.Maintenance sont en préversion. Vous devez donc installer le module avec le paramètre `AllowPrerelease` dans Cloud Shell ou votre installation PowerShell locale.   
-
-```azurepowershell-interactive
-Install-Module -Name Az.Maintenance -AllowPrerelease
-```
-
 Si vous installez localement, veillez à ouvrir votre invite PowerShell en tant qu’administrateur.
 
 Vous pouvez également être invité à confirmer que vous souhaitez installer à partir d’un *référentiel non approuvé*. Tapez `Y` ou sélectionnez **Oui pour tout** afin d’installer le module.
-
 
 
 ## <a name="create-a-maintenance-configuration"></a>Créer une configuration de maintenance
