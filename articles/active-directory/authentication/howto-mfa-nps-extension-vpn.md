@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec8d5b66c71c558e56f3d1f48cec96d7cc487552
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 0f90a6dd94a498b6de6b5e2ec8381180483d0ac8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654127"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82113151"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Intégrer votre infrastructure VPN avec Azure MFA en utilisant l’extension NPS (Network Policy Server) pour Azure
 
@@ -366,7 +366,7 @@ Le script effectue les actions suivantes :
 
 Si vous souhaitez utiliser vos propres certificats, vous devez associer la clé publique de votre certificat au principal de service sur Azure AD, et ainsi de suite.
 
-Pour utiliser le script, fournissez l’extension avec vos informations d’identification d’administration Azure Active Directory et l’ID du locataire Azure Active Directory que vous avez copié précédemment. Exécutez le script sur chaque serveur NPS où vous avez installé l’extension du serveur NPS.
+Pour utiliser le script, fournissez l’extension avec vos informations d’identification d’administration Azure Active Directory et l’ID du locataire Azure Active Directory que vous avez copié précédemment. Le compte doit se trouver dans le même locataire Azure AD que celui pour lequel vous souhaitez activer l’extension. Exécutez le script sur chaque serveur NPS où vous avez installé l’extension du serveur NPS.
 
 1. Exécutez Windows PowerShell en tant qu’administrateur.
 
@@ -376,6 +376,8 @@ Pour utiliser le script, fournissez l’extension avec vos informations d’iden
 
     ![Exécution du script de configuration AzureMfsNpsExtnConfigSetup.ps1](./media/howto-mfa-nps-extension-vpn/image38.png)
 
+    Si vous recevez une erreur de sécurité due au protocole TLS, activez le protocole TLS 1.2 à l’aide de la commande `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` à partir de votre invite PowerShell.
+    
     Après la vérification par le script de l’installation du module PowerShell, la fenêtre de connexion du module PowerShell Azure Active Directory s’affiche.
 
 4. Entrez vos informations d’identification d’administrateur Azure AD et votre mot de passe, puis sélectionnez **Connexion**.

@@ -11,12 +11,13 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a6c44a8253c81b44d02351b2df9c943d9f358f8
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.custom: has-adal-ref
+ms.openlocfilehash: 9c3ea7596e589431412489bea4ac9a23fa604540
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654353"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610647"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Bien démarrer avec l’authentification par certificat dans Azure Active Directory
 
@@ -45,7 +46,7 @@ Pour configurer l’authentification basée sur les certificats, les conditions 
 - Un certificat client pour l’authentification du client doit avoir été émis pour votre client.
 
 >[!IMPORTANT]
->La taille maximale d’une liste de révocation de certificats à télécharger et à mettre en cache par Azure Active Directory est de 20 Mo, et le temps nécessaire au téléchargement de cette liste ne doit pas dépasser 10 secondes.  Si Azure Active Directory ne parvient pas à télécharger une liste de révocation de certificats, les authentifications basées sur les certificats émis par l’autorité de certification correspondante échouent. Les bonnes pratiques permettant de s’assurer que les fichiers CRL se trouvent dans des limites de taille acceptables consistent à conserver les durées de vie des certificats dans des limites raisonnables, et à nettoyer les certificats expirés. 
+>La taille maximale d’une liste de révocation de certificats à télécharger et à mettre en cache par Azure Active Directory est de 20 Mo, et le temps nécessaire au téléchargement de cette liste ne doit pas dépasser 10 secondes.  Si Azure Active Directory ne parvient pas à télécharger une liste de révocation de certificats, les authentifications basées sur les certificats émis par l’autorité de certification correspondante échouent. Les bonnes pratiques permettant de s’assurer que les fichiers CRL se trouvent dans des limites de taille acceptables consistent à conserver les durées de vie des certificats dans des limites raisonnables, et à nettoyer les certificats expirés.
 
 ## <a name="step-1-select-your-device-platform"></a>Étape 1 : Sélectionner la plateforme de votre appareil
 
