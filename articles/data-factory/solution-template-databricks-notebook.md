@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/03/2020
-ms.openlocfilehash: 65b89a13637f5a4e1712995a6ac58d88b4421806
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d55e37078d7bbbcd84684f43ef12810ef01e10e
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414846"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627753"
 ---
 # <a name="transformation-with-azure-databricks"></a>Transformation avec Azure Databricks
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Dans ce tutoriel, vous allez créer un pipeline de bout en bout contenant des activités **Validation**, **Copie des données** et **Notebook** dans Azure Data Factory.
 

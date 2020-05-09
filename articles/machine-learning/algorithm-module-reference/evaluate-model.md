@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/24/2020
-ms.openlocfilehash: c1bcbb6a368c9c80f968c48c1a6e0bc6c95133d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/24/2020
+ms.openlocfilehash: cf9597f4a722ff9cda68e87b31db77c989afcb0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79456402"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82129845"
 ---
 # <a name="evaluate-model-module"></a>Module Évaluer le modèle
 
@@ -33,36 +33,15 @@ Utilisez ce module pour mesurer la précision d’un modèle formé. Vous fourni
 > Si vous ne connaissez pas l’évaluation du modèle, nous vous recommandons la série de vidéos du Dr. Stephen Elston, dans le cadre du [cours de Machine Learning](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) à partir d’EdX. 
 
 
-Trois méthodes d’utilisation du module **Évaluer le modèle** sont possibles :
+## <a name="how-to-use-evaluate-model"></a>Comment utiliser le modèle Evaluate
+1. Connectez la sortie du **jeu de données noté** du module [Noter le modèle](./score-model.md) au port d’entrée gauche du module **Évaluer le modèle**. 
 
-+ Générer des scores sur vos données d’apprentissage et évaluer le modèle en fonction de ces scores
-+ Générer des scores sur le modèle, mais comparer ces scores à ceux d’un jeu de tests réservé
-+ Comparer les scores de deux modèles différents mais liés, en utilisant le même jeu de données
+2. [Facultatif] Connectez la sortie **Jeu de données noté** du module [Noter le modèle](./score-model.md) du second modèle à l’entrée **droite** du module **Évaluer le modèle**. Vous pouvez facilement comparer les résultats de deux modèles différents sur les mêmes données. Les deux algorithmes d'entrée doivent être du même type. Vous pouvez également comparer les scores de deux exécutions différentes sur les mêmes données avec des paramètres différents.
 
-## <a name="use-the-training-data"></a>Utiliser les données d’apprentissage
+    > [!NOTE]
+    > Le type d’algorithme fait référence à 'Classification double classe', 'Classification multiclasse', 'Régression', 'Clustering' sous 'Algorithmes de Machine Learning'. 
 
-Pour évaluer un modèle, vous devez connecter un jeu de données qui contient un ensemble de colonnes d’entrée et de scores.  Si aucune autre donnée n’est disponible, vous pouvez utiliser votre jeu de données d’origine.
-
-1. Connectez la sortie du **jeu de données noté** du module [Scorer le modèle](./score-model.md) à l’entrée du module **Évaluer le modèle**. 
-2. Cliquez sur le module **Évaluer le modèle**, puis exécutez le pipeline pour générer les scores d’évaluation.
-
-## <a name="use-testing-data"></a>Utiliser des données de test
-
-Un scénario courant de Machine Learning consiste à séparer votre jeu de données d’origine en jeux de données d’apprentissage et de test, à l’aide du module [Fractionner](./split-data.md) ou du module [Partition et échantillon](./partition-and-sample.md). 
-
-1. Connectez la sortie du **jeu de données noté** du module [Scorer le modèle](score-model.md) à l’entrée du module **Évaluer le modèle**. 
-2. Connectez la sortie du module Fractionner des données qui contient les données de test à l’entrée de droite du module **Évaluer le modèle**.
-2. Cliquez sur le module **Évaluer le modèle**, puis sélectionnez **Exécuter la sélection** pour générer les scores d’évaluation.
-
-## <a name="compare-scores-from-two-models"></a>Comparer les scores de deux modèles
-
-Vous pouvez également connecter un second jeu de résultats au module **Évaluer le modèle**.  Les scores peuvent être un ensemble d’évaluations partagé contenant des résultats connus, ou un ensemble de résultats d’un autre modèle pour les mêmes données.
-
-Cette fonctionnalité est utile car vous pouvez facilement comparer les résultats de deux modèles différents sur les mêmes données. Vous pouvez également comparer les scores de deux exécutions différentes sur les mêmes données avec des paramètres différents.
-
-1. Connectez la sortie du **jeu de données noté** du module [Scorer le modèle](score-model.md) à l’entrée du module **Évaluer le modèle**. 
-2. Connectez la sortie du module Scorer le modèle pour le second modèle à l’entrée de droite du module **Évaluer le modèle**.
-3. Envoyez le pipeline.
+3. Envoyez le pipeline pour générer les notes d'évaluation.
 
 ## <a name="results"></a>Résultats
 

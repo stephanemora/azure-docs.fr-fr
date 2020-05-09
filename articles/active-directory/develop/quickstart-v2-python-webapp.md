@@ -10,20 +10,19 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
-ms.custom: aaddev
-ms.openlocfilehash: c0220a226b2095a4ec54bc3469abee08b8b29f4c
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.custom: aaddev, scenarios:getting-started, languages:Python
+ms.openlocfilehash: 549df101e2bab81766b7b40e659b31457c9994d3
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536027"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592789"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application web Python
 
 Dans ce guide de démarrage rapide, vous allez apprendre à intégrer une application web Python à la plateforme d’identités Microsoft. Votre application va connecter un utilisateur, obtenir un jeton d’accès pour appeler l’API Microsoft Graph et envoyer une requête à l’API Microsoft Graph.
 
 À la fin de ce guide, votre application acceptera les connexions de comptes Microsoft personnels (y compris outlook.com, live.com et d’autres) et de comptes professionnels ou scolaires de n’importe quelle entreprise ou organisation utilisant Azure Active Directory. (Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour une illustration.)
-
 
 ## <a name="prerequisites"></a>Prérequis
 
