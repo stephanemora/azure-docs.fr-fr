@@ -1,5 +1,5 @@
 ---
-title: Stockage et déplacement des données pour le rendu – Azure Batch
+title: Stockage et déplacement des données pour le rendu
 description: En savoir plus sur les différentes options de déplacement de données et de stockage pour les charges de travail des fichiers d’éléments multimédias et de sorties destinés au rendu.
 services: batch
 ms.service: batch
@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1076fc152ddf2c3a2d4f2346262ca90215d68ddf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 497f3b3b42d98c08b06744eaa976ae188443b90d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75390381"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82115667"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Options de stockage et de déplacement des données pour les fichiers d’éléments multimédias et de sortie destinés au rendu
 

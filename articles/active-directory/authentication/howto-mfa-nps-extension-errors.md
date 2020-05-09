@@ -11,12 +11,13 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 330363a78aa9b642f4794cee40bbf040d3484b4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 09468272397925d9afd1d3014f4fcc1d6a222198
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80653709"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611379"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Résoudre les messages d’erreur liés à l’extension NPS pour Azure Multi-Factor Authentication
 
@@ -66,9 +67,9 @@ Si vous rencontrez des erreurs au niveau de l’extension NPS pour Azure Multi-F
 
 Il peut arriver que vos utilisateurs reçoivent des messages de Multi-Factor Authentication en cas d’échec de leur demande d’authentification. Ceux-ci ne sont pas des erreurs de configuration. Il s’agit d’avertissements intentionnels expliquant pourquoi une demande d’authentification a été refusée.
 
-| Code d'erreur | Message d’erreur | Étapes recommandées | 
+| Code d'erreur | Message d’erreur | Étapes recommandées |
 | ---------- | ------------- | ----------------- |
-| **OathCodeIncorrect** | Code saisi erroné\Code OATH incorrect | L’utilisateur a entré un code erroné. Demandez-lui de réessayer en demandant un nouveau code ou en se reconnectant. | 
+| **OathCodeIncorrect** | Code saisi erroné\Code OATH incorrect | L’utilisateur a entré un code erroné. Demandez-lui de réessayer en demandant un nouveau code ou en se reconnectant. |
 | **SMSAuthFailedMaxAllowedCodeRetryReached** | Limite maximale autorisée de tentatives de saisie de code atteinte | L’utilisateur n’a pas rempli les conditions de vérification correctement un trop grand nombre de fois. En fonction de vos paramètres, un administrateur devra peut-être le débloquer.  |
 | **SMSAuthFailedWrongCodeEntered** | Code saisi erroné/Mot de passe SMS à usage unique incorrect | L’utilisateur a entré un code erroné. Demandez-lui de réessayer en demandant un nouveau code ou en se reconnectant. |
 

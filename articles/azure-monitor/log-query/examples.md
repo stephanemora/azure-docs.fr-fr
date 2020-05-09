@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/16/2020
 ms.openlocfilehash: 18cd74ac9298b7dd058de2b224f677ec0d8f2d64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79480281"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Exemples de requêtes de journal dans Azure Monitor
@@ -229,7 +229,7 @@ protection_data | join (heartbeat_data) on Computer, round_time
 ### <a name="count-security-events-by-activity-id"></a>Compter les événements de sécurité par ID d’activité
 
 
-Cet exemple s’appuie sur la structure fixe de la colonne **Activity** : \<ID\>-\<Name\>.
+Cet exemple s’appuie sur la structure fixe de la colonne **Activity** : \<ID\>-\<Name\>.
 Il analyse la valeur **Activity** dans deux nouvelles colonnes et compte les occurrences de chaque élément **activityID**.
 
 ```Kusto
@@ -270,7 +270,7 @@ SecurityEvent
 ```
 
 ### <a name="parse-activity-name-and-id"></a>Analyser le nom d’activité et l’ID
-Les deux exemples ci-dessous s’appuient sur la structure fixe de la colonne **Activity** : \<ID\>-\<Name\>. Le premier exemple utilise l’opérateur **parse** pour affecter des valeurs à deux nouvelles colonnes : **activityID** et **activityDesc**.
+Les deux exemples ci-dessous s’appuient sur la structure fixe de la colonne **Activity** : \<ID\>-\<Name\>. Le premier exemple utilise l’opérateur **parse** pour affecter des valeurs à deux nouvelles colonnes : **activityID** et **activityDesc**.
 
 ```Kusto
 SecurityEvent
