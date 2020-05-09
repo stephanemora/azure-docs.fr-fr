@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: curtand
-ms.openlocfilehash: 787fa67ee77997fd1f9967db3abdbfc83d4ffad2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 77619f7bc24943b2b7051ff51f92cf96d439775e
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77064068"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628416"
 ---
 # <a name="create-app-passwords-from-the-security-info-preview-page"></a>Créer des mots de passe d’application à partir de la page Informations de sécurité (préversion)
 
@@ -45,7 +45,7 @@ Si vous utilisez la vérification en deux étapes avec votre compte professionne
 
 ### <a name="to-create-a-new-app-password"></a>Pour créer un nouveau mot de passe d’application
 
-1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page https://myprofile.microsoft.com/.
+1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page https://myaccount.microsoft.com/.
 
     ![Page Mon profil, avec les liens des informations de sécurité mis en évidence](media/security-info/securityinfo-myprofile-page.png)
 

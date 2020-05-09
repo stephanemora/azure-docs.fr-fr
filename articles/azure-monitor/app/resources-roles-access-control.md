@@ -3,12 +3,12 @@ title: Ressources, rôles et contrôle d’accès dans Azure Application Insight
 description: Propriétaires, collaborateurs et lecteurs des perspectives de votre organisation.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 1e57af269c4052d0dcd4a8f7970ca23017024299
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee14fee66e3aa6f4e8d999f6f98debe361387515
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473130"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628231"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Contrôle d’accès, rôles et ressources dans Application Insights
 
@@ -40,11 +40,6 @@ Quelques définitions pour commencer :
 ## <a name="control-access-in-the-resource-group"></a><a name="access"></a> Contrôle de l’accès dans le groupe de ressources
 
 Il est important de comprendre qu’en plus de la ressource que vous avez créée pour votre application, il existe également des ressources distinctes masquées pour les alertes et les tests Web. Elles sont associées au même [groupe de ressources](#resource-group) que votre ressource Application Insights. Vous pouvez également placer d’autres services Azure ici, comme des sites Web ou du stockage.
-
-Pour contrôler l’accès à ces ressources, il est donc recommandé de :
-
-* contrôler l’accès au niveau du **groupe de ressources ou de l’abonnement** .
-* affecter le rôle de **collaborateur de composants Application Insights** . Cela leur permet de modifier les tests Web, les alertes et les ressources d’Application Insights, sans donner accès aux autres services dans le groupe.
 
 ## <a name="to-provide-access-to-another-user"></a>Pour fournir l’accès à un autre utilisateur
 
