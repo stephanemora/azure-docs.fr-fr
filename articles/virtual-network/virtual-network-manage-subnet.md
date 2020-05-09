@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2020
 ms.author: kumud
-ms.openlocfilehash: e5b78969f6b4315bb02b3f4152c6eeab94adddb8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9ef084e530faa3bcea2cfcf1554a84f543bbf59
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246940"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186082"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Ajouter, modifier ou supprimer un sous-réseau de réseau virtuel
 
@@ -30,11 +30,11 @@ Si vous n’en avez pas, configurez un compte Azure avec un abonnement actif. [C
 
 - **Utilisateurs du portail** : Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Azure.
 
-- **Utilisateurs de PowerShell** : Exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/powershell) ou exécutez PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Dans l’onglet de navigateur Azure Cloud Shell, ouvrez la liste déroulante **Sélectionner un environnement**, puis sélectionnez **PowerShell** si ce n’est pas déjà fait.
+- **Utilisateurs de PowerShell** : exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/powershell) ou exécutez PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Dans l’onglet de navigateur Azure Cloud Shell, ouvrez la liste déroulante **Sélectionner un environnement**, puis choisissez **PowerShell** si ce n’est pas déjà fait.
 
     Si vous exécutez PowerShell en local, utilisez le module Azure PowerShell version 1.0.0 ou ultérieure. Exécutez `Get-Module -ListAvailable Az.Network` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Exécutez également `Connect-AzAccount` pour créer une connexion avec Azure.
 
-- **Utilisateurs de l’interface de ligne de commande Azure (CLI)**  : Exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou exécutez l’interface CLI à partir de votre ordinateur. Si vous utilisez Azure CLI en local, veillez à exécuter Azure CLI 2.0.31 ou une version plus récente. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). Exécutez également `az login` pour créer une connexion avec Azure.
+- **Utilisateurs de l’interface de ligne de commande Azure (CLI)**  : Exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou exécutez l’interface CLI à partir de votre ordinateur. Si vous exécutez l’interface Azure CLI localement, utilisez Azure CLI version 2.0.31 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). Exécutez également `az login` pour créer une connexion avec Azure.
 
 Le compte auquel vous vous connectez ou avec lequel vous vous connectez à Azure doit avoir le rôle [contributeur réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des autorisations appropriées, répertoriées dans [Autorisations](#permissions).
 
@@ -132,4 +132,4 @@ Pour effectuer des tâches sur des sous-réseaux, votre compte doit avoir le [r�
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Créez un réseau virtuel et des sous-réseaux avec les exemples de scripts [PowerShell](powershell-samples.md) ou [Azure CLI](cli-samples.md), ou à l’aide des [modèles Azure Resource Manager](template-samples.md)
-- Créer et appliquer une [stratégie Azure](policy-samples.md) pour des réseaux virtuels
+- Créer et attribuer des [définitions Azure Policy](policy-samples.md) pour les réseaux virtuels

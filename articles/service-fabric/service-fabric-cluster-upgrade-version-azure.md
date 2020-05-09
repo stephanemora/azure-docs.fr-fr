@@ -3,12 +3,12 @@ title: Mettre à niveau la version de Service Fabric d’un cluster
 description: Mettez à niveau le code et/ou la configuration Service Fabric qui exécute un cluster Service Fabric. Cela inclut le mode de mise à jour du cluster, la mise à niveau de certificats, l’ajout de ports d’application, l’application des correctifs de système d’exploitation, etc. À quoi vous attendre lors de l'exécution des mises à niveau ?
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: c3ffcbd4296385623ff5e2c1ee001c27598ff3fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 802e7402f60370b7151c5e373c8a4921a5af7c80
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75451807"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789598"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>Mettre à niveau la version de Service Fabric d’un cluster
 
@@ -110,7 +110,7 @@ Output:
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment personnaliser certains [paramètres de la structure du cluster Service Fabric](service-fabric-cluster-fabric-settings.md)
-* Découvrez comment [mettre votre cluster à l’échelle](service-fabric-cluster-scale-up-down.md)
+* Découvrez comment [mettre votre cluster à l’échelle](service-fabric-cluster-scale-in-out.md)
 * Découvrez les [mises à niveau de l’application](service-fabric-application-upgrade.md)
 
 <!--Image references-->
