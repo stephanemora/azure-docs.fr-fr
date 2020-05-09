@@ -1,58 +1,42 @@
 ---
-title: Guide de publication des offres AppSource pour la vitrine AppsSource | Place de marché Azure
-description: Guide pas à pas et listes de contrôle de publication pour la publication d’applications dans la vitrine AppSource pour Office 365, Dynamics 365, Power BI et Power Apps
-services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
+title: Guide de publication d’offres pour Microsoft AppSource
+description: Guide pas à pas et listes de contrôle de la publication pour publier des applications dans Microsoft AppSource pour Office 365, Dynamics 365, Power BI et Power Apps
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 82b1d096b1641915fc2dc58e000c40c18731c28c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 60fb95e47831363353e553d8e55c56e812127bfd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286640"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186184"
 ---
-# <a name="office-365-dynamics-365-power-apps-and-power-bi-offer-publishing-guide"></a>Guide de publication des offres Office 365, Dynamics 365, Power Apps et Power BI
+# <a name="offer-publishing-guide-for-office-365-dynamics-365-power-apps-and-power-bi"></a>Guide de publication des offres Office 365, Dynamics 365, Power Apps et Power BI
 
-La vitrine AppSource comprend des offres qui s’appuient sur Dynamics 365, Office 365, Power BI et Power Apps, ou les étendent. Chacun de ces produits a une documentation spécifique pour vous guider dans le processus de publication. Voir les liens ci-dessous pour obtenir plus de détails pour chaque type d’offre. 
+Microsoft AppSource comprend des offres ou des extensions des produits Dynamics 365, Office 365, Power BI et Power Apps. Chacun de ces produits dispose d’une documentation spécifique pour vous guider dans le processus de publication. 
 
-AppSource dispose d’offres payantes, de référence et d’essai avec l’appel à l’action « Obtenir maintenant », « Me contacter » et « Essayer maintenant ». 
+AppSource dispose d’offres payantes, de liste et d’essai avec les appels à l’action *Obtenir maintenant*, *Me contacter* et *Essayer maintenant*.
 
 ## <a name="product-specific-guides"></a>Guides spécifiques aux produits
 
-### <a name="office-365"></a>Office 365
+Pour obtenir des liens vers des processus et des instructions de publication pour chaque type d’offre, consultez le tableau suivant :
 
-Examinez le [processus et les instructions de publication](https://docs.microsoft.com/office/dev/store/submit-to-the-office-store).
+| Produit    | Conseils de publication  |
+| :------------------- | :-------------------|
+| Office 365 | Examinez le [processus et les instructions de publication](/office/dev/store/submit-to-appsource-via-partner-center). |
+| Dynamics 365 Business Central | Pour publier une offre dans l’Espace partenaires, consultez [Créer une offre Dynamics 365 Business Central](./partner-center-portal/create-new-business-central-offer.md). |
+| Dynamics 365 pour la finance et les opérations | Lors de la création pour l’édition Entreprise, passez en revue le [processus et les instructions de publication](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source).<br/>Pour publier une offre dans l’Espace partenaires, consultez [Créer une offre Dynamics 365 for Operations](./partner-center-portal/create-new-operations-offer.md).  |
+| Dynamics 365 for Customer Engagement | Examinez le [processus et les instructions de publication](/dynamics365/customer-engagement/developer/publish-app-appsource).<br/>Pour publier une offre dans l’Espace partenaires, consultez [Créer une offre Dynamics 365 for Customer Engagement et Power Apps](./partner-center-portal/create-new-customer-engagement-offer.md).  |
+| Power Apps | Découvrez comment les clients peuvent [permettre aux clients d’évaluer votre application sur AppSource](https://powerapps.microsoft.com/blog/appsource-test-drive/). |
+| Power BI | Examinez le [processus et les instructions de publication](/power-bi/developer/office-store). |
 
-### <a name="power-apps"></a>Power Apps
-
-Découvrez comment les clients peuvent [essayer votre application sur AppSource.](https://powerapps.microsoft.com/blog/appsource-test-drive/)
-
-### <a name="power-bi"></a>Power BI
-
-Examinez le [processus et les instructions de publication](https://docs.microsoft.com/power-bi/developer/office-store).
-
-### <a name="dynamics-365"></a>Dynamics 365
-
-#### <a name="dynamics-365-for-finance-and-operations"></a>Dynamics 365 pour la finance et les opérations
-Lors de la création pour l’édition Entreprise, passez en revue le [processus et les instructions de publication](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)
-
-Pour savoir comment publier l’offre dans le portail Cloud Partner, consultez [Offre Dynamics 365 for Finance and Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer).
-
-### <a name="dynamics-365-for-customer-engagement"></a>Dynamics 365 for Customer Engagement
-Examinez le [processus et les instructions de publication](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource).
-
-Pour savoir comment publier l’offre dans le portail Cloud Partner, consultez [Offre Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-customer-engagement-offer).
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous ne l’avez pas déjà fait, 
+Si vous ne l’avez pas déjà fait, découvrez comment [développer votre activité dans le cloud avec la Place de marché Azure](https://azuremarketplace.microsoft.com/sell).
 
-- [Inscrivez-vous](https://azuremarketplace.microsoft.com/sell) sur la place de marché.
-
-Si vous êtes inscrit et utilisez le portail Cloud Partner, 
-
-- [Connectez-vous au portail Cloud Partner](https://cloudpartner.azure.com) pour créer ou terminer votre offre.
+Pour créer une offre ou en compléter une existante, accédez à de l’[Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership).

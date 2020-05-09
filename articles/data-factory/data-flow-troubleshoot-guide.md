@@ -7,13 +7,13 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 04/02/2020
-ms.openlocfilehash: e9e9b10cc9bae029fe11fb2bd1f8b76cf120744a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/27/2020
+ms.openlocfilehash: c9ac8d7ea465a26d29bf8f8fbc15dcefaf9d7575
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417808"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187277"
 ---
 # <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Résoudre les problèmes de flux de données dans Azure Data Factory
 
@@ -44,7 +44,7 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 
 - **Message** : Erreur liée à l’expiration de la diffusion de la jointure. Vérifiez que la diffusion en streaming produit des données en moins de 60 s dans les exécutions de débogage et en moins de 300 s dans les exécutions de travaux.
 - **Causes** : Le délai d’expiration par défaut pour la diffusion est de 60 s dans les exécutions de débogage et de 300 s dans les exécutions de travaux. Le flux choisi pour la diffusion semble être trop volumineux pour produire des données respectant cette limite.
-- **Recommandation** : Évitez de diffuser des flux de données volumineux dont le traitement peut prendre plus de 60 s. Choisissez plutôt un flux plus petit à diffuser. Les fichiers sources et les tables SQL/DW volumineux sont généralement de mauvais candidats.
+- **Recommandation** : Sous l’onglet Optimiser, vérifiez les transformations de jointure, d’existence et de recherche de votre flux de données. L’option par défaut pour Diffusion est « Auto ». Si cette option est définie ou que vous définissez manuellement la diffusion du côté gauche ou droit sous « Fixe », vous pouvez soit définir une configuration Azure Integration Runtime plus grande, soit désactiver la diffusion. L’approche recommandée pour des performances optimales dans les flux de données consiste à autoriser Spark à diffuser à l’aide de l’option « Auto » et à utiliser un Azure IR à mémoire optimisée.
 
 ### <a name="error-code-df-executor-conversion"></a>Code d’erreur : DF-Executor-Conversion
 
