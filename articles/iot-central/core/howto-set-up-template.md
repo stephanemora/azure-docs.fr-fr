@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 6f93d74653aab78e48e613ddf9252a0876548b95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a99f261e1a834705d081e8197e4ae627cf1cb9f
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80157668"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81756648"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Définir un nouveau type d’appareil IoT dans votre application Azure IoT Central
+
+*Cet article s’applique aux créateurs de solutions et aux développeurs d’appareils.*
 
 Un modèle d’appareil est un blueprint qui définit les caractéristiques et les comportements d’un type d’appareil se connectant à une application Azure IoT Central.
 
@@ -253,18 +255,6 @@ Pour publier un modèle d’appareil, accédez à votre modèle d’appareil et 
 
 Une fois que vous avez publié un modèle d’appareil, un opérateur peut accéder à la page **Appareils** et ajouter des appareils, réels ou simulés, qui utilisent votre modèle d’appareil. Vous pouvez continuer à modifier et à enregistrer votre modèle d’appareil au fur et à mesure que vous apportez des modifications. Quand vous souhaitez envoyer ces modifications à l’opérateur pour qu’elles s’affichent sous la page **Appareils**, vous devez systématiquement sélectionner **Publier**.
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
-
-* Créez un modèle d’appareil IoT.
-* Créer des propriétés du cloud.
-* Créer des personnalisations.
-* Définir une visualisation pour la télémétrie de l’appareil.
-* Publier votre modèle d’appareil.
-
-À présent, vous pouvez :
-
-> [!div class="nextstepaction"]
-> [Connecter un appareil](howto-connect-devkit.md)
+Si vous êtes un développeur d’appareils, nous vous suggérons de vous renseigner sur le [contrôle de version des modèles d’appareil](./howto-version-device-template.md).

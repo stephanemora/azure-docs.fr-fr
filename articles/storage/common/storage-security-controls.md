@@ -1,23 +1,24 @@
 ---
-title: Contrôles de sécurité pour le Stockage Azure
-description: Check-list des contrôles de sécurité pour l’évaluation du Stockage Azure
+title: Contrôles de sécurité
+titleSuffix: Azure Storage
+description: Liste de vérification des contrôles de sécurité pour l’évaluation du Stockage Azure.
 services: storage
 author: msmbaldwin
+ms.author: mbaldwin
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 379acaf48c02f0a579c07773cd48366d962a44f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/11/2020
+ms.openlocfilehash: 96fde15eb5071e157fedcff6154e6b0635a34721
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061117"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82128032"
 ---
 # <a name="security-controls-for-azure-storage"></a>Contrôles de sécurité pour le Stockage Azure
 
-Cet article décrit les contrôles de sécurité intégrés au Stockage Azure. 
+Cet article décrit les contrôles de sécurité intégrés au Stockage Azure.
 
 [!INCLUDE [Security controls Header](../../../includes/security-controls-header.md)]
 
@@ -36,8 +37,9 @@ Cet article décrit les contrôles de sécurité intégrés au Stockage Azure.
 | Contrôle de sécurité | Oui/Non | Notes |
 |---|---|--|
 | Prise en charge du point de terminaison de service| Oui |  |
+| Prise en charge des balises de service| Oui | Pour plus d’informations sur les balises de service prises en charge par Stockage Azure, consultez [Vue d’ensemble des balises de service Azure](../../virtual-network/service-tags-overview.md). |
 | Prise en charge de l’injection de réseau virtuel| N/A |  |
-| Prise en charge de l’isolement réseau et de l’installation de pare-feu| Oui | |
+| Prise en charge de l’isolement et du pare-feu réseau| Oui | |
 | Prise en charge du tunneling forcé| N/A |  |
 
 ## <a name="monitoring--logging"></a>Supervision et journalisation
@@ -45,8 +47,8 @@ Cet article décrit les contrôles de sécurité intégrés au Stockage Azure.
 | Contrôle de sécurité | Oui/Non | Notes|
 |---|---|--|
 | Prise en charge de la supervision Azure (Log analytics, App insights, etc.)| Oui | Métriques Azure Monitor|
-| Journalisation et audit du plan de gestion et de contrôle | Oui | Journal d’activité Azure Resource Manager |
-| Journalisation et audit du plan de données| Oui | Journaux de diagnostic du service.|
+| Journalisation et audit du plan de gestion et de contrôle | Oui | Journaux d’activité |
+| Journalisation et audit du plan de données| Oui | Journaux de ressources Azure Monitor |
 
 ## <a name="identity"></a>Identité
 

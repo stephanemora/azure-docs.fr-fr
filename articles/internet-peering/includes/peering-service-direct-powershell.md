@@ -1,19 +1,19 @@
 ---
-title: Fichier Include
+title: Fichier include
 titleSuffix: Azure
-description: Fichier Include
+description: Fichier include
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: badba278e88e5065d8a4ff57ca9506fe1f9ad203
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 526d8a6a103e7623bac459004bf9ac79e4927541
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75773632"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81686980"
 ---
 1. Affichez les connexions sur le peering direct sélectionné.
     ```powershell
@@ -47,7 +47,7 @@ ms.locfileid: "75773632"
     SessionStateV6              : None
     ConnectionState             : Active
     ```
-1. Maintenant, enregistrez les modifications apportées au peering direct à l’aide de la commande ci-dessous.
+1. Maintenant, enregistrez les modifications apportées au Peering direct à l’aide de cette commande :
     ```powershell
     $directPeering | Update-AzPeering
     ```

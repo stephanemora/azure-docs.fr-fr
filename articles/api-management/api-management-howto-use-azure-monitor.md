@@ -2,23 +2,20 @@
 title: Surveiller les API publiées dans la Gestion des API Azure | Microsoft Docs
 description: Suivez les étapes de ce didacticiel pour apprendre à surveiller votre API dans la Gestion des API.
 services: api-management
-documentationcenter: ''
 author: vladvino
 manager: cfowler
-editor: ''
 ms.service: api-management
 ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b06301ab424a29d8f0e31e8f4dee26265327896b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bee93cf84f4beda0684127102942447630219881
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79221926"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82128840"
 ---
 # <a name="monitor-published-apis"></a>Surveiller les API publiées
 
@@ -28,7 +25,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Afficher les journaux d’activité
-> * Afficher les journaux de diagnostic
+> * Afficher les journaux de ressources
 > * Afficher les métriques de votre API 
 > * Configurer une règle d’alerte quand votre API obtient des appels non autorisés
 
@@ -36,11 +33,11 @@ La vidéo suivante montre comment surveiller la gestion des API à l’aide d’
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 + Apprenez la [terminologie relative à Gestion des API Azure](api-management-terminology.md).
-+ Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
-+ Suivez également le didacticiel suivant : [Importer et publier votre première API](import-and-publish.md).
++ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
++ Effectuez également toutes les étapes du tutoriel suivant : [Importer et publier votre première API](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -120,20 +117,20 @@ Pour afficher les journaux d’activité :
 
 3. Sélectionnez l’étendue de filtrage souhaitée, puis cliquez sur **Appliquer**.
 
-## <a name="diagnostic-logs"></a>Journaux de diagnostic
+## <a name="resource-logs"></a>Journaux de ressources
 
-Les journaux de diagnostic offrent des informations détaillées sur les opérations et erreurs qui sont importantes pour l’audit ainsi qu’à des fins de dépannage. Les journaux de diagnostic diffèrent des journaux d’activité. Le journal d’activité fournit des informations sur les opérations qui ont été effectuées sur vos ressources Azure. Les journaux de diagnostic fournissent des informations sur les opérations effectuées par votre ressource.
+Les journaux de ressources offrent des informations détaillées sur les opérations et erreurs qui sont importantes pour l’audit et dans le cadre de dépannages. Les journaux de ressources diffèrent des journaux d’activité. Les journaux d’activité fournissent des informations sur les opérations qui ont été effectuées sur vos ressources Azure. Les journaux de ressources fournissent des informations détaillées sur les opérations effectuées par votre ressource.
 
-Pour configurer les journaux de diagnostic :
+Pour configurer les journaux de ressources :
 
 1. Sélectionnez votre instance de service APIM.
 2. Cliquez sur **Paramètres de diagnostic**.
 
-    ![journaux de diagnostic](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
+    ![journaux de ressources](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. Cliquez sur **Activer les diagnostics**. Vous pouvez archiver les journaux de diagnostic avec les mesures dans un compte de stockage, les transmettre en continu à un hub d’événement ou les envoyer aux journaux d’activité Azure Monitor. 
+3. Cliquez sur **Activer les diagnostics**. Vous pouvez archiver les journaux de ressources avec les métriques dans un compte de stockage, les envoyer en streaming à un hub d’événement ou les envoyer aux journaux Azure Monitor. 
 
-Le service Gestion des API fournit actuellement des journaux de diagnostic (par lot toutes les heures) concernant chaque requête d’API. Chaque entrée a le schéma suivant :
+Le service Gestion des API fournit actuellement des journaux de ressources (par lot toutes les heures) pour chaque requête d’API, chaque entrée ayant le schéma suivant :
 
 ```json
 {  
@@ -190,7 +187,7 @@ Le service Gestion des API fournit actuellement des journaux de diagnostic (par 
 | callerIpAddress | string | Adresse IP de l’appelant de passerelle immédiat (peut être un intermédiaire) |
 | correlationId | string | Identificateur de requête http unique assigné par le service Gestion des API |
 | location | string | Nom de la région Azure dans laquelle se trouvait la passerelle qui a traité la requête |
-| httpStatusCodeCategory | string | Catégorie du code d’état de réponse http : réussite (inférieur ou égal à 301 ou 304 ou 307), non autorisé (401, 403, 429), erroné (400, entre 500 et 600), autre |
+| httpStatusCodeCategory | string | Catégorie du code d’état de réponse http : réussite (inférieur ou égal à 301 ou 304 ou 307), non autorisé (401, 403, 429), erroné (400, entre 500 et 600), autre |
 | resourceId | string | ID de la ressource du service Gestion des API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | object | Propriétés de la requête actuelle |
 | method | string | Méthode HTTP de la requête entrante |
@@ -227,7 +224,7 @@ Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Afficher les journaux d’activité
-> * Afficher les journaux de diagnostic
+> * Afficher les journaux de ressources
 > * Afficher les métriques de votre API
 > * Configurer une règle d’alerte quand votre API obtient des appels non autorisés
 

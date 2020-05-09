@@ -3,12 +3,12 @@ title: Concevoir des workflows de type Policy as Code
 description: Apprenez à concevoir des workflows pour déployer vos définitions Azure Policy grâce à du code et valider automatiquement les ressources.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0914ba6510c9d2ef87d3f83417f97340d42c8bce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd77fdd4011c3e1e83f8dfa9f30045bb72881c25
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74267277"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187730"
 ---
 # <a name="design-policy-as-code-workflows"></a>Concevoir des workflows de type Policy as Code
 
@@ -25,7 +25,7 @@ L’étape de validation devrait également être un composant d’autres workfl
 
 Le workflow Policy as Code général recommandé se présente comme ce diagramme :
 
-![Vue d’ensemble du workflow de type Policy as Code](../media/policy-as-code/policy-as-code-workflow.png)
+:::image type="content" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Vue d’ensemble du workflow de type Policy as Code" border="false":::
 
 ### <a name="create-and-update-policy-definitions"></a>Créer et mettre à jour des définitions de stratégies
 
@@ -92,7 +92,7 @@ L’affectation doit utiliser [enforcementMode](./assignment-structure.md#enforc
 > [!NOTE]
 > Si enforcementMode est utile, il ne remplace pas pour autant un test rigoureux d’une définition de stratégie dans différentes conditions. La définition de stratégie doit être testée avec des appels d’API REST `PUT` et `PATCH`, des ressources conformes et non conformes, ainsi que des cas limites comme une propriété manquantes dans la ressource.
 
-Une fois l’affectation déployée, utilisez le kit SDK Policy pour [récupérer ses données de conformité](../how-to/get-compliance-data.md). L’environnement servant à tester les stratégies et les affectations doit comporter à la fois des ressources conformes et des ressources non conformes. À l’instar d’un bon test unitaire pour le code, il est important de vérifier que les ressources sont bien celles escomptées et qu’il n’y a pas de faux positifs ou de faux négatifs. Si vous vous contentez de tester et de valider ce que vous attendez, la stratégie risque d’avoir un impact imprévu et non identifié. Pour plus d’informations, voir [Évaluer l’impact d’une nouvelle stratégie Azure](./evaluate-impact.md).
+Une fois l’affectation déployée, utilisez le kit SDK Policy pour [récupérer ses données de conformité](../how-to/get-compliance-data.md). L’environnement servant à tester les stratégies et les affectations doit comporter à la fois des ressources conformes et des ressources non conformes. À l’instar d’un bon test unitaire pour le code, il est important de vérifier que les ressources sont bien celles escomptées et qu’il n’y a pas de faux positifs ou de faux négatifs. Si vous vous contentez de tester et de valider ce que vous attendez, la stratégie risque d’avoir un impact imprévu et non identifié. Pour plus d’informations, consultez [Évaluer l’impact d’une nouvelle définition Azure Policy](./evaluate-impact.md).
 
 ### <a name="enable-remediation-tasks"></a>Activer les tâches de correction
 

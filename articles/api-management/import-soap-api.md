@@ -10,18 +10,18 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 359b90cc434dad04fc0296c54fcc762f3a75062d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7b1fd34824bec9641edc94ce278fa21a1b57b2c0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74107661"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202738"
 ---
 # <a name="import-soap-api"></a>Importer une API SOAP
 
-Cet article explique comment importer une représentation XML standard d’une API SOAP. L’article explique également comment tester l’API APIM.
+Cet article explique comment importer une représentation XML standard d’une API SOAP. Il explique également comment tester l’API Gestion des API.
 
 Dans cet article, vous apprendrez comment :
 
@@ -30,15 +30,15 @@ Dans cet article, vous apprendrez comment :
 > * Tester l’API dans le portail Azure
 > * Tester l’API dans le portail des développeurs
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
+Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importer et publier une API back-end
 
-1. Sélectionnez **API** sous **Gestion des API**.
+1. À partir du portail Azure, accédez à votre service Gestion des API, puis sélectionnez **API** dans le menu.
 2. Sélectionnez **WSDL** dans la liste **Ajouter une nouvelle API**.
 
     ![API SOAP](./media/import-soap-api/wsdl-api.png)
@@ -48,17 +48,18 @@ Suivez le guide de démarrage rapide suivant : [Créer une instance du service G
     ![Requête directe](./media/import-soap-api/pass-through.png)
 5. Appuyez sur la touche de tabulation.
 
-    Les champs suivants sont automatiquement remplis avec les informations de l’API SOAP : Nom complet, Nom, Description.
-6. Ajoutez un suffixe d’URL d’API. Le suffixe est un nom qui identifie cette API spécifique dans cette instance APIM. Il doit être unique dans cette instance APIM.
-9. Publiez l’API en l’associant à un produit. Dans ce cas, le produit « *Illimité* » est utilisé.  Si vous souhaitez que l’API soit publiée et mise à la disposition des développeurs, ajoutez-la à un produit. Vous pouvez effectuer cette opération durant la création de l’API ou ultérieurement.
+    Les champs suivants sont automatiquement remplis avec les informations de l’interface de programmation d’applications SOAP : Nom d’affichage, nom et description.
+6. Ajoutez un suffixe d’URL d’API. Le suffixe est un nom qui identifie cette API spécifique dans cette instance Gestion des API. Il doit être unique dans cette instance Gestion des API.
+7. Publiez l’API en l’associant à un produit. Dans ce cas, le produit « *Illimité* » est utilisé.  Si vous souhaitez que l’API soit publiée et mise à la disposition des développeurs, ajoutez-la à un produit. Vous pouvez effectuer cette opération durant la création de l’API ou ultérieurement.
 
-    Les produits sont des associations d’une ou de plusieurs API. Vous pouvez inclure un certain nombre d’API et les proposer aux développeurs dans le portail des développeurs. Les développeurs doivent s’abonner à un produit pour obtenir l’accès à l’API. Quand ils s’abonnent à un produit, ils obtiennent une clé d’abonnement qui est valable pour toutes les API de ce produit. Si vous avez créé l’instance APIM, vous êtes abonné à chaque produit par défaut, car vous êtes déjà administrateur.
+    Les produits sont des associations d’une ou de plusieurs API. Vous pouvez inclure un certain nombre d’API et les proposer aux développeurs dans le portail des développeurs. Les développeurs doivent s’abonner à un produit pour obtenir l’accès à l’API. Quand ils s’abonnent à un produit, ils obtiennent une clé d’abonnement qui est valable pour toutes les API de ce produit. Si vous avez créé l’instance Gestion des API, vous êtes abonné à chaque produit par défaut, car vous êtes déjà administrateur.
 
     Par défaut, chaque instance Gestion des API est fournie avec deux exemples de produits :
 
     * **Starter**
     * **Illimité**   
-10. Sélectionnez **Create** (Créer).
+8. Entrez d’autres paramètres d’API. Vous pouvez définir les valeurs lors de la création, ou les configurer ultérieurement en accédant à l’onglet **Paramètres**. Les paramètres sont expliqués dans le tutoriel [Importer et publier votre première API](import-and-publish.md#-import-and-publish-a-backend-api).
+9. Sélectionnez **Create** (Créer).
 
 ### <a name="test-the-new-api-in-the-administrative-portal"></a>Tester la nouvelle API dans le portail d’administration
 
@@ -68,7 +69,7 @@ Les opérations peuvent être directement appelées depuis le portail d’admini
 2. Appuyez sur l’onglet **Test**.
 3. Sélectionnez une opération.
 
-    La page affiche des champs pour les paramètres de requête et des champs pour les en-têtes. L’un des en-têtes est « Ocp-Apim-Subscription-Key », pour la clé d’abonnement du produit qui est associé à cette API. Si vous avez créé l’instance APIM, la clé est renseignée automatiquement, car vous êtes déjà administrateur. 
+    La page affiche des champs pour les paramètres de requête et des champs pour les en-têtes. L’un des en-têtes est « Ocp-Apim-Subscription-Key », pour la clé d’abonnement du produit qui est associé à cette API. Si vous avez créé l’instance Gestion des API, la clé est renseignée automatiquement, car vous êtes déjà administrateur. 
 1. Appuyez sur **Envoyer**.
 
     Le serveur principal répond avec **200 OK** et certaines données.

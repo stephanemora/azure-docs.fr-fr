@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
-ms.openlocfilehash: dbf75262440474c5cb50a6d733ac7cba212b5f3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 277faa2d47df9fddd1762d90d9aa2fb5bf00d4df
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75649565"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508125"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>Application managée Azure avec identité managée
 
@@ -54,7 +54,7 @@ Une application managée peut être configurée avec une identité managée via 
 
 ```json
 "outputs": {
-    "managedIdentity": "[parse('{\"Type\":\"SystemAssigned\"}')]"
+    "managedIdentity": { "Type": "SystemAssigned" }
 }
 ```
 
@@ -66,71 +66,65 @@ Voici quelques recommandations sur le moment opportun d’utiliser CreateUIDefin
 - L’identité managée nécessite une entrée de consommateur complexe.
 - L’identité managée est nécessaire lors de la création de l’application managée.
 
-#### <a name="systemassigned-createuidefinition"></a>CreateUIDefinition SystemAssigned
+#### <a name="managed-identity-createuidefinition-control"></a>Contrôle CreateUIDefinition d’identité managée
 
-CreateUIDefinition de base qui active l’identité SystemAssigned pour l’application managée.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
-  "handler": "Microsoft.Azure.CreateUIDef",
-  "version": "0.1.2-preview",
-    "parameters": {
-        "basics": [
-            {}
-        ],
-        "steps": [
-        ],
-        "outputs": {
-            "managedIdentity": "[parse('{\"Type\":\"SystemAssigned\"}')]"
-        }
-    }
-}
-```
-
-#### <a name="userassigned-createuidefinition"></a>CreateUIDefinition UserAssigned
-
-CreateUIDefinition de base qui prend une ressource d’**identité attribuée par l’utilisateur** comme entrée et active l’identité UserAssigned pour l’application managée.
+CreateUIDefinition prend en charge un [contrôle d’identité managée](./microsoft-managedidentity-identityselector.md) intégré.
 
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
   "handler": "Microsoft.Azure.CreateUIDef",
-  "version": "0.1.2-preview",
-    "parameters": {
-        "basics": [
-            {}
-        ],
-        "steps": [
-            {
-                "name": "manageIdentity",
-                "label": "Identity",
-                "subLabel": {
-                    "preValidation": "Manage Identities",
-                    "postValidation": "Done"
-                },
-                "bladeTitle": "Identity",
-                "elements": [
-                    {
-                        "name": "userAssignedText",
-                        "type": "Microsoft.Common.TextBox",
-                        "label": "User assigned managed identity",
-                        "defaultValue": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.ManagedIdentity/userassignedidentites/myuserassignedidentity",
-                        "visible": true
-                    }
-                ]
-            }
-        ],
-        "outputs": {
-            "managedIdentity": "[parse(concat('{\"Type\":\"UserAssigned\",\"UserAssignedIdentities\":{',string(steps('manageIdentity').userAssignedText),':{}}}'))]"
-        }
+  "version": "0.0.1-preview",
+  "parameters": {
+    "basics": [],
+    "steps": [
+      {
+        "name": "applicationSettings",
+        "label": "Application Settings",
+        "subLabel": {
+          "preValidation": "Configure your application settings",
+          "postValidation": "Done"
+        },
+        "bladeTitle": "Application Settings",
+        "elements": [
+          {
+            "name": "appName",
+            "type": "Microsoft.Common.TextBox",
+            "label": "Managed application Name",
+            "toolTip": "Managed application instance name",
+            "visible": true
+          },
+          {
+            "name": "appIdentity",
+            "type": "Microsoft.ManagedIdentity.IdentitySelector",
+            "label": "Managed Identity Configuration",
+            "toolTip": {
+              "systemAssignedIdentity": "Enable system assigned identity to grant the managed application access to additional existing resources.",
+              "userAssignedIdentity": "Add user assigned identities to grant the managed application access to additional existing resources."
+            },
+            "defaultValue": {
+              "systemAssignedIdentity": "Off"
+            },
+            "options": {
+              "hideSystemAssignedIdentity": false,
+              "hideUserAssignedIdentity": false,
+              "readOnlySystemAssignedIdentity": false
+            },
+            "visible": true
+          }
+        ]
+      }
+    ],
+    "outputs": {
+      "applicationResourceName": "[steps('applicationSettings').appName]",
+      "location": "[location()]",
+      "managedIdentity": "[steps('applicationSettings').appIdentity]"
     }
+  }
 }
 ```
 
-Le fichier CreateUIDefinition.json ci-dessus génère une expérience de création d’utilisateur qui présente une zone de texte pour qu’un consommateur entre l’ID de ressource Azure de l’**identité attribuée par l’utilisateur**. L’expérience générée peut se présenter comme suit :
-
-![Exemple de CreateUIDefinition avec identité attribuée par l’utilisateur](./media/publish-managed-identity/user-assigned-identity.png)
+![CreateUIDefinition d’identité managée](./media/publish-managed-identity/msi-cuid.png)
 
 ### <a name="using-azure-resource-manager-templates"></a>Utilisation de modèles Azure Resource Manager
 

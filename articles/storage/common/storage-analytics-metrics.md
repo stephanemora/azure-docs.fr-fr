@@ -8,12 +8,12 @@ ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 897ae1fa474de8726ed0caa1def162a00e142dbe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03e5f1e888680f6020b45f51103e7b5cb6dc86ab
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232369"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692733"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Métriques Azure Storage Analytics (classique)
 
@@ -23,7 +23,7 @@ Storage Analytics peut stocker des métriques qui comprennent les statistiques d
 
 > [!NOTE]
 > Les métriques Storage Analytics sont disponibles pour les services Blob, File d’attente, Table et Fichier.
-> Les métriques Storage Analytics sont maintenant des métriques classiques. Microsoft recommande d’utiliser les [métriques de stockage dans Azure Monitor](storage-metrics-in-azure-monitor.md) au lieu des métriques Storage Analytics.
+> Les métriques Storage Analytics sont maintenant des métriques classiques. Microsoft recommande d’utiliser les [métriques de stockage dans Azure Monitor](monitor-storage.md) au lieu des métriques Storage Analytics.
 
 ## <a name="transaction-metrics"></a>Métriques de transaction  
  Un ensemble fiable de données est enregistré toutes les heures ou chaque minute pour chaque service de stockage et opération d'API demandée, notamment les entrées/sorties, la disponibilité, les erreurs et les pourcentages de demande triés par catégorie. La liste complète des détails de transaction est disponible dans la rubrique [Schéma de table de métriques Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema) .  
