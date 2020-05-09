@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: da564f8d49675ba0d51c5120768028e9d333e2fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 485afaa4b7009731784cf5da6f8c28e0a787c1d9
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76045473"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629420"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Créer un équilibreur de charge interne à l’aide du module Azure PowerShell
 
@@ -48,7 +48,7 @@ Pour déployer un équilibreur de charge, il est nécessaire de créer et de con
 * Configuration de sonde : sondes de l’état d’intégrité pour les machines virtuelles.
 * Règles NAT entrantes : les règles de port permettant l’accès direct aux machines virtuelles.
 
-Pour plus d’informations sur les composants de l’équilibreur de charge, consultez [Composants d’Azure Load Balancer](concepts-limitations.md#load-balancer-components).
+Pour plus d’informations sur les composants de l’équilibreur de charge, consultez [Composants d’Azure Load Balancer](components.md).
 
 Les étapes suivantes expliquent comment configurer un équilibreur de charge entre deux machines virtuelles.
 

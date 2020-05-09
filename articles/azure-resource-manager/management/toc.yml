@@ -4,6 +4,11 @@
   items:
     - name: Présentation de Resource Manager
       href: overview.md
+- name: Exemples
+  items:
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Limites du service et de l’abonnement

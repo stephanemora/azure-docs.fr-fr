@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: fbaca387dd8062f50bb7555c7be6e7f65ce346bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79136f86c647c0453d600fe2601be56571ee6fed
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77062470"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625882"
 ---
 # <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Gérer vos organisations connectées à partir de la page Organisations
 
@@ -34,7 +34,7 @@ La page **Organisations** du portail **Mon compte** vous permet de gérer les or
 
 ## <a name="view-your-organizations"></a>Afficher vos organisations
 
-1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page **Mon compte** (https://myprofile.microsoft.com/) ).
+1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page **Mon compte** (https://myaccount.microsoft.com/) ).
 
 2. Sélectionnez **Organisations** à partir du volet de navigation gauche, ou sélectionnez le lien **Gérer les organisations** à partir du bloc **Organisations**.
 
