@@ -50,7 +50,7 @@
     - name: Guide de déploiement
       items:
         - name: 'Déploiement 30, 90 et plus'
-      href: active-directory-deployment-checklist-p2.md
+          href: active-directory-deployment-checklist-p2.md
     - name: Stockage des données
       items:
         - name: Stockage des données d’identité pour l’Europe

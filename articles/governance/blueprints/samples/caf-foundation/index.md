@@ -3,12 +3,12 @@ title: Vue d’ensemble de l’exemple de blueprint de base du framework d’ado
 description: Vue d’ensemble et architecture de l’exemple de blueprint de base du framework d’adoption du cloud pour Azure.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 1f14b4d4811b9bdcb64f3860b2cf25b82825d5c4
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 3291fdc299652d2b22bff89f5b1dadbdc064e561
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458469"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901302"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint de base du framework d’adoption de Microsoft Cloud pour Azure.
 
@@ -31,7 +31,7 @@ Cette implémentation intègre plusieurs services Azure utilisés pour fournir u
   - Autoriser une région Azure pour les ressources et groupes de ressources
   - Autoriser des références SKU de compte de stockage (choisir lors du déploiement)
   - Autoriser des références SKU de machines virtuelles Azure (choisir lors du déploiement)
-  - Exiger le déploiement de Network Watch 
+  - Exiger le déploiement de Network Watcher 
   - Exiger un chiffrement de transfert sécurisé de compte de stockage Azure
   - Refuser des types de ressources (choisir lors du déploiement)  
 - Initiatives

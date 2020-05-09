@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metan
-ms.openlocfilehash: f9bb8743f0b0852e46b440de22038e3f84272e93
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: a7e0cb41f32a60e4f00cb60cc3c86e40ab926785
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561009"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735128"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>Tutoriel : Créer une application iOS qui lance le lecteur immersif avec le contenu d’une photo (Swift)
 
@@ -22,7 +22,7 @@ Le [lecteur immersif](https://www.onenote.com/learningtools) est un outil conçu
 
 L’[API Lire Vision par ordinateur Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) détecte le contenu textuel d’une image à l’aide des derniers modèles de reconnaissance de Microsoft et convertit le texte identifié en flux de caractères lisibles par ordinateur.
 
-Dans ce tutoriel, vous allez générer une application iOS à partir de zéro et intégrer l’API Lire ainsi que le lecteur immersif à l’aide du kit SDK Lecteur immersif. Un exemple complet fonctionnel de ce tutoriel est disponible [ici](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/samples/picture-to-immersive-reader-swift).
+Dans ce tutoriel, vous allez générer une application iOS à partir de zéro et intégrer l’API Lire ainsi que le lecteur immersif à l’aide du kit SDK Lecteur immersif. Un exemple complet fonctionnel de ce tutoriel est disponible [ici](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

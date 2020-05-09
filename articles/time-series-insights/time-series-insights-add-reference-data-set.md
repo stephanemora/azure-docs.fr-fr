@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 05/05/2020
 ms.custom: seodec18~~~~
-ms.openlocfilehash: 79628ed44753577023464ef6208027e1b7996d30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 010f7b908ceb9c8d07208db1312d8af8d4e27051
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77087243"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838516"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Créer un jeu de données de référence pour votre environnement Time Series Insights à l’aide du portail Azure
 
@@ -78,7 +78,7 @@ Les données de référence ne sont pas jointes rétroactivement. Cela signifie 
 
    [![Choisissez les types de données dans les en-têtes de colonne.](media/add-reference-data-set/select-column-types.png)](media/add-reference-data-set/select-column-types.png#lightbox)
 
-1. Renommez les en-têtes de colonnes si nécessaire. Le nom de la colonne de clé est nécessaire pour joindre à la propriété correspondante dans votre source d’événements. 
+1. Renommez les en-têtes de colonnes si nécessaire. Le nom de la colonne de clé est nécessaire pour joindre à la propriété correspondante dans votre source d’événements.
 
    > [!IMPORTANT]
    > Assurez-vous que les noms de colonne de clé de données de référence correspondent exactement au nom d’événement pour vos données entrantes, y compris la casse. Les noms des colonnes ne contenant pas de clés sont utilisés pour augmenter les données entrantes avec les valeurs de données de référence correspondantes.

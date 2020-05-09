@@ -16,12 +16,12 @@ ms.date: 03/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65100e8584eba5c31edc2f9fd8c57ad8bd14c0d1
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 7f4ce292ad507eb0208633db7743b881508a8e58
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80582540"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82144447"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Présentation de la gestion des droits d’utilisation Azure AD
 
@@ -40,7 +40,7 @@ Les entreprises souvent font face à des défis lorsqu’il leur faut gérer l�
 
 Ces problèmes sont compliqués pour les utilisateurs qui ont besoin d’un accès à partir d’une autre organisation, comme les utilisateurs externes issus d’organisations de la chaîne logistique ou d’autres partenaires commerciaux. Par exemple :
 
-- Aucune personne ne peut connaître tous les utilisateurs spécifiques des autres annuaires d’organisation en mesure de l’inviter
+- Personne ne peut connaître tous les utilisateurs spécifiques des autres annuaires d’organisation en mesure de l’inviter
 - Et même si elle était capable d’inviter ces utilisateurs, aucune personne dans cette organisation ne peut se souvenir de la façon dont gérer tous les accès utilisateur de manière cohérente
 
 La gestion des droits d'utilisation Azure AD permet de relever ces défis.  Pour en savoir plus sur l’utilisation de la gestion des droits d’utilisation Azure AD par les clients, vous pouvez lire [l’étude de cas Avanade](https://customers.microsoft.com/story/avanade-professional-services-azure-canada) et [l’étude de cas Centrica](https://customers.microsoft.com/story/757467-centrica-energy-azure).  Cette vidéo fournit une vue d’ensemble de la gestion des droits d’utilisation et de son intérêt :

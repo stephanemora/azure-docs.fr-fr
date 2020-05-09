@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 9d98660230e0ab9f4edcd9a7af8a3797106dd17a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03f5b0124f95465c4a5da5043364a2f5816dae62
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78255663"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81685747"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Développer des applications sécurisées sur Azure
 Cet article présente les activités et contrôles de sécurité à prendre en compte lorsque vous développez des applications pour le cloud. Les questions et concepts de sécurité à prendre en compte pendant les phases d’implémentation et de vérification du [Microsoft Security Development Lifecycle](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) y sont abordées. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser pour développer une application plus sécurisée.
@@ -44,15 +44,16 @@ Place de marché Azure propose des [outils de développement](https://azuremarke
 
 ### <a name="validate-and-sanitize-every-input-for-your-application"></a>Valider et nettoyer chaque entrée de votre application
 
-Traitez toutes les entrées comme si elles n’étaient pas fiables pour protéger votre application des vulnérabilités d’applications web les plus courantes. Les données non fiables véhiculent les attaques par injection. Parmi les entrées de votre application figurent les paramètres d’URL, les saisies de l’utilisateur, les données issues de la base de données ou d’une API, et tout élément transmis qu’un utilisateur pourrait potentiellement manipuler. Une application doit [confirmer](https://www.owasp.org/index.php/OWASP_Proactive_Controls_2016#4:_Validate_All_Inputs) la validité des données d’un point de vue syntaxique et sémantique avant que l’application ne les utilise de quelque manière que ce soit (y compris pour les réafficher pour l’utilisateur).
+Traitez toutes les entrées comme si elles n’étaient pas fiables pour protéger votre application des vulnérabilités d’applications web les plus courantes. Les données non fiables véhiculent les attaques par injection. Parmi les entrées de votre application figurent les paramètres d’URL, les saisies de l’utilisateur, les données issues de la base de données ou d’une API, et tout élément transmis qu’un utilisateur pourrait potentiellement manipuler. Une application doit [confirmer](https://owasp.org/www-project-proactive-controls/v3/en/c5-validate-inputs) la validité des données d’un point de vue syntaxique et sémantique avant que l’application ne les utilise de quelque manière que ce soit (y compris pour les réafficher pour l’utilisateur).
 
 Validez les entrées au début du flux de données pour vous assurer que seules des données correctement formatées pénètre le flux de travail. Vous ne voulez pas que des données incorrectes demeurent dans votre base de données ou déclenchent une défaillance dans un composant en aval.
 
-Établir une liste noire et une liste rouge sont deux approches générales en matière de validation de la syntaxe des entrées :
+Établir une liste rouge
+ et une liste rouge sont deux approches générales en matière de validation de la syntaxe des entrées :
 
-  - La mise en liste rouge tente de vérifier qu’une entrée utilisateur donnée ne contient pas de contenu « réputé malveillant ».
+  - La mise en liste rouge tente de vérifier qu’une entrée utilisateur donnée ne contient pas de contenu « réputé malveillant ».
 
-  - La mise en liste verte tente de vérifier qu’une entrée utilisateur donnée correspond à un ensemble d’entrées « vérifiées ». La mise en liste verte basée sur les caractères est une forme de mise en liste verte où une application vérifie que la saisie de l’utilisateur ne contient que des caractères « vérifiés » ou que cette dernière correspond à un format connu.
+  - La mise en liste verte tente de vérifier qu’une entrée utilisateur donnée correspond à un ensemble d’entrées « vérifiées ». La mise en liste verte basée sur les caractères est une forme de mise en liste verte où une application vérifie que la saisie de l’utilisateur ne contient que des caractères « vérifiés » ou que cette dernière correspond à un format connu.
     Par exemple, cela peut impliquer la vérification qu’un nom d’utilisateur contient uniquement des caractères alphanumériques ou qu’il contient exactement deux chiffres.
 
 La mise en liste verte est la meilleure approche en matière de création de logiciels sécurisés.
@@ -81,7 +82,7 @@ Consultez [Removing standard server headers on Windows Azure Web Sites (Supprime
 
 ### <a name="segregate-your-production-data"></a>Séparer les données de production
 
-Vos données de production, ou données « réelles », ne doivent pas servir au développement, au test ou à d’autres fins que celles liées à votre activité. Un jeu de données masqué ([anonyme](https://en.wikipedia.org/wiki/Data_anonymization)) doit être utilisé pour tout développement et test.
+Vos données de production, ou données « réelles », ne doivent pas servir au développement, au test ou à d’autres fins que celles liées à votre activité. Un jeu de données masqué ([anonyme](https://en.wikipedia.org/wiki/Data_anonymization)) doit être utilisé pour tout développement et test.
 
 En d’autres termes, moins de personnes ont accès à vos données réelles, plus la surface d’attaque se trouve réduite. Cela signifie également qu’un nombre réduit d’employés a accès aux données personnelles, ce qui élimine une violation potentielle de la confidentialité.
 
