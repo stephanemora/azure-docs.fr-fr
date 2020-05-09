@@ -36,6 +36,11 @@
       href: spring-cloud-tutorial-custom-domain.md
     - name: Utiliser IntelliJ pour déployer des applications Azure Spring Cloud
       href: spring-cloud-tutorial-intellij-deploy-apps.md
+- name: Exemples
+  items:
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Présentation des quotas et des limites dans Azure Spring Cloud

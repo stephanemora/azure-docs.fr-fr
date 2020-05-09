@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cdf616b29a93e786ef26af83b5d3b3541f94d67c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6fc5b4c901254decdb2d34281a10ababd4d79d45
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75972276"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82127851"
 ---
 # <a name="security-controls-for-azure-vpn-gateway"></a>Contrôles de sécurité pour la passerelle VPN Azure
 
@@ -34,9 +34,9 @@ Cet article décrit les contrôles de sécurité intégrés dans la passerelle V
 
 | Contrôle de sécurité | Oui/Non | Notes|
 |---|---|--|
-| Prise en charge de la supervision Azure (Log analytics, App insights, etc.)| Oui | Consultez [Journaux de diagnostic Azure Monitor/alertes](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md) & [Métriques Azure Monitor/alertes](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md).  |
+| Prise en charge de la supervision Azure (Log analytics, App insights, etc.)| Oui | Consultez [Alerte de journal Azure Monitor](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md) & [Alerte de métriques Azure Monitor](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md).  |
 | Journalisation et audit du plan de gestion et de contrôle| Oui | Journal d’activité Azure Resource Manager. |
-| Journalisation et audit du plan de données | Oui | [Journaux de diagnostic Azure Monitor](../azure-resource-manager/management/view-activity-logs.md) pour la journalisation et l’audit de la connectivité VPN. |
+| Journalisation et audit du plan de données | Oui | [Journaux d’activité Azure Monitor](../azure-resource-manager/management/view-activity-logs.md) pour la journalisation et l’audit de connectivité VPN. |
 
 ## <a name="identity"></a>Identité
 
@@ -51,7 +51,7 @@ Cet article décrit les contrôles de sécurité intégrés dans la passerelle V
 |---|---|--|
 | Chiffrement côté serveur au repos : Clés managées par Microsoft | N/A | Données client en transit dans la passerelle VPN, ne stocke PAS les données client |
 | Le chiffrement en transit (tel que le chiffrement ExpressRoute, le chiffrement dans un réseau virtuel, et le chiffrement de réseau virtuel à réseau virtuel)| Oui | Les passerelles VPN chiffrent les paquets client entre les passerelles VPN Azure et les périphériques VPN locaux du client (S2S) ou les clients VPN (P2S). Les passerelles VPN prennent également en charge le chiffrement entre réseaux virtuels. |
-| Chiffrement côté serveur au repos : clés gérées par le client (BYOK) | Non | Les clés prépartagées spécifiées par le client sont chiffrées au repos, mais pas encore intégrées à CMK. |
+| Chiffrement côté serveur au repos : clés gérées par le client (BYOK) | Non  | Les clés prépartagées spécifiées par le client sont chiffrées au repos, mais pas encore intégrées à CMK. |
 | Chiffrement au niveau des colonnes (Azure Data Services)| N/A | |
 | Appels d’API chiffrés| Oui | Via [Azure Resource Manager](../azure-resource-manager/index.yml) et HTTPS  |
 

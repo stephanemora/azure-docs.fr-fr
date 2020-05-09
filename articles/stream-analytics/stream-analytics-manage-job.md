@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: 488664b028568b3014b9b839122705d35104861e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 79b8cfd3f50ffd9f1c6b36dd73942ed3ddc5929f
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223266"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594914"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Tutoriel : Analyser les données d’appel téléphonique avec Stream Analytics et visualiser les résultats dans un tableau de bord Power BI
 
@@ -264,7 +264,7 @@ Vous pouvez tester une requête à partir de l’éditeur de requête en utilisa
 
 Pour cette partie du tutoriel, vous allez utiliser un exemple d’application web [ASP.NET](https://asp.net/) créé par l’équipe Power BI pour intégrer votre tableau de bord. Pour plus d’informations sur l’intégration de tableaux de bord, consultez l’article [Power BI en mode intégration](https://docs.microsoft.com/power-bi/developer/embedding).
 
-Pour configurer l’application, accédez au dépôt GitHub [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) et suivez les instructions situées sous la section **User Owns Data** (L’utilisateur est propriétaire des données) (utilisez les URL de redirection et de page d’accueil de la sous-section **integrate-web-app**). Étant donné que nous utilisons l’exemple Dashboard (tableau de bord), utilisez l’exemple de code **integrate-web-app** qui se trouve dans le [dépôt GitHub](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-web-app).
+Pour configurer l’application, accédez au dépôt GitHub [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) et suivez les instructions situées sous la section **User Owns Data** (L’utilisateur est propriétaire des données) (utilisez les URL de redirection et de page d’accueil de la sous-section **integrate-web-app**). Étant donné que nous utilisons l’exemple Dashboard (tableau de bord), utilisez l’exemple de code **integrate-web-app** qui se trouve dans le [dépôt GitHub](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/User%20Owns%20Data/integrate-web-app).
 Lorsque l’application est en cours d’exécution dans votre navigateur, procédez comme suit pour intégrer le tableau de bord que vous avez créé précédemment dans la page web :
 
 1. Sélectionnez **Se connecter à Power BI**, pour accorder à l’application un accès aux tableaux de bord dans votre compte Power BI.
