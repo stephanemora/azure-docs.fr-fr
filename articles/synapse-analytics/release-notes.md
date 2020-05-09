@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: c1b5b9ac5d7c3f04dd3ae2e843425a5ead0d4c07
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 059e77c063d00ef850a171507ca2e06422ade426
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419803"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82191768"
 ---
 # <a name="azure-synapse-analytics-preview-release-notes"></a>Notes de publication d’Azure Synapse Analytics (préversion)
 
@@ -29,7 +29,8 @@ Cet article décrit les limitations et les problèmes liés à Azure Synapse Ana
 - Problème et impact sur le client : Les espaces de travail créés par le SDK ne peuvent pas lancer Synapse Studio
 
 - Solution de contournement : Suivez les étapes ci-dessous : 
-  1.    Créez l’espace de travail en exécutant `az synapse workspace create`.2.    Extrayez l’ID d’identité managée en exécutant `$identity=$(az synapse workspace show --name {workspace name}  --resource-group {resource group name} --query "identity.principalId")`.
+  1.    Créez un espace de travail en exécutant `az synapse workspace create`.
+  2.    Extrayez l’ID d’identité managée en exécutant `$identity=$(az synapse workspace show --name {workspace name}  --resource-group {resource group name} --query "identity.principalId")`.
   3.    Ajoutez l’espace de travail en tant que rôle au compte de stockage en exécutant ` az role assignment create --role "Storage Blob Data Contributor" --assignee-object-id {identity } --scope {storage account resource id}`.
   4.    Ajoutez une règle de pare-feu en exécutant ` az synapse firewall-rule create --name allowAll --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255 `.
 

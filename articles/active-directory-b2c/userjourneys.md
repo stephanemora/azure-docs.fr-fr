@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d73a1a3ce23817d9d6f742a4a8c730afb58ee0c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 189343888d2856a6945723c030485e58394c912f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78226994"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559599"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -64,9 +64,9 @@ L’élément **OrchestrationSteps** contient les attributs suivants :
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | `Order` | Oui | Ordre des étapes d’orchestration. |
-| `Type` | Oui | Type de l’étape d’orchestration. Valeurs possibles : <ul><li>**ClaimsProviderSelection** : indique que l’étape d’orchestration présente divers fournisseurs de revendications à l’utilisateur afin qu’il en sélectionne un.</li><li>**CombinedSignInAndSignUp** : indique que l’étape d’orchestration présente une page combinée d’inscription de compte local et de connexion au fournisseur d’identité sociale.</li><li>**ClaimsExchange** : indique que l’étape d’orchestration échange des revendications avec un fournisseur de revendications.</li><li>**GetClaims** : indique que l’étape d’orchestration lit les revendications d’entrée.</li><li>**SendClaims** : indique que l’étape d’orchestration envoie les revendications à la partie de confiance avec un jeton émis par un émetteur de revendications.</li></ul> |
-| ContentDefinitionReferenceId | Non | Identificateur de la [définition de contenu](contentdefinitions.md) associée à cette étape d’orchestration. L’identificateur de référence de définition de contenu est généralement défini dans le profil technique autodéclaré, mais il existe certains cas où Azure AD B2C doit afficher quelque chose sans profil technique, Il existe deux exemples : si le type de l’étape d’orchestration est une des suivantes : `ClaimsProviderSelection` ou `CombinedSignInAndSignUp`, Azure AD B2C doit afficher la sélection du fournisseur d’identité sans avoir de profil technique. |
-| CpimIssuerTechnicalProfileReferenceId | Non | Le type de l’étape d’orchestration est `SendClaims`. Cette propriété définit l’identificateur de profil technique du fournisseur de revendications qui émet le jeton pour la partie de confiance.  Si elle est absente, aucun jeton de partie de confiance n’est créé. |
+| `Type` | Oui | Type de l’étape d’orchestration. Valeurs possibles : <ul><li>**ClaimsProviderSelection** : indique que l’étape d’orchestration présente divers fournisseurs de revendications à l’utilisateur afin qu’il en sélectionne un.</li><li>**CombinedSignInAndSignUp** : indique que l’étape d’orchestration présente une page combinée d’inscription de compte local et de connexion au fournisseur d’identité sociale.</li><li>**ClaimsExchange** : indique que l’étape d’orchestration échange des revendications avec un fournisseur de revendications.</li><li>**GetClaims** : spécifie que l’étape d’orchestration doit traiter les données de revendication envoyées à Azure AD B2C à partir de la partie de confiance via sa configuration `InputClaims`.</li><li>**SendClaims** : indique que l’étape d’orchestration envoie les revendications à la partie de confiance avec un jeton émis par un émetteur de revendications.</li></ul> |
+| ContentDefinitionReferenceId | Non  | Identificateur de la [définition de contenu](contentdefinitions.md) associée à cette étape d’orchestration. L’identificateur de référence de définition de contenu est généralement défini dans le profil technique autodéclaré, mais il existe certains cas où Azure AD B2C doit afficher quelque chose sans profil technique, Il existe deux exemples : si le type de l’étape d’orchestration est une des suivantes : `ClaimsProviderSelection` ou `CombinedSignInAndSignUp`, Azure AD B2C doit afficher la sélection du fournisseur d’identité sans avoir de profil technique. |
+| CpimIssuerTechnicalProfileReferenceId | Non  | Le type de l’étape d’orchestration est `SendClaims`. Cette propriété définit l’identificateur de profil technique du fournisseur de revendications qui émet le jeton pour la partie de confiance.  Si elle est absente, aucun jeton de partie de confiance n’est créé. |
 
 
 L’élément **OrchestrationStep** peut contenir les éléments suivants :
@@ -172,14 +172,14 @@ L’élément **ClaimsProviderSelections** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| DisplayOption| Non | Contrôle le comportement d’un cas où une sélection unique de fournisseur de revendications est disponible. Valeurs possibles :  `DoNotShowSingleProvider` (valeur par défaut), l’utilisateur est redirigé immédiatement vers le fournisseur d’identité fédérée. Ou  `ShowSingleProvider` Azure AD B2C affiche la page de connexion avec la sélection unique de fournisseur d’identité. Pour utiliser cet attribut, la [version de la définition de contenu](page-layout.md) doit être  `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` ou une version ultérieure.|
+| DisplayOption| Non  | Contrôle le comportement d’un cas où une sélection unique de fournisseur de revendications est disponible. Valeurs possibles :  `DoNotShowSingleProvider` (valeur par défaut), l’utilisateur est redirigé immédiatement vers le fournisseur d’identité fédérée. Ou  `ShowSingleProvider` Azure AD B2C affiche la page de connexion avec la sélection unique de fournisseur d’identité. Pour utiliser cet attribut, la [version de la définition de contenu](page-layout.md) doit être  `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` ou une version ultérieure.|
 
 L’élément **ClaimsProviderSelection** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| TargetClaimsExchangeId | Non | Identificateur de l’échange de revendications, qui est exécuté à l’étape d’orchestration suivante de la sélection du fournisseur de revendications. Cet attribut ou l’attribut ValidationClaimsExchangeId doit être spécifié, mais pas les deux. |
-| ValidationClaimsExchangeId | Non | Identificateur de l’échange de revendications, qui est exécuté lors de l’étape d’orchestration en cours afin de valider la sélection du fournisseur de revendications. Cet attribut ou l’attribut TargetClaimsExchangeId doit être spécifié, mais pas les deux. |
+| TargetClaimsExchangeId | Non  | Identificateur de l’échange de revendications, qui est exécuté à l’étape d’orchestration suivante de la sélection du fournisseur de revendications. Cet attribut ou l’attribut ValidationClaimsExchangeId doit être spécifié, mais pas les deux. |
+| ValidationClaimsExchangeId | Non  | Identificateur de l’échange de revendications, qui est exécuté lors de l’étape d’orchestration en cours afin de valider la sélection du fournisseur de revendications. Cet attribut ou l’attribut TargetClaimsExchangeId doit être spécifié, mais pas les deux. |
 
 ### <a name="claimsproviderselection-example"></a>Exemple de ClaimsProviderSelection
 

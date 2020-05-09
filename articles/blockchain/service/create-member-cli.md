@@ -4,18 +4,22 @@ description: Créez un membre Azure Blockchain Service pour un consortium de blo
 ms.date: 03/30/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
-ms.openlocfilehash: 322b1884726b6dfe322560032ed1b8a98c600154
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 1561f485917ecbb64d51ffbe045ab4120fbf58ad
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529619"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82116806"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Démarrage rapide : Créer un membre blockchain Azure Blockchain Service à l’aide d’Azure CLI
 
 Dans ce guide de démarrage rapide, vous allez déployer un nouveau membre blockchain et un nouveau consortium dans Azure Blockchain Service à l’aide d’Azure CLI.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>Prérequis
+
+Aucun.
 
 ## <a name="launch-azure-cloud-shell"></a>Lancement d’Azure Cloud Shell
 

@@ -5,24 +5,18 @@ description: En savoir plus sur les limitations connues lors de l’exécution d
 services: container-service
 ms.topic: article
 ms.date: 12/18/2019
-ms.openlocfilehash: 934acf06a779c1c3b0b13e74b196b174dd944e66
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 935b049ce5e1951952b4af4e7df9574df764b6e8
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886668"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208004"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitations actuelles pour les pools de nœuds Windows Server et les charges de travail d’application dans Azure Kubernetes Service (AKS)
 
 Dans Azure Kubernetes Service (AKS), vous pouvez créer un pool de nœuds qui exécute Windows Server en tant que système d’exploitation invité sur les nœuds. Ces nœuds peuvent exécuter des applications de conteneur Windows natives, comme celles reposant sur .NET Framework. Comme il existe des différences majeures dans la façon dont Linux et Windows fournissent la prise en charge des conteneurs, certaines fonctionnalités liées aux pods et Kubernetes courantes ne sont actuellement pas disponibles pour les pools de nœuds Windows.
 
-Cet article présente certaines des limitations et certains concepts de système d’exploitation pour les nœuds Windows Server dans AKS. Les pools de nœuds pour Windows Server sont actuellement en préversion.
-
-> [!IMPORTANT]
-> Les fonctionnalités d’évaluation AKS sont en libre-service et font l’objet d’un abonnement. Les versions préliminaires sont fournies « en l’état », « avec toutes les erreurs » et « en fonction des disponibilités », et sont exclues des contrats de niveau de service (sla) et de la garantie limitée. Les versions préliminaires AKS sont partiellement couvertes par le service clientèle sur la base du meilleur effort. En tant que tel, ces fonctionnalités ne sont pas destinées à une utilisation en production. Pour obtenir des informations supplémentaires, veuillez lire les articles de support suivants :
->
-> * [Stratégies de support AKS][aks-support-policies]
-> * [FAQ du support Azure][aks-faq]
+Cet article présente certaines des limitations et certains concepts de système d’exploitation pour les nœuds Windows Server dans AKS.
 
 ## <a name="which-windows-operating-systems-are-supported"></a>Quels sont les systèmes d’exploitation Windows pris en charge ?
 
@@ -66,7 +60,7 @@ Les nœuds Windows Server dans AKS doivent être *mis à niveau* pour obtenir le
 
 ## <a name="how-do-i-rotate-the-service-principal-for-my-windows-node-pool"></a>Comment faire pivoter le principal du service pour mon pool de nœuds Windows ?
 
-Pendant la préversion, les pools de nœuds Windows ne prennent pas en charge la rotation du principal de service comme limite de la préversion. Pour mettre à jour le principal du service, créez un pool de nœuds Windows, puis migrez vos pods de l’ancien pool vers le nouveau. Une fois cette opération terminée, supprimez l’ancien pool de nœuds.
+Les pools de nœuds Windows ne prennent pas en charge la rotation du principal de service. Pour mettre à jour le principal du service, créez un pool de nœuds Windows, puis migrez vos pods de l’ancien pool vers le nouveau. Une fois cette opération terminée, supprimez l’ancien pool de nœuds.
 
 ## <a name="how-many-node-pools-can-i-create"></a>Combien de pools de nœuds puis-je créer ?
 
@@ -120,6 +114,5 @@ Pour vous lancer avec des conteneurs Windows Server dans AKS, [créez un pool de
 [aks-faq]: faq.md
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
-[preview-support]: support-policies.md#preview-features-or-feature-flags
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
