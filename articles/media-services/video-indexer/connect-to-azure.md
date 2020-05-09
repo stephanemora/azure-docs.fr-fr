@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/05/2019
+ms.date: 04/22/2020
 ms.author: juliako
-ms.openlocfilehash: 7ec8004fa0a54265962e79320c02287b2fcf814a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89360f062f0198a6b0c857395b4956caa1109e82
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79499919"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82097164"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Créer un compte Video Indexer connecté à Azure
 
@@ -151,6 +151,15 @@ Dans la boîte de dialogue, indiquez les informations suivantes :
 |Nom de la ressource de service multimédia|Nom du compte Azure Media Services que vous avez créé dans la section précédente.|
 |ID de l'application|ID d’application Azure AD (avec des autorisations pour le compte Media Services spécifié) que vous avez créé dans la section précédente.|
 |Clé de l'application|Clé de l’application Azure AD que vous avez créée dans la section précédente. |
+
+## <a name="import-your-content-from-the-trial-account"></a>Importer votre contenu à partir du compte d’*essai*
+
+Quand vous [créez un compte](#connect-to-azure), vous avez la possibilité d’importer votre contenu à partir du compte d’*essai* dans le nouveau compte. Si vous activez l’option d’*importation* dans la boîte de dialogue **Créer un compte sur un abonnement Azure**, toutes les personnalisations de modèle de contenu et de fichier multimédia sont copiées à partir du compte d’*essai* dans le nouveau compte.
+
+La possibilité d’importer le contenu est valide pour les approches automatisée et manuelle décrites ci-dessus.
+
+> [!NOTE]
+> Le contenu ne peut être importé qu’une seule fois à partir de chaque compte.
 
 ## <a name="considerations"></a>Considérations
 
