@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/02/2019
-ms.openlocfilehash: 24e622f76e604d7c0c48e2f3c354e3b4aa64e549
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 0631859983944a7e33615106060d3ffb45a3c7bc
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82084904"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82160492"
 ---
 # <a name="microsoft-commercial-marketplace-roadmap"></a>Feuille de route de la place de marché commerciale de Microsoft
 
@@ -27,14 +27,14 @@ N’hésitez pas à nous faire part de vos suggestions. Rejoignez la conversatio
 
 Une fois qu’une fonctionnalité est en ligne, elle est supprimée de la feuille de route. Les fonctionnalités ajoutées à la place de marché figurent dans la documentation suivante.
 
-* [Blog sur la mise à jour de CSP + Place de marché](https://aka.ms/marketplacemarchupdateblog)
-* [Publication des offres dans le canal CSP (ISV)](https://aka.ms/publishtocsp)
-* [Revendre des offres de la Place de marché (CSP)](https://aka.ms/marketplaceincsp)
-* [Contrat standard](https://aka.ms/standardcontract)
-* [API de traitement SaaS](https://aka.ms/saasapiv2)
-* [Devises et zones géographiques de la Place de marché](https://aka.ms/marketplacegeos)
-* [Seller Insights](./partner-center-portal/analytics.md)
-* [Blog de la Place de marché Microsoft Build](https://aka.ms/marketplacebuildblog)
+* [Blog sur la mise à jour de CSP + Place de marché](https://azure.microsoft.com/blog/azure-marketplace-and-cloud-solution-provider-updates-march-2019/)
+* [Publication des offres dans le canal CSP (ISV)](./cloud-solution-providers.md)
+* [Revendre des offres de la Place de marché (CSP)](https://docs.microsoft.com/partner-center/sell-marketplace-products)
+* [Contrat Standard pour la Place de marché commerciale Microsoft](./standard-contract.md)
+* [API de traitement SaaS](./partner-center-portal/pc-saas-fulfillment-apis.md)
+* [Disponibilité géographique et prise en charge des devises pour la place de marché commerciale](./marketplace-geo-availability-currencies.md)
+* [Analytique pour la place de marché commerciale dans l’Espace partenaires](./partner-center-portal/analytics.md)
+* [Blog de la Place de marché Microsoft Build](https://azure.microsoft.com/blog/announcing-new-marketplace-revenue-opportunities/)
 * [Blog sur les mises à jour de mai de la Place de marché](https://azure.microsoft.com/blog/microsoft-commercial-marketplace-updates-may-2019/)
 * Espace partenaire : [Créer un compte](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) / [Gérer un compte](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account) / [Migration à partir de CPP](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc)
 * Espace partenaire : [Créer une offre SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) / [Publication d’état](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status

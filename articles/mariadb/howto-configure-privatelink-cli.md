@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: c28c5494c1cff2c198a94ea6b92003ae74ee2c8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79371696"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Créer et gérer Private Link pour Azure Database for MariaDB à l'aide de l'interface CLI
@@ -20,7 +20,7 @@ Private Endpoint est le composant fondamental de Private Link dans Azure. Il per
 > [!NOTE]
 > Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database for MariaDB prend en charge les niveaux tarifaires Usage général et Mémoire optimisée.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 
@@ -122,7 +122,7 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
 ```
 
 > [!NOTE] 
-> Le FQDN du paramètre DNS client n’est pas résolu en adresse IP privée configurée. Vous devez configurer une zone DNS pour le FQDN configuré, comme indiqué [ici](../dns/dns-operations-recordsets-portal.md).
+> Le nom de domaine complet dans le paramètre DNS du client n’est pas résolu en adresse IP privée configurée. Vous devez configurer une zone DNS pour le FQDN configuré, comme indiqué [ici](../dns/dns-operations-recordsets-portal.md).
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Se connecter à une machine virtuelle à partir d’Internet
 

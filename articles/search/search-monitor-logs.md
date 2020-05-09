@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: 86e869bc08552ea11728c508486a4784eccf4042
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 192591dedb0b5519fdcecde8c8683be87237c828
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462352"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82127827"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Collecter et analyser des données de journal pour Recherche cognitive Azure
 
@@ -66,7 +66,7 @@ Pour le Stockage Blob, une heure est nécessaire pour que les conteneurs s’y a
 
 ## <a name="query-log-information"></a>Informations sur le journal des requêtes
 
-Dans les journaux de diagnostic, deux tables contiennent des journaux d’activité et des mesures pour Recherche cognitive Azure : **AzureDiagnostics** et **AzureMetrics**.
+Deux tables contiennent des journaux d’activité et des mesures pour Recherche cognitive Azure : **AzureDiagnostics** et **AzureMetrics**.
 
 1. Sous **Supervision**, sélectionnez **Journaux d’activité**.
 
@@ -97,12 +97,12 @@ Les structures de données qui contiennent des données de journal Recherche cog
 
 Pour le Stockage Blob, chaque blob a un objet racine appelé **records** contenant un tableau d’objets de journal. Chaque objet blob contient des enregistrements de toutes les opérations qui ont eu lieu au cours de la même heure.
 
-Le tableau suivant est une liste partielle des champs communs à la journalisation des diagnostics.
+Le tableau suivant est une liste partielle des champs communs à la journalisation des ressources.
 
-| Nom | Type | Exemple | Notes |
+| Nom | Type |  Exemple | Notes |
 | --- | --- | --- | --- |
 | timeGenerated |DATETIME |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
-| resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
+| resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
 | operationName |string |« Query.Search » |Nom de l’opération |
 | operationVersion |string |"2019-05-06" |Version d’API utilisée |
 | catégorie |string |« OperationLogs » |constant |
@@ -115,7 +115,7 @@ Le tableau suivant est une liste partielle des champs communs à la journalisati
 
 Les propriétés ci-dessous sont spécifiques à Recherche cognitive Azure.
 
-| Nom | Type | Exemple | Notes |
+| Nom | Type |  Exemple | Notes |
 | --- | --- | --- | --- |
 | Description_s |string |« GET /indexes(’content’)/docs » |Point de terminaison de l’opération |
 | Documents_d |int |42 |Nombre de documents traités |
@@ -126,9 +126,9 @@ Les propriétés ci-dessous sont spécifiques à Recherche cognitive Azure.
 
 Les mesures sont capturées pour les demandes de requête et mesurées à des intervalles d’une minute. Chaque mesure expose des valeurs minimales, maximales et moyennes par minute. Pour plus d’informations, consultez [Surveiller les demandes de requête](search-monitor-queries.md).
 
-| Nom | Type | Exemple | Notes |
+| Nom | Type |  Exemple | Notes |
 | --- | --- | --- | --- |
-| resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |votre ID de ressource |
+| resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |votre ID de ressource |
 | metricName |string |« Latency » |Nom de la mesure |
 | time |DATETIME |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
 | average |int |64 |Valeur moyenne des échantillons bruts dans l’intervalle de temps de la mesure, en secondes ou en pourcentage, en fonction de la mesure. |

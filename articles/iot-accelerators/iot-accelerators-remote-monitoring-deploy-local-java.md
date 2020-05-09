@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 779ee1e057d74b11c5e0ba58dc2fd32b803f1e0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b201200ebf6807d7301dfd8c52e3137a29784eb9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73888808"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187209"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Déployer localement l’accélérateur de solution de supervision à distance - IntelliJ
 
@@ -190,10 +190,10 @@ Chaque service web ouvre une fenêtre d’invite de commandes et une fenêtre de
 
 Pour accéder à l’état des services, accédez aux URL suivantes :
 
-* Gestionnaire IoT-Hub : [http://localhost:9002/v1/status](http://localhost:9002/v1/status)
-* Télémétrie des appareils : [http://localhost:9004/v1/status](http://localhost:9004/v1/status)
-* configuration : [http://localhost:9005/v1/status](http://localhost:9005/v1/status)
-* storage-adapter : [http://localhost:9022/v1/status](http://localhost:9022/v1/status)
+* Gestionnaire IoT-Hub : `http://localhost:9002/v1/status`
+* Télémétrie des appareils : `http://localhost:9004/v1/status`
+* config : `http://localhost:9005/v1/status`
+* storage-adapter : `http://localhost:9022/v1/status`
 
 ### <a name="start-the-stream-analytics-job"></a>Démarrage de la tâche Stream Analytics
 
@@ -213,7 +213,7 @@ npm install
 npm start
 ```
 
-Quand la commande **start** est terminée, votre navigateur affiche la page à l’adresse [http://localhost:3000/dashboard](http://localhost:3000/dashboard). Les erreurs présentes sur cette page sont attendues. Pour voir l’application sans erreur, effectuez les étapes suivantes.
+Quand la commande **start** est terminée, votre navigateur affiche la page à l’adresse `http://localhost:3000/dashboard`. Les erreurs présentes sur cette page sont attendues. Pour voir l’application sans erreur, effectuez les étapes suivantes.
 
 ### <a name="configure-and-run-nginx"></a>Configurer et exécuter Nginx
 
@@ -226,7 +226,7 @@ Pour plus d’informations sur l’exécution de Nginx, consultez [nginx pour Wi
 
 ### <a name="connect-to-the-dashboard"></a>Connexion au tableau de bord
 
-Pour accéder au tableau de bord de la solution de supervision à distance, accédez à http://localhost:9000 dans votre navigateur.
+Pour accéder au tableau de bord de la solution de supervision à distance, accédez à `http://localhost:9000` dans votre navigateur.
 
 ## <a name="clean-up"></a>Nettoyer
 

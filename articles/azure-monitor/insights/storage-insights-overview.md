@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/15/2019
-ms.openlocfilehash: f23be7e764ad180a23c76abb7f9bb2218fd61e4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 497ea5a27a56ed5f8192b694fac1c52c8bf57ca6
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77662517"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691113"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Analyse de votre service de stockage avec Azure Monitor pour le stockage (préversion)
 
@@ -67,7 +67,7 @@ La vignette de compteur sous les listes déroulantes cumule le total de comptes 
 Sélectionnez une valeur dans les colonnes **Disponibilité**, **Latence E2E**, **Latence du serveur** et **Type d’erreur de transaction/Erreurs** pour aller au rapport adapté au type spécifique de métriques de stockage correspondant à la colonne sélectionnée pour ce compte de stockage. Pour plus d’informations sur les classeurs pour chaque catégorie, consultez la section [Classeurs de stockage détaillés](#detailed-storage-workbooks) ci-dessous. 
 
 >[!NOTE]
->Pour plus d’informations sur les erreurs pouvant être affichées dans le rapport, consultez [Schéma de type de réponse](../../storage/common/storage-metrics-in-azure-monitor.md#metrics-dimensions) et recherchez les types de réponse, comme **ServerOtherError**, **ClientOtherError** et **ClientThrottlingError**. Selon les comptes de stockage sélectionnés, si plus de trois types d’erreurs sont signalés, toutes les autres erreurs sont représentées sous la catégorie **Autres**.
+>Pour plus d’informations sur les erreurs pouvant être affichées dans le rapport, consultez [Schéma de type de réponse](../../storage/common/monitor-storage-reference.md#metrics-dimensions) et recherchez les types de réponse, comme **ServerOtherError**, **ClientOtherError** et **ClientThrottlingError**. Selon les comptes de stockage sélectionnés, si plus de trois types d’erreurs sont signalés, toutes les autres erreurs sont représentées sous la catégorie **Autres**.
 
 Le seuil de **Disponibilité** par défaut est le suivant :
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: vkukke
 ms.openlocfilehash: ed3b70ad267252981110e7970bc5c5fad6cf4b4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79300596"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Sécurité du réseau pour les ressources Azure Event Grid
@@ -29,7 +29,7 @@ Vous pouvez utiliser des étiquettes de service pour définir des contrôles d�
 
 | Balise du service | Objectif | Peut-elle utiliser le trafic entrant ou sortant ? | Peut-elle être étendue à une zone régionale ? | Peut-elle être utilisée avec le Pare-feu Azure ? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| AzureEventGrid | Azure Event Grid. <br/><br/>*Remarque :* Cette balise couvre les points de terminaison Azure Event Grid dans les régions USA Centre Sud, USA Est, Usa Est 2, USA Ouest 2 et USA Centre uniquement. | Les deux | Non | Non |
+| AzureEventGrid | Azure Event Grid. <br/><br/>*Remarque :* Cette balise couvre les points de terminaison Azure Event Grid dans les régions USA Centre Sud, USA Est, Usa Est 2, USA Ouest 2 et USA Centre uniquement. | Les deux | Non  | Non  |
 
 
 ## <a name="ip-firewall"></a>Pare-feu IP 
@@ -85,9 +85,9 @@ Le tableau suivant décrit les différents états de connexion au point de termi
 | État de la connexion   |  Publication réussie (oui/non) |
 | ------------------ | -------------------------------|
 | Approved           | Oui                            |
-| Rejeté           | Non                             |
-| Pending            | Non                             |
-| Déconnecté       | Non                             |
+| Rejeté           | Non                              |
+| Pending            | Non                              |
+| Déconnecté       | Non                              |
 
 Pour réussir une publication, l’état de la connexion au point de terminaison privé doit être **approuvé**. Si une connexion est rejetée, elle ne peut pas être approuvée à l’aide du portail Azure. La seule possibilité consiste à supprimer la connexion et à en créer une nouvelle à la place.
 

@@ -2,15 +2,15 @@
 title: Utiliser une condition dans des modèles
 description: Découvrez comment déployer des ressources Azure en fonction des conditions. Montre comment déployer une nouvelle ressource ou utiliser une ressource existante.
 author: mumian
-ms.date: 05/21/2019
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8f51c65489efeed1fa18e70bd75e7370a9e59903
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: b73598da2b34847a38485db9952302f7c5b33c98
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260629"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82185028"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Tutoriel : Utiliser une condition dans des modèles ARM
 
@@ -52,7 +52,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
 
-Le dépôt Modèles de démarrage rapide Azure contient les modèles ARM. Au lieu de créer un modèle à partir de zéro, vous pouvez chercher un exemple de modèle et le personnaliser. Le modèle utilisé dans ce didacticiel se nomme [Déployer une machine virtuelle Windows simple](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Le référentiel Modèles de démarrage rapide Azure contient les modèles ARM. Au lieu de créer un modèle à partir de zéro, vous pouvez chercher un exemple de modèle et le personnaliser. Le modèle utilisé dans ce didacticiel se nomme [Déployer une machine virtuelle Windows simple](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. À partir de Visual Studio Code, sélectionnez **Fichier**>**Ouvrir un fichier**.
 1. Collez l’URL suivante dans **Nom de fichier** :
@@ -134,37 +134,45 @@ Voici la procédure pour apporter les modifications :
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
-Suivez les instructions fournies dans [Déployer le modèle](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) pour ouvrir Cloud Shell et charger le modèle modifié, puis exécutez le script PowerShell suivant pour déployer ce dernier.
+1. Se connecter à [Azure Cloud Shell](https://shell.azure.com)
 
-> [!IMPORTANT]
-> Le nom du compte de stockage doit être unique dans Azure. Le nom ne doit contenir que des lettres minuscules ou des chiffres. Il ne doit pas compter plus de 24 caractères. Le nom du compte de stockage est le nom du projet suivi du suffixe « store ». Vérifiez que le nom du projet et le nom du compte de stockage généré respectent les critères de nommage des comptes de stockage.
+1. Choisissez votre environnement préféré en sélectionnant **PowerShell** ou **Bash** (pour CLI) en haut à gauche.  Il est nécessaire de redémarrer l’interpréteur de commandes lors d’un tel changement.
 
-```azurepowershell
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name and resource names"
-$newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
-$location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
-$vmAdmin = Read-Host -Prompt "Enter the admin username"
-$vmPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
-$dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
+    ![Fichier de chargement du Cloud Shell du portail Azure](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-$resourceGroupName = "${projectName}rg"
-$storageAccountName = "${projectName}store"
+1. Sélectionnez **Charger/Télécharger des fichiers**, puis **Charger**. Consultez la capture d’écran précédente. Sélectionnez le fichier que vous avez enregistré dans la section précédente. Après avoir chargé le fichier, vous pouvez utiliser la commande **ls** et la commande **cat** pour vérifier que le chargement a été correctement effectué.
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -adminUsername $vmAdmin `
-    -adminPassword $vmPassword `
-    -dnsLabelPrefix $dnsLabelPrefix `
-    -storageAccountName $storageAccountName `
-    -newOrExisting $newOrExisting `
-    -TemplateFile "$HOME/azuredeploy.json"
+1. Exécutez le script PowerShell suivant pour déployer le modèle.
 
-Write-Host "Press [ENTER] to continue ..."
-```
+    > [!IMPORTANT]
+    > Le nom du compte de stockage doit être unique dans Azure. Le nom ne doit contenir que des lettres minuscules ou des chiffres. Il ne doit pas compter plus de 24 caractères. Le nom du compte de stockage est le nom du projet suivi du suffixe « store ». Vérifiez que le nom du projet et le nom du compte de stockage généré respectent les critères de nommage des comptes de stockage.
 
-> [!NOTE]
-> Le déploiement échoue si **newOrExisting** est **nouveau**, mais le compte de stockage avec le nom de compte de stockage spécifié déjà existe.
+    ```azurepowershell
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name and resource names"
+    $newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
+    $location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
+    $vmAdmin = Read-Host -Prompt "Enter the admin username"
+    $vmPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
+    $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
+
+    $resourceGroupName = "${projectName}rg"
+    $storageAccountName = "${projectName}store"
+
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment `
+        -ResourceGroupName $resourceGroupName `
+        -adminUsername $vmAdmin `
+        -adminPassword $vmPassword `
+        -dnsLabelPrefix $dnsLabelPrefix `
+        -storageAccountName $storageAccountName `
+        -newOrExisting $newOrExisting `
+        -TemplateFile "$HOME/azuredeploy.json"
+
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+    > [!NOTE]
+    > Le déploiement échoue si **newOrExisting** est **nouveau**, mais le compte de stockage avec le nom de compte de stockage spécifié déjà existe.
 
 Essayez d’effectuer un autre déploiement avec **newOrExisting** défini sur « existing » (existant) et spécifiez un compte de stockage existant. Pour créer un compte de stockage au préalable, consultez [Créer un compte de stockage](../../storage/common/storage-account-create.md).
 

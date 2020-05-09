@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 21bcaf8636638153ad5e5659ef3e1bff0631d9b8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7450dd79247078afe02d1bb63727cfd260d674fc
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427361"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81866250"
 ---
 # <a name="certificate-creation-methods"></a>Méthodes de création de certificats
 
@@ -80,10 +80,10 @@ Le secret et la clé adressables obtiennent leurs attributs à partir des attrib
 ## <a name="partnered-ca-providers"></a>Fournisseurs d’autorité de certification associés
 La création du certificat peut être effectuée manuellement ou à l’aide d’un émetteur « Self ». Key Vault s’associe également à certains fournisseurs émetteurs pour simplifier la création de certificats. Les types de certificats suivants peuvent être commandés pour Key Vault avec ces fournisseurs émetteurs partenaires.  
 
-|Fournisseur|Type de certificat|  
-|--------------|----------------------|  
-|DigiCert|Key Vault propose des certificats SSL OV ou EV avec DigiCert|
-|GlobalSign|Key Vault propose des certificats SSL OV ou EV avec GlobalSign|
+|Fournisseur|Type de certificat|Configuration  
+|--------------|----------------------|------------------|  
+|DigiCert|Key Vault propose des certificats SSL OV ou EV avec DigiCert| [Guide d’intégration](https://docs.digicert.com/certificate-tools/azure-key-vault-integration-guide/)
+|GlobalSign|Key Vault propose des certificats SSL OV ou EV avec GlobalSign| [Guide d’intégration](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
 
  L’émetteur de certificat est une entité représentée dans Azure Key Vault (KV) en tant que ressource CertificateIssuer. Il fournit des informations sur la source d’un certificat KV, ainsi que le nom de l’émetteur, le fournisseur, les informations d’identification et d’autres détails administratifs.
 
@@ -91,6 +91,6 @@ Notez que lorsqu’une commande est passée auprès du fournisseur émetteur, el
 
  Autorisation : nécessite l’autorisation de création/certificats.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a> Voir aussi
 
  - [Surveiller et gérer la création de certificats](create-certificate-scenarios.md)

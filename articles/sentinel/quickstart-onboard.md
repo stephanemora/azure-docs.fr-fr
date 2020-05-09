@@ -8,13 +8,13 @@ ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
-ms.date: 12/05/2019
-ms.openlocfilehash: 11fecd875385d8ba044cbe44e2270eed11d61ce1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/27/2020
+ms.openlocfilehash: d4e7077c338586298c5e7f0805c3d47b08a7a108
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77581547"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82184331"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Démarrage rapide : Intégrer Azure Sentinel
 
@@ -55,7 +55,7 @@ Après avoir connecté vos sources de données, opérez votre choix dans une gal
 
    >[!NOTE] 
    > - Les espaces de travail par défaut créés par Azure Security Center n’apparaissent pas dans la liste. Vous ne pouvez pas installer Azure Sentinel sur ces derniers.
-   > - Azure Sentinel peut s’exécuter sur des espaces de travail dans tout [région généralement disponible de Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), à l’exception des régions Chine, Allemagne et Azure Government. Les données générées par Azure Sentinel (par exemple, incidents, signets et règles d’alerte, qui peuvent contenir des données client provenant de ces espaces de travail) sont enregistrées dans les régions Europe Ouest (pour les espaces de travail situés en Europe) ou USA Est (pour tous les espaces de travail basés aux États-Unis, ainsi que dans toute région autre que l’Europe).
+   > - Azure Sentinel peut s’exécuter sur des espaces de travail dans toute [région couverte par la mise à disposition générale de Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), à l’exception des régions Chine et Allemagne (souveraines). Les données générées par Azure Sentinel (comme des incidents, des signets et des règles d’alerte, qui peuvent contenir des données client provenant de ces espaces de travail) sont enregistrées dans les régions Europe (pour les espaces de travail situés en Europe), Australie (pour les espaces de travail situés en Australie) ou USA Est (pour les espaces de travail situés dans toute autre région).
 
 1. Sélectionnez **Ajouter Azure Sentinel**.
   
@@ -64,7 +64,7 @@ Après avoir connecté vos sources de données, opérez votre choix dans une gal
 
 Azure Sentinel crée la connexion aux services et aux applications en se connectant au service et en transférant les événements et les journaux vers Azure Sentinel. Pour les ordinateurs et les machines virtuelles, vous pouvez installer l’agent Azure Sentinel qui collecte les journaux et les transfère à Azure Sentinel. Pour les pare-feux et les proxies, Azure Sentinel utilise un serveur Linux Syslog. L’agent est installé sur ce dernier et l’utilise pour collecter les fichiers journaux et les transférer à Azure Sentinel. 
  
-1. Cliquez sur **Collecte de données**.
+1. Cliquez sur **Connecteurs de données**.
 2. Il existe une vignette pour chaque source de données que vous pouvez connecter.<br>
 Par exemple, cliquez sur **Azure Active Directory**. Si vous connectez cette source de données, vous diffusez tous les journaux d’Azure AD vers Azure Sentinel. Vous pouvez sélectionner le type de journaux de votre choix pour accéder et vous connecter aux journaux et/ou journaux d’audit. <br>
 Dans la partie inférieure, Azure Sentinel fournit des suggestions sur les classeurs que vous devez installer pour chaque connecteur afin que vous puissiez immédiatement obtenir des insights intéressants sur vos données. <br> Suivez les instructions d’installation ou [consultez le guide de connexion concerné](connect-data-sources.md) pour plus d’informations. Pour plus d’informations sur les connecteurs de données, consultez [Connecter des services Microsoft](connect-data-sources.md).

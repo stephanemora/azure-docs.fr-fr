@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 09e4616bc7cbb4361ad067ed64984ed95e9a20c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e756258bb92d7def195959d909068e87e765c0f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74849188"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562064"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Utilisation d’Azure Functions Proxies
 
@@ -173,7 +173,7 @@ Le comportement du proxy peut être contrôlé via plusieurs paramètres d’app
 
 Les proxies lisent toutes les chaînes d’un fichier JSON en utilisant \ en tant que symbole d’échappement. Les proxies interprètent également les accolades. Consultez un ensemble complet d’exemples ci-dessous.
 
-|Caractère|Caractère d’échappement|Exemple|
+|Caractère|Caractère d’échappement| Exemple|
 |-|-|-|
 |{ ou }|{{ ou }}|`{{ example }}` --> `{ example }`
 | \ | \\\\ | `example.com\\text.html` --> `example.com\text.html`
@@ -184,8 +184,8 @@ Les proxies lisent toutes les chaînes d’un fichier JSON en utilisant \ en tan
 L’objet requestOverrides définit les modifications apportées à la demande lors de l’appel de la ressource du serveur principal. L’objet est défini par les propriétés suivantes :
 
 * **backend.request.method** : méthode HTTP utilisée pour appeler le backend.
-* **backend.request.querystring.\<ParameterName\>** : paramètre de chaîne de requête pouvant être défini pour l’appel au backend. Remplacez *\<ParameterName\>* par le nom de l’en-tête que vous souhaitez définir. Notez que si la chaîne vide est fournie, le paramètre n’est pas inclus dans la demande du serveur back-end.
-* **backend.request.headers.\<HeaderName\>** : en-tête pouvant être défini pour l’appel au backend. Remplacez *\<HeaderName\>* par le nom de l’en-tête que vous souhaitez définir. Si vous fournissez une chaîne vide, l’en-tête n’est pas inclus dans la demande du serveur principal.
+* **backend.request.querystring.\<ParameterName\>** : paramètre de chaîne de requête pouvant être défini pour l’appel au backend. Remplacez *\<ParameterName\>* par le nom de l’en-tête que vous souhaitez définir. Notez que si une chaîne vide est fournie, le paramètre reste inclus dans la demande du serveur principal.
+* **backend.request.headers.\<HeaderName\>** : en-tête pouvant être défini pour l’appel au backend. Remplacez *\<HeaderName\>* par le nom de l’en-tête que vous souhaitez définir. Notez que si une chaîne vide est fournie, le paramètre reste inclus dans la demande du serveur principal.
 
 Les valeurs peuvent faire référence aux paramètres de l’application et aux paramètres de la demande client d’origine.
 

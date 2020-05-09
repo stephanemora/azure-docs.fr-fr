@@ -14,12 +14,12 @@ ms.date: 11/11/2019
 ms.author: rayluo
 ms.reviewer: rayluo, nacanuma, twhitney
 ms.custom: aaddev
-ms.openlocfilehash: fe9dc6c04fe033fd518218d1b5ea971e573405fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3f95383979fd47b3baaec946f724533461729b8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76696554"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82128040"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Guide de migration ADAL vers MSAL pour Python
 
@@ -43,6 +43,10 @@ Consultez l’article sur les [différences du point de terminaison de la platef
 ### <a name="scopes-not-resources"></a>Étendues au lieu de ressources
 
 ADAL Python acquiert des jetons pour les ressources, alors que MSAL Python en acquiert pour les étendues. La surface d’API n’a plus de paramètre de ressource dans MSAL Python. Vous devez fournir des étendues sous la forme d’une liste de chaînes qui déclarent les autorisations souhaitées et les ressources demandées. Pour découvrir des exemples d’étendues, consultez [Étendues de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
+
+Vous pouvez ajouter le suffixe d’étendue `/.default` à la ressource pour faciliter la migration de vos applications du point de terminaison v1.0 (ADAL) vers le point de terminaison de la Plateforme d’identités Microsoft (MSAL). Par exemple, pour la valeur de ressource `https://graph.microsoft.com`, la valeur d’étendue équivalente est `https://graph.microsoft.com/.default`.  Si la ressource ne se trouve pas dans la forme d’URL, mais dans un ID de ressource de la forme `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`, vous pouvez toujours utiliser la valeur d’étendue `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`.
+
+Pour plus d’informations sur les différents types d’étendues, consultez [Autorisations et consentement dans le point de terminaison de la Plateforme d’identités Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) et les articles [Étendues pour une API web acceptant des jetons v1.0](https://docs.microsoft.com/azure/active-directory/develop/msal-v1-app-scopes).
 
 ### <a name="error-handling"></a>Gestion des erreurs
 

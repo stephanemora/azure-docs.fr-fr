@@ -4,10 +4,10 @@ description: Décrit les tables Resource Graph et les fonctions, opérateurs et 
 ms.date: 03/07/2020
 ms.topic: conceptual
 ms.openlocfilehash: 2f4be4d86a340867e1ad3015ff288f98fc54cecf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78927499"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Présentation du langage de requête Azure Resource Graph

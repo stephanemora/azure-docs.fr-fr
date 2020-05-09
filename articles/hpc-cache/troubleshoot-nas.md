@@ -4,14 +4,14 @@ description: Conseils pour éviter et résoudre les erreurs de configuration et 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 03/18/2020
 ms.author: rohogue
-ms.openlocfilehash: c88ffb9e87bc0688cc87b816efaa8e101e23407c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 72b6b0b78da23fd0891c0571c9137fefbfb0b077
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651955"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82186615"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Résolution des problèmes de configuration NAS et des cibles de stockage NFS
 
@@ -48,7 +48,7 @@ Vous pouvez lancer cette commande à partir de tout client Linux doté d’une i
 rpcinfo -p <storage_IP> |egrep "100000\s+4\s+tcp|100005\s+3\s+tcp|100003\s+3\s+tcp|100024\s+1\s+tcp|100021\s+4\s+tcp"| awk '{print $4 "/" $3 " " $5}'|column -t
 ```
 
-Assurez-vous que tous les ports renvoyés par la requête ``rpcinfo`` permettent un trafic illimité à partir du sous-réseau d’Azure HPC Cache.
+Vérifiez que tous les ports retournés par la requête ``rpcinfo`` autorisent sans restrictions le trafic provenant du sous-réseau d’Azure HPC Cache.
 
 Vérifiez ces paramètres sur le NAS lui-même et sur tous les pare-feu entre le système de stockage et le sous-réseau de cache.
 
@@ -62,6 +62,9 @@ Le moyen utilisé pour autoriser cet accès varie selon les systèmes de stocka
 * Les systèmes NetApp et EMC contrôlent généralement l’accès avec des règles d’exportation liées à des adresses IP ou à des réseaux spécifiques.
 
 Si vous utilisez des règles d’exportation, n’oubliez pas que le cache peut utiliser plusieurs adresses IP différentes du sous-réseau de cache. Autorisez l’accès à partir de toute la plage des adresses IP de sous-réseau possibles.
+
+> [!NOTE]
+> Par défaut, Azure HPC cache écrase l’accès racine. Pour plus d’informations, consultez [Configurer des paramètres de cache supplémentaires](configuration.md#configure-root-squash).
 
 Avec votre fournisseur de stockage NAS, activez le niveau d’accès approprié pour le cache.
 
@@ -100,7 +103,7 @@ Utilisez si possible un client Linux du même réseau virtuel que votre cache.
 Si cette commande ne liste pas les exportations, le cache aura des difficultés à se connecter à votre système de stockage. Rapprochez-vous de votre fournisseur NAS pour activer le listing des exportations.
 
 ## <a name="adjust-vpn-packet-size-restrictions"></a>Ajustement des restrictions de taille des paquets VPN
-<!-- link in prereqs article -->
+<!-- link in prereqs article and configuration article -->
 
 Si un VPN se trouve entre le cache et votre appareil NAS, il risque de bloquer les paquets Ethernet de 1 500 octets de taille complète. Vous rencontrez peut-être ce problème si les gros échanges entre le NAS et l’instance Azure HPC Cache n’aboutissent pas, mais que des mises à jour plus petites fonctionnent correctement.
 
@@ -128,7 +131,11 @@ Il n’existe pas de moyen simple de savoir si votre système est confronté à 
   1480 bytes from 10.54.54.11: icmp_seq=1 ttl=64 time=2.06 ms
   ```
 
-  Si le test ping échoue avec 1 472 octets, vous devrez peut-être configurer le verrouillage MSS sur le VPN pour que le système distant détecte correctement la taille de trame maximale. Pour plus d’informations, consultez la [documentation sur les paramètres IPsec/IKE des passerelles VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec).
+  Si la commande ping échoue avec 1472 octets, il existe probablement un problème de taille des paquets.
+
+Pour corriger le problème, vous devrez peut-être configurer le verrouillage MSS sur le VPN pour que le système distant détecte correctement la taille de trame maximale. Pour plus d’informations, consultez la [documentation sur les paramètres IPsec/IKE des passerelles VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec).
+
+Dans certains cas, la modification du paramètre MTU du cache HPC Azure sur 1400 peut être utile. Toutefois, si vous limitez la valeur MTU sur le cache, vous devez également limiter les paramètres MTU pour les clients et les systèmes de stockage principaux qui interagissent avec le cache. Pour plus d’informations, consultez [Configurer des paramètres supplémentaires de cache HPC Azure](configuration.md#adjust-mtu-value).
 
 ## <a name="check-for-acl-security-style"></a>Vérification du style de sécurité ACL
 

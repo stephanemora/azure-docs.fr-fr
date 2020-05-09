@@ -1,53 +1,22 @@
 ---
-title: Contrôle de la maintenance
-description: Apprenez à contrôler le moment où la maintenance est appliquée à vos machines virtuelles Azure à l'aide du contrôle de maintenance.
+title: Contrôle de maintenance des machines virtuelles Azure avec l’interface CLI
+description: Apprenez à contrôler le moment où la maintenance est appliquée à vos machines virtuelles Azure à l’aide du contrôle de maintenance et de l’interface CLI.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 11/21/2019
+ms.date: 04/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 58c0964d170f49066802b955f09dab01eaf998a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4843b4769e31748fd5f624005792c604db18f11e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226761"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82137499"
 ---
-# <a name="preview-control-updates-with-maintenance-control-and-the-azure-cli"></a>Aperçu : Contrôler les mises à jour avec le contrôle de maintenance et Azure CLI
+# <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>Contrôler les mises à jour avec le contrôle de maintenance et Azure CLI
 
-Gérer les mises à jour de plateforme qui ne nécessitent pas de redémarrage à l’aide du contrôle de maintenance. Azure met régulièrement à jour son infrastructure pour améliorer la fiabilité, les performances et la sécurité, ou pour lancer de nouvelles fonctionnalités. La plupart des mises à jour sont transparentes pour les utilisateurs. Certaines charges de travail sensibles, comme le gaming, le streaming multimédia et les transactions financières, ne peuvent tolérer (même quelques secondes seulement) le blocage ou la déconnexion d’une machine virtuelle pour maintenance. Le contrôle de maintenance vous donne la possibilité d’attendre les mises à jour de plateforme et de les appliquer dans une fenêtre de 35 jours consécutifs. 
-
-Le contrôle de maintenance vous permet de décider du moment où appliquer les mises à jour sur vos machines virtuelles isolées et vos hôtes dédiés Azure.
-
-Avec le contrôle de maintenance, vous pouvez :
-- Regrouper des mises à jour dans un package de mise à jour.
-- Attendre jusqu’à 35 jours avant d’appliquer les mises à jour. 
-- Automatiser les mises à jour de plateforme pour votre fenêtre de maintenance avec Azure Functions.
-- Les configurations de maintenance fonctionnent entre les abonnements et les groupes de ressources. 
-
-> [!IMPORTANT]
-> Le contrôle de maintenance est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-
-## <a name="limitations"></a>Limites
-
-- Les machines virtuelles doivent se trouver sur un [hôte dédié](./linux/dedicated-hosts.md) ou être créées à l’aide d’une [taille de machine virtuelle isolée](./linux/isolation.md).
-- Après 35 jours, une mise à jour est automatiquement appliquée.
-- L’utilisateur doit disposer d’un accès **Contributeur de ressource**.
-
-
-## <a name="install-the-maintenance-extension"></a>Installer l’extension de maintenance
-
-Si vous choisissez d’installer [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) localement, vous devez utiliser la version 2.0.76 ou ultérieure.
-
-Installez la préversion de l’extension CLI `maintenance` localement ou dans Cloud Shell. 
-
-```azurecli-interactive
-az extension add -n maintenance
-```
-
+Le contrôle de maintenance vous permet de décider du moment où appliquer les mises à jour sur vos machines virtuelles isolées et hôtes dédiés Azure. Cette rubrique traite les options de l’interface Azure CLI pour le contrôle de maintenance. Pour plus d’informations sur les avantages de l’utilisation du contrôle de maintenance, ses limitations et d’autres options de gestion, consultez [Gestion des mises à jour de plateformes avec le contrôle de maintenance](maintenance-control.md).
 
 ## <a name="create-a-maintenance-configuration"></a>Créer une configuration de maintenance
 
@@ -61,7 +30,7 @@ az maintenance configuration create \
    -g myMaintenanceRG \
    --name myConfig \
    --maintenanceScope host\
-   --location  eastus
+   --location eastus
 ```
 
 Copiez l’ID de configuration à partir de la sortie pour l’utiliser ultérieurement.

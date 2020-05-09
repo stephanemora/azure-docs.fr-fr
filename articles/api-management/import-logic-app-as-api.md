@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 08/01/2019
+ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 4077187fe04e3be914a6f7fba84c03df1b79d06a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b6cb0fa3611da44726dabd879c37fec357fc3031
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74108398"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202772"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importer une application logique en tant qu’API
 
@@ -31,16 +31,16 @@ Dans cet article, vous apprendrez comment :
 > -   Tester l’API dans le portail Azure
 > -   Tester l’API dans le portail des développeurs
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
--   Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
+-   Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md)
 -   Assurez-vous que votre abonnement contient une application logique qui expose un point de terminaison HTTP. Pour plus d’informations, consultez l’article [Appeler, déclencher ou imbriquer des workflows via des points de terminaison HTTP dans des applications logiques](../logic-apps/logic-apps-http-endpoint.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importer et publier une API back-end
 
-1. Sélectionnez **API** sous **Gestion des API**.
+1. À partir du portail Azure, accédez à votre service Gestion des API, puis sélectionnez **API** dans le menu.
 2. Sélectionnez **Application logique** dans la liste **Ajouter une nouvelle API**.
 
     ![Application logique](./media/import-logic-app-as-api/logic-app-api.png)
@@ -57,7 +57,8 @@ Dans cet article, vous apprendrez comment :
     - **Starter**
     - **Illimité**
 
-7. Sélectionnez **Create** (Créer).
+7. Entrez d’autres paramètres d’API. Vous pouvez définir les valeurs lors de la création, ou les configurer ultérieurement en accédant à l’onglet **Paramètres**. Les paramètres sont expliqués dans le tutoriel [Importer et publier votre première API](import-and-publish.md#-import-and-publish-a-backend-api).
+8. Sélectionnez **Create** (Créer).
 
 ## <a name="test-the-api-in-the-azure-portal"></a>Tester l’API dans le portail Azure
 

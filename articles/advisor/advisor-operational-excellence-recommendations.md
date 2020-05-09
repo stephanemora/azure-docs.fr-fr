@@ -3,12 +3,12 @@ title: Améliorer l’excellence opérationnelle pour vos abonnements Azure avec
 description: Utiliser Advisor pour optimiser l’excellence opérationnelle de vos abonnements Azure
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: f34284ba62bd5dea98345ebe73365b332d38ee78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4133fbe40c0fc1bdaf9c3f734bc19f94437c9acb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443071"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187414"
 ---
 # <a name="achieve-operational-excellence-with-azure-advisor"></a>Atteindre l’excellence opérationnelle avec Azure Advisor
 
@@ -32,7 +32,7 @@ Azure Advisor détectera les règles d’alerte comportant des requêtes non val
 
 ## <a name="follow-best-practices-using-azure-policy"></a>Suivre les meilleures pratiques à l’aide d’Azure Policy
 
-Azure Policy est un service d’Azure que vous utilisez pour créer, affecter et gérer des stratégies. Ces stratégies appliquent différentes règles et différents effets à vos ressources. Vous trouverez ci-dessous des recommandations en matière de stratégie Azure pour vous aider à atteindre l’excellence opérationnelle : 
+Azure Policy est un service d’Azure que vous utilisez pour créer, affecter et gérer des stratégies. Ces stratégies appliquent différentes règles et différents effets à vos ressources. Vous trouverez ci-dessous des recommandations concernant Azure Policy qui vous aideront à atteindre l’excellence opérationnelle : 
 1. Gérez les balises à l’aide d’Azure Policy : Cette stratégie ajoute ou remplace la balise spécifiée et la valeur lors de la création ou de la mise à jour d’une ressource. Il est possible de corriger des ressources existantes en déclenchant une tâche de correction. En outre, cela ne modifie pas les balises sur les groupes de ressources.
 2. Appliquez les exigences de conformité géographique à l’aide d’Azure Policy : Cette stratégie vous permet de restreindre les emplacements que votre organisation peut spécifier lors du déploiement de ressources. 
 3. Spécifiez les références SKU de machine virtuelle autorisées pour les déploiements : Cette stratégie vous permet de spécifier un ensemble de références de machine virtuelle que votre organisation peut déployer.

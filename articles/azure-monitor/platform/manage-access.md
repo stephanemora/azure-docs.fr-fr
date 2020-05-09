@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: b8d7f995997b828c2323b3e6934b97354c2f8c8b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 1e86317999a34e4ab4cb94f93fb788e3e7314cea
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255241"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82193052"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gérer l’accès aux données du journal et les espaces de travail dans Azure Monitor
 
@@ -226,7 +226,7 @@ Consultez [RBAC au niveau table](#table-level-rbac) ci-après si vous souhaitez 
 
     * Accordez aux utilisateurs les autorisations suivantes sur l’espace de travail : 
 
-        * `Microsoft.OperationalInsights/workspaces/read` : obligatoire pour que l’utilisateur puisse énumérer l’espace de travail et ouvrir le panneau correspondant dans le portail Azure.
+        * `Microsoft.OperationalInsights/workspaces/read` : obligatoire pour que l’utilisateur puisse énumérer l’espace de travail et ouvrir le panneau correspondant dans le Portail Azure.
         * `Microsoft.OperationalInsights/workspaces/query/read` : obligatoire pour chaque utilisateur pouvant exécuter des requêtes.
         * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read` : pour pouvoir lire les journaux de connexion Azure AD.
         * `Microsoft.OperationalInsights/workspaces/query/Update/read` : pour pouvoir lire les journaux de la solution Update Management.

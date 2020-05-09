@@ -4,18 +4,18 @@ description: Découvrez comment mettre à niveau un cluster Azure Kubernetes ser
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.openlocfilehash: 183e0a85f65d24dc7133307391931bea754a456d
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 7e9a47b7bda4cdb0ff6f1983bc884f7441a26d9b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632607"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207970"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Mise à jour d’un cluster Azure Kubernetes Service (AKS)
 
 Dans le cadre du cycle de vie d’un cluster AKS, vous devez souvent opérer une mise à niveau vers la dernière version de Kubernetes. Il est important d’appliquer les dernières publications de sécurité de Kubernetes, ou d’opérer une mise à niveau pour obtenir les dernières fonctionnalités. Cet article vous montre comment mettre à niveau les composants principaux ou un pool de nœud unique par défaut dans un cluster AKS.
 
-Pour en savoir plus sur les clusters AKS utilisant plusieurs pools de nœuds ou des nœuds Windows Server (les deux sont actuellement en préversion dans AKS), consultez [Mettre à niveau un pool de nœuds dans AKS][nodepool-upgrade].
+Pour connaître les clusters AKS qui utilisent plusieurs pools de nœuds, consultez [Mettre à niveau un pool de nœuds dans AKS][nodepool-upgrade].
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

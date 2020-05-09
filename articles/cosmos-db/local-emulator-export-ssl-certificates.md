@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: b4283ea7d500ca038d9f1cade89c772880ece199
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: c72dbf24df850d8b0f7e5f26a873b78f5664c9e0
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409063"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82200936"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exporter les certificats de l’émulateur Azure Cosmos DB pour une utilisation avec Java, Python et Node.js
 
@@ -70,7 +70,7 @@ Pour régénérer les certificats, cliquez sur **Réinitialiser les données** d
 
 ## <a name="how-to-use-the-certificate-in-java"></a>Comment utiliser le certificat en Java
 
-Lors de l’exécution d’applications Java ou MongoDB qui utilisent le client Java, il est plus simple d’installer le certificat dans le magasin de certificats Java par défaut que de transmettre les indicateurs `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"`. Par exemple, l’[application de démonstration Java](https://localhost:8081/_explorer/index.html) incluse dépend du magasin de certificats par défaut.
+Lors de l’exécution d’applications Java ou MongoDB qui utilisent le client Java, il est plus simple d’installer le certificat dans le magasin de certificats Java par défaut que de transmettre les indicateurs `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"`. Par exemple, l’application de démonstration Java incluse (`https://localhost:8081/_explorer/index.html`) dépend du magasin de certificats par défaut.
 
 Suivez les instructions figurant dans [Ajout d'un certificat au magasin de certificats d'autorité de certification Java](https://docs.microsoft.com/azure/java-add-certificate-ca-store) pour importer le certificat X.509 dans le magasin de certificats Java par défaut. Gardez à l’esprit que vous travaillerez dans le répertoire %JAVA_HOME% durant l’exécution de keytool.
 
