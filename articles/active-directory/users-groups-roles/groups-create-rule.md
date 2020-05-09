@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ed7f27e2145f666f38eec5ddc6c985a4d32138
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1c685fa231bc1f40a78aae0d4fa89569ec146eea
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231745"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582919"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Créer ou mettre à jour un groupe dynamique dans Azure Active Directory
 
@@ -46,7 +46,7 @@ Pour obtenir des exemples de syntaxe des règles, des propriétés prises en cha
 
 ## <a name="to-create-a-group-membership-rule"></a>Pour créer une règle d’appartenance à un groupe
 
-1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte du rôle Administrateur général, Administrateur Intune ou administrateur d’utilisateurs dans le locataire.
+1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte du rôle Administrateur général, Administrateur Intune ou Administrateur d’utilisateurs dans l’organisation Azure AD.
 1. Recherchez et sélectionnez **Groupes**.
 1. Sélectionnez **Tous les groupes**, puis **Nouveau groupe**.
 
@@ -66,7 +66,7 @@ Si la règle que vous avez entrée n’est pas valide, une explication de la rai
 
 ## <a name="to-update-an-existing-rule"></a>Pour mettre à jour une règle existante
 
-1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte du rôle Administrateur général, Administrateur Intune ou administrateur d’utilisateurs dans l’abonné.
+1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte du rôle Administrateur général, Administrateur Intune ou administrateur d’utilisateurs dans l’organisation Azure AD.
 1. Sélectionnez **Groupes** > **Tous les groupes**.
 1. Sélectionnez un groupe pour ouvrir son profil.
 1. Sur la page de profil du groupe, sélectionnez **Règles d'appartenance dynamique**. Le générateur de règles prend en charge jusqu'à cinq expressions. Pour ajouter plus de cinq expressions, vous devez utiliser la zone de texte.
@@ -102,7 +102,7 @@ Les messages d’état suivants peuvent être affichés pour l’état **Derniè
 - **En cours** : les mises à jour sont en cours d’exécution.
 - **Inconnue** : impossible de récupérer l’heure de la dernière mise à jour. Le groupe est peut-être nouveau.
 
-Si une erreur se produit lors du traitement de la règle d’appartenance pour un groupe spécifique, une alerte s’affiche en haut de la page **Vue d’ensemble** du groupe. Si aucune mise à jour d’appartenance dynamique en attente ne peut être traitée pour tous les groupes au sein du locataire pendant plus de 24 heures, une alerte s’affiche en haut de **Tous les groupes**.
+Si une erreur se produit lors du traitement de la règle d’appartenance pour un groupe spécifique, une alerte s’affiche en haut de la page **Vue d’ensemble** du groupe. Si aucune mise à jour d’appartenance dynamique en attente ne peut être traitée pour tous les groupes au sein de l’organisation pendant plus de 24 heures, une alerte s’affiche en haut de **Tous les groupes**.
 
 ![alertes de message d’erreur de traitement](./media/groups-create-rule/processing-error.png)
 
