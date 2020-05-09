@@ -7,12 +7,15 @@ ms.author: robinsh
 ms.date: 07/07/2018
 ms.topic: article
 ms.service: iot-hub
-ms.openlocfilehash: 1ca7219824a00a5af0bed7d42da75fc06ce2010d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 6b8981f9a0b372c6c2d5b24236bb4f55dcf8a9d6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79237305"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82116738"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Gérer la connectivité et la messagerie fiable à l’aide des kits SDK d’appareil Azure IoT Hub
 
@@ -85,7 +88,7 @@ Les kits SDK fournissent trois stratégies de nouvelles tentatives :
 
 ### <a name="retry-policy-apis"></a>API de stratégie de nouvelles tentatives
 
-   | Kit SDK | Méthode SetRetryPolicy | Implémentations de stratégie | Conseils d’implémentation |
+   | Kit SDK  | Méthode SetRetryPolicy | Implémentations de stratégie | Conseils d’implémentation |
    |-----|----------------------|--|--|
    |  C/iOS  | [IOTHUB_CLIENT_RESULT IoTHubClient_SetRetryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/2018-05-04/iothub_client/inc/iothub_client.h#L188)        | **Par défaut** : [IOTHUB_CLIENT_RETRY_EXPONENTIAL_BACKOFF](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)<BR>**Personnalisée :** utiliser la stratégie [retryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies) disponible<BR>**Aucune nouvelle tentative :** [IOTHUB_CLIENT_RETRY_NONE](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)  | [Implémentation C/iOS](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#)  |
    | Java| [SetRetryPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclientconfig.setretrypolicy?view=azure-java-stable)        | **Par défaut** : [classe ExponentialBackoffWithJitter](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)<BR>**Personnalisée :** implémenter l’[interface RetryPolicy](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/RetryPolicy.java)<BR>**Aucune nouvelle tentative :** [classe NoRetry](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)  | [Implémentation Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md) |
@@ -129,7 +132,7 @@ Pour obtenir des exemples de code dans d’autres langages, consultez les docume
 
 * [Node SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
-* [Kit de développement logiciel (SDK) Python](https://github.com/Azure/azure-iot-sdk-python)
+* [Kit de développement logiciel (SDK) Python](https://github.com/Azure/azure-iot-sdk-python) (Fiabilité encore non implémentée)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

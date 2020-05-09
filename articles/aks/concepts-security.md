@@ -4,12 +4,12 @@ description: Découvrez la sécurité dans AKS (Azure Kubernetes Service), notam
 services: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 7238e6cd7ab3625e2953a4408c82802d43372256
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1960d18396f47b3dbdd51a50ec4241be5ebe4ff1
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595941"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82206627"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concepts de sécurité pour les applications et les clusters dans AKS (Azure Kubernetes Service)
 
@@ -31,11 +31,11 @@ Par défaut, le serveur d’API Kubernetes utilise une adresse IP publique avec 
 
 ## <a name="node-security"></a>Sécurité des nœuds
 
-Les nœuds AKS sont des machines virtuelles Azure dont vous assurez la gestion et la maintenance. Les nœuds Linux exécutent une distribution Ubuntu optimisée à l’aide du runtime de conteneur Moby. Les nœuds Windows Server (actuellement en préversion dans AKS) exécutent une version Windows Server 2019 optimisée et utilisent également le runtime de conteneur Moby. Quand un cluster AKS est créé ou fait l’objet d’un scale-up, les nœuds sont déployés automatiquement avec les dernières configurations et mises à jour de sécurité du système d’exploitation.
+Les nœuds AKS sont des machines virtuelles Azure dont vous assurez la gestion et la maintenance. Les nœuds Linux exécutent une distribution Ubuntu optimisée à l’aide du runtime de conteneur Moby. Les nœuds Windows Server exécutent une version Windows Server 2019 optimisée et utilisent également le runtime de conteneur Moby. Quand un cluster AKS est créé ou fait l’objet d’un scale-up, les nœuds sont déployés automatiquement avec les dernières configurations et mises à jour de sécurité du système d’exploitation.
 
 La plateforme Azure applique automatiquement les correctifs de sécurité du système d’exploitation aux nœuds Linux chaque nuit. Si une mise à jour de la sécurité du système d’exploitation Linux nécessite un redémarrage de l’hôte, ce redémarrage n’est pas effectué automatiquement. Vous pouvez redémarrer les nœuds Linux manuellement ou appliquer une approche courante qui consiste à utiliser [Kured][kured], un démon de redémarrage open source pour Kubernetes. Kured s’exécute comme un [DaemonSet][aks-daemonsets] et analyse chaque nœud à la recherche d’un fichier indiquant qu’un redémarrage est nécessaire. Les redémarrages sont gérés au sein du cluster à l’aide du même [processus d’isolation et de drainage](#cordon-and-drain) que celui appliqué pour la mise à niveau du cluster.
 
-Pour les nœuds Windows Server (actuellement en préversion dans AKS), Windows Update ne s’exécute pas et n’applique pas automatiquement les dernières mises à jour. Suivez une planification régulière basée sur le cycle de mise à jour de Windows et votre propre processus de validation pour effectuer une mise à niveau sur le ou les pools de nœuds Windows Server dans votre cluster AKS. Ce processus de mise à niveau crée des nœuds qui exécutent la dernière image et les derniers correctifs de Windows Server, puis supprime les anciens nœuds. Pour plus d’informations sur ce processus, consultez [Mettre à niveau un pool de nœuds dans AKS][nodepool-upgrade].
+Pour les nœuds Windows Server, Windows Update n’exécute pas et n’applique pas automatiquement les dernières mises à jour. Suivez une planification régulière basée sur le cycle de mise à jour de Windows et votre propre processus de validation pour effectuer une mise à niveau sur le ou les pools de nœuds Windows Server dans votre cluster AKS. Ce processus de mise à niveau crée des nœuds qui exécutent la dernière image et les derniers correctifs de Windows Server, puis supprime les anciens nœuds. Pour plus d’informations sur ce processus, consultez [Mettre à niveau un pool de nœuds dans AKS][nodepool-upgrade].
 
 Les nœuds sont déployés sur un sous-réseau de réseau virtuel privé, sans aucune adresse IP publique affectée. Pour des raisons de gestion et de résolution des problèmes, SSH est activé par défaut. Cet accès SSH n’est disponible qu’au moyen de l’adresse IP interne.
 

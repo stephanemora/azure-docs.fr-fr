@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 13256377b8a8aaebf59196df57eef67d3b960cb8
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 5fc74c554cbb283bc6bbfee737ef98e59dd4b0ea
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010543"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509667"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procédures stockées, déclencheurs et fonctions définies par l’utilisateur
 
@@ -64,6 +64,9 @@ Les transactions sont intégrées de façon native dans le modèle de programmat
 ### <a name="data-consistency"></a>Cohérence des données
 
 Les procédures stockées et les déclencheurs sont toujours exécutés dans le réplica principal d’un conteneur Azure Cosmos. Cette fonctionnalité permet de s'assurer que les lectures à partir des procédures stockées offrent une [cohérence forte](consistency-levels-tradeoffs.md). Les requêtes utilisant des fonctions définies par l’utilisateur peuvent être exécutées sur le réplica principal ou un réplica secondaire. Les procédures stockées et les déclencheurs sont destinés à soutenir les écritures transactionnelles. Pendant ce temps, la logique en lecture seule est mieux implémentée en tant que logique côté application et les requêtes utilisant les [kits SDK d’API SQL Azure Cosmos DB](sql-api-dotnet-samples.md) vous aideront à saturer le débit de base de données. 
+
+> [!TIP]
+> Les requêtes exécutées au sein d’une procédure stockée ou d’un déclencheur peuvent ne pas voir les modifications apportées aux éléments par la même transaction de script. Cette instruction s’applique à la fois aux requêtes SQL, telles que `getContent().getCollection.queryDocuments()`, et aux requêtes intégrées au langage, telles que `getContext().getCollection().filter()`.
 
 ## <a name="bounded-execution"></a>Exécution limitée
 

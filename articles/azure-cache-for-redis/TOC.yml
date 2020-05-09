@@ -1,4 +1,4 @@
-- name: Documentation du cache Azure pour Redis
+- name: Documentation Azure Cache pour Redis
   href: index.yml
 - name: Vue d’ensemble
   items:
@@ -27,10 +27,13 @@
   items:
     - name: Exemples du cache Azure pour Redis
       href: cache-redis-samples.md
-    - name: Azure PowerShell
+    - name: Azure
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: Azure CLI
       href: cli-samples.md
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Sécurité
@@ -63,7 +66,7 @@
           href: cache-migrate-to-redis.md
     - name: Automatisation
       items:
-        - name: Déployer et gérer à l’aide d’Azure PowerShell
+        - name: Déployer et gérer avec Azure PowerShell
           href: cache-how-to-manage-redis-cache-powershell.md
         - name: Déployer et gérer à l’aide de l’interface de ligne de commande Azure
           href: cli-samples.md
@@ -97,7 +100,7 @@
           href: cache-how-to-redis-cli-tool.md
         - name: "Supprimer TLS\_1.0 et\_1.1"
           href: cache-remove-tls-10-11.md
-    - name: Moniteur
+    - name: Superviser
       items:
         - name: Surveiller dans le portail Azure
           href: cache-how-to-monitor.md
@@ -130,7 +133,7 @@
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.redis
     - name: Java
-      href: /java/api/com.microsoft.azure.management.redis._redis_cache
+      href: /java/api/com.microsoft.azure.management.redis.rediscache
     - name: Clients redis
       href: 'https://redis.io/clients'
     - name: Commandes redis

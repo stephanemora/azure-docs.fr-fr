@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: 543b566300ce56bc2d765087f9a9e269c5b0cc99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77586170"
 ---
 # <a name="azure-event-hubs-trigger-and-bindings-for-azure-functions"></a>Déclencheur Azure Event Hubs et liaisons pour Azure Functions

@@ -112,8 +112,6 @@
           href: platform/alerts-unified-log.md
         - name: Alertes de journal d’activité
           href: platform/activity-log-alerts.md
-        - name: Changer d’analyse
-          href: app/change-analysis.md
     - name: Visualiser les données
       href: visualizations.md
     - name: Intégrations des partenaires
@@ -528,6 +526,8 @@
               href: platform/resource-logs-blob-format.md
         - name: Envoyer des données en streaming à Event Hubs
           href: platform/stream-monitoring-data-event-hubs.md
+        - name: Changer d’analyse
+          href: app/change-analysis.md
     - name: Superviser les machines virtuelles et l’OS invité
       items:
         - name: Superviser des machines virtuelles Azure

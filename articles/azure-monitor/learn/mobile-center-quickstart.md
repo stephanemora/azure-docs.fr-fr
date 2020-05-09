@@ -8,12 +8,12 @@ ms.author: mbullwin
 ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
-ms.openlocfilehash: a59a6841a1db3cecfe52c54135b42f5b6a095ce3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c31083c5e0591d5a49f878ba24a7fd2f0ef6c84d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77660289"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731949"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Commencer à analyser votre application mobile avec App Center et Application Insights
 
@@ -33,7 +33,7 @@ Pour commencer, créez un compte et [inscrivez-vous à App Center](https://appc
 
 ## <a name="onboard-to-app-center"></a>Intégrer l’application à App Center
 
-Avant de pouvoir utiliser Application Insights avec votre application mobile, vous devez intégrer celle-ci à [App Center](https://docs.microsoft.com/mobile-center/). Application Insights ne reçoit pas de données de télémétrie directement de votre application mobile. Au lieu de cela, votre application envoie les données de télémétrie d’événements personnalisés à App Center. Ensuite, App Center exporte en continu des copies de ces événements personnalisés vers Application Insights à mesure que les événements sont reçus. (Cela ne concerne pas le [Kit de développement logiciel (SDK) JS Application Insights](https://github.com/Microsoft/ApplicationInsights-JS) ou le [plug-in React Native](https://github.com/Microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-native) dont la télémétrie est envoyée directement à Application Insights.)
+Avant de pouvoir utiliser Application Insights avec votre application mobile, vous devez intégrer celle-ci à [App Center](https://docs.microsoft.com/mobile-center/). Application Insights ne reçoit pas de données de télémétrie directement de votre application mobile. Au lieu de cela, votre application envoie les données de télémétrie d’événements personnalisés à App Center. Ensuite, App Center exporte en continu des copies de ces événements personnalisés vers Application Insights à mesure que les événements sont reçus. (Cela ne concerne pas le [Kit de développement logiciel (SDK) JS Application Insights](https://github.com/Microsoft/ApplicationInsights-JS) ou le [plug-in React Native](https://github.com/Microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-native) dont la télémétrie est envoyée directement à Application Insights.)
 
 Pour intégrer votre application, suivez le démarrage rapide d’App Center pour chaque plateforme qu’elle prend en charge. Créez des instances distinctes d’App Center pour chaque plateforme :
 

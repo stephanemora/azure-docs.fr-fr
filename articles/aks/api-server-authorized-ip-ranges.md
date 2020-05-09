@@ -4,12 +4,12 @@ description: Apprenez à sécuriser votre cluster à l’aide d’une plage d’
 services: container-service
 ms.topic: article
 ms.date: 11/05/2019
-ms.openlocfilehash: 593f9e0b335e6f4d62c76ce92f833ff4e9143372
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 570d842409fc019d24446e091f83402f4c288d7c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79126621"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81640049"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Sécuriser l’accès au serveur d’API à l’aide de plages d’adresses IP autorisées dans Azure Kubernetes Service (AKS)
 
@@ -39,7 +39,7 @@ Pour plus d’informations sur le serveur d’API et les autres composants de cl
 Les plages d’adresses IP autorisées pour le serveur d’API ne fonctionnent que pour les nouveaux clusters AKS. Créez un cluster au moyen de la commande [az aks create][az-aks-create] et spécifiez le paramètre *--api-server-authorized-ip-ranges* pour fournir une liste de plages d’adresses IP autorisées. Ces plages d’adresses IP sont généralement des plages d’adresses utilisées par vos réseaux locaux ou IP publiques. Lorsque vous spécifiez une plage CIDR, commencez par la première adresse IP dans la plage. Par exemple, *137.117.106.90/29* est une plage valide, mais assurez-vous que vous spécifiez la première adresse IP dans la plage, par exemple *137.117.106.88/29*.
 
 > [!IMPORTANT]
-> Par défaut, votre cluster utilise l’[équilibreur de charge de la référence SKU Standard][standard-sku-lb], vous pouvez utiliser celui-ci pour configurer la passerelle sortante. Lorsque vous activez des plages d’adresses IP autorisées pour le serveur d’API lors de la création du cluster, l’adresse IP publique de votre cluster est également autorisée par défaut en plus des plages que vous indiquez. Si vous spécifiez *""* ou aucune valeur pour *--api-server-authorized-ip-ranges*, les plages d’adresses IP autorisées du serveur d’API sont désactivées.
+> Par défaut, votre cluster utilise l’[équilibreur de charge de la référence SKU Standard][standard-sku-lb], vous pouvez utiliser celui-ci pour configurer la passerelle sortante. Lorsque vous activez des plages d’adresses IP autorisées pour le serveur d’API lors de la création du cluster, l’adresse IP publique de votre cluster est également autorisée par défaut en plus des plages que vous indiquez. Si vous spécifiez *""* ou aucune valeur pour *--api-server-authorized-ip-ranges*, les plages d’adresses IP autorisées du serveur d’API sont désactivées. Notez que si vous utilisez PowerShell, utilisez *--api-server-authorized-ip-ranges=""* (avec le signe égal) pour éviter tout problème d’analyse.
 
 L’exemple suivant crée un cluster à nœud unique nommé *myAKSCluster* dans le groupe de ressources *myResourceGroup*, avec les plages d’adresses IP autorisées du serveur d’API activées. Les plages d’adresses IP autorisées sont *73.140.245.0/24* :
 

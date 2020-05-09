@@ -6,16 +6,16 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
-ms.openlocfilehash: 62623bcadb35f21117ddc2601195e34598c2dff5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95260d9a15fdc32c9fddccbcf63ae9fa564fd36a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298769"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82176768"
 ---
 # <a name="azure-spring-cloud-faq"></a>Questions fréquentes sur Azure Spring Cloud
 
-Cette page répond aux questions fréquentes à propos d’Azure Spring Cloud. 
+Cette page répond aux questions fréquentes à propos d’Azure Spring Cloud.
 
 ## <a name="general"></a>Général
 
@@ -92,6 +92,10 @@ Trois services sont actuellement pris en charge : Azure Cosmos DB, Azure Databa
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>Puis-je voir, ajouter ou déplacer des volumes persistants depuis mes applications ?
 
 Oui.
+
+### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>Lorsque je supprime/déplace une instance de service Azure Spring Cloud, ses ressources d’extension seront-elles également supprimées/déplacées ?
+
+Cela dépend des logiques des fournisseurs de ressources auxquels appartiennent les ressources d’extension. Les ressources d’extension d’une instance de `Microsoft.AppPlatform` n’appartiennent pas au même espace de noms ; par conséquent, les comportements varient en fonction des différents fournisseurs de ressources. Par exemple, l’opération de suppression/déplacement n’est pas effectuée en cascade vers les ressources de **paramètres de diagnostic**. Si une nouvelle instance Azure Spring Cloud est configurée avec le même ID de ressource que celui qui a été supprimé, ou si l’instance Azure Spring Cloud précédente est déplacée, les ressources **paramètres de diagnostic** précédentes continuent de l’étendre.
 
 ## <a name="deployment"></a>Déploiement
 

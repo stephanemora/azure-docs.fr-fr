@@ -72,6 +72,9 @@
   items:
     - name: Exemples Service Bus
       href: service-bus-samples.md
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Premium-Messaging

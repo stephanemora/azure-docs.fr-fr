@@ -13,13 +13,12 @@ ms.date: 07/16/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eeec28569cf31af4542d6cd7aca1fb27d77b1e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0654bce86cf5fb0b5bd117e444721e95f137dd47
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77132529"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652689"
 ---
 # <a name="considerations-for-using-universal-windows-platform-with-msalnet"></a>Considérations relatives à l’utilisation de la plateforme Windows universelle avec MSAL.NET
 Les développeurs d’applications qui utilisent la plateforme Windows universelle (UWP) avec MSAL.NET doivent prendre en compte les concepts présentés dans cet article.

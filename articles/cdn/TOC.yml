@@ -8,10 +8,10 @@
       href: cdn-features.md
 - name: Démarrages rapides
   items:
-    - name: Création d’un profil et d’un point de terminaison
-      href: cdn-create-new-endpoint.md
     - name: Intégration d’un compte de stockage
       href: cdn-create-a-storage-account-with-cdn.md
+    - name: Création d’un profil et d’un point de terminaison
+      href: cdn-create-new-endpoint.md
     - name: Créer un profil en utilisant un modèle Azure Resource Manager
       href: create-profile-resource-manager-template.md
 - name: Tutoriels

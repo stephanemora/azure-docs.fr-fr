@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: b2c119f6552773bce7bb93a503c22324278ac0bc
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: cb016ec490dc14cbde1a1cb3f34caf39e4740961
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399471"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732369"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutoriel : Activer les fonctions vocales dans votre bot à l’aide du SDK Speech
 
@@ -178,7 +178,7 @@ Maintenant que vous avez créé des ressources, vous allez créer un bot. Vous a
 L’étape suivante consiste à déployer le bot d’écho dans Azure. Il existe plusieurs façons de déployer un bot. Cela dit, dans ce tutoriel, nous allons nous concentrer sur la méthode de publication qui est effectuée directement à partir de Visual Studio.
 
 > [!NOTE]
-> Vous pouvez également déployer un bot à l’aide d’[Azure CLI](https://docs.microsoft.com/azure/bot-service/bot-builder-deploy-az-cli) et de [modèles de déploiement](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/directline-speech/csharp_dotnetcore/02.echo-bot/DeploymentTemplates).
+> Vous pouvez également déployer un bot à l’aide d’[Azure CLI](https://docs.microsoft.com/azure/bot-service/bot-builder-deploy-az-cli) et de [modèles de déploiement](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/adaptive-dialog/csharp_dotnetcore/04.core-bot/deploymentTemplates).
 
 1. Dans Visual Studio, ouvrez le bot d’écho qui a été configuré pour être utilisé avec le canal Direct Line Speech :
 
