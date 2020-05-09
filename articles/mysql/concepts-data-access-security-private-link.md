@@ -7,15 +7,15 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: c2cc4986542404281424286882c046dec39f5daf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79371288"
 ---
 # <a name="private-link-for-azure-database-for-mysql"></a>Private Link pour Azure Database pour MySQL
 
-Private Link vous permet de vous connecter à différents services PaaS dans Azure par le biais d’un point de terminaison privé. Azure Private Link intègre essentiellement les services Azure à votre Réseau virtuel privé. Vous pouvez accéder aux ressources PaaS à l’aide de l’adresse IP privée, comme toute autre ressource dans le réseau virtuel.
+Azure Private Link vous permet de vous connecter à différents services PaaS dans Azure par le biais d’un point de terminaison privé. Azure Private Link intègre essentiellement les services Azure à votre Réseau virtuel privé. Vous pouvez accéder aux ressources PaaS à l’aide de l’adresse IP privée, comme toute autre ressource dans le réseau virtuel.
 
 Pour obtenir la liste des services PaaS prenant en charge la fonctionnalité Private Link, consultez la [documentation](https://docs.microsoft.com/azure/private-link/index) de Private Link. Un point de terminaison privé est une adresse IP privée au sein d’un [réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) et d’un sous-réseau spécifiques.
 
@@ -111,10 +111,10 @@ Les situations et résultats suivants sont possibles lorsque vous utilisez Priva
 
 Si vous souhaitez uniquement vous fier aux points de terminaison privés pour accéder à leur base de données Azure Database pour MySQL, vous pouvez désactiver la définition de tous les points de terminaison publics (à savoir, [règles de pare-feu](concepts-firewall-rules.md) et [points de terminaison de service de réseau virtuel](concepts-data-access-and-security-vnet.md)) en définissant la configuration **Refuser l’accès au réseau public** sur le serveur de base de données. 
 
-Lorsque ce paramètre est défini sur *OUI*, seules les connexions via des points de terminaison privés sont autorisées vers votre base de données Azure Database pour MySQL. Lorsque ce paramètre est défini sur *NON*, les clients peuvent se connecter à votre base de données Azure Database pour MySQL en fonction des paramètres des points de terminaison de votre service de pare-feu ou de réseau virtuel. En outre, une fois la valeur d'accès au réseau privé définie, vous ne pouvez pas ajouter et/ou mettre à jour les règles existantes des points de terminaison de votre service de pare-feu ou de réseau virtuel.
+Lorsque ce paramètre est défini sur *OUI*, seules les connexions via des points de terminaison privés sont autorisées vers votre base de données Azure Database pour MySQL. Lorsque ce paramètre est défini sur *NON*, les clients peuvent se connecter à votre base de données Azure Database pour MySQL en fonction des paramètres des points de terminaison de votre service de pare-feu ou de réseau virtuel. En outre, une fois que la valeur de l’accès au réseau privé est définie, vous ne pouvez pas ajouter et/ou mettre à jour les règles existantes des points de terminaison de votre service de pare-feu ou de réseau virtuel.
 
 > [!Note]
-> Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database pour PostgreSQL - Serveur unique prend en charge les niveaux tarifaires Usage général et Mémoire optimisée.
+> Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database pour PostgreSQL - Serveur unique prend en charge les niveaux tarifaires Usage général et Mémoire optimisée.
 >
 > Ce paramètre n’a aucun impact sur les configurations SSL et TLS pour votre base de données Azure Database pour MySQL.
 

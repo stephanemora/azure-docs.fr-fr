@@ -38,6 +38,8 @@
           href: relay-authentication-and-authorization.md
         - name: Contrôles de sécurité intégrés
           href: service-bus-relay-security-controls.md
+        - name: Sécurité du réseau
+          href: network-security.md
     - name: Protocole Connexions hybrides
       href: relay-hybrid-connections-protocol.md
 - name: Procédure
@@ -59,6 +61,12 @@
               href: relay-hybrid-connections-dotnet-api-overview.md
             - name: Nœud
               href: relay-hybrid-connections-node-ws-api-overview.md
+    - name: Sécuriser
+      items:
+        - name: Configurer le pare-feu IP (préversion)
+          href: ip-firewall-virtual-networks.md
+        - name: Configurer des points de terminaison privés (préversion)
+          href: private-link-service.md
     - name: Gestion et surveillance
       items:
         - name: Analyser Azure Relay avec la surveillance Azure

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7f398012edc25ba6a04e230fa8049e7264f857bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5fc469c3db7da45f818230909026cedf6c71a4c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294526"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82101737"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Paramètres de proxy et de pare-feu d’Azure File Sync
 Azure File Sync connecte vos serveurs locaux à Azure Files, activant des fonctionnalités de synchronisation multisite et de hiérarchisation cloud. Pour cela, un serveur local doit donc être connecté à Internet. Un administrateur informatique doit déterminer la meilleure voie d’accès aux services cloud Azure pour le serveur.
@@ -94,6 +94,7 @@ Le tableau suivant décrit les domaines requis pour la communication :
 | **Azure Resource Manager** | `https://management.azure.com` | https://management.usgovcloudapi.net | N’importe quel appel utilisateur (par exemple, PowerShell) est acheminé vers/à travers cette URL, y compris l’appel pour l’inscription initiale du serveur. |
 | **Azure Active Directory** | https://login.windows.net<br>`https://login.microsoftonline.com` | https://login.microsoftonline.us | Les appels à Azure Resource Manager doivent être effectués par un utilisateur authentifié. Cette URL est utilisée pour l’authentification utilisateur. |
 | **Azure Active Directory** | https://graph.microsoft.com/ | https://graph.microsoft.com/ | Dans le cadre du déploiement d’Azure File Sync, un principal de service est créé dans l’annuaire Azure Active Directory de l’abonnement. Cette URL est utilisée pour cela. Le principal créé sert à déléguer un ensemble minimal de droits au service Azure File Sync. L’utilisateur qui effectue la configuration initiale d’Azure File Sync doit être un utilisateur authentifié avec des privilèges de propriétaire d’abonnement. |
+| **Azure Active Directory** | https://secure.aadcdn.microsoftonline-p.com | Utilisez l’URL du point de terminaison public. | L’accès à cette URL est assuré par la bibliothèque d’authentification Active Directory que l’interface utilisateur d’inscription du serveur Azure File Sync utilise pour se connecter à l’administrateur. |
 | **Stockage Azure** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | Quand le serveur télécharge un fichier, il effectue ce déplacement de données plus efficacement quand il communique directement avec le partage de fichiers Azure dans le compte de stockage. Le serveur présente une clé SAS qui permet uniquement un accès ciblé au partage de fichiers. |
 | **Azure File Sync** | &ast;.one.microsoft.com<br>&ast;.afs.azure.net | &ast;.afs.azure.us | Après l’inscription initiale du serveur, le serveur reçoit une URL régionale pour l’instance du service Azure File Sync dans cette région. Le serveur peut utiliser cette URL pour communiquer directement et plus efficacement avec l’instance qui gère sa synchronisation. |
 | **Infrastructure à clé publique Microsoft** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Une fois que l’agent Azure File Sync est installé, l’URL de l’infrastructure à clé publique est utilisée pour télécharger les certificats intermédiaires qui sont nécessaires pour communiquer avec le service Azure File Sync et le partage de fichiers Azure. L’URL OCSP est utilisée pour vérifier l’état d’un certificat. |
@@ -262,7 +263,7 @@ if ($found) {
 Vous pouvez ensuite utiliser les plages d’adresses IP dans `$ipAddressRanges` pour mettre à jour votre pare-feu. Pour plus d’informations sur la mise à jour de votre pare-feu, consultez le site web de votre équipement réseau/pare-feu.
 
 ## <a name="test-network-connectivity-to-service-endpoints"></a>Tester la connectivité réseau aux points de terminaison de service
-Une fois qu’un serveur est inscrit auprès du service Azure File Sync, vous pouvez utiliser les applets de commande Test-StorageSyncNetworkConnectivity et ServerRegistration.exe pour tester les communications avec tous les points de terminaison (URL) spécifiques à ce serveur. Cette applet de commande peut aider à résoudre les problèmes qui se produisent quand une communication incomplète empêche le serveur de collaborer pleinement avec Azure File Sync et peut être utilisée pour affiner les configurations de proxy et de pare-feu.
+Une fois qu’un serveur est inscrit auprès du service Azure File Sync, vous pouvez utiliser les applets de commande Test-StorageSyncNetworkConnectivity et ServerRegistration.exe pour tester les communications avec tous les points de terminaison (URL) spécifiques à ce serveur. Cette cmdlet peut aider à résoudre les problèmes qui se posent quand une communication incomplète empêche le serveur de collaborer pleinement avec Azure File Sync, et peut être utilisée pour affiner les configurations de proxy et de pare-feu.
 
 Pour exécuter le test de connectivité réseau, installez la version 9.1 (ou ultérieure) d’Azure File Sync et exécutez les commandes PowerShell suivantes :
 ```powershell

@@ -1,25 +1,25 @@
 ---
-title: Fichier Include
+title: Fichier include
 titleSuffix: Azure
-description: Fichier Include
+description: Fichier include
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 0014b67443797f45de51ec1bc459f71bde55cdc9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f8e93cf34ac56344ff7e3d145ce8c7c3529767b7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75773704"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81678609"
 ---
 L’exemple suivant montre comment créer une connexion Exchange sur Equinix Internet Exchange à Seattle. Si vous utilisez un autre fournisseur et des paramètres différents, utilisez ces informations quand vous créez votre requête.
 
-Utilisez la cmdlet PowerShell **New-AzPeeringExchangeConnectionObject** pour créer des objets de connexion PowerShell qui seront utilisés pour générer la nouvelle demande de Peering :
+Utilisez la cmdlet PowerShell **New-AzPeeringExchangeConnectionObject** pour créer des objets de connexion PowerShell qui seront utilisés pour générer la nouvelle demande de Peering.
 
-Voici un exemple de création d’une connexion Exchange :
+Cet exemple montre comment créer une connexion Exchange.
 
 ```powershell
 $connection1 = New-AzPeeringExchangeConnectionObject `
@@ -30,7 +30,7 @@ $connection1 = New-AzPeeringExchangeConnectionObject `
     -MaxPrefixesAdvertisedIPv6 2000 `
 ```
 
-Créez une autre connexion au cas où vous auriez besoin d’une redondance à l’emplacement du Peering donné :
+Créez une autre connexion au cas où vous auriez besoin d’une redondance à l’emplacement du Peering donné.
 
 ```powershell
 $connection2 = New-AzPeeringExchangeConnectionObject `
@@ -41,7 +41,7 @@ $connection2 = New-AzPeeringExchangeConnectionObject `
     -MaxPrefixesAdvertisedIPv6 2000 `
 ```
 
-La cmdlet PowerShell **New-AzPeering** peut être utilisée pour créer un nouveau Peering Exchange :
+La cmdlet PowerShell **New-AzPeering** peut être utilisée pour créer un nouveau Peering Exchange.
 
 ```powershell
 $asn = Get-AzPeerAsn
@@ -54,7 +54,7 @@ New-AzPeering `
 ```
 &nbsp;
 
-Voici un exemple de réponse lorsque la requête a été exécutée à l’aide d’une connexion :
+Voici un exemple de réponse lorsque la requête a été exécutée à l’aide d’une connexion.
 
 ```powershell
 
@@ -73,10 +73,10 @@ Tags              : {}
 ```
 
 > [!IMPORTANT]
-> Microsoft commencera à approvisionner le Peering demandé et `ConnectionState` reflétera la progression.
-> Reportez-vous au document [Procédure pas à pas de Peering Exchange](../walkthrough-exchange-all.md) pour la configuration des étapes associées.
+> Microsoft commence à approvisionner le Peering demandé et `ConnectionState` reflète la progression.
+> Pour plus d’informations sur les étapes liées à l’approvisionnement, consultez la [procédure pas à pas du Peering Exchange](../walkthrough-exchange-all.md).
 
-Vous pouvez vérifier le paramètre ConnectionState comme indiqué ci-dessous :
+Vous pouvez vérifier l’état de la connexion, comme indiqué ici.
 
 ```powershell
 

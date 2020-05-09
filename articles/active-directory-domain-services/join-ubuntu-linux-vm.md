@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 95373ab8ff78c5bcb856e6d7e6d67d8525cd3f7e
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 74af841b777494744c72ed219bacd3b3835d41ac
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655134"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81617551"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Joindre une machine virtuelle Ubuntu Linux à un domaine managé Azure AD Domain Services
 
@@ -154,6 +154,12 @@ Successfully enrolled machine in realm
 ```
 
 Si votre machine virtuelle ne peut pas venir à bout du processus de jonction de domaine, vérifiez que le groupe de sécurité réseau de la machine virtuelle autorise le trafic Kerberos sortant sur le port TCP + UDP 464 vers le sous-réseau du réseau virtuel de votre domaine managé Azure AD DS.
+
+Si vous avez reçu l’erreur *Échec GSS non spécifié.  Du code mineur peut fournir plus d’informations (serveur introuvable dans la base de données Kerberos)* , ouvrez le fichier */etc/krb5.conf* et ajouter le code suivant dans la section `[libdefaults]` et réessayez :
+
+```console
+rdns=false
+```
 
 ## <a name="update-the-sssd-configuration"></a>Mettre à jour la configuration SSSD
 

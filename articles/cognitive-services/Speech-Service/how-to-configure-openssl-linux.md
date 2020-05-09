@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jhakulin
-ms.openlocfilehash: 350c2bf3c4d0fc0a16f1b393e7c8d8a372679797
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 42960c25c4124203b64646fdc5cbca833b246e21
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78331142"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "81683166"
 ---
 # <a name="configure-openssl-for-linux"></a>Configurer OpenSSL pour Linux
 
@@ -50,6 +50,8 @@ Définissez la variable d’environnement `SSL_CERT_FILE` pour qu’elle pointe 
 ```bash
 export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
+> [!NOTE]
+> Il est également à noter que certaines distributions de Linux n’ont pas de variable d’environnement TMP ou TMPDIR définie. Le Kit de développement logiciel (SDK) Speech télécharge la liste de révocation de certificat (CRL) à chaque fois, au lieu de la mettre en cache sur le disque pour la réutiliser jusqu’à son expiration. Pour améliorer les performances de la connexion initiale, vous pouvez [créer une variable d’environnement nommée TMPDIR et la définir sur le chemin d’accès du répertoire temporaire que vous avez choisi](https://help.ubuntu.com/community/EnvironmentVariables).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
