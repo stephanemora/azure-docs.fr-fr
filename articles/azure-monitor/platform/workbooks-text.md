@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: c5fb585d0eb6aeb7866c2ab04b324ee31fe903ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c804cc8942a40e2f30c980636194daa82e0fb0e8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77658047"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81687323"
 ---
 # <a name="workbook-text-parameters"></a>Paramètres texte de classeur
 
@@ -59,6 +59,8 @@ Voici à quoi ressemble le classeur en mode lecture.
 
     ![Image présentant un paramètre de texte référencé dans KQL](./media/workbooks-text/text-reference.png)
 
+> [!NOTE]
+> Dans l’exemple ci-dessus, `{SlowRequestThreshold}` représente une valeur entière. Si vous interrogez une chaîne comme `{ComputerName}`, vous devez modifier votre requête Kusto pour ajouter des guillemets `"{ComputerName}"` afin que le champ de paramètre accepte une entrée sans guillemets.
 
 ## <a name="setting-default-values"></a>Définir les valeurs par défaut
 1. Démarrez avec un classeur vide en mode d’édition.
