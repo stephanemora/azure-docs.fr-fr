@@ -1,20 +1,15 @@
 ---
-title: API et outils pour développeurs - Azure Batch | Microsoft Docs
+title: API et outils pour développeurs
 description: Découvrez les API et les outils disponibles pour développer des solutions avec le service Azure Batch.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 00d2a74946957f690979eec1d3a03a9b766299d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e345e91b2f7d66f014427770614efe42b5fb7a44
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227421"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232681"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Vue d’ensemble des outils et API Batch
 
@@ -41,7 +36,7 @@ Vos applications et services peuvent émettre des appels directs de l’API REST
 | --- | --- | --- | --- | --- | --- |
 | **Batch REST** |[docs.microsoft.com][batch_rest] |N/A |- |- | [Versions prises en charge](/rest/api/batchservice/batch-service-rest-api-versioning) |
 | **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet][api_net_nuget] |[Didacticiel](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [Notes de publication](https://aka.ms/batch-net-dataplane-changelog) |
-| **Python Batch** |[docs.microsoft.com][api_python] |[PyPI][api_python_pypi] |[Didacticiel](tutorial-parallel-python.md)|[GitHub][api_sample_python] | [Lisez-moi](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/batch.rst) |
+| **Python Batch** |[docs.microsoft.com][api_python] |[PyPI][api_python_pypi] |[Didacticiel](tutorial-parallel-python.md)|[GitHub][api_sample_python] | [Lisez-moi](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/batch/azure-batch/README.md) |
 | **Batch Node.js** |[docs.microsoft.com][api_nodejs] |[npm][api_nodejs_npm] |[Didacticiel](batch-nodejs-get-started.md) |- | [Lisez-moi](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
 | **Java Batch** |[docs.microsoft.com][api_java] |[Maven][api_java_jar] |- |[Lisez-moi][api_sample_java] | [Lisez-moi](https://github.com/Azure/azure-batch-sdk-for-java)|
 
