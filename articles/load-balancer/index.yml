@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: asudbring
   ms.author: allensu
-  ms.date: 12/05/2019
-  ms.openlocfilehash: 46afc139f240b46b9512360e79411a5bc8b03ec4
-  ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+  ms.date: 05/07/2020
+  ms.openlocfilehash: 73d36c795ca4be905ac6e9bab31cfe00374bfa13
+  ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 05/03/2020
-  ms.locfileid: "82732986"
+  ms.lasthandoff: 05/08/2020
+  ms.locfileid: "82930622"
 landingContent:
 - title: À propos de Load Balancer
   linkLists:
@@ -28,11 +28,13 @@ landingContent:
       url: concepts.md
     - text: Composants Load Balancer
       url: components.md
+    - text: Références SKU Load Balancer
+      url: skus.md
 - title: Bien démarrer
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Créer un équilibreur de charge Standard pour équilibrer la charge des machines virtuelles
+    - text: Créer un équilibreur de charge pour équilibrer la charge des machines virtuelles
       url: quickstart-load-balancer-standard-public-portal.md
   - linkListType: tutorial
     links:
@@ -54,25 +56,27 @@ landingContent:
       url: load-balancer-multivip-overview.md
   - linkListType: how-to-guide
     links:
-    - text: Configurer des règles d’équilibrage de charge et des règles de trafic sortant dans Standard Load Balancer à l’aide d’Azure CLI
+    - text: Configurer des règles d’équilibrage de charge et des règles de trafic sortant dans Load Balancer (Azure CLI)
       url: configure-load-balancer-outbound-cli.md
-    - text: Créer un équilibrage de charge Internet avec IPv6 à l’aide de PowerShell
+    - text: Créer un équilibrage de charge Internet avec IPv6 (PowerShell)
       url: load-balancer-ipv6-internet-ps.md
     - text: Configurer le mode de distribution
       url: load-balancer-distribution-mode.md
+    - text: Passer de De base à Standard
+      url: upgrade-basic-standard.md
 - title: Déployer
   linkLists:
   - linkListType: concept
     links:
     - text: Référence Standard de Load Balancer et zones de disponibilité
       url: load-balancer-standard-availability-zones.md
-    - text: Load Balancer avec réinitialisation TCP au terme du délai d’inactivité (préversion publique)
+    - text: Load Balancer avec réinitialisation TCP après une période d’inactivité
       url: load-balancer-tcp-reset.md
   - linkListType: how-to-guide
     links:
-    - text: Créer un équilibreur de charge Standard avec un front-end redondant interzone
+    - text: Créer un équilibreur de charge avec un front-end redondant interzone
       url: load-balancer-get-started-internet-az-portal.md
-    - text: Créer un équilibreur de charge Standard avec un front-end zonal
+    - text: Créer un équilibreur de charge avec front-end zonal
       url: load-balancer-get-started-internet-availability-zones-zonal-portal.md
     - text: Équilibrage de charge sur plusieurs configurations IP
       url: load-balancer-multiple-ip.md
@@ -94,3 +98,7 @@ landingContent:
       url: https://docs.microsoft.com/powershell/module/az.network/?view=azps-2.5.0#load_balancer
     - text: Azure CLI
       url: https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest
+    - text: Modèles ARM
+      url: https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers#quickstart-templates
+    - text: Questions fréquemment posées sur Load Balancer
+      url: load-balancer-faqs.md

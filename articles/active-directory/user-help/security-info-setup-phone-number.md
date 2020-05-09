@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: e85be9140aabe5b66e63d3ccdd4a3ea907a1d6fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63774f2f6b600b1f60aefea84e1d5ea0abd63cbb
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77062402"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628382"
 ---
 # <a name="set-up-a-phone-number-as-your-verification-method"></a>Configurer un numéro de téléphone comme méthode de vérification
 
@@ -53,7 +53,7 @@ Selon les paramètres de votre organisation, vous pourrez peut-être utiliser l'
 
 ### <a name="to-set-up-phone-calls"></a>Pour configurer la méthode de l'appel téléphonique
 
-1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page https://myprofile.microsoft.com/.
+1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page https://myaccount.microsoft.com/.
 
     ![Page Mon profil, avec les liens des informations de sécurité mis en évidence](media/security-info/securityinfo-myprofile-page.png)
 
