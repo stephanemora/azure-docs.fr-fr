@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2b5b95349b8a84cc8294dbcf9ab80eff8c7b86b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2b06a7ee41a69e32f44c44cdec0da6a47ec4b284
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78247836"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731864"
 ---
 # <a name="azure-analysis-services-samples"></a>Exemples Azure Analysis Services
 
@@ -34,7 +34,7 @@ Azure Synapse Analytics (SQL Data Warehouse) fournit un exemple de base de donn�
 
 Ces exemples de bases de données sur GitHub peuvent être utilisés pour créer et tester vos propres modèles. 
 
-[Exemples de bases de données Adventure Works](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks2014)
+[Exemples de bases de données Adventure Works](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks)
 
 [Exemples de bases de données Wide World Importers](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0)
 
