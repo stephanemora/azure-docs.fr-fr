@@ -8,8 +8,6 @@
       href: overview.md
     - name: Comparer les services de messagerie
       href: compare-messaging-services.md
-    - name: Niveaux Premium et niveaux De base
-      href: premium-basic-tiers.md
 - name: Démarrages rapides
   expanded: true
   items:
@@ -166,23 +164,15 @@
     - name: Superviser et dépanner
       items:
         - name: Journaux de diagnostic
-          href: null
+          href: diagnostic-logs.md
         - name: Mesures
           href: metrics.md
 - name: Guides pratiques
   items:
-    - name: Configurer des points de terminaison privés (préversion)
-      href: configure-private-endpoints.md
-    - name: Configurer le pare-feu IP (préversion)
-      href: configure-firewall.md
-    - name: Mettre à jour un niveau tarifaire
-      href: update-tier.md
     - name: Envoyer des messages dans une rubrique personnalisée
       href: post-to-custom-topic.md
     - name: Recevoir des événements sur un point de terminaison HTTP
       href: receive-events.md
-    - name: Sécuriser un WebHook avec AAD
-      href: secure-webhook-delivery.md
     - name: Lettres mortes et nouvelle tentative
       href: manage-event-delivery.md
     - name: Filtrer les événements
@@ -201,6 +191,14 @@
       href: custom-disaster-recovery.md
     - name: Suivre les opérations REST asynchrones
       href: ../azure-resource-manager/management/async-operations.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Sécuriser
+      items:
+        - name: Configurer des points de terminaison privés (préversion)
+          href: configure-private-endpoints.md
+        - name: Configurer le pare-feu IP (préversion)
+          href: configure-firewall.md
+        - name: Sécuriser un WebHook avec AAD
+          href: secure-webhook-delivery.md
     - name: Dépanner
       items:
         - name: Activer les journaux de diagnostic

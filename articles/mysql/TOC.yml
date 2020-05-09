@@ -68,6 +68,9 @@
       href: sample-scripts-azure-cli.md
     - name: Regroupement de connexions Java
       href: sample-scripts-java-connection-pooling.md
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Base de données et serveurs

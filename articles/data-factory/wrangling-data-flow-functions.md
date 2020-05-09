@@ -7,16 +7,16 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 7235e95e5b33fb931411a51796a8dbec96c46355
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0a0947a5e2b57f728023b0f923428814b3e439ec
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417655"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626681"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Fonctions de transformation dans le flux de données de wrangling
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Le flux de données de wrangling dans Azure Data Factory vous permet d’effectuer un rassemblement de données brutes à l’analyse et une préparation agile de données sans code à l’échelle du cloud. Le flux de données de wrangling s’intègre à [Power Query Online](https://docs.microsoft.com/powerquery-m/power-query-m-reference) et rend les fonctions Power Query M disponibles pour le rassemblement de données brutes à l’analyse via l’exécution Spark. 
 
