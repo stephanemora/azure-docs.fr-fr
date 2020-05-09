@@ -1,27 +1,27 @@
 ---
-title: Erreurs de données des journaux de diagnostic Azure Stream Analytics
+title: Erreurs de données des journaux de ressources Azure Stream Analytics
 description: Cet article explique les différentes erreurs de données d’entrée et de sortie qui peuvent se produire lors de l’utilisation d’Azure Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 5457308d577b95201fa31bfad0a6634a7a79eda3
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 5c5da26935e489a1b9489f63b83af176921c3a5a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398131"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133807"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Erreurs de données Azure Stream Analytics
 
 Les erreurs de données sont des erreurs qui se produisent lors du traitement des données.  Souvent, ces erreurs surviennent pendant les opérations de désérialisation, de sérialisation et d’écriture de données.  Lorsque des erreurs de données se produisent, Stream Analytics écrit des informations détaillées et des exemples d’événements dans les journaux de diagnostic.  Dans certains cas, un résumé de ces informations est également fourni par l’intermédiaire des notifications du portail.
 
-Cet article décrit les différents types d’erreurs, leurs causes et les détails des journaux de diagnostic pour les erreurs de données d’entrée et de sortie.
+Cet article décrit les différents types d’erreurs, leurs causes et les détails des journaux de ressources pour les erreurs de données d’entrée et de sortie.
 
-## <a name="diagnostic-log-schema"></a>Schéma des journaux de diagnostic
+## <a name="resource-logs-schema"></a>Schéma des journaux de ressource
 
-Pour connaître le schéma des journaux de diagnostic, consultez la section [Résoudre les problèmes liés à Azure Stream Analytics à l’aide des journaux de diagnostic](stream-analytics-job-diagnostic-logs.md#diagnostics-logs-schema). Le code JSON suivant est un exemple de valeur pour le champ **Propriétés** d’un journal de diagnostic en cas d’erreur de données.
+Pour connaître le schéma des journaux de diagnostic, consultez la section [Résoudre les problèmes liés à Azure Stream Analytics à l’aide des journaux de ressources](stream-analytics-job-diagnostic-logs.md#resource-logs-schema). Le code JSON suivant est un exemple de valeur pour le champ **Propriétés** d’un journal de ressources en cas d’erreur de données.
 
 ```json
 {
@@ -43,7 +43,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 
 * Cause : Le type de compression d’entrée sélectionné ne correspond pas aux données.
 * Notification de portail fournie : Oui
-* Niveau du journal de diagnostic : Avertissement
+* Niveau de journalisation de ressource : Avertissement
 * Impact : les messages avec des erreurs de désérialisation, y compris le type de compression non valide, sont supprimés de l’entrée.
 * Détails des journaux
    * Identificateur de message d’entrée. Pour Event Hub, l’identificateur est l’ID de partition, le décalage et le numéro de séquence.
@@ -58,7 +58,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 
 * Cause : L’en-tête de données d’entrée n’est pas valide. Par exemple, un fichier CSV comporte des colonnes avec des noms en double.
 * Notification de portail fournie : Oui
-* Niveau du journal de diagnostic : Avertissement
+* Niveau de journalisation de ressource : Avertissement
 * Impact : les messages avec des erreurs de désérialisation, y compris l’en-tête non valide, sont supprimés de l’entrée.
 * Détails des journaux
    * Identificateur de message d’entrée. 
@@ -74,7 +74,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 
 * Cause : Les colonnes d’entrée définies avec CREATE TABLE ou par le biais TIMESTAMP BY n’existent pas.
 * Notification de portail fournie : Oui
-* Niveau du journal de diagnostic : Avertissement
+* Niveau de journalisation de ressource : Avertissement
 * Impact : les événements avec des colonnes manquantes sont supprimés de l’entrée.
 * Détails des journaux
    * Identificateur de message d’entrée. 
@@ -95,7 +95,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 
 * Cause : Impossible de convertir l’entrée selon le type spécifié dans l’instruction CREATE TABLE.
 * Notification de portail fournie : Oui
-* Niveau du journal de diagnostic : Avertissement
+* Niveau de journalisation de ressource : Avertissement
 * Impact : les événements avec des erreurs de conversion de type sont supprimés de l’entrée.
 * Détails des journaux
    * Identificateur de message d’entrée. 
@@ -115,7 +115,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 
 * Cause : Les données d’entrée ne sont pas au bon format. Par exemple, l’entrée n’est pas un JSON valide.
 * Notification de portail fournie : Oui
-* Niveau du journal de diagnostic : Avertissement
+* Niveau de journalisation de ressource : Avertissement
 * Impact : tous les événements dans le message, après la survenue d’une erreur de données non valide, sont supprimés de l’entrée.
 * Détails des journaux
    * Identificateur de message d’entrée. 
@@ -135,7 +135,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 
 * Cause : La valeur de l’expression TIMESTAMP BY ne peut pas être convertie en DateHeure.
 * Notification de portail fournie : Oui
-* Niveau du journal de diagnostic : Avertissement
+* Niveau de journalisation de ressource : Avertissement
 * Impact : les événements avec un horodatage d’entrée non valide sont supprimés de l’entrée.
 * Détails des journaux
    * Identificateur de message d’entrée. 
@@ -152,7 +152,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 
 * Cause : La valeur de TIMESTAMP BY OVER timestampColumn est NULL.
 * Notification de portail fournie : Oui
-* Niveau du journal de diagnostic : Avertissement
+* Niveau de journalisation de ressource : Avertissement
 * Impact : les événements, avec une clé d’horodatage d’entrée non valide, sont supprimés de l’entrée.
 * Détails des journaux
    * Charge utile réelle jusqu’à quelques kilo-octets.
@@ -166,8 +166,8 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 ### <a name="lateinputevent"></a>LateInputEvent
 
 * Cause : La différence entre l’heure de l’application et l’heure d’arrivée est supérieure à la fenêtre de tolérance d’arrivée tardive.
-* Notification de portail fournie : Non
-* Niveau du journal de diagnostic : Information
+* Notification de portail fournie : Non 
+* Niveau de journalisation de ressource : Information
 * Impact :  les événements d’entrée tardifs sont traités en fonction du paramètre « Gérer les autres événements » de la section Ordre des événements dans la configuration du travail. Pour plus d’informations, consultez [Stratégies de gestion du temps](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Détails des journaux
    * Heure de l’application et heure d’arrivée. 
@@ -182,8 +182,8 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 ### <a name="earlyinputevent"></a>EarlyInputEvent
 
 * Cause : La différence entre l’heure de l’application et l’heure d’arrivée est supérieure à 5 minutes.
-* Notification de portail fournie : Non
-* Niveau du journal de diagnostic : Information
+* Notification de portail fournie : Non 
+* Niveau de journalisation de ressource : Information
 * Impact :  les événements d’entrée précoces sont traités en fonction du paramètre « Gérer les autres événements » de la section Ordre des événements dans la configuration du travail. Pour plus d’informations, consultez [Stratégies de gestion du temps](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Détails des journaux
    * Heure de l’application et heure d’arrivée. 
@@ -198,8 +198,8 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 ### <a name="outoforderevent"></a>OutOfOrderEvent
 
 * Cause : L’événement est considéré comme en désordre en raison de la fenêtre de tolérance de désordre définie.
-* Notification de portail fournie : Non
-* Niveau du journal de diagnostic : Information
+* Notification de portail fournie : Non 
+* Niveau de journalisation de ressource : Information
 * Impact :  les événements d’entrée dans le désordre sont traités en fonction du paramètre « Gérer les autres événements » de la section Ordre des événements dans la configuration du travail. Pour plus d’informations, consultez [Stratégies de gestion du temps](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Détails des journaux
    * Charge utile réelle jusqu’à quelques kilo-octets.
@@ -216,7 +216,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 
 * Cause : La colonne obligatoire pour la sortie n’existe pas. Par exemple, une colonne définie comme clé de partition de table Azure n’existe pas.
 * Notification de portail fournie : Oui
-* Niveau du journal de diagnostic : Avertissement
+* Niveau de journalisation de ressource : Avertissement
 * Impact :  toutes les erreurs de conversion des données de sortie, y compris la colonne nécessaire manquante, sont gérées conformément au paramètre [Stratégie des données de sortie](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy).
 * Détails des journaux
    * Nom de la colonne, et identificateur d’enregistrement ou partie de l’enregistrement.
@@ -231,7 +231,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 
 * Cause : La valeur de colonne n’est pas conforme à la sortie. Par exemple, le nom de colonne n’est pas une colonne de table Azure valide.
 * Notification de portail fournie : Oui
-* Niveau du journal de diagnostic : Avertissement
+* Niveau de journalisation de ressource : Avertissement
 * Impact :  toutes les erreurs de conversion des données de sortie, y compris le nom de colonne non valide, sont gérées conformément au paramètre [Stratégie des données de sortie](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy).
 * Détails des journaux
    * Nom de la colonne, et identificateur d’enregistrement ou partie de l’enregistrement.
@@ -246,7 +246,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 
 * Cause : Une colonne ne peut pas être convertie en un type valide dans la sortie. Par exemple, la valeur de colonne est incompatible avec les contraintes ou le type définis dans la table SQL.
 * Notification de portail fournie : Oui
-* Niveau du journal de diagnostic : Avertissement
+* Niveau de journalisation de ressource : Avertissement
 * Impact :  toutes les erreurs de conversion des données de sortie, y compris l’erreur de conversion du type, sont gérées conformément au paramètre [Stratégie des données de sortie](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy).
 * Détails des journaux
    * Nom de la colonne.
@@ -262,7 +262,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 
 * Cause : La valeur du message est supérieure à la taille de sortie prise en charge. Par exemple, un enregistrement fait plus de 1 Mo pour une sortie Event Hub.
 * Notification de portail fournie : Oui
-* Niveau du journal de diagnostic : Avertissement
+* Niveau de journalisation de ressource : Avertissement
 * Impact :  toutes les erreurs de conversion des données de sortie, y compris l’enregistrement qui a dépassé la taille limite, sont gérées conformément au paramètre [Stratégie des données de sortie](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy).
 * Détails des journaux
    * Identificateur d’enregistrement ou partie de l’enregistrement.
@@ -277,7 +277,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 
 * Cause : Un enregistrement contient déjà une colonne portant le même nom qu’une colonne système. Par exemple, la sortie CosmosDB avec une colonne nommée ID lorsque la colonne d’ID est une autre colonne.
 * Notification de portail fournie : Oui
-* Niveau du journal de diagnostic : Avertissement
+* Niveau de journalisation de ressource : Avertissement
 * Impact :  toutes les erreurs de conversion des données de sortie, y compris la clé en double, sont gérées conformément au paramètre [Stratégie des données de sortie](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy).
 * Détails des journaux
    * Nom de la colonne.
