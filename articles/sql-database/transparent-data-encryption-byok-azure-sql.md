@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 462326fb16663a6f25ff4b51ea11791201086fd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe85fed9268e1a4248ef373d577c89e58c01eba5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528726"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792035"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption Azure SQL avec une clé managée par le client
 
@@ -81,7 +81,7 @@ Les auditeurs peuvent utiliser Azure Monitor pour évaluer les journaux AuditEve
 
 ### <a name="requirements-for-configuring-tde-protector"></a>Exigences pour la configuration du protecteur TDE
 
-- Le protecteur TDE peut uniquement être une clé asymétrique, RSA 2048 ou RSA HSM 2048.
+- Le protecteur TDE peut uniquement être une clé asymétrique, RSA ou RSA HSM. Les longueurs de clé prises en charge sont 2 048 et 3 072 octets.
 
 - La date d’activation de la clé (si définie) doit être une date et une heure passées. La date d’expiration (si définie) doit être une date et une heure ultérieures.
 
@@ -93,7 +93,7 @@ Les auditeurs peuvent utiliser Azure Monitor pour évaluer les journaux AuditEve
 
 ### <a name="recommendations-when-configuring-akv"></a>Suggestions lors de la configuration d’AKV
 
-- Associez au maximum 500 bases de données d’usage général ou 200 bases de données critiques pour l’entreprise au total avec un coffre de clés dans un abonnement unique pour garantir une haute disponibilité lorsque le serveur accède au protecteur TDE dans le coffre de clés. Ces chiffres sont basés sur l’expérience et documentés dans les [limites du service de coffre de clés](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits). L’objectif est d’éviter les problèmes après le basculement du serveur, car il déclenchera autant d’opérations clés sur le coffre qu’il y a de bases de données dans ce serveur.
+- Associez au maximum 500 bases de données d’usage général ou 200 bases de données critiques pour l’entreprise au total avec un coffre de clés dans un abonnement unique pour garantir une haute disponibilité lorsque le serveur accède au protecteur TDE dans le coffre de clés. Ces chiffres sont basés sur l’expérience et documentés dans les [limites du service de coffre de clés](https://docs.microsoft.com/azure/key-vault/general/service-limits). L’objectif est d’éviter les problèmes après le basculement du serveur, car il déclenchera autant d’opérations clés sur le coffre qu’il y a de bases de données dans ce serveur.
 
 - Définissez un verrou de ressource sur le coffre de clés pour contrôler les utilisateurs pouvant supprimer cette ressource critique et pour empêcher toute suppression accidentelle ou non autorisée. En savoir plus sur les [verrous de ressource](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 

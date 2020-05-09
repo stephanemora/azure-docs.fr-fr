@@ -655,7 +655,7 @@
             - name: Scale
               items:
                 - name: Effectuer un scale-out manuellement
-                  href: service-fabric-cluster-scale-up-down.md
+                  href: service-fabric-cluster-scale-in-out.md
                 - name: Effectuer un scale-out programmatiquement
                   href: service-fabric-cluster-programmatic-scaling.md
                 - name: Effectuer un scale-up du type de nœud principal

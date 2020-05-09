@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: curtand
-ms.openlocfilehash: ee868ded0dc3a46f2ec20d0141aa2576cbf71f45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 016a09432499c5fd2be8fd488c7ef7a644c00bca
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77062334"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628331"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>Configurer la clé de sécurité comme méthode de vérification
 
@@ -63,7 +63,7 @@ Avant de pouvoir inscrire votre clé de sécurité, les conditions suivantes doi
 
 Vous devez créer votre clé de sécurité et lui associer un PIN unique avant de pouvoir vous connecter à votre compte professionnel ou scolaire via cette clé. Vous pouvez avoir jusqu’à 10 clés enregistrées avec votre compte. 
 
-1. Accédez à la page **Mon profil** à l’adresse https://myprofile.microsoft.com et connectez-vous si vous ne l’avez pas déjà fait.
+1. Accédez à la page **Mon profil** à l’adresse https://myaccount.microsoft.com et connectez-vous si vous ne l’avez pas déjà fait.
 
 2. Sélectionnez **Informations de sécurité**, **Ajouter une méthode**, puis **Clé de sécurité** dans la liste déroulante **Ajouter une méthode**.
 

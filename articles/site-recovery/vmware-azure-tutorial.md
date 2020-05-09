@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 37fdd42adf66ebcb11b357ece6ea63384630d9f4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 878c3aa766559e455ee4456d84b86dc486e43fa5
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222636"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610681"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales
 
@@ -65,11 +65,11 @@ Dans votre environnement source, vous avez besoin d’une seule machine locale h
 - **Serveur cible maître** : Le serveur cible maître gère les données de réplication pendant la restauration automatique à partir d’Azure.
 
 
-Tous ces composants sont installés ensemble sur une seule machine locale, appelée *serveur de configuration*. Par défaut, pour permettre la reprise d’activité VMware, nous configurons le serveur de configuration en tant que machine virtuelle VMware hautement disponible. Pour ce faire, vous téléchargez un modèle OVA (Open Virtualization Application) préparé, que vous importez dans VMware afin de créer la machine virtuelle. 
+Tous ces composants sont installés ensemble sur une seule machine locale, appelée *serveur de configuration*. Par défaut, pour permettre la reprise d’activité VMware, nous configurons le serveur de configuration en tant que machine virtuelle VMware hautement disponible. Pour ce faire, vous téléchargez un modèle OVA (Open Virtualization Application) préparé, que vous importez dans VMware afin de créer la machine virtuelle.
 
 - La dernière version du serveur de configuration est disponible sur le portail. Vous pouvez également la télécharger directement à partir du [Centre de téléchargement Microsoft](https://aka.ms/asrconfigurationserver).
 - Si, pour une raison quelconque, vous ne pouvez pas utiliser un modèle OVA pour configurer une machine virtuelle, suivez [ces instructions](physical-manage-configuration-server.md) afin de configurer le serveur de configuration manuellement.
-- La licence fournie avec le modèle OVF est une licence d’évaluation valide pendant 180 jours. Windows sur la machine virtuelle doit être activé avec la licence requise. 
+- La licence fournie avec le modèle OVF est une licence d’évaluation valide pendant 180 jours. Windows sur la machine virtuelle doit être activé avec la licence requise.
 
 
 ### <a name="download-the-vm-template"></a>Télécharger le modèle de machine virtuelle
@@ -77,7 +77,7 @@ Tous ces composants sont installés ensemble sur une seule machine locale, appel
 1. Dans le coffre, allez dans **Préparer l’infrastructure** > **Source**.
 2. Dans **Préparer la source**, sélectionnez **+Serveur de configuration**.
 3. Dans **Ajouter un serveur**, vérifiez que **Serveur de configuration pour VMware** s’affiche dans **Type de serveur**.
-4. Téléchargez le modèle OVF pour le serveur de configuration.
+4. Téléchargez le modèle OVA pour le serveur de configuration.
 
 
 
@@ -85,7 +85,7 @@ Tous ces composants sont installés ensemble sur une seule machine locale, appel
 
 
 1. Connectez-vous au serveur VMware vCenter ou à l’hôte vSphere ESXi, à l’aide du client VMWare vSphere.
-2. Dans le menu **Fichier**, sélectionnez **Déployer le modèle OVF** pour démarrer l’**Assistant Déploiement du modèle OVF**. 
+2. Dans le menu **Fichier**, sélectionnez **Déployer le modèle OVF** pour démarrer l’**Assistant Déploiement du modèle OVF**.
 
      ![Modèle OVF](./media/vmware-azure-tutorial/vcenter-wizard.png)
 
@@ -105,11 +105,11 @@ Si vous souhaitez ajouter une carte d’interface réseau supplémentaire au ser
 
 1. Dans l’inventaire du client vSphere, faites un clic droit sur la machine virtuelle, puis sélectionnez **Modifier les paramètres**.
 2. Dans **Matériel**, sélectionnez **Ajouter** > **Adaptateur Ethernet**. Sélectionnez ensuite **Suivant**.
-3. Sélectionnez un type d’adaptateur et un réseau. 
+3. Sélectionnez un type d’adaptateur et un réseau.
 4. Pour connecter la carte réseau virtuelle lorsque la machine virtuelle est allumée, sélectionnez **Connecter à la mise sous tension**. Sélectionnez **Suivant** > **Terminer**. Sélectionnez ensuite **OK**.
 
 
-## <a name="register-the-configuration-server"></a>Inscrire le serveur de configuration 
+## <a name="register-the-configuration-server"></a>Inscrire le serveur de configuration
 
 Une fois le serveur de configuration configuré, vous devez l’inscrire dans le coffre.
 
@@ -179,7 +179,7 @@ Activez la réplication des machines virtuelles comme suit :
 3. Dans **Type de machine**, sélectionnez **Machines virtuelles**.
 4. Dans **Hyperviseur vCenter/vSphere**, sélectionnez l’hôte vSphere, ou le serveur vCenter qui gère l’hôte.
 5. Sélectionnez le serveur de processus (installé par défaut sur la machine virtuelle du serveur de configuration). Sélectionnez ensuite **OK**. L'état d’intégrité de chaque serveur de traitement est indiqué en fonction des limites recommandées et d’autres paramètres. Sélectionnez un serveur de traitement sain. Un serveur de traitement [critique](vmware-physical-azure-monitor-process-server.md#process-server-alerts) ne peut pas être sélectionné. Vous pouvez [détecter et résoudre](vmware-physical-azure-troubleshoot-process-server.md) les erreurs **ou** configurer un [serveur de traitement de montée en puissance](vmware-azure-set-up-process-server-scale.md).
-6. Dans **Cible**, sélectionnez l’abonnement et le groupe de ressources dans lesquels vous voulez créer les machines virtuelles basculées. Nous utilisons le modèle de déploiement Resource Manager. 
+6. Dans **Cible**, sélectionnez l’abonnement et le groupe de ressources dans lesquels vous voulez créer les machines virtuelles basculées. Nous utilisons le modèle de déploiement Resource Manager.
 7. Sélectionnez le sous-réseau et le réseau Azure auxquels les machines virtuelles Azure se connectent lorsqu’elles sont créées après le basculement.
 8. Sélectionnez **Effectuez maintenant la configuration pour les machines sélectionnées** pour appliquer les paramètres réseau à l’ensemble des machines virtuelles pour lesquelles vous activez la réplication. Sélectionnez **Configurer ultérieurement** pour sélectionner le réseau Azure pour chaque machine.
 9. Dans **Machines virtuelles** > **Sélectionner les machines virtuelles**, sélectionnez chaque machine à répliquer. Vous pouvez uniquement sélectionner les machines pour lesquelles la réplication peut être activée. Sélectionnez ensuite **OK**. Si vous ne parvenez pas à voir/sélectionner une machine virtuelle particulière, vous pouvez chercher à [en savoir plus](https://aka.ms/doc-plugin-VM-not-showing) sur la résolution du problème.
