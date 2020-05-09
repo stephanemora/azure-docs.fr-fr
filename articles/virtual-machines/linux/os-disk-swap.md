@@ -1,25 +1,19 @@
 ---
-title: Remplacer le disque de système d’exploitation d’une machine virtuelle Azure avec l’interface CLI
+title: Échange entre les disques du système d’exploitation à l’aide de l’interface CLI
 description: Utilisez l’interface CLI pour remplacer le disque du système d’exploitation utilisé par une machine virtuelle Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: disks
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: bfbe47fb68ffe7cee1ee2f9f7b94b418d8da2a1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a8c879ae56eb22d9817841667d33e37109a4f63d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74035342"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81759401"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>Remplacer le disque du système d’exploitation utilisé par une machine virtuelle Azure à l’aide de l’interface CLI
 

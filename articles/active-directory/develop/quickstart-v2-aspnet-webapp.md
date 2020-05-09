@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 7f927d230efba580cff163d31c6f572a10d0b4aa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2e225d4d37f6bdb3d50b32f6464456e4f7fa0036
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80991138"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853963"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Démarrage rapide : Ajouter la connexion à la Plateforme d'identités Microsoft dans une application web ASP.NET
 Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour découvrir comment une application web ASP.NET peut connecter des comptes personnels (hotmail.com, outlook.com, etc.) et des comptes professionnels et scolaires à partir de n’importe quelle instance Azure Active Directory (Azure AD).  (Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour une illustration.)
@@ -43,7 +43,7 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour décou
 > 1. Sélectionnez **Nouvelle inscription**.
 > 1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
 >      - Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application, par exemple `ASPNET-Quickstart`.
->      - Ajoutez `http://localhost:44368/` dans **URI de redirection**, puis cliquez sur **Inscrire**.
+>      - Ajoutez `https://localhost:44368/` dans **URI de redirection**, puis cliquez sur **Inscrire**.
 >      - Dans le volet de navigation gauche, dans la section Gérer, sélectionnez **Authentification**.
 >          - Dans la sous-section **Octroi implicite**, sélectionnez **Jetons d’ID**.
 >          - Puis, sélectionnez **Enregistrer**.

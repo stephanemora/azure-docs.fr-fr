@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: db8c1781061f038cc90310fcd00c220fa6f5d1a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c843b45b5a398aaaa1aab66f80961560477cf18
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258207"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82128055"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Collecter les données de télémétrie pour l’analyse du trafic de recherche
 
@@ -22,7 +22,7 @@ L’analyse du trafic de recherche est un modèle pour la collecte des données 
 Ce modèle dépend d’[Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) (fonctionnalité d’[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)) pour collecter les données utilisateur. Vous devrez également ajouter l’instrumentation à votre code client, comme le décrit cet article. Enfin, vous aurez besoin d’un mécanisme de création de rapports pour analyser les données. Nous vous recommandons Power BI, mais vous pouvez utiliser le tableau de bord d’application n’importe quel autre outil qui se connecte à Application Insights.
 
 > [!NOTE]
-> Le modèle décrit dans cet article est destiné aux scénarios avancés et aux données parcours générées par le code que vous ajoutez à votre client. En revanche, les journaux de service sont faciles à configurer, fournissent une variété de métriques et peuvent être gérés dans le portail sans code requis. L’activation de la journalisation des diagnostics est recommandée pour tous les scénarios. Pour plus d’informations, consultez [Collecter et analyser les données de journal](search-monitor-logs.md).
+> Le modèle décrit dans cet article est destiné aux scénarios avancés et aux données parcours générées par le code que vous ajoutez à votre client. En revanche, les journaux de service sont faciles à configurer, fournissent une variété de métriques et peuvent être gérés dans le portail sans code requis. L’activation de la journalisation est recommandée pour tous les scénarios. Pour plus d’informations, consultez [Collecter et analyser les données de journal](search-monitor-logs.md).
 
 ## <a name="identify-relevant-search-data"></a>Identifier les données de recherche pertinentes
 

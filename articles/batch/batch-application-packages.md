@@ -1,25 +1,15 @@
 ---
-title: Installer des packages d’applications sur des nœuds de calcul - Azure Batch | Microsoft Docs
+title: Installation de packages d’applications sur des nœuds de calcul
 description: Utilisez la fonctionnalité de packages d’applications d’Azure Batch pour gérer facilement plusieurs applications et versions pour l’installation sur des nœuds de calcul Batch.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 04/26/2019
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30301832381bdc7b5f001eec2c449c571f9fd671
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7824d3e2d8cfb7b52041e59a9007688c4ef1cafa
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79086222"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82115616"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Déployer des applications sur les nœuds avec des packages d’applications Batch
 
@@ -107,9 +97,9 @@ La sélection de cette option de menu a pour effet d’ouvrir la fenêtre **Appl
 
 Cette fenêtre affiche l’ID de chaque application dans votre compte et les propriétés suivantes :
 
-* **Packages** : nombre de versions associées à cette application.
-* **Version par défaut** : version d’application installée si vous n’indiquez pas de version lorsque vous spécifiez l’application pour un pool. Ce paramètre est facultatif.
-* **Autoriser les mises à jour** : valeur spécifiant si les mises à jour, les suppressions et les ajouts de packages sont autorisés. Si ce paramètre présente la valeur **Non**, les mises à jour et les suppressions de packages sont désactivées pour l’application. Seules les nouvelles versions de package d’application pourront être ajoutées. La valeur par défaut de ce paramètre est **Oui**.
+* **Packages** : nombre de versions associées à cette application.
+* **Version par défaut** : version d’application installée si vous n’indiquez pas de version lorsque vous spécifiez l’application pour un pool. Ce paramètre est facultatif.
+* **Autoriser les mises à jour** : valeur spécifiant si les mises à jour, les suppressions et les ajouts de packages sont autorisés. Si ce paramètre présente la valeur **Non**, les mises à jour et les suppressions de packages sont désactivées pour l’application. Seules les nouvelles versions de package d’application pourront être ajoutées. La valeur par défaut de ce paramètre est **Oui**.
 
 Si vous souhaitez voir la structure des fichiers du package d’application sur votre nœud de calcul, accédez à votre compte Batch dans le portail. À partir de votre compte Batch, naviguez jusqu’à **Pools**. Sélectionnez le pool qui contient le(s) nœud(s) de calcul qui vous intéresse(nt).
 
@@ -126,9 +116,9 @@ Pour afficher les détails d’une application, sélectionnez l’application da
 
 Dans les détails de l’application, vous pouvez configurer les paramètres suivants pour votre application.
 
-* **Autoriser les mises à jour** : permet de spécifier si ses packages d’application peuvent être mis à jour ou supprimés. Voir la section « Mettre à jour ou supprimer un package d’application » dans la suite de cet article.
-* **Version par défaut** : permet de spécifier un package d’application par défaut à déployer sur les nœuds de calcul.
-* **Nom d’affichage** : permet de spécifier un nom « convivial » que votre solution Batch peut utiliser pendant l’affichage d’informations sur l’application, comme dans l’interface utilisateur d’un service que vous fournissez à vos clients via Batch.
+* **Autoriser les mises à jour** : permet de spécifier si ses packages d’application peuvent être mis à jour ou supprimés. Voir la section « Mettre à jour ou supprimer un package d’application » dans la suite de cet article.
+* **Version par défaut** : permet de spécifier un package d’application par défaut à déployer sur les nœuds de calcul.
+* **Nom d'affichage** : permet de spécifier un nom convivial que votre solution Batch peut utiliser pendant l’affichage d’informations sur l’application, comme dans l’interface utilisateur d’un service que vous fournissez à vos clients via Batch.
 
 ### <a name="add-a-new-application"></a>Ajout d’une application
 Pour créer une application, ajoutez un package d’application et spécifiez un nouvel ID d’application unique. Le premier package d’application que vous ajoutez avec le nouvel ID d’application crée également l’application.

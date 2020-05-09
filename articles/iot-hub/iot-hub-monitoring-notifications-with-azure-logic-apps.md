@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: ad1fcb67704e79f5aef62a59604e47f477804405
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68385719"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81680718"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Surveillance à distance IoT et notifications avec Azure Logic Apps connectant votre IoT Hub et votre boîte aux lettres
 
@@ -212,7 +212,7 @@ Dans la section précédente, vous avez configuré votre hub IoT pour router les
       Obtenez les informations SMTP pour [Hotmail/Outlook.com](https://support.office.com/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970), [Gmail](https://support.google.com/a/answer/176600?hl=en) et [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html).
 
       > [!NOTE]
-      > Vous devrez peut-être désactiver le protocole SSL pour établir la connexion. Si c’est le cas et si vous souhaitez réactiver SSL une fois la connexion établie, consultez l’étape facultative à la fin de cette section.
+      > Vous devrez peut-être désactiver le protocole TLS/SSL pour établir la connexion. Si c’est le cas et si vous souhaitez réactiver TLS une fois la connexion établie, consultez l’étape facultative à la fin de cette section.
 
    1. Dans la liste déroulante **Ajouter un nouveau paramètre** de l’étape **Envoyer un e-mail**, sélectionnez **De**, **À**, **Objet**et **Corps**. Cliquez ou appuyez n’importe où sur l’écran pour fermer la zone de sélection.
 
@@ -224,7 +224,7 @@ Dans la section précédente, vous avez configuré votre hub IoT pour router les
 
    1. Sélectionnez **Enregistrer** pour enregistrer la connexion SMTP.
 
-1. (Facultatif) Si vous deviez désactiver le protocole SSL pour établir une connexion avec votre fournisseur de messagerie et que vous souhaitez le réactiver, procédez comme suit :
+1. (Facultatif) Si vous deviez désactiver le protocole TLS pour établir une connexion avec votre fournisseur de messagerie et que vous souhaitez le réactiver, procédez comme suit :
 
    1. Dans le volet **Application logique**, sous **Outils de développement**, sélectionnez **Connexions d’API**.
 

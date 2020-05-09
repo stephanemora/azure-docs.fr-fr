@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/06/2019
+ms.date: 04/24/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 72b6c1f86b18df172994827ec78eb109fe82454e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0eaac5aac94c536fda58d7d004a54df51219f7cd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75913795"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82147761"
 ---
 ## <a name="benefits-of-managed-disks"></a>Avantages des disques managés
 
@@ -33,11 +33,11 @@ Les disques managés sont intégrés avec des groupes à haute disponibilité po
 
 ### <a name="integration-with-availability-zones"></a>Intégration aux zones de disponibilité
 
-Les disques managés prennent en charge les [zones de disponibilité](../articles/availability-zones/az-overview.md), qui constituent une offre à haute disponibilité pour la protection de vos applications contre les pannes des centres de données. Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. Pour garantir la résilience, il existe un minimum de trois zones distinctes dans toutes les régions activées. Avec les Zones de disponibilité, Azure propose des contrats de niveau de service de durée de fonctionnement des machines virtuelles de pointe de 99,99 %.
+Les disques managés prennent en charge les [zones de disponibilité](../articles/availability-zones/az-overview.md), qui constituent une offre à haute disponibilité pour la protection de vos applications contre les pannes des centres de données. Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. Pour garantir la résilience, un minimum de trois zones distinctes sont activées dans toutes les régions. Avec les Zones de disponibilité, Azure propose des contrats de niveau de service de durée de fonctionnement des machines virtuelles de pointe de 99,99 %.
 
 ### <a name="azure-backup-support"></a>Support Sauvegarde Azure
 
-Pour vous protéger contre les sinistres régionaux, [Sauvegarde Azure](../articles/backup/backup-overview.md) peut être utilisé pour créer un travail de sauvegarde avec des sauvegardes périodiques et des stratégies de rétention de sauvegarde. Ceci vous permet d’effectuer des restaurations des machines virtuelles à volonté. Actuellement, le service Sauvegarde Azure prend en charge les tailles de disque jusqu’à quatre tébioctets (TiB).  Sauvegarde Azure prend en charge la sauvegarde et la restauration des disques managés. [Apprenez-en davantage](../articles/backup/backup-support-matrix-iaas.md) sur la prise en charge de la sauvegarde des machines virtuelles Azure.
+Pour vous protéger contre les sinistres régionaux, [Sauvegarde Azure](../articles/backup/backup-overview.md) peut être utilisé pour créer un travail de sauvegarde avec des sauvegardes périodiques et des stratégies de rétention de sauvegarde. Cela vous permet d’effectuer des restaurations de machines virtuelles ou de disques managés à votre convenance. Actuellement, le service Sauvegarde Azure prend en charge les tailles de disque jusqu’à 32 tébioctets (Tio). [Apprenez-en davantage](../articles/backup/backup-support-matrix-iaas.md) sur la prise en charge de la sauvegarde des machines virtuelles Azure.
 
 ### <a name="granular-access-control"></a>Contrôle d’accès granulaire
 
@@ -115,7 +115,7 @@ Le diagramme suivant illustre l’allocation de bande passante et d’IOPS en te
 
 ![Système de provisionnement à trois niveaux présentant l’allocation de bande passante et d’IOPS](media/virtual-machines-managed-disks-overview/real-time-disk-allocation.png)
 
-Le provisionnement de premier niveau définit le nombre d’IOPS par disque et l’affectation de bande passante.  Au deuxième niveau, l’hôte serveur de calcul implémente le provisionnement SSD, en l’appliquant uniquement aux données stockées sur le disque SSD du serveur, ce qui inclut les disques avec mise en cache (ReadWrite et ReadOnly) et les disques locaux et temporaires. Pour finir, le provisionnement du réseau de machines virtuelles a lieu au troisième niveau pour les E/S que l’hôte de calcul envoie au back-end Stockage Azure. Avec ce schéma, les performances d’une machine virtuelle dépendent de différents facteurs, de la manière dont la machine virtuelle utilise le disque SSD local jusqu’au nombre de disques attachés, en passant par le type de mise en cache et les performances de ces disques.
+Le provisionnement de premier niveau définit le nombre d’IOPS par disque et l’affectation de bande passante.  Au deuxième niveau, l’hôte du serveur de calcul implémente le provisionnement SSD, en l’appliquant uniquement aux données stockées sur le disque SSD du serveur, ce qui inclut les disques avec mise en cache (ReadWrite et ReadOnly), ainsi que les disques locaux et temporaires. Pour finir, le provisionnement du réseau de machines virtuelles a lieu au troisième niveau pour les E/S que l’hôte de calcul envoie au back-end Stockage Azure. Avec ce schéma, les performances d’une machine virtuelle dépendent de différents facteurs, de la manière dont la machine virtuelle utilise le disque SSD local jusqu’au nombre de disques attachés, en passant par le type de mise en cache et les performances de ces disques.
 
 À titre d’exemple de ces limitations, une machine virtuelle Standard_DS1v1 ne peut pas atteindre le potentiel de 5 000 IOPS d’un disque P30, qu’elle soit mise en cache ou non, en raison des limites au niveau des disques SSD et du réseau :
 

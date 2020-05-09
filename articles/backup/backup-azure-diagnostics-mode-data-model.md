@@ -3,12 +3,12 @@ title: Modèles de données des journaux Azure Monitor
 description: Dans cet article, découvrez les détails du modèle de données Azure Monitor Log Analytics pour les données de Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: d14634c5e317682462e77e0549f064c75059f15c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 72484923bc94e197cd195c0192b53feb3ef457ce
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77586374"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183685"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modèle de données Log Analytics pour les données de sauvegarde Azure
 
@@ -459,7 +459,12 @@ Voici quelques exemples pour vous aider à écrire des requêtes sur des donnée
     | extend Vault= Resource
     | project-away Resource
     ````
-    
+
+## <a name="v1-schema-vs-v2-schema"></a>Schéma v1 et schéma v2
+Précédemment, les données de diagnostic pour l’agent de sauvegarde Azure et la sauvegarde de machine virtuelle Azure étaient envoyées dans la table Azure Diagnostics dans un schéma appelé ***schéma v1***. Par la suite, de nouvelles colonnes ont été ajoutées pour prendre en charge d’autres scénarios et charges de travail, et les données de diagnostic ont été déplacées dans un nouveau schéma appelé ***schéma v2***. 
+
+Pour des raisons de compatibilité descendante, les données de diagnostic pour l’agent de sauvegarde Azure et la sauvegarde de machine virtuelle Azure sont actuellement envoyées à la table Azure Diagnostics à la fois dans les schémas v1 et v2 (le schéma v1 se dirigeant vers la dépréciation). Vous pouvez identifier les enregistrements Log Analytics du schéma v1 en filtrant les enregistrements pour SchemaVersion_s=="V1" dans vos requêtes de journal.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Une fois que vous avez passé en revue le modèle de données, vous pouvez commencer à [créer des requêtes personnalisées](../azure-monitor/learn/tutorial-logs-dashboards.md) dans les journaux Azure Monitor pour créer votre propre tableau de bord.

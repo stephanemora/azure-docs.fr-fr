@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3e7b1a656c92e37a709b57dae463f6644003e42
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 60d0ad0a1c0a1b4d13ce4d386df22406a8ab8e51
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80755194"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81617621"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Accès conditionnel : Exiger MFA pour tous les utilisateurs
 
@@ -41,7 +41,7 @@ Des organisations peuvent utiliser de nombreuses applications cloud. Ces applica
 
 ## <a name="create-a-conditional-access-policy"></a>Créer une stratégie d’accès conditionnel
 
-Les étapes suivantes vous aideront à créer une stratégie d’accès conditionnel pour demander à ces rôles d’administration affectés d’effectuer l’authentification multifacteur.
+Les étapes suivantes vous aideront à créer une stratégie d’accès conditionnel pour demander à tous les utilisateurs d’effectuer l’authentification multifacteur.
 
 1. Connectez-vous au **portail Microsoft Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
 1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**

@@ -1,16 +1,16 @@
 ---
 title: Liaison privée - Azure CLI - Azure Database pour MySQL
-description: Découvrez comment configurer une liaison privée pour Azure Database pour MySQL à partir d’Azure CLI
+description: Découvrez comment configurer une instance Private Link pour Azure Database pour MySQL à partir d’Azure CLI
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: f83f52f1c1800803c5e1d47f1931f7b13b2c11de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79368007"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Créer et gérer une liaison privée pour Azure Database pour MySQL en utilisant l’interface CLI
@@ -20,7 +20,7 @@ Private Endpoint est le composant fondamental de Private Link dans Azure. Il per
 > [!NOTE]
 > Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database pour MySQL prend en charge les niveaux tarifaires Usage général et Mémoire optimisée.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

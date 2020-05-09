@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: 2cc6c577abdb3698ef6aca1f1f04d239f09d119c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ba0ad1414a09aec7ec2fb6b8c209b23f3f37050
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236069"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82202211"
 ---
 # <a name="what-is-azure-private-link-service"></a>Qu’est-ce que le service Azure Private Link ?
 
@@ -61,7 +61,7 @@ Le service Private Link spécifie les propriétés suivantes :
 
 ### <a name="details"></a>Détails
 
-- Le service Private Link est accessible à partir des points de terminaison privés approuvés qui sont situés dans la même région que lui. Vous pouvez accéder à un point de terminaison privé à partir du réseau virtuel auquel il appartient, à partir de réseaux virtuels appairés au niveau régional, de réseaux virtuels appairés au niveau mondial, ainsi que localement, à l’aide de connexions privées VPN ou ExpressRoute. 
+- Le service Private Link est accessible à partir des points de terminaison privés approuvés qui sont situés dans une région publique quelconque. Vous pouvez accéder à un point de terminaison privé à partir du réseau virtuel auquel il appartient, à partir de réseaux virtuels appairés au niveau régional, de réseaux virtuels appairés au niveau mondial, ainsi que localement, à l’aide de connexions privées VPN ou ExpressRoute. 
  
 - Lors de la création d’un service Private Link, une interface réseau est créée pour le cycle de vie de la ressource. Cette interface ne peut pas être gérée par le client.
  

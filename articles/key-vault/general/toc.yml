@@ -96,6 +96,10 @@
           href: soft-delete-powershell.md
     - name: Déplacer un coffre de clés
       items:
+        - name: Déplacer un coffre de clés dans un autre groupe de ressources
+          href: keyvault-moveresourcegroup.md
+        - name: Déplacer un coffre de clés dans un nouvel abonnement
+          href: keyvault-move-subscription.md
         - name: Déplacer un coffre de clés dans une nouvelle région
           href: keyvault-moveregion.md
     - name: Dépanner

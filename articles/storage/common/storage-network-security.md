@@ -9,12 +9,12 @@ ms.date: 01/21/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 7120ba2cf71c9af5373b830d04d0b67952922887
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 6f0e7c514835227fafd439803107531fbc62285c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113507"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133836"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feux et des réseaux virtuels dans Stockage Azure
 
@@ -380,7 +380,7 @@ Quand vous activez le paramètre **Autoriser les services Microsoft approuvés..
 | Azure File Sync          | Microsoft.StorageSync      | Vous permet de transformer votre serveur de fichiers local en cache pour les partages de fichiers Azure. Autoriser la synchronisation sur plusieurs sites, une récupération d’urgence rapide et une sauvegarde sur le cloud. [En savoir plus](../files/storage-sync-files-planning.md) |
 | Azure HDInsight          | Microsoft.HDInsight        | Approvisionnez le contenu initial du système de fichiers par défaut pour un nouveau cluster HDInsight. [Plus d’informations](/azure/hdinsight/hdinsight-hadoop-use-blob-storage) |
 | Azure Import/Export      | Microsoft.ImportExport     | Permet l’importation de données dans Azure et l’exportation de données à partir d’Azure avec le service Import/Export. [Plus d’informations](/azure/storage/common/storage-import-export-service)  |
-| Azure Monitor            | Microsoft.Insights         | Autorise l’écriture de données d’analyse dans un compte de stockage sécurisé, à savoir les journaux de diagnostic des ressources, les journaux de connexion et d’audit et d’audit d’Azure Active Directory et les journaux de Microsoft Intune. [Plus d’informations](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security) |
+| Azure Monitor            | Microsoft.Insights         | Autorise l’écriture de données de supervision dans un compte de stockage sécurisé, à savoir les journaux de ressources, les journaux de connexion et d’audit Azure Active Directory et les journaux Microsoft Intune. [Plus d’informations](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security) |
 | Mise en réseau Azure         | Microsoft.Network          | Stockage et analyse des journaux d’activité du trafic réseau. [Plus d’informations](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Activez la réplication pour la reprise d’activité des machines virtuelles Azure IaaS lors de l’utilisation de comptes de stockage de cache avec pare-feu activé, de stockage source ou de stockage cible.  [Plus d’informations](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) |
 
@@ -401,7 +401,7 @@ Le paramètre **Autoriser les services Microsoft approuvés...** permet à une i
 
 ### <a name="storage-analytics-data-access"></a>Accès aux données Storage Analytics
 
-Dans certains cas, un accès en lecture aux journaux et aux métriques de diagnostic est nécessaire en dehors de la limite du réseau. Quand vous configurez l’accès aux services approuvés pour le compte de stockage, vous pouvez autoriser l’accès en lecture aux fichiers journaux ou aux tables de métriques, ou aux deux. [Découvrez plus d’informations sur l’utilisation de Storage Analytics.](/azure/storage/storage-analytics)
+Dans certains cas, un accès en lecture aux journaux et aux métriques de ressources est nécessaire en dehors de la limite du réseau. Quand vous configurez l’accès aux services approuvés pour le compte de stockage, vous pouvez autoriser l’accès en lecture aux fichiers journaux ou aux tables de métriques, ou aux deux. [Découvrez plus d’informations sur l’utilisation de Storage Analytics.](/azure/storage/storage-analytics)
 
 ### <a name="managing-exceptions"></a>Gestion des exceptions
 

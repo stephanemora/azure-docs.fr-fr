@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: 45490e398abd8b5bd3c10adb95b56e1019d2bb94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 165e7984c21b74fa7730fc02756b9e75b4b33aa7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76842467"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82131242"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Journalisation d’audit dans Azure Database pour PostgreSQL - Serveur unique
 
@@ -26,14 +26,14 @@ Si vous souhaitez des journaux de niveau ressource Azure pour des opérations te
 ## <a name="usage-considerations"></a>Considérations sur l’utilisation
 Par défaut, les instructions de journal pgAudit sont émises en même temps que vos instructions de journal habituelles à l’aide de la fonctionnalité de journalisation standard de Postgres. Dans Azure Database pour PostgreSQL, ces fichiers .log peuvent être téléchargés à partir du portail Azure ou de l’interface CLI. La taille de stockage maximale d’une collection de fichiers est de 1 Go, et chaque fichier est disponible pendant une période maximale de sept jours (la valeur par défaut est de trois jours). Ce service est une option de stockage à court terme.
 
-Vous pouvez également configurer tous les journaux de sorte qu’ils soient envoyés au service Journal de diagnostic d’Azure Monitor. Si vous activez la journalisation des diagnostics Azure Monitor, vos journaux seront automatiquement envoyés (au format JSON) vers le stockage Azure, Event Hubs et/ou les journaux Azure Monitor, en fonction de ce que vous aurez choisi.
+Vous pouvez également configurer tous les journaux à envoyer au magasin de journaux Azure Monitor pour analyse ultérieure dans Log Analytics. Si vous activez la journalisation des ressources Azure Monitor, vos journaux sont automatiquement envoyés (au format JSON) au services Stockage Azure et Event Hubs, et/ou aux journaux Azure Monitor, conformément à votre choix.
 
-L’activation de pgAudit génère un grand volume de journalisation sur un serveur, ce qui a un impact sur les performances et le stockage des journaux. Nous vous recommandons d’utiliser le service de journalisation des diagnostics Azure, qui offre des options de stockage à plus long terme, ainsi que des fonctionnalités d’analyse et de gestion des alertes. Nous vous recommandons de désactiver la journalisation standard afin de réduire l’impact d’une journalisation supplémentaire sur les performances :
+L’activation de pgAudit génère un grand volume de journalisation sur un serveur, ce qui a un impact sur les performances et le stockage des journaux. Nous vous recommandons d’utiliser les journaux Azure Monitor, qui offrent des options de stockage à plus long terme, ainsi que des fonctionnalités d’analyse et de génération d’alertes. Nous vous recommandons de désactiver la journalisation standard afin de réduire l’impact d’une journalisation supplémentaire sur les performances :
 
    1. Définissez le paramètre `logging_collector` sur OFF. 
    2. Redémarrez le serveur pour appliquer les modifications.
 
-Pour savoir comment configurer la journalisation dans le stockage Azure, Event Hubs et les journaux Azure Monitor, consultez la section concernant les journaux de diagnostic dans l’article sur les [journaux de serveur](concepts-server-logs.md).
+Pour savoir comment configurer la journalisation dans les services Stockage Azure et Event Hubs ou les journaux Azure Monitor, consultez la section concernant les journaux de ressources dans l’[article sur les journaux de serveur](concepts-server-logs.md).
 
 ## <a name="installing-pgaudit"></a>Installation de pgAudit
 
@@ -88,7 +88,7 @@ Pour commencer, définissez `pgaudit.log` sur `WRITE`, puis ouvrez vos journaux 
 ## <a name="viewing-audit-logs"></a>Affichage des journaux d’audit
 Si vous utilisez des fichiers .log, vos journaux d’audit seront inclus dans le même fichier que vos journaux d’erreurs PostgreSQL. Vous pouvez télécharger des fichiers journaux à partir du [Portail](howto-configure-server-logs-in-portal.md) Azure ou de l’[interface CLI](howto-configure-server-logs-using-cli.md). 
 
-Si vous utilisez la journalisation des diagnostics Azure, la façon dont vous accédez aux journaux dépend du point de terminaison que vous choisissez. Pour Stockage Azure, consultez l’article [Compte de stockage des journaux](../azure-monitor/platform/resource-logs-collect-storage.md). Pour Event Hubs, consultez l’article [Diffusion des journaux Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md).
+Si vous utilisez la journalisation des ressources Azure, la façon dont vous accédez aux journaux dépend du point de terminaison que vous choisissez. Pour Stockage Azure, consultez l’article [Compte de stockage des journaux](../azure-monitor/platform/resource-logs-collect-storage.md). Pour Event Hubs, consultez l’article [Diffusion des journaux Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md).
 
 Pour les journaux Azure Monitor, les journaux sont envoyés à l’espace de travail que vous avez sélectionné. Les journaux Postgres utilisent le mode de collecte **AzureDiagnostics**, pour qu’ils puissent être interrogés à partir de la table AzureDiagnostics. Les champs de la table sont décrits ci-dessous. En savoir plus sur l’interrogation et la génération d’alertes dans la vue d’ensemble [Interroger les journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 

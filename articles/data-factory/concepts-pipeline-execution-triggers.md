@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: fac9933c57a54736aed5ccfdd54d126f0ca32973
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a31f800ad157e22f3d35abae3d3b714fa29178ef
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418352"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562200"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Exécution et déclencheurs du pipeline dans Azure Data Factory
 
@@ -281,13 +281,13 @@ Le tableau suivant présente une vue d’ensemble globale des principaux éléme
 
 ### <a name="schema-defaults-limits-and-examples"></a>Valeurs par défaut, limites et exemples du schéma
 
-| Propriété JSON | Type | Obligatoire | Valeur par défaut | Valeurs valides | Exemple |
+| Propriété JSON | Type | Obligatoire | Valeur par défaut | Valeurs valides |  Exemple |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | string | Oui | None | Dates-Heures ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | object | Oui | None | Un objet de périodicité | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | nombre | Non | 1 | 1 à 1000 | `"interval":10` |
+| **interval** | nombre | Non  | 1 | 1 à 1000 | `"interval":10` |
 | **endTime** | string | Oui | None | Une valeur date-heure représentant une heure dans le futur | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | object | Non | None | Un objet de planification | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **schedule** | object | Non  | None | Un objet de planification | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>propriété startTime
 Le tableau suivant vous montre comment la propriété **startTime** contrôle une exécution du déclencheur :
@@ -327,6 +327,9 @@ Les déclencheurs de fenêtre bascule sont un type de déclencheur qui s’activ
 
 Pour plus d'informations sur les déclencheurs de fenêtre bascule et pour obtenir des exemples, consultez [Créer un déclencheur de fenêtre bascule](how-to-create-tumbling-window-trigger.md).
 
+> [!NOTE]
+> L’exécution du déclencheur de fenêtre bascule *attend la fin de l’exécution du pipeline déclenché*. Son état d’exécution reflète l’état de l’exécution du pipeline déclenché. Par exemple, si une exécution de pipeline déclenchée est annulée, l’exécution du déclencheur de fenêtre bascule correspondante est marquée comme annulée. Cela diffère du comportement « déclencher et oublier » du déclencheur de planification, qui est marqué comme réussi tant qu’une exécution de pipeline a démarré.
+
 ## <a name="event-based-trigger"></a>Déclencheur basé sur des événements
 
 Un déclencheur basé sur des événements exécute des pipelines en réponse aux événements, comme pour l’arrivée ou la suppression d’un fichier, dans Stockage Blob Azure.
@@ -338,7 +341,7 @@ Cette section fournit des exemples de planifications de périodicité. Elle se c
 
 Les exemples supposent que la valeur **interval** est 1 et que la valeur **frequency** est correcte selon la définition de planification. Par exemple, vous ne pouvez pas avoir une valeur **frequency** définie sur « jour » et une modification **monthDays** dans l’objet **schedule**. Ces types de restrictions sont décrits dans le tableau dans la section précédente.
 
-| Exemple | Description |
+|  Exemple | Description |
 |:--- |:--- |
 | `{"hours":[5]}` | Exécution à 5h00 tous les jours. |
 | `{"minutes":[15], "hours":[5]}` | Exécution à 5h15 tous les jours. |

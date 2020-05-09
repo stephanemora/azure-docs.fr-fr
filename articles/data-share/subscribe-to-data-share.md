@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: 5b7d9cd7e7d438cf2beac76d5d8bcc78d377a8f4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4dff48f909cd3febbbb7e92dcf96070020b8f57c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77083110"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82145148"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutoriel : Accepter et recevoir des données avec Azure Data Share  
 
@@ -72,9 +72,11 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="open-invitation"></a>Ouvrir l’invitation
 
-1. Recherchez dans votre boîte de réception une invitation émanant de votre fournisseur de données. L’invitation provient de Microsoft Azure et s’intitule **Invitation Azure Data Share de <yourdataprovider@domain.com>** . Notez le nom de partage pour vérifier que vous acceptez le partage approprié, au cas où il existerait plusieurs invitations. 
+1. Vous pouvez ouvrir une invitation à partir d’un e-mail, ou directement à partir du portail Azure. 
 
-1. Sélectionnez **Afficher l’invitation** pour voir votre invitation dans Azure. Vous accédez à votre vue des partages reçus.
+   Pour ouvrir une invitation à partir d’un e-mail, recherchez dans votre boîte de réception une invitation émanant de votre fournisseur de données. L’invitation provient de Microsoft Azure et s’intitule **Invitation Azure Data Share de <yourdataprovider@domain.com>** . Cliquez sur **Afficher l’invitation** pour voir votre invitation dans Azure. 
+
+   Pour ouvrir l’invitation directement à partir du portail Azure, recherchez **Invitations Azure Data Share** dans le portail Azure. Vous accédez à la liste des invitations Data Share.
 
    ![Invitations](./media/invitations.png "Liste des invitations") 
 

@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 11/08/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16b6e4f521568c89e415e6e9fa621175052cf34d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 616910eda33b3ddc49fa6233ccb3989c5e4214e2
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74026897"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582848"
 ---
-# <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Démarrage rapide : configurer l’expiration des groupes Office 365 dans Azure Active Directory
+# <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Démarrage rapide : Configurer l’expiration des groupes Office 365 dans Azure Active Directory
 
 Dans le cadre de ce démarrage rapide, vous allez définir la stratégie d’expiration de vos groupes Office 365. Lorsque les utilisateurs peuvent configurer leurs propres groupes, les groupes inutilisés risquent de se multiplier. L’une des façons de gérer les groupes inutilisés consiste à configurer l’expiration de ces groupes afin de minimiser la tâche de suppression manuelle des groupes.
 
@@ -73,7 +73,7 @@ Et voilà ! Dans le cadre de ce démarrage rapide, vous avez configuré la stra
 
 ### <a name="to-remove-the-expiration-policy"></a>Pour supprimer la stratégie d’expiration
 
-1. Vérifiez que vous êtes connecté au [Portail Azure](https://portal.azure.com) à l’aide du compte d’administrateur général de votre locataire.
+1. Vérifiez que vous êtes connecté au [portail Azure](https://portal.azure.com) avec un compte d’administrateur général pour votre organisation Azure AD.
 2. Sélectionnez **Azure Active Directory** > **Groupes** > **Expiration**.
 3. Définissez l’option **Activer l’expiration de ces groupes Office 365** sur **Aucun**.
 
