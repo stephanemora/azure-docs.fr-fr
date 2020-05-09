@@ -8,23 +8,25 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 12/03/2019
-ms.openlocfilehash: cda499b81a61a5b78ca86a96372640e368f90357
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.date: 04/16/2020
+ms.openlocfilehash: 38e728de22d49de760e998ddc97c5067beb3ecd1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80364193"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81684695"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceptions et codes d’erreur du concepteur (préversion)
 
 Cet article décrit les messages d’erreur et codes d’exception dans le concepteur Azure Machine Learning (préversion) pour vous aider à résoudre les problèmes liés à vos pipelines Machine Learning.
 
-Il y a deux façons d’obtenir le texte complet d’un message d’erreur dans le concepteur :  
+Vous pouvez trouver le message d’erreur dans le concepteur en procédant comme suit :  
 
-- Cliquez sur le lien **Afficher le journal de sortie** dans le volet de droite et faites défiler vers le bas. Le message d’erreur détaillé est affiché dans les deux dernières lignes de la fenêtre.  
-  
-- Sélectionnez le module qui présente l’erreur et cliquez sur la croix rouge. Seul le texte d’erreur correspondant s’affiche.
+- Sélectionnez le module ayant échoué, accédez à l’onglet **Résultats + Journaux**, où vous trouverez le journal détaillé dans le fichier **70_driver_log.txt** sous la catégorie **azureml-logs**.
+
+- Pour plus d’informations sur l’erreur du module, vous pouvez consulter error_info.json sous la catégorie **module_statistics**.
+
+Voici les codes d’erreur des modules dans le concepteur.
 
 ## <a name="error-0001"></a>Erreur 0001  
  Une exception se produit si une ou plusieurs colonnes spécifiées du jeu de données sont introuvables.  
@@ -143,6 +145,7 @@ Il y a deux façons d’obtenir le texte complet d’un message d’erreur dans 
 |La valeur du paramètre « {arg_name} » doit être inférieure ou égale à la valeur du paramètre « {upper_boundary_parameter_name} ».|
 |Le paramètre « {arg_name} » a la valeur « {actual_value} » qui doit être inférieure ou égale à {upper_boundary}.|
 |La valeur« {actual_value} » du paramètre « {arg_name} » doit être inférieure ou égale à la valeur {upper_boundary} du paramètre « {upper_boundary_parameter_name} ».|
+|La valeur « {actual_value} » du paramètre « {arg_name} » doit être inférieure ou égale à la valeur {upper_boundary} du paramètre « {upper_boundary_meaning} ».|
 
 
 ## <a name="error-0008"></a>Erreur 0008  
@@ -269,6 +272,7 @@ Si le modèle a été formé à l’aide de l’un des modules de formation spé
 |L’apprenant de type non valide est transmis avec succès.|
 |Le type de l’apprenant « {nom_argument} » n’est pas valide.|
 |L’apprenant « {nom_argument} » a un type non valide « {type_apprenant} ».|
+|L’apprenant de type non valide est transmis avec succès. Message d’exception : {exception_message}|
 
 
 ## <a name="error-0014"></a>Erreur 0014  
@@ -391,6 +395,7 @@ Pour les colonnes que vous souhaitez utiliser pour le regroupement ou la catégo
 |Les valeurs de la colonne ne sont pas triées.|
 |Les valeurs de la colonne « {col_index} » ne sont pas triées.|
 |Les valeurs de la colonne « {col_index} » du jeu de données « {dataset} » ne sont pas triées.|
+|Les valeurs de l’argument « {arg_name} » ne sont pas triées dans l’ordre « {sorting_order} ».|
 
 
 ## <a name="error-0020"></a>Erreur 0020  
@@ -631,6 +636,7 @@ Il peut aussi arriver qu’une colonne d’étiquette soit présente dans le jeu
 |------------------------|
 |L’argument doit être fini.|
 |« {arg_name} » n’est pas fini.|
+|La colonne « {column_name} » contient des valeurs infinies.|
 
 
 ## <a name="error-0034"></a>Erreur 0034  
@@ -1490,6 +1496,18 @@ Résolution :
 |------------------------------------------------------------|
 |Le répertoire de transformation donné n’est pas valide.|
 |L’élément « {nom_argument} » TransformationDirectory n’est pas valide. Raison : « {raison} ». Veuillez réexécuter l’expérience de formation qui génère le fichier de transformation. Si l’expérience de formation a été supprimée, recréez et enregistrez le fichier de transformation.|
+|L’élément « {nom_argument} » TransformationDirectory n’est pas valide. Raison : « {raison} ». {conseil_dépannage}|
+
+
+## <a name="error-0159"></a>Erreur 0159
+ Une exception se produit si la transmission au répertoire du modèle du module n’est pas valide. 
+
+|Messages d’exception|
+|------------------------------------------------------------|
+|L’élément ModelDirectory indiqué n’est pas valide.|
+|L’élément ModelDirectory « {arg_name} » n’est pas valide.|
+|L’élément ModelDirectory « {arg_name} » n’est pas valide. Raison : « {raison} ».|
+|L’élément ModelDirectory « {arg_name} » n’est pas valide. Raison : « {raison} ». {conseil_dépannage}|
 
 
 ## <a name="error-1000"></a>Erreur 1000  

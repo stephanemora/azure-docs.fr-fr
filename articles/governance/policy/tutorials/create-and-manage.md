@@ -3,12 +3,12 @@ title: 'Tutoriel : Générer des stratégies pour appliquer la conformité'
 description: Dans ce tutoriel, vous utilisez des stratégies pour appliquer des normes, maîtriser les coûts, garantir la sécurité et imposer des principes de conception à l’échelle de l’entreprise.
 ms.date: 03/24/2020
 ms.topic: tutorial
-ms.openlocfilehash: 15a6c3df26938332d42ecbcfff43f958577062c4
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: dcebbbfcc2f86ace7ea4400a2fdb6f1392f4efe6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239962"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82190824"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutoriel : Créer et gérer des stratégies pour appliquer la conformité
 
@@ -126,7 +126,7 @@ Maintenant que vous avez affecté une définition de stratégie intégrée, vous
 
    La propriété _champ_ dans la règle de stratégie doit être une valeur prise en charge. La liste complète des valeurs est disponible dans les [champs de structure de la définition de stratégie](../concepts/definition-structure.md#fields). Exemple d’alias : `"Microsoft.Compute/VirtualMachines/Size"`.
 
-   Pour voir d’autres exemples relatifs à Azure Policy, consultez [Exemples Azure Policy](../samples/index.md).
+   Pour voir d’autres exemples Azure Policy, consultez [Exemples Azure Policy](../samples/index.md).
 
 1. Sélectionnez **Enregistrer**.
 
