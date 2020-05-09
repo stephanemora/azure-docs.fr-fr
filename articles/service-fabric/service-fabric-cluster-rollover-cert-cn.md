@@ -3,12 +3,12 @@ title: Remplacer un certificat de cluster Azure Service Fabric
 description: Découvrez comment renouveler un certificat de cluster Service Fabric identifié par le nom commun du certificat.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 94cc6841886b1b0eb4271ac0f727a2e3561e0081
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a5fe2a7f2a05295605ef0e1d5db321a83b96712
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75451956"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611906"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Renouveler manuellement un certificat de cluster Service Fabric
 Lorsqu’un certificat de cluster Service Fabric est proche de la date d’expiration, vous devez le mettre à jour.  Le renouvellement de certificat est un processus simple si le cluster a été [configuré pour utiliser des certificats basés sur un nom commun](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (et pas une empreinte).  Obtenez un nouveau certificat auprès d’une autorité de certification avec une nouvelle date d’expiration.  Les certificats auto-signés ne sont pas pris en charge avec les clusters Service Fabric de production, afin d’inclure les certificats générés dans le cadre du workflow de création de cluster dans le portail Azure. Le nouveau certificat doit présenter le même nom commun que l’ancien certificat. 
@@ -64,7 +64,7 @@ $certConfig = New-AzVmssVaultCertificateConfig -CertificateUrl $CertificateURL -
 $vmss = Get-AzVmss -ResourceGroupName $VmssResourceGroupName -VMScaleSetName $VmssName
 
 # Add new secret to the VM scale set.
-$vmss = Add-AzVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $SourceVault -VaultCertificate $certConfig
+$vmss.VirtualMachineProfile.OsProfile.Secrets[0].VaultCertificates.Add($newVaultCertificate)
 
 # Update the VM scale set 
 Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -VirtualMachineScaleSet $vmss  -Verbose
