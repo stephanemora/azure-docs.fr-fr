@@ -3,16 +3,16 @@ title: API REST Entreprise Azure
 description: Cet article décrit les API REST qui sont disponibles avec votre inscription Entreprise Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/01/2020
+ms.date: 05/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 0506ba331d1d87445bf3a998cf44d922457b579f
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: b35937a5f4638e73dd1603dee7ad97e838efac8b
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586212"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692668"
 ---
 # <a name="azure-enterprise-rest-apis"></a>API REST Entreprise Azure
 
