@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: 4a4824a9f8340b12bca7e18562d723eb24e58b71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79371917"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Créer et gérer une liaison privée pour Azure Database pour MySQL en utilisant le portail
@@ -132,7 +132,7 @@ Dans cette section, vous allez créer un serveur MySQL et lui ajouter un point d
 
     ![Présentation de Private Link](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
 
-1. Dans **Créer un point de terminaison privé - De base**, entrez ou sélectionnez les informations suivantes :
+1. Dans **Créer un point de terminaison privé – Informations de base**, entrez ou sélectionnez ces informations :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -156,7 +156,7 @@ Dans cette section, vous allez créer un serveur MySQL et lui ajouter un point d
     |Sous-ressource cible |Sélectionnez *mysqlServer*|
     |||
 7. Sélectionnez **Suivant : Configuration**.
-8. Dans **Créer un point de terminaison privé - Configuration**, entrez ou sélectionnez les informations suivantes :
+8. Dans **Créer un point de terminaison privé – Configuration**, entrez ou sélectionnez ces informations :
 
     | Paramètre | Valeur |
     | ------- | ----- |
