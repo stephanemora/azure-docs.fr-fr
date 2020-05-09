@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18ffb48b2e7978831155afaf2e675bb720e57544
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: ca425c7c5739785f3463086d89b4796f09bf45b4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82082201"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82229814"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Authentification directe Azure Active Directory : Démarrage rapide
 
@@ -31,6 +31,9 @@ L’authentification directe Azure Active Directory (Azure AD) permet à vos uti
 
 >[!IMPORTANT]
 >Si vous procédez à une migration depuis AD FS (ou d’autres technologies de fédération) vers l’authentification directe, nous vous recommandons vivement de vous référer à notre guide de déploiement détaillé, publié [ici](https://aka.ms/adfstoPTADPDownload).
+
+>[!NOTE]
+>Si vous déployez l’authentification directe avec le cloud Azure Government, consultez [Considérations sur les identités hybrides pour Azure Government](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud).
 
 Suivez ces instructions pour déployer l’authentification directe sur votre locataire :
 
@@ -74,7 +77,7 @@ Vérifiez que les prérequis suivants sont remplis.
    - Pour valider le certificat, débloquez les URL suivantes : **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** et **www\.microsoft.com:80**. Ces URL étant utilisées pour la validation de certificat avec d’autres produits Microsoft, elles sont peut-être déjà débloquées.
 
 ### <a name="azure-government-cloud-prerequisite"></a>Cloud Azure Government - Prérequis
-Avant d'activer l'authentification directe via Azure AD Connect à l'étape 2, téléchargez la dernière version de l'agent PTA à partir du portail Azure.  Vous devez vous assurer que vous disposez de la version **x.x.xxx.x** (ou ultérieure) de l'agent.  Pour vérifier votre agent, consultez [Mettre à niveau les agents d'authentification](how-to-connect-pta-upgrade-preview-authentication-agents.md).
+Avant d'activer l'authentification directe via Azure AD Connect à l'étape 2, téléchargez la dernière version de l'agent PTA à partir du portail Azure.  Vous devez vous assurer que vous disposez de la version **1.5.1742.0.** ou version ultérieure.  Pour vérifier votre agent, consultez [Mettre à niveau les agents d'authentification](how-to-connect-pta-upgrade-preview-authentication-agents.md).
 
 Après avoir téléchargé la dernière version de l'agent, suivez les instructions ci-dessous pour configurer l'authentification directe via Azure AD Connect.
 

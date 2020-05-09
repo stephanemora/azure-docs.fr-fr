@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: 0e60e782fa65cd5868bebe081673f9a158e07799
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e61571400930d4a781d6d67647bd662a7f2d350
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77921315"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82106217"
 ---
 # <a name="permissions-in-azure-security-center"></a>Autorisations dans Azure Security Center
 
@@ -30,7 +30,7 @@ Security Center évalue la configuration de vos ressources pour identifier les v
 Outre ces rôles, il existe deux rôles propres à Security Center :
 
 * **Lecteur Sécurité** : l’utilisateur ayant ce rôle dispose de droits d’affichage dans Security Center. Il peut afficher les recommandations, les alertes, la stratégie de sécurité actuelle et les états de sécurité, mais ne peut pas apporter de modifications.
-* **Administrateur de la sécurité** : l’utilisateur ayant ce rôle dispose des mêmes droits que le lecteur Sécurité. Il peut en outre modifier la stratégie de sécurité actuelle, ainsi qu’ignorer les alertes et les recommandations.
+* **Administrateur de la sécurité** : l’utilisateur ayant ce rôle dispose des mêmes droits que le Lecteur Sécurité. Il peut en outre modifier la stratégie de sécurité et ignorer les alertes et les recommandations.
 
 > [!NOTE]
 > Les rôles de sécurité que sont le lecteur Sécurité et l’administrateur de la sécurité ont uniquement accès à Security Center. Les rôles de sécurité n’ont pas accès aux autres services d’Azure (par exemple, Stockage, Web et mobile ou Internet des objets).
@@ -48,7 +48,7 @@ Le tableau suivant affiche les rôles et les actions autorisées dans Security C
 | Propriétaire du groupe de ressources | -- | ✔ | -- | ✔ |
 | Collaborateur du groupe de ressources | -- | ✔ | -- | ✔ |
 | Lecteur | -- | -- | -- | ✔ |
-| Security Administrator | ✔ | -- | ✔ | ✔ |
+| Administrateur de la sécurité | ✔ | -- | ✔ | ✔ |
 | Lecteur de sécurité | -- | -- | -- | ✔ |
 
 > [!NOTE]

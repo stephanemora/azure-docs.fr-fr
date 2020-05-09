@@ -26,11 +26,11 @@
         - name: Guides de publication par type d’offre
           href: ./publisher-guide-by-offer-type.md
           items:
-            - name: Virtual Machines
+            - name: Machines virtuelles
               href: ./marketplace-virtual-machines.md
-            - name: "Applications Azure\_: modèles de solution"
+            - name: Modèles de solution des applications Azure
               href: ./marketplace-solution-templates.md
-            - name: "Applications Azure\_: applications managées"
+            - name: Applications managées des applications Azure
               href: ./marketplace-managed-apps.md
             - name: Applications SaaS
               href: ./marketplace-saas-applications-technical-publishing-guide.md
@@ -42,7 +42,7 @@
               href: ./consulting-services.md
             - name: 'Office 365, Dynamics 365 et Power BI'
               href: ./appsource-offer-publishing-guide.md
-            - name: Activer une liste AppSource et Place de marché en utilisant Azure Active Directory
+            - name: Activer l’authentification des offres avec Azure AD
               href: ./enable-appsource-marketplace-using-azure-ad.md
             - name: Solutions intégrées
               href: ./integrated-solutions-for-publishers.md
@@ -51,7 +51,7 @@
           items:
             - name: Bonnes pratiques pour le référencement des offres
               href: ./gtm-offer-listing-best-practices.md
-            - name: Guide pratique pour être référencé
+            - name: Être à la une
               href: ./gtm-how-to-get-featured.md
             - name: Validation du contenu de la Place de marché
               href: ./marketplace-criteria-content-validation.md
@@ -69,7 +69,7 @@
         - name: Support de la Place de marché commerciale
           href: ./support-azure-marketplace.md
           items:
-            - name: Questions fréquentes (FAQ) sur la Place de marché
+            - name: Questions fréquentes (FAQ) sur la place de marché commerciale
               href: ./marketplace-faq-publisher-guide.md
             - name: Disponibilité géographique et devises
               href: ./marketplace-geo-availability-currencies.md
@@ -80,7 +80,7 @@
       href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md
     - name: Questions fréquentes (FAQ) sur la migration
       href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-faq.md
-    - name: Visite guidée du portail
+    - name: Visite guidée de portail
       href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
       items:
         - name: Navigation sur le portail
@@ -289,49 +289,9 @@
             - name: Wiki d’aide
               href: ./cloud-partner-portal-orig/help-wiki.md
         - name: Offre de module IoT Edge
-          href: ./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md
-          items:
-            - name: Prérequis
-              href: ./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md
-            - name: Créer une offre de module IoT Edge
-              href: ./cloud-partner-portal/iot-edge-module/cpp-create-offer.md
-              items:
-                - name: Onglet des paramètres de l’offre
-                  href: ./cloud-partner-portal/iot-edge-module/cpp-offer-settings-tab.md
-                - name: Onglet Références
-                  href: ./cloud-partner-portal/iot-edge-module/cpp-skus-tab.md
-                - name: Onglet Place de marché
-                  href: ./cloud-partner-portal/iot-edge-module/cpp-marketplace-tab.md
-                - name: Onglet Support
-                  href: ./cloud-partner-portal/iot-edge-module/cpp-support-tab.md
-            - name: "Créer des ressources techniques pour le module IoT\_Edge"
-              href: ./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md
-            - name: Publier une offre de module IoT Edge
-              href: ./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md
-            - name: Mettre à jour une offre existante
-              href: ./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md
+          href: ./cloud-partner-portal/iot-edge-module/iot-edge-module-offer.md
         - name: "Offre d’application Power\_BI"
           href: ./cloud-partner-portal/power-bi/cpp-power-bi-offer.md
-          items:
-            - name: Prérequis
-              href: ./cloud-partner-portal/power-bi/cpp-prerequisites.md
-            - name: "Créer une offre d’application Power\_BI"
-              href: ./cloud-partner-portal/power-bi/cpp-create-offer.md
-              items:
-                - name: Onglet des paramètres de l’offre
-                  href: ./cloud-partner-portal/power-bi/cpp-offer-settings-tab.md
-                - name: Onglet Informations techniques
-                  href: ./cloud-partner-portal/power-bi/cpp-technical-info-tab.md
-                - name: Onglet des informations sur les vitrines
-                  href: ./cloud-partner-portal/power-bi/cpp-storefront-details-tab.md
-                - name: Onglet Contacts
-                  href: ./cloud-partner-portal/power-bi/cpp-contacts-tab.md
-            - name: "Créer des ressources techniques pour une application Power\_BI"
-              href: ./cloud-partner-portal/power-bi/cpp-create-technical-assets.md
-            - name: "Publier une offre d'application Power\_BI"
-              href: ./cloud-partner-portal/power-bi/cpp-publish-offer.md
-            - name: Mettre à jour une offre existante
-              href: ./cloud-partner-portal/power-bi/cpp-update-existing-offer.md
         - name: Offre d’application SaaS
           href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
         - name: Offre de machine virtuelle
@@ -495,10 +455,10 @@
               href: ./partner-center-portal/create-new-business-central-offer.md
         - name: Offres de module IoT Edge
           items:
-            - name: Préparer les ressources techniques du module Azure IoT Edge
-              href: ./partner-center-portal/create-iot-edge-module-asset.md
             - name: Créer une offre de module Azure IoT Edge
               href: ./partner-center-portal/azure-iot-edge-module-creation.md
+            - name: Préparer les ressources techniques du module Azure IoT Edge
+              href: ./partner-center-portal/create-iot-edge-module-asset.md
         - name: Offres de services managés
           items:
             - name: Créer une offre de service managé

@@ -5,12 +5,12 @@ author: nipavlo
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: nipavlo
-ms.openlocfilehash: 23782a86d31251cb1a3474e0395df716a2e832df
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7f571a851e4da147240c524b742bcd652bc54181
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427265"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82183112"
 ---
 # <a name="balancing-of-subclustered-metrics"></a>Équilibrage des métriques sous-clusterisées
 
@@ -24,11 +24,11 @@ Si la charge signalée par les services sur des nœuds différents diffère sign
 
 Supposons, par exemple, que nous ayons quatre services et qu’ils signalent tous une charge pour la métrique Metric1 :
 
-* Le service A a une contrainte de placement « NodeType==Type1 » et signale une charge de 10.
-* Le service B a une contrainte de placement « NodeType==Type1 » et signale une charge de 10.
-* Le service C a une contrainte de placement « NodeType==Type2 » et signale une charge de 100.
-* Le service D a une contrainte de placement « NodeType==Type2 » et signale une charge de 100.
-* De plus, nous avons quatre nœuds. Deux d’entre eux ont NodeType défini comme « Type1 » et les deux autres sont « Type2 ».
+* Le service A a une contrainte de placement « NodeType==Frontend » et signale une charge de 10.
+* Le service B a une contrainte de placement « NodeType==Frontend » et signale une charge de 10.
+* Le service C a une contrainte de placement « NodeType==Backend » et signale une charge de 100.
+* Le service D a une contrainte de placement « NodeType==Backend » et signale une charge de 100.
+* De plus, nous avons quatre nœuds. Deux d’entre eux ont NodeType défini comme « Frontend » et les deux autres sont « Backend ».
 
 Et nous avons le placement suivant :
 
@@ -60,8 +60,8 @@ Cette situation se produit quand un groupe de nœuds autorisés pour un service 
 Exemple :
 
 * Service A : aucune contrainte de placement
-* Service B : contrainte de placement « NodeType==Type1 »
-* Service C : contrainte de placement « NodeType==Type2 »
+* Service B : contrainte de placement « NodeType==Frontend »
+* Service C : contrainte de placement « NodeType==Backend »
 
 Cette configuration crée une relation sous-ensemble/sur-ensemble entre les groupes de nœuds pour différents services.
 
@@ -72,7 +72,7 @@ Cette configuration crée une relation sous-ensemble/sur-ensemble entre les grou
 
 Dans cette situation, il y a une probabilité qu’un équilibre non optimal soit effectué.
 
-Resource Manager reconnaît cette situation et produit un rapport d’intégrité qui vous conseille de scinder le service A en deux services : le service A1, qui peut être placé sur les nœuds Type1, et le service A2, qui peut être placé sur les nœuds Type2. Cela nous ramène à la situation de la première catégorie qui peut être équilibrée de manière optimale.
+Resource Manager reconnaît cette situation et produit un rapport d’intégrité qui vous conseille de scinder le service A en deux services : le service A1, qui peut être placé sur les nœuds Frontend, et le service A2, qui peut être placé sur les nœuds Backend. Cela nous ramène à la situation de la première catégorie qui peut être équilibrée de manière optimale.
 
 ### <a name="third-category--subclustering-with-partial-overlap-between-node-sets"></a>Troisième catégorie : sous-clustering avec chevauchement partiel entre les collections de nœuds
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 2af20a1ddf4239b7eec6cceabf2ff9711959c128
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dfdf6e1f8edfb4dafaf93e62090ed51878f9b2aa
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77189113"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734822"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(DÉPRÉCIÉ) Contrôler la validité de microservices de mise en production avec Vamp sur un cluster DC/OS Azure Container Service
 
@@ -129,7 +129,7 @@ Une fois qu’Elasticsearch est **en cours d’exécution**, vous pouvez ajouter
 
 Dans sa forme la plus simple, un [schéma Vamp](https://docs.vamp.io/how-vamp-works/vamp-and-kubernetes#vamp-deployments) décrit les points de terminaison (passerelles), clusters et services à déployer. Vamp utilise des clusters pour regrouper des variantes du même service en groupes logiques à des fins de contrôle de validité de mise en production ou de tests A/B.  
 
-Ce scénario utilise un exemple d’application monolithique appelé [**sava**](https://github.com/magneticio/sava), qui en est à la version 1.0. Le monolithe est empaqueté dans un conteneur Docker qui se trouve dans un hub Docker sous magneticio/sava:1.0.0. L’application s’exécute normalement sur le port 8080, mais vous souhaitez l’exposer sous le port 9050 dans ce cas. Déployez l’application via Vamp à l’aide d’un schéma simple.
+Ce scénario utilise un exemple d’application monolithique appelé [**sava**](https://github.com/magneticio/sava-product), qui en est à la version 1.0. Le monolithe est empaqueté dans un conteneur Docker qui se trouve dans un hub Docker sous magneticio/sava:1.0.0. L’application s’exécute normalement sur le port 8080, mais vous souhaitez l’exposer sous le port 9050 dans ce cas. Déployez l’application via Vamp à l’aide d’un schéma simple.
 
 1. Accédez à **Deployments**.
 

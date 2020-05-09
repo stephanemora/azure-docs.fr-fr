@@ -62,6 +62,9 @@
   items:
     - name: Azure PowerShell
       href: platform/powershell-samples.md
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: "Que pouvez-vous superviser\_?"
@@ -442,8 +445,6 @@
               href: app/custom-data-correlation.md
             - name: Chaînes de connexion
               href: app/sdk-connection-string.md
-            - name: Chaînes de connexion
-              href: app/sdk-connection-string.md
             - name: GetMetric
               displayname: 'get metric, custom metrics, metrics, TrackMetric'
               href: app/get-metric.md
@@ -541,7 +542,7 @@
               items:
                 - name: Vue d’ensemble
                   href: platform/diagnostics-extension-overview.md
-                - name: ' Windows'
+                - name: Windows
                   displayname: diagnostics extension
                   items:
                     - name: Installation et configuration
@@ -750,8 +751,6 @@
           href: insights/containers.md
     - name: Superviser les autres ressources
       items:
-        - name: Key Vault
-          href: insights/key-vault-insights-overview.md
         - name: Stockage
           items:
             - name: Azure Monitor pour le stockage
@@ -927,6 +926,10 @@
               href: platform/workbooks-data-sources.md
             - name: Déployer avec Azure Resource Manager
               href: platform/workbooks-automate.md
+            - name: Groupes
+              href: platform/workbooks-groups.md
+            - name: Transformer des données JSON avec JSONPath
+              href: platform/workbooks-jsonpath.md
             - name: Configuration
               items:
                 - name: Contrôle d’accès

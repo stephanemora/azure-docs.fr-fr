@@ -5,14 +5,12 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 03/04/2020
 ms.custom: mvc, devcenter, seodec18
-experimental: false
-experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: bcb0ae2457175e7511c3539187d72d48e80baa5b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: df1e0809c0122eae593543cd193a6477b03d0938
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80047129"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690796"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Créer une application web Node.js dans Azure 
 
@@ -23,7 +21,7 @@ Commencez avec Azure App Service en créant une application Node.js/Express loca
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
 - [Node.js et npm](https://nodejs.org). Exécutez la commande `node --version` pour vérifier que Node.js est installé.
 - [Visual Studio Code](https://code.visualstudio.com/).
-- [Extension Azure App Service](vscode:extension/ms-azuretools.vscode-azureappservice) pour Visual Studio Code.
+- [Extension Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) pour Visual Studio Code.
 
 ## <a name="clone-and-run-a-local-nodejs-application"></a>Cloner et exécuter une application Node.js locale
 
@@ -45,7 +43,7 @@ Commencez avec Azure App Service en créant une application Node.js/Express loca
     npm start
     ```
     
-1. Ouvrez votre navigateur et accédez à [http://localhost:1337](http://localhost:1337). Le navigateur doit afficher le message « Hello World! ».
+1. Ouvrez votre navigateur et accédez à `http://localhost:1337`. Le navigateur doit afficher le message « Hello World! ».
 
 1. Appuyez sur **Ctrl**+**C** dans le terminal pour arrêter le serveur.
 

@@ -2,13 +2,13 @@
 title: Versions de cluster prises en charge dans Azure Service Fabric
 description: Découvrez les versions de cluster dans Azure Service Fabric, notamment un lien vers les versions les plus récentes à partir du blog de l’équipe Service Fabric.
 ms.topic: troubleshooting
-ms.date: 03/02/2020
-ms.openlocfilehash: 1158266857f0864ed2f442edb100032c70063719
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.date: 04/20/2020
+ms.openlocfilehash: b68314a116b0d9da8baf5f61eeffeef2b30835c4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385042"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81732878"
 ---
 # <a name="supported-service-fabric-versions"></a>Versions de Service Fabric prises en charge
 
@@ -37,9 +37,10 @@ Le tableau suivant répertorie les versions de Service Fabric et leurs dates de 
 | 6.3.* | 6.1.480.* |Inférieure ou égale à la version 3.2 |31 mars 2019  |
 | 6.4.* | 6.2.301.* |Inférieure ou égale à la version 3.3 |15 septembre 2019 |
 | 6.5.* | 6.4.617.* |Inférieure ou égale à la version 3.4 |1er août 2020 |
-| 7.0.466.* | 6.4.664.* |Inférieure ou égale à la version 4.0|Version actuelle ; par conséquent, pas de date de fin |
-| 7.0.466.* | 6.5.* |Inférieure ou égale à la version 4.0|Version actuelle ; par conséquent, pas de date de fin |
-| 7.0.470.* | 7.0.466.* |Inférieure ou égale à la version 4.0 |Version actuelle ; par conséquent, pas de date de fin |
+| 7.0.466.* | 6.4.664.* |Inférieure ou égale à la version 4.0|1er août 2020  |
+| 7.0.466.* | 6.5.* |Inférieure ou égale à la version 4.0|1er août 2020 |
+| 7.0.470.* | 7.0.466.* |Inférieure ou égale à la version 4.0 |1er août 2020  |
+| 7.1.409.* | 7.0.466.* |Inférieure ou égale à la version 4.0 |Version actuelle ; par conséquent, pas de date de fin |
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
@@ -106,3 +107,4 @@ Le tableau suivant répertorie les noms de version de Service Fabric et leurs nu
 | 7.0 CU2 | 7.0.464.9590 | 7.0.464.1 |
 | 7.0 CU3 | 7.0.466.9590 | 7.0.465.1 |
 | 7.0 CU4 | 7.0.470.9590 | 7.0.469.1 |
+| 7.1 RTO | 7.1.409.9590 | 7.1.410.1 |
