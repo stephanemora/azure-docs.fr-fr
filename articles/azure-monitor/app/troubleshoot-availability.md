@@ -4,14 +4,14 @@ description: Résolvez des problèmes relatifs aux tests web dans Azure Applicat
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 09/19/2019
+ms.date: 04/28/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 94b00a36445b0f4284caba218f6416db726611eb
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 8f03099cf2890882a1c1d4ba9d69fcb64d0db600
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255445"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233956"
 ---
 # <a name="troubleshooting"></a>Dépannage
 
@@ -67,6 +67,10 @@ Vérifiez la configuration des alertes classiques pour confirmer que votre adres
 ### <a name="i-did-not-receive-the-webhook-notification"></a>Je n’ai pas reçu la notification webhook.
 
 Vérifiez que l’application qui reçoit la notification webhook est disponible et traite correctement les requêtes webhook. Pour plus d’informations, consultez [ceci](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook).
+
+### <a name="i-am-getting--403-forbidden-errors-what-does-this-mean"></a>Je reçois des erreurs 403 Interdit. Qu’est-ce que cela signifie ?
+
+Cette erreur indique que vous devez ajouter des exceptions de pare-feu pour autoriser les agents de disponibilité à tester votre URL cible. Pour obtenir la liste complète des adresses IP d’agent à autoriser, consultez l’[article sur les exceptions IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#availability-tests).
 
 ### <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>Échecs intermittents des tests avec une erreur de violation de protocole.
 

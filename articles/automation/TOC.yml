@@ -24,6 +24,11 @@
       href: learn/automation-tutorial-runbook-textual.md
     - name: Créer un runbook Python
       href: learn/automation-tutorial-runbook-textual-python2.md
+- name: Exemples
+  items:
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Vue d’ensemble de l’authentification des comptes Automation
@@ -226,7 +231,7 @@
           href: automation-view-update-assessments.md
         - name: Gérer les pré-scripts et les post-scripts
           href: pre-post-scripts.md
-        - name: Intégrer avec Configuration Manager
+        - name: Intégreravec Configuration Manager
           href: updatemgmt-mecmintegration.md
         - name: Configurer le client Windows Update
           href: automation-configure-windows-update.md

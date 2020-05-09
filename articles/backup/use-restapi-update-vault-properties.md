@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment mettre à jour la configuratio
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 6cecbb18e0cd6f548e1688ef978f10dcee7d9fbc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c604fe067e73f5f9a17f4b5f810708121cff767
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227433"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744561"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Mettre à jour les configurations du coffre Azure Recovery Services à l’aide de l’API REST
 
@@ -21,7 +21,7 @@ La suppression des sauvegardes d’un élément protégé est une opération imp
 
 Toutefois, il existe des scénarios dans lesquels cette fonctionnalité n’est pas nécessaire. Un coffre Azure Recovery Services ne peut pas être supprimé s’il contient des éléments de sauvegarde, même dans l’état de suppression réversible. Cela peut poser un problème si le coffre doit être supprimé immédiatement. Par exemple, les opérations de déploiement nettoient souvent les ressources créées dans le même workflow. Un déploiement peut créer un coffre, configurer des sauvegardes pour un élément, effectuer une restauration de test, puis supprimer les éléments de sauvegarde et le coffre. En cas d’échec de la suppression du coffre, l’intégralité du déploiement peut échouer. La désactivation de la suppression réversible est le seul moyen de garantir la suppression immédiate.
 
-Ainsi, le client doit choisir avec précaution s’il souhaite activer ou désactiver la suppression réversible pour un coffre particulier en fonction du scénario. Pour plus d’informations, consultez l’[article sur la suppression réversible](backup-azure-security-feature-cloud.md#soft-delete).
+Ainsi, le client doit choisir avec précaution s’il souhaite activer ou désactiver la suppression réversible pour un coffre particulier en fonction du scénario. Pour plus d’informations, consultez l’[article sur la suppression réversible](backup-azure-security-feature-cloud.md).
 
 ### <a name="fetch-soft-delete-state-using-rest-api"></a>Extraire l’état de suppression réversible à l’aide de l’API REST
 
