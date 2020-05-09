@@ -4,21 +4,22 @@ titlesuffix: Azure Virtual Network
 description: Apprenez-en plus sur les adresses IP publiques et privées dans Azure.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: asudbring
+manager: KumudD
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2019
-ms.author: kumud
-ms.openlocfilehash: 9de94dab7000cee90f4448aa6d81196d3865e021
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.date: 04/27/2020
+ms.author: allensu
+ms.openlocfilehash: a698d0cc4653a7a9f938b8f013352d9b51e2e18c
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474409"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203724"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Types d’adresses IP et méthodes d’allocation dans Azure
 
@@ -58,6 +59,22 @@ Les adresses IP publiques sont créées avec l’une des références SKU suivan
 >[!IMPORTANT]
 > Les références SKU qui correspondent doivent être utilisées pour les ressources de Load Balancer et d’adresse IP publique. Vous ne pouvez pas avoir à la fois des ressources de référence SKU De base et de référence SKU Standard. Vous ne pouvez pas joindre des machines virtuelles autonomes, des machines virtuelles dans une ressource de groupe à haute disponibilité ou des ressources de groupe de machines virtuelles identiques aux deux références SKU simultanément.  De nouvelles conceptions doivent être envisagées à l’aide des ressources de référence SKU Standard.  Veuillez consulter [Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour plus d’informations.
 
+#### <a name="standard"></a>standard
+
+Les adresses IP publiques de référence SKU standard :
+
+- Utilisent toujours la méthode d’allocation statique.
+- Dotées d’un délai d’inactivité du flux entrant réglable de 4 à 30 minutes, avec une valeur par défaut de 4 minutes et d’un délai d’inactivité du flux sortant fixe de 4 minutes.
+- Sont sécurisées par défaut et fermées au trafic entrant. Vous devez expliciter le trafic entrant autorisé sur liste verte avec un [groupe de sécurité réseau](security-overview.md#network-security-groups).
+- Sont assignées à des interfaces réseau, des équilibreurs de charge publics standard ou des passerelles d’application. Pour plus d’informations sur Standard Load Balancer, consultez [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Peuvent être redondantes interzones ou zonales (peuvent être créées pour une zone et garanties dans une zone de disponibilité spécifique). Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Équilibreur de charge standard et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+ 
+> [!NOTE]
+> La communication entrante avec la ressource de référence SKU standard est possible uniquement si vous créez et associez un [groupe de sécurité réseau](security-overview.md#network-security-groups) et que vous autorisez explicitement le trafic entrant prévu.
+
+> [!NOTE]
+> Seules les adresses IP publiques avec la référence SKU De base sont disponibles lorsque vous utilisez [le service de métadonnées d’instance (IMDS, instance metadata service)](../virtual-machines/windows/instance-metadata-service.md). La référence SKU Standard n’est pas prise en charge.
+
 #### <a name="basic"></a>De base
 
 Toutes les adresses IP publiques créées avant l’introduction de références SKU sont des adresses IP publiques de référence SKU de base. Depuis l’introduction des références SKU, vous avez la possibilité de spécifier quelle référence SKU attribuer à l’adresse IP publique. Les adresses de référence SKU de base sont :
@@ -67,22 +84,6 @@ Toutes les adresses IP publiques créées avant l’introduction de références
 - Ouvertes par défaut.  Il est recommandé d’utiliser des groupes de sécurité réseau, mais cela est facultatif pour restreindre le trafic entrant ou sortant.
 - Sont assignées aux ressources Azure acceptant une adresse IP publique, comme les interfaces réseau, les passerelles VPN, les passerelles Application Gateway et les équilibreurs de charge accessibles sur Internet.
 - Ne gèrent pas les scénarios de zone de disponibilité.  Vous devez utiliser l’adresse IP publique de la référence SKU Standard pour les scénarios de zone de disponibilité. Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Équilibreur de charge standard et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-#### <a name="standard"></a>standard
-
-Les adresses IP publiques de référence SKU standard :
-
-- Utilisent toujours la méthode d’allocation statique.
-- Dotées d’un délai d’inactivité du flux entrant réglable de 4 à 30 minutes, avec une valeur par défaut de 4 minutes et d’un délai d’inactivité du flux sortant fixe de 4 minutes.
-- Sont sécurisées par défaut et fermées au trafic entrant. Vous devez expliciter le trafic entrant autorisé sur liste verte avec un [groupe de sécurité réseau](security-overview.md#network-security-groups).
-- Sont assignées à des interfaces réseau, des équilibreurs de charge publics standard ou des passerelles d’application. Pour plus d’informations sur Standard Load Balancer, consultez [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Sont par défaut redondantes interzones et éventuellement zonales (vous pouvez les créer zonales et les garantir dans une zone de disponibilité spécifique). Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Équilibreur de charge standard et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
- 
-> [!NOTE]
-> La communication entrante avec la ressource de référence SKU standard est possible uniquement si vous créez et associez un [groupe de sécurité réseau](security-overview.md#network-security-groups) et que vous autorisez explicitement le trafic entrant prévu.
-
-> [!NOTE]
-> Seules les adresses IP publiques avec la référence SKU De base sont disponibles lorsque vous utilisez [le service de métadonnées d’instance (IMDS, instance metadata service)](../virtual-machines/windows/instance-metadata-service.md). La référence SKU Standard n’est pas prise en charge.
 
 ### <a name="allocation-method"></a>Méthode d’allocation
 
@@ -138,7 +139,7 @@ Le tableau ci-dessous présente la propriété spécifique par le biais de laque
 | --- | --- | --- | --- |
 | Machine virtuelle |interface réseau |Oui |Oui |
 | Équilibreur de charge accessible sur Internet |Configuration frontale |Oui |Oui |
-| passerelle VPN |Configuration IP de la passerelle |Oui |Non |
+| passerelle VPN |Configuration IP de la passerelle |Oui |Non  |
 | passerelle d’application |Configuration frontale |Oui (V1 uniquement) |Oui (V2 uniquement) |
 
 ## <a name="private-ip-addresses"></a>Adresses IP privées

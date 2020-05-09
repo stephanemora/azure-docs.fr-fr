@@ -1,7 +1,6 @@
 ---
-title: Prise en main de R
-titleSuffix: ML Studio (classic) - Azure
-description: Utilisez ce tutoriel sur la programmation R pour prendre en main l’utilisation du langage R avec Azure Machine Learning Studio (classique) afin de créer une solution de prévision.
+title: Utiliser R avec ML Studio (classique) – Azure
+description: Suivez ce tutoriel sur la programmation R pour commencer à utiliser Azure Machine Learning Studio (classique) dans R afin de créer une solution de prévision.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,21 +9,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 1b347707b3c656bd692a29f0fd748c1503be4fb8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1dcda3efe3872100100d6e85b68a36359b7eab84
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218011"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209500"
 ---
-# <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio-classic"></a>Prise en main du langage de programmation R dans Azure Machine Learning Studio (classique)
+# <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Bien démarrer avec Azure Machine Learning Studio (classique) dans R
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 <!-- Stephen F Elston, Ph.D. -->
-
-## <a name="introduction"></a>Introduction
-
 Ce tutoriel vous aide à vous lancer dans l’extension d’Azure Machine Learning Studio (classique) à l’aide du langage de programmation R. Suivez ce tutoriel sur la programmation R pour créer, tester et exécuter du code R dans Studio (classique). Au cours de ce tutoriel de démarrage rapide, vous allez créer une solution de prévision complète à l’aide du langage R dans Studio (classique).  
 
 Azure Machine Learning Studio (classique) intègre divers modules de machine learning et de manipulation de données très performants. le puissant langage R a été décrit comme la lingua franca de l'analyse. Fort heureusement, l’analytique et la manipulation de données dans Studio (classique) peuvent être étendues grâce au langage R, qui conjugue à la fois la grande facilité de déploiement de Studio (classique) et la souplesse et la capacité d’analytique approfondie du langage R.

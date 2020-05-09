@@ -14,8 +14,13 @@
           href: tutorial-net-windows-virtual-machine.md
         - name: Utiliser Azure Key Vault avec une machine virtuelle Windows dans Python
           href: tutorial-python-windows-virtual-machine.md
-    - name: Utiliser Azure Key Vault avec une application web Azure dans .NET
+    - name: Connecter Key Vault à une application web avec une identité managée et .NET
       href: tutorial-net-create-vault-azure-web-app.md
+- name: Exemples
+  items:
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ../policy-samples.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 - name: Concepts
   items:
     - name: Concepts de base

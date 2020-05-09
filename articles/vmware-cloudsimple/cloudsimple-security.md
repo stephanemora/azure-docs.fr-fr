@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1a33e20ec540a05885eb13a3828d28ffc9923fff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d86c90828c081a542fa5574493a46e8a2e44640
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77024991"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82187475"
 ---
 # <a name="cloudsimple-security-overview"></a>Vue d’ensemble de la sécurité CloudSimple
 
@@ -49,7 +49,7 @@ Pour les données au repos dans l’environnement de cloud privé, vous pouvez u
 
 ### <a name="data-protection-for-data-that-is-required-to-move-through-public-networks"></a>Protection des données requises pour vous déplacer dans les réseaux publics
 
-Pour protéger les données transmises via des réseaux publics, vous pouvez créer des tunnels VPN SSL et IPsec pour vos clouds privés. Les méthodes de chiffrement courantes, comme le chiffrement AES 128 bits ou 256 bits, sont prises en charge. Les données en transit (notamment les données d’authentification, d’accès administrateur et client) sont chiffrées avec des mécanismes de chiffrement standard (SSH, TLS 1.2 et RDP sécurisé). Les communications véhiculant des informations sensibles utilisent des mécanismes de chiffrement standard.
+Pour protéger les données transmises via des réseaux publics, vous pouvez créer des tunnels VPN TLS et IPsec pour vos clouds privés. Les méthodes de chiffrement courantes, comme le chiffrement AES 128 bits ou 256 bits, sont prises en charge. Les données en transit (notamment les données d’authentification, d’accès administrateur et client) sont chiffrées avec des mécanismes de chiffrement standard (SSH, TLS 1.2 et RDP sécurisé). Les communications véhiculant des informations sensibles utilisent des mécanismes de chiffrement standard.
 
 ### <a name="secure-disposal"></a>Élimination en toute sécurité
 

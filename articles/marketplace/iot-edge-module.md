@@ -1,18 +1,18 @@
 ---
-title: Modules Azure IoT Edge
+title: Module IoT Edge de la place de marché Azure
 description: Offre Module IoT Edge sur la Place de marché Microsoft Azure pour les éditeurs de services.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/22/2018
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: aadbf33914f919e393a5ec88cf6fc0a6103911b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 762d9947046f159e992f09211bfcd76ff8d6712e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286147"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81684340"
 ---
 # <a name="iot-edge-modules"></a>Modules IoT Edge
 
@@ -58,7 +58,7 @@ Toutes les conditions des contrats et politiques de la Place de marché Microsof
 
 Pour publier un module IoT Edge sur la Place de marché Microsoft Azure, vous devez satisfaire aux prérequis suivants :
 
-- Accéder au Portail Cloud Partner (CPP). Pour plus d’informations, consultez le [Guide de publication sur AppSource et la Place de marché Azure](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
+- Accès à l’Espace partenaires. Pour plus d’informations, consultez le [Guide de publication sur AppSource et la Place de marché Azure](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
 - Héberger votre module IoT Edge dans un registre de conteneurs Azure. 
 - Disposer des métadonnées de votre module IoT Edge suivantes, (liste non exhaustive) : 
     - Un titre
@@ -71,19 +71,19 @@ Pour publier un module IoT Edge sur la Place de marché Microsoft Azure, vous de
 
 **Exigences techniques**
 
-Les principales exigences techniques pour qu’un module IoT Edge soit certifié et publié sur la Place de marché Azure sont détaillées dans [Préparer vos ressources techniques de module IoT Edge](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets).  
+Les principales exigences techniques pour qu’un module IoT Edge soit certifié et publié sur la Place de marché Azure sont détaillées dans [Préparer vos ressources techniques de module IoT Edge](./partner-center-portal/create-iot-edge-module-asset.md).
 
 ## <a name="documentation-and-resources"></a>Documentation et ressources
 
-[Créer une offre de module IoT Edge](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) : étapes de publication d’une nouvelle offre de module IoT Edge avec le portail de publication cloud.
+[Créer une offre de module IoT Edge](./partner-center-portal/azure-iot-edge-module-creation.md) : étapes de publication d’une nouvelle offre de module IoT Edge dans l’Espace partenaires.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Si vous ne l’avez pas déjà fait,
 
-- [Inscrivez-vous](https://azuremarketplace.microsoft.com/sell) sur la place de marché.
+- [En savoir plus](https://azuremarketplace.microsoft.com/sell) sur la place de marché.
 
-Si vous êtes inscrit et créez une nouvelle offre ou travaillez sur une offre existante,
+Pour vous inscrire dans l’Espace partenaires et commencer à créer une offre ou à en utiliser une existante,
 
-- [Connectez-vous au portail Cloud Partner](https://cloudpartner.azure.com/) pour créer ou terminer votre offre.
-- Pour plus d’informations sur la publication d’une offre de module IoT Edge, consultez [Vue d’ensemble de la publication d’une offre de module Azure IoT Edge](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts).
+- Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) pour créer ou terminer votre offre.
+- Pour plus d’informations sur la publication d’une offre de module IoT Edge, consultez [Créer une offre de module Azure IoT Edge](./partner-center-portal/azure-iot-edge-module-creation.md).
