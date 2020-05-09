@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: dd01b950435fadb96a961b6bb1c6b28ff436907a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 916d34abfaf8223e3cf29977e13dfddf15a3fbf9
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81264949"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607280"
 ---
 # <a name="create-an-fslogix-profile-container-with-azure-files"></a>Créer un conteneur de profil FSLogix avec Azure Files
 
@@ -219,7 +219,7 @@ Maintenant, il ne vous reste plus qu’à vérifier que le profil que vous avez 
 
 Pour vérifier votre profil :
 
-1. Ouvrez un navigateur et accédez au [client web Windows Virtual Desktop](https://rdweb.wvd.microsoft.com/webclient/index.html).
+1. Ouvrez un navigateur et accédez au [client web Windows Virtual Desktop](https://rdweb.wvd.microsoft.com/arm/webclient).
 
 2. Connectez-vous avec le compte d’utilisateur attribué au groupe Bureau à distance.
 

@@ -8,18 +8,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: f049dc6d1261a8201cf79d1779e522b30d13c4b0
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: a55515be478781a2f2448924c209a3348ae462c5
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409443"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133307"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Résoudre les problèmes liés aux requêtes Azure Stream Analytics
 
 Cet article décrit les problèmes courants liés au développement de requêtes Stream Analytics et les procédures à suivre pour les résoudre.
 
-Cet article décrit les problèmes courants liés au développement de requêtes Azure Stream Analytics, ainsi que la façon de résoudre les problèmes de requêtes et de corriger les problèmes. De nombreuses étapes de résolution des problèmes nécessitent que les journaux de diagnostic soient activés pour votre travail Stream Analytics. Si les journaux de diagnostic ne sont pas activés, consultez la section [Résoudre les problèmes liés à Azure Stream Analytics à l’aide des journaux de diagnostic](stream-analytics-job-diagnostic-logs.md).
+Cet article décrit les problèmes courants liés au développement de requêtes Azure Stream Analytics, ainsi que la façon de résoudre les problèmes de requêtes et de corriger les problèmes. De nombreuses étapes de résolution des problèmes nécessitent que les journaux de ressources soient activés pour votre travail Stream Analytics. Si les journaux de ressources ne sont pas activés, consultez la section [Résoudre les problèmes liés à Azure Stream Analytics à l’aide des journaux de ressources](stream-analytics-job-diagnostic-logs.md).
 
 ## <a name="query-is-not-producing-expected-output"></a>La requête ne produit pas la sortie attendue
 
@@ -43,9 +43,9 @@ Cet article décrit les problèmes courants liés au développement de requêtes
 
 5.  Vérifiez que les stratégies d’ordre des événements sont configurées comme prévu. Accédez à **Paramètres** et sélectionnez [**Ordre des événements**](stream-analytics-out-of-order-and-late-events.md). La stratégie n’est *pas* appliquée lorsque vous utilisez le bouton **Test** pour tester la requête. C’est une des différences entre le test en navigateur et l’exécution réelle du travail. 
 
-6. Débogage à l’aide des journaux de diagnostic et d’audit :
-    - Appliquez des filtres aux [journaux d’activité d’audit](../azure-resource-manager/resource-group-audit.md) pour identifier et déboguer les erreurs.
-    - Utilisez les [journaux de diagnostic du travail](stream-analytics-job-diagnostic-logs.md) pour identifier et déboguer les erreurs.
+6. Déboguez à l’aide des journaux d’activité et de ressources :
+    - Utilisez les [journaux d’activité](../azure-resource-manager/resource-group-audit.md) pour identifier et déboguer les erreurs.
+    - Utilisez les [journaux de ressources](stream-analytics-job-diagnostic-logs.md) pour identifier et déboguer les erreurs.
 
 ## <a name="resource-utilization-is-high"></a>L’utilisation des ressources est élevée
 

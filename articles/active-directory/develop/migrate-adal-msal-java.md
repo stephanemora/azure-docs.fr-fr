@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev
-ms.openlocfilehash: 2929b94a2cb624b96649292714fe93dea09a2085
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 7729a30acb1b191378960887164bb4b32e225c36
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886498"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82128002"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Guide de migration ADAL vers MSAL pour Java
 
@@ -42,6 +42,10 @@ Si vous travaillez déjà avec le point de terminaison Azure AD pour développeu
 ## <a name="scopes-not-resources"></a>Étendues au lieu de ressources
 
 ADAL4J acquiert des jetons pour les ressources, tandis que MSAL pour Java en acquiert pour les étendues. Certaines classes MSAL pour Java nécessitent un paramètre d’étendue. Ce paramètre est une liste de chaînes qui déclarent les autorisations souhaitées et les ressources demandées. Découvrez des exemples d’étendues dans l’article [Étendues de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
+
+Vous pouvez ajouter le suffixe d’étendue `/.default` à la ressource pour facilité la migration de vos applications du point de terminaison v1.0 (ADAL) vers le point de terminaison de la Plateforme d’identités Microsoft (MSAL). Par exemple, pour la valeur de ressource `https://graph.microsoft.com`, la valeur d’étendue équivalente est `https://graph.microsoft.com/.default`.  Si la ressource ne se trouve pas dans la forme d’URL, mais dans un ID de ressource de la forme `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`, vous pouvez toujours utiliser la valeur d’étendue `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`.
+
+Pour plus d’informations sur les différents types d’étendues, consultez [Autorisations et consentement dans le point de terminaison de la Plateforme d’identités Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) et les articles [Étendues pour une API web acceptant des jetons v1.0](https://docs.microsoft.com/azure/active-directory/develop/msal-v1-app-scopes).
 
 ## <a name="core-classes"></a>Classes principales
 
@@ -82,7 +86,7 @@ Si vous utilisez l’autorité `https://login.microsoftonline.com/common` dans v
 
 Le point de terminaison v1.0 (utilisé par ADAL) émet uniquement des jetons v1.0.
 
-Le point de terminaison v2.0 (utilisé par MSAL) peut émettre des jetons v1.0 et v2.0. Une propriété du manifeste de l’application de l’API web permet aux développeurs de choisir quelle version du jeton est acceptée. Consultez `accessTokenAcceptedVersion` dans la documentation de référence du [manifeste de l’application](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
+Le point de terminaison v2.0 (utilisé par MSAL) peut émettre des jetons v1.0 et v2.0. Une propriété du manifeste d'application de l'API web permet aux développeurs de choisir quelle version du jeton est acceptée. Consultez `accessTokenAcceptedVersion` dans la documentation de référence du [manifeste de l’application](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
 
 Pour plus d’informations sur les jetons v1.0 et v2.0, consultez [Jetons d’accès Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
 
@@ -109,7 +113,8 @@ PublicClientApplication app = PublicClientApplication.builder(CLIENT_ID) // Clie
 IAuthenticationResult result = app.acquireToken(parameters);
 ```
 
-Le paramètre `IAuthenticationResult` renvoie un jeton d’accès et un jeton d’ID, tandis que votre nouveau jeton d’actualisation est stocké dans le cache. L’application contient également désormais un IAccount :
+Le paramètre `IAuthenticationResult` renvoie un jeton d’accès et un jeton d’ID, tandis que votre nouveau jeton d’actualisation est stocké dans le cache.
+L’application contient également désormais un IAccount :
 
 ```java
 Set<IAccount> accounts =  app.getAccounts().join();
@@ -118,6 +123,6 @@ Set<IAccount> accounts =  app.getAccounts().join();
 Pour utiliser les jetons qui se trouvent désormais dans le cache, appelez :
 
 ```java
-SilentParameters parameters = SilentParameters.builder(scope, accounts.iterator().next()).build(); 
+SilentParameters parameters = SilentParameters.builder(scope, accounts.iterator().next()).build();
 IAuthenticationResult result = app.acquireToken(parameters);
 ```

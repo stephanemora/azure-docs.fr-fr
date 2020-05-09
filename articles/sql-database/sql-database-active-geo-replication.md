@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 04/06/2020
-ms.openlocfilehash: cc9d129894cefaf2fab853d2099d754d68238e5f
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.date: 04/28/2020
+ms.openlocfilehash: 5c55c8076e41f2c4ae19bce5f75600b5872722f6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887348"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232000"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Création et utilisation de la géoréplication active
 
@@ -25,7 +25,12 @@ La géoréplication active est une fonctionnalité Azure SQL Database qui vous p
 > [!NOTE]
 > La géoréplication active n’est pas prise en charge par Managed Instance. Pour le basculement géographique d’instances gérées, utilisez des [groupes de basculement automatique](sql-database-auto-failover-group.md).
 
-La géoréplication active est conçue comme une solution de continuité d’activité qui permet à l’application d’effectuer une reprise d’activité rapide au niveau des bases de données individuelles en cas de panne régionale ou à plus grande échelle. Si la géoréplication est activée, l’application peut lancer le basculement vers une base de données secondaire dans une autre région Azure. Jusqu’à quatre bases de données secondaires sont prises en charge dans des régions identiques ou différentes, et les bases de données secondaires peuvent également servir pour les requêtes d’accès en lecture seule. Le basculement doit être lancé manuellement par l’application ou l’utilisateur. Après le basculement, la nouvelle base de données primaire présente un point de terminaison de connexion différent. Le diagramme suivant illustre la configuration standard d’une application cloud géoredondante avec la géoréplication active.
+La géoréplication active est conçue comme une solution de continuité d’activité qui permet à l’application d’effectuer une reprise d’activité rapide au niveau des bases de données individuelles en cas de panne régionale ou à plus grande échelle. Si la géoréplication est activée, l’application peut lancer le basculement vers une base de données secondaire dans une autre région Azure. Jusqu’à quatre bases de données secondaires sont prises en charge dans des régions identiques ou différentes, et les bases de données secondaires peuvent également servir pour les requêtes d’accès en lecture seule. Le basculement doit être lancé manuellement par l’application ou l’utilisateur. Après le basculement, la nouvelle base de données primaire présente un point de terminaison de connexion différent. 
+
+> [!NOTE]
+> La géoréplication active réplique les modifications en diffusant en continu le journal des transactions de la base de données. Elle n’est pas liée à la [réplication transactionnelle](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication), qui réplique les modifications en exécutant des commandes DML (INSERT, UPDATE, DELETE).
+
+Le diagramme suivant illustre la configuration standard d’une application cloud géoredondante avec la géoréplication active.
 
 ![Géoréplication active](./media/sql-database-active-geo-replication/geo-replication.png )
 
