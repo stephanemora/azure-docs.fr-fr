@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 236f1e4e41488b926d9fc2e5e717e68090a0ed7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d4714a78ed03a9b861f3a266cfd0d7bca456b3c4
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77063966"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628348"
 ---
 # <a name="set-up-security-questions-as-your-verification-method"></a>Configurer des questions de sécurité comme méthode de vérification
 
@@ -55,7 +55,7 @@ Si vous utilisez des questions de sécurité, nous vous recommandons de les util
 
 ### <a name="to-set-up-your-security-questions"></a>Pour configurer vos questions de sécurité
 
-1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page https://myprofile.microsoft.com/.
+1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page https://myaccount.microsoft.com/.
 
     ![Page Mon profil, avec les liens des informations de sécurité mis en évidence](media/security-info/securityinfo-myprofile-page.png)
 

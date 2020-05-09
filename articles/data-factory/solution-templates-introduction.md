@@ -11,15 +11,16 @@ author: djpmsft
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
-ms.openlocfilehash: 14f1d3b58996d438279bfa2a234c754a6d840c79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b5e4512030431b6d2e5d0f849e82a281c882b177
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414735"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628944"
 ---
 # <a name="templates"></a>Modèles
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Les modèles sont des pipelines Azure Data Factory prédéfinis qui permettent de démarrer rapidement avec Data Factory. Ils sont utiles aux débutants qui souhaitent se lancer sans délai. Ces modèles réduisent le temps de développement nécessaire à la création de projets d’intégration de données, améliorant ainsi la productivité des développeurs.
 

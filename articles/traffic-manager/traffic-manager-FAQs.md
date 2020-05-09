@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: rohink
-ms.openlocfilehash: acdac6e3eafc5251ebd31a34bcb9a4db34f0ebbe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad6acbad57df24e5cd78c72c9d00bcd32a83219a
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228049"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731575"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
 
@@ -29,7 +29,7 @@ Comme expliqué dans la section [Fonctionnement de Traffic Manager](../traffic-m
 Par conséquent, Traffic Manager ne fournit pas de point de terminaison ou d’adresse IP pour permettre aux clients de se connecter. Si vous souhaitez une adresse IP statique pour votre service, celle-ci doit être configurée au niveau du service, pas dans Traffic Manager.
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Quels types de trafic peuvent être routés à l’aide de Traffic Manager ?
-Comme expliqué dans [Fonctionnement de Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), un point de terminaison Traffic Manager peut être n’importe quel service orienté Internet hébergé à l’intérieur ou en dehors d’Azure. Par conséquent, Traffic Manager peut acheminer le trafic provenant de l’Internet public vers un ensemble de points de terminaison également orienté Internet. Si vous disposez de points de terminaison à l’intérieur d’un réseau privé (par exemple, une version interne [d’Azure Load Balancer](../load-balancer/concepts-limitations.md#internalloadbalancer)), ou que vos utilisateurs exécutent des requêtes DNS à partir de tels réseaux internes, vous ne pouvez pas utiliser Traffic Manager pour router ce trafic.
+Comme expliqué dans [Fonctionnement de Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), un point de terminaison Traffic Manager peut être n’importe quel service orienté Internet hébergé à l’intérieur ou en dehors d’Azure. Par conséquent, Traffic Manager peut acheminer le trafic provenant de l’Internet public vers un ensemble de points de terminaison également orienté Internet. Si vous disposez de points de terminaison à l’intérieur d’un réseau privé (par exemple, une version interne [d’Azure Load Balancer](../load-balancer/components.md#frontend-ip-configurations)), ou que vos utilisateurs exécutent des requêtes DNS à partir de tels réseaux internes, vous ne pouvez pas utiliser Traffic Manager pour router ce trafic.
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Traffic Manager prend-il en charge les sessions « persistantes » ?
 

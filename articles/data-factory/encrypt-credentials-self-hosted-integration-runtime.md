@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 8ce26360aca8d8408135cbe89aabff4f923013b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cd775c5a3bf367600a4537a9409a9bb8f902f588
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416369"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628978"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Chiffrer des informations d’identification pour vos magasins de données locaux dans Azure Data Factory
 
@@ -25,7 +25,6 @@ ms.locfileid: "81416369"
 Vous pouvez chiffrer et stocker des informations d’identification pour vos magasins de données locaux (services associés avec des informations sensibles) sur une machine avec runtime d’intégration auto-hébergé. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Vous passez un fichier de définition JSON avec des informations d’identification à l’ <br/>applet de commande [**New-AzDataFactoryV2LinkedServiceEncryptedCredential**](/powershell/module/az.datafactory/New-AzDataFactoryV2LinkedServiceEncryptedCredential) pour générer un fichier de définition JSON de sortie avec les informations d’identification chiffrées. Ensuite, utilisez la définition JSON mise à jour pour créer les services liés.
 
