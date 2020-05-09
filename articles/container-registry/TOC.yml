@@ -32,6 +32,11 @@
               href: container-registry-tutorial-deploy-app.md
             - name: 3 - Mettre à jour l’application web
               href: container-registry-tutorial-deploy-update.md
+    - name: Exemples
+      items:
+        - name: Éléments intégrés Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: ./policy-samples.md
     - name: Concepts
       expanded: false
       items:
@@ -82,10 +87,12 @@
               href: container-registry-webhook.md
         - name: Sécurité et authentification
           items:
-            - name: Limiter l’accès à un réseau virtuel (préversion)
-              href: container-registry-vnet.md
             - name: S’intégrer à Azure Private Link (préversion)
               href: container-registry-private-link.md
+            - name: Limiter l’accès à un réseau virtuel (préversion)
+              href: container-registry-vnet.md
+            - name: Chiffrer avec des clés gérées par le client
+              href: container-registry-customer-managed-keys.md
             - name: Accéder derrière un pare-feu
               href: container-registry-firewall-access-rules.md
             - name: Authentification
@@ -110,8 +117,6 @@
               href: container-registry-content-trust.md
             - name: Analyse des images avec Security Center
               href: ../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
-            - name: Chiffrer les données de registre (préversion)
-              href: container-registry-customer-managed-keys.md
         - name: Registres et autres services Azure
           expanded: false
           items:

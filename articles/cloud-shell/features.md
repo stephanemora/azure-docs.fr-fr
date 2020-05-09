@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 78275211b77cb34cf9aa92e44778e5d4d81fffed
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 7490eef7b6203b6bb2623efa4518c7bee5400fb3
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521012"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610766"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Fonctionnalités et outils pour Azure Cloud Shell
 
@@ -72,7 +72,7 @@ Cloud Shell inclut une authentification préconfigurée pour des outils open sou
 |Category   |Nom   |
 |---|---|
 |Outils Linux            |bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
-|Outils Azure            |[Azure CLI](https://github.com/Azure/azure-cli) et [Azure Classic CLI](https://github.com/Azure/azure-xplat-cli)<br> [AZCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [Interface de ligne de commande Azure Functions](https://github.com/Azure/azure-functions-core-tools)<br> [Interface de ligne de commande de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Lot chantier](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
+|Outils Azure            |[Azure CLI](https://github.com/Azure/azure-cli) et [Azure Classic CLI](https://github.com/Azure/azure-xplat-cli)<br> [AZCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)<br> [Interface de ligne de commande Azure Functions](https://github.com/Azure/azure-functions-core-tools)<br> [Interface de ligne de commande de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Lot chantier](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
 |Éditeurs de texte           |code (Éditeur Cloud Shell)<br> Vim<br> nano<br> emacs    |
 |Contrôle de code source         |git                    |
 |Outils de génération            |make<br> maven<br> npm<br> pip         |

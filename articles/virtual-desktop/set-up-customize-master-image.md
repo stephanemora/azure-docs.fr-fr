@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: aba444e618a6ee2c6808b7f6d9d706fdf18fe546
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: fc6eb22f81279003a5355993db231ffec8e31b7d
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209041"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611957"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Préparer et personnaliser une image de disque dur virtuel principale
 
@@ -203,7 +203,7 @@ Les instructions suivantes vous indiqueront comment charger votre image principa
 
 Maintenant que vous avez une image, vous pouvez créer ou mettre à jour des pools d’hôtes. Pour en savoir plus sur la création et la mise à jour des pools d’hôtes, consultez les articles suivants :
 
-- [Créer un pool d’hôtes avec le modèle Azure Resource Manager](create-host-pools-arm-template.md)
+- [Créer un pool d’hôtes avec le modèle Azure Resource Manager](./virtual-desktop-fall-2019/create-host-pools-arm-template.md)
 - [Tutoriel : Créer un pool d’hôtes avec la Place de marché Azure](create-host-pools-azure-marketplace.md)
 - [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md)
 - [Créer un conteneur de profils pour un pool hôte à l’aide d’un partage de fichiers](create-host-pools-user-profile.md)

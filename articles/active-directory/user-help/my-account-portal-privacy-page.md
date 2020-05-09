@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: 94187cc7c0c3500a86d47a5f244457ee020581a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a97b79f7927c56a737723060cd9cb3218b12bf55
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77062436"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625491"
 ---
 # <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Afficher la façon dont votre organisation utilise vos données relatives à la confidentialité
 
@@ -24,7 +24,7 @@ Vous pouvez voir comment votre organisation utilise vos données sur la page **C
 
 ## <a name="view-your-privacy-related-info"></a>Afficher vos informations de confidentialité
 
-1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page https://myprofile.microsoft.com/.
+1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page https://myaccount.microsoft.com/.
 
 2. Sélectionnez **Confidentialité** dans le volet de navigation gauche ou sélectionnez le lien **Vérifier la déclaration de confidentialité** à partir du bloc **Confidentialité**.
 
