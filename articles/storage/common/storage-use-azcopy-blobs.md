@@ -8,12 +8,12 @@ ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 73685f124f93bb541f33b3b70727d90ce22b3cdd
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: b676c2647fbf7c93d271e1d7f68653452125e39b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81263435"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82137193"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transférer des données avec AzCopy et le stockage Blob
 
@@ -64,7 +64,6 @@ Cette section contient les exemples suivants :
 > |---|---|
 > |Charger des fichiers sous forme d’objets blob d’ajout ou de pages|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
 > |Effectuer un chargement sur un niveau d’accès spécifique (tel que le niveau Archive)|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
-> |Décompresser automatiquement les fichiers|**--decompress**=\[gzip\|deflate\]|
 > 
 > Pour obtenir la liste complète, consultez [Options](storage-ref-azcopy-copy.md#options).
 
@@ -159,7 +158,7 @@ Cette section contient les exemples suivants :
 >
 > |Scénario|Indicateur|
 > |---|---|
-> |Décompresser automatiquement les fichiers|**--decompress**=\[gzip\|deflate\]|
+> |Décompresser automatiquement les fichiers|**DECOMPRESS**|
 > |Spécifier le niveau de détail des entrées de journal liées à la copie|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
 > |Spécifier s’il faut remplacer les fichiers et objets blob en conflit dans la destination, et comment le faire|**--overwrite**=\[true\|false\|ifSourceNewer\|prompt\]|
 > 

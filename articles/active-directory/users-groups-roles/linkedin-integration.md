@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54e3821d269d11397ec4f9f5833e33ac6b555abc
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: faa80bf09113786e35a6ce98157f18639e30d210
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80755122"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582645"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Intégrer des connexions de compte LinkedIn dans Azure Active Directory
 
@@ -30,8 +30,8 @@ Vous pouvez autoriser des utilisateurs de votre organisation à accéder à leur
 > Exceptions :
 >
 > * Le paramètre n’est pas disponible pour les clients qui utilisent Microsoft Cloud for US Government, Microsoft Cloud Germany ou Azure et Office 365 gérés par 21Vianet en Chine.
-> * Le paramètre est désactivé par défaut pour les locataires approvisionnés en Allemagne. Notez que le paramètre n’est pas disponible pour les clients qui utilisent Microsoft Cloud Germany.
-> * Le paramètre est désactivé par défaut pour les locataires approvisionnés en France.
+> * Le paramètre est désactivé par défaut pour les organisations Azure AD provisionnées en Allemagne. Notez que le paramètre n’est pas disponible pour les clients qui utilisent Microsoft Cloud Germany.
+> * Le paramètre est désactivé par défaut pour les organisations provisionnées en France.
 >
 > Une fois les connexions de compte LinkedIn activées pour votre organisation, elles fonctionnent après que les utilisateurs ont consenti à ce que des applications accèdent aux données de l’entreprise en leur nom. Pour plus d’informations sur le paramètre de consentement de l’utilisateur, voir [Comment supprimer l’accès d’un utilisateur à une application](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
 

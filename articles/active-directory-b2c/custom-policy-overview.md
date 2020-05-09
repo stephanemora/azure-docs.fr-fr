@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f72aedb010301f9c7b12778432c4f10feb10f7a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f18f44208b97ab5bc8d9cd9ff01d604c62deb963
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225489"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81678162"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Stratégies personnalisées dans Azure Active Directory B2C
 
@@ -43,7 +43,9 @@ Les trois types suivants de fichiers de stratégie sont utilisés :
 - **Fichier d’extensions** - contient les modifications de configuration propres à votre client.
 - **Fichier de la partie de confiance (RP)** - le seul fichier centré sur les tâches appelé directement par l’application ou le service (la partie de confiance). Chaque tâche unique nécessite sa propre partie de confiance et, en fonction des exigences de personnalisation, le nombre peut être « le nombre total d’applications multiplié par le nombre total de cas d’utilisation ».
 
-Les flux d’utilisateur dans Azure AD B2C suivent le modèle à trois fichiers décrit ci-dessus, mais le développeur ne voit que le fichier RP, tandis que le portail Azure modifie en arrière-plan le fichier d’extensions.
+Les flux d’utilisateur dans Azure AD B2C suivent le modèle de fichier décrit ci-dessus. Cependant, le développeur ne voit que le fichier RP, tandis que le Portail Azure modifie en arrière-plan le fichier Extensions.
+
+Bien qu’il existe trois types de fichiers de stratégie, le nombre de fichiers n’est pas limité à trois. Il peut y avoir plusieurs fichiers de chaque type. Par exemple, si vous ne souhaitez pas apporter de modifications à votre fichier Extensions, vous pouvez créer un fichier Extensions2 pour étendre le fichier Extensions.
 
 ## <a name="custom-policy-core-concepts"></a>Concepts fondamentaux des stratégies personnalisées
 

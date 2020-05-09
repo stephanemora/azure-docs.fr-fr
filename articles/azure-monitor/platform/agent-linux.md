@@ -7,10 +7,10 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
 ms.openlocfilehash: 9807d6eeb07b953ab75b328ce64c5166ca52dd2a
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80637521"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Connecter des ordinateurs Linux à Azure Monitor
@@ -93,7 +93,7 @@ L’agent Log Analytics pour Linux est fourni dans un groupe de scripts shell à
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-    Si une authentification est requise, vous devez spécifier le nom d'utilisateur et le mot de passe. Par exemple : 
+    Si une authentification est requise, vous devez spécifier le nom d'utilisateur et le mot de passe. Par exemple :  
     
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>

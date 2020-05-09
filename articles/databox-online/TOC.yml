@@ -43,12 +43,12 @@
               href: data-box-gateway-manage-access-power-connectivity-mode.md
             - name: Via PowerShell
               href: data-box-gateway-connect-powershell-interface.md
-        - name: Superviser
+        - name: Moniteur
           href: data-box-gateway-monitor.md
         - name: Dépanner
           href: data-box-gateway-troubleshoot.md
         - name: Contacter le support Microsoft
-          href: data-box-edge-contact-microsoft-support.md
+          href: azure-stack-edge-contact-microsoft-support.md
     - name: Notes de publication
       items:
         - name: 1911 - Actuel
@@ -64,59 +64,59 @@
     - name: Vue d’ensemble
       items:
         - name: "Qu’est-ce qu’Azure Stack Edge\_?"
-          href: data-box-edge-overview.md
+          href: azure-stack-edge-overview.md
     - name: Tutoriels
       items:
         - name: '1 : Préparer'
-          href: data-box-edge-deploy-prep.md
+          href: azure-stack-edge-deploy-prep.md
         - name: '2 : Installer'
-          href: data-box-edge-deploy-install.md
+          href: azure-stack-edge-deploy-install.md
         - name: '3 : Connecter, configurer, activer'
-          href: data-box-edge-deploy-connect-setup-activate.md
+          href: azure-stack-edge-deploy-connect-setup-activate.md
         - name: '4 : Ajouter, connecter pour partager'
-          href: data-box-edge-deploy-add-shares.md
+          href: azure-stack-edge-deploy-add-shares.md
         - name: 5A - Configurer le calcul (simple)
-          href: data-box-edge-deploy-configure-compute.md
+          href: azure-stack-edge-deploy-configure-compute.md
         - name: 5B - Configurer le calcul (avancé)
-          href: data-box-edge-deploy-configure-compute-advanced.md
+          href: azure-stack-edge-deploy-configure-compute-advanced.md
     - name: Concepts
       items:
         - name: Examiner les conditions requises
-          href: data-box-edge-system-requirements.md
+          href: azure-stack-edge-system-requirements.md
         - name: Comprendre les limites
-          href: data-box-edge-limits.md
+          href: azure-stack-edge-limits.md
         - name: Présentation de la sécurité
-          href: data-box-edge-security.md
+          href: azure-stack-edge-security.md
         - name: Consulter les spécifications
-          href: data-box-edge-technical-specifications-compliance.md
+          href: azure-stack-edge-technical-specifications-compliance.md
     - name: Procédures
       items:
         - name: "Développer un module\_C#"
-          href: data-box-edge-create-iot-edge-module.md
+          href: azure-stack-edge-create-iot-edge-module.md
         - name: Gérer
           items:
             - name: Computing en périphérie
-              href: data-box-edge-manage-compute.md
+              href: azure-stack-edge-manage-compute.md
             - name: Réseau du computing en périphérie
-              href: data-box-edge-extend-compute-access-modules.md
+              href: azure-stack-edge-extend-compute-access-modules.md
             - name: Partages
-              href: data-box-edge-manage-shares.md
+              href: azure-stack-edge-manage-shares.md
             - name: Utilisateurs
-              href: data-box-edge-manage-users.md
+              href: azure-stack-edge-manage-users.md
             - name: Planifications de la bande passante
-              href: data-box-edge-manage-bandwidth-schedules.md
+              href: azure-stack-edge-manage-bandwidth-schedules.md
             - name: 'Alimentation, accès et connectivité'
-              href: data-box-edge-manage-access-power-connectivity-mode.md
+              href: azure-stack-edge-manage-access-power-connectivity-mode.md
             - name: Via PowerShell
-              href: data-box-edge-connect-powershell-interface.md
+              href: azure-stack-edge-connect-powershell-interface.md
         - name: Dépanner
-          href: data-box-edge-troubleshoot.md
+          href: azure-stack-edge-troubleshoot.md
         - name: Contacter le support Microsoft
-          href: data-box-edge-contact-microsoft-support.md
-        - name: Superviser
-          href: data-box-edge-monitor.md
+          href: azure-stack-edge-contact-microsoft-support.md
+        - name: Moniteur
+          href: azure-stack-edge-monitor.md
         - name: Retourner ou remplacer un appareil
-          href: data-box-edge-return-device.md
+          href: azure-stack-edge-return-device.md
     - name: Notes de publication
       items:
         - name: 1911 - Actuel
