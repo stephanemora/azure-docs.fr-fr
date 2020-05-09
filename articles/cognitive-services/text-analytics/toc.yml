@@ -52,6 +52,8 @@
       href: language-support.md
     - name: Décalages de texte
       href: concepts/text-offsets.md
+    - name: Limites de données
+      href: concepts/data-limits.md
 - name: Guides pratiques
   items:
     - name: Appeler l’API Text Analytics

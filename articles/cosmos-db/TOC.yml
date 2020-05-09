@@ -972,10 +972,14 @@
               href: sql-api-query-metrics.md
             - name: Conseils en matière de performances pour le Kit de développement logiciel (SDK) .NET
               href: performance-tips.md
-            - name: Conseils en matière de performances pour le Kit de développement logiciel (SDK) Java
-              href: performance-tips-java.md
-            - name: Conseils en matière de performances pour le Kit de développement logiciel (SDK) Async Java
-              href: performance-tips-async-java.md
+            - name: "Conseils en performances pour le kit SDK Java\_v4"
+              href: performance-tips-java-sdk-v4-sql.md
+            - name: Conseils en performances pour les kits SDK Java plus anciens
+              items:
+                - name: Kit SDK Java asynchrone v2
+                  href: performance-tips-async-java.md
+                - name: Kit SDK Java synchrone v2
+                  href: performance-tips-java.md
             - name: Test de performances - application exemple
               href: performance-testing.md
         - name: Écritures et lectures rentables
@@ -984,8 +988,12 @@
       items:
         - name: Dépannage de la performance des requêtes
           href: troubleshoot-query-performance.md
-        - name: Résoudre les problèmes du Kit de développement logiciel (SDK) Java Async
-          href: troubleshoot-java-async-sdk.md
+        - name: Résoudre les problèmes du kit SDK Java v4
+          href: troubleshoot-java-sdk-v4-sql.md
+        - name: Résoudre les problèmes des kits SDK Java plus anciens
+          items:
+            - name: Kit SDK Java asynchrone v2
+              href: troubleshoot-java-async-sdk.md
         - name: Résoudre les problèmes du kit SDK .NET
           href: troubleshoot-dot-net-sdk.md
     - name: Modifier le flux

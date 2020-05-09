@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 433f5885c7f057226e78c4ae57e03d7619004d21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 021e680a2ca5f7c00f113c4a17421b2648ca6230
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229741"
+ms.lasthandoff: 04/26/2020
+ms.locfileid: "82159981"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>FAQ sur les performances des applications web Azure dans Azure
 
@@ -46,7 +46,7 @@ Vous pouvez utiliser les applets de commande PowerShell pour gérer et mettre à
 
 Pour afficher les journaux des événements de votre application web :
 
-1. Connectez-vous à votre [site web Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Connectez-vous à votre **site web Kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
 2. Dans le menu, sélectionnez **Console de débogage** > **CMD**.
 3. Sélectionnez le dossier **LogFiles**.
 4. Pour afficher les journaux des événements, sélectionnez l’icône en forme de crayon en regard de **eventlog.xml**.
@@ -56,7 +56,7 @@ Pour afficher les journaux des événements de votre application web :
 
 Pour capturer un vidage de mémoire en mode utilisateur de votre application web :
 
-1. Connectez-vous à votre [site web Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Connectez-vous à votre **site web Kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
 2. Sélectionnez le menu **Explorateur de processus**.
 3. Cliquez avec le bouton droit sur le menu **w3wp.exe** ou sur votre processus WebJob.
 4. Sélectionnez **Télécharger le vidage de mémoire** > **Vidage complet**.
@@ -69,7 +69,7 @@ Vous avez deux options pour afficher les informations au niveau processus pour v
     1. Ouvrez l **’Explorateur de processus** pour l’application web.
     2. Pour afficher les détails, sélectionnez le processus **w3wp.exe**.
 *   Dans la console Kudu :
-    1. Connectez-vous à votre [site web Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
+    1. Connectez-vous à votre **site web Kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
     2. Sélectionnez le menu **Explorateur de processus**.
     3. Pour le processus **w3wp.exe**, sélectionnez **Propriétés**.
 

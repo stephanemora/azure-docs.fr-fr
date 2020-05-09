@@ -8,16 +8,16 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: 673c6e2ed0aedcc186baf8c7e1884dd537f9567d
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: f435a33befdde96a92c900663a2ddcca1d319260
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81459846"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82201191"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Qu’est-ce qu’Azure Stream Analytics ?
 
-Azure Stream Analytics est un moteur complexe d’analyse et de traitement d’événements en temps réel conçu pour analyser et traiter de grands volumes de données diffusées, ou de données diffusées rapidement à partir de nombreuses sources à la fois. Les modèles et les relations peuvent être identifiés dans des informations extraites de plusieurs sources d’entrée, notamment des appareils, des capteurs, des journaux de parcours de site web, des flux de médias sociaux et des applications. Ces modèles peuvent être utilisés pour déclencher des actions est initier des flux de travail, comme la création d’alertes, l’envoi d’informations vers un outil de création de rapports ou bien le stockage pour une utilisation ultérieure. En outre, Stream Analytics est disponible sur le runtime Azure IoT Edge et prend en charge exactement le même langage ou la même syntaxe que le cloud. 
+Azure Stream Analytics est un moteur complexe d’analyse et de traitement d’événements en temps réel conçu pour analyser et traiter de grands volumes de données diffusées, ou de données diffusées rapidement à partir de nombreuses sources à la fois. Les modèles et les relations peuvent être identifiés dans des informations extraites de plusieurs sources d’entrée, notamment des appareils, des capteurs, des journaux de parcours de site web, des flux de médias sociaux et des applications. Ces modèles peuvent être utilisés pour déclencher des actions est initier des workflows, comme la création d’alertes, l’envoi d’informations à un outil de création de rapports ou bien le stockage de données transformées pour une utilisation ultérieure. En outre, Stream Analytics est disponible sur le runtime Azure IoT Edge et prend en charge exactement le même langage ou la même syntaxe que le cloud. 
 
 Les scénarios suivants sont des exemples d’utilisation d’Azure Stream Analytics :
 

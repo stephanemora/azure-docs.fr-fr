@@ -5,14 +5,14 @@ keywords: app service, azure app service, mappage de domaine, nom de domaine, do
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/06/2019
+ms.date: 04/27/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: adc9b60ce1c31076a91ec44b9656752b464e024d
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 116ec218b1f3947b85b4ab865df30477f05c601a
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811785"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559889"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutoriel : Mapper un nom DNS personnalisé existant à Azure App Service
 
@@ -93,6 +93,12 @@ Lorsque la notification suivante s’affiche, cela signifie que l’opération e
 
 <a name="cname" aria-hidden="true"></a>
 
+## <a name="get-domain-verification-id"></a>Obtenir l’ID de vérification du domaine
+
+Pour ajouter un domaine personnalisé à votre application, vous devez vérifier votre propriété du domaine, en ajoutant un ID de vérification sous forme d’enregistrement TXT avec votre fournisseur de domaine. Dans le volet de navigation de gauche de la page de votre application, cliquez sur l’**Explorateur de ressources** sous **Outils de développement**, puis cliquez sur **Atteindre**.
+
+Dans la vue JSON des propriétés de votre application, recherchez `customDomainVerificationId` et copiez sa valeur à l’intérieur des guillemets doubles. Vous avez besoin de cet ID de vérification pour l’étape suivante.
+
 ## <a name="map-your-domain"></a>Mapper votre domaine
 
 Vous pouvez utiliser un **enregistrement CNAME** ou un **enregistrement A** pour mapper un nom DNS personnalisé à App Service. Suivez les étapes respectives :
@@ -114,11 +120,14 @@ Dans l’exemple de ce didacticiel, vous ajoutez un enregistrement CNAME pour le
 
 #### <a name="create-the-cname-record"></a>Créer un enregistrement CNAME
 
-Ajoutez un enregistrement CNAME pour mapper un sous-domaine au nom de domaine par défaut de l’application (`<app_name>.azurewebsites.net`, où `<app_name>` est le nom de votre application).
+Mappez un sous-domaine au nom de domaine par défaut de l’application (`<app_name>.azurewebsites.net`, sachant que `<app_name>` est le nom de votre application). Pour créer un mappage CNAME pour le sous-domaine `www`, créez deux enregistrements :
 
-Pour l’exemple de domaine `www.contoso.com`, ajoutez un enregistrement CNAME qui mappe le nom `www` à `<app_name>.azurewebsites.net`.
+| Type d’enregistrement | Host | Valeur | Commentaires |
+| - | - | - |
+| CNAME | `www` | `<app_name>.azurewebsites.net` | Le mappage de domaine lui-même. |
+| TXT | `asuid.www` | [L’ID de vérification que vous avez obtenu précédemment](#get-domain-verification-id). | App Service accède à l’enregistrement TXT `asuid.<subdomain>` pour vérifier votre propriété du domaine personnalisé. |
 
-Après avoir ajouté l’enregistrement CNAME, la page d’enregistrements DNS ressemble à l’exemple suivant :
+Après avoir ajouté les enregistrements CNAME et TXT, la page d’enregistrements DNS ressemble à l’exemple suivant :
 
 ![Navigation au sein du portail pour accéder à l’application Azure](./media/app-service-web-tutorial-custom-domain/cname-record.png)
 
@@ -183,17 +192,12 @@ Dans la page **Domaines personnalisés**, copiez l’adresse IP de l’applicat
 
 #### <a name="create-the-a-record"></a>Créer l’enregistrement A
 
-Pour mapper un enregistrement A à une application, App Service a besoin de **deux** enregistrements DNS :
+Pour mapper un enregistrement A à une application, généralement vers le domaine racine, créez deux enregistrements :
 
-- Un enregistrement **A** pour effectuer un mappage vers l’adresse IP de l’application.
-- Un enregistrement **TXT** pour effectuer un mappage vers le nom de domaine par défaut de l’application `<app_name>.azurewebsites.net`. App Service utilise cet enregistrement uniquement au moment de la configuration, pour vérifier que vous possédez le domaine personnalisé. Une fois votre domaine personnalisé validé et configuré dans App Service, vous pourrez supprimer cet enregistrement TXT.
-
-Pour l’exemple de domaine `contoso.com`, créez les enregistrements A et TXT d’après le tableau suivant (`@` représente généralement le domaine racine).
-
-| Type d’enregistrement | Host | Valeur |
+| Type d’enregistrement | Host | Valeur | Commentaires |
 | - | - | - |
-| Un | `@` | Adresse IP de [Copier l’adresse IP de l’application](#info) |
-| TXT | `@` | `<app_name>.azurewebsites.net` |
+| Un | `@` | Adresse IP de [Copier l’adresse IP de l’application](#info) | Le mappage de domaine lui-même (`@` représente généralement le domaine racine). |
+| TXT | `asuid` | [L’ID de vérification que vous avez obtenu précédemment](#get-domain-verification-id). | App Service accède à l’enregistrement TXT `asuid.<subdomain>` pour vérifier votre propriété du domaine personnalisé. Pour le domaine racine, utilisez `asuid`. |
 
 > [!NOTE]
 > Pour ajouter un sous-domaine (comme `www.contoso.com`) à l’aide d’un enregistrement A au lieu d’un [enregistrement CNAME](#map-a-cname-record) recommandé, votre enregistrement A et votre enregistrement TXT doivent plutôt se présenter comme dans le tableau suivant :
@@ -201,7 +205,7 @@ Pour l’exemple de domaine `contoso.com`, créez les enregistrements A et TXT 
 > | Type d’enregistrement | Host | Valeur |
 > | - | - | - |
 > | Un | `www` | Adresse IP de [Copier l’adresse IP de l’application](#info) |
-> | TXT | `www` | `<app_name>.azurewebsites.net` |
+> | TXT | `asuid.www` | `<app_name>.azurewebsites.net` |
 >
 
 Après avoir ajouté l’enregistrement CNAME, la page d’enregistrements DNS ressemble à l’exemple suivant :

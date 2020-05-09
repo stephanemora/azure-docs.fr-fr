@@ -6,42 +6,45 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: cdae6a3b7319aefa9d4f19b5d613d1afb8b6804a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b169a067f05de422b714e18a4d7ebb9c9e7f0428
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235321"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82133502"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Comparaison des fonctionnalités Azure Stream Analytics
 
 Avec Azure Stream Analytics, vous pouvez créer des solutions de diffusion en continu dans le cloud et IoT Edge à l’aide du [portail Azure](stream-analytics-quick-create-portal.md), de [Visual Studio](stream-analytics-quick-create-vs.md), et de [Visual Studio Code](quick-create-vs-code.md). Les tableaux de cet article indiquent les fonctionnalités prises en charge par chaque plateforme pour les deux types de tâches.
+
+> [!NOTE]
+> Les outils Visual Studio et Visual Studio Code ne prennent pas en charge les travaux dans les régions Chine Est, Chine Nord, Allemagne Centre et Allemagne Nord-Est.
 
 ## <a name="cloud-job-features"></a>Fonctionnalités des tâches du cloud
 
 
 |Fonctionnalité  |Portail  |Visual Studio  |Visual Studio Code  |
 |---------|---------|---------|---------|
-|Multiplateforme     |Mac</br>Linux</br>Windows         |Windows        |Mac</br>Linux</br>Windows          |
+|Multiplateforme     |Mac</br>Linux</br> Windows         | Windows        |Mac</br>Linux</br> Windows          |
 |Création de script     |Oui         |Oui         |Oui         |
 |Script Intellisense     |Mise en surbrillance de la syntaxe         |Mise en surbrillance de la syntaxe</br>Complétion de code</br>Marqueur d’erreur         |Mise en surbrillance de la syntaxe</br>Complétion de code</br>Marqueur d’erreur         |
 |Définir tous les types d'entrées, de sorties et de configurations de projet     |Oui         |Oui         |Oui         |
-|Contrôle de code source     |Non         |Oui         |Oui         |
+|Contrôle de code source     |Non          |Oui         |Oui         |
 |Prise en charge de CI/CD     |Partiel         |Oui         |Oui         |
-|Partager des entrées et des sorties entre plusieurs requêtes     |Non         |Oui         |Oui         |
+|Partager des entrées et des sorties entre plusieurs requêtes     |Non          |Oui         |Oui         |
 |Test de requête avec un exemple de fichier     |Oui         |Oui        |Oui         |
-|Test local des données actives     |Non         |Oui       |Oui      |
+|Test local des données actives     |Non          |Oui       |Oui      |
 |Répertorier les travaux et afficher les entités de travail     |Oui         |Oui        |Oui         |
-|Exporter un travail vers un projet local     |Non         |Oui         |Oui         |
+|Exporter un travail vers un projet local     |Non          |Oui         |Oui         |
 |Envoyer, lancer et arrêter des tâches     |Oui         |Oui         |Oui         |
 |Afficher les métriques de tâche et le diagramme     |Oui         |Oui         |Ouvrir dans le portail         |
-|Afficher les erreurs d’exécution de tâches     |Oui         |Oui         |Non         |
-|Journaux de diagnostic     |Oui         |Non         |Non         |
-|Propriétés de message personnalisées     |Oui         |Oui         |Non       |
-|Fonction de code personnalisé C# et désérialiseur|Mode Lecture seule|Oui|Non|
+|Afficher les erreurs d’exécution de tâches     |Oui         |Oui         |Non          |
+|Journaux d’activité de ressources     |Oui         |Non          |Non          |
+|Propriétés de message personnalisées     |Oui         |Oui         |Non        |
+|Fonction de code personnalisé C# et désérialiseur|Mode Lecture seule|Oui|Non |
 |UDF et UDA JavaScript     |Oui         |Oui         |Windows uniquement         |
-|Machine Learning Service     |Oui        |Oui         |Non         |
-|Machine Learning Studio     |Oui, mais la requête ne peut pas être testée        |Oui |Non         |
+|Machine Learning Service     |Oui        |Oui         |Non          |
+|Machine Learning Studio     |Oui, mais la requête ne peut pas être testée        |Oui |Non          |
 |Niveau de compatibilité     |1.0</br>1.1</br>1.2 (valeur par défaut)         |1.0</br>1.1</br>1.2 (valeur par défaut)           |1.0</br>1.1</br>1.2 (valeur par défaut)           |
 |Fonctions de détection d’anomalie ML intégrées     |Oui         |Oui         |Oui         |
 |Fonctions géospatiales intégrées     |Oui         |Oui         |Oui         |
@@ -52,17 +55,17 @@ Avec Azure Stream Analytics, vous pouvez créer des solutions de diffusion en co
 
 |Fonctionnalité  |Portail  |Visual Studio  |Visual Studio Code  |
 |---------|---------|---------|---------|
-|Création de tâches     |Oui         |Oui         |Non         |
-|Contrôle de code source     |Non         |Oui         |Non         |
-|Exporter un travail vers un projet local     |Non         |Oui         |Non         |
-|Test de requête avec un exemple de fichier     |Oui         |Oui         |Non         |
-|Partager des entrées et des sorties entre plusieurs requêtes     |Non         |Oui         |Non         |
-|C# UDF     |Non         |Oui         |Non         |
-|Soumettre les travaux     |Oui         |Oui         |Non         |
-|Répertorier les travaux et afficher les entités de travail     |Oui         |Oui         |Non         |
-|Afficher les métriques de tâche et le diagramme     |Oui         |Partiel         |Non         |
-|Afficher les erreurs d’exécution de tâches     |Oui         |Partiel         |Non         |
-|Prise en charge de CI/CD     |Non         |Non         |Non         |
+|Création de tâches     |Oui         |Oui         |Non          |
+|Contrôle de code source     |Non          |Oui         |Non          |
+|Exporter un travail vers un projet local     |Non          |Oui         |Non          |
+|Test de requête avec un exemple de fichier     |Oui         |Oui         |Non          |
+|Partager des entrées et des sorties entre plusieurs requêtes     |Non          |Oui         |Non          |
+|C# UDF     |Non          |Oui         |Non          |
+|Soumettre les travaux     |Oui         |Oui         |Non          |
+|Répertorier les travaux et afficher les entités de travail     |Oui         |Oui         |Non          |
+|Afficher les métriques de tâche et le diagramme     |Oui         |Partiel         |Non          |
+|Afficher les erreurs d’exécution de tâches     |Oui         |Partiel         |Non          |
+|Prise en charge de CI/CD     |Non          |Non          |Non          |
 
 
 ## <a name="next-steps"></a>Étapes suivantes
