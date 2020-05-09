@@ -4,12 +4,12 @@ description: Si votre adresse IP SSL va être modifiée, découvrez les choses �
 ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
-ms.openlocfilehash: 34f35eb67cada6066e35227fcd6a0eaf425ac007
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dcfe11bcab25f6267a557de5faf7befab467bc29
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74672407"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81535721"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>Comment se préparer à un changement d’adresse IP SSL
 
@@ -25,7 +25,7 @@ Si vous avez reçu une notification indiquant la modification de l’adresse IP 
 
 4.  Sous l’en-tête **Paramètres**, cliquez sur **Paramètres SSL** dans le volet de navigation gauche.
 
-1. Dans la section Liaisons SSL, sélectionnez l’enregistrement du nom d’hôte. Dans l’éditeur qui s’ouvre, choisissez **SNI SSL** dans le menu déroulant **Type SSL** et cliquez sur **Ajouter une liaison**. Lorsque le message de réussite d’opération s’affiche, l’adresse IP existante a été libérée.
+1. Dans la section Liaisons TLS/SSL, sélectionnez l’enregistrement du nom d’hôte. Dans l’éditeur qui s’ouvre, choisissez **SNI SSL** dans le menu déroulant **Type SSL** et cliquez sur **Ajouter une liaison**. Lorsque le message de réussite d’opération s’affiche, l’adresse IP existante a été libérée.
 
 6.  Dans la section **liaisons SSL**, sélectionnez à nouveau le même enregistrement de nom d’hôte avec le certificat. Dans l’éditeur qui s’ouvre, choisissez cette fois **SSL sur IP** dans le menu déroulant **Type SSL** et cliquez sur **Ajouter une liaison**. Lorsque vous voyez le message de réussite d’opération, vous avez acquis une nouvelle adresse IP.
 
@@ -45,4 +45,4 @@ Si vous avez reçu une notification indiquant la modification de l’adresse IP 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article a expliqué comment se préparer à un changement d’adresse IP initié par Azure. Pour plus d’informations sur les adresses IP dans Azure App Service, consultez [SSL and SSL IP addresses in Azure App Service](overview-inbound-outbound-ips.md) (SSL et adresses IP SSL dans Azure App Service).
+Cet article a expliqué comment se préparer à un changement d’adresse IP initié par Azure. Pour plus d’informations sur les adresses IP dans Azure App Service, consultez [Inbound and Inbound IP addresses in Azure App Service](overview-inbound-outbound-ips.md) (Entrées et adresses IP entrantes dans Azure App Service).
