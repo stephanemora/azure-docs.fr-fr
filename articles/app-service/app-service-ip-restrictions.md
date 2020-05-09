@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a02c099871ce9748f4c5f604900a7c4d57bb96b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 298555da2056bc4c16d4d7b16615604f9798b91b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473521"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81639266"
 ---
-# <a name="azure-app-service-access-restrictions"></a>Restrictions d’accès dans Azure App Service #
+# <a name="azure-app-service-access-restrictions"></a>Restrictions d’accès dans Azure App Service
 
 Les restrictions d’accès permettent de définir une liste verte/d’exclusion classée par ordre de priorité qui contrôle l’accès réseau à votre application. La liste peut inclure des adresses IP ou des sous-réseaux de Réseau virtuel Microsoft Azure. Lorsqu’il y a une ou plusieurs entrées, il existe une règle implicite « Tout refuser » qui se trouve à la fin de la liste.
 
@@ -74,7 +74,7 @@ Pour supprimer une règle, cliquez sur les trois points ( **...** ) dans votre r
 
 ![supprimer une règle de restriction d’accès](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
-## <a name="blocking-a-single-ip-address"></a>Bloquer une adresse IP unique ##
+## <a name="blocking-a-single-ip-address"></a>Blocage d’une adresse IP unique ##
 
 Lorsque vous ajoutez votre première règle de restriction IP, le service ajoute une règle **Tout refuser** ayant la priorité 2147483647. Dans la pratique, la règle explicite **Tout refuser** est la dernière règle exécutée et bloque l’accès à toute adresse IP n’étant pas autorisée de manière explicite par une règle **Autoriser**.
 
@@ -125,12 +125,12 @@ La syntaxe JSON de l’exemple précédent est la suivante :
 }
 ```
 
-## <a name="azure-function-app-access-restrictions"></a>Restrictions d’accès dans Azure Function App
+## <a name="azure-functions-access-restrictions"></a>Restrictions d’accès Azure Functions
 
-Les restrictions d’accès sont également disponibles pour les applications de fonctions avec la même fonctionnalité que les plans App Service. L’activation des restrictions d’accès désactive l’éditeur de code du portail pour les adresses IP non autorisées.
+Les restrictions d’accès sont également disponibles pour les applications de fonctions, avec les mêmes fonctionnalités que les plans App Service. L’activation des restrictions d’accès désactive l’éditeur de code du portail pour les adresses IP non autorisées.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Restrictions d’accès pour Azure Function Apps](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
+[Restrictions d’accès pour Azure Functions](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
 
 [Intégration d’Application Gateway par des points de terminaison de service](networking/app-gateway-with-service-endpoints.md)
 

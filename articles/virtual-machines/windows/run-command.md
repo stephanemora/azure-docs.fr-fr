@@ -2,18 +2,18 @@
 title: Exécuter des scripts PowerShell dans une machine virtuelle Windows dans Azure
 description: Cette rubrique explique comment exécuter des scripts PowerShell au sein d’une machine virtuelle Windows Azure à l’aide de la fonctionnalité Run Command
 services: automation
-ms.service: automation
+ms.service: virtual-machines
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
-ms.topic: article
+ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: fa7f72989d47499127714eddfa6b5e98aa80178c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4e318281da5cd704d9fbf13c96cbec0a2d1b1b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73749227"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82143777"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Exécuter des scripts PowerShell dans votre machine virtuelle Windows à l’aide de Run Command
 
@@ -58,7 +58,7 @@ The entity was not found in this Azure location
 |**EnableAdminAccount**|Vérifie si le compte Administrateur local est désactivé, et si tel est le cas, l’active.|
 |**IPConfig**| Affiche des informations détaillées pour l’adresse IP, le masque de sous-réseau et la passerelle par défaut de chaque adaptateur lié à TCP/IP.|
 |**RDPSettings**|Vérifie les paramètres du registre et les paramètres de la stratégie de domaine. Suggère les actions de la stratégie si la machine fait partie d’un domaine ou remplace les paramètres par les valeurs par défaut.|
-|**ResetRDPCert**|Supprime le certificat SSL lié à l’écouteur RDP et restaure les valeurs par défaut pour la sécurité de l’écouteur RDP. Utilisez ce script si vous rencontrez des problèmes avec le certificat.|
+|**ResetRDPCert**|Supprime le certificat TLS/SSL lié à l’écouteur RDP et restaure les valeurs par défaut pour la sécurité de l’écouteur RDP. Utilisez ce script si vous rencontrez des problèmes avec le certificat.|
 |**SetRDPPort**|Définit le numéro de port par défaut ou spécifié par l’utilisateur pour les connexions Bureau à distance. Active les règles de pare-feu pour l’accès entrant au port.|
 
 ## <a name="azure-cli"></a>Azure CLI

@@ -6,13 +6,13 @@ author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 371b99c794feb4a64eb3e9af389020e25d14eedb
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.date: 04/09/2020
+ms.openlocfilehash: 2c21a8770209871be4d871a08e6355e4ca7ed169
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879426"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82204319"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Étiqueter des images dans un projet d’étiquetage
 
@@ -25,21 +25,24 @@ Une fois que votre administrateur de projet a [créé un projet d’étiquetage]
 
 ## <a name="prerequisites"></a>Prérequis
 
-* URL du portail d’étiquetage pour un projet d’étiquetage de données en cours d’exécution
 * Un [compte Microsoft](https://account.microsoft.com/account) ou un compte Azure Active Directory pour l’organisation et le projet
+* Un accès de niveau contributeur à l’espace de travail qui contient le projet d’étiquetage.
 
-> [!NOTE]
-> L’administrateur du projet peut trouver l’URL du portail d’étiquetage sous l’onglet **Détails** de la page **Détails du projet**.
+## <a name="sign-in-to-the-workspace"></a>Se connecter à l’espace de travail
 
-## <a name="sign-in-to-the-projects-labeling-portal"></a>Se connecter au portail d’étiquetage du projet
+1. Connectez-vous à [Azure Machine Learning Studio](https://ml.azure.com).
 
-Accédez à l’URL du portail d’étiquetage fournie par l’administrateur du projet. Connectez-vous à l’aide du compte e-mail que l’administrateur a utilisé pour vous ajouter à l’équipe. Pour la plupart des utilisateurs, il s’agit de votre compte Microsoft. Si le projet d’étiquetage utilise Azure Active Directory, vous vous connectez de cette manière.
+1. Sélectionnez l’abonnement et l’espace de travail qui contient le projet d’étiquetage.  Procurez-vous ces informations auprès de l’administrateur de votre projet.
+
+1. Sélectionnez **Étiquetage des données** sur le côté gauche pour trouver le projet.  
+
+1. Sélectionnez le nom du projet dans la liste.
 
 ## <a name="understand-the-labeling-task"></a>Comprendre la tâche d’étiquetage
 
-Une fois connecté, vous voyez s’afficher la page de vue d’ensemble du projet.
+Une fois que vous avez sélectionné le projet, en haut de la page, sélectionnez **Label data** (Étiqueter les données).
 
-Accédez à **Afficher les instructions détaillées**. Ces instructions sont spécifiques à votre projet. Elles décrivent le type de données auquel vous êtes confronté, indiquent comment prendre vos décisions et fournissent d’autres informations pertinentes. Après avoir lu ces informations, retournez à la page du projet, puis sélectionnez **Démarrer l’étiquetage**.
+Les instructions qui s’affichent varient en fonction de votre projet. Elles décrivent le type de données auquel vous êtes confronté, indiquent comment prendre vos décisions et fournissent d’autres informations pertinentes. Après avoir lu ces informations, en haut de la page, sélectionnez **Tâches**.  Ou bien, au bas de la page, sélectionnez **Commencer l’étiquetage**.
 
 ## <a name="common-features-of-the-labeling-task"></a>Fonctionnalités courantes de la tâche d’étiquetage
 
