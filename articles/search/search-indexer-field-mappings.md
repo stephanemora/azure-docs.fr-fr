@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3e09741e841897032b8146dee67b79e0c26ea5cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5820856f7d4c51e41162f01a9687304cb223088
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275150"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791916"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mappages de champs et transformations à l’aide d’indexeurs Recherche cognitive Azure
 
@@ -28,10 +28,7 @@ Quelques situations où les mappages de champs sont utiles :
 * Vous avez besoin d’encoder ou de décoder vos données en Base64. Les mappages de champs prennent en charge plusieurs **fonctions de mappage**, y compris les fonctions d’encodage et de décodage en Base64.
 
 > [!NOTE]
-> Le mappage de champ des indexeurs de la Recherche cognitive Azure fournit un moyen simple pour mapper des champs de données à des champs d’index, avec quelques options pour la conversion de données. Les données plus complexes devront peut-être être prétraitées pour être converties dans un format facile à indexer.
->
-> Microsoft Azure Data Factory est une solution puissante, basée sur le cloud, qui permet d’importer et de transformer des données. Vous pouvez également écrire du code pour transformer les données sources avant l’indexation. Pour obtenir des exemples de code, voir [Modèle de données relationnelles](search-example-adventureworks-modeling.md) et [Modèle de facettes multiniveaux](search-example-adventureworks-multilevel-faceting.md).
->
+> Les mappages de champs dans les indexeurs sont un moyen simple de mapper des champs de données à des champs d’index, avec une certaine possibilité de conversion de données simples. Les données plus complexes devront peut-être être prétraitées pour être converties dans un format propice à l’indexation. L’une des options que vous pouvez envisager est [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/).
 
 ## <a name="set-up-field-mappings"></a>Configurer des mappages de champs
 
@@ -245,8 +242,6 @@ Microsoft Azure SQL Database n’inclut aucun type de données intégré qui se 
     "mappingFunction" : { "name" : "jsonArrayToStringCollection" }
   }]
 ```
-
-Pour obtenir un exemple détaillé illustrant la transformation des données relationnelles en champs de collection d’index, voir [Modèle de données relationnelles](search-example-adventureworks-modeling.md).
 
 <a name="urlEncodeFunction"></a>
 

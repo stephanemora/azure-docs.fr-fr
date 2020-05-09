@@ -37,6 +37,11 @@
       href: tutorial-security-incident.md
     - name: Améliorer votre conformité aux normes
       href: security-center-compliance-dashboard.md
+- name: Exemples
+  items:
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Degré de sécurisation
@@ -107,7 +112,7 @@
           href: custom-security-policies.md
         - name: Gérer les stratégies avec l’API REST d’Azure Policy
           href: configure-security-policy-azure-policy.md
-    - name: Ajouter des packages de conformité dynamiques
+    - name: Choisir les normes pour votre tableau de bord de conformité
       href: update-regulatory-compliance-packages.md
     - name: Personnaliser la politique de protection des informations
       href: security-center-info-protection-policy.md
