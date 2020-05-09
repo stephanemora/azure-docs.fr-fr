@@ -8,14 +8,19 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 8178e585ecb7b1cdfd5e530f3d3406b7397f0968
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: b66f5a7d85eb91970d5f551b010dd512b216b9c6
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476047"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509514"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Se connecter à Azure IoT Central
+
+*Cet article s’applique aux opérateurs et aux développeurs d’appareils.*
 
 Cet article décrit les options permettant de connecter vos appareils à une application Azure IoT Central.
 
@@ -37,7 +42,7 @@ Cet article décrit les cas d’usage suivants :
 - [Connecter des appareils à l’échelle avec des certificats X.509](#connect-devices-using-x509-certificates) : ’approche recommandée pour les environnements de production.
 - [Connecter des appareils sans les inscrire au préalable](#connect-without-registering-devices)
 - [Connecter des appareils qui utilisent des inscriptions individuelles DPS](#individual-enrollment-based-device-connectivity)
-- [Connecter des appareils à l’aide des fonctionnalités IoT Plug-and-Play (préversion)](#connect-devices-with-iot-plug-and-play-preview)
+- [Associer automatiquement un appareil à un modèle d’appareil](#automatically-associate-with-a-device-template)
 
 ## <a name="connect-a-single-device"></a>Connecter un appareil unique
 
@@ -45,7 +50,7 @@ Cette approche est pratique quand vous faites des essais avec IoT Central ou qua
 
 ![Clés SAP pour un appareil individuel](./media/concepts-get-connected/single-device-sas.png)
 
-Pour en savoir plus, consultez le tutoriel [Créer et connecter une application cliente Node.js à votre application Azure IoT Central](./tutorial-connect-device.md).
+Pour en savoir plus, consultez le tutoriel [Créer et connecter une application cliente Node.js à votre application Azure IoT Central](./tutorial-connect-device-nodejs.md).
 
 ## <a name="connect-devices-at-scale-using-sas"></a>Connecter des appareils à l’échelle avec la SAS
 
@@ -134,7 +139,7 @@ Le flux est légèrement différent selon que les appareils utilisent des jetons
     Sur la page **Administration > Connexion de l’appareil**, l’option **Approbation automatique** détermine si vous devez approuver manuellement l’appareil avant qu’il puisse commencer à envoyer des données.
 
     > [!NOTE]
-    > Pour savoir comment associer automatiquement un appareil à un modèle d’appareil, consultez [Connecter des appareils avec IoT Plug-and-Play (préversion)](#connect-devices-with-iot-plug-and-play-preview).
+    > Pour savoir comment associer automatiquement un appareil à un modèle d’appareil, consultez [Associer automatiquement un appareil à un modèle d’appareil](#automatically-associate-with-a-device-template).
 
 ### <a name="connect-devices-that-use-x509-certificates-without-registering"></a>Connecter des appareils qui utilisent des certificats X.509 sans inscription
 
@@ -151,7 +156,7 @@ Le flux est légèrement différent selon que les appareils utilisent des jetons
     Sur la page **Administration > Connexion de l’appareil**, l’option **Approbation automatique** détermine si vous devez approuver manuellement l’appareil avant qu’il puisse commencer à envoyer des données.
 
     > [!NOTE]
-    > Pour savoir comment associer automatiquement un appareil à un modèle d’appareil, consultez [Connecter des appareils avec IoT Plug-and-Play (préversion)](#connect-devices-with-iot-plug-and-play-preview).
+    > Pour savoir comment associer automatiquement un appareil à un modèle d’appareil, consultez [Associer automatiquement un appareil à un modèle d’appareil](#automatically-associate-with-a-device-template).
 
 ## <a name="individual-enrollment-based-device-connectivity"></a>Connectivité de l’appareil pour chaque inscription
 
@@ -160,7 +165,7 @@ Pour les clients qui connectent des appareils ayant chacun leurs propres informa
 > [!NOTE]
 > Lorsque vous créez une inscription individuelle pour un appareil, elle prend la priorité sur les options d’inscription de groupe par défaut de votre application IoT Central.
 
-### <a name="creating-individual-enrollments"></a>Créer des inscriptions individuelles
+### <a name="create-individual-enrollments"></a>Créer des inscriptions individuelles
 
 IoT Central prend en charge les mécanismes d’attestation suivants pour les inscriptions individuelles :
 
@@ -176,14 +181,22 @@ IoT Central prend en charge les mécanismes d’attestation suivants pour les in
 
 - **Attestation de module de plateforme sécurisée (TPM) :** Un [module de plateforme sécurisée](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation) est un type de module de sécurité matériel. L’utilisation d’un module de plateforme sécurisée (TPM) est l’un des moyens les plus sécurisés pour connecter un appareil. Cet article suppose que vous utilisez un microprogramme discret, ou un module de plateforme sécurisée (TPM) intégré. Les TPM logiciels émulés sont parfaitement adaptés pour le prototypage ou le test, mais ils n’offrent pas le même niveau de sécurité que les modules de plateforme sécurisée (TPM) intégrés ou les microprogrammes discrets. N’utilisez pas de module de plateforme sécurisée (TPM) logiciel en production. Pour créer une inscription individuelle utilisant un module de plateforme sécurisée (TPM), ouvrez la page **Connexion de l’appareil**, sélectionnez **Inscription individuelle** comme méthode de connexion et **Module de plateforme sécurisée (TPM)** comme mécanisme. Entrez la paire de clés de type EK (Endorsement Key) et enregistrez les informations de connexion de l’appareil.
 
-## <a name="connect-devices-with-iot-plug-and-play-preview"></a>Connecter des appareils avec IoT Plug-and-Play (préversion)
+## <a name="automatically-associate-with-a-device-template"></a>Associer automatiquement un modèle d’appareil
 
-L’une des principales fonctionnalités d’IoT Plug-and-Play (préversion) avec IoT Central est la possibilité d’associer automatiquement des modèles d’appareil lors de la connexion de l’appareil. Avec les informations d'identification de l’appareil, les appareils peuvent maintenant envoyer **CapabilityModelId** dans le cadre de l'appel d'inscription de l’appareil. Cette fonctionnalité permet à IoT Central de détecter et d’associer le modèle d’appareil à l’appareil. Le processus de détection fonctionne comme suit :
+L'une des principales fonctionnalités d’IoT Central est la possibilité d'associer automatiquement des modèles d'appareil lors de la connexion de l'appareil. Avec les informations d'identification de l’appareil, les appareils peuvent envoyer **CapabilityModelId** dans le cadre de l'appel d'inscription de l’appareil. **CapabilityModelID** est un URN qui identifie le modèle de capacité implémenté par l’appareil. L’application IoT Central peut utiliser **CapabilityModelID** pour identifier le modèle d’appareil à utiliser, puis associer automatiquement l’appareil au modèle d’appareil. Le processus de détection fonctionne comme suit :
 
-1. Association au modèle d’appareil s’il est déjà publié dans l’application IoT Central.
-1. Récupère les modèles requis à partir du référentiel public des modèles de capacité publiés et certifiés.
+1. Si le modèle d’appareil est déjà publié dans l’application IoT Central, l’appareil est associé au modèle d’appareil.
+1. Pour les appareils IoT Plug-and-Play pré-certifiés, si le modèle d’appareil n’est pas encore publié dans l’application IoT Central, le modèle d’appareil est extrait du référentiel public.
 
-Voici le format de la charge utile supplémentaire que l'appareil peut envoyer pendant l'appel d'inscription DPS
+Les extraits de code suivants présentent le format de la charge utile supplémentaire que l’appareil doit envoyer pendant l’appel d’inscription DPS pour que l’association automatique fonctionne.
+
+Il s’agit du format pour les appareils qui utilisent le kit de développement logiciel (SDK) d’appareil généralement disponible qui ne prend pas en charge IoT Plug-and-Play :
+
+```javascript
+    iotcModelId: '< this is the URN for the capability model>';
+```
+
+Il s’agit du format pour les appareils qui utilisent le kit de développement logiciel (SDK) d’appareil en préversion publique qui prend en charge IoT Plug-and-Play :
 
 ```javascript
 '__iot:interfaces': {
@@ -192,7 +205,7 @@ Voici le format de la charge utile supplémentaire que l'appareil peut envoyer p
 ```
 
 > [!NOTE]
-> Notez que l'option **Approbation automatique** sous **Administration > Connexion de l’appareil** doit être activée pour que les appareils se connectent automatiquement, détectent le modèle d’appareil et commencent à envoyer des données.
+> L'option **Approbation automatique** sous **Administration > Connexion de l’appareil** doit être activée pour que les appareils se connectent automatiquement, détectent le modèle d’appareil et commencent à envoyer des données.
 
 ## <a name="device-status-values"></a>Valeurs d’état de l’appareil
 
@@ -265,7 +278,8 @@ Toutes les données échangées entre les appareils et votre application Azure I
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez découvert la connectivité des appareils dans Azure IoT Central, voici les étapes suivantes suggérées :
+Si vous êtes un développeur d’appareils, nous vous suggérons les étapes suivantes :
 
-- [Préparer et connecter un appareil DevKit](howto-connect-devkit.md)
-- [Kit de développement logiciel (SDK) C : Kit de développement logiciel (SDK) client d’appareil d’approvisionnement](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
+- Découvrez comment [superviser la connectivité des appareils à l’aide d’Azure CLI](./howto-monitor-devices-azure-cli.md)
+- Découvrez comment [définir un nouveau type d’appareil IoT dans votre application Azure IoT Central](./howto-set-up-template.md)
+- En savoir plus sur [les appareils Azure IoT Edge et Azure IoT Central](./concepts-iot-edge.md)

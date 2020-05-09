@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: efe2c96c619aaf92efc5b4abf76b6b89c96ebd37
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 56a2246b4f1da51d9b18a34279eff04264530ef5
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878032"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82160083"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutoriel : Configurer HTTPS sur un domaine personnalisé Front Door
 
 Ce didacticiel montre comment activer le protocole HTTPS pour un domaine personnalisé associé à votre porte d’entrée sous la section d’hôtes frontend. En utilisant le protocole HTTPS sur votre domaine personnalisé (par exemple, https :\//www.contoso.com), vous vous assurez que vos données sensibles sont remises en toute sécurité via le chiffrement TLS/SSL lors de l’envoi sur Internet. Lorsque votre navigateur web est connecté à un site web par le biais de HTTPS, ce protocole valide le certificat de sécurité du site et vérifie qu’il est fourni par une autorité de certification légitime. Ce processus assure la sécurité et protège également vos applications web contre les attaques.
 
-Par défaut, Azure Front Door prend en charge HTTPS sur un nom d’hôte Front Door par défaut. Par exemple, si vous créez une porte d’entrée (comme https:\//contoso.azurefd.net), HTTPS est automatiquement activé pour les requêtes effectuées sur https://contoso.azurefd.net. Toutefois, une fois que vous intégrez le domaine personnalisé « www.contoso.com », vous devez également activer HTTPS pour cet hôte frontend.   
+Par défaut, Azure Front Door prend en charge HTTPS sur un nom d’hôte Front Door par défaut. Par exemple, si vous créez une instance Front Door (comme `https://contoso.azurefd.net`), HTTPS est automatiquement activé pour les requêtes effectuées sur `https://contoso.azurefd.net`. Toutefois, une fois que vous intégrez le domaine personnalisé « www.contoso.com », vous devez également activer HTTPS pour cet hôte frontend.   
 
 Voici quelques-uns des attributs clés de la fonctionnalité HTTPS personnalisée :
 
