@@ -1,14 +1,14 @@
 ---
 title: Types de ressources Resource Manager prises en charge
 description: Fournit la liste des types de ressources Resource Manager prises en charge par Azure Resource Graph et l’historique des modifications.
-ms.date: 04/15/2020
+ms.date: 04/29/2020
 ms.topic: reference
-ms.openlocfilehash: 99cb2176e4b0642be1fc31d49528ebf915ea440a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0ab079bcd1e7e8558d754a413068ca9f0ae276c6
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415137"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594251"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Informations de référence sur le type de ressource et la table Azure Resource Graph
 
@@ -50,7 +50,11 @@ Azure Resource Graph prend en charge les **types de ressources** suivants [d’A
 - livearena.broadcast/services
 - mailjet.email/services
 - microsoft.aad/domainservices
+- microsoft.aadiam/privatelinkforazuread
 - microsoft.aadiam/tenants
+- microsoft.aisupercomputer/accounts
+- microsoft.aisupercomputer/accounts/jobgroups
+- microsoft.aisupercomputer/accounts/jobgroups/jobs
 - microsoft.alertsmanagement/actionrules
 - microsoft.alertsmanagement/smartdetectoralertrules
 - microsoft.analysisservices/servers
@@ -58,17 +62,21 @@ Azure Resource Graph prend en charge les **types de ressources** suivants [d’A
 - microsoft.appconfiguration/configurationstores
 - microsoft.appplatform/spring
 - microsoft.archive/collections
+- microsoft.attestation/attestationproviders
 - microsoft.automation/automationaccounts
 - microsoft.automation/automationaccounts/configurations
 - microsoft.automation/automationaccounts/runbooks
+- microsoft.autonomoussystems/workspaces
 - microsoft.azconfig/configurationstores
 - microsoft.azureactivedirectory/b2cdirectories
+- microsoft.azuredata/datacontrollers
 - microsoft.azuredata/hybriddatamanagers
 - microsoft.azuredata/postgresinstances
 - microsoft.azuredata/sqlbigdataclusters
 - microsoft.azuredata/sqlinstances
 - microsoft.azuredata/sqlserverregistrations
 - microsoft.azurestack/registrations
+- microsoft.azurestackhci/clusters
 - microsoft.baremetal/consoleconnections
 - microsoft.baremetal/crayservers
 - microsoft.baremetal/monitoringservers
@@ -99,6 +107,7 @@ Azure Resource Graph prend en charge les **types de ressources** suivants [d’A
 - microsoft.cognition/syntheticsaccounts
 - microsoft.cognitiveservices/accounts
 - microsoft.compute/availabilitysets
+- microsoft.compute/diskaccesses
 - microsoft.compute/diskencryptionsets
 - microsoft.compute/disks
 - microsoft.compute/galleries
@@ -139,6 +148,7 @@ Azure Resource Graph prend en charge les **types de ressources** suivants [d’A
 - microsoft.databricks/workspaces
 - microsoft.datacatalog/catalogs
 - microsoft.datacatalog/datacatalogs
+- microsoft.datadog/monitors
 - microsoft.datafactory/datafactories
 - microsoft.datafactory/factories
 - microsoft.datalakeanalytics/accounts
@@ -351,6 +361,7 @@ Azure Resource Graph prend en charge les **types de ressources** suivants [d’A
 - microsoft.remoteapp/collections
 - microsoft.resourcegraph/queries
 - microsoft.resources/deploymentscripts
+- microsoft.resources/templatespecs
 - microsoft.saas/applications
 - microsoft.scheduler/jobcollections
 - microsoft.search/searchservices
@@ -405,6 +416,12 @@ Azure Resource Graph prend en charge les **types de ressources** suivants [d’A
 - microsoft.visualstudio/account
 - microsoft.visualstudio/account/extension
 - microsoft.visualstudio/account/project
+- microsoft.vmware/arczones
+- microsoft.vmware/resourcepools
+- microsoft.vmware/vcenters
+- microsoft.vmware/virtualmachines
+- microsoft.vmware/virtualmachinetemplates
+- microsoft.vmware/virtualnetworks
 - microsoft.vmwarecloudsimple/dedicatedcloudnodes
 - microsoft.vmwarecloudsimple/dedicatedcloudservices
 - microsoft.vmwarecloudsimple/virtualmachines
@@ -454,7 +471,6 @@ Azure Resource Graph prend en charge les **types de ressources** suivants [d’A
 
 ## <a name="securityresources"></a>securityresources
 
-- assessmentmetadata
 - microsoft.security/assessments
 - microsoft.security/assessments/subassessments
 - microsoft.security/pricings

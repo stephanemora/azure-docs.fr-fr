@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Accorder un accès de groupe aux ressources Azure avec RBAC et Azure PowerShell'
-description: Dans ce tutoriel, découvrez comment accorder un accès de groupe aux ressources Azure avec le contrôle d’accès en fonction du rôle (RBAC) et Azure PowerShell.
+title: 'Tutoriel : Accorder à un groupe l’accès aux ressources Azure à l’aide d’Azure PowerShell - RBAC Azure'
+description: Découvrez dans ce tutoriel comment accorder à un groupe l’accès aux ressources Azure à l’aide d’Azure PowerShell et du contrôle d’accès en fonction du rôle Azure (RBAC Azure).
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 2f001e781640704cfcee161b3de75b3f4cae1423
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0d72ea23b74137e7e57f892b831b0be1b4a89de5
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77138237"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735519"
 ---
-# <a name="tutorial-grant-a-group-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Tutoriel : Accorder un accès de groupe aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell
+# <a name="tutorial-grant-a-group-access-to-azure-resources-using-azure-powershell"></a>Tutoriel : Accorder à un groupe l’accès aux ressources Azure à l’aide d’Azure PowerShell
 
-Le [contrôle d'accès en fonction du rôle (RBAC)](overview.md) vous permet de gérer l'accès aux ressources Azure. Dans ce tutoriel, vous accordez l’accès à un groupe pour afficher tous les éléments d’un abonnement et gérer tous les éléments d’un groupe de ressources à l’aide d’Azure PowerShell.
+Le [contrôle d’accès en fonction du rôle Azure (RBAC Azure)](overview.md) vous permet de gérer l’accès aux ressources Azure. Dans ce tutoriel, vous accordez l’accès à un groupe pour afficher tous les éléments d’un abonnement et gérer tous les éléments d’un groupe de ressources à l’aide d’Azure PowerShell.
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -44,7 +44,7 @@ Pour exécuter ce didacticiel, les éléments suivants sont nécessaires :
 
 ## <a name="role-assignments"></a>Affectations de rôles
 
-Dans le contrôle d’accès en fonction du rôle, vous créez une attribution de rôle pour accorder l’accès. Une attribution de rôle se compose de trois éléments : un principal de sécurité, une définition de rôle et une étendue. Voici deux attributions de rôles que vous allez effectuer dans ce tutoriel :
+Dans le contrôle d’accès en fonction du rôle Azure, vous créez une attribution de rôle pour accorder l’accès. Une attribution de rôle se compose de trois éléments : un principal de sécurité, une définition de rôle et une étendue. Voici deux attributions de rôles que vous allez effectuer dans ce tutoriel :
 
 | Principal de sécurité | Définition de rôle | Étendue |
 | --- | --- | --- |
@@ -70,7 +70,7 @@ Pour attribuer un rôle, vous avez besoin d’un utilisateur, d’un groupe ou d
    11111111-1111-1111-1111-111111111111 RBAC Tutorial Group
    ```
 
-Si vous n’avez pas les autorisations pour créer des groupes, vous pouvez suivre le [Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell](tutorial-role-assignments-user-powershell.md).
+Si vous n’avez pas les autorisations pour créer des groupes, vous pouvez suivre le [Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide d’Azure PowerShell](tutorial-role-assignments-user-powershell.md) à la place.
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -294,4 +294,4 @@ Pour supprimer les ressources créées par ce tutoriel, supprimez le groupe de r
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell](role-assignments-powershell.md)
+> [Ajouter ou supprimer des attributions de rôles Azure à l’aide d’Azure PowerShell](role-assignments-powershell.md)

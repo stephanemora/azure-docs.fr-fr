@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/19/2020
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 0cfe58ab0d161019d5f53d9135c65db7beff2bb4
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: ac4cacd8233935362ed155dab22a66459ed9126d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397994"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691336"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’outil d’étiquetage des exemples
 
@@ -37,7 +37,7 @@ Pour suivre cette procédure de démarrage rapide, vous avez besoin des élémen
 Vous allez utiliser le moteur Docker pour exécuter l’outil d’étiquetage des exemples. Procédez comme suit pour configurer le conteneur Docker. Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).
 
 > [!TIP]
-> OCR Form Labeling Tool est également disponible en tant que projet open source sur GitHub. Cet outil est une application web créée avec React + Redux qui est écrite en TypeScript. Pour en savoir plus ou apporter votre contribution, consultez [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application).
+> OCR Form Labeling Tool est également disponible en tant que projet open source sur GitHub. L’outil est une application web TypeScript créée à l’aide de React + Redux. Pour en savoir plus ou apporter votre contribution, consultez le dépôt [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application). Pour tester l’outil en ligne, accédez au [site web FOTT](https://fott.azurewebsites.net/).   
 
 1. Tout d’abord, installez Docker sur un ordinateur hôte. Ce guide va vous montrer comment utiliser l’ordinateur local en tant qu’hôte. Si vous voulez utiliser un service d’hébergement Docker dans Azure, consultez le guide pratique [Déployer l’outil d’étiquetage des exemples](../deploy-label-tool.md). 
 
@@ -61,7 +61,7 @@ Vous allez utiliser le moteur Docker pour exécuter l’outil d’étiquetage de
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
 
-   Cette commande rend l’outil d’étiquetage des exemples disponible par le biais d’un navigateur web. Accédez à [http://localhost:3000](http://localhost:3000).
+   Cette commande rend l’outil d’étiquetage des exemples disponible par le biais d’un navigateur web. Atteindre `http://localhost:3000`.
 
 > [!NOTE]
 > Vous pouvez également étiqueter des documents et entraîner des modèles à l’aide de l’API REST Form Recognizer. Pour effectuer un entraînement et une analyse avec l’API REST, consultez [Entraîner avec des étiquettes en utilisant l’API REST et Python](./python-labeled-data.md).
@@ -104,7 +104,7 @@ Renseignez les champs avec les valeurs suivantes :
 Dans l’outil d’étiquetage des exemples, les projets stockent vos configurations et paramètres. Créez un projet et renseignez les champs avec les valeurs suivantes :
 
 * **Display Name** (Nom d’affichage) : nom d’affichage du projet
-* **Security Token** (Jeton de sécurité) : certains paramètres de projet peuvent inclure des valeurs sensibles, telles que des clés API ou d’autres secrets partagés. Chaque projet génère un jeton de sécurité qui peut être utilisé pour chiffrer/déchiffrer les paramètres de projet sensibles. Vous trouvez les jetons de sécurité dans les paramètres de l’application ; pour y accéder, cliquez sur l’icône d’engrenage en bas de la barre de navigation de gauche.
+* **Security Token** (Jeton de sécurité) : certains paramètres de projet peuvent inclure des valeurs sensibles, telles que des clés API ou d’autres secrets partagés. Chaque projet génère un jeton de sécurité qui peut être utilisé pour chiffrer/déchiffrer les paramètres de projet sensibles. Vous trouvez les jetons de sécurité dans les paramètres de l’application, en cliquant sur l’icône d’engrenage en bas de la barre de navigation gauche.
 * **Source Connection** (Connexion source) : connexion au Stockage Blob Azure que vous avez créée à l’étape précédente et que vous souhaitez utiliser pour ce projet.
 * **Folder Path** (Chemin du dossier) : (facultatif) Si vos formulaires sources se trouvent dans un dossier sur le conteneur d’objets blob, spécifiez le nom du dossier ici.
 * **Form Recognizer Service Uri** (URI du service Form Recognizer) : votre URL de point de terminaison Form Recognizer.
@@ -130,9 +130,9 @@ Cliquez sur **Run OCR on all files** (Exécuter l’OCR sur tous les fichiers) d
 Vous allez ensuite créer des balises (étiquettes) et les appliquer aux éléments de texte que vous souhaitez que le modèle reconnaisse.
 
 1. Tout d’abord, utilisez le volet de l’éditeur d’étiquettes pour créer les étiquettes que vous souhaitez identifier.
-  1. Cliquez sur **+** pour créer une étiquette.
-  1. Entrez le nom de l’étiquette.
-  1. Appuyez sur Entrée pour enregistrer l’étiquette.
+   1. Cliquez sur **+** pour créer une étiquette.
+   1. Entrez le nom de l’étiquette.
+   1. Appuyez sur Entrée pour enregistrer l’étiquette.
 1. Dans l’éditeur principal, cliquez et faites glisser pour sélectionner un ou plusieurs mots parmi les éléments de texte mis en évidence.
 1. Cliquez sur l’étiquette que vous souhaitez appliquer ou appuyez sur la touche du clavier correspondante. Les touches numériques sont affectées comme touches d’accès rapide pour les 10 premières étiquettes. Vous pouvez réorganiser vos étiquettes à l’aide des icônes de flèches haut et bas dans le volet de l’éditeur d’étiquettes.
     > [!Tip]
@@ -144,15 +144,30 @@ Vous allez ensuite créer des balises (étiquettes) et les appliquer aux éléme
     > * N’incluez pas de clés dans vos champs étiquetés&mdash;uniquement les valeurs.
     > * Les données de la table doivent être détectées automatiquement et seront disponibles dans le fichier JSON de sortie final. Toutefois, si le modèle ne parvient pas à détecter toutes les données de votre table, vous pouvez aussi étiqueter manuellement ces champs. Étiquetez chaque cellule de la table avec une étiquette différente. Si vos formulaires comportent des tables avec un nombre variable de lignes, veillez à étiqueter au moins un formulaire avec la table la plus grande possible.
 
-
-Suivez les étapes ci-dessus pour étiqueter cinq de vos formulaires, puis passez à l’étape suivante.
-
 ![Fenêtre principale de l’éditeur de l’outil d’étiquetage des exemples](../media/label-tool/main-editor.png)
 
+Effectuez les étapes ci-dessus pour étiqueter au moins cinq de vos formulaires.
+
+### <a name="specify-tag-value-types"></a>Spécifier des types de valeurs d’étiquettes
+
+Si vous le souhaitez, vous pouvez définir le type de données attendu pour chaque étiquette. Ouvrez le menu contextuel à droite d’une étiquette et sélectionnez un type dans le menu. Cette fonctionnalité permet à l’algorithme de détection d’effectuer certaines hypothèses qui amélioreront la justesse de la détection de texte. Elle garantit également que les valeurs détectées sont retournées dans un format normalisé dans la sortie JSON finale. 
+
+> [!div class="mx-imgBorder"]
+> ![Sélection d'un type valeur avec l'outil d'étiquetage des exemples](../media/whats-new/formre-value-type.png)
+
+Les types et variantes de valeurs suivants sont actuellement pris en charge :
+* `string`
+    * default, `no-whitespaces`, `alphanumeric`
+* `number`
+    * default, `currency`
+* `date` 
+    * default, `dmy`, `mdy`, `ymd`
+* `time`
+* `integer`
 
 ## <a name="train-a-custom-model"></a>Entraîner un modèle personnalisé
 
-Dans le volet gauche, cliquez sur l’icône Train (Entraîner) (wagon) pour ouvrir la page Training (Entraînement). Cliquez ensuite sur le bouton **Train** pour commencer l’entraînement du modèle. Une fois le processus d’entraînement terminé, les informations suivantes s’affichent :
+Dans le volet gauche, cliquez sur l’icône d’entraînement (wagon) pour ouvrir la page Training (Entraînement). Cliquez ensuite sur le bouton **Train** pour commencer l’entraînement du modèle. Une fois le processus d’entraînement terminé, les informations suivantes s’affichent :
 
 * **Model ID** : ID du modèle qui a été créé et entraîné. Chaque appel d’entraînement crée un modèle avec son propre ID. Copiez cette chaîne en lieu sûr ; vous en aurez besoin si vous souhaitez effectuer des appels de prédiction par le biais de l’API REST.
 * **Average Accuracy** : justesse moyenne du modèle. Vous pouvez améliorer la justesse du modèle en étiquetant des formulaires supplémentaires et en effectuant un nouvel entraînement pour créer un modèle. Nous vous recommandons de commencer par étiqueter cinq formulaires et d’ajouter des formulaires en fonction des besoins.
@@ -167,7 +182,7 @@ Une fois l’entraînement terminé, examinez la valeur **Average Accuracy**. Si
 
 ## <a name="analyze-a-form"></a>Analyser un formulaire
 
-Cliquez sur l’icône Predict (Prédire) (rectangles) sur la gauche pour tester votre modèle. Chargez un document de formulaire que vous n’avez pas utilisé dans le processus d’entraînement. Cliquez ensuite sur le bouton **Predict** à droite pour obtenir les prédictions de clé/valeur pour le formulaire. L’outil applique des étiquettes dans les cadres englobants et signale la confiance de chaque étiquette.
+Cliquez sur l’icône de prédiction (ampoule) sur la gauche pour tester votre modèle. Chargez un document de formulaire que vous n’avez pas utilisé dans le processus d’entraînement. Cliquez ensuite sur le bouton **Predict** à droite pour obtenir les prédictions de clé/valeur pour le formulaire. L’outil applique des étiquettes dans les cadres englobants et signale la confiance de chaque étiquette.
 
 > [!TIP]
 > Vous pouvez également exécuter l’API Analyze (Analyser) avec un appel REST. Pour savoir comment procéder, consultez [Effectuer un entraînement avec des étiquettes à l’aide de Python](./python-labeled-data.md).

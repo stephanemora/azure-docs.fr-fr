@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: a29fd66cf264b09cc5e0db7ac1a329be3f297bb8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 64895e5f48168305aea3e83596cdbcae982a6cb9
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82096331"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692425"
 ---
 # <a name="quickstart-using-synapse-studio-preview"></a>Démarrage rapide : Utilisation de Synapse Studio (préversion)
 
@@ -56,7 +56,7 @@ Vous pouvez créer des dossiers et charger des fichiers à l’aide des liens de
 
    ![Interroger des fichiers sur le stockage](./media/quickstart-synapse-studio/query-files-on-storage.png)
 
-3. Exécutez la requête ou le notebook générés pour voir le contenu du fichier :
+3. Exécutez la requête ou le notebook générés pour voir le contenu du fichier.
 
    ![Voir le contenu du fichier](./media/quickstart-synapse-studio/query-files-on-storage-result.png)
 
@@ -64,7 +64,7 @@ Vous pouvez créer des dossiers et charger des fichiers à l’aide des liens de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Autoriser les utilisateurs Azure AD à interroger des fichiers en [affectant des autorisations RBAC **Lecteur des données Blob du stockage** ou **Contributeur aux données Blob du stockage** sur Stockage Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
+- Autoriser les utilisateurs Azure AD à interroger des fichiers en affectant des autorisations RBAC [**Lecteur des données Blob du stockage** ou **Contributeur aux données Blob du stockage** sur Stockage Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
 - [Interroger des fichiers sur le Stockage Azure à l’aide de SQL à la demande](sql/on-demand-workspace-overview.md)
-- [Créer un pool Apache Spark](quickstart-create-apache-spark-pool.md)
+- [Créer un pool Apache Spark à l’aide du portail Azure](quickstart-create-apache-spark-pool.md)
 - [Créer un rapport Power BI sur les fichiers stockés sur le Stockage Azure](sql/tutorial-connect-power-bi-desktop.md)

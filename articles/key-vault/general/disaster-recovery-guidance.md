@@ -2,19 +2,19 @@
 title: Que faire en cas d’interruption d’un service Azure affectant Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Découvrez que faire si une interruption de service Azure affecte Azure Key Vault.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: ShaneBala-keyvault
+manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 08/12/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 96929dcbe3d51589b0c3c0df89671dadb20e37cc
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 05/04/2020
+ms.author: sudbalas
+ms.openlocfilehash: 4796e6c555ca67794409fb1476f3c4fd0d760719
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81425878"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780451"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Disponibilité et redondance d’Azure Key Vault
 
@@ -32,18 +32,20 @@ Il convient toutefois de prendre quelques précautions :
 
 * En cas de basculement vers une autre région, quelques minutes peuvent être nécessaires pour que le service soit de nouveau opérationnel. Il se peut que les demandes effectuées pendant cette période échouent jusqu’à ce que le basculement soit terminé.
 * Après basculement, votre Key Vault est en lecture seule. Les demandes prises en charge dans ce mode sont les suivantes :
-  * List key vaults (Afficher la liste des Key Vaults)
-  * Get properties of key vaults (Obtenir les propriétés des Key Vaults)
-  * List secrets (Afficher la liste des secrets)
-  * Get secrets (Obtenir les secrets)
-  * List keys (Afficher la liste des clés)
-  * Get (properties of) keys (Obtenir les propriétés des clés)
-  * Encrypt (Chiffrer)
-  * Decrypt (Déchiffrer)
-  * Wrap (Encapsuler)
-  * Unwrap (Désencapsuler)
+  * Afficher la liste des coffres de clés
+  * Obtenir les propriétés des coffres de clés
+   * Afficher la liste des certificats
+  * Obtenir les certificats
+  * Afficher la liste des secrets
+  * Obtenir les secrets
+  * Afficher la liste des clés
+  * Obtenir les (propriétés des) clés
+  * Chiffrer
+  * Déchiffrer
+  * Encapsuler
+  * Désencapsuler
   * Vérifier
-  * Sign (Signer)
-  * Backup
+  * Signer
+  * Sauvegarder
 * Une fois le basculement restauré, tous les types de demandes (y compris de lecture -read- *et* d’écriture write-) sont disponibles.
 

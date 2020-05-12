@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3d89275e1418035fed8aad3ffddd8def2c1d59ce
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: f96ec80b529c594a383be8d668fd28b77372cd80
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686056"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900932"
 ---
 # <a name="about-azure-key-vault-keys"></a>À propos des clés Azure Key Vault
 
@@ -103,9 +103,9 @@ Pour plus d’informations, voir [Informations de référence sur les opération
 
 Lorsqu’une clé a été créée dans un coffre de clés, les opérations de chiffrement suivantes peuvent être exécutées à l’aide de la clé :  
 
--   **Signer et vérifier** : cette opération vise à « signer le hachage » ou à « vérifier le hachage », car Key Vault ne prend pas en charge le hachage du contenu lors la création de la signature. Les applications doivent hacher les données à signer localement puis demander à Key Vault de signer le hachage. La vérification des hachages signés est prise en charge par souci pratique pour les applications qui n’ont peut-être pas accès au matériel de clé [publique]. Pour optimiser les performances des applications, vérifiez que les opérations sont effectuées localement.  
+-   **Signer et vérifier** : cette opération vise à « signer le hachage » ou à « vérifier le hachage », car Key Vault ne prend pas en charge le hachage du contenu lors la création de la signature. Les applications doivent hacher les données à signer localement puis demander à Key Vault de signer le hachage. La vérification des hachages signés est prise en charge par souci pratique pour les applications qui n’ont peut-être pas accès au matériel de clé [publique]. Pour optimiser les performances des applications, les opérations VERIFY doivent être effectuées localement.  
 -   **Chiffrement / encapsulation de clé** : une clé stockée dans Key Vault peut être utilisée pour protéger une autre clé, généralement une clé de chiffrement symétrique de contenu (CEK). Lorsque la clé dans Key Vault est asymétrique, le chiffrement de clé est utilisé. Par exemple, les opérations WRAPKEY/UNWRAPKEY et RSA-OAEP sont équivalentes à ENCRYPT/DECRYPT. Lorsque la clé dans Key Vault est symétrique, le wrapping de clé est utilisé. Par exemple, AES-KW. L’opération WRAPKEY est prise en charge par souci pratique pour les applications qui n’ont peut-être pas accès au matériel de clé [publique]. Pour optimiser les performances des applications, les opérations WRAPKEY doivent être effectuées localement.  
--   **Chiffrer et déchiffrer** : une clé stockée dans Key Vault peut être utilisée pour chiffrer ou déchiffrer un bloc de données. La taille du bloc est déterminée par le type de clé et l’algorithme de chiffrement sélectionné. L’opération Encrypt est fournie par souci pratique pour les applications qui n’ont peut-être pas accès au matériel de clé [publique]. Pour optimiser les performances des applications, les opérations de chiffrement doivent être effectuées localement.  
+-   **Chiffrer et déchiffrer** : une clé stockée dans Key Vault peut être utilisée pour chiffrer ou déchiffrer un bloc de données. La taille du bloc est déterminée par le type de clé et l’algorithme de chiffrement sélectionné. L’opération Encrypt est fournie par souci pratique pour les applications qui n’ont peut-être pas accès au matériel de clé [publique]. Pour optimiser les performances des applications, les opérations ENCRYPT doivent être effectuées localement.  
 
 Alors que les opérations WRAPKEY/UNWRAPKEY utilisant des clés asymétriques peuvent sembler superflues (car elles sont équivalentes à ENCRYPT/DECRYPT), l’utilisation d’opérations distinctes est importante. La distinction fournit une séparation de la sémantique et des autorisations de ces opérations, ainsi qu’une cohérence quand d’autres types de clés sont pris en charge par le service.  
 

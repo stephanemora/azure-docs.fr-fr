@@ -1,6 +1,6 @@
 ---
-title: Lister les affectations de refus pour les ressources Azure avec Azure PowerShell
-description: Découvrez comment répertorier les utilisateurs, groupes, principaux du service et identités managées auxquels l’accès à des actions de ressource Azure spécifiques a été refusé dans des étendues particulières à l’aide d’Azure PowerShell.
+title: Répertorier les affectations de refus Azure à l’aide d’Azure PowerShell - RBAC Azure
+description: Découvrez comment répertorier les utilisateurs, groupes, principaux du service et identités managées auxquels l’accès à des actions de ressource Azure spécifiques a été refusé dans des étendues particulières à l’aide d’Azure PowerShell et du contrôle d’accès en fonction du rôle (RBAC Azure).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,25 +13,25 @@ ms.workload: identity
 ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5ba18b89bd37dbd55350321c503e37ab0590ab87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd852d19b284f97995855fe06c97ea0ea69be293
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77137394"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733960"
 ---
-# <a name="list-deny-assignments-for-azure-resources-using-azure-powershell"></a>Répertorier les affectations de refus pour les ressources Azure à l’aide d’Azure PowerShell
+# <a name="list-azure-deny-assignments-using-azure-powershell"></a>Répertorier les affectations de refus Azure à l’aide d’Azure PowerShell
 
-Les [affectations de refus](deny-assignments.md) empêchent les utilisateurs d'effectuer des actions particulières sur les ressources Azure, même si une attribution de rôle leur confère un accès. Cet article décrit comment répertorier les affectations de refus à l’aide d’Azure PowerShell.
+Les [affectations de refus Azure](deny-assignments.md) empêchent les utilisateurs d’effectuer des actions particulières sur les ressources Azure, même si une attribution de rôle leur confère un accès. Cet article décrit comment répertorier les affectations de refus à l’aide d’Azure PowerShell.
 
 > [!NOTE]
-> Vous ne pouvez pas directement créer vos propres affectations de refus. Pour en savoir sur la création des affectations de refus, consultez [Affectations de refus](deny-assignments.md).
+> Vous ne pouvez pas directement créer vos propres affectations de refus. Pour obtenir des informations sur la création des affectations de refus, consultez [Affectations de refus Azure](deny-assignments.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour obtenir des informations sur une affectation de refus, vous devez disposer de :
 
-- l’autorisation `Microsoft.Authorization/denyAssignments/read`, qui est incluse dans la plupart des [rôles intégrés pour les ressources Azure](built-in-roles.md)
+- l’autorisation `Microsoft.Authorization/denyAssignments/read`, qui est incluse dans la plupart des [rôles intégrés Azure](built-in-roles.md)
 - [PowerShell dans Azure Cloud Shell](/azure/cloud-shell/overview) ou [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="list-deny-assignments"></a>Répertorier les affectations de refus
@@ -125,6 +125,6 @@ PS C:\> Get-AzDenyAssignment -Scope /subscriptions/11111111-1111-1111-1111-11111
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Comprendre les affectations de refus relatives aux ressources Azure](deny-assignments.md)
-- [Répertorier les affectations de refus pour les ressources Azure à l’aide du portail Azure](deny-assignments-portal.md)
-- [Répertorier les affectations de refus relatives aux ressources Azure à l'aide de l'API REST](deny-assignments-rest.md)
+- [Comprendre les affectations de refus Azure](deny-assignments.md)
+- [Répertorier les affectations de refus avec le portail Azure](deny-assignments-portal.md)
+- [Répertorier les affectations de refus Azure à l’aide de l’API REST](deny-assignments-rest.md)

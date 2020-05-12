@@ -1,17 +1,17 @@
 ---
-title: 'Kit de développement logiciel (SDK) .NET : Opérations de gestion du système de fichiers sur Azure Data Lake Storage Gen1'
+title: SDK .NET - Opérations de gestion du système de fichiers sur Data Lake Storage Gen1 - Azure
 description: Utilisez le Kit de développement logiciel (SDK) .NET Azure Data Lake Storage Gen1 pour des opérations de gestion du système de fichiers sur Data Lake Storage Gen1, comme la création de dossiers, etc.
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.author: twooley
-ms.openlocfilehash: 7e33ecbbb49fc2b0683d0757da36deec72796806
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e52a3cb8d31b5fccc9a0b5a3a76d4e9b43de123
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75638899"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690960"
 ---
 # <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>Opérations de système de fichiers dans Data Lake Storage Gen1 à l’aide du Kit de développement logiciel (SDK) .NET
 

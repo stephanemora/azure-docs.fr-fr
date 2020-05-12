@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: e24684063e73b8f8b659304987f46632f3601e8c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 07ae08f87c9a3e788944a48f6d5a24e2b076d16f
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426118"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732323"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Accès à Azure Key Vault derrière un pare-feu
 
@@ -25,7 +25,7 @@ Pour accéder à un coffre de clés, votre application cliente de coffre de clé
 
 * Authentification via Azure Active Directory (Azure AD).
 * Gestion d’un coffre Azure Key Vault. Cela inclut la création, la lecture, la mise à jour, la suppression et la définition de stratégies d’accès par le biais d’Azure Resource Manager.
-* L’accès et la gestion des objets (clés et secrets) stockés dans le coffre de clés lui-même passent par le point de terminaison spécifique à Key Vault (par exemple, [https://yourvaultname.vault.azure.net](https://yourvaultname.vault.azure.net)).  
+* L’accès et la gestion des objets (clés et secrets) stockés dans le coffre de clés lui-même passent par le point de terminaison spécifique à Key Vault (par exemple, `https://yourvaultname.vault.azure.net`).  
 
 Il existe des variantes selon votre configuration et l’environnement.
 
@@ -39,8 +39,8 @@ L’application cliente de coffre de clés doit accéder aux points de terminais
 
 | Type de principal | Point de terminaison:port |
 | --- | --- |
-| Utilisateur utilisant un compte Microsoft<br> (Par exemple, user@hotmail.com) |**Mondial :**<br> login.microsoftonline.com:443<br><br> **Azure China :**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government :**<br> login.microsoftonline.us:443<br><br>**Azure Germany :**<br> login.microsoftonline.de:443<br><br> and <br>login.live.com:443 |
-| Utilisateur ou principal du service utilisant un compte professionnel ou scolaire avec Azure AD (par exemple, user@contoso.com) |**Mondial :**<br> login.microsoftonline.com:443<br><br> **Azure China :**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government :**<br> login.microsoftonline.us:443<br><br>**Azure Germany :**<br> login.microsoftonline.de:443 |
+| Utilisateur utilisant un compte Microsoft<br> (Par exemple, user@hotmail.com) |**Mondial :**<br> login.microsoftonline.com:443<br><br> **Azure China :**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government :**<br> login.microsoftonline.us:443<br><br>**Azure Germany :**<br>  login.microsoftonline.de:443<br><br> and <br>login.live.com:443 |
+| Utilisateur ou principal du service utilisant un compte professionnel ou scolaire avec Azure AD (par exemple, user@contoso.com) |**Mondial :**<br> login.microsoftonline.com:443<br><br> **Azure China :**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government :**<br> login.microsoftonline.us:443<br><br>**Azure Germany :**<br>  login.microsoftonline.de:443 |
 | Utilisateur ou principal du service utilisant un compte professionnel ou scolaire, plus Active Directory Federation Services (AD FS) ou un autre point de terminaison fédéré (par exemple, user@contoso.com) |Tous les points de terminaison correspondant à un compte professionnel ou scolaire, plus AD FS ou d’autres points de terminaison fédérés |
 
 D’autres scénarios complexes sont possibles. Pour plus d’informations, reportez-vous à [Azure Active Directory Authentication Flow (Flux d’authentification d’Azure Active Directory)](../../active-directory/develop/authentication-scenarios.md), [Intégration d’applications dans Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md) et [Protocoles d’authentification Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx).  
@@ -51,8 +51,8 @@ Pour la gestion d’un coffre de clés Key Vault (CRUD et définition de la stra
 
 | Type d’opération | Point de terminaison:port |
 | --- | --- |
-| Opérations du plan de contrôle Key Vault<br> via Azure Resource Manager |**Mondial :**<br> management.azure.com:443<br><br> **Azure China :**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government :**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany :**<br> management.microsoftazure.de:443 |
-| API Microsoft Graph |**Mondial :**<br> graph.microsoft.com:443<br><br> **Azure China :**<br> graph.chinacloudapi.cn:443<br><br> **Azure US Government :**<br> graph.microsoft.com:443<br><br> **Azure Germany :**<br> graph.cloudapi.de:443 |
+| Opérations du plan de contrôle Key Vault<br>  via Azure Resource Manager |**Mondial :**<br> management.azure.com:443<br><br> **Azure China :**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government :**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany :**<br>  management.microsoftazure.de:443 |
+| API Microsoft Graph |**Mondial :**<br> graph.microsoft.com:443<br><br> **Azure China :**<br> graph.chinacloudapi.cn:443<br><br> **Azure US Government :**<br> graph.microsoft.com:443<br><br> **Azure Germany :**<br>  graph.cloudapi.de:443 |
 
 ## <a name="key-vault-operations"></a>Opérations Key Vault
 
@@ -64,7 +64,13 @@ Pour toutes les opérations de gestion et de chiffrement d’objets (clés et se
 
 ## <a name="ip-address-ranges"></a>Plages d’adresse IP
 
-Le service Key Vault utilise d’autres ressources Azure telles que l’infrastructure PaaS, de sorte qu’il n’est pas possible de fournir une plage spécifique des adresses IP qu’auront les points de terminaison Key Vault à un moment donné. Si votre pare-feu prend en charge uniquement des plages d’adresses IP, consultez le document [Plages IP des centres de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). L’authentification et l’identité (Azure Active Directory) est un service global et peut basculer vers d’autres régions ou réacheminer du trafic sans avertissement. Dans ce scénario, toutes les plages d’adresses IP répertoriées dans [Adresse IP d’authentification et d’identité](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity_ip) doivent être ajoutées au pare-feu.
+Le service Key Vault utilise d’autres ressources Azure telles que l’infrastructure PaaS, de sorte qu’il n’est pas possible de fournir une plage spécifique des adresses IP qu’auront les points de terminaison Key Vault à un moment donné. Si votre pare-feu prend en charge uniquement des plages d’adresses IP, consultez les documents Plages IP des centres de données Microsoft Azure disponibles aux emplacements suivants :
+* [Public](https://www.microsoft.com/en-us/download/details.aspx?id=56519)
+* [Gouvernement des États-Unis](https://www.microsoft.com/en-us/download/details.aspx?id=57063)
+* [Allemagne](https://www.microsoft.com/en-us/download/details.aspx?id=57064)
+* [Chine](https://www.microsoft.com/en-us/download/details.aspx?id=57062)
+
+L’authentification et l’identité (Azure Active Directory) est un service global et peut basculer vers d’autres régions ou réacheminer du trafic sans avertissement. Dans ce scénario, toutes les plages d’adresses IP répertoriées dans [Adresse IP d’authentification et d’identité](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity_ip) doivent être ajoutées au pare-feu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

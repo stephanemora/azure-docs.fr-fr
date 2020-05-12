@@ -37,14 +37,16 @@
     - name: Guides des langages
       items:
         - name: Python
-          href: /azure/databricks/languages/python
-          maintainContext: true
-        - name: Koalas
-          href: /azure/databricks/languages/koalas
-          maintainContext: true
+          items:
+            - name: Vue d’ensemble de Python
+              href: /azure/databricks/languages/python
+              maintainContext: true
+            - name: Koalas
+              href: /azure/databricks/languages/koalas
+              maintainContext: true
         - name: R
           items:
-            - name: Guide R
+            - name: Vue d'ensemble de R
               href: /azure/databricks/spark/latest/sparkr/index
               maintainContext: true
             - name: Vue d’ensemble de SparkR
@@ -281,9 +283,6 @@
         - name: Runtime Databricks
           href: /azure/databricks/runtime/dbr
           maintainContext: true
-        - name: Databricks Runtime avec Conda
-          href: /azure/databricks/runtime/conda
-          maintainContext: true
         - name: Databricks Runtime pour le machine learning
           href: /azure/databricks/runtime/mlruntime
           maintainContext: true
@@ -306,6 +305,9 @@
           maintainContext: true
         - name: 'Obtenir les identificateurs d’espace de travail, de cluster, de notebook et de travail'
           href: /azure/databricks/workspace/workspace-details
+          maintainContext: true
+        - name: Migrer vers des URL par espace de travail
+          href: /azure/databricks/workspace/migrate-workspace-urls
           maintainContext: true
     - name: Clusters
       items:
@@ -451,9 +453,6 @@
               maintainContext: true
             - name: Azure Data Lake Storage
               href: /azure/databricks/data/data-sources/azure/azure-datalake
-              maintainContext: true
-            - name: Passage des informations d’identification Azure Data Lake Storage
-              href: /azure/databricks/data/data-sources/azure/adls-passthrough
               maintainContext: true
             - name: Cosmos DB
               href: /azure/databricks/data/data-sources/azure/cosmosdb-connector
@@ -1027,7 +1026,7 @@
               href: /azure/databricks/security/access-control/pool-acl
               maintainContext: true
             - name: Contrôle d’accès aux travaux
-              href: /azure/databricks/security/access-control/jobs-acl
+              href: /azure/databricks/security/access-control/job-acl
               maintainContext: true
             - name: Contrôle d’accès aux tables
               items:
@@ -1110,7 +1109,7 @@
             - name: Provisionner des utilisateurs et des groupes avec SCIM
               href: /azure/databricks/administration-guide/users-groups/scim/index
               maintainContext: true
-            - name: Configurer le provisionnement SCIM pour AAD
+            - name: Configurer le provisionnement SCIM pour Azure AD
               href: /azure/databricks/administration-guide/users-groups/scim/aad
               maintainContext: true
         - name: Gérer le contrôle d’accès
@@ -1138,9 +1137,6 @@
               maintainContext: true
             - name: Accès conditionnel
               href: /azure/databricks/administration-guide/access-control/conditional-access
-              maintainContext: true
-            - name: Activer le passage des informations d’identification à Azure Data Lake Storage
-              href: /azure/databricks/administration-guide/access-control/credential-passthrough
               maintainContext: true
         - name: Gérer les objets et le comportement des espaces de travail
           items:
@@ -1619,21 +1615,35 @@
               maintainContext: true
             - name: Authentification
               items:
-                - name: Jetons d'accès personnels
+                - name: Jetons d’accès personnels Azure Databricks
                   href: /azure/databricks/dev-tools/api/latest/authentication
                   maintainContext: true
-                - name: Jetons Azure Active Directory (AAD)
+                - name: Jetons Azure Active Directory
                   items:
-                    - name: Vue d’ensemble de l’authentification des jetons AAD
+                    - name: Vue d’ensemble de l’authentification des jetons Azure AD
                       href: /azure/databricks/dev-tools/api/latest/aad/index
                       maintainContext: true
-                    - name: Obtenir un jeton AAD avec la bibliothèque d’authentification AAD
+                    - name: Obtenir un jeton Azure AD avec la bibliothèque d’authentification Azure AD
                       href: /azure/databricks/dev-tools/api/latest/aad/app-aad-token
                       maintainContext: true
-                    - name: Obtenir un jeton AAD avec un principal de service
+                    - name: Obtenir un jeton Azure AD avec un principal de service
                       href: /azure/databricks/dev-tools/api/latest/aad/service-prin-aad-token
                       maintainContext: true
-                    - name: Détecter un problème de jetons d’accès AAD
+                    - name: Résoudre les problèmes des jetons d’accès Azure AD
+                      href: /azure/databricks/dev-tools/api/latest/aad/troubleshoot-aad-token
+                  maintainContext: true
+                - name: Jetons Azure Active Directory (Azure AD)
+                  items:
+                    - name: Vue d’ensemble de l’authentification des jetons Azure AD
+                      href: /azure/databricks/dev-tools/api/latest/aad/index
+                      maintainContext: true
+                    - name: Obtenir un jeton Azure AD avec la bibliothèque d’authentification AAD
+                      href: /azure/databricks/dev-tools/api/latest/aad/app-aad-token
+                      maintainContext: true
+                    - name: Obtenir un jeton Azure AD avec un principal de service
+                      href: /azure/databricks/dev-tools/api/latest/aad/service-prin-aad-token
+                      maintainContext: true
+                    - name: Résoudre les problèmes des jetons d’accès Azure AD
                       href: /azure/databricks/dev-tools/api/latest/aad/troubleshoot-aad-token
                       maintainContext: true
             - name: Clusters
@@ -1666,7 +1676,7 @@
                 - name: API SCIM (Users)
                   href: /azure/databricks/dev-tools/api/latest/scim/scim-users
                 - name: API SCIM (Groups)
-                  href: /azure/databricks/dev-tools/api/latest/scim/scim-groups
+                  href: /azure/databricks/dev-tools/api/latest/scim/scim-group
               maintainContext: true
             - name: Secrets
               href: /azure/databricks/dev-tools/api/latest/secrets
@@ -1760,6 +1770,9 @@
             - name: Notes de publication de la plateforme
               href: /azure/databricks/release-notes/product/index
               maintainContext: true
+            - name: "Mai\_2020"
+              href: /azure/databricks/release-notes/product/2020/may
+              maintainContext: true
             - name: Avril 2020
               href: /azure/databricks/release-notes/product/2020/april
               maintainContext: true
@@ -1851,11 +1864,20 @@
                 - name: Versions du runtime
                   href: /azure/databricks/release-notes/runtime/releases
                   maintainContext: true
+                - name: "Databricks Runtime\_7.0 Genomics (bêta)"
+                  href: /azure/databricks/release-notes/runtime/7.0genomics
+                  maintainContext: true
                 - name: "Databricks Runtime\_7.0 ML (bêta)"
                   href: /azure/databricks/release-notes/runtime/7.0ml
                   maintainContext: true
                 - name: "Databricks Runtime\_7.0 (bêta)"
                   href: /azure/databricks/release-notes/runtime/7.0
+                  maintainContext: true
+                - name: "Databricks Runtime\_6.6 Genomics (bêta)"
+                  href: /azure/databricks/release-notes/runtime/6.6genomics
+                  maintainContext: true
+                - name: "Databricks Runtime\_6.6 (bêta)"
+                  href: /azure/databricks/release-notes/runtime/6.6
                   maintainContext: true
                 - name: "Databricks Runtime\_6.5"
                   href: /azure/databricks/release-notes/runtime/6.5
@@ -1902,26 +1924,17 @@
                 - name: "Databricks Runtime\_6.0"
                   href: /azure/databricks/release-notes/runtime/6.0
                   maintainContext: true
-                - name: "Databricks Runtime\_6.0 avec Conda"
-                  href: /azure/databricks/release-notes/runtime/6.0conda
-                  maintainContext: true
                 - name: "Databricks Runtime\_6.0 ML"
                   href: /azure/databricks/release-notes/runtime/6.0ml
                   maintainContext: true
                 - name: "Databricks Runtime\_5.5"
                   href: /azure/databricks/release-notes/runtime/5.5
                   maintainContext: true
-                - name: "Databricks Runtime\_5.5 avec Conda"
-                  href: /azure/databricks/release-notes/runtime/5.5conda
-                  maintainContext: true
                 - name: "Databricks Runtime\_5.5 ML"
                   href: /azure/databricks/release-notes/runtime/5.5ml
                   maintainContext: true
                 - name: "Databricks Runtime\_5.4"
                   href: /azure/databricks/release-notes/runtime/5.4
-                  maintainContext: true
-                - name: "Databricks Runtime\_5.4 avec Conda"
-                  href: /azure/databricks/release-notes/runtime/5.4conda
                   maintainContext: true
                 - name: "Databricks Runtime\_5.4 ML"
                   href: /azure/databricks/release-notes/runtime/5.4ml
@@ -1938,20 +1951,11 @@
                 - name: "Databricks Runtime\_5.2"
                   href: /azure/databricks/release-notes/runtime/5.2
                   maintainContext: true
-                - name: "Databricks Runtime\_5.2 ML"
-                  href: /azure/databricks/release-notes/runtime/5.2ml
-                  maintainContext: true
                 - name: "Databricks Runtime\_5.1"
                   href: /azure/databricks/release-notes/runtime/5.1
                   maintainContext: true
-                - name: "Databricks Runtime\_5.1 ML"
-                  href: /azure/databricks/release-notes/runtime/5.1ml
-                  maintainContext: true
                 - name: "Databricks Runtime\_5.0"
                   href: /azure/databricks/release-notes/runtime/5.0
-                  maintainContext: true
-                - name: "Databricks Runtime\_5.0 ML"
-                  href: /azure/databricks/release-notes/runtime/5.0ml
                   maintainContext: true
                 - name: "Databricks Runtime\_4.3"
                   href: /azure/databricks/release-notes/runtime/4.3
@@ -1961,9 +1965,6 @@
                   maintainContext: true
                 - name: "Databricks Runtime\_4.1"
                   href: /azure/databricks/release-notes/runtime/4.1
-                  maintainContext: true
-                - name: "Databricks Runtime\_4.1 ML"
-                  href: /azure/databricks/release-notes/runtime/4.1ml
                   maintainContext: true
                 - name: "Databricks Runtime\_4.0"
                   href: /azure/databricks/release-notes/runtime/4.0

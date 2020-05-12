@@ -1,44 +1,41 @@
 ---
-title: Tableau de bord Évaluations et avis dans l’analytique de la Place de marché commerciale dans l’Espace partenaires
-description: Découvrez comment accéder à une vue consolidée des commentaires des clients sur vos offres sur la Place de marché Azure et AppSource.
+title: Tableau de bord analytique Évaluations et avis dans l’Espace partenaires
+description: Découvrez comment accéder à une vue consolidée des commentaires des clients sur vos offres disponibles sur la Place de marché Azure et dans Microsoft AppSource.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 405ba37fd10fa48bf45f1031d2e9b5b17620ea0a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: a7ed477ea095defa27878e8f4a84162043829273
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262415"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792919"
 ---
-# <a name="ratings-and-reviews-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord des évaluations et avis dans l’analytique de la Place de marché commerciale
+# <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>Tableau de bord analytique Évaluations et avis dans l’Espace partenaires
 
-Cet article donne des informations sur le tableau de bord Évaluations et avis de l’Espace partenaires. Ce tableau de bord présente une vue consolidée des commentaires des clients sur les offres sur la Place de marché Azure et AppSource.
-
-Pour accéder au **tableau de bord Évaluations et avis** de l’Espace partenaires, ouvrez le tableau de bord **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** sous Place de marché commerciale.
-
->[!NOTE]
-> Pour accéder aux définitions détaillées de la terminologie d’analytique, consultez [Questions fréquentes et terminologie pour l’analytique de la Place de marché commerciale](./faq-terminology.md).
-
-## <a name="ratings--reviews"></a>Évaluations et avis
-
-Quand les clients parcourent, recherchent et achètent des offres dans les deux places de marché, ils peuvent laisser des évaluations et des avis pour les offres qu’ils ont acquises.
+Cet article donne des informations sur le tableau de bord Évaluations et avis de l’Espace partenaires. Ce tableau de bord présente une vue consolidée des commentaires des clients sur les offres disponibles sur la Place de marché Azure et Microsoft AppSource. Quand les clients parcourent, recherchent et achètent des offres dans les deux places de marché, ils peuvent laisser des évaluations et des avis pour les offres qu’ils ont acquises.
 
 - Les clients peuvent soumettre une nouvelle évaluation ou un nouvel avis et les mettre à jour ou les supprimer. Les clients ne peuvent apporter des modifications qu’à leurs propres évaluations et avis.  
-- Les avis sont publiés dans l’onglet Avis de la page d’affichage du produit de l’offre sur la Place de marché Azure ou sur AppSource. Les clients peuvent indiquer leur nom ou faire une publication anonyme.  
+- Les avis sont publiés dans l’onglet Avis de la page produit de l’offre sur la Place de marché Azure ou sur AppSource. Les clients peuvent indiquer leur nom ou faire une publication anonyme.  
 
-Le **tableau de bord Évaluations et avis** présence les tendances et les insights de cette activité des clients. Vous pouvez afficher une représentation graphique des éléments suivants :
+>[!NOTE]
+> Pour avoir des définitions détaillées des termes d’analytique, consultez [Questions fréquentes et terminologie relatives à l’analytique de la Place de marché commerciale](./faq-terminology.md).
+
+## <a name="access-the-dashboard"></a>Accéder au tableau de bord
+
+Dans le tableau de bord [Place de marché commerciale](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview) de l’Espace partenaires, développez la section **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** et sélectionnez **Évaluations et avis**.
+
+Le tableau de bord affiche une représentation graphique de l’activité client suivante :
 
 - Évaluations et avis  
 - Commentaires d’évaluation
 
-Les **onglets de la vitrine de la Place de marché** permettent aux éditeurs de voir les métriques de leurs offres séparément dans les onglets AppSource et Place de marché Azure. Pour voir des métriques d’offres spécifiques, sélectionnez l’offre dans la liste déroulante.
+Utilisez les onglets de la **vitrine de la Place de marché** pour afficher séparément les métriques de votre offre sur Microsoft AppSource et la Place de marché Azure. Pour voir des métriques d’offres spécifiques, sélectionnez l’offre dans la liste déroulante.
 
-
-### <a name="ratings-and-reviews-summary"></a>Récapitulatif des évaluations et avis
+### <a name="ratings--reviews-summary"></a>Récapitulatif des évaluations et avis
 
 La section Récapitulatif des évaluations et avis montre les métriques ci-dessous pour une plage de dates sélectionnée :
 

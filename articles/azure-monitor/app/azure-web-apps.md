@@ -3,13 +3,12 @@ title: Analyser les performances d’Azure App Service | Microsoft Docs
 description: Analyse des performances des applications pour les services d’application Azure. Analysez la charge, le temps de réponse et les dépendances dans des graphiques, et définissez des alertes sur les performances.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: dd0d3be6ed7e5185183618cc2bdeff5ee8d749f3
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 0f4d4dedab30839db56cb47ac7ac103413f2d4be
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81729808"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733445"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Analyser les performances d’Azure App Service
 
@@ -71,7 +70,7 @@ Il existe deux façons d’activer la supervision des applications hébergées p
 
     * Par exemple, pour changer le pourcentage d’échantillonnage initial, créez un paramètre d’application `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` avec la valeur `100`.
 
-    * Pour obtenir la liste des paramètres du processeur de télémétrie pris en charge pour l’échantillonnage adaptatif, consultez le [code](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) et la [documentation associée](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
+    * Pour obtenir la liste des paramètres du processeur de télémétrie pris en charge pour l’échantillonnage adaptatif, consultez le [code](https://github.com/microsoft/ApplicationInsights-dotnet/blob/master/BASE/Test/ServerTelemetryChannel.Test/TelemetryChannel.Tests/AdaptiveSamplingTelemetryProcessorTest.cs) et la [documentation associée](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
@@ -399,7 +398,11 @@ Pour avoir les toutes dernières informations sur l’extension/agent Applicatio
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP et WordPress ne sont pas pris en charge
 
-Les sites PHP et WordPress ne sont pas pris en charge. Il n’existe actuellement aucun SDK/agent officiellement pris en charge pour la supervision côté serveur de ces charges de travail. Toutefois, il est possible d’opérer manuellement des transactions côté client sur un site PHP ou WordPress en ajoutant le JavaScript côté client à vos pages web à l’aide du [SDK JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript). 
+Les sites PHP et WordPress ne sont pas pris en charge. Il n’existe actuellement aucun SDK/agent officiellement pris en charge pour la supervision côté serveur de ces charges de travail. Toutefois, il est possible d’opérer manuellement des transactions côté client sur un site PHP ou WordPress en ajoutant le JavaScript côté client à vos pages web à l’aide du [SDK JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+
+### <a name="connection-string-and-instrumentation-key"></a>Chaîne de connexion et clé d’instrumentation
+
+Lorsque l’analyse sans code est utilisée, seule la chaîne de connexion est requise. Toutefois, nous vous recommandons quand même de définir la clé d’instrumentation pour préserver la compatibilité descendante avec les versions antérieures du SDK lorsque l’instrumentation manuelle est exécutée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Exécuter le profileur sur une application dynamique](../app/profiler.md).

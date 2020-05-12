@@ -6,12 +6,12 @@ ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 04/17/2020
-ms.openlocfilehash: 4dba719453546337f9e5657cbe56755ac1ac9149
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 3abec9b0c37e0475e369ce3cd2f91e40a1040b75
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686249"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628961"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriels vidéo sur le flux de données de mappage
 
@@ -160,3 +160,5 @@ Des mises à jour étant apportées en permanence au produit, certaines fonction
 [Introduction aux scripts de flux de données : copier, coller, extraits de code](https://www.youtube.com/watch?v=3_1I4XdoBKQ)
 
 [Expressions de qualité des données](https://www.youtube.com/watch?v=O8gmv5-lXhs)
+
+[Collect aggregate function](https://www.youtube.com/watch?v=zneE18EHJSE)

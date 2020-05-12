@@ -1,6 +1,6 @@
 ---
-title: Lister les attributions de rôles à l’aide du RBAC Azure et d’Azure CLI
-description: Découvrez comment déterminer les ressources, utilisateurs, groupes, principaux de service ou identités managées qui ont accès au contrôle d’accès en fonction du rôle (RBAC) Azure et à Azure CLI.
+title: Répertorier les attributions de rôle Azure à l’aide d’Azure CLI et de la fonctionnalité RBAC Azure
+description: Découvrez comment déterminer les ressources, utilisateurs, groupes, principaux de service ou identités managées qui ont accès à Azure CLI ou au contrôle d’accès en fonction du rôle (RBAC) Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5716e7bb89d017866bd1575256e2d119bb7acbe5
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: f4b635d6867c36b8b0f385320e3720bea41b54d1
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385059"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735740"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-azure-cli"></a>Lister les attributions de rôles à l’aide du RBAC Azure et d’Azure CLI
+# <a name="list-azure-role-assignments-using-azure-cli"></a>Répertorier les attributions de rôle Azure à l’aide d’Azure CLI
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] Cet article explique comment lister les attributions de rôles à l’aide d’Azure CLI.
 
@@ -144,4 +144,4 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Ajouter ou supprimer des attributions de rôles à l’aide du RBAC Azure et d’Azure CLI](role-assignments-cli.md)
+- [Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure CLI](role-assignments-cli.md)

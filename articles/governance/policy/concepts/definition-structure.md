@@ -3,12 +3,12 @@ title: Détails de la structure des définitions de stratégies
 description: Décrit comment les définitions de stratégie permettent d’établir des conventions pour les ressources Azure dans votre organisation.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0a7c4e05270ff242fa97b253b27a5de92895368a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: f396f46fa77f75452ac8ac3cd98bccd58fe0dfe4
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461002"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82613300"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -73,14 +73,14 @@ Le **Mode** est configuré selon que la stratégie cible une propriété Azure R
 
 Le **mode** détermine les types de ressources à évaluer pour une stratégie. Les modes pris en charge sont les suivants :
 
-- `all` : évaluer les groupes de ressources et tous les types de ressources
+- `all` : évaluer les groupes de ressources, les abonnements et tous les types de ressources
 - `indexed` : évaluer uniquement les types de ressources qui prennent en charge les balises et l’emplacement
 
 Par exemple, la ressource `Microsoft.Network/routeTables` prend en charge les étiquettes et l’emplacement, et elle est évaluée dans les deux modes. En revanche, la ressource `Microsoft.Network/routeTables/routes` ne peut pas être étiquetée et n’est pas évaluée en mode `Indexed`.
 
 Nous vous recommandons de définir **mode** sur `all` dans tous les cas. Toutes les définitions de stratégie créées via le portail utilisent le mode `all`. Si vous utilisez PowerShell ou Azure CLI, vous pouvez spécifier le paramètre **mode** manuellement. Si la définition de stratégie ne comporte pas de valeur **mode**, elle prend la valeur par défaut `all` dans Azure PowerShell et `null` dans Azure CLI. Le mode `null` a le même effet que `indexed`, à savoir assurer une compatibilité descendante.
 
-Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer des stratégies qui appliquent des balises ou des emplacements, car cela empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme non conformes dans les résultats de conformité. Les **groupes de ressources** font figure d’exception. Les stratégies qui appliquent des emplacements ou des balises à un groupe de ressources doivent définir **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroups`. Pour exemple, consultez [Appliquer des balises au groupe de ressources](../samples/enforce-tag-rg.md). Pour obtenir la liste des ressources qui prennent en charge les étiquettes, consultez [Prise en charge des étiquettes pour les ressources Azure](../../../azure-resource-manager/management/tag-support.md).
+Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer des stratégies qui appliquent des balises ou des emplacements, car cela empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme non conformes dans les résultats de conformité. Les **groupes de ressources** et les **abonnements** font figure d’exception. Les stratégies qui appliquent des emplacements ou des balises à un groupe de ressources ou un abonnement doivent définir le **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroups` ou `Microsoft.Resources/subscriptions`. Pour exemple, consultez [Appliquer des balises au groupe de ressources](../samples/enforce-tag-rg.md). Pour obtenir la liste des ressources qui prennent en charge les étiquettes, consultez [Prise en charge des étiquettes pour les ressources Azure](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes" />Modes Fournisseur de ressources (préversion)
 
@@ -412,7 +412,7 @@ Avec la règle de stratégie révisée, `if()` vérifie la longueur du **nom** a
 
 ### <a name="count"></a>Count
 
-Les conditions qui comptent le nombre de membres d’un tableau dans la charge utile de la ressource satisfaisant une expression de condition peuvent être formées à l’aide d’une expression **count**. Les scénarios courants vérifient si « au moins un des », « un seul des », « tous les » ou « aucun des » membres du tableau remplissent la condition. **count** évalue chaque membre du tableau [\[\*\] alias](#understanding-the--alias) à la recherche d’une expression de condition, et additionne les résultats _true_, qui sont ensuite comparés à l’opérateur d’expression.
+Les conditions qui comptent le nombre de membres d’un tableau dans la charge utile de la ressource satisfaisant une expression de condition peuvent être formées à l’aide d’une expression **count**. Les scénarios courants vérifient si « au moins un des », « un seul des », « tous les » ou « aucun des » membres du tableau remplissent la condition. **count** évalue chaque membre du tableau [\[\*\] alias](#understanding-the--alias) à la recherche d’une expression de condition, et additionne les résultats _true_, qui sont ensuite comparés à l’opérateur d’expression. Les expressions **count** peuvent être ajoutées jusqu’à 3 fois à une même définition **policyRule**.
 
 La structure de l’expression **count** est :
 
@@ -629,7 +629,7 @@ La liste des alias augmente toujours. Pour trouver les alias actuellement pris e
 
   Utilisez l’[extension Azure Policy pour Visual Studio Code](../how-to/extension-for-vscode.md) afin d’afficher et de découvrir les alias des propriétés de ressources.
 
-  ![Extension Azure Policy pour Visual Studio Code](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Extension Azure Policy pour Visual Studio Code" border="false":::
 
 - Azure Resource Graph
 

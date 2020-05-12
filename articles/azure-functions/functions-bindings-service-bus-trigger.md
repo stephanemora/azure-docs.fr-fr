@@ -6,16 +6,16 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 1ead7fcd9d474369e3a62e372a971d88d26f4e9c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5e7f1b70aca50b4e42d056beb0b17795430091c
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273567"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690703"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Déclencheur Azure Service Bus pour Azure Functions
 
-Utilisez le déclencheur Service Bus pour répondre aux messages provenant d'une file d’attente ou d'une rubrique Service Bus.
+Utilisez le déclencheur Service Bus pour répondre aux messages provenant d'une file d’attente ou d'une rubrique Service Bus. À partir de la version d’extension 3.1.0, vous pouvez déclencher une file d’attente ou une rubrique activée par une session.
 
 Pour plus d’informations sur les détails d’installation et de configuration, consultez la [vue d’ensemble](functions-bindings-service-bus-output.md).
 
@@ -222,7 +222,7 @@ Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), util
   }
   ```
 
-  Vous pouvez définir la propriété `Connection` pour spécifier le nom d’un paramètre d’application contenant la chaîne de connexion Service Bus à utiliser, comme illustré dans l’exemple suivant :
+  Étant donné que la propriété `Connection` n’est pas définie, Functions recherche un paramètre d’application nommé `AzureWebJobsServiceBus`, qui est le nom par défaut de la chaîne de connexion Service Bus. Vous pouvez également définir la propriété `Connection` pour spécifier le nom d’un paramètre d’application contenant la chaîne de connexion Service Bus à utiliser, comme illustré dans l’exemple suivant :
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -256,7 +256,7 @@ Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), util
 
 Le compte Service Bus à utiliser est déterminé dans l’ordre suivant :
 
-* La propriété `ServiceBusTrigger` de l’attribut `Connection`.
+* La propriété `Connection` de l’attribut `ServiceBusTrigger`.
 * L’attribut `ServiceBusAccount` appliqué au même paramètre que l’attribut `ServiceBusTrigger`.
 * L’attribut `ServiceBusAccount` appliqué à la fonction.
 * L’attribut `ServiceBusAccount` appliqué à la classe.
@@ -354,21 +354,24 @@ Le paramètre `maxAutoRenewDuration` peut être configuré dans *host.json*, qui
 
 ## <a name="message-metadata"></a>Métadonnées de message
 
-Le déclencheur Service Bus fournit plusieurs [propriétés de métadonnées](./functions-bindings-expressions-patterns.md#trigger-metadata). Ces propriétés peuvent être utilisées dans les expressions de liaison dans d’autres liaisons ou en tant que paramètres dans votre code. Ces propriétés sont membres de la classe [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).
+Le déclencheur Service Bus fournit plusieurs [propriétés de métadonnées](./functions-bindings-expressions-patterns.md#trigger-metadata). Ces propriétés peuvent être utilisées dans les expressions de liaison dans d’autres liaisons ou en tant que paramètres dans votre code. Ces propriétés sont membres de la classe [Message](/dotnet/api/microsoft.azure.servicebus.message?view=azure-dotnet).
 
 |Propriété|Type|Description|
 |--------|----|-----------|
-|`DeliveryCount`|`Int32`|Le nombre de remises.|
-|`DeadLetterSource`|`string`|La source de lettre morte.|
-|`ExpiresAtUtc`|`DateTime`|Le délai d'expiration en UTC.|
-|`EnqueuedTimeUtc`|`DateTime`|Le temps de file d’attente en UTC.|
-|`MessageId`|`string`|Valeur définie par l’utilisateur que Service Bus peut utiliser pour identifier les messages en double, si cette fonctionnalité est activée.|
 |`ContentType`|`string`|Identificateur de type de contenu utilisé par l’expéditeur et le récepteur pour une logique spécifique à l’application.|
-|`ReplyTo`|`string`|L’adresse de file d’attente de réponse.|
-|`SequenceNumber`|`Int64`|Le numéro unique attribué à un message par Service Bus.|
-|`To`|`string`|L’adresse de destination.|
-|`Label`|`string`|L’étiquette spécifique de l’application.|
 |`CorrelationId`|`string`|L’ID de corrélation.|
+|`DeadLetterSource`|`string`|La source de lettre morte.|
+|`DeliveryCount`|`Int32`|Le nombre de remises.|
+|`EnqueuedTimeUtc`|`DateTime`|Le temps de file d’attente en UTC.|
+|`ExpiresAtUtc`|`DateTime`|Le délai d'expiration en UTC.|
+|`Label`|`string`|L’étiquette spécifique de l’application.|
+|`MessageId`|`string`|Valeur définie par l’utilisateur que Service Bus peut utiliser pour identifier les messages en double, si cette fonctionnalité est activée.|
+|`MessageReceiver`|`MessageReceiver`|Récepteur du message Service Bus. Peut être utilisé pour abandonner, terminer ou mettre en file d’attente le message.|
+|`MessageSession`|`MessageSession`|Récepteur de messages spécifiquement pour les files d’attente et les rubriques activées par la session.|
+|`ReplyTo`|`string`|L’adresse de file d’attente de réponse.|
+|`SequenceNumber`|`long`|Le numéro unique attribué à un message par Service Bus.|
+|`To`|`string`|L’adresse de destination.|
+|`UserProperties`|`IDictionary<string, object>`|Propriétés définies par l’expéditeur.|
 
 Consultez les [exemples de code](#example) qui utilisent ces propriétés précédemment dans cet article.
 

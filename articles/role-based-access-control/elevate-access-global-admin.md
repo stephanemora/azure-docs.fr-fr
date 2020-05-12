@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/03/2019
+ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1731c630cb98ac542ebcdc7aedf07f7bb63eaec0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6821e3de3bfec891d98e9291a479cbb7537364ca
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77137457"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733655"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure
 
@@ -30,7 +30,7 @@ En tant qu’administrateur général dans Azure Active Directory (Azure AD), il
 
 ## <a name="why-would-you-need-to-elevate-your-access"></a>Pourquoi devez-vous élever votre accès ?
 
-Si vous êtes administrateur général, il peut vous arriver de vouloir effectuer les opérations suivantes :
+Si vous êtes administrateur général, il peut vous arriver de vouloir effectuer les actions suivantes :
 
 - Récupérer l’accès à un abonnement ou groupe d’administration Azure quand un utilisateur a perdu cet accès
 - Accorder à un autre utilisateur ou à vous-même l’accès à un abonnement ou groupe d’administration Azure
@@ -55,9 +55,7 @@ Effectuez les étapes suivantes pour élever l’accès d’un administrateur g�
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) ou au [Centre d’administration Azure Active Directory](https://aad.portal.azure.com) en tant qu’administrateur général.
 
-1. Recherchez et sélectionnez **Azure Active Directory**.
-
-   ![Sélectionner Azure Active Directory - Capture d’écran](./media/elevate-access-global-admin/search-for-azure-active-directory.png)
+1. Ouvrez **Azure Active Directory**.
 
 1. Sous **Gérer**, sélectionnez **Propriétés**.
 
@@ -86,7 +84,7 @@ Effectuez les étapes suivantes pour élever l’accès d’un administrateur g�
 
 1. Effectuez les modifications que vous devez apporter via l’accès élevé.
 
-    Pour plus d’informations sur l’attribution de rôles, consultez [Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](role-assignments-portal.md). Si vous utilisez Azure AD Privileged Identity Management (PIM), consultez [Découvrir les ressources Azure à gérer dans PIM](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) ou [Attribuer des rôles de ressources Azure dans PIM](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    Pour obtenir des informations sur la l’attribution de rôles, consultez [Ajouter ou supprimer des attributions de rôle Azure à l’aide du portail Azure](role-assignments-portal.md). Si vous utilisez Azure AD Privileged Identity Management (PIM), consultez [Découvrir les ressources Azure à gérer dans PIM](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) ou [Attribuer des rôles de ressources Azure dans PIM](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 ### <a name="remove-elevated-access"></a>Supprimer l’accès élevé
 
@@ -98,7 +96,7 @@ Pour supprimer l’attribution de rôle Administrateur de l’accès utilisateur
 
 1. Définissez la bascule **Gestion de l’accès pour les ressources Azure** sur **Non**. Comme il s’agit d’un paramètre par utilisateur, vous devez être connecté sous le même utilisateur que celui utilisé pour élever l’accès.
 
-    Si vous tentez de supprimer l’attribution de rôle Administrateur de l’accès utilisateur dans le volet de contrôle d’accès (IAM), le message suivant s’affiche. Pour supprimer l’attribution de rôle, vous devez redéfinir la bascule sur **Non** ou utiliser Azure PowerShell, Azure CLI ou l’API REST.
+    Si vous tentez de supprimer l’attribution de rôle Administrateur de l’accès utilisateur dans le volet de contrôle d’accès (IAM), le message suivant s’affiche. Pour supprimer l’attribution de rôle, vous devez rétablir la bascule sur **Non** ou utiliser Azure PowerShell, Azure CLI ou l’API REST.
 
     ![Supprimer des attributions de rôle avec une étendue racine](./media/elevate-access-global-admin/iam-root-remove.png)
 
@@ -233,7 +231,7 @@ Vous pouvez lister toutes les affectations de refus d’un utilisateur au niveau
 
 ### <a name="remove-elevated-access"></a>Supprimer l’accès élevé
 
-Lorsque vous appelez `elevateAccess`, vous créez une attribution de rôle pour vous-même. Donc, pour révoquer ces privilèges, vous devez supprimer l’attribution de rôle Administrateur de l’accès utilisateur pour vous-même au niveau de l’étendue racine (`/`).
+Lorsque vous appelez `elevateAccess`, vous créez une attribution de rôle pour vous-même. Donc, pour révoquer ces privilèges, vous devez supprimer l’attribution du rôle Administrateur de l’accès utilisateur pour vous-même au niveau de l’étendue racine (`/`).
 
 1. Appelez [GET roleDefinitions](/rest/api/authorization/roledefinitions/get), où `roleName` est l’Administrateur de l’accès utilisateur, pour déterminer l’ID de nom du rôle Administrateur de l’accès utilisateur.
 
@@ -323,5 +321,5 @@ Lorsque vous appelez `elevateAccess`, vous créez une attribution de rôle pour 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Comprendre les différents rôles dans Azure](rbac-and-directory-admin-roles.md)
-- [Gérer l'accès aux ressources Azure à l'aide du contrôle RBAC et de l'API REST](role-assignments-rest.md)
+- [Comprendre les différents rôles](rbac-and-directory-admin-roles.md)
+- [Ajouter ou supprimer des attributions de rôle Azure à l’aide de l’API REST](role-assignments-rest.md)

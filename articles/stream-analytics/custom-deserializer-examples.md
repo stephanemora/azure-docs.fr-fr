@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 270e9a31c28e7209cfe43ea8307b928ed3257a35
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5cde80bf3205557884dfe8f2b8f5e79031bbca69
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76845260"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612059"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Lire les entrées dans n’importe quel format avec des désérialiseurs .NET personnalisés
 
@@ -65,11 +65,11 @@ Le paramètre `stream` est le flux contenant l’objet sérialisé. `Deserialize
 
 `StreamingDiagnostics` représente les diagnostics pour les opérateurs définis par l’utilisateur, notamment le sérialiseur, le désérialiseur et les fonctions définies par l’utilisateur.
 
-`WriteError` écrit un message d’erreur dans les journaux de diagnostic et envoie l’erreur aux diagnostics.
+`WriteError` écrit un message d’erreur dans les journaux de ressources et envoie l’erreur aux diagnostics.
 
 `briefMessage` est un bref message d’erreur. Ce message s’affiche dans les diagnostics et est utilisé par l’équipe produit à des fins de débogage. N’incluez pas d’informations sensibles et maintenez une taille de message inférieure à 200 caractères
 
-`detailedMessage` est un message d’erreur détaillé qui est uniquement ajouté aux journaux de diagnostic dans votre stockage. Ce message doit comprendre moins de 2000 caractères.
+`detailedMessage` est un message d’erreur détaillé qui est uniquement ajouté aux journaux de ressources dans votre stockage. Ce message doit comprendre moins de 2000 caractères.
 
 ```csharp
     public abstract class StreamingDiagnostics
@@ -247,6 +247,10 @@ Cette fonctionnalité n'est pas prise en charge. Si vous avez besoin de cette fo
 ### <a name="can-i-share-my-deserializer-implementation-with-the-community-so-that-others-can-benefit"></a>Puis-je partager mon implémentation de désérialiseur avec la communauté afin que d’autres puissent en bénéficier ?
 
 Une fois que vous avez implémenté votre désérialiseur, vous pouvez aider d’autres personnes en le partageant avec la communauté. Envoyez votre code au [référentiel GitHub d’Azure Stream Analytics](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
+
+### <a name="what-are-the-other-limitation-of-using-custom-deserializers-in-stream-analytics"></a>Quelles sont les autres limites de l’utilisation de désérialiseurs personnalisés dans Stream Analytics ?
+
+Si votre entrée est au format Protobuf avec un schéma contenant le type MapField, vous ne pourrez pas implémenter de désérialiseur personnalisé. Nous travaillons actuellement sur la prise en charge de ce type.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

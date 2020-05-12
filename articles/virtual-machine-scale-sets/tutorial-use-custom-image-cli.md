@@ -2,41 +2,46 @@
 title: Tutoriel - Utiliser une image de machine virtuelle personnalisée dans un groupe identique avec Azure CLI
 description: Découvrez comment utiliser Azure CLI pour créer une image de machine virtuelle personnalisée que vous pouvez utiliser pour déployer un groupe de machines virtuelles identiques
 author: cynthn
-tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
+ms.subservice: imaging
 ms.topic: tutorial
-ms.date: 03/27/2018
+ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6d9f625bf425a33b690fd303a4f13d032bd59fa0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.reviewer: akjosh
+ms.openlocfilehash: 22f3fd44fbeb3d951d4add7b90a0e9aebd863ebf
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80062716"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792834"
 ---
-# <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutoriel : Créer et utiliser une image personnalisée pour des groupes de machines virtuelles identiques avec Azure CLI
+# <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutoriel : Créer et utiliser une image personnalisée pour des groupes de machines virtuelles identiques avec Azure CLI
 Lorsque vous créez un groupe identique, vous spécifiez une image à utiliser lors du déploiement des instances de machine virtuelle. Pour réduire le nombre de tâches une fois que les instances de machine virtuelle sont déployées, vous pouvez utiliser une image de machine virtuelle personnalisée. Cette image de machine virtuelle personnalisée inclut les configurations ou installations des applications requises. Toutes les instances de machine virtuelle créées dans le groupe identique utilisent l’image de machine virtuelle personnalisée et sont prêtes à répondre au trafic des applications. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Créer et personnaliser une machine virtuelle
-> * Déprovisionner et généraliser la machine virtuelle
-> * Créer une image de machine virtuelle personnalisée
-> * Déployer un groupe identique qui utilise l’image de machine virtuelle personnalisée
+> * Créer une galerie Shared Image Gallery
+> * Créer une définition d’image spécialisée
+> * Créer une version d’image
+> * Créer un groupe identique à partir d’une image spécialisée
+> * Partager une galerie d’images
+
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.29 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, ce tutoriel exige Azure CLI version 2.4.0 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
+## <a name="overview"></a>Vue d’ensemble
+
+Une [galerie d’images partagées](shared-image-galleries.md) simplifie considérablement le partage d’images personnalisées dans votre organisation. Les images personnalisées sont comme des images de la Place de marché, sauf que vous les créez vous-même. Les images personnalisées peuvent être utilisées pour amorcer des configurations comme le préchargement des applications, les configurations d’application et d’autres configurations de système d’exploitation. 
+
+Shared Image Gallery vous permet de partager vos images de machines virtuelles personnalisées avec d’autres utilisateurs. Choisissez les images à partager, les régions dans lesquelles vous souhaitez les rendre disponibles et les personnes avec lesquelles vous voulez les partager. 
 
 ## <a name="create-and-configure-a-source-vm"></a>Créer et configurer une machine virtuelle source
 
->[!NOTE]
-> Ce tutoriel vous sert de guide pour créer et utiliser une image de machine virtuelle généralisée. La création d’un groupe identique depuis une image de machine virtuelle généralisée n’est pas prise en charge.
-
-Commencez par créer un groupe de ressource avec [az group create](/cli/azure/group), puis créez une machine virtuelle avec [az vm create](/cli/azure/vm). Cette machine virtuelle est ensuite utilisée comme source d’une image de machine virtuelle personnalisée. L’exemple suivant crée une machine virtuelle nommée *myVM* dans le groupe de ressources nommé *myResourceGroup* :
+Commencez par créer un groupe de ressource avec [az group create](/cli/azure/group), puis créez une machine virtuelle avec [az vm create](/cli/azure/vm). Cette machine virtuelle est ensuite utilisée comme source de l’image. L’exemple suivant crée une machine virtuelle nommée *myVM* dans le groupe de ressources nommé *myResourceGroup* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -49,7 +54,10 @@ az vm create \
   --generate-ssh-keys
 ```
 
-L’adresse IP publique de votre machine virtuelle est affichée dans la sortie de la commande [az vm create](/cli/azure/vm). La connexion SSH à l’adresse IP publique de votre machine virtuelle se présente comme suit :
+> [!IMPORTANT]
+> L’**ID** de votre machine virtuelle est affichée dans la sortie de la commande [az vm create](/cli/azure/vm). Copiez-le à un emplacement sûr pour pouvoir l’utiliser plus loin dans ce tutoriel.
+
+L’adresse IP publique de votre machine virtuelle est également affichée dans la sortie de la commande [az vm create](/cli/azure/vm). La connexion SSH à l’adresse IP publique de votre machine virtuelle se présente comme suit :
 
 ```console
 ssh azureuser@<publicIpAddress>
@@ -61,56 +69,96 @@ Pour personnaliser votre machine virtuelle, nous allons installer un serveur web
 sudo apt-get install -y nginx
 ```
 
-La dernière étape de préparation de votre machine virtuelle pour une utilisation en tant qu’image personnalisée consiste à déprovisionner votre machine virtuelle. Cette étape supprime les informations spécifiques à l’ordinateur de la machine virtuelle et permet de déployer plusieurs machines virtuelles à partir d’une seule image. Quand la machine virtuelle est déprovisionnée, le nom d’hôte est réinitialisé sur *localhost.localdomain*. Les clés d’hôte SSH, les configurations de serveur de noms, le mot de passe racine et les baux DHCP mis en cache sont également supprimés.
+Quand vous avez terminé, tapez `exit` pour déconnecter la connexion SSH.
 
-Pour déprovisionner la machine virtuelle, utilisez l’agent de machine virtuelle Azure (*waagent*). L’agent de machine virtuelle Azure est installé sur chaque machine virtuelle et est utilisé pour communiquer avec la plateforme Azure. Le paramètre `-force` indique à l’agent d’accepter les invites pour réinitialiser les informations spécifiques à l’ordinateur.
+## <a name="create-an-image-gallery"></a>Créer une galerie d’images 
 
-```bash
-sudo waagent -deprovision+user -force
-```
+Une galerie d’images est la ressource principale utilisée pour activer le partage d’image. 
 
-Fermez votre connexion SSH à la machine virtuelle :
+Les caractères autorisés pour le nom de galerie sont les lettres majuscules ou minuscules, les chiffres et les points. Le nom de galerie ne peut pas contenir de tirets.   Les noms de galerie doivent être uniques dans votre abonnement. 
 
-```bash
-exit
-```
-
-
-## <a name="create-a-custom-vm-image-from-the-source-vm"></a>Créer une image de machine virtuelle personnalisée à partir de la machine virtuelle source
-La machine virtuelle source est à présent personnalisée avec le serveur web Nginx installé. Nous allons créer l’image de machine virtuelle personnalisée à utiliser avec un groupe identique.
-
-Pour créer une image, la machine virtuelle doit être libérée. Libérez la machine virtuelle avec la commande [az vm deallocate](/cli//azure/vm). Définissez ensuite l’état de la machine virtuelle comme généralisé avec [az vm generalize](/cli//azure/vm), afin que la plateforme Azure sache que la machine virtuelle est prête pour utiliser une image personnalisée. Vous pouvez uniquement créer une image à partir d’une machine virtuelle généralisée :
-
+Créez une galerie d’images à l’aide de [az sig create](/cli/azure/sig#az-sig-create). L’exemple suivant crée un groupe de ressources nommé *myGalleryRG* dans *USA Est* et une galerie nommée *myGallery*.
 
 ```azurecli-interactive
-az vm deallocate --resource-group myResourceGroup --name myVM
-az vm generalize --resource-group myResourceGroup --name myVM
+az group create --name myGalleryRG --location eastus
+az sig create --resource-group myGalleryRG --gallery-name myGallery
 ```
 
-Quelques minutes peuvent être nécessaires pour libérer et généraliser la machine virtuelle.
+## <a name="create-an-image-definition"></a>Créer une définition d’image
 
-Créez à présent une image de la machine virtuelle à l’aide de [az image create](/cli//azure/image). L’exemple suivant crée une image nommée *myImage* à partir de votre machine virtuelle :
+Les définitions d’image créent un regroupement logique des images. Elles sont utilisées pour gérer les informations sur les versions d’image créées au sein de celles-ci. 
 
-> [REMARQUE] Si le groupe de ressources et la machine virtuelle sont situés à des emplacements différents, vous pouvez ajouter le paramètre `--location` aux commandes ci-dessous pour définir l’emplacement de la machine virtuelle source utilisée pour créer l’image. 
+Les noms de définition d’image peuvent contenir des lettres majuscules ou minuscules, des chiffres, des tirets et des points. 
 
-```azurecli-interactive
-az image create \
-  --resource-group myResourceGroup \
-  --name myImage \
-  --source myVM
+Vérifiez que le type de votre définition d’image est approprié. Si vous avez généralisé la machine virtuelle (à l’aide de Sysprep pour Windows ou de waagent -deprovision pour Linux), vous devez créer une définition d’image généralisée à l’aide de la commande `--os-state generalized`. Si vous souhaitez utiliser la machine virtuelle sans supprimer de comptes d’utilisateur, créez une définition d’image spécialisée à l’aide de la commande `--os-state specialized`.
+
+Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+
+Créez une définition d’image dans la galerie avec la commande [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
+
+Dans cet exemple, la définition d’image se nomme *myImageDefinition* et est destinée à une image de système d’exploitation Linux [spécialisée](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images). Pour créer une définition pour des images utilisant un système d’exploitation Windows, utilisez `--os-type Windows`. 
+
+```azurecli-interactive 
+az sig image-definition create \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition \
+   --publisher myPublisher \
+   --offer myOffer \
+   --sku mySKU \
+   --os-type Linux \
+   --os-state specialized
 ```
 
+> [!IMPORTANT]
+> L’**ID** de votre définition d’image est indiqué dans la sortie de la commande. Copiez-le à un emplacement sûr pour pouvoir l’utiliser plus loin dans ce tutoriel.
 
-## <a name="create-a-scale-set-from-the-custom-vm-image"></a>Créer un groupe identique à partir de l’image de machine virtuelle personnalisée
-Créez un groupe identique avec [az vmss create](/cli/azure/vmss#az-vmss-create). Au lieu d’une image de plateforme, telle que *UbuntuLTS* ou *CentOS*, spécifiez le nom de votre image de machine virtuelle personnalisée. L’exemple suivant crée un groupe identique nommé *myScaleSet* qui utilise l’image personnalisée nommée *myImage* de l’étape précédente :
 
-```azurecli-interactive
+## <a name="create-the-image-version"></a>Créer la version de l’image
+
+Créez une version d’image à partir de la machine virtuelle à l’aide de la commande [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create).  
+
+Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format: *MajorVersion*.*MinorVersion*.*Patch*.
+
+Dans cet exemple, la version de notre image est *1.0.0* et nous allons créer un réplica dans la région *USA Centre Sud* et un réplica dans la région *USA Est 2*. Les régions de réplication doivent inclure la région dans laquelle se trouve la machine virtuelle source.
+
+Remplacez la valeur de `--managed-image` dans cet exemple par l’ID de votre machine virtuelle récupéré à l’étape précédente.
+
+```azurecli-interactive 
+az sig image-version create \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition \
+   --gallery-image-version 1.0.0 \
+   --target-regions "southcentralus=1" "eastus=1" \
+   --managed-image "/subscriptions/<Subscription ID>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM"
+```
+
+> [!NOTE]
+> Vous devez attendre que la version d’image soit totalement intégrée et répliquée avant de pouvoir utiliser la même image managée pour créer une autre version d’image.
+>
+> Vous pouvez également stocker votre image dans le Stockage Premium, en ajoutant `--storage-account-type  premium_lrs`, ou dans le [stockage redondant interzone](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs), en ajoutant `--storage-account-type  standard_zrs`, quand vous créez la version de l’image.
+>
+
+
+
+
+## <a name="create-a-scale-set-from-the-image"></a>Créer un groupe identique à partir de l’image
+Créez un groupe identique à partir de l’image spécialisée à l’aide de la commande [`az vmss create`](/cli/azure/vmss#az-vmss-create). 
+
+Créez le groupe identique avec la commande [`az vmss create`](/cli/azure/vmss#az-vmss-create), en spécifiant le paramètre --specialized pour indiquer que l’image est une image spécialisée. 
+
+Utilisez l’ID de définition d’image pour `--image` afin de créer les instances de groupe identique à partir de la version la plus récente de l’image disponible. Vous pouvez également créer les instances de groupe identique à partir d’une version spécifique en fournissant l’ID de version de l’image pour `--image`. 
+
+Créez un groupe identique nommé *myScaleSet* avec la dernière version de l’image *myImageDefinition* que nous avons créée plus tôt.
+
+```azurecli
+az group create --name myResourceGroup --location eastus
 az vmss create \
-  --resource-group myResourceGroup \
-  --name myScaleSet \
-  --image myImage \
-  --admin-username azureuser \
-  --generate-ssh-keys
+   --resource-group myResourceGroup \
+   --name myScaleSet \
+   --image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
+   --specialized
 ```
 
 La création et la configuration des l’ensemble des ressources et des machines virtuelles du groupe identique prennent quelques minutes.
@@ -146,6 +194,32 @@ Entrez l’adresse IP publique dans votre navigateur web. La page web NGINX par 
 ![Nginx s’exécutant à partir de l’image de machine virtuelle personnalisée](media/tutorial-use-custom-image-cli/default-nginx-website.png)
 
 
+
+## <a name="share-the-gallery"></a>Partager la galerie
+
+Vous pouvez partager des images entre abonnements à l’aide du contrôle d’accès en fonction du rôle (RBAC). Vous pouvez partager des images au niveau de la galerie, de la définition d’image ou de la version d’image. Tout utilisateur disposant d’autorisations de lecture sur une version d’image, même dans plusieurs abonnements, peut déployer une machine virtuelle à partir de la version d’image.
+
+Nous vous recommandons de partager l’accès avec d’autres utilisateurs au niveau de la galerie. Pour obtenir l’ID d’objet de votre galerie, utilisez [az sig show](/cli/azure/sig#az-sig-show).
+
+```azurecli-interactive
+az sig show \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --query id
+```
+
+Utilisez l’ID d’objet en tant qu’étendue, ainsi qu’une adresse e-mail et [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) pour donner aux utilisateurs un accès à la galerie d’images partagées. Remplacez `<email-address>` et `<gallery iD>` par vos propres informations.
+
+```azurecli-interactive
+az role assignment create \
+   --role "Reader" \
+   --assignee <email address> \
+   --scope <gallery ID>
+```
+
+Pour plus d’informations sur le partage de ressources à l’aide de RBAC, consultez [Gérer l’accès à l’aide de RBAC et Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
+
+
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 Pour supprimer votre groupe identique et les ressources supplémentaires, supprimez le groupe de ressources et toutes ses ressources avec [az group delete](/cli/azure/group). Le paramètre `--no-wait` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine. Le paramètre `--yes` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin.
 
@@ -158,10 +232,11 @@ az group delete --name myResourceGroup --no-wait --yes
 Dans ce tutoriel, vous avez appris à créer et utiliser une image de machine virtuelle personnalisée pour vos groupes identiques avec Azure CLI :
 
 > [!div class="checklist"]
-> * Créer et personnaliser une machine virtuelle
-> * Déprovisionner et généraliser la machine virtuelle
-> * Créer une image de machine virtuelle personnalisée
-> * Déployer un groupe identique qui utilise l’image de machine virtuelle personnalisée
+> * Créer une galerie Shared Image Gallery
+> * Créer une définition d’image spécialisée
+> * Créer une version d’image
+> * Créer un groupe identique à partir d’une image spécialisée
+> * Partager une galerie d’images
 
 Passez au didacticiel suivant pour apprendre à déployer des applications dans votre groupe identique.
 

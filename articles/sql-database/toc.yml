@@ -127,6 +127,8 @@
               items:
                 - name: Évaluation des vulnérabilités
                   href: sql-vulnerability-assessment.md
+                - name: Règles d’évaluation des vulnérabilités
+                  href: sql-database-vulnerability-assessment-rules.md
                 - name: Stockage des analyses de l’évaluation des vulnérabilités derrière des pare-feu et des réseaux virtuels
                   href: sql-database-vulnerability-assessment-storage.md
             - name: Protection avancée contre les menaces

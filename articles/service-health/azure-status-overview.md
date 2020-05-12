@@ -3,12 +3,12 @@ title: Vue d’ensemble de l’état Azure | Microsoft Docs
 description: Vue globale de l’intégrité des services Azure
 ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: 766e9795b01c4a09916a025cba77744dea235faf
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6e0813ad5fde19069662c13fcba7bd81b055de2a
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78898336"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732548"
 ---
 # <a name="azure-status-overview"></a>Vue d’ensemble de l’état Azure
 
@@ -24,9 +24,7 @@ La page de l’état Azure est mise à jour en temps réel dès que l’intégri
 
 ## <a name="azure-status-history"></a>Historique de l’état Azure
 
-La page de l’état Azure affiche toujours les dernières informations sur l’intégrité, mais vous pouvez afficher des événements plus anciens à l’aide de la [page de l’historique de l’état Azure](https://status.azure.com/status/history/).
-
-La page d’historique de l’état présente les événements remontant jusqu’aux 365 derniers jours (à compter des événements publiés en novembre 2019) avec une cause racine préliminaire, des informations d’atténuation et les étapes suivantes pour Azure.
+La page de l’état Azure affiche toujours les dernières informations sur l’intégrité, mais vous pouvez afficher des événements plus anciens à l’aide de la [page de l’historique de l’état Azure](https://status.azure.com/status/history/). La page de l’historique contient toutes les analyses de cause racine des incidents qui se sont produits le 20 novembre 2019 ou ultérieurement et, à partir de cette date, fournit un historique des analyses sur 5 ans. Les analyses de cause racine antérieures au 20 novembre 2019 ne sont pas disponibles.
 
 ## <a name="rss-feed"></a>Flux RSS
 
