@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/12/2020
-ms.openlocfilehash: b9d923b3272f9d8b3da39d7cdb771a766eee4eab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/24/2020
+ms.openlocfilehash: 05d057be76a1b468f892b3123080e32a948153ae
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233701"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598496"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gérer des clusters Apache Hadoop dans HDInsight à l’aide du portail Azure
 
@@ -200,9 +200,9 @@ Dans la [page d’accueil du cluster](#homePage) :
 
 Le mot de passe est modifié sur tous les nœuds du cluster.
 
-### <a name="change-the-ssh-user-password"></a>Modifier le mot de passe d’utilisateur SSH
+### <a name="change-the-ssh-user-password-or-public-key"></a>Modifier le mot de passe d’utilisateur SSH ou la clé publique
 
-1. À l’aide d’un éditeur de texte, enregistrez le texte suivant dans un fichier nommé **changepassword.sh**.
+1. À l’aide d’un éditeur de texte, enregistrez le texte suivant dans un fichier nommé **changecredentials.sh**.
 
     > [!IMPORTANT]  
     > Vous devez utiliser un éditeur qui utilise LF comme caractère de fin de ligne. Si l’éditeur utilise CRLF, le script échoue.
@@ -219,16 +219,22 @@ Le mot de passe est modifié sur tous les nœuds du cluster.
 4. En haut de la page **Actions de script**, sélectionnez **Envoyer**.
 5. Dans le panneau **Envoyer une action de script**, entrez les informations suivantes :
 
+> [!NOTE]
+> Les mots de passe SSH ne peuvent pas contenir les caractères suivants :
+> ```
+> " ' ` / \ < % ~ | $ & ! 
+> ```
+
    | Champ | Valeur |
    | --- | --- |
    | Type de script | Sélectionnez **- Personnalisé** dans la liste déroulante.|
-   | Nom |« Modifier le mot de passe SSH » |
-   | URI de script bash |URI du fichier changepassword.sh |
+   | Nom |« Modifier les informations d’identification SSH » |
+   | URI de script bash |URI vers le fichier changecredentials.sh |
    | Types de nœud : (Principal, Worker, Nimbus, Superviseur ou Zookeeper) |✓ pour tous les types de nœuds répertoriés |
    | Paramètres |Entrez le nom d’utilisateur SSH, puis le nouveau mot de passe. Il doit y avoir un espace entre le nom d’utilisateur et le mot de passe. |
    | Conservez cette action de script... |Laissez ce champ non coché. |
 
-6. Sélectionnez **Créer** pour appliquer le script. Une fois le script terminé, vous pouvez vous connecter au cluster à l’aide de SSH avec le nouveau mot de passe.
+6. Sélectionnez **Créer** pour appliquer le script. Une fois le script terminé, vous pouvez vous connecter au cluster à l’aide de SSH avec les nouvelles informations d’identification.
 
 ## <a name="find-the-subscription-id"></a>Rechercher l’ID d’abonnement
 
