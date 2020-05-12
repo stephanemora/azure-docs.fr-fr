@@ -1,42 +1,41 @@
 ---
 title: Fichier include
 description: Fichier include
-services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 04/16/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: a477114bda7d138a6860d21f2fad75e27d968833
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5cb3e6d53f6840b8f4e535976739c188daed18b2
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80116880"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789032"
 ---
 La galerie d’images partagées est un service qui vous permet de structurer et d’organiser vos images managées. Les galeries d’images partagées proposent les éléments suivants :
 
 - une réplication mondiale et managée des images ;
 - la gestion de versions et le regroupement d’images pour faciliter la gestion ;
 - des images hautement disponibles avec des comptes ZRS (Zone Redundant Storage) dans les régions qui prennent en charge les zones de disponibilité Azure Le stockage redondant interzone (ZRS) offre une meilleure résilience en cas de défaillances de zones.
+- Prise en charge du stockage Premium (Premium_LRS).
 - le partage entre différents abonnements, voire entre locataires Active Directory, à l’aide du contrôle d’accès en fonction du rôle (RBAC) ;
 - la mise à l’échelle de vos déploiements avec des réplicas d’image dans chaque région.
 
 Celle-ci vous permet de partager vos images avec différents utilisateurs, principaux de service ou groupes Active Directory au sein de votre organisation. Il est possible de répliquer des images partagées dans plusieurs régions, pour une mise à l’échelle plus rapide de vos déploiements.
 
-Une image managée est une copie d’une machine virtuelle complète (y compris tous les disques de données attachés) ou simplement du disque de système d’exploitation, selon la façon dont vous créez l’image. Quand vous créez une machine virtuelle à partir de l’image, une copie des disques durs virtuels dans l’image est utilisée pour créer les disques de la nouvelle machine virtuelle. L’image managée reste dans le stockage et peut servir à créer des machines virtuelles à l’infini.
+Une image est une copie d’une machine virtuelle complète (dont tous les disques de données attachés) ou juste du disque de système d’exploitation, selon la façon dont elle est créée. Quand vous créez une machine virtuelle à partir de l’image, une copie des disques durs virtuels dans l’image est utilisée pour créer les disques de la nouvelle machine virtuelle. L’image reste dans le stockage et peut être utilisée sans limite pour créer des machines virtuelles.
 
-Si vous avez un grand nombre d’images managées à gérer et que vous voulez qu’elles soient disponibles pour toute l’entreprise, vous pouvez utiliser une galerie d’images partagées en tant que référentiel facilitant la mise à jour et le partage de vos images. 
+Si vous avez un grand nombre d’images à gérer et que vous voulez qu’elles soient disponibles dans toute votre entreprise, vous pouvez utiliser une galerie d’images partagées comme référentiel. 
 
 La fonctionnalité Galerie d’images partagées a plusieurs types de ressources :
 
 | Ressource | Description|
 |----------|------------|
-| **Image managée** | Il s’agit d’une image de base qui peut être utilisée seule ou pour créer une **version de l’image**  dans une galerie d’images. Les images managées sont créées à partir de machines virtuelles [généralisées](#generalized-and-specialized-images). Une image managée est un type spécial de disque dur virtuel qui peut être utilisé pour définir plusieurs machines virtuelles et qui peut maintenant être utilisé pour créer des versions d’image partagée. |
-| **Instantané** | Copie d’un disque dur virtuel qui peut être utilisée pour effectuer une **version d’image**. Les instantanés peuvent être extraits d’une machine virtuelle [spécialisée](#generalized-and-specialized-images) (qui n’a pas été généralisée), puis utilisés seuls ou avec des instantanés de disques de données afin de créer une version d’image spécialisée.
+| **Source d’image** | Il s’agit d’une ressource qui peut être utilisée pour créer une **version d’image** dans une galerie d’images. Une source d’image peut être une machine virtuelle Azure existante qui est [généralisée ou spécialisée](#generalized-and-specialized-images), une image managée, un capture instantanée ou une version d’image dans une autre galerie d’images. |
 | **Galerie d’images** | Tout comme la Place de marché Azure, une **galerie d’images** est un dépôt permettant de gérer et partager des images, mais vous contrôlez les utilisateurs qui y ont accès. |
-| **Définition d'image** | Les images sont définies dans une galerie et incluent des informations sur l’image et sur les exigences relatives à son utilisation dans votre organisation. Vous pouvez inclure des informations telles que le type généralisé ou spécialisé de l’image, le système d’exploitation, les exigences minimales et maximales en matière de mémoire et des notes de publication. Il s’agit d’une définition de type d’image. |
+| **Définition d'image** | Les définitions d’image sont créées dans une galerie et contiennent des informations sur l’image et sur les exigences relatives à son utilisation en interne. Ces informations indiquent, par exemple, si l’image est Windows ou Linux, et comprennent les notes de publication et les exigences de mémoire maximale et minimale. Il s’agit d’une définition de type d’image. |
 | **Version de l’image** | Une **version d’image** est ce qui vous permet de créer une machine virtuelle quand vous utilisez une galerie. Vous pouvez avoir plusieurs versions d’une image en fonction des besoins de votre environnement. Tout comme une image managée, quand vous utilisez une **version d’image** pour créer une machine virtuelle, la version d’image permet de créer des disques pour la machine virtuelle. Les versions d’image peuvent être utilisées plusieurs fois. |
 
 <br>
@@ -45,7 +44,7 @@ La fonctionnalité Galerie d’images partagées a plusieurs types de ressources
 
 ## <a name="image-definitions"></a>Définitions d’image
 
-Une définition d’image est un regroupement logique des versions d’une image. La définition d’image conserve des informations sur la raison pour laquelle l’image a été créée, le système d’exploitation concerné et l’utilisation de l’image. Une définition d’image est similaire à un plan, qui inclut l’ensemble des détails concernant la création d’une image spécifique. Vous ne déployez pas une machine virtuelle à partir d’une définition d’image, mais à partir de la version de l’image créée à partir de la définition.
+Une définition d’image est un regroupement logique des versions d’une image. La définition d’image contient des informations sur la raison pour laquelle l’image a été créée, le système d’exploitation concerné et d’autres informations sur l’utilisation de l’image. Une définition d’image est similaire à un plan, qui inclut l’ensemble des détails concernant la création d’une image spécifique. Vous ne déployez pas une machine virtuelle à partir d’une définition d’image, mais à partir des versions de l’image créées sur la base de la définition.
 
 Il existe trois paramètres pour chaque définition d’image, qui sont utilisés les uns avec les autres : **Publisher**, **Offre** et **SKU**. Ils permettent de rechercher une définition d’image spécifique. Des versions d'image peuvent partager une ou deux de ces valeurs, mais pas les trois.  Par exemple, voici trois définitions d'image et leurs valeurs :
 
@@ -68,23 +67,18 @@ Voici d’autres paramètres qui peuvent être configurés sur votre définition
 * Étiquette : vous pouvez ajouter des étiquettes lorsque vous créez votre définition d’image. Pour en savoir plus sur les étiquettes, voir [Organisation des ressources Azure à l’aide d’étiquettes](../articles/azure-resource-manager/management/tag-resources.md).
 * Suggestions concernant la quantité maximale et minimale de processeurs virtuels et de mémoire : si votre image est associée à ces types de recommandation, vous pouvez indiquer ces informations dans votre définition d’image.
 * Types de disque non autorisés : vous pouvez fournir des informations sur les besoins de votre machine virtuelle en termes de stockage. Par exemple, si l’image n’est pas adaptée aux disques durs standard, vous pouvez les ajouter à la liste de disques non autorisés.
+* Hyper-V Génération : vous pouvez spécifier si l’image a été créée à partir d’un disque dur virtuel Hyper-V de la génération 1 ou de la génération 2.
 
 ## <a name="generalized-and-specialized-images"></a>Images généralisées et spécialisées
 
 Il existe deux états de système d'exploitation pris en charge par Galerie d’images partagées. Généralement, les images nécessitent que la machine virtuelle utilisée pour créer l'image ait été généralisée avant de créer l'image. La généralisation est un processus qui supprime de la machine virtuelle les informations spécifiques à la machine et à l'utilisateur. Pour Windows, l’outil Sysprep est utilisé. Pour Linux, vous pouvez utiliser les paramètres [waagent](https://github.com/Azure/WALinuxAgent), `-deprovision` ou `-deprovision+user`.
 
-Les machines virtuelles spécialisées n'ont pas été soumises à un processus de suppression des informations et des comptes spécifiques aux machines. Par ailleurs, les machines virtuelles créées à partir d'images spécialisées ne sont associées à aucun `osProfile`. Cela signifie que les images spécialisées auront certaines limites.
+Les machines virtuelles spécialisées n'ont pas été soumises à un processus de suppression des informations et des comptes spécifiques aux machines. Par ailleurs, les machines virtuelles créées à partir d'images spécialisées ne sont associées à aucun `osProfile`. Cela signifie que les images spécialisées ont certaines limites en plus de certains avantages.
 
+- Les machines virtuelles et les groupes identiques créés à partir d’images spécialisées peuvent être opérationnels plus rapidement. Étant donné qu’ils sont créés à partir d’une source qui a déjà fait l’objet d’un premier démarrage, les machines virtuelles créées à partir de ces images démarrent plus rapidement.
 - Les comptes qui pourraient être utilisés pour se connecter à la machine virtuelle peuvent également être utilisés sur n'importe quelle machine virtuelle créée en utilisant l'image spécialisée créée à partir de celle-ci.
 - Les machines virtuelles porteront le **nom de l'ordinateur** de la machine virtuelle d’où est extraire l’image. Vous devriez renommer l’ordinateur pour éviter tout conflit.
 - Le `osProfile` représente la façon dont certaines informations sensibles sont transmises à la machine virtuelle, en utilisant `secrets`. Cela peut entraîner des problèmes lors de l'utilisation de KeyVault, WinRM et d'autres fonctionnalités qui utilisent `secrets` dans le `osProfile`. Dans certains cas, vous pouvez utiliser des identités de service managées (MSI) pour contourner ces limitations.
-
-> [!IMPORTANT]
-> Les images spécialisées sont actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> **Limitations connues de la préversion :** Les machines virtuelles peuvent uniquement être créées à partir d’images spécialisées à l’aide du portail ou de l’API. Il n’y a pas de support CLI ou PowerShell pour la préversion.
-
 
 ## <a name="regional-support"></a>Prise en charge régionale
 
@@ -113,6 +107,7 @@ Certaines limites par abonnement ont été définies pour le déploiement de res
 - 100 galeries d’images partagées par abonnement et par région
 - 1 000 définitions d’images par abonnement et par région
 - 10 000 versions d’image par abonnement et par région
+- 10 réplicas de version d’image par abonnement et par région
 - Tout disque attaché à l’image doit avoir une taille inférieure ou égale à 1 To
 
 Pour en savoir plus, consultez les exemples figurant dans la section [Vérifier l’utilisation des ressources par rapport aux limites](https://docs.microsoft.com/azure/networking/check-usage-against-limits), qui indiquent comment vérifier l’utilisation actuelle.
@@ -217,31 +212,32 @@ Vous pouvez créer la ressource de galerie d’images partagées à l’aide de 
 * [Quel est le coût d’utilisation de la galerie d’images partagées ?](#what-are-the-charges-for-using-the-shared-image-gallery)
 * [Quelle version d’API utiliser pour créer une galerie d’images partagées, une définition d’image et une version d’image ?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
 * [Quelle version d’API utiliser pour créer une machine virtuelle partagée ou un groupe de machines virtuelles identiques à partir de la version d’image ?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
+* [Puis-je mettre à jour mon groupe de machines virtuelles identiques créé à l’aide d’images managées pour utiliser des images Shared Image Gallery ?]
 
 ### <a name="how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions"></a>Comment lister toutes les ressources de galerie d’images partagées de différents abonnements ?
 
 Pour lister toutes les ressources de galerie d’images partagées de différents abonnements auxquels vous avez accès sur le portail Azure, suivez les étapes ci-dessous :
 
 1. Ouvrez le [portail Azure](https://portal.azure.com).
-1. Accédez à **Toutes les ressources**.
+1. Faites défiler la page vers le bas, puis sélectionnez **Toutes les ressources**.
 1. Sélectionnez tous les abonnements pour lesquels vous voulez lister toutes les ressources.
-1. Recherchez des ressources de type **Galerie privée**.
- 
-   Pour voir les définitions d’image et les versions d’image, vous devez aussi sélectionner **Afficher les types masqués**.
- 
-   Pour lister toutes les ressources de galerie d’images partagées des différents abonnements sur lesquels vous avez des autorisations, utilisez la commande suivante dans Azure CLI :
+1. Recherchez des ressources de type **Galerie d’images partagée**.
+  
+Pour lister toutes les ressources de galerie d’images partagées des différents abonnements sur lesquels vous avez des autorisations, utilisez la commande suivante dans Azure CLI :
 
-   ```azurecli
+```azurecli
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
-   ```
+```
+
+Pour plus d’informations, consultez **Gérer les ressources de la galerie** avec [Azure CLI](../articles/virtual-machines/update-image-resources-cli.md) ou [PowerShell](../articles/virtual-machines/update-image-resources-powershell.md).
 
 ### <a name="can-i-move-my-existing-image-to-the-shared-image-gallery"></a>Puis-je déplacer mon image existante vers la galerie d’images partagées ?
  
 Oui. Il existe 3 scénarios basés sur les types d’images.
 
- Scénario 1 : Si vous avez une image managée dans le même abonnement que votre SIG, vous pouvez créer une définition et une version de cette image.
+ Scénario 1 : Si vous avez une image managée, vous pouvez créer une définition et une version de cette image. Pour plus d’informations, consultez **Effectuer une migration à partir d’une image managée vers une version d’image** avec [Azure CLI](../articles/virtual-machines/image-version-managed-image-cli.md) ou [PowerShell](../articles/virtual-machines/image-version-managed-image-powershell.md).
 
- Scénario 2 : Si vous avez une image non managée dans le même abonnement que votre SIG, vous pouvez créer une image managée de l’image, puis créer une définition et une version de cette image. 
+ Scénario 2 : Si vous avez une image non managée, vous pouvez créer une image managée de l’image, puis créer une définition et une version de cette image. 
 
  Scénario 3 : Si vous avez un VHD dans votre système de fichiers local, vous devez le charger sur une image managée pour pouvoir ensuite créer une définition et une version de cette image.
 
@@ -250,11 +246,17 @@ Oui. Il existe 3 scénarios basés sur les types d’images.
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>Puis-je créer une version d’image à partir d’un disque spécialisé ?
 
-Oui, la prise en charge des disques spécialisés en tant qu’images est en préversion. Vous ne pouvez créer une machine virtuelle qu'à partir d'une image spécialisée en utilisant le portail ([Windows](../articles/virtual-machines/linux/shared-images-portal.md) ou [Linux](../articles/virtual-machines/linux/shared-images-portal.md)) et une API. Il n’y a pas de support PowerShell pour la préversion.
+Oui, la prise en charge des disques spécialisés en tant qu’images est en préversion. Vous ne pouvez créer une machine virtuelle qu’à partir d’une image spécialisée en utilisant le portail, PowerShell ou l’API. 
+
+
+Utilisez [PowerShell pour créer une image d’une machine virtuelle spécialisée](../articles/virtual-machines/image-version-vm-powershell.md).
+
+Utilisez le portail pour créer une image [Windows](../articles/virtual-machines/linux/shared-images-portal.md) ou [Linux] (../articles/virtual-machines/linux/shared-images-portal.md). 
+
 
 ### <a name="can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>Une fois la ressource de galerie d’images partagées créée, puis-je la déplacer vers un autre abonnement ?
 
-Non, vous ne pouvez pas déplacer la ressource de galerie d’images partagées vers un autre abonnement. Toutefois, vous pouvez répliquer les versions d’image dans la galerie vers d’autres régions selon vos besoins.
+Non, vous ne pouvez pas déplacer la ressource de galerie d’images partagées vers un autre abonnement. Vous pouvez répliquer les versions de l’image se trouvant dans la galerie vers d’autres régions ou copier une image d’une autre galerie à l’aide d’[Azure CLI](../articles/virtual-machines/image-version-another-gallery-cli.md) ou de [PowerShell](../articles/virtual-machines/image-version-another-gallery-powershell.md).
 
 ### <a name="can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud"></a>Puis-je répliquer mes versions d’image entre des clouds tels qu’Azure China 21Vianet, Azure Allemagne et Azure Government ?
 
@@ -308,3 +310,7 @@ Pour utiliser des galeries d’images partagées, des définitions d’image et 
 ### <a name="what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version"></a>Quelle version d’API utiliser pour créer une machine virtuelle partagée ou un groupe de machines virtuelles identiques à partir de la version d’image ?
 
 Pour déployer une machine virtuelle ou un groupe de machines virtuelles identiques à partir d’une version d’image, nous vous recommandons d’utiliser la version d’API 2018-04-01 ou une version ultérieure.
+
+### <a name="can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images"></a>Puis-je mettre à jour mon groupe de machines virtuelles identiques créé à l’aide d’images managées pour utiliser des images Shared Image Gallery ?
+
+Oui, vous pouvez mettre à jour la référence d’image de groupe identique à partir d’une image managée vers une image de galerie d’images partagées, à condition que le type de système d’exploitation, la génération Hyper-V et la disposition du disque de données soient cohérents entre les images. 

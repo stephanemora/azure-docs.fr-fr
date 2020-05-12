@@ -6,30 +6,28 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/07/2018
-ms.openlocfilehash: 31ac43ec796d305b8a8f4b62ea09481e262b6b3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/04/2020
+ms.openlocfilehash: 5bae53c04867233138929867c4895e7f6a2f2149
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80256978"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838771"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Profiter de la parallélisation de requête dans Azure Stream Analytics
 Cet article explique comment tirer parti de la parallélisation dans Azure Stream Analytics. Vous découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée et en réglant la définition de requête Analytics.
 Comme prérequis, vous pouvez vous familiariser avec la notion d’unité de streaming décrite dans [Comprendre et ajuster les unités de streaming](stream-analytics-streaming-unit-consumption.md).
 
 ## <a name="what-are-the-parts-of-a-stream-analytics-job"></a>Quelles sont les parties d’un travail Stream Analytics ?
-La définition d’une tâche Stream Analytics se compose d’entrées, d’une requête et d’une sortie. Les entrées correspondent à l’emplacement où le travail lit le flux de données. La requête permet de transformer le flux d’entrée de données, et la sortie correspond à l’emplacement où le travail envoie ses résultats.
+La définition d’un travail Stream Analytics inclut au moins une entrée de streaming, une requête et une sortie. Les entrées correspondent à l’emplacement où le travail lit le flux de données. La requête permet de transformer le flux d’entrée de données, et la sortie correspond à l’emplacement où le travail envoie ses résultats.
 
-Un travail nécessite au moins une source d’entrée pour la diffusion de données en continu. La source d’entrée de flux de données peut être stockée dans un concentrateur Azure Event Hub ou dans un stockage d’objets blob Azure. Pour plus d’informations, consultez [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md) et [Prise en main de l’utilisation d’Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md).
-
-## <a name="partitions-in-sources-and-sinks"></a>Partitions dans les sources et récepteurs
-La mise à l’échelle d’un travail Stream Analytics tire parti des partitions dans l’entrée ou la sortie. Le partitionnement vous permet de répartir les données en sous-ensembles basés sur une clé de partition. Un processus qui consomme les données (par exemple, un travail Stream Analytics) peut consommer et écrire différentes partitions en parallèle, ce qui augmente le débit. 
+## <a name="partitions-in-inputs-and-outputs"></a>Partitions dans les entrées et sorties
+Le partitionnement vous permet de répartir les données en sous-ensembles basés sur une [clé de partition](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#partitions). Si votre entrée (par exemple Event Hubs) est partitionnée par une clé, il est vivement recommandé de spécifier cette clé de partition lors de l’ajout d’une entrée à votre travail Stream Analytics. La mise à l’échelle d’un travail Stream Analytics tire parti des partitions dans l’entrée et la sortie. Un travail Stream Analytics peut consommer et écrire différentes partitions en parallèle, ce qui augmente le débit. 
 
 ### <a name="inputs"></a>Entrées
 Toutes les entrées Azure Stream Analytics peuvent tirer parti du partitionnement :
--   EventHub (nécessité de définir la clé de partition explicitement avec le mot clé PARTITION BY)
--   IoT Hub (nécessité de définir la clé de partition explicitement avec le mot clé PARTITION BY)
+-   EventHub (nécessité de définir la clé de partition explicitement avec le mot clé PARTITION BY si vous utilisez le niveau de compatibilité 1.1 ou un niveau inférieur)
+-   IoT Hub (nécessité de définir la clé de partition explicitement avec le mot clé PARTITION BY si vous utilisez le niveau de compatibilité 1.1 ou un niveau inférieur)
 -   Stockage d'objets blob
 
 ### <a name="outputs"></a>Outputs
@@ -54,13 +52,13 @@ Pour plus d’informations sur les partitions, consultez les articles suivants 
 
 
 ## <a name="embarrassingly-parallel-jobs"></a>Travaux massivement parallèles
-Un travail *massivement parallèle* est le scénario le plus évolutif d’Azure Stream Analytics. Elle permet de connecter une partition de l’entrée à une instance de la requête, puis de connecter celle-ci à une partition de la sortie. Ce parallélisme comporte les exigences suivantes :
+Un travail *massivement parallèle* est le scénario le plus évolutif d’Azure Stream Analytics. Elle permet de connecter une partition de l’entrée à une instance de la requête, puis de connecter celle-ci à une partition de la sortie. Ce parallélisme comporte les exigences suivantes :
 
-1. Si votre logique de requête dépend de la clé qui est actuellement traitée par la même instance de requête, vous devez vous assurer que les événements atteignent la même partition de votre entrée. Pour Event Hubs ou IoT Hub, cela signifie que vous devez définir la valeur de **PartitionKey** pour les données d’événement. Par ailleurs, vous pouvez utiliser des expéditeurs partitionnés. Pour le stockage d’objets blob, cela signifie que les événements sont envoyés vers le même dossier de partition. Si votre logique de requête ne requiert pas la même clé pour être traitée par la même instance de requête, vous pouvez ignorer cette condition. Un exemple de cette logique serait une requête simple du type select/project/filter.  
+1. Si votre logique de requête dépend de la clé qui est actuellement traitée par la même instance de requête, vous devez vous assurer que les événements atteignent la même partition de votre entrée. Pour Event Hubs ou IoT Hub, cela signifie que vous devez définir la valeur de **PartitionKey** pour les données d’événement. Par ailleurs, vous pouvez utiliser des expéditeurs partitionnés. Pour le stockage d’objets blob, cela signifie que les événements sont envoyés vers le même dossier de partition. Il peut s’agir, par exemple, d’une instance de requête qui agrège les données par userID, le hub d’événements d’entrée étant partitionné à l’aide de l’identificateur userID comme clé de partition. Toutefois, si votre logique de requête ne demande pas la même clé pour être traitée par la même instance de requête, vous pouvez ignorer cette exigence. Un exemple de cette logique serait une requête simple du type select/project/filter.  
 
-2. Une fois les données disposées dans l’entrée, vous devez vérifier que votre requête est partitionnée. Vous devez utiliser **PARTITION BY** à toutes les étapes. Les étapes multiples sont autorisées, mais elles doivent être partitionnées à l’aide de la même clé. Aux niveau de compatibilité 1.0 et 1.1, la clé de partitionnement doit être définie sur **PartitionId** afin que le travail soit entièrement parallèle. Pour les travaux dont le niveau de compatibilité est supérieur ou égal à 1.2, vous pouvez spécifier une colonne personnalisée en tant que Clé de partition dans les paramètres d’entrée, de sorte que le travail soit automatiquement exécuté en parallèle, même sans la clause PARTITION BY. Pour la sortie de hub d’événements, la propriété « Colonne de clé de partition » doit être définie de façon à utiliser « PartitionId ».
+2. L’étape suivante consiste à partitionner votre requête. Pour les travaux dont le niveau de compatibilité est supérieur ou égal à 1.2 (recommandé), vous pouvez spécifier une colonne personnalisée en tant que Clé de partition dans les paramètres d’entrée, afin que le travail soit automatiquement exécuté en parallèle. Pour les travaux avec un niveau de compatibilité 1.0 ou 1.1, vous devez utiliser **PARTITION BY PartitionId** dans toutes les étapes de votre requête. Les étapes multiples sont autorisées, mais elles doivent être partitionnées à l’aide de la même clé. 
 
-3. La plupart de nos sorties peuvent tirer parti du partitionnement mais, si vous utilisez un type de sortie qui ne prend pas en charge le partitionnement, votre travail n’est pas totalement parallèle. Pour les sorties Event Hub, vérifiez que la **Colonne de clé de partition** est définie sur la même valeur que la clé de partition de requête. Reportez-vous à la [section relative aux sorties](#outputs) pour plus d’informations.
+3. La plupart des sorties prises en charge dans Stream Analytics peuvent tirer parti du partitionnement. Si vous utilisez un type de sortie qui ne prend pas en charge le partitionnement, votre travail ne sera pas *massivement parallèle*. Pour les sorties du hub d’événements, vérifiez que la **colonne de clé de partition** est définie sur la même clé de partition que celle utilisée dans la requête. Reportez-vous à la [section relative aux sorties](#outputs) pour plus d’informations.
 
 4. Le nombre de partitions d’entrée doit être égal à celui des partitions de sortie. La sortie du Stockage Blob peut prendre en charge les partitions et hériter du schéma de partitionnement de la requête en amont. Lorsqu’une clé de partition du Stockage Blob est spécifiée, les données sont partitionnées par partition d’entrée ; le résultat reste donc entièrement parallèle. Voici des exemples de valeurs de partition qui permettent la création d’un travail entièrement parallèle :
 
@@ -80,8 +78,14 @@ Les sections ci-après présentent quelques exemples de parallélisme massif.
 Requête :
 
 ```SQL
+    --Using compatibility level 1.2 or above
     SELECT TollBoothId
-    FROM Input1 Partition By PartitionId
+    FROM Input1
+    WHERE TollBoothId > 100
+    
+    --Using compatibility level 1.0 or 1.1
+    SELECT TollBoothId
+    FROM Input1 PARTITION BY PartitionId
     WHERE TollBoothId > 100
 ```
 
@@ -95,6 +99,12 @@ Cette requête est un filtre simple. Par conséquent, nous n’avons pas à nous
 Requête :
 
 ```SQL
+    --Using compatibility level 1.2 or above
+    SELECT COUNT(*) AS Count, TollBoothId
+    FROM Input1
+    GROUP BY TumblingWindow(minute, 3), TollBoothId
+    
+    --Using compatibility level 1.0 or 1.1
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
@@ -110,7 +120,7 @@ Dans la section précédente, nous vous avons présenté certains scénarios imp
 * Entrée : concentrateur Event Hub avec 8 partitions
 * Sortie : concentrateur Event Hub avec 32 partitions
 
-Dans ce cas, le type de requête importe peu. Si le nombre de partitions d’entrée ne correspond pas au nombre de partitions de sortie, la topologie n’est pas massivement parallèle. Toutefois, nous pouvons encore obtenir un certain niveau de parallélisation.
+Si le nombre de partitions en entrée ne correspond pas au nombre de partitions en sortie, la topologie n’est pas massivement parallèle, quelle que soit la requête. Toutefois, nous pouvons tout de même obtenir un certain niveau ou une certaine parallélisation.
 
 ### <a name="query-using-non-partitioned-output"></a>Requête avec une sortie non partitionnée
 * Entrée : concentrateur Event Hub avec 8 partitions
@@ -121,6 +131,7 @@ Pour le moment, la sortie Power BI ne prend pas en charge le partitionnement. P
 ### <a name="multi-step-query-with-different-partition-by-values"></a>Requête à plusieurs étapes avec différentes valeurs PARTITION BY
 * Entrée : concentrateur Event Hub avec 8 partitions
 * Sortie : concentrateur Event Hub avec 8 partitions
+* Niveau de compatibilité : 1.0 ou 1.1
 
 Requête :
 
@@ -138,11 +149,10 @@ Requête :
 
 Comme vous pouvez le voir, la deuxième étape utilise **TollBoothId** comme clé de partitionnement. Cette étape n’est pas la même que la première. Nous devons donc apporter quelques modifications. 
 
-Les exemples précédents décrivent des travaux Stream Analytics qui respectent (ou pas) une topologie de type massivement parallèle. S’ils la respectent, ils présentent alors le potentiel pour une mise à l’échelle maximale. Pour les travaux qui ne correspondent pas à l’un de ces profils, des conseils de mise à l’échelle seront disponibles dans les futures mises à jour. Pour le moment, suivez les instructions générales indiquées dans les sections suivantes.
-
-### <a name="compatibility-level-12---multi-step-query-with-different-partition-by-values"></a>Niveau de compatibilité 1.2 – Requête multiétape avec différentes valeurs PARTITION BY 
+### <a name="multi-step-query-with-different-partition-by-values"></a>Requête à plusieurs étapes avec différentes valeurs PARTITION BY
 * Entrée : concentrateur Event Hub avec 8 partitions
 * Sortie : le hub d’événements à huit partitions (« Colonne de clé de partition » doit être défini de façon à utiliser « TollBoothId »)
+* Niveau de compatibilité : 1.2 ou supérieur
 
 Requête :
 
@@ -158,7 +168,7 @@ Requête :
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 ```
 
-le niveau de compatibilité 1.2 permet l’exécution de requête en parallèle par défaut. Par exemple, la requête de la section précédente est partitionnée tant que la colonne « TollBooth If » est définie en tant que clé de partition d’entrée. La clause PARTITION BY PartitionId n’est pas obligatoire.
+le niveau de compatibilité 1.2 ou supérieur permet l’exécution de requête en parallèle par défaut. Par exemple, la requête de la section précédente est partitionnée tant que la colonne « TollBooth If » est définie en tant que clé de partition d’entrée. La clause PARTITION BY PartitionId n’est pas obligatoire.
 
 ## <a name="calculate-the-maximum-streaming-units-of-a-job"></a>Calcul du nombre maximum d'unités de diffusion en continu pour un travail
 Le nombre total d'unités de diffusion en continu qui peut être utilisé par un travail Stream Analytics varie selon le nombre d'étapes de la requête définie pour le travail et le nombre de partitions pour chaque étape.

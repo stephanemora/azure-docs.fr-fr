@@ -1,25 +1,25 @@
 ---
-title: Meilleures pratiques pour SQL à la demande (préversion) dans Azure Synapse Analytics
+title: Bonnes pratiques pour SQL à la demande (préversion) dans Azure Synapse Analytics
 description: Recommandations et meilleures pratiques à connaître si vous utilisez SQL à la demande.
 services: synapse-analytics
-author: mlee3gsd
+author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 04/15/2020
-ms.author: martinle
-ms.reviewer: igorstan
-ms.openlocfilehash: 1d4203141973c10fe7673f6ab9dedbc3bfdc8999
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 05/01/2020
+ms.author: fipopovi
+ms.reviewer: jrasnick
+ms.openlocfilehash: 0015beadfea61fc31bf3f37232105b9cfd2ced71
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426781"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692149"
 ---
-# <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Meilleures pratiques pour SQL à la demande (préversion) dans Azure Synapse Analytics
+# <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Bonnes pratiques pour SQL à la demande (préversion) dans Azure Synapse Analytics
 
-Cet article présente un ensemble de meilleures pratiques pour l’utilisation de SQL à la demande (préversion). SQL à la demande est une ressource supplémentaire au sein d’Azure Synapse Analytics.
+Cet article présente un ensemble de bonnes pratiques pour utiliser SQL à la demande (préversion). SQL à la demande est une ressource supplémentaire au sein d’Azure Synapse Analytics.
 
 ## <a name="general-considerations"></a>Considérations d’ordre général
 
@@ -50,11 +50,73 @@ Si possible, vous pouvez préparer les fichiers pour améliorer les performances
 - Il est préférable d’avoir des fichiers de taille identique pour un chemin d’accès OPENROWSET unique ou un emplacement de table externe.
 - Partitionnez vos données en stockant des partitions dans différents dossiers ou noms de fichiers. Consultez [Utiliser les fonctions filename et filepath pour cibler des partitions spécifiques](#use-fileinfo-and-filepath-functions-to-target-specific-partitions).
 
+## <a name="push-wildcards-to-lower-levels-in-path"></a>Envoyer (push) des caractères génériques à des niveaux inférieurs dans le chemin
+
+Vous pouvez utiliser des caractères génériques dans votre chemin pour [interroger plusieurs fichiers et dossiers](develop-storage-files-overview.md#query-multiple-files-or-folders). SQL à la demande liste les fichiers de votre compte de stockage à partir du premier * à l’aide de l’API de stockage et élimine les fichiers qui ne correspondent pas au chemin spécifié. La réduction de la liste de fichiers initiale peut améliorer les performances si de nombreux fichiers correspondent au chemin spécifié jusqu’au premier caractère générique.
+
+## <a name="use-appropriate-data-types"></a>Utiliser les types de données appropriés
+
+Les types de données utilisés dans votre requête affectent les performances. Vous pouvez obtenir de meilleures performances si vous : 
+
+- Utilisez la plus petite taille de données pouvant prendre en charge la plus grande valeur possible.
+  - Si la longueur maximale de la valeur de caractère est de 30 caractères, utilisez le type de données caractères de longueur 30.
+  - Si toutes les valeurs de colonne de caractères ont une taille fixe, utilisez char ou nchar. Sinon, utilisez varchar ou nvarchar.
+  - Si la valeur maximale de la colonne d’entiers est 500, utilisez smallint parce qu’il s’agit du plus petit type de données pouvant prendre en charge cette valeur. Vous trouverez les plages des types de données Integer [ici](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15).
+- Utilisez, si possible, varchar et char au lieu de nvarchar et nchar.
+- Utilisez des types de données de type Integer si possible. Les opérations de tri, de jointure et de regroupement sont effectuées plus rapidement sur des entiers que sur des données caractères.
+- Si vous utilisez l’inférence de schéma, [vérifiez le type de données déduit](#check-inferred-data-types).
+
+## <a name="check-inferred-data-types"></a>Vérifier les types de données déduits
+
+L’[inférence de schéma](query-parquet-files.md#automatic-schema-inference) vous permet d’écrire rapidement des requêtes et d’explorer les données sans connaître le schéma de fichier. La contrepartie de ce confort est que les types de données déduits sont plus grands que leur taille réelle. Cela se produit quand il n’y a pas assez d’informations dans les fichiers sources pour que le type de données approprié soit utilisé. Par exemple, les fichiers Parquet ne contiennent pas de métadonnées sur la longueur maximale des colonnes de caractères et SQL à la demande déduit qu’il s’agit du type de données varchar(8000). 
+
+Vous pouvez vérifier les types de données résultants de votre requête à l’aide de [sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15).
+
+L’exemple suivant montre comment vous pouvez optimiser les types de données déduits. La procédure est utilisée pour afficher les types de données déduits. 
+```sql  
+EXEC sp_describe_first_result_set N'
+    SELECT
+        vendor_id, pickup_datetime, passenger_count
+    FROM 
+        OPENROWSET(
+            BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/*/*/*'',
+            FORMAT=''PARQUET''
+        ) AS nyc';
+```
+
+Voici le jeu de résultats obtenu.
+
+|is_hidden|column_ordinal|name|system_type_name|max_length|
+|----------------|---------------------|----------|--------------------|-------------------||
+|0|1|vendor_id|varchar(8000)|8000|
+|0|2|pickup_datetime|datetime2(7)|8|
+|0|3|passenger_count|int|4|
+
+Une fois que nous connaissons les types de données déduits pour la requête, nous pouvons spécifier les types de données appropriés :
+
+```sql  
+SELECT
+    vendor_id, pickup_datetime, passenger_count
+FROM 
+    OPENROWSET(
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/*/*/*',
+        FORMAT='PARQUET'
+    ) 
+    WITH (
+        vendor_id varchar(4), -- we used length of 4 instead of inferred 8000
+        pickup_datetime datetime2,
+        passenger_count int
+    ) AS nyc;
+```
+
 ## <a name="use-fileinfo-and-filepath-functions-to-target-specific-partitions"></a>Utiliser les fonctions filename et filepath pour cibler des partitions spécifiques
 
 Les données sont souvent organisées en partitions. Vous pouvez donner pour instruction à SQL à la demande d’interroger des dossiers et fichiers particuliers. Cela permet de réduire le nombre de fichiers et la quantité de données que la requête doit lire et traiter. En prime, vous obtiendrez de meilleures performances.
 
 Pour plus d’informations, consultez les fonctions [filename](develop-storage-files-overview.md#filename-function) et [filepath](develop-storage-files-overview.md#filepath-function), ainsi que les exemples montrant comment [interroger des fichiers spécifiques](query-specific-files.md).
+
+> [!TIP]
+> Castez toujours le résultat des fonctions filepath et fileinfo en types de données appropriés. Si vous utilisez des types de données caractères, assurez-vous que la longueur appropriée est utilisée.
 
 Si vos données stockées ne sont pas partitionnées, envisagez de les partitionner afin de pouvoir utiliser ces fonctions pour optimiser les requêtes ciblant ces fichiers. Lorsque de l’[interrogation de tables Spark partitionnées](develop-storage-files-spark-tables.md) à partir de SQL à la demande, la requête cible automatiquement uniquement les fichiers nécessaires.
 

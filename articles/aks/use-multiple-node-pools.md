@@ -4,12 +4,12 @@ description: Découvrez comment créer et gérer plusieurs pools de nœuds pour 
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: f948c115b86abc532a121c68fa7a148ff15caae9
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: bf7e767f1a7b0c657c744c96b308160393e3f326
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81259083"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610919"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -722,22 +722,65 @@ az group deployment create \
 
 La mise à jour de votre cluster AKS peut prendre quelques minutes selon les paramètres de pool de nœuds et les opérations que vous définissez dans votre modèle Resource Manager.
 
-## <a name="assign-a-public-ip-per-node-for-a-node-pool-preview"></a>Attribuer une adresse IP publique par nœud dans un pool de nœuds (préversion)
+## <a name="assign-a-public-ip-per-node-for-your-node-pools-preview"></a>Attribuer une adresse IP publique par nœud dans un pool de nœuds (préversion)
 
 > [!WARNING]
-> Pendant la préversion de l’affectation d’une adresse IP publique par nœud, elle ne peut pas être utilisée avec la *référence SKU Standard Load Balancer dans AKS* en raison des éventuelles règles d’équilibreur de charge en conflit avec le provisionnement de machine virtuelle. En raison de cette limitation, les pools d’agents Windows ne sont pas pris en charge avec cette fonctionnalité en préversion. Pendant la période de préversion, vous devez utiliser la *référence (SKU) d’équilibreur de charge de base* si vous devez affecter une adresse IP publique par nœud.
+> Vous devez installer l’extension CLI 0.4.43 en préversion ou une version ultérieure pour utiliser la fonctionnalité d’adresse IP publique par nœud.
 
-Les nœuds AKS n’ont pas besoin de leurs propres adresses IP publiques pour communiquer. Toutefois, certains scénarios peuvent exiger que les nœuds d'un pool de nœuds reçoivent leurs propres adresses IP publiques dédiées. C'est par exemple le cas pour les charges de travail de gaming, où une console doit être directement connectée à une machine virtuelle du cloud pour réduire les tronçons. Vous devez alors vous inscrire sur AKS pour accéder à la fonctionnalité d'évaluation « Node Public IP » (disponible en préversion).
+Les nœuds AKS n’ont pas besoin de leurs propres adresses IP publiques pour communiquer. Toutefois, certains scénarios peuvent exiger que les nœuds d'un pool de nœuds reçoivent leurs propres adresses IP publiques dédiées. C’est par exemple le cas pour les charges de travail de gaming, où une console doit être directement connectée à une machine virtuelle du cloud afin de réduire les tronçons. Vous devez alors vous inscrire sur AKS pour accéder à la fonctionnalité d'évaluation « Node Public IP » (disponible en préversion).
 
-Pour vous inscrire à la fonctionnalité « Node Public IP », utilisez la commande Azure CLI suivante.
+Pour installer ou mettre à jour l’extension aks-preview vers la version la plus récente, utilisez les commandes Azure CLI suivantes :
+
+```azurecli
+az extension add --name aks-preview
+az extension update --name aks-preview
+az extension list
+```
+
+Pour vous inscrire à la fonctionnalité « Node Public IP », utilisez la commande Azure CLI suivante :
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
+L’inscription peut prendre plusieurs minutes.  Vous pouvez vérifier l’état de l’inscription avec la commande suivante :
 
-Une fois inscrit, déployez un modèle Azure Resource Manager en suivant les instructions décrites [ci-dessus](#manage-node-pools-using-a-resource-manager-template) et ajoutez la propriété booléenne `enableNodePublicIP` à agentPoolProfiles. Définissez la valeur sur `true` car, par défaut, elle est définie sur `false`. 
+```azurecli-interactive
+ az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/NodePublicIPPreview')].{Name:name,State:properties.state}"
+```
 
-Cette propriété est une propriété qui est uniquement utilisée lors de la création et qui nécessite une version d’API minimale de 2019-06-01. Ceci peut être appliqué aux pools de nœuds Linux et Windows.
+Une fois l’inscription terminée, créez un groupe de ressources.
+
+```azurecli-interactive
+az group create --name myResourceGroup2 --location eastus
+```
+
+Créez un cluster AKS et attachez une adresse IP publique pour vos nœuds. Chacun des nœuds du pool reçoit une adresse IP publique unique. Pour le vérifier, il suffit de regarder les instances du groupe de machines virtuelles identiques.
+
+```azurecli-interactive
+az aks create -g MyResourceGroup2 -n MyManagedCluster -l eastus  --enable-node-public-ip
+```
+
+Pour les clusters AKS existants, vous pouvez également ajouter un nouveau pool de nœuds et attacher une adresse IP publique pour vos nœuds.
+
+```azurecli-interactive
+az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
+```
+
+> [!Important]
+> Dans la préversion, Azure Instance Metadata Service ne prend pas en charge la récupération des adresses IP publiques pour la référence SKU de machine virtuelle de niveau standard. En raison de cette limitation, vous ne pouvez pas utiliser les commandes kubectl pour afficher les adresses IP publiques qui sont attribuées aux nœuds. Toutefois, les adresses IP sont affectées et fonctionnent comme prévu. Les adresses IP publiques de vos nœuds sont attachées aux instances de votre groupe de machines virtuelles identiques.
+
+Vous pouvez localiser les adresses IP publiques de vos nœuds de différentes manières :
+
+* Utilisez la commande Azure CLI [az vmss list-instance-public-ips][az-list-ips].
+* Utilisez les [commandes PowerShell ou Bash][vmss-commands]. 
+* Vous pouvez également voir les adresses IP publiques dans le portail Azure en affichant les instances du groupe de machines virtuelles identiques.
+
+> [!Important]
+> Le [groupe de ressources du nœud][node-resource-group] contient les nœuds et leurs adresses IP publiques. Utilisez le groupe de ressources du nœud lorsque vous exécutez des commandes pour rechercher les adresses IP publiques de vos nœuds.
+
+```azurecli
+az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
+```
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -753,6 +796,12 @@ Pour supprimer le cluster lui-même, utilisez la commande [az group delete][az-g
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
+```
+
+Vous pouvez également supprimer le cluster supplémentaire que vous avez créé dans le cadre du scénario d’adresse IP publique pour les pools de nœuds.
+
+```azurecli-interactive
+az group delete --name myResourceGroup2 --yes --no-wait
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -795,3 +844,7 @@ Pour créer et utiliser des pools de nœuds de conteneur Windows Server, consult
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [use-system-pool]: use-system-pools.md
+[ip-limitations]: ../virtual-network/virtual-network-ip-addresses-overview-arm#standard
+[node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
+[vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
+[az-list-ips]: /cli/azure/vmss?view=azure-cli-latest.md#az-vmss-list-instance-public-ips
