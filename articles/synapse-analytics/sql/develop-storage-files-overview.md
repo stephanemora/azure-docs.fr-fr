@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2126996620d6f891dde4e7530c057d2c7f31a996
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 941fa8d2570d22b6c2a54de02a61b4a7ece2e632
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81676674"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691874"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Interroger des fichiers de stockage avec des ressources SQL à la demande (préversion) dans Synapse SQL
 
@@ -123,11 +123,15 @@ OPENROWSET(
 BULK N'path_to_file(s)', FORMAT='PARQUET');
 ```
 
+Assurez-vous que des [types de données déduits appropriés](best-practices-sql-on-demand.md#check-inferred-data-types) sont utilisés pour des performances optimales. 
+
 ### <a name="filename-function"></a>Fonction filename
 
-Cette fonction retourne le nom du fichier d’où provient la ligne.
+Cette fonction retourne le nom du fichier d’où provient la ligne. 
 
 Pour interroger des fichiers spécifiques, lisez la section Filename dans l’article [Interroger des fichiers spécifiques](query-specific-files.md#filename).
+
+Le type de données de retour est nvarchar (1024). Pour des performances optimales, castez toujours le résultat de la fonction filename en un type de données approprié. Si vous utilisez le type de données caractères, assurez-vous que la longueur appropriée est utilisée.
 
 ### <a name="filepath-function"></a>Fonction filepath
 
@@ -137,6 +141,8 @@ Cette fonction retourne un chemin complet ou une partie de chemin :
 - En cas d’appel avec paramètre, elle retourne une partie du chemin qui correspond au caractère générique, à la position spécifiée dans le paramètre. Par exemple, la valeur de paramètre 1 retourne une partie du chemin qui correspond au premier caractère générique.
 
 Pour plus d’informations, consultez la section Filepath dans l’article [Interroger des fichiers spécifiques](query-specific-files.md#filepath).
+
+Le type de données de retour est nvarchar (1024). Pour des performances optimales, castez toujours le résultat de la fonction filepath en un type de données approprié. Si vous utilisez le type de données caractères, assurez-vous que la longueur appropriée est utilisée.
 
 ### <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>Utiliser des types complexes et des structures de données imbriquées ou répétées
 

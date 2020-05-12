@@ -1,21 +1,21 @@
 ---
 title: Tutoriel C# sur l’utilisation de facettes pour faciliter la navigation
 titleSuffix: Azure Cognitive Search
-description: Ce tutoriel s’appuie sur le projet « Pagination des résultats de la recherche - Recherche cognitive Azure » pour ajouter la navigation à facettes. Découvrez dans quelle mesure les facettes permettent d’affiner facilement une recherche.
+description: Continuez à partir de « Résultats de la pagination » pour ajouter la navigation à facettes. Découvrez dans quelle mesure les facettes permettent d’affiner facilement une recherche.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: d88a9d7efdabd493fd31b961748bb6ad3bd8d738
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bc25ba6d95fe58a80c90881c6ad60cdb8801cce4
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77121572"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780587"
 ---
-# <a name="c-tutorial-use-facets-to-aid-navigation---azure-cognitive-search"></a>Tutoriel C# : Utiliser des facettes pour faciliter la navigation - Recherche cognitive Azure
+# <a name="tutorial-add-faceted-navigation-using-the-net-sdk"></a>Tutoriel : Ajouter la navigation à facettes à l’aide du SDK .NET
 
 Les facettes facilitent la navigation, en fournissant à l’utilisateur un ensemble de liens qui l’aident à cibler sa recherche. Les facettes sont des attributs des données (par exemple, la catégorie, ou une fonctionnalité spécifique, d’un hôtel dans nos exemples de données).
 

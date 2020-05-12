@@ -1,30 +1,28 @@
 ---
-title: Écriture d’expressions pour les mappages d’attributs dans Azure AD
+title: Écrire des expressions pour les mappages d’attributs dans Azure Active Directory
 description: Découvrez comment utiliser les mappages d’expressions pour transformer des valeurs d’attributs dans un format acceptable lors de l’approvisionnement automatique des objets d’application SaaS dans Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mimart
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28e591234e28770a90bed827e4d36c6342661dd1
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: c8573f9151ac59178b19bbf354da43990405b3e0
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81866601"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593690"
 ---
-# <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
+# <a name="how-to-write-expressions-for-attribute-mappings-in-azure-ad"></a>Procédure : Écrire des expressions pour les mappages d’attributs dans Azure AD
+
 Quand vous configurez l’approvisionnement pour une application SaaS, l’un des types de mappages d’attributs que vous pouvez spécifier est un mappage d’expression. Dans ce cas, vous devez écrire une expression semblable à un script qui vous permet de transformer les données des utilisateurs dans des formats plus acceptables pour l’application SaaS.
 
 ## <a name="syntax-overview"></a>Vue d’ensemble de la syntaxe
+
 La syntaxe des expressions pour les mappages d’attributs rappelle celle des fonctions Visual Basic pour Applications (VBA).
 
 * L’expression entière doit être définie en termes de fonctions, qui sont constituées d’un nom suivi d’arguments entre parenthèses : <br>
@@ -38,13 +36,15 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 * Pour les constantes de chaîne, si vous avez besoin d’une barre oblique inverse (\) ou d’un guillemet (") dans la chaîne, vous devez le faire précéder du symbole de barre oblique inverse (\). Par exemple : « Nom de l’entreprise : \\"Contoso"\\ »
 
 ## <a name="list-of-functions"></a>Liste des fonctions
+
 [Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
 
 ---
 ### <a name="append"></a>Ajouter
-**Fonction :**<br> Append(source, suffixe)
 
-**Description :**<br> prend une valeur de chaîne source et ajoute le suffixe à la fin de celle-ci.
+**Fonction :**<br>  Append(source, suffixe)
+
+**Description :**<br>  prend une valeur de chaîne source et ajoute le suffixe à la fin de celle-ci.
 
 **Paramètres :**<br> 
 
@@ -57,7 +57,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 ### <a name="bitand"></a>BitAnd
 **Fonction :**<br> BitAnd(value1, value2)
 
-**Description :**<br> Cette fonction convertit les deux paramètres de la représentation binaire et définit un bit sur :
+**Description :**<br>  Cette fonction convertit les deux paramètres de la représentation binaire et définit un bit sur :
 
 0 - si un des bits, ou les deux bits correspondants dans value1 et value2 ont pour valeur 0                                                  
 1 - si les deux bits correspondants sont définis sur 1.                                    
@@ -108,7 +108,7 @@ Retourne True si les attributs ont la même valeur.
 ### <a name="converttobase64"></a>ConvertToBase64
 **Fonction :**<br> ConvertToBase64(source)
 
-**Description :**<br> La fonction ConvertToBase64 convertit une chaîne en chaîne Unicode base64.
+**Description :**<br>  La fonction ConvertToBase64 convertit une chaîne en chaîne Unicode base64.
 
 **Paramètres :**<br> 
 
@@ -118,13 +118,13 @@ Retourne True si les attributs ont la même valeur.
 
 **Exemple :**<br>
 ConvertToBase64("Hello world!")                                                                                                        
-Renvoie « SABlAGwAbABvACAAdwBvAHIAbABkACEA ».
+ Renvoie « SABlAGwAbABvACAAdwBvAHIAbABkACEA ».
 
 ---
 ### <a name="converttoutf8hex"></a>ConvertToUTF8Hex
 **Fonction :**<br> ConvertToUTF8Hex(source)
 
-**Description :**<br> La fonction ConvertToUTF8Hex convertit une chaîne en valeur hexadécimale encodée UTF8.
+**Description :**<br>  La fonction ConvertToUTF8Hex convertit une chaîne en valeur hexadécimale encodée UTF8.
 
 **Paramètres :**<br> 
 
@@ -134,13 +134,13 @@ Renvoie « SABlAGwAbABvACAAdwBvAHIAbABkACEA ».
 
 **Exemple :**<br>
 ConvertToUTF8Hex("Hello world!")                                                                                                         
-Renvoie 48656C6C6F20776F726C6421.
+ Renvoie 48656C6C6F20776F726C6421.
 
 ---
 ### <a name="count"></a>Count
 **Fonction :**<br> Count(attribute)
 
-**Description :**<br> La fonction Count renvoie le nombre d’éléments dans un attribut à valeurs multiples.
+**Description :**<br>  La fonction Count renvoie le nombre d’éléments dans un attribut à valeurs multiples.
 
 **Paramètres :**<br> 
 
@@ -168,7 +168,7 @@ Renvoie « cn=Joe,dc=contoso,dc=com »
 ### <a name="datefromnum"></a>DateFromNum
 **Fonction :**<br> DateFromNum(value)
 
-**Description :**<br> La fonction DateFromNum convertit une valeur au format de date AD en un type DateTime.
+**Description :**<br>  La fonction DateFromNum convertit une valeur au format de date AD en un type DateTime.
 
 **Paramètres :**<br> 
 
@@ -179,13 +179,13 @@ Renvoie « cn=Joe,dc=contoso,dc=com »
 **Exemple :**<br>
 DateFromNum([lastLogonTimestamp])                                                                                                   
 DateFromNum(129699324000000000)                                                            
-Renvoie une valeur DateTime représentant 2012-01-01 23:00:00.
+ Renvoie une valeur DateTime représentant 2012-01-01 23:00:00.
 
 ---
 ### <a name="formatdatetime"></a>FormatDateTime
-**Fonction :**<br> FormatDateTime(source, inputFormat, outputFormat)
+**Fonction :**<br>  FormatDateTime(source, inputFormat, outputFormat)
 
-**Description :**<br> prend une chaîne de date dans un format et la convertit dans un autre format.
+**Description :**<br>  prend une chaîne de date dans un format et la convertit dans un autre format.
 
 **Paramètres :**<br> 
 
@@ -205,7 +205,7 @@ Renvoie une valeur DateTime représentant 2012-01-01 23:00:00.
 ### <a name="iif"></a>IIF
 **Fonction :**<br> IIF(condition,valueIfTrue,valueIfFalse)
 
-**Description :**<br> La fonction IIF renvoie une valeur parmi un ensemble de valeurs possibles en fonction d’une condition spécifiée.
+**Description :**<br>  La fonction IIF renvoie une valeur parmi un ensemble de valeurs possibles en fonction d’une condition spécifiée.
 
 **Paramètres :**<br> 
 
@@ -222,7 +222,7 @@ IIF([country]="USA",[country],[department])
 ### <a name="instr"></a>InStr
 **Fonction :**<br> InStr(value1,value2,start,compareType)
 
-**Description :**<br> La fonction InStr recherche la première occurrence d’une sous-chaîne dans une chaîne.
+**Description :**<br>  La fonction InStr recherche la première occurrence d’une sous-chaîne dans une chaîne.
 
 **Paramètres :**<br> 
 
@@ -235,16 +235,16 @@ IIF([country]="USA",[country],[department])
 
 **Exemple :**<br>
 InStr("The quick brown fox","quick")                                                                             
-Prend la valeur 5.
+ Prend la valeur 5.
 
 InStr("repEated","e",3,vbBinaryCompare)                                                                                  
-Prend la valeur 7.
+ Prend la valeur 7.
 
 ---
 ### <a name="isnull"></a>IsNull
 **Fonction :**<br> IsNull(Expression)
 
-**Description :**<br> La fonction IsNull renvoie true si l’expression correspond à la valeur Null. Dans le cas d’un attribut, la valeur Null est exprimée par l’absence de ce dernier.
+**Description :**<br>  La fonction IsNull renvoie true si l’expression correspond à la valeur Null.  Dans le cas d’un attribut, la valeur Null est exprimée par l’absence de ce dernier.
 
 **Paramètres :**<br> 
 
@@ -260,7 +260,7 @@ Renvoie True si l’attribut est absent
 ### <a name="isnullorempty"></a>IsNullorEmpty
 **Fonction :**<br> IsNullOrEmpty(Expression)
 
-**Description :**<br> La fonction IsNullOrEmpty renvoie la valeur true si l’expression a pour valeur Null ou s’il s’agit d’une chaîne vide. Dans le cas d’un attribut, cela donne la valeur True si l’attribut est absent ou est présent mais qu’il s’agit d’une chaîne vide.
+**Description :**<br>  La fonction IsNullOrEmpty renvoie la valeur true si l’expression a pour valeur Null ou s’il s’agit d’une chaîne vide.  Dans le cas d’un attribut, cela donne la valeur True si l’attribut est absent ou est présent mais qu’il s’agit d’une chaîne vide.
 L’inverse de cette fonction est nommé IsPresent.
 
 **Paramètres :**<br> 
@@ -277,7 +277,7 @@ Renvoie True si l’attribut est absent ou s’il s’agit d’une chaîne vide
 ### <a name="ispresent"></a>IsPresent
 **Fonction :**<br> IsPresent(Expression)
 
-**Description :**<br> La fonction IsPresent renvoie true si l’expression correspond à une chaîne qui n’a pas la valeur Null et n’est pas vide. L’inverse de cette fonction est appelé IsNullOrEmpty.
+**Description :**<br>  La fonction IsPresent renvoie true si l’expression correspond à une chaîne qui n’a pas la valeur Null et n’est pas vide.  L’inverse de cette fonction est appelé IsNullOrEmpty.
 
 **Paramètres :**<br> 
 
@@ -292,7 +292,7 @@ Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager])
 ### <a name="isstring"></a>IsString
 **Fonction :**<br> IsString(Expression)
 
-**Description :**<br> La fonction IsString prend la valeur True si l’expression peut être évaluée en tant que type de chaîne.
+**Description :**<br>  La fonction IsString prend la valeur True si l’expression peut être évaluée en tant que type de chaîne.
 
 **Paramètres :**<br> 
 
@@ -304,7 +304,7 @@ Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager])
 ### <a name="item"></a>Élément
 **Fonction :**<br> Item(attribute, index)
 
-**Description :**<br> La fonction Item renvoie un élément à partir d’une chaîne/d’un attribut à valeurs multiples.
+**Description :**<br>  La fonction Item renvoie un élément à partir d’une chaîne/d’un attribut à valeurs multiples.
 
 **Paramètres :**<br> 
 
@@ -318,7 +318,7 @@ Item([proxyAddresses], 1)
 
 ---
 ### <a name="join"></a>Join
-**Fonction :**<br> Join(séparateur, source1, source2, …)
+**Fonction :**<br>  Join(séparateur, source1, source2, …)
 
 **Description :**<br> Join() est similaire à Append(), mais elle peut combiner plusieurs valeurs de chaîne **sources** dans une même chaîne et chaque valeur sera séparée par une chaîne de **séparation**.
 
@@ -335,7 +335,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 ### <a name="left"></a>Gauche
 **Fonction :**<br> Left(String,NumChars)
 
-**Description :**<br> La fonction Left renvoie un nombre spécifié de caractères en partant de la gauche d’une chaîne. Si numChars = 0, retourne une chaîne vide.
+**Description :**<br>  La fonction Left renvoie un nombre spécifié de caractères en partant de la gauche d’une chaîne. Si numChars = 0, retourne une chaîne vide.
 Si numChars < 0, retourne une chaîne d’entrée.
 Si la chaîne est null, retourne une chaîne vide.
 Si la chaîne contient moins de caractères que le nombre spécifié dans numChars, une chaîne identique à la chaîne (c’est-à-dire, contenant tous les caractères du paramètre 1) est renvoyée.
@@ -353,9 +353,9 @@ Renvoie « Joh »
 
 ---
 ### <a name="mid"></a>ExtracChaîne
-**Fonction :**<br> Mid(source, début, longueur)
+**Fonction :**<br>  Mid(source, début, longueur)
 
-**Description :**<br> retourne une sous-chaîne de la valeur source. Une sous-chaîne est une chaîne qui ne contient que certains des caractères de la chaîne source.
+**Description :**<br>  retourne une sous-chaîne de la valeur source. Une sous-chaîne est une chaîne qui ne contient que certains des caractères de la chaîne source.
 
 **Paramètres :**<br> 
 
@@ -379,7 +379,7 @@ Renvoie « Joh »
 
 ---
 ### <a name="not"></a>Not
-**Fonction :**<br> Not(source)
+**Fonction :**<br>  Not(source)
 
 **Description :**<br> inverse la valeur booléenne de la **source**. Si la valeur **source** est « *True* », cette fonction retourne «*False* ». Sinon, elle retourne «*True*».
 
@@ -415,7 +415,7 @@ Renvoie « Joh »
 ### <a name="removeduplicates"></a>RemoveDuplicates
 **Fonction :**<br> RemoveDuplicates(attribute)
 
-**Description :**<br> La fonction RemoveDuplicates prend une chaîne à valeurs multiples et vérifie que chaque valeur est unique.
+**Description :**<br>  La fonction RemoveDuplicates prend une chaîne à valeurs multiples et vérifie que chaque valeur est unique.
 
 **Paramètres :**<br> 
 
@@ -432,7 +432,7 @@ Renvoie un attribut proxyAddress expurgé duquel toutes les valeurs en double on
 **Fonction :**<br> Remplacer (source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Description :**<br>
-Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les paramètres fournis :
+ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les paramètres fournis :
 
 * Quand **oldValue** et **replacementValue** sont fournis :
   
@@ -510,9 +510,9 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 ---
 ### <a name="stripspaces"></a>StripSpaces
-**Fonction :**<br> StripSpaces(source)
+**Fonction :**<br>  StripSpaces(source)
 
-**Description :**<br> supprime tous les caractères d’espacement (" ") de la chaîne source.
+**Description :**<br>  supprime tous les caractères d’espacement (" ") de la chaîne source.
 
 **Paramètres :**<br> 
 
@@ -522,7 +522,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 ---
 ### <a name="switch"></a>Commutateur
-**Fonction :**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
+**Fonction :**<br>  Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **Description :**<br> quand la valeur **source** correspond à une **clé**, retourne la **valeur** de cette **clé**. Si la valeur **source** ne correspond à aucune clé, retourne **defaultValue**.  Les paramètres **key** et **value** doivent toujours être fournis par paires. La fonction attend toujours un nombre pair de paramètres. La fonction ne doit pas être utilisée pour les attributs référentiels tels que le gestionnaire. 
 
@@ -565,7 +565,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 ### <a name="word"></a>Word
 **Fonction :**<br> Word(String,WordNumber,Delimiters)
 
-**Description :**<br> La fonction Word retourne un mot contenu dans une chaîne, en fonction des paramètres qui décrivent les délimiteurs à utiliser et le nombre de mots à retourner. Chaque chaîne de caractères contenue dans la chaîne séparée par l’un des caractères figurant dans delimiters est identifiée en tant que mot :
+**Description :**<br>  La fonction Word retourne un mot contenu dans une chaîne, en fonction des paramètres qui décrivent les délimiteurs à utiliser et le nombre de mots à retourner.  Chaque chaîne de caractères contenue dans la chaîne séparée par l’un des caractères figurant dans delimiters est identifiée en tant que mot :
 
 Si number < 1, retourne une chaîne vide.
 Si string a la valeur null, renvoie une chaîne vide.
@@ -581,7 +581,7 @@ Si la chaîne contient moins de mots ou ne contient pas les mots identifiés par
 
 **Exemple :**<br>
 Word(“The quick brown fox”,3,” “)                                                                                       
-Retourne « brown ».
+ Retourne « brown ».
 
 Word("This,string!has&many separators",3,",!&#")                                                                       
 Renvoie « has »
@@ -591,7 +591,7 @@ Renvoie « has »
 ## <a name="examples"></a>Exemples
 ### <a name="strip-known-domain-name"></a>Supprimer un nom de domaine connu
 Vous devez supprimer un nom de domaine connu de l’adresse de messagerie d’un utilisateur pour obtenir un nom d’utilisateur. <br>
-Par exemple, si le domaine est « contoso.com », vous pouvez utiliser l’expression suivante :
+ Par exemple, si le domaine est « contoso.com », vous pouvez utiliser l’expression suivante :
 
 **Expression :** <br>
 `Replace([mail], "@contoso.com", , ,"", ,)`
@@ -648,7 +648,7 @@ Split([extensionAttribute5], ",")
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Sortir une date sous la forme d’une chaîne dans un certain format
 Vous souhaitez envoyer des dates à une application SaaS dans un format donné. <br>
-Par exemple, vous souhaitez mettre en forme des dates pour ServiceNow.
+ Par exemple, vous souhaitez mettre en forme des dates pour ServiceNow.
 
 **Expression :** <br>
 
@@ -662,7 +662,7 @@ Par exemple, vous souhaitez mettre en forme des dates pour ServiceNow.
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Remplacer une valeur en fonction d’un ensemble d’options prédéfini
 
 Vous devez définir le fuseau horaire de l’utilisateur en fonction du code d’état stocké dans Azure AD. <br>
-Si le code d’état ne correspond à aucune des options prédéfinies, utilisez la valeur par défaut « Australia/Sydney ».
+ Si le code d’état ne correspond à aucune des options prédéfinies, utilisez la valeur par défaut « Australia/Sydney ».
 
 **Expression :** <br>
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`

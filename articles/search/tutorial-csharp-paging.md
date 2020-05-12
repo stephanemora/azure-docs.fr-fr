@@ -1,21 +1,21 @@
 ---
 title: Tutoriel C# sur la pagination des résultats de la recherche
 titleSuffix: Azure Cognitive Search
-description: Ce tutoriel décrit la pagination des résultats de la recherche. Il s’appuie sur un projet existant basé sur des hôtels. Son premier système de pagination repose sur des boutons qui permettent d’accéder à la première page, à la page suivante, à la page précédente, à la dernière page ainsi qu’à des numéros de page. Son deuxième système de pagination repose sur un défilement infini, déclenché par le déplacement d’une barre de défilement verticale jusqu’à sa limite inférieure.
+description: Ajoutez des boutons de pagination et de navigation aux résultats de la recherche, en vous appuyant sur un projet existant basé sur des hôtels pour ajouter les premier et dernier boutons, les boutons Suivant et Précédent, et les boutons numérotés. Son deuxième système de pagination repose sur un défilement infini, déclenché par le déplacement d’une barre de défilement verticale jusqu’à sa limite inférieure.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 9abfeb54be6e22885b8e973034a6d89df8272146
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0dce3852d2b0489b373162fe754d745b01bd3074
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77121524"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780570"
 ---
-# <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>Tutoriel C# : Pagination des résultats de la recherche - Recherche cognitive Azure
+# <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>Tutoriel : Ajouter la pagination aux résultats de recherche à l’aide du SDK .NET
 
 Découvrez comment implémenter deux systèmes de pagination différents, le premier basé sur des numéros de page et le second sur un défilement infini. Les deux systèmes de pagination sont largement utilisés, et le choix de l’un ou de l’autre dépend de l’expérience utilisateur que vous souhaitez associer aux résultats. Ce tutoriel intègre les systèmes de pagination au projet créé dans le [Tutoriel C#  : Créer votre première application - Recherche cognitive Azure](tutorial-csharp-create-first-app.md).
 

@@ -4,12 +4,12 @@ description: Découvrez comment générer, tester et déployer des modèles Azur
 ms.date: 04/22/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d1c56ce913a1b63bab90f5dd5aaada382abbf493
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: dacbdbcbebbbd696c14745e055ed9f7bd7905b1d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82084326"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731932"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutoriel : Intégration continue de modèles Azure Resource Manager avec Azure Pipelines
 
@@ -57,7 +57,7 @@ Si vous n’avez pas de compte GitHub, consultez [Prérequis](#prerequisites).
 
 1. Sélectionnez le bouton vert **New** (Nouveau).
 1. Dans **Repository name** (nom du référentiel), entrez un nom de référentiel.  Par exemple, **AzureRmPipeline-repo**. N’oubliez pas de remplacer chaque occurrence de **AzureRmPipeline** par le nom de votre projet. Vous pouvez sélectionner **Public** ou **Private** (Privé) pour ce didacticiel. Puis sélectionnez **Create repository** (Créer un référentiel).
-1. Notez l’URL. L’URL du dépôt est au format suivant : **https://github.com/ [NomDeVotreCompte]/[NomDeVotreDépôt]** .
+1. Notez l’URL. L’URL du dépôt est au format suivant : **`https://github.com/[YourAccountName]/[YourRepositoryName]`** .
 
 Ce référentiel est appelé *remote repository* (référentiel distant). Chacun des développeurs du même projet peut cloner son *référentiel local*, puis fusionner ses modifications dans le référentiel distant.
 
@@ -104,7 +104,7 @@ Le fichier azuredeploy.json a été ajouté dans le référentiel local. Ensuite
     ```
 
     Vous pouvez obtenir un avertissement sur LF. Vous pouvez ignorer cet avertissement. La branche principale s’intitule **master**.  Généralement, il faut créer une branche pour chaque mise à jour. Pour simplifier ce didacticiel, nous utilisons directement la branche principale.
-1. Accédez à votre référentiel GitHub à partir d’un navigateur.  L’URL est **https://github.com/ [LeNomDeVotreCompte]/[VotreRéférentielGitHub]** . Vous devez voir le dossier **CreateWebApp** et les trois fichiers à l’intérieur du dossier.
+1. Accédez à votre référentiel GitHub à partir d’un navigateur.  L’URL est **`https://github.com/[YourAccountName]/[YourGitHubRepository]`** . Vous devez voir le dossier **CreateWebApp** et les trois fichiers à l’intérieur du dossier.
 1. Sélectionnez **linkedStorageAccount.json** pour ouvrir le modèle.
 1. Sélectionnez le bouton **Raw**. L’URL est démarrée avec **raw.githubusercontent.com**.
 1. Copiez l’URL.  Vous devrez fournir cette valeur lors de la configuration du pipeline ultérieurement dans le tutoriel.

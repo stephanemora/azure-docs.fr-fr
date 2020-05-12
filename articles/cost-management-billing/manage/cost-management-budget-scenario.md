@@ -6,14 +6,14 @@ ms.reviewer: adwise
 tags: billing
 ms.service: cost-management-billing
 ms.topic: reference
-ms.date: 04/01/2020
+ms.date: 05/04/2020
 ms.author: banders
-ms.openlocfilehash: a9e1d838e7d3322ddf218c5cbec40b652709b5d7
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 633ca5cd16b8e730225900c30c575e74a0956ada
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586377"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791678"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gérer les coûts avec Azure Budgets
 
@@ -273,7 +273,7 @@ Ensuite, vous allez configurer **Postman** pour créer un budget en appelant les
 1. Définissez **Value** (Valeur) sur le jeton qui a été créé à l’aide du projet ArmClient à la fin de la dernière section.
 1. Sélectionnez l’onglet **Body** (Corps) dans Postman.
 1. Sélectionnez la case d’option **raw** (brut).
-1. Dans la zone de texte, collez l’exemple de définition de budget ci-dessous. Toutefois, vous devez remplacer les paramètres **subscriptionID**, **budgetname** et **actiongroupname** par votre ID d’abonnement, un nom unique pour votre budget et le nom du groupe d’actions que vous avez créé à la fois dans l’URL et dans le corps de la requête :
+1. Dans la zone de texte, collez l’exemple de définition de budget ci-dessous. Toutefois, vous devez remplacer les paramètres `subscriptionID`, `resourcegroupname` et `actiongroupname` par votre ID d’abonnement, un nom unique pour votre groupe de ressources et le nom du groupe d’actions que vous avez créé à la fois dans l’URL et dans le corps de la requête :
 
     ```
         {

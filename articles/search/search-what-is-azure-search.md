@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 01/06/2020
-ms.openlocfilehash: fee7c8eb73fe0bb7c9fd0bd9de9aa57bd8c40215
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: df970ad31c3fd132f9081b90aa8877f0e29e195b
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77580649"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891550"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Qu’est-ce que la Recherche cognitive Azure ?
 
@@ -154,11 +154,6 @@ Vous pouvez également [activer les avantages d’abonnement MSDN](https://azure
 
 Les moteurs de recherche servent généralement à récupérer les informations sur les applications mobiles, sur le web et dans les magasins de données d’entreprise. Avec la Recherche cognitive Azure, vous disposez d’outils permettant de créer une expérience de recherche semblable à celle des grands sites web commerciaux.
 
-Dans cette vidéo de 9 minutes du responsable de programme Liam Cavanagh, découvrez en quoi l’intégration d’un moteur de recherche peut profiter à votre application. Les principales fonctionnalités de la Recherche cognitive Azure vous sont présentées dans de courtes démonstrations, et vous découvrirez ce qu’est un workflow type. 
+Dans cette vidéo de 15 minutes, le Chef de programme Luis Cabrera présente Recherche cognitive Azure. 
 
->[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138/player]
- 
-+ Entre 0 et 3 minutes : présentation des principales fonctionnalités et cas d’emploi.
-+ Entre 3 et 4 minutes : approvisionnement du service. 
-+ Entre 4 et 6 minutes : utilisation de l’Assistant Importation de données pour créer un index à l’aide du jeu de données intégrées sur l’immobilier.
-+ Entre 6 et 9 minutes : présentation de l’Explorateur de recherche et de différentes requêtes.
+>[!VIDEO https://www.youtube.com/embed/kOJU0YZodVk?version=3]

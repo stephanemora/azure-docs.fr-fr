@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.openlocfilehash: 9c2e00ed14a45c6df7cf72845db2ecd069381ca5
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 4f0eb6aa92dd8999baed6868a159c86d5e7bd0c8
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257210"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594618"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Déboguer et résoudre les problèmes de pipelines de machine learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -128,28 +128,32 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 
 ## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer-preview"></a>Déboguer et résoudre les problèmes dans le concepteur Azure Machine Learning (préversion)
 
-Cette section fournit une vue d’ensemble de la résolution des problèmes des pipelines dans le concepteur.
-Pour les pipelines créés dans le concepteur, vous trouverez les **fichiers journaux** dans la page de création ou dans la page des détails d’exécutions de pipeline.
+Cette section fournit une vue d’ensemble de la résolution des problèmes des pipelines dans le concepteur. Pour les pipelines créés dans le concepteur, vous trouverez le fichier **70_driver_log** dans la page de création ou dans la page des détails d’exécutions de pipeline.
 
-### <a name="access-logs-from-the-authoring-page"></a>Accéder aux journaux à partir de la page de création
+### <a name="get-logs-from-the-authoring-page"></a>Obtenir des journaux à partir de la page de création
 
-Quand vous publiez une exécution de pipeline en restant dans la page de création, vous voyez les fichiers journaux générés pour chaque module.
+Quand vous publiez une exécution de pipeline en restant dans la page de création, vous voyez les fichiers journaux générés pour chaque module à mesure que chaque module termine son exécution.
 
-1. Sélectionnez un module dans le canevas de création.
+1. Sélectionnez un module dont l’exécution est terminée dans le canevas de création.
 1. Dans le volet droit du module, accédez à l’onglet **Sorties + journaux**.
-1. Sélectionnez le fichier journal `70_driver_log.txt`.
+1. Développez le volet droit, puis sélectionnez le fichier **70_driver_log.txt** pour afficher le fichier dans le navigateur. Vous pouvez également télécharger les journaux localement.
 
-    ![Journaux des modules dans la page de création](./media/how-to-debug-pipelines/pipelinerun-05.png)
+    ![Volet de sortie développé dans le concepteur](./media/how-to-debug-pipelines/designer-logs.png)
 
-### <a name="access-logs-from-pipeline-runs"></a>Accéder aux journaux à partir des exécutions de pipeline
+### <a name="get-logs-from-pipeline-runs"></a>Obtenir des journaux à partir des exécutions de pipeline
 
-Vous pouvez également trouver les fichiers journaux d’exécutions spécifiques dans la page des détails d’exécutions de pipeline, dans la section **Pipelines** ou la section **Expériences**.
+Vous pouvez également trouver les fichiers journaux d’exécutions spécifiques dans la page des détails d’exécutions de pipeline, qui est disponible dans la section **Pipelines** ou la section **Expériences** du studio.
 
 1. Sélectionnez une exécution de pipeline créée dans le concepteur.
-    ![Page d’exécutions de pipeline](./media/how-to-debug-pipelines/pipelinerun-04.png)
+
+    ![Page d’exécutions de pipeline](./media/how-to-debug-pipelines/designer-pipelines.png)
+
 1. Sélectionnez un module dans le volet d’aperçu.
 1. Dans le volet droit du module, accédez à l’onglet **Sorties + journaux**.
-1. Sélectionnez le fichier journal `70_driver_log.txt`.
+1. Développez le volet droit pour afficher le fichier **70_driver_log.txt** dans le navigateur, ou sélectionnez le fichier pour télécharger les journaux localement.
+
+> [!IMPORTANT]
+> Pour mettre à jour un pipeline à partir de la page des détails d’exécution du pipeline, vous devez **cloner** l’exécution du pipeline dans un nouveau brouillon de pipeline. Une exécution de pipeline est un instantané du pipeline. Elle est similaire à un fichier journal et ne peut pas être modifiée. 
 
 ## <a name="debug-and-troubleshoot-in-application-insights"></a>Déboguez et détectez des problèmes dans Application Insights
 Pour en savoir plus sur l’utilisation de la bibliothèque Python OpenCensus de cette manière, consultez ce guide : [Déboguer et résoudre les problèmes de pipelines de Machine Learning dans Application Insights](how-to-debug-pipelines-application-insights.md)

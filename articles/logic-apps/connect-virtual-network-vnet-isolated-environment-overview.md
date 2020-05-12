@@ -3,15 +3,15 @@ title: Accéder aux réseaux virtuels Azure
 description: Découvrez la manière dont les environnements de service d’intégration (ISE) aident les applications logiques à accéder aux réseaux virtuels Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: article
-ms.date: 03/12/2020
-ms.openlocfilehash: 9d5e0c088fe773f16e1fc57f292ca812906aa09c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: jonfan, logicappspm
+ms.topic: conceptual
+ms.date: 05/01/2020
+ms.openlocfilehash: d74303df74a1e877645b333fa0726a68055c819b
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127247"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734912"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accéder aux ressources Réseau virtuel Microsoft Azure à partir d’Azure Logic Apps à l’aide d’environnements de service d’intégration (ISE)
 
@@ -111,16 +111,18 @@ Pour connaître la tarification, consultez [Tarification Logic Apps](https://azu
 
 ## <a name="ise-endpoint-access"></a>Point de terminaison d’accès ISE
 
-Lorsque vous créez votre ISE, vous pouvez choisir d’utiliser des points de terminaison d’accès internes ou externes. Votre sélection détermine si les déclencheurs de demande ou de webhook sur les applications logiques dans votre ISE peuvent recevoir des appels en dehors de votre réseau virtuel.
-
-Ces points de terminaison influencent également la manière dont vous pouvez accéder aux entrées et aux sorties dans l’historique des exécutions de votre application logique.
-
-* **Interne** : Les points de terminaison privés qui autorisent les appels à des applications logiques dans votre ISE, où vous pouvez voir des entrées et des sorties dans l’historique des exécutions et y accéder *uniquement de l’intérieur de votre réseau virtuel*
-
-* **Externe** : Les points de terminaison publics qui autorisent les appels à des applications logiques dans votre ISE, où vous pouvez voir des entrées et des sorties dans l’historique des exécutions et y accéder *de l’extérieur de votre réseau virtuel*. Si vous utilisez des groupes de sécurité réseau (NSG), assurez-vous qu’ils sont configurés avec des règles de trafic entrant pour autoriser l’accès aux entrées et sorties de l’historique des exécutions. Pour plus d'informations, consultez [Activer l’accès à ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
+Lorsque vous créez votre ISE, vous pouvez choisir d’utiliser des points de terminaison d’accès internes ou externes. Votre sélection détermine si les déclencheurs de demande ou de webhook sur les applications logiques dans votre ISE peuvent recevoir des appels en dehors de votre réseau virtuel. Ces points de terminaison influencent également la manière dont vous pouvez accéder aux entrées et aux sorties à partir de l’historique des exécutions de vos applications logiques.
 
 > [!IMPORTANT]
-> L’option de point de terminaison d’accès est disponible uniquement lors de la création de votre ISE et ne peut pas être modifiée ultérieurement.
+> Vous pouvez sélectionner le point de terminaison d’accès uniquement lors de la création de l’ISE et ne pouvez pas modifier cette option ultérieurement.
+
+* **Interne** : Les points de terminaison privés autorisent les appels aux applications logiques dans votre ISE, où vous pouvez voir les entrées et sorties dans l’historique des exécutions des applications logiques *uniquement depuis l’intérieur de votre réseau virtuel*. Vérifiez que vous disposez d’une connectivité réseau entre les points de terminaison privés et l’ordinateur à partir duquel vous souhaitez accéder à l’historique des exécutions. Par exemple, votre ordinateur client peut exister à l’intérieur du réseau virtuel de l’ISE ou à l’intérieur d’un réseau virtuel connecté au réseau virtuel de l’ISE, par exemple par le biais du peering ou d’un réseau privé virtuel.
+
+* **Externe** : Les points de terminaison publics autorisent les appels à des applications logiques dans votre ISE, où vous pouvez voir les entrées et sorties de l’historique des exécutions des applications logiques *depuis l’extérieur de votre réseau virtuel*. Si vous utilisez des groupes de sécurité réseau (NSG), assurez-vous qu’ils sont configurés avec des règles de trafic entrant pour autoriser l’accès aux entrées et sorties de l’historique des exécutions. Pour plus d'informations, consultez [Activer l’accès à ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
+
+Pour déterminer si votre environnement ISE utilise un point de terminaison d’accès interne ou externe, dans le menu de votre environnement ISE, sous **Paramètres**, sélectionnez **Propriétés** et recherchez la propriété **Point de terminaison d’accès** :
+
+![Trouver le point de terminaison de l’accès ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/find-ise-access-endpoint.png)
 
 <a name="create-integration-account-environment"></a>
 

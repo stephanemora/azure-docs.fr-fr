@@ -6,13 +6,13 @@ ms.author: tyfox
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.openlocfilehash: bb78d84aa0f9a2832b6599edeac9d50e0e226437
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/20/2020
+ms.openlocfilehash: 058300dca3e7eae41b7d8010e1ca5ee7d4cdcf3a
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546351"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598468"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrer vers un accès en fonction du rôle granulaire pour les configurations de cluster
 
@@ -28,10 +28,10 @@ Nous introduisons également un nouveau rôle [Opérateur de cluster HDInsight](
 
 | Role                                  | Précédemment                                                                                       | À l’avenir       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| Lecteur                                | - Un accès en lecture, dont aux secrets                                                                   | - Un accès en lecture, **sans** les secrets |           |   |   |
+| Lecteur                                | - Un accès en lecture, notamment aux secrets.                                                                   | - Un accès en lecture, **sans** les secrets |           |   |   |
 | Opérateur de cluster HDInsight<br>(Nouveau rôle) | N/A                                                                                              | - Accès lecture/écriture, dont aux secrets         |   |   |
-| Contributeur                           | - Accès lecture/écriture, dont aux secrets<br>- Création et gestion de tous les types de ressources Azure.     | Aucun changement |
-| Propriétaire                                 | - Accès lecture/écriture, dont aux secrets<br>- Accès total à toutes les ressources<br>- Délégation de l’accès à d’autres personnes | Aucun changement |
+| Contributeur                           | - Un accès en lecture/écriture, notamment aux secrets.<br>- Création et gestion de tous les types de ressources Azure.<br>- Exécution des actions de script.     | Aucun changement |
+| Propriétaire                                 | - Un accès en lecture/écriture, notamment aux secrets.<br>- Accès total à toutes les ressources<br>- Délégation de l’accès à d’autres personnes.<br>- Exécution des actions de script. | Aucun changement |
 
 Pour plus d’informations sur l’attribution du rôle Opérateur de cluster HDInsight à un utilisateur afin de lui autoriser l’accès lecture/écriture aux secrets du cluster, consultez la section ci-dessous, [Ajouter l’attribution de rôle Opérateur de cluster HDInsight à un utilisateur](#add-the-hdinsight-cluster-operator-role-assignment-to-a-user).
 

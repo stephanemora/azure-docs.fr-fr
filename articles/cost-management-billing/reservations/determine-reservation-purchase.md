@@ -5,20 +5,20 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/22/2020
+ms.date: 04/30/2020
 ms.author: banders
-ms.openlocfilehash: 1b639da3494c0527141347ca61e77980d29a59ea
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: feee7475dcadc6d06693d9e60020097f8dc9149c
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80135553"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628603"
 ---
 # <a name="determine-what-reservation-to-purchase"></a>Déterminer la réservation à acheter
 
 Toutes les réservations s’appliquent sur une base horaire sauf pour Azure Databricks. Vous devez acheter des réservations sur la base d’une utilisation systématique. Vous pouvez déterminer ce que vous devez acheter de plusieurs façons, et cet article vous permet de déterminer la réservation à acheter.
 
-Si vous achetez une capacité supérieure à votre historique d’utilisation, votre réservation sera sous-utilisée. Vous devez éviter une sous-utilisation autant que possible. Une capacité de réserve inutilisée n’est pas reportée sur l’heure suivante.  Une utilisation dépassant la quantité réservée est facturée au tarif du paiement à l’utilisation, qui est plus élevé.
+Si vous achetez une capacité supérieure à votre historique d’utilisation, votre réservation sera sous-utilisée. Vous devez éviter une sous-utilisation autant que possible. Une capacité de réserve inutilisée n’est pas reportée sur l’heure suivante. Une utilisation dépassant la quantité réservée est facturée au tarif du paiement à l’utilisation, qui est plus élevé.
 
 ## <a name="analyze-usage-data"></a>Analyser les données d’utilisation
 
@@ -40,11 +40,11 @@ Ignorez les ressources dont l’utilisation est inférieure à 24 heures par jo
 
 Si vous souhaitez effectuer l’analyse au niveau de la famille de tailles d’instance, vous pouvez obtenir les valeurs de flexibilité de taille d’instance à partir de [https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv). Combinez les valeurs avec vos données pour effectuer l’analyse. Pour plus d’informations à propos de la flexibilité de la taille d’instance, consultez [Flexibilité en termes de taille de machine virtuelle avec des instances de machines virtuelles réservées](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 
-### <a name="analyze-usage-for-a-sql-database-reserved-instance-purchase"></a>Analyser l’utilisation en vue de l’achat d’instances de base de données SQL réservées
+### <a name="analyze-usage-for-an-azure-synapse-analytics-reserved-instance-purchase"></a>Analyser l’utilisation en vue d’acheter des instances Azure Synapse Analytics réservées
 
-La capacité de réserve s’applique aux tarifs de calcul vCore pour les bases de données SQL. Elle ne s’applique pas aux tarifs basés sur les unités de transaction de base de données, au coût des licences SQL et aux coûts autres que le calcul.
+La capacité de réserve s’applique aux tarifs DWU d’Azure Synapse Analytics. Elle ne s’applique pas au coût des licences Azure Synapse Analytics et aux coûts autres que le calcul.
 
-Pour limiter l’analyse à l’utilisation des bases de données SQL éligibles, appliquez les filtres suivants à vos données d’utilisation :
+Pour limiter l’utilisation éligible, appliquez les filtres suivants à vos données d’utilisation :
 
 
 - Filtrez **Catégorie du compteur** sur **Base de données SQL**.
@@ -60,22 +60,22 @@ Les données vous informent sur l’utilisation systématique selon différents 
 - Génération. Par exemple, Gen 5.
 - Emplacement de la ressource
 
-### <a name="analysis-for-sql-data-warehouse"></a>Analyse pour SQL Data Warehouse
+### <a name="analysis-for-azure-synapse-analytics"></a>Analyse pour Azure Synapse Analytics
 
-La capacité de réserve s’applique à l’utilisation de Data Warehouse Units (DWU) pour SQL Data Warehouse et s’achète par incréments de 100 DWU. Pour limiter l’analyse à l’utilisation des entrepôts de données SQL éligibles, appliquez les filtres suivants à vos données d’utilisation :
+La capacité de réserve s’applique à l’utilisation de Data Warehouse Units (DWU) pour Azure Synapse Analytics et s’achète par incréments de 100 DWU. Pour limiter l’utilisation éligible, appliquez les filtres suivants à vos données d’utilisation :
 
 - Filtrez **Nom du compteur** sur **100 DWU**.
 - Filtrez **Sous-catégorie du compteur** sur **Calcul optimisé Gen2**.
 
-Utilisez le champ **Emplacement de la ressource** pour déterminer l’utilisation d’un entrepôt de données SQL dans une région.
+Utilisez le champ **Emplacement de la ressource** pour déterminer l’utilisation d’Azure Synapse Analytics dans une région.
 
-L’utilisation d’entrepôts de données SQL peut évoluer à la hausse et à la baisse tout au long de la journée. Communiquez avec l’équipe qui a géré l’instance SQL Data Warehouse pour en savoir plus sur l’utilisation de base.
+L’utilisation d’Azure Synapse Analytics peut évoluer à la hausse et à la baisse tout au long de la journée. Communiquez avec l’équipe qui a géré l’instance Azure Synapse Analytics pour obtenir des informations sur l’utilisation de base.
 
-Accédez à Réservations dans le portail Azure et achetez la capacité de réserve d’entrepôts de données SQL par multiples de 100 DWU.
+Accédez à Réservations dans le portail Azure et achetez la capacité de réserve d’Azure Synapse Analytics par multiples de 100 DWU.
 
 ## <a name="reservation-purchase-recommendations"></a>Recommandations relatives à l’achat de réservation
 
-Les recommandations relatives à l’achat de réservation sont calculées sur la base de l’analyse de vos données d’utilisation horaires sur les 7, 30 et 60 derniers jours. Azure calcule les coûts que vous auriez encourus si vous aviez eu une réservation et les compare aux coûts réels du paiement à l’utilisation sur la période. Le calcul est effectué pour chaque quantité que vous avez utilisée au cours de la période. La quantité qui offrirait des économies optimales est recommandée. 
+Les recommandations relatives à l’achat de réservation sont calculées sur la base de l’analyse de vos données d’utilisation horaires sur les 7, 30 et 60 derniers jours. Azure calcule les coûts que vous auriez encourus si vous aviez eu une réservation et les compare aux coûts réels du paiement à l’utilisation sur la période. Le calcul est effectué pour chaque quantité que vous avez utilisée au cours de la période. La quantité qui offrirait des économies optimales est recommandée.
 
 Par exemple, il se peut que vous utilisiez 500 machines virtuelles la plupart du temps, mais que votre utilisation présente parfois des pics s’élevant à 700 machines virtuelles. Dans ce cas, Azure calcule vos économies pour les deux quantités de machines virtuelles : 500 et 700. Étant donné que l’utilisation de 700 machines virtuelles est sporadique, le calcul de la recommandation détermine que les économies sont maximisées pour un achat de réservation de 500 machines virtuelles. La recommandation indique donc une quantité de 500 machines virtuelles.
 
