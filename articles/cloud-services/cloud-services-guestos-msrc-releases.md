@@ -3,24 +3,66 @@ title: Liste des mises à jour appliquées au système d’exploitation invité 
 description: Publications de la liste des mises à jour appliquées au système d’exploitation invité
 services: cloud-services
 documentationcenter: na
-author: raiye
+author: yohaddad
 editor: ''
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/3/2020
-ms.author: raiye
-ms.openlocfilehash: 758f0e3198ef83635ead3f9bd8565cd64f9d413c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.date: 5/4/2020
+ms.author: yohaddad
+ms.openlocfilehash: e74bccbd7465a8f0e0d2da0a672a88c7d70d666f
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656354"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791559"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+## <a name="april-2020-guest-os"></a>Système d’exploitation invité, avril 2020
+
+
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+|  Version 20-04   |  [4550965]  |  Sécurité Windows   |  [2.97]  |  14 Avril 2020  |
+|  Version 20-04   |  [4550905]  |  Internet Explorer   |  [2.97], [3.84], [4.77]  |  14 Avril 2020  |
+|  Version 20-04   |  [4550971]  |  Sécurité Windows   |  [3.84]  |  14 Avril 2020  |
+|  Version 20-04   |  [4550970]  |  Sécurité Windows   |  [4.77]  |  14 Avril 2020  |
+|  Version 20-04   |  [4550929]  |  Dernière mise à jour cumulative (LCU)   |  [5.42]  |  14 Avril 2020  |
+|  Version 20-04   |  [4549949]  |  Dernière mise à jour cumulative (LCU)   |  [6.18]  |  14 Avril 2020  |
+|  Version 20-04   |  [4540688]  |  Correctif cumulatif mensuel   |  [2.97]  |  10 mars 2020  |
+|  Version 20-04   |  [4550735]  |  Mise à jour de la pile de maintenance   |  [2.97]  |  10 mars 2020  |
+|  Version 20-04   |  [4540726]  |  Mise à jour de la pile de maintenance   |  [3.84]  |  10 mars 2020  |
+|  Version 20-04   |  [4541510]  |  Correctif cumulatif mensuel   |  [3.84]  |  10 mars 2020  |
+|  Version 20-04   |  [4541509]  |  Correctif cumulatif mensuel   |  [4.77]  |  10 mars 2020  |
+|  Version 20-04   |  [4540725]  |  Mise à jour de la pile de maintenance   |  [4.77]  |  10 mars 2020  |
+|  Version 20-04   |  [4540723]  |  Mise à jour de la pile de maintenance   |  [5.42]  |  10 mars 2020  |
+|  Version 20-04   |  [4539571]  |  Mise à jour de la pile de maintenance   |  [6.18]  |  10 mars 2020  |
+
+
+[4550965]: https://support.microsoft.com/kb/4550965
+[4550905]: https://support.microsoft.com/kb/4550905
+[4550971]: https://support.microsoft.com/kb/4550971
+[4550970]: https://support.microsoft.com/kb/4550970
+[4550929]: https://support.microsoft.com/kb/4550929
+[4549949]: https://support.microsoft.com/kb/4549949
+[4540688]: https://support.microsoft.com/kb/4540688
+[4550735]: https://support.microsoft.com/kb/4550735
+[4540726]: https://support.microsoft.com/kb/4540726
+[4541510]: https://support.microsoft.com/kb/4541510
+[4541509]: https://support.microsoft.com/kb/4541509
+[4540725]: https://support.microsoft.com/kb/4540725
+[4540723]: https://support.microsoft.com/kb/4540723
+[4539571]: https://support.microsoft.com/kb/4539571
+[2.97]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3.84]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4.77]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5.42]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6.18]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+
 
 ## <a name="march-2020-guest-os"></a>Système d’exploitation invité, mars 2020
 

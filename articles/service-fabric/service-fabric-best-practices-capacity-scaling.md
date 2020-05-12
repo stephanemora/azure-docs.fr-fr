@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: bf228e17ca24df9833f96f0c6fd3ef232cdf7ae6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be0f0a48e2fd334e2000c8a4b8c2e0101b291cef
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229473"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791865"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planification et mise à l’échelle de la capacité pour Azure Service Fabric
 
@@ -68,13 +68,13 @@ Une fois les propriétés de nœud et les contraintes de placement déclarées, 
 1. À partir de PowerShell, exécutez `Disable-ServiceFabricNode` avec l’intention `RemoveNode` pour désactiver le nœud que vous vous apprêtez à supprimer. Supprimez le type de nœud présentant le nombre le plus élevé. Par exemple, en présence d’un cluster à six nœuds, supprimez l’instance de machine virtuelle « MyNodeType_5 ».
 2. Exécutez `Get-ServiceFabricNode` pour vous assurer que le nœud a bien été désactivé. Si ce n’est pas le cas, patientez jusqu'à ce que le nœud soit désactivé. Cette opération peut prendre plusieurs heures pour chaque nœud. Ne continuez pas tant que le nœud n'a pas été désactivé.
 3. Réduisez une à une le nombre de machines virtuelles dans ce type de nœud. L'instance de machine virtuelle la plus élevée va à présent être supprimée.
-4. Répétez les étapes 1 à 3 selon vos besoins, mais ne faites jamais descendre en puissance le nombre d’instances sur les types de nœuds principaux sur une valeur inférieure à celle garantie par le niveau de fiabilité. Pour obtenir la liste des instances recommandées, consultez [Planification de la capacité du cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+4. Répétez les étapes 1 à 3 selon vos besoins, mais n’effectuez jamais de scale-in du nombre d’instances sur les types de nœuds principaux inférieur à ce que garantit le niveau de fiabilité. Pour obtenir la liste des instances recommandées, consultez [Planification de la capacité du cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 5. Une fois que toutes les machines virtuelles ont disparu (représentées comme « Down ») fabric:/System/InfrastructureService/[nom du nœud] indique un état d’erreur. Ensuite, vous pouvez mettre à jour la ressource de cluster pour supprimer le type de nœud. Vous pouvez utiliser le déploiement du modèle ARM ou modifier la ressource de cluster par le biais d’[Azure Resource Manager](https://resources.azure.com). Cela démarre une mise à niveau du cluster qui supprimera le service fabric:/System/InfrastructureService/[type du nœud] qui est en état d’erreur.
  6. Après cela, vous pouvez supprimer le groupe de machines virtuelles identiques, mais vous verrez toujours les nœuds comme « Down » depuis la vue de Service Fabric Explorer. La dernière étape consiste à les effacer avec la commande `Remove-ServiceFabricNodeState`.
 
 ## <a name="horizontal-scaling"></a>Mise à l’échelle horizontale
 
-Vous pouvez effectuer une mise à l’échelle horizontale [manuellement](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down) ou [par programmation](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
+Vous pouvez effectuer une mise à l’échelle horizontale [manuellement](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out) ou [par programmation](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
 
 > [!NOTE]
 > Si vous mettez à l’échelle un type de nœud doté d’une durabilité Silver ou Gold, le processus sera lent.
@@ -103,7 +103,7 @@ Pour effectuer un scale-out manuel, mettez à jour la capacité dans la proprié
 
 La mise à l'échelle requiert une plus grande attention que la montée en charge. Par exemple :
 
-* Les services système Service Fabric s’exécutent sur le type de nœud principal de votre cluster. Vous ne devez jamais arrêter ou faire descendre en puissance le nombre d’instances pour ces types de nœuds sur une valeur d'instances inférieure à celle garantie par le niveau de fiabilité. 
+* Les services système Service Fabric s’exécutent sur le type de nœud principal de votre cluster. Vous ne devez jamais effectuer l’arrêt ou le scale-in du nombre d’instances pour ce type de nœud de façon à avoir moins d’instances que ce que garantit le niveau de fiabilité. 
 * Pour un service avec état, un certain nombre de nœuds doivent toujours fonctionner afin de maintenir la disponibilité et de conserver l’état de votre service. Au minimum, le nombre de nœuds doit être égal au nombre de jeux de réplicas cibles du service ou de la partition.
 
 Pour effectuer un scale-in manuel, procédez comme suit :
@@ -111,7 +111,7 @@ Pour effectuer un scale-in manuel, procédez comme suit :
 1. À partir de PowerShell, exécutez `Disable-ServiceFabricNode` avec l’intention `RemoveNode` pour désactiver le nœud que vous vous apprêtez à supprimer. Supprimez le type de nœud présentant le nombre le plus élevé. Par exemple, en présence d’un cluster à six nœuds, supprimez l’instance de machine virtuelle « MyNodeType_5 ».
 2. Exécutez `Get-ServiceFabricNode` pour vous assurer que le nœud a bien été désactivé. Si ce n’est pas le cas, patientez jusqu'à ce que le nœud soit désactivé. Cette opération peut prendre plusieurs heures pour chaque nœud. Ne continuez pas tant que le nœud n'a pas été désactivé.
 3. Réduisez une à une le nombre de machines virtuelles dans ce type de nœud. L'instance de machine virtuelle la plus élevée va à présent être supprimée.
-4. Répétez les étapes 1 à 3 selon vos besoins, jusqu’à approvisionner la capacité souhaitée. Ne faites jamais descendre en puissance le nombre d’instances sur les types de nœuds principaux sur une valeur inférieure à celle garantie par le niveau de fiabilité. Pour obtenir la liste des instances recommandées, consultez [Planification de la capacité du cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+4. Répétez les étapes 1 à 3 selon vos besoins, jusqu’à approvisionner la capacité souhaitée. N’effectuez jamais de scale-in du nombre d’instances sur les types de nœuds principaux de façon à avoir moins que ce que garantit le niveau de fiabilité. Pour obtenir la liste des instances recommandées, consultez [Planification de la capacité du cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 
 Pour effectuer un scale-in manuel, mettez à jour la capacité dans la propriété de référence SKU de la ressource [Groupe de machines virtuelles identiques](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) souhaitée.
 
@@ -166,7 +166,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 > [!NOTE]
-> Lorsque vous descendez un cluster en puissance, vous verrez l’instance de nœud/la machine virtuelle supprimée qui s’affiche dans un état défectueux dans Service Fabric Explorer. Pour obtenir une explication de ce comportement, consultez [Comportements que vous pouvez observer dans Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer). Vous pouvez :
+> Lorsque vous effectuez un scale-in d’un cluster, vous voyez l’instance de machine virtuelle/nœud supprimée qui s’affiche dans un état non intègre dans Service Fabric Explorer. Pour obtenir une explication de ce comportement, consultez [Comportements que vous pouvez observer dans Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out#behaviors-you-may-observe-in-service-fabric-explorer). Vous pouvez :
 > * Appelez la commande [Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) avec le nom de nœud approprié.
 > * Déployez l’[application auxiliaire mise à l’échelle automatique Service Fabric](https://github.com/Azure/service-fabric-autoscale-helper/) sur votre cluster. Cette application permet de s’assurer que les nœuds diminués en puissance sont effacés de Service Fabric Explorer.
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 05/01/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd41e79a1e08c57e806f6ada32faccfa5fdf5792
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c5643b0ce9d93c28372b30e6fc114816cafbce6
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295282"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690462"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>Qu’est-ce que le mode rapport seul de l’accès conditionnel ?
 
@@ -26,7 +26,7 @@ Le mode rapport seul est un nouvel état de la stratégie d’accès conditionne
 
 - Il est possible d’activer les stratégies d’accès conditionnel en mode rapport seul.
 - Lors de la connexion, les stratégies en mode rapport seul sont évaluées, mais non appliquées.
-- Les résultats sont consignés dans les onglets **Accès conditionnel** et **Rapport seul (préversion)** des détails du journal de connexion.
+- Les résultats sont journalisés dans les onglets **Accès conditionnel** et **Rapport seul** des détails du journal de connexion.
 - Les clients disposant d’un abonnement Azure Monitor peuvent surveiller l’impact de leurs stratégies d’accès conditionnel dans le classeur Insights sur l’accès conditionnel.
 
 > [!WARNING]

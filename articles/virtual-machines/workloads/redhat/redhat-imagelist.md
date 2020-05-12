@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/16/2020
 ms.author: alsin
-ms.openlocfilehash: 028c30fced14a60af9f5683e6c6e087b15591735
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 089858c789bb11245e98f32047cabb4117ece904
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605481"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838584"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Images RHEL (Red Hat Enterprise Linux) disponibles dans Azure
 Azure propose une variété d’images RHEL pour différents cas d’usage.
@@ -27,6 +27,9 @@ Azure propose une variété d’images RHEL pour différents cas d’usage.
 
 ## <a name="list-of-rhel-images"></a>Liste des images RHEL
 Voici la liste des images RHEL disponibles dans Azure. Sauf indication contraire, toutes les images sont partitionnées et attachées aux dépôts RHEL standard (et non EUS, E4S). Les images suivantes sont actuellement disponibles pour une utilisation générale :
+
+> [!NOTE]
+> Les images RAW ne sont plus produites, au profit des images partitionnées au format LVM. Le format LVM offre plusieurs avantages par rapport à l’ancien schéma de partitionnement but (non LVM), dont des options de redimensionnement de partition beaucoup plus flexibles.
 
 Offre| SKU | Partitionnement | Approvisionnement | Notes
 :----|:----|:-------------|:-------------|:-----
@@ -47,6 +50,9 @@ RHEL          | 6.7      | RAW    | Agent Linux |
 |             | 7.6      | RAW    | Agent Linux | Attaché à des référentiels EUS par défaut à compter de mai 2019
 |             | 76-gen2  | RAW    | Agent Linux | Attaché à des référentiels EUS par défaut
 |             | 7,7      | LVM    | Agent Linux | Attaché à des référentiels EUS par défaut
+|             | 77-gen2  | LVM    | Agent Linux | Attaché à des référentiels EUS par défaut
+|             | 7.8      | LVM    | Agent Linux | Attaché aux dépôts ordinaires (EUS non disponible pour RHEL 7.8)
+|             | 78-gen2  | LVM    | Agent Linux | Attaché aux dépôts ordinaires (EUS non disponible pour RHEL 7.8)
 |             | 8-LVM    | LVM    | Agent Linux | Famille d’images RHEL 8.x. Attachement à des dépôts standard.
 |             | 8-lvm-gen2| LVM    | Agent Linux | Hyper-V Génération 2 - Famille d’images RHEL 8.x. Attachement à des dépôts standard.
 |             | 8        | LVM    | Agent Linux | Images RHEL 8.0
