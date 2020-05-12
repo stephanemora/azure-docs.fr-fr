@@ -2,26 +2,21 @@
 title: Déterminer à quel moment un utilisateur spécifique pourra accéder à une application
 description: Comment déterminer à quel moment un utilisateur très important pourra accéder à une application que vous avez configurée pour l’approvisionnement des utilisateurs avec Azure AD
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48370e2806b70d550bce95ceff3857a79561f247
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9d976785340e1a032aa4484dd2e8fd6cb2915129
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231057"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593911"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Vérifier l’état de l’approvisionnement d’utilisateurs
 
@@ -35,7 +30,7 @@ Lorsque vous configurez pour la première fois l’approvisionnement automatique
 - Le type de cycle d’approvisionnement (initial ou incrémentiel) en cours d’exécution ou qui a été complété.
 - Une **barre de progression** qui montre l’accomplissement de l’approvisionnement en pourcentage. Le pourcentage reflète le nombre de pages approvisionnées. Remarque : chaque page peut contenir plusieurs utilisateurs ou groupes. Le pourcentage ne reflète donc pas directement le nombre d’utilisateurs, de groupes ou de rôles approvisionnés.
 - Un bouton **Actualiser** que vous pouvez utiliser pour mettre à jour la vue.
-- Le nombre d’**utilisateurs** et de **groupes** dans le magasin de données du connecteur. Le nombre augmente dès qu’un objet est ajouté à l’étendue de l’approvisionnement. Le nombre ne diminue pas lors de la suppression réversible ou définitive d’un utilisateur, étant donné que cela ne supprime pas l’objet du magasin de données du connecteur. Le nombre est recalculé lors de la première synchronisation suivant la [réinitialisation](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) du CDS. 
+- Le nombre d’**utilisateurs** et de **groupes** dans le magasin de données du connecteur. Le nombre augmente dès qu’un objet est ajouté à l’étendue de l’approvisionnement. Le nombre ne diminue pas lors de la suppression réversible ou définitive d’un utilisateur, étant donné que cela ne supprime pas l’objet du magasin de données du connecteur. Le nombre est recalculé lors de la première synchronisation qui suit la [réinitialisation](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) du CDS. 
 - Un lien **Afficher les journaux d’audit**, qui ouvre les journaux de provisionnement Azure AD pour plus d’informations sur toutes les opérations exécutées par le service de provisionnement d’utilisateurs, notamment l’état de provisionnement d’utilisateurs individuels (voir la section [Utiliser des journaux de provisionnement](#use-provisioning-logs-to-check-a-users-provisioning-status) ci-dessous).
 
 À la fin d’un cycle d’approvisionnement, la section **Statistiques à ce jour** affiche le nombre cumulatif d’utilisateurs et de groupes qui ont été approvisionnés à ce jour, ainsi que la date d’achèvement et la durée du dernier cycle. L’**ID d’activité** identifie uniquement le cycle d’approvisionnement le plus récent. L’**ID de tâche** est un identificateur unique de la tâche d’approvisionnement et est spécifique à l’application dans votre client.
@@ -48,7 +43,7 @@ La progression de l’approvisionnement peut être consultée dans le portail Az
 
 Pour consulter l’état de provisionnement d’un utilisateur sélectionné, consultez les [Journaux de provisionnement (préversion)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) dans Azure AD. Toutes les opérations effectuées par le service de provisionnement d’utilisateurs sont enregistrées dans les journaux de provisionnement Azure AD. Cela comprend toutes les opérations de lecture et d’écriture effectuées sur les systèmes sources et cibles, ainsi que les données utilisateur qui ont été lues ou écrites à chaque opération.
 
-Vous pouvez accéder aux journaux d’approvisionnement dans le Portail Azure en sélectionnant **Azure Active Directory** &gt; **Applications d’entreprise** &gt; **Provisionnement de journaux (préversion)** dans la section **Activité**. Vous pouvez rechercher les données de provisionnement en fonction du nom de l’utilisateur ou de l’identificateur dans le système source ou le système cible. Pour plus d’informations, consultez [Journaux de provisionnement (préversion)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
+Vous pouvez accéder aux journaux d’approvisionnement dans le portail Azure en sélectionnant **Azure Active Directory** &gt; **Applications d’entreprise** &gt; **Journaux de provisionnement (préversion)** dans la section **Activité**. Vous pouvez rechercher les données de provisionnement en fonction du nom de l’utilisateur ou de l’identificateur dans le système source ou le système cible. Pour plus d’informations, consultez [Journaux de provisionnement (préversion)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
 
 Les journaux de provisionnement enregistrent toutes les opérations effectuées par le service de provisionnement, y compris :
 

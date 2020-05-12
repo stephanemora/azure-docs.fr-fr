@@ -1,6 +1,6 @@
 ---
-title: Ajouter ou supprimer des attributions de rôles avec le RBAC Azure et Azure CLI
-description: Découvrez comment accorder l’accès aux ressources Azure pour les utilisateurs, groupes, principaux de service ou identités managées à l’aide du contrôle d’accès en fonction du rôle (RBAC) Azure et d’Azure CLI.
+title: Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure CLI – Azure RBAC
+description: Découvrez comment accorder l’accès à des ressources Azure à des utilisateurs, groupes, principaux de service ou identités managées en utilisant Azure CLI et le contrôle d’accès en fonction du rôle Azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b32df50715d5e7276861e0696df1bd6ceb3f684e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3a66482aeee7832baa91fe98357b870e2a280912
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225373"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735774"
 ---
-# <a name="add-or-remove-role-assignments-using-azure-rbac-and-azure-cli"></a>Ajouter ou supprimer des attributions de rôles avec le RBAC Azure et Azure CLI
+# <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure CLI
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Cet article explique comment attribuer des rôles avec Azure CLI.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour ajouter ou supprimer des attributions de rôles, vous devez disposer :
 
@@ -62,7 +62,7 @@ az ad sp list --display-name "{name}" --query [].objectId --output tsv
 
 ## <a name="add-a-role-assignment"></a>Ajouter une attribution de rôle
 
-Dans le contrôle RBAC, vous ajoutez une attribution de rôle pour accorder l’accès.
+Dans RBAC Azure, vous ajoutez une attribution de rôle pour accorder l’accès.
 
 ### <a name="user-at-a-resource-group-scope"></a>Utilisateur dans l’étendue d’un groupe de ressources
 
@@ -97,7 +97,7 @@ Pour ajouter une attribution de rôle en utilisant l’ID de rôle unique au lie
 az role assignment create --role <role_id> --assignee <assignee> --resource-group <resource_group>
 ```
 
-L’exemple suivant attribue le rôle [Contributeur de machine virtuelle](built-in-roles.md#virtual-machine-contributor) à l’utilisateur *patlong\@contoso.com* dans l’étendue du groupe de ressources *pharma-sales*. Pour obtenir l’ID unique de rôle, vous pouvez utiliser [az role definition list](/cli/azure/role/definition#az-role-definition-list) ou consulter la liste des [rôles intégrés pour les ressources Azure](built-in-roles.md).
+L’exemple suivant attribue le rôle [Contributeur de machine virtuelle](built-in-roles.md#virtual-machine-contributor) à l’utilisateur *patlong\@contoso.com* dans l’étendue du groupe de ressources *pharma-sales*. Pour obtenir l’ID de rôle unique, vous pouvez utiliser la commande [az role definition list](/cli/azure/role/definition#az-role-definition-list) ou consulter la rubrique [Rôles intégrés Azure](built-in-roles.md).
 
 ```azurecli
 az role assignment create --role 9980e02c-c2be-4d73-94e8-173b1dc7cf3c --assignee patlong@contoso.com --resource-group pharma-sales
@@ -187,7 +187,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 
 ## <a name="remove-a-role-assignment"></a>Supprimer une attribution de rôle
 
-Dans le contrôle d’accès en fonction du rôle, vous supprimez une attribution de rôle à l’aide de [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete) pour supprimer l’accès :
+Dans Azure RBAC, pour supprimer un accès, vous supprimez une attribution de rôle à l’aide de la commande [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete) :
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role_name_or_id> --resource-group <resource_group>
@@ -213,5 +213,5 @@ az role assignment delete --assignee alain@example.com --role "Billing Reader" -
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Lister les attributions de rôles à l’aide du RBAC Azure et d’Azure CLI](role-assignments-list-cli.md)
+- [Répertorier les attributions de rôle Azure à l’aide d’Azure CLI](role-assignments-list-cli.md)
 - [Utiliser Azure CLI pour gérer les ressources et les groupes de ressources Azure](../azure-resource-manager/cli-azure-resource-manager.md)

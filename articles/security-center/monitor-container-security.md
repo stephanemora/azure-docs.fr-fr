@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: memildin
-ms.openlocfilehash: 330cbc3f28f5e549d5a21417c3d7ccc1e5444769
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 900398a701659bff593df042db16890792e5cffd
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77919530"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744746"
 ---
 # <a name="monitoring-the-security-of-your-containers"></a>Superviser la sécurité de vos conteneurs
 
@@ -131,7 +131,9 @@ Pour voir les recommandations de sécurité d’Azure Security Center pour les h
 
     [![Action Log Analytics](media/monitor-container-security/log-analytics-for-action-small.png)](media/monitor-container-security/log-analytics-for-action.png#lightbox)
 
-1. Ajustez les paramètres de la requête et sélectionnez **Exécuter** quand vous êtes sûr qu’elle est prête pour votre hôte. 
+1. Ajustez les paramètres de requête si nécessaire.
+
+1. Lorsque vous êtes sûr que la commande est appropriée et prête pour votre hôte, sélectionnez **Exécuter**.
 
 
 

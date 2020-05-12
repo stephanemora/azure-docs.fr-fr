@@ -1,19 +1,19 @@
 ---
 title: 'Azure Cosmos DB : API Java Bulk Executor, Kit de développement logiciel (SDK) et ressources'
 description: Tout savoir sur l’API de l’exécuteur en bloc Java et le kit de développement logiciel (SDK), notamment les dates de publication, les dates de retrait et les modifications apportées entre chaque version du SDK de l’exécuteur en bloc Java d’Azure Cosmos DB.
-author: tknandu
+author: milismsft
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 ms.date: 11/21/2018
-ms.author: ramkris
-ms.openlocfilehash: 1a5de2647df5b8092fdcf8e6233f1fddc1690b03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: adrianmi
+ms.openlocfilehash: 0030f974a36dc80dc8c4112000aa5934126a2482
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80981322"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836442"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Bibliothèque d’exécuteurs en bloc Java : Télécharger des informations
 
@@ -39,4 +39,27 @@ ms.locfileid: "80981322"
 | **Documentation de l’API**| [Documentation de référence sur l’API Java](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
 |**Prise en main**|[Bien démarrer avec le kit de développement logiciel (SDK) Java de la bibliothèque de l’exécuteur en bloc](bulk-executor-java.md)|
 |**Runtime minimal pris en charge**|[Kit de développement Java (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)|
+
+## <a name="release-notes"></a>Notes de publication
+
+### <a name="2100"></a><a name="2.10.0"/>2.10.0
+
+* Correctif pour DocumentAnalyzer.java devant permettre d’extraire correctement les valeurs de clé de partition imbriquées du fichier json.
+
+### <a name="294"></a><a name="2.9.4"/>2.9.4
+
+* Ajout de fonctionnalité dans les opérations BulkDelete pour réessayer en cas de défaillances spécifiques, ainsi que retourner à l’utilisateur une liste d’échecs qui pourraient faire l’objet d’une nouvelle tentative.
+
+### <a name="293"></a><a name="2.9.3"/>2.9.3
+
+* Mise à jour pour la Kit de développement logiciel (SDK) Cosmos version 2.4.7.
+
+### <a name="292"></a><a name="2.9.2"/>2.9.2
+
+* Correctif pour « mergeAll » afin de continuer sur un « id » et une valeur de clé de partition de sorte que toutes les propriétés de document corrigées placées après l’« id » et la valeur de clé de partition soient ajoutées à la liste d’éléments mis à jour.
+
+### <a name="291"></a><a name="2.9.1"/>2.9.1
+
+* Mise à jour du degré de concurrence de départ sur 1, et ajout de journaux de débogage pour mini-lot.
+
 

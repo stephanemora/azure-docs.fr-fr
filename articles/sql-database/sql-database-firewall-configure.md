@@ -1,28 +1,27 @@
 ---
 title: Règles de pare-feu IP
-description: Configurez des règles de pare-feu IP au niveau du serveur pour un pare-feu SQL Database ou SQL Data Warehouse. Gérez l’accès aux bases de données et configurez des règles de pare-feu IP au niveau de la base de données pour une base unique ou mise en pool.
+description: Configurez des règles de pare-feu IP au niveau serveur pour un pare-feu Azure SQL Database ou Azure Synapse Analytics. Gérez l’accès aux bases de données et configurez des règles de pare-feu IP au niveau de la base de données pour une base unique ou mise en pool.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
-ms.custom: ''
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/18/2019
-ms.openlocfilehash: 12280e8a5b90c6712703fefc60ec1bfb12ba8573
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 2fe0881a7e6c624ea1104d1ebace307e6cf4e337
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606088"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629233"
 ---
-# <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Règles de pare-feu IP Azure SQL Database et Azure SQL Data Warehouse
+# <a name="azure-sql-database-and-azure-synapse-analytics-ip-firewall-rules"></a>Règles de pare-feu IP Azure SQL Database ou Azure Synapse Analytics
 
 > [!NOTE]
-> Cet article s’applique aux serveurs Azure SQL et aux bases de données Azure SQL Database et Azure SQL Data Warehouse sur serveur Azure SQL. Par souci de simplicité, le terme *SQL Database* est utilisé pour faire référence à SQL Database et SQL Data Warehouse.
+> Cet article s’applique aux serveurs Azure SQL, ainsi qu’aux bases de données Azure SQL Database et Azure Synapse Analytics sur un serveur Azure SQL. Par souci de simplicité, le nom *SQL Database* est utilisé pour désigner à la fois SQL Database et Azure Synapse.
 
 > [!IMPORTANT]
 > Cet article ne s’applique *pas* à *Azure SQL Database Managed Instance*. Pour plus d’informations sur la configuration réseau, consultez [Connecter votre application à Azure SQL Database Managed Instance](sql-database-managed-instance-connect-app.md).
@@ -30,7 +29,7 @@ ms.locfileid: "81606088"
 Quand vous créez un serveur Azure SQL nommé *mysqlserver*, par exemple, le pare-feu SQL Database bloque tout accès au point de terminaison public du serveur (accessible à l’adresse *mysqlserver.database.windows.net*).
 
 > [!IMPORTANT]
-> SQL Data Warehouse prend en charge les règles de pare-feu IP au niveau du serveur uniquement. Il ne prend pas en charge les règles de pare-feu IP au niveau de la base de données.
+> Azure Synapse ne prend en charge que les règles de pare-feu IP au niveau serveur. Il ne prend pas en charge les règles de pare-feu IP au niveau de la base de données.
 
 ## <a name="how-the-firewall-works"></a>Fonctionnement du pare-feu
 Les tentatives de connexion à partir d’Internet et d’Azure doivent franchir le pare-feu avant d’atteindre votre serveur ou votre base de données SQL, comme illustré dans le schéma suivant.
@@ -253,7 +252,7 @@ Considérez les points suivants quand l’accès au service SQL Database est ano
 
 - **La connexion n’est pas autorisée ou un mot de passe incorrect a été utilisé :**
 
-  Si une connexion n’a pas d’autorisations sur le serveur SQL Database ou que le mot de passe est incorrect, la connexion au serveur est refusée. La création d’un paramètre de pare-feu permet uniquement aux clients d’*essayer* de se connecter à votre serveur. Ils doivent toujours fournir les informations d’identification de sécurité nécessaires. Pour plus d’informations sur la préparation des connexions, consultez [Contrôle et autorisation d’accès aux bases de données SQL Database et SQL Data Warehouse](sql-database-manage-logins.md).
+  Si une connexion n’a pas d’autorisations sur le serveur SQL Database ou que le mot de passe est incorrect, la connexion au serveur est refusée. La création d’un paramètre de pare-feu permet uniquement aux clients d’*essayer* de se connecter à votre serveur. Ils doivent toujours fournir les informations d’identification de sécurité nécessaires. Pour plus d’informations sur la préparation des connexions, consultez [Contrôle et octroi d’accès à SQL Database et Azure Synapse Analytics](sql-database-manage-logins.md).
 
 - **Adresse IP dynamique :**
 

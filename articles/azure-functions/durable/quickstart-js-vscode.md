@@ -3,20 +3,18 @@ title: Créer votre première fonction durable dans Azure à l’aide de JavaSc
 description: Créez et publiez une fonction durable Azure à l’aide de Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 55098daa69d3e878140b20095b0a3e08811269e1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6544cd115dbae2268492a8775a780d2f045f4e4a
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80257646"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889674"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Créer votre première fonction durable dans JavaScript
 
 *Durable Functions* est une extension d’[Azure Functions](../functions-overview.md) qui vous permet d’écrire des fonctions avec état dans un environnement serverless. L’extension gère l’état, les points de contrôle et les redémarrages à votre place.
-
-[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 Dans cet article, vous allez découvrir comment utiliser l’extension Azure Functions pour Visual Studio Code afin de créer et tester localement une fonction durable appelée « Hello World ».  Cette fonction permet d’orchestrer et de chaîner des appels à d’autres fonctions. Vous allez ensuite publier le code de la fonction dans Azure.
 
@@ -52,7 +50,7 @@ Dans cette section, vous utilisez Visual Studio Code pour créer un projet Azure
 
     | Prompt | Valeur | Description |
     | ------ | ----- | ----------- |
-    | Sélectionner un langage pour votre projet d’application de fonction | JavaScript | Créez un projet Node.js Functions local. |
+    | Sélectionnez un langage pour votre projet d’application de fonction | JavaScript | Créez un projet Node.js Functions local. |
     | Sélectionner une version | Azure Functions v3 | Vous voyez cette option uniquement quand les outils Core Tools ne sont pas déjà installés. Dans le cas présent, les outils Core Tools sont installés la première fois que vous exécutez l’application. |
     | Sélectionner un modèle pour la première fonction de votre projet | Ignorer pour le moment | |
     | Sélectionner la façon dont vous souhaitez ouvrir votre projet | Ouvrir dans la fenêtre active | Ouvre à nouveau VS Code dans le dossier que vous avez sélectionné. |
@@ -61,7 +59,7 @@ Visual Studio Code installe la solution Azure Functions Core Tools, si nécessai
 
 Un fichier package.json est également créé dans le dossier racine.
 
-### <a name="enable-azure-functions-v2-compatibility-mode"></a>Activer le mode de compatibilité Azure Functions V2
+### <a name="enable-compatibility-mode"></a>Activer le mode de compatibilité
 
 À l’heure actuelle, JavaScript Durable Functions nécessite l’activation du mode de compatibilité Azure Functions V2.
 
@@ -204,7 +202,7 @@ Après avoir vérifié que la fonction s’exécute correctement sur votre ordin
 
 [!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
 
-### <a name="enable-azure-functions-v2-compatibility-mode"></a>Activer le mode de compatibilité Azure Functions V2
+### <a name="enable-compatibility-mode"></a>Activer le mode de compatibilité
 
 La même compatibilité Azure Functions V2 que vous avez activée localement doit être activée dans l’application, dans Azure.
 

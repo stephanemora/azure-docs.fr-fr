@@ -4,12 +4,12 @@ description: Explication étape par étape pour la restauration de l’état du 
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 08/18/2017
-ms.openlocfilehash: 6d46a091a4e620e26d05735f12a201009663e65d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 39cac84c4a33c1da209d0a0cc7b0f8ac8ee390a0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77602466"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610783"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurer l’état du système sur Windows Server
 
@@ -124,7 +124,7 @@ Une fois que vous avez récupéré l’état du système sous forme de fichiers 
 
 2. Après le redémarrage, ouvrez le composant logiciel enfichable Sauvegarde Windows Server. Si vous ne savez pas où il a été installé, recherchez **Sauvegarde Windows Server** sur l’ordinateur ou le serveur.
 
-    L’application de bureau s’affiche dans les résultats de recherche.
+    L’application de bureau s’affiche dans les résultats de recherche. Si ce n’est pas le cas, ou si vous rencontrez des erreurs à l’ouverture de l’application, vous devez installer les **Fonctionnalités de la Sauvegarde de Windows Server** ainsi que les composants dépendants situés en dessous, disponibles dans l’**Assistant Ajout de fonctionnalités** du **Gestionnaire de serveur**.
 
 3. Dans le composant logiciel enfichable, sélectionnez **Sauvegarde locale**.
 

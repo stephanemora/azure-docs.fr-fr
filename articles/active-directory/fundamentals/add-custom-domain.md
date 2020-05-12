@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de91bd7e1e4c5f9909213f663dd3ede0f979d4de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 69c96d123ebe97ba4a7a6df0395efe698924fef1
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230445"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734737"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Ajouter votre nom de domaine personnalisé à l’aide du Portail Azure Active Directory
 
@@ -37,7 +37,7 @@ Créez votre annuaire en suivant les étapes décrites dans la rubrique [Create 
 >[!IMPORTANT]
 >La personne qui crée le locataire est automatiquement définie comme administrateur général pour ce locataire. L’administrateur général peut ajouter des administrateurs au locataire.
 
-Pour plus d’informations sur les rôles d’abonnement, consultez [Rôles RBAC Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
+Pour plus d’informations sur les rôles d’abonnement, consultez [Rôles Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).
 
 >[!TIP]
 > Si vous envisagez de fédérer votre instance locale de Windows Server Active Directory avec Azure AD, vous devez sélectionner **Je prévois de configurer ce domaine pour l’authentification unique avec mon annuaire Active Directory local** lorsque vous exécutez l’outil Azure AD Connect pour synchroniser vos annuaires.

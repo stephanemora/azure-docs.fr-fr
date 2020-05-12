@@ -7,15 +7,15 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 17bed17b536f6e88fc821fd83e09a1d6ea218bc3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a48ed39af243296bcb76cb61f1fe64e4e95ab7e7
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74130475"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801737"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Résolution des erreurs de passerelle incorrecte dans Application Gateway
-
+<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=66c070b6-1c47-4c7f-b928-317a8c8b452f" target='_blank'>Démarrer</a></span><span class="has-padding-small">Résoudre votre problème rapidement en utilisant notre agent virtuel pour exécuter des <b>diagnostics automatisés.</b></span><span class="has-padding-small"><a href="https://privacy.microsoft.com/privacystatement" target='_blank'><div align="right"><sub>Déclaration de confidentialité</sub></div></a></span></p>
 Découvrez comment résoudre les erreurs de passerelle incorrecte (502) reçues lors de l’utilisation d’Azure Application Gateway.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

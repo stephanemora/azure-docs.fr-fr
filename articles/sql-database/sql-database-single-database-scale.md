@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 84846e642fa102045b89eb12dbc85b0995867a3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/30/2020
+ms.openlocfilehash: a13b860e01e7ef295df629d79dfa44700b5f0d02
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061598"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691591"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Mettre à l’échelle des ressources de base de données unique dans Azure SQL Database
 
@@ -48,13 +48,27 @@ La modification du niveau de service ou de la taille de calcul implique principa
 
 ## <a name="latency"></a>Latence 
 
-La latence estimée pour modifier le niveau de service ou remettre à l’échelle la taille de calcul d’une base de données unique ou d’un pool élastique se paramètre comme suit :
+La latence estimée pour modifier le niveau de service, mettre à l’échelle la taille de calcul d’une base de données unique ou d’un pool élastique, déplacer une base de données dans un pool élastique ou hors de celui-ci, ou déplacer une base de données entre des pools élastiques est paramétrée comme suit :
 
 |Niveau de service|Base de données unique de base,</br>Standard (S0-S1)|Pool élastique de base,</br>Standard (S2-S12), </br>Hyperscale, </br>Base de données unique ou pool élastique à usage général|Base de données unique ou pool élastique Premium ou critique pour l’entreprise|
 |:---|:---|:---|:---|
 |**Base de données unique de base,</br> Standard (S0-S1)**|&bull; &nbsp;Latence constante indépendante de l’espace utilisé</br>&bull; &nbsp;Généralement moins de 5 minutes|&bull; &nbsp;Latence proportionnelle à l’espace de base de données utilisé en raison de la copie des données</br>&bull; &nbsp;En règle générale, moins de 1 minute par Go d’espace utilisé|&bull; &nbsp;Latence proportionnelle à l’espace de base de données utilisé en raison de la copie des données</br>&bull; &nbsp;En règle générale, moins de 1 minute par Go d’espace utilisé|
 |**Pool élastique de base, </br>Standard (S2-S12), </br>Hyperscale, </br>Base de données unique ou pool élastique à usage général**|&bull; &nbsp;Latence proportionnelle à l’espace de base de données utilisé en raison de la copie des données</br>&bull; &nbsp;En règle générale, moins de 1 minute par Go d’espace utilisé|&bull; &nbsp;Latence constante indépendante de l’espace utilisé</br>&bull; &nbsp;Généralement moins de 5 minutes|&bull; &nbsp;Latence proportionnelle à l’espace de base de données utilisé en raison de la copie des données</br>&bull; &nbsp;En règle générale, moins de 1 minute par Go d’espace utilisé|
 |**Base de données unique ou pool élastique Premium ou critique pour l’entreprise**|&bull; &nbsp;Latence proportionnelle à l’espace de base de données utilisé en raison de la copie des données</br>&bull; &nbsp;En règle générale, moins de 1 minute par Go d’espace utilisé|&bull; &nbsp;Latence proportionnelle à l’espace de base de données utilisé en raison de la copie des données</br>&bull; &nbsp;En règle générale, moins de 1 minute par Go d’espace utilisé|&bull; &nbsp;Latence proportionnelle à l’espace de base de données utilisé en raison de la copie des données</br>&bull; &nbsp;En règle générale, moins de 1 minute par Go d’espace utilisé|
+
+> [!NOTE]
+> En outre, pour des bases de données standard (S2-S12) et à usage général, la latence du déplacement d’une base de données à l’intérieur ou à l’extérieur d’un pool élastique, ou entre des pools élastiques, sera proportionnelle à la taille de la base de données si celle-ci utilise un stockage de partage de fichiers Premium ([PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)).
+>
+> Pour déterminer si une base de données utilise un stockage PFS, exécutez la requête suivante dans le contexte de la base de données. Si la valeur de la colonne AccountType est `PremiumFileStorage`, la base de données utilise un stockage PFS.
+ 
+```sql
+SELECT s.file_id,
+       s.type_desc,
+       s.name,
+       FILEPROPERTYEX(s.name, 'AccountType') AS AccountType
+FROM sys.database_files AS s
+WHERE s.type_desc IN ('ROWS', 'LOG');
+```
 
 > [!TIP]
 > Pour surveiller des opérations en cours, voir : [Gérer des opérations à l’aide de l’API REST SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [Gérer des opérations à l’aide de l’interface de ligne de commande](/cli/azure/sql/db/op), [Surveiller des opérations à l’aide de T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) et les deux commandes PowerShell suivantes : [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) et [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).

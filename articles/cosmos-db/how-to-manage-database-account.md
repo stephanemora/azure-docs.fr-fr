@@ -4,14 +4,14 @@ description: Apprenez à gérer les ressources Azure Cosmos DB à l’aide du po
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 04/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: 61670d757611bd0c1dd11c389282b18edb3d7fa1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 24eec27f0bc6357942420595a1318e3eb0945a5f
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225901"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82745027"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gérer un compte Azure Cosmos
 
@@ -29,11 +29,11 @@ Voir [Créer un compte Azure Cosmos DB avec Azure CLI](manage-with-cli.md#create
 
 ### <a name="azure-powershell"></a><a id="create-database-account-via-ps"></a>Azure PowerShell
 
-Voir [Créer un compte Azure Cosmos DB avec PowerShell](manage-with-powershell.md#create-account)
+Veuillez consulter [Créer un compte Azure Cosmos DB avec PowerShell](manage-with-powershell.md#create-account)
 
 ### <a name="azure-resource-manager-template"></a><a id="create-database-account-via-arm-template"></a>Modèle Azure Resource Manager
 
-Ce modèle Azure Resource Manager va créer un compte Azure Cosmos pour n’importe quelle API SQL configurée avec deux régions et des options pour sélectionner le niveau de cohérence, le basculement automatique et la fonction multimaître. Pour déployer ce modèle, cliquez sur Déployer sur Azure dans la page lisezmoi (readme) [Créer un compte Azure Cosmos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql).
+Veuillez consulter [Créer un compte Azure Cosmos DB avec des modèles Azure Resource Manager](manage-sql-with-resource-manager.md)
 
 ## <a name="addremove-regions-from-your-database-account"></a>Ajouter/supprimer des régions à partir de votre compte de base de données
 
@@ -61,7 +61,7 @@ Voir [Ajouter ou supprimer des régions avec Azure CLI](manage-with-cli.md#add-o
 
 ### <a name="azure-powershell"></a><a id="add-remove-regions-via-ps"></a>Azure PowerShell
 
-Voir [Ajouter ou supprimer des régions avec PowerShell](manage-with-powershell.md#update-account)
+Veuillez consulter [Ajouter ou supprimer des régions avec PowerShell](manage-with-powershell.md#update-account)
 
 ## <a name="configure-multiple-write-regions"></a><a id="configure-multiple-write-regions"></a>Configurer plusieurs régions d’écriture
 
@@ -77,7 +77,7 @@ Voir [Activer plusieurs régions d’écriture avec Azure CLI](manage-with-cli.m
 
 ### <a name="azure-powershell"></a><a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 
-Voir [Activer plusieurs régions d’écriture avec PowerShell](manage-with-powershell.md#multi-master)
+Veuillez consulter [Activer plusieurs régions d’écriture avec PowerShell](manage-with-powershell.md#multi-master)
 
 ### <a name="resource-manager-template"></a><a id="configure-multiple-write-regions-arm"></a>modèle Azure Resource Manager
 
@@ -163,7 +163,7 @@ Voir [Activer le basculement automatique avec Azure CLI](manage-with-cli.md#enab
 
 ### <a name="azure-powershell"></a><a id="enable-automatic-failover-via-ps"></a>Azure PowerShell
 
-Voir [Activer le basculement automatique avec PowerShell](manage-with-powershell.md#enable-automatic-failover)
+Veuillez consulter [Activer le basculement automatique avec PowerShell](manage-with-powershell.md#enable-automatic-failover)
 
 ## <a name="set-failover-priorities-for-your-azure-cosmos-account"></a>Définir les priorités de basculement pour votre compte Azure Cosmos
 
@@ -194,7 +194,7 @@ Voir [Définir la priorité de basculement avec Azure CLI](manage-with-cli.md#se
 
 ### <a name="azure-powershell"></a><a id="set-failover-priorities-via-ps"></a>Azure PowerShell
 
-Voir [Définir la priorité de basculement avec PowerShell](manage-with-powershell.md#modify-failover-priority)
+Veuillez consulter [Définir la priorité de basculement avec PowerShell](manage-with-powershell.md#modify-failover-priority)
 
 ## <a name="perform-manual-failover-on-an-azure-cosmos-account"></a><a id="manual-failover"></a>Effectuer un basculement manuel sur un compte Azure Cosmos
 
@@ -226,7 +226,7 @@ Voir [Déclencher un basculement manuel avec Azure CLI](manage-with-cli.md#trigg
 
 ### <a name="azure-powershell"></a><a id="enable-manual-failover-via-ps"></a>Azure PowerShell
 
-Voir [Déclencher un basculement manuel avec PowerShell](manage-with-powershell.md#trigger-manual-failover)
+Veuillez consulter [Déclencher un basculement manuel avec PowerShell](manage-with-powershell.md#trigger-manual-failover)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.openlocfilehash: 056e23f0f0cf1a3a1c70042cef3c92dd41f14f82
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 23a5d2c0e52a22872a8b9a64503d61493018b611
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80247008"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839162"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Héberger un site web statique dans Stockage Azure
 
@@ -159,8 +159,11 @@ Chargez des objets dans le conteneur *$web* à partir d’un répertoire source.
 Cet exemple part du principe que vous exécutez des commandes à partir d’une session Azure Cloud Shell.
 
 ```azurecli-interactive
-az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
+az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name>
 ```
+
+> [!NOTE] 
+> Si le navigateur invite les utilisateurs à télécharger le fichier au lieu de restituer le contenu, vous pouvez ajouter `--content-type 'text/html; charset=utf-8'` à la commande. 
 
 * Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
 
@@ -178,11 +181,13 @@ Chargez des objets dans le conteneur *$web* à partir d’un répertoire source.
 ```powershell
 # upload a file
 set-AzStorageblobcontent -File "<path-to-file>" `
--Properties @{ ContentType = "text/html; charset=utf-8";} `
 -Container `$web `
 -Blob "<blob-name>" `
 -Context $ctx
 ```
+
+> [!NOTE] 
+> Si le navigateur invite les utilisateurs à télécharger le fichier au lieu de restituer le contenu, vous pouvez ajouter `-Properties @{ ContentType = "text/html; charset=utf-8";}` à la commande.
 
 * Remplacez la valeur d’espace réservé `<path-to-file>` par le chemin d’accès complet du fichier que vous souhaitez charger (par exemple, `C:\temp\index.html`).
 

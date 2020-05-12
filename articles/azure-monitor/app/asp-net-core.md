@@ -2,19 +2,19 @@
 title: Azure Application Insights pour les applications ASP.NET Core | Microsoft Docs
 description: Superviser la disponibilité, les performances et l’utilisation des applications web ASP.NET Core.
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.openlocfilehash: d6a0e507022452f1491e71651ba3bc8db3d1c090
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/30/2020
+ms.openlocfilehash: 9c7c2e22d2befb503a388df1fa8a42c3d6eb07c5
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284787"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652769"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights pour applications ASP.NET Core
 
 Cet article décrit comment activer Application Insights pour une application [ASP.NET Core](https://docs.microsoft.com/aspnet/core). Lorsque vous suivez les instructions de cet article, Application Insights collecte les requêtes, dépendances, exceptions, compteurs de performances, pulsations et journaux à partir de votre application ASP.NET Core.
 
-L’exemple que nous utiliserons ici est une [application MVC](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) qui cible `netcoreapp2.2`. Vous pouvez appliquer ces instructions à toutes les applications ASP.NET Core.
+L’exemple que nous utiliserons ici est une [application MVC](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) qui cible `netcoreapp3.0`. Vous pouvez appliquer ces instructions à toutes les applications ASP.NET Core.
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
@@ -28,7 +28,7 @@ Le [SDK Application Insights pour ASP.NET Core](https://nuget.org/packages/Micro
 * **IDE** : Visual Studio, VS Code ou ligne de commande.
 
 > [!NOTE]
-> Si vous utilisez ASP.NET Core 3.X avec Application Insights, utilisez la version [2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) ou une version ultérieure. Cette version est la seule qui prend en charge ASP.NET Core 3.X.
+> ASP.NET Core 3. X requiert [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) ou version ultérieure.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -109,7 +109,9 @@ Le [SDK Application Insights pour ASP.NET Core](https://nuget.org/packages/Micro
 
     * `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
-    En règle générale, `APPINSIGHTS_INSTRUMENTATIONKEY` spécifie la clé d'instrumentation pour les applications déployées sur Azure Web Apps.
+    * `APPINSIGHTS_INSTRUMENTATIONKEY` est généralement utilisé dans [Azure Web Apps](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=net), mais peut également être utilisé dans tous les emplacements où ce SDK est pris en charge. (Si vous effectuez une analyse d’applications web sans code, ce format est requis si vous n’utilisez pas de chaînes de connexion.)
+
+    Au lieu de définir des clés d’instrumentation, vous pouvez maintenant également utiliser des [chaînes de connexion](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net).
 
     > [!NOTE]
     > Une clé d’instrumentation spécifiée dans le code prévaut sur la variable d’environnement `APPINSIGHTS_INSTRUMENTATIONKEY`, qui prévaut sur les autres options.
@@ -162,11 +164,11 @@ Les étapes précédentes sont suffisantes pour commencer à collecter des donn�
     
 Au lieu d’utiliser `FullScript`, vous pouvez aussi utiliser `ScriptBody` qui est disponible à partir du SDK version 2.14. Cela peut s’avérer utile si vous avez besoin de contrôler la balise `<script>` pour définir une stratégie de sécurité de contenu :
 
-    ```cshtml
-        <script> // apply custom changes to this script tag.
-            @Html.Raw(JavaScriptSnippet.ScriptBody)
-        </script>
-    ```
+```cshtml
+ <script> // apply custom changes to this script tag.
+     @Html.Raw(JavaScriptSnippet.ScriptBody)
+ </script>
+```
 
 Les noms de fichier `.cshtml` mentionnés précédemment proviennent d’un modèle d’application MVC par défaut. Enfin, si vous souhaitez activer correctement la surveillance côté client pour votre application, l’extrait de code JavaScript doit apparaître dans la section `<head>` de chaque page de votre application que vous souhaitez surveiller. Vous pouvez atteindre cet objectif de ce modèle d’application en ajoutant l’extrait de code JavaScript à `_Layout.cshtml`. 
 
@@ -209,7 +211,7 @@ Liste complète des paramètres dans `ApplicationInsightsServiceOptions`
 |EnableAzureInstanceMetadataTelemetryModule   |  Activer/Désactiver `AzureInstanceMetadataTelemetryModule` | true
 |EnableQuickPulseMetricStream | Active/désactive la fonctionnalité LiveMetrics | true
 |EnableAdaptiveSampling | Active/désactive l’échantillonnage adaptatif | true
-|EnableHeartbeat | Active/désactive la fonctionnalité des pulsations, qui envoie régulièrement (toutes les 15 minutes, par défaut) une métrique personnalisée nommée « HeartBeatState » avec des informations sur le runtime, telles que la version de .NET, des informations relatives à l'environnement Azure, le cas échéant, etc. | true
+|EnableHeartbeat | Active/désactive la fonctionnalité des pulsations, qui envoie régulièrement (toutes les 15 minutes, par défaut) une métrique personnalisée nommée « HeartBeatState » avec des informations sur le runtime, telles que la version de .NET, des informations relatives à l’environnement Azure, le cas échéant, etc. | true
 |AddAutoCollectedMetricExtractor | Active/désactive l’extracteur AutoCollectedMetrics, qui est un TelemetryProcessor qui envoie des métriques pré-agrégées sur les demandes/dépendances avant l’échantillonnage. | true
 |RequestCollectionOptions.TrackExceptions | Active/désactive la création de rapports de suivi des exceptions non gérées par le module de collecte des demandes. | false dans NETSTANDARD2.0 (car les exceptions sont suivies avec ApplicationInsightsLoggerProvider), true dans le cas contraire.
 
@@ -454,11 +456,6 @@ Ce kit de développement logiciel (SDK) nécessite `HttpContext`, et ne fonction
 ## <a name="open-source-sdk"></a>Kit de développement logiciel (SDK) open source
 
 [Lisez et contribuez au code](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates).
-
-## <a name="video"></a>Vidéo
-
-- Regardez cette vidéo détaillée externe pour [configurer Application Insights en partant de zéro avec .NET Core et Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t).
-- Regardez cette vidéo détaillée externe pour [configurer Application Insights en partant de zéro avec .NET Core et Visual Studio Code](https://youtu.be/ygGt84GDync).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

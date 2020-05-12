@@ -1,23 +1,29 @@
 ---
 title: Windows Virtual Desktop PowerShell – Azure
-description: Comment résoudre des problèmes avec PowerShell quand vous configurez un environnement de locataire Windows Virtual Desktop.
+description: Comment résoudre des problèmes avec PowerShell quand vous configurez un environnement Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/08/2019
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3fb5436c2b5c30c5336385792d0597bdcea2b538
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce19c670df5062a11bf86e9c383a322f9033818d
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127469"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612008"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
 
-Cet article vous aide à résoudre des problèmes et erreurs rencontrés lors de l’utilisation de PowerShell avec Windows Virtual Desktop. Pour plus d’informations sur les Services Bureau à distance PowerShell, voir [Windows Virtual Desktop Powershell](/powershell/module/windowsvirtualdesktop/).
+>[!IMPORTANT]
+>Ce contenu s’applique à la mise à jour Printemps 2020 avec des objets Azure Resource Manager Windows Virtual Desktop. Si vous utilisez la version Automne 2019 de Windows Virtual Desktop sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/troubleshoot-powershell-2019.md).
+>
+> La mise à jour Printemps 2020 de Windows Virtual Desktop est en préversion publique. Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. 
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Cet article vous aide à résoudre des problèmes et erreurs rencontrés lors de l’utilisation de PowerShell avec Windows Virtual Desktop. Pour plus d’informations sur les Services Bureau à distance PowerShell, voir [Windows Virtual Desktop PowerShell](/powershell/module/windowsvirtualdesktop/).
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 
@@ -27,71 +33,57 @@ Rendez-vous sur le site [Windows Virtual Desktop Tech Community](https://techcom
 
 Cette section répertorie les commandes PowerShell qui sont généralement utilisées lors de la configuration de Windows Virtual Desktop, et explique comment résoudre des problèmes qui peuvent se produire lors de leur utilisation.
 
-### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-is-already-assigned-to-a-remoteapp-app-group-in-the-specified-host-pool"></a>Erreur : Commande Add-RdsAppGroupUser : le UserPrincipalName spécifié est déjà affecté à un groupe d’applications RemoteApp dans le pool d’hôte spécifié
+### <a name="error-new-azroleassignment-the-provided-information-does-not-map-to-an-ad-object-id"></a>Erreur : New-AzRoleAssignment: Les informations fournies ne correspondent pas à un ID d’objet AD.
 
-```Powershell
-Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName 'Desktop Application Group' -UserPrincipalName <UserName>
+```powershell
+AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
 ```
 
-**Cause :** Le nom d’utilisateur utilisé a déjà été attribué à un groupe d’applications d’un type différent. Les utilisateurs ne peuvent pas être affectés à la fois à un Bureau à distance et à un groupe d’applications à distance dans un même pool d’hôte de session.
+**Cause :** L’utilisateur spécifié par le paramètre *-SignInName* est introuvable dans l’Azure Active Directory lié à l’environnement Windows Virtual Desktop. 
 
-**Correctif :** Si un utilisateur a besoin tant d’applications à distance que d’un Bureau à distance, créez des pools d’hôte différents ou accordez un accès utilisateur au Bureau à distance, ce qui permet d’utiliser tout e application sur la machine virtuelle de l’hôte de la session.
+**Correctif :** Vérifiez les points suivants.
 
-### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-doesnt-exist-in-the-azure-active-directory-associated-with-the-remote-desktop-tenant"></a>Erreur : Commande Add-RdsAppGroupUser : le UserPrincipalName spécifié n’existe pas dans l’Azure Active Directory associé au locataire du Bureau à distance
+- L’utilisateur doit être synchronisé avec Azure Active Directory.
+- L’utilisateur ne doit pas être lié à commerce B2C ou B2B.
+- L’environnement Windows Virtual Desktop doit être lié à l’Azure Active Directory correct.
 
-```PowerShell
-Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName "Desktop Application Group" -UserPrincipalName <UserPrincipalName>
-```
+### <a name="error-new-azroleassignment-the-client-with-object-id-does-not-have-authorization-to-perform-action-over-scope-code-authorizationfailed"></a>Erreur : New-AzRoleAssignment: « Le client avec l’ID d’objet n’est pas autorisé à effectuer l’action sur l’étendue (code : AuthorizationFailed) »
 
-**Cause :** L’utilisateur spécifié par le UserPrincipalName est introuvable dans l’Azure Active Directory lié au locataire Windows Virtual Desktop.
+**Cause 1 :** Le compte utilisé ne dispose pas d’autorisations de propriétaire sur l’abonnement. 
 
-**Correctif :** Vérifiez les éléments dans la liste suivante.
+**Correctif 1 :** Un utilisateur disposant d’autorisations de propriétaire doit exécuter l’attribution de rôle. Ou bien, l’utilisateur doit être affecté au rôle Administrateur de l’accès utilisateur pour affecter un utilisateur à un groupe d’applications.
 
-- L’utilisateur est synchronisé sur Azure Active Directory.
-- L’utilisateur n’est pas lié à commerce B2C ou B2B.
-- Le locataire Windows Virtual Desktop est lié à l’Azure Active Directory correct.
-
-### <a name="error-get-rdsdiagnosticactivities----user-isnt-authorized-to-query-the-management-service"></a>Erreur : Get-RdsDiagnosticActivities : l’utilisateur n’est pas autorisé à interroger le service de gestion
-
-```PowerShell
-Get-RdsDiagnosticActivities -ActivityId <ActivityId>
-```
-
-**Cause :** paramètre -TenantName
-
-**Correctif :** Émettez Get-RdsDiagnosticActivities avec -TenantName \<TenantName>.
-
-### <a name="error-get-rdsdiagnosticactivities----the-user-isnt-authorized-to-query-the-management-service"></a>Erreur : Get-RdsDiagnosticActivities : l’utilisateur n’est pas autorisé à interroger le service de gestion
-
-```PowerShell
-Get-RdsDiagnosticActivities -Deployment -username <username>
-```
-
-**Cause :** utilisation du commutateur -Deployment.
-
-**Correctif :** le commutateur -Deployment ne peut être utilisé que par des administrateurs de déploiement. Ces administrateurs sont généralement des membres de l’équipe Services Bureau à distance/Windows Virtual Desktop. Remplacez le commutateur -Deployment par -TenantName \<TenantName>.
-
-### <a name="error-new-rdsroleassignment----the-user-isnt-authorized-to-query-the-management-service"></a>Erreur : New-RdsRoleAssignment : l’utilisateur n’est pas autorisé à interroger le service de gestion
-
-**Cause 1 :** Le compte utilisé ne dispose pas des autorisations de propriétaire de Services Bureau à distance sur le client.
-
-**Correctif 1 :** Un utilisateur disposant d’autorisations de propriétaire de Services Bureau à distance doit exécuter l’attribution de rôle.
-
-**Cause 2 :** Le compte utilisé dispose d’autorisations de propriétaire Services Bureau à distance, mais ne fait pas partie de l’annuaire Azure Active Directory du locataire ou n’est pas autorisé à interroger l’annuaire Azure Active Directory où se trouve l’utilisateur.
+**Cause 2 :** Le compte utilisé dispose d’autorisations de propriétaire, mais ne fait pas partie de l’Azure Active Directory de l’environnement ou n’est pas autorisé à interroger l’Azure Active Directory dans lequel se trouve l’utilisateur.
 
 **Correctif 2 :** Un utilisateur disposant d’autorisations Active Directory doit exécuter l’attribution de rôle.
 
->[!Note]
->New-RdsRoleAssignment ne peut pas accorder d’autorisations à un utilisateur qui n’existe pas dans l’Azure Active Directory (AD).
+### <a name="error-new-azwvdhostpool----the-location-is-not-available-for-resource-type"></a>Erreur : New-AzWvdHostPool -- l’emplacement n’est pas disponible pour le type de ressource
+
+```powershell
+New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'. 
+```
+
+Cause : Windows Virtual Desktop prend en charge la sélection de l’emplacement des pools d’hôtes, des groupes d’applications et des espaces de travail pour stocker les métadonnées de service dans certains emplacements. Vos options sont limitées en fonction de l’emplacement où cette fonctionnalité est disponible. Cette erreur signifie que la fonctionnalité n’est pas disponible à l’emplacement que vous avez choisi.
+
+Correctif : La liste des régions prises en charge sera publiée dans le message d’erreur. Utilisez plutôt l’une des régions prises en charge.
+
+### <a name="error-new-azwvdapplicationgroup-must-be-in-same-location-as-host-pool"></a>Erreur : New-AzWvdApplicationGroup doit se trouver dans le même emplacement que le pool d’hôtes
+
+```powershell
+New-AzWvdApplicationGroup_CreateExpanded: ActivityId: e5fe6c1d-5f2c-4db9-817d-e423b8b7d168 Error: ApplicationGroup must be in same location as associated HostPool
+```
+
+**Cause :** Il y a une incompatibilité d’emplacement. Tous les pools d’hôtes, groupes d’applications et espaces de travail ont un emplacement pour stocker les métadonnées du service. Tous les objets que vous créez, qui sont associés entre eux, doivent se trouver dans le même emplacement. Par exemple, si un pool d’hôtes se trouve dans `eastus`, vous devez également créer les groupes d’applications dans `eastus`. Si vous créez un espace de travail auquel inscrire ces groupes d’applications, cet espace de travail doit également être dans `eastus`.
+
+**Correctif :** Récupérez l’emplacement dans lequel le pool d’hôtes a été créé, puis affectez le groupe d’applications que vous créez à ce même emplacement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour découvrir une vue d’ensemble de la résolution des problèmes Windows Virtual Desktop et des procédures d’escalade, consultez l’article [Vue d’ensemble du dépannage, commentaires et support](troubleshoot-set-up-overview.md).
-- Pour résoudre les problèmes de création d’un pool de locataires et d’hôtes dans un environnement Windows Virtual Desktop, consultez [Création d’un pool de locataires et d’hôtes](troubleshoot-set-up-issues.md).
+- Pour résoudre les problèmes de configuration de vos environnement et pools d’hôtes Windows Virtual Desktop, consultez [Création d’un environnement et d’un pool d’hôtes](troubleshoot-set-up-issues.md).
 - Pour résoudre les problèmes de configuration d’une machine virtuelle dans Windows Virtual Desktop, consultez [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
 - Pour résoudre les problèmes de connexion au client Windows Virtual Desktop, consultez [Connexions au service Windows Virtual Desktop](troubleshoot-service-connection.md).
 - Pour résoudre les problèmes liés aux clients Bureau à distance, consultez [Résoudre des problèmes du client Bureau à distance](troubleshoot-client.md).
 - Pour plus d’informations sur le service, consultez [Environnement Windows Virtual Desktop](environment-setup.md).
-- Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
 - Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
 - Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](../azure-resource-manager/templates/deployment-history.md).

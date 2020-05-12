@@ -3,12 +3,12 @@ title: Créer un cluster Service Fabric dans le portail Azure
 description: Apprenez à configurer un cluster Service Fabric sécurisé dans Azure à l’aide du portail Azure et d’Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: e0cd3d5e5a37720134a5bce596bba211b375f19d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 64a4c430cc7402419d64b77fdcc9a6389cf9de6d
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458315"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792477"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Création d’un cluster Service Fabric dans Azure à partir du portail Azure
 > [!div class="op_single_selector"]
@@ -107,7 +107,7 @@ Configurez vos nœuds de cluster. Les types de nœuds définissent les tailles d
 2. La **taille** minimale des machines virtuelles pour le type de nœud principal dépend de la **couche de durabilité** que vous choisissez pour le cluster. La valeur par défaut du niveau de durabilité est Bronze. Pour en savoir plus sur la durabilité, consultez [Comment choisir la durabilité du cluster Service Fabric][service-fabric-cluster-durability].
 3. Sélectionnez la **taille de la machine virtuelle**. Les machines virtuelles de série D ont des lecteurs de disques SSD et sont vivement recommandées pour les applications avec état. N’utilisez pas les références de machine virtuelle incluant des cœurs partiels ou présentant une capacité de disque disponible inférieure à 10 Go. Reportez-vous au document [Considérations de planification pour les clusters Service Fabric][service-fabric-cluster-capacity] pour obtenir de l’aide concernant la sélection de la taille de la machine virtuelle.
 4.  **Le cluster à un seul nœud et les clusters à trois nœuds** ne servent qu’à effectuer des tests. Ils ne sont pas pris en charge pour l’exécution des charges de travail de production.
-5. Choisissez la **capacité du groupe identique de machines virtuelles initiale** pour le type de nœud. Vous pouvez augmenter ou réduire ultérieurement le nombre de machines virtuelles d’un type de nœud. Cependant, pour le type de nœud principal, le nombre de machines virtuelles minimum est de cinq pour les charges de travail de production. Les autres types de nœuds peuvent avoir au minimum une machine virtuelle. Le **nombre** minimal de machines virtuelles du type de nœud principal détermine la **fiabilité** de votre cluster.  
+5. Choisissez la **capacité du groupe identique de machines virtuelles initiale** pour le type de nœud. Vous pouvez effectuer un scale-in ou un scale-out du nombre de machines virtuelles d’un type de nœud. Toutefois, pour le type de nœud principal, le minimum est de cinq pour les charges de travail de production. Les autres types de nœuds peuvent avoir au minimum une machine virtuelle. Le **nombre** minimal de machines virtuelles du type de nœud principal détermine la **fiabilité** de votre cluster.  
 6. Configurez des **points de terminaison personnalisés**. Ce champ vous permet d’entrer une liste séparée par des virgules des ports que vous souhaitez exposer par le biais de l’Azure Load Balancer à l’Internet public pour vos applications. Par exemple, si vous envisagez de déployer une application web dans votre cluster, saisissez « 80 » pour autoriser le trafic sur le port 80 dans votre cluster. Pour en savoir plus sur les points de terminaison, consultez la page [Communiquer avec des applications][service-fabric-connect-and-communicate-with-services].
 7. **Activez un proxy inverse**.  Le [proxy inverse Service Fabric](service-fabric-reverseproxy.md) permet aux microservices exécutés dans un cluster Service Fabric de découvrir d’autres services dotés de points de terminaison http et de communiquer avec ces services.
 8. De retour dans le panneau **Configuration du Cluster**, sous **+Afficher les paramètres facultatifs**, configurer le cluster **diagnostics**. Par défaut, les diagnostics sont activés sur votre cluster afin de faciliter la résolution des problèmes. Si vous souhaitez désactiver les diagnostics, définissez **l’État** sur **Désactivé**. Nous vous recommandons de **ne pas** désactiver les diagnostics. Si vous avez déjà créé le projet Application Insights, donnez sa clé, afin que les traces d’application soient acheminées vers lui.

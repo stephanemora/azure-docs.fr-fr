@@ -1,22 +1,18 @@
 ---
-title: 'Authentification de service à service : Python avec Azure Data Lake Storage Gen1 utilisant Azure Active Directory | Microsoft Docs'
+title: Python – Authentification de service à service – Data Lake Storage Gen1
 description: Découvrez comment procéder à une authentification de service à service auprès d’Azure Data Lake Storage Gen1 en utilisant Azure Active Directory et Python
-services: data-lake-store
-documentationcenter: ''
 author: twooley
-manager: mtillman
-editor: cgronlun
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 009aff2703829e6d30f93b3c8e3696724594f29b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: has-adal-ref
+ms.openlocfilehash: 449159f6857cb2120f4570a8c20cd82fd11016a2
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229873"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82688125"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Authentification de service à service auprès d’Azure Data Lake Storage Gen1 à l’aide de Python
 > [!div class="op_single_selector"]
@@ -24,8 +20,8 @@ ms.locfileid: "79229873"
 > * [Utilisation du kit de développement logiciel (SDK) .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
 > * [Utilisation de Python](data-lake-store-service-to-service-authenticate-python.md)
 > * [Utilisation de l'API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
-> 
->  
+>
+>
 
 Dans cet article, vous allez apprendre à utiliser le kit de développement logiciel (SDK) Python pour effectuer une authentification de service à service auprès d’Azure Data Lake Storage Gen1. Pour plus d’informations sur l’authentification des utilisateurs finaux auprès de Data Lake Storage Gen1 à l’aide de Python, consultez [Authentification des utilisateurs finaux auprès de Data Lake Storage Gen1 avec Python](data-lake-store-end-user-authenticate-python.md).
 
@@ -92,7 +88,7 @@ Utilisez cet extrait de code pour l’authentification auprès d’Azure AD pour
     RESOURCE = 'https://management.core.windows.net/'
     client_id = '<CLIENT_ID>'
     client_secret = '<CLIENT_SECRET>'
-    
+
     context = adal.AuthenticationContext(authority_uri, api_version=None)
     mgmt_token = context.acquire_token_with_client_credentials(RESOURCE, client_id, client_secret)
     armCreds = AADTokenCredentials(mgmt_token, client_id, resource=RESOURCE)
@@ -105,7 +101,7 @@ Utilisez l’extrait de code suivant pour procéder à une authentification aupr
     RESOURCE = 'https://datalake.azure.net/'
     client_id = '<CLIENT_ID>'
     client_secret = '<CLIENT_SECRET>'
-    
+
     adlCreds = lib.auth(tenant_id = tenant,
                     client_secret = client_secret,
                     client_id = client_id,
@@ -132,5 +128,3 @@ Dans cet article, vous avez appris à utiliser l’authentification de service �
 
 * [Opérations de gestion du compte sur Data Lake Storage Gen1 à l’aide de Python](data-lake-store-get-started-python.md)
 * [Opérations sur les données dans Data Lake Storage Gen1 à l’aide de Python](data-lake-store-data-operations-python.md)
-
-

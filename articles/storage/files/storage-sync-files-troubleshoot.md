@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: d46f513fccf9921d4cf47835bc9d5be4c6ffe241
-ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
+ms.openlocfilehash: 41bc2a05b81bca586cde261bf2eb05db96d687f8
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80607495"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801314"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -183,7 +183,7 @@ Set-AzStorageSyncServerEndpoint `
     -CloudTiering `
     -VolumeFreeSpacePercent 60
 ```
-<a id="server-endpoint-noactivity"></a>**Le point de terminaison de serveur affiche l’état d’intégrité « Aucune activité » ou « En attente » et l’état du serveur dans le panneau des serveurs inscrits correspond à « Apparaît hors connexion »**  
+<a id="server-endpoint-noactivity"></a>**Le point de terminaison de serveur a un état d’intégrité « Aucune activité » ou « En attente », et l’état du serveur sur le panneau des serveurs inscrits est « Apparaît hors connexion »**  
 
 Ce problème peut se produire si le processus de supervision de la synchronisation du stockage (AzureStorageSyncMonitor.exe) ne s’exécute pas ou que le serveur ne peut pas accéder au service Azure File Sync.
 
@@ -202,7 +202,7 @@ Sur le serveur qui porte la mention « Apparaît hors connexion » dans le por
     ```powershell
     Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
-<a id="endpoint-noactivity-sync"></a>**Le point de terminaison de serveur affiche l’état d’intégrité « Aucune activité » et l’état du serveur dans le panneau des serveurs inscrits indique « En ligne »**  
+<a id="endpoint-noactivity-sync"></a>**Le point de terminaison du serveur a l’état d’intégrité « Aucune activité », et l’état du serveur sur le panneau des serveurs inscrits est « En ligne »**  
 
 Si un point de terminaison de serveur a l’état d’intégrité « Aucune activité », cela signifie qu’il n’a journalisé aucune activité de synchronisation au cours des deux dernières heures.
 
@@ -211,7 +211,7 @@ Pour vérifier l’activité de synchronisation active sur un serveur, consultez
 Un point de terminaison de serveur risque de ne pas journaliser l’activité de synchronisation pendant plusieurs heures en raison d’un bogue ou de ressources système insuffisantes. Vérifiez que la dernière [version de l’agent](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes) Azure File Sync est installée. Si le problème persiste, ouvrez une demande de support.
 
 > [!Note]  
-> Si l’état du serveur dans le panneau des serveurs inscrits est « Apparaît hors connexion », effectuez les étapes décrites dans la section [Le point de terminaison de serveur affiche l’état d’intégrité « Aucune activité » ou « En attente » et l’état du serveur dans le panneau des serveurs inscrits indique « Apparaît hors connexion »](#server-endpoint-noactivity).
+> Si l’état du serveur sur le panneau des serveurs inscrits est « Apparaît hors connexion », suivez les étapes décrites dans la section [Le point de terminaison de serveur a un état d’intégrité « Aucune activité » ou « En attente » et l’état du serveur dans le panneau des serveurs inscrits est « Apparaît hors connexion »](#server-endpoint-noactivity).
 
 ## <a name="sync"></a>Synchronisation
 <a id="afs-change-detection"></a>**Après avoir créé un fichier directement dans mon partage de fichiers Azure sur SMB ou par le biais du portail, combien de temps faut-il pour synchroniser le fichier sur les serveurs du groupe de synchronisation ?**  
@@ -303,10 +303,10 @@ Pour afficher ces erreurs, exécutez le script PowerShell **FileSyncErrorsReport
 > Si le script FileSyncErrorsReport.ps1 retourne « Aucune erreur de fichier n’a été trouvée » ou ne contient pas d’erreurs par élément pour le groupe de synchronisation, la cause est l’une des suivantes :
 >
 >- Cause 1 : La dernière session de synchronisation terminée n’a pas d’erreurs par élément. Le portail doit être mis à jour bientôt pour afficher « 0 Fichiers non synchronisés ». 
->   - Vérifiez l’[ID d’événement 9102](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) dans le journal des événements de télémétrie pour confirmer que PerItemErrorCount a la valeur 0. 
+>    - Vérifiez l’[ID d’événement 9102](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) dans le journal des événements de télémétrie pour confirmer que PerItemErrorCount a la valeur 0. 
 >
 >- Cause 2 : Le journal des événements ItemResults sur le serveur a été enveloppé (wrapped) car les erreurs par élément sont trop nombreuses et le journal des événements ne contient plus d’erreurs pour ce groupe de synchronisation.
->   - Pour éviter ce problème, augmentez la taille du journal des événements ItemResults. Le journal des événements ItemResults se trouve sous « Journaux des applications et des services\Microsoft\FileSync\Agent » dans l’observateur d’événements. 
+>    - Pour éviter ce problème, augmentez la taille du journal des événements ItemResults. Le journal des événements ItemResults se trouve sous « Journaux des applications et des services\Microsoft\FileSync\Agent » dans l’observateur d’événements. 
 
 #### <a name="troubleshooting-per-filedirectory-sync-errors"></a>Résolution des problèmes par les erreurs de synchronisation de fichier/répertoire
 **Journal ItemResults : erreurs de synchronisation par élément**  
@@ -807,12 +807,9 @@ Cette erreur se produit en raison d’un problème interne avec la base de donn�
 | **Chaîne d’erreur** | ECS_E_INVALID_AAD_TENANT |
 | **Correction requise** | Oui |
 
-Cette erreur se produit car Azure File Sync ne prend actuellement pas en charge le déplacement de l’abonnement vers un autre client Azure Active Directory.
+Assurez-vous de disposer du dernier agent Azure File Sync. Depuis l’agent v10, Azure File Sync prend en charge le déplacement d’abonnement vers un autre locataire Azure Active Directory.
  
-Pour résoudre ce problème, exécutez l'une des tâches suivantes :
-
-- **Option 1 (recommandée)** : Redéplacer l’abonnement dans le client Azure Active Directory d’origine
-- **Option 2** : Supprimez et recréez le groupe de synchronisation actuel. Si la hiérarchisation Cloud a été activée sur le point de terminaison de serveur, supprimez le groupe de synchronisation, puis suivez les étapes décrites dans la [section hiérarchisation Cloud]( https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) pour supprimer les fichiers hiérarchisés orphelins avant de recréer les groupes de synchronisation. 
+Lorsque vous disposez de la dernière version de l’agent, vous devez accorder à l’application Microsoft.StorageSync l’accès au compte de stockage (voir [Vérifiez qu’Azure File Sync a accès au compte de stockage](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot#troubleshoot-rbac)).
 
 <a id="-2134364010"></a>**La synchronisation a échoué en raison d’une exception de pare-feu et de réseau virtuel non configurée**  
 
@@ -1036,14 +1033,14 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
 Il existe deux chemins d’accès dédiés aux défaillances dans la hiérarchisation cloud :
 
 - La hiérarchisation des fichiers peut être mise en échec, auquel cas la tentative d’Azure File Sync de hiérarchiser un fichier sur Azure Files est elle aussi avortée.
-- Le rappel des fichiers peut être mis en échec, ce qui signifie que le filtre du système de fichiers Azure File Sync (StorageSync.sys) ne parvient pas à télécharger des données lorsqu’un utilisateur tente d’accéder à un fichier hiérarchisé.
+- Le rappel des fichiers peut être mis en échec, ce qui signifie que le filtre du système de fichiers Azure File Sync (StorageSync.sys) ne parvient pas à télécharger des données quand un utilisateur tente d’accéder à un fichier hiérarchisé.
 
 Il existe deux classes principales de défaillances pouvant se produire par le biais des deux chemins d’accès dédiés :
 
 - Défaillances de stockage cloud
     - *Problèmes de disponibilité du service de stockage temporaire*. Pour plus d’informations, consultez [Contrat de niveau de service (SLA) pour le stockage Azure](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
     - *Inaccessibilité du partage de fichiers Azure*. Cet échec se produit généralement lorsque vous supprimez un partage de fichiers Azure qui est toujours un point de terminaison de cloud d’un groupe de synchronisation.
-    - *Inaccessibilité d’un compte de stockage*. Cet échec se produit généralement lorsque vous supprimez un compte de stockage comportant un partage de fichiers Azure qui est un point de terminaison cloud d’un groupe de synchronisation. 
+    - *Inaccessibilité d’un compte de stockage*. Cet échec se produit généralement lorsque vous supprimez un compte de stockage comportant un partage de fichiers Azure qui est un point de terminaison cloud dans un groupe de synchronisation. 
 - Défaillances de serveur 
   - *Défaut de chargement du filtre du système de fichiers Azure File Sync (StorageSync.sys)* . Pour répondre aux requêtes de hiérarchisation/de rappel, il est nécessaire que le filtre du système de fichiers Azure File Sync soit chargé. Ce défaut de chargement peut s’expliquer de différentes manières. La raison la plus courante est le déchargement manuel par un administrateur. Le filtre du système de fichiers Azure File Sync doit être chargé à tout moment pour qu’un bon fonctionnement d’Azure File Sync soit garanti.
   - *Défaut, corruption ou endommagement de point d’analyse*. Un point d’analyse est une structure de données spécifique d’un fichier qui est composée de deux parties distinctes :
@@ -1138,7 +1135,7 @@ Si le rappel de fichiers échoue :
 | 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | Le rappel du fichier a échoué en raison d’un échec d’autorisation auprès du compte de stockage. | Pour résoudre ce problème, vérifiez qu’[Azure File Sync a accès au compte de stockage](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac). |
 | 0x80c86030 | -2134351824 | ECS_E_AZURE_FILE_SHARE_NOT_FOUND | Le rappel du fichier a échoué car le partage de fichiers Azure n’est pas accessible. | Vérifiez que le partage de fichiers existe et qu’il est accessible. Si le partage de fichiers a été supprimé et recréé, suivez les étapes décrites dans la section [La synchronisation a échoué car le partage de fichiers Azure a été supprimé et recréé](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134375810) pour supprimer et recréer le groupe de synchronisation. |
 | 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | Le rappel du fichier a échoué car les ressources système sont insuffisantes. | Si l’erreur persiste, essayez d’identifier l’application ou le pilote en mode noyau qui épuise les ressources système. |
-| 0x8007000e | -2147024882 | ERROR_OUTOFMEMORY | Le rappel du fichier a échoué car la mémoire est insuffisante. | Si l’erreur persiste, essayez d’identifier l’application ou le pilote en mode noyau à l’origine de l’insuffisance de mémoire. |
+| 0x8007000e | -2147024882 | ERROR_OUTOFMEMORY | Le rappel du fichier a échoué parce que la mémoire est insuffisante. | Si l’erreur persiste, essayez d’identifier l’application ou le pilote en mode noyau à l’origine de l’insuffisance de mémoire. |
 | 0x80070070 | -2147024784 | ERROR_DISK_FULL | Le rappel du fichier a échoué car l’espace disque est insuffisant. | Pour résoudre ce problème, libérez de l’espace sur le volume en déplaçant des fichiers vers un autre volume, augmentez la taille du volume ou forcez la hiérarchisation des fichiers à l’aide de l’applet de commande Invoke-StorageSyncCloudTiering. |
 
 ### <a name="tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint"></a>Les fichiers hiérarchisés ne sont pas accessibles sur le serveur après la suppression d’un point de terminaison de serveur
@@ -1232,6 +1229,12 @@ Des rappels inattendus peuvent également se produire dans d’autres scénarios
 > [!NOTE]
 >Utilisez l’ID d’événement 9059 dans le journal d’événements de télémétrie pour déterminer quelles sont les applications à l’origine des rappels. Cet événement fournit la distribution des rappels d’application pour un point de terminaison de serveur, et est enregistré une fois par heure.
 
+### <a name="tls-12-required-for-azure-file-sync"></a>Protocole TLS 1.2 requis pour Azure File Sync
+
+Vous pouvez afficher les paramètres TLS sur votre serveur en examinant les [paramètres du Registre](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings). 
+
+Si vous utilisez un proxy, consultez la documentation de votre proxy et assurez-vous qu’il est configuré pour utiliser le protocole TLS 1.2.
+
 ## <a name="general-troubleshooting"></a>Résolution générale des problèmes
 Si vous rencontrez des problèmes avec Azure File Sync sur un serveur, commencez par effectuer les étapes suivantes :
 1. Dans l’observateur d’événements, examinez les journaux d’événements de télémétrie, des opérations et de diagnostic.
@@ -1242,7 +1245,25 @@ Si vous rencontrez des problèmes avec Azure File Sync sur un serveur, commencez
 3. Vérifiez que les pilotes de filtre Azure File Sync (StorageSync.sys et StorageSyncGuard.sys) sont en cours d’exécution :
     - À partir d’une invite de commandes avec élévation de privilèges, exécutez `fltmc`. Vérifiez que les pilotes de filtre du système de fichiers StorageSync.sys et StorageSyncGuard.sys sont répertoriés.
 
-Si le problème n’est toujours pas résolu, exécutez l’outil AFSDiag :
+Si le problème n’est pas résolu, exécutez l’outil AFSDiag et envoyez sa sortie au format de fichier .zip à l’ingénieur de support affecté à votre cas pour lui permettre d’effectuer un diagnostic plus approfondi.
+
+Pour les versions de l’agent v11 et ultérieures :
+
+1. Ouvrez une fenêtre PowerShell avec élévation de privilèges, puis exécutez les commandes suivantes (appuyez sur Entrée après chaque commande) :
+
+    > [!NOTE]
+    >AFSDiag crée le répertoire de sortie et un dossier temporaire au sein de celui-ci avant de collecter les journaux, puis supprime le dossier temporaire une fois l’opération terminée. Spécifiez un emplacement de sortie qui ne contient pas de données.
+    
+    ```powershell
+    cd "c:\Program Files\Azure\StorageSyncAgent"
+    Import-Module .\afsdiag.ps1
+    Debug-AFS -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
+    ```
+
+2. Reproduisez le problème. Quand vous avez terminé, entrez **D**.
+3. Un fichier .zip contenant les journaux d’activité et les fichiers de trace est enregistré dans le répertoire de sortie que vous avez spécifié. 
+
+Pour les versions de l’agent v10 et antérieures :
 1. Créez un répertoire où la sortie AFSDiag doit être enregistrée (par exemple, C:\Output).
     > [!NOTE]
     >AFSDiag supprimera tout le contenu du répertoire de sortie avant la collecte des journaux. Spécifiez un emplacement de sortie qui ne contient pas de données.

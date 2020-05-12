@@ -3,17 +3,17 @@ title: Gestion du cycle de vie de Stockage Azure
 description: Découvrez comment créer des règles de stratégie du cycle de vie pour faire passer les données vieillissantes du niveau de stockage chaud à froid et aux niveaux d’archivage.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 05/21/2019
+ms.date: 04/24/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 238c12baf55b525a24107a727d09588ef06a6bef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 255e440586af2a5c9115023f45fbf02e25c57ab6
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77598304"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692140"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gérer le cycle de vie du Stockage Blob Azure
 
@@ -24,7 +24,7 @@ La gestion du cycle de vie vous permet de :
 - Faire passer les objets blob à un niveau de stockage plus froid (de Chaud à Froid, de Chaud à Archive ou de Froid à Archive) pour optimiser les performances et le coût.
 - Supprimer les objets blob à la fin de leur cycle de vie
 - Définir des règles à exécuter une fois par jour au niveau du compte de stockage.
-- Appliquer des règles aux conteneurs ou à un sous-ensemble d’objets blob (en utilisant des préfixes comme filtres)
+- Appliquer des règles à des conteneurs ou à un sous-ensemble d’objets blob (en utilisant des préfixes de noms ou des [balises d’index d’objets blob](storage-manage-find-blobs.md) en tant que filtres)
 
 Considérez un scénario où des données sont sollicitées fréquemment durant les premières étapes du cycle de vie, mais seulement occasionnellement après deux semaines. Au-delà du premier mois, le jeu de données est rarement sollicité. Dans ce scénario, le stockage chaud est préférable durant les premiers temps. Un stockage froid est plus approprié pour un accès occasionnel. L’option Stockage archive est la meilleure une fois que les données ont plus d’un mois. En ajustant les niveaux de stockage en fonction de l’ancienneté des données, vous pouvez concevoir les options de stockage les moins coûteuses par rapport à vos besoins. Pour effectuer cette transition, les règles de stratégie de gestion du cycle de vie permettent de déplacer les données vieillissantes vers des niveaux plus froids.
 
@@ -128,7 +128,7 @@ Il existe deux façons d’ajouter une stratégie à l’aide du Portail Microso
 
 6. Pour plus d’informations sur cet exemple de JSON, voir les sections [Stratégie](#policy) et [Règles](#rules).
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Le script PowerShell suivant permet d’ajouter une stratégie à votre compte de stockage. La variable `$rgname` doit être initialisée avec le nom de votre groupe de ressources. La variable `$accountName` doit être initialisée avec le nom de votre compte de stockage.
 
@@ -292,7 +292,11 @@ Les filtres sont les suivants :
 | Nom du filtre | Type de filtre | Notes | Est obligatoire |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Un ensemble de valeurs enum prédéfinies. | La version actuelle prend en charge `blockBlob`. | Oui |
-| prefixMatch | Un ensemble de chaînes servant à faire correspondre les préfixes. Chaque règle peut définir jusqu’à 10 préfixes. Une chaîne de préfixe doit commencer par un nom de conteneur. Par exemple, si vous souhaitez faire correspondre tous les objets blob sous `https://myaccount.blob.core.windows.net/container1/foo/...` pour une règle, prefixMatch est `container1/foo`. | Si vous ne définissez pas prefixMatch, la règle s’applique à tous les objets blob au sein du compte de stockage.  | Non |
+| prefixMatch | Un ensemble de chaînes pour les préfixes à mettre en correspondance. Chaque règle peut définir jusqu’à 10 préfixes. Une chaîne de préfixe doit commencer par un nom de conteneur. Par exemple, si vous souhaitez faire correspondre tous les objets blob sous `https://myaccount.blob.core.windows.net/container1/foo/...` pour une règle, prefixMatch est `container1/foo`. | Si vous ne définissez pas prefixMatch, la règle s’applique à tous les objets blob au sein du compte de stockage.  | Non |
+| blobIndexMatch | Un ensemble de valeurs de dictionnaire constitué d’une clé de balise d’index d’objets blob et de conditions de valeur à mettre en correspondance. Chaque règle peut définir jusqu’à 10 conditions de balise d’index d’objets blob. Par exemple, si vous souhaitez mettre en correspondre tous les objets blob avec `Project = Contoso` sous `https://myaccount.blob.core.windows.net/` pour une règle, le blobIndexMatch est `{"name": "Project","op": "==","value": "Contoso"}`. | Si vous ne définissez pas blobIndexMatch, la règle s’applique à tous les objets blob au sein du compte de stockage. | Non |
+
+> [!NOTE]
+> L’index d’objets blob, actuellement en préversion publique, est disponible dans les régions **France Centre** et **France Sud**. Pour en savoir plus sur cette fonctionnalité ainsi que sur les problèmes et limitations connus, consultez [Gérer et rechercher des données sur le Stockage Blob Azure avec un index d’objets blob (préversion)](storage-manage-find-blobs.md).
 
 ### <a name="rule-actions"></a>Actions de règle
 
@@ -304,7 +308,7 @@ La gestion du cycle de vie prend en charge la hiérarchisation et la suppression
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Prend actuellement en charge les objets blob au niveau chaud         | Non pris en charge |
 | tierToArchive | Prend actuellement en charge les objets blob au niveau chaud ou froid | Non pris en charge |
-| delete        | Prise en charge                                   | Prise en charge     |
+| supprimer        | Prise en charge                                   | Prise en charge     |
 
 >[!NOTE]
 >Si vous définissez plusieurs actions sur le même objet blob, la gestion du cycle de vie applique l’action la moins coûteuse à l’objet blob. Par exemple, l’action `delete` est moins coûteuse que l’action `tierToArchive`. L’action `tierToArchive` est moins coûteuse que l’action `tierToCool`.
@@ -405,6 +409,42 @@ Certaines données sont supposées expirer un certain nombre de jours ou de mois
 }
 ```
 
+### <a name="delete-data-with-blob-index-tags"></a>Supprimer des données avec des balises d’index d’objets blob
+Certaines données ne doivent expirer que si elles sont marquées explicitement pour suppression. Vous pouvez configurer une stratégie de gestion du cycle de vie pour faire expirer les données qui sont marquées avec des attributs clé/valeur d’index d’objets blob. L’exemple suivant présente une stratégie qui supprime tous les objets blob de bloc balisés avec `Project = Contoso`. Pour en savoir plus sur l’index d’objets blob, consultez [Gérer et rechercher des données sur le Stockage Blob Azure avec un index d’objets blob (préversion)](storage-manage-find-blobs.md).
+
+```json
+{
+    "rules": [
+        {
+            "enabled": true,
+            "name": "DeleteContosoData",
+            "type": "Lifecycle",
+            "definition": {
+                "actions": {
+                    "baseBlob": {
+                        "delete": {
+                            "daysAfterModificationGreaterThan": 0
+                        }
+                    }
+                },
+                "filters": {
+                    "blobIndexMatch": [
+                        {
+                            "name": "Project",
+                            "op": "==",
+                            "value": "Contoso"
+                        }
+                    ],
+                    "blobTypes": [
+                        "blockBlob"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
 ### <a name="delete-old-snapshots"></a>Supprimer les anciens instantanés
 
 Pour les données qui sont modifiées et consultées régulièrement tout au long de leur durée de vie, les instantanés sont souvent utilisés pour suivre les versions antérieures des données. Vous pouvez créer une stratégie qui supprime les anciens instantanés selon leur ancienneté. L’âge de l’instantané est déterminé en regardant l’heure de création. Cette règle de stratégie supprime les instantanés d’objets blob de blocs au sein du conteneur `activedata` dont la création remonte à plus de 90 jours.
@@ -448,3 +488,7 @@ Quand un objet blob est déplacé d’un niveau d’accès vers un autre, l’he
 Découvrez comment récupérer des données après une suppression accidentelle :
 
 - [Suppression réversible pour les objets blob de Stockage Azure](../blobs/storage-blob-soft-delete.md)
+
+Apprenez à gérer et à rechercher des données avec un index d’objets blob :
+
+- [Gérer et rechercher des données dans le Stockage Blob Azure avec un index d’objets blob](storage-manage-find-blobs.md)
