@@ -1,6 +1,6 @@
 ---
-title: Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles Azure AD
-description: 'Décrit les différents rôles dans Azure : rôles d’administrateur d’abonnements classique, rôles de contrôle d’accès en fonction du rôle (RBAC) Azure et rôles d’administrateur Azure Active Directory (Azure AD)'
+title: Rôles d’administrateur d’abonnement classique, rôles Azure et rôles Azure AD
+description: 'Décrit les différents rôles dans Azure : rôles d’administrateur d’abonnements classique, rôles Azure et rôles Azure Active Directory (Azure AD)'
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,32 +15,32 @@ ms.date: 02/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: f2229d57b249bab734b1ef91c10d5ec42ab95a17
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 70baddf86207c490d3b85e0f584525592f8a7ad7
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641423"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735801"
 ---
-# <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD
+# <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Rôles d’administrateur d’abonnement classique, rôles Azure et rôles Azure AD
 
 Si vous débutez sur Azure, vous trouverez peut-être un peu difficile de comprendre l’ensemble des différents rôles dans Azure. Cet article vous aide en décrivant les rôles suivants et en indiquant quand les utiliser :
 - Rôles d’administrateur d’abonnements classique
-- Rôles de contrôle d’accès en fonction du rôle (RBAC) Azure
-- Rôles d’administrateur Azure Active Directory (Azure AD)
+- Rôles Azure
+- Rôles Azure Active Directory (Azure AD)
 
 ## <a name="how-the-roles-are-related"></a>Relation entre les rôles
 
-Pour mieux comprendre les rôles dans Azure, connaître leur historique peut aider. Quand Azure a été publié au départ, l’accès aux ressources était géré avec seulement trois rôles d’administrateur : administrateur de comptes, administrateur de services et coadministrateur. Par la suite, le contrôle d’accès en fonction du rôle (RBAC) a été ajouté pour les ressources Azure. Le contrôle RBAC Azure est un système d’autorisations plus récent qui fournit une gestion précise des accès aux ressources Azure. Le contrôle RBAC compte de nombreux rôles intégrés, peut être assigné à différentes étendues et vous permet de créer vos propres rôles personnalisés. Pour gérer les ressources dans Azure AD, comme les utilisateurs, les groupes et les domaines, il existe plusieurs rôles d’administrateur Azure AD.
+Pour mieux comprendre les rôles dans Azure, connaître leur historique peut aider. Quand Azure a été publié au départ, l’accès aux ressources était géré avec seulement trois rôles d’administrateur : administrateur de comptes, administrateur de services et coadministrateur. Par la suite, le contrôle d’accès en fonction du rôle Azure (Azure RBAC) a été ajouté. Le contrôle RBAC Azure est un système d’autorisations plus récent qui fournit une gestion précise des accès aux ressources Azure. Le contrôle RBAC Azure compte de nombreux rôles intégrés, peut être assigné à différentes étendues et vous permet de créer vos propres rôles personnalisés. Pour gérer les ressources dans Azure AD, comme les utilisateurs, les groupes et les domaines, il existe plusieurs rôles Azure AD.
 
-Le diagramme suivant est une vue d’ensemble des relations entre les rôles d’administrateur d’abonnements classique, les rôles RBAC Azure et les rôles d’administrateur Azure AD.
+Le diagramme suivant est une vue d’ensemble des relations entre les rôles d’administrateur d’abonnements classique, les rôles Azure et les rôles Azure AD.
 
 ![Les différents rôles dans Azure](./media/rbac-and-directory-admin-roles/rbac-admin-roles.png)
 
 
 ## <a name="classic-subscription-administrator-roles"></a>Rôles d’administrateur d’abonnements classique
 
-Dans Azure, les trois rôles d’administrateur d’abonnements classique sont Administrateur de comptes, Administrateur de services et Coadministrateur. Les administrateurs d’abonnements classiques ont un accès total à l’abonnement Azure. Ils peuvent gérer les ressources en utilisant le portail Azure, les API Azure Resource Manager et les API du modèle de déploiement classique. Le compte qui est utilisé pour l’inscription à Azure est automatiquement défini en tant qu’administrateur de compte et administrateur de services fédérés. Par la suite, des coadministrateurs peuvent être ajoutés. Les administrateurs de services et les coadministrateurs ont un accès équivalent aux utilisateurs qui ont reçu le rôle Propriétaire (rôle RBAC Azure) sur l’étendue de l’abonnement. Le tableau suivant décrit les différences entre ces trois rôles d’administrateurs d’abonnements classiques.
+Dans Azure, les trois rôles d’administrateur d’abonnements classique sont Administrateur de comptes, Administrateur de services et Coadministrateur. Les administrateurs d’abonnements classiques ont un accès total à l’abonnement Azure. Ils peuvent gérer les ressources en utilisant le portail Azure, les API Azure Resource Manager et les API du modèle de déploiement classique. Le compte qui est utilisé pour l’inscription à Azure est automatiquement défini en tant qu’administrateur de compte et administrateur de services fédérés. Par la suite, des coadministrateurs peuvent être ajoutés. Les administrateurs de services et les coadministrateurs ont un accès équivalent aux utilisateurs qui ont reçu le rôle Propriétaire (rôle Azure) dans le cadre de l’abonnement. Le tableau suivant décrit les différences entre ces trois rôles d’administrateurs d’abonnements classiques.
 
 | Administrateur d’abonnements classiques | Limite | Autorisations | Notes |
 | --- | --- | --- | --- |
@@ -68,22 +68,22 @@ Chaque abonnement est associé à un annuaire Azure AD. Pour identifier l’annu
 
 Les comptes et les abonnements sont gérés dans le [Centre des comptes Azure](https://account.azure.com/Subscriptions).
 
-## <a name="azure-rbac-roles"></a>Rôles RBAC Azure
+## <a name="azure-roles"></a>Rôles Azure
 
-Le contrôle RBAC Azure est un système d’autorisations basé sur [Azure Resource Manager](../azure-resource-manager/management/overview.md) qui offre une gestion précise des accès aux ressources Azure, comme les ressources de calcul et de stockage. Le contrôle RBAC Azure compte plus de 70 rôles intégrés. Il existe quatre rôles RBAC fondamentaux. Les trois premiers s’appliquent à tous les types de ressources :
+Le contrôle RBAC Azure est un système d’autorisations basé sur [Azure Resource Manager](../azure-resource-manager/management/overview.md) qui offre une gestion précise des accès aux ressources Azure, comme les ressources de calcul et de stockage. Le contrôle RBAC Azure compte plus de 70 rôles intégrés. Il existe quatre rôles Azure fondamentaux. Les trois premiers s’appliquent à tous les types de ressources :
 
-| Rôle RBAC Azure | Autorisations | Notes |
+| Rôle Azure | Autorisations | Notes |
 | --- | --- | --- |
 | [Propriétaire](built-in-roles.md#owner) | <ul><li>Accès total à toutes les ressources</li><li>Délégation de l’accès à d’autres personnes</li></ul> | L’administrateur de services et les coadministrateurs se voient attribuer le rôle Propriétaire dans l’étendue de l’abonnement<br>S’applique à tous les types de ressources. |
 | [Contributeur](built-in-roles.md#contributor) | <ul><li>Création et gestion de tous les types de ressources Azure</li><li>Créer un locataire dans Azure Active Directory</li><li>Ne peut pas accorder l’accès à d’autres personnes</li></ul> | S’applique à tous les types de ressources. |
 | [Lecteur](built-in-roles.md#reader) | <ul><li>Consultation des ressources Azure</li></ul> | S’applique à tous les types de ressources. |
 | [Administrateur de l'accès utilisateur](built-in-roles.md#user-access-administrator) | <ul><li>Gestion de l’accès utilisateur aux ressources Azure</li></ul> |  |
 
-Les autres rôles intégrés permettent de gérer des ressources Azure spécifiques. Par exemple, le rôle [Contributeur de machines virtuelles](built-in-roles.md#virtual-machine-contributor) permet à l’utilisateur de créer et de gérer des machines virtuelles. Pour obtenir la liste de tous les rôles intégrés, consultez [Rôles intégrés pour les ressources Azure](built-in-roles.md).
+Les autres rôles intégrés permettent de gérer des ressources Azure spécifiques. Par exemple, le rôle [Contributeur de machines virtuelles](built-in-roles.md#virtual-machine-contributor) permet à l’utilisateur de créer et de gérer des machines virtuelles. Pour obtenir la liste de tous les rôles intégrés, consultez [Rôles intégrés Azure](built-in-roles.md).
 
-Seuls le portail Azure et les API Azure Resource Manager prennent en charge RBAC. Les utilisateurs, les groupes et les applications qui se voient attribuer des rôles RBAC ne peuvent pas utiliser les [API du modèle de déploiement classique Azure](../azure-resource-manager/management/deployment-models.md).
+Le contrôle RBAC Azure est pris en charge uniquement par le portail Azure et les API Azure Resource Manager. Les utilisateurs, les groupes et les applications qui se voient attribuer des rôles Azure ne peuvent pas utiliser les [API du modèle de déploiement classique Azure](../azure-resource-manager/management/deployment-models.md).
 
-Dans le portail Azure, les attributions de rôles avec RBAC s’affichent dans le panneau **Contrôle d’accès (IAM)** . Ce panneau se trouve dans le portail, notamment pour les groupes d’administration, les abonnements, les groupes de ressources et diverses ressources.
+Dans le portail Azure, les attributions de rôles avec le contrôle RBAC Azure s’affichent dans le panneau **Contrôle d’accès (IAM)** . Ce panneau se trouve dans le portail, notamment pour les groupes d’administration, les abonnements, les groupes de ressources et diverses ressources.
 
 ![Panneau Contrôle d’accès IAM dans le portail Azure](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
@@ -91,44 +91,44 @@ Quand vous cliquez sur l’onglet **Rôles**, vous voyez la liste des rôles int
 
 ![Rôles intégrés dans le portail Azure](./media/rbac-and-directory-admin-roles/roles-list.png)
 
-Pour plus d’informations, consultez [Gérer l’accès aux ressources Azure à l’aide de RBAC et du portail Azure](role-assignments-portal.md).
+Pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](role-assignments-portal.md).
 
-## <a name="azure-ad-administrator-roles"></a>Rôles d’administrateur Azure AD
+## <a name="azure-ad-roles"></a>Rôles Azure AD
 
-Les rôles d’administrateur Azure AD sont utilisés pour gérer les ressources Azure AD d’un annuaire, par exemple pour créer ou changer des utilisateurs, attribuer des rôles d’administration à d’autres personnes, réinitialiser les mots de passe des utilisateurs, gérer les licences utilisateur et gérer les domaines. Le tableau suivant décrit quelques-uns des rôles d’administrateur Azure AD plus importants.
+Les rôles Azure AD sont utilisés pour gérer les ressources Azure AD d’un annuaire, par exemple pour créer ou changer des utilisateurs, attribuer des rôles d’administration à d’autres personnes, réinitialiser les mots de passe des utilisateurs, gérer les licences utilisateur et gérer les domaines. Le tableau suivant décrit quelques-uns des rôles Azure AD plus importants.
 
-| Rôle d’administrateur Azure AD | Autorisations | Notes |
+| Rôle Azure AD | Autorisations | Notes |
 | --- | --- | --- |
 | [Administrateur général](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) | <ul><li>Gestion de l’accès à toutes les fonctionnalités d’administration dans Azure Active Directory, ainsi que les services qui sont fédérés à Azure Active Directory</li><li>Attribution des rôles d’administrateur à d’autres personnes</li><li>Réinitialisation des mots de passe des utilisateurs et de tous les autres administrateurs</li></ul> | La personne qui s’inscrit au locataire Azure Active Directory devient administrateur général. |
 | [Administrateur d’utilisateurs](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-administrator) | <ul><li>Création et gestion de tous les aspects liés aux utilisateurs et aux groupes</li><li>Gestion des tickets de support</li><li>Suivi de l’intégrité des services</li><li>Changement des mots de passe des utilisateurs, des administrateurs du support technique et autres administrateurs d’utilisateurs</li></ul> |  |
 | [Administrateur de facturation](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>Achats</li><li>Gérer les abonnements</li><li>Gestion des tickets de support</li><li>Suivi de l’intégrité des services</li></ul> |  |
 
-Dans le portail Azure, vous pouvez voir la liste des rôles d’administrateur Azure AD dans le panneau **Rôles et administrateurs**. Pour obtenir une liste de tous les rôles d’administrateur Azure AD, consultez [Autorisations des rôles d’administrateur dans Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Dans le portail Azure, vous pouvez voir la liste des rôles Azure AD dans le panneau **Rôles et administrateurs**. Pour obtenir une liste de tous les rôles Azure AD, consultez [Autorisations des rôles d’administrateur dans Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
-![Rôles d’administrateur Azure AD dans le portail Azure](./media/rbac-and-directory-admin-roles/directory-admin-roles.png)
+![Rôles Azure AD dans le portail Azure](./media/rbac-and-directory-admin-roles/directory-admin-roles.png)
 
-## <a name="differences-between-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Différences entre les rôles RBAC Azure et les rôles d’administrateur Azure AD
+## <a name="differences-between-azure-roles-and-azure-ad-roles"></a>Différences entre les rôles Azure et les rôles Azure AD
 
-Globalement, les rôles RBAC Azure contrôlent les autorisations pour gérer les ressources Azure, tandis que les rôles d’administrateur Azure AD contrôlent les autorisations pour gérer les ressources Azure Active Directory. Le tableau suivant compare quelques différences.
+Globalement, les rôles Azure contrôlent les autorisations pour gérer les ressources Azure, tandis que les rôles Azure AD contrôlent les autorisations pour gérer les ressources Azure Active Directory. Le tableau suivant compare quelques différences.
 
-| Rôles RBAC Azure | Rôles d’administrateur Azure AD |
+| Rôles Azure | Rôles Azure AD |
 | --- | --- |
 | Gérer l’accès aux ressources Azure | Gérer l’accès aux ressources Azure Active Directory |
 | Prise en charge des rôles personnalisés | Prise en charge des rôles personnalisés |
 | L’étendue peut être spécifiée à plusieurs niveaux (groupe d’administration, abonnement, groupe de ressources, ressource) | L’étendue est au niveau du locataire |
 | Les informations sur les rôles sont accessibles dans le portail Azure, Azure CLI, Azure PowerShell, les modèles Azure Resource Manager et l’API REST | Les informations sur les rôles sont accessibles dans le portail d’administration Azure, le centre d’administration Office 365, Microsoft Graph et AzureAD PowerShell |
 
-### <a name="do-azure-rbac-roles-and--azure-ad-administrator-roles-overlap"></a>Les rôles RBAC Azure et les rôles d’administrateur Azure AD se chevauchent-ils ?
+### <a name="do-azure-roles-and-azure-ad-roles-overlap"></a>Les rôles Azure et les rôles Azure AD se chevauchent-ils ?
 
-Par défaut, les rôles RBAC Azure et les rôles d’administrateur Azure AD ne couvrent pas Azure et Azure AD. Toutefois, si un administrateur général élève son accès en choisissant **L'administrateur général peut gérer les groupes d'administration et les abonnements Azure** dans le portail Azure, il reçoit le rôle [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) (rôle RBAC) sur tous les abonnements d’un locataire spécifique. Le rôle Administrateur de l’accès utilisateur permet à l’utilisateur d’accorder à d’autres utilisateurs l’accès aux ressources Azure. Ce commutateur peut être utile pour récupérer l’accès à un abonnement. Pour plus d’informations, consultez [Élever l’accès en tant qu’administrateur Azure AD](elevate-access-global-admin.md).
+Par défaut, les rôles Azure et les rôles Azure AD ne couvrent pas Azure et Azure AD. Toutefois, si un administrateur général élève son accès en choisissant **L’administrateur général peut gérer les groupes d’administration et les abonnements Azure** dans le portail Azure, il reçoit le rôle [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) (rôle Azure) sur tous les abonnements d’un locataire spécifique. Le rôle Administrateur de l’accès utilisateur permet à l’utilisateur d’accorder à d’autres utilisateurs l’accès aux ressources Azure. Ce commutateur peut être utile pour récupérer l’accès à un abonnement. Pour plus d’informations, consultez [Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure](elevate-access-global-admin.md).
 
-Plusieurs rôles d’administrateur Azure AD couvrent Azure AD et Microsoft Office 365, tels que les rôles Administrateur général et Administrateur d’utilisateurs. Par exemple, si vous êtes membre du rôle Administrateur général, vous disposez des fonctionnalités de l’administrateur général dans Azure AD et Office 365, avec par exemple la possibilité d’apporter des changements dans Microsoft Exchange et Microsoft SharePoint. Toutefois, par défaut, l’administrateur général n’a pas accès aux ressources Azure.
+Plusieurs rôles Azure AD couvrent Azure AD et Microsoft Office 365, tels que les rôles Administrateur général et Administrateur d’utilisateurs. Par exemple, si vous êtes membre du rôle Administrateur général, vous disposez des fonctionnalités de l’administrateur général dans Azure AD et Office 365, avec par exemple la possibilité d’apporter des changements dans Microsoft Exchange et Microsoft SharePoint. Toutefois, par défaut, l’administrateur général n’a pas accès aux ressources Azure.
 
-![Rôles RBAC Azure versus administrateur Azure AD](./media/rbac-and-directory-admin-roles/azure-office-roles.png)
+![Rôles RBAC Azure et rôles Azure AD](./media/rbac-and-directory-admin-roles/azure-office-roles.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure ?](overview.md)
+- [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?](overview.md)
 - [Autorisations des rôles d'administrateur dans Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
 - [Administrateurs d’abonnement Azure Classic](classic-administrators.md)
 - [Framework d’adoption du cloud : Gestion de l’accès aux ressources dans Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

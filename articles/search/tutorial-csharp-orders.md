@@ -1,21 +1,21 @@
 ---
 title: Tutoriel C# sur le classement des résultats
 titleSuffix: Azure Cognitive Search
-description: Ce tutoriel montre comment trier les résultats de la recherche. Il s’appuie sur un projet existant basé sur des hôtels. Il comporte un tri par propriété principale et par propriété secondaire, et inclut un profil de scoring pour ajouter des critères de boosting.
+description: Ce tutoriel C# montre comment trier les résultats de la recherche. Il s’appuie sur un projet existant basé sur des hôtels. Il comporte un tri par propriété principale et par propriété secondaire, et inclut un profil de scoring pour ajouter des critères de boosting.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 812085a5a4b3e8d1233f19c947d2fd5e433f6ab7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 699b3e5b7e51e12ec0bf39ec0c9045dd3a27a6fd
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77121548"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780604"
 ---
-# <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>Tutoriel C# : Classer les résultats - Recherche cognitive Azure
+# <a name="tutorial-order-search-results-using-the-net-sdk"></a>Tutoriel : Trier des résultats de recherche à l’aide du SDK .NET
 
 Jusqu’à présent, dans notre série de tutoriels, les résultats sont retournés et affichés dans un ordre par défaut. Il peut s’agit de l’ordre dans lequel se trouvent les données ou bien dépendant d’un éventuel _profil de score_ qui a été défini et qui est utilisé quand aucun paramètre de classement n’est spécifié. Dans ce tutoriel, nous allons découvrir comment classer les résultats en fonction d’une propriété principale puis, pour les résultats qui ont la même propriété principale, comment classer cette sélection sur une propriété secondaire. Comme alternative au classement sur la base de valeurs numériques, le dernier exemple montre comment classer selon un profil de score personnalisé. Nous allons également explorer plus avant l’affichage de _types complexes_.
 

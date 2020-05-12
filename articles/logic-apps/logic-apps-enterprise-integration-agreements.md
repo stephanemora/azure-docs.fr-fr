@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: 521a0ef4053be55e6c7322da5af26ccfc6c844e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8cbfb619c9eed325161503f705bf5c4c0746265
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74790742"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612331"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Créer et gérer des contrats de partenariat commercial dans Azure Logic Apps
 
@@ -68,6 +68,14 @@ Dans le menu principal Azure, sélectionnez **Tous les services**. Dans la zone 
    | **Paramètres de réception** | Variable | Variable | Ces propriétés spécifient comment le partenaire hôte reçoit tous les messages entrants du partenaire invité dans le contrat. Pour plus d'informations, consultez le type d'accord correspondant : <p>- [Paramètres des messages AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Paramètres des messages EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Paramètres des messages X12](logic-apps-enterprise-integration-x12.md) |
    | **Paramètres d'envoi** | Variable | Variable | Ces propriétés spécifient comment le partenaire hôte envoie tous les messages sortants au partenaire invité dans le contrat. Pour plus d'informations, consultez le type d'accord correspondant : <p>- [Paramètres des messages AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Paramètres des messages EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Paramètres des messages X12](logic-apps-enterprise-integration-x12.md) |
    |||||
+
+   > [!IMPORTANT]
+   > La résolution d’un contrat dépend de la correspondance de ces éléments qui sont définis dans le partenaire et le message entrant :
+   >
+   > * Qualificateur et identificateur de l’expéditeur
+   > * Qualificateur et identificateur du récepteur
+   >
+   > Si ces valeurs changent pour votre partenaire, veillez à également mettre à jour le contrat.
 
 1. Une fois votre accord créé, sur la page **Ajouter**, choisissez **OK** et revenez à votre compte d'intégration.
 

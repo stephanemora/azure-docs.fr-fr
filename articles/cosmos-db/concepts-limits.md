@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: b24d7db679bb9cb9dacd5e1db8e6410b883548cc
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e4d578596471153e4fc0e37d3ca093685326ecc7
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415706"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791763"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -138,9 +138,9 @@ Cosmos DB utilise HMAC pour l’autorisation. Vous pouvez utiliser une clé prin
 
 Cosmos DB prend en charge l’exécution de déclencheurs pendant les écritures. Le service prend en charge un maximum d’un pré-déclencheur et d’un post-déclencheur par opération d’écriture. 
 
-## <a name="autopilot-mode-limits"></a>Limites du mode Autopilot
+## <a name="limits-for-autoscale-provisioned-throughput"></a>Limites du débit approvisionné en mode de mise à l’échelle automatique
 
-Reportez-vous à l’article [Autopilot](provision-throughput-autopilot.md#autopilot-limits) pour connaître les limites de débit et de stockage en mode Autopilot.
+Reportez-vous à l’article [Mise à l’échelle automatique](provision-throughput-autoscale.md#autoscale-limits) pour connaître les limites de débit et de stockage avec la mise à l’échelle automatique.
 
 ## <a name="sql-query-limits"></a>Limites de requête SQL
 

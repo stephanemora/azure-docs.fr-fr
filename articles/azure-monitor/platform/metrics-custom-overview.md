@@ -1,23 +1,26 @@
 ---
-title: Métriques personnalisées dans Azure Monitor
+title: Métriques personnalisées dans Azure Monitor (Préversion)
 description: Découvrez les métriques personnalisées dans Azure Monitor et comment elles sont modélisées.
 author: ancav
+ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 09/09/2019
-ms.author: ancav
+ms.date: 04/23/2020
 ms.subservice: metrics
-ms.openlocfilehash: 099ab150cde763551c2ad10a4e9159909ccff4dd
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 4891d7272516caf4944219907d81ee4fb89e0189
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270704"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837309"
 ---
-# <a name="custom-metrics-in-azure-monitor"></a>Métriques personnalisées dans Azure Monitor
+# <a name="custom-metrics-in-azure-monitor-preview"></a>Métriques personnalisées dans Azure Monitor (Préversion)
 
-Quand vous déployez des ressources et des applications dans Azure, il est généralement utile de collecter des données de télémétrie pour obtenir des insights sur leurs performances et leur intégrité. Azure met à votre disposition des métriques prêtes à l’emploi. Il s’agit de métriques [standard ou de plateforme](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported). Toutefois, ces métriques sont, par leur nature, limitées. Vous pouvez avoir besoin de collecter certains indicateurs de performance personnalisés ou des métriques métier pour obtenir des insights plus approfondis.
-Ces métriques **personnalisées** peuvent être collectées par le biais des données de télémétrie de votre application, d’un agent s’exécutant sur vos ressources Azure ou même d’un système de supervision d’interaction indirecte, puis soumises directement à Azure Monitor. Après leur publication dans Azure Monitor, vous pouvez parcourir et interroger les métriques personnalisées relatives à vos ressources et applications Azure (et créer des alertes sur ces métriques) parallèlement aux métriques standard émises par Azure.
+Quand vous déployez des ressources et des applications dans Azure, il est généralement utile de collecter des données de télémétrie pour obtenir des insights sur leurs performances et leur intégrité. Azure met à votre disposition des métriques prêtes à l’emploi. Il s’agit de métriques [standard ou de plateforme](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported). Toutefois, ces métriques sont, par leur nature, limitées. 
+
+Vous pouvez avoir besoin de collecter certains indicateurs de performance personnalisés ou des métriques métier pour obtenir des insights plus approfondis. Ces métriques **personnalisées** peuvent être collectées par le biais des données de télémétrie de votre application, d’un agent s’exécutant sur vos ressources Azure ou même d’un système de supervision d’interaction indirecte, puis soumises directement à Azure Monitor. Après leur publication dans Azure Monitor, vous pouvez parcourir et interroger les métriques personnalisées relatives à vos ressources et applications Azure (et créer des alertes sur ces métriques) parallèlement aux métriques standard émises par Azure.
+
+Les métriques personnalisées d’Azure Monitor sont actuelles en préversion publique. 
 
 ## <a name="methods-to-send-custom-metrics"></a>Méthodes d’envoi de métriques personnalisées
 
@@ -27,19 +30,15 @@ Les métriques personnalisées peuvent être envoyées à Azure Monitor à l’a
 - Installer [l’agent InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md) sur votre machine virtuelle Linux Azure et envoyer les métriques à l’aide du plug-in de sortie Azure Monitor
 - Envoyer des métriques personnalisées [directement à l’API REST Azure Monitor](../../azure-monitor/platform/metrics-store-custom-rest-api.md) : `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`
 
-## <a name="pricing-model"></a>Modèle de tarification
+## <a name="pricing-model-and-rentention"></a>Modèle de tarification et rétention
 
-Il n’y a aucun coût d’ingestion des métriques standard (métriques de plateforme) dans le magasin de métriques Azure Monitor. Les métriques personnalisées gérées dans le magasin de métriques Azure Monitor sont facturées par Mo, chaque point de données de métrique personnalisée écrit étant considéré comme ayant une taille de 8 octets. Toutes les métriques ingérées sont conservées pendant 90 jours.
+Pour plus d’informations sur l’activation de la facturation des requêtes de métriques personnalisées et des requêtes de métriques, consultez la [page de tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). Des détails spécifiques sur la grille tarifaire de toutes les métriques, y compris des métriques personnalisées et des requêtes de métriques, sont disponibles sur cette page. En résumé, il n’y a aucun coût d’ingestion pour les métriques standard (métriques de plateforme) dans le magasin de métriques d’Azure Monitor, mais les métriques personnalisées entraînent des coûts lorsqu’elles seront mises en disponibilité générale. Les requêtes d’API de métrique seront facturées.
 
-Les requêtes de métriques sont facturées en fonction du nombre d’appels d’API standard. Un appel d’API standard est un appel qui analyse 1 440 points de données (1 440 est également le nombre total de points de données pouvant être stockés par métrique et par jour). Si un appel d’API analyse plus de 1 440 points de données, il est considéré comme plusieurs appels d’API standard. Si un appel d’API analyse moins de 1 440 points de données, il est considéré comme moins d’un appel d’API. Le nombre d’appels d’API standard est calculé chaque jour en tant que nombre total de points de données analysés par jour divisé par 1 440.
-
-Des détails spécifiques sur les prix des métriques personnalisées et des requêtes de métriques sont disponibles sur la [page de tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+Les métriques personnalisées sont conservées pendant la [même durée que les métriques de plateforme](data-platform-metrics.md#retention-of-metrics). 
 
 > [!NOTE]  
-> Les métriques envoyées à Azure Monitor via le kit de développement logiciel (SDK) Application Insights sont facturées en tant que données de journal ingérées et n’entraînent de charges de métriques supplémentaires que si la fonctionnalité Application Insights [Activer les alertes sur les dimensions de métriques personnalisées](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) a été sélectionnée. En savoir plus sur le [modèle de tarification Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) et les [prix dans votre région](https://azure.microsoft.com/pricing/details/monitor/).
+> Les métriques envoyées à Azure Monitor via le Kit de développement logiciel (SDK) Application Insights sont facturées en tant que données de journal ingérées. Elles n’entraînent des frais supplémentaires que si la fonctionnalité [Activer les alertes sur les dimensions des métriques personnalisées](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) d’Application Insights a été sélectionnée. Cette case à cocher détermine l’envoi de données à la base de données de métriques d’Azure Monitor à l’aide de l’API de métriques personnalisées pour permettre la création d’alertes plus complexes.  En savoir plus sur le [modèle de tarification Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) et les [prix dans votre région](https://azure.microsoft.com/pricing/details/monitor/).
 
-> [!NOTE]  
-> Pour plus d’informations sur l’activation de la facturation des requêtes de métriques personnalisées et des requêtes de métriques, consultez la [page de tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). 
 
 ## <a name="how-to-send-custom-metrics"></a>Comment envoyer des métriques personnalisées
 
@@ -212,6 +211,11 @@ Dans la préversion publique, la publication des métriques personnalisées n’
 |Asie Est | https:\//eastasia.monitoring.azure.com
 |Centre de la Corée   | https:\//koreacentral.monitoring.azure.com
 
+## <a name="latency-and-storage-retention"></a>Conservation de stockage et latence
+
+L’apparition de l’ajout d’une nouvelle métrique ou d’une nouvelle dimension à une métrique peut prendre de deux à trois minutes. Une fois dans le système, les données doivent apparaître en moins de 30 secondes 99 % du temps. 
+
+Si vous supprimez une métrique ou une dimension, il faudra peut-être d’une semaine à un mois pour que la modification soit supprimée du système.
 
 ## <a name="quotas-and-limits"></a>Quotas et limites
 Azure Monitor impose les limites d’utilisation suivantes quant aux métriques personnalisées :

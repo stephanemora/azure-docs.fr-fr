@@ -1,6 +1,6 @@
 ---
-title: Comprendre les affectations de refus relatives aux ressources Azure
-description: Familiarisez-vous avec les affectations de refus du contrôle d'accès en fonction du rôle (RBAC) pour les ressources Azure.
+title: Comprendre les affectations de refus Azure - RBAC Azure
+description: En savoir plus sur les affectations de refus Azure dans le contrôle d’accès en fonction du rôle Azure (RBAC Azure).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 03/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: db249ccde1026cd468a1c30942891119482697ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5f17f009caa9306631debf511f2c890f8f2a450
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372481"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733769"
 ---
-# <a name="understand-deny-assignments-for-azure-resources"></a>Comprendre les affectations de refus relatives aux ressources Azure
+# <a name="understand-azure-deny-assignments"></a>Comprendre les affectations de refus Azure
 
 À l’instar d’une attribution de rôle, une *affectation de refus* associe un ensemble d’actions de refus à un utilisateur, un groupe ou un principal de service, sur une étendue spécifique, afin de refuser l’accès. Les affectations de refus empêchent les utilisateurs d'effectuer des actions particulières sur les ressources Azure, même si une attribution de rôle leur confère un accès.
 
@@ -57,18 +57,18 @@ Les affectations de refus suivent un modèle similaire à celui des affectations
 > | Propriété | Obligatoire | Type | Description |
 > | --- | --- | --- | --- |
 > | `DenyAssignmentName` | Oui | String | Nom d'affichage de l’attribution de refus. Les noms doivent être uniques pour une étendue donnée. |
-> | `Description` | Non | String | Description de l’attribution de refus. |
+> | `Description` | Non  | String | Description de l’attribution de refus. |
 > | `Permissions.Actions` | Au moins un élément Actions ou DataActions | String[] | Tableau de chaînes qui spécifient les opérations de gestion auxquelles l’attribution de refus bloque l’accès. |
-> | `Permissions.NotActions` | Non | String[] | Tableau de chaînes qui spécifient les opérations de gestion à exclure de l’attribution de refus. |
+> | `Permissions.NotActions` | Non  | String[] | Tableau de chaînes qui spécifient les opérations de gestion à exclure de l’attribution de refus. |
 > | `Permissions.DataActions` | Au moins un élément Actions ou DataActions | String[] | Tableau de chaînes qui spécifient les opérations de données auxquelles l’attribution de refus bloque l’accès. |
-> | `Permissions.NotDataActions` | Non | String[] | Tableau de chaînes qui spécifient les opérations de données à exclure de l’attribution de refus. |
-> | `Scope` | Non | String | Chaîne qui spécifie l’étendue à laquelle l’attribution de refus s’applique. |
-> | `DoNotApplyToChildScopes` | Non | Boolean | Spécifie si l’attribution de refus s’applique aux étendues enfants. La valeur par défaut est false. |
+> | `Permissions.NotDataActions` | Non  | String[] | Tableau de chaînes qui spécifient les opérations de données à exclure de l’attribution de refus. |
+> | `Scope` | Non  | String | Chaîne qui spécifie l’étendue à laquelle l’attribution de refus s’applique. |
+> | `DoNotApplyToChildScopes` | Non  | Boolean | Spécifie si l’attribution de refus s’applique aux étendues enfants. La valeur par défaut est false. |
 > | `Principals[i].Id` | Oui | String[] | Tableau d’ID d’objets principaux Azure AD (utilisateur, groupe, principal de service ou identité managée) auxquels s’applique l’affectation de refus. Définie sur un GUID vide `00000000-0000-0000-0000-000000000000` pour représenter tous les principaux. |
-> | `Principals[i].Type` | Non | String[] | Tableau de types d’objet représentés par Principals[i].Id. Définie sur `SystemDefined` pour représenter tous les principaux. |
-> | `ExcludePrincipals[i].Id` | Non | String[] | Tableau d’ID d’objets principaux Azure AD (utilisateur, groupe, principal de service ou identité managée) auxquels l’attribution de refus ne s’applique pas. |
-> | `ExcludePrincipals[i].Type` | Non | String[] | Tableau de types d’objet représentés par ExcludePrincipals[i].Id. |
-> | `IsSystemProtected` | Non | Boolean | Spécifie si cette attribution de refus a été créée par Azure et ne peut pas être modifiée ou supprimée. Actuellement, toutes les attributions de refus sont protégées par le système. |
+> | `Principals[i].Type` | Non  | String[] | Tableau de types d’objet représentés par Principals[i].Id. Définie sur `SystemDefined` pour représenter tous les principaux. |
+> | `ExcludePrincipals[i].Id` | Non  | String[] | Tableau d’ID d’objets principaux Azure AD (utilisateur, groupe, principal de service ou identité managée) auxquels l’attribution de refus ne s’applique pas. |
+> | `ExcludePrincipals[i].Type` | Non  | String[] | Tableau de types d’objet représentés par ExcludePrincipals[i].Id. |
+> | `IsSystemProtected` | Non  | Boolean | Spécifie si cette attribution de refus a été créée par Azure et ne peut pas être modifiée ou supprimée. Actuellement, toutes les attributions de refus sont protégées par le système. |
 
 ## <a name="the-all-principals-principal"></a>Le principal Tous les principaux
 
@@ -90,4 +90,4 @@ Tous les principaux peut être combiné avec `ExcludePrincipals` pour refuser to
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Tutoriel : Protéger les nouvelles ressources avec des verrous de ressource Azure Blueprints](../governance/blueprints/tutorials/protect-new-resources.md)
-* [Répertorier les affectations de refus pour les ressources Azure à l’aide du portail Azure](deny-assignments-portal.md)
+* [Répertorier les affectations de refus avec le portail Azure](deny-assignments-portal.md)

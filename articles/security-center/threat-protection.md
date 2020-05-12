@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: fdf22e4d981549b876a14aed2b0a1d7e0c76e40e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: b28901918f2606100d92f47800c6e0fb6778e3d0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81263452"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82606889"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Protection contre les menaces dans Azure Security Center
 
@@ -31,6 +31,12 @@ La protection contre les menaces d’Azure Security Center offre des défenses c
 
 Qu’une alerte soit générée par Security Center ou reçue par Security Center à partir d’un autre produit de sécurité, vous pouvez l’exporter. Pour exporter vos alertes vers Azure Sentinel (ou un système SIEM tiers) ou tout autre outil externe, suivez les instructions indiquées dans [Exportation d’alertes vers SIEM](continuous-export.md). 
 
+> [!TIP]
+> Pour activer les fonctionnalités de protection contre les menaces de Security Center, vous devez appliquer le niveau tarifaire Standard à l’abonnement contenant les charges de travail concernées.
+>
+> Vous pouvez activer la protection contre les menaces pour des **comptes Stockage Azure** au niveau de l’abonnement ou de la ressource.
+> Vous pouvez activer la protection contre les menaces pour des **serveurs SQL Azure SQL Database** au niveau de l’abonnement ou de la ressource.
+> Vous pouvez activer la protection contre les menaces pour **Azure Database for MariaDB/Azure Database pour MySQL/Azure Database pour PostgreSQL** au niveau de la ressource uniquement.
 
 
 

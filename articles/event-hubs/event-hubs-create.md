@@ -7,21 +7,21 @@ author: spelluru
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/11/2020
+ms.date: 05/04/2020
 ms.author: spelluru
-ms.openlocfilehash: 5e80ab6d5ed0076e03f5378cbe975b15d0a28f47
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c678965048a6437deb8cbf39f38f12dc116d39ab
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79216107"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743972"
 ---
-# <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Démarrage rapide : créer un Event Hub à l’aide du portail Azure
+# <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Démarrage rapide : Créer un hub d’événements avec le portail Azure
 Azure Event Hubs est une plateforme de diffusion de données volumineuses et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Pour une présentation détaillée d’Event Hubs, consultez [Vue d’ensemble d’Event Hubs](event-hubs-about.md) et [Fonctionnalités d’Event Hubs](event-hubs-features.md).
 
 Dans ce démarrage rapide, vous créez un Event Hub avec le [portail Azure](https://portal.azure.com).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce guide de démarrage rapide, veillez à avoir :
 
@@ -58,21 +58,27 @@ Un espace de noms Event Hubs fournit un conteneur d’étendue unique, référen
 
    ![Bouton Ajouter](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. Dans la page **Créer un espace de noms**, effectuez les étapes suivantes :
-    1. Entrez un **nom** pour l’espace de noms. Le système vérifie immédiatement si le nom est disponible.
-    2. Choisissez le **niveau tarifaire** (De base ou Standard).
-    3. Notez que l’option **Activer Kafka** est automatiquement activée. Azure Event Hubs offre un point de terminaison Kafka. Ce point de terminaison permet à votre espace de noms Event Hubs de comprendre de manière native le protocole de message et les API [Apache Kafka](https://kafka.apache.org/intro). Cette fonctionnalité vous permet de communiquer avec vos hubs d’événements comme avec les rubriques Kafka sans changer vos clients de protocole ni exécuter vos propres clusters. Event Hubs prend en charge [Apache Kafka versions 1.0](https://kafka.apache.org/10/documentation.html) et ultérieures.
-    4. Sélectionnez l’**abonnement** dans lequel vous souhaitez créer l’espace de noms.
-    5. Sélectionnez un **groupe de ressources** existant ou créez-en un. 
-    4. Sélectionnez un **emplacement** pour l’espace de noms.
-    5. Sélectionnez **Create** (Créer). Vous devrez peut-être attendre quelques minutes pour que le système approvisionne entièrement les ressources.
+    1. Sélectionnez l’**abonnement** dans lequel vous souhaitez créer l’espace de noms.
+    2. Sélectionnez le **groupe de ressources** que vous avez créé à l’étape précédente. 
+    3. Entrez un **nom** pour l’espace de noms. Le système vérifie immédiatement si le nom est disponible.
+    4. Sélectionnez un **emplacement** pour l’espace de noms.    
+    5. Choisissez le **niveau tarifaire** (De base ou Standard).  
+    6. Laissez le paramètre **Unités de débit** tel quel. Pour découvrir les unités de débit, consultez [Scalabilité avec Event Hubs](event-hubs-scalability.md#throughput-units).  
+    5. Au bas de la page, sélectionnez **Vérifier + créer**.
 
        ![Créer un espace de noms Event Hub](./media/event-hubs-quickstart-portal/create-event-hub1.png)
-5. Actualisez la page **Event Hubs** pour voir l’espace de noms Event Hubs. Vous pouvez examiner l’état de la création du hub d’événements dans les alertes. 
+   6. Dans la page **Vérifier + créer**, passez en revue les paramètres, puis sélectionnez **Créer**. Attendez la fin du déploiement. 
 
-    ![Créer un espace de noms Event Hub](./media/event-hubs-quickstart-portal/event-hubs-refresh.png)
-6. Sélectionnez l’espace de noms. La page d’accueil de votre **espace de noms Event Hubs** apparaît dans le portail. 
+       ![Page Vérifier + créer](./media/event-hubs-quickstart-portal/review-create.png)
+   7. Dans la page **Déploiement**, sélectionnez **Accéder à la ressource** pour accéder à la page de votre espace de noms. 
 
-   ![Page d’accueil de l’espace de noms](./media/event-hubs-quickstart-portal/namespace-home-page.png)
+      ![Déploiement terminé - Accès à la ressource](./media/event-hubs-quickstart-portal/deployment-complete.png)
+   8. Vérifiez que la page **Espace de noms Event Hubs** qui s’affiche est similaire à l’exemple suivant : 
+
+       ![Page d’accueil de l’espace de noms](./media/event-hubs-quickstart-portal/namespace-home-page.png)       
+
+       > [!NOTE]
+       > Azure Event Hubs offre un point de terminaison Kafka. Ce point de terminaison permet à votre espace de noms Event Hubs de comprendre de manière native le protocole de message et les API [Apache Kafka](https://kafka.apache.org/intro). Cette fonctionnalité vous permet de communiquer avec vos hubs d’événements comme avec les rubriques Kafka sans changer vos clients de protocole ni exécuter vos propres clusters. Event Hubs prend en charge [Apache Kafka versions 1.0](https://kafka.apache.org/10/documentation.html) et ultérieures. Pour plus d’informations, consultez [Utiliser Event Hubs à partir d’applications Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md).
     
 ## <a name="create-an-event-hub"></a>Créer un hub d’événements
 
@@ -88,8 +94,6 @@ Pour créer un Event Hub dans l’espace de noms, effectuez les actions suivante
 4. Vous pouvez examiner l’état de la création du hub d’événements dans les alertes. Une fois créé, il apparaît dans la liste des hubs d’événements, comme indiqué dans l’image suivante :
 
     ![Hub d’événements créé](./media/event-hubs-quickstart-portal/event-hub-created.png)
-
-Félicitations ! Vous avez utilisé le portail pour créer un espace de noms Event Hubs, ainsi qu’un hub d’événements dans cet espace de noms. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

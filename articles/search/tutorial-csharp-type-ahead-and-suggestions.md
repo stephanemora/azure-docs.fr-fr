@@ -1,21 +1,21 @@
 ---
-title: Autocomplétion et suggestions
+title: Tutoriel C# sur l’autocomplétion et les suggestions
 titleSuffix: Azure Cognitive Search
-description: Ce tutoriel présente l’autocomplétion et les suggestions qui permettent de collecter les entrées de termes de recherche des utilisateurs à l’aide d’une liste déroulante. Il s’appuie sur un projet existant basé sur des hôtels.
+description: Ajoutez l’autocomplétion et les suggestions pour collecter les entrées de termes de recherche des utilisateurs à l’aide d’une liste déroulante. Ce tutoriel s’appuie sur un projet existant basé sur des hôtels.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 6b74c3bbb811c122950fd969a8797e87f8f77f86
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 63c098ccd42a438f8daab787afb54cf13cd053c3
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641072"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780553"
 ---
-# <a name="c-tutorial-add-autocomplete-and-suggestions---azure-cognitive-search"></a>Tutoriel C# : Ajouter l’autocomplétion et les suggestions - Recherche cognitive Azure
+# <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Tutoriel : Ajouter l’autocomplétion et les suggestions à l’aide du SDK .NET
 
 Découvrez comment implémenter l’autocomplétion (requêtes en saisie semi-automatique et suggestions de documents) quand un utilisateur commence à taper dans une zone de recherche. Dans ce tutoriel, nous allons montrer les requêtes autocomplétées et les résultats de suggestions séparément, puis ensemble. Il suffit à l’utilisateur de taper deux ou trois caractères pour obtenir tous les résultats disponibles.
 

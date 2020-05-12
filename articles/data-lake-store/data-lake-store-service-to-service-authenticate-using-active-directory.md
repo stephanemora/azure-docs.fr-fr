@@ -1,22 +1,17 @@
 ---
-title: 'Authentification de service à service : Azure Data Lake Storage Gen1 avec Azure Active Directory | Microsoft Docs'
+title: Authentification de service à service – Data Lake Storage Gen1 – Azure
 description: Découvrez comment procéder à une authentification de service à service auprès de Data Lake Storage Gen1 en utilisant Azure Active Directory.
-services: data-lake-store
-documentationcenter: ''
 author: twooley
-manager: mtillman
-editor: cgronlun
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 3fbf2f2540e8f1ca84aad2759b9a1fc790e4065d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74ad40eb7f7483bb010cf8eb002776893c50a256
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "66241376"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82688198"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Authentification de service à service auprès d’Azure Data Lake Storage Gen1 en utilisant Azure Active Directory
 > [!div class="op_single_selector"]
@@ -70,12 +65,12 @@ Quand vous vous connectez par programmation, vous avez besoin de l’ID de votre
     ![Ajouter un groupe](./media/data-lake-store-authenticate-using-active-directory/adl.acl.3.png "Ajouter un groupe")
 6. Cliquez sur **Sélectionner des autorisations**, sélectionnez les autorisations et indiquez si vous souhaitez attribuer les autorisations en tant qu’ACL par défaut et/ou d’accès. Cliquez sur **OK**.
    
-    ![Affecter des autorisations à un groupe](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "Affecter des autorisations à un groupe")
+    ![Affectation d’autorisations au groupe](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "Affecter des autorisations à un groupe")
    
     Pour plus d’informations sur les autorisations dans Data Lake Storage Gen1 et sur les ACL par défaut ou d’accès, consultez [Contrôle d’accès dans Data Lake Storage Gen1](data-lake-store-access-control.md).
-7. Dans le panneau **Ajouter un accès personnalisé**, cliquez sur **OK**. Le groupe récemment créé, avec les autorisations associées, est répertorié dans le panneau **Accès**.
+7. Dans le panneau **Ajouter un accès personnalisé**, cliquez sur **OK**. Le groupe récemment ajouté, avec les autorisations associées, est répertorié dans le panneau **Accès**.
    
-    ![Affecter des autorisations à un groupe](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Affecter des autorisations à un groupe")
+    ![Affectation d’autorisations au groupe](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Affecter des autorisations à un groupe")
 
 > [!NOTE]
 > Si vous comptez limiter votre application Azure Active Directory à un dossier spécifique, vous devez également donner à cette même application Azure Active Directory l’autorisation **Exécuter** à la racine pour permettre la création du fichier via le Kit de développement logiciel (SDK) .NET.

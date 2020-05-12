@@ -1,17 +1,17 @@
 ---
+title: Détails des taxes pour la place de marché commerciale de Microsoft
 Description: Pour comprendre vos motifs fiscaux pour la sélection des prix, les implications en termes de paiement et la responsabilité fiscale, consultez vos pays/régions de distribution dans les tableaux ci-dessous.
-title: Détails des taxes | Place de marché Azure
-ms.date: 2/13/2020
 ms.topic: conceptual
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: 2546de2b63c70d7456712ba39086cd7fb540cf82
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/04/2020
+ms.openlocfilehash: 0276a859fb82f7775aca498d73d1cbf780aaf5fc
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285161"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793021"
 ---
 # <a name="tax-details-for-commercial-marketplace-publishers"></a>Détails des taxes pour les éditeurs de la place de marché commerciale
 
@@ -23,10 +23,6 @@ Pour comprendre vos motifs fiscaux pour la sélection des prix et la responsabil
 > [!IMPORTANT]
 > La responsabilité fiscale pour les pays/régions et la situation financière des revendeurs (comme décrit [ci-dessous](#reseller-countriesregions)) est couverte par l’annexe A du [Contrat d’éditeur de la Place de marché Microsoft Azure](https://go.microsoft.com/fwlink/p/?LinkID=699560), nonobstant les informations du tableau ci-dessous.
 > Notez que la colonne **Implication de paiement** s’applique uniquement aux éditeurs. Les taux d’imposition notés dans cette colonne sont susceptibles d’être modifiés à tout moment, et Microsoft ne peut pas garantir que les taux indiqués dans les tableaux ci-dessous seront toujours exacts.
-
-
-
- 
 
 | Pays/région                   | Motif fiscal pour la sélection des prix                                                                                                             | Implication de paiement                    | Responsabilité fiscale |
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|--------------------|
@@ -262,19 +258,18 @@ Pour comprendre vos motifs fiscaux pour la sélection des prix et la responsabil
 | Zambie                           | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Zimbabwe                         | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 
-Les éléments suivants s’appliquent uniquement aux éditeurs de la Place de marché Azure, nonobstant toute disposition contraire ci-dessus : 
+Les éléments suivants s’appliquent uniquement aux éditeurs de la Place de marché Azure, nonobstant toute disposition contraire ci-dessus :
 
-| Pays/région                   | Motif fiscal pour la sélection des prix                                                                                                             | Gestion fiscale                    | 
+| Pays/région                   | Motif fiscal pour la sélection des prix                                                                                                             | Gestion fiscale                    |
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
 | Australie (pour les achats effectués via tous les scénarios d’achat client, sauf Contrat Entreprise) | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. | Microsoft |
 | Australie (uniquement pour les achats effectués par le biais du scénario d’achat client Contrat Entreprise) | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. | Serveur de publication |
-| Brésil | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. | Éditeur **(consultez Pays/régions des revendeurs)** |
-| Mexique | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. | Éditeur **(consultez Pays/régions des revendeurs)** |
+| Brésil | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. | Éditeur (**consultez Pays/régions des revendeurs**) |
+| Mexique | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. | Éditeur (**consultez Pays/régions des revendeurs**) |
 
 ## <a name="mixed-remittance-countriesregions-for-publishers"></a>Pays/régions de versement mixte pour les éditeurs
 
-
-Certains partenaires de facturation Microsoft peuvent recueillir et verser les taxes sur les ventes, la consommation, les biens et services, la valeur ajoutée ou des taxes similaires éventuellement applicables à l’acquisition par les Clients de vos Applications ou Produits dans l’application par l’intermédiaire du Store dans les pays/régions listés ci-dessous. Les [rapports](payout-summary.md#transaction-history-download-export) que Microsoft met à votre disposition identifieront les transactions pour lesquelles un partenaire de facturation a recueilli les taxes sur les ventes, la consommation, les biens et services, la valeur ajoutée ou des taxes similaires applicables à l’acquisition par les Clients de vos Applications ou Produits dans l’application par l’intermédiaire du Store. À l’exception des transactions décrites dans ces rapports, ni Microsoft ni ses fournisseurs de services de facturation ne pourront verser des taxes sur les ventes, la consommation, les biens et services, la valeur ajoutée ou des taxes similaires liées à l’acquisition par les Clients de vos Applications ou Produits dans l’application dans ces pays. Il vous appartient de réviser les rapports qui vous sont fournis ainsi que de déterminer et d’honorer vos obligations éventuelles en matière d’enregistrement, de collecte et de versement de taxes liées aux transactions impliquant vos Applications ou Produits dans l’application.
+Certains partenaires de facturation Microsoft peuvent recueillir et verser les taxes sur les ventes, la consommation, les biens et services, la valeur ajoutée ou des taxes similaires éventuellement applicables à l’acquisition par les Clients de vos Applications ou Produits dans l’application par l’intermédiaire du Store dans les pays/régions listés ci-dessous. Les [rapports](payout-summary-overview.md#transaction-history-download-export) que Microsoft met à votre disposition identifieront les transactions pour lesquelles un partenaire de facturation a recueilli les taxes sur les ventes, la consommation, les biens et services, la valeur ajoutée ou des taxes similaires applicables à l’acquisition par les Clients de vos Applications ou Produits dans l’application par l’intermédiaire du Store. À l’exception des transactions décrites dans ces rapports, ni Microsoft ni ses fournisseurs de services de facturation ne pourront verser des taxes sur les ventes, la consommation, les biens et services, la valeur ajoutée ou des taxes similaires liées à l’acquisition par les Clients de vos Applications ou Produits dans l’application dans ces pays. Il vous appartient de réviser les rapports qui vous sont fournis ainsi que de déterminer et d’honorer vos obligations éventuelles en matière d’enregistrement, de collecte et de versement de taxes liées aux transactions impliquant vos Applications ou Produits dans l’application.
 
 | Pays/régions de versement mixte |
 |------------------------------------|
@@ -285,16 +280,13 @@ Certains partenaires de facturation Microsoft peuvent recueillir et verser les t
 
 Dans certains pays ou régions, Microsoft fait office de revendeur, plutôt que d’agent, pour la mise à disposition de vos applications et produits dans l’application dans le Store. Pour plus d’informations sur les conditions générales relatives aux pays/régions des revendeurs, consultez le [Contrat d’éditeur de la Place de marché Microsoft Azure](https://go.microsoft.com/fwlink/p/?LinkID=699560).
 
-Les éléments suivants s’appliquent uniquement aux éditeurs de la Place de marché Azure : 
+Les éléments suivants s’appliquent uniquement aux éditeurs de la Place de marché Azure :
 
 |                    Pays/régions des revendeurs                                                                          |
 |------------------------------------------------------------------------------------------------------------------------|
 | Brésil (pour les achats effectués via tous les scénarios d’achat client, sauf CSP) |
 | Mexique (uniquement pour les achats effectués par le biais du scénario d’achat client Contrat Entreprise) |
 
+## <a name="next-steps"></a>Étapes suivantes
 
- 
-
-
-
-
+[Configurer votre compte de paiement et vos déclarations de taxe](set-up-your-payout-account-tax-forms.md)
