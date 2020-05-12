@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 260086d186f7e2b2d6f76c437057f5fbc8af39b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ef8196cebfbdda72f98fee0e9c75bcb80172a55e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416071"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791457"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Forum aux questions sur Azure Synapse Analytics (anciennement SQL DW)
 
@@ -23,11 +23,11 @@ ms.locfileid: "81416071"
 
 Q. Qu’est-ce qu’Azure Synapse ?
 
-R. Azure Synapse est un service d’analytique illimité qui regroupe l’entreposage des données et l’analytique de Big Data. Il vous donne la possibilité d’interroger les données avec votre propre vocabulaire, en utilisant des ressources serverless à la demande ou des ressources provisionnées, le tout à grande échelle. Azure Synapse rassemble ces deux mondes avec une expérience unifiée pour la réception, la préparation, la gestion et la remise de données pour les besoins immédiats d’apprentissage automatique et décisionnels. Pour plus d’informations, consultez l’article [Qu’est-ce qu’Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+R. Azure Synapse est un service d’analytique qui regroupe l’entreposage des données et l’analytique de Big Data. Azure Synapse rassemble ces deux mondes avec une expérience unifiée pour la réception, la préparation, la gestion et la remise de données pour les besoins d’apprentissage automatique et d’aide à la décision. Pour plus d’informations, consultez l’article [Qu’est-ce qu’Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 Q. Qu’est-il arrivé à Azure SQL Data Warehouse ?
 
-R. Azure Synapse est une évolution d’Azure SQL Data Warehouse (SQL DW). Nous avons utilisé le même entrepôt de données leader du secteur pour atteindre un tout nouveau niveau de performances et de capacités. Vous pouvez continuer à exécuter vos charges de travail Data Warehouse existantes en production avec Azure Synapse et tirer automatiquement parti des nouvelles fonctionnalités de la préversion. Pour plus d’informations, consultez l’article [Qu’est-ce qu’Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+R. Azure Synapse est une évolution d’Azure SQL Data Warehouse (SQL DW). Nous avons utilisé le même entrepôt de données leader du secteur pour atteindre un tout nouveau niveau de performances et de capacités. Vous pouvez continuer à exécuter vos charges de travail d’entrepôt de données existantes en production avec Azure Synapse. Pour plus d’informations, consultez l’article [Qu’est-ce qu’Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 Q. Qu’est-ce que le pool SQL Synapse ?
 
@@ -43,8 +43,7 @@ R. Azure Synapse propose plusieurs solutions de protection des données, comme l
 
 Q. Où puis-je trouver les normes juridiques et commerciales auxquelles Azure Synapse est conforme ?
 
-R. Consultez la page [Conformité Microsoft](https://www.microsoft.com/trustcenter/compliance/complianceofferings) pour connaître les différentes offres de conformité par produit, notamment SOC et ISO.
-Tout d’abord, sélectionnez le titre de conformité de votre choix. Ensuite, développez Azure dans la section des services cloud qui figurent dans le champ d’application de Microsoft, sur le côté droit de la page, pour voir quels sont les services conformes Azure Synapse.
+R. Consultez la page [Conformité Microsoft](https://www.microsoft.com/trustcenter/compliance/complianceofferings) pour connaître les différentes offres de conformité par produit, notamment SOC et ISO. Tout d’abord, sélectionnez le titre de conformité de votre choix. Ensuite, développez Azure dans la section des services cloud qui figurent dans le champ d’application de Microsoft, sur le côté droit de la page, pour voir quels sont les services conformes Azure Synapse.
 
 Q. Puis-je me connecter à Power BI ?
 

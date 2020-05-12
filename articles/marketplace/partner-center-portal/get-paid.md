@@ -1,19 +1,20 @@
 ---
-title: Processus de paiement sur la place de marché commerciale | Place de marché Azure
-description: Découvrez comment recevoir les paiements de vos revenus sur la place de marché commerciale.
+title: Recevoir un paiement dans la place de marché commerciale de Microsoft
+description: Découvrez comment recevoir les paiements de vos revenus sur la place de marché commerciale de Microsoft.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 3c75d5ccdd2d632fbc31d1be3faf6cbc6d3fb223
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 678c47fc345838f6d1e93ac397a4e54d1c61391f
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275830"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780495"
 ---
-# <a name="getting-paid"></a>Processus de paiement
+# <a name="getting-paid-in-commercial-marketplace"></a>Recevoir un paiement dans la place de marché commerciale
+
 Voici quelques informations importantes sur la réception du paiement de vos offres, modules complémentaires et recettes publicitaires.
 
 > [!IMPORTANT]
@@ -45,30 +46,20 @@ Gardez à l’esprit que le prix que vous sélectionnez peut inclure la taxe sur
 
 ## <a name="payout-reporting"></a>Rapports de paiement
 
-Vous pouvez accéder aux détails de vos informations de paiement et télécharger des rapports dans la page **Récapitulatif des paiements** de l’[Espace partenaires](https://partner.microsoft.com/dashboard). Pour en savoir plus sur les informations présentées ici et sur la façon dont nous classons l’argent que vous gagnez, consultez [Récapitulatif des paiements](payout-summary.md).
+Vous pouvez accéder aux détails de vos informations de paiement et télécharger des rapports dans la page **Récapitulatif des paiements** de l’[Espace partenaires](https://partner.microsoft.com/dashboard). Pour en savoir plus sur les informations présentées ici et sur la façon dont nous classons l’argent que vous gagnez, consultez la présentation des [rapports de paiements](payout-summary-overview.md).
 
 
-## <a name="payout-timeframe"></a>Délais de paiement
+## <a name="payout-time-frame"></a>Délai de paiement
 
 Les paiements sont effectués chaque mois (à condition que le seuil de paiement applicable soit atteint et que vous n’ayez pas mis votre paiement en attente comme indiqué ci-dessous). En général, nous envoyons tout paiement dû le 15 du mois donné. Notez que les paiements prennent généralement entre 3 et 10 jours ouvrables supplémentaires pour parvenir à votre compte de paiement. Pour plus d’informations, consultez [Seuils, modes et délais de paiement](payment-thresholds-methods-timeframes.md).
 
-
 ##  <a name="payout-hold-status"></a>État de paiement en attente
 
-Par défaut, nous envoyons les paiements une fois par mois, comme décrit ci-dessus. Toutefois, vous avez la possibilité de mettre les paiements d’un programme en attente, ce qui nous empêche de les envoyer à votre compte. Si vous choisissez de mettre vos paiements en attente, nous allons continuer d’enregistrer les revenus que vous gagnez et à vous fournir les informations dans votre **Synthèse des paiements**. Toutefois, nous n’enverrons les paiements à votre compte que lorsque vous aurez retiré la mise en attente.
+Par défaut, nous envoyons les paiements une fois par mois, comme décrit ci-dessus. Toutefois, vous avez la possibilité de mettre les paiements d’un programme en attente, ce qui nous empêche de les envoyer à votre compte. Même si vous choisissez de mettre vos paiements en attente, nous continuerons d’enregistrer vos revenus et de vous fournir les informations associées dans votre **Synthèse des paiements**. Toutefois, nous n’enverrons pas de paiements à votre compte tant que vous n’aurez pas retiré la mise en attente.
 
-Pour mettre vos paiements en attente, accédez à **Paramètres de développeur**. Sous **Paiement et taxe**, dans la section **Attribution de profil de paiement et de taxe**, recherchez le programme pour lequel vous souhaitez mettre les paiements en attente. Cochez la case **Conserver mon paiement** pour mettre les paiements de ce programme en attente. Vous pouvez modifier votre état de paiement en attente à tout moment, mais n’oubliez pas que votre décision aura un impact sur le paiement mensuel suivant. Par exemple, si vous souhaitez mettre les paiements d’avril en attente, veillez à définir votre état de paiement en attente sur **Activé** avant la fin du mois de mars.
+Pour mettre vos paiements en attente, accédez à **Paramètres de développeur**. Sous **Paiement et taxe**, dans la section **Attribution de profil de paiement et de taxe**, recherchez le programme pour lequel vous souhaitez mettre les paiements en attente. Cochez la case **Conserver mon paiement** pour mettre les paiements de ce programme en attente. Vous pouvez modifier votre état de paiement en attente à tout moment, mais n’oubliez pas que votre décision aura un impact sur le paiement mensuel suivant. Par exemple, si vous souhaitez mettre le paiement d’avril en attente, veillez à définir votre état de paiement en attente sur **Activé** avant la fin du mois de mars.
 
-Une fois que vous avez défini votre état de paiement en attente sur **Activé**, tous les paiements de ce programme sont bloqués tant que vous n’avez pas remis le curseur sur **Désactivé**. En procédant ainsi, vous serez inclus dans le prochain cycle de paiement mensuel (à condition que les seuils de paiement applicables aient été atteints). Par exemple, si vous avez mis vos paiements en attente, mais que vous souhaitez générer un paiement en juin, veillez à définir votre état de paiement en attente sur **Désactiver** avant la fin du mois de mai.
+Une fois que vous avez défini votre état de paiement en attente sur **Activé**, tous les paiements de ce programme sont bloqués tant que vous n’avez pas remis le curseur sur **Désactivé**. Dans ce cas, votre paiement sera intégré au prochain cycle mensuel (à condition que les seuils de paiement applicables aient été atteints). Par exemple, si vous avez mis vos paiements en attente, mais que vous souhaitez générer un paiement en juin, faites basculer votre état de paiement en attente sur **Désactivé** avant la fin du mois de mai.
 
 > [!NOTE]
 > L’**état de paiement en attente** s’applique à chaque programme individuellement (Microsoft Store, publicité, Place de marché Azure, etc.). Si vous souhaitez mettre les paiements en attente sur tous vos programmes, vous devez le faire sur chaque programme individuellement.
-
-
- 
-
- 
-
-
-
-

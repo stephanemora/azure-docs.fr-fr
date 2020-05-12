@@ -1,20 +1,20 @@
 ---
-title: Gestion des commentaires de révision pour les offres Azure Apps sur la Place de marché commerciale
-description: Comment gérer les commentaires de révision pour une offre Azure Apps afin de répertorier ou de vendre dans la Place de marché Azure, AppSource ou via le programme de fournisseur de solutions Cloud (CSP) avec le portail de la Place de marché commerciale sur Microsoft Partner Center.
+title: Gestion des commentaires de révision pour l’offre Azure Apps dans la Place de marché commerciale Microsoft
+description: Comment gérer les commentaires de révision pour une offre Azure Apps afin d’annoncer ou de vendre dans la Place de marché Azure, AppSource ou via le programme de fournisseur de solutions Cloud (CSP) en utilisant le portail de la Place de marché commerciale sur l’Espace partenaires Microsoft.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 3932f3fc71dc6427b6cdf93d3a7bc58534a9981c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 464f4d5434c8c0b8615e24eb1a323ae66a52273c
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80279791"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744866"
 ---
-# <a name="handling-review-feedback"></a>Gestion des commentaires de révision
+# <a name="handling-review-feedback-for-azure-apps-offer-before-publishing-in-the-azure-marketplace"></a>Gestion des commentaires de révision pour Azure App avant publication dans la Place de marché Azure
 
 Cet article explique comment accéder à l’environnement Azure DevOps utilisé par l’équipe de révision de la Place de marché Microsoft Azure. Si vous trouvez des problèmes critiques dans votre offre d’application Azure pendant l’étape de **révision Microsoft**, vous pouvez vous connecter à ce système pour afficher des informations détaillées sur ces problèmes (commentaires de révision). Après avoir résolu tous ces problèmes, vous devez renvoyer votre offre pour continuer à la publier sur la Place de marché Azure. Le diagramme suivant illustre le lien entre ce processus de commentaires et le processus de publication.
 

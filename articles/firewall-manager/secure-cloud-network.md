@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 02/18/2020
+ms.date: 05/01/2020
 ms.author: victorh
-ms.openlocfilehash: 3dc94a8be265682fbe2128f2e5870dfdf5850a2d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b13f3b4eeb57c34f51152bb6d1914f6c80f31be1
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77443055"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691037"
 ---
 # <a name="tutorial-secure-your-virtual-wan-using-azure-firewall-manager-preview"></a>Tutoriel : Sécuriser votre réseau étendu virtuel à l’aide de la préversion d’Azure Firewall Manager 
 
@@ -36,29 +36,34 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="create-a-hub-and-spoke-architecture"></a>Créer une architecture hub and spoke
 
-Commencez par créer un réseau virtuel spoke dans lequel vous placerez vos serveurs.
+Commencez par créer un réseau virtuel en étoile où vous pouvez placer vos serveurs.
 
-### <a name="create-a-spoke-vnet-and-subnets"></a>Créer un réseau virtuel spoke et des sous-réseaux
+### <a name="create-a-spoke-virtual-network-and-subnets"></a>Créer un réseau virtuel et des sous-réseaux en étoile
 
 1. Dans la page d’accueil du portail Azure, sélectionnez **Créer une ressource**.
 2. Sous **Mise en réseau**, sélectionnez **Réseau virtuel**.
-4. Pour **Nom**, entrez **Spoke-01**.
-5. Pour **Espace d’adressage**, entrez **10.0.0.0/16**.
-6. Pour **Abonnement**, sélectionnez votre abonnement.
-7. Pour **Groupe de ressources**, sélectionnez **Créer** et entrez **FW-Manager** comme nom, puis sélectionnez **OK**.
-8. Pour **Emplacement**, sélectionnez **(États-Unis) USA Est**.
-9. Sous **Sous-réseau**, pour **Nom**, tapez **Workload-SN**.
-10. Pour **Plage d’adresses**, entrez **10.0.1.0/24**.
-11. Acceptez les autres paramètres par défaut, puis sélectionnez **Créer**.
+2. Pour **Abonnement**, sélectionnez votre abonnement.
+1. Pour **Groupe de ressources**, sélectionnez **Créer** et entrez **FW-Manager** comme nom, puis sélectionnez **OK**.
+2. Pour **Nom**, entrez **Spoke-01**.
+3. Pour **Région**, sélectionnez **(États-Unis) USA Est**.
+4. Sélectionnez **Suivant : Adresses IP**.
+1. Pour **Espace d’adressage**, acceptez la valeur par défaut **10.0.0.0/16**.
+3. Sous **Nom du sous-réseau**, sélectionnez **Par défaut**.
+4. Changez le nom du sous-réseau en **Workload-SN**.
+5. Pour **Plage d’adresses de sous-réseau**, tapez **10.0.1.0/24**.
+6. Sélectionnez **Enregistrer**.
 
 Créez ensuite un sous-réseau pour un serveur intermédiaire.
 
-1. Dans la page d’accueil du portail Azure, sélectionnez **Groupes de ressources** > **FW-Manager**.
-2. Sélectionnez le réseau virtuel **Spoke-01**.
-3. Sélectionnez **Sous-réseaux** >  **+Sous-réseau**.
-4. Pour **Nom**, entrez **Jump-SN**.
-5. Pour **Plage d’adresses**, entrez **10.0.2.0/24**.
-6. Sélectionnez **OK**.
+1. Sélectionnez **Ajouter un sous-réseau**.
+4. Pour **Nom du sous-réseau**, tapez **Jump-SN**.
+5. Pour **Plage d’adresses du sous-réseau**, entrez **10.0.2.0/24**.
+6. Sélectionnez **Ajouter**.
+
+Maintenant, créez le réseau virtuel.
+
+1. Sélectionnez **Revoir + créer**.
+2. Sélectionnez **Create** (Créer).
 
 ### <a name="create-the-secured-virtual-hub"></a>Créer le hub virtuel sécurisé
 
@@ -66,36 +71,38 @@ Créez votre hub virtuel sécurisé à l’aide de Firewall Manager.
 
 1. À partir de la page d’accueil du portail Azure, sélectionnez **Tous les services**.
 2. Dans la zone de recherche, entrez **Firewall Manager** et sélectionnez **Firewall Manager**.
-3. Dans la page **Firewall Manager**, sélectionnez **Créer un hub virtuel sécurisé**.
-4. Dans la page **Créer un hub virtuel sécurisé**, sélectionnez votre abonnement et le groupe de ressources **FW-Manager**.
-5. Pour le **nom du hub virtuel sécurisé**, entrez **Hub-01**.
-6. Pour **Emplacement**, sélectionnez **USA Est**.
-7. Pour **Espace d’adressage du hub**, entrez **10.1.0.0/16**.
-8. Pour le nom du nouveau vWAN, entrez **vwan-01**.
-9. Laissez la case à cocher **Inclure la passerelle VPN pour activer les Partenaires de sécurité de confiance** désactivée.
-10. Sélectionnez **Suivant : Pare-feu Azure**.
-11. Acceptez le paramètre **Pare-feu Azure** **Activé** par défaut, puis sélectionnez **Suivant : Partenaires de sécurité de confiance**.
-12. Acceptez le paramètre **Partenaire de sécurité de confiance** **Désactivé** par défaut, puis sélectionnez **Suivant : Vérifier + créer**.
-13. Sélectionnez **Create** (Créer). Le déploiement prend environ 30 minutes.
+3. Dans la page **Firewall Manager**, sélectionnez **Voir les hubs virtuels sécurisés**.
+4. Dans la page **Firewall Manager | Hubs virtuels sécurisés**, sélectionnez **Créer un hub virtuel sécurisé**.
+5. Pour **Groupe de ressources**, sélectionnez **FW-Manager**.
+7. Pour **Région**, sélectionnez **USA Est**.
+1. Pour le **nom du hub virtuel sécurisé**, entrez **Hub-01**.
+2. Pour **Espace d’adressage du hub**, entrez **10.1.0.0/16**.
+3. Pour le nom du nouveau WAN virtuel, entrez **Vwan-01**.
+4. Laissez la case à cocher **Inclure la passerelle VPN pour activer les Partenaires de sécurité de confiance** désactivée.
+5. Sélectionnez **Suivant : Pare-feu Azure**.
+6. Acceptez le paramètre **Pare-feu Azure** **Activé** par défaut, puis sélectionnez **Suivant : Partenaires de sécurité de confiance**.
+7. Acceptez le paramètre **Partenaire de sécurité de confiance** **Désactivé** par défaut, puis sélectionnez **Suivant : Vérifier + créer**.
+8. Sélectionnez **Create** (Créer). Le déploiement prend environ 30 minutes.
 
 ### <a name="connect-the-hub-and-spoke-vnets"></a>Connecter les réseaux virtuels hub et spoke
 
 Vous pouvez maintenant appairer les réseaux virtuels hub et spoke.
 
-1. Sélectionnez le groupe de ressources **FW-Manager**, puis le WAN virtuel **vwan-01**.
+1. Sélectionnez le groupe de ressources **FW-Manager**, puis le WAN virtuel **Vwan-01**.
 2. Sous **Connectivité**, sélectionnez **Connexions de réseau virtuel**.
 3. Sélectionnez **Ajouter une connexion**.
 4. Pour **Nom de la connexion**, entrez **hub-spoke**.
 5. Pour **Hubs**, sélectionnez **Hub-01**.
-6. Pour **Réseau virtuel**, sélectionnez **Spoke-01**.
-7. Sélectionnez **OK**.
+6. Pour **Groupe de ressources**, sélectionnez **FW-Manager**.
+7. Pour **Réseau virtuel**, sélectionnez **Spoke-01**.
+8. Sélectionnez **OK**.
 
 ## <a name="create-a-firewall-policy-and-secure-your-hub"></a>Créer une stratégie de pare-feu et sécuriser votre hub
 
 Une stratégie de pare-feu définit des collections de règles pour diriger le trafic sur un ou plusieurs hubs virtuels sécurisés. Vous allez créer votre stratégie de pare-feu, puis sécuriser votre hub.
 
-1. Dans Firewall Manager, sélectionnez **Créer une stratégie de pare-feu Azure**.
-2. Sélectionnez votre abonnement, puis le groupe de ressources **FW-Manager**.
+1. Dans Firewall Manager, sélectionnez **Voir les stratégies de Pare-feu Azure**.
+2. Sélectionnez **Créer une stratégie de pare-feu Azure**.
 3. Sous **Détails de la stratégie**, pour **Nom**, entrez **Policy-01** et pour **Région**, sélectionnez **USA Est**.
 4. Sélectionnez **Suivant : Règles**.
 5. Dans l’onglet **Règles**, sélectionnez **Ajouter une collection de règles**.
@@ -109,10 +116,11 @@ Une stratégie de pare-feu définit des collections de règles pour diriger le t
 13. Vérifiez que **Type de destination est défini sur **FQDN**.
 14. Pour **Destination**, entrez **\*.microsoft.com**.
 15. Sélectionnez **Ajouter**.
-16. Sélectionnez **Suivant : Hubs virtuels sécurisés**.
-17. Dans l’onglet **Hubs virtuels sécurisés**, sélectionnez **Hub-01**.
-19. Sélectionnez **Revoir + créer**.
-20. Sélectionnez **Create** (Créer).
+16. Sélectionnez **Suivant : Hubs**.
+17. Sous l’onglet **Hubs**, sélectionnez **Associer des hubs virtuels**.
+18. Sélectionnez **Hub-01**, puis **Ajouter**.
+1. Sélectionnez **Revoir + créer**.
+2. Sélectionnez **Create** (Créer).
 
 Cette opération peut prendre environ cinq minutes voire plus.
 
@@ -126,10 +134,9 @@ Vous devez maintenant vérifier que le trafic réseau est acheminé via votre pa
 4. Sous **Trafic Internet**, **Trafic provenant des réseaux virtuels**, sélectionnez **Envoyer via le Pare-feu Azure**.
 5. Sous **Trafic privé Azure**, **Trafic vers les réseaux virtuels**, sélectionnez **Envoyer via le Pare-feu Azure**.
 6. Sélectionnez **Modifier les préfixes d’adresse IP**.
-7. Sélectionnez **Ajouter un préfixe d’adresse IP**.
 8. Entrez **10.0.1.0/24** comme adresse du sous-réseau Charge de travail et sélectionnez **Enregistrer**.
 9. Sous **Paramètres**, sélectionnez **Connexions**.
-10. Sélectionnez la connexion **hub-spoke**, puis **Sécuriser le trafic Internet** et enfin **OK**.
+10. Vérifiez que la connexion **hub-spoke** indique **Trafic Internet** comme étant **Sécurisé**.
 
 
 ## <a name="test-your-firewall"></a>Tester votre pare-feu
@@ -147,12 +154,11 @@ Pour tester vos règles de pare-feu, vous devez déployer deux serveurs. Vous al
    |Resource group     |**FW-Manager**|
    |Nom de la machine virtuelle     |**Jump-Srv**|
    |Région     |**(États-Unis) USA Est**|
-   |Nom d’utilisateur de l’administrateur     |**azureuser**|
-   |Mot de passe     |Tapez votre mot de passe|
+   |Nom d’utilisateur de l’administrateur     |Entrez un nom d’utilisateur|
+   |Mot de passe     |Entrez un mot de passe|
 
 4. Sous **Règles des ports d’entrée**, pour **Ports d’entrée publics**, sélectionnez **Autoriser les ports sélectionnés**.
 5. Pour **Sélectionner des ports d’entrée**, sélectionnez **RDP (3389)** .
-
 6. Acceptez les autres valeurs par défaut, puis sélectionnez **Suivant : Disques**.
 7. Acceptez les disques par défaut, puis sélectionnez **Suivant : Mise en réseau**.
 8. Vérifiez que **Spoke-01** est sélectionné pour le réseau virtuel et que le sous-réseau est **Jump-SN**.

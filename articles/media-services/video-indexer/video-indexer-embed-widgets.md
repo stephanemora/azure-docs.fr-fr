@@ -10,18 +10,18 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: 5134a262397676aa9b59de9b0c6de61c26d21523
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 545dbcfb1db5595ff5b2047ec44afa8a065d816d
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262908"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594846"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Incorporer des widgets Video Indexer dans vos applications
 
 Cet article explique comment vous pouvez incorporer des widgets Video Indexer dans vos applications. Video Indexer prend en charge l’incorporation de trois types de widgets dans vos applications : *Insights cognitifs*, *Lecteur* et *Éditeur*.
 
-À partir de la version 2, l’URL de base du widget inclut la région du compte spécifié. Par exemple, un compte situé dans la région USA Ouest génère : `https://wus2.videoindexer.ai/embed/insights/...`.
+À partir de la version 2, l’URL de base du widget inclut la région du compte spécifié. Par exemple, un compte situé dans la région USA Ouest génère : `https://www.videoindexer.ai/embed/insights/.../?location=westus2`.
 
 ## <a name="widget-types"></a>Types de widgets
 
@@ -36,6 +36,7 @@ Un widget Cognitive Insights inclut tous les insights visuels extraits à partir
 |`language`|Code de langue court (nom de la langue)|Contrôle la langue des insights.<br/>Exemple : `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>ou `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
 |`locale` | Code de langue court | Contrôle la langue de l’interface utilisateur. La valeur par défaut est `en`. <br/>Exemple : `locale=de`.|
 |`tab` | Onglet sélectionné par défaut | Contrôle l’onglet **Insights** affiché par défaut. <br/>Exemple : `tab=timeline` affiche les insights avec l’onglet **Timeline** (Chronologie) sélectionné.|
+|`location` ||Le paramètre `location` doit être inclus dans les liens incorporés. Découvrez [comment obtenir le nom de votre région](regions.md). Si votre compte est en préversion, `trial` doit être utilisé pour la valeur d’emplacement. `trial` est la valeur par défaut pour le paramètre `location`.| 
 
 ### <a name="player-widget"></a>Widget Lecteur
 
@@ -49,6 +50,7 @@ Vous pouvez utiliser le widget Lecteur pour le streaming vidéo avec vitesse de 
 |`type`| | Active une apparence du lecteur audio (la partie vidéo est supprimée).<br/> Exemple : `type=audio`. |
 |`autoplay` | Une valeur booléenne | Indique si le lecteur doit commencer la lecture de la vidéo après le chargement. La valeur par défaut est `true`.<br/> Exemple : `autoplay=false`. |
 |`language`/`locale` | Code de langue | Détermine la langue du lecteur. La valeur par défaut est `en-US`.<br/>Exemple : `language=de-DE`.|
+|`location` ||Le paramètre `location` doit être inclus dans les liens incorporés. Découvrez [comment obtenir le nom de votre région](regions.md). Si votre compte est en préversion, `trial` doit être utilisé pour la valeur d’emplacement. `trial` est la valeur par défaut pour le paramètre `location`.| 
 
 ### <a name="editor-widget"></a>Widget de l’éditeur
 
@@ -59,24 +61,29 @@ Vous pouvez utiliser le widget Éditeur pour créer des projets et de gérer les
 |`accessToken`<sup>*</sup> | String | Fournit l’accès aux vidéos qui se trouvent uniquement dans le compte utilisé pour incorporer le widget.<br> Le widget Éditeur nécessite le paramètre `accessToken`. |
 |`language` | Code de langue | Détermine la langue du lecteur. La valeur par défaut est `en-US`.<br/>Exemple : `language=de-DE`. |
 |`locale` | Code de langue court | Contrôle la langue des insights. La valeur par défaut est `en`.<br/>Exemple : `language=de`. |
+|`location` ||Le paramètre `location` doit être inclus dans les liens incorporés. Découvrez [comment obtenir le nom de votre région](regions.md). Si votre compte est en préversion, `trial` doit être utilisé pour la valeur d’emplacement. `trial` est la valeur par défaut pour le paramètre `location`.| 
 
 <sup>*</sup>Le propriétaire doit fournir le `accessToken` avec prudence.
 
-## <a name="embedding-public-content"></a>Incorporation de contenu public
+## <a name="embedding-videos"></a>Incorporation de vidéos
+
+Cette section explique comment incorporer le contenu public et privé dans des applications.
+
+Le paramètre `location` doit être inclus dans les liens incorporés. Découvrez [comment obtenir le nom de votre région](regions.md). Si votre compte est en préversion, `trial` doit être utilisé pour la valeur d’emplacement. `trial` est la valeur par défaut pour le paramètre `location`. Par exemple : `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+
+> [!IMPORTANT]
+> Le partage d’un lien pour le widget **Player** ou **Insights** inclut le jeton d’accès et accorde les autorisations en lecture seule à votre compte.
+
+### <a name="public-content"></a>Contenu public
 
 1. Connectez-vous au site web [Video Indexer](https://www.videoindexer.ai/).
-2. Sélectionnez la vidéo que vous souhaitez utiliser.
-3. Sélectionnez le bouton Incorporer ( **</>** ) qui s’affiche sous la vidéo.
-
-    Après avoir sélectionné le bouton **Incorporer**, vous pouvez sélectionner le widget à incorporer dans votre application.
-4. Sélectionnez le type de widget souhaité (**Cognitive Insights**, **Lecteur** ou **Éditeur**).
+1. Sélectionnez la vidéo que vous souhaitez utiliser et appuyez sur **Lire**.
+1. Sélectionnez le type de widget souhaité (**Cognitive Insights**, **Lecteur** ou **Éditeur**).
+1. Cliquez sur **&lt;/&gt; Incorporer**.
 5. Copiez le code incorporé (qui s’affiche dans **Copier le code incorporer** dans la boîte de dialogue **Partager et incorporer**).
 6. Ajoutez le code à votre application.
 
-> [!NOTE]
-> Si vous avez des difficultés à partager les URL de vos vidéos, ajoutez le paramètre `location` au lien. Ce paramètre doit être défini sur les [régions Azure dans lesquelles Video Indexer est présent](regions.md). Par exemple : `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
-
-## <a name="embedding-private-content"></a>Incorporation de contenu privé
+### <a name="private-content"></a>Contenu privé
 
 Pour incorporer une vidéo privée, vous devez passer un jeton d’accès dans l’attribut `src` de l’iframe :
 

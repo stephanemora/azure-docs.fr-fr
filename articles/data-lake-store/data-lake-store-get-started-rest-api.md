@@ -1,23 +1,17 @@
 ---
-title: 'API REST : Opérations de gestion des comptes sur Azure Data Lake Storage Gen1 | Microsoft Docs'
-description: Utilisez Azure Data Lake Storage Gen1 et l’API REST WebHDFS pour effectuer des opérations de gestion des comptes dans le compte Data Lake Storage Gen1
-services: data-lake-store
-documentationcenter: ''
+title: Gérer un compte Azure Data Lake Storage Gen1 avec REST
+description: Utilisez l’API REST WebHDFS pour effectuer des opérations de gestion de compte sur un compte Azure Data Lake Storage Gen1.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: 57ac6501-cb71-4f75-82c2-acc07c562889
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 97fe33309f36cd7545f8c9d6c2d34671641caa1f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a106b55fb90f320b90c81216a205dd10a9bf934
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60877102"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692090"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Opérations de gestion des comptes sur Azure Data Lake Storage Gen1 à l’aide de l’API REST
 > [!div class="op_single_selector"]

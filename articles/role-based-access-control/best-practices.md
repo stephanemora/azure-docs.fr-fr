@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: dc86dd488ff9e8649ae80f4768941791dd37fce6
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 053e86f3493c7a11a3cbbaad0871e45345697878
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725754"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735332"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Meilleures pratiques pour Azure RBAC
 
@@ -28,11 +28,11 @@ Cet article décrit quelques-unes des meilleures pratiques d'utilisation du cont
 
 Avec Azure RBAC, vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail. Plutôt que de donner à tous des autorisations illimitées au sein de votre abonnement ou de vos ressources Azure, vous pouvez autoriser uniquement certaines actions sur une étendue donnée.
 
-Lorsque vous planifiez votre stratégie de contrôle d’accès, vous pouvez accorder aux utilisateurs les privilèges minimaux pour effectuer leur travail. Le diagramme suivante illustre un modèle suggéré pour l’utilisation de RBAC.
+Lorsque vous planifiez votre stratégie de contrôle d’accès, vous pouvez accorder aux utilisateurs les privilèges minimaux pour effectuer leur travail. Le diagramme suivant illustre un modèle suggéré pour l’utilisation d’Azure RBAC.
 
-![RBAC et privilège minimum](./media/best-practices/rbac-least-privilege.png)
+![Azure RBAC et privilège minimum](./media/best-practices/rbac-least-privilege.png)
 
-Pour plus d’informations sur l’ajout d’attributions de rôles, consultez [Ajouter ou supprimer des attributions de rôles](role-assignments-portal.md).
+Pour obtenir des informations sur la façon d’ajouter des attributions de rôle, consultez [Ajouter ou supprimer des attributions de rôle Azure à l’aide du portail Azure](role-assignments-portal.md).
 
 ## <a name="limit-the-number-of-subscription-owners"></a>Limiter le nombre de propriétaires d’abonnements
 

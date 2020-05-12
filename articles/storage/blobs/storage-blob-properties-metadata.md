@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: b4abd7e29dec67ddc1be50a2a6703da2a25551d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74c023c06e7b28183a53772be6798419c91dd37a
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79137660"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692460"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Gérer les propriétés et les métadonnées blob avec .NET
 
@@ -24,6 +24,11 @@ En plus des données qu’ils contiennent, les blobs prennent en charge des prop
 - **Propriétés système** : Propriétés système existant sur chaque ressource de stockage blob. Certaines d'entre elles peuvent être lues ou configurées, alors que d'autres sont en lecture seule. En arrière-plan, certaines propriétés système correspondent à certains en-têtes HTTP standard. La bibliothèque cliente de Stockage Azure pour .NET gère ces propriétés pour vous.
 
 - **Métadonnées définies par l’utilisateur** : ces métadonnées se composent d’une ou plusieurs paires nom/valeur, que vous spécifiez pour une ressource de stockage d’objets blob. Vous pouvez les utiliser pour stocker des valeurs supplémentaires avec la ressource. Les valeurs de métadonnées sont destinées à votre usage personnel et n’affectent pas le comportement de la ressource.
+
+> [!NOTE]
+> Les étiquettes d’index d’objet blob permettent également de stocker des attributs clé/valeur arbitraires définis par l’utilisateur en même temps qu’une ressource de stockage d’objet blob. Bien que similaires à des métadonnées, seules les étiquettes d’index d’objet blob sont indexées automatiquement et peuvent être interrogées par le service blob natif. Les métadonnées ne peuvent pas être indexées en mode natif et interrogées, sauf si vous utilisez un service distinct, tel que Recherche Azure.
+>
+> Pour en savoir plus sur cette fonctionnalité, consultez [Gérer et rechercher des données dans Stockage Blob Azure avec Blob Index (préversion)](storage-manage-find-blobs.md).
 
 La récupération des valeurs des propriétés et des métadonnées d’une ressource de stockage blob se déroule en deux étapes. Pour pouvoir lire ces valeurs, vous devez les extraire explicitement en appelant la méthode `FetchAttributes` ou `FetchAttributesAsync`. L’exception à cette règle est que les méthodes `Exists` et `ExistsAsync` appellent la méthode `FetchAttributes` appropriée en coulisses. Lorsque vous appelez une de ces méthodes, vous n’avez pas besoin d’appeler `FetchAttributes`.
 

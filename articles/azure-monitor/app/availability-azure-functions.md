@@ -2,15 +2,15 @@
 title: Créer et exécuter des tests de disponibilité personnalisés avec Azure Functions
 description: Cette documentation explique comment créer une fonction Azure avec TrackAvailability() pour qu’elle s’exécute régulièrement selon la configuration spécifiée dans la fonction TimerTrigger. Les résultats de ce test sont envoyés à votre ressource Application Insights, où vous pouvez rechercher et signaler des données sur les résultats de disponibilité. Les tests personnalisés vous permettent d’écrire des tests de disponibilité plus complexes qu’avec l’IU du portail, de superviser une application dans votre réseau virtuel Azure, de changer l’adresse du point de terminaison ou de créer un test de disponibilité, si ce dernier n’est pas disponible dans votre région.
 ms.topic: conceptual
-author: morgangrobin
-ms.author: mogrobin
-ms.date: 11/22/2019
-ms.openlocfilehash: 476d66c51c10a5fcfb3cb0319c47b3338d28812c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+author: mrbullwinkle
+ms.author: mbullwin
+ms.date: 05/04/2020
+ms.openlocfilehash: 81040adf6cfbb8820ec7f306c7d614830e3a2613
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77665797"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791105"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Créer et exécuter des tests de disponibilité personnalisés avec Azure Functions
 
@@ -160,12 +160,10 @@ public async static Task RunAvailbiltyTestAsync(ILogger log)
 Pour vérifier que tout fonctionne correctement, vous pouvez consulter le graphe sous l’onglet Disponibilité de votre ressource Application Insights.
 
 > [!NOTE]
-> Si vous avez implémenté votre propre logique métier dans runAvailabilityTest.csx, vous allez voir des résultats corrects comme dans les captures d’écran ci-dessous. Dans le cas contraire, les résultats sont incorrects.
+> Si vous avez implémenté votre propre logique métier dans runAvailabilityTest.csx, vous allez voir des résultats corrects comme dans les captures d’écran ci-dessous. Dans le cas contraire, les résultats sont incorrects. Les tests créés à l’aide de `TrackAvailability()` s’affichent avec **CUSTOM** à côté du nom du test.
 
 >[!div class="mx-imgBorder"]
->![Onglet Disponibilité avec des résultats réussis](media/availability-azure-functions/availtab.png)
-
-Quand vous configurez votre test à l’aide d’Azure Functions, vous pouvez noter que, contrairement à **Ajouter un test** sous l’onglet Disponibilité, le nom de votre test n’apparaît pas. Vous ne pouvez donc pas interagir avec celui-ci. Les résultats sont visibles, mais vous accédez à une vue récapitulative au lieu de la vue détaillée que vous obtenez quand vous créez un test de disponibilité via le portail.
+>![Onglet Disponibilité avec des résultats réussis](media/availability-azure-functions/availability-custom.png)
 
 Pour voir les détails de la transaction de bout en bout, sélectionnez **Réussite** ou **Échec** dans Explorer, puis sélectionnez un exemple. Vous pouvez également accéder aux détails de la transaction de bout en bout en sélectionnant un point de données sur le graphe.
 

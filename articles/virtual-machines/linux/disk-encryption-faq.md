@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 753d606e1fc2dc966c970a210cf6fc5066d5ed83
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 7c49467451963ceb52f114430343fafb955ec4f7
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460135"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82786986"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>FAQ sur Azure Disk Encryption pour machines virtuelles Linux
 
@@ -21,7 +21,7 @@ Cet article fournit des réponses aux questions fréquemment posées sur le serv
 
 ## <a name="what-is-azure-disk-encryption-for-linux-vms"></a>Qu’est-ce qu’Azure Disk Encryption pour machines virtuelles Linux
 
-Le service Azure Disk Encryption pour machines virtuelles Linux utilise la fonctionnalité dm-crypt de Linux pour effectuer un chiffrement complet du disque du système d’exploitation* et des disques de données. Il assure en outre le chiffrement du disque de ressources éphémères lors de l’utilisation de la [fonctionnalité EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms). Le contenu est chiffré à partir de la machine virtuelle vers le serveur principal de stockage. Donc, un chiffrement de bout en bout est assuré avec une clé gérée par le client.
+Le service Azure Disk Encryption pour machines virtuelles Linux utilise la fonctionnalité dm-crypt de Linux pour effectuer un chiffrement complet du disque du système d’exploitation* et des disques de données. Il assure en outre le chiffrement des disques temporaires lors de l’utilisation de la [fonctionnalité EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms). Le contenu est chiffré à partir de la machine virtuelle vers le serveur back-end de stockage. Donc, un chiffrement de bout en bout est assuré avec une clé gérée par le client.
  
 Consultez [Machines virtuelles et systèmes d’exploitation pris en charge](disk-encryption-overview.md#supported-vms-and-operating-systems).
 
@@ -61,7 +61,7 @@ Le chiffrement côté serveur de stockage chiffre les disques managés Azure dan
  
 ## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>En quoi Azure Disk Encryption diffère-t-il du chiffrement côté serveur de stockage avec clé gérée par le client, et quand dois-je utiliser chaque solution ?
 
-Azure Disk Encryption assure un chiffrement de bout en bout pour le disque du système d’exploitation, les disques de données et le disque de ressources éphémères avec une clé gérée par le client.
+Azure Disk Encryption assure un chiffrement de bout en bout pour le disque du système d’exploitation, les disques de données et le disque temporaire, à l’aide d’une clé gérée par le client.
 - Si vos exigences incluent tout ce qui précède de bout en bout, optez pour Azure Disk Encryption. 
 - Si vos exigences incluent uniquement le chiffrement des données au repos avec clé gérée par le client, utilisez un [chiffrement côté serveur avec clés gérées par le client](disk-encryption.md). Vous ne pouvez pas chiffrer un disque en utilisant Azure Disk Encryption et un chiffrement côté serveur de stockage avec clés gérées par le client. 
 - Si votre distribution Linux n’est pas répertoriée sous [Systèmes d’exploitation pris en charge pour Azure Disk Encryption](disk-encryption-overview.md#supported-operating-systems), ou si vous utilisez un scénario figurant parmi les [scénarios non pris en charge pour Windows](disk-encryption-linux.md#unsupported-scenarios), envisagez un [chiffrement côté serveur avec clés gérées par le client](disk-encryption.md).

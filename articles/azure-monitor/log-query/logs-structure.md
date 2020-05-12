@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 1d647ba7e8d4f0e29252dfff95099e39bab87895
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1463415a464fe1d7a7146cec20f2c17d7c8eb03
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77662074"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738080"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Structure des journaux Azure Monitor
 La possibilité d’extraire rapidement des informations de vos données à l’aide d’une [requête de journal](log-query-overview.md) est une puissante fonctionnalité d’Azure Monitor. Pour créer des requêtes efficaces et utiles, vous devez comprendre certains concepts de base tels que l’emplacement où se trouvent les données que vous souhaitez et la manière dont elles sont structurées. Cet article présente les concepts de base que vous devez comprendre pour commencer.
@@ -54,16 +54,17 @@ Contrairement à un espace de travail Log Analytics, une application Application
 
 | Table de charge de travail | Description | 
 |:---|:---|
-| availabilityResults | Données de synthèse de tests de disponibilité. |
-| browserTimings      | Données sur les performances du client, comme le temps nécessaire pour traiter les données entrantes. |
-| customEvents        | Événements personnalisés créés par votre application. |
-| customMetrics       | Mesures personnalisées créées par votre application. |
-| dependencies        | Appels de l’application à des composants externes. |
-| exceptions          | Exceptions levées par l’exécution de l’application. |
-| pageViews           | Données sur l’affichage de chaque site web avec des informations du navigateur. |
-| performanceCounters | Mesures de performances des ressources de calcul sous-tendant l’application. |
-| requêtes            | Détails de chaque demande de l’application.  |
-| traces              | Résultats de suivi distribué. |
+| availabilityResults   | Données de synthèse de tests de disponibilité.
+| browserTimings      |     Données sur les performances du client, comme le temps nécessaire pour traiter les données entrantes.
+| customEvents        | Événements personnalisés créés par votre application.
+| customMetrics       | Mesures personnalisées créées par votre application.
+| dependencies        | Appels à partir de l’application à d’autres composants (notamment externes) enregistrés via TrackDependency (), tels que des appels à une API REST, une base de données ou un système de fichiers. 
+| exceptions            | Les exceptions levées par le runtime de l’application capturent des exceptions côté serveur et côté client (navigateurs).
+| pageViews           | Données sur l’affichage de chaque site web avec des informations du navigateur.
+| performanceCounters   | Mesures de performances provenant des ressources de calcul prenant en charge l’application, par exemple, de compteurs de performances Windows.
+| requêtes            | Requêtes que votre application reçoit. Par exemple, un enregistrement de demande distinct est journalisé pour chaque requête HTTP que reçoit votre application web. 
+| traces                | Journaux détaillés (traces) émis par le biais d’un code d’application ou de frameworks de journalisation enregistrés via TrackTrace ().
+
 
 Vous pouvez afficher le schéma pour chaque table sous l’onglet **Schéma** dans Log Analytics pour l’application.
 

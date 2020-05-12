@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: fa7e085f723d4f4c411f52e045c9437d5cb293b3
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: f75e5c856e05cc5ce53598849a7cb11ed059827a
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81459778"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838856"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption pour les machines virtuelles Linux 
 
@@ -46,7 +46,7 @@ Une fois que le processus de chiffrement du disque de système d’exploitation 
 
 Azure Disk Encryption est également disponible pour les machines virtuelles avec stockage premium.
 
-Azure Disk Encryption n'est pas disponible sur les [machines virtuelles de 2e génération](generation-2.md#generation-1-vs-generation-2-capabilities) et les [machines virtuelles de la série Lsv2](../lsv2-series.md). Pour plus d'exceptions, consultez [Azure Disk Encryption : Scénarios non pris en charge](disk-encryption-linux.md#unsupported-scenarios).
+Azure Disk Encryption n’est pas disponible sur les [machines virtuelles de 2e génération](generation-2.md#generation-1-vs-generation-2-capabilities) et les [machines virtuelles de la série Lsv2](../lsv2-series.md). Pour plus d’exceptions, consultez [Azure Disk Encryption : Scénarios non pris en charge](disk-encryption-linux.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
@@ -56,29 +56,36 @@ Azure Disk Encryption est pris en charge sur un sous-ensemble de [distributions 
 
 Les distributions de serveur Linux qui ne sont pas approuvées par Azure ne prennent pas en charge Azure Disk Encryption. Parmi celles qui sont approuvées, seules les distributions et versions suivantes prennent en charge Azure Disk Encryption :
 
-| Distribution Linux | Version | Type de volume pris en charge pour le chiffrement|
-| --- | --- |--- |
-| Ubuntu | 18,04| Disque de système d’exploitation et de données |
-| Ubuntu | 16.04| Disque de système d’exploitation et de données |
-| Ubuntu | 14.04.5</br>[avec le noyau Azure mis à jour vers la version 4.15 ou ultérieure](disk-encryption-troubleshooting.md) | Disque de système d’exploitation et de données |
-| RHEL | 7,7 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
-| RHEL | 7.6 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
-| RHEL | 7.5 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
-| RHEL | 7.4 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
-| RHEL | 7.3 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
-| RHEL | 7.2 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
-| RHEL | 6.8 | Disque de données (voir la remarque ci-dessous) |
-| RHEL | 6.7 | Disque de données (voir la remarque ci-dessous) |
-| CentOS | 7,7 | Disque de système d’exploitation et de données |
-| CentOS | 7.6 | Disque de système d’exploitation et de données |
-| CentOS | 7.5 | Disque de système d’exploitation et de données |
-| CentOS | 7.4 | Disque de système d’exploitation et de données |
-| CentOS | 7.3 | Disque de système d’exploitation et de données |
-| CentOS | 7.2n | Disque de système d’exploitation et de données |
-| CentOS | 6.8 | Disque de données |
-| OpenSUSE | 42.3 | Disque de données |
-| SLES | 12-SP4 | Disque de données |
-| SLES | 12-SP3 | Disque de données |
+| Serveur de publication | Offre | SKU | URN | Type de volume pris en charge pour le chiffrement |
+| --- | --- |--- | --- |
+| Canonical | Ubuntu | 18.04-LTS | Canonical:UbuntuServer:18.04-LTS:latest | Disque de système d’exploitation et de données |
+| Canonical | Ubuntu 18.04 | 18.04-DAILY-LTS | Canonical:UbuntuServer:18.04-DAILY-LTS:latest | Disque de système d’exploitation et de données |
+| Canonical | Ubuntu 16.04 | 16.04-DAILY-LTS | Canonical:UbuntuServer:16.04-DAILY-LTS:latest | Disque de système d’exploitation et de données |
+| Canonical | Ubuntu 14.04.5</br>[avec le noyau Azure mis à jour vers la version 4.15 ou ultérieure](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canonical:UbuntuServer:14.04.5-LTS:latest | Disque de système d’exploitation et de données |
+| Canonical | Ubuntu 14.04.5</br>[avec le noyau Azure mis à jour vers la version 4.15 ou ultérieure](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | Disque de système d’exploitation et de données |
+| Red Hat | RHEL 7.7 | 7,7 | RedHat:RHEL:7.7:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
+| Red Hat | RHEL 7.7 | 7-RAW | RedHat:RHEL:7-RAW:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
+| Red Hat | RHEL 7.7 | 7-LVM | RedHat:RHEL:7-LVM:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
+| Red Hat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
+| Red Hat | RHEL 7.5 | 7.5 | RedHat:RHEL:7.5:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
+| Red Hat | RHEL 7.4 | 7.4 | RedHat:RHEL:7.4:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
+| Red Hat | RHEL 7.3 | 7.3 | RedHat:RHEL:7.3:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
+| Red Hat | RHEL 7.2 | 7.2 | RedHat:RHEL:7.2:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
+| Red Hat | RHEL 6.8 | 6.8 | RedHat:RHEL:6.8:latest | Disque de données (voir la remarque ci-dessous) |
+| Red Hat | RHEL 6.7 | 6.7 | RedHat:RHEL:6.7:latest | Disque de données (voir la remarque ci-dessous) |
+| OpenLogic | CentOS 7.7 | 7,7 | OpenLogic:CentOS:7.7:latest | Disque de système d’exploitation et de données |
+| OpenLogic | CentOS 7.7 | 7-LVM | OpenLogic:CentOS:7-LVM:latest | Disque de système d’exploitation et de données |
+| OpenLogic | CentOS 7.6 | 7.6 | OpenLogic:CentOS:7.6:latest | Disque de système d’exploitation et de données |
+| OpenLogic | CentOS 7.5 | 7.5 | OpenLogic:CentOS:7.5:latest | Disque de système d’exploitation et de données |
+| OpenLogic | CentOS 7.4 | 7.4 | OpenLogic:CentOS:7.4:latest | Disque de système d’exploitation et de données |
+| OpenLogic | CentOS 7.3 | 7.3 | OpenLogic:CentOS:7.3:latest | Disque de système d’exploitation et de données |
+| OpenLogic | CentOS 7.2n | 7.2n | OpenLogic:CentOS:7.2n:latest | Disque de système d’exploitation et de données |
+| OpenLogic | CentOS 7.1 | 7.1 | OpenLogic:CentOS:7.1:latest | Disque de données uniquement |
+| OpenLogic | CentOS 7.0 | 7.0 | OpenLogic:CentOS:7.0:latest | Disque de données uniquement |
+| OpenLogic | CentOS 6.8 | 6.8 | OpenLogic:CentOS:6.8:latest | Disque de données uniquement |
+| SUSE | openSUSE 42.3 | 42.3 | SUSE:openSUSE-Leap:42.3:latest | Disque de données uniquement |
+| SUSE | SLES 12-SP4 | 12-SP4 | SUSE:SLES:12-SP4:latest | Disque de données uniquement |
+| SUSE | SLES HPC 12-SP3 | 12-SP3 | SUSE:SLES-HPC:12-SP3:latest | Disque de données uniquement |
 
 > [!NOTE]
 > La nouvelle implémentation d’Azure Disk Encryption est prise en charge pour les disques de système d’exploitation et de données RHEL pour les images avec Paiement à l’utilisation de RHEL7.  

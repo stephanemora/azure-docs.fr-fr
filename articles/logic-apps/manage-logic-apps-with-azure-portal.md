@@ -5,16 +5,16 @@ services: logic-apps
 ms.suite: integration
 author: lauradolan
 ms.author: ladolan
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/13/2020
-ms.openlocfilehash: f726ca90c215c4aff3734bd8022bbc1ad4dc5f87
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/29/2020
+ms.openlocfilehash: d80972cd200b8f85e14d316c4c06a38f88ac81b5
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415956"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598162"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Gérer les applications logiques dans le portail Azure
 
@@ -145,6 +145,10 @@ La suppression de votre application logique affecte vos instances de workflow de
 * Toutes les exécutions en cours et en attente continuent jusqu’à ce qu’elles soient terminées. En fonction du nombre de ces exécutions, ce processus peut prendre un certain temps.
 
 * Le moteur Logic Apps ne crée pas ou n’exécute pas de nouvelles instances de workflow.
+
+> [!NOTE]
+> Si vous supprimez et recréez une application logique enfant, vous devez réenregistrer l’application logique parente. L’application enfant recréée aura des métadonnées différentes.
+> Si vous ne réenregistrez pas l’application logique parente après avoir recréé son enfant, vos appels à l’application logique enfant échouent et une erreur de type « non autorisé » s’affiche. Ce comportement s’applique aux applications logiques parent-enfant, par exemple celles qui utilisent des artefacts dans les comptes d’intégration ou qui appellent des fonctions Azure.
 
 <a name="delete-single-logic-app"></a>
 

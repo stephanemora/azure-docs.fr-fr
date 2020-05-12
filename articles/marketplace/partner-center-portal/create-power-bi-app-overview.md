@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble de la création d’applications Power BI – Place de marché Azure
+title: Vue d’ensemble de la création d’applications Power BI – Microsoft AppSource
 description: Cet article décrit les étapes principales de la publication d’une application Power BI sur Microsoft AppSource. Les exigences techniques et commerciales auxquelles votre application Power BI doit répondre pour être publiée sur le marketplace commercial sont également fournies.
 author: anbene
 ms.author: mingshen
@@ -7,17 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 8f050a43cbdf4ab29df55cd5526eb231c301b271
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: c40ea07fc4224052aa2474ebd61ef7838ba2cedf
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81732681"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837836"
 ---
 # <a name="power-bi-app-creation-overview"></a>Vue d’ensemble de la création d’applications Power BI
-
-> [!IMPORTANT]
-> Nous allons déplacer la gestion de vos offres d’application Power BI du Portail Cloud Partner vers l’Espace partenaires. Tant que vos offres ne sont pas migrées, suivez les instructions dans [Offre d’application Power BI](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/power-bi/cpp-power-bi-offer) pour que le Portail Cloud Partner gère vos offres.
 
 Cet article explique comment publier une application Power BI sur [Microsoft AppSource](https://appsource.microsoft.com/). Une application Power BI regroupe le contenu personnalisable, notamment les jeux de données, les rapports et les tableaux de bord. Vous pouvez ensuite utiliser l’application avec d’autres plateformes Power BI à l’aide d’AppSource, effectuer les ajustements et les personnalisations autorisés par le développeur et la connecter à vos propres données.
 
@@ -32,14 +29,14 @@ Avantages de la publication sur le marketplace commercial :
 
 ## <a name="overview"></a>Vue d’ensemble
 
-:::image type="content" source="media/power-bi-app-publishing-steps.png" alt-text="vue d’ensemble des étapes de publication d’une application Power BI" border="false":::
+:::image type="content" source="media/power-bi-app-publishing-steps.png" alt-text="Vue d’ensemble des étapes de publication d’une application Power BI" border="false":::
 
 Voici les principales étapes de la publication :
 
 1. Créez votre application dans Power BI. Vous recevrez un lien d’installation de package, qui est la ressource technique principale de l’offre. Envoyez le package de test à l’équipe de préproduction avant de créer l’offre dans l’Espace partenaires. Pour plus d’informations, consultez [Que sont les applications Power BI ?](https://docs.microsoft.com/power-bi/service-template-apps-overview)
 2. Ajoutez les documents marketing, tels que le nom, la description et les logos officiels.
 3. Incluez les documents juridiques et de support de l’offre, tels que les conditions d’utilisation, la politique de confidentialité, la politique de support et l’aide de l’utilisateur.
-4. Créez l’offre : utilisez l’Espace partenaires pour modifier les détails, notamment la description de l’offre, les documents marketing, les mentions légales, les informations de support et les spécifications des ressources.
+4. Créer l’offre – Utilisez l’Espace partenaires pour modifier les détails, notamment la description de l’offre, les supports marketing, les mentions légales, les informations de support et les spécifications des ressources.
 5. Envoyez-la pour publication.
 6. Surveillez le processus dans l’Espace partenaires, où l’équipe d’intégration AppSource teste, valide et certifie votre application.
 7. Lorsque elle est certifiée, examinez l’application dans son environnement de test et mettez-la en production. Cela la rend visible sur AppSource (elle est « mise en ligne »).
@@ -79,6 +76,6 @@ Les exigences de l’entreprise incluent des obligations procédurales, contract
 - Fournissez un contenu conforme aux critères définis pour que votre offre soit répertoriée sur AppSource. Pour plus d’informations, voir [Vous avez une application à répertorier sur AppSource ? Voici comment faire](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how).
 - Acceptez et suivez la [déclaration de confidentialité Microsoft](https://privacy.microsoft.com/privacystatement).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-step"></a>Étape suivante
 
 - [Créer une offre d’application Power BI dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer)

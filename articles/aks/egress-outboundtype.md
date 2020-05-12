@@ -4,12 +4,12 @@ description: Découvrez comment définir un route de sortie personnalisée dans 
 services: container-service
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: 3780680c485aebf1ffc654d31c577821a9b96fff
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: e7dbde4095fb635180bb1ba663734f8dbfd602f7
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80676506"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733496"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Personnaliser la sortie du cluster avec une route définie par l’utilisateur (préversion)
 
@@ -73,7 +73,7 @@ Vous trouverez ci-dessous une topologie de réseau déployée dans des clusters 
 
 Si `userDefinedRouting` est défini, AKS ne configure pas automatiquement les chemins de sortie. Voici ce qui doit être fait par **l’utilisateur**.
 
-Le cluster doit être déployé dans un réseau virtuel existant avec un sous-réseau configuré. Une route définie par l’utilisateur valide doit exister sur le sous-réseau avec une connectivité sortante.
+Le cluster AKS doit être déployé dans un réseau virtuel existant dans lequel un sous-réseau est configuré. Lorsque vous utilisez une architecture Standard Load Balancer, vous devez établir une sortie explicite. Cela nécessite l’envoi de requêtes de sortie vers une appliance locale, telle qu’un pare-feu ou une passerelle. Vous pouvez également autoriser la sortie via une adresse IP publique attribuée à l’équilibreur de charge standard ou à un nœud donné.
 
 Le fournisseur de ressources AKS déploie un équilibreur de charge standard. L’équilibreur de charge n’est configuré avec aucune règle et [n’entraîne pas de frais tant qu’une règle n’a pas été mise en place](https://azure.microsoft.com/pricing/details/load-balancer/). AKS ne provisionne **pas** automatiquement une adresse IP publique pour le front-end de l’équilibreur de charge standard. AKS ne configure **pas** automatiquement le pool de back-ends de l’équilibreur de charge.
 

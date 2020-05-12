@@ -8,14 +8,14 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 01b2bd464db51e255930fe83a3f4321687322275
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b576fc99e2f203bb3d690a8135ee76cee26b3de8
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77151137"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792358"
 ---
-# <a name="receive-and-send-b2b-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Échanger des messages B2B à l’aide d’Azure Logic Apps et de l’Enterprise Integration Pack
+# <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Échanger et confirmer des messages B2B AS2 avec Azure Logic Apps et Enterprise Integration Pack
 
 Si vous disposez d’un compte d’intégration définissant des partenaires et contrats commerciaux, vous pouvez créer un flux de travail B2B automatisé pour l’échange de messages entre partenaires commerciaux en utilisant [Azure Logic Apps](../logic-apps/logic-apps-overview.md) avec l’[Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md). Azure Logic Apps fonctionne avec les connecteurs qui prennent en charge les protocoles standard AS2, X12, EDIFACT et RosettaNet. Vous pouvez également combiner ces connecteurs avec d’autres [connecteurs disponibles dans Logic Apps](../connectors/apis-list.md), tels que Salesforce et Office 365 Outlook.
 

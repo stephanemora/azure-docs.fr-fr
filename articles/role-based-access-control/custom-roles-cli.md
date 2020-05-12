@@ -1,6 +1,6 @@
 ---
-title: Créer ou mettre à jour des rôles personnalisés pour les ressources Azure à l’aide d’Azure CLI | Microsoft Docs
-description: Découvrez comment lister, créer, mettre à jour ou supprimer des rôles personnalisés avec le contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure à l’aide d’Azure CLI.
+title: Créer ou mettre à jour des rôles personnalisés Azure à l’aide d’Azure CLI - RBAC Azure
+description: Découvrez comment lister, créer, mettre à jour ou supprimer des rôles personnalisés Azure à l’aide d’Azure CLI et du contrôle d’accès en fonction du rôle Azure (RBAC Azure).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,23 +14,23 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 44676f7b92c2bcd30612295840054ab2f0c0cf12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cac0116cf7a068e63cb54698f7273b8c063ff854
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062226"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734839"
 ---
-# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-cli"></a>Créer ou mettre à jour des rôles personnalisés pour les ressources Azure à l’aide d’Azure CLI
+# <a name="create-or-update-azure-custom-roles-using-azure-cli"></a>Créer ou mettre à jour des rôles personnalisés Azure à l’aide d’Azure CLI
 
 > [!IMPORTANT]
 > L’ajout d’un groupe d’administration à `AssignableScopes` est actuellement en préversion.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Si les [rôles intégrés prévus pour les ressources Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Cet article explique comment lister, créer, mettre à jour ou supprimer des rôles personnalisés à l’aide d’Azure CLI.
+Si les [rôles intégrés Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Cet article explique comment lister, créer, mettre à jour ou supprimer des rôles personnalisés à l’aide d’Azure CLI.
 
-Pour obtenir un tutoriel pas à pas sur la création d’un rôle personnalisé, consultez [Tutoriel : Créer un rôle personnalisé pour les ressources Azure à l’aide d’Azure CLI](tutorial-custom-role-cli.md).
+Pour obtenir un tutoriel pas à pas sur la création d’un rôle personnalisé, consultez [Tutoriel : Créer un rôle personnalisé Azure à l’aide d’Azure CLI](tutorial-custom-role-cli.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -244,6 +244,6 @@ az role definition delete --name "Virtual Machine Operator"
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Tutoriel : Créer un rôle personnalisé pour les ressources Azure à l’aide d’Azure CLI](tutorial-custom-role-cli.md)
-- [Rôles intégrés pour les ressources Azure](custom-roles.md)
+- [Tutoriel : Créer un rôle personnalisé Azure à l’aide d’Azure CLI](tutorial-custom-role-cli.md)
+- [Rôle personnalisés Azure](custom-roles.md)
 - [Opérations du fournisseur de ressources Azure Resource Manager](resource-provider-operations.md)

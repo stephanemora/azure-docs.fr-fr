@@ -1,6 +1,6 @@
 ---
-title: Répertorier les refus d’affectations relatifs aux ressources Azure à l'aide de l'API REST
-description: Apprenez à dresser la liste des affectations de refus pour les utilisateurs, groupes et applications à l’aide de l’API REST et du contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure.
+title: Lister les affectations de refus Azure avec l’API REST - Azure RBAC
+description: Apprenez à dresser la liste des affectations de refus Azure pour les utilisateurs, groupes et applications avec l’API REST et le contrôle d’accès en fonction du rôle Azure (Azure RBAC).
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,25 +15,25 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0f648405a3d71bf27c64dacbb3fd78f3e9801137
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dae0352566e6cb4f8ed1384ca12213e2aaa07f9d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063029"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733868"
 ---
-# <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Répertorier les affectations de refus relatives aux ressources Azure à l'aide de l'API REST
+# <a name="list-azure-deny-assignments-using-the-rest-api"></a>Lister les affectations de refus Azure avec l’API REST
 
-Les [affectations de refus](deny-assignments.md) empêchent les utilisateurs d'effectuer des actions particulières sur les ressources Azure, même si une attribution de rôle leur confère un accès. Cet article décrit comment lister les affectations de refus existantes à l’aide de l’API REST.
+Les [affectations de refus Azure](deny-assignments.md) empêchent les utilisateurs d’effectuer des actions particulières sur les ressources Azure, même si une attribution de rôle leur confère un accès. Cet article décrit comment lister les affectations de refus existantes à l’aide de l’API REST.
 
 > [!NOTE]
-> Vous ne pouvez pas directement créer vos propres affectations de refus. Pour en savoir sur la création des affectations de refus, consultez [Affectations de refus](deny-assignments.md).
+> Vous ne pouvez pas directement créer vos propres affectations de refus. Pour obtenir des informations sur la création des affectations de refus, consultez [Affectations de refus Azure](deny-assignments.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour obtenir des informations sur une affectation de refus, vous devez disposer de :
 
-- l’autorisation `Microsoft.Authorization/denyAssignments/read`, qui est incluse dans la plupart des [rôles intégrés pour les ressources Azure](built-in-roles.md).
+- l’autorisation `Microsoft.Authorization/denyAssignments/read`, qui est incluse dans la plupart des [rôles intégrés Azure](built-in-roles.md).
 
 ## <a name="list-a-single-deny-assignment"></a>Lister une seule affectation de refus
 
@@ -91,7 +91,7 @@ Pour obtenir des informations sur une affectation de refus, vous devez disposer 
 
 ## <a name="list-deny-assignments-at-the-root-scope-"></a>Lister les affectations de refus dans l’étendue racine (/)
 
-1. Élevez votre accès comme décrit dans [Élever l’accès d’un administrateur général dans Azure Active Directory](elevate-access-global-admin.md).
+1. Élevez votre accès comme cela est décrit dans [Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure](elevate-access-global-admin.md).
 
 1. Utilisez la requête suivante :
 
@@ -111,6 +111,6 @@ Pour obtenir des informations sur une affectation de refus, vous devez disposer 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Comprendre les affectations de refus relatives aux ressources Azure](deny-assignments.md)
-- [Élever l’accès d’un administrateur général dans Azure Active Directory](elevate-access-global-admin.md)
+- [Comprendre les affectations de refus Azure](deny-assignments.md)
+- [Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure](elevate-access-global-admin.md)
 - [Référence de l'API REST Azure](/rest/api/azure/)
