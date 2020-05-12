@@ -1,18 +1,18 @@
 ---
 title: L’espace disque est insuffisant sur le nœud de cluster dans Azure HDInsight
 description: Dépannage des problèmes d'espace disque des nœuds d’un cluster Apache Hadoop dans Azure HDInsight.
-ms.service: hdinsight
-ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.date: 08/05/2019
-ms.openlocfilehash: fbfd82473b68f5032d19834ac809191d498a5a67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.date: 04/30/2020
+ms.openlocfilehash: ead79ca0a37a270f03a305064c80426553db59ca
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75894127"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628535"
 ---
 # <a name="scenario-cluster-node-runs-out-of-disk-space-in-azure-hdinsight"></a>Scénario : L’espace disque est insuffisant sur le nœud de cluster dans Azure HDInsight
 
@@ -36,7 +36,17 @@ Le cache d’application Apache Yarn peut avoir consommé tout l’espace disque
 
 1. Pour atténuer le problème, arrêtez l’application, qui libérera l’espace disque utilisé par cette application.
 
-1. Pour finalement résoudre le problème, optimisez votre application.
+1. Si le problème se produit fréquemment sur les nœuds Worker, vous pouvez régler les paramètres du cache local YARN sur le cluster.
+
+    Ouvrez l’interface utilisateur Ambari, puis accédez YARN --> Configurations --> Avancé.  
+    Ajoutez les deux propriétés suivantes à la section yarn-site personnalisé du .xml, puis enregistrez :
+
+    ```
+    yarn.nodemanager.localizer.cache.target-size-mb=2048
+    yarn.nodemanager.localizer.cache.cleanup.interval-ms=300000
+    ```
+
+1. Si la solution ci-dessus ne résout pas définitivement le problème, optimisez votre application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,6 +1,6 @@
 ---
-title: Lister les attributions de rôles à l’aide du RBAC Azure et d’Azure PowerShell
-description: Découvrez comment déterminer les ressources, utilisateurs, groupes, principaux de service ou identités managées qui ont accès au contrôle d’accès en fonction du rôle (RBAC) Azure et à Azure PowerShell.
+title: Lister les attributions de rôle Azure avec Azure PowerShell - Azure RBAC
+description: Découvrez comment déterminer les ressources, utilisateurs, groupes, principaux de service ou identités managées qui ont accès à l’utilisation d’Azure PowerShell et du contrôle d’accès en fonction du rôle Azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0ec3153e5b1bfbe04a079d1cfc44e8e8709784d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1bdf703ac29ce11749de70fa0ef5972ee284401b
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75931147"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735706"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-azure-powershell"></a>Lister les attributions de rôles à l’aide du RBAC Azure et d’Azure PowerShell
+# <a name="list-azure-role-assignments-using-azure-powershell"></a>Lister les attributions de rôle Azure avec Azure PowerShell
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] Cet article explique comment lister les attributions de rôles à l’aide d’Azure PowerShell.
 
@@ -30,7 +30,7 @@ ms.locfileid: "75931147"
 > [!NOTE]
 > Si votre organisation possède des fonctions de gestion externalisées pour un fournisseur de services qui utilise la [gestion des ressources déléguées Azure](../lighthouse/concepts/azure-delegated-resource-management.md), les attributions de rôles autorisées par ce fournisseur de services ne seront pas affichées ici.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - [PowerShell dans Azure Cloud Shell](/azure/cloud-shell/overview) ou [Azure PowerShell](/powershell/azure/install-az-ps)
 
@@ -168,4 +168,4 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Ajouter ou supprimer des attributions de rôles à l’aide du RBAC Azure et d’Azure PowerShell](role-assignments-powershell.md)
+- [Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure PowerShell](role-assignments-powershell.md)

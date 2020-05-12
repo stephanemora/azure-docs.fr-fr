@@ -1,17 +1,17 @@
 ---
-Description: Afin de recevoir l’argent provenant de la vente d’offres sur le marché commercial, vous devez ouvrir un compte de paiement et remplir.
-title: Configurer votre compte de paiement et vos déclarations de taxe | Place de marché Azure
+title: Configurer un compte de paiement et des déclarations de taxe – Place de marché commerciale Microsoft
+Description: Pour recevoir de l’argent provenant de la vente d’offres dans la Place de marché commerciale, découvrez comment configurer votre compte de paiement et remplir les déclarations de taxe nécessaires.
 ms.date: 12/10/2019
 ms.topic: conceptual
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: fb0caa64feb7cb024b684a2e94937aec8893bb5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 627f6f01a17fc8cabb4f1883306baeb0e2d77e70
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281304"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792885"
 ---
 # <a name="set-up-your-payout-account-and-tax-forms"></a>Configurer votre compte de paiement et vos déclarations de taxe
 
@@ -32,7 +32,7 @@ Une fois que vous avez configuré votre compte, vous devez effectuer deux opéra
 
 ## <a name="tax-forms"></a>Déclaration de taxe
 
-### <a name="filling-out-your-tax-forms"></a>Remplissez votre déclaration de taxe
+### <a name="fill-out-your-tax-forms"></a>Remplir vos déclarations de taxe
 
 Tout d’abord, vous devez créer un profil fiscal et l’attribuer aux programmes auxquels vous participez. Vous pouvez créer votre *profil fiscal* pour le marché commercial en procédant comme suit :
 
@@ -45,18 +45,21 @@ Vous pouvez compléter et soumettre vos formulaires fiscaux par voie électroniq
 > Les différents pays et régions ont des exigences fiscales différentes. La quantité exacte d’impôts que vous devez payer varie selon les pays et les régions dans lesquels vous vendez vos offres. Consultez le [Contrat relatif aux éditeur de la place de marché Microsoft Azure](https://go.microsoft.com/fwlink/p/?LinkID=699560) pour savoir quels pays Microsoft reverse la taxe de vente et d’utilisation en votre nom. Dans d’autres pays, en fonction de l’endroit où vous êtes inscrit, vous devrez peut-être directement reverser les taxes de ventes et d’utilisation de vos ventes à l’autorité fiscale locale. En outre, les recettes de la vente d’application que vous recevez peuvent être considérées comme du revenu imposable. Nous vous encourageons vivement à contacter l’autorité compétente de votre pays ou région qui vous aidera à déterminer les informations fiscales appropriées pour les activités commerciales de marketplace.
 
 1. Dans [Espace partenaires](https://partner.microsoft.com/dashboard), sélectionnez l’icône **Paramètres de compte** en haut à droite, puis **Paramètres du développeur**.
+
 2. Dans le menu de navigation situé à gauche, sélectionnez **Paiement et taxes**, puis **Attributions de paiement et de taxes**.
 
 3. Sélectionnez la combinaison d’ID de programme et de vendeur pour laquelle vous souhaitez configurer les informations fiscales.
 
 4. Si vous souhaitez utiliser un profil fiscal existant, sélectionnez-le dans la liste déroulante. Dans le cas contraire, sélectionnez **Créer un nouveau profil** puis appuyez sur **Envoyer**. Vous serez redirigé vers la page des profils fiscaux.
+
 5. Cliquez sur le bouton **Modifier** pour modifier vos informations fiscales.
+
 6. Sélectionnez la case d’option appropriée, puis indiquez votre pays si vous y êtes invité. Cette étape détermine l’entité métier Microsoft qui sera utilisée pour effectuer des versements sur votre compte.
 
 7. En fonction de vos sélections à l’étape 6, vous serez invité à fournir les informations fiscales requises pour votre pays.
 
-> [!NOTE]
-> Quel que soit votre pays de résidence ou votre nationalité, vous devez remplir les déclarations de taxe des États-Unis pour vendre des offres ou des modules complémentaires sur la place de marché commerciale. Les éditeurs qui répondent à certaines exigences en matière de résidence aux États-Unis doivent remplir le formulaire IRS W-9. Les autres éditeurs en dehors des États-Unis doivent remplir le formulaire IRS W-8. Vous pouvez remplir ces formulaires en ligne lorsque vous complétez votre profil fiscal.
+   > [!NOTE]
+   > Quel que soit votre pays de résidence ou votre nationalité, vous devez remplir les déclarations de taxe des États-Unis pour vendre des offres ou des modules complémentaires sur la place de marché commerciale. Les éditeurs qui répondent à certaines exigences en matière de résidence aux États-Unis doivent remplir le formulaire IRS W-9. Les autres éditeurs en dehors des États-Unis doivent remplir le formulaire IRS W-8. Vous pouvez remplir ces formulaires en ligne lorsque vous complétez votre profil fiscal.
 
 ### <a name="withholding-rates"></a>Taux de retenue d’impôt
 
@@ -108,8 +111,8 @@ Si vous avez choisi d’utiliser un compte bancaire pour recevoir des paiements,
 
 6. Cliquez sur Envoyer pour enregistrer vos changements.
 
-> [!NOTE]
-> Microsoft peut prendre jusqu’à 48 heures pour valider les informations de votre profil. Une fois ce processus terminé, *l’état de vérification* indique **Terminé**
+   > [!NOTE]
+   > Microsoft peut prendre jusqu’à 48 heures pour valider les informations de votre profil. Une fois ce processus terminé, *l’état de vérification* indique **Terminé**
 
 Pour garantir que votre paiement est correctement effectué, vérifiez les éléments suivants :
 
@@ -122,7 +125,9 @@ Pour garantir que votre paiement est correctement effectué, vérifiez les élé
 Vous pouvez modifier les profils de paiement existants si vous devez apporter des modifications ou rectifier des informations erronées.
 
 1. Dans [Espace partenaires](https://partner.microsoft.com/dashboard), sélectionnez l’icône d’engrenage **Paramètres** située en haut à droite, puis **Paramètres du développeur**.
+
 2. Sous le titre *Paiement et taxe*, sélectionnez **Profils de paiement et de taxe**.
+
 3. Vos profils de paiement sont listés avec leur état. Recherchez le profil que vous souhaitez modifier, puis cliquez sur **Modifier** à droite de l’écran
 
 > [!IMPORTANT]
@@ -138,9 +143,13 @@ Dans Sélectionner les pays et les régions, vous pouvez créer un compte de pai
 Questions fréquemment posées sur l’utilisation de PayPal comme mode de paiement :
 
 - **De quels paramètres PayPal ai-je besoin pour recevoir des paiements ?** Assurez-vous que votre compte PayPal ne bloque pas les paiements eCheck. Ce paramètre est géré dans la page Préférences de réception de paiement de PayPal. Pour plus d’informations, consultez la [page de configuration de compte PayPal](https://go.microsoft.com/fwlink/p/?linkid=513139).
+
 - **Est-ce que mon pays/ma région est pris en charge ?** Consultez les [seuils, les méthodes et les délais de paiement](payment-thresholds-methods-timeframes.md) pour savoir quels pays/quelles régions prennent en charge PayPal comme mode de paiement.
+
 - **Mon compte PayPal doit-il être inscrit dans le même pays ou la même région que mon compte espace partenaires ?** Non. Quand vous configurez un compte PayPal, vous pouvez accepter la configuration par défaut. Vous ne devriez pas rencontrer de problèmes avec d’autres pays/régions et devises, sauf si vous avez bloqué le paiement dans certaines devises. Ce paramètre est géré dans la page Préférences de réception de paiement de PayPal.
+
 - **Dois-je accepter les paiements PayPal manuellement ?** Non. Par défaut, les comptes PayPal sont configurés de manière à contraindre les utilisateurs à accepter les paiements manuellement. Par conséquent, le paiement sera renvoyé si vous ne l’acceptez pas dans un délai de 30 jours. Vous pouvez modifier ce paramètre en désactivant l’option « Me demander » dans la page Paramètres supplémentaires de PayPal.
+
 - **Quelles sont les devises prises en charge par PayPal ?** Consultez la [page de support de PayPal](https://developer.paypal.com/docs/classic/api/currency-codes/#paypal) pour obtenir la liste actuelle
 
 ### <a name="specific-requirements-for-certain-countriesregions"></a>Exigences particulières pour certains pays/certaines régions
@@ -193,3 +202,7 @@ Si vous avez choisi d’utiliser un compte bancaire pour recevoir des paiements,
 4. De retour sur la page*Attribution de profil*, sélectionnez la devise que vous souhaitez que nous utilisions pour émettre vos paiements.
 5. Vous devrez sélectionner un profil de paiement pour chaque programme auquel vous participez, même si vous pouvez utiliser le même profil pour plusieurs programmes.
 6. Cliquez sur Envoyer pour enregistrer vos changements.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[Facturation de la Place de marché commerciale](billing-details.md)

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 04/21/2020
-ms.openlocfilehash: 47f686f810f62fe03a9b0217677c436f3b91782b
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.date: 5/4/2020
+ms.openlocfilehash: cb82b3223d50c66b4d6c176a274d5ccf8d510911
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81767890"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792103"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas en lecture dans Azure Database pour MySQL
 
@@ -56,7 +56,6 @@ Il existe toutefois quelques limitations à prendre en compte :
     
 * Paires unidirectionnelles : Certaines régions Azure sont jumelées dans une seule direction. Ces régions incluent Inde Ouest, Brésil Sud et US Gov Virginie. 
    Cela signifie qu’un serveur maître dans la région Inde Ouest peut créer un réplica dans la région Inde Sud. Toutefois, un serveur maître dans la région Inde Sud ne peut pas créer de réplica dans la région Inde Ouest. En effet, la région secondaire de la région Inde Ouest est Inde Sud, mais la région secondaire de la région Inde Sud n’est pas Inde Ouest.
-
 
 ## <a name="create-a-replica"></a>Créer un réplica
 
@@ -123,7 +122,7 @@ Un réplica est créé à partir de la même configuration que celle du serveur 
 > [!IMPORTANT]
 > Avant de mettre à jour une configuration de serveur maître avec de nouvelles valeurs, mettez à jour la configuration du réplica avec des valeurs égales ou supérieures. Ainsi, vous avez la garantie que le réplica peut suivre les changements apportés au maître.
 
-Les règles de pare-feu et les paramètres de paramétrage sont hérités du serveur maître au réplica lorsque le réplica est créé. Par la suite, les règles du réplica sont indépendantes.
+Les règles de pare-feu et les paramètres sont transmis du serveur maître au réplica lorsque le réplica est créé. Par la suite, les règles du réplica sont indépendantes.
 
 ### <a name="stopped-replicas"></a>Réplicas arrêtés
 
@@ -146,6 +145,8 @@ Les paramètres de serveur suivants sont verrouillés sur les serveurs maîtres 
 - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
 Le paramètre [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) est verrouillé sur les serveurs réplicas. 
+
+Pour mettre à jour l’un des paramètres ci-dessus sur le serveur maître, supprimez les serveurs réplicas, mettez à jour la valeur du paramètre sur le maître, puis recréez les réplicas.
 
 ### <a name="other"></a>Autres
 

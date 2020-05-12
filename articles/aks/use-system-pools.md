@@ -3,13 +3,13 @@ title: Utiliser des pools de nœuds système dans Azure Kubernetes Service (AKS)
 description: Découvrez comment créer et gérer des pools de nœuds système dans Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/06/2020
-ms.openlocfilehash: b567d9e618877463e1e659f368d35fbb787a4ef2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 04/28/2020
+ms.openlocfilehash: 04322bdaa2e0e72c5fbdbadb07f2608ee360e1e3
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81259066"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790556"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gérer des pools de nœuds système dans Azure Kubernetes Service (AKS)
 
@@ -29,6 +29,8 @@ Les limitations suivantes s’appliquent lorsque vous créez et gérez les clust
 * Voir [Quotas, restrictions de taille de machine virtuelle et disponibilité des régions dans Azure Kubernetes Service (AKS)][quotas-skus-regions].
 * Le cluster AKS doit être élaboré avec des groupes de machines virtuelles identiques en tant que type de machine virtuelle.
 * Le nom d’un pool de nœuds ne peut contenir que des caractères alphanumériques minuscules et doit commencer par une lettre minuscule. Pour les pools de nœuds Linux, la longueur doit être comprise entre 1 et 12 caractères. Pour les pools de nœuds Windows, la longueur doit être comprise entre 1 et 6 caractères.
+* Pour définir un mode de pool de nœuds, vous devez utiliser l’API version 2020-03-01 ou ultérieure.
+* Le mode d’un pool de nœuds est une propriété obligatoire qui doit être définie explicitement si vous utilisez des modèles ARM ou des appels d’API directs.
 
 ## <a name="system-and-user-node-pools"></a>Pools de nœuds système et utilisateur
 
@@ -175,4 +177,4 @@ Dans cet article, vous avez appris comment créer et gérer des pools de nœuds 
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
-[maximum-pods]: faq.md#why-cant-i-set-maxpods-below-30
+[maximum-pods]: configure-azure-cni.md#maximum-pods-per-node

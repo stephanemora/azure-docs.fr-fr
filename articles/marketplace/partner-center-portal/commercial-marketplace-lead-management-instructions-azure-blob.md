@@ -1,32 +1,36 @@
 ---
-title: Table Azure dans un programme de la Place de marché commerciale | Place de marché Azure
-description: Configurer la gestion des prospects pour Blob Azure
+title: Gestion des prospects avec le service Stockage Blob Azure – Place de marché commerciale Microsoft
+description: Découvrez comment utiliser le service Stockage Blob Azure pour configurer des prospects pour Microsoft AppSource et la Place de marché Azure.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 7/30/2019
+ms.date: 05/01/2020
 ms.author: dsindona
-ms.openlocfilehash: 062252b007e22fcd2644c8b647fc0ecc2f5938cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 076edc62a467701eaf0de23f280cdaf2abd945de
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285246"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792715"
 ---
-# <a name="lead-management-instructions-for-azure-blob"></a>Instructions de gestion des prospects pour Blob Azure
+# <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Utiliser Stockage Blob Azure pour gérer les prospects de la Place de marché commerciale
 
 >[!Caution]
->L’option Blob Azure pour traiter les prospects de votre offre de la Place de marché est déconseillée. Si vous avez actuellement une offre publiée avec une configuration de gestion des prospects pour Blob Azure, vous ne recevez plus de prospects. Mettez à jour votre configuration de gestion des prospects avec l’une des autres options de gestion des prospects. Pour plus d’informations sur les autres options, voir la page d’accueil [Gestion des prospects](./commercial-marketplace-get-customer-leads.md).
+>La prise en charge de la Place de marché commerciale pour le service Stockage Blob Azure est déconseillée et n’est plus une option pour traiter des prospects de votre offre. Si vous disposez actuellement d’une offre de la Place de marché commerciale avec une gestion des prospects configurée pour le service Stockage Blob Azure, vous ne recevrez plus de prospects. Mettez à jour votre configuration de gestion des prospects avec l’une des autres options de gestion des prospects. Pour plus d’informations sur les autres options, voir la page d’accueil [Gestion des prospects](./commercial-marketplace-get-customer-leads.md).
 
-Si votre système de gestion de la relation client (CRM) n’est pas explicitement pris en charge dans l’Espace partenaires afin de recevoir des prospects de la Place de marché Azure et d’AppSource, vous pouvez utiliser un Blob Azure pour gérer ces prospects. Vous pouvez ensuite décider d’exporter les données et de les importer dans votre système CRM. Les instructions de cet article décrivent le processus de création d’un compte de Stockage Azure et d’un Blob Azure sous ce compte. De plus, vous pouvez créer un flux à l’aide de Microsoft Flow pour envoyer une notification par e-mail quand votre offre reçoit un prospect.
+ Si votre système de gestion de la relation client (CRM) n’est pas explicitement pris en charge dans l’Espace partenaires afin de recevoir des prospects de Microsoft AppSource et de la Place de marché Azure, vous pouvez utiliser le service Stockage Blob Azure. Vous pouvez ensuite décider d’exporter les données et de les importer dans votre système CRM. Les instructions de cet article décrivent le processus de création d’un compte de Stockage Azure et d’un Blob sous ce compte. De plus, vous pouvez créer un flux à l’aide de Power Automate pour envoyer une notification par e-mail quand votre offre reçoit un prospect.
 
+>[!NOTE]
+>Le connecteur Power Automate utilisé dans ces instructions nécessite un abonnement payant à Power Automate. Veillez à prendre en compte cette procédure avant de suivre les instructions fournies dans cet article.
 
-## <a name="how-to-configure-azure-blob"></a>Comment configurer un Blob Azure
+## <a name="configure-azure-blob-storage"></a>Configurer le service Stockage Blob Azure
 
 1. Si vous ne possédez pas de compte Azure, vous pouvez [créer un compte d’évaluation gratuit](https://azure.microsoft.com/pricing/free-trial/).
-1. Une fois que votre compte Azure est actif, connectez-vous au [portail Microsoft Azure](https://portal.azure.com).
-1. Dans le portail Microsoft Azure, créez un compte de stockage à l’aide de la procédure suivante.  
+
+2. Une fois que votre compte Azure est actif, connectez-vous au [portail Microsoft Azure](https://portal.azure.com).
+
+3. Dans le portail Microsoft Azure, créez un compte de stockage à l’aide de la procédure suivante.  
     1. Dans la barre de menus de gauche, sélectionnez **+ Créer une ressource**.  Le volet **Nouveau** (panneau) est affiché sur la droite.
     2. Sélectionnez **Stockage** dans le volet **Nouveau**.  Une liste **Sélection** est affichée sur la droite.
     3. Sélectionnez le **Compte de stockage** pour commencer à créer un compte.  Suivez les instructions de l’article [Créer un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
@@ -65,7 +69,7 @@ Si votre système de gestion de la relation client (CRM) n’est pas expliciteme
 
     ![Nouveau conteneur](./media/commercial-marketplace-lead-management-instructions-azure-blob/new-container.png)
 
-## <a name="configure-your-offer-to-send-leads-to-the-azure-blob"></a>Configurer votre offre pour envoyer des prospects au Blob Azure
+## <a name="configure-your-offer-to-send-leads-to-azure-blob-storage"></a>Configurer votre offre pour envoyer des prospects au service Stockage Blob Azure
 
 Lorsque vous êtes prêt à configurer les informations de gestion des prospects pour votre offre sur le portail de publication, procédez comme suit :
 

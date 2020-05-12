@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73aa01ea08c8bab1395516c31bb46dbfd88045db
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 10d0f949fb2a5755512a30dcca011690d86a7e7b
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79481413"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597720"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutoriel : Ajouter une application locale pour un accès à distance via le service Proxy d'application d'Azure Active Directory
 
@@ -47,10 +47,12 @@ Pour utiliser le proxy d’application, vous devez disposer d’un serveur Windo
 Pour bénéficier d'une haute disponibilité dans votre environnement de production, nous vous recommandons d'utiliser plusieurs serveurs. Pour ce tutoriel, un seul serveur Windows suffira.
 
 > [!IMPORTANT]
-> Si vous installez le connecteur sur Windows Server 2019, une limitation HTTP2 s’applique. Il existe une solution de contournement permettant d’utiliser le connecteur sur cette version : ajoutez la clé de Registre suivante et redémarrez le serveur. Notez qu’il s’agit d’une clé de Registre au niveau de l’ordinateur. 
-    ```
-    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
-    ```
+> Si vous installez le connecteur sur Windows Server 2019, vous devez désactiver la prise en charge du protocole HTTP2 dans le composant WinHttp. Ceci est désactivé par défaut dans les versions antérieures des systèmes d’exploitation pris en charge. L’ajout de la clé de Registre suivante et le redémarrage du serveur la désactivent sur Windows Server 2019. Notez qu’il s’agit d’une clé de Registre au niveau de la machine.
+>
+> ```
+> HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+> ```
+>
 
 #### <a name="recommendations-for-the-connector-server"></a>Recommandations pour le serveur de connecteurs
 

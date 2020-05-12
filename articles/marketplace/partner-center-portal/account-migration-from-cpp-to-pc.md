@@ -1,20 +1,20 @@
 ---
-title: Migration de compte du portail Cloud Partner vers l’Espace partenaires - Place de marché commerciale pour Azure
-description: Découvrez comment migrer votre compte du Portail Cloud Partner vers l’Espace partenaires - place de marché commerciale pour Azure
+title: Migrer des comptes du Portail Cloud Partner vers la Place de marché commerciale Microsoft
+description: Découvrez comment migrer votre compte du Portail Cloud Partner vers l’Espace partenaires dans la Place de marché commerciale Microsoft pour Azure
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: 49fb2da05b7284fff10e6271de177551000995ed
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.openlocfilehash: 033b603630fc219fc378556a2ccbaef4eae524e4
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82024419"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743533"
 ---
-# <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Migration de compte du Portail Cloud Partner vers l’Espace partenaires
+# <a name="how-to-migrate-your-account-from-cloud-partner-portal-to-partner-center"></a>Comment migrer votre compte du Portail Cloud Partner vers l’Espace partenaires
 
 Si vous avez déjà un compte du portail Cloud Partner, les paramètres de votre compte doivent être migrés vers l’Espace partenaires.
 

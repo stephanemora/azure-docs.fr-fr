@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 53806a1a627c7ae6bc3470aa387be0982df914fa
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: bf690ad3ad38632834a92c4a743b1cb584beaf65
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82082256"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838822"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Support des machines virtuelles de 2e génération dans Azure
 
@@ -38,13 +38,13 @@ Les machines virtuelles de 1ère génération sont prises en charge dans toutes 
 * [Série HB](../hb-series.md)
 * [Série HC](../hc-series.md)
 * Séries [Ls](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series) et [Lsv2](../lsv2-series.md)
-* [Série Mv2](../mv2-series.md)
+* [Série M](../m-series.md)
+* [Série Mv2](../mv2-series.md)<sup>1</sup>
 * [Série NCv2](../ncv2-series.md) et [série NCv3](../ncv3-series.md)
 * [Série ND](../nd-series.md)
 * [Série NVv3](../nvv3-series.md)
 
-> [!NOTE]
-> L’utilisation d’images de machine virtuelle de 2e génération pour les machines virtuelles de la série MV2 est généralement disponible, car la série MV2 fonctionne exclusivement avec les images de machine virtuelle de 2e génération. Les images de machine virtuelle de génération 1 ne sont pas prises en charge sur les machines virtuelles de série MV2. 
+<sup>1</sup> La série MV2 ne prend pas en charge les images de machine virtuelle de 1re génération et ne prend en charge qu’un sous-ensemble d’images de 2e génération. Pour plus d’informations, consultez la [documentation de la série MV2](https://docs.microsoft.com/azure/virtual-machines/mv2-series).
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Images de machine virtuelle de 2e génération dans la Place de marché Azure
 
@@ -58,6 +58,9 @@ Les machines virtuelles de 2e génération prennent en charge les images de la P
 * RHEL 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 7.0
 * Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4
 * Oracle Linux 7.7, 7.7-CI
+
+> [!NOTE]
+> Les tailles de machine virtuelle spécifiques telles que la série MV2 ne peuvent prendre en charge qu’un sous-ensemble de ces images. Pour plus d’informations, consultez la documentation appropriée sur la taille de machine virtuelle.
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>Local Machines virtuelles de 2e génération Azure
 
@@ -144,7 +147,7 @@ Consultez la section [ Fonctionnalités et capacités](#features-and-capabilitie
 
 Vous pouvez créer une machine virtuelle de 2e génération à partir d’une image managée ou d’un disque managé, de la même façon que pour une machine virtuelle de 1ère génération.
 
-### <a name="virtual-machine-scale-sets"></a>Groupes identiques de machines virtuelles
+### <a name="virtual-machine-scale-sets"></a>Groupes identiques de machines virtuelles 
 
 Vous pouvez également créer des machines virtuelles de 2e génération à l’aide de groupes de machines virtuelles identiques. Dans Azure CLI, utilisez les groupes identiques Azure pour créer des machines virtuelles de 2e génération.
 

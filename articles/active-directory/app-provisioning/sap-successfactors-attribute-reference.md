@@ -1,33 +1,37 @@
 ---
-title: Informations de référence sur les attributs SuccessFactors SAP | Microsoft Docs
+title: Informations de référence sur les attributs SAP SuccessFactors
 description: Découvrez quels attributs de SuccessFactors sont pris en charge par le provisionnement piloté par SuccessFactors-HR
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: jodadzie
-ms.assetid: afb77f2d-5ddd-4c2e-a840-09021b0efef1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: 00b16f969525e7b802c008ba247ecba015875689
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: celested
+ms.openlocfilehash: cdd6abf5d10a529aa4c529d0364b2ba9f1df72e3
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77522354"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593182"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>Informations de référence sur les attributs SAP SuccessFactors
 
+Dans cet article, vous trouverez des informations sur les éléments suivants :
+
+- [Entités et attributs SuccessFactors pris en charge](#supported-successfactors-entities-and-attributes)
+- [Mappage d’attributs par défaut](#default-attribute-mapping)
+
 ## <a name="supported-successfactors-entities-and-attributes"></a>Entités et attributs SuccessFactors pris en charge
 
-Le tableau ci-dessous capture la liste des attributs SuccessFactors pris en charge par les deux applications de provisionnement suivantes : 
-* [Provisionnement d’utilisateurs SuccessFactors vers Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
-* [Provisionnement d’utilisateurs SuccessFactors vers Azure AD](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) 
+Le tableau ci-dessous capture la liste des attributs SuccessFactors pris en charge par les deux applications de provisionnement suivantes :
+
+- [Provisionnement d’utilisateurs SuccessFactors vers Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
+- [Provisionnement d’utilisateurs SuccessFactors vers Azure AD](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
+
 
 | \# | Entité SuccessFactors                  | Attribut SuccessFactors     | Type d’opération |
 |----|----------------------------------------|------------------------------|----------------|
@@ -111,7 +115,6 @@ Le tableau ci-dessous capture la liste des attributs SuccessFactors pris en char
 | 77 | EmpEmploymentTermination               | activeEmploymentsCount       | Lire           |
 | 78 | EmpEmploymentTermination               | latestTerminationDate        | Lire           |
 
-
 ## <a name="default-attribute-mapping"></a>Mappage d’attributs par défaut
 
 Le tableau ci-dessous fournit le mappage des attributs par défaut entre les attributs SuccessFactors listés ci-dessus et les attributs AD/Azure AD. Dans le panneau « Mappage » de l’application de provisionnement Azure AD, vous pouvez modifier ce mappage par défaut pour inclure les attributs de la liste ci-dessus. 
@@ -138,4 +141,3 @@ Le tableau ci-dessous fournit le mappage des attributs par défaut entre les att
 | 18 | EmpJob\.Location                       | officeLocationAddress    | streetAddress                           | N/D                                                                                           |
 | 19 | EmpJob\.Location                       | officeLocationZipCode    | postalCode                              | N/D                                                                                           |
 | 20 | EmpEmploymentTermination               | activeEmploymentsCount   | accountEnabled                          | Si activeEmploymentsCount=0, désactivez account\.                                           |
-

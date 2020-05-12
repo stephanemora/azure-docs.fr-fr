@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 93c21656a768ae458572e0b4917412c8103b2f2d
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: dd23745f811cf67aa5e7ef7aa96b877b5980c270
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80992213"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793123"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -287,7 +287,7 @@ Si cette fonctionnalité est désactivée, les règles d’autorisation Azure RB
 
 ### <a name="what-is-the-best-way-to-apply-acls"></a>Quelle est la meilleure façon d’appliquer des ACL ?
 
-Utilisez toujours les groupes de sécurité Azure AD comme principal affecté dans les listes ACL. Résistez à la possibilité d’attribuer directement des utilisateurs ou des principaux de service individuels. L’utilisation de cette structure vous permettra d’ajouter et de supprimer des utilisateurs ou des principaux de service sans devoir réappliquer les ACL sur la structure de répertoires dans son ensemble. Au lieu de cela, vous devez simplement les ajouter ou les supprimer du groupe de sécurité Azure AD approprié. N’oubliez pas que les ACL ne sont pas héritées. Par conséquent, la réapplication des ACL requiert la mise à jour de ces dernières sur chaque fichier et sous-répertoire. 
+Utilisez toujours les groupes de sécurité Azure AD comme principal affecté dans les listes ACL. Résistez à la possibilité d’attribuer directement des utilisateurs ou des principaux de service individuels. L’utilisation de cette structure vous permettra d’ajouter et de supprimer des utilisateurs ou des principaux de service sans devoir réappliquer les ACL sur la structure de répertoires dans son ensemble. Au lieu de cela, vous devez simplement les ajouter ou les supprimer du groupe de sécurité Azure AD approprié. N’oubliez pas que les ACL ne sont pas héritées. Par conséquent, la réapplication des ACL requiert la mise à jour de ces dernières sur chaque fichier et sous-répertoire. 
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-directory-and-its-contents"></a>Quelles sont les autorisations nécessaires pour supprimer de manière récursive un répertoire et son contenu ?
 

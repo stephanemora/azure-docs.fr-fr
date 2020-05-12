@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/23/2020
-ms.openlocfilehash: 24fe11610d2a91fcdb0f09b8e45ea6ff4b81bd70
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 672fecc7487a73909efa5b4247f4889bb47b7b7e
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606382"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594319"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformation de recherche dans le flux de données de mappage
 
@@ -33,7 +33,7 @@ Une transformation de recherche est similaire à une jointure externe gauche. To
 
 **Correspond à plusieurs lignes :** Si cette option est activée, une ligne avec plusieurs correspondances dans le flux principal retourne plusieurs lignes. Dans le cas contraire, une seule ligne est retournée en fonction de la condition ’Match on'.
 
-**Correspond à :** Visible uniquement si « faire correspondre plusieurs lignes » est activé. Choisissez s’il faut faire correspondre sur n’importe quelle ligne, sur la première correspondance ou sur la dernière correspondance. Faire correspondre sur n’importe quelle ligne est recommandé, car c’est l’option qui s’exécute le plus rapidement. Si la première ligne ou la dernière ligne est sélectionnée, vous devez spécifier des conditions de tri.
+**Correspond à :** Visible uniquement si l’option « Correspond à plusieurs lignes » n’est pas sélectionnée. Choisissez s’il faut faire correspondre sur n’importe quelle ligne, sur la première correspondance ou sur la dernière correspondance. Faire correspondre sur n’importe quelle ligne est recommandé, car c’est l’option qui s’exécute le plus rapidement. Si la première ligne ou la dernière ligne est sélectionnée, vous devez spécifier des conditions de tri.
 
 **Conditions de recherche :** Choisissez les colonnes à faire correspondre. Si la condition d’égalité est remplie, les lignes sont considérées comme une correspondance. Pointez et sélectionnez « Colonne calculée » pour extraire une valeur à l’aide du [Langage d’expression des flux de données](data-flow-expression-functions.md).
 
@@ -55,11 +55,11 @@ Lorsque vous testez la transformation de recherche avec l’aperçu des données
 
 ## <a name="broadcast-optimization"></a>Optimisation de la diffusion
 
-Dans Azure Data Factory, les mappages de flux de données s’exécutent dans des environnements à grande échelle Spark. Si votre jeu de données peut tenir dans l’espace mémoire de nœud Worker, vous pouvez optimiser les performances de vos recherches en activant la diffusion.
-
 ![Jonction de diffusion](media/data-flow/broadcast.png "Jonction de diffusion")
 
-L’activation de la diffusion pousse l’ensemble du jeu de données en mémoire. Pour les jeux de données plus petits contenant uniquement quelques milliers de lignes, la diffusion peut améliorer les performances de recherche. Pour les jeux de données volumineux, cette option peut entraîner une exception de mémoire insuffisante.
+Dans les transformations de jointure, de recherche et d’existence, si l’un des flux de données ou les deux tiennent dans la mémoire de nœud Worker, vous pouvez optimiser les performances en activant la **diffusion**. Par défaut, le moteur Spark détermine automatiquement s’il faut diffuser un côté. Pour choisir manuellement le côté à diffuser, sélectionnez **Fixe**.
+
+Il n’est pas recommandé de désactiver la diffusion à l’aide de l’option **Désactivé** à moins que vos jointures ne rencontrent des erreurs de délai d’attente.
 
 ## <a name="data-flow-script"></a>Script de flux de données
 
@@ -72,10 +72,10 @@ L’activation de la diffusion pousse l’ensemble du jeu de données en mémoir
         multiple: { true | false },
         pickup: { 'first' | 'last' | 'any' },  ## Only required if false is selected for multiple
         { desc | asc }( <sortColumn>, { true | false }), ## Only required if 'first' or 'last' is selected. true/false determines whether to put nulls first
-        broadcast: { 'none' | 'left' | 'right' | 'both' }
+        broadcast: { 'auto' | 'left' | 'right' | 'both' | 'off' }
     ) ~> <lookupTransformationName>
 ```
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 ![Transformation de recherche](media/data-flow/lookup-dsl-example.png "Recherche")
 
@@ -86,7 +86,7 @@ SQLProducts, DimProd lookup(ProductID == ProductKey,
     multiple: false,
     pickup: 'first',
     asc(ProductKey, true),
-    broadcast: 'none')~> LookupKeys
+    broadcast: 'auto')~> LookupKeys
 ```
 ## 
 Étapes suivantes

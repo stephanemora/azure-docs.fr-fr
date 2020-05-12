@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 01/27/2020
+ms.date: 05/04/2020
 ms.author: banders
-ms.openlocfilehash: 4e7e9ea61d74eb38f3c225d66a39906bc18fe6d2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b198a781da6e18c363e90d8bd5314dafc563dcca
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200518"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791151"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transférer des abonnements Azure entre des abonnés et des CSP
 
@@ -50,6 +50,7 @@ Pour transférer tout autre abonnement d’un partenaire CSP vers une autre offr
 
 1. Créer des abonnements Azure cibles.
 1. Vérifiez que les abonnements source et cible sont dans le même locataire Azure Active Directory (Azure AD). Pour plus d’informations sur la modification d’un locataire Azure AD, consultez [Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+    Notez que l’annuaire à changer n’est pas celui de l’abonnement CSP. Par exemple, vous passez d’un abonnement CSP à un abonnement avec paiement à l’utilisation. Vous devez changer l’annuaire de l’abonnement Paiement à l’utilisation pour qu’il corresponde à l’annuaire CSP.
 
     > [!IMPORTANT]
     >  - Lorsque vous associez un abonnement à un autre annuaire, les utilisateurs auxquels des rôles ont été attribués à l’aide du [contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/role-assignments-portal.md) perdent leur accès. Les administrateurs d’abonnements classiques, entre autres les administrateurs de services et les coadministrateurs perdent également leur accès.

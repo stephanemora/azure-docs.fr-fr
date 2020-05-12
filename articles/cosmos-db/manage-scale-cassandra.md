@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: thvankra
-ms.openlocfilehash: 10d81de48c0d8f56c7c3fd26e3fd82a8c3df84c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13d7e0bfd3c7061d9dec68a1d14ff2a5e2c05fcd
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474677"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791253"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Mettre à l’échelle de manière élastique un compte d’API Cassandra Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Si vous avez besoin de réduire la latence, il existe un éventail d’options p
 * [Manuellement à l’aide du Portail Azure](#use-azure-portal)
 * [Par programmation à l’aide des fonctionnalités du plan de contrôle](#use-control-plane)
 * [Par programmation à l’aide de commandes CQL avec un Kit de développement logiciel (SDK) spécifique](#use-cql-queries)
-* [Dynamiquement à l’aide d’Autopilot](#use-autopilot)
+* [Dynamiquement à l’aide de la mise à l’échelle automatique](#use-autoscale)
 
 Les sections suivantes expliquent les avantages et les inconvénients de chaque approche. Vous pouvez ensuite décider de la meilleure stratégie pour équilibrer les besoins de mise à l’échelle de votre système, le coût global et les besoins d’efficacité de votre solution.
 
@@ -50,19 +50,19 @@ L’API d’Azure Cosmos DB pour Cassandra offre la possibilité d’ajuster le 
 
 L’avantage de cette méthode est que vous pouvez automatiser l’augmentation ou la diminution des ressources en fonction d’une minuterie pour tenir compte des pics d’activité ou des périodes de faible activité. Jetez un coup d’œil à notre exemple [ici](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) pour savoir comment y parvenir à l’aide d’Azure Functions et de PowerShell.
 
-L’inconvénient de cette approche est que vous ne pouvez pas répondre à des besoins de mise à l’échelle fluctuants imprévisibles en temps réel. Au lieu de cela, vous devrez peut-être tirer parti du contexte de l’application dans votre système, au niveau du client ou du Kit de développement logiciel (SDK), ou à l’aide d’[Autopilot](provision-throughput-autopilot.md).
+L’inconvénient de cette approche est que vous ne pouvez pas répondre à des besoins de mise à l’échelle fluctuants imprévisibles en temps réel. Au lieu de cela, vous devrez peut-être tirer parti du contexte de l’application dans votre système, au niveau du client ou du Kit de développement logiciel (SDK), ou à l’aide de la [mise à l’échelle automatique](provision-throughput-autoscale.md).
 
 ## <a name="use-cql-queries-with-a-specific-sdk"></a><a id="use-cql-queries"></a>Utiliser des requêtes CQL avec un Kit de développement logiciel (SDK) spécifique
 
 Vous pouvez mettre le système à l’échelle dynamiquement avec du code en exécutant les [commandes CQL ALTER](cassandra-support.md#keyspace-and-table-options) pour la base de données ou le conteneur donné.
 
-L’avantage de cette approche est qu’elle vous permet de répondre aux besoins de mise à l’échelle de façon dynamique et de manière personnalisée et adaptée à votre application. Avec cette approche, vous pouvez toujours tirer parti des frais et tarifs de RU/s Standard. Si les besoins de mise à l’échelle de votre système sont prévisibles pour la plupart (environ 70 % ou plus), l’utilisation du Kit de développement logiciel (SDK) avec CQL peut être une méthode de mise à l’échelle automatique plus économique que l’utilisation d’Autopilot. L’inconvénient de cette approche est qu’elle peut être assez complexe d’implémenter de nouvelles tentatives alors que la limitation du débit peut augmenter la latence.
+L’avantage de cette approche est qu’elle vous permet de répondre aux besoins de mise à l’échelle de façon dynamique et de manière personnalisée et adaptée à votre application. Avec cette approche, vous pouvez toujours tirer parti des frais et tarifs de RU/s Standard. Si les besoins de mise à l’échelle de votre système sont prévisibles pour la plupart (environ 70 % ou plus), l’utilisation du Kit de développement logiciel (SDK) avec CQL peut être une méthode de mise à l’échelle automatique plus économique que l’utilisation de la mise à l’échelle automatique. L’inconvénient de cette approche est qu’elle peut être assez complexe d’implémenter de nouvelles tentatives alors que la limitation du débit peut augmenter la latence.
 
-## <a name="use-autopilot"></a><a id="use-autopilot"></a>Utiliser Autopilot
+## <a name="use-autoscale-provisioned-throughput"></a><a id="use-autoscale">Utiliser le débit approvisionné en mode de mise à l’échelle automatique</a>
 
-En plus de la façon manuelle ou par programmation d’approvisionner le débit, vous pouvez également configurer des conteneurs Azure Cosmos en mode Autopilot. Le mode Autopilot s’adapte automatiquement et instantanément à vos besoins en matière de consommation dans les limites RU spécifiées, sans compromettre les SLA. Pour en savoir plus, consultez l’article [Créer des conteneurs et des bases de données Azure Cosmos en mode Autopilot](provision-throughput-autopilot.md).
+En plus de la façon standard (manuelle) ou par programmation d’approvisionner le débit, vous pouvez également configurer des conteneurs Azure Cosmos avec le débit approvisionné en mode de mise à l’échelle automatique. La mise à l’échelle automatique s’adapte automatiquement et instantanément à vos besoins en matière de consommation dans les limites RU spécifiées, sans compromettre les SLA. Pour en savoir plus, consultez l’article [Créer des conteneurs et des bases de données Azure Cosmos en mise à l’échelle automatique](provision-throughput-autoscale.md).
 
-L’avantage de cette approche est qu’il s’agit du moyen le plus simple de gérer les besoins de mise à l’échelle dans votre système. Elle garantit de ne pas appliquer de limitation du débit **dans les plages RU configurées**. L’inconvénient est que, si les besoins en matière de mise à l’échelle dans votre système sont prévisibles, Autopilot peut être un moyen plus onéreux de gérer vos besoins de mise à l’échelle que d’utiliser les approches du plan de contrôle ou du Kit de développement logiciel (SDK) mentionnées ci-dessus.
+L’avantage de cette approche est qu’il s’agit du moyen le plus simple de gérer les besoins de mise à l’échelle dans votre système. Elle garantit de ne pas appliquer de limitation du débit **dans les plages RU configurées**. L’inconvénient est que, si les besoins en matière de mise à l’échelle dans votre système sont prévisibles, la mise à l’échelle automatique peut être un moyen plus onéreux de gérer vos besoins de mise à l’échelle que d’utiliser les approches du plan de contrôle ou du Kit de développement logiciel (SDK) mentionnées ci-dessus.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

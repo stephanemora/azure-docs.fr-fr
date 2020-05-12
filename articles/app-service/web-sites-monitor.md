@@ -4,15 +4,15 @@ description: Découvrez comment superviser les applications dans Azure App Servi
 author: btardif
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d84340730391abd7dba4d13202503d37941c09b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7205f8a842f2086b1cf3a6bbf76c2df48ed679e9
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500423"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738097"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Superviser les applications dans Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) fournit des fonctionnalités de supervision intégrées pour les applications web, mobiles et d’API dans le [portail Azure](https://portal.azure.com).
@@ -49,7 +49,7 @@ Si une application dépasse le quota *Temps UC (court)* , *Temps UC (jour)* ou
 
 ![Message d’erreur 403][http403]
 
-Si le quota Mémoire d’une application est dépassé, l’application est redémarrée.
+Si le quota Mémoire d’une application est dépassé, l’application est arrêtée temporairement.
 
 En cas de dépassement du quota Système de fichiers, toute opération d’écriture échoue. Les échecs des opérations d’écriture incluent toutes les écritures dans les journaux d’activité.
 
@@ -131,11 +131,7 @@ Deux métriques reflètent l’utilisation du processeur  :
 **Pourcentage processeur** : Utile pour les applications hébergées dans des plans De base, Standard et Premium qui peuvent faire l’objet d’un scale-out. Le pourcentage CPU est une bonne indication de l’utilisation globale de toutes les instances.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Granularité des métriques et stratégie de conservation
-Les métriques d’une application et d’un plan App Service sont journalisées et agrégées par le service avec les granularités et les stratégies de conservation suivantes :
-
-* Les métriques de granularité **Minute** sont conservées 30 heures.
-* Les métriques de granularité **Hour** sont conservées 30 jours.
-* Les métriques de granularité **Day** sont conservées 30 jours.
+Les métriques d’une application et d’un plan App Service sont consignées et agrégées par le service et [conservées conformément à ces règles](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics).
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Supervision des quotas et des métriques dans le portail Azure
 Pour examiner l’état des différents quotas et métriques qui affectent une application, accédez au [portail Azure](https://portal.azure.com).

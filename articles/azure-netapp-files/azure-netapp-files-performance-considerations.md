@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 97e3c6212edd2ade4eabb96db3543e9b3b68e2ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4badf550809df6cc63711c47e6e6f5b3690fdfca
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67454660"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691312"
 ---
 # <a name="performance-considerations-for-azure-netapp-files"></a>Considérations sur les performances pour Azure NetApp Files
 
@@ -34,8 +34,6 @@ Les considérations sur les performances de stockage typiques, dont les mélange
 Le débit empirique maximal ayant été observé lors des tests est de 4 500 Mio/s.  Sur le niveau de stockage Premium, un quota de 70,31 Tio de volume configure une limite de débit suffisamment élevée pour atteindre ce niveau de performances.  
 
 Si vous envisagez d’affecter des montants de quota supérieurs à 70,31 Tio, un quota supplémentaire peut être affecté à un volume pour stocker des données supplémentaires. Toutefois, le quota ajouté n’entraîne pas une augmentation du débit réel.  
-
-Consultez [Tests de performances pour Azure NetApp Files](azure-netapp-files-performance-benchmarks.md) pour plus d’informations.
 
 ## <a name="overprovisioning-the-volume-quota"></a>Sur-approvisionnement du quota de volume
 
@@ -64,4 +62,4 @@ Si vos exigences de performances sont temporaires par nature, ou si vous avez au
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Niveaux de service pour Azure NetApp Files](azure-netapp-files-service-levels.md)
-- [Tests de performances pour Azure NetApp Files](azure-netapp-files-performance-benchmarks.md)
+- [Test d’évaluation des performances pour Linux](performance-benchmarks-linux.md)

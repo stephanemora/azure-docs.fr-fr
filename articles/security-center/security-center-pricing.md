@@ -11,25 +11,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2019
+ms.date: 04/28/2020
 ms.author: memildin
-ms.openlocfilehash: fd84058c8421d144678c91fac3e5671511d0fd4a
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 2eb302462e402e701cc5ae664239c457c90ab1b9
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435500"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612790"
 ---
 # <a name="upgrade-to-standard-tier-for-enhanced-security"></a>Passer au niveau Standard pour une sécurité renforcée
+
 Azure Security Center fournit une gestion unifiée de la sécurité et une protection avancée contre les menaces pour les charges de travail s’exécutant dans Azure, en local et dans d’autres clouds. Il fournit une visibilité et un contrôle sur les charges de travail cloud hybrides, des défenses actives qui réduisent votre exposition aux menaces et une détection intelligente pour vous aider à suivre le rythme des cyberattaques en constante évolution.
 
 ## <a name="pricing-tiers"></a>Niveaux de tarification
 Security Center est proposé en deux niveaux :
 
-- Le niveau **Gratuit** est activé sur tous vos abonnements Azure après votre première consultation du tableau de bord Azure Security Center dans le Portail Azure. Il peut aussi être activé par programme via une API. Le niveau Gratuit vous donne accès à une stratégie de sécurité, à une fonctionnalité d'évaluation en continu de la sécurité et à des recommandations de sécurité exploitables pour vous aider à protéger vos ressources Azure.
-- Le niveau **Standard** étend les fonctionnalités du niveau Gratuit aux charges de travail s’exécutant en privé et sur d’autres clouds publics, fournissant une gestion unifiée de la sécurité et une protection contre les menaces dans l’ensemble de vos charges de travail cloud hybrides. Le niveau Standard comprend également des capacités de protection contre les menaces, qui utilisent des fonctionnalités intégrées d’analytique des comportements et de Machine Learning pour identifier les attaques et les vulnérabilités zero-day, des contrôles d’accès et d’application pour réduire l’exposition aux attaques réseau et aux programmes malveillants, et bien plus encore. En outre, le niveau Standard ajoute une analyse des vulnérabilités pour vos machines virtuelles. Vous pouvez essayer le niveau Standard gratuitement. Le niveau Standard de Security Center prend en charge les ressources Azure, notamment les machines virtuelles, les groupes de machines virtuelles identiques, App Service, les serveurs SQL et les comptes de stockage. Si vous disposez d’Azure Security Center Standard, vous pouvez refuser la prise en charge en fonction du type de ressource. 
+- Le niveau **Gratuit** est activé sur tous vos abonnements Azure quand vous consultez pour la première fois le tableau de bord Azure Security Center dans le portail Azure. Il peut aussi être activé par programmation par le biais d’une API. Le niveau Gratuit vous donne accès à une stratégie de sécurité, à une fonctionnalité d'évaluation en continu de la sécurité et à des recommandations de sécurité exploitables pour vous aider à protéger vos ressources Azure.
 
-La plupart des évaluations de sécurité de niveau Gratuit pour les machines virtuelles, ainsi que la plupart des alertes de sécurité de niveau Standard, nécessitent l’installation de l’agent Log Analytics. Vous pouvez activer l’approvisionnement automatique sur Security Center afin de déployer automatiquement l’agent pour vos machines virtuelles Azure.
+- Le niveau **Standard** étend les fonctionnalités du niveau Gratuit aux charges de travail exécutées dans des clouds privés et dans d’autres clouds publics, pour une gestion unifiée de la sécurité et une protection contre les menaces sur l’ensemble des charges de travail de cloud hybride. Le niveau Standard comprend également des capacités de protection contre les menaces, qui utilisent des fonctionnalités intégrées d’analytique des comportements et de Machine Learning pour identifier les attaques et les vulnérabilités zero-day, des contrôles d’accès et d’application pour réduire l’exposition aux attaques réseau et aux programmes malveillants, et bien plus encore. En outre, le niveau Standard ajoute une analyse des vulnérabilités pour vos machines virtuelles. Vous pouvez essayer le niveau Standard gratuitement. Le niveau Standard de Security Center prend en charge les ressources Azure, notamment les machines virtuelles, les groupes de machines virtuelles identiques, App Service, les serveurs SQL et les comptes de stockage. Si vous disposez d’Azure Security Center Standard, vous pouvez refuser la prise en charge en fonction du type de ressource. 
+
+La plupart des évaluations de sécurité de niveau Gratuit pour les machines virtuelles, ainsi que la plupart des alertes de sécurité de niveau Standard, nécessitent l’installation de l’agent Log Analytics. Vous pouvez activer le provisionnement automatique sur Security Center afin de déployer automatiquement l’agent sur vos machines virtuelles Azure.
 
 ## <a name="try-standard-tier-free-for-30-days"></a>Essayer gratuitement le niveau Standard pendant 30 jours
 Le niveau Standard est gratuit les 30 premiers jours. Une fois ces 30 jours écoulés, si vous décidez de continuer à utiliser le service, votre utilisation est automatiquement facturée.
@@ -47,8 +49,12 @@ Pour obtenir le niveau Standard :
 [![Tarification de Security Center](media/security-center-pricing/pricing-tier-page.png)](media/security-center-pricing/pricing-tier-page.png#lightbox)
 
 > [!NOTE]
-> Pour activer toutes les fonctionnalités de Security Center, vous devez appliquer le niveau tarifaire Standard à l’abonnement contenant les machines virtuelles concernées. La configuration du tarif pour un espace de travail n’active pas l’accès juste-à-temps à la machine virtuelle, les contrôles d’application adaptatifs et les détections réseau pour les ressources Azure.
+> Pour activer toutes les fonctionnalités de Security Center, notamment les capacités de protection contre les menaces, vous devez appliquer le niveau tarifaire Standard à l’abonnement contenant les charges de travail concernées. La configuration du tarif pour un espace de travail n’active pas l’accès juste-à-temps à la machine virtuelle, les contrôles d’application adaptatifs et les détections réseau pour les ressources Azure. 
 >
+> Vous pouvez activer la protection contre les menaces pour des **comptes Stockage Azure** au niveau de l’abonnement ou de la ressource.
+> Vous pouvez activer la protection contre les menaces pour des **serveurs SQL Azure SQL Database** au niveau de l’abonnement ou de la ressource.
+> Vous pouvez activer la protection contre les menaces pour **Azure Database for MariaDB/Azure Database pour MySQL/Azure Database pour PostgreSQL** au niveau de la ressource uniquement.
+
 
 ## <a name="why-upgrade-to-standard"></a>Pourquoi passer au niveau Standard ?
 Security Center offre une sécurité renforcée et une meilleure protection contre les menaces à vos charges de travail cloud hybrides, y compris :

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
-ms.openlocfilehash: 54a6f875bc33d24d412d2424c634d1019b4af399
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6cd2a28ddbe970385ff44deec2158c257937982e
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670115"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82591650"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Vue d’ensemble des requêtes de journal dans Azure Monitor
 Les requêtes de journal vous aident à tirer pleinement parti de la valeur des données collectées dans les [journaux Azure Monitor](../platform/data-platform-logs.md). Un puissant langage de requête vous permet de joindre des données provenant de plusieurs tables, d’agréger des jeux de données volumineux et d’effectuer des opérations complexes avec un minimum de code. Vous pouvez répondre à pratiquement n’importe quelle question et effectuer n’importe quelle analyse tant que les données de soutien ont été collectées et que vous comprenez comment construire la bonne requête.
@@ -81,7 +81,7 @@ Log Analytics est le principal outil dans le portail Azure pour l’écriture de
 Vous pouvez démarrer Log Analytics à partir de plusieurs endroits dans le portail Azure. L’étendue des données disponibles pour Log Analytics est déterminée par la façon dont vous le démarrez. Consultez [Étendue de requête](scope.md) pour plus d’informations.
 
 - Sélectionnez **Journaux** dans le menu **Azure Monitor** ou **Espaces de travail Log Analytics**.
-- Sélectionnez **Analytique** à partir de la page **Vue d’ensemble** d’une application Application Insights.
+- Sélectionnez **Journaux** à partir de la page **Vue d’ensemble** d’une application Application Insights.
 - Sélectionnez **Journaux** dans le menu d’une ressource Azure.
 
 ![Log Analytics](media/log-query-overview/log-analytics.png)

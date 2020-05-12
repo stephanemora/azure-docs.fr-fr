@@ -3,12 +3,12 @@ title: Vue d’ensemble des coffres Recovery Services
 description: Vue d’ensemble et comparaison entre les coffres Recovery Services et les coffres de sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: e6a359287533c9ffdd688b5285b24b9c70fa7b7f
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: a0dacd82b7cf4258c0147bbaf9dc39ee6fc0fa25
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436961"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597946"
 ---
 # <a name="recovery-services-vaults-overview"></a>Vue d’ensemble des coffres Recovery Services
 
@@ -79,6 +79,14 @@ Les sections suivantes contiennent des liens vers des articles qui expliquent co
 ### <a name="secure-the-vault"></a>Sécuriser le coffre
 
 - [Sécurisation des données de sauvegarde cloud dans des coffres Recovery Services](backup-azure-security-feature.md)
+
+## <a name="azure-advisor"></a>Azure Advisor
+
+[Azure Advisor](https://docs.microsoft.com/azure/advisor/) est un consultant cloud personnalisé qui permet d’optimiser l’utilisation d’Azure. Il analyse votre utilisation d’Azure et fournit des recommandations en temps utile pour vous permettre d’optimiser et de sécuriser vos déploiements. Les recommandations sont divisées en quatre catégories : Haute disponibilité, sécurité, performances et coût.
+
+Azure Advisor fournit des [recommandations](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations#protect-your-virtual-machine-data-from-accidental-deletion) toutes les heures pour les machines virtuelles qui ne sont pas sauvegardées. Ainsi, vous ne risquez pas d’oublier de sauvegarder des machines virtuelles importantes. Vous pouvez également contrôler les recommandations en les répétant.  Vous pouvez cliquer sur la recommandation et activer la sauvegarde sur les machines virtuelles en ligne en spécifiant le coffre (où les sauvegardes vont être stockées) et la stratégie de sauvegarde (planification des sauvegardes et conservation des copies de sauvegarde).
+
+![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

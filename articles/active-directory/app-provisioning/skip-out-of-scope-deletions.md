@@ -1,26 +1,22 @@
 ---
-title: Ignorer la suppression d’utilisateurs hors étendue | Microsoft Docs
+title: Ignorer la suppression des utilisateurs qui sortent de l’étendue
 description: Découvrez comment remplacer le comportement par défaut de déprovisionnement des utilisateurs hors étendue.
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: daveba
-ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/10/2019
 ms.author: chmutali
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1668c022a0f067a381ba09b397c7d38c99ad074
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: celested
+ms.openlocfilehash: 5f17886736efb87cf44bc54c82ccca794482a093
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77522447"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593265"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Ignorer la suppression des comptes d’utilisateurs qui sortent de l’étendue
 

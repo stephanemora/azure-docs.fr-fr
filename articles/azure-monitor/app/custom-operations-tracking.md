@@ -4,12 +4,12 @@ description: Suivi des opérations personnalisées avec le kit SDK .NET d’Azur
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 31c1fb366e7b109ea1fa4977d8e2f908e766e0f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 316c1b7ea32f661b009bfee7a89cb7e5ed082f3b
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234737"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690861"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Suivi des opérations personnalisées avec le kit SDK .NET d’Application Insights
 
@@ -38,7 +38,7 @@ Voyons à présent comment ces opérations pourraient être suivies.
 À un niveau élevé, la tâche consiste à créer `RequestTelemetry` et à définir les propriétés connues. Une fois l’opération terminée, vous réalisez un suivi de la télémétrie. L’exemple suivant illustre ce cas de figure.
 
 ### <a name="http-request-in-owin-self-hosted-app"></a>Requête HTTP dans une application Owin auto-hébergée
-Dans cet exemple, le contexte du suivi est propagé conformément au[ protocole HTTP de corrélation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Attendez-vous à recevoir les en-têtes décrites ici.
+Dans cet exemple, le contexte du suivi est propagé conformément au[ protocole HTTP de corrélation](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Attendez-vous à recevoir les en-têtes décrites ici.
 
 ```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
@@ -117,7 +117,7 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 Le protocole HTTP pour la corrélation déclare également l’en-tête `Correlation-Context`. Toutefois, il est omis ici par souci de simplicité.
 
 ## <a name="queue-instrumentation"></a>Instrumentation des files d’attente
-Bien qu’il existe une norme [W3C Trace Context](https://www.w3.org/TR/trace-context/) et un [protocole HTTP pour la corrélation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) pour transmettre les détails de la corrélation avec la requête HTTP, chaque protocole de file d’attente doit définir la façon dont ces détails seront transmis à travers le message de file d’attente. Certains protocoles de file d’attente (par exemple, AMQP) autorisent la transmission de métadonnées supplémentaires, tandis que d’autres (tels que la file d'attente Stockage Azure) nécessitent le contexte à encoder dans la charge utile de message.
+Bien qu’il existe une norme [W3C Trace Context](https://www.w3.org/TR/trace-context/) et un [protocole HTTP pour la corrélation](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) pour transmettre les détails de la corrélation avec la requête HTTP, chaque protocole de file d’attente doit définir la façon dont ces détails seront transmis à travers le message de file d’attente. Certains protocoles de file d’attente (par exemple, AMQP) autorisent la transmission de métadonnées supplémentaires, tandis que d’autres (tels que la file d'attente Stockage Azure) nécessitent le contexte à encoder dans la charge utile de message.
 
 > [!NOTE]
 > * **Le suivi de plusieurs composants n’est pas encore pris en charge pour les files d’attente** Avec HTTP, si votre producteur et votre consommateur envoient des données de télémétrie à différentes ressources Application Insights, Transaction Diagnostics Experience et Application Map affichent les transactions et le mappage de bout en bout. En cas de files d'attente, cette fonctionnalité n'est pas encore prise en charge. 
@@ -482,4 +482,4 @@ Chaque opération Application Insights (requête ou dépendance) implique `Activ
 - Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](../../azure-monitor/app/data-model.md).
 - Signalez les [événements et métriques](../../azure-monitor/app/api-custom-events-metrics.md) à Application Insights .
 - Découvrez la [configuration](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) standard de la collection de propriétés de contexte.
-- Consultez le [Guide de l’utilisateur System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) pour voir comment mettre en corrélation les données de télémétrie.
+- Consultez le [Guide de l’utilisateur System.Diagnostics.Activity](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) pour voir comment mettre en corrélation les données de télémétrie.

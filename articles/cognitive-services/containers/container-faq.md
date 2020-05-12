@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 8aae650065e8de11ccdc55a8a056c379a219fcb4
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: faae149cc6cfe9140f7e6908f5eb92d3031ef6d8
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80876504"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690818"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Questions fréquentes (FAQ) sur les conteneurs Azure Cognitive Services
 
@@ -76,7 +76,11 @@ Malheureusement, les conteneurs Cognitive Services *ne sont pas* pris en charge 
 
 **Q : Comment dois-je exécuter les conteneurs Cognitive Services sur des appareils IoT ?**
 
-Vous ne disposez peut-être pas d’une connexion Internet fiable ou vous souhaitez réduire le coût de la bande passante. Si vous avez besoin d’une latence faible ou si vous traitez des données sensibles qui doivent être analysées localement, consultez [Azure IoT Edge avec des conteneurs Cognitive Services](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) pour bénéficier d’une solution cohérente avec le cloud.
+**R :** Vous ne disposez peut-être pas d’une connexion Internet fiable ou vous souhaitez réduire le coût de la bande passante. Si vous avez besoin d’une latence faible ou si vous traitez des données sensibles qui doivent être analysées localement, consultez [Azure IoT Edge avec des conteneurs Cognitive Services](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) pour bénéficier d’une solution cohérente avec le cloud.
+
+**Q : Ces conteneurs sont-ils compatibles avec OpenShift ?** 
+
+Nous ne testons pas les conteneurs avec OpenShift, mais en général, les conteneurs Cognitive Services doivent pouvoir s’exécuter sur n’importe quelle plateforme prenant en charge les images Docker. Si vous utilisez OpenShift, nous vous recommandons d’exécuter les conteneurs en tant que `root-user`.
 
 **Q : Comment indiquer des commentaires sur le produit et suggérer des fonctionnalités ?**
 

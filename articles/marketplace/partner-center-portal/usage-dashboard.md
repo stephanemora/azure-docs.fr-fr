@@ -1,31 +1,31 @@
 ---
-title: Tableau de bord Utilisation de l’analytique de la Place de marché commerciale dans l’Espace partenaires
-description: Découvrez comment consulter toutes les métriques d’utilisation des offres de machines virtuelles et de leur facturation à l’usage.
+title: Tableau de bord Utilisation de l’analytique de la Place de marché commerciale
+description: Découvrez comment consulter toutes les métriques d’utilisation des offres de machines virtuelles et de leur facturation à l’usage. Accédez au tableau de bord Utilisation de l’Espace partenaires sous la Place de marché commerciale.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 33762540d14ea51e8325abe9a466007cd7cca748
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 89a0a782b4a18b71f7be8bcdd3728fd008c24d5a
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262177"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793004"
 ---
-# <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Utilisation de l’analytique de la Place de marché commerciale
+# <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Tableau de bord Utilisation de l’analytique de la Place de marché commerciale Microsoft
 
 Cet article fournit des informations sur le tableau de bord Utilisation de l’Espace partenaires. Ce tableau de bord affiche toutes les métriques d’utilisation et de facturation à l’usage des machines virtuelles dans deux onglets distincts : Utilisation de machine virtuelle et Utilisation de la facturation mesurée.
 
-Pour accéder au tableau de bord Utilisation, ouvrez le tableau de bord **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** sous la Place de marché commerciale.
+Pour accéder au tableau de bord Utilisation, ouvrez le tableau de bord **[Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** sous la **Place de marché commerciale**.
 
 >[!NOTE]
-> Pour accéder aux définitions détaillées de la terminologie d’analytique, consultez [Questions fréquentes et terminologie pour l’analytique de la Place de marché commerciale](./faq-terminology.md).
+> Pour avoir des définitions détaillées des termes d’analytique, consultez [Questions fréquentes et terminologie relatives à l’analytique de la Place de marché commerciale](./faq-terminology.md).
 
 ## <a name="usage-dashboard"></a>Tableau de bord de l’utilisation
 
-Le tableau de bord Utilisation affiche les métriques relatives à l’utilisation de toutes les offres de machines virtuelles et à l’utilisation de la facturation à l’usage. Ces métriques sont présentées dans deux onglets distincts : Utilisation de machine virtuelle et Utilisation de la facturation mesurée.
+Le tableau de bord Utilisation affiche les métriques relatives à l’utilisation de toutes les offres de machines virtuelles et à l’utilisation de la facturation basée sur des mesures. Ces métriques se trouvent sous deux onglets distincts : Utilisation de machine virtuelle et Utilisation de la facturation mesurée.
 
 L’onglet Utilisation de machine virtuelle comporte des représentations graphiques des éléments suivants :
 
@@ -58,13 +58,13 @@ La carte thermique de l’**utilisation normalisée par zone géographique** aff
 
 ### <a name="usage-by-offers"></a>Utilisation par offres
 
-- Le graphique en secteurs de l’**utilisation normalisée par offres** affiche une répartition des heures d’utilisation normalisée des offres en fonction de la plage de dates sélectionnée. Les cinq premières offres sont affichées dans le graphique. Les autres offres sont regroupées dans la catégorie « Tout le reste ».
+- Le graphique en secteurs de l’**utilisation normalisée par offres** affiche une répartition des heures d’utilisation normalisée des offres en fonction de la plage de dates sélectionnée. Les cinq premières offres sont affichées dans le graphique. Les autres offres sont regroupées dans la catégorie **Tout le reste**.
 - Le graphique à barres représente la tendance de croissance mois par mois pour la plage de dates sélectionnée. Les colonnes de mois représentent les heures d’utilisation des offres les plus utilisées (en nombre d’heures) durant le mois respectif. Le graphique en courbes illustre la tendance du pourcentage de croissance tracée sur l’axe Y secondaire.
 - Utilisez le curseur en haut du graphique pour faire défiler de droite à gauche le long de l’axe X et/ou vous concentrer sur des points de données spécifiques.
 
 ### <a name="usage-trend-by-offers-and-skus"></a>Tendance d’utilisation par offres et références SKU
 
-Ce graphique montre la tendance de l’utilisation normalisée des références SKU sélectionnées d’une offre. Le leaderboard des offres liste les 50 offres enregistrant la plus forte utilisation, classées en fonction du nombre d’heures d’utilisation. Le leaderboard des références SKU liste les 50 références SKU les plus utilisées pour l’offre sélectionnée.
+Ce graphique montre la tendance de l’utilisation normalisée des références SKU sélectionnées d’une offre. Le leaderboard des offres affiche les 50 offres enregistrant la plus forte utilisation, classées par heures d’utilisation. Le leaderboard des références SKU liste les 50 références SKU les plus utilisées pour l’offre sélectionnée.
 
 ### <a name="usage-by-offer-type"></a>Utilisation par type d’offre
 
@@ -91,13 +91,13 @@ Le **tableau des détails de l’utilisation** affiche une liste numérotée des
 
 - Chaque colonne de la grille peut être triée.
 - Les données peuvent être extraites dans un fichier CSV si le nombre d’enregistrements est inférieur à 1 000.
-- Si le nombre d’enregistrements dépasse 1 000, les données sont exportées de manière asynchrone vers une page de téléchargements qui restera disponible pendant une période de 30 jours.
+- Si le nombre d’enregistrements dépasse 1 000, les données sont exportées de manière asynchrone dans une page de téléchargements qui restera disponible pendant une période de 30 jours.
 - Vous pouvez appliquer des filtres aux **données d’utilisation détaillées** pour afficher uniquement les données qui vous intéressent. Les données peuvent être filtrées par pays, canal de vente, type de licence Place de marché, type d’utilisation, nom d’offre, type d’offre, essais gratuits, ID d’abonnement Place de marché, ID client et nom de société.
 
 > [!NOTE]
 > Sélectionnez le **type d’utilisation** dans le filtre de page pour afficher les graphiques en « vue normalisée » ou en « vue brute ». La « vue normalisée » est la vue utilisée par défaut pour ces graphiques.
 
-Les **filtres de la page Utilisation** sont appliqués au niveau de la page. Vous pouvez sélectionner plusieurs filtres afin d’afficher le graphique selon les critères souhaités et pour les données qui vous intéressent dans la grille ou l’exportation « Données d’utilisation détaillées ». Les filtres sont appliqués aux données extraites pour la plage de données que vous avez sélectionnée dans l’angle supérieur droit de la page Commandes.
+Les **filtres de la page Utilisation** sont appliqués au niveau de la page. Vous pouvez sélectionner plusieurs filtres afin d’afficher le graphique selon les critères souhaités et pour les données qui vous intéressent dans la grille ou l’exportation « Données d’utilisation détaillées ». Les filtres sont appliqués aux données extraites pour la plage de données sélectionnée dans l’angle supérieur droit de la page Commandes.
 
 - Les **types d’offres** et les **noms des offres** sont indiqués seulement pour les offres que vous avez achetées au cours de la période sélectionnée. Les noms d’offres de la liste s’affichent pour les types d’offres qui sont sélectionnés dans la liste.
 - La sélection par défaut est « Tout » pour chacune des options de filtre, à l’exception de **Type d’utilisation**. Pour **Type d’utilisation**, l’utilisation normalisée est sélectionnée par défaut. Pour afficher l’utilisation brute dans les graphiques, sélectionnez « utilisation brute ».
@@ -119,9 +119,9 @@ L’onglet **Utilisation de la facturation mesurée** contient des informations 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour une vue d’ensemble des rapports d’analytique disponibles sur la Place de marché commerciale de l’Espace partenaires, consultez [Analytique de la place de marché commerciale dans l’Espace partenaires](./analytics.md).
-- Pour consulter les graphes, tendances et valeurs des données agrégées qui résument l’activité de la Place de marché pour vos offres, consultez [Tableau de bord Résumé dans l’analytique de la place de marché commerciale](./summary-dashboard.md).
+- Pour consulter les graphes, tendances et valeurs des données agrégées qui résument l’activité de la Place de marché pour vos offres, consultez [Tableau de bord Résumé dans l’analytique de la Place de marché commerciale](./summary-dashboard.md).
 - Pour plus d’informations sur vos commandes dans un format graphique et téléchargeable, consultez [Tableau de bord des commandes dans l’analytique de la place de marché commerciale](./orders-dashboard.md).
 - Pour des informations détaillées sur vos clients, y compris les tendances de croissance, consultez [Tableau de bord client dans l’analytique de la place de marché commerciale](./customer-dashboard.md).
-- Pour obtenir la liste de vos demandes de téléchargement des 30 derniers jours, consultez [Tableau de bord des téléchargements dans l’analytique de la place de marché commerciale](./downloads-dashboard.md).
-- Pour une vue centralisée des commentaires clients sur les offres de la Place de marché Azure et AppSource, consultez [Tableau de bord Évaluations et avis dans l’analytique de la place de marché commerciale](./ratings-reviews.md).
+- Pour obtenir la liste de vos demandes de téléchargement des 30 derniers jours, consultez [Tableau de bord des téléchargements dans l’analytique de la Place de marché commerciale](./downloads-dashboard.md).
+- Pour une vue centralisée des commentaires clients sur les offres de Microsoft AppSource et de la Place de marché Azure, consultez [Tableau de bord Évaluations et avis dans l’analytique de la Place de marché commerciale](./ratings-reviews.md).
 - Pour voir les questions fréquentes sur l’analytique de la place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Questions fréquentes et terminologie pour l’analytique de la place de marché commerciale](./faq-terminology.md).

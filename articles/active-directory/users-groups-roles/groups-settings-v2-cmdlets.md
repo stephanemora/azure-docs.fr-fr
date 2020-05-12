@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6478656855e29ada829db4356f976b2f04ceb83a
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: cc12e571ca955a0ddc47e1c1dd73c2717161df4b
+ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582762"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82739311"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets d’Azure Active Directory version 2 pour la gestion de groupe
 
@@ -51,6 +51,10 @@ Pour vérifier que le module est prêt à l’emploi, utilisez la commande suiva
 ```
 
 Vous pouvez désormais utiliser les applets de commande dans le module. Pour obtenir une description complète des applets de commande du module Azure AD, consultez la documentation de référence en ligne pour [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0).
+
+> [!NOTE]
+> Les cmdlets Azure AD PowerShell ne fonctionnent pas avec le nouveau PowerShell 7, car celui-ci est basé sur .NET Core. Nous sommes conscients qu’il s’agit d’un processus de mise à jour. À ce stade, nous vous suggérons d’utiliser le module Windows PowerShell 5.x pour les opérations Azure AD PowerShell. 
+
 
 ## <a name="connect-to-the-directory"></a>Se connecter à l’annuaire
 

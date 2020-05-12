@@ -1,6 +1,6 @@
 ---
-title: Ajouter ou supprimer des attributions de rôle avec le contrôle d’accès en fonction du rôle et Azure PowerShell
-description: Découvrez comment accorder l’accès aux ressources Azure pour les utilisateurs, groupes, principaux de service ou identités managées à l’aide du contrôle d’accès en fonction du rôle (RBAC) Azure et d’Azure PowerShell.
+title: Ajouter ou supprimer des attributions de rôles Azure à l’aide d’Azure PowerShell - RBAC Azure
+description: Découvrez comment accorder l’accès aux ressources Azure pour les utilisateurs, groupes, principaux de service ou identités managées à l’aide d’Azure PowerShell et du contrôle d’accès en fonction du rôle (RBAC) Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 68a73f622dc69b70870ddc1db16edcf406b63800
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db6b38f142254fa1812f34674e6a870629713d7e
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236925"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735655"
 ---
-# <a name="add-or-remove-role-assignments-using-azure-rbac-and-azure-powershell"></a>Ajouter ou supprimer des attributions de rôles à l’aide du RBAC Azure et d’Azure PowerShell
+# <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Ajouter ou supprimer des attributions de rôles Azure à l’aide d’Azure PowerShell
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Cet article explique comment attribuer des rôles à l’aide d’Azure PowerShell.
 
@@ -67,7 +67,7 @@ Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
 
 ## <a name="add-a-role-assignment"></a>Ajouter une attribution de rôle
 
-Dans le contrôle RBAC, vous ajoutez une attribution de rôle pour accorder l’accès.
+Dans RBAC Azure, vous ajoutez une attribution de rôle pour accorder l’accès.
 
 ### <a name="user-at-a-resource-group-scope"></a>Utilisateur dans l’étendue d’un groupe de ressources
 
@@ -112,7 +112,7 @@ Pour ajouter une attribution de rôle à l’aide de l’ID de rôle unique au l
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
 ```
 
-L’exemple suivant attribue le rôle [Contributeur de machine virtuelle](built-in-roles.md#virtual-machine-contributor) à l’utilisateur *alain\@exemple.com* dans l’étendue du groupe de ressources *pharma-sales*. Pour obtenir l’ID unique de rôle, vous pouvez utiliser [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou consulter la liste des [rôles intégrés pour les ressources Azure](built-in-roles.md).
+L’exemple suivant attribue le rôle [Contributeur de machine virtuelle](built-in-roles.md#virtual-machine-contributor) à l’utilisateur *alain\@exemple.com* dans l’étendue du groupe de ressources *pharma-sales*. Pour obtenir l’ID unique de rôle, vous pouvez utiliser [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou consulter la page sur les [rôles intégrés Azure](built-in-roles.md).
 
 ```Example
 PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -205,7 +205,7 @@ CanDelegate        : False
 
 ## <a name="remove-a-role-assignment"></a>Supprimer une attribution de rôle
 
-Pour supprimer l’accès dans RBAC, supprimez une attribution de rôle en utilisant [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
+Pour supprimer l’accès dans RBAC Azure, supprimez une attribution de rôle en utilisant [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
 
 L’exemple suivant retire l’attribution de rôle *Collaborateur de machine virtuelle* à l’utilisateur *alain\@example.com* dans le groupe de ressources *pharma-sales* :
 
@@ -225,11 +225,11 @@ L’exemple suivant retire le rôle <nom_du_rôle> à <id_objet> dans l’étend
 Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
 ```
 
-Si vous obtenez le message d’erreur : « Les informations fournies ne dirigent pas à une attribution de rôle », veillez à vérifier que vous avez aussi spécifié les paramètres `-Scope` ou `-ResourceGroupName`. Pour plus d’informations, consultez [Résoudre des problèmes liés au contrôle d’accès en fonction du rôle pour les ressources Azure](troubleshooting.md#role-assignments-with-unknown-security-principal).
+Si vous obtenez le message d’erreur : « Les informations fournies ne dirigent pas à une attribution de rôle », veillez à vérifier que vous avez aussi spécifié les paramètres `-Scope` ou `-ResourceGroupName`. Pour plus d’informations, consultez [Résoudre les problèmes liés à RBAC Azure](troubleshooting.md#role-assignments-with-identity-not-found).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Lister les attributions de rôles à l’aide du RBAC Azure et d’Azure PowerShell](role-assignments-list-powershell.md)
-- [Tutoriel : Permettre à un groupe d'accéder aux ressources Azure à l'aide du contrôle RBAC et d'Azure PowerShell](tutorial-role-assignments-group-powershell.md)
-- [Tutoriel : Créer un rôle personnalisé pour les ressources Azure à l'aide d'Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Répertorier les attributions de rôle Azure à l’aide d’Azure PowerShell](role-assignments-list-powershell.md)
+- [Tutoriel : Accorder à un groupe l’accès aux ressources Azure à l’aide d’Azure PowerShell](tutorial-role-assignments-group-powershell.md)
+- [Tutoriel : Créer un rôle personnalisé Azure à l’aide d’Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Gérer les ressources avec Azure PowerShell](../azure-resource-manager/management/manage-resources-powershell.md)

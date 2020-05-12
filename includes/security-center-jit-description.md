@@ -4,12 +4,12 @@ ms.author: memildin
 manager: rkarlin
 ms.date: 02/24/2020
 ms.topic: include
-ms.openlocfilehash: c77849b2285283a34e6adf84dc3845a4076407af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 78bf29a170152666d82ec26504ee8f61ed90636a
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77597936"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82616018"
 ---
 ## <a name="attack-scenario"></a>Scénario d’attaque
 
@@ -29,9 +29,16 @@ Quand un utilisateur demande l’accès à une machine virtuelle, Security Cente
  > Si une demande d’accès juste-à-temps est approuvée pour une machine virtuelle derrière un pare-feu Azure, Security Center modifie automatiquement les règles de stratégie du groupe de sécurité réseau et du pare-feu. Pendant la durée qui a été spécifiée, les règles autorisent le trafic entrant vers les ports sélectionnés et les plages ou adresses IP sources demandées. Une fois la durée écoulée, Security Center restaure les règles du groupe de sécurité réseau et du pare-feu à leur état précédent.
 
 
+## <a name="roles-that-can-read-jit-policies"></a>Rôles pouvant lire les stratégies JIT
+
+Les rôles **Lecteur** et **Lecteur Sécurité** peuvent tous les deux lire les stratégies.
+
 ## <a name="permissions-needed-to-configure-and-use-jit"></a>Autorisations nécessaires pour configurer et utiliser JIT
+
+Si vous voulez créer des rôles personnalisés qui peuvent fonctionner avec JIT, vous devez disposer des informations suivantes :
 
 | Pour permettre à un utilisateur de : | Autorisations à définir|
 | --- | --- |
 | Configurer ou modifier une stratégie juste-à-temps pour une machine virtuelle | *Attribuez ces actions au rôle :*  <ul><li>Dans le cadre d’un abonnement ou d’un groupe de ressources qui est associé à la machine virtuelle :<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> Dans le cadre d’un abonnement, d’un groupe de ressources de machine virtuelle : <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
 |Demander l’accès JIT à une machine virtuelle | *Attribuez ces actions à l’utilisateur :*  <ul><li>Dans le cadre d’un abonnement ou d’un groupe de ressources qui est associé à la machine virtuelle :<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li>Dans le cadre d’un abonnement ou d’un groupe de ressources qui est associé à la machine virtuelle :<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li>  Dans le cadre d’un abonnement, d’un groupe de ressources ou d’une machine virtuelle :<br/> `Microsoft.Compute/virtualMachines/read` </li><li>  Dans le cadre d’un abonnement, d’un groupe de ressources ou d’une machine virtuelle :<br/> `Microsoft.Network/networkInterfaces/*/read` </li></ul>|
+|Lire les stratégies JIT| *Attribuez ces actions à l’utilisateur :*  <ul><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/read`</li><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action`</li><li>`Microsoft.Security/policies/read`</li><li>`Microsoft.Compute/virtualMachines/read`</li><li>`Microsoft.Network/*/read`</li>|

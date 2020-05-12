@@ -1,23 +1,17 @@
 ---
-title: 'Python : Opérations de gestion des comptes sur Azure Data Lake Storage Gen1 | Microsoft Docs'
-description: Découvrez comment traiter les opérations de gestion des comptes Azure Data Lake Storage Gen1 avec le Kit de développement logiciel (SDK) Python.
-services: data-lake-store
-documentationcenter: ''
+title: Gérer un compte Azure Data Lake Storage Gen1 avec Python
+description: Découvrez comment utiliser le Lit de développement logiciel (SDK) Python pour les opérations de gestion de compte d’Azure Data Lake Storage Gen1.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: 75f6de6f-6fd8-48f4-8707-cb27d22d27a6
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: c71136ecb57fac460514b5f4815ba19cc22d86cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a0c27c4b6d906a0892735697a8e90f87da6edf9c
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76290612"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692101"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Opérations de gestion des comptes sur Azure Data Lake Storage Gen1 à l’aide de Python
 > [!div class="op_single_selector"]

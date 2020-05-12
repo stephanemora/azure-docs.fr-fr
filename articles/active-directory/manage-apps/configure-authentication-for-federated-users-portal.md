@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60bfc964ffc394b3f79c9d279158003f383b7331
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 340cf77ae6b4c5677ed91f6a0626b73d259e5fd2
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78943444"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690503"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurer le comportement de la connexion Azure Active Directory pour une application à l’aide d’une stratégie de découverte du domaine d’accueil
 
@@ -65,9 +65,9 @@ La syntaxe des indications de domaine varie selon le protocole utilisé et est g
 
 **WS-Federation** : whr=contoso.com dans la chaîne de requête.
 
-**SAML** : demande d’authentification SAML qui contient une indication de domaine ou une chaîne de requête whr=contoso.com.
+**SAML** :  requête d’authentification SAML qui contient une indication de domaine ou une chaîne de requête whr=contoso.com.
 
-**OpenID Connect** : chaîne de requête domain_hint=contoso.com. 
+**Open ID Connect** : chaîne de requête domain_hint=contoso.com. 
 
 Si une indication de domaine est incluse dans la demande d’authentification émise par l’application et que le locataire est fédéré avec ce domaine, Azure Active Directory tente de rediriger la connexion vers le fournisseur d’identité qui est configuré pour ce domaine. 
 
@@ -150,7 +150,7 @@ Nous allons utiliser des applets de commande PowerShell Azure AD dans le cadre d
 - Répertorier les applications pour lesquelles une stratégie est configurée.
 
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 Dans les exemples suivants, vous créez, mettez à jour, liez et supprimez des stratégies sur des principaux de service d’application dans Azure AD.
 
 1.  Pour commencer, téléchargez la dernière préversion des applets de commande Azure AD PowerShell. 
@@ -168,14 +168,14 @@ Dans les exemples suivants, vous créez, mettez à jour, liez et supprimez des s
 
 Si aucun résultat n’est retourné, cela signifie qu’aucune stratégie n’est créée dans votre locataire.
 
-### <a name="example-set-hrd-policy-for-an-application"></a>Exemple : définir une stratégie de découverte du domaine d’accueil pour une application 
+### <a name="example-set-an-hrd-policy-for-an-application"></a>Exemple : Définir une stratégie de découverte du domaine d’accueil pour une application 
 
 Dans cet exemple, vous créez une stratégie qui, lorsqu’elle est assignée à une application : 
 - accélère automatiquement les utilisateurs vers un écran de connexion AD FS quand ils se connectent à une application lorsque votre client comporte un seul domaine. 
 - accélère automatiquement les utilisateurs vers un écran de connexion AD FS quand il existe plusieurs domaines fédérés dans votre client.
 - active la connexion du nom d’utilisateur/mot de passe non interactive directement dans Azure Active Directory pour les utilisateurs fédérés dans les applications auxquelles la stratégie est affectée.
 
-#### <a name="step-1-create-an-hrd-policy"></a>Étape 1 : Créer une stratégie de découverte du domaine d’accueil
+#### <a name="step-1-create-an-hrd-policy"></a>Étape 1 : Créer une stratégie de découverte du domaine d’accueil
 
 La stratégie suivante accélère automatiquement les utilisateurs vers un écran de connexion AD FS quand ils se connectent à une application lorsque votre client comporte un seul domaine.
 
@@ -204,7 +204,7 @@ Get-AzureADPolicy
 
 Pour appliquer une stratégie de découverte du domaine d’accueil après l’avoir créée, vous pouvez l’affecter à plusieurs principaux de service d’application.
 
-#### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Étape 2 : Rechercher le principal de service auquel affecter la stratégie  
+#### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Étape 2 : Rechercher le principal de service auquel affecter la stratégie  
 Vous avez besoin de **l’ID d’objet** des principaux de service auxquels vous souhaitez affecter la stratégie. Il existe plusieurs façons de rechercher **l’ID d’objet** des principaux de service.    
 
 Vous pouvez utiliser le portail, ou vous pouvez interroger [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta). Vous pouvez également accéder à [l’outil Afficheur Graph](https://developer.microsoft.com/graph/graph-explorer) et vous connecter à votre compte Azure AD pour voir tous les principaux de service de votre organisation. 
@@ -232,12 +232,12 @@ Pour déterminer les applications pour lesquelles la stratégie de découverte d
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
-#### <a name="step-5-youre-done"></a>Étape 5 : Vous avez terminé !
+#### <a name="step-5-youre-done"></a>Étape 5 : Vous avez terminé !
 Testez l’application pour vérifier que la nouvelle stratégie fonctionne.
 
 ### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>Exemple : répertorier les applications pour lesquelles une stratégie de découverte du domaine d’accueil est configurée
 
-#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>Étape 1 : Répertorier toutes les stratégies qui ont été créées dans votre organisation 
+#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>Étape 1 : Répertorier toutes les stratégies créées dans votre organisation 
 
 ``` powershell
 Get-AzureADPolicy
@@ -245,23 +245,23 @@ Get-AzureADPolicy
 
 Notez **l’ID d’objet** de la stratégie dont vous souhaitez répertorier les affectations.
 
-#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Étape 2 : Répertorier les principaux de service auxquels la stratégie est affectée  
+#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Étape 2 : Répertorier les principaux de service auxquels la stratégie est affectée  
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
-### <a name="example-remove-an-hrd-policy-for-an-application"></a>Exemple : supprimer une stratégie de découverte du domaine d’accueil pour une application
-#### <a name="step-1-get-the-objectid"></a>Étape 1 : Obtenir l’ID d’objet
+### <a name="example-remove-an-hrd-policy-from-an-application"></a>Exemple : Supprimer une stratégie de découverte du domaine d’accueil dans une application
+#### <a name="step-1-get-the-objectid"></a>Étape 1 : Obtenir l’ID d’objet
 Utilisez l’exemple précédent pour obtenir **l’ID d’objet** de la stratégie et celui du principal de service d’application dont vous souhaitez la supprimer. 
 
-#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Étape 2 : Supprimer l’affectation de stratégie du principal de service d’application  
+#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Étape 2 : Supprimer l’affectation de stratégie du principal de service d’application  
 
 ``` powershell
 Remove-AzureADServicePrincipalPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
-#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Étape 3 : Vérifier la suppression en répertoriant les principaux de service auxquels la stratégie est affectée 
+#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Étape 3 : Vérifier la suppression en listant les principaux de service auxquels la stratégie est affectée 
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>

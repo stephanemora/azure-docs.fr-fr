@@ -1,21 +1,25 @@
 ---
-title: Capturer l’image d’une machine virtuelle Linux avec Azure CLI
-description: Capturez l’image d’une machine virtuelle Azure et utilisez-la pour les déploiements de masse à l’aide d’Azure CLI.
+title: Capturer une image managée d’une machine virtuelle Linux avec Azure CLI
+description: Capturez une image managée d’une machine virtuelle Azure et utilisez-la pour les déploiements de masse à l’aide d’Azure CLI.
 author: cynthn
-ms.service: virtual-machines-linux
-ms.topic: article
+ms.service: virtual-machines
+ms.subservice: imaging
+ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 77f6244651551763f5460432655d66267775a256
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: legacy
+ms.openlocfilehash: 70282879b64054d48d904b5ada9284f844448851
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226829"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792681"
 ---
-# <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Créer une image d’une machine virtuelle ou d’un disque dur virtuel
+# <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Créer une image managée d’une machine virtuelle ou d’un disque dur virtuel
 
-Pour créer plusieurs copies d’une machine virtuelle à utiliser dans Azure, capturez une image de la machine virtuelle ou du disque dur virtuel de système d’exploitation. Pour créer une image pour le déploiement, vous devez supprimer les informations personnelles du compte. Les étapes suivantes vous permettent de déprovisionner une machine virtuelle existante, de la désallouer et de créer une image. Vous pouvez utiliser cette image pour créer des machines virtuelles dans n’importe quel groupe de ressources de votre abonnement.
+Pour créer plusieurs copies d’une machine virtuelle à utiliser dans Azure à des fins de développement et de test, capturez une image managée de la machine virtuelle ou du disque dur virtuel de système d’exploitation. Pour créer, stocker et partager des images à grande échelle, consultez [Galeries d’images partagées](../shared-images-cli.md).
+
+Pour créer une image managée, vous devez supprimer les informations personnelles du compte. Les étapes suivantes vous permettent de déprovisionner une machine virtuelle existante, de la désallouer et de créer une image. Vous pouvez utiliser cette image pour créer des machines virtuelles dans n’importe quel groupe de ressources de votre abonnement.
 
 Pour créer une copie de votre machine virtuelle Linux actuelle à des fins de sauvegarde ou de débogage, ou pour charger un disque dur virtuel Linux spécialisé à partir d’une machine virtuelle locale, consultez [Charger et créer une machine virtuelle Linux à partir d’une image de disque personnalisée](upload-vhd.md).  
 
@@ -131,11 +135,4 @@ az vm show \
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous pouvez créer plusieurs machines virtuelles à partir de votre image de machine virtuelle source. Pour apporter des changements à votre image : 
-
-- Créez une machine virtuelle à partir de votre image.
-- Apportez les mises à jour ou modifications de configuration requises.
-- Suivez de nouveau ces étapes pour annuler le déploiement, libérer, généraliser et créer une image.
-- Utilisez cette nouvelle image pour les déploiements futurs. Vous pouvez supprimer l’image d’origine.
-
-Pour plus d’informations sur la gestion de vos machines virtuelles avec l’interface CLI, consultez [Azure CLI](/cli/azure).
+Pour créer, stocker et partager des images à grande échelle, consultez [Galeries d’images partagées](shared-images.md).

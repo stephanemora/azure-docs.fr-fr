@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b15b022726c09ccbaf9674775d114c8dd1916e1d
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 022c6360b97c7c27887ff5d2f6460f69cb8126c6
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457295"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778462"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Accès conditionnel : Applications ou actions cloud
 
@@ -71,7 +71,7 @@ Les administrateurs peuvent affecter une stratégie d’accès conditionnel aux 
 
 Office 365 fournit des services de collaboration et de productivité informatiques comme Exchange, SharePoint et Microsoft Teams. Les services cloud Office 365 sont profondément intégrés pour garantir des expériences fluides et collaboratives. Cette intégration peut entraîner une confusion lors de la création de stratégies, car certaines applications, telles que Microsoft Teams, ont des dépendances par rapport à d’autres, comme SharePoint ou Exchange.
 
-L’application Office 365 (préversion) permet de cibler ces services en même temps. Nous conseillons d’utiliser la nouvelle application Office 365 (préversion) plutôt que de cibler des applications cloud individuelles. Le ciblage de ce groupe d’applications permet d’éviter les problèmes pouvant survenir en raison de stratégies et de dépendances incohérentes.
+L’application Office 365 (préversion) permet de cibler ces services en même temps. Pour éviter les problèmes de [dépendances de service](service-dependencies.md), nous vous conseillons d’utiliser la nouvelle application Office 365 (préversion) plutôt que de cibler les applications cloud individuellement. Le ciblage de ce groupe d’applications permet d’éviter les problèmes pouvant survenir en raison de stratégies et de dépendances incohérentes.
 
 S’ils le souhaitent, les administrateurs peuvent choisir d’exclure des applications spécifiques de la stratégie en incluant l’application Office 365 (préversion) et en excluant ces applications particulières de leur choix dans la stratégie.
 

@@ -7,12 +7,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: pepogors
-ms.openlocfilehash: a61b0cf30ca46eb77837eb09d6a9a0b6f30e89a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 04c6444723180c34f6605810260f5f865dff2d12
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77368585"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790913"
 ---
 # <a name="service-fabric-guardrails"></a>Barrières de sécurité relatives à Service Fabric 
 Lors du déploiement d’un cluster Service Fabric, des barrières de sécurité sont appliquées et entraînent l’échec du déploiement d’Azure Resource Manager si la configuration du cluster n’est pas valide. Les sections suivantes fournissent une vue d’ensemble des problèmes de configuration courants du cluster et des étapes requises pour les atténuer. 
@@ -79,7 +79,7 @@ L’opération de suppression du nœud initial a été détectée et sera rejet�
 Assurez-vous que votre type de nœud principal dispose de suffisamment de machines virtuelles pour la fiabilité spécifiée sur votre cluster. Vous ne pourrez pas supprimer une machine virtuelle si cela met le groupe de machines virtuelles identiques sous le nombre minimal de nœuds du niveau de fiabilité donné.
 * Si le niveau de fiabilité est spécifié correctement, veillez à avoir suffisamment de nœuds dans le type de nœud principal pour le niveau de fiabilité. 
 * Si le niveau de fiabilité est incorrect, apportez un changement sur la ressource Service Fabric pour réduire le niveau de fiabilité avant de lancer des opérations de groupe de machines virtuelles identiques et attendez qu’il soit effectué.
-* Si le niveau de fiabilité est Bronze, suivez ces [étapes](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) pour effectuer un scale-down de votre cluster normalement.
+* Si le niveau de fiabilité est Bronze, suivez ces [étapes](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) pour effectuer normalement un scale-in de votre cluster.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Créez un cluster sur des machines virtuelles ou des ordinateurs exécutant Windows Server : [Création de clusters Service Fabric pour Windows Server](service-fabric-cluster-creation-for-windows-server.md)

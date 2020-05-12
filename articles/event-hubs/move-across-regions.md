@@ -9,12 +9,12 @@ ms.custom: subject-moving-resources
 ms.date: 04/14/2020
 ms.author: spelluru
 ms.reviewer: shvija
-ms.openlocfilehash: 2dfc9c517605bbb48bee0b306fb275464cfebe39
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 5b96bf1c538b3c5589a1993a0353292fadd0936d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606704"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690485"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Déplacer un espace de noms Azure Event Hubs vers une autre région
 Il existe différents scénarios dans lesquels vous pouvez être amené à déplacer votre espace de noms Event Hubs existant d’une région à une autre. Par exemple, vous pouvez créer un espace de noms avec la même configuration à des fins de test. Vous pouvez également créer un espace de noms secondaire dans une autre région dans le cadre de la [planification de la reprise d’activité après sinistre](event-hubs-geo-dr.md#setup-and-failover-flow).
@@ -27,7 +27,7 @@ Il existe différents scénarios dans lesquels vous pouvez être amené à dépl
 - Vérifiez que les services et fonctionnalités utilisés par votre compte sont pris en charge dans la région cible.
 - Pour les fonctionnalités en préversion, vérifiez que votre abonnement figure dans la liste verte de la région cible.
 - Si vous avez activé la **fonctionnalité de capture** pour les hubs d’événements dans l’espace de noms, déplacez les comptes [Azure Storage ou Azure Data Lake Store Gen 2](../storage/common/storage-account-move.md) ou [Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-migration-cross-region.md) avant de déplacer l’espace de noms Event Hubs. Vous pouvez également déplacer le groupe de ressources contenant à la fois les espaces de noms Storage et Event Hubs vers l’autre région en suivant les étapes similaires à celles décrites dans cet article. 
-- Si l’espace de noms Event Hubs se trouve dans un **cluster Event Hubs**, [créez un cluster dédié](event-hubs-dedicated-cluster-create-portal.md) dans la **région cible** avant d’effectuer les étapes de cet article. 
+- Si l’espace de noms Event Hubs se trouve dans un **cluster Event Hubs**, [créez un cluster dédié](event-hubs-dedicated-cluster-create-portal.md) dans la **région cible** avant d’effectuer les étapes de cet article. Vous pouvez également utiliser le [modèle de démarrage rapide sur GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-cluster-namespace-eventhub/) pour créer un cluster Event Hubs. Dans le modèle, supprimez la partie Espace de noms du JSON pour créer uniquement le cluster. 
 
 ## <a name="prepare"></a>Préparation
 Pour commencer, exportez un modèle Resource Manager. Ce modèle contient des paramètres qui décrivent votre espace de noms Event Hubs.

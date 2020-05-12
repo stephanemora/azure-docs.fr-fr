@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: aschhab
-ms.openlocfilehash: d04902a8d53397b7e7d9712a1c75ce44cc7aa7ad
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: f1a4caf6ffd5740b4227aff2f38d9cb709c77b48
+ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80880786"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82739345"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Exceptions de la messagerie Service Bus
 Cet article répertorie les exceptions .NET générées par les API .NET Framework. 
@@ -46,8 +46,6 @@ Le tableau suivant répertorie les types d'exceptions de la messagerie, leurs ca
 | [MessageNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagenotfoundexception) |Tentative de réception d'un message avec un numéro de séquence spécifique. Ce message est introuvable. |Vérifiez que le message n’a pas déjà été reçu. Vérifiez la file d'attente de lettres mortes pour voir si le message a été désactivé. |La nouvelle tentative ne résout pas le problème. |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) |Le client ne peut pas établir de connexion à Service Bus. |Assurez-vous que le nom d'hôte fourni est correct et que l'hôte est accessible. |Une nouvelle tentative peut aider en cas de problèmes de connectivité intermittents. |
 | [ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception) |Le service n’est pas en mesure de traiter la demande pour l’instant. |Le client peut attendre pendant une période de temps, puis recommencer l'opération. |Le client peut réessayer après un certain temps. Si une nouvelle tentative provoque une exception différente, vérifiez le comportement de nouvelle tentative de cette exception. |
-| [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception) |Le jeton de verrouillage associé au message a expiré ou le jeton de verrouillage est introuvable. |Supprimez le message. |La nouvelle tentative ne résout pas le problème. |
-| [SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception) |Le verrou associé à cette session est perdu. |Abandonnez l’objet [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) . |La nouvelle tentative ne résout pas le problème. |
 | [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) |Exception de messagerie générique qui peut être levée dans les cas suivants :<p>une tentative est effectuée pour créer un [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) à l’aide d’un nom ou d’un chemin d’accès qui appartient à un autre type d’entité (par exemple, une rubrique).</p><p>Une tentative est effectuée pour envoyer un message de taille supérieure à 256 Ko. </p>Le serveur ou le service a rencontré une erreur lors du traitement de la demande. Consultez le message de l'exception pour obtenir plus d'informations. Il s’agit généralement d’une exception temporaire.</p><p>La demande a été arrêtée parce que l’entité est limitée. Code d’erreur : 50001, 50002, 50008. </p> | Vérifiez le code et assurez-vous que seuls les objets sérialisables sont utilisés dans le corps du message (ou utilisez un sérialiseur personnalisé). <p>Consultez la documentation pour connaître les types de valeurs des propriétés pris en charge et utilisez uniquement les types pris en charge.</p><p> Vérifiez la propriété [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) . Si sa valeur est **true**, vous pouvez réessayer d’effectuer l’opération. </p>| Si l’exception est due à une limitation, attendez quelques secondes, puis réessayez l’opération. Le comportement de la nouvelle tentative n’est pas défini et peut ne pas être utile dans d’autres scénarios.|
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) |Tentative de création d'une entité dont le nom est déjà utilisé par une autre entité de l'espace de noms de ce service. |Supprimez l'entité existante ou choisissez un autre nom pour l'entité à créer. |La nouvelle tentative ne résout pas le problème. |
 | [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) |L’entité de messagerie a atteint sa taille maximale autorisée, ou le nombre maximal de connexions à un espace de noms a été dépassé. |Créez de l’espace dans l’entité en recevant des messages à partir de l’entité ou de ses files d’attente secondaires. Consultez [QuotaExceededException](#quotaexceededexception). |Une nouvelle tentative peut aider si des messages ont été supprimés entre-temps. |
@@ -102,6 +100,96 @@ Vous devez vérifier la valeur de la propriété [ServicePointManager.DefaultCon
 
 ### <a name="queues-and-topics"></a>Files d’attente et rubriques
 Pour les files d’attente et les rubriques, le délai d’attente est spécifié dans la propriété [MessagingFactorySettings.OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings), au sein de la chaîne de connexion ou par le biais de [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder). Le message d'erreur peut varier, mais il contient toujours la valeur du délai d'attente spécifiée pour l'opération en cours. 
+
+## <a name="messagelocklostexception"></a>MessageLockLostException
+
+### <a name="cause"></a>Cause
+
+L’exception **MessageLockLostException** est levée lors de la réception d’un message en mode de réception [PeekLock](message-transfers-locks-settlement.md#peeklock) quand le verrou détenu par le client expire côté service.
+
+Le verrou sur un message peut expirer pour diverses raisons : 
+
+  * Le minuteur du verrou a expiré avant que l’application cliente l’ait renouvelé.
+  * L’application cliente a acquis le verrou, l’a enregistré dans un magasin persistant, puis a redémarré. Après redémarrage, l’application cliente a examiné les messages en cours et tenté de les compléter.
+
+### <a name="resolution"></a>Résolution
+
+En cas d’exception **MessageLockLostException**, l’application cliente ne peut plus traiter le message. Elle peut éventuellement envisager de journaliser l’exception pour analyse, mais le client *doit* supprimer le message.
+
+Étant donné que le verrou sur le message a expiré, celui-ci retourne à la file d’attente (ou à l’abonnement) et peut être traité par l’application cliente suivante qui appelle Receive.
+
+En cas de dépassement de la valeur **MaxDeliveryCount**, le message peut être déplacé vers la file d’attente **DeadLetterQueue**.
+
+## <a name="sessionlocklostexception"></a>SessionLockLostException
+
+### <a name="cause"></a>Cause
+
+L’exception **SessionLockLostException** est levée quand une session est acceptée et que le verrou détenu par le client expire côté service.
+
+Le verrou sur une session peut expirer pour différentes raisons : 
+
+  * Le minuteur du verrou a expiré avant que l’application cliente l’ait renouvelé.
+  * L’application cliente a acquis le verrou, l’a enregistré dans un magasin persistant, puis a redémarré. Après redémarrage, l’application cliente a examiné les sessions en cours et tenté de traiter les messages dans celles-ci.
+
+### <a name="resolution"></a>Résolution
+
+En cas d’exception **SessionLockLostException**, l’application cliente ne peut plus traiter les messages de la session. Elle peut envisager de journaliser l’exception pour analyse, mais le client *doit* supprimer le message.
+
+Étant donné que le verrou sur la session a expiré, celle-ci retourne à la file d’attente (ou à l’abonnement) et peut être verrouillée par l’application cliente suivante qui l’accepte. Étant donné que le verrou de session est détenu par une seule application cliente à un moment donné, le traitement dans l’ordre est garanti.
+
+## <a name="socketexception"></a>SocketException
+
+### <a name="cause"></a>Cause
+
+Une exception **SocketException** est levée dans les cas ci-dessous :
+   * Quand une tentative de connexion échoue parce que l’hôte n’a pas répondu correctement après une heure spécifiée (code d’erreur TCP 10060).
+   * Quand une connexion établie a échoué parce que l’hôte connecté n’a pas pu répondre.
+   * Quand une erreur s’est produite lors du traitement du message ou que l’hôte distant a dépassé le délai d’expiration.
+   * Quand il y a un problème de ressource réseau sous-jacent.
+
+### <a name="resolution"></a>Résolution
+
+Les erreurs **SocketException** indiquent que la machine virtuelle hébergeant les applications ne peut pas convertir le nom `<mynamespace>.servicebus.windows.net` en l’adresse IP correspondante. 
+
+Vérifiez que la commande ci-dessous parvient à mapper à une adresse IP.
+
+```Powershell
+PS C:\> nslookup <mynamespace>.servicebus.windows.net
+```
+
+Ce qui doit produire une sortie comme indiqué ci-dessous
+
+```bash
+Name:    <cloudappinstance>.cloudapp.net
+Address:  XX.XX.XXX.240
+Aliases:  <mynamespace>.servicebus.windows.net
+```
+
+Si le nom ci-dessus **n’est pas résolu** en adresse IP et en l’alias d’espace de noms, demandez à l’administrateur réseau d’effectuer des recherches plus poussées. La résolution de noms s’effectue au travers d’un serveur DNS qui est généralement une ressource du réseau du client. Si la résolution DNS est effectuée par Azure DNS, contactez le support Azure.
+
+Si la résolution de noms **fonctionne comme prévu**, vérifiez si les connexions à Azure Service Bus sont autorisées [ici](service-bus-troubleshooting-guide.md#connectivity-certificate-or-timeout-issues).
+
+
+## <a name="messagingexception"></a>MessagingException
+
+### <a name="cause"></a>Cause
+
+**MessagingException** est une exception générique qui peut être levée pour diverses raisons. Certaines de celles-ci sont répertoriées ci-dessous.
+
+   * Une tentative est faite de créer une classe **QueueClient** sur une **Rubrique** ou un **Abonnement**.
+   * La taille du message envoyé est supérieure à la limite applicable au niveau donné. Apprenez-en davantage sur les [quotas et limites](service-bus-quotas.md) Service Bus.
+   * La demande de plan de données spécifique (envoi, réception, exécution, abandon) a été arrêtée en raison d’une limitation.
+   * Des problèmes temporaires se posent en raison de mises à niveau et redémarrages de service.
+
+> [!NOTE]
+> La liste d’exceptions ci-dessus n’est pas exhaustive.
+
+### <a name="resolution"></a>Résolution
+
+Les étapes de résolution dépendent de la cause de la levée de l’exception **MessagingException**.
+
+   * Pour des **problèmes temporaires** (où ***isTransient*** a la valeur ***true***) ou des **problèmes de limitation**, une nouvelle tentative d’exécution de l’opération peut les résoudre. La stratégie de nouvelle tentative par défaut du Kit de développement logiciel (SDK) peut être utile à cette fin.
+   * Pour les autres problèmes, les détails de l’exception indiquent que les étapes du problème et de sa résolution peuvent être déduits de l’exception.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des informations complètes sur l’API .NET Service Bus, consultez les [informations de référence sur l’API .NET Azure](/dotnet/api/overview/azure/service-bus).

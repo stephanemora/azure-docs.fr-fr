@@ -1,6 +1,6 @@
 ---
-title: Créer ou mettre à jour des rôles personnalisés Azure à l’aide du portail Azure (préversion) – RBAC Azure
-description: Découvrez comment créer des rôles personnalisés Azure pour le contrôle d’accès en fonction du rôle (RBAC) Azure à l’aide du portail Azure. Cet article indique également comment répertorier, créer, mettre à jour et supprimer des rôles personnalisés.
+title: Créer ou mettre à jour des rôles personnalisés Azure avec le portail Azure - Azure RBAC
+description: Découvrez comment créer des rôles personnalisés Azure à l’aide du portail Azure et du contrôle d’accès en fonction du rôle Azure (Azure RBAC). Cet article indique également comment répertorier, créer, mettre à jour et supprimer des rôles personnalisés.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,23 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/26/2020
+ms.date: 04/30/2020
 ms.author: rolyon
-ms.openlocfilehash: 3204cdf51f3f37588f684f801a811f569b337d13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f9ba8fa64a9699917fe73365cb5d9aa0c858cde7
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77674699"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734177"
 ---
-# <a name="create-or-update-azure-custom-roles-using-the-azure-portal-preview"></a>Créer ou mettre à jour des rôles personnalisés Azure à l’aide du portail Azure (préversion)
+# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Créer ou mettre à jour des rôles personnalisés Azure à l’aide du portail Azure
 
-> [!IMPORTANT]
-> Les rôles personnalisés Azure utilisant le portail Azure sont actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Si les [rôles intégrés Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés Azure. Tout comme les rôles intégrés, vous pouvez attribuer des rôles personnalisés à des utilisateurs, à des groupes et à des principaux de service dans des étendues de abonnement et de groupe de ressources. Les rôles personnalisés sont stockés dans un annuaire Azure Active Directory et peuvent être partagés entre des abonnements. Chaque annuaire peut avoir jusqu’à 5 000 rôles personnalisés. Vous pouvez créer des rôles personnalisés à l’aide du portail Azure, d’Azure PowerShell, d’Azure CLI ou de l’API REST. Cet article explique comment créer des rôles personnalisés à l’aide du portail Azure (actuellement en préversion).
+Si les [rôles intégrés Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés Azure. Tout comme les rôles intégrés, vous pouvez attribuer des rôles personnalisés à des utilisateurs, à des groupes et à des principaux de service dans des étendues de abonnement et de groupe de ressources. Les rôles personnalisés sont stockés dans un annuaire Azure Active Directory et peuvent être partagés entre des abonnements. Chaque annuaire peut avoir jusqu’à 5 000 rôles personnalisés. Vous pouvez créer des rôles personnalisés à l’aide du portail Azure, d’Azure PowerShell, d’Azure CLI ou de l’API REST. Cet article explique comment créer des rôles personnalisés à l’aide du portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -77,7 +72,7 @@ Si vous préférez, vous pouvez suivre ces étapes pour démarrer un rôle perso
 
 1. Dans le portail Azure, ouvrez un abonnement ou un groupe de ressources dans lequel vous souhaitez que le rôle personnalisé soit attribuable, puis ouvrez **Contrôle d’accès (IAM)** .
 
-1. Cliquez sur **Ajouter**, puis sur **Ajouter un rôle personnalisé (préversion)** .
+1. Cliquez sur **Ajouter**, puis sur **Ajouter un rôle personnalisé**.
 
     ![Menu Ajouter un rôle personnalisé](./media/custom-roles-portal/add-custom-role-menu.png)
 
@@ -109,7 +104,7 @@ Si vous préférez, vous pouvez spécifier la plupart des valeurs de votre rôle
     }
     ```
 
-1. Dans le fichier JSON, spécifiez les valeurs des différentes propriétés. Voici un exemple avec des valeurs ajoutées. Pour plus d’informations sur les différentes propriétés, voir [Comprendre les définitions de rôles](role-definitions.md).
+1. Dans le fichier JSON, spécifiez les valeurs des différentes propriétés. Voici un exemple avec des valeurs ajoutées. Pour obtenir des informations sur les différentes propriétés, consultez [Comprendre les définitions de rôle Azure](role-definitions.md).
 
     ```json
     {
@@ -141,7 +136,7 @@ Si vous préférez, vous pouvez spécifier la plupart des valeurs de votre rôle
     
 1. Dans le portail Azure, ouvrez la page **Contrôle d’accès (IAM)** .
 
-1. Cliquez sur **Ajouter**, puis sur **Ajouter un rôle personnalisé (préversion)** .
+1. Cliquez sur **Ajouter**, puis sur **Ajouter un rôle personnalisé**.
 
     ![Menu Ajouter un rôle personnalisé](./media/custom-roles-portal/add-custom-role-menu.png)
 
@@ -260,7 +255,7 @@ Lorsque vous excluez une autorisation, celle-ci est ajoutée en tant que `NotAct
 
 ## <a name="step-5-assignable-scopes"></a>Étape 5 : Étendues attribuables
 
-Sous l’onglet **Étendues attribuables**, spécifiez l’emplacement où votre rôle personnalisé est disponible pour affectation, par exemple, un abonnement ou un groupe de ressources. Selon la façon dont vous avez choisi de commencer, cet onglet peut répertorier l’étendue dans laquelle vous avez ouvert la page Contrôle d’accès (IAM). La définition de l’étendue attribuable sur l’étendue racine (« / ») n’est pas prise en charge. Pour cette préversion, vous ne pouvez pas ajouter un groupe d’administration en tant qu’étendue attribuable.
+Sous l’onglet **Étendues attribuables**, spécifiez l’emplacement où votre rôle personnalisé est disponible pour affectation, par exemple, un abonnement ou un groupe de ressources. Selon la façon dont vous avez choisi de commencer, cet onglet peut répertorier l’étendue dans laquelle vous avez ouvert la page Contrôle d’accès (IAM). La définition de l’étendue attribuable sur l’étendue racine (« / ») n’est pas prise en charge. Actuellement, vous ne pouvez pas ajouter un groupe d’administration en tant qu’étendue attribuable.
 
 1. Cliquez sur **Ajouter des étendues attribuables** pour ouvrir le volet Ajouter des étendues attribuables.
 
@@ -352,6 +347,6 @@ Pour afficher vos rôles personnalisés, procédez comme suit.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Tutoriel : Créer un rôle personnalisé à l'aide d'Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Rôles personnalisés dans Azure](custom-roles.md)
+- [Tutoriel : Créer un rôle personnalisé Azure à l’aide d’Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Rôle personnalisés Azure](custom-roles.md)
 - [Opérations du fournisseur de ressources Azure Resource Manager](resource-provider-operations.md)

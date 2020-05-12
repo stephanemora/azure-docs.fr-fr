@@ -7,12 +7,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.openlocfilehash: 8f354152c23dd7ad0413f27585d724f8070ca003
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a254465d9055fcf1cf10a2a1d6eb82b2afc16f0b
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75551520"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692265"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Recommandations sur les tests de performances pour Azure NetApp Files
 
@@ -124,4 +124,4 @@ L’exemple suivant montre une adresse URL GET permettant d’afficher la taille
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Niveaux de service pour Azure NetApp Files](azure-netapp-files-service-levels.md)
-- [Tests de performances pour Azure NetApp Files](azure-netapp-files-performance-benchmarks.md)
+- [Test d’évaluation des performances pour Linux](performance-benchmarks-linux.md)

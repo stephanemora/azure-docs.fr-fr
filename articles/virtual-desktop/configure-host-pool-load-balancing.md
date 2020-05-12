@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5d8670994791e360f5e3b30b90b4bea5d55464b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 447de339d3ceef7aeb1c232605b0e30bbbb1e7d8
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79128309"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612433"
 ---
 # <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Configurer la méthode d’équilibrage de charge de Windows Virtual Desktop
 
@@ -22,34 +22,65 @@ La configuration de la méthode d’équilibrage de charge pour un pool d’hôt
 >[!NOTE]
 > Cela ne s’applique pas à un pool d'hôtes de bureau persistant, car les utilisateurs disposent toujours d'un mappage 1:1 vers un hôte de session au sein du pool d’hôtes.
 
+## <a name="prerequisites"></a>Prérequis
+
+Cet article suppose que vous avez suivi les instructions de l’article [Configurer le module PowerShell pour Windows Virtual Desktop](powershell-module.md) afin de télécharger et installer le module PowerShell et vous connecter à votre compte Azure.
+
 ## <a name="configure-breadth-first-load-balancing"></a>Configurer l’équilibrage de charge de largeur
 
 L’équilibrage de charge de largeur correspond à la configuration par défaut des nouveaux pools d'hôtes non persistants. L’équilibrage de charge de largeur répartit les nouvelles sessions utilisateur entre tous les hôtes de session du pool. Lorsque vous configurez l'équilibrage de charge de largeur, vous pouvez définir une limite maximale de sessions par hôte de session du pool.
 
-Tout d’abord, si vous ne l’avez pas déjà fait, [téléchargez et importez le module PowerShell Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/) à utiliser dans votre session PowerShell. Exécutez ensuite l’applet de commande suivante pour vous connecter à votre compte :
-
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
 Pour configurer un pool d’hôtes à des fins d'équilibrage de charge de largeur sans ajuster la limite maximale de sessions, exécutez la cmdlet PowerShell suivante :
 
 ```powershell
-Set-RdsHostPool <tenantname> <hostpoolname> -BreadthFirstLoadBalancer
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'BreadthFirst' 
+```
+
+Ensuite, pour vérifier que vous avez défini la méthode d’équilibrage de charge en largeur d’abord, exécutez l’applet de commande suivante : 
+
+```powershell
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType 
+
+Name             : hostpoolname 
+LoadBalancerType : BreadthFirst
 ```
 
 Pour configurer un pool d’hôtes à des fins d'équilibrage de charge de largeur et utiliser une nouvelle limite maximale de sessions, exécutez la cmdlet PowerShell suivante :
 
 ```powershell
-Set-RdsHostPool <tenantname> <hostpoolname> -BreadthFirstLoadBalancer -MaxSessionLimit ###
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'BreadthFirst' -MaxSessionLimit ###
 ```
 
 ## <a name="configure-depth-first-load-balancing"></a>Configurer l’équilibrage de charge de profondeur
 
-L’équilibrage de charge de profondeur répartit les nouvelles sessions utilisateur vers l'hôte de session disponible doté du plus grand nombre de connexions, sans avoir atteint sa limite maximale de sessions. Lorsque vous configurez l'équilibrage de charge de profondeur, vous **devez** définir une limite maximale de sessions par hôte de session du pool.
+L’équilibrage de charge de profondeur répartit les nouvelles sessions utilisateur vers l'hôte de session disponible doté du plus grand nombre de connexions, sans avoir atteint sa limite maximale de sessions. Quand vous configurez l’équilibrage de charge en profondeur d’abord, vous devez définir une limite maximale de sessions par hôte de session du pool.
 
 Pour configurer un pool d’hôtes à des fins d'équilibrage de charge de profondeur, exécutez la cmdlet PowerShell suivante :
 
 ```powershell
-Set-RdsHostPool <tenantname> <hostpoolname> -DepthFirstLoadBalancer -MaxSessionLimit ###
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'DepthFirst' -MaxSessionLimit ### 
 ```
+
+Pour vérifier que le paramètre a été mis à jour, exécutez cette applet de commande :
+
+```powershell
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType, MaxSessionLimit 
+
+Name             : hostpoolname
+LoadBalancerType : DepthFirst
+MaxSessionLimit  : 6
+```
+
+## <a name="configure-load-balancing-with-the-azure-portal"></a>Configurer l’équilibrage de charge avec le portail Azure
+
+Vous pouvez également configurer l’équilibrage de charge avec le portail Azure.
+
+Pour configurer l’équilibrage de charge :
+
+1. Connectez-vous au portail Azure à l’adresse https://portal.azure.com. 
+2. Recherchez et sélectionnez **Windows Virtual Desktop** sous Services. 
+3. Dans la page Windows Virtual Desktop, sélectionnez **Pools d’hôtes**.
+4. Sélectionnez le nom du pool d’hôtes que vous souhaitez modifier.
+5. Sélectionner **Propriétés**.
+6. Entrez la **Limite de session maximale** dans le champ et sélectionnez l’**algorithme d’équilibrage de charge** de votre choix pour ce pool d’hôtes dans le menu déroulant.
+7. Sélectionnez **Enregistrer**. Cette action applique les nouveaux paramètres d’équilibrage de charge.

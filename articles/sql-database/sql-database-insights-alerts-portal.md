@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 67c47b35e84a93d7d9032ad55b425ae2bb6971fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/04/2020
+ms.openlocfilehash: 37eabd4b2f61a82388b1c8d0aaf4aef2320f008e
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79209484"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801805"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-databases-using-azure-portal"></a>Créer des alertes pour les bases de données Azure SQL Database et Azure Synapse Analytics à l’aide de portail Azure
 
@@ -24,8 +24,8 @@ ms.locfileid: "79209484"
 
 Cet article explique comment configurer des alertes pour des bases de données individuelles, regroupées et de l’entrepôt de données dans Azure SQL Database et Azure Synapse Analytics (anciennement Azure SQL Data Warehouse) à l’aide du portail Azure. Les alertes peuvent vous envoyer un e-mail ou appeler un webhook lorsqu'une métrique (taille de la base de données ou utilisation du processeur, par exemple) atteint le seuil. Il présente également les meilleures pratiques à adopter pour définir les périodes d’alerte.
 
-> [!IMPORTANT]
-> Cette fonctionnalité n’est pas encore disponible dans Managed Instance. En guise d'alternative, vous pouvez utiliser l’Agent SQL pour envoyer des alertes par e-mail pour certaines métriques en fonction des [vues de gestion dynamique](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
+> [!NOTE]
+> Pour obtenir des instructions spécifiques sur l’instance gérée SQL, consultez [Créer des alertes pour Azure SQL Managed Instance](sql-database-managed-instance-alerts.md).
 
 Vous pouvez recevoir une alerte en fonction de métriques de surveillance pour vos services Azure ou d'événements sur ces derniers.
 

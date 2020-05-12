@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46be728216ed4b9c9e84c1c7f68c5ddf2051f42b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fdc011a39c5526e6a2577ab1b21567bbe64ffcc6
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78672293"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788873"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procédure : Gérer les appareils obsolètes dans Azure AD
 
@@ -176,7 +176,7 @@ Pour en savoir plus sur les différents types, consultez l’article [Vue d’en
 
 Toute authentification auprès d’Azure AD effectuée avec l’appareil est refusée. Voici des exemples courants :
 
-- **Appareil joint à une version hybride d’Azure AD**  : les utilisateurs peuvent être autorisés à utiliser l’appareil pour se connecter à leur domaine local. Toutefois, ils ne peuvent pas accéder aux ressources Azure AD telles qu’Office 365.
+- **Appareil joint à une version hybride d’Azure AD**  : les utilisateurs peuvent être autorisés à utiliser l’appareil pour se connecter à leur domaine local. Toutefois, ils ne peuvent pas accéder aux ressources Azure AD telles qu’Office 365.
 - **Appareil joint à Azure AD** : les utilisateurs ne peuvent pas utiliser l’appareil pour se connecter. 
 - **Appareils mobiles** : les utilisateurs ne peuvent pas accéder aux ressources Azure AD telles qu’Office 365. 
 

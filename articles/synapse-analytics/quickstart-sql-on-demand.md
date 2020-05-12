@@ -9,16 +9,16 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0d543abc88c1e45f2c1f5503473d8e92566fc582
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 43f361fbaf4ab0462af0a720d7711f219134a165
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457380"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692168"
 ---
 # <a name="quickstart-using-sql-on-demand"></a>Démarrage rapide : Utilisation de SQL à la demande
 
-SQL Synapse à la demande (préversion) est un service de requête serverless qui vous permet d’exécuter les requêtes SQL sur vos fichiers placés dans le Stockage Azure. Dans ce guide de démarrage rapide, vous allez apprendre à interroger différents types de fichiers en utilisant SQL à la demande.
+SQL Synapse à la demande (préversion) est un service de requête serverless qui vous permet d’exécuter des requêtes SQL sur des fichiers placés dans le Stockage Azure. Dans ce guide de démarrage rapide, vous allez apprendre à interroger différents types de fichiers en utilisant SQL à la demande.
 
 Les types de fichiers suivants sont pris en charge : JSON, CSV, Apache Parquet
 
@@ -26,7 +26,7 @@ Les types de fichiers suivants sont pris en charge : JSON, CSV, Apache Parquet
 
 Choisissez le client SQL avec lequel vous souhaitez émettre les requêtes :
 
-- [Azure Synapse Studio](quickstart-synapse-studio.md) est un outil web que vous pouvez utiliser pour parcourir les fichiers dans le stockage et créer une requête SQL.
+- [Azure Synapse Studio](quickstart-synapse-studio.md) est un outil web que vous pouvez utiliser pour parcourir les fichiers dans le stockage et créer des requêtes SQL.
 - [Azure Data Studio](sql/get-started-azure-data-studio.md) est un outil client qui vous permet d’exécuter des requêtes SQL et des notebooks sur votre base de données à la demande.
 - [SQL Server Management Studio](sql/get-started-ssms.md) est un outil client qui vous permet d’exécuter des requêtes SQL sur votre base de données à la demande.
 
@@ -41,19 +41,18 @@ Paramètres pour le guide de démarrage rapide :
 
 ## <a name="first-time-setup"></a>Première configuration
 
-Avant d’utiliser les exemples, effectuez les opérations suivantes :
+Avant d’utiliser les exemples :
 
 - Créer une base de données pour vos vues (au cas où vous souhaiteriez utiliser des vues)
 - Créer les informations d’identification que devra utiliser SQL à la demande pour accéder aux fichiers dans le stockage
 
 ### <a name="create-database"></a>Créer une base de données
 
-Créez votre propre base de données à des fins de démonstration. Il s’agit de la base de données dans laquelle vous créez vos vues. Utilisez cette base de données dans les exemples de requêtes fournis dans cet article.
+Créez votre propre base de données à des fins de démonstration. Vous utiliserez cette base de données pour créer vos vues et pour les exemples de requêtes fournis dans cet article.
 
 > [!NOTE]
 > Les bases de données sont utilisées uniquement pour les métadonnées de vue, et non pour les données réelles.
->
-> Notez le nom de base de données que vous utilisez, car vous en aurez besoin plus loin dans le Guide de démarrage rapide.
+>Notez le nom de base de données que vous utilisez, car vous en aurez besoin plus loin dans le Guide de démarrage rapide.
 
 Utilisez la requête suivante, en remplaçant `mydbname` par le nom de votre choix :
 
@@ -66,9 +65,15 @@ CREATE DATABASE mydbname
 Pour exécuter des requêtes à l’aide de SQL à la demande, créez les informations d’identification dont devra se servir SQL à la demande pour accéder aux fichiers dans le stockage.
 
 > [!NOTE]
-> Notez que vous devez créer des informations d’identification pour accéder au compte de stockage. Bien que SQL à la demande puisse accéder aux stockages de différentes régions, le fait d’avoir le stockage et l’espace de travail Azure Synapse dans la même région offre de meilleures performances.
+> Pour pouvoir exécuter correctement les exemples de cette section, vous devez utiliser un jeton SAS.
+>
+> Pour commencer à utiliser des jetons SAS, vous devez supprimer UserIdentity, ce qui est expliqué dans l’article [suivant](sql/develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
+>
+> Par défaut, SQL à la demande utilise toujours le transfert AAD.
 
-Modifiez l’extrait de code suivant afin de créer des informations d’identification pour les conteneurs CSV, JSON et Parquet :
+Pour plus d’informations sur la gestion du contrôle d’accès au stockage, consultez l’article [Contrôler l’accès au compte de stockage pour SQL à la demande](sql/develop-storage-files-storage-access-control.md).
+
+Exécutez l’extrait de code suivant pour créer les informations d’identification utilisées dans les exemples de cette section :
 
 ```sql
 -- create credentials for containers in our demo storage account
@@ -177,11 +182,11 @@ WHERE
 ```
 
 > [!IMPORTANT]
-> Nous lisons la totalité du fichier JSON en tant que ligne/colonne unique. Ainsi, FIELDTERMINATOR, FIELDQUOTE et ROWTERMINATOR sont définis sur 0x0B, car nous ne pensons pas les trouver dans le fichier.
+> Nous lisons l’intégralité du fichier JSON sous la forme d’une seule ligne/colonne. Ainsi, FIELDTERMINATOR, FIELDQUOTE et ROWTERMINATOR sont définis sur 0x0B, car nous ne pensons pas les trouver dans le fichier.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez maintenant vous lancer dans la lecture des articles de guide de démarrage rapide suivants :
+Vous êtes maintenant prêt à poursuivre avec les articles suivants :
 
 - [Interroger un fichier CSV](sql/query-single-csv-file.md)
 - [Interroger des dossiers et plusieurs fichiers CSV](sql/query-folders-multiple-csv-files.md)
@@ -192,7 +197,4 @@ Vous pouvez maintenant vous lancer dans la lecture des articles de guide de dém
 - [Création et utilisation de vues](sql/create-use-views.md)
 - [Création et utilisation de tables externes](sql/create-use-external-tables.md)
 - [Conserver le résultat d’une requête dans le stockage Azure](sql/create-external-table-as-select.md)
-
-Passez à l’article suivant pour découvrir comment interroger un fichier CSV.
-> [!div class="nextstepaction"]
-> [Interroger un fichier CSV](sql/query-single-csv-file.md)
+- [Interroger un fichier CSV](sql/query-single-csv-file.md)

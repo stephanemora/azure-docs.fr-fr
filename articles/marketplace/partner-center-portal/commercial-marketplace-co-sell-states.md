@@ -1,22 +1,22 @@
 ---
-title: Codes d’état et de province de la co-vente | Place de marché Azure
-description: Utilisez ces codes d’état et de province lorsque vous fournissez des coordonnées sur la page de co-vente de votre offre.
+title: Codes d’état et de province pour la co-vente dans la Place de marché Azure
+description: Obtenez les codes d’état et de province disponibles lorsque vous fournissez des informations de contact sur la page de co-vente de votre offre dans la Place de marché Azure.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 782f2d6facb28630989f086a68c551314e02e48e
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: a39cb5f49c9f038f567b7f3322b5962bc1dc9fc8
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619358"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744702"
 ---
-# <a name="co-sell-state-and-province-codes"></a>Codes d’état et de province de la co-vente
+# <a name="co-sell-state-and-province-codes-in-azure-marketplace"></a>Codes d’état et de province pour la co-vente dans la Place de marché Azure
 
-Le cas échéant, utilisez ces codes pour fournir des informations sur les états/provinces lorsque vous [fournissez des coordonnées sur la page de co-vente de votre offre](commercial-marketplace-co-sell.md#contacts).
+Cet article répertorie les codes d’état et de province disponibles lorsque vous fournissez des informations de contact sur la page de co-vente de votre offre. Le cas échéant, utilisez ces codes pour fournir des informations sur les états/provinces lorsque vous [fournissez des coordonnées sur la page de co-vente de votre offre](commercial-marketplace-co-sell.md#contacts).
 
 ## <a name="us-states-and-territories"></a>États et territoires des USA
 

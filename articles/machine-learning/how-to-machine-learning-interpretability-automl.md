@@ -1,5 +1,5 @@
 ---
-title: Interprétabilité des modèles en Machine Learning automatisé
+title: Explicabilité dans Machine Learning automatisé
 titleSuffix: Azure Machine Learning
 description: Découvrez comment obtenir des explications sur la façon dont votre modèle de Machine Learning automatisé détermine l’importance d’une caractéristique et effectue des prédictions lors de l’utilisation du Kit de développement logiciel (SDK) Azure Machine Learning.
 services: machine-learning
@@ -8,20 +8,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
-ms.reviewer: trbye
 ms.date: 03/11/2020
-ms.openlocfilehash: e2465a2df3fab736c8f118911da14ef23c8aec86
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: e0ec6cbc4cea926dfc50cdae247aea5d765c20ca
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437276"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691223"
 ---
-# <a name="model-interpretability-in-automated-machine-learning"></a>Interprétabilité des modèles en Machine Learning automatisé
+# <a name="interpretability-model-explanations-in-automated-machine-learning"></a>Interprétabilité : explications des modèles en Machine Learning automatisé
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Cet article explique comment activer les fonctionnalités d’interprétabilité pour le Machine Learning (ML) automatisé dans Azure Machine Learning. Le ML automatisé vous aide à comprendre l’importance des caractéristiques traitées. 
+Cet article explique comment obtenir des explications pour le Machine Learning (ML) automatisé dans Azure Machine Learning. Le ML automatisé vous aide à comprendre l’importance des caractéristiques traitées. 
 
 Toutes les versions du Kit de développement logiciel (SDK) après la version 1.0.85 définissent `model_explainability=True` par défaut. Dans le Kit de développement logiciel (SDK) version 1.0.85 et ses versions antérieures, les utilisateurs doivent définir `model_explainability=True` dans l’objet `AutoMLConfig` afin d’utiliser l’interprétabilité du modèle. 
 
@@ -31,7 +30,7 @@ Dans cet article, vous apprendrez comment :
 - Activer les visualisations pour vous aider à voir les modèles dans les données et les explications.
 - Implémenter une interprétabilité pendant l’inférence ou le scoring.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Fonctionnalités d’interprétabilité. Exécutez `pip install azureml-interpret azureml-contrib-interpret` pour obtenir les packages nécessaires.
 - Des connaissances en matière de génération d’expériences de ML automatisé. Pour plus d’informations sur la façon d’utiliser le Kit de développement logiciel (SDK) Azure Machine Learning, suivez ce [tutoriel sur les modèles de régression](tutorial-auto-train-models.md) ou consultez la rubrique [Configurer des expériences de ML automatisé](how-to-configure-auto-train.md).
@@ -86,20 +85,21 @@ Afin de générer une explication pour les modèles AutoML, utilisez la classe `
 
 - L’objet de configuration explicatif
 - Votre espace de travail
-- Un modèle LightGBM, qui agit comme un substitut au modèle de ML automatisé `fitted_model`
+- Modèle de substitution pour expliquer le modèle de ML automatisé `fitted_model`
 
 MimicWrapper prend également l’objet `automl_run` où les explications de caractéristiques traitées seront chargées.
 
 ```python
-from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
 from azureml.explain.model.mimic_wrapper import MimicWrapper
 
 # Initialize the Mimic Explainer
-explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator, LGBMExplainableModel, 
+explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator,
+                         explainable_model=automl_explainer_setup_obj.surrogate_model, 
                          init_dataset=automl_explainer_setup_obj.X_transform, run=automl_run,
                          features=automl_explainer_setup_obj.engineered_feature_names, 
                          feature_maps=[automl_explainer_setup_obj.feature_map],
-                         classes=automl_explainer_setup_obj.classes)
+                         classes=automl_explainer_setup_obj.classes,
+                         explainer_kwargs=automl_explainer_setup_obj.surrogate_model_params)
 ```
 
 ### <a name="use-mimicexplainer-for-computing-and-visualizing-engineered-feature-importance"></a>Utiliser MimicExplainer pour le calcul et la visualisation de l’importance des caractéristiques traitées

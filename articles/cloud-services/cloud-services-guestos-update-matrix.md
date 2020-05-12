@@ -3,21 +3,21 @@ title: En savoir plus sur les dernières publications du SE invité de Microsoft
 description: Dernières informations de publication et de compatibilité du Kit de développement logiciel (SDK) pour le SE invité de Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: na
-author: raiye
+author: yohaddad
 editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/2/2020
-ms.author: raiye
-ms.openlocfilehash: 95c27cd906717d52a232b5ed85eba2b93bc6569d
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.date: 5/4/2020
+ms.author: yohaddad
+ms.openlocfilehash: 19a442126fe2f090851236eb41cb6995df857c77
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618295"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791542"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -41,6 +41,9 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 Vous ne savez pas comment mettre à jour votre système d’exploitation invité ? Consultez [cet article][cloud updates].
 
 ## <a name="news-updates"></a>Nouvelles mises à jour
+
+###### <a name="may-4-2020"></a>**4 mai 2020**
+Le système d’exploitation invité d’avril a été publié. 
 
 ###### <a name="april-2-2020"></a>**2 avril 2020**
 Le système d’exploitation invité de mars a été publié. 
@@ -125,8 +128,9 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+|  WA-GUEST-OS-6.18_202004-01  |  4 mai 2020  |  Post 6.20  |  
 |  WA-GUEST-OS-6.17_202003-01  |  2 avril 2020  |  Post 6.19  |  
-|  WA-GUEST-OS-6.16_202002-01  |  5 mars 2020  |  Post 6.18  |  
+|~~WA-GUEST-OS-6.16_202002-01~~|  5 mars 2020  |  4 mai 2020  |  
 |~~WA-GUEST-OS-6.15_202001-01~~|  24 janvier 2020  |  2 avril 2020  |  
 |~~WA-GUEST-OS-6.14_201912-01~~| 8 janvier 2020 | 5 mars 2020 |  
 |~~WA-GUEST-OS-6.13_201911-01~~| 5 décembre 2019 | 24 janvier 2020 |  
@@ -146,7 +150,7 @@ Publication du système d’exploitation invité du mois de septembre.
 ## <a name="family-5-releases"></a>Publications de famille 5
 **Windows Server 2016**
 
-.NET Framework installé : 3.5, 4.6
+.NET Framework installé : 3.5, 4.6.2
 
 > [!NOTE]
 > Le mot de passe RDP pour la famille 5 de SE doit comporter au moins 10 caractères.
@@ -155,8 +159,9 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+|  WA-GUEST-OS-5.42_202004-01  |  4 mai 2020  |  Post 5.44  |  
 |  WA-GUEST-OS-5.41_202003-01  |  2 avril 2020  |  Post 5.43  |  
-|  WA-GUEST-OS-5.40_202002-01  |  5 mars 2020  |  Post 5.42  |  
+|~~WA-GUEST-OS-5.40_202002-01~~|  5 mars 2020  |  4 mai 2020  |  
 |~~WA-GUEST-OS-5.39_202001-01~~|  24 janvier 2020  |  2 avril 2020  |  
 |~~WA-GUEST-OS-5.38_201912-01~~| 8 janvier 2020 | 5 mars 2020 |  
 |~~WA-GUEST-OS-5.37_201911-01~~| 5 décembre 2019 | 24 janvier 2020 |  
@@ -182,8 +187,9 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+|  WA-GUEST-OS-4.77_202004-01  |  4 mai 2020  |  Post 4.79  |  
 |  WA-GUEST-OS-4.76_202003-01  |  2 avril 2020  |  Post 4.78  |  
-|  WA-GUEST-OS-4.75_202002-01  |  5 mars 2020  |  Post 4.77  |  
+|~~WA-GUEST-OS-4.75_202002-01~~|  5 mars 2020  |  4 mai 2020  |  
 |~~WA-GUEST-OS-4.74_202001-01~~|  24 janvier 2020  |  2 avril 2020  |  
 |~~WA-GUEST-OS-4.73_201912-01~~| 8 janvier 2020 | 5 mars 2020 |  
 |~~WA-GUEST-OS-4.72_201911-01~~| 5 décembre 2019 | 24 janvier 2020 |  
@@ -209,8 +215,9 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+|  WA-GUEST-OS-3.84_202004-01  |  4 mai 2020  |  Post 3.86  |  
 |  WA-GUEST-OS-3.83_202003-01  |  2 avril 2020  |  Post 3.85  |  
-|  WA-GUEST-OS-3.82_202002-01  |  5 mars 2020  |  Post 3.84  |  
+|~~WA-GUEST-OS-3.82_202002-01~~|  5 mars 2020  |  4 mai 2020  |  
 |~~WA-GUEST-OS-3.81_202001-01~~|  24 janvier 2020  |  2 avril 2020  |  
 |~~WA-GUEST-OS-3.80_201912-01~~| 8 janvier 2020 | 5 mars 2020 |  
 |~~WA-GUEST-OS-3.79_201911-01~~| 5 décembre 2019 | 24 janvier 2020 |  
@@ -236,8 +243,9 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+|  WA-GUEST-OS-2.97_202004-01  |  4 mai 2020  |  Post 2.99  |  
 |  WA-GUEST-OS-2.96_202003-01  |  2 avril 2020  |  Post 2.98  |  
-|  WA-GUEST-OS-2.95_202002-01  |  5 mars 2020  |  Post 2.97  |  
+|~~WA-GUEST-OS-2.95_202002-01~~|  5 mars 2020  |  4 mai 2020  |  
 |~~WA-GUEST-OS-2.94_202001-01~~|  24 janvier 2020  |  2 avril 2020  |  
 |~~WA-GUEST-OS-2.93_201912-01~~| 8 janvier 2020 | 5 mars 2020 |  
 |~~WA-GUEST-OS-2.92_201911-01~~| 5 décembre 2019 | 24 janvier 2020 |  

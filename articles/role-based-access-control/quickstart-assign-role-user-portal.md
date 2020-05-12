@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Accorder un accès utilisateur aux ressources Azure avec RBAC et le portail Azure '
-description: Dans ce tutoriel, découvrez comment accorder un accès utilisateur aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC) dans le portail Azure.
+title: 'Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du portail Azure - RBAC Azure'
+description: Découvrez dans ce tutoriel comment accorder un accès utilisateur aux ressources Azure à l’aide du portail Azure et du contrôle d’accès en fonction du rôle Azure (RBAC Azure).
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: 6281c9a1818a3b46ac4f7a62f8ae76668db56887
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e70a3a1eedbc56754ad46fd99dddc0c7a3a6cf2f
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77138092"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735842"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et du portail Azure
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-the-azure-portal"></a>Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du portail Azure
 
-Le [contrôle d'accès en fonction du rôle (RBAC)](overview.md) vous permet de gérer l'accès aux ressources Azure. Dans ce tutoriel, vous allez autoriser un utilisateur à créer et à gérer des machines virtuelles dans un groupe de ressources.
+Le [contrôle d’accès en fonction du rôle Azure (RBAC Azure)](overview.md) vous permet de gérer l’accès aux ressources Azure. Dans ce tutoriel, vous allez autoriser un utilisateur à créer et à gérer des machines virtuelles dans un groupe de ressources.
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -58,7 +58,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="grant-access"></a>Accorder l'accès
 
-Dans le contrôle d’accès en fonction du rôle, vous créez une attribution de rôle pour accorder l’accès.
+Dans le contrôle d’accès en fonction du rôle Azure, vous créez une attribution de rôle pour accorder l’accès.
 
 1. Dans la liste **Groupes de ressources**, cliquez sur le nouveau groupe de ressources **rbac-resource-group**.
 
@@ -88,7 +88,7 @@ Dans le contrôle d’accès en fonction du rôle, vous créez une attribution d
 
 ## <a name="remove-access"></a>Suppression d'accès
 
-Dans le RBAC, vous supprimez une attribution de rôle pour supprimer un accès.
+Dans le RBAC Azure, pour supprimer un accès, vous supprimez une attribution de rôle.
 
 1. Dans la liste des attributions de rôles, ajoutez une coche en regard de l’utilisateur titulaire du rôle Contributeur de machines virtuelles.
 
@@ -115,4 +115,4 @@ Dans le RBAC, vous supprimez une attribution de rôle pour supprimer un accès.
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide d’Azure PowerShell](tutorial-role-assignments-user-powershell.md)

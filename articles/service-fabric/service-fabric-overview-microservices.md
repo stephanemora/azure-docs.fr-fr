@@ -4,12 +4,12 @@ description: Pourquoi créer des applications cloud avec une approche de microse
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: af18a6cb45808c0af5ec2782a3fd2100e3b7bf99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e0c93423b3639fb2bc3739f0d6569c4c4cec8da
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75750614"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792866"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>Pourquoi utiliser une approche de microservices pour la conception d’applications ?
 
@@ -35,7 +35,7 @@ Parfois, la mise en œuvre d’un élément en tant que preuve de concept consti
 
 Une approche de conception monolithique présente des avantages. Les applications monolithiques sont souvent plus simple à concevoir, et les appels entre ses composants sont plus rapides dans la mesure où ils sont souvent effectués via IPC (communication entre processus). En outre, chacun teste un produit unique, ce qui est permet une meilleure utilisation des ressources humaines. L’inconvénient est la création d’un couplage étroit entre les couches hiérarchisées et l’impossibilité de mettre à l’échelle les composants individuels. Si vous devez appliquer des correctifs ou des mises à niveau, vous devez attendre que les autres terminent leurs tests. Une approche agile est plus difficile.
 
-Les microservices gèrent ces inconvénients et s’alignent plus étroitement sur les exigences métier précédentes. Mais ils présentent également des avantages et inconvénients. Avantages des microservices : en général, chacun encapsule des fonctionnalités métier plus simples, qui peuvent faire l’objet d’un « scale up «, d’un « scale down » et que vous pouvez tester, déployer et gérer indépendamment. L’un des principaux avantages d’une approche de microservices est que les équipes sont davantage orientées par les scénarios métier que par la technologie. De plus petites équipes développent un microservice en s’appuyant sur un scénario client et utilisent les technologies de leur choix.
+Les microservices gèrent ces inconvénients et s’alignent plus étroitement sur les exigences métier précédentes. Mais ils présentent également des avantages et inconvénients. Avantages des microservices : en général, chacun encapsule des fonctionnalités métier plus simples, dont vous pouvez effectuer indépendamment le scale-out, le scale-in, le test, le déploiement ou la gestion. L’un des principaux avantages d’une approche de microservices est que les équipes sont davantage orientées par les scénarios métier que par la technologie. De plus petites équipes développent un microservice en s’appuyant sur un scénario client et utilisent les technologies de leur choix.
 
 En d’autres termes, l’organisation n’a pas besoin de standardiser la technologie pour maintenir les applications de microservices. Les équipes individuelles qui possèdent des services peuvent effectuer les actions les plus pertinentes pour elles en fonction de leur expertise ou de ce qui est le plus approprié pour le problème à résoudre. Dans la pratique, il est préférable de disposer d’un ensemble de technologies recommandées, par exemple d’un magasin NoSQL particulier ou d’une infrastructure d’application web.
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 7f20244906581dd2869bbc7fcd997d5245540eda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c2b67989cbffb03eb182b4de2bf471a02ee33e7b
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80155169"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627991"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Nouveautés de Form Recognizer
 
@@ -23,50 +23,65 @@ Le service Form Recognizer est régulièrement mis à jour. Lisez cet article po
 > [!NOTE]
 > Sauf indication contraire, les démarrages rapides et les guides relatifs à Form Recognizer utilisent toujours la dernière version de l'API.
 
+## <a name="april-2020"></a>Avril 2020
+
+### <a name="new-features"></a>Nouvelles fonctionnalités
+* **Prise en charge du SDK pour la préversion publique de l’API Form Recognizer v 2.0** Ce mois-ci, nous avons étendu notre support technique pour inclure une préversion du SDK de Form Recognizer v2.0 (préversion). Utilisez les liens ci-dessous pour bien démarrer avec le langage de votre choix : 
+   * [Kit de développement logiciel (SDK) .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer)
+   * [Kit SDK Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer)
+   * [Kit de développement logiciel (SDK) Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer)
+   * [Kit de développement logiciel (SDK) JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer)
+
+
+  Le nouveau SDK prend en charge toutes les fonctionnalités de l’API REST v2.0 pour Form Recognizer. Par exemple, vous pouvez entraîner un modèle avec ou sans étiquettes pour extraire du texte, des paires clé-valeur et des tables de vos formulaires, extraire des données à partir de reçus avec le service des reçus préintégré et extraire du texte et des tables de vos documents avec le service de disposition. Vous pouvez partager vos commentaires sur les SDK à l’aide du [formulaire de commentaires sur les SDK](https://aka.ms/FR_SDK_v1_feedback).
+ 
+* **Copier un modèle personnalisé** Vous pouvez désormais copier des modèles entre les régions et les abonnements à l’aide de la nouvelle fonctionnalité de copie de modèle personnalisé. Avant d’appeler l’API Copier une modèle personnalisé, vous devez d’abord obtenir l’autorisation de copie dans la ressource cible en appelant l’opération d’autorisation de copie sur le point de terminaison de cette dernière.
+   * API REST [Générer une autorisation de copie](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModelAuthorization)
+   * API REST [Copier un modèle personnalisé](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModel) 
+
+
 ## <a name="march-2020"></a>Mars 2020 
+
+### <a name="new-features"></a>Nouvelles fonctionnalités
+
+* **Types de valeurs pour l’étiquetage** : vous pouvez maintenant spécifier les types de valeurs que vous étiquetez avec l’outil d’étiquetage des exemples Form Recognizer. Les types et variantes de valeurs suivants sont actuellement pris en charge :
+  * `string`
+    * default, `no-whitespaces`, `alphanumeric`
+  * `number`
+    * default, `currency`
+  * `date` 
+    * default, `dmy`, `mdy`, `ymd`
+  * `time`
+  * `integer`
+
+  Pour savoir comment utiliser cette fonctionnalité, consultez le guide de l’[outil d’étiquetage des exemples](./quickstarts/label-tool.md#specify-tag-value-types).
+
+
+* **Visualisation des tables** : l’outil d’étiquetage des exemples affiche désormais les tables reconnues dans le document. Cela vous permet de visualiser les tables qui ont été reconnues et extraites du document, avant l’étiquetage et l’analyse. Cette fonctionnalité peut être activée/désactivée à l'aide de l'option couches.
+
+  L'exemple suivant illustre la façon dont les tables sont reconnues et extraites :
+
+  > [!div class="mx-imgBorder"]
+  > ![Visualisation de table à l'aide de l'outil d'étiquetage des exemples](./media/whats-new/formre-table-viz.png)
+
+    Les tables extraites sont disponibles dans la sortie JSON sous `"pageResults"`.
+
+  > [!IMPORTANT]
+  > L'étiquetage des tables n'est pas pris en charge. Si les tables ne sont pas reconnues et extraites automatiquement, vous ne pouvez les étiqueter qu'en tant que paires clé/valeur. Lorsque vous étiquetez des tables en tant que paires clé-valeur, étiquetez chaque cellule en tant que valeur unique.
 
 ### <a name="extraction-enhancements"></a>Améliorations apportées à l'extraction
 
 Cette version comprend des améliorations en termes d'extraction et de précision, avec notamment la possibilité d'étiqueter et d'extraire plusieurs paires clé/valeur sur la même ligne de texte. 
  
-### <a name="form-recognizer-sample-labeling-tool-is-now-open-source"></a>L'outil d'étiquetage des exemples Form Recognizer est désormais open source
+### <a name="sample-labeling-tool-is-now-open-source"></a>L’outil d’étiquetage des exemples est désormais open source
 
-L'outil d'étiquetage des exemples Form Recognizer est désormais disponible sous forme de projet open source. Vous pouvez l'intégrer à vos solutions et y apporter des modifications pour qu'il réponde à vos besoins.
+L’outil d’étiquetage des exemples Form Recognizer est désormais disponible sous forme de projet open source. Vous pouvez l'intégrer à vos solutions et y apporter des modifications pour qu'il réponde à vos besoins.
 
-Pour plus d'informations sur l'outil d'étiquetage des exemples Form Recognizer, consultez la documentation disponible sur [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
-
-### <a name="labeling-value-types"></a>Étiquetage des types valeur
-
-Les types valeur peuvent désormais être utilisés avec l'outil d'étiquetage des exemples Form Recognizer. Les types valeur suivants sont actuellement pris en charge : 
-
-* String
-* Number 
-* Integer
-* Date 
-* Temps
-
-Cette image illustre la sélection d'un type valeur dans l'outil d'étiquetage des exemples Form Recognizer :
-
-> [!div class="mx-imgBorder"]
-> ![Sélection d'un type valeur avec l'outil d'étiquetage des exemples](./media/whats-new/formre-value-type.png)
-
-La table extraite est disponible dans la sortie JSON de `pageResults`.
-
-### <a name="table-visualization"></a>Visualisation de la table 
-
-L'outil d'étiquetage des exemples Form Recognizer affiche désormais les tables reconnues dans le document. Cela vous permet de visualiser les tables qui ont été reconnues et extraites du document, avant l'étiquetage et l'analyse à l'aide de l'outil d'étiquetage des exemples Form Recognizer. Cette fonctionnalité peut être activée/désactivée à l'aide de l'option couches. 
-
-L'exemple suivant illustre la façon dont les tables sont reconnues et extraites :
-
-> [!div class="mx-imgBorder"]
-> ![Visualisation de table à l'aide de l'outil d'étiquetage des exemples](./media/whats-new/formre-table-viz.png)
-
-> [!IMPORTANT]
-> L'étiquetage des tables n'est pas pris en charge. Si les tables ne sont pas reconnues et extraites automatiquement, vous ne pouvez les étiqueter qu'en tant que paires clé/valeur. Lorsque vous étiquetez des tables en tant que paires clé/valeur, étiquetez chaque cellule en tant que valeur.
+Pour plus d’informations sur l’outil d’étiquetage des exemples Form Recognizer, consultez la documentation disponible sur [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
 
 ### <a name="tls-12-enforcement"></a>Application de TLS 1.2
 
-* La sécurité TLS 1.2 est maintenant appliquée pour toutes les requêtes HTTP adressées à ce service. Pour plus d'informations, consultez [Sécurité Azure Cognitive Services](../cognitive-services-security.md).
+La sécurité TLS 1.2 est maintenant appliquée pour toutes les requêtes HTTP adressées à ce service. Pour plus d'informations, consultez [Sécurité Azure Cognitive Services](../cognitive-services-security.md).
 
 ## <a name="january-2020"></a>Janvier 2020
 

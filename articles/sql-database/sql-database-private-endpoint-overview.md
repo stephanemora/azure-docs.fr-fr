@@ -3,24 +3,24 @@ title: Private Link
 description: Vue d’ensemble de la fonctionnalité Point de terminaison privé
 author: rohitnayakmsft
 ms.author: rohitna
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: ab9c5c5c1134d2e09a790a788a3b7e55f807dd9b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: dd717d653e57fbb8c540e4ef023011c64778a3b0
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78945365"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628995"
 ---
-# <a name="private-link-for-azure-sql-database-and-data-warehouse"></a>Liaison privée pour Azure SQL Database et Data Warehouse
+# <a name="private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Liaison privée pour Azure SQL Database et Azure Synapse Analytics
 
 Liaison privée vous permet de vous connecter à différents services PaaS dans Azure par le biais d’un **point de terminaison privé**. Pour obtenir la liste des services PaaS prenant en charge la fonctionnalité Liaison privée, accédez à la page [Documentation sur Liaison privée](../private-link/index.yml). Un point de terminaison privé est une adresse IP privée au sein d’un [réseau virtuel](../virtual-network/virtual-networks-overview.md) et d’un sous-réseau spécifiques. 
 
 > [!IMPORTANT]
-> Cet article s’applique à un serveur SQL Azure et aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse. Cet article *ne s’applique pas* au déploiement d’une **instance managée** dans Azure SQL Database.
+> Cet article s’applique au serveur SQL Azure ainsi qu’aux bases de données SQL Database et Azure Synapse Analytics créées sur le serveur SQL Azure. Par souci de simplicité, le nom « SQL Database » est utilisé pour faire référence à SQL Database et à Azure Synapse Analytics. Cet article *ne s’applique pas* au déploiement d’une **instance managée** dans Azure SQL Database.
 
 ## <a name="data-exfiltration-prevention"></a>Prévention de l’exfiltration de données
 
@@ -28,7 +28,7 @@ L’exfiltration de données dans Azure SQL Database se produit quand un utilisa
 
 Imaginez un scénario dans lequel un utilisateur exécute SSMS (SQL Server Management Studio) à l’intérieur d’une machine virtuelle Azure se connectant à une base de données SQL. Cette base de données SQL se trouve dans le centre de données USA Ouest. L’exemple ci-dessous montre comment utiliser des contrôles d’accès réseau pour limiter l’accès à la base de données SQL par le biais de points de terminaison publics.
 
-1. Désactivez tout le trafic des services Azure à destination de la base de données SQL par le biais du point de terminaison public en affectant **OFF** à l’option Autoriser les services Azure. Vérifiez qu’aucune adresse IP n’est autorisée dans les règles de pare-feu au niveau du serveur et de la base de données. Pour plus d’informations, consultez [Contrôles d’accès réseau Azure SQL Database et Data Warehouse ](sql-database-networkaccess-overview.md).
+1. Désactivez tout le trafic des services Azure à destination de la base de données SQL par le biais du point de terminaison public en affectant **OFF** à l’option Autoriser les services Azure. Vérifiez qu’aucune adresse IP n’est autorisée dans les règles de pare-feu au niveau du serveur et de la base de données. Pour plus d’informations, consultez [Contrôles d’accès réseau Azure SQL Database et Azure Synapse Analytics](sql-database-networkaccess-overview.md).
 1. Autorisez uniquement le trafic à destination de la base de données SQL utilisant l’adresse IP privée de la machine virtuelle. Pour plus d’informations, consultez les articles sur le [point de terminaison de service](sql-database-vnet-service-endpoint-rule-overview.md) et les [règle de pare-feu du réseau virtuel](sql-database-firewall-configure.md).
 1. Sur la machine virtuelle Azure, limitez l’étendue de la connexion sortante à l’aide de [groupes de sécurité réseau (NSG)](../virtual-network/manage-network-security-group.md) et d’étiquettes de service comme suit.
     - Spécifiez une règle NSG pour autoriser le trafic pour Service Tag = SQL.WestUs (autorise uniquement la connexion à la base de données SQL dans USA Ouest)
@@ -142,7 +142,6 @@ Nmap done: 256 IP addresses (1 host up) scanned in 207.00 seconds
 
 Le résultat indique qu’une adresse IP est active : il s’agit de l’adresse IP du point de terminaison privé.
 
-
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>Vérifier la connectivité à l’aide de SSMS (SQL Server Management Studio)
 > [!NOTE]
 > Utilisez le **nom de domaine complet (FQDN)** du serveur dans les chaînes de connexion de vos clients. Toute tentative de connexion directe à l’adresse IP échoue. Ce comportement est normal dans la mesure où le point de terminaison privé route le trafic vers la passerelle SQL dans la région et où le nom de domaine complet doit être spécifié pour que les connexions réussissent.
@@ -174,11 +173,9 @@ Pour établir la connectivité entre un environnement local et la base de donné
 - [Circuit ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
 
-## <a name="connecting-from-an-azure-sql-data-warehouse-to-azure-storage-using-polybase"></a>Connexion d’un entrepôt de données SQL Azure à Stockage Azure à l’aide de Polybase
+## <a name="connecting-from-azure-synapse-analytics-to-azure-storage-using-polybase"></a>Connexion d’Azure Synapse Analytics à Stockage Azure à l’aide de Polybase
 
-La technologie PolyBase est couramment utilisée pour charger des données dans Azure SQL Data Warehouse à partir de comptes Stockage Azure. Si le compte Stockage Azure à partir duquel vous chargez des données limite l’accès à un ensemble de sous-réseaux de réseau virtuel par le biais de points de terminaison privés, de points de terminaison de service ou de pare-feu IP, la connectivité entre PolyBase et le compte est interrompue. Pour autoriser les scénarios d’importation et d’exportation PolyBase dans lesquels Azure SQL Data Warehouse se connecte de manière sécurisée à Stockage Azure au réseau virtuel, suivez les étapes indiquées [ici](sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
-
-
+La technologie PolyBase est couramment utilisée pour charger des données dans Azure Synapse Analytics à partir de comptes Stockage Azure. Si le compte Stockage Azure à partir duquel vous chargez des données limite l’accès à un ensemble de sous-réseaux de réseau virtuel par le biais de points de terminaison privés, de points de terminaison de service ou de pare-feu IP, la connectivité entre PolyBase et le compte est interrompue. Pour autoriser les scénarios d’importation et d’exportation PolyBase dans lesquels Azure Synapse Analytics se connecte de manière sécurisée à Stockage Azure au réseau virtuel, suivez les étapes indiquées [ici](sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,5 +1,5 @@
 ---
-title: Tableau de bord Téléchargements dans l’analytique de la Place de marché commerciale dans l’Espace partenaires
+title: Tableau de bord Téléchargements dans l’analytique de la Place de marché commerciale Microsoft dans l’Espace partenaires
 description: Découvrez comment accéder aux demandes de téléchargement de vos offres proposées sur la place de marché.
 author: dsindona
 ms.author: dsindona
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: f81b8ae927df6c95bbc34be7ad9916c88aeba03b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 136a65e47327007d7a28c2777051be61f475323e
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81251671"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732716"
 ---
 # <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Téléchargements dans l’analytique de la Place de marché commerciale
 

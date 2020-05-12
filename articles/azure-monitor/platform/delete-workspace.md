@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/14/2020
-ms.openlocfilehash: 1dceb3db4572ecdaf504745dba1099a5eccead43
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.date: 04/30/2020
+ms.openlocfilehash: 7ed01a57a4c2a55d777907a6cc14b111fb2086e3
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80395781"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731898"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Supprimer et récupérer un espace de travail Azure Log Analytics
 
@@ -59,14 +59,13 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-
 
 ### <a name="troubleshooting"></a>Dépannage
 
-Vous devez disposer des autorisations « Contributeur Log Analytics » pour pouvoir supprimer un espace de travail Log Analytics.<br>
-Si vous obtenez le message d’erreur « *Ce nom d’espace de travail est déjà utilisé* » pendant la création d’un espace de travail, en voici les raisons possibles :
+Vous devez disposer au moins des autorisations *Contributeur Log Analytics* pour supprimer un espace de travail.<br>
+Si vous obtenez le message d’erreur *Ce nom d’espace de travail est déjà utilisé* ou un *conflit* s’est produit pendant la création d’un espace de travail ; en voici les raisons possibles :
 * Le nom de l’espace de travail n’est pas disponible et qu’il est utilisé par une personne de votre organisation ou par un autre client.
-* L’espace de travail a été supprimé au cours des 14 derniers jours et son nom est réservé pour la période de suppression réversible. Pour annuler la suppression réversible et supprimer immédiatement votre espace de travail et en créer un nouveau sous le même nom, suivez ces étapes pour récupérer d’abord l’espace de travail et effectuer la suppression définitive :<br>
+* L’espace de travail a été supprimé au cours des 14 derniers jours et son nom est réservé pour la période de suppression réversible. Pour annuler la suppression réversible et supprimer définitivement votre espace de travail pour en créer un nouveau sous le même nom, suivez ces étapes afin de récupérer d’abord l’espace de travail et effectuer la suppression définitive :<br>
    1. [Récupérez](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) votre espace de travail.
    2. [Supprimez définitivement](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) votre espace de travail.
    3. Créez un espace de travail en reprenant le même nom d’espace de travail.
-
 
 ## <a name="permanent-workspace-delete"></a>Suppression d’espace de travail permanent
 La méthode de suppression réversible peut ne pas convenir dans certains cas, par exemple, de développement et le test, où vous devez répéter un déploiement avec les mêmes paramètres et nom d’espace de travail. En pareils cas, vous pouvez supprimer définitivement votre espace de travail et annuler la période de suppression réversible. L’opération de suppression définitive de l’espace de travail libère le nom de ce dernier, si bien que vous pouvez créer un espace de travail en utilisant le même nom.
@@ -96,12 +95,7 @@ Où « eyJ0eXAiOiJKV1Qi… » représente le jeton d’autorisation complet.
 
 Si vous disposez d'autorisations Contributeur pour l'abonnement et le groupe de ressources auxquels l'espace de travail était associé avant l'opération de suppression réversible, vous pouvez le récupérer (avec ses données, sa configuration et les agents connectés) pendant la période de suppression réversible. À l'issue de la période de suppression réversible, l'espace de travail devient irrécupérable et il est mis en file d'attente pour être définitivement supprimé. Les noms des espaces de travail supprimés sont conservés pendant toute la période de suppression réversible ; ils ne peuvent alors pas être utilisés pour tenter de créer un nouvel espace de travail.  
 
-Vous pouvez récupérer un espace de travail en le recréant à l’aide de l’une des méthodes de création suivantes : [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) ou [API REST]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) tant que les propriétés suivantes sont remplies avec les détails de l’espace de travail supprimé :
-
-* Identifiant d’abonnement
-* Nom du groupe ressources
-* Nom de l’espace de travail
-* Région
+Vous pouvez récupérer votre espace de travail en créant un espace de travail avec les détails de l’espace de travail supprimé ; ceux-ci incluent l’*ID d’abonnement*, le *Nom du groupe de ressources*, le *Nom de l’espace de travail* et la *Région*. Si votre groupe de ressources a également été supprimé et qu’il n’existe plus, créez un groupe de ressources portant le même nom que celui qui a été utilisé avant la suppression, puis créez un espace de travail à l’aide de l’une des méthodes suivantes : [Portail Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace), [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) ou [API REST](https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate).
 
 ### <a name="powershell"></a>PowerShell
 ```PowerShell

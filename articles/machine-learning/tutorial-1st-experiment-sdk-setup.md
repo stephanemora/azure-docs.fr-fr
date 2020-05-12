@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: 820332b0692c0c863ed23912fe9913c419769155
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 535cf95216cca210b5add5ca22cd6e5b1b997541
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272999"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778999"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutoriel : Bien démarrer avec la création de votre première expérience ML avec le SDK Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -47,11 +47,7 @@ Vous créez un espace de travail par le biais du portail Azure, une console web 
 
 Ce tutoriel utilise le serveur de notebook cloud dans votre espace de travail pour une expérience préconfigurée sans installation. Utilisez [votre propre environnement](how-to-configure-environment.md#local) si vous préférez contrôler votre environnement, vos packages et vos dépendances.
 
-Suivez cette vidéo ou suivez les étapes détaillées ci-dessous pour cloner et exécuter le tutoriel à partir de votre espace de travail. 
-
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
-
-
+ Suivez les étapes détaillées ci-dessous pour cloner et exécuter le tutoriel à partir de votre espace de travail. 
 
 ### <a name="clone-a-notebook-folder"></a>Cloner un dossier de notebooks
 
@@ -63,7 +59,7 @@ Vous effectuez les étapes de configuration et d’exécution d’expérience su
 
 1. Sélectionnez **Notebooks** à gauche.
 
-1. Ouvrez le dossier **Samples**.
+1. Sélectionnez l’onglet **Exemples** en haut.
 
 1. Ouvrez le dossier **Python**.
 
@@ -71,26 +67,33 @@ Vous effectuez les étapes de configuration et d’exécution d’expérience su
 
 1. Sélectionnez **« ... »** à droite du dossier **tutorials** (tutoriels), puis sélectionnez **Clone** (Cloner).
 
-    ![Cloner un dossier](./media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Cloner le dossier tutorials":::
 
 1. Une liste de dossiers indiquant tous les utilisateurs qui accèdent à l’espace de travail s’affiche.  Sélectionnez le dossier où cloner le dossier **tutorials**.
 
-### <a name="a-nameopenopen-the-cloned-notebook"></a><a name="open">Ouvrir le notebook cloné
+### <a name="open-the-cloned-notebook"></a><a name="open"></a>Ouvrir le notebook cloné
 
-1. Sous **User Files** (Fichiers utilisateur), ouvrez votre dossier, puis ouvrez le dossier **tutorials** cloné.
-
-    ![Ouvrir le dossier tutorials](./media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png)
+1. Ouvrez le dossier **tutorials** qui vient d’être fermé dans la section **User Files**.
 
     > [!IMPORTANT]
     > Vous pouvez voir les notebooks présents dans le dossier **samples** (exemples), mais vous ne pouvez pas exécuter de notebook à partir de cet emplacement.  Pour exécuter un notebook, veillez à ouvrir sa version clonée dans la section **User Files**.
     
 1. Sélectionnez le fichier **tutorial-1st-experiment-sdk-train.ipynb** dans votre dossier **tutorials/create-first-ml-experiment**.
 
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Ouvrir le dossier tutorials":::
+
+
 1. Dans la barre supérieure, sélectionnez une instance de calcul à utiliser pour exécuter le notebook. Ces machines virtuelles sont préconfigurées avec [tout ce dont vous avez besoin pour exécuter Azure Machine Learning](concept-compute-instance.md#contents). 
 
 1. Si aucune machine virtuelle n’est trouvée, sélectionnez **+ Ajouter** pour créer la machine virtuelle d’instance de calcul. 
 
-    1. Quand vous créez une machine virtuelle, indiquez un nom.  Le nom doit être compris entre 2 et 16 caractères. Les caractères valides sont les lettres, les chiffres et le caractère« - ». De plus, les noms doivent être uniques dans votre abonnement Azure.
+    1. Quand vous créez une machine virtuelle, suivez ces règles :  
+        + Le nom est obligatoire et ne peut pas être vide.
+        + Le nom doit être unique (insensible à la casse) dans toutes les instances de calcul existantes de la région Azure de l’instance d’espace de travail/de calcul. Vous obtenez une alerte si le nom que vous choisissez n’est pas unique.
+        + Les caractères valides sont les lettres majuscules et minuscules, les chiffres (0 à 9) et le tiret (-).
+        + Le nom doit comporter entre 3 et 24 caractères.
+        + Le nom doit commencer par une lettre (et non par un chiffre ou un tiret).
+        + S’il contient un tiret, celui-ci doit être suivi d’au moins une lettre. Exemple : Test-, test-0, test-01 ne sont pas noms d’instances valides, alors que test-a0, test-0a le sont.
 
     1.  Sélectionnez la taille de la machine virtuelle parmi les options disponibles.
 

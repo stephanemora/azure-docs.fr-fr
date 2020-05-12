@@ -2,13 +2,13 @@
 title: Informations de référence sur le fichier host.json pour Azure Functions 2.x
 description: Documentation de référence pour le fichier host.json d’Azure Functions avec le runtime v2.
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: 7967cdc7f5f7cbb92c12de15d31471fda8aa6569
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.date: 04/28/2020
+ms.openlocfilehash: 39e6ce5d6807a554cc1714a3970bed8303c31ce8
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758840"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690900"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x et ultérieur 
 
@@ -24,6 +24,8 @@ Le fichier de métadonnées *host.json* contient les options de configuration gl
 D’autres options de configuration d’application de fonction sont gérées dans vos [paramètres d’application](functions-app-settings.md) (pour les applications déployées) ou dans votre fichier [local.settings.json](functions-run-local.md#local-settings-file) (pour un développement local).
 
 Les configurations dans host.json relatives aux liaisons sont appliquées de façon égale à chaque fonction de l’application de fonction. 
+
+Vous pouvez également [substituer ou appliquer des paramètres en fonction de l’environnement](#override-hostjson-values) à l’aide des paramètres d’application.
 
 ## <a name="sample-hostjson-file"></a>Exemple de fichier host.json
 
@@ -386,6 +388,23 @@ Ensemble de [répertoires de code partagé](functions-reference-csharp.md#watche
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="override-hostjson-values"></a>Substituer les valeurs host.json
+
+Dans certains cas, vous pouvez être amené à configurer ou modifier des paramètres spécifiques dans un fichier host.json pour un environnement spécifique, sans changer le fichier host.json lui-même.  Vous pouvez substituer des valeurs host.json spécifiques en créant une valeur équivalente en tant que paramètre d’application. Quand le runtime trouve un paramètre d’application au format `AzureFunctionsJobHost__path__to__setting`, il remplace le paramètre host.json équivalent situé sur `path.to.setting` dans le fichier JSON. Quand il est exprimé sous la forme d’un paramètre d’application, le point (`.`) utilisé pour indiquer la hiérarchie JSON est remplacé par un trait de soulignement double (`__`). 
+
+Par exemple, vous pouvez être amené à désactiver l’échantillonnage Application Insight en cas d’exécution locale. Si vous avez changé le fichier local host.json pour désactiver Application Insights, ce changement peut être envoyé (push) à votre application de production durant le déploiement. La méthode la plus fiable consiste à créer un paramètre d’application sous la forme `"AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"` dans le fichier `local.settings.json`. Vous pouvez le voir dans le fichier `local.settings.json` suivant, qui n’est pas publié :
+
+```json
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "{storage-account-connection-string}",
+        "FUNCTIONS_WORKER_RUNTIME": "{language-runtime}",
+        "AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"
+    }
 }
 ```
 

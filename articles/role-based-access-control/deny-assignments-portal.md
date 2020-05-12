@@ -1,6 +1,6 @@
 ---
-title: Lister les affectations de refus pour les ressources Azure avec le portail Azure
-description: Découvrez comment répertorier les utilisateurs, groupes, principaux de service et identités managées auxquels l’accès à des actions de ressource Azure spécifiques a été refusé dans des étendues particulières à l’aide du portail Azure.
+title: Répertorier les affectations de refus à l’aide du portail Azure - RBAC Azure
+description: Découvrez comment répertorier les utilisateurs, groupes, principaux du service et identités managées auxquels l’accès à des actions de ressource Azure spécifiques a été refusé dans des étendues particulières à l’aide du portail Azure et du contrôle d’accès en fonction du rôle (RBAC Azure).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,25 +14,25 @@ ms.workload: identity
 ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4db76e5c6191457346ca1f95678cf73843334d3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 97c03d417f8bf123de3332142344f292de00e3b2
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77137421"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734108"
 ---
-# <a name="list-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Répertorier les affectations de refus pour les ressources Azure à l’aide du portail Azure
+# <a name="list-azure-deny-assignments-using-the-azure-portal"></a>Répertorier les affectations de refus à l’aide du portail Azure
 
-Les [affectations de refus](deny-assignments.md) empêchent les utilisateurs d'effectuer des actions particulières sur les ressources Azure, même si une attribution de rôle leur confère un accès. Cet article décrit comment lister les affectations de refus existantes à l’aide du portail Azure.
+Les [affectations de refus Azure](deny-assignments.md) empêchent les utilisateurs d’effectuer des actions particulières sur les ressources Azure, même si une attribution de rôle leur confère un accès. Cet article décrit comment lister les affectations de refus existantes à l’aide du portail Azure.
 
 > [!NOTE]
-> Vous ne pouvez pas directement créer vos propres affectations de refus. Pour en savoir sur la création des affectations de refus, consultez [Affectations de refus](deny-assignments.md).
+> Vous ne pouvez pas directement créer vos propres affectations de refus. Pour obtenir des informations sur la création des affectations de refus, consultez [Affectations de refus Azure](deny-assignments.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour obtenir des informations sur une affectation de refus, vous devez disposer de :
 
-- l’autorisation `Microsoft.Authorization/denyAssignments/read`, qui est incluse dans la plupart des [rôles intégrés pour les ressources Azure](built-in-roles.md).
+- l’autorisation `Microsoft.Authorization/denyAssignments/read`, qui est incluse dans la plupart des [rôles intégrés Azure](built-in-roles.md).
 
 ## <a name="list-deny-assignments"></a>Répertorier les affectations de refus
 
@@ -109,5 +109,5 @@ Suivez ces étapes pour répertorier des détails supplémentaires sur une affec
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Comprendre les affectations de refus relatives aux ressources Azure](deny-assignments.md)
-* [Répertorier les affectations de refus pour les ressources Azure à l’aide d’Azure PowerShell](deny-assignments-powershell.md)
+* [Comprendre les affectations de refus Azure](deny-assignments.md)
+* [Répertorier les affectations de refus Azure à l’aide d’Azure PowerShell](deny-assignments-powershell.md)

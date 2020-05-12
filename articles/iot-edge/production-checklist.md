@@ -4,19 +4,19 @@ description: Découvrez comment faire passer votre solution Azure IoT Edge du d�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/02/2020
+ms.date: 4/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: f1de8330b950ffa09ce3e8ae168f05021b2ad80c
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: e818de4885d3859199108d7d88e4cbcb215dc4cc
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81729457"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780740"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Préparer le déploiement en production d’une solution IoT Edge
 
@@ -107,7 +107,7 @@ Le hub IoT Edge, optimisé par défaut du point de vue des performances, tente d
 
 Lorsque la valeur d’**OptimizeForPerformance** est **true**, l’en-tête du protocole MQTT utilise PooledByteBufferAllocator, qui offre de meilleures performances, mais alloue plus de mémoire. L’allocateur ne fonctionne pas correctement sur des systèmes d’exploitation 32 bits ou sur des appareils ne disposant pas de suffisamment de mémoire. En outre, en cas d’optimisation des performances, RocksDB alloue plus de mémoire pour son rôle de fournisseur de stockage local.
 
-Pour plus d’informations, voir [Problèmes de stabilité sur les appareils avec contraintes de ressources](troubleshoot.md#stability-issues-on-resource-constrained-devices).
+Pour plus d’informations, consultez [Problèmes de stabilité sur les appareils plus petits](troubleshoot-common-errors.md#stability-issues-on-smaller-devices).
 
 #### <a name="disable-unused-protocols"></a>Désactiver les protocoles inutilisés
 
@@ -136,6 +136,8 @@ Lors du passage de scénarios de test à des scénarios de production, pensez à
 * **Important**
   * Gérer l’accès au registre de conteneurs
   * Utiliser des balises pour gérer les versions
+* **Utile**
+  * Stocker les conteneurs Runtime dans votre registre privé
 
 ### <a name="manage-access-to-your-container-registry"></a>Gérer l’accès au registre de conteneurs
 
@@ -168,6 +170,27 @@ Les balises aident également à appliquer des mises à jour sur les appareils I
 
 Pour un exemple de convention de balise, voir [Mettre à jour le runtime IoT Edge](how-to-update-iot-edge.md#understand-iot-edge-tags) : vous découvrirez comment IoT Edge utilise des balises propagées et des balises spécifiques pour effectuer le suivi des versions.
 
+### <a name="store-runtime-containers-in-your-private-registry"></a>Stocker les conteneurs Runtime dans votre registre privé
+
+Vous savez comment stocker vos images de conteneur pour les modules de code personnalisés dans votre registre privé Azure, mais vous pouvez également l’utiliser pour stocker des images de conteneur publiques, comme pour les modules runtime edgeAgent et edgeHub. Cela peut être nécessaire si vous avez des restrictions de pare-feu très strictes, car ces conteneurs de runtime sont stockés dans le registre de conteneurs Microsoft (MCR).
+
+Obtenez les images avec la commande Docker pull pour les placer dans votre registre privé. N’oubliez pas que vous devez mettre à jour les images avec chaque nouvelle version du runtime IoT Edge.
+
+| Conteneur de runtime IoT Edge | Commande Docker pull |
+| --- | --- |
+| [Agent Azure IoT Edge](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
+| [Hub Azure IoT Edge](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
+
+Ensuite, veillez à mettre à jour les références d’image dans le fichier deployment.template.json pour les modules système edgeAgent et edgeHub. Remplacez `mcr.microsoft.com` par le nom et le serveur de votre registre pour les deux modules.
+
+* edgeAgent :
+
+    `"image": "<registry name and server>/azureiotedge-agent:1.0",`
+
+* edgeHub :
+
+    `"image": "<registry name and server>/azureiotedge-hub:1.0",`
+
 ## <a name="networking"></a>Mise en réseau
 
 * **Utile**
@@ -177,7 +200,7 @@ Pour un exemple de convention de balise, voir [Mettre à jour le runtime IoT Edg
 
 ### <a name="review-outboundinbound-configuration"></a>Vérifier la configuration sortante/entrante
 
-Les canaux de communication entre Azure IoT Hub et IoT Edge sont toujours configurés pour être sortants. Dans la plupart des scénarios IoT Edge, seules trois connexions sont nécessaires. Une connexion doit être établie entre le moteur de conteneur et le ou les registres de conteneurs qui contiennent les images de module. Le runtime IoT Edge doit être connecté à IoT Hub pour récupérer des informations de configuration des appareils et envoyer des messages et des données de télémétrie. Enfin, si vous utilisez l’approvisionnement automatique, le démon IoT Edge doit se connecter au service Device Provisioning. Pour plus d’informations, voir [Règles de configuration du pare-feu et des ports](troubleshoot.md#firewall-and-port-configuration-rules-for-iot-edge-deployment).
+Les canaux de communication entre Azure IoT Hub et IoT Edge sont toujours configurés pour être sortants. Dans la plupart des scénarios IoT Edge, seules trois connexions sont nécessaires. Une connexion doit être établie entre le moteur de conteneur et le ou les registres de conteneurs qui contiennent les images de module. Le runtime IoT Edge doit être connecté à IoT Hub pour récupérer des informations de configuration des appareils et envoyer des messages et des données de télémétrie. Enfin, si vous utilisez l’approvisionnement automatique, le démon IoT Edge doit se connecter au service Device Provisioning. Pour plus d’informations, voir [Règles de configuration du pare-feu et des ports](troubleshoot.md#check-your-firewall-and-port-configuration-rules).
 
 ### <a name="allow-connections-from-iot-edge-devices"></a>Autoriser les connexions à partir d’appareils IoT Edge
 
@@ -203,6 +226,8 @@ Cette liste de vérification est un point de départ pour les règles de pare-fe
    | \*.docker.io  | 443 | Accès Docker Hub (facultatif) |
 
 Certaines de ces règles de pare-feu sont héritées d’Azure Container Registry. Pour plus d’informations, consultez [Configurer des règles pour accéder à un registre de conteneurs Azure derrière un pare-feu](../container-registry/container-registry-firewall-access-rules.md).
+
+Si vous ne souhaitez pas configurer votre pare-feu pour autoriser l’accès aux registres de conteneurs publics, vous pouvez stocker les images dans votre registre de conteneurs privé, comme décrit dans [Stocker les conteneurs Runtime dans votre registre privé](#store-runtime-containers-in-your-private-registry).
 
 ### <a name="configure-communication-through-a-proxy"></a>Configurer la communication via un proxy
 

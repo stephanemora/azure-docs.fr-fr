@@ -8,37 +8,31 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 729e757c69887bbdce324e2d8383c970995dc94a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0d5947f669b600b544cd7e5265e2cce8de118374
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73903668"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788986"
 ---
-## <a name="sign-in-to-azure"></a>Connexion à Azure 
-
-Connectez-vous au portail Azure sur https://portal.azure.com.
-
-> [!NOTE]
-> Si vous vous êtes inscrit pour utiliser mes Galeries d’images partagées pendant la préversion, vous devrez peut-être inscrire à nouveau le fournisseur `Microsoft.Compute`. Ouvrez [Cloud Shell](https://shell.azure.com/bash) et saisissez : `az provider register -n Microsoft.Compute`
-
 ## <a name="create-an-image-gallery"></a>Créer une galerie d’images
 
 Une galerie d’images est la ressource principale utilisée pour activer le partage d’image. Les caractères autorisés pour le nom de galerie sont les lettres majuscules ou minuscules, les chiffres et les points. Le nom de galerie ne peut pas contenir de tirets.  Les noms de galerie doivent être uniques dans votre abonnement. 
 
 L’exemple suivant crée une galerie nommée *myGallery* dans le groupe de ressources *myGalleryRG*.
 
-1. Sélectionnez **Créer une ressource** dans le coin supérieur gauche du portail Azure.
+1. Connectez-vous au portail Azure sur https://portal.azure.com.
 1. Utilisez le type **Galerie d’images partagées** dans la zone de recherche, puis sélectionnez **Galerie d’images partagées** dans les résultats.
-1. Sur la page **Galerie d’images partagées**, cliquez sur **Créer**.
-1. Sélectionnez l’abonnement approprié.
+1. Sur la page **Galerie d’images partagées**, cliquez sur **Ajouter**.
+1. Dans la page **Créer une galerie Shared Image Gallery**, sélectionnez l’abonnement approprié.
 1. Dans **Groupe de ressources**, sélectionnez **Créer** et saisissez *myResourceGroup* comme nom.
 1. Dans **Nom**, saisissez *myGallery* comme nom de la galerie.
 1. Laissez la valeur par défaut pour **Région**.
 1. Vous pouvez saisir une brève description de la galerie, par exemple *Ma galerie d’images pour le test.* Cliquez ensuite sur **Vérifier + créer**.
 1. Une fois la validation réussie, sélectionnez **Créer**.
 1. Une fois le déploiement terminé, sélectionnez **Accéder à la ressource**.
-   
+
+
 ## <a name="create-an-image-definition"></a>Créer une définition d’image 
 
 Les définitions d’image créent un regroupement logique des images. Elles sont utilisées pour gérer les informations sur les versions d’image créées au sein de celles-ci. Les noms de définition d’image peuvent contenir des lettres majuscules ou minuscules, des chiffres, des tirets et des points. Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
@@ -46,8 +40,9 @@ Les définitions d’image créent un regroupement logique des images. Elles son
 Créez la définition de l’image de galerie à l’intérieur de votre galerie. Dans cet exemple, l’image de galerie est nommée *myImageDefinition*.
 
 1. Sur la page de votre nouvelle galerie d’images, sélectionnez **Ajouter une nouvelle définition d’image** à partir du haut de la page. 
+1. Sous **Ajouter une nouvelle définition d’image à la galerie Shared Image Gallery**, pour **Région**, sélectionnez *USA Est*.
 1. Pour **Nom de la définition d’image**, saisissez *myImageDefinition*.
-1. Pour **Système d’exploitation**, sélectionnez l’option appropriée en fonction de votre machine virtuelle source.
+1. Pour **Système d’exploitation**, sélectionnez l’option appropriée en fonction de votre machine virtuelle source.  
 1. Pour **Génération de machine virtuelle**, sélectionnez l'option en fonction de votre machine virtuelle source. Dans la plupart des cas, ce sera *Gen 1*. Pour plus d'informations, voir [Prise en charge des machines virtuelles de 2e génération](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2).
 1. Pour **État du système d’exploitation**, sélectionnez l’option appropriée en fonction de votre machine virtuelle source. Pour plus d’informations, voir [Machines virtuelles généralisées et spécialisées](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images).
 1. Pour **Éditeur**, saisissez *myPublisher*. 

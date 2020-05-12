@@ -1,10 +1,10 @@
 ---
 title: Contrôles d’accès réseau
-description: Vue d’ensemble des contrôles d’accès réseau pour Azure SQL Database et Data Warehouse pour gérer l’accès et configurer une base de données unique ou mise en pool.
+description: Vue d’ensemble des contrôles d’accès réseau pour Azure SQL Database et Azure Synapse Analytics pour gérer l’accès et configurer une base de données unique ou mise en pool.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,17 +12,17 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 8b4ee679b21d904f997f727f5f26275c86acc9c5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: fdeb8ee3fbb01ea007205e02eb247925fb3baea1
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414414"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629573"
 ---
-# <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Contrôles d’accès réseau Azure SQL Database et Data Warehouse
+# <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Contrôles d’accès réseau Azure SQL Database et Azure Synapse Analytics
 
 > [!NOTE]
-> Cet article s’applique à un serveur SQL Azure et aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse.
+> Cet article s’applique au serveur SQL Azure ainsi qu’aux bases de données SQL Database et Azure Synapse Analytics créées sur le serveur SQL Azure. Par souci de simplicité, le nom « SQL Database » est utilisé pour faire référence à SQL Database et à Azure Synapse Analytics.
 
 > [!IMPORTANT]
 > Cet article ne s’applique *pas* à **Azure SQL Database Managed Instance**. Pour plus d’informations sur la configuration réseau, consultez [Connexion à une instance managée](sql-database-managed-instance-connect-app.md).
@@ -56,7 +56,7 @@ Vous pouvez aussi changer ce paramètre via le volet du pare-feu une fois le ser
 
 Quand la valeur est définie sur **ACTIVÉ**, Azure SQL Server autorise les communications à partir de toutes les ressources situées dans la limite Azure, qu’elles fassent partie de votre abonnement ou non.
 
-Le paramètre **ACTIVÉ** est souvent plus permissif que ce que souhaitent la plupart des clients. Par conséquent, ceux-ci préféreront peut-être définir ce paramètre sur **DÉSACTIVÉ** et le remplacer par des règles de pare-feu IP ou des règles de pare-feu de réseau virtuel plus restrictives. Ce choix affecte les fonctionnalités suivantes qui s’exécutent sur des machines virtuelles dans Azure qui ne font pas partie de votre réseau virtuel et qui, par conséquent, se connectent à la base de données SQL par le biais d’une adresse IP Azure.
+Le paramètre **ACTIVÉ** est souvent plus permissif que ce que souhaitent la plupart des clients. Par conséquent, ceux-ci préféreront peut-être définir ce paramètre sur **DÉSACTIVÉ** et le remplacer par des règles de pare-feu IP ou des règles de pare-feu de réseau virtuel plus restrictives. Ce choix affecte les fonctionnalités suivantes qui s’exécutent sur des machines virtuelles dans Azure qui ne font pas partie de votre réseau virtuel et qui, par conséquent, se connectent à la base de données SQL par le biais d’une adresse IP Azure.
 
 ### <a name="import-export-service"></a>Service d’importation/exportation
 Le service d'importation/exportation ne fonctionne pas lorsque **Autoriser l'accès aux services Azure** est défini sur **DÉSACTIVÉ**. Toutefois, vous pouvez contourner le problème [en exécutant manuellement sqlpackage.exe à partir d’une machine virtuelle Azure ou en effectuant l’exportation](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) directement dans votre code à l’aide de l’API DACFx.
@@ -65,7 +65,7 @@ Le service d'importation/exportation ne fonctionne pas lorsque **Autoriser l'acc
 Pour utiliser la fonctionnalité de synchronisation des données avec l'option **Autoriser l'accès aux services Azure** définie sur **DÉSACTIVÉ**, vous devez créer des entrées de règle de pare-feu individuelles afin d'[ajouter des adresses IP](sql-database-server-level-firewall-rule.md) à partir de la **balise du service SQL** pour la région qui héberge la base de données **Hub**.
 Ajoutez ces règles de pare-feu au niveau du serveur aux serveurs logiques hébergeant à la fois des bases de données **Hub** et **Member** (qui peuvent être dans des régions différentes).
 
-Utilisez le script PowerShell suivant pour générer les adresses IP correspondant à la balise du service SQL pour la région USA Ouest.
+Utilisez le script PowerShell suivant pour générer les adresses IP correspondant à la balise du service SQL pour la région USA Ouest :
 ```powershell
 PS C:\>  $serviceTags = Get-AzNetworkServiceTag -Location eastus2
 PS C:\>  $sql = $serviceTags.Values | Where-Object { $_.Name -eq "Sql.WestUS" }

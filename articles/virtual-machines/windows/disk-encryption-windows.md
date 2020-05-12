@@ -8,18 +8,18 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: deb2860c8d027a0a258c4a962fe33d6f516e10dc
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 4509c62b15eb06c89fe80555a26773fdd3876e66
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085641"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790896"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Scénarios Azure Disk Encryption sur les machines virtuelles Windows
 
-Le service Azure Disk Encryption pour machines virtuelles Windows utilise la fonctionnalité Bitlocker de Windows pour effectuer un chiffrement complet des disques de système d’exploitation et du disques de données. Il assure en outre le chiffrement du disque de ressources éphémères lorsque le paramètre VolumeType est défini sur Tous.
+Le service Azure Disk Encryption pour machines virtuelles Windows utilise la fonctionnalité BitLocker de Windows pour effectuer un chiffrement complet des disques de système d’exploitation et du disques de données. Il assure en outre le chiffrement du disque temporaire lorsque le paramètre VolumeType est défini sur Tous.
 
-Azure Disk Encryption est [intégré avec Azure Key Vault](disk-encryption-key-vault.md) pour faciliter le contrôle et la gestion des clés et des secrets de chiffrement des disques. Pour obtenir une vue d’ensemble du service, consultez [Azure Disk Encryption pour les machines virtuelles Windows](disk-encryption-overview.md).
+Azure Disk Encryption est [intégré à Azure Key Vault](disk-encryption-key-vault.md) pour faciliter le contrôle et la gestion des clés et des secrets de chiffrement des disques. Pour obtenir une vue d’ensemble du service, consultez [Azure Disk Encryption pour les machines virtuelles Windows](disk-encryption-overview.md).
 
 Vous pouvez appliquer le chiffrement de disque uniquement aux machines virtuelles dont [la taille et le système d’exploitation sont pris en charge](disk-encryption-overview.md#supported-vms-and-operating-systems). Vous devez également satisfaire les prérequis suivants :
 

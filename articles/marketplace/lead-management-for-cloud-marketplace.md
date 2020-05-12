@@ -7,24 +7,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 09b02d043e970c68cdff0e3dc4f97328c9d74c84
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: c41831f528ae425b35a04503180a956f67762b70
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383781"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789842"
 ---
 # <a name="lead-management-for-commercial-marketplace"></a>Gestion des prospects pour la Place de marché commerciale
 
-
 Les clients sont au centre de toute entreprise prospère. Dans la transformation actuelle de l’acquisition des produits, les responsables marketing doivent s’attacher à établir un lien direct avec les clients et à nouer une relation. C’est pourquoi la génération de prospects de haute qualité est un outil essentiel pour votre cycle de vente. Une fois votre offre publiée dans l'[Espace partenaires](https://partner.microsoft.com/), des outils vous permettent de recevoir systématiquement les informations de contact des clients qui manifestent leur l’intérêt pour votre produit ou qui le déploient sur la Place de marché. 
-
-
 
 ## <a name="what-are-leads-in-the-marketplace"></a>Que sont les prospects sur la Place de marché ?
 
 Les prospects comptent parmi les clients qui sont intéressés par vos produits ou qui les déploient à partir de la Place de marché. Que votre produit soit publié sur la Place de marché Azure ou sur AppSource, vous pouvez recevoir les prospects une fois qu’il est correctement configuré entre votre système CRM et vos référencements dans l'Espace partenaires. 
-
 
 ## <a name="how-to-connect-your-crm-system-with-partner-center"></a>Comment connecter votre système CRM à l'Espace partenaires
 
@@ -48,7 +44,7 @@ Une fois que vous avez correctement configuré votre destination de prospect et 
 
 Une fois les paramètres techniques configurés, vous devez incorporer ces prospects à votre stratégie commerciale et marketing, ainsi qu’à vos processus opérationnels actuels. Nous cherchons à mieux comprendre votre processus de vente global. C’est pourquoi nous tenons à travailler en étroite collaboration avec vous pour vous apporter des prospects de qualité et des données en quantité suffisante pour garantir votre réussite. Nous apprécions vos commentaires sur la façon dont nous pouvons optimiser et améliorer les prospects que nous vous envoyons, accompagnés de toutes les données nécessaires pour assurer la réussite de ces clients. Faites-nous savoir si vous souhaitez nous communiquer vos commentaires et suggestions pour permettre à votre équipe commerciale de mieux exploiter les prospects de la Place de marché.
 
-## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a>Erreurs courantes de configuration des prospects au moment de publier dans l'Espace partenaires
+## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a><a id="publishing-config-errors"></a> Erreurs courantes de configuration des prospects au moment de publier dans l’Espace partenaires
 
 **Impossible d’enregistrer le prospect dans Dynamics CRM. Vérifiez les paramètres de compte Dynamics CRM. LastCRMError : Impossible de se connecter à Dynamics CRM, LastCRMException :** 
 
@@ -90,7 +86,7 @@ Les prospects sont des clients qui déploient vos produits à partir de la Place
 
 **Où puis-je obtenir de l’aide pour configurer la destination des prospects ?** 
 
-Vous trouverez la documentation ici : [Obtenir des prospects](./partner-center-portal/commercial-marketplace-get-customer-leads.md) Vous pouvez aussi soumettre un ticket de support via aka.ms/marketplacepublishersupport en sélectionnant le type d’offre et la gestion des prospects. 
+Vous pouvez rechercher des informations dans [Obtenir des prospects](./partner-center-portal/commercial-marketplace-get-customer-leads.md) ou envoyer un ticket de support dans [Aide et support](https://partner.microsoft.com/support/v2/?stage=1). Sélectionnez le type d’offre et la gestion des prospects. 
 
 **Dois-je obligatoirement configurer une destination des prospects pour publier une offre sur la Place de marché ?**
 
@@ -187,7 +183,7 @@ Les prospects sont écrits uniquement si vous sélectionnez le Stockage Blob Azu
 
 **J’ai reçu un e-mail de la Place de marché. Pourquoi donc je ne trouve pas les prospects dans mon système CRM ?**  
 
-Il est possible que le domaine de messagerie de l’utilisateur final soit .edu. Pour des raisons de confidentialité, nous ne transmettons pas de données personnelles identifiables en provenance du domaine .edu. Envoyez-nous un [ticket de support](https://aka.ms/marketplacepublishersupport).
+Il est possible que le domaine de messagerie de l’utilisateur final soit .edu. Pour des raisons de confidentialité, nous ne transmettons pas de données personnelles identifiables en provenance du domaine .edu. Envoyez un ticket de support dans [Aide et support](https://partner.microsoft.com/support/v2/?stage=1).
 
 **J’ai configuré Table Azure/Blob Azure comme destination des prospects. Pourquoi ne vois-je pas les prospects ?** 
 

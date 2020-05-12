@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 39edaa32b0695f4ab83206cd5701629f12295a0f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 5/4/2020
+ms.openlocfilehash: 6b738fc96a51893d8c0a0e75c5551007da60bdd2
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79527909"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793191"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas en lecture dans Azure Database for MariaDB
 
@@ -33,9 +33,6 @@ La fonctionnalité de réplica en lecture utilise la réplication asynchrone. La
 
 ## <a name="cross-region-replication"></a>Réplication entre régions
 Vous pouvez créer un réplica en lecture dans une autre région à partir de votre serveur maître. La réplication entre régions peut être utile pour des scénarios tels que la planification de la récupération d’urgence ou le rapprochement des données de vos utilisateurs.
-
-> [!NOTE]
-> La réplication inter-régions est en préversion.
 
 Vous pouvez disposer d’un serveur maître dans toute [région Azure Database for MariaDB](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  Un serveur maître peut avoir un réplica dans sa région jumelée ou dans les régions de réplica universelles. L’image ci-dessous montre les régions de réplica disponibles en fonction de votre région maître.
 
@@ -73,7 +70,7 @@ Découvrez comment [créer un réplica en lecture dans le portail Azure](howto-r
 
 ## <a name="connect-to-a-replica"></a>Se connecter à un réplica
 
-Au moment de sa création, un réplica hérite des règles de pare-feu ou du point de terminaison de service VNet (réseau virtuel) du serveur maître. Ensuite, ces règles sont indépendantes du serveur maître.
+Au moment de sa création, un réplica hérite des règles de pare-feu du serveur maître. Ensuite, ces règles sont indépendantes du serveur maître.
 
 Le réplica hérite du compte Administrateur du serveur maître. Tous les comptes d’utilisateur sur le serveur maître sont répliqués sur les réplicas en lecture. Vous pouvez uniquement vous connecter à un réplica en lecture à l’aide des comptes d’utilisateur disponibles sur le serveur maître.
 
@@ -126,7 +123,7 @@ Un réplica est créé à partir de la même configuration que celle du serveur 
 > [!IMPORTANT]
 > Avant de mettre à jour une configuration de serveur maître avec de nouvelles valeurs, mettez à jour la configuration du réplica avec des valeurs égales ou supérieures. Ainsi, vous avez la garantie que le réplica peut suivre les changements apportés au maître.
 
-Les règles de pare-feu, les règles de réseau virtuel et les paramètres de paramétrage sont hérités du serveur maître au réplica lorsque le réplica est créé. Par la suite, les règles du réplica sont indépendantes.
+Les règles de pare-feu et les paramètres sont transmis du serveur maître au réplica lorsque le réplica est créé. Par la suite, les règles du réplica sont indépendantes.
 
 ### <a name="stopped-replicas"></a>Réplicas arrêtés
 
@@ -149,6 +146,8 @@ Les paramètres de serveur suivants sont verrouillés sur les serveurs maîtres 
 - [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
 
 Le paramètre [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) est verrouillé sur les serveurs réplicas.
+
+Pour mettre à jour l’un des paramètres ci-dessus sur le serveur maître, supprimez les serveurs réplicas, mettez à jour la valeur du paramètre sur le maître, puis recréez les réplicas.
 
 ### <a name="other"></a>Autres
 

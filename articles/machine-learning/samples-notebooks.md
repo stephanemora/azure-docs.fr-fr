@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7242b82ee5c43878a33731bd1f02b685020f22b0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aeced8c4108760fc3e10dbf891a469792c210707
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78673614"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780060"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Explorer Azure Machine Learning avec des notebooks Jupyter
 
@@ -55,7 +55,13 @@ La machine virtuelle DSVM (Data Science Virtual Machine) est une image de machin
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorez les [exemples de notebooks](https://aka.ms/aml-notebooks) pour découvrir ce que permet de faire Azure Machine Learning, ou essayez ces tutoriels :
+Explorez les [exemples de notebooks](https://aka.ms/aml-notebooks) pour découvrir ce que permet de faire Azure Machine Learning.
+
+Pour obtenir d’autres exemples de projets GitHub, consultez les dépôts suivantes :
++ [Microsoft/MLOps](https://github.com/Microsoft/MLOps)
++ [Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
+
+Essayez ces tutoriels :
 
 - [Entraîner un modèle de classification d’images avec MNIST](tutorial-train-models-with-aml.md)
 

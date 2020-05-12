@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: ef715ed7df1cc203e66bb33cd1493a7f7a713327
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 9b96547b841c26f12aff2db781ce55c49ef9cde4
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82081606"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790624"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertes de sécurité - guide de référence
 
@@ -294,7 +294,7 @@ Sous les tableaux des alertes, un tableau décrit la kill chain d’Azure Securi
 |**Accès à partir d’un nœud de sortie TDR dans un compte de stockage**|Indique que ce compte a fait l’objet d’un accès à partir d’une adresse IP connue comme étant un nœud de sortie actif de Tor (proxy d’anonymisation). La gravité de cette alerte considère le type d’authentification utilisé (le cas échéant) et le fait qu’il s’agit ou non du premier cas de ce type d’accès. Un attaquant ou un utilisateur légitime a peut-être accédé à votre compte de stockage à l’aide de Tor.|Détection / Exploitation|Élevé|
 |**Accès à partir d’un emplacement inhabituel dans un compte de stockage**|Indique un changement dans le modèle d’accès à un compte Stockage Azure. Quelqu’un a accédé à ce compte à partir d’une adresse IP considérée comme peu familière par rapport à l’activité récente. Soit un attaquant a obtenu l’accès au compte, soit un utilisateur légitime s’est connecté à partir d’un emplacement géographique nouveau ou inhabituel. Dans le deuxième cas, il peut s’agir, par exemple, d’une opération de maintenance à distance effectuée par une nouvelle application ou un nouveau développeur.|Exploitation|Faible|
 |**Accès anonyme à un compte de stockage**|Indique un changement dans le modèle d’accès à un compte de stockage. Par exemple, le compte a fait l’objet d’un accès anonyme (sans authentification), ce qui est inattendu comparé au modèle d’accès récent à ce compte. Un attaquant a peut-être exploité un accès en lecture public à un conteneur de stockage d’objets blob.|Exploitation|Élevé|
-|**Programme potentiellement malveillant chargé vers un compte de stockage**|Indique qu’un objet blob contenant des programmes malveillants potentiels a été chargé dans un compte de stockage. Les causes potentielles peuvent inclure le chargement d’un programme malveillant intentionnel par une personne malveillante ou le chargement non intentionnel d’un objet blob potentiellement malveillant par un utilisateur légitime.|LateralMovement|Élevé|
+|**Programme potentiellement malveillant chargé vers un compte de stockage**|Indique qu’un objet blob pouvant contenir des programmes malveillants a été chargé dans un compte de stockage. Cette alerte est basée sur une analyse de réputation de hachage tirant parti de la puissance de Microsoft Threat Intelligence, qui inclut des hachages pour des virus, chevaux de Troie, logiciels espions et autres rançongiciels. Les causes potentielles peuvent inclure le chargement intentionnel d’un programme malveillant par un agresseur ou le chargement non intentionnel d’un objet blob potentiellement malveillant par un utilisateur légitime. Apprenez-en davantage sur les fonctionnalités de Microsoft Threat Intelligence ici : https://go.microsoft.com/fwlink/?linkid=2128684 |LateralMovement|Élevé|
 |**Inspection d’accès inhabituelle dans un compte de stockage**|Indique que les autorisations d’accès d’un compte de stockage ont été inspectées de façon inhabituelle, par rapport à l’activité récente sur ce compte. Il est possible qu'un attaquant ait effectué une reconnaissance en vue d’une attaque future.|Collection|Moyenne|
 |**Quantité inhabituelle de données extraites d’un compte de stockage**|Indique qu’une quantité anormalement élevée de données a été extraite par rapport à l’activité récente sur ce conteneur de stockage. Un attaquant a peut-être extrait une grande quantité de données à partir d’un conteneur de stockage d’objets blob.|Exfiltration|Moyenne|
 |**Une application inhabituelle a accédé à un compte de stockage**|Indique qu’une application inhabituelle a accédé à ce compte de stockage. Un attaquant a peut-être accédé à votre compte de stockage à l’aide d’une nouvelle application.|Exploitation|Moyenne|

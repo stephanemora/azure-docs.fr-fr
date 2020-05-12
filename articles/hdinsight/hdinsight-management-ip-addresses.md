@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/03/2020
-ms.openlocfilehash: 5e8f39b58f258742108fe323d9395efd87bc288f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1a539096ac1a154ca37bbe6703f820787f927fb
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78271808"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778258"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Adresses IP de gestion HDInsight
 
@@ -82,7 +82,7 @@ Autorisez le trafic provenant des adresses IP répertoriées pour les services d
 
 Pour plus d’informations sur les adresses IP à utiliser pour Azure Government, voir le document [Intelligence et analyse Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics).
 
-Pour plus d’informations, voir la section [Contrôler le trafic réseau](hdinsight-plan-virtual-network-deployment.md#networktraffic).
+Pour plus d’informations, consultez [Contrôler le trafic réseau](./control-network-traffic.md).
 
 Si vous utilisez des routes définies par l’utilisateur, vous devez spécifier une route et autoriser le trafic sortant du réseau virtuel vers les adresses IP ci-dessus avec le tronçon suivant défini sur « Internet ».
 

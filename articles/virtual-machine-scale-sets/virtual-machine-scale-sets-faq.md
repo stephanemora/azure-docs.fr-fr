@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: mimckitt
-ms.openlocfilehash: 1dbc08e01b9a36b1bc80ee6b81ceb2d92ff831cc
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 0a5fcb3bb1ebf48eaa9cdce70800a4239c5fae03
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273713"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611396"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
@@ -45,11 +45,13 @@ Créez et capturez une image de machine virtuelle, puis utilisez-la comme source
 
 ### <a name="if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed"></a>Si je réduis ma capacité de groupe identique de 20 à 15, quelles sont les machines virtuelles qui seront supprimées ?
 
-Les ordinateurs virtuels sont supprimés du jeu de mise à l’échelle uniformément entre les domaines de mise à jour et les domaines d’erreur pour optimiser la disponibilité. Les machines virtuelles avec les ID les plus élevés sont supprimées en premier.
+Par défaut, les machines virtuelles sont retirées du groupe identique de façon uniforme entre les zones de disponibilité (si le groupe identique est déployé dans une configuration zonale) et les domaines d’erreur pour optimiser la disponibilité. Les machines virtuelles avec les ID les plus élevés sont supprimées en premier.
+
+Vous pouvez modifier l’ordre de suppression des machines virtuelles en spécifiant une [Stratégie de scale-in](virtual-machine-scale-sets-scale-in-policy.md) pour le groupe identique.
 
 ### <a name="what-if-i-then-increase-the-capacity-from-15-to-18"></a>Que se passe-t-il si j’augmente ensuite la capacité de 15 à 18 ?
 
-Si vous augmentez la capacité à 18, 3 machines virtuelles sont créées. À chaque fois, l’ID d’instance de la machine virtuelle est incrémenté avec la valeur la plus élevée précédente (par exemple, 20, 21, 22). Les machines virtuelles sont réparties sur les domaines d’erreur et les domaines de mise à jour.
+Si vous augmentez la capacité à 18, 3 machines virtuelles sont créées. À chaque fois, l’ID d’instance de la machine virtuelle est incrémenté avec la valeur la plus élevée précédente (par exemple, 20, 21, 22). Les machines virtuelles sont équilibrées entre les domaines d’erreur.
 
 ### <a name="when-im-using-multiple-extensions-in-a-scale-set-can-i-enforce-an-execution-sequence"></a>Lorsque j’utilise plusieurs extensions dans un groupe identique, puis-je appliquer une séquence d’exécution ?
 
@@ -335,13 +337,13 @@ Pour plus d’informations, consultez le [Centre de gestion de la confidentialit
 
 Oui. Vous pouvez voir des exemples de modèles MSI dans les modèles de démarrage rapide Azure pour [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) et [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
-## <a name="deleting"></a>En cours de suppression 
+## <a name="deleting"></a>En cours de suppression
 
 ### <a name="will-the-locks-i-set-in-place-on-virtual-machine-scale-set-instances-be-respected-when-deleting-instances"></a>Les verrous que j’ai mis en place sur des instances de groupe de machines virtuelles identiques seront-ils respectés lors de la suppression des instances ?
 
-Dans le portail Azure, vous avez la possibilité de supprimer une instance individuelle ou de supprimer en bloc en sélectionnant plusieurs instances. Si vous essayez de supprimer une instance individuelle avec un verrou en place, le verrou est respecté et vous ne pourrez pas supprimer l’instance. Cependant, si vous sélectionnez en bloc plusieurs instances et que l’une de ces instances a un verrou en place, le ou les verrous ne seront pas respectés et toutes les instances sélectionnées seront supprimées. 
- 
-Dans Azure CLI, vous avez la possibilité de supprimer une instance individuelle. Si vous essayez de supprimer une instance individuelle avec un verrou en place, le verrou est respecté et vous ne pourrez pas supprimer cette instance. 
+Dans le portail Azure, vous avez la possibilité de supprimer une instance individuelle ou de supprimer en bloc en sélectionnant plusieurs instances. Si vous essayez de supprimer une instance individuelle avec un verrou en place, le verrou est respecté et vous ne pourrez pas supprimer l’instance. Cependant, si vous sélectionnez en bloc plusieurs instances et que l’une de ces instances a un verrou en place, le ou les verrous ne seront pas respectés et toutes les instances sélectionnées seront supprimées.
+
+Dans Azure CLI, vous avez la possibilité de supprimer une instance individuelle. Si vous essayez de supprimer une instance individuelle avec un verrou en place, le verrou est respecté et vous ne pourrez pas supprimer cette instance.
 
 ## <a name="extensions"></a>Extensions
 
@@ -445,7 +447,7 @@ Il existe deux principales façons de changer le mot de passe pour les machines 
 
     Mettez à jour les informations d’identification d’administrateur directement dans le modèle de groupe identique (par exemple en utilisant Azure Resource Explorer, PowerShell ou l’interface CLI). Une fois que le groupe identique est mis à jour, toutes les nouvelles machines virtuelles disposent des nouvelles informations d’identification. Les machines virtuelles existantes ont les nouvelles informations d’identification uniquement si elles sont réinitialisées.
 
-- Réinitialisez le mot de passe à l’aide des extensions d’accès aux machines virtuelles.
+- Réinitialisez le mot de passe à l’aide des extensions d’accès aux machines virtuelles. Veillez à respecter les exigences de mot de passe, telles qu’elles sont décrites [ici](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).
 
     Utilisez l’exemple PowerShell suivant :
 

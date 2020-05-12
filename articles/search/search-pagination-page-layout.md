@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 0f815003449f0600bce1cb8927b92b85b51b09a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da01d0f7d2313b9700c5aae08edbda9e355b3774
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641616"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801771"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Guide pratique pour utiliser les résultats de recherche dans Recherche cognitive Azure
 
@@ -92,9 +92,15 @@ Une autre option consiste à utiliser un [profil de scoring personnalisé](index
 
 ## <a name="hit-highlighting"></a>Mise en surbrillance des correspondances
 
-La mise en surbrillance des correspondances fait référence au formatage du texte (par exemple, les mise en surbrillance en gras ou en jaune) appliquée au terme correspondant dans un résultat, ce qui permet de repérer facilement l’occurrence. Des instructions pour la mise en surbrillance des correspondances sont fournies dans la [demande de requête](https://docs.microsoft.com/rest/api/searchservice/search-documents). Le moteur de recherche englobe le terme correspondant dans des balises, `highlightPreTag` et `highlightPostTag`, et votre code traite la réponse (par exemple, en appliquant une police en gras).
+La mise en surbrillance des correspondances fait référence à la mise en forme de texte (par exemple, caractères gras ou surlignage jaune) appliquée au terme correspondant dans un résultat, ce qui facilite le repérage de l’occurrence. Des instructions pour la mise en surbrillance des correspondances sont fournies dans la [demande de requête](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
-La mise en forme est appliquée aux requêtes de termes entières. Dans l’exemple suivant, les termes « sablonneux », « sable », « plages » et « plage » trouvés dans le champ Description sont balisés pour la mise en surbrillance. Les requêtes qui déclenchent une extension de requête dans le moteur, telles que les recherches floues ou par caractères génériques, offrent une prise en charge limitée de la mise en surbrillance des correspondances.
+Pour activer la mise en surbrillance des correspondances, ajoutez `highlight=[comma-delimited list of string fields]` pour spécifier les champs qui utiliseront la mise en surbrillance. La mise en surbrillance est utile pour des champs de contenu longs, tels qu’un champ de description, où la correspondance n’est pas immédiatement évidente. Seules les définitions de champs attribuées comme **pouvant faire l’objet d’une recherche** sont éligibles pour la mise en surbrillance des correspondances.
+
+Par défaut, la Recherche cognitive Azure renvoie jusqu’à cinq éléments en surbrillance par champ. Vous pouvez ajuster ce nombre en ajoutant au champ un tiret suivi d’un entier. Par exemple, `highlight=Description-10` retourne jusqu’à 10 mises en surbrillance de contenu correspondant dans le champ Description.
+
+La mise en forme est appliquée aux requêtes de termes entières. Le type de mise en forme est déterminé par des balises, `highlightPreTag` et `highlightPostTag`, et votre code gère la réponse (par exemple, en appliquant une police en gras ou un arrière-plan jaune).
+
+Dans l’exemple suivant, les termes « sablonneux », « sable », « plages » et « plage » trouvés dans le champ Description sont balisés pour la mise en surbrillance. Les requêtes qui déclenchent une extension de requête dans le moteur, telles que les recherches floues ou par caractères génériques, offrent une prise en charge limitée de la mise en surbrillance des correspondances.
 
 ```http
 GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2019-05-06 

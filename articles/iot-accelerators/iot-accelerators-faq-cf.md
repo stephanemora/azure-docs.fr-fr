@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: f2f8c08176f80436a339924adb4b2a09338a548a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c8739dff39490f14b613af483f769ac031c1bd9
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81313585"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792375"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Questions fréquentes sur l’accélérateur de solution d’usine connectée
 
@@ -68,7 +68,7 @@ Si vous avez déployé la solution à partir de www.azureiotsolutions.com, vous 
 1. Le nom d’utilisateur à utiliser est `docker`.
 1. Le mot de passe à utiliser dépend de la version que vous avez utilisée pour le déploiement :
     * Pour les solutions déployées à l’aide du script build.ps1 avant le 1er juin 2017, le mot de passe est `Passw0rd`.
-    * Pour les solutions déployées à l’aide du script build.ps1 après le 1er juin 2017, le mot de passe est `<name of your deployment>.config.user`. Le mot de passe est stocké dans le paramètre **VmAdminPassword**. Le mot de passe est généré de façon aléatoire au moment du déploiement, sauf si vous le spécifiez à l’aide du paramètre `build.ps1` du script `-VmAdminPassword`.
+    * Pour les solutions déployées à l’aide du script build.ps1 après le 1er juin 2017, le mot de passe est `<name of your deployment>.config.user`. Le mot de passe est stocké dans le paramètre **VmAdminPassword**. Le mot de passe est généré de façon aléatoire au moment du déploiement, sauf si vous le spécifiez à l’aide du paramètre `-VmAdminPassword` du script `build.ps1`.
 
 ### <a name="how-do-i-stop-and-start-all-docker-processes-in-the-simulation-vm"></a>Comment arrêter et démarrer tous les processus Docker dans la machine virtuelle de simulation ?
 
@@ -111,7 +111,7 @@ La simulation inscrit elle-même les appareils suivants :
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-À l’aide de l’outil [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) ou de [l’extension IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension), vous pouvez identifier les appareils inscrits auprès du hub IoT utilisé par votre solution. Pour utiliser l’explorateur d’appareils, vous avez besoin de la chaîne de connexion du hub IoT de votre déploiement. Pour utiliser l’extension IoT pour Azure CLI, vous avez besoin de votre nom d’IoT Hub.
+À l’aide de l’outil [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/) ou de [l’extension IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension), vous pouvez identifier les appareils inscrits auprès du hub IoT utilisé par votre solution. Pour utiliser l’explorateur d’appareils, vous avez besoin de la chaîne de connexion du hub IoT de votre déploiement. Pour utiliser l’extension IoT pour Azure CLI, vous avez besoin de votre nom d’IoT Hub.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Comment obtenir les données de journal des composants de simulation ?
 
@@ -125,7 +125,7 @@ Vous pouvez aussi vous connecter à la machine virtuelle via SSH et inspecter le
 
 ### <a name="how-can-i-check-if-the-simulation-is-sending-data-to-the-cloud"></a>Comment vérifier si la simulation envoie des données vers le cloud ?
 
-Avec l’outil [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) ou la commande d’[extension CLI Azure IoT monitor-events](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events), vous pouvez inspecter les données envoyées à IoT Hub à partir de certains appareils. Pour utiliser ces outils, vous devez connaître la chaîne de connexion du hub IoT de votre déploiement. Consultez [Comment identifier la chaîne de connexion du hub IoT utilisé par ma solution ?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution).
+Avec l’[Explorateur Azure IoT](https://github.com/Azure/azure-iot-explorer) ou la commande d’[extension CLI Azure IoT monitor-events](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events), vous pouvez inspecter les données envoyées à IoT Hub à partir de certains appareils. Pour utiliser ces outils, vous devez connaître la chaîne de connexion du hub IoT de votre déploiement. Consultez [Comment identifier la chaîne de connexion du hub IoT utilisé par ma solution ?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution).
 
 Inspecter les données envoyées par l’un des appareils serveur de publication :
 
@@ -158,7 +158,7 @@ Consultez [Guide pratique sur la gestion de votre compte et de vos clés Azure M
 
 ### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>Comment activer la carte interactive pendant un débogage local ?
 
-Pour activer la carte interactive pendant un débogage local, affectez la valeur de la `MapApiQueryKey`QueryKey`local.user.config` copiée précédemment au paramètre `<yourdeploymentname>.user.config` dans les fichiers **et** à la racine de votre déploiement.
+Pour activer la carte interactive pendant un débogage local, affectez la valeur de la **QueryKey** copiée précédemment au paramètre `MapApiQueryKey` dans les fichiers `local.user.config` et `<yourdeploymentname>.user.config` à la racine de votre déploiement.
 
 ### <a name="how-do-i-use-a-different-image-at-the-home-page-of-my-dashboard"></a>Comment utiliser une autre image sur la page d’accueil du tableau de bord ?
 

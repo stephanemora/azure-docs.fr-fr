@@ -4,20 +4,20 @@ description: Gestion des performances et suivi de l’utilisation de votre appli
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: 2dbebf13b8674ba4aa0c578e1138a5e279b54355
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0ffa9e38d0ffbca41e4f4a8f3d27015ebe4b8bae
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81536928"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891738"
 ---
 # <a name="what-is-application-insights"></a>Présentation d’Application Insights
-Application Insights, fonctionnalité d’[Azure Monitor](../overview.md), est un service extensible de gestion des performances des applications (APM) destiné aux développeurs et aux professionnels de DevOps. Utilisez-le pour superviser vos applications en temps réel. Ce service détecte automatiquement les anomalies de performances et intègre de puissants outils analytiques conçus pour vous aider à diagnostiquer les problèmes et à comprendre l’usage que les utilisateurs font de votre application.  Il a été conçu pour vous permettre d’améliorer continuellement les performances et la convivialité. Il fonctionne avec des applications sur un large éventail de plateformes, notamment .NET, Node.js et Java EE, qu’elles soient hébergées localement, de manière hybride ou dans n’importe quel cloud public. Il s’intègre à votre processus DevOps et offre des points de connexion à un large éventail d’outils de développement. Il peut surveiller et analyser les données de télémétrie des applications mobiles en s’intégrant à Visual Studio App Center.
+Application Insights, fonctionnalité d’[Azure Monitor](../overview.md), est un service extensible de gestion des performances des applications (APM) destiné aux développeurs et aux professionnels de DevOps. Utilisez-le pour superviser vos applications en temps réel. Ce service détecte automatiquement les anomalies de performances et intègre de puissants outils analytiques conçus pour vous aider à diagnostiquer les problèmes et à comprendre l’usage que les utilisateurs font de votre application.  Il a été conçu pour vous permettre d’améliorer continuellement les performances et la convivialité. Il fonctionne avec des applications sur un large éventail de plateformes, notamment .NET, Node.js, Java et Python, qu’elles soient hébergées localement, de manière hybride ou dans n’importe quel cloud public. Il s’intègre à votre processus DevOps et offre des points de connexion à un large éventail d’outils de développement. Il peut surveiller et analyser les données de télémétrie des applications mobiles en s’intégrant à Visual Studio App Center.
 
 ## <a name="how-does-application-insights-work"></a>Comment fonctionne Application Insights ?
-Vous installez un petit package d’instrumentation dans votre application puis configurez une ressource Application Insights dans le portail Microsoft Azure. L’instrumentation supervise votre application et envoie les données de télémétrie à Azure Monitor. (L’application peut s’exécuter partout, elle n’a pas besoin d’être hébergée dans Azure.)
+Vous installez un petit package d’instrumentation (SDK) dans votre application ou vous activez Application Insights sans code si cela est [pris en charge](../../azure-monitor/app/platforms.md). L’instrumentation supervise votre application et dirige les données de télémétrie vers une ressource Azure Application Insights à l’aide d’un GUID unique que nous appelons clé d’instrumentation.
 
-Vous pouvez instrumenter non seulement l’application de service web, mais aussi tous les composants d’arrière-plan et le code JavaScript des pages web elles-mêmes. 
+Vous pouvez instrumenter non seulement l’application de service web, mais aussi tous les composants d’arrière-plan et le code JavaScript des pages web elles-mêmes. L’application et ses composants peuvent s’exécuter partout ; ils n’ont pas besoin d’être hébergés dans Azure.
 
 ![L’instrumentation Application Insights dans votre application envoie la télémétrie à votre ressource Application Insights.](./media/app-insights-overview/diagram.png)
 
@@ -66,7 +66,7 @@ Il existe de nombreuses manières d’explorer vos données. Consultez les artic
 
 ## <a name="how-do-i-use-application-insights"></a>Comment utiliser Application Insights ?
 
-### <a name="monitor"></a>Moniteur
+### <a name="monitor"></a>Superviser
 Installez Application Insights dans votre application, configurez les [tests web de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md), puis :
 
 * Consultez le [tableau de bord d’application](../../azure-monitor/app/overview-dashboard.md) par défaut de votre salle d’équipe afin de garder un œil sur la charge, la réactivité et les performances de vos dépendances, chargements de pages et appels AJAX.
@@ -92,7 +92,7 @@ Application Insights est un des nombreux services hébergés dans Microsoft Azur
 
 Il existe plusieurs façons de démarrer avec Application Insights. Commencez par la méthode qui vous convient le mieux. Vous pourrez ajouter les autres par la suite.
 
-* **Au moment de l’exécution : instrumentez votre application web sur le serveur.** Idéal pour les applications déjà déployées. Permet d’éviter toute mise à jour du code.
+* **Au moment de l’exécution : instrumentez votre application web sur le serveur.** Idéal pour les applications déjà déployées.  Permet d’éviter toute mise à jour du code.
   * [**Applications ASP.NET ou ASP.NET Core hébergées sur Azure Web Apps**](../../azure-monitor/app/azure-web-apps.md)
   * [**Applications ASP.NET hébergées dans IIS sur une machine virtuelle Azure ou un groupe de machines virtuelles identiques Azure**](../../azure-monitor/app/azure-vm-vmss-apps.md)
   * [**Applications ASP.NET hébergées par IIS sur une machine virtuelle locale**](../../azure-monitor/app/monitor-performance-live-website-now.md)

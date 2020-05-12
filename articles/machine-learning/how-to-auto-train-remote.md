@@ -11,12 +11,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 9e499d609a3f78dc5f422b9ed90df09be30f2e7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e55e6d4eb4f52b8a4b64db89691cf087a30ecb73
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79080409"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612314"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Entraîner des modèles avec le machine learning automatisé dans le cloud
 
@@ -30,7 +30,9 @@ Dans cet article, vous allez découvrir comment créer un modèle avec le Machin
 
 ## <a name="how-does-remote-differ-from-local"></a>En quoi l’entraînement à distance diffère-t-il de l’entraînement local ?
 
-Le tutoriel [Entraîner un modèle de classification avec le machine learning automatisé](tutorial-auto-train-models.md) vous explique comment utiliser un ordinateur local pour effectuer l’apprentissage d’un modèle avec le machine learning automatisé. Le workflow lors de l’entraînement local s’applique également aux cibles distantes. Cependant, avec le calcul distant, les itérations des expériences de machine learning automatisé sont exécutées de façon asynchrone. Cette fonctionnalité vous permet d’annuler une itération particulière, de suivre l’état de l’exécution et de continuer à travailler sur d’autres cellules dans le notebook Jupyter. Pour effectuer l’entraînement à distance, vous créez d’abord une cible de calcul distante, comme AmlCompute. Ensuite, vous configurez la ressource distante et vous y envoyez votre code.
+Des fonctionnalités supplémentaires sont disponibles quand vous utilisez une cible de calcul à distance.  Pour plus d’informations, consultez [Cibles de calcul locales et distantes](concept-automated-ml.md#local-remote).
+
+Le tutoriel [Entraîner un modèle de classification avec le machine learning automatisé](tutorial-auto-train-models.md) vous explique comment utiliser un ordinateur local pour effectuer l’apprentissage d’un modèle avec le machine learning automatisé. Le workflow lors de l’entraînement local s’applique également aux cibles distantes. Pour effectuer l’entraînement à distance, vous créez d’abord une cible de calcul distante, comme AmlCompute. Ensuite, vous configurez la ressource distante et vous y envoyez votre code.
 
 Cet article décrit les étapes supplémentaires nécessaires pour exécuter une expérience de ML automatisé sur une cible AmlCompute distante. L’objet d’espace de travail, `ws`, du tutoriel est utilisé ici dans tout le code.
 

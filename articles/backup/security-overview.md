@@ -3,12 +3,12 @@ title: Vue d’ensemble des fonctionnalités de sécurité
 description: Découvrez les fonctionnalités de sécurité de Sauvegarde Azure qui vous aident à protéger vos données de sauvegarde et à répondre aux besoins de votre entreprise en matière de sécurité.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 2eec3ee50f1de695b5432ee50b0900e35b81a6eb
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 688573b571c6ce4473f06d4c194795a38a33244b
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585820"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743657"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Vue d’ensemble des fonctionnalités de sécurité de Sauvegarde Azure
 
@@ -16,9 +16,9 @@ L’une des mesures les plus importantes que vous puissiez prendre pour protége
 
 ## <a name="management-and-control-of-identity-and-user-access"></a>Gestion et contrôle des identités et des accès utilisateur
 
-Le service Sauvegarde Azure vous permet de gérer un accès précis à l’aide du [contrôle d’accès en fonction du rôle Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). Le contrôle d’accès en fonction du rôle vous permet de séparer les tâches au sein de votre équipe, et de n’accorder aux utilisateurs que l’accès nécessaire pour accomplir leur travail.
+Les comptes de stockage utilisés par les coffres Recovery Services sont isolés et ne sont pas accessibles aux utilisateurs à des fins malveillantes. L’accès est autorisé uniquement par le biais d’opérations de gestion de Sauvegarde Azure, telles que la restauration. Le service Sauvegarde Azure vous permet de contrôler les opérations managées avec une finesse de précision au niveau des accès à l’aide de la fonctionnalité [RBAC (contrôle d’accès en fonction du rôle)](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault). Le contrôle d’accès en fonction du rôle vous permet de séparer les tâches au sein de votre équipe, et de n’accorder aux utilisateurs que l’accès nécessaire pour accomplir leur travail.
 
-Le service Sauvegarde Azure fournit trois rôles intégrés pour contrôler les opérations de gestion des sauvegardes :
+Le service Sauvegarde Azure fournit trois [rôles intégrés](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) pour contrôler les opérations de gestion des sauvegardes :
 
 * Contributeur de sauvegarde : création et gestion de sauvegardes, à l’exception de la suppression du coffre Recovery Services et de l’octroi d’accès à d’autres personnes
 * Opérateur de sauvegarde : mêmes prérogatives que celles d’un contributeur, à l’exception de la suppression de sauvegardes et de la gestion des stratégies de sauvegarde
@@ -47,13 +47,13 @@ Vous pouvez désormais utiliser des [points de terminaison privés](https://docs
 
 Le chiffrement protège vos données et vous aide à répondre aux engagements de votre entreprise en matière de sécurité et de conformité. Dans Azure, les données en transit entre le stockage Azure et le coffre sont protégées par HTTPS. Ces données restent sur le réseau principal Azure.
 
-* Les données de sauvegarde sont automatiquement chiffrées à l’aide de clés gérées par Microsoft. Vous pouvez également chiffrer vos machines virtuelles avec disques managés sauvegardées dans le coffre Recovery Services à l’aide de [clés gérées par le client](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption-of-backup-data-using-customer-managed-keys) stockées dans Azure Key Vault. Vous n’avez aucune action explicite à effectuer pour activer ce chiffrement. Il s’applique à toutes les charges de travail sauvegardées dans votre coffre Recovery Services.
+* Les données de sauvegarde sont automatiquement chiffrées à l’aide de clés gérées par Microsoft. Vous pouvez également chiffrer vos machines virtuelles avec disques managés sauvegardées dans le coffre Recovery Services à l’aide de [clés gérées par le client](backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys) stockées dans Azure Key Vault. Vous n’avez aucune action explicite à effectuer pour activer ce chiffrement. Il s’applique à toutes les charges de travail sauvegardées dans votre coffre Recovery Services.
 
 * Le service Sauvegarde Azure prend en charge la sauvegarde et la restauration des machines virtuelles Azure dont les disques de système d’exploitation ou de données sont chiffrés avec Azure Disk Encryption. [Apprenez-en davantage sur les machines virtuelles Azure chiffrées et le service Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
 ## <a name="protection-of-backup-data-from-unintentional-deletes"></a>Protection des données de sauvegarde contre les suppressions involontaires
 
-Le service Sauvegarde Azure fournit des fonctionnalités de sécurité pour vous aider à protéger les données de sauvegarde même après leur suppression. Avec la suppression réversible, si l’utilisateur supprime la sauvegarde d’une machine virtuelle, les données de sauvegarde sont conservées pendant 14 jours supplémentaires, ce qui permet la récupération de cette sauvegarde sans perte de données. La conservation des données de sauvegarde pendant 14 jours supplémentaires dans l’état « suppression réversible » n’occasionne pas de frais pour le client. [Apprenez-en davantage sur la suppression réversible](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#soft-delete).
+Le service Sauvegarde Azure fournit des fonctionnalités de sécurité pour vous aider à protéger les données de sauvegarde même après leur suppression. Avec la suppression réversible, si l’utilisateur supprime la sauvegarde d’une machine virtuelle, les données de sauvegarde sont conservées pendant 14 jours supplémentaires, ce qui permet la récupération de cette sauvegarde sans perte de données. La conservation des données de sauvegarde pendant 14 jours supplémentaires dans l’état « suppression réversible » n’occasionne pas de frais pour le client. [Apprenez-en davantage sur la suppression réversible](backup-azure-security-feature-cloud.md).
 
 ## <a name="monitoring-and-alerts-of-suspicious-activity"></a>Surveillance et alertes d’activité suspecte
 

@@ -1,20 +1,20 @@
 ---
-title: API d’intégration sur la place de marché commerciale
-description: Prérequis de l’API pour les applications Azure sur la place de marché commerciale dans l’Espace partenaires Microsoft.
+title: API de soumission de l’Espace partenaires pour intégrer des applications Azure dans la Place de marché commerciale Microsoft
+description: Découvrez les conditions préalables à l’utilisation de l’API de soumission de l’Espace partenaires pour les applications Azure dans la Place de marché commerciale sur l’Espace partenaires Microsoft.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: cc4d56058ce3985ec3a1d9124ef4ec73ff6be1a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c37e51ad0c6618e20d9445fab7472b1a3a72ab9
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80279757"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744892"
 ---
-# <a name="api-for-onboarding-azure-apps-in-partner-center"></a>API d’intégration des applications Azure dans l’Espace partenaires
+# <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>API de soumission de l’Espace partenaires pour l’intégration d’applications Azure dans l’Espace partenaires
 
 Utilisez *l’API de soumission de l’Espace partenaires* pour interroger des offres Azure programmatiquement, créer des soumissions et publier les offres.  Cette API est utile si votre compte gère de nombreuses offres et que vous souhaitez automatiser et optimiser le processus de soumission de ces offres.
 
@@ -70,3 +70,8 @@ Pour la valeur *tenant_id* dans le `POST URI` et les paramètres *client_id* et 
 Une fois que vous disposez d’un jeton d’accès Azure AD, vous pouvez appeler des méthodes de l’API de soumission de l’Espace partenaires. Pour créer ou mettre à jour des soumissions, on appelle généralement plusieurs méthodes de l’API de soumission de l’Espace partenaires dans un ordre spécifique. Pour plus d’informations sur les différents scénarios et la syntaxe de chaque méthode, consultez l’API d’ingestion Swagger.
 
 https://apidocs.microsoft.com/services/partneringestion/
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* Découvrez comment [Créer une ressource technique de machine virtuelle Azure](create-azure-container-technical-assets.md)
+* Découvrez comment [Créer une offre de conteneur Azure](create-azure-container-offer.md)

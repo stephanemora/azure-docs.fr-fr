@@ -1,26 +1,24 @@
 ---
-title: Questions fréquentes et terminologie relatives à l’analytique de la Place de marché commerciale dans l’Espace partenaires
-description: Découvrez des réponses aux questions fréquemment posées au sujet de l’analytique de la Place de marché commerciale. Comprend un dictionnaire de données sur la terminologie de l’analytique.
+title: Questions fréquentes (FAQ) et terminologie sur l’analytique de la Place de marché commerciale – Espace partenaires
+description: Obtenez des réponses aux questions fréquentes sur l’analytique de la Place de marché commerciale dans l’Espace partenaires. Ce article comprend un dictionnaire de données sur la terminologie de l’analytique.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: b7367e58de818c20723c02a6763b1bf1e3b18f24
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 42478f6e6d6cb28364fe39aafcb52b3a17aa3c23
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81251824"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791474"
 ---
-# <a name="frequently-asked-questions-and-terminology-for-commercial-marketplace-analytics"></a>Questions fréquentes et terminologie relatives à l’analytique de la Place de marché commerciale
+# <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologie et questions fréquentes sur l’analytique de la Place de marché commerciale
 
 Cet article fournit des réponses à des questions fréquentes sur les messages de l’analytique dans l’Espace partenaires. Il comporte également un dictionnaire des termes de l’analytique.
 
-## <a name="frequently-asked-questions"></a>Forum aux questions
-
-Cette section fournit des réponses aux questions fréquemment posées sur les messages **Aucune analytique disponible pour l’instant** dans l’Espace partenaires.
+## <a name="common-questions"></a>Questions courantes
 
 **Je ne parviens pas à afficher mes données d’analyse dans l’Espace partenaires. Lorsque j’accède à ces pages, le message ci-dessous s’affiche. Pourquoi ?**
 

@@ -4,12 +4,12 @@ description: En savoir plus sur la mise à l’échelle de clusters Azure Servic
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
-ms.openlocfilehash: 9dd60a5898b648215fc8b26e49a706a7b19dfeeb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a21182c974d6141264c8ca0c36bfc8f6a366d6f3
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229381"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793174"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Mise à l’échelle des clusters Azure Service Fabric
 Un cluster Service Fabric est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Une machine ou une machine virtuelle faisant partie d’un cluster est appelée un nœud. Les clusters peuvent potentiellement comporter des milliers de nœuds. Une fois que vous avez créé un cluster Service Fabric, vous pouvez le mettre à l’échelle horizontalement (modifier le nombre de nœuds) ou verticalement (modifier les ressources des nœuds).  Une mise à l’échelle peut s’effectuer à tout moment, même lorsque des charges de travail sont en cours d’exécution sur le cluster.  Lorsque vous mettez vos nœuds à l’échelle, vos applications sont automatiquement mises à l’échelle.
@@ -29,13 +29,13 @@ Lors de la mise à l’échelle d’un cluster Azure, gardez les instructions su
 - Les types de nœud non principal exécutant des charges de travail de production avec état doivent toujours comporter au moins cinq nœuds.
 - Les types de nœud non principal exécutant des charges de travail de production sans état doivent toujours comporter au moins deux nœuds.
 - Tout type de nœud dont le [niveau de durabilité](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) est Gold ou Silver doit toujours comporter au moins cinq nœuds.
-- Ne supprimez pas d’instances de machine virtuelle aléatoires/de nœuds d’un type de nœud. Opérez toujours une descente en puissance du groupe de machines virtuelles identiques. La suppression d’instances de machine virtuelle aléatoires peut réduire la capacité des systèmes à équilibrer la charge de manière appropriée.
+- Ne supprimez pas d’instances de machine virtuelle/de nœuds aléatoires d’un type de nœud. Utilisez toujours la fonctionnalité de scale-in du groupe de machines virtuelles identiques. La suppression d’instances de machine virtuelle aléatoires peut réduire la capacité des systèmes à équilibrer la charge de manière appropriée.
 - Si vous utilisez des règles de mise à l’échelle automatique, définissez-les de manière à ce que la diminution de la taille des instances s’effectue nœud par nœud. La descente en puissance de plusieurs instances en même temps présente des risques.
 
-Étant donné que les types de nœuds Service Fabric de votre cluster sont constitués de groupes de machines virtuelles identiques sur le serveur principal, vous pouvez [définir des règles de mise à l’échelle automatique ou mettre à l’échelle manuellement](service-fabric-cluster-scale-up-down.md) chaque type de nœud/chaque groupe de machines virtuelles identiques.
+Étant donné que les types de nœuds Service Fabric de votre cluster sont constitués de groupes de machines virtuelles identiques sur le serveur principal, vous pouvez [définir des règles de mise à l’échelle automatique ou mettre à l’échelle manuellement](service-fabric-cluster-scale-in-out.md) chaque type de nœud/chaque groupe de machines virtuelles identiques.
 
 ### <a name="programmatic-scaling"></a>Mise à l’échelle par programmation
-Dans de nombreux scénarios, [les mises à l’échelle d’un cluster manuellement ou avec des règles de mise à l’échelle automatiques](service-fabric-cluster-scale-up-down.md) s’avèrent être de bonnes solutions. Pour les scénarios plus avancés, cependant, ces deux possibilités ne sont pas indiquées. Les inconvénients potentiels de ces approches sont les suivants :
+Dans de nombreux scénarios, [les mises à l’échelle d’un cluster manuellement ou avec des règles de mise à l’échelle automatiques](service-fabric-cluster-scale-in-out.md) s’avèrent être de bonnes solutions. Pour les scénarios plus avancés, cependant, ces deux possibilités ne sont pas indiquées. Les inconvénients potentiels de ces approches sont les suivants :
 
 - La mise à l’échelle manuelle vous oblige à ouvrir une session et à demander explicitement des opérations de mise à l’échelle. Si les opérations de mise à l’échelle sont requises fréquemment ou à des moments imprévisibles, cette approche n’est probablement pas la bonne.
 - Lorsque les règles de mise à l’échelle automatique suppriment une instance d’un groupe de machines virtuelles identiques, elles ne suppriment pas automatiquement les connaissances de ce nœud du cluster Service Fabric associé, sauf si le nœud a un niveau de durabilité agent ou or. Comme les règles de mise à l’échelle automatique fonctionnent au niveau du groupe de machines virtuelles (et non au niveau de Service Fabric), elles peuvent supprimer des nœuds Service Fabric sans les arrêter en douceur. Cette suppression brutale laisse l’état de nœud Service Fabric « ghost » derrière elle, après les opérations de mise à l’échelle. Une personne (ou un service) doit nettoyer régulièrement l’état du nœud supprimé dans le cluster Service Fabric.

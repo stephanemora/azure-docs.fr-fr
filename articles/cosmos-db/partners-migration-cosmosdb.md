@@ -6,52 +6,48 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 3e400f62ed4afcb40d5d68aeb357d47083445802
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad5ed2b45a182c1f33f33ca1f6d4e3212c61b6a2
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76988173"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791729"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Partenaires pour le développement d’applications et la migration NoSQL pour solutions Azure Cosmos DB
 
 De la migration NoSQL au développement d’applications, vous pouvez choisir parmi un large éventail de partenaires intégrateurs système expérimentés et d’outils pour prendre en charge vos solutions Azure Cosmos DB. 
 
-## <a name="migration-tools"></a>Outils de migration
-
-|**Partenaire**  |**Expérience et capacités**  |**Pays/régions pris en charge**  |**Contact**  |
-|---------|---------|---------|---------|
-|![Striim][2]    |  [Assure le déplacement des données en temps réel vers Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) à partir de très nombreuses sources de données. <br/> Striim simplifie la collecte en temps réel et le déplacement des données à partir de très nombreuses sources locales, notamment des bases de données relationnelles et de documents d’entreprise, des capteurs et des fichiers journaux, dans Azure Cosmos DB. |   États-Unis   |  [Site web](https://www.striim.com/)       |
-
 ## <a name="systems-integrator-partners"></a>Partenaires intégrateurs système
 
-|**Partenaire**  |**Expérience et capacités**  |**Pays/régions pris en charge**  |**Contact**  |
-|---------|---------|---------|---------|
-| ![10th Magnitude][13] | Migration NoSQL ; développement de nouvelles applications | États-Unis | [Site web](https://www.10thmagnitude.com/)|
-|![Altoros Development LLC][3]    |  Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications |   États-Unis, Norvège, Finlande, Bélarus, Argentine |  [Site web](https://www.altoros.com/)     |
-|![Attunix Redapt][4]     |   Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications      |    États-Unis     |  [Site web](https://www.attunix.com/)       |
-| ![Avanade][26] | Développement de nouvelles applications, <br/> innovation en matière d’applications (applications existantes) | Autriche, Allemagne, Suisse, Italie, Norvège, Espagne, Royaume-Uni | [Site web](https://www.avanade.com/)
-|![BlueMetal Architects][5]     |  Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications       |    Amérique du Nord, Asie-Pacifique     |  [Site web](https://www.bluemetal.com/)       |
-|![Capax Global LLC][6]     |  Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications       |    États-Unis     |  [Site web](https://www.capaxglobal.com/)       |
-| ![Capgemini][14] | Migration NoSQL ; innovation en matière d’applications (applications existantes) ; développement de nouvelles applications | États-Unis, France, Royaume-Uni, Pays-bas, Finlande  | [Site web](https://www.capgemini.com/) | 
-|![Coeo][7]     |   innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications |    Royaume-Uni     |  [Site web](https://www.coeo.com/)       |
-| ![Cognizant][15] | Migration NoSQL |États-Unis, Canada, Royaume-Uni, Danemark, Pays-bas, Suisse, Australie, Japon | [Site web](https://www.cognizant.com/)|
-|![Infosys][8]     |  Migration NoSQL       |    Global     |  [Site web](https://www.infosys.com/)       |
-| ![Lagash][16] | Migration NoSQL, <br/> développement de nouvelles applications | Argentine, Chili, Colombie, Mexique| [Site web](https://www.lagash.com/)|
-| ![Lambda3 Informatics][17] | Migration NoSQL, <br/> développement de nouvelles applications | Brésil| [Site web](https://www.lambda3.com.br/)|
-|![Neal Analytics][9]     |     Développement d’applications (nouvelles applications)    |    États-Unis     |  [Site web](https://www.nealanalytics.com/)       |
-|![Pragmatic Works Software Inc.][10]    |   Migration NoSQL      |   États-Unis      |  [Site web](https://www.pragmaticworks.com/)       |
-| ![Ricoh Global][18] | Migration NoSQL, <br/> innovation en matière d’applications (applications existantes)| Royaume-Uni  | [Site web](https://www.ricoh.com/)|
-| ![SNP Technologies][19] | Migration NoSQL| US | [Site web](https://www.snp.com/)|
-| ![Solidsoft Reply][20] | Migration NoSQL | Croatie, Suède, Danemark, Irlande, Bulgarie, Slovénie, Chypre, Malte, Lituanie, la République tchèque, Islande, Suisse et Liechtenstein| [Site web](https://www.reply.com/solidsoft-reply/)|
-| ![Spanish Point Technologies][21] | Migration NoSQL| Irlande| [Site web](https://www.spanishpoint.ie/)|
-| ![Syone][22] | Migration NoSQL| Portugal| [Site web](https://www.syone.com/)|
-|![Tallan][11]    |  Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications       |    États-Unis     |  [Site web](https://www.tallan.com/)       |
-| ![TCS][23] | innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications | États-Unis, Royaume-Uni, France, Malaisie, Danemark, Norvège, Suède| [Site web](https://www.tcs.com/)|
-|![VTeamLabs][12]    | Migration NoSQL       |  États-Unis      | [Site web](https://www.vteamlabs.com/)       |
-| ![White Duck][24] |Migration NoSQL, <br/> développement de nouvelles applications | Allemagne | [Site web](https://whiteducksoftware.com/)|
-| ![Xpand IT][25] | développement de nouvelles applications | Portugal, Royaume-Uni| [Site web](https://www.xpand-it.com/)|
-
+|**Partenaire**  |**Expérience et capacités**  |**Pays/régions pris en charge**  |
+|---------|---------|---------|
+|[Striim](https://www.striim.com/)    |  Déplacement de données continu en temps réel, migration de données|   États-Unis   |
+| [10thMagnitude](https://www.10thmagnitude.com/) | IoT, vente au détail (inventaire), analytique opérationnelle (Spark), architecture sans serveur, développement d’applications | États-Unis |
+|[Altoros Development LLC](https://www.altoros.com/)  |  IoT, vente au détail de personnalisation (inventaire), migration NoSQL d’architecture sans serveur, développement d’applications|   États-Unis |
+|[Avanade](https://www.avanade.com/) | IoT, vente au détail (inventaire), architecture sans serveur, développement d’application | Autriche, Allemagne, Suisse, Italie, Norvège, Espagne, Royaume-Uni, Canada |
+|[Accenture](https://www.accenture.com/) | IoT, vente au détail (inventaire), architecture sans serveur, développement d’applications |Global|
+|[Bluemetal](https://www.bluemetal.com/)     |  IoT, vente au détail de personnalisation (inventaire), analytique opérationnelle pour les entreprises & SMC, annotation d’image d’IA, contrôle de ressource, migration NoSQL, développement d’applications     |    Amérique du Nord, Asie-Pacifique     |
+|[Capax Global LLC](https://www.capaxglobal.com/) | IoT, personnalisation, vente au détail (inventaire), analytique opérationnelle (Spark), architecture sans serveur, développement d’applications|    États-Unis     |  
+| [Capgemini](https://www.capgemini.com/) | Vente au détail (inventaire), IoT, analytique opérationnelle (Spark), développement d’applications | États-Unis, France, Royaume-Uni, Pays-bas, Finlande  |
+| [Cognizant](https://www.cognizant.com/) | IoT, personnalisation, vente au détail (inventaire), analytique opérationnelle (Spark), développement d’applications |États-Unis, Canada, Royaume-Uni, Danemark, Pays-bas, Suisse, Australie, Japon |
+|[Infosys](https://www.infosys.com/)     | Développement d’applications      |    États-Unis    |  
+| [Lagash Systems](https://www.lagash.com/) | IoT, architecture sans serveur, développement d’applications | Argentine, Chili, Colombie, Mexique|
+| [Lambda3 Informatics](https://www.lambda3.com.br/) | Personnalisation en temps réel, inventaire de vente au détail, développement d’applications | Brésil|
+|[Neal Analytics](https://www.nealanalytics.com/)    |     Personnalisation, vente au détail (inventaire), analytique opérationnelle (Spark), développement d’applications  |    États-Unis     |  
+|[Pragmatic Works Software Inc](https://www.pragmaticworks.com/)    |   Migration NoSQL      |   États-Unis      |
+| [Ricoh Digital Services](https://www.ricoh.com/) | IoT, personnalisation en temps réel, inventaire de détail, migration NoSQL | Royaume-Uni  |
+|[SNP Technologies](https://www.snp.com/) | Migration NoSQL| États-Unis |
+| [Solidsoft Reply](https://www.reply.com/solidsoft-reply/) | Migration NoSQL | Croatie, Suède, Danemark, Irlande, Bulgarie, Slovénie, Chypre, Malte, Lituanie, la République tchèque, Islande, Suisse et Liechtenstein|
+| [Spanish Point Technologies](https://www.spanishpoint.ie/) | Migration NoSQL| Irlande|
+| [Syone](https://www.syone.com/) | Migration NoSQL| Portugal|
+|[Tallan](https://www.tallan.com/)    |  Développement d’applications      |    États-Unis     |
+| [TCS](https://www.tcs.com/) | Développement d’applications | États-Unis, Royaume-Uni, France, Malaisie, Danemark, Norvège, Suède|
+|[VTeamLabs](https://www.vteamlabs.com/)    | IoT, personnalisation, vente au détail (inventaire), IoT, gaming, analytique opérationnelle (Spark), architecture sans serveur, migration NoSQL, développement d’applications       |  États-Unis      |  
+| [White Duck GmbH](https://whiteducksoftware.com/) |Développement de nouvelles applications, serveur principal d’application, stockage pour données basées sur des documents| Allemagne |
+| [Xpand IT](https://www.xpand-it.com/) | développement de nouvelles applications | Portugal, Royaume-Uni|
+| [Hanu](https://hanu.com/) | IoT, développement d’applications | États-Unis|
+| [Incycle Software](https://www.incyclesoftware.com/) | Migration NoSQL, architecture sans serveur, développement d’applications| États-Unis|
+| [Orion](https://www.orioninc.com/) | Personnalisation, vente au détail (inventaire), analytique opérationnelle (Spark), IoT, développement d’applications| États-Unis, Canada|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

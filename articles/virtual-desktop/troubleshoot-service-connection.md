@@ -8,14 +8,20 @@ ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 57d5198cb54dc096fb09bb52d76539b1e4bbc1f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a6298b3a9c5769b1d82f89956736b451935b2c5d
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127447"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612637"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Connexions au service Windows Virtual Desktop
+
+>[!IMPORTANT]
+>Ce contenu s’applique à la mise à jour Printemps 2020 avec des objets Azure Resource Manager Windows Virtual Desktop. Si vous utilisez la version Automne 2019 de Windows Virtual Desktop sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/troubleshoot-service-connection-2019.md).
+>
+> La mise à jour Printemps 2020 de Windows Virtual Desktop est en préversion publique. Cette préversion est fournie sans contrat de niveau de service et nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. 
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Appuyez-vous sur cet article pour résoudre les problèmes liés aux connexions à un client Windows Virtual Desktop.
 
@@ -30,7 +36,7 @@ Si l’utilisateur peut démarrer les clients Bureau à distance et s’authenti
 Vérifiez que l’utilisateur signalant les problèmes a été affecté aux groupes d’applications à l’aide de cette ligne de commande :
 
 ```PowerShell
-Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
+Get-AzRoleAssignment -SignInName <userupn>
 ```
 
 Vérifiez que l’utilisateur se connecte avec les informations d’identification correctes.
@@ -44,19 +50,21 @@ Si un ordinateur virtuel ne répond pas et que vous ne pouvez pas y accéder via
 Pour vérifier l’état de l’ordinateur hôte, exécutez la cmdlet suivante :
 
 ```powershell
-Get-RdsSessionHost -TenantName $TenantName -HostPoolName $HostPool | ft SessionHostName, LastHeartBeat, AllowNewSession, Status
+Get-AzWvdSessionHost -HostPoolName <hostpoolname> -ResourceGroupName <resourcegroupname>| Format-List Name, LastHeartBeat, AllowNewSession, Status
 ```
 
 Si l’état de l’ordinateur hôte est `NoHeartBeat`, cela signifie que la machine virtuelle ne répond pas et que l’agent ne peut pas communiquer avec le service Windows Virtual Desktop.
 
 ```powershell
-SessionHostName          LastHeartBeat     AllowNewSession    Status 
----------------          -------------     ---------------    ------ 
-WVDHost1.contoso.com     21-Nov-19 5:21:35            True     Available 
-WVDHost2.contoso.com     21-Nov-19 5:21:35            True     Available 
-WVDHost3.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
-WVDHost4.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
-WVDHost5.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
+Name            : 0301HP/win10pd-0.contoso.com 
+LastHeartBeat   : 4/8/2020 1:48:35 AM 
+AllowNewSession : True 
+Status          : Available 
+
+Name            : 0301HP/win10pd-1.contoso.com 
+LastHeartBeat   : 4/8/2020 1:45:44 AM 
+AllowNewSession : True 
+Status          : NoHeartBeat
 ```
 
 Vous pouvez effectuer quelques opérations pour corriger l’état NoHeartBeat.
@@ -65,21 +73,10 @@ Vous pouvez effectuer quelques opérations pour corriger l’état NoHeartBeat.
 
 Si votre application FSLogix n’est pas à jour, en particulier s’il s’agit de la version 2.9.7205.27375 de frxdrvvt.sys, cela peut provoquer un blocage. Veillez à [mettre à jour FSLogix vers la dernière version](https://go.microsoft.com/fwlink/?linkid=2084562).
 
-### <a name="disable-bgtaskregistrationmaintenancetask"></a>Désactiver BgTaskRegistrationMaintenanceTask
-
-Si la mise à jour de FSLogix ne fonctionne pas, le problème est peut-être dû à un composant BiSrv qui épuise les ressources système pendant une tâche de maintenance hebdomadaire. Désactivez temporairement la tâche de maintenance en désactivant BgTaskRegistrationMaintenanceTask à l’aide d’une de ces deux méthodes :
-
-- Accédez au menu Démarrer et recherchez **Planificateur de tâches**. Accédez à **Bibliothèque du planificateur de tâches** > **Microsoft** > **Windows** > **BrokerInfrastructure**. Recherchez une tâche nommée **BgTaskRegistrationMaintenanceTask**. Une fois trouvée, cliquez dessus avec le bouton droit et sélectionnez **Désactiver** dans le menu déroulant.
-- Ouvrez un menu de ligne de commandes en tant qu’administrateur et exécutez la commande suivante :
-    
-    ```cmd
-    schtasks /change /tn "\Microsoft\Windows\BrokerInfrastructure\BgTaskRegistrationMaintenanceTask" /disable 
-    ```
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour découvrir une vue d’ensemble de la résolution des problèmes Windows Virtual Desktop et des procédures d’escalade, consultez l’article [Vue d’ensemble du dépannage, commentaires et support](troubleshoot-set-up-overview.md).
-- Pour résoudre les problèmes de création d’un pool de locataires et d’hôtes dans un environnement Windows Virtual Desktop, consultez [Création d’un pool de locataires et d’hôtes](troubleshoot-set-up-issues.md).
+- Pour résoudre des problèmes lors de la création d’un environnement Windows Virtual Desktop et d’un pool d’hôtes dans un environnement Windows Virtual Desktop, consultez [Création d’un environnement et d’un pool d’hôtes](troubleshoot-set-up-issues.md).
 - Pour résoudre les problèmes de configuration d’une machine virtuelle dans Windows Virtual Desktop, consultez [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
 - Pour résoudre les problèmes d’utilisation de PowerShell avec Windows Virtual Desktop, consultez [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

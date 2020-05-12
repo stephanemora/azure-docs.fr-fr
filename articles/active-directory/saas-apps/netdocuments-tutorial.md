@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71e5e13485c4a10664d98363e8e99bfd3b4f4bcf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 79038152dd40b213b92a379c4b50ddd840eb8e6c
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72035708"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732523"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à NetDocuments
 
@@ -137,49 +137,48 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise NetDocuments en tant qu’administrateur.
 
-2. Accédez à **Admin**.
+2. En haut à droite, sélectionnez votre nom>**Admin**.
 
-3. Cliquez sur **Add and remove users and groups**.
+3. Sélectionnez **Centre de sécurité**.
    
-    ![Référentiel](./media/netdocuments-tutorial/ic795047.png "Référentiel")
+    ![Référentiel](./media/netdocuments-tutorial/security-center.png "Security Center")
 
-4. Cliquez sur **Configure advanced authentication options**.
+4. Sélectionnez **Authentification avancée**.
     
-    ![Configurer les options d’authentification avancées](./media/netdocuments-tutorial/ic795048.png "Configure advanced authentication options")
+    ![Configurer les options d’authentification avancées](./media/netdocuments-tutorial/advance-authentication.png "Configure advanced authentication options")
 
-5. Dans la boîte de dialogue **Identité fédérée**, procédez comme suit :
+5.  Sous l’onglet **ID fédéré**, effectuez les étapes suivantes :   
    
-    ![Identité fédérée](./media/netdocuments-tutorial/ic795049.png "Identité fédérée")
+    ![Identité fédérée](./media/netdocuments-tutorial/federated-id.png "Identité fédérée")
    
     a. Pour **Federated identity server type**, sélectionnez **Active Directory Federation Services**.
-   
-    b. Cliquez sur **Choisir un fichier**, pour importer le fichier de métadonnées que vous avez téléchargé à partir du portail Azure.
-   
-    c. Cliquez sur **OK**.
+    
+    b.  Sélectionnez **Choisir un fichier** pour importer le fichier de métadonnées que vous avez téléchargé à partir du portail Azure.
+    
+    c.  Sélectionnez **SAVE** (Enregistrer).
 
 ### <a name="create-netdocuments-test-user"></a>Créer un utilisateur de test NetDocuments
 
-Pour permettre aux utilisateurs Azure AD de se connecter à NetDocuments, vous devez les configurer dans NetDocuments.  
-Dans le cas de NetDocuments, l’approvisionnement est une tâche manuelle.
+Pour permettre aux utilisateurs Azure AD de se connecter à NetDocuments, vous devez les configurer dans NetDocuments. Dans le cas de NetDocuments, l’approvisionnement est une tâche manuelle.
 
 **Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
 1. Connectez-vous à votre site d’entreprise **NetDocuments** en tant qu’administrateur.
 
-2. Dans le menu situé en haut, cliquez sur **Admin**.
+2. En haut à droite, sélectionnez votre nom>**Admin**.
    
-    ![Administrateur](./media/netdocuments-tutorial/ic795051.png "Admin")
+    ![Administrateur](./media/netdocuments-tutorial/user-admin.png "Admin")
 
-3. Cliquez sur **Add and remove users and groups**.
+3. Sélectionnez **Utilisateurs et groupes**.
    
-    ![Référentiel](./media/netdocuments-tutorial/ic795047.png "Référentiel")
+    ![Référentiel](./media/netdocuments-tutorial/users-groups.png "Référentiel")
 
 4. Dans la zone de texte **Email Address**, tapez l’adresse e-mail d’un compte Azure Active Directory valide à approvisionner, puis cliquez sur **Add User**.
    
-    ![Adresse e-mail](./media/netdocuments-tutorial/ic795053.png "Adresse de messagerie")
+    ![Adresse e-mail](./media/netdocuments-tutorial/user-mail.png "Adresse de messagerie")
    
-    >[!NOTE]
-    >Le titulaire du compte Azure Active Directory recevra un message électronique contenant un lien pour confirmer le compte avant qu’il ne soit activé. Vous pouvez utiliser n’importe quels outils ou API de création de compte utilisateur, fournis par NetDocuments, pour approvisionner des comptes utilisateur Azure Active Directory.
+    > [!NOTE]
+    > Le titulaire du compte Azure Active Directory recevra un message électronique contenant un lien pour confirmer le compte avant qu’il ne soit activé. Vous pouvez utiliser n’importe quels outils ou API de création de compte utilisateur, fournis par NetDocuments, pour approvisionner des comptes utilisateur Azure Active Directory.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
@@ -196,4 +195,3 @@ Le fait de cliquer sur la vignette NetDocuments dans le panneau d’accès doit 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Essayer NetDocuments avec Azure AD](https://aad.portal.azure.com/)
-

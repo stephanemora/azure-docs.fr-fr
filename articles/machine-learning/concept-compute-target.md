@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/30/2020
-ms.openlocfilehash: f9ca75943eaec2ae018b54145d872fc09294035e
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: ed65d69c18f2dbcd53324fe3cc18af8c51c546b2
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398181"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780111"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Qu’est-ce qu’une cible de calcul dans Azure Machine Learning ? 
 
@@ -63,12 +63,38 @@ Une fois créées, ces instances de calcul font automatiquement partie de votre 
 
 Vous pouvez utiliser les clusters de calcul Azure Machine Learning pour l’entraînement et l’inférence par lots (version préliminaire).  Grâce à cette ressource de calcul, vous disposez de ce qui suit :
 
-* Cluster unique ou à plusieurs nœuds
-* Mises à l’échelle automatique chaque fois que vous envoyez une exécution 
+* Cluster à nœud unique ou à plusieurs nœuds
+* Mise à l’échelle automatique chaque fois que vous soumettez une exécution 
 * Gestion des clusters et planification automatiques des travaux 
 * Prise en charge des ressources UC et GPU
 
+### <a name="supported-vm-series-and-sizes"></a>Tailles et séries de machine virtuelle prises en charge
 
+Lorsque vous sélectionnez une taille de nœud pour une ressource de calcul managée dans Azure Machine Learning, vous pouvez choisir parmi les tailles de machines virtuelles disponibles dans Azure. Azure propose une gamme de tailles de machines virtuelles Windows et Linux pour différentes charges de travail. Pour en savoir plus sur les différents [types et tailles de machines virtuelles](https://docs.microsoft.com/azure/virtual-machines/linux/sizes), consultez cette page.
+
+Quelques exceptions et limites s’appliquent quant au choix d’une taille de machine virtuelle :
+* Certaines séries de machines virtuelles ne sont pas prises en charge dans Azure Machine Learning.
+* Certaines séries de machines virtuelles sont restreintes. Pour utiliser une série restreinte, contactez le support technique et demandez une augmentation du quota pour la série. Pour plus d’informations sur la manière de contacter le support, consultez [Options de support Azure](https://azure.microsoft.com/support/options/).
+
+Pour en savoir plus sur les séries prises en charge et les restrictions, consultez le tableau suivant. 
+
+| **Série de machines virtuelles prises en charge**  | **Restrictions** |
+|------------|------------|
+| D | None |
+| Dv2 | None |  
+| DSv2 | None |  
+| FSv2 | None |  
+| M | Nécessite une approbation |
+| NC | None |    
+| NCsv2 | Nécessite une approbation |
+| NCsv3 | Nécessite une approbation |  
+| NDs | Nécessite une approbation |
+| NDv2 | Nécessite une approbation |
+| NV | None |
+| NVv3 | Nécessite une approbation | 
+
+
+Même si Azure Machine Learning prend en charge ces séries de machines virtuelles, elles peuvent ne pas être disponibles dans toutes les régions Azure. Vous pouvez vérifier la disponibilité des séries de machines virtuelles ici : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
 ## <a name="unmanaged-compute"></a>Calcul non managé
 

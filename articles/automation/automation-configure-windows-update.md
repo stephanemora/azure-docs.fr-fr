@@ -3,14 +3,14 @@ title: Configurer les paramètres Windows Update pour une utilisation par Azure 
 description: Cet article décrit les paramètres Windows Update configurables pour une utilisation avec Azure Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 03/02/2020
+ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7f226c4d297d25644b2650d085655f70d8326927
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9b5f2b19b29eae0132ec01a9f3fb7e8355361f5
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79235637"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779448"
 ---
 # <a name="configure-windows-update-settings-for-update-management"></a>Configurer les paramètres Windows Update pour une utilisation par Update Management
 
@@ -22,6 +22,8 @@ Azure Update Management s’appuie sur le [client Windows Update](https://docs.m
 - Modification directe du Registre
 
 Update Management respecte un grand nombre des paramètres spécifiés pour contrôler le client Windows Update. Si vous utilisez des paramètres pour activer les mises à jour non-Windows, Update Management gérera également ces mises à jour. Si vous souhaitez activer le téléchargement des mises à jour avant le déploiement de mises à jour, le déploiement des mises à jour peut être plus rapide et moins susceptible de dépasser la fenêtre de maintenance.
+
+Pour obtenir des recommandations supplémentaires sur la configuration de WSUS dans votre abonnement Azure, et conserver vos machines virtuelles Windows à jour de manière sécurisée, consultez [Planifier votre déploiement pour la mise à jour des machines virtuelles Windows dans Azure à l’aide de WSUS](https://docs.microsoft.com/azure/architecture/example-scenario/wsus/).
 
 ## <a name="pre-download-updates"></a>Pré-télécharger des mises à jour
 

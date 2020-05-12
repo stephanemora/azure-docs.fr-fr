@@ -5,12 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 385806dca7dcac9fd0aac4c1bf9e1072e7fe5ecb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d97fbe6ac515a2559340474105d73b7c9b9c6ee4
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979470"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731915"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Activer les solutions Update Management, Change Tracking et Inventory sur plusieurs machines virtuelles
 
@@ -33,9 +33,9 @@ Dans le portail Azure, accédez à **Machines virtuelles**.
 Dans la barre de commandes, cliquez sur **Services** et sélectionnez **Change tracking**, **Inventory** ou **Update Management**.
 
 > [!NOTE]
-> **Change Tracking** et **Inventory** utilisent la même solution. Quand l’une est activée, l’autre l’est aussi.
+> Change Tracking et Inventory utilisent la même solution. Lorsque l’un est activé, l’autre l’est également.
 
-L’image suivante s’applique à Update Management. Update Management et Inventory ont la même disposition et le même comportement.
+L’image suivante s’applique à Update Management. Change Tracking et Inventory ont le même layout et le même comportement.
 
 La liste des machines virtuelles est filtrée pour afficher uniquement celles qui se trouvent dans le même abonnement et le même emplacement. Si vos machines virtuelles se trouvent dans plus de trois groupes de ressources, les trois premiers groupes de ressources sont sélectionnés.
 
@@ -107,7 +107,7 @@ Vous pouvez également dissocier votre espace de travail de votre compte Automat
 
 ## <a name="troubleshooting"></a>Dépannage
 
-Lors de l’intégration de plusieurs machines, certaines machines peuvent afficher le message **Cannot enable** (Impossible d’activer). Il existe différentes raisons pour lesquelles certaines machines ne peuvent pas être activées. Les sections suivantes expliquent les raisons possibles pour lesquelles le message **Cannot enable** (Impossible d’activer) s’affiche sur une machine virtuelle lors de la tentative d’intégration.
+Lors de l’intégration de plusieurs machines, certaines machines peuvent afficher le message `Cannot enable`. Il existe différentes raisons pour lesquelles certaines machines ne peuvent pas être activées. Les sections suivantes expliquent les raisons possibles pour lesquelles le message `Cannot enable` s’affiche sur une machine virtuelle lors de la tentative d’intégration.
 
 ### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>La machine virtuelle est associée à un autre espace de travail : '\<workspaceName\>'.  Modifier la configuration afin de l’utiliser pour l’activation
 
@@ -129,7 +129,7 @@ Lors de l’intégration de plusieurs machines, certaines machines peuvent affic
 
 **Cause :** la solution n’est pas prise en charge pour toutes les distributions de Linux ni pour toutes les versions de Windows.
 
-**Solution :** reportez-vous à la [liste des clients pris en charge](automation-update-management.md#clients) pour la solution.
+**Solution :** Reportez-vous à la [liste des clients pris en charge](automation-update-management.md#supported-client-types).
 
 ### <a name="classic-vms-cannot-be-enabled"></a>Les machines virtuelles classiques ne peuvent pas être activées
 
@@ -148,7 +148,7 @@ Lors de l’intégration de plusieurs machines, certaines machines peuvent affic
 Pour supprimer une machine virtuelle de Update Management :
 
 * Dans votre espace de travail Log Analytics, supprimez la machine virtuelle de la rechercher enregistrée pour la configuration d’étendue `MicrosoftDefaultScopeConfig-Updates`. Les recherches enregistrées se trouvent sous la section **Général** de votre espace de travail.
-* Supprimez l’agent [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou l’[agent Log Analytics pour Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+* Supprimez l’[agent Log Analytics pour Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou l’[agent Log Analytics pour Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

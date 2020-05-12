@@ -1,29 +1,29 @@
 ---
-title: Créer une ressource technique de machine virtuelle Azure
-description: Cet article décrit les étapes et les conditions requises pour configurer une offre de conteneur sur la Place de marché Azure.
+title: Concepts techniques pour les offres Azure Container – Place de marché commerciale Microsoft
+description: Ressources et conseils techniques pour vous aider à configurer une offre de conteneur sur la Place de marché Azure.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: e51b8c705533fd74a5e46eaa2570563fef485309
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: b3c6f88df151cc497f0de670d5d78a05c7477459
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81730636"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791882"
 ---
-# <a name="create-an-azure-vm-technical-asset"></a>Créer une ressource technique de machine virtuelle Azure
+# <a name="create-an-azure-container-offer"></a>Créer une offre de conteneur Azure
 
 > [!IMPORTANT]
-> Nous allons déplacer la gestion de vos offres Azure Container du Portail Cloud Partner vers l'Espace partenaires. Tant que vos offres ne sont pas migrées, suivez les instructions de la section [Préparer vos ressources techniques Container](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-create-technical-assets) pour que le Portail Cloud Partner gère vos offres.
+> Nous déplaçons la gestion de vos offres de conteneur Azure du portail Cloud Partner vers l’Espace partenaires. Tant que vos offres ne sont pas migrées, suivez les instructions de la section [Préparer vos ressources techniques Container](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-create-technical-assets) pour que le Portail Cloud Partner gère vos offres.
 
-Cet article décrit les étapes et les conditions requises pour configurer une offre Container sur la Place de marché Azure.
+Cet article fournit des ressources et recommandations techniques pour vous aider à créer une offre de conteneur sur la Place de marché Azure.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Consultez [Azure Container Instances](https://docs.microsoft.com/azure/container-instances) pour accéder aux guides de démarrage rapide, tutoriels et exemples disponibles.
+Pour accéder à des guides de démarrage rapide, didacticiels et autres exemples, consultez la [Documentation sur Azure Container Instances](https://docs.microsoft.com/azure/container-instances).
 
 ## <a name="fundamental-technical-knowledge"></a>Connaissances techniques fondamentales
 
@@ -61,6 +61,6 @@ Pour plus d'informations, reportez-vous aux tutoriels suivants :
 - [Tutoriel : Créer une image conteneur à déployer sur Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
 - [Tutoriel : Générer et déployer des images conteneurs dans le cloud avec Azure Container Registry Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task).
 
-## <a name="next-step"></a>Étape suivante
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Créez votre offre Container](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer).
+- [Créez votre offre de conteneur](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer).

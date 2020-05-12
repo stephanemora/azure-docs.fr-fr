@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee365d37a957350fa8a68da0f34149d3210d6238
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2ce3afb533aa33b88b15510eacc88c0884811cc6
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970609"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792596"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Activer Azure Disk Encryption avec Azure AD sur des machines virtuelles Linux (version précédente)
 
@@ -158,7 +158,7 @@ Le tableau suivant répertorie les paramètres du modèle Resource Manager pour 
 ## <a name="use-the-encryptformatall-feature-for-data-disks-on-linux-iaas-vms"></a><a name="bkmk_EFA"> </a>Utiliser la fonctionnalité EncryptFormatAll pour les disques de données sur les machines virtuelles IaaS Linux
 Le paramètre EncryptFormatAll réduit le temps de chiffrement des disques de données Linux. Les partitions répondant à certains critères sont formatées (avec leur système de fichiers actuel). Ensuite, elles sont remontées là où elles se trouvaient avant l’exécution de la commande. Si vous voulez exclure un disque de données répondant aux critères, vous pouvez le démonter avant d’exécuter la commande.
 
- Après l’exécution de cette commande, tous les lecteurs qui ont été montés précédemment sont formatés. La couche de chiffrement démarre ensuite sur le lecteur qui est maintenant vide. Quand cette option est sélectionnée, le disque de ressources éphémère attaché à la machine virtuelle est également chiffré. Si le disque éphémère est réinitialisé, il est reformaté et rechiffré pour la machine virtuelle par la solution Azure Disk Encryption dès que l’occasion s’en présente.
+ Après l’exécution de cette commande, tous les lecteurs qui ont été montés précédemment sont formatés. La couche de chiffrement démarre ensuite sur le lecteur qui est maintenant vide. Quand cette option est activée, le disque temporaire attaché à la machine virtuelle est également chiffré. Si le disque éphémère est réinitialisé, il est reformaté et rechiffré pour la machine virtuelle par la solution Azure Disk Encryption dès que l’occasion s’en présente.
 
 >[!WARNING]
 > EncryptFormatAll ne doit pas être utilisé quand des données indispensables se trouvent sur les volumes de données d’une machine virtuelle. Vous pouvez exclure des disques du chiffrement en les démontant. Essayez d’abord le paramètre EncryptFormatAll sur une machine virtuelle de test afin de comprendre le paramètre de la fonctionnalité et son implication avant de l’essayer sur la machine virtuelle de production. L’option EncryptFormatAll formate le disque de données, de sorte que toutes les données seront perdues. Avant de continuer, vérifiez que tous les disques que vous souhaitez exclure sont correctement démontés. </br></br>

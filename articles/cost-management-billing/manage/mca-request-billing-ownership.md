@@ -5,14 +5,14 @@ author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 05/01/2020
 ms.author: banders
-ms.openlocfilehash: 10f1052f9acf9bf91c1d7fb0b64a1d3285487cf3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3aaf2a949d5b3e6670e7885adea4579ac2802428
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200725"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692320"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Obtenir la propriété de facturation des abonnements Azure des autres comptes
 
@@ -137,8 +137,8 @@ Vous pouvez demander à obtenir la propriété de facturation des types d’abon
 - [Pass Azure Sponsorship](https://azure.microsoft.com/offers/azure-pass/)\*
 - [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)
 - [Essai gratuit](https://azure.microsoft.com/offers/ms-azr-0044p/)\*
-- [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/)
-- [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
+- [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/)
+- [Dev/Test – Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0023p/)
 - [Offre Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
 - [Offre sponsorisée Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/)\*
 - [Contrat Entreprise Microsoft](https://azure.microsoft.com/pricing/enterprise-agreement/)
@@ -177,7 +177,7 @@ Les produits de la Place de marché Azure sont transférés avec leurs abonnemen
 
 ### <a name="azure-reservations-transfer"></a>Transfert de réservations Azure
 
-Les réservations Azure ne suivent pas automatiquement les abonnements. Pour déplacer les réservations, [contactez le support Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Si vous transférez des abonnements Contrat Entreprise (EA), les réservations Azure ne sont pas automatiquement déplacées avec les abonnements. Pour déplacer les réservations, [contactez le support Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="access-to-azure-services"></a>Accès aux services Azure
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: cdbaeb5a97beba342bc471e75d1b07be0d0141ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03804229221c2b1deb94f6c32a5be9defd304ff6
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77921409"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628280"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Résolution des problèmes de déploiement de la machine virtuelle Windows dans Azure
 
@@ -82,13 +82,13 @@ La possibilité de créer des abonnements basés sur l’offre Enterprise Dev/Te
 
 ## <a name="my-drivers-are-missing-for-my-windows-n-series-vm"></a>Il manque des pilotes sur ma machine virtuelle Windows Série N
 
-Les pilotes pour les machines virtuelles Windows se trouvent [ici](../windows/n-series-driver-setup.md).
+Vous trouverez des instructions relatives à l’installation des pilotes pour machines virtuelles Windows [ici](../sizes-gpu.md#supported-operating-systems-and-drivers).
 
 ## <a name="i-cant-find-a-gpu-instance-within-my-n-series-vm"></a>Impossible de trouver une instance GPU dans ma machine virtuelle Série N
 
-Pour tirer parti des fonctionnalités GPU des machines virtuelles série N Azure exécutant Windows Server 2016 ou Windows Server 2012 R2, vous devez installer des pilotes graphiques NVIDIA sur chaque machine virtuelle après le déploiement. Des informations de configuration du pilote sont disponibles pour [les machines virtuelles Windows](../windows/n-series-driver-setup.md) et [les machines virtuelles Linux](../linux/n-series-driver-setup.md).
+Pour tirer parti des fonctionnalités GPU des machines virtuelles de la série N, vous devez installer un pilote graphique sur chaque machine virtuelle après le déploiement. Vous trouverez des informations sur la configuration des pilotes [ici](../sizes-gpu.md#supported-operating-systems-and-drivers).
 
-## <a name="is-n-series-vms-available-in-my-region"></a>Les machines virtuelles Séries N sont-elles disponibles dans ma région ?
+## <a name="are-n-series-vms-available-in-my-region"></a>Les machines virtuelles de la série N sont-elles disponibles dans ma région ?
 
 Vous pouvez vérifier la disponibilité à l’aide de la [Table des produits disponibles par région](https://azure.microsoft.com/regions/services) ainsi que les tarifications [ici](https://azure.microsoft.com/pricing/details/virtual-machines/series/#n-series).
 

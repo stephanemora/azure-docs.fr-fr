@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: a1dbabafe32e013d526ed88a83e446ee765cdb7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b39eb24b5611e36d14b151aaec96941ff52f3dfa
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76045873"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731694"
 ---
 # <a name="introduction-to-azure-security"></a>Présentation de la sécurité Azure
 ## <a name="overview"></a>Vue d’ensemble
@@ -233,11 +233,11 @@ Microsoft [Azure Application Gateway](../../application-gateway/overview.md) int
 
 ![Application Gateway](./media/overview/azure-security-fig2.png)
 
-Elle vous permet d’optimiser la productivité de la batterie de serveurs web en déchargeant une terminaison SSL gourmande en ressources du processeur vers la passerelle Application Gateway (processus également appelé « déchargement SSL » ou « pontage SSL »). Elle fournit également d’autres fonctionnalités de routage de couche 7, notamment la distribution en tourniquet (round robin) du trafic entrant, l’affinité de session basée sur les cookies, le routage basé sur le chemin d’accès de l’URL et la possibilité d’héberger plusieurs sites web derrière une seule passerelle Application Gateway. La passerelle Azure Application Gateway est un équilibreur de charge de couche 7.
+Ce service vous permet d’optimiser la productivité de la batterie de serveurs web en déchargeant une terminaison TLS gourmande en ressources processeur vers la passerelle Application Gateway (processus également appelé « déchargement TLS » ou « pontage TLS »). Elle fournit également d’autres fonctionnalités de routage de couche 7, notamment la distribution en tourniquet (round robin) du trafic entrant, l’affinité de session basée sur les cookies, le routage basé sur le chemin d’accès de l’URL et la possibilité d’héberger plusieurs sites web derrière une seule passerelle Application Gateway. La passerelle Azure Application Gateway est un équilibreur de charge de couche 7.
 
 Elle assure l’exécution des requêtes HTTP de basculement et de routage des performances entre serveurs locaux ou dans le cloud.
 
-L’application offre de nombreuses fonctionnalités Application Delivery Controller (ADC), notamment l’équilibrage de charge HTTP, l’affinité de session basée sur les cookies, le déchargement [SSL (Secure Sockets Layer)](../../application-gateway/tutorial-restrict-web-traffic-powershell.md), les sondes d’intégrité personnalisées, la prise en charge de plusieurs sites, etc.
+L’application offre de nombreuses fonctionnalités de contrôleur de livraison d’applications (ADC, Application Delivery Controller), notamment l’équilibrage de charge HTTP, l’affinité de session basée sur les cookies, le [déchargement TLS](../../application-gateway/tutorial-restrict-web-traffic-powershell.md), les sondes d’intégrité personnalisées, la prise en charge de plusieurs sites, et bien d’autres.
 
 ### <a name="web-application-firewall"></a>Pare-feu d’applications web
 Le pare-feu d’applications web est une fonctionnalité de la passerelle [Azure Application Gateway](../../application-gateway/overview.md) qui offre une protection pour les applications web qui utilisent la passerelle d’application pour les fonctions Application Delivery Control (ADC) standard. Le pare-feu d’applications web le fait en les protégeant contre la plupart des 10 plus courantes vulnérabilités web de l’OWASP.
@@ -266,9 +266,9 @@ Traffic Manager fournit un large éventail de méthodes de routage du trafic pou
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) offre une haute disponibilité et des performances réseau élevées pour vos applications. Il s’agit d’un équilibreur de charge Layer-4 (TCP, UDP) qui distribue le trafic entrant parmi des instances saines de services définis dans un jeu à charge équilibrée. Azure Load Balancer peut être configuré pour :
 
--   équilibrer la charge du trafic Internet entrant sur les machines virtuelles. Cette configuration est appelée [équilibrage de charge avec accès par Internet](../../load-balancer/concepts-limitations.md#publicloadbalancer).
+-   équilibrer la charge du trafic Internet entrant sur les machines virtuelles. Cette configuration est appelée [Équilibrage de charge public](../../load-balancer/components.md#frontend-ip-configurations).
 
--   équilibrer le trafic entre des machines virtuelles dans un réseau virtuel, entre des machines virtuelles dans les services cloud ou entre des ordinateurs locaux et des machines virtuelles dans un réseau virtuel entre différents locaux. Cette configuration est appelée [équilibrage de charge interne](../../load-balancer/concepts-limitations.md#internalloadbalancer).
+-   équilibrer le trafic entre des machines virtuelles dans un réseau virtuel, entre des machines virtuelles dans les services cloud ou entre des ordinateurs locaux et des machines virtuelles dans un réseau virtuel entre différents locaux. Cette configuration est appelée [équilibrage de charge interne](../../load-balancer/components.md#frontend-ip-configurations).
 
 - Transférer du trafic externe vers une instance spécifique de machine virtuelle
 
@@ -295,7 +295,7 @@ Cette section contient des informations supplémentaires sur les fonctionnalité
 Azure IaaS met à votre disposition des logiciels anti-programmes malveillants provenant de fournisseurs de sécurité tels que Microsoft, Symantec, Trend Micro, McAfee et Kaspersky. Ceux-ci permettent de protéger vos machines virtuelles contre les fichiers malveillants, les logiciels de publicité et d’autres menaces. [Microsoft Antimalware](antimalware.md) pour Azure Cloud Services et machines virtuelles offre une fonctionnalité de protection qui permet d’identifier et de supprimer les virus, logiciels espions et autres logiciels malveillants. Microsoft Antimalware fournit des alertes configurables lorsqu’un logiciel malveillant ou indésirable connu tente de s’installer ou de s’exécuter sur vos systèmes Azure. Microsoft Antimalware peut également être déployé à l’aide d’Azure Security Center.
 
 ### <a name="hardware-security-module"></a>Module de sécurité matériel
-Le chiffrement et l’authentification n’améliorent pas la sécurité, sauf si les clés elles-mêmes sont protégées. Vous pouvez simplifier la gestion et la sécurité de vos clés et clés secrètes critiques en les stockant dans [Azure Key Vault](../../key-vault/key-vault-overview.md). Key Vault permet de stocker les clés dans des modules de sécurité matériels (HSM) certifiés conformes aux normes FIPS 140-2 de niveau 2. Vos clés de chiffrement SQL Server pour la sauvegarde ou le [chiffrement transparent des données](https://msdn.microsoft.com/library/bb934049.aspx) peuvent toutes être stockées dans Key Vault avec les clés ou secrets de vos applications. Les autorisations et l’accès à ces éléments protégés sont gérés via [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+Le chiffrement et l’authentification n’améliorent pas la sécurité, sauf si les clés elles-mêmes sont protégées. Vous pouvez simplifier la gestion et la sécurité de vos clés et clés secrètes critiques en les stockant dans [Azure Key Vault](../../key-vault/general/overview.md). Key Vault permet de stocker les clés dans des modules de sécurité matériels (HSM) certifiés conformes aux normes FIPS 140-2 de niveau 2. Vos clés de chiffrement SQL Server pour la sauvegarde ou le [chiffrement transparent des données](https://msdn.microsoft.com/library/bb934049.aspx) peuvent toutes être stockées dans Key Vault avec les clés ou secrets de vos applications. Les autorisations et l’accès à ces éléments protégés sont gérés via [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 ### <a name="virtual-machine-backup"></a>Sauvegarde de machine virtuelle
 [Sauvegarde Azure](../../backup/backup-overview.md) est une solution qui protège les données de vos applications, sans investissement en capital et avec des frais de fonctionnement minimaux. Les erreurs rencontrées par les applications peuvent endommager vos données, et les erreurs humaines peuvent introduire des bogues dans vos applications qui peuvent engendrer des problèmes de sécurité. Avec Sauvegarde Azure, vos machines virtuelles exécutant Windows et Linux sont protégées.

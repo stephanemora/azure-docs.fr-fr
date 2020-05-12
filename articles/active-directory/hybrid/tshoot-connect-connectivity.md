@@ -16,12 +16,13 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72dbb404d1b4d3618909e0233f332d2f98b51516
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: has-adal-ref
+ms.openlocfilehash: f55f291575aea40cba8551a5fec535f63a90150c
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80049732"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610443"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Résoudre les problèmes de connectivité liés à Azure AD
 Cet article décrit le fonctionnement de la connectivité entre Azure AD Connect et Azure AD ainsi que la résolution des problèmes de connectivité. Ces problèmes sont susceptibles de se produire dans un environnement doté d’un serveur proxy.
@@ -31,7 +32,7 @@ Azure AD Connect utilise l’authentification moderne (à l’aide de la bibliot
 
 Dans cet article, nous montrons comment Fabrikam se connecte à Azure AD via son proxy. Le serveur proxy est nommé fabrikamproxy et utilise le port 8080.
 
-Nous devons d’abord nous assurer que le fichier [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) est correctement configuré.  
+Nous devons d’abord nous assurer que le fichier [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) est correctement configuré.
 ![machineconfig](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]
@@ -58,25 +59,24 @@ L’Assistant Installation utilise deux contextes de sécurité différents. Da
 Voici les erreurs les plus courantes de l’Assistant Installation.
 
 ### <a name="the-installation-wizard-has-not-been-correctly-configured"></a>L’Assistant Installation n’a pas été configuré correctement
-Cette erreur apparaît quand l’Assistant ne peut pas accéder au proxy.  
+Cette erreur apparaît quand l’Assistant ne peut pas accéder au proxy.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomachineconfig.png)
 
 * Si vous voyez cette erreur, vérifiez que le fichier [machine.config](how-to-connect-install-prerequisites.md#connectivity) a été configuré correctement.
 * Si la configuration semble correcte, suivez les étapes de la section [Vérifier la connectivité du proxy](#verify-proxy-connectivity) pour voir si le problème existe également en dehors de l’Assistant.
 
 ### <a name="a-microsoft-account-is-used"></a>Un compte Microsoft est utilisé
-Si vous utilisez un **compte Microsoft** au lieu d’un compte **scolaire ou d’organisation**, vous voyez une erreur générique.  
+Si vous utilisez un **compte Microsoft** au lieu d’un compte **scolaire ou d’organisation**, vous voyez une erreur générique.
 ![Un compte Microsoft est utilisé](./media/tshoot-connect-connectivity/unknownerror.png)
 
 ### <a name="the-mfa-endpoint-cannot-be-reached"></a>Impossible d’atteindre le point de terminaison de l’authentification MFA
-Cette erreur s’affiche si le point de terminaison **https://secure.aadcdn.microsoftonline-p.com** n’est pas accessible et que votre administration globale a une MFA activée.  
+Cette erreur s’affiche si le point de terminaison **https://secure.aadcdn.microsoftonline-p.com** n’est pas accessible et que votre administration globale a une MFA activée.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
 * Si vous voyez cette erreur, vérifiez que le point de terminaison **secure.aadcdn.microsoftonline-p.com** a été ajouté au proxy.
 
 ### <a name="the-password-cannot-be-verified"></a>Le mot de passe ne peut pas être vérifié
-Si l’Assistant Installation réussit à se connecter à Azure AD, mais que le mot de passe lui-même ne peut pas être vérifié, le message suivant apparaît :  
-![Mot de passe incorrect.](./media/tshoot-connect-connectivity/badpassword.png)
+Si l’Assistant Installation réussit à se connecter à Azure AD, mais que le mot de passe lui-même ne peut pas être vérifié, le message suivant apparaît : ![Mot de passe incorrect](./media/tshoot-connect-connectivity/badpassword.png).
 
 * Le mot de passe est-il temporaire et doit-il être modifié ? Le mot de passe est-il correct ? Connectez-vous à `https://login.microsoftonline.com` (sur un autre ordinateur que le serveur Azure AD Connect) et vérifiez que le compte est utilisable.
 
@@ -186,7 +186,7 @@ L’authentification a réussi, mais Azure AD PowerShell a un problème d’auth
 </div>
 
 ### <a name="azure-ad-global-admin-role-needed"></a>(Azure AD Global Admin Role Needed) Rôle d’administrateur général Azure AD nécessaire
-L’utilisateur s’est authentifié correctement. Toutefois, le rôle d’administrateur général n’est pas attribué à l’utilisateur. Voici [comment vous pouvez attribuer le rôle d’administrateur général](../users-groups-roles/directory-assign-admin-roles.md) à l’utilisateur. 
+L’utilisateur s’est authentifié correctement. Toutefois, le rôle d’administrateur général n’est pas attribué à l’utilisateur. Voici [comment vous pouvez attribuer le rôle d’administrateur général](../users-groups-roles/directory-assign-admin-roles.md) à l’utilisateur.
 
 <div id="privileged-identity-management">
 <!--
@@ -224,7 +224,7 @@ Apparaît comme une erreur inattendue dans l’Assistant Installation. Peut se p
 ## <a name="troubleshooting-steps-for-previous-releases"></a>Étapes de dépannage pour les versions précédentes.
 Dans les versions commençant par le numéro de build 1.1.105.0 (publiées en février 2016), l’Assistant de connexion a été mis hors service. Cette section et la configuration ne sont plus requises, mais sont conservées en tant que référence.
 
-Pour que l’Assistant de connexion unique fonctionne, winhttp doit être configuré. Cette configuration peut être effectuée avec [**netsh**](how-to-connect-install-prerequisites.md#connectivity).  
+Pour que l’Assistant de connexion unique fonctionne, winhttp doit être configuré. Cette configuration peut être effectuée avec [**netsh**](how-to-connect-install-prerequisites.md#connectivity).
 ![netsh](./media/tshoot-connect-connectivity/netsh.png)
 
 ### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>L’Assistant de connexion n’a pas été configuré correctement

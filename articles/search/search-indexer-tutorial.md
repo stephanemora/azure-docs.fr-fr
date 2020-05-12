@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Indexer les données de bases de données Azure SQL dans C# '
+title: Tutoriel C# sur l’indexation des données Azure SQL
 titleSuffix: Azure Cognitive Search
 description: Dans ce tutoriel C#, vous vous connectez à une base de données Azure SQL, extrayez des données interrogeables et les chargez dans un index de Recherche cognitive Azure.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/28/2020
-ms.openlocfilehash: 7660c89032ea3ef8371655b94b75c1f60603ee32
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: cab996eb7c0bfccf31ed49294c6aa4b3e8cefc8f
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78193966"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780757"
 ---
-# <a name="tutorial-use-c-to-index-data-from-sql-databases-in-azure-cognitive-search"></a>Tutoriel : Utiliser C# pour indexer les données de bases de données SQL dans Recherche cognitive Azure
+# <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Tutoriel : Indexer des données Azure SQL à l’aide du SDK .NET
 
 Configurez un [indexeur](search-indexer-overview.md) pour extraire des données interrogeables d’une base de données Azure SQL, en les envoyant à un index de recherche dans Recherche cognitive Azure. 
 

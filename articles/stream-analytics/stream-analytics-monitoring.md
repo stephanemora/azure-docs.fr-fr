@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4e9f90035816269d2d41781be34d0d8080628b12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54bff88e9650240a3703e18d583f603cafeb3022
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75431647"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611889"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Présentation de la surveillance des tâches Stream Analytics et des requêtes
 
@@ -37,7 +37,7 @@ Une fenêtre s’affiche comme suit :
 | Requêtes de fonction      | Nombre d’appels à la fonction Azure Machine Learning (le cas échéant). |
 | Erreurs de désérialisation d’entrée       | Nombre d’événements d’entrée qui n’ont pas pu être désérialisés.  |
 | Octets des événements d’entrée      | Quantité de données reçues par le travail Stream Analytics, en octets. Cela permet de valider que les événements sont envoyés à la source d’entrée. |
-| Événements d’entrée           | Nombre d’enregistrements désérialisé à partir des événements d’entrée. Ce nombre n’inclut pas les événements entrants qui génèrent des erreurs de désérialisation. |
+| Événements d’entrée           | Nombre d’enregistrements désérialisé à partir des événements d’entrée. Ce nombre n’inclut pas les événements entrants qui génèrent des erreurs de désérialisation. Les mêmes événements peuvent être ingérés par Stream Analytics plusieurs fois dans des scénarios tels que des récupérations internes et des jointures réflexives. Par conséquent, il est recommandé de ne pas s’attendre à ce que les métriques d’événements d’entrée et de sortie correspondent si votre travail comprend une requête « directe » simple. |
 | Sources d'entrée reçues       | Nombre de messages reçus par le travail. Pour Event Hub, un message est un EventData unique. Pour un objet blob, un message est un objet blob unique. Veuillez noter que les sources d’entrée sont comptabilisées avant la désérialisation. En cas d’erreurs de désérialisation, les sources d’entrée peuvent être supérieures aux événements d’entrée. Sinon, elles peuvent être inférieures ou égales aux événements d’entrée dans la mesure où chaque message peut contenir plusieurs événements. |
 | Événements d’entrée tardifs      | Événements reçus plus tard que la valeur configurée dans la fenêtre de tolérance d’arrivée tardive. En savoir plus sur les [Considérations relatives à l’ordre des événements Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md). |
 | Événements non ordonnés    | Nombre d’événements reçus dans le désordre qui ont été supprimés ou dont l’horodatage a été réglé, en fonction de la stratégie de classement des événements. Cela peut être affecté par la configuration du paramètre de la plage de tolérance pour les événements en désordre. |

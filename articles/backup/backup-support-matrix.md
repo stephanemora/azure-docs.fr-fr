@@ -3,12 +3,12 @@ title: Tableau de prise en charge de Sauvegarde Azure
 description: Fournit un résumé des limitations et des paramètres de prise en charge pour le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: b87430c9ff7d806fd1fc74d5d2a8270f9db43b53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cc817c1833c4c9aedcbc5fa111de694fab715c43
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537319"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801261"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -56,7 +56,7 @@ Voici ce qui est pris en charge si vous voulez sauvegarder des machines locales�
 
 **Limite** | **Détails**
 --- | ---
-**Disques de données de machine virtuelle Azure** | Nombre limité à 16 <br> Pour vous inscrire à la préversion privée des machines virtuelles avec plus de 16 disques (jusqu’à 32 disques), écrivez-nous à l’adresse AskAzureBackupTeam@microsoft.com
+**Disques de données de machine virtuelle Azure** | Nombre limité à 16 <br> Pour vous inscrire à la préversion limitée des machines virtuelles avec plus de 16 disques (jusqu’à 32 disques), écrivez-nous à l’adresse AskAzureBackupTeam@microsoft.com
 **Taille de disque de données de machine virtuelle Azure** | La taille d’un disque individuel peut atteindre jusqu’à 32 To et un maximum de 256 To combinés pour tous les disques d’une machine virtuelle.
 
 ### <a name="azure-vm-backup-options"></a>Options de sauvegarde d’une machine virtuelle Azure
@@ -152,9 +152,9 @@ La sauvegarde Azure a ajouté la fonctionnalité de restauration inter-régions 
 | Type de gestion des sauvegardes | Prise en charge                                                    | Régions prises en charge |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | Oui.   Prise en charge pour les machines virtuelles chiffrées et les machines virtuelles disposant de disques de moins de 4 To | Toutes les régions publiques Azure.  |
-| Agent MARS/En local | Non                                                            | N/A               |
-| SQL /SAP HANA          | Non                                                            | N/A               |
-| AFS                    | Non                                                            | N/A               |
+| Agent MARS/En local | Non                                                           | N/A               |
+| SQL /SAP HANA          | Non                                                           | N/A               |
+| AFS                    | Non                                                           | N/A               |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

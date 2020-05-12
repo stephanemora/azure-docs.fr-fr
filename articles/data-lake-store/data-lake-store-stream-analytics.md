@@ -1,26 +1,20 @@
 ---
-title: Diffuser des données de Stream Analytics vers Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Utilisez Azure Stream Analytics pour diffuser des données dans Azure Data Lake Storage Gen1.
-services: data-lake-store,stream-analytics
-documentationcenter: ''
+title: Diffuser en continu des données de Stream Analytics vers Data Lake Storage Gen1 – Azure
+description: Utilisez Azure Stream Analytics pour diffuser des données vers Azure Data Lake Storage Gen1.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: edb58e0b-311f-44b0-a499-04d7e6c07a90
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: twooley
-ms.openlocfilehash: d3dbacd58b3bda3fbf8ee8ad5f175eccc2cb2a24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1740d167bedd20f51ad5bf24a56b7e7e787f754
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60194853"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690977"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Diffuser des données à partir d’Azure Storage Blob dans Azure Data Lake Storage Gen1 à l’aide d’Azure Stream Analytics
-Dans cet article, vous allez apprendre à utiliser Azure Data Lake Storage Gen1 comme sortie d’une tâche Azure Stream Analytics. Cet article présente un scénario simple qui consiste à lire des données à partir d’un objet blob Azure Storage (entrée) et à écrire les données dans Data Lake Storage Gen1 (sortie).
+Cet article explique comment utiliser Azure Data Lake Storage Gen1 comme sortie pour une tâche Azure Stream Analytics. Cet article présente un scénario simple qui consiste à lire des données à partir d’un objet blob Azure Storage (entrée) et à écrire les données dans Data Lake Storage Gen1 (sortie).
 
 ## <a name="prerequisites"></a>Prérequis
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
@@ -34,7 +28,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 ## <a name="create-a-stream-analytics-job"></a>Créer un objet blob Stream Analytics
 Pour commencer, vous allez créez une tâche Stream Analytics qui inclut une source d’entrée et une destination de sortie. Pour les besoins de ce didacticiel, la source est un conteneur d’objets blob Azure et la destination est Lake Data Storage Gen1.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 2. Dans le volet gauche, cliquez sur **Tâches Stream Analytics**, puis sur **Ajouter**.
 

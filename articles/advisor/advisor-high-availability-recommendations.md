@@ -3,12 +3,12 @@ title: Améliorer la disponibilité de votre application avec Azure Advisor
 description: Utilisez le conseiller Azure pour améliorer la haute disponibilité de vos déploiements Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 997681ed62fa9985e3122ece22565dbae0e65b53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e38a1fb5e07e3811c53e24a5e324575d6774a75
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443111"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788023"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Améliorer la disponibilité de votre application avec Azure Advisor
 
@@ -28,6 +28,10 @@ Pour assurer la redondance de votre application, nous vous recommandons de regro
 ## <a name="use-managed-disks-to-improve-data-reliability"></a>Utiliser la fonctionnalité Disques managés pour améliorer la fiabilité des données
 
 Les machines virtuelles situées dans un groupe à haute disponibilité avec disques partageant des comptes de stockage ou des unités d'échelle de stockage ne sont pas résistantes aux échecs des unités d'échelle de stockage en cas de pannes. Advisor identifie ces groupes à haute disponibilité et conseille de migrer vers Azure Disques managés. Cela permet de s’assurer que les disques des différentes machines virtuelles d’un groupe à haute disponibilité sont suffisamment isolés pour éviter un point de défaillance unique. 
+
+## <a name="known-issue-with-check-point-network-virtual-appliance-image-version"></a>Problème connu lié à la version de l’image de l’appliance virtuelle réseau (NVA) Check Point
+
+Advisor est capable d’identifier si votre machine virtuelle exécute une version d’image Check Point qui est connue pour perdre la connectivité réseau en cas d’opération de maintenance de la plateforme. Pour résoudre ce problème, suivez la recommandation d’Advisor afin de mettre à niveau l’image vers une version plus récente. Cela va maintenir la continuité des activités grâce à une meilleure connectivité réseau.
 
 ## <a name="ensure-application-gateway-fault-tolerance"></a>Assurer la tolérance de panne d’une passerelle
 
@@ -83,7 +87,7 @@ Azure Advisor identifiera les comptes Azure Cosmos DB qui utilisent des ancienne
 
 ## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Mettre à niveau votre SDK Java Azure Cosmos DB avec la dernière version de Maven
 
-Azure Advisor identifiera les comptes Azure Cosmos DB qui utilisent des anciennes versions du kit de développement logiciel (SDK) Java et vous recommandera de mettre à niveau avec la dernière version de Maven pour obtenir les derniers correctifs, des améliorations de performances et de nouvelles fonctionnalités. [En savoir plus sur le kit de développement logiciel (SDK) Java de Cosmos DB](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+Azure Advisor identifiera les comptes Azure Cosmos DB qui utilisent des anciennes versions du kit de développement logiciel (SDK) Java et vous recommandera de mettre à niveau avec la dernière version de Maven pour obtenir les derniers correctifs, des améliorations de performances et de nouvelles fonctionnalités. [En savoir plus sur le kit de développement logiciel (SDK) Java de Cosmos DB](https://aka.ms/cosmosdb/sql-api-sdk-async-java)
 
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Mettre à niveau votre connecteur Spark Azure Cosmos DB avec la dernière version de Maven
 

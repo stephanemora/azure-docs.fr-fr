@@ -1,50 +1,54 @@
 ---
-title: Exporter votre configuration d’approvisionnement et restaurer un état correct connu pour la récupération d’urgence | Microsoft Docs
+title: Exporter la configuration de provisionnement et restaurer la dernière bonne configuration connue pour la reprise d’activité
 description: Découvrez comment exporter votre configuration d’approvisionnement et restaurer un état correct connu pour la récupération d’urgence.
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: daveba
-ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
+manager: CelesteDG
 ms.service: active-directory
-ms.subservice: saas-app-tutorial
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.subservice: app-provisioning
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 03/19/2020
 ms.author: chmutali
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92a40a5fe3067cf96d3c742102c9ca66078cd5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: acc14cf9fc544a15dfb9ac4ffd74e5ed0ac56108
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051308"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593758"
 ---
-# <a name="export-your-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Exporter votre configuration d’approvisionnement et restaurer un état correct connu
+# <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Procédure : Exporter la configuration de provisionnement et restaurer la dernière bonne configuration connue
+
+Dans cet article, vous allez apprendre à :
+
+- Exporter et importer votre configuration d’approvisionnement à partir du portail Azure
+- Exporter et importer votre configuration d’approvisionnement à l’aide de l’API Microsoft Graph
 
 ## <a name="export-and-import-your-provisioning-configuration-from-the-azure-portal"></a>Exporter et importer votre configuration d’approvisionnement à partir du portail Azure
 
-### <a name="how-can-i-export-my-provisioning-configuration"></a>Comment puis-je exporter ma configuration d’approvisionnement ?
+### <a name="export-your-provisioning-configuration"></a>Exporter votre configuration de provisionnement
+
 Pour exporter vos données de configuration :
+
 1. Dans le panneau de navigation gauche du [portail Azure](https://portal.azure.com/), sélectionnez **Azure Active Directory**.
-2. Dans le volet **Azure Active Directory**, sélectionnez **Applications d’entreprise** et choisissez votre application.
-3. Dans le volet de navigation de gauche, sélectionnez **Approvisionnement**. À partir de la page de configuration de l’approvisionnement, cliquez sur **mappages d’attributs**, puis sur **afficher les options avancées**, et enfin sur **passer en revue votre de schéma**. Vous accédez alors à l’éditeur de schéma. 
-5. Cliquez sur Télécharger dans la barre de commandes en haut de la page pour télécharger votre schéma.
+1. Dans le volet **Azure Active Directory**, sélectionnez **Applications d’entreprise** et choisissez votre application.
+1. Dans le volet de navigation de gauche, sélectionnez **Approvisionnement**. À partir de la page de configuration de l’approvisionnement, cliquez sur **mappages d’attributs**, puis sur **afficher les options avancées**, et enfin sur **passer en revue votre de schéma**. Vous accédez alors à l’éditeur de schéma.
+1. Cliquez sur Télécharger dans la barre de commandes en haut de la page pour télécharger votre schéma.
 
 ### <a name="disaster-recovery---roll-back-to-a-known-good-state"></a>Récupération d’urgence : restaurer un état correct connu
-L’exportation et l’enregistrement de votre configuration vous permettent de restaurer une version précédente de votre configuration. Nous vous recommandons d’exporter votre configuration d’approvisionnement et de l’enregistrer pour une utilisation ultérieure chaque fois que vous apportez une modification à vos mappages d’attributs ou filtres d’étendue. Il vous suffit d’ouvrir le fichier JSON que vous avez téléchargé lors des étapes précédentes, de copier tout le contenu du fichier JSON, de remplacer tout le contenu de la charge utile JSON dans l’éditeur de schéma, puis d’enregistrer. Si un cycle d’approvisionnement est actif, il se terminera et le cycle suivant utilisera le schéma mis à jour. Le cycle suivant sera également un cycle initial, qui réévaluera tous les utilisateurs et groupes en fonction de la nouvelle configuration. Tenez compte de ce qui suit lors de la restauration d’une configuration précédente :
-* Les utilisateurs sont réévalués pour déterminer s’ils doivent être dans l’étendue. Si les filtres d’étendue ont changé et qu’un utilisateur n’est plus dans la portée. il est alors désactivé. Même si ce comportement est souhaité dans la plupart des cas, il est possible que vous souhaitiez l’empêcher cela et utiliser la fonctionnalité [ignorer les suppressions d’étendue](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions). 
-* La modification de votre configuration d’approvisionnement redémarre le service et déclenche un [cycle initial](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental).
 
+L’exportation et l’enregistrement de votre configuration vous permettent de restaurer une version précédente de votre configuration. Nous vous recommandons d’exporter votre configuration d’approvisionnement et de l’enregistrer pour une utilisation ultérieure chaque fois que vous apportez une modification à vos mappages d’attributs ou filtres d’étendue. Il vous suffit d’ouvrir le fichier JSON que vous avez téléchargé lors des étapes précédentes, de copier tout le contenu du fichier JSON, de remplacer tout le contenu de la charge utile JSON dans l’éditeur de schéma, puis d’enregistrer. Si un cycle d’approvisionnement est actif, il se terminera et le cycle suivant utilisera le schéma mis à jour. Le cycle suivant sera également un cycle initial, qui réévaluera tous les utilisateurs et groupes en fonction de la nouvelle configuration. Tenez compte de ce qui suit lors de la restauration d’une configuration précédente :
+
+- Les utilisateurs sont réévalués pour déterminer s’ils doivent être dans l’étendue. Si les filtres d’étendue ont changé et qu’un utilisateur n’est plus dans la portée. il est alors désactivé. Même si ce comportement est souhaité dans la plupart des cas, il est possible que vous souhaitiez l’empêcher cela et utiliser la fonctionnalité [ignorer les suppressions d’étendue](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions). 
+- La modification de votre configuration d’approvisionnement redémarre le service et déclenche un [cycle initial](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental).
 
 ## <a name="export-and-import-your-provisioning-configuration-by-using-the-microsoft-graph-api"></a>Exporter et importer votre configuration d’approvisionnement à l’aide de l’API Microsoft Graph
-Vous pouvez utiliser l’API Microsoft Graph et Microsoft Graph Explorer pour exporter vos mappages d’attributs et votre schéma Attribution d’utilisateurs dans un fichier JSON et l’importer dans Azure AD. Vous pouvez aussi utiliser les étapes capturées ici pour créer une sauvegarde de votre configuration de provisionnement. 
+
+Vous pouvez utiliser l’API Microsoft Graph et Microsoft Graph Explorer pour exporter vos mappages d’attributs et votre schéma Attribution d’utilisateurs dans un fichier JSON et l’importer dans Azure AD. Vous pouvez aussi utiliser les étapes capturées ici pour créer une sauvegarde de votre configuration de provisionnement.
 
 ### <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Étape 1 : Récupérer l’ID de principal du service de l’application de provisionnement (ID d’objet)
 
-1. Lancez le [portail Azure](https://portal.azure.com) et accédez à la section Propriétés de votre application de provisionnement. Par exemple, si vous souhaitez exporter votre mappage d’*application d’approvisionnement Workday vers l’utilisateur AD*, accédez à la section Propriétés de cette application. 
+1. Lancez le [portail Azure](https://portal.azure.com) et accédez à la section Propriétés de votre application de provisionnement. Par exemple, si vous souhaitez exporter votre mappage d’*application d’approvisionnement Workday vers l’utilisateur AD*, accédez à la section Propriétés de cette application.
 1. Dans la section Propriétés de votre application d'approvisionnement, copiez la valeur GUID associée au champ *ID de l'objet*. Cette valeur, également appelée **ServicePrincipalId** de votre application, sera utilisée dans les opérations de Microsoft Graph Explorer.
 
    ![ID du principal de service de l'application Workday](./media/export-import-provisioning-configuration/wd_export_01.png)
@@ -99,4 +103,4 @@ Sous l'onglet « En-têtes des demandes », ajoutez l'attribut d'en-tête Cont
 
    [![En-têtes des demandes](./media/export-import-provisioning-configuration/wd_export_05.png)](./media/export-import-provisioning-configuration/wd_export_05.png#lightbox)
 
-Cliquez sur le bouton « Exécuter la requête » pour importer le nouveau schéma.
+Sélectionnez **Exécuter la requête** pour importer le nouveau schéma.
