@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 02/25/2020
-ms.openlocfilehash: 30664d533215cb49fa6f436ec4cf88fa319c3300
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 05/04/2020
+ms.openlocfilehash: e2db6d1d60026a00fa8e766fbaa1c72975fa2e99
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233557"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82786612"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planifier un réseau virtuel pour Azure HDInsight
 
@@ -44,7 +44,7 @@ Les questions auxquelles vous devez répondre lors de la planification de l’in
 
 * Souhaitez-vous restreindre/rediriger le trafic entrant ou sortant échangé avec HDInsight ?
 
-    HDInsight doit disposer d’une communication illimitée avec les adresses IP spécifiques dans le centre de données Azure. Il existe également plusieurs ports qui doivent être autorisés au travers de pare-feu pour la communication du client. Pour plus d’informations, voir la section [Contrôler le trafic réseau](#networktraffic).
+    HDInsight doit disposer d’une communication illimitée avec les adresses IP spécifiques dans le centre de données Azure. Il existe également plusieurs ports qui doivent être autorisés au travers de pare-feu pour la communication du client. Pour plus d’informations, consultez [Contrôler le trafic réseau](./control-network-traffic.md).
 
 ## <a name="add-hdinsight-to-an-existing-virtual-network"></a><a id="existingvnet"></a>Ajouter HDInsight à un réseau virtuel existant
 
@@ -201,73 +201,15 @@ Pour vous connecter à Apache Ambari et à d’autres pages web via le réseau v
 
 2. Pour déterminer le nœud et le port sur lesquels un service est disponible, voir [Ports utilisés par les services Hadoop dans HDInsight](./hdinsight-hadoop-port-settings-for-services.md).
 
-## <a name="controlling-network-traffic"></a><a id="networktraffic"></a> Contrôler le trafic réseau
-
-### <a name="techniques-for-controlling-inbound-and-outbound-traffic-to-hdinsight-clusters"></a>Les techniques permettant de contrôler le trafic entrant et sortant de clusters HDInsight
-
-Le trafic réseau dans les réseaux virtuels Azure peut être contrôlé à l’aide des méthodes suivantes :
-
-* Les **Groupes de sécurité réseau** (NSG) vous permettent de filtrer le trafic entrant et sortant changé avec le réseau. Pour plus d’informations, voir le document [Filtrer le trafic réseau avec les groupes de sécurité réseau](../virtual-network/security-overview.md).
-
-* Les **appliances virtuelles réseau** (NVA) peuvent uniquement être utilisées avec le trafic sortant. Les appliances virtuelles réseau répliquent les fonctionnalités d’appareils tels que des routeurs et des pare-feux. Pour plus d’informations, voir le document [Appliances réseau](https://azure.microsoft.com/solutions/network-appliances).
-
-En tant que service managé, HDInsight doit avoir un accès illimité aux services d’intégrité et de gestion de HDInsight pour le trafic entrant et sortant du réseau virtuel. Lorsque vous utilisez des groupes de sécurité réseau, vous devez vous assurer que ces services peuvent toujours communiquer avec le cluster HDInsight.
-
-![Diagramme des entités HDInsight créées dans un réseau virtuel Azure personnalisé](./media/hdinsight-plan-virtual-network-deployment/hdinsight-vnet-diagram.png)
-
-### <a name="hdinsight-with-network-security-groups"></a>Utiliser HDInsight avec des groupes de sécurité réseau
-
-Si vous prévoyez d’utiliser des **groupes de sécurité réseau** pour contrôler le trafic réseau, effectuez les actions suivantes avant d’installer HDInsight :
-
-1. Identifiez la région Azure que vous projetez d’utiliser pour HDInsight.
-
-2. Identifiez les étiquettes de service demandées par HDInsight pour votre région. Pour plus d’informations, consultez [Étiquettes de service de groupe de sécurité réseau (NSG) pour Azure HDInsight](hdinsight-service-tags.md).
-
-3. Créez ou modifiez les groupes de sécurité réseau pour le sous-réseau dans lequel vous prévoyez d’installer HDInsight.
-
-    * __Groupes de sécurité réseau__ : autorisez le trafic __entrant__ sur le port __443__ à partir des adresses IP. Cela garantit que les services de gestion HDInsight peuvent atteindre le cluster depuis un point en dehors du réseau virtuel.
-
-Pour plus d’informations sur les groupes de sécurité réseau, consultez [Présentation des groupes de sécurité réseau](../virtual-network/security-overview.md).
-
-### <a name="controlling-outbound-traffic-from-hdinsight-clusters"></a>Contrôle du trafic sortant à partir de clusters HDInsight
-
-Pour plus d’informations sur le contrôle du trafic sortant à partir de clusters HDInsight, consultez [Configurer la restriction du trafic réseau sortant pour les clusters Azure HDInsight](hdinsight-restrict-outbound-traffic.md).
-
-#### <a name="forced-tunneling-to-on-premises"></a>Tunneling forcé en local
-
-Le tunneling forcé est une configuration d’itinéraire défini par l’utilisateur où tout le trafic en provenance d’un sous-réseau est acheminé de force vers un réseau ou un emplacement spécifique, tel que votre réseau local. HDInsight ne prend __pas__ en charge le tunneling forcé vers les réseaux locaux.
-
-## <a name="required-ip-addresses"></a><a id="hdinsight-ip"></a> Adresses IP requises
-
-Si vous utilisez des groupes de sécurité réseau ou des itinéraires définis par l’utilisateur pour contrôler le trafic, voir [Adresses IP de gestion HDInsight](hdinsight-management-ip-addresses.md).
-
-## <a name="required-ports"></a><a id="hdinsight-ports"></a> Ports requis
-
-Si vous prévoyez d’utiliser un **pare-feu** et d’accéder au cluster depuis l’extérieur sur certains ports, vous devez autoriser le trafic sur ces ports nécessaires à votre scénario. Par défaut, aucune liste verte spéciale de ports n’est nécessaire tant que le trafic de gestion azure expliqué dans la section précédente est autorisé à atteindre le cluster sur le port 443.
-
-Pour obtenir la liste des ports utilisés pour des services spécifiques, voir le document [Ports utilisés par les services Apache Hadoop sur HDInsight](hdinsight-hadoop-port-settings-for-services.md).
-
-Pour plus d’informations sur les règles de pare-feu pour les appliances virtuelles, voir le document [Scénario d’appliance virtuelle](../virtual-network/virtual-network-scenario-udr-gw-nva.md).
-
 ## <a name="load-balancing"></a>Équilibrage de la charge
 
-Lorsque vous créez un cluster HDInsight, un équilibreur de charge est également créé. Le type de cet équilibreur de charge se trouve au [niveau de la référence SKU de base](../load-balancer/concepts-limitations.md#skus) qui a certaines contraintes. L’une de ces contraintes est que si vous avez deux réseaux virtuels dans des régions différentes, vous ne pouvez pas vous connecter aux équilibreurs de charge de base. Pour plus d’informations, consultez [FAQ sur les réseaux virtuels : contraintes sur le peering de réseaux virtuels globaux](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
-
-## <a name="transport-layer-security"></a>Protocole Transport Layer Security (TLS)
-
-Les connexions au cluster via le point de terminaison de cluster public `https://<clustername>.azurehdinsight.net` sont transmises par proxy via des nœuds de passerelle de cluster. Ces connexions sont sécurisées à l’aide d’un protocole appelé TLS. L’application de versions ultérieures du protocole TLS sur les passerelles améliore la sécurité de ces connexions. Pour plus d’informations sur les raisons pour lesquelles vous devez utiliser des versions plus récentes du protocole TLS, consultez [Résolution du problème TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
-
-Par défaut, les clusters Azure HDInsight acceptent les connexions TLS 1.2 sur les points de terminaison HTTPS publics, ainsi que des versions plus anciennes pour la compatibilité descendante. Vous pouvez contrôler la version du protocole TLS minimale prise en charge sur les nœuds de passerelle lors de la création du cluster à l’aide du portail Azure ou d’un modèle Resource Manager. Pour le portail, sélectionnez la version de TLS sous l’onglet **Sécurité + réseau** lors de la création du cluster. Pour un modèle Resource Manager au moment du déploiement, utilisez la propriété **minSupportedTlsVersion**. Pour obtenir un exemple de modèle, consultez [Modèle de démarrage rapide TLS 1.2 minimum pour HDInsight](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls). Cette propriété prend en charge trois valeurs : « 1.0 », « 1.1 » et « 1.2 », qui correspondent respectivement à TLS 1.0+, TLS 1.1+ et TLS 1.2+.
-
-> [!IMPORTANT]
-> À compter du 30 juin 2020, Azure HDInsight appliquera TLS 1.2 ou des versions ultérieures pour toutes les connexions HTTPS. Nous vous recommandons de vous assurer que tous vos clients sont prêts à gérer TLS 1.2 ou versions ultérieures. Pour plus d’informations, voir [Application de TLS 1.2 par Azure HDInsight](https://azure.microsoft.com/updates/azure-hdinsight-tls-12-enforcement/).
+Lorsque vous créez un cluster HDInsight, un équilibreur de charge est également créé. Le type de cet équilibreur de charge se trouve au [niveau de la référence SKU de base](../load-balancer/skus.md) qui a certaines contraintes. L’une de ces contraintes est que si vous avez deux réseaux virtuels dans des régions différentes, vous ne pouvez pas vous connecter aux équilibreurs de charge de base. Pour plus d’informations, consultez [FAQ sur les réseaux virtuels : contraintes sur le peering de réseaux virtuels globaux](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour obtenir des exemples de code et des exemples de création de réseaux virtuels Azure, consultez [Créer des réseaux virtuels pour les clusters Azure HDInsight](hdinsight-create-virtual-network.md).
 * Pour un exemple de bout en bout de configuration de HDInsight pour se connecter à un réseau local, voir [Connecter HDInsight à un réseau local](./connect-on-premises-network.md).
-* Pour configurer des clusters Apache HBase dans des réseaux virtuels Azure, consultez [Créer des clusters Apache HBase sur HDInsight dans un réseau virtuel Azure](hbase/apache-hbase-provision-vnet.md).
-* Pour configurer la géoréplication Apache HBase, consultez [Configurer la réplication de cluster Apache HBase dans les réseaux virtuels Azure](hbase/apache-hbase-replication.md).
 * Pour plus d’informations sur les réseaux virtuels Azure, voir [Vue d'ensemble de Réseau virtuel Azure](../virtual-network/virtual-networks-overview.md).
 * Pour plus d’informations sur les groupes de sécurité réseau, consultez [Groupes de sécurité réseau](../virtual-network/security-overview.md).
 * Pour plus d’informations sur les routages par l’utilisateur, consultez [Routage définis par l’utilisateur et transfert IP](../virtual-network/virtual-networks-udr-overview.md).
+* Pour plus d’informations sur le trafic de contrôle, consultez [Contrôler le trafic réseau](./control-network-traffic.md).
