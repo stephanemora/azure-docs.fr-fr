@@ -602,10 +602,10 @@
         - name: Event Hubs
           tocHref: /azure/event-hubs/
           topicHref: /azure/event-hubs/
-        - name: "Messagerie Service Bus\_"
+        - name: Messagerie Service Bus
           tocHref: /azure/service-bus-messaging/
           topicHref: /azure/service-bus-messaging/
-        - name: Service Bus Relay
+        - name: Azure Relay
           tocHref: /azure/service-bus-relay/
           topicHref: /azure/service-bus-relay/
     - name: Migrer

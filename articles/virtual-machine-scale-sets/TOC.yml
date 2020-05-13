@@ -234,6 +234,11 @@
                       href: instance-generalized-image-version-cli.md
                 - name: Mettre à jour les ressources d’image
                   href: ../virtual-machines/update-image-resources-cli.md
+            - name: Résoudre les problèmes relatifs aux images partagées
+              href: ../virtual-machines/troubleshooting-shared-images.md
+            - name: Utilisation de clés gérées par le client
+              displayName: 'SSE, CMK, encrypt'
+              href: ../virtual-machines/image-version-encryption.md
     - name: Créer un modèle
       items:
         - name: En savoir plus sur les modèles de groupes identiques
@@ -361,7 +366,7 @@
       items:
         - name: Linux
           href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/'
-        - name: ' Windows'
+        - name: Windows
           href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'

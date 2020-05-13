@@ -227,8 +227,6 @@
           href: how-to-configure-cloud-metrics-logs.md
         - name: Configurer les journaux et les métriques locaux pour une passerelle auto-hébergée
           href: how-to-configure-local-metrics-logs.md
-        - name: Enregistrer des requêtes avec Azure Application Insights
-          href: api-management-howto-app-insights.md
         - name: Installer la récupération d’urgence à l’aide de la sauvegarde/restauration
           href: api-management-howto-disaster-recovery-backup-restore.md
         - name: Gérer les comptes d’utilisateurs

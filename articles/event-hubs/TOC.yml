@@ -212,6 +212,8 @@
     - name: Dépanner
       items:
         - name: Guide de résolution des problèmes
+          href: troubleshooting-guide.md
+        - name: Exceptions .NET
           href: event-hubs-messaging-exceptions.md
         - name: Exceptions Resource Manager
           href: resource-manager-exceptions.md
