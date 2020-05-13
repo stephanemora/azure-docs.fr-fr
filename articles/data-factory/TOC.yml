@@ -25,6 +25,8 @@
       href: quickstart-create-data-factory-rest-api.md
     - name: Créer une fabrique de données - Modèle Resource Manager
       href: quickstart-create-data-factory-resource-manager-template.md
+    - name: Sécurité - Activer le chiffrement à clé gérée par le client
+      href: quickstart-enable-customer-managed-key.md
     - name: Créer un flux de données
       href: data-flow-create.md
 - name: Tutoriels

@@ -1,4 +1,4 @@
-- name: Documentation Azure Cache pour Redis
+- name: Documentation du cache Azure pour Redis
   href: index.yml
 - name: Vue d’ensemble
   items:
@@ -7,18 +7,26 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Application ASP.NET
-      href: cache-web-app-howto.md
-    - name: Application .NET Core
-      href: cache-dotnet-core-quickstart.md
-    - name: Application .NET
-      href: cache-dotnet-how-to-use-azure-redis-cache.md
-    - name: Application Java
-      href: cache-java-get-started.md
-    - name: Application Node.js
-      href: cache-nodejs-get-started.md
-    - name: Application Python
-      href: cache-python-get-started.md
+    - name: Création d'un cache
+      items:
+        - name: 'Niveaux De base, Standard et Premium'
+          href: quickstart-create-redis.md
+        - name: Niveaux Entreprise
+          href: quickstart-create-redis-enterprise.md
+    - name: Utiliser un cache
+      items:
+        - name: Application ASP.NET
+          href: cache-web-app-howto.md
+        - name: Application .NET Core
+          href: cache-dotnet-core-quickstart.md
+        - name: Application .NET
+          href: cache-dotnet-how-to-use-azure-redis-cache.md
+        - name: Application Java
+          href: cache-java-get-started.md
+        - name: Application Node.js
+          href: cache-nodejs-get-started.md
+        - name: Application Python
+          href: cache-python-get-started.md
 - name: Tutoriels
   items:
     - name: Utiliser la mise en cache avec des leaderboards
