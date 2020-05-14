@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 05/01/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 09d5b7a126a1b8832bfe40e2e25dd4000d5d9155
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 9eabd6d2a8f3179c5553bc6ca6d59407388c4d42
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548283"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735559"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Résoudre les problèmes liés à Azure RBAC
 
@@ -76,20 +76,29 @@ $ras.Count
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>Problèmes liés aux coadministrateurs ou administrateurs de service
 
-- Si vous rencontrez des problèmes avec l’Administrateur de service ou les coadministrateurs, consultez [Ajouter ou modifier les administrateurs d’abonnements Azure](../cost-management-billing/manage/add-change-subscription-administrator.md) et [Rôles Administrateur d’abonnement classique, rôles Azure et rôles Administrateur Azure AD](rbac-and-directory-admin-roles.md).
+- Si vous rencontrez des problèmes avec l’Administrateur de service ou les coadministrateurs, consultez [Ajouter ou modifier les administrateurs d’abonnements Azure](../cost-management-billing/manage/add-change-subscription-administrator.md) et [Rôles Administrateur d’abonnement classique, rôles Azure et rôles Azure AD](rbac-and-directory-admin-roles.md).
 
 ## <a name="access-denied-or-permission-errors"></a>Accès refusé ou erreurs d’autorisations
 
-- Si vous obtenez l’erreur d’autorisations « Le client avec l’ID d’objet n’est pas autorisé à effectuer l’action sur l’étendue (code : AuthorizationFailed) » lorsque vous tentez de créer une ressource, vérifiez que vous êtes actuellement connecté avec un utilisateur disposant d’un rôle qui a l’autorisation d’écriture sur la ressource au niveau de l’étendue sélectionnée. Par exemple, pour gérer les machines virtuelles dans un groupe de ressources, vous devez disposer du rôle [Contributeur de machines virtuelles](built-in-roles.md#virtual-machine-contributor) sur le groupe de ressources (ou l’étendue parente). Afin d’obtenir la liste des autorisations pour chaque rôle intégré, consultez [Rôles intégrés pour les ressources Azure](built-in-roles.md).
+- Si vous obtenez l’erreur d’autorisations « Le client avec l’ID d’objet n’est pas autorisé à effectuer l’action sur l’étendue (code : AuthorizationFailed) » lorsque vous tentez de créer une ressource, vérifiez que vous êtes actuellement connecté avec un utilisateur disposant d’un rôle qui a l’autorisation d’écriture sur la ressource au niveau de l’étendue sélectionnée. Par exemple, pour gérer les machines virtuelles dans un groupe de ressources, vous devez disposer du rôle [Contributeur de machines virtuelles](built-in-roles.md#virtual-machine-contributor) sur le groupe de ressources (ou l’étendue parente). Afin d’obtenir la liste des autorisations pour chaque rôle intégré, consultez [Rôles intégrés Azure](built-in-roles.md).
 - Si vous obtenez l’erreur d’autorisations « Vous n’êtes pas autorisé à créer une demande de support » quand vous tentez de créer ou de mettre à jour un ticket de support, vérifiez que vous êtes actuellement connecté avec un utilisateur disposant d’un rôle qui a l’autorisation `Microsoft.Support/supportTickets/write`, comme [Collaborateur de la demande de support](built-in-roles.md#support-request-contributor).
 
-## <a name="role-assignments-with-unknown-security-principal"></a>Attributions de rôles avec un principal de sécurité inconnu
+## <a name="role-assignments-with-identity-not-found"></a>Attributions de rôle avec identité introuvable
 
-Si vous attribuez un rôle à un principal de sécurité (utilisateur, groupe, principal du service ou identité gérée), puis que vous supprimez ensuite ce principal de sécurité sans supprimer l’attribution de rôle, le type de principal de sécurité pour l’attribution de rôle porte la mention **Inconnu**. La capture d’écran suivante montre un exemple dans le Portail Azure. Le nom du principal de sécurité porte les mentions **Identité supprimée** et **L’identité n’existe plus**. 
+Dans la liste des attributions de rôles pour le Portail Azure, vous pouvez remarquer que le principal de sécurité (utilisateur, groupe, principal de service ou identité gérée) est répertorié comme **Identité introuvable** avec un type **Inconnu**.
 
 ![Groupe de ressources d'application web](./media/troubleshooting/unknown-security-principal.png)
 
-Si vous répertoriez cette attribution de rôle à l’aide d’Azure PowerShell, `DisplayName` est vide à l’écran et `ObjectType` est défini sur Inconnu. Par exemple, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) retourne une attribution de rôle similaire à ce qui suit :
+L’identité n’a peut-être pas été trouvée pour deux raisons :
+
+- Vous avez récemment invité un utilisateur lors de la création d’une attribution de rôle
+- Vous avez supprimé un principal de sécurité qui avait une attribution de rôle
+
+Si vous avez récemment invité un utilisateur lors de la création d’une attribution de rôle, ce principal de sécurité peut encore être dans le processus de réplication entre les régions. Si c’est le cas, patientez quelques instants, puis actualisez la liste des attributions de rôles.
+
+Toutefois, si ce principal de sécurité n’est pas un utilisateur récemment invité, il peut s’agir d’un principal de sécurité supprimé. Si vous attribuez un rôle à un principal de sécurité, puis que vous supprimez ce principal de sécurité sans d’abord supprimer l’attribution de rôle, le principal de sécurité sera répertorié comme **Identité introuvable** avec un type **Inconnu**.
+
+Si vous répertoriez cette attribution de rôle à l’aide d’Azure PowerShell, vous pourrez voir un `DisplayName` vide et un `ObjectType` défini sur **Inconnu**. Par exemple, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) retourne une attribution de rôle similaire à ce qui suit :
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -119,7 +128,7 @@ De même, si vous répertoriez cette attribution de rôle à l’aide d’Azure 
 }
 ```
 
-Il n’est pas gênant de conserver ces attributions de rôle, mais vous pouvez les supprimer à l’aide d’étapes similaires aux autres attributions de rôle. Pour plus d’informations sur la suppression des attributions de rôles, consultez [Portail Azure](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment) ou [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
+Il n’est pas un problème de conserver ces attributions de rôle pour lesquelles le principal de sécurité a été supprimé. Si vous le souhaitez, vous pouvez supprimer ces attributions de rôle en utilisant les étapes similaires aux autres attributions de rôle. Pour plus d’informations sur la suppression des attributions de rôles, consultez [Portail Azure](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment) ou [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
 
 Dans PowerShell, si vous essayez de supprimer les attributions de rôles à l’aide de l’ID d’objet et du nom de définition de rôle alors que plusieurs attributions de rôle correspondent à vos paramètres, le message d’erreur suivant s’affiche : « Les informations fournies ne correspondent pas à une attribution de rôle ». Voici un exemple du message d’erreur :
 
@@ -154,7 +163,7 @@ Si vous accordez un accès utilisateur en lecture seule à une seule application
 * Modification de paramètres tels que la configuration générale, les paramètres de mise à l’échelle, les paramètres de sauvegarde et les paramètres d’analyse
 * Accès aux informations d’identification de publication et autres informations secrètes, telles que les paramètres d’application et les chaînes de connexion
 * Diffusion de journaux d’activité
-* Configuration des journaux de diagnostic
+* Configuration des journaux de ressources
 * Console (invite de commandes)
 * Déploiements actifs et récents (pour le déploiement continu Git local)
 * Estimation de dépense
@@ -217,5 +226,5 @@ Un lecteur peut cliquer sur l’onglet **Fonctionnalités de plateforme**, puis 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Résolution des problèmes pour les utilisateurs invités](role-assignments-external-users.md#troubleshoot)
-- [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et du portail Azure](role-assignments-portal.md)
-- [Afficher les journaux d’activité des changements de contrôle d’accès en fonction du rôle pour les ressources Azure](change-history-report.md)
+- [Ajouter ou supprimer des attributions de rôles Azure avec le portail Azure](role-assignments-portal.md)
+- [Afficher les journaux d’activité pour voir les changements RBAC Azure](change-history-report.md)
