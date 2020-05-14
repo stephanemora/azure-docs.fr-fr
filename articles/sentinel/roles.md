@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: yelevin
-ms.openlocfilehash: e7629a53190433c6c331ce372476b0ed768fc5eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2e1b1a4786670974a40b22d44fc219c6be5d97a3
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77587173"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744761"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Autorisations dans Azure Sentinel
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 06/24/2019
+ms.date: 04/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 51935516e26f263e44a926bf9b7d7ec24a5eeb9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12ca4df6e5dd4ba86ece8469255195e2fa1c155e
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77560063"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628893"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Résoudre les problèmes liés à Azure Data Box et Azure Data Box Heavy
 
@@ -92,6 +92,17 @@ Il s’agit d’erreurs liées aux noms de conteneurs et de partages.
     - Exemples de noms qui ne sont pas valides : `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
 
     Pour plus d’informations, consultez les conventions de nommage Azure pour les [noms de conteneurs](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) et les [noms de partages](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
+    
+### <a name="error_file_or_directory_name_illegal"></a>ERROR_FILE_OR_DIRECTORY_NAME_ILLEGAL
+
+**Description de l’erreur** : Les noms de répertoire ou de conteneur contiennent des caractères non conformes.
+
+**Résolution suggérée :**  Les noms de répertoire ou de conteneur que vous avez copiés contiennent des caractères non pris en charge.
+
+- Dans la page Connexion et copie de l’interface utilisateur web locale de l’appareil, téléchargez et consultez les fichiers d’erreur pour identifier les noms de dossiers problématiques. 
+- Renommez le répertoire ou les conteneurs pour vous assurer qu’ils sont conformes aux conventions d’affectation de noms Azure.
+
+Pour plus d’informations, consultez les conventions d’affectation de noms Azure pour les  [répertoires](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) et les [conteneurs](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names).
 
 ## <a name="container-or-share-size-limit-errors"></a>Erreurs liées à la limite de taille des conteneurs ou des partages
 

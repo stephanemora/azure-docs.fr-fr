@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
-ms.date: 04/23/2020
-ms.openlocfilehash: 64fe56ff506cf256dd7e317984551949f9ffad06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: 2dae0f662eefa7f7b1f56d057cd47f1cb92244ce
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189362"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592058"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Mettre à l’échelle des clusters Azure HDInsight
 
@@ -56,9 +56,9 @@ L’impact de la modification du nombre de nœuds de données varie en fonction 
 
 * Apache Hadoop
 
-    Vous pouvez augmenter en toute transparence le nombre de nœuds Worker dans un cluster Hadoop en cours d’exécution sans affecter les travaux. De nouveaux travaux peuvent également être soumis lorsque l'opération est en cours. Les échecs lors d’une opération de mise à l’échelle sont gérés de manière appropriée. Le cluster est toujours laissé dans un état fonctionnel.
+    Vous pouvez augmenter en toute transparence le nombre de nœuds Worker dans un cluster Hadoop en cours d’exécution sans affecter les travaux. De nouvelles tâches peuvent également être soumises lorsque l'opération est en cours. Les échecs lors d’une opération de mise à l’échelle sont gérés de manière appropriée. Le cluster est toujours laissé dans un état fonctionnel.
 
-    Quand un cluster Hadoop est mis à l’échelle avec moins de nœuds de données, certains services sont redémarrés. Ce comportement entraîne l’échec de tous les travaux en cours d’exécution ou en attente lors de la réalisation de l’opération de mise à l’échelle. Toutefois, vous pouvez soumettre à nouveau les travaux une fois l'opération terminée.
+    Quand un cluster Hadoop est mis à l’échelle avec moins de nœuds de données, certains services sont redémarrés. Ce comportement entraîne l’échec de toutes les tâches en cours d’exécution ou en attente lors de la réalisation de l’opération de mise à l’échelle. Toutefois, vous pouvez soumettre à nouveau les tâches une fois l'opération terminée.
 
 * Apache HBase
 
@@ -74,27 +74,38 @@ L’impact de la modification du nombre de nœuds de données varie en fonction 
 
 * Apache Storm
 
-    Vous pouvez ajouter ou supprimer des nœuds de données en continu pendant que Storm s’exécute. Néanmoins, une fois l’opération de mise à l’échelle terminée, vous devrez rééquilibrer la topologie.
-
-    Cela peut se faire de deux façons à l’aide de :
+    Vous pouvez ajouter ou supprimer des nœuds de données en continu pendant que Storm s’exécute. Néanmoins, une fois l’opération de mise à l’échelle terminée, vous devrez rééquilibrer la topologie. Le rééquilibrage permet à la topologie de réajuster les [paramètres de parallélisme](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) basés sur le nouveau nombre de nœuds du cluster. Pour rééquilibrer les topologies en cours d’exécution, utilisez l’une des options suivantes :
 
   * l'interface utilisateur Web de Storm
+
+    utilisez les étapes suivantes pour rééquilibrer une topologie avec l’interface utilisateur de Storm.
+
+    1. Ouvrez `https://CLUSTERNAME.azurehdinsight.net/stormui` dans votre navigateur web, où `CLUSTERNAME` est le nom de votre cluster Storm. Si vous y êtes invité, entrez le nom et le mot de passe de l’administrateur (admin) du cluster HDInsight spécifiés lors de la création du cluster.
+
+    1. Sélectionnez la topologie que vous souhaitez rééquilibrer, puis le bouton **Rééquilibrer** . Entrez le délai avant l’opération de rééquilibrage.
+
+        ![Rééquilibrage de mise à l’échelle HDInsight Storm](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+
   * l’outil d’interface de ligne de commande (CLI)
 
-    Pour plus d’informations, consultez la [documentation d’Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    connectez-vous au serveur et utilisez la commande suivante pour rééquilibrer une topologie :
 
-    L’interface utilisateur web de Storm est disponible dans le cluster HDInsight :
+    ```bash
+     storm rebalance TOPOLOGYNAME
+    ```
 
-    ![Rééquilibrage de mise à l’échelle HDInsight Storm](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    Vous pouvez également spécifier des paramètres pour remplacer les indicateurs de parallélisme initialement fournis par la topologie. Par exemple, le code ci-dessous reconfigure la topologie `mytopology` sur 5 processus Worker, 3 exécuteurs pour le composant blue-spout et 10 exécuteurs pour le composant yellow-bolt.
 
-    Voici un exemple de commande CLI pour rééquilibrer la topologie Storm :
-
-    ```console
+    ```bash
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
     ## the spout "blue-spout" to use 3 executors, and
     ## the bolt "yellow-bolt" to use 10 executors
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
     ```
+
+* Kafka
+
+    vous devez rééquilibrer les réplicas de partition après les opérations de mise à l’échelle. Pour plus d’informations, consultez le document [Haute disponibilité des données avec Apache Kafka sur HDInsight](./kafka/apache-kafka-high-availability.md).
 
 ## <a name="how-to-safely-scale-down-a-cluster"></a>Scale down d’un cluster en toute sécurité
 
@@ -252,3 +263,8 @@ Les serveurs de région sont équilibrés automatiquement quelques minutes aprè
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Mettre à l’échelle automatiquement les clusters Azure HDInsight](hdinsight-autoscale-clusters.md)
+
+Pour obtenir des informations spécifiques sur la mise à l’échelle de votre cluster HDInsight, consultez :
+
+* [Gérer des clusters Apache Hadoop dans HDInsight avec le portail Azure](hdinsight-administer-use-portal-linux.md#scale-clusters)
+* [Gérer des clusters Apache Hadoop dans HDInsight à l’aide d’Azure CLI](hdinsight-administer-use-command-line.md#scale-clusters)

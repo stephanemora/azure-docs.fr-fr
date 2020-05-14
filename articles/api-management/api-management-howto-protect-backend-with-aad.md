@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 300f44daeeea5e8a774575dabcb00686906bb5de
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: b212316970b77d325552956cfacded2dc570234f
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804365"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778972"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Guide pratique pour protéger une API à l’aide d’OAuth 2.0 avec Azure Active Directory et Gestion des API
 
@@ -79,7 +79,7 @@ Chaque application cliente qui appelle l’API doit également être inscrite en
     - Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application, par exemple *client-app*. 
     - Dans la section **Types de comptes pris en charge**, sélectionnez **Comptes dans un répertoire d’organisation (tout répertoire Azure AD – Multilocataire)** . 
 
-1. Dans la section **URI de redirection**, sélectionnez `Web` et entrez l’URL `https://contoso5.portal.azure-api.net/signin`.
+1. Dans la section **URI de redirection**, sélectionnez `Web` et laissez le champ URL vide pour le moment.
 
 1. Sélectionnez **Inscrire** pour créer l’application. 
 
@@ -149,9 +149,9 @@ Dans cet exemple, la console de développeur est l’application cliente. Les é
 
 1. Sélectionnez **Create** (Créer).
 
-1. Revenez à votre application cliente et sélectionnez **Authentification**.
+1. Revenez à l’inscription de votre application cliente dans Azure Active Directory et sélectionnez **Authentification**.
 
-1. Sous **URI de redirection**, sélectionnez le type **Web**, collez **redirect_url** sous **URI de redirection**, puis enregistrez.
+1. Sous **Configurations de plateforme** cliquez sur **Ajouter une plateforme**, sélectionnez le type **Web**, collez le **redirect_url** sous **URI de redirection**, puis cliquez sur le bouton **Configurer** pour enregistrer.
 
 Maintenant que vous avez configuré un serveur d’autorisation OAuth 2.0, la console de développeur peut obtenir des jetons d’accès à partir d’Azure AD. 
 

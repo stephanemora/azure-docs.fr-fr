@@ -1,59 +1,57 @@
 ---
-title: Créer une offre d’application Power BI - Place de marché Microsoft Azure
+title: Créer une offre d’application Power BI dans la Place de marché commerciale Microsoft
 description: Découvrez comment créer une offre d’application Power BI et la publier sur Microsoft AppSource.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/02/2020
-ms.openlocfilehash: dc036ae3cba6aa4d3a689562afffb991fadc8c0a
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.date: 05/01/2020
+ms.openlocfilehash: 17a6b7e46341ee0231ac88b849495cfc7e46ad88
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81867595"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839145"
 ---
-# <a name="create-a-power-bi-app"></a>Créer une offre d’application Power BI
-
-> [!IMPORTANT]
-> Nous allons déplacer la gestion de vos offres d’application Power BI du Portail Cloud Partner vers l’Espace partenaires. Tant que vos offres ne sont pas migrées, suivez les instructions dans [Créer une offre d’application Power BI](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/power-bi/cpp-create-offer) pour que le Portail Cloud Partner gère vos offres.
+# <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Créer une application Power BI pour Microsoft AppSource
 
 Cet article explique comment créer une offre d’application Power BI et la publier sur Microsoft [AppSource](https://appsource.microsoft.com/).
 
-Avant de pouvoir créer une offre d’application Power BI, vous devez disposer d’un compte de Place de marché commerciale dans l’Espace partenaires. Si vous n’en avez pas encore créé un, consultez [Créer un compte de Place de marché commerciale dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+Avant de commencer, si ce n’est déjà fait, [créez un compte de la Place de marché commerciale dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account). Vérifiez que votre compte est inscrit dans le programme du marketplace commercial.
 
 ## <a name="create-a-new-offer"></a>Créer une offre
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
 2. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Vue d’ensemble**.
+3. Dans la page de présentation, sélectionnez **+ Nouvelle offre** > **Application de service Power BI**.
 
-    :::image type="content" source="media/power-bi-menu-overview.png" alt-text="menu de vue d’ensemble de la Place de marché commerciale" border="false":::
+   ![Illustre le menu de navigation de gauche.](./media/new-offer-pbi-app.png)
 
-3. Sélectionnez **+ Nouvelle offre** > **Application Power BI**. La boîte de dialogue **Nouvelle offre** s’affiche.
+> [!NOTE]
+> Après la publication d’une offre, les modifications qui lui ont été apportées dans l’Espace partenaires apparaissent uniquement dans les vitrines après la republication de l’offre. Veillez à toujours effectuer une nouvelle publication après avoir apporté des modifications.
 
 > [!IMPORTANT]
-> Si l’option **Application Power BI** n’apparaît pas ou n’est pas activée, votre compte n’est pas autorisé à créer ce type d’offre. Vérifiez que vous remplissez toutes les [exigences](create-power-bi-app-overview.md) de ce type d’offre, notamment l’inscription d’un compte de développeur.
+> Si l’**Application de service Power BI** n’est pas affichée ou activée, votre compte n’est pas autorisé à créer ce type d’offre. Vérifiez que vous remplissez toutes les [exigences](create-power-bi-app-overview.md) pour ce type d’offre, notamment l’inscription d’un compte de développeur.
 
-### <a name="offer-id-and-alias"></a>ID et alias de l’offre
+## <a name="new-offer"></a>Nouvelle offre
 
 Entrez un **ID d’offre**. Il s’agit d’un identificateur unique par offre dans votre compte.
 
 - Cet ID est visible par les clients dans l’adresse web de l’offre de la Place de marché et des modèles Resource Manager, le cas échéant.
-- Utilisez uniquement des lettres minuscules et des chiffres. Il peut inclure des traits d’union et des traits de soulignement, mais pas d’espaces, et est limité à 50 caractères. Par exemple, si vous entrez **test-offer-1**, l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-
+- Utilisez uniquement des lettres minuscules et des chiffres. Il peut inclure des traits d’union et des traits de soulignement, mais pas d’espaces, et est limité à 50 caractères. Par exemple, si vous entrez **test-offer-1** ici, l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - L’ID d’offre ne peut pas être changé une fois que vous avez sélectionné **Créer**.
 
-Entrez un **Alias d’offre**. Il s’agit du nom utilisé pour faire référence à l’offre dans l’Espace partenaires.
+Entrez un **Alias d’offre**. Il s’agit du nom attribué à l’offre dans l’Espace partenaires.
 
 - Ce nom n’est pas utilisé dans la Place de marché et est différent du nom de l’offre et des autres informations présentées aux clients.
-- Cet alias ne peut pas être changé une fois que vous avez sélectionné **Créer**.
+- L’alias d’offre ne peut pas être modifié une fois que vous avez sélectionné **Créer**.
 
-Après avoir entré ces deux valeurs, sélectionnez **Créer** pour accéder à la page Vue d’ensemble de l’offre.
+Sélectionnez **Créer** pour générer l’offre et continuer.
 
 ## <a name="offer-overview"></a>Vue d’ensemble de l’offre
 
-La page **Vue d’ensemble de l’offre** affiche une représentation visuelle des étapes nécessaires à la publication de cette offre (à la fois terminées et à venir) et indique la durée d’exécution de chaque étape.
+La page montre une représentation visuelle des étapes nécessaires à la publication de cette offre (à la fois terminées et à venir), et indique la durée d’exécution de chaque étape.
 
 Elle contient des liens permettant d’effectuer des opérations sur cette offre en fonction de la sélection que vous effectuez. Par exemple :
 
@@ -63,8 +61,6 @@ Elle contient des liens permettant d’effectuer des opérations sur cette offre
 - Si vous n’avez pas complété Déconnexion de l’éditeur : [Annuler la publication](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuration de l’offre
-
-Effectuez les étapes suivantes pour configurer votre offre.
 
 ### <a name="connect-lead-management"></a>Connecter la gestion des prospects
 
@@ -90,7 +86,7 @@ Voici des ressources de gestion des prospects supplémentaires :
 - [Erreurs courantes de configuration des prospects](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
 - PDF [Vue d’ensemble de la gestion des prospects](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (assurez-vous que votre bloqueur de fenêtres publicitaires est désactivé)
 
-Sélectionnez **Enregistrer le brouillon** avant de passer à la section suivante, Propriétés.
+Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
 ## <a name="properties"></a>Propriétés
 
@@ -147,7 +143,7 @@ Sélectionnez la langue dans laquelle votre offre sera listée. Actuellement, **
 Définissez les informations de la Place de marché (telles que le nom de l’offre, la description et les images) pour chaque langue/marché. Sélectionnez le nom de la langue/du marché pour fournir ces informations.
 
 > [!NOTE]
-> Les détails de l’offre n’ont pas à être en anglais si la description de l’offre commence par l’expression &quot;This application is available only in [langue non anglaise].&quot; Il est également possible de fournir un lien utile pour offrir du contenu dans une langue autre que celle utilisée dans l’annonce de l’offre.
+> Les détails de l’offre n’ont pas à être en anglais si la description de l’offre commence par l’expression « This application is available only in [langue non anglaise] ». Il est également possible de fournir un lien utile pour offrir du contenu dans une langue autre que celle utilisée dans la description de l’offre.
 
 ### <a name="name"></a>Nom
 
@@ -184,9 +180,13 @@ Voici quelques conseils pour rédiger votre description :
 - Ne comptez pas sur les fonctionnalités de votre produit pour convaincre. Concentrez-vous plutôt sur ce que votre application offre.
 - Essayez d’utiliser le vocabulaire propre au secteur visé, ainsi que des termes décrivant les avantages proposés.
 
-Pour que la **Description** de votre offre soit plus attrayante, utilisez l’éditeur de texte enrichi pour mettre en forme votre description. L’éditeur de texte enrichi vous permet d’ajouter des chiffres, des puces, des caractères gras/en italique et des mises en retrait pour rendre votre description plus lisible.
+Pour que la description de votre offre soit plus accrocheuse, utilisez l’éditeur de texte enrichi pour appliquer une mise en forme.
 
-:::image type="content" source="media/power-bi-rich-text-editor.png" alt-text="Illustre l’éditeur de texte enrichi." border="false":::
+![Utilisation de l’éditeur de texte enrichi](./media/rich-text-editor.png)
+
+| <center>Changer la mise en forme du texte | <center>Ajouter des puces ou une numérotation | <center>Ajouter ou supprimer une mise en retrait de texte |
+| --- | --- | --- |
+| <center>![Changer la mise en forme du texte à l’aide de l’éditeur de texte enrichi](./media/text-editor3.png) |  <center>![Changer la mise en forme du texte à l’aide de l’éditeur de texte enrichi](./media/text-editor4.png) |  <center>![Using the rich text editor to indent](./media/text-editor5.png) |
 
 ### <a name="search-keywords"></a>Mots clés de recherche
 
@@ -206,11 +206,11 @@ Entrez l’adresse web de la politique de confidentialité de votre organisation
 
 ### <a name="contact-information"></a>Informations de contact
 
-Entrez le nom, l’adresse e-mail et le numéro de téléphone d’un **contact du support** et d’un **contact d’ingénierie**. Ces informations ne sont pas présentées aux clients. Elles sont disponibles pour Microsoft et peuvent être fournies aux partenaires fournisseurs de solutions Cloud (CSP).
+Entrez le nom, l’adresse e-mail et le numéro de téléphone d’un **contact du support** et d’un **contact en ingénierie**. Ces informations ne sont pas présentées aux clients. Elles sont disponibles pour Microsoft et peuvent être fournies aux partenaires fournisseurs de solutions Cloud (CSP).
 
 - Contact du support (obligatoire) : Pour toute question de support générale.
-- Contact ingénierie (obligatoire) : Pour les questions techniques et les problèmes de certification.
-- Contact du programme du fournisseur de solutions Cloud (facultatif) : Pour toute question du revendeur relative au programme CSP.
+- Contact en ingénierie (obligatoire) : Pour les questions techniques et les problèmes de certification.
+- Contact du programme du fournisseur de solutions cloud (facultatif) : Pour toute question du revendeur relative au programme CSP.
 
 Dans la section **Contact du support**, indiquez l’adresse du **site web du support** où les partenaires peuvent trouver l’assistance pour votre offre.
 
@@ -222,12 +222,14 @@ Fournissez au moins un et au plus trois documents marketing associés au format 
 
 Fournissez des logos et images à utiliser avec votre offre. Toutes les images doivent être au format .png. Les images floues seront rejetées.
 
->[!Note]
->Si vous rencontrez un problème de téléchargement de fichiers, assurez-vous que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’espace partenaires.
+>[!NOTE]
+>Si vous rencontrez un problème lors du chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.
 
 #### <a name="store-logos"></a>Stocker des logos
 
-Fournissez des fichiers .png du logo de votre offre dans deux tailles : **Petit** (48 x 48 pixels) et **Grand** (216 x 216 pixels).
+Fournissez des fichiers .png du logo de votre offre dans deux tailles en pixels :
+- **Petit** (48 x 48)
+- **Grand** (216 x 216)
 
 Les deux logos sont requis et sont utilisés à différents endroits de l’annonce de la Place de marché.
 
@@ -237,7 +239,7 @@ Ajoutez au moins une et au plus cinq captures d’écran qui illustrent le fonct
 
 #### <a name="videos-optional"></a>Vidéos (facultatif)
 
-Ajoutez jusqu’à cinq vidéos qui illustrent votre offre. Entrez le nom de la vidéo, son adresse web et une image miniature .png de 1280 x 720 pixels de la vidéo.
+Ajoutez jusqu’à cinq vidéos qui illustrent votre offre. Entrez le nom de la vidéo, son adresse web et une image miniature .png de 1280 x 720 pixels de la vidéo.
 
 #### <a name="additional-marketplace-listing-resources"></a>Ressources d’annonce supplémentaires de place de marché
 
@@ -249,7 +251,7 @@ Promouvez votre application dans le service Power BI en production et fournissez
 
 ## <a name="supplemental-content"></a>Contenu supplémentaire
 
-Fournissez des informations supplémentaires sur votre offre pour que nous puissions la valider. Ces informations ne sont pas montrées aux clients ni publiées sur la Place de marché.
+Fournissez des informations supplémentaires sur votre offre pour que nous puissions la valider. Ces informations ne sont ni montrées aux clients ni publiées sur la Place de marché.
 
 ### <a name="validation-assets"></a>Ressources de validation
 
@@ -257,7 +259,7 @@ Fournissez des informations supplémentaires sur votre offre pour que nous puiss
 
 ## <a name="review-and-publish"></a>Vérifier et publier
 
-Une fois que vous avez rempli toutes les sections requises de l’offre, vous pouvez l’envoyer pour révision et publication.
+Une fois que vous avez rempli toutes les sections requises de l’offre, vous pouvez envoyer votre pour révision et publication.
 
 Dans le coin supérieur droit du portail, sélectionnez **Vérifier et publier**.
 

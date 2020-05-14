@@ -3,12 +3,12 @@ title: Remplacer les points de terminaison par défaut des SDK Azure Application
 description: Modifiez les points de terminaison par défaut des SDK Azure Monitor Application Insights pour certaines régions, comme Azure Government.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: b43bd13c73f77c6292e2062db88d68a20e5bf480
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: f5bf5b07f7c058b4778e7695f150fdc71e048182
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81729524"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629182"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Remplacer les points de terminaison par défaut d’Application Insights
 
@@ -76,56 +76,9 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 # <a name="azure-functions"></a>[Azure Functions](#tab/functions)
 
-### <a name="azure-functions-v2x"></a>Azure Functions v2.x
+Par Azure Functions, il est désormais recommandé d’utiliser des [chaînes de connexion](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) définies dans les paramètres d’application de la fonction. Pour accéder aux paramètres de l’application pour votre fonction à partir du volet des fonctions, sélectionnez **Paramètres** > **Configuration** > **Paramètre d’application**. 
 
-Installez les packages suivants dans votre projet de fonction :
-
-- Microsoft.ApplicationInsights version 2.10.0
-- Microsoft.ApplicationInsights.PerfCounterCollector version 2.10.0
-- Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel version 2.10.0
-
-Ensuite, ajoutez (ou modifiez) le code de démarrage de votre application de fonction :
-
-```csharp
-[assembly: WebJobsStartup(typeof(Example.Startup))]
-namespace Example
-{
-  class Startup : FunctionsStartup
-  {
-      public override void Configure(IWebJobsBuilder builder)
-      {
-          var quickPulseFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(ITelemetryModule) && 
-                                               sd.ImplementationType == typeof(QuickPulseTelemetryModule));
-          if (quickPulseFactory != null)
-          {
-              builder.Services.Remove(quickPulseFactory);
-          }
-
-          var appIdFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(IApplicationIdProvider));
-          if (appIdFactory != null)
-          {
-              builder.Services.Remove(appIdFactory);
-          }
-
-          var channelFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(ITelemetryChannel));
-          if (channelFactory != null)
-          {
-              builder.Services.Remove(channelFactory);
-          }
-
-          builder.Services.AddSingleton<ITelemetryModule, QuickPulseTelemetryModule>(_ =>
-              new QuickPulseTelemetryModule
-              {
-                  QuickPulseServiceEndpoint = "QuickPulse_Endpoint_Address"
-              });
-
-          builder.Services.AddSingleton<IApplicationIdProvider, ApplicationInsightsApplicationIdProvider>(_ => new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "Profile_Query_Endpoint_address" });
-
-          builder.Services.AddSingleton<ITelemetryChannel>(_ => new ServerTelemetryChannel() { EndpointAddress = "TelemetryChannel_Endpoint_Address" });
-      }
-  }
-}
-```
+Nom : Valeur `APPLICATIONINSIGHTS_CONNECTION_STRING` : `Connection String Value`
 
 # <a name="java"></a>[Java](#tab/java)
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 30cda7a83feddaeb41385252a61d1dc68a881a47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7fb7b6b409a4e24be97ee61fc7ba1f0c0a93202
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75646504"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792630"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Effectuer la migration d’un cluster Apache HBase vers une nouvelle version
 
@@ -220,4 +220,4 @@ Pour plus d’informations sur [Apache HBase](https://hbase.apache.org/) et la m
 * [Mettre à niveau le cluster HDInsight](../hdinsight-upgrade-cluster.md)
 * [Superviser et gérer Azure HDInsight à l’aide de l’interface utilisateur web d’Apache Ambari](../hdinsight-hadoop-manage-ambari.md)
 * [Composants et versions d’Apache Hadoop](../hdinsight-component-versioning.md)
-* [Optimiser les configurations à l’aide d’Apache Ambari](../hdinsight-changing-configs-via-ambari.md#apache-hbase-optimization-with-the-ambari-web-ui)
+* [Optimiser Apache HBase](../optimize-hbase-ambari.md)

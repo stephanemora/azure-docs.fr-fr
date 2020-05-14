@@ -10,35 +10,40 @@ manager: anandsub
 ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/09/2019
-ms.openlocfilehash: 3007865c15ceb03b104282c29179ec59a8196b38
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.date: 04/30/2020
+ms.openlocfilehash: f327844be57d7f8e177f3bf72b1e3b56c5147e00
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604599"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629318"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Contrôle de code source dans Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-L’expérience en matière d’interface utilisateur Azure Data Factory comporte deux expériences disponibles pour la création visuelle :
+Par défaut, l’interface utilisateur d’Azure Data Factory publie directement pour le service de fabrique de données. Cette expérience présente les limites suivantes :
 
-- Créer directement avec le service Data Factory
-- Créer avec l’intégration GitHub ou Azure Repos Git
+- Le service Data Factory n’inclut pas de référentiel pour stocker les entités JSON de vos modifications. La seule façon d’enregistrer les modifications consiste à utiliser le bouton **Publier tout** pour publier toutes les modifications directement vers le service de fabrique de données.
+- Le service de fabrique de données n’est pas optimisé pour la collaboration ou le contrôle de version.
+
+Pour améliorer l’expérience de création, Azure Data Factory permet de configurer un dépôt Git avec Azure Repos ou GitHub. Git est un système de contrôle de version qui facilite le suivi des modifications et la collaboration. Ce didacticiel explique comment configurer et utiliser un dépôt Git, met en évidence les meilleures pratiques et constitue un guide de résolution des problèmes.
 
 > [!NOTE]
-> Seule la création directe avec le service Data Factory est prise en charge dans le cloud Azure Government.
+> L’intégration Git de fabrique de données Azure n’est pas disponible dans Microsoft Azure Government.
 
-## <a name="author-directly-with-the-data-factory-service"></a>Créer directement avec le service Data Factory
+## <a name="advantages-of-git-integration"></a>Avantages de l’intégration Git
 
-Lorsque vous créez directement avec le service Data Factory, le seul moyen d’enregistrer les modifications se fait via le bouton **Publier tout**. Une fois que vous avez cliqué sur le bouton, les modifications que vous apportez sont publiées directement sur le service Data Factory. 
+Voici quelques-uns des avantages que l’intégration Git apporte à l’expérience de création :
 
-![Mode Publier](media/author-visually/data-factory-publish.png)
-
-La création directe avec le service Data Factory présente les limitations suivantes :
-
-- Le service Data Factory n’inclut pas un référentiel pour stocker les entités JSON de vos modifications.
-- Le service Data Factory n’est pas optimisé pour la collaboration ou le contrôle de version.
+-   **Contrôle de la source :** Lorsque vos charges de travail de fabrique de données sont cruciales, vous pouvez intégrer votre fabrique avec Git bénéficier de plusieurs avantages de contrôle source tels que les suivants :
+    -   Possibilité de suivre/auditer les modifications.
+    -   Possibilité d’annuler les modifications qui ont introduit de bogues.
+-   **Sauvegardes partielles :** Lorsque vous créez pour le service de fabrique de données, vous ne pouvez pas enregistrer les modifications en tant que brouillon, et toutes les publications doivent passer par la validation de la fabrique de données. Si vos pipelines ne sont pas finis ou si vous ne souhaitez tout simplement pas perdre de modifications en cas de panne informatique, l’intégration Git permet d’apporter des modifications incrémentielles aux ressources de la fabrique de données, quel qu’en soit l’état. La configuration d’un dépôt Git vous permet d’enregistrer les modifications, et donc de publier uniquement après que vous avez testé vos modifications et en êtes satisfait.
+-   **Collaboration et contrôle :** Si plusieurs membres de votre équipe contribuent à la même fabrique, vous pouvez leur permettre de collaborer via un processus de révision du code. Vous pouvez également configurer votre fabrique de manière à ce que tous les contributeurs n’aient pas des autorisations égales. Certains membres de l’équipe peuvent n’être autorisés qu’à apporter des modifications via Git, tandis que d’autres sont autorisés à publier les modifications dans la fabrique.
+-   **Intégration et livraison continus améliorés :**  Si vous déployez dans plusieurs environnements au travers d’un [processus de livraison continue](continuous-integration-deployment.md), l’intégration Git facilite certaines actions. Certaines de ces actions sont les suivantes :
+    -   Configurez votre pipeline de mise en production afin qu’il se déclenche automatiquement dès que des modifications sont apportées à votre fabrique « dev ».
+    -   Personnalisez les propriétés de votre fabrique disponibles en tant que paramètres dans le modèle Resource Manager. Cela permet de ne conserver que les propriétés requises en tant que paramètres, et de coder en dur tout le reste.
+-   **Meilleures performances :** Une fabrique moyenne avec l’intégration Git se charge 10 fois plus rapidement qu’une création pour le service de fabrique de données. Cette amélioration des performances est due au fait que les ressources sont téléchargées via Git.
 
 > [!NOTE]
 > La création directe avec le service Data Factory est désactivée dans l’expérience en matière d’interface utilisateur Azure Data Factory quand un dépôt Git est configuré. Les modifications peuvent être apportées directement au service via PowerShell ou un kit SDK.
@@ -88,7 +93,7 @@ Le volet de configuration affiche les paramètres du dépôt de code Azure Repos
 
 ### <a name="use-a-different-azure-active-directory-tenant"></a>Utiliser un autre locataire Azure Active Directory
 
-Vous pouvez créer un dépôt Azure Repos Git dans un autre locataire Azure Active Directory. Pour définir un autre locataire Azure AD, vous devez disposer des droits d’administrateur pour l’abonnement Azure que vous utilisez.
+Le dépôt Git Azure Repos peut se trouver dans un autre locataire Azure Active Directory. Pour définir un autre locataire Azure AD, vous devez disposer des droits d’administrateur pour l’abonnement Azure que vous utilisez.
 
 ### <a name="use-your-personal-microsoft-account"></a>Ajouter votre compte Microsoft personnel
 
@@ -142,10 +147,10 @@ Le volet de configuration affiche les paramètres du dépôt GitHub suivants :
 |:--- |:--- |:--- |
 | **Type de référentiel** | Type du dépôt de code Azure Repos. | GitHub |
 | **Utiliser GitHub Enterprise** | Cochez la case pour sélectionner GitHub Enterprise | non sélectionné (par défaut) |
-| **URL GitHub Enterprise** | URL racine de GitHub Enterprise (doit être HTTPS pour un serveur local GitHub Enterprise). Par exemple : https://github.mydomain.com. Obligatoire uniquement si l’option **Utiliser GitHub Enterprise** est sélectionnée | `<your GitHub enterprise url>` |                                                           
+| **URL GitHub Enterprise** | URL racine de GitHub Enterprise (doit être HTTPS pour un serveur local GitHub Enterprise). Par exemple : `https://github.mydomain.com`. Obligatoire uniquement si l’option **Utiliser GitHub Enterprise** est sélectionnée | `<your GitHub enterprise url>` |                                                           
 | **Compte GitHub** | Le nom de votre compte GitHub. Vous trouverez ce nom dans https:\//github.com/{nom du compte}/{nom du référentiel}. En naviguant sur cette page, vous êtes invité à entrer les informations d’identification GitHub OAuth sur votre compte GitHub. | `<your GitHub account name>` |
 | **Nom du dépôt**  | Le nom de votre référentiel de code GitHub. Les comptes GitHub contiennent des référentiels Git pour gérer votre code source. Vous pouvez créer un nouveau référentiel ou utiliser un référentiel existant déjà présent dans le compte. | `<your repository name>` |
-| **Branche de collaboration** | Votre branche de collaboration GitHub utilisée pour la publication. Maître par défaut. Modifiez ce paramètre au cas où vous souhaitez publier des ressources à partir d’une autre branche. | `<your collaboration branch>` |
+| **Branche de collaboration** | Votre branche de collaboration GitHub utilisée pour la publication. Par défaut, il s’agit de la branche principale. Modifiez ce paramètre au cas où vous souhaitez publier des ressources à partir d’une autre branche. | `<your collaboration branch>` |
 | **Dossier racine** | Votre dossier racine de votre branche de collaboration GitHub. |`<your root folder name>` |
 | **Import existing Data Factory resources to repository** (Importer des ressources Data Factory existantes dans le référentiel) | Indique s’il faut importer des ressources de fabrique de données existantes à partir de la zone de travail de création de l’expérience en matière d’interface utilisateur dans un dépôt GitHub. Activez la case pour importer vos ressources de fabrique de données dans le référentiel Git associé au format JSON. Cette action exporte chaque ressource individuellement (autrement dit, les services et jeux de données liés sont exportés dans des fichiers JSON distincts). Lorsque cette case n’est pas activée, les ressources existantes ne sont pas importées. | Activée (par défaut) |
 | **Branche sur laquelle importer la ressource** | Indique dans quelle branche les ressources de la fabrique de données (pipelines, ensembles de données, services liés, etc.) sont importées. Vous pouvez importer des ressources dans l’une des branches suivantes : a. Collaboration b. Créer c. Utiliser l’existant |  |
@@ -159,18 +164,6 @@ Le volet de configuration affiche les paramètres du dépôt GitHub suivants :
 - L’intégration de GitHub aux outils de création visuelle Data Factory ne fonctionne que dans la version généralement disponible de Data Factory.
 
 - Un maximum de 1 000 entités par type de ressource (par exemple, des pipelines et des jeux de données) peut être extrait à partir d’une seule branche GitHub. Si cette limite est atteinte, il est suggéré de fractionner vos ressources en fabriques distinctes. Azure DevOps Git n’a pas cette limitation.
-
-## <a name="switch-to-a-different-git-repo"></a>Passer à un autre dépôt Git
-
-Pour passer à un autre dépôt Git, cliquez sur l’icône **Paramètres de dépôt Git** dans le coin supérieur droit de la page Vue d’ensemble de Data Factory. Si vous ne voyez pas l’icône, effacez le cache de votre navigateur local. Sélectionnez l’icône pour supprimer l’association au dépôt actuel.
-
-![Icône Git](media/author-visually/remove-repo.png)
-
-Une fois que le volet Paramètres du dépôt s’affiche, sélectionnez **Supprimer Git**. Entrez le nom de votre fabrique de données, puis cliquez sur **Confirmer** pour supprimer le dépôt Git associé à votre fabrique de données.
-
-![Supprimer l’association au référentiel Git actuel](media/author-visually/remove-repo2.png)
-
-Après avoir supprimé l’association avec le dépôt actuel, vous pouvez configurer vos paramètres Git pour utiliser un autre dépôt, puis importer des ressources Data Factory dans le nouveau dépôt. 
 
 ## <a name="version-control"></a>Gestion de versions
 
@@ -188,7 +181,7 @@ Lorsque vous êtes prêt à fusionner les modifications de votre branche de fonc
 
 ### <a name="configure-publishing-settings"></a>Configurer les paramètres de publication
 
-Pour configurer la branche de publication, autrement dit la branche où les modèles Resource Manager sont enregistrés, ajoutez un fichier `publish_config.json` au dossier racine dans la branche de collaboration. Data Factory lit ce fichier, recherche le champ `publishBranch` et crée une branche (si elle n’existe pas déjà) avec la valeur fournie. Il enregistre ensuite tous les modèles Resource Manager à l’emplacement spécifié. Par exemple :
+Par défaut, la fabrique de données génère les modèles Resource Manager de la fabrique publiée et les enregistre dans une branche nommée `adf_public`. Pour configurer une branche de publication personnalisée, ajoutez un fichier `publish_config.json` au dossier racine dans la branche de collaboration. Lors de la publication, ADF lit ce fichier, recherche le champ `publishBranch`, puis enregistre tous les modèles Resource Manager dans l’emplacement spécifié. Si la branche n’existe pas, la fabrique de données le crée automatiquement. Vous trouverez ci-dessous un exemple de ce à quoi ressemble ce fichier :
 
 ```json
 {
@@ -196,7 +189,7 @@ Pour configurer la branche de publication, autrement dit la branche où les mod�
 }
 ```
 
-Quand vous spécifiez une nouvelle branche de publication, Data Factory ne supprime pas la branche de publication précédente. Si vous souhaitez la supprimer, faites-le manuellement.
+Azure Data Factory ne peut avoir qu’une seule branche de publication à la fois. Quand vous spécifiez une nouvelle branche de publication, Data Factory ne supprime pas la branche de publication précédente. Si vous souhaitez la supprimer, faites-le manuellement.
 
 > [!NOTE]
 > Data Factory lit uniquement le fichier `publish_config.json` lors du chargement de la fabrique. Si la fabrique est déjà chargée sur le portail, actualisez le navigateur pour que vos modifications prennent effet.
@@ -214,17 +207,6 @@ Un volet latéral s’ouvre, dans lequel vous confirmez que la branche de public
 > [!IMPORTANT]
 > La branche principale n’est pas représentative de ce qui est déployé dans le service Data Factory. La branche principale *doit* être publiée manuellement sur le service Data Factory.
 
-## <a name="advantages-of-git-integration"></a>Avantages de l’intégration Git
-
--   **Contrôle du code source**. Lorsque vos charges de travail de fabrique de données sont cruciales, vous pouvez intégrer votre fabrique avec Git bénéficier de plusieurs avantages de contrôle source tels que les suivants :
-    -   Possibilité de suivre/auditer les modifications.
-    -   Possibilité d’annuler les modifications qui ont introduit de bogues.
--   **Sauvegardes partielles**. Si vous apportez de nombreuses modifications à votre fabrique, vous constaterez qu’en mode LIVE classique, il vous est impossible d'enregistrer vos modifications en tant que brouillon, car vous n’êtes pas prêt ou ne souhaitez pas perdre vos modifications en cas de panne de votre ordinateur. Avec l’intégration Git, vous pouvez continuer d'enregistrer vos modifications de façon incrémentielle et publier dans la fabrique lorsque vous êtes prêt uniquement. Git sert d'emplacement intermédiaire à votre travail pour vous permettre de bien tester vos modifications.
--   **Collaboration et contrôle**. Si plusieurs membres de votre équipe participent à la même fabrique, vous pouvez leur permettre de collaborer via un processus de vérification du code. Vous pouvez également configurer votre fabrique de manière à ce qu'aucun contributeur ne soit autorisé à y effectuer un déploiement. Certains membres de l’équipe seront uniquement autorisés à apporter des modifications via Git, et d'autres à « publier » les modifications dans la fabrique.
--   **Affichage des différences**. En mode Git, vous pouvez constater une différence de la charge utile sur le point d'être publiée dans la fabrique. Cette différence correspond à toutes les ressources/entités modifiées/ajoutées/supprimées depuis la dernière publication dans la fabrique. En fonction de cette différence, vous pouvez continuer de publier ou revenir en arrière et vérifier vos modifications, puis y revenir plus tard.
--   **Intégration continue/Déploiement continu améliorés**. En mode Git, vous pouvez configurer le déclenchement automatique de votre pipeline de mise en production dès que des modifications sont apportées à la fabrique de développement. Vous pouvez également personnaliser les propriétés de votre fabrique disponibles en tant que paramètres dans le modèle Resource Manager. Cela permet de ne conserver que les propriétés requises en tant que paramètres, et de coder en dur tout le reste.
--   **Meilleures performances**. Une fabrique moyenne se charge dix fois plus vite en mode Git qu’en mode LIVE classique, car les ressources sont téléchargées via Git.
-
 ## <a name="best-practices-for-git-integration"></a>Meilleures pratiques d'intégration Git
 
 ### <a name="permissions"></a>Autorisations
@@ -238,9 +220,9 @@ Il est recommandé de ne pas autoriser les archivages directs dans la branche de
 
 ### <a name="using-passwords-from-azure-key-vault"></a>Utilisation de mots de passe à partir d’Azure Key Vault
 
-Il est recommandé d’utiliser Azure Key Vault pour stocker les chaînes de connexion ou mots de passe des services liés Data Factory. Pour des raisons de sécurité, nous ne stockons pas ces informations secrètes dans Git, si bien que toutes les modifications apportées aux services liés sont publiées immédiatement sur le service Azure Data Factory.
+Il est recommandé d’utiliser Azure Key Vault pour stocker les chaînes de connexion, les mots de passe ou l’authentification d’identité managée pour des services liés Data Factory. Pour des raisons de sécurité, la fabrique de données ne stocke pas les secrets dans Git. Toutes les modifications apportées aux services liés contenant des secrets tels que des mots de passe sont immédiatement publiées dans le service Azure Data Factory.
 
-L’utilisation de Key Vault facilite également l’intégration et le déploiement continus, car vous n’aurez pas à fournir ces secrets lors du déploiement du modèle Resource Manager.
+L’utilisation de Key Vault de l’authentification MSI facilite également l’intégration et le déploiement continus, car vous n’avez pas à fournir ces secrets lors du déploiement du modèle Resource Manager.
 
 ## <a name="troubleshooting-git-integration"></a>Résolution des problèmes d’intégration Git
 
@@ -256,12 +238,22 @@ Voici quelques exemples de situations qui peuvent provoquer une branche de publi
 - Un utilisateur a plusieurs branches. Dans une branche de fonctionnalité, l’utilisateur a supprimé un service lié qui n’est pas associé à AKV (les services liés non-AKV sont publiés immédiatement, qu’ils soient dans Git ou non) et n’a jamais fusionné la branche de fonctionnalité dans la branche de collaboration.
 - Un utilisateur a modifié la fabrique de données à l’aide du SDK ou de PowerShell.
 - Un utilisateur a déplacé toutes les ressources vers une nouvelle branche et a essayé de publier pour la première fois. Les services liés doivent être créés manuellement au moment de l’importation des ressources.
-- Un utilisateur charge manuellement un service lié non-AKV ou un fichier JSON Integration Runtime. Il fait référence à cette ressource à partir d’une autre ressource telle qu’un jeu de données, un service lié ou un pipeline. Un service lié non-AKV créé par le biais de l’expérience utilisateur est publié immédiatement parce que les informations d’identification doivent être chiffrées. Si vous chargez un jeu de données qui fait référence à ce service lié et essayez de le publier, l’expérience utilisateur autorise cette opération puisqu’il existe dans l’environnement git. Il est rejeté au moment de la publication dans la mesure où il n’existe pas dans le service de fabrique de données.
+- Un utilisateur charge manuellement un service lié ou un fichier JSON de runtime d’intégration non-AKV. Il fait référence à cette ressource à partir d’une autre ressource telle qu’un jeu de données, un service lié ou un pipeline. Un service lié non-AKV créé par le biais de l’expérience utilisateur est publié immédiatement parce que les informations d’identification doivent être chiffrées. Si vous chargez un jeu de données qui fait référence à ce service lié et essayez de le publier, l’expérience utilisateur autorise cette opération puisqu’il existe dans l’environnement git. Il est rejeté au moment de la publication dans la mesure où il n’existe pas dans le service de fabrique de données.
 
-## <a name="provide-feedback"></a>Fournir des commentaires
-Sélectionnez **Feedback** (Commentaire) pour donner votre avis sur les fonctionnalités ou informer Microsoft de problèmes avec l’outil :
+## <a name="switch-to-a-different-git-repository"></a>Passer à un autre dépôt Git
 
-![Commentaires](media/author-visually/provide-feedback.png)
+Pour passer à un autre dépôt Git, cliquez sur l’icône **Paramètres de dépôt Git** dans l’angle supérieur droit de la page de présentation de Data Factory. Si vous ne voyez pas l’icône, effacez le cache de votre navigateur local. Sélectionnez l’icône pour supprimer l’association au dépôt actuel.
+
+![Icône Git](media/author-visually/remove-repo.png)
+
+Une fois que le volet Paramètres du dépôt s’affiche, sélectionnez **Supprimer Git**. Entrez le nom de votre fabrique de données, puis cliquez sur **Confirmer** pour supprimer le dépôt Git associé à votre fabrique de données.
+
+![Supprimer l’association au référentiel Git actuel](media/author-visually/remove-repo2.png)
+
+Après avoir supprimé l’association avec le dépôt actuel, vous pouvez configurer vos paramètres Git pour utiliser un autre dépôt, puis importer des ressources Data Factory dans le nouveau dépôt.
+
+> [!IMPORTANT]
+> La suppression de la configuration Git d’une fabrique de données ne supprime rien dans le référentiel. La fabrique contient toujours toutes les ressources publiées. Vous pouvez continuer à la modifier directement par rapport au service.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

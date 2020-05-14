@@ -7,14 +7,20 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 8b675a78041b68210fa7583510582783c506c720
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: aae3f8b1cfe224f0a948eb16bd6ee5120b19dde1
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81767031"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612076"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurer l’accélération GPU pour Windows Virtual Desktop
+
+>[!IMPORTANT]
+>Ce contenu s’applique à la mise à jour Printemps 2020 avec des objets Azure Resource Manager Windows Virtual Desktop. Si vous utilisez la version Automne 2019 de Windows Virtual Desktop sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
+>
+> La mise à jour Printemps 2020 de Windows Virtual Desktop est en préversion publique. Cette préversion est fournie sans contrat de niveau de service et nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. 
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Windows Virtual Desktop prend en charge le rendu et le codage avec accélération GPU pour des performances d’applications et une extensibilité améliorées. L’accélération GPU est particulièrement importante pour les applications graphiques.
 
@@ -26,7 +32,7 @@ Azure offre plusieurs [tailles de machine virtuelle optimisées pour le GPU](/az
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Créer un pool d’hôtes, provisionner votre machine virtuelle et configurer un groupe d’applications
 
-Créez un nouveau pool d’hôtes à l’aide d’une machine virtuelle de la taille sélectionnée. Pour obtenir des instructions, consultez [Tutoriel : Créer un pool d’hôtes avec la Place de marché Azure](/azure/virtual-desktop/create-host-pools-azure-marketplace).
+Créez un nouveau pool d’hôtes à l’aide d’une machine virtuelle de la taille sélectionnée. Pour obtenir des instructions, consultez [Tutoriel : Créer un pool d’hôtes avec le portail Azure](/azure/virtual-desktop/create-host-pools-azure-marketplace).
 
 Windows Virtual Desktop prend en charge le rendu et le codage avec accélération GPU dans les systèmes d’opération suivants :
 
