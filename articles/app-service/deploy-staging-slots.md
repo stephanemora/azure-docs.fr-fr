@@ -3,14 +3,14 @@ title: Configurer des environnements intermédiaires
 description: Découvrez comment déployer des applications à un emplacement hors production et comment les faire passer automatiquement en production. Améliorez la fiabilité et éliminez les temps d’arrêt des applications à partir des déploiements.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
-ms.date: 03/04/2020
+ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 21e025088e59c7f65f848b332ecb393b05918261
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11e133a24ff728cc864e50e898e9db982b186337
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78300858"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597912"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
@@ -58,11 +58,11 @@ Pour que vous puissiez activer plusieurs emplacements de déploiement, l’appli
    
     ![Titre de l’emplacement de déploiement](./media/web-sites-staged-publishing/StagingTitle.png)
 
-    L’emplacement intermédiaire dispose d’une page de gestion, comme n’importe quelle application App Service. Vous pouvez modifier la configuration de l’emplacement. Le nom de l’emplacement est indiqué en haut de la page, pour vous rappeler que c’est l’emplacement de déploiement qui est affiché.
+    L’emplacement intermédiaire dispose d’une page de gestion, comme n’importe quelle application App Service. Vous pouvez modifier la configuration de l’emplacement. Pour vous rappeler que vous affichez l’emplacement de déploiement, le nom de l’application est affiché sous la forme **\<nom-application>/\<nom-emplacement>** , et le type d’application est **App service (Emplacement)** . Vous pouvez également afficher l’emplacement sous la forme d’une application distincte dans votre groupe de ressources, avec les mêmes désignations.
 
 6. Sélectionnez l’URL de l’application dans la page des ressources de l’emplacement. L’emplacement de déploiement est une application en production et il a son propre nom d’hôte. Pour limiter l’accès public à l’emplacement de déploiement, consultez [Restrictions d’adresse IP avec Azure App Service](app-service-ip-restrictions.md).
 
-Le nouvel emplacement de déploiement n’a aucun contenu, même si vous clonez les paramètres à partir d’un autre emplacement. Par exemple, vous pouvez [publier sur cet emplacement avec Git](app-service-deploy-local-git.md). Vous pouvez effectuer un déploiement sur l’emplacement à partir d’une autre branche du dépôt, ou d’un dépôt différent. 
+Le nouvel emplacement de déploiement n’a aucun contenu, même si vous clonez les paramètres à partir d’un autre emplacement. Par exemple, vous pouvez [publier sur cet emplacement avec Git](app-service-deploy-local-git.md). Vous pouvez effectuer un déploiement sur l’emplacement à partir d’une autre branche du dépôt, ou d’un dépôt différent.
 
 <a name="AboutConfiguration"></a>
 
@@ -272,7 +272,7 @@ Par défaut, les nouveaux emplacements se voient attribuer une règle de routage
 
 ## <a name="delete-a-slot"></a>Supprimer un emplacement
 
-Recherchez et sélectionnez votre application. Sélectionnez **Emplacements de déploiement** >  *\<emplacement à supprimer>*  > **Vue d’ensemble**. Sélectionnez **Supprimer** dans la barre de commandes.  
+Recherchez et sélectionnez votre application. Sélectionnez **Emplacements de déploiement** >  *\<emplacement à supprimer>*  > **Vue d’ensemble**. Le type d’application est indiqué comme **App Service (Emplacement)** pour vous rappeler que vous consultez un emplacement de déploiement. Sélectionnez **Supprimer** dans la barre de commandes.  
 
 ![Supprimer un emplacement de déploiement](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 

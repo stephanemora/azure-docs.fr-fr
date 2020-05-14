@@ -2,13 +2,13 @@
 title: Analyse continue de votre pipeline de mise en production DevOps avec Azure Pipelines et Azure Application Insights | Microsoft Docs
 description: Fournit des instructions permettant de configurer rapidement une analyse continue avec Application Insights
 ms.topic: conceptual
-ms.date: 07/16/2019
-ms.openlocfilehash: e565101218b975ef2bd29b8a32a4aa1bf4300b6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/01/2020
+ms.openlocfilehash: 0d47fb1eccdfcfc7b2719825575f06dc85e62452
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77655393"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652765"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Ajouter l’analyse continue à votre pipeline de mise en production
 
@@ -51,17 +51,19 @@ Prêt à l’emploi, le modèle de **déploiement avec analyse continue Azure Ap
 
 Pour modifier les paramètres de règle d’alerte :
 
-1. Dans le volet gauche de la page pipeline de mise en production, sélectionnez **Configurer des alertes Application Insights**.
+Dans le volet gauche de la page pipeline de mise en production, sélectionnez **Configurer des alertes Application Insights**.
 
-1. Dans le volet **Alertes Azure Monitor**, sélectionnez les points de suspension **...** à côté de **Règles d’alerte**.
-   
-1. Dans la boîte de dialogue **Règles d’alerte**, sélectionnez le symbole de liste déroulante à côté d’une règle d’alerte, par exemple **Disponibilité**. 
-   
-1. Modifiez le **Seuil** et d’autres paramètres pour répondre à vos besoins.
-   
-   ![Modifier l’alerte](media/continuous-monitoring/003.png)
-   
-1. Sélectionnez **OK**, puis cliquez sur **Enregistrer** en haut à droite dans la fenêtre Azure DevOps. Entrez un commentaire descriptif, puis sélectionnez **OK**.
+Les quatre règles d’alerte par défaut sont créées à l’aide d’un script inline :
+
+```bash
+$subscription = az account show --query "id";$subscription.Trim("`"");$resource="/subscriptions/$subscription/resourcegroups/"+"$(Parameters.AppInsightsResourceGroupName)"+"/providers/microsoft.insights/components/" + "$(Parameters.ApplicationInsightsResourceName)";
+az monitor metrics alert create -n 'Availability_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'avg availabilityResults/availabilityPercentage < 99' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'FailedRequests_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'count requests/failed > 5' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'ServerResponseTime_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'avg requests/duration > 5' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'ServerExceptions_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'count exceptions/server > 5' --description "created from Azure DevOps";
+```
+
+Vous pouvez modifier le script et ajouter d’autres règles d’alerte, modifier les conditions d’alerte ou supprimer des règles d’alerte qui ne sont pas pertinentes par rapport à votre déploiement.
 
 ## <a name="add-deployment-conditions"></a>Ajouter des conditions de déploiement
 

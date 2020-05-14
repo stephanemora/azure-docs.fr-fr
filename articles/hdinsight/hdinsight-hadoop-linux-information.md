@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.openlocfilehash: 3d9dec0065bb62821fcedcbc4f6e5b578c061caf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/29/2020
+ms.openlocfilehash: e9f8fe17fa28cc5fcc4543bfb5e194bd3e7b837d
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233617"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594095"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informations sur l’utilisation de HDInsight sous Linux
 
@@ -95,13 +95,13 @@ Vous trouverez des exemples de données et de fichiers JAR sur le système HDSF 
 
 ## <a name="hdfs-azure-storage-and-data-lake-storage"></a>HDFS, Stockage Azure et Data Lake Storage
 
-Dans la plupart des distributions Hadoop, les données sont stockées dans HDFS, qui est sauvegardé par un stockage local sur les machines dans le cluster. L’utilisation du stockage local peut être coûteuse pour une solution informatique où vous êtes facturé à l’heure ou à la minute pour les ressources de calcul.
+Dans la plupart des distributions Hadoop, les données sont stockées dans HDFS. Le système HDFS est soutenu par un stockage local sur les machines dans le cluster. L’utilisation du stockage local peut être coûteuse pour une solution informatique où vous êtes facturé à l’heure ou à la minute pour les ressources de calcul.
 
-Quand vous utilisez HDInsight, les fichiers de données sont stockés de manière évolutive et résiliente dans le cloud, à l’aide du Stockage Blob Azure et, éventuellement, d’Azure Data Lake Storage. Ces services offrent les avantages suivants :
+Quand vous utilisez HDInsight, les fichiers de données sont stockés de manière adaptable et résiliente dans le cloud, à l’aide du Stockage Blob Azure et, éventuellement, d’Azure Data Lake Storage. Ces services offrent les avantages suivants :
 
 * Un stockage à long terme peu coûteux.
 * Un accès à partir de services externes comme des sites web, des utilitaires de chargement/téléchargement de fichier, des SDK en différentes langues et des navigateurs web.
-* Capacité de prise en charge des grands fichiers et grand stockage évolutif.
+* Capacité de prise en charge des grands fichiers et grand stockage adaptable.
 
 Pour plus d’informations, consultez [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) (Présentation des objets blob) et [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
 
@@ -109,7 +109,7 @@ Quand vous utilisez Stockage Azure ou Data Lake Storage, vous n’avez aucune op
 
     hdfs dfs -ls /example/data
 
-Dans HDInsight, les ressources de stockage de données (Stockage Blob Azure et Azure Data Lake Storage) sont dissociées des ressources de calcul. Par conséquent, vous pouvez créer des clusters HDInsight pour effectuer les calculs dont vous avez besoin et, par la suite, supprimer le cluster lorsque le travail est terminé, tout en conservant vos fichiers de données en toute sécurité dans le stockage cloud aussi longtemps que nécessaire.
+Dans HDInsight, les ressources de stockage de données (Stockage Blob Azure et Azure Data Lake Storage) sont dissociées des ressources de calcul. Vous pouvez créer des clusters HDInsight pour effectuer les calculs dont vous avez besoin et, par la suite, supprimer le cluster lorsque le travail est terminé, tout en conservant vos fichiers de données en toute sécurité dans le stockage cloud aussi longtemps que nécessaire.
 
 ### <a name="uri-and-scheme"></a><a name="URI-and-scheme"></a>URI et schéma
 
@@ -210,46 +210,11 @@ Si vous utilisez __Azure Data Lake Storage__, consultez les liens suivants pour 
 
 ## <a name="scaling-your-cluster"></a><a name="scaling"></a>Mise à l’échelle de votre cluster
 
-La fonctionnalité de mise à l’échelle d’un cluster vous permet de modifier de manière dynamique le nombre de nœuds de données utilisés par un cluster. Vous pouvez effectuer des opérations de mise à l’échelle pendant que d’autres travaux ou processus s’exécutent sur un cluster.  Consultez également [Mettre à l’échelle les clusters HDInsight](./hdinsight-scaling-best-practices.md)
-
-Les différents types de cluster sont affectés par la mise à l’échelle comme suit :
-
-* **Hadoop** : quand vous réduisez le nombre de nœuds dans un cluster, certains services du cluster sont redémarrés. Les opérations de mise à l’échelle peuvent provoquer l’échec des tâches en cours d’exécution ou en attente à la fin de l’opération de mise à l’échelle. Toutefois, vous pouvez soumettre à nouveau les tâches une fois l’opération terminée.
-* **HBase** : les serveurs régionaux sont automatiquement équilibrés en l’espace de quelques minutes, une fois l’opération de mise à l’échelle terminée. Pour équilibrer manuellement les serveurs régionaux, procédez comme suit :
-
-    1. Connectez-vous au cluster HDInsight à l’aide de SSH : Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-    2. Pour démarrer le shell HBAse, utilisez la commande suivante :
-
-            hbase shell
-
-    3. Une fois le shell HBase chargé, utilisez ce qui suit pour équilibrer manuellement les serveurs régionaux :
-
-            balancer
-
-* **Storm** : vous devez rééquilibrer les topologies Storm en cours d’exécution après l’exécution d’une opération de mise à l’échelle. Le rééquilibrage permet à la topologie de réajuster les paramètres de parallélisme basés sur le nouveau nombre de nœuds du cluster. Pour rééquilibrer les topologies en cours d’exécution, utilisez l’une des options suivantes :
-
-    * **SSH** : connectez-vous au serveur et utilisez la commande suivante pour rééquilibrer une topologie :
-
-            storm rebalance TOPOLOGYNAME
-
-        Vous pouvez également spécifier des paramètres pour remplacer les indicateurs de parallélisme initialement fournis par la topologie. Par exemple, `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10` permet de reconfigurer la topologie sur 5 processus Worker, 3 exécuteurs pour le composant blue-spout et 10 exécuteurs pour le composant yellow-bolt.
-
-    * **Interface utilisateur de Storm** : utilisez les étapes suivantes pour rééquilibrer une topologie avec l’interface utilisateur de Storm.
-
-        1. Ouvrez `https://CLUSTERNAME.azurehdinsight.net/stormui` dans votre navigateur web, où `CLUSTERNAME` est le nom de votre cluster Storm. Si vous y êtes invité, entrez le nom et le mot de passe de l’administrateur (admin) du cluster HDInsight spécifiés lors de la création du cluster.
-        2. Sélectionnez la topologie que vous souhaitez rééquilibrer, puis le bouton **Rééquilibrer** . Saisissez le délai avant l’opération de rééquilibrage.
-
-* **Kafka** : vous devez rééquilibrer les réplicas de partition après les opérations de mise à l’échelle. Pour plus d’informations, consultez le document [Haute disponibilité des données avec Apache Kafka sur HDInsight](./kafka/apache-kafka-high-availability.md).
-
-Pour obtenir des informations spécifiques sur la mise à l’échelle de votre cluster HDInsight, consultez :
-
-* [Gérer des clusters Apache Hadoop dans HDInsight avec le portail Azure](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Gérer des clusters Apache Hadoop dans HDInsight à l’aide d’Azure CLI](hdinsight-administer-use-command-line.md#scale-clusters)
+La fonctionnalité de mise à l’échelle d’un cluster vous permet de modifier de manière dynamique le nombre de nœuds de données utilisés par un cluster. Vous pouvez effectuer des opérations de mise à l’échelle pendant que d’autres travaux ou processus s’exécutent sur un cluster.  Consulter [Mettre à l’échelle les clusters HDInsight](./hdinsight-scaling-best-practices.md)
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Comment installer Hue (ou un autre composant Hadoop) ?
 
-HDInsight est un service géré. Si Azure détecte un problème avec le cluster, il peut supprimer le nœud défaillant et créer un nœud pour le remplacer. Si vous installez manuellement des éléments sur le cluster, ils ne sont pas conservés lorsque cette opération se produit. Utilisez plutôt [Actions de script HDInsight](hdinsight-hadoop-customize-cluster-linux.md). Une action de script peut être utilisée pour effectuer les modifications suivantes :
+HDInsight est un service géré. Si Azure détecte un problème avec le cluster, il peut supprimer le nœud défaillant et créer un nœud pour le remplacer. Lorsque vous installez manuellement des éléments sur le cluster, ils ne sont pas conservés lorsque cette opération se produit. Utilisez plutôt [Actions de script HDInsight](hdinsight-hadoop-customize-cluster-linux.md). Une action de script peut être utilisée pour effectuer les modifications suivantes :
 
 * Installer et configurer un service ou un site web.
 * Installer et configurer un composant qui nécessite des modifications de configuration sur plusieurs nœuds du cluster.
@@ -258,7 +223,7 @@ Les actions de script sont des scripts Bash. Les scripts s’exécutent pendant 
 
 ### <a name="jar-files"></a>Fichiers Jar
 
-Certaines technologies Hadoop sont fournies dans des fichiers jar autonomes, qui contiennent des fonctions utilisées dans le cadre d’un travail MapReduce ou à partir de Pig ou Hive. Il ne nécessitent généralement aucune configuration et peuvent être chargés dans le cluster après la création et être utilisés directement. Si vous souhaitez que le composant survive à la réinitialisation du cluster, vous pouvez stocker le fichier jar dans le stockage par défaut de votre cluster (WASB ou ADL).
+Certaines technologies Hadoop fournissent des fichiers jar autonomes. Ces fichiers contiennent des fonctions utilisées dans le cadre d’un travail MapReduce ou à partir de Pig ou Hive. Il ne nécessitent généralement aucune configuration et peuvent être chargés dans le cluster après la création et être utilisés directement. Si vous souhaitez que le composant survive à la réinitialisation du cluster, stockez le fichier jar dans le stockage par défaut de votre cluster.
 
 Par exemple, si vous souhaitez utiliser la dernière version d’[Apache DataFu](https://datafu.incubator.apache.org/), vous pouvez télécharger un fichier jar contenant le projet, puis le charger vers le cluster HDInsight. Suivez ensuite la documentation DataFu pour savoir comment l’utiliser à partir de Pig ou Hive.
 

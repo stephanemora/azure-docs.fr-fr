@@ -5,12 +5,12 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: f8322c12669e41fc7c9aa88e99f95cf1b26ea87d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5ae68a8871bc2894191644e4ab183be4b469bf16
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78944129"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610239"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Configurer un nom de domaine personnalisé dans Azure App Service avec l’intégration de Traffic Manager
 
@@ -66,12 +66,18 @@ Une fois votre application App Service associé à un niveau tarifaire pris en c
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
-Bien que les spécificités de chaque fournisseur de domaine varient, vous mappez généralement *depuis* le nom de domaine personnalisé (comme **contoso.com**) *vers* le nom de domaine Traffic Manager (**contoso.trafficmanager.net**) qui est intégré à votre application.
+Bien que les spécificités de chaque fournisseur de domaine varient, vous mappez généralement *depuis* un [nom de domaine personnalisé non-racine](#what-about-root-domains) (comme **www.contoso.com**) *vers* le nom de domaine Traffic Manager (**contoso.trafficmanager.net**) qui est intégré à votre application. 
 
 > [!NOTE]
 > Si un enregistrement est déjà utilisé et que vous devez y lier préventivement vos applications, vous pouvez créer un enregistrement CNAME supplémentaire. Par exemple, pour lier préalablement **www\.contoso.com** à votre application, créez un enregistrement CNAME entre **awverify.www** et **contoso.trafficmanager.net**. Vous pouvez ensuite ajouter « www\.contoso.com » à votre application sans avoir besoin de modifier l’enregistrement CNAME « www ». Pour plus d’informations, consultez [Migrer un nom DNS actif vers Azure App Service](manage-custom-dns-migrate-domain.md).
 
 Quand vous avez terminé l’ajout ou la modification des enregistrements DNS auprès de votre fournisseur de domaine, enregistrez les modifications.
+
+### <a name="what-about-root-domains"></a>Qu’en est-il des domaines racine ?
+
+Étant donné que Traffic Manager prend seulement en charge le mappage de domaine personnalisé avec des enregistrements CNAME, et que les normes DNS ne prennent pas en charge les enregistrements CNAME pour le mappage des domaines racine (par exemple, **contoso.com**), Traffic Manager ne gère pas le mappage aux domaines racine. Pour contourner ce problème, utilisez une redirection d’URL au niveau de l’application. Dans ASP.NET Core, par exemple, vous pouvez utiliser la [Réécriture d’URL](/aspnet/core/fundamentals/url-rewriting). Ensuite, utilisez Traffic Manager pour équilibrer la charge du sous-domaine (**www.contoso.com**).
+
+Pour les scénarios de haute disponibilité, vous pouvez implémenter une configuration DNS tolérante aux pannes, sans Traffic Manager, en créant plusieurs *enregistrements A* qui pointent du domaine racine vers l’adresse IP de chaque copie de l’application. Ensuite, [mappez le même domaine racine à toutes les copies de l’application](app-service-web-tutorial-custom-domain.md#map-an-a-record). Comme le même nom de domaine ne peut pas être mappé vers deux applications différentes dans la même région, cette configuration fonctionne seulement si les copies de votre application se trouvent dans des régions différentes.
 
 ## <a name="enable-custom-domain"></a>Activer un domaine personnalisé
 Une fois les enregistrements de votre nom de domaine propagés, utilisez le navigateur pour vérifier que votre nom de domaine personnalisé correspond à votre application App Service.

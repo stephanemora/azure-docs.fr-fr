@@ -1,139 +1,32 @@
 ---
-title: Fonctionnalités de sécurité pour protéger les charges de travail cloud
+title: Suppression réversible pour la Sauvegarde Azure
 description: Découvrez comment utiliser les fonctionnalités de sécurité dans Sauvegarde Azure pour renforcer la sécurité des sauvegardes.
 ms.topic: conceptual
-ms.date: 09/13/2019
-ms.openlocfilehash: bd7c86e18114513a264a0f9252589533fb7ff2d3
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.date: 04/30/2020
+ms.openlocfilehash: d7831488482ef154ce00685e513b36ed235e335e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668739"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791389"
 ---
-# <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Fonctionnalités de sécurité pour protéger les charges de travail cloud utilisant Sauvegarde Azure
+# <a name="soft-delete-for-azure-backup"></a>Suppression réversible pour la Sauvegarde Azure
 
 Les préoccupations en matière de risques de sécurité, comme les logiciels malveillants, le ransomware et les intrusions, sont de plus en plus nombreuses. Ces problèmes de sécurité peuvent coûter cher, à la fois en termes d’argent et de données. Pour vous protéger contre ces attaques, Sauvegarde Azure fournit désormais des fonctionnalités de sécurité visant à protéger les données de sauvegarde après la suppression.
 
-Une fonctionnalité de ce type est la suppression réversible. Avec la suppression réversible, même si un acteur malveillant supprime la sauvegarde d’une machine virtuelle (ou que les données de sauvegarde sont accidentellement supprimées), les données de sauvegarde sont conservées pendant 14 jours supplémentaires, ce qui permet la récupération de cet élément de sauvegarde sans perte de données. La conservation des données de sauvegarde pendant 14 jours supplémentaires dans l’état « suppression réversible » n’engendre pas de frais pour le client. Azure chiffre également toutes les données au repos sauvegardées, à l’aide de [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), afin de renforcer la sécurité de vos données.
+Une fonctionnalité de ce type est la suppression réversible. Avec la suppression réversible, même si un intervenant malveillant supprime une sauvegarde (ou même si les données de sauvegarde sont accidentellement supprimées), les données de sauvegarde sont conservées pendant 14 jours supplémentaires, ce qui permet la récupération de cet élément de sauvegarde sans perte de données. La conservation des données de sauvegarde pendant 14 jours supplémentaires dans l’état « suppression réversible » n’engendre pas de frais pour le client.
 
-Une protection contre la suppression réversible pour les machines virtuelles Azure est généralement disponible.
-
->[!NOTE]
->La suppression réversible pour SQL Server dans une machine virtuelle Azure et la suppression réversible pour SAP HANA dans les charges de travail de machine virtuelle Azure est maintenant disponible en préversion.<br>
->Pour vous inscrire à la version préliminaire, écrivez-nous à l’adresse suivante : AskAzureBackupTeam@microsoft.com
-
-## <a name="soft-delete"></a>Suppression réversible
-
-### <a name="soft-delete-for-vms"></a>Suppression réversible pour les machines virtuelles
-
-La suppression réversible pour les machines virtuelles protège les sauvegardes de vos machines virtuelles des suppressions involontaires. Même après leur suppression, les sauvegardes sont conservées à l’état de suppression réversible pendant 14 jours supplémentaires.
-
-> [!NOTE]
-> La suppression réversible protège uniquement les données de sauvegarde supprimées. Si une machine virtuelle est supprimée sans sauvegarde, la fonctionnalité de suppression réversible ne conserve pas les données. Toutes les ressources doivent être protégées avec Sauvegarde Azure pour garantir une résilience complète.
->
-
-### <a name="supported-regions"></a>Régions prises en charge
-
-La suppression réversible est actuellement prise en charge dans les régions USA Centre-Ouest, Asie Est, Canada Centre, Canada Est, France Centre, France Sud, Corée Centre, Corée Sud, Royaume-Uni Sud, Royaume-Uni Ouest, Australie Est, Australie Sud-Est, Europe Nord, USA Ouest, USA Ouest 2, USA Centre, Asie Sud-Est, USA Centre Nord, USA Centre Sud, Japon Est, Japon Ouest, Inde Sud, Inde Centre, Inde Ouest, USA Est 2, Suisse Nord, Suisse Ouest, Norvège Ouest, Norvège Est et toutes les régions Pays.
-
-### <a name="soft-delete-for-vms-using-azure-portal"></a>Suppression réversible pour les machines virtuelles avec le portail Azure
-
-1. Pour supprimer les données de sauvegarde d’une machine virtuelle, vous devez arrêter la sauvegarde. Dans le portail Azure, accédez à votre coffre Recovery Services, cliquez avec le bouton droit sur l’élément de sauvegarde, puis choisissez **Arrêter la sauvegarde**.
-
-   ![Capture d’écran des éléments de sauvegarde du portail Azure](./media/backup-azure-security-feature-cloud/backup-stopped.png)
-
-2. Dans la fenêtre suivante, vous pouvez choisir de supprimer ou de conserver les données de sauvegarde. Si vous choisissez **Supprimer les données de sauvegarde**, puis **Arrêter la sauvegarde**, la sauvegarde de la machine virtuelle n’est pas supprimée définitivement. Au lieu de cela, les données de sauvegarde sont conservées pendant 14 jours dans l’état de suppression réversible. Si vous choisissez **Supprimer les données de sauvegarde**, une alerte de suppression par e-mail est envoyée à l’ID d’e-mail configuré afin d’informer l’utilisateur qu’il reste 14 jours de conservation prolongée pour les données de sauvegarde. De plus, une alerte par e-mail est envoyée le douzième jour afin de signaler qu’il reste deux jours supplémentaires pour récupérer les données supprimées. La suppression est différée jusqu’au quinzième jour, moment auquel la suppression définitive a lieu et où une dernière alerte par e-mail est envoyée pour signaler la suppression définitive des données.
-
-   ![Capture d’écran du portail Azure, écran Arrêter la sauvegarde](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
-
-3. Pendant ces 14 jours, dans le coffre Recovery Services, la machine virtuelle supprimée de manière réversible s’affiche avec une icône rouge de suppression réversible.
-
-   ![Capture d’écran du portail Azure, machine virtuelle dans l’état de suppression réversible](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
-
-   > [!NOTE]
-   > Si des éléments de sauvegarde supprimés de manière réversible sont présents dans le coffre, celui-ci ne peut pas être supprimé à ce moment-là. Essayez de supprimer le coffre une fois que les éléments de sauvegarde ont été supprimés définitivement et qu’il ne contient plus d’élément dans l’état de suppression réversible.
-
-4. Pour restaurer la machine virtuelle supprimée de manière réversible, vous devez d’abord annuler sa suppression. Pour ce faire, choisissez la machine virtuelle supprimée de manière réversible, puis sélectionnez l’option **Annuler la suppression**.
-
-   ![Capture d’écran du portail Azure, annulation de la suppression de la machine virtuelle](./media/backup-azure-security-feature-cloud/choose-undelete.png)
-
-   Une fenêtre s’affiche pour vous avertir que si vous choisissez l’annulation de la suppression, tous les points de restauration de la machine virtuelle sont restaurés et disponibles pour effectuer une opération de restauration. La machine virtuelle est conservée à l’état « Arrêter la protection avec conservation des données » avec suspension des sauvegardes et conservation des données de sauvegarde à l’infini sans que la stratégie de sauvegarde soit effective.
-
-   ![Capture d’écran du portail Azure, confirmation de l’annulation de la suppression de la machine virtuelle](./media/backup-azure-security-feature-cloud/undelete-vm.png)
-
-   À ce stade, vous pouvez également restaurer la machine virtuelle en sélectionnant **Restaurer la machine virtuelle** à partir du point de restauration choisi.  
-
-   ![Capture d’écran du portail Azure, option Restaurer la machine virtuelle](./media/backup-azure-security-feature-cloud/restore-vm.png)
-
-   > [!NOTE]
-   > Le récupérateur de mémoire s’exécute et nettoie les points de récupération expirés une fois que l’utilisateur a effectué l’opération **Reprendre la sauvegarde**.
-
-5. Une fois que le processus d’annulation de la suppression est terminé, l’état est redéfini sur « Arrêter la sauvegarde avec conservation des données », puis vous pouvez choisir **Reprendre la sauvegarde**. L’opération **Reprendre la sauvegarde** réactive l’élément de sauvegarde, associé à une stratégie de sauvegarde sélectionnée par l’utilisateur qui définit les planifications de sauvegarde et de conservation.
-
-   ![Capture d’écran du portail Azure, option Reprendre la sauvegarde](./media/backup-azure-security-feature-cloud/resume-backup.png)
+La [suppression réversible pour les machines virtuelles Azure](soft-delete-virtual-machines.md) ainsi que la [suppression réversible pour les charges de travail SQL Server dans Azure VM et SAP HANA dans Azure VM](soft-delete-sql-saphana-in-azure-vm.md) sont des fonctionnalités de protection accessibles à tous.
 
 Cet organigramme montre les différentes étapes et états d’un élément de sauvegarde lorsque la suppression réversible est activée :
 
 ![Cycle de vie d’un élément de sauvegarde supprimé de manière réversible](./media/backup-azure-security-feature-cloud/lifecycle.png)
 
-Pour plus d’informations, consultez la section [Questions fréquentes (FAQ)](backup-azure-security-feature-cloud.md#frequently-asked-questions) ci-après.
-
-### <a name="soft-delete-for-vms-using-azure-powershell"></a>Suppression réversible pour les machines virtuelles à l’aide d’Azure PowerShell
-
-> [!IMPORTANT]
-> La version Az.RecoveryServices minimale requise pour utiliser la suppression réversible avec Azure PowerShell est la version 2.2.0. Utilisez ```Install-Module -Name Az.RecoveryServices -Force``` pour récupérer la version la plus récente.
-
-Comme indiqué ci-dessus pour le Portail Azure, la séquence d’étapes est la même quand vous utilisez Azure PowerShell.
-
-#### <a name="delete-the-backup-item-using-azure-powershell"></a>Supprimer l’élément de sauvegarde à l’aide d’Azure PowerShell
-
-Supprimez l’élément de sauvegarde en utilisant l’applet de commande PS [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0).
-
-```powershell
-Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
-
-WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
-------------     ---------            ------               ---------                 -------                   -----
-AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM     12/5/2019 12:44:50 PM     0488c3c2-accc-4a91-a1e0-fba09a67d2fb
-```
-
-La valeur « DeleteState » de l’élément de sauvegarde passe de « NotDeleted » à « ToBeDeleted ». Les données de sauvegarde sont conservées pendant 14 jours. Si vous souhaitez rétablir l’opération de suppression, vous devez effectuer une opération d’annulation de suppression.
-
-#### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Annulation de l’opération de suppression à l’aide d’Azure PowerShell
-
-Tout d’abord, récupérez l’élément de sauvegarde approprié qui est dans l’état de suppression réversible (c’est-à-dire sur le point d’être supprimé).
-
-```powershell
-
-Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID | Where-Object {$_.DeleteState -eq "ToBeDeleted"}
-
-Name                                     ContainerType        ContainerUniqueName                      WorkloadType         ProtectionStatus     HealthStatus         DeleteState
-----                                     -------------        -------------------                      ------------         ----------------     ------------         -----------
-VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;selfhostrg;AppVM1       AzureVM              Healthy              Passed               ToBeDeleted
-
-$myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
-```
-
-Ensuite, effectuez l’opération d’annulation de suppression en utilisant l’applet de commande PS [Undo-AzRecoveryServicesBackupItemDeletion](https://docs.microsoft.com/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion?view=azps-3.1.0).
-
-```powershell
-Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
-
-WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
-------------     ---------            ------               ---------                 -------                   -----
-AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM     12/5/2019 12:47:40 PM     65311982-3755-46b5-8e53-c82ea4f0d2a2
-```
-
-La valeur « DeleteState » de l’élément de sauvegarde est rétablie sur « NotDeleted ». Mais la protection est toujours arrêtée. [Reprenez la sauvegarde](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#change-policy-for-backup-items) pour réactiver la protection.
-
-### <a name="soft-delete-for-vms-using-rest-api"></a>Suppression réversible pour les machines virtuelles avec l'API REST
-
-- Supprimez les sauvegardes à l’aide de l’API REST comme indiqué [ici](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
-- Si l’utilisateur souhaite annuler ces opérations de suppression, reportez-vous aux étapes mentionnées [ici](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
-
-## <a name="disabling-soft-delete"></a>Désactivation de la suppression réversible
+## <a name="enabling-and-disabling-soft-delete"></a>Activation et désactivation de la suppression réversible
 
 La suppression réversible est activée par défaut sur les coffres nouvellement créés pour protéger les données de sauvegarde des suppressions accidentelles ou malveillantes.  La désactivation de cette fonctionnalité est déconseillée. La seule circonstance où vous devez envisager la désactivation de la suppression réversible est lorsque vous vous préparez à déplacer vos éléments protégés vers un nouveau coffre et que vous ne pouvez pas attendre les 14 jours requis avant d’effectuer la suppression et la reprotection (dans un environnement de test, par exemple). Seul le propriétaire du coffre peut désactiver cette fonctionnalité. Si vous désactivez cette fonctionnalité, toutes les suppressions d’éléments protégés à venir entraîneront une suppression immédiate, sans possibilité de restauration. Les données de sauvegarde existant à l’état de suppression réversible avant la désactivation de cette fonctionnalité conservent cet état pendant 14 jours. Si vous souhaitez immédiatement les supprimer définitivement, vous devez en annuler la suppression et les supprimer à nouveau pour les supprimer définitivement.
+
+ Il est important de se rappeler qu’une fois la fonctionnalité de suppression réversible désactivée, elle le reste pour tous les types de charge de travail, notamment les charges de travail SQL Server et SAP HANA. Par exemple, une fois que la [préversion de SQL Server/SAP HANA](https://docs.microsoft.com/azure/backup/soft-delete-sql-saphana-in-azure-vm#steps-to-enroll-in-preview) est activée pour un abonnement, il n’est plus possible de désactiver la suppression réversible uniquement pour les bases de données SQL Server ou SAP HANA, tout en la gardant activée pour les machines virtuelles présentes dans le même coffre. Vous pouvez créer des coffres distincts pour un contrôle plus précis.
 
 ### <a name="disabling-soft-delete-using-azure-portal"></a>Désactivation de la suppression réversible avec le portail Azure
 
@@ -175,10 +68,11 @@ Les données de sauvegarde dans l’état de suppression réversible avant la d�
 
 Procédez comme suit :
 
-1. Suivez les étapes pour [désactiver la suppression réversible](#disabling-soft-delete).
-2. Dans le portail Azure, accédez à votre coffre, accédez à **Éléments de sauvegarde** et choisissez la machine virtuelle supprimée de manière réversible.
+1. Suivez les étapes pour [désactiver la suppression réversible](#enabling-and-disabling-soft-delete).
 
-   ![Choisir la machine virtuelle supprimée de manière réversible](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+2. Dans le portail Azure, accédez à votre coffre, accédez à **Éléments de sauvegarde**, puis choisissez l’élément supprimé de manière réversible.
+
+   ![Choisir l’élément supprimé de manière réversible](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
 3. Sélectionnez l’option **Annuler la suppression**.
 
@@ -243,89 +137,44 @@ Si des éléments ont été supprimés avant que la suppression réversible ne s
 2. Ensuite, désactivez la fonctionnalité de suppression réversible à l’aide de l’API REST en suivant les étapes mentionnées [ici](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
 3. Enfin, supprimez les sauvegardes à l’aide de l’API REST comme indiqué [ici](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
 
-## <a name="encryption"></a>Chiffrement
-
-Toutes vos données sauvegardées sont automatiquement chiffrées lorsqu’elles sont stockées dans le cloud grâce au chiffrement de Stockage Azure, ce qui vous permet de respecter vos engagements en matière de sécurité et de conformité. Ces données au repos sont chiffrées à l’aide du chiffrement AES 256 bits, l’un des chiffrements par blocs les plus puissants actuellement disponibles, et sont conformes à la norme FIPS 140-2.
-
-Outre le chiffrement au repos, toutes vos données de sauvegarde en transit sont transférées via HTTPS. Elles restent toujours sur le réseau principal Azure.
-
-Pour plus d'informations, consultez [Fonctionnalité de chiffrement du service Stockage Azure pour les données au repos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). Reportez-vous au [Forum aux questions sur la sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#encryption) pour connaître les réponses à toutes les questions concernant le chiffrement que vous pouvez vous poser.
-
-### <a name="encryption-of-backup-data-using-platform-managed-keys"></a>Chiffrement des données de sauvegarde à l’aide de clés gérées par la plateforme
-
-Par défaut, toutes vos données sont chiffrées à l’aide de clés gérées par la plateforme. Vous n’avez besoin d’effectuer aucune action explicite pour activer ce chiffrement, et il s’applique à toutes les charges de travail sauvegardées dans votre coffre Recovery Services.
-
-### <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Chiffrement des données de sauvegarde à l’aide de clés gérées par le client
-
-Lors de la sauvegarde de vos machines virtuelles Azure, vous pouvez désormais chiffrer vos données à l’aide de clés détenues et gérées par vous-même. Sauvegarde Azure vous permet d’utiliser vos clés RSA stockées dans le coffre Azure Key Vault pour le chiffrement de vos sauvegardes. La clé de chiffrement utilisée pour le chiffrement des sauvegardes peut être différente de celle utilisée pour la source. Les données sont protégées à l’aide d’une clé de chiffrement des données basée sur l’algorithme AES 256, qui est à son tour protégée à l’aide de vos clés. Cela vous donne un contrôle total sur les données et les clés. Pour permettre le chiffrement, il est nécessaire que le coffre Recovery Services soit autorisé à accéder à la clé de chiffrement dans le coffre Azure Key Vault. Vous pouvez désactiver la clé ou révoquer l’accès à tout moment. Toutefois, vous devez activer le chiffrement à l’aide de vos clés avant d’essayer de protéger les éléments du coffre.
-
->[!NOTE]
->La disponibilité de cette fonctionnalité est actuellement limitée. Si vous souhaitez chiffrer vos données de sauvegarde à l’aide de clés gérées par le client, remplissez [ce questionnaire](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURE9TTDRIUEUyNFhNT1lZS1BNVDdZVllHWi4u) et contactez-nous à l’adresse AskAzureBackupTeam@microsoft.com. Notez que la possibilité d’utiliser cette fonctionnalité est soumise à l’approbation du service Sauvegarde Azure.
-
-### <a name="backup-of-managed-disk-vms-encrypted-using-customer-managed-keys"></a>Sauvegarde de machines virtuelles à disque managé, chiffrées à l’aide de clés gérées par le client
-
-Sauvegarde Azure vous permet également de sauvegarder les machines virtuelles Azure qui utilisent votre clé pour le chiffrement côté serveur. La clé utilisée pour chiffrer les disques est stockée dans le coffre Azure Key Vault et gérée par vous. Le chiffrement côté serveur à l’aide de clés gérées par le client diffère d’Azure Disk Encryption (ADE), dans la mesure où ADE utilise BitLocker (pour Windows) et DM-Crypt (pour Linux) afin d’effectuer un chiffrement dans l’invité. Storage Service Encryption chiffre les données dans le service de stockage, ce qui vous permet d’utiliser n’importe quel système d’exploitation ou n’importe quelle image pour vos machines virtuelles. Pour plus d’informations, consultez [Chiffrement de disques managés avec des clés gérées par le client](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys).
-
-### <a name="backup-of-vms-encrypted-using-ade"></a>Sauvegarde de machines virtuelles chiffrées à l’aide d’ADE
-
-Grâce à Sauvegarde Azure, vous pouvez également sauvegarder vos machines virtuelles Azure dont le système d’exploitation ou les disques de données sont chiffrés à l’aide d’Azure Disk Encryption. ADE utilise BitLocker pour les machines virtuelles Windows et DM-Crypt pour les machines virtuelles Linux afin d’effectuer un chiffrement dans l’invité. Pour plus d’informations, consultez [Sauvegarder et restaurer des machines virtuelles chiffrées avec Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
-
-## <a name="private-endpoints"></a>Points de terminaison privés
-
-[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
-
-## <a name="other-security-features"></a>Autres fonctionnalités de sécurité
-
-### <a name="protection-of-azure-backup-recovery-points"></a>Protection des points de récupération de Sauvegarde Azure
-
-Les comptes de stockage utilisés par les coffres Recovery Services sont isolés et ne sont pas accessibles aux utilisateurs à des fins malveillantes. L’accès est autorisé uniquement par le biais d’opérations de gestion de Sauvegarde Azure, telles que la restauration. Ces opérations de gestion sont contrôlées par le biais du contrôle d’accès en fonction du rôle (RBAC).
-
-Pour plus d’informations, consultez [Utiliser le contrôle d’accès en fonction du rôle pour gérer les points de récupération de Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault).
-
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 
-### <a name="for-soft-delete"></a>Suppression réversible
+### <a name="do-i-need-to-enable-the-soft-delete-feature-on-every-vault"></a>Dois-je activer la fonctionnalité de suppression réversible sur chaque coffre ?
 
-#### <a name="do-i-need-to-enable-the-soft-delete-feature-on-every-vault"></a>Dois-je activer la fonctionnalité de suppression réversible sur chaque coffre ?
+Non, elle est intégrée et activée par défaut pour tous les coffres Recovery Services.
 
-Non, elle est créée et activée par défaut pour tous les coffres Recovery Services.
-
-#### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-delete-operation-is-complete"></a>Puis-je configurer le nombre de jours pendant lesquels mes données sont conservées dans un état de suppression réversible une fois l’opération de suppression terminée ?
+### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-the-delete-operation-is-complete"></a>Puis-je configurer le nombre de jours pendant lesquels mes données sont conservées dans un état de suppression réversible, une fois l’opération de suppression effectuée ?
 
 Non, la durée de conservation supplémentaire après l’opération de suppression est fixée à 14 jours.
 
-#### <a name="do-i-need-to-pay-the-cost-for-this-additional-14-day-retention"></a>Dois-je payer le coût de cette conservation supplémentaire de 14 jours ?
+### <a name="do-i-need-to-pay-the-cost-for-this-additional-14-day-retention"></a>Dois-je payer le coût de cette conservation supplémentaire de 14 jours ?
 
 Non, cette conservation supplémentaire de 14 jours est gratuite dans le cadre de la fonctionnalité de suppression réversible.
 
-#### <a name="can-i-perform-a-restore-operation-when-my-data-is-in-soft-delete-state"></a>Puis-je effectuer une opération de restauration quand mes données sont dans l’état de suppression réversible ?
+### <a name="can-i-perform-a-restore-operation-when-my-data-is-in-soft-delete-state"></a>Puis-je effectuer une opération de restauration quand mes données sont dans l’état de suppression réversible ?
 
 Non, vous devez annuler la suppression de la ressource supprimée de manière réversible pour effectuer la restauration. L’opération d’annulation de suppression replace la ressource dans l’état **Arrêter la protection avec conservation des données**, qui vous permet d’effectuer une restauration à n’importe quel point dans le temps. Le récupérateur de mémoire reste en pause dans cet état.
 
-#### <a name="will-my-snapshots-follow-the-same-lifecycle-as-my-recovery-points-in-the-vault"></a>Mes instantanés suivent-ils le même cycle de vie que mes points de récupération dans le coffre ?
+### <a name="will-my-snapshots-follow-the-same-lifecycle-as-my-recovery-points-in-the-vault"></a>Mes instantanés suivent-ils le même cycle de vie que mes points de récupération dans le coffre ?
 
 Oui.
 
-#### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>Comment puis-je redéclencher des sauvegardes planifiées pour une ressource supprimée de manière réversible ?
+### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>Comment puis-je redéclencher des sauvegardes planifiées pour une ressource supprimée de manière réversible ?
 
-Une annulation de la suppression suivie d’une opération de reprise reprotège la ressource. L’opération de reprise associe une stratégie de sauvegarde pour déclencher les sauvegardes planifiées avec la période de conservation sélectionnée. En outre, le récupérateur de mémoire s’exécute dès que l’opération de reprise est terminée. Si vous souhaitez effectuer une restauration à partir d’un point de récupération qui a dépassé sa date d’expiration, il est recommandé de le faire avant de déclencher l’opération de reprise.
+Une annulation de la suppression suivie d’une opération de reprise reprotège la ressource. L’opération de reprise associe une stratégie de sauvegarde permettant de déclencher les sauvegardes planifiées à la période de conservation sélectionnée. En outre, le récupérateur de mémoire s’exécute dès que l’opération de reprise est terminée. Si vous souhaitez effectuer une restauration à partir d’un point de récupération qui a dépassé sa date d’expiration, il est recommandé de le faire avant de déclencher l’opération de reprise.
 
-#### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>Puis-je supprimer mon coffre s’il contient des éléments supprimés de manière réversible ?
+### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>Puis-je supprimer mon coffre s’il contient des éléments supprimés de manière réversible ?
 
-Le coffre Recovery Services ne peut pas être supprimé s’il contient des éléments de sauvegarde à l’état de suppression réversible. Les éléments supprimés de manière réversible sont définitivement supprimés au bout de 14 jours après l’opération de suppression. Si vous ne pouvez pas attendre 14 jours, [désactivez la suppression réversible](#disabling-soft-delete), annulez la suppression des éléments supprimés de manière réversible et supprimez-les à nouveau pour qu’ils soient définitivement supprimés. Après vous être assuré qu’il n’y a pas d’éléments protégés ou d’éléments supprimés de manière réversible, le coffre peut être supprimé.  
+Le coffre Recovery Services ne peut pas être supprimé s’il contient des éléments de sauvegarde à l’état de suppression réversible. Les éléments supprimés de manière réversible sont définitivement supprimés au bout de 14 jours après l’opération de suppression. Si vous ne pouvez pas attendre 14 jours, [désactivez la suppression réversible](#enabling-and-disabling-soft-delete), annulez la suppression des éléments supprimés de manière réversible et supprimez-les à nouveau pour qu’ils soient définitivement supprimés. Après vous être assuré qu’il n’y a pas d’éléments protégés ou d’éléments supprimés de manière réversible, le coffre peut être supprimé.  
 
-#### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>Puis-je supprimer les données antérieures à la période de suppression réversible de 14 jours après la suppression ?
+### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>Puis-je supprimer les données antérieures à la période de suppression réversible de 14 jours après la suppression ?
 
-Non. Vous ne pouvez pas forcer la suppression des éléments supprimés de manière réversible, ils sont automatiquement supprimés après 14 jours. Cette fonctionnalité de sécurité est activée pour protéger les données sauvegardées contre des suppressions accidentelles ou malintentionnées.  Vous devez attendre 14 jours avant d’effectuer toute autre action sur la machine virtuelle.  Les éléments supprimés de façon réversible ne sont pas facturés.  Si vous avez besoin de reprotéger les machines virtuelles marquées pour une suppression réversible dans un délai de 14 jours dans un nouveau coffre, contactez le support technique Microsoft.
+Non. Vous ne pouvez pas forcer la suppression des éléments supprimés de manière réversible. Ils sont automatiquement supprimés après 14 jours. Cette fonctionnalité de sécurité est activée pour protéger les données sauvegardées contre des suppressions accidentelles ou malintentionnées.  Vous devez attendre 14 jours avant d’effectuer toute autre action sur l’élément.  Les éléments supprimés de manière réversible ne sont pas facturés.  Si vous devez reprotéger les éléments marqués pour une suppression réversible dans un délai de 14 jours dans un nouveau coffre, contactez le Support Microsoft.
 
-#### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>Est-il possible d’effectuer des opérations de suppression réversible dans PowerShell ou CLI ?
+### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>Est-il possible d’effectuer des opérations de suppression réversible dans PowerShell ou CLI ?
 
-Les opérations de suppression réversible peuvent être effectuées à l’aide de [PowerShell](#soft-delete-for-vms-using-azure-powershell). L’interface CLI n’est pas prise en charge.
-
-#### <a name="is-soft-delete-supported-for-other-cloud-workloads-like-sql-server-in-azure-vms-and-sap-hana-in-azure-vms"></a>La suppression réversible est-elle prise en charge pour les autres charges de travail cloud, comme SQL Server sur des machines virtuelles Azure et SAP HANA sur des machines virtuelles Azure ?
-
-Non. La suppression réversible est uniquement prise en charge pour les machines virtuelles Azure.
+Les opérations de suppression réversible peuvent être effectuées à l’aide de PowerShell. L’interface CLI n’est pas prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur les [Contrôles de sécurité pour la Sauvegarde Azure](backup-security-controls.md).
+- [Vue d’ensemble des fonctionnalités de sécurité de Sauvegarde Azure](security-overview.md)

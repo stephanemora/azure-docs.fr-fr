@@ -3,12 +3,12 @@ title: Prise en charge de la migration VMware dans Azure Migrate
 description: Découvrez la prise en charge de la migration VMware dans Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: eee16b244ae4f9d517bdd42a0b7f37b1494ac480
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 666fcc3771dfd4adadeab30fa5d1ec51da5bc038
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538135"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743662"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Tableau de prise en charge pour la migration VMware
 
@@ -69,7 +69,7 @@ La migration sans agent utilise l’[appliance Azure Migrate](migrate-appliance.
 
 - En savoir plus sur les [conditions requises de l’appliance](migrate-appliance.md#appliance---vmware) pour VMware.
 - Découvrez les URL auxquelles l’appliance doit accéder dans les clouds [publics](migrate-appliance.md#public-cloud-urls) et du [secteur public](migrate-appliance.md#government-cloud-urls).
-- Dans Azure Government, vous devez déployer l’appliance à l’aide du script.
+- Dans Azure Government, vous devez déployer l’appliance [avec ce script](deploy-appliance-script-government.md).
 
 ## <a name="agentless-ports"></a>Ports sans agent
 

@@ -1,6 +1,6 @@
 ---
-title: Visualiser vos données à l’aide de tableaux de bord basés sur les classeurs Azure Monitor dans Azure Sentinel | Microsoft Docs
-description: Suivez ce tutoriel pour apprendre à visualiser vos données à l’aide de tableaux de bord basés sur des classeurs dans Azure Sentinel.
+title: Visualiser les données avec les classeurs Azure Monitor dans Azure Sentinel | Microsoft Docs
+description: Suivez ce tutoriel pour apprendre à visualiser vos données avec des classeurs dans Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/01/2020
+ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: b4461ac43e9356536914b345ef28f5de62fc9f82
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f145b75ba351121bf750f90dbc0a7df382ca04b1
+ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77585218"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82739158"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Tutoriel : Visualiser et superviser vos données
 
 
 
-Après avoir  [connecté vos sources de données](quickstart-onboard.md) à Azure Sentinel, vous pouvez visualiser et superviser les données grâce à l’adoption par Azure Sentinel de classeurs Azure Monitor. Vous bénéficiez ainsi d’une solution d’une grande souplesse pour créer des tableaux de bord personnalisés. Même si les classeurs s’affichent différemment dans Azure Sentinel, il peut être utile de savoir [créer des rapports interactifs avec les classeurs Azure Monitor](../azure-monitor/app/usage-workbooks.md). Azure Sentinel vous permet de créer des classeurs personnalisés sur l’ensemble de vos données. Il est également fourni avec des modèles de classeurs intégrés avec lesquels vous obtenez rapidement des insights sur vos données dès que vous connectez une source de données.
+Après avoir [connecté vos sources de données](quickstart-onboard.md) à Azure Sentinel, vous pouvez visualiser et superviser les données grâce à l’adoption par Azure Sentinel de classeurs Azure Monitor, ce qui vous offre une grande souplesse pour créer des tableaux de bord personnalisés. Même si les classeurs s’affichent différemment dans Azure Sentinel, il peut être utile de savoir [créer des rapports interactifs avec les classeurs Azure Monitor](../azure-monitor/app/usage-workbooks.md). Azure Sentinel vous permet de créer des classeurs personnalisés sur l’ensemble de vos données. Il est également fourni avec des modèles de classeurs intégrés avec lesquels vous obtenez rapidement des insights sur vos données dès que vous connectez une source de données.
 
 
 Ce tutoriel vous aide à visualiser vos données dans Azure Sentinel.

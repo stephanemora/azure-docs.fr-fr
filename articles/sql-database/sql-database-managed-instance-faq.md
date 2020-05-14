@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 393d67b200a4f8d44cb001b3a7e2e491209e9d58
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 99fbda6f6d5e8fc88f9f4f34c6e194412a120057
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80364165"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598485"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Forum aux questions sur les instances gérées SQL Database
 
@@ -94,7 +94,13 @@ La commutation en ligne automatisée entre les générations de matériel est po
 
 Il s’agit d’une opération de longue durée car la nouvelle instance gérée sera approvisionnée en arrière-plan et les bases de données seront automatiquement transférées entre l’ancienne et la nouvelle instance, avec un rapide basculement au terme du processus. 
 
+**Que se passe-t-il si les deux générations de matériel ne sont pas prises en charge dans la même région ?**
+
 Si les deux générations de matériel ne sont pas prises en charge dans la même région, la modification de la génération de matériel est possible mais doit être effectuée manuellement. Pour cela, vous devez approvisionner une nouvelle instance dans la région où la génération de matériel souhaitée est disponible, et sauvegarder et restaurer manuellement les données entre l’ancienne et la nouvelle instance.
+
+**Que se passe-t-il s’il n’y a pas suffisamment d’adresses IP pour effectuer une opération de mise à jour ?**
+
+Au cas où il n’y a pas suffisamment d’adresses IP dans le sous-réseau où votre instance gérée est provisionnée, vous devez créer un nouveau sous-réseau et une nouvelle instance gérée dans celui-ci. Nous suggérons également que le nouveau sous-réseau soit créé avec davantage d’adresses IP allouées afin que les opérations de mise à jour futures évitent une situation similaire (pour la taille de sous-réseau appropriée, vérifiez [comment déterminer la taille du sous-réseau d’un réseau virtuel](sql-database-managed-instance-determine-size-vnet-subnet.md)). Une fois la nouvelle instance provisionnée, vous pouvez sauvegarder et restaurer manuellement les données entre l’ancienne instance et la nouvelle, ou effectuer une [restauration dans le temps](sql-database-managed-instance-point-in-time-restore.md?tabs=azure-powershell) entre les instances. 
 
 
 ## <a name="tune-performance"></a>Régler les performances

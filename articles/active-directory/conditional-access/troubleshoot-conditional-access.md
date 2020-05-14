@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 03/13/2020
+ms.date: 04/30/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdf1daca79f3ed20d9b7a89af20d74ff5f3148b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c9a2ab4b1ebc1c958be9dc4bd07a010f7fef8afc
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80337291"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610506"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>Résolution des problèmes de connexion avec l’accès conditionnel
 
@@ -55,8 +55,11 @@ Procédez comme suit pour trouver quelles stratégies d’accès conditionnel on
    1. Les informations de l’onglet **Dépannage et support** peuvent indiquer clairement pourquoi une connexion a échoué, par exemple un appareil ne respectant pas les exigences de conformité.
    1. Pour approfondir vos recherches, explorez la configuration des stratégies en cliquant sur **Nom de la stratégie**. Cliquez sur **Nom de la stratégie** pour afficher l’interface utilisateur de configuration de la stratégie pour la stratégie sélectionnée à des fins de révision et de modification.
    1. **L’utilisateur client** et les **détails sur l’appareil** qui ont été utilisés pour l’évaluation de la stratégie d’accès conditionnel sont également disponibles dans les onglets **Informations de base**, **Emplacement**, **Informations sur l’appareil**, **Détails d’authentification** et **Détails supplémentaires** de l’événement de connexion.
+   1. La sélection des points de suspension à droite de la stratégie permet d’afficher les détails de la stratégie. Les administrateurs peuvent ainsi obtenir des informations supplémentaires sur la raison pour laquelle une stratégie a été correctement appliquée ou non.
 
    ![Événement de connexion - Onglet Accès conditionnel](./media/troubleshoot-conditional-access/image5.png)
+
+   ![Détails de la stratégie (préversion)](./media/troubleshoot-conditional-access/policy-details.png)
 
 Si les informations de l’événement ne suffisent pas à comprendre les résultats de la connexion ou à ajuster la stratégie pour obtenir les résultats souhaités, il est possible d’ouvrir un incident de support. Accédez à l’onglet **Dépannage et support** de cet événement de connexion, puis sélectionnez **Créer une demande de support**.
 

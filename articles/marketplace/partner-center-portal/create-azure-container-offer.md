@@ -1,5 +1,5 @@
 ---
-title: Créer une offre de conteneur Azure dans l’Espace partenaires - Place de marché Azure
+title: Créer une offre de conteneur Azure – Place de marché Azure
 description: Cet article explique comment créer et publier une offre de conteneur sur la Place de marché Azure.
 author: mingshen
 ms.author: mingshen
@@ -7,27 +7,27 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/07/2020
-ms.openlocfilehash: 3170849955485c0d098ed9f39c22332456e46fe4
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: f2a3b6355fdaa8cd90525fac9d29324270dfad02
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81867361"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791933"
 ---
 # <a name="create-an-azure-container-offer"></a>Créer une offre de conteneur Azure
 
 > [!IMPORTANT]
-> Nous allons déplacer la gestion de vos offres Azure Container du portail Cloud Partner vers l’Espace partenaires. Tant que vous n’avez pas effectué la migration de vos offres, suivez les instructions de [Conteneurs](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) dans le portail Cloud Partner pour la gestion de vos offres.
+> Nous déplaçons la gestion de vos offres de conteneur Azure du portail Cloud Partner vers l’Espace partenaires. Tant que vous n’avez pas effectué la migration de vos offres, suivez les instructions de [Conteneurs](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) dans le portail Cloud Partner pour la gestion de vos offres.
 
-Cet article explique comment créer et publier une offre de conteneur sur la Place de marché Azure. Avant de commencer, [créez un compte Place de marché commerciale dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+Cet article explique comment créer et publier une offre de conteneur sur la Place de marché Azure. Avant de commencer, si ce n’est déjà fait, [créez un compte de la Place de marché commerciale dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account). Vérifiez que votre compte est inscrit dans le programme du marketplace commercial.
 
 ## <a name="create-a-new-offer"></a>Créer une offre
 
-1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home) dans le menu supérieur, puis sélectionnez **Tableau de bord**.
-2. Dans le menu de gauche, sélectionnez **Place de marché commerciale**, puis **Vue d’ensemble**.
-3. Dans la page **Vue d’ensemble**, sélectionnez **+Nouvelle offre**, puis **Conteneur Azure**. La boîte de dialogue **Nouvelle offre** s’affiche.
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+2. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Vue d’ensemble**.
+3. Dans la page de présentation, sélectionnez **+ Nouvelle offre** > **Conteneur Azure**.
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-new-container.png" alt-text="Illustration de la page Vue d’ensemble dans l’Espace partenaires. Le bouton Nouvelle offre et l’offre de Services de conseil sont mis en surbrillance.":::
+    ![Illustre le menu de navigation de gauche.](./media/new-offer-azure-container.png)
 
 > [!TIP]
 > Après la publication d’une offre, les modifications qui lui ont été apportées dans l’Espace partenaires apparaissent uniquement dans les vitrines après la republication de l’offre. Veillez à toujours effectuer une nouvelle publication après avoir apporté des modifications.
@@ -40,12 +40,12 @@ Entrez un **ID d’offre**. Il s’agit d’un identificateur unique par offre d
 - Utilisez uniquement des lettres minuscules et des chiffres. Il peut inclure des traits d’union et des traits de soulignement, mais pas d’espaces, et est limité à 50 caractères. Par exemple, si vous entrez **test-offer-1**, l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - L’ID d’offre ne peut pas être changé une fois que vous avez sélectionné **Créer**.
 
-**Entrez un** **alias d’offre**. Il s’agit du nom utilisé pour faire référence à l’offre dans l’Espace partenaires.
+Entrez un **Alias d’offre**. Il s’agit du nom attribué à l’offre dans l’Espace partenaires.
 
 - Ce nom n’est pas utilisé dans la Place de marché et est différent du nom de l’offre et des autres informations présentées aux clients.
 - Cet alias ne peut pas être changé une fois que vous avez sélectionné **Créer**.
 
-Sélectionnez **Créer** avant de continuer.
+Sélectionnez **Créer** pour générer l’offre et continuer.
 
 ## <a name="offer-overview"></a>Vue d’ensemble de l’offre
 
@@ -64,7 +64,7 @@ Effectuez les étapes suivantes pour configurer votre offre.
 
 ### <a name="connect-lead-management--optional"></a>Connecter la gestion des prospects - Facultatif
 
-Lors de la publication de votre offre sur la Place de marché avec l’Espace partenaires, vous pouvez la connecter à votre système de gestion des relations avec la clientèle (CRM). Cela vous permet de recevoir les coordonnées des clients dès qu’une personne exprime son intérêt ou utilise votre produit.
+Lors de la publication de votre offre sur la Place de marché commerciale avec l’Espace partenaires, vous pouvez la connecter à votre système de Gestion des relations avec la clientèle (CRM). Cela vous permet de recevoir les coordonnées des clients dès qu’une personne exprime son intérêt ou utilise votre produit.
 
 1. **Sélectionnez une destination de prospect afin de diriger les prospects vers le système de votre choix**. L’Espace partenaires prend en charge les systèmes CRM suivants :
 
@@ -83,10 +83,10 @@ Voici des ressources de gestion des prospects supplémentaires :
 
 - [Vue d’ensemble de la gestion des prospects](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [Questions fréquentes sur la gestion des prospects](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Erreurs courantes de configuration des prospects](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Erreurs courantes de configuration des prospects](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
 - PDF [Vue d’ensemble de la gestion des prospects](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (Assurez-vous que votre bloqueur de fenêtres publicitaires est désactivé)
 
-Sélectionnez **Enregistrer le brouillon** avant de passer à la section suivante, Propriétés.
+Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
 ### <a name="properties"></a>Propriétés
 

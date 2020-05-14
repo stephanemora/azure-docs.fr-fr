@@ -1,17 +1,17 @@
 ---
 title: Cache local
-description: Découvrez comment le cache local fonctionne dans Azure App Service et comment activer, redimensionner et interroger l’état du cache local de votre application.
+description: Découvrez comment le cache local fonctionne dans Azure App Service, et comment activer, redimensionner et interroger l’état du cache local de votre application.
 tags: optional
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: 1945730acaddb0c1c7ee1b28eeb926635efad643
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a1fc4de572fbb8634f8f58452ce5f9b632023a5
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78227879"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628791"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Présentation du cache local d’Azure App Service
 
@@ -19,7 +19,7 @@ ms.locfileid: "78227879"
 > Le cache local n’est pas pris en charge dans les applications de fonction ni dans les applications App Service en conteneur, telles que dans [Conteneurs Windows](app-service-web-get-started-windows-container.md) ou sur [App Service sur Linux](containers/app-service-linux-intro.md).
 
 
-Le contenu Azure App Service est stocké sur Stockage Azure est exposé de manière durable en tant que partage de contenu. Destinée à fonctionner avec de nombreuses applications, cette conception présente les caractéristiques suivantes :  
+Le contenu Azure App Service est stocké dans le Stockage Azure et est exposé de manière durable en tant que partage de contenu. Destinée à fonctionner avec de nombreuses applications, cette conception présente les caractéristiques suivantes :  
 
 * Le contenu est partagé entre plusieurs instances de machine virtuelle de l’application.
 * Le contenu est durable et peut être modifié en exécutant des applications.
@@ -36,7 +36,7 @@ La fonctionnalité de cache local d’Azure App Service fournit une vue de rôle
 
 ## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Comment le cache local change le comportement d’App Service
 * _D:\home_ pointe vers le cache local, qui est créé sur l’instance de machine virtuelle au démarrage de l’application. _D:\local_ continue de pointer vers le stockage propre à la machine virtuelle temporaire.
-* Le cache local contient une copie unique des dossiers _/site_ et _/siteextensions_ du magasin de contenu partagé dans _D:\home\site_ et _D:\home\siteextensions_, respectivement. Les fichiers sont copiés dans le cache local au démarrage de l’application. La taille des deux dossiers pour chaque application est limitée à 300 Mo par défaut, mais vous pouvez l’augmenter jusqu’à 2 Go. Si les fichiers copiés dépassent la taille du cache local, App Service ignore silencieusement le cache local et lit à partir du partage de fichiers distant.
+* Le cache local contient une copie unique des dossiers _/site_ et _/siteextensions_ du magasin de contenu partagé dans _D:\home\site_ et _D:\home\siteextensions_, respectivement. Les fichiers sont copiés dans le cache local, au démarrage de l’application. La taille des deux dossiers pour chaque application est limitée à 1 Go par défaut, mais vous pouvez l’augmenter à 2 Go. Notez que le temps de chargement du cache s’allonge proportionnellement à l’augmentation de la taille du cache. Si les fichiers copiés dépassent la taille du cache local, App Service ignore silencieusement le cache local et lit à partir du partage de fichiers distant.
 * Le cache local est en lecture-écriture. Toutefois, toute modification est ignorée quand l’application change de machine virtuelle ou est redémarrée. N’utilisez pas le cache local pour des applications qui stockent des données stratégiques dans le magasin de contenu.
 * _D:\home\LogFiles_ et _D:\home\Data_ contiennent des fichiers journaux et des données d’application. Les deux sous-dossiers sont stockés localement sur l’instance de machine virtuelle et sont copiés régulièrement dans le magasin de contenu partagé. Les applications peuvent conserver des fichiers journaux et des données en les écrivant dans ces dossiers. Toutefois, la copie dans le magasin de contenu partagé est une technique de « meilleur effort », vous n’êtes donc pas à l’abri d’une perte des fichiers journaux et des données en cas d’incident soudain sur une instance de machine virtuelle.
 * Le [streaming des journaux](troubleshoot-diagnostic-logs.md#stream-logs) est affecté par la copie de « meilleur effort ». Vous pouvez observer jusqu’à une minute de délai dans les journaux d’activité diffusés en continu.
@@ -56,7 +56,7 @@ Configurez le cache local à l’aide d’une combinaison de paramètres d’app
 
 Activez le cache local pour chaque application web en utilisant ce paramètre d’application : `WEBSITE_LOCAL_CACHE_OPTION` = `Always`  
 
-![Paramètres d’application du portail Azure : cache local](media/app-service-local-cache-overview/app-service-local-cache-configure-portal.png)
+![Paramètres d’application du Portail Azure : cache local](media/app-service-local-cache-overview/app-service-local-cache-configure-portal.png)
 
 ### <a name="configure-local-cache-by-using-azure-resource-manager"></a>Configurer le cache local à l’aide d’Azure Resource Manager
 <a name="Configure-Local-Cache-ARM"></a>
@@ -75,7 +75,7 @@ Activez le cache local pour chaque application web en utilisant ce paramètre d�
 
     "properties": {
         "WEBSITE_LOCAL_CACHE_OPTION": "Always",
-        "WEBSITE_LOCAL_CACHE_SIZEINMB": "300"
+        "WEBSITE_LOCAL_CACHE_SIZEINMB": "1000"
     }
 }
 
@@ -83,7 +83,7 @@ Activez le cache local pour chaque application web en utilisant ce paramètre d�
 ```
 
 ## <a name="change-the-size-setting-in-local-cache"></a>Modifier le paramètre de taille dans le cache local
-Par défaut, la taille du cache local est de **300 Mo**. Elle inclut les dossiers /site et /siteextensions qui sont copiés à partir du magasin de contenu, ainsi que tous les dossiers de journaux d’activité et de données créés localement. Pour augmenter cette limite, utilisez le paramètre d’application `WEBSITE_LOCAL_CACHE_SIZEINMB`. Vous pouvez augmenter la taille jusqu’à **2 Go** (2000 Mo) par application.
+Par défaut, la taille du cache local est de **1 Go**. Elle inclut les dossiers /site et /siteextensions qui sont copiés à partir du magasin de contenu, ainsi que tous les dossiers de journaux d’activité et de données créés localement. Pour augmenter cette limite, utilisez le paramètre d’application `WEBSITE_LOCAL_CACHE_SIZEINMB`. Vous pouvez augmenter la taille jusqu’à **2 Go** (2000 Mo) par application. Notez que le temps de chargement du cache s’allonge proportionnellement à l’augmentation de sa taille.
 
 ## <a name="best-practices-for-using-app-service-local-cache"></a>Bonnes pratiques pour utiliser le cache local d’App Service
 Nous vous recommandons d’utiliser le cache local conjointement avec la fonctionnalité [Environnements de préproduction](../app-service/deploy-staging-slots.md) .

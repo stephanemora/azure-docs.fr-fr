@@ -1,6 +1,6 @@
 ---
-title: Ajouter ou supprimer des attributions de rôles avec le RBAC et le Portail Azure
-description: Découvrez comment accorder l’accès aux ressources Azure pour les utilisateurs, groupes, principaux de service ou identités managées à l’aide du contrôle d’accès en fonction du rôle (RBAC) Azure et du portail Azure.
+title: Ajouter ou supprimer des attributions de rôle Azure avec le portail Azure - Azure RBAC
+description: Découvrez comment accorder l’accès aux ressources Azure pour les utilisateurs, groupes, principaux de service ou identités managées à l’aide du portail Azure et du contrôle d’accès en fonction du rôle Azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 01/25/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e2458b07602bca3b6f12b2f486b509c11d705461
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 88cb1e9893e0ca058e57ce12f00747a59248fb19
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225585"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735689"
 ---
-# <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Ajouter ou supprimer des attributions de rôles avec le RBAC Azure et le portail Azure
+# <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Ajouter ou supprimer des attributions de rôle Azure à l’aide du portail Azure
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Cet article explique comment attribuer des rôles à l’aide du portail Azure.
 
@@ -143,7 +143,7 @@ Dans Azure RBAC, vous devez supprimer une attribution de rôle pour supprimer l�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Lister les attributions de rôles à l’aide du RBAC Azure et du portail Azure](role-assignments-list-portal.md)
-- [Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et du portail Azure](quickstart-assign-role-user-portal.md)
-- [Résoudre des problèmes liés au contrôle d'accès en fonction du rôle pour les ressources Azure](troubleshooting.md)
+- [Répertorier les attributions de rôle Azure à l’aide du portail Azure](role-assignments-list-portal.md)
+- [Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du portail Azure](quickstart-assign-role-user-portal.md)
+- [Résoudre les problèmes liés à Azure RBAC](troubleshooting.md)
 - [Organiser vos ressources avec des groupes d’administration Azure](../governance/management-groups/overview.md)

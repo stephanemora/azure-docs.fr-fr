@@ -1,6 +1,6 @@
 ---
-title: Ajouter ou supprimer des attributions de rôles pour les utilisateurs externes à l’aide du RBAC et du Portail Azure
-description: Découvrez comment accorder l’accès aux ressources Azure pour les utilisateurs externes à une organisation à l’aide du contrôle d’accès en fonction du (RBAC) Azure.
+title: Ajouter ou supprimer des attributions de rôle Azure pour des utilisateurs externes à l’aide du portail Azure – Azure RBAC
+description: Découvrez comment accorder l’accès aux ressources Azure pour les utilisateurs externes à une organisation en utilisant le portail Azure et le contrôle d’accès en fonction du rôle Azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,18 +16,18 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 1c440b85f792ac5bb1336f4d20f930aafc38ad7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 568cb7602d9cb454685ef69e820288bcc68563c4
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79225365"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735757"
 ---
-# <a name="add-or-remove-role-assignments-for-external-guest-users-using-azure-rbac-and-the-azure-portal"></a>Ajouter ou supprimer des attributions de rôles pour les utilisateurs invités externes à l’aide du RBAC Azure et du portail Azure
+# <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Ajouter ou supprimer des attributions de rôle Azure pour des utilisateurs invités externes à l’aide du portail Azure
 
-La fonctionnalité de [contrôle d’accès en fonction du rôle (RBAC) Azure ](overview.md) permet une meilleure gestion de la sécurité pour les grandes organisations et pour les PME travaillant avec des collaborateurs externes, des fournisseurs ou des travailleurs indépendants qui doivent pouvoir accéder à des ressources spécifiques de votre environnement, mais pas nécessairement à l’ensemble de l’infrastructure ou aux étendues liées à la facturation. Vous pouvez utiliser les fonctionnalités offertes dans [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) pour collaborer avec des utilisateurs invités externes. Vous pouvez aussi utiliser le contrôle d’accès en fonction du rôle (RBAC) pour accorder uniquement les autorisations dont les utilisateurs invités ont besoin dans votre environnement.
+La fonctionnalité de [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](overview.md) permet une meilleure gestion de la sécurité pour les grandes organisations et pour les PME travaillant avec des collaborateurs, fournisseurs ou travailleurs indépendants externes qui doivent pouvoir accéder à des ressources spécifiques de votre environnement, mais pas nécessairement à l’ensemble de l’infrastructure ou à des étendues liées à la facturation. Vous pouvez utiliser les fonctionnalités disponibles dans [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) pour collaborer avec des utilisateurs invités externes. Vous pouvez aussi utiliser le contrôle d’accès en fonction du rôle (RBAC) pour n’accorder que les autorisations dont les utilisateurs invités ont besoin dans votre environnement.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour ajouter ou supprimer des attributions de rôles, vous devez disposer :
 
@@ -69,7 +69,7 @@ Pour plus d’informations sur le processus d’invitation, consultez [Utilisati
 
 ## <a name="add-a-role-assignment-for-a-guest-user"></a>Ajouter une attribution de rôle pour un utilisateur invité
 
-Dans le contrôle d’accès en fonction du rôle, vous attribuez un rôle pour accorder l’accès. Pour ajouter une attribution de rôle pour un utilisateur invité, vous suivez les [mêmes étapes](role-assignments-portal.md#add-a-role-assignment) que pour un utilisateur membre, un groupe, un principal du service ou une identité managée. Suivez ces étapes pour ajouter une attribution de rôle pour un utilisateur invité dans différentes étendues.
+Dans Azure RBAC, vous attribuez un rôle pour accorder un accès. Pour ajouter une attribution de rôle pour un utilisateur invité, vous suivez les [mêmes étapes](role-assignments-portal.md#add-a-role-assignment) que pour un utilisateur membre, un groupe, un principal du service ou une identité managée. Suivez ces étapes pour ajouter une attribution de rôle pour un utilisateur invité dans différentes étendues.
 
 1. Dans le portail Azure, cliquez sur **Tous les services**.
 

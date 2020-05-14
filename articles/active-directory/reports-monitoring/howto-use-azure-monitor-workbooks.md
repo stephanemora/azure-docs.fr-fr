@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2e94d9f56a865999f9169650f621a6af892c27ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 094939ee62046c72f07ac46f0781e687034f731f
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74014377"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690628"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Comment utiliser des classeurs Azure Monitor pour créer des rapports Azure Active Directory
 
@@ -42,7 +42,7 @@ Vous voulez...
 
 - Acquérez une meilleure compréhension des requêtes de journal de connexion, le classeur signalant le nombre d’utilisateurs auxquels l’accès a été accordé ou refusé, ainsi que le nombre d’utilisateurs ayant contourné les stratégies d’accès conditionnel lors de l’accès aux ressources.
 
-- Pour vous aider à résoudre ces problèmes, Active Directory fournit des classeurs, à des fins de surveillance. Les [classeurs Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) regroupent du texte, des requêtes Analytics, des mesures et des paramètres sous la forme de rapports interactifs riches en contenu.
+- Pour vous aider à résoudre ces problèmes, Azure Active Directory fournit des classeurs à des fins de supervision. Les [classeurs Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) regroupent du texte, des requêtes Analytics, des mesures et des paramètres sous la forme de rapports interactifs riches en contenu.
 
 
 
@@ -58,7 +58,7 @@ Cet article :
 
 Pour pouvoir utiliser les classeurs Azure Monitor, vous devez disposer des éléments suivants :
 
-- Un locataire Azure Active Directory avec une licence premium (P1/P2). Découvrez comment [obtenir une licence premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+- Un locataire Azure Active Directory avec une licence Premium (P1 ou P2). Découvrez comment [obtenir une licence premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
 - Un [espace de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 

@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 1d08770d81ade2d976142b2ce1fd94dae044cf32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7feb6282f3a3551e08d1bb8db2cf6ad2fcd754a8
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461393"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626154"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Une vue d’ensemble des fonctionnalités de sécurité d’Azure SQL Database
 
@@ -30,7 +30,7 @@ Microsoft Azure SQL Database fournit un service de base de données relationnell
 
 ### <a name="ip-firewall-rules"></a>Règles de pare-feu IP
 
-Les règles de pare-feu IP octroient l’accès à la base de données en fonction de l’adresse IP d’origine de chaque requête. Pour plus d’informations, consultez [Vue d’ensemble des règles de pare-feu Azure SQL Database et SQL Data Warehouse](sql-database-firewall-configure.md).
+Les règles de pare-feu IP octroient l’accès à la base de données en fonction de l’adresse IP d’origine de chaque requête. Pour plus d’informations, consultez [Vue d’ensemble des règles de pare-feu Azure SQL Database et Azure Synapse Analytics](sql-database-firewall-configure.md).
 
 ### <a name="virtual-network-firewall-rules"></a>Règles de pare-feu de réseau virtuel
 
@@ -56,7 +56,7 @@ L’authentification est le processus consistant à prouver que l’utilisateur 
 
 - **Authentification Azure Active Directory** :
 
-    L’authentification Azure Active Directory est un mécanisme servant à se connecter à [Azure SQL Database](sql-database-technical-overview.md) et [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) à l’aide d’identités dans Azure Active Directory (Azure AD). L’authentification Azure AD permet aux administrateurs de gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé. Cela permet de réduire le stockage des mots de passe et d'activer des stratégies de rotation centralisée des mots de passe.
+    L’authentification Azure Active Directory est un mécanisme qui sert à se connecter à [Azure SQL Database](sql-database-technical-overview.md) et [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) à l’aide d’identités se trouvant dans Azure Active Directory (Azure AD). L’authentification Azure AD permet aux administrateurs de gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé. Cela permet de réduire le stockage des mots de passe et d'activer des stratégies de rotation centralisée des mots de passe.
 
      Un administrateur de serveur appelé **administrateur Active Directory** doit être créé pour utiliser l’authentification Azure AD avec SQL Database. Pour plus d’informations, consultez [Connexion à SQL Database avec l’authentification Azure Active Directory](sql-database-aad-authentication.md). L’authentification Azure AD prend en charge les comptes managés et fédérés. Les comptes fédérés prennent en charge les utilisateurs et groupes Windows pour un domaine de client fédéré avec Azure AD.
 
@@ -97,7 +97,7 @@ Advanced Threat Protection analyse les journaux SQL Server afin de détecter d�
 
 SQL Database sécurise les données client en utilisant le protocole [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) pour chiffrer les données en mouvement.
 
-SQL Server applique en permanence le chiffrement (SSL/TLS) aux connexions. De cette façon, toutes les données sont chiffrées « en transit » entre le client et le serveur, quel que soit le paramètre **Encrypt** ou **TrustServerCertificate** de la chaîne de connexion.
+SQL Server applique en permanence le chiffrement (TLS) à toutes les connexions. De cette façon, toutes les données sont chiffrées « en transit » entre le client et le serveur, quel que soit le paramètre **Encrypt** ou **TrustServerCertificate** de la chaîne de connexion.
 
 Dans la chaîne de connexion de votre application, nous vous recommandons de spécifier une connexion chiffrée et de ne _**pas**_ approuver le certificat de serveur. L’application étant contrainte de vérifier le certificat de serveur, elle n’est donc pas vulnérable aux attaques de type intercepteur.
 

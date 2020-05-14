@@ -1,23 +1,17 @@
 ---
-title: Recommandations en matière d’optimisation des performances d’Azure Data Lake Storage Gen1 Storm | Microsoft Docs
-description: Recommandations en matière d’optimisation des performances d’Azure Data Lake Storage Gen1 Storm
-services: data-lake-store
-documentationcenter: ''
+title: Optimisation des performances - Storm sur Azure Data Lake Storage Gen1
+description: Découvrez nos conseils sur l’optimisation des performances d’un cluster Storm sur Azure Data Lake Storage Gen1.
 author: stewu
-manager: amitkul
-editor: stewu
-ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 8066a759cf80be6e9ca232bcd3693a5fa4d2f2f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85a38a4da65d1b4a669a41eba902b39508e9216c
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61436475"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691645"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Recommandations en matière d’optimisation des performances pour Storm sur HDInsight et Azure Data Lake Storage Gen1
 
@@ -42,7 +36,7 @@ Vous pouvez améliorer les performances en augmentant l’accès concurrentiel d
 
 Par exemple, sur un cluster avec 4 machines virtuelles et 4 processus Worker, 32 exécuteurs de Spout et 32 tâches de Spout, 256 exécuteurs de Bolt et 512 tâches de Bolt, prenez en compte les aspects suivants :
 
-Chaque superviseur, qui est un nœud Worker, a un seul processus Worker de machine virtuelle Java. Ce processus de machine virtuelle Java gère 4 threads de Spout et 64 threads de Bolt. Au sein de chaque thread, les tâches sont exécutées séquentiellement. Avec la configuration précédente, chaque thread de Spout comporte 1 tâche, et chaque thread de Bolt comporte 2 tâches.
+Chaque superviseur, qui est un nœud Worker, a un seul processus Worker de machine virtuelle Java. Ce processus de machine virtuelle Java gère 4 threads de Spout et 64 threads de Bolt. Au sein de chaque thread, les tâches sont exécutées séquentiellement. Avec la configuration précédente, chaque thread de Spout comporte une tâche, et chaque thread de Bolt comporte deux tâches.
 
 Dans Storm, voici les différents composants impliqués et leur impact sur le niveau de parallélisme que vous obtenez :
 * Le nœud principal (appelé Nimbus dans Storm) est utilisé pour envoyer et gérer les travaux. Ces nœuds n’ont aucun impact sur le degré de parallélisme.
@@ -59,9 +53,9 @@ Lorsque vous travaillez avec Data Lake Storage Gen1, vous obtenez des performanc
 
 ### <a name="example-topology"></a>Exemple de topologie
 
-Supposons que vous disposez d’un cluster de 8 nœuds Worker avec une machine virtuelle Azure D13v2. Cette machine virtuelle a 8 cœurs, donc sur les 8 nœuds Worker, vous avez un total de 64 cœurs.
+Supposons que vous avez un cluster de huit nœuds Worker avec une machine virtuelle Azure D13v2. Cette machine virtuelle ayant huit cœurs, sur les huit nœuds Worker, vous avez un total de 64 cœurs.
 
-Supposons que nous utilisons 8 threads bolt par cœur. Avec 64 cœurs, nous voulons 512 instances (c’est-à-dire les threads) d’exécuteur de Bolt au total. Dans ce cas, supposons que nous commençons avec une machine virtuelle Java par machine virtuelle et utilisons principalement l’accès concurrentiel des threads dans la machine virtuelle Java pour obtenir l’accès concurrentiel. Cela signifie que nous avons besoins de 8 tâches worker (une par machine virtuelle Azure) et 512 exécuteurs bolt. Avec cette configuration, Storm va tenter de distribuer les Workers uniformément entre les nœuds Worker (également appelés nœuds superviseurs), en donnant à chaque nœud Worker une machine virtuelle Java. À présent dans l’exemple, Storm tente de distribuer les exécuteurs uniformément entre les superviseurs, en donnant à chaque superviseur (c’est-à-dire chaque machine virtuelle Java) 8 threads chacun.
+Supposons que nous utilisons huit threads de Bolt par cœur. Avec 64 cœurs, nous voulons 512 instances (c’est-à-dire les threads) d’exécuteur de Bolt au total. Dans ce cas, supposons que nous commençons avec une machine virtuelle Java par machine virtuelle et utilisons principalement l’accès concurrentiel des threads dans la machine virtuelle Java pour obtenir l’accès concurrentiel. Cela signifie que nous avons besoin de huit tâches Worker (une par machine virtuelle Azure) et de 512 exécuteurs de Bolt. Avec cette configuration, Storm tente de distribuer les Workers uniformément entre les nœuds Worker (également appelés nœuds superviseurs), en donnant à chaque nœud Worker une machine virtuelle Java. À présent dans l’exemple, Storm tente de distribuer les exécuteurs uniformément entre les superviseurs, en donnant à chaque superviseur (c’est-à-dire chaque machine virtuelle Java) huit threads chacun.
 
 ## <a name="tune-additional-parameters"></a>Ajuster les paramètres supplémentaires
 Une fois que vous avez la topologie de base, vous pouvez envisager de modifier les paramètres :
@@ -85,7 +79,7 @@ Vous pouvez modifier les paramètres suivants pour ajuster le Spout.
   Un bon calcul à faire est l’estimation de la taille de chacun de vos tuples. Ensuite, calculez la quantité de mémoire par thread spout. La mémoire totale allouée à un thread divisée par cette valeur devrait vous donner la limite supérieure pour le paramètre de nombre maximal de Spouts en attente.
 
 ## <a name="tune-the-bolt"></a>Ajuster le Bolt
-Lorsque vous écrivez sur Data Lake Storage Gen1, définissez une stratégie de synchronisation de taille (tampon du côté client) sur 4 Mo. Un vidage ou une hsync() est ensuite effectué uniquement lorsque la taille du tampon atteint cette valeur. Le pilote Data Lake Storage Gen1 sur la machine virtuelle Worker effectue automatiquement cette mise en tampon, à moins que vous exécutiez explicitement une hsync().
+Lorsque vous écrivez sur Data Lake Storage Gen1, définissez une stratégie de synchronisation de taille (tampon du côté client) sur 4 Mo. Un vidage ou une opération hsync() est ensuite effectué uniquement lorsque la taille du tampon atteint cette valeur. Le pilote Data Lake Storage Gen1 sur la machine virtuelle Worker effectue automatiquement cette mise en tampon, à moins que vous exécutiez explicitement une hsync().
 
 Le Bolt Storm par défaut de Data Lake Storage Gen1 possède un paramètre de stratégie de synchronisation de taille (fileBufferSize) qui peut être utilisé pour ajuster ce paramètre.
 
@@ -95,7 +89,7 @@ Dans les topologies intensives en E/S, il est judicieux que chaque thread de Bol
 
 Dans Storm, un Spout conserve un tuple jusqu’à ce qu’il soit accepté explicitement par le Bolt. Si un tuple a été lu par le Bolt, mais qu’il n’a pas encore été accepté, le Spout peut ne pas avoir été conservé dans le back end Data Lake Storage Gen1. Une fois qu’un tuple est accepté, la persistance du Spout peut être garantie par le Bolt. Il peut donc supprimer les données source, quelle que soit la source utilisée pour la lecture.  
 
-Pour obtenir des performances optimales sur Data Lake Storage Gen1, le Bolt doit mettre en mémoire tampon 4 Mo de données de tuple. Écrivez ensuite sur le back end Data Lake Storage Gen1 sous la forme d’une écriture de 4 Mo. Une fois les données correctement écrites dans le magasin (en appelant hflush()), le Bolt peut accuser réception des données auprès du Spout. C’est ce que l’exemple de bolt fourni ici effectue. Il est également acceptable de contenir de grands nombres de tuples avant d’appeler hflush() et d’accuser réception des tuples. Toutefois, cela augmente le nombre de tuples en cours de vérification que le spout doit contenir, et par conséquent la quantité de mémoire requise par machine virtuelle Java.
+Pour obtenir des performances optimales sur Data Lake Storage Gen1, le Bolt doit mettre en mémoire tampon 4 Mo de données de tuple. Écrivez ensuite sur le back-end Data Lake Storage Gen1 sous la forme d’une écriture de 4 Mo. Une fois les données correctement écrites dans le magasin (en appelant hflush()), le Bolt peut accuser réception des données auprès du Spout. C’est ce que l’exemple de bolt fourni ici effectue. Il est également acceptable de contenir de grands nombres de tuples avant d’appeler hflush() et d’accuser réception des tuples. Toutefois, cela augmente le nombre de tuples en cours de vérification que le spout doit contenir, et par conséquent la quantité de mémoire requise par machine virtuelle Java.
 
 > [!NOTE]
 > Les applications peuvent avoir l’obligation d’accuser réception des tuples plus fréquemment (à des tailles de données inférieures à 4 Mo) pour d’autres raisons non liées aux performances. Toutefois, cela peut affecter le débit d’E/S pour le serveur principal de stockage. Évaluez ce compromis par rapport aux performances d’E/S du Bolt.
@@ -104,7 +98,7 @@ Si le taux de tuples entrants n’est pas élevé, le remplissage de la mémoire
 * Réduisant le nombre de Bolts, pour qu’il y ait moins de tampons à remplir.
 * Utilisant une stratégie basée sur le temps ou le décompte, avec un hflush() déclenché tous les x vidages ou toutes les y millisecondes, et un accusé de réception des tuples alors accumulés.
 
-Notez que dans ce cas le débit est plus faible, mais avec un rythme d’événements faible, le débit maximal n’est de toute façon pas l’objectif principal. Ces solutions vous permettent de réduire le temps total nécessaire à un tuple pour circuler vers le magasin. Cela peut avoir une importance si vous souhaitez un pipeline en temps réel, même avec un taux d’événements faible. Notez également que si votre débit entrant de tuples est faible, vous devrez ajuster le paramètre topology.message.timeout_secs pour que les tuples n’expirent pas pendant qu’ils sont mis en mémoire tampon ou traités.
+Dans ce cas, le débit est plus faible, mais avec un rythme d’événements faible, le débit maximal n’est de toute façon pas l’objectif principal. Ces solutions vous permettent de réduire le temps total nécessaire à un tuple pour circuler vers le magasin. Cela peut avoir une importance si vous souhaitez un pipeline en temps réel, même avec un taux d’événements faible. Notez également que si votre débit entrant de tuples est faible, vous devrez ajuster le paramètre topology.message.timeout_secs pour que les tuples n’expirent pas pendant qu’ils sont mis en mémoire tampon ou traités.
 
 ## <a name="monitor-your-topology-in-storm"></a>Surveiller votre topologie dans Storm  
 Lorsque votre topologie est en cours d’exécution, vous pouvez la surveiller dans l’interface utilisateur de Storm. Voici les principaux paramètres à examiner :

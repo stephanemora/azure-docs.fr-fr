@@ -3,12 +3,12 @@ title: Améliorer les performances des applications Azure avec Azure Advisor
 description: Utilisez Advisor pour optimiser les performances de vos déploiements Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 405ec395feeb33b8511b9b915151b2ed9503c371
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ff9b8fb9494c887397947f009b22cdc89d8f70b5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443055"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787938"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Améliorer les performances des applications Azure avec Azure Advisor
 
@@ -28,6 +28,10 @@ Le conseiller vous offre une vue cohérente et consolidée des recommandations p
 > Pour obtenir des recommandations, une base de données doit avoir été utilisée pendant environ une semaine et avoir fait l’objet d’une activité cohérente au cours de cette semaine. SQL Database Advisor peut plus facilement optimiser les modèles de requête cohérents que les pics d’activité aléatoires.
 
 Pour plus d’informations sur SQL Database Advisor, consultez la page [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
+
+## <a name="upgrade-your-storage-client-library-to-the-latest-version-for-better-reliability-and-performance"></a>Mettre à niveau votre bibliothèque cliente de stockage vers la dernière version afin d’optimiser la fiabilité et les performances
+
+La dernière version de la bibliothèque cliente de stockage ou du Kit de développement logiciel (SDK) contient des correctifs pour les problèmes signalés par les clients et identifiés de manière proactive par notre processus d’assurance qualité. La dernière version offre également une optimisation de la fiabilité et des performances en plus de nouvelles fonctionnalités qui peuvent améliorer votre expérience globale d’utilisation du Stockage Azure. Advisor fournit des recommandations, ainsi que les étapes à suivre pour effectuer une mise à niveau vers la dernière version du SDK, si vous utilisez une version obsolète. Les recommandations concernent les langages pris en charge qui sont C++ et .NET.
 
 ## <a name="improve-app-service-performance-and-reliability"></a>Améliorer la fiabilité et les performances d’App Service
 
@@ -73,6 +77,26 @@ Migrez le modèle de déploiement de votre compte de stockage vers Azure Resourc
 ## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Concevoir vos comptes de stockage de manière à éviter d’atteindre le nombre maximum d’abonnements
 
 Une région Azure peut prendre en charge un maximum de 250 comptes de stockage par abonnement. Une fois cette limite atteinte, vous ne pourrez plus créer de comptes de stockage dans cette combinaison région/abonnement. Azure Advisor vérifie vos abonnements et affiche des suggestions pour vous aider à concevoir pour un moindre nombre de comptes de stockage lorsque vous êtes près d’atteindre la limite maximale.
+
+## <a name="consider-increasing-the-size-of-your-vnet-gateway-sku-to-adress-high-p2s-use"></a>Augmenter la taille de votre référence SKU de passerelle de réseau virtuel pour faire face à une forte utilisation de P2S
+
+Chaque référence SKU de passerelle ne peut prendre en charge qu’un nombre spécifié de connexions P2S simultanées. Le nombre de connexions étant proche de la limite pour votre passerelle, il est possible que les tentatives de connexion suivantes échouent. L’augmentation de la taille de votre passerelle vous permet de prendre en charge davantage d’utilisateurs P2S simultanés. Advisor fournit des recommandations, ainsi que les étapes à suivre pour procéder à cette augmentation.
+
+## <a name="consider-increasing-the-size-of-your-vnet-gateway-sku-to-address-high-cpu"></a>Envisagez d’agrandir la taille de votre référence SKU de passerelle de réseau virtuel pour faire face à une forte sollicitation du processeur
+
+En cas de charge élevée du trafic, la passerelle VPN peut abandonner des paquets en raison d’une forte sollicitation du processeur. Il est conseillé de mettre à niveau votre référence SKU de passerelle VPN, car votre VPN s’est exécuté de façon constante. L’augmentation de la taille de votre passerelle VPN permettra d’empêcher que les connexions ne soient perdues en raison d’une utilisation intensive du processeur. Advisor fournit des recommandations pour résoudre ce problème de manière proactive. 
+
+## <a name="increase-batch-size-when-loading-to-maximize-load-throughput-data-compression-and-query-performance"></a>Agrandissez la taille de lot pendant le chargement pour optimiser le débit de charge, la compression des données et le niveau de performance des requêtes
+
+Advisor est capable de détecter si vous pouvez améliorer les performances et le débit de la charge en agrandissant la taille de lot pendant le chargement dans votre base de données. Vous pouvez envisager d’utiliser l’instruction COPY. Si vous ne pouvez pas utiliser l’instruction COPY, envisagez d’agrandir la taille de lot si vous utilisez des utilitaires de chargement comme l’API SQLBulkCopy ou BCP (un bon principe est d’utiliser une taille de lot comprise entre 100 000 et 1 million de lignes). Cela va améliorer le débit de charge, la compression des données et le niveau de performance des requêtes.
+
+## <a name="co-locate-the-storage-account-within-the-same-region-to-minimize-latency-when-loading"></a>Colocalisez le compte de stockage dans la même région pour réduire la latence pendant le chargement
+
+Advisor est capable de détecter si vous procédez à un chargement à partir d’une région différente de celle de votre pool SQL. Vous avez tout intérêt à charger depuis la région de votre pool SQL pour réduire la latence pendant le chargement de données. Cela permettra de réduire la latence et d’améliorer les performances de la charge.
+
+## <a name="unsupported-kubernetes-version-is-detected"></a>Une version de Kubernetes non prise en charge est détectée
+
+Advisor est capable de détecter la présence d’une version de Kubernetes non prise en charge. Cette recommandation a pour but de garantir que le cluster Kubernetes sera exécuté avec une version prise en charge.
 
 ## <a name="optimize-the-performance-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers"></a>Optimiser les performances de vos serveurs Azure MySQL, Azure PostgreSQL et Azure MariaDB 
 

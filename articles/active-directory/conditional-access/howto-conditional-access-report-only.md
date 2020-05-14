@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 05/01/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d9bec829d7fb3e76eb243bda73423303670585e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eb13eb699f770d4d7f896b8179888d1514b1c46d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295114"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690374"
 ---
-# <a name="configure-a-conditional-access-policy-in-report-only-mode-preview"></a>Configurer une stratégie d’accès conditionnel en mode Rapport uniquement (préversion)
+# <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>Configurer une stratégie d’accès conditionnel en mode Rapport seul
 
 Pour configurer une stratégie d’accès conditionnel en mode Rapport uniquement :
 
@@ -42,7 +42,7 @@ Pour afficher le résultat d’une stratégie Rapport uniquement pour une connex
 1. Connectez-vous au **Portail Azure** en tant que lecteur de rapport, lecteur de sécurité, administrateur de la sécurité ou administrateur général.
 1. Accédez à **Azure Active Directory** > **Connexions**.
 1. Sélectionnez une connexion ou ajoutez des filtres pour affiner les résultats.
-1. Dans le tiroir **Détails**, sélectionnez l’onglet **Rapport uniquement (préversion)** pour afficher les stratégies évaluées lors de la connexion.
+1. Dans le tiroir **Détails**, sélectionnez l’onglet **Rapport seul** pour afficher les stratégies évaluées lors de la connexion.
 
 > [!NOTE]
 > Lorsque vous téléchargez les journaux de connexion, choisissez le format JSON pour inclure les résultats en mode rapport uniquement de la stratégie d’accès conditionnel.
@@ -62,7 +62,7 @@ Après avoir intégré vos journaux Azure AD avec Azure Monitor, vous pouvez sur
 
 1. Connectez-vous au **Portail Azure** en tant qu’administrateur de la sécurité ou administrateur général.
 1. Accédez à **Azure Active Directory** > **Classeurs**.
-1. Sélectionnez **Insights sur l’accès conditionnel (préversion)** .
+1. Sélectionnez **Insights sur l’accès conditionnel**.
 1. Sélectionnez une ou plusieurs stratégies dans la liste déroulante **Stratégie d’accès conditionnel**. Toutes les stratégies activées sont sélectionnées par défaut.
 1. Sélectionnez un intervalle de temps (si celui-ci dépasse le jeu de données disponible, le rapport affiche toutes les données disponibles). Une fois que vous avez défini les paramètres **Stratégie d’accès conditionnel** et **Intervalle de temps**, le rapport est chargé.
    1. Vous pouvez éventuellement rechercher des **Utilisateurs** ou **Applications** individuels pour limiter l’étendue du rapport.

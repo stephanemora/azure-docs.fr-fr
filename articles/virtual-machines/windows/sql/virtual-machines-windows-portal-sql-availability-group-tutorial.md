@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 426ba4c0ac84799b4d0e6bf9330508f928437fd8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f5494b1a7590e87bac9f8ffeaeef8f1da791fd6e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060190"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791134"
 ---
 # <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>Tutoriel : Configurer manuellement un groupe de disponibilité sur une machine virtuelle Azure SQL Server
 
@@ -348,7 +348,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité en procédant comm
 
 Sur les machines virtuelles Azure, un groupe de disponibilité SQL Serveur requiert un équilibrage de charge. Cet équilibreur de charge stocke les adresses IP des écouteurs du groupe de disponibilité et du cluster de basculement Windows Server. Cette section indique comment créer l’équilibrage de charge dans le portail Azure.
 
-Un équilibreur de charge Azure peut être Standard ou De base. Une équilibreur de charge Standard offre davantage de fonctionnalités qu’un équilibreur de charge De base. Pour un groupe de disponibilité, un équilibreur de charge Standard est requis si vous utilisez une zone de disponibilité (au lieu d’un groupe à haute disponibilité). Pour plus d’informations sur la différence entre les types d’équilibreurs de charge, voir [Comparaison des références SKU de Load Balancer](../../../load-balancer/concepts-limitations.md#skus).
+Un équilibreur de charge Azure peut être Standard ou De base. Une équilibreur de charge Standard offre davantage de fonctionnalités qu’un équilibreur de charge De base. Pour un groupe de disponibilité, un équilibreur de charge Standard est requis si vous utilisez une zone de disponibilité (au lieu d’un groupe à haute disponibilité). Pour plus d’informations sur la différence entre les références (SKU) d’équilibreurs de charge, voir [Comparaison des références SKU de Load Balancer](../../../load-balancer/skus.md).
 
 1. Dans le portail Azure, accédez au groupe de ressources où se trouvent vos serveurs SQL Server et cliquez sur **+ Ajouter**.
 1. Recherchez **Équilibrage de charge**. Choisissez l’équilibrage de charge publié par Microsoft.

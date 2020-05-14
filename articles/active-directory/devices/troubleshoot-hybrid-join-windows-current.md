@@ -11,14 +11,15 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26e52930211611673b6fe2309e2dca067a91ebc8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: has-adal-ref
+ms.openlocfilehash: 08f083fe60076c80b5b7d60f555daac499974254
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80331773"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611311"
 ---
-# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Résolution des problèmes liés aux appareils hybrides joints à Azure Active Directory 
+# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Résolution des problèmes liés aux appareils hybrides joints à Azure Active Directory
 
 Le contenu de cet article s’applique aux appareils exécutant Windows 10 ou Windows Server 2016.
 
@@ -30,13 +31,13 @@ Cet article suppose que vous avez [configuré des appareils hybrides joints à A
 - [Itinérance d’entreprise des paramètres](../active-directory-windows-enterprise-state-roaming-overview.md)
 - [Windows Hello Entreprise](../active-directory-azureadjoin-passport-deployment.md)
 
-Ce document fournit des conseils de dépannage pour résoudre les problèmes potentiels. 
+Ce document fournit des conseils de dépannage pour résoudre les problèmes potentiels.
 
 Pour Windows 10 et Windows Server 2016, la jonction Azure Active Directory hybride prend en charge la mise à jour Windows du 10 novembre 2015 et au-delà.
 
 ## <a name="troubleshoot-join-failures"></a>Résoudre les problèmes d’échecs de jointure
 
-### <a name="step-1-retrieve-the-join-status"></a>Étape 1 : Récupérer l’état de jonction 
+### <a name="step-1-retrieve-the-join-status"></a>Étape 1 : Récupérer l’état de jonction
 
 **Pour récupérer l’état de jonction :**
 
@@ -88,22 +89,22 @@ WamDefaultAuthority: organizations
          AzureAdPrt: YES
 ```
 
-### <a name="step-2-evaluate-the-join-status"></a>Étape 2 : Évaluer l’état de jonction 
+### <a name="step-2-evaluate-the-join-status"></a>Étape 2 : Évaluer l’état de jonction
 
 Examinez les champs suivants et assurez-vous qu’ils disposent des valeurs attendues :
 
-#### <a name="domainjoined--yes"></a>DomainJoined : YES  
+#### <a name="domainjoined--yes"></a>DomainJoined : YES
 
-Ce champ indique si l’appareil est joint à un répertoire Active Directory local ou non. Si la valeur est **NON**, l’appareil ne peut pas effectuer de jonction hybride Azure AD.  
+Ce champ indique si l’appareil est joint à un répertoire Active Directory local ou non. Si la valeur est **NON**, l’appareil ne peut pas effectuer de jonction hybride Azure AD.
 
-#### <a name="workplacejoined--no"></a>WorkplaceJoined : Non  
+#### <a name="workplacejoined--no"></a>WorkplaceJoined : Non
 
 Ce champ indique si l’appareil est inscrit auprès d’Azure AD mais en tant qu’appareil personnel (avec la mention *Joint à l’espace de travail*). Cette valeur doit être **NON** pour un ordinateur appartenant à un domaine qui est également une jonction hybride Azure AD. Si la valeur est **OUI**, un compte professionnel ou scolaire a été ajouté avant l’achèvement d’une jonction hybride Azure AD. Dans ce cas, le compte est ignoré lors de l’utilisation de la version mise à jour anniversaire de Windows 10 (1607).
 
-#### <a name="azureadjoined--yes"></a>AzureAdJoined : YES  
+#### <a name="azureadjoined--yes"></a>AzureAdJoined : YES
 
 Ce champ indique si l’appareil est joint. La valeur sera **Oui** si l’appareil est un appareil joint à Azure AD ou un appareil hybride joint à Azure AD.
-Si la valeur est **Non**, la jonction à Azure AD n’est pas encore terminée. 
+Si la valeur est **Non**, la jonction à Azure AD n’est pas encore terminée.
 
 Passez aux étapes suivantes pour poursuivre le dépannage.
 
@@ -155,7 +156,7 @@ Causes possibles de l’échec :
    - Un objet SCP valide est nécessaire dans la forêt AD, à laquelle appartient l’appareil, qui pointe vers un nom de domaine vérifié dans Azure AD.
    - Vous trouverez des détails dans la section [Configurer un point de connexion de service](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join).
 - Échec de connexion et de récupération des métadonnées de découverte à partir du point de terminaison de découverte.
-   - L’appareil doit pouvoir accéder à `https://enterpriseregistration.windows.net`, dans le contexte SYSTEM, pour découvrir les points de terminaison d’inscription et d’autorisation. 
+   - L’appareil doit pouvoir accéder à `https://enterpriseregistration.windows.net`, dans le contexte SYSTEM, pour découvrir les points de terminaison d’inscription et d’autorisation.
    - Si l’environnement local nécessite un proxy sortant, l’administrateur informatique doit vérifier que le compte d’ordinateur de l’appareil peut découvrir le proxy sortant et s’y authentifier en mode silencieux.
 - Échec de connexion au point de terminaison du domaine utilisateur et exécution de la découverte de domaine. (Windows 10 version 1809 et ultérieures uniquement)
    - L’appareil doit pouvoir accéder à `https://login.microsoftonline.com`, dans le contexte SYSTEM, pour effectuer une découverte de domaine pour le domaine vérifié et déterminer le type de domaine (managé/fédéré).
@@ -173,7 +174,7 @@ Causes possibles de l’échec :
    - Motif : l’opération est arrivée à expiration pendant la découverte.
    - Résolution : vérifiez que `https://enterpriseregistration.windows.net` est accessible dans le contexte SYSTEM. Pour plus d’informations, consultez la section [Exigences de connectivité réseau](hybrid-azuread-join-managed-domains.md#prerequisites).
 - **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c0021/-2145648611)
-   - Motif : échec de découverte de domaine générique. Impossible de déterminer le type de domaine (managé/fédéré) à partir de STS. 
+   - Motif : échec de découverte de domaine générique. Impossible de déterminer le type de domaine (managé/fédéré) à partir de STS.
    - Résolution : recherchez la sous-erreur ci-dessous pour approfondir vos recherches.
 
 **Codes de sous-erreur courants :**
@@ -260,7 +261,7 @@ Utilisez les journaux de l’observateur d’événements pour rechercher le cod
 
 - **ERROR_ADAL_PROTOCOL_NOT_SUPPORTED** (0xcaa90017/-894894057)
    - Motif : le protocole d’authentification n’est pas WS-Trust.
-   - Résolution : le fournisseur d’identité local doit prendre en charge WS-Trust. 
+   - Résolution : le fournisseur d’identité local doit prendre en charge WS-Trust.
 - **ERROR_ADAL_FAILED_TO_PARSE_XML** (0xcaa9002c/-894894036)
    - Motif : le service de fédération local n’a pas retourné de réponse XML.
    - Résolution : vérifiez que le point de terminaison MEX retourne un fichier XML valide. Vérifiez que le proxy n’interfère pas et ne renvoie pas de réponses non XML.
@@ -278,7 +279,7 @@ Utilisez les journaux de l’observateur d’événements pour rechercher le cod
    - Résolution : réessayez ultérieurement ou essayez de vous joindre à partir d’un autre emplacement réseau stable.
 - **ERROR_ADAL_INTERNET_SECURE_FAILURE** (0xcaa82f8f/-894947441)
    - Motif : La sécurité TLS (Transport Layer Security), précédemment connue sous le nom de protocole SSL, n’a pas pu valider le certificat envoyé par le serveur.
-   - Résolution : vérifiez l’asymétrie temporelle du client. réessayez ultérieurement ou essayez de vous joindre à partir d’un autre emplacement réseau stable. 
+   - Résolution : vérifiez l’asymétrie temporelle du client. réessayez ultérieurement ou essayez de vous joindre à partir d’un autre emplacement réseau stable.
 - **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/-894947587)
    - Motif : la tentative de connexion à `https://login.microsoftonline.com` a échoué.
    - Résolution : vérifiez la connexion réseau à `https://login.microsoftonline.com`.
@@ -293,11 +294,11 @@ Utilisez les journaux de l’observateur d’événements pour rechercher le cod
    - Résolution : vérifiez les paramètres du serveur de fédération. Recherchez le code d’erreur du serveur dans les journaux d’authentification.
 - **ERROR_ADAL_WSTRUST_TOKEN_REQUEST_FAIL** (0xcaa90006/-894894074)
    - Motif : une erreur s’est produite lors de la tentative d’obtention du jeton d’accès auprès du point de terminaison de jeton.
-   - Résolution : recherchez l’erreur sous-jacente dans le journal ADAL. 
+   - Résolution : recherchez l’erreur sous-jacente dans le journal ADAL.
 - **ERROR_ADAL_OPERATION_PENDING** (0xcaa1002d/-895418323)
    - Motif : échec général d’ADAL
    - Résolution : recherchez le code de sous-erreur ou le code d’erreur du serveur dans les journaux d’authentification.
-    
+
 #### <a name="join-phase"></a>Phase de jointure
 
 Causes de l’échec :
@@ -337,7 +338,7 @@ Servez-vous des journaux de l’Observateur d’événements pour identifier la 
    - Motif : réponse d’erreur reçue de DRS avec le code d’erreur : « DirectoryError »
    - Résolution : recherchez les causes et les résolutions possibles dans le code d’erreur du serveur.
 - **DSREG_E_DEVICE_AUTHENTICATION_ERROR** (0x801c0002/-2145648638)
-   - Motif : réponse d’erreur reçue de DRS avec le code d’erreur : « AuthenticationError » et ErrorSubCode N’EST PAS « DeviceNotFound ». 
+   - Motif : réponse d’erreur reçue de DRS avec le code d’erreur : « AuthenticationError » et ErrorSubCode N’EST PAS « DeviceNotFound ».
    - Résolution : recherchez les causes et les résolutions possibles dans le code d’erreur du serveur.
 - **DSREG_E_DEVICE_INTERNALSERVICE_ERROR** (0x801c0006/-2145648634)
    - Motif : réponse d’erreur reçue de DRS avec le code d’erreur : « DirectoryError »
@@ -349,7 +350,7 @@ Servez-vous des journaux de l’Observateur d’événements pour identifier la 
    - Motif : l’opération du module TPM a échoué ou n’était pas valide
    - Résolution : erreur probablement due à une image sysprep incorrecte. Vérifiez que la machine à partir de laquelle l’image sysprep a été créée n’est pas jointe à Azure AD, jointe à Azure AD en mode hybride ou inscrite à Azure AD.
 - **TPM_E_PCP_INTERNAL_ERROR** (0x80290407/-2144795641)
-   - Motif : erreur TPM générique. 
+   - Motif : erreur TPM générique.
    - Résolution : désactivez le module de plateforme sécurisée (TPM) sur les appareils présentant cette erreur. Windows 10 version 1809 et ultérieures détecte automatiquement les échecs du module TPM et effectue la jointure Azure AD hybride sans utiliser le module TPM.
 - **TPM_E_NOTFIPS** (0x80280036/-2144862154)
    - Motif : le module TPM en mode FIPS n’est actuellement pas pris en charge.
@@ -386,28 +387,32 @@ Servez-vous des journaux de l’Observateur d’événements pour identifier la 
 
 ### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>Étape 5 : Récupérer les journaux et contacter le Support Microsoft
 
-Procurez-vous des scripts publics ici : [https://1drv.ms/u/s!AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ]( https://1drv.ms/u/s!AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ)
+Téléchargez le fichier Auth.zip à partir de [https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
 
-1. Ouvrez une invite de commandes d’administration et exécutez `start_ngc_tracing_public.cmd`.
-2. Effectuez les étapes pour reproduire le problème.
-3. Arrêtez l’exécution du script de journalisation en exécutant `stop_ngc_tracing_public.cmd`.
-4. Compressez les journaux sous `%SYSTEMDRIVE%\TraceDJPP\*` et envoyez-les pour analyse.
+1. Décompressez les fichiers et renommez les fichiers inclus **start-auth.txt** et **stop-auth.txt** en **start-auth.cmd** et **stop-auth.cmd**.
+1. À partir d’une invite de commandes avec élévation de privilèges, exécutez la commande **start-auth.cmd**.
+1. Utilisez la commande Changer de compte pour basculer vers une autre session avec l’utilisateur confronté au problème.
+1. Reproduisez le problème.
+1. Utilisez la commande pour rebasculer vers la session d’administration exécutant le suivi.
+1. À partir d’une invite de commandes avec élévation de privilèges, exécutez la commande **stop-auth.cmd**.
+1. Compressez et envoyez le dossier **Authlogs** à partir du dossier dans lequel les scripts ont été exécutés.
 
 ## <a name="troubleshoot-post-join-issues"></a>Résoudre les problèmes postérieurs à la jointure
 
-### <a name="retrieve-the-join-status"></a>Récupérer l’état de jonction 
+### <a name="retrieve-the-join-status"></a>Récupérer l’état de jonction
 
 #### <a name="wamdefaultset-yes-and-azureadprt-yes"></a>WamDefaultSet : OUI et AzureADPrt : YES
-  
-Ces champs indiquent que l’utilisateur s’est correctement authentifié auprès d’Azure AD lors de la connexion à l’appareil. Si les valeurs sont **NON**, il peut être dû :
+
+Ces champs indiquent que l’utilisateur s’est correctement authentifié auprès d’Azure AD lors de la connexion à l’appareil.
+Si les valeurs sont **NON**, il peut être dû :
 
 - Clé de stockage défectueuse dans le module de plateforme sécurisée (TPM) associé à l’appareil lors de l’inscription (vérifiez KeySignTest pendant l’exécution avec élévation de privilèges).
 - ID de connexion de substitution
 - Proxy HTTP introuvable
 
 ## <a name="known-issues"></a>Problèmes connus
-- Sous Paramètres -> Comptes -> Accès professionnel ou scolaire, les appareils joints à Azure AD Hybride peuvent afficher deux comptes différents, l’un pour Azure AD et l’autre pour AD local, lorsqu’ils sont connectés à des points d’accès mobiles ou à des réseaux Wi-Fi externes. Il s’agit uniquement d’un problème d’interface utilisateur qui n’a aucun impact sur les fonctionnalités. 
- 
+- Sous Paramètres -> Comptes -> Accès professionnel ou scolaire, les appareils joints à Azure AD Hybride peuvent afficher deux comptes différents, l’un pour Azure AD et l’autre pour AD local, lorsqu’ils sont connectés à des points d’accès mobiles ou à des réseaux Wi-Fi externes. Il s’agit uniquement d’un problème d’interface utilisateur qui n’a aucun impact sur les fonctionnalités.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Poursuivez le [dépannage des appareils à l’aide de la commande dsregcmd](troubleshoot-device-dsregcmd.md).

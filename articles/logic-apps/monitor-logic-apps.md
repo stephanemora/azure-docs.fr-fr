@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 495877f1c839de2cf3583a37180054c91bd9f139
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/04/2020
+ms.openlocfilehash: c2a609266a77293a0e3a5cb9c973a6eb3f7f72a9
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76907220"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732000"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Surveiller l’état d’exécution, examiner l’historique du déclencheur et configurer des alertes pour Azure Logic Apps
 
@@ -19,7 +19,8 @@ Après avoir [créé et exécuté une application logique](../logic-apps/quickst
 
 Pour une surveillance des événements en temps réel et un débogage enrichi, configurez une journalisation des diagnostics pour votre application logique à l’aide de [journaux Azure Monitor](../azure-monitor/overview.md). Ce service Azure vous aide à superviser vos environnements cloud et locaux afin pouvoir maintenir plus facilement leur disponibilité et leurs performances. Vous pouvez ensuite rechercher et consulter des événements, tels que des événements de déclencheur, des événements d’exécution et des événements d’action. En stockant ces informations dans des [journaux Azure Monitor](../azure-monitor/platform/data-platform-logs.md), vous pouvez créer des [requêtes de journal](../azure-monitor/log-query/log-query-overview.md) qui vous aident à rechercher et à analyser ces informations. Vous pouvez également utiliser ces données de diagnostic avec d’autres services Azure, tels que Stockage Azure et Azure Event Hubs. Pour plus d’informations, voir [Superviser les applications logiques à l’aide d’Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+> [!NOTE]
+> Si vos applications logiques s’exécutent dans un [environnement de service d’intégration](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) créé pour utiliser un [point de terminaison d’accès interne](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access), vous pouvez afficher les entrées et sorties de l’historique des exécutions de l’application logique, ainsi qu’y accéder, *uniquement depuis l’intérieur de votre réseau virtuel*. Vérifiez que vous disposez d’une connectivité réseau entre les points de terminaison privés et l’ordinateur à partir duquel vous souhaitez accéder à l’historique des exécutions. Par exemple, votre ordinateur client peut exister à l’intérieur du réseau virtuel de l’environnement de service d’intégration ou à l’intérieur d’un réseau virtuel connecté au réseau virtuel de l’environnement de service d’intégration, par exemple, par le biais d’un appairage (peering) ou d’un réseau privé virtuel. Pour plus d’informations, consultez [Accès aux points de terminaison de l’environnement ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
 
 <a name="review-runs-history"></a>
 

@@ -3,12 +3,12 @@ title: Découvrir les applications, rôles et fonctionnalités sur des serveurs 
 description: Apprenez à découvrir les applications, rôles et fonctionnalités sur des serveurs locaux à l’aide d’Azure Migrate Server Assessment.
 ms.topic: article
 ms.date: 03/12/2020
-ms.openlocfilehash: e8ce279afc845ebf37ad4ab8b2ce7236cb18137a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ff9f5489b513cd1405e6b093d7537e4cbcead041
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79453580"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744611"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Détection des applications, des rôles et des fonctionnalités de la machine
 
@@ -30,17 +30,47 @@ La découverte d’applications à l’aide de l’évaluation de serveur d’Az
 5. Vérifiez la [configuration requise](migrate-appliance.md) pour le déploiement de l’appliance Azure Migrate.
 6. [Vérifiez la prise en charge et les exigences](migrate-support-matrix-vmware.md#application-discovery) pour la découverte des applications.
 
-## <a name="prepare-for-app-discovery"></a>Préparer la détection d’applications
 
-1. [Préparez le déploiement de l’appliance](tutorial-prepare-vmware.md). La préparation comprend la vérification des paramètres de l’appliance et la configuration d’un compte qui sera utilisé par l’appliance pour accéder à vCenter Server.
-2. Vérifiez que vous disposez d’un compte d’utilisateur (un pour chacun des serveurs Windows et Linux) avec les autorisations d’administrateur pour les machines sur lesquelles vous souhaitez découvrir des applications, des rôles et des fonctionnalités.
-3. [Déployez l’appliance Azure Migrate](how-to-set-up-appliance-vmware.md) pour démarrer la découverte. Pour déployer l’appliance, vous téléchargez et importez un modèle OVA dans VMware pour créer l’appliance en tant que machine virtuelle VMware. Vous configurez l’appliance, puis l’inscrivez auprès d’Azure Migrate.
-2. Lorsque vous déployez l’appliance, pour démarrer la découverte continue, vous spécifiez les éléments suivants :
+
+## <a name="deploy-the-azure-migrate-appliance"></a>Déployez l’appliance Azure Migrate
+
+1. [Examinez](migrate-appliance.md#appliance---vmware) la configuration requise pour le déploiement de l’appliance Azure Migrate.
+2. Passez en revue les URL Azure auxquelles l’appliance devra accéder dans les clouds [publics](migrate-appliance.md#public-cloud-urls) et les [clouds Government](migrate-appliance.md#government-cloud-urls).
+3. [Passez en revue les données](migrate-appliance.md#collected-data---vmware) que l’appliance collecte pendant la découverte et l’évaluation.
+4. [Notez](migrate-support-matrix-vmware.md#port-access) les conditions d’accès aux ports pour l’appliance.
+5. [Déployez l’appliance Azure Migrate](how-to-set-up-appliance-vmware.md) pour démarrer la découverte. Pour déployer l’appliance, vous téléchargez et importez un modèle OVA dans VMware pour créer l’appliance en tant que machine virtuelle VMware. Vous configurez l’appliance, puis l’inscrivez auprès d’Azure Migrate.
+6. Lorsque vous déployez l’appliance, pour démarrer la découverte continue, vous spécifiez les éléments suivants :
     - Le nom du vCenter Server auquel vous souhaitez vous connecter.
     - Les informations d’identification que vous avez créées pour que l’appliance se connecte à vCenter Server.
     - Les informations d’identification de compte que vous avez créées pour que l’appliance se connecte aux machines virtuelles Windows/Linux.
 
 Une fois que l’appliance a été déployée et que vous avez fourni les informations d’identification, l’appliance démarre la découverte continue des métadonnées de la machine virtuelle et des données de performances, ainsi que la découverte des applications, des fonctionnalités et des rôles.  La durée de la découverte d’application dépend du nombre de machines virtuelles dont vous disposez. La découverte d’applications pour 500 machines virtuelles prend généralement une heure.
+
+## <a name="prepare-a-user-account"></a>Préparer un compte d’utilisateur
+
+Créez un compte à utiliser pour la découverte, puis ajoutez-le à l’appliance.
+
+### <a name="create-a-user-account-for-discovery"></a>Créer un compte d’utilisateur pour la découverte
+
+Configurez un compte d’utilisateur pour que Server Assessment puisse accéder à la machine virtuelle à une fin de découverte. [Découvrez](migrate-support-matrix-vmware.md#application-discovery) les exigences relatives aux comptes.
+
+
+### <a name="add-the-user-account-to-the-appliance"></a>Ajouter le compte d’utilisateur à l’appliance
+
+Ajoutez le compte d’utilisateur à l’appliance.
+
+1. Ouvrez l’application de gestion de l’appliance. 
+2. Accédez au panneau **Fournir les détails de vCenter**.
+3. Dans **Découvrir l’application et les dépendances sur les machines virtuelles**, cliquez sur **Ajouter les informations d’identification**.
+3. Choisissez le **système d’exploitation**, fournissez un nom convivial pour le compte, puis le **nom d’utilisateur**/**mot de passe**.
+6. Cliquez sur **Enregistrer**.
+7. Cliquez sur **Enregistrer et démarrer la découverte**.
+
+    ![Ajouter un compte d’utilisateur de machine virtuelle](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
+
+
+
+
 
 ## <a name="review-and-export-the-inventory"></a>Examiner et exporter l’inventaire
 

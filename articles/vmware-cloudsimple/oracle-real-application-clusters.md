@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b945beaa7497e1ad19315bacf1284dd0cbc24d6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f657e18d7185d6b3c63ac8f1424da9d36d4189e9
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868072"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793038"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Optimiser votre cloud privé CloudSimple pour l’installation d’Oracle RAC
 
@@ -244,7 +244,7 @@ Répétez les étapes 2 à 7 pour tous les nouveaux disques requis pour les fich
 Les règles d’affinité de machine virtuelle à hôte garantissent que la machine virtuelle s’exécute sur l’hôte souhaité.  Vous pouvez définir des règles sur vCenter afin d’être sûr que la machine virtuelle Oracle s’exécute sur l’hôte disposant des ressources adéquates et afin de répondre à des exigences spécifiques en matière de gestion des licences.
 
 1. Dans le portail CloudSimple, [augmentez les privilèges](escalate-private-cloud-privileges.md) de l’utilisateur cloudowner.
-2. [Connectez-vous au client vSphere](https://docs.azure.cloudsimple.com/vsphere-access) de votre cloud privé.
+2. Connectez-vous au client vSphere de votre cloud privé.
 3. Dans le client vSphere, sélectionnez le cluster où les machines virtuelles Oracle sont déployées, puis cliquez sur **Configure**.
 4. Sous Configure, sélectionnez **VM/Host Groups** (Groupes d’hôtes/machines virtuelles).
 5. Cliquez sur **+**
