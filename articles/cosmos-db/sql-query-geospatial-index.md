@@ -4,14 +4,14 @@ description: Indexer des données spatiales avec Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 05/03/2020
 ms.author: tisande
-ms.openlocfilehash: eb0a2b2778b3217e185b9883def6eaa54674cc5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd96f440c4e8c971d1f1473f667d31e60edef137
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79137901"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839201"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indexer des données géospatiales avec Azure Cosmos DB
 
@@ -28,11 +28,17 @@ Si vous spécifiez une stratégie d’indexation qui inclut un index spatial pou
 
 ## <a name="modifying-geospatial-data-type"></a>Modification du type de données géospatiales
 
-Dans le conteneur, `geospatialConfig` spécifie le mode d’indexation des données géospatiales. Vous devez spécifier une `geospatialConfig` par conteneur : géographie ou géométrie. Si elle n’est pas spécifiée, le type de données géographie est utilisé par défaut. Lorsque vous modifiez `geospatialConfig`, toutes les données géospatiales présentes dans le conteneur sont réindexées.
+Dans le conteneur, la **Configuration géospatiale** spécifie le mode d’indexation des données spatiales. Spécifiez une **Configuration géospatiale** par conteneur : géographie ou géométrie.
 
-> [!NOTE]
-> Azure Cosmos DB ne prend actuellement en charge la modification de geospatialConfig que dans la version 3.6 et les versions ultérieures du kit SDK .NET.
->
+Vous pouvez basculer entre les types spatiaux **géographie** et **géométrie** dans le portail Azure. Avant de basculer vers le type spatial géométrie, il est important de créer une [stratégie d’indexation de géométrie spatiale valide avec un cadre englobant](#geometry-data-indexing-examples).
+
+Voici comment définir la **configuration géospatiale** dans l’**Explorateur de données** au sein du portail Azure :
+
+![Définition de la configuration géospatiale](./media/sql-query-geospatial-index/geospatial-configuration.png)
+
+Vous pouvez également modifier la `geospatialConfig` dans le kit de développement logiciel (SDK) .NET pour ajuster la **Configuration géospatiale** :
+
+Si `geospatialConfig` n’est pas spécifiée, le type de données géographie est utilisé par défaut. Lorsque vous modifiez `geospatialConfig`, toutes les données géospatiales présentes dans le conteneur sont réindexées.
 
 Voici un exemple de changement de type de données géospatiales pour `geometry`. La propriété `geospatialConfig` est définie et un **boundingBox** (cadre englobant) est ajouté pour passer au type géométrie :
 
@@ -112,7 +118,7 @@ Le cadre englobant présente les propriétés suivantes :
 
 Un cadre englobant est nécessaire, car les données géométriques occupent un plan qui peut être infini. Les index spatiaux, eux, ont besoin d’un espace fini. Pour le type de données **géographie**, la Terre fait office de limite ; il n’est donc pas nécessaire de définir un cadre englobant.
 
-Créez de préférence un cadre englobant contenant la totalité (ou la plupart) de vos données. Seules les opérations calculées sur les objets qui se trouvent entièrement à l’intérieur du cadre englobant pourront avoir recours à l’index spatial. Ne créez pas un cadre englobant beaucoup plus grand que nécessaire, car cela aurait un impact négatif sur les performances des requêtes.
+Créez un cadre englobant contenant la totalité (ou la plupart) de vos données. Seules les opérations calculées sur les objets qui se trouvent entièrement à l’intérieur du cadre englobant pourront avoir recours à l’index spatial. Le fait de définir un cadre englobant plus grand que nécessaire aura un impact négatif sur les performances des requêtes.
 
 Voici un exemple de stratégie d’indexation qui indexe des données **géométrie** avec **geospatialConfig** défini sur `geometry` :
 
