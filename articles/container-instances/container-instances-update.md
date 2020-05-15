@@ -3,16 +3,16 @@ title: Mettre à jour un groupe de conteneurs
 description: Découvrez comment mettre à jour les conteneurs en cours d’exécution dans vos groupes de conteneurs Azure Container Instances.
 ms.topic: article
 ms.date: 04/17/2020
-ms.openlocfilehash: d64590c553f4ae4ef462d4468fade68861db31c3
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: cfc27de8caae98dd1c3065b5ed06433c4baaa5d2
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160100"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928718"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Mettre à jour les conteneurs dans Azure Container Instances
 
-Lors d’une utilisation normale de vos instances de conteneurs, vous pouvez avoir besoin de mettre à jour les conteneurs en cours d’exécution d’un [groupe de conteneurs](container-instances-container-groups.md). Par exemple, vous souhaiterez peut-être mettre à jour une propriété telle qu’une version d’image, un nom DNS ou une variable d’environnement, ou actualiser une propriété dans un conteneur dont l’application s’est plantée.
+Lors d’une utilisation normale de vos instances de conteneurs, vous pouvez avoir besoin de mettre à jour les conteneurs en cours d’exécution d’un [groupe de conteneurs](./container-instances-container-groups.md). Par exemple, vous souhaiterez peut-être mettre à jour une propriété telle qu’une version d’image, un nom DNS ou une variable d’environnement, ou actualiser une propriété dans un conteneur dont l’application s’est plantée.
 
 Pour mettre à jour les conteneurs d’un groupe de conteneurs en cours d’exécution, redéployez un groupe existant en ayant modifié au moins une propriété. Lorsque vous mettez à jour un groupe de conteneurs, tous les conteneurs en cours d’exécution sont redémarrés sur place, en général sur le même hôte conteneur sous-jacent.
 
@@ -28,7 +28,7 @@ Pour mettre à jour un groupe de conteneurs existant
 * Définissez d’autres propriétés avec les valeurs que vous avez fournies précédemment. Si vous ne définissez pas de valeur pour une propriété, elle revient à sa valeur par défaut.
 
 > [!TIP]
-> Un [fichier YAML](/container-instances-container-groups.md#deployment) permet de conserver la configuration de déploiement d’un groupe de conteneurs et fournit un point de départ pour déployer un groupe mis à jour. Si vous avez appliqué une autre méthode pour créer le groupe, vous pouvez exporter la configuration vers YAML à l’aide d’[az container export][az-container-export]. 
+> Un [fichier YAML](./container-instances-container-groups.md#deployment) permet de conserver la configuration de déploiement d’un groupe de conteneurs et fournit un point de départ pour déployer un groupe mis à jour. Si vous avez appliqué une autre méthode pour créer le groupe, vous pouvez exporter la configuration vers YAML à l’aide d’[az container export][az-container-export]. 
 
 ### <a name="example"></a> Exemple
 
@@ -80,7 +80,7 @@ Lorsque vous supprimez, puis recréez un groupe de conteneurs, celui-ci n’est 
 
 Le **groupe de conteneurs** est mentionné plusieurs fois dans cet article. Chaque conteneur d’Azure Container Instances est déployé dans un groupe de conteneurs, et chaque groupe de conteneurs peut contenir plusieurs conteneurs.
 
-[Groupes de conteneurs dans Azure Container Instances](container-instances-container-groups.md)
+[Groupes de conteneurs dans Azure Container Instances](./container-instances-container-groups.md)
 
 [Déployer un groupe multiconteneur](container-instances-multi-container-group.md)
 

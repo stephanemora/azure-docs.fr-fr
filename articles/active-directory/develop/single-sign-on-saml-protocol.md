@@ -13,12 +13,12 @@ ms.date: 07/19/2017
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: f1437ec5d9c3fd0ff69be0c884c340cb857ee181
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 333f23ddfe834307b5cbfebb9540e0b5efc79a53
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80881280"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853781"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocole SAML d’authentification unique
 
@@ -153,12 +153,12 @@ L’élément `Response` inclut le résultat de la demande d’autorisation. Azu
 
 ### <a name="issuer"></a>Émetteur
 
-Azure AD définit l’élément `Issuer` sur `https://login.microsoftonline.com/<TenantIDGUID>/` où \<TenantIDGUID> correspond à l’ID du locataire Azure AD.
+Azure AD définit l’élément `Issuer` sur `https://sts.windows.net/<TenantIDGUID>/` où \<TenantIDGUID> correspond à l’ID du locataire Azure AD.
 
 Exemple de réponse comportant l’élément Issuer :
 
 ```
-<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
 ### <a name="status"></a>Statut
@@ -191,7 +191,7 @@ Outre les éléments `ID`, `IssueInstant` et `Version`, Azure Active Directory d
 Cet élément est défini sur `https://sts.windows.net/<TenantIDGUID>/`, où \<TenantIDGUID> correspond à l’ID du locataire Azure AD.
 
 ```
-<Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+<Issuer>https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
 #### <a name="signature"></a>Signature

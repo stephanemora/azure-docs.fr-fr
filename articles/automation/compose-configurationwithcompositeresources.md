@@ -6,12 +6,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7e7625ae95d5355ae1122a16ea4828eed5f78c73
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 1840f4049f8450295e179a89b472d7710c5f61a0
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81682924"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993775"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-using-composite-resources"></a>Composer des configurations DSC dans Azure Automation State Configuration à l'aide de ressources composites
 
@@ -34,9 +34,9 @@ Avant de pouvoir attribuer une configuration effectuée à partir de ressources 
 1. Au niveau de l’étape **Paramètres**, le paramètre de chaque ressource composite est exposé afin de fournir les valeurs. Si un paramètre possède une description, celle-ci s’affiche à côté du champ de paramètre. Si un paramètre est de type `PSCredential`, la liste déroulante fournit une liste d'objets **Informations d’identification** dans le compte Automation actuel. Une option **+ Add a credential** (+ Ajouter une information d’identification) est également disponible. Une fois que tous les paramètres requis ont été fournis, cliquez sur **Save and compile** (Enregistrer et compiler).
    ![Capture d’écran de l’étape des paramètres sur la page Composer la configuration](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
 
-Une fois la nouvelle configuration enregistrée, elle est envoyée en compilation. Il est possible d’afficher l’état de la tâche de compilation comme celui de n’importe quelle autre configuration importée. Pour plus d’informations, voir [Affichage d’une tâche de compilation](automation-dsc-getting-started.md#viewing-a-compilation-job).
+Une fois la nouvelle configuration enregistrée, elle est envoyée en compilation. Il est possible d’afficher l’état de la tâche de compilation comme celui de n’importe quelle autre configuration importée. Pour plus d’informations, voir [Affichage d’une tâche de compilation](automation-dsc-getting-started.md#view-a-compilation-job).
 
-Si la compilation aboutit, la nouvelle configuration s’affiche dans l’onglet **Configurations compilées**. Vous pouvez ensuite affecter la configuration à un nœud géré à l’aide de la procédure décrite dans [Réaffectation d’un nœud à une configuration de nœud différente](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration).
+Si la compilation aboutit, la nouvelle configuration s’affiche dans l’onglet **Configurations compilées**. Vous pouvez ensuite affecter la configuration à un nœud géré à l’aide de la procédure décrite dans [Réaffectation d’un nœud à une configuration de nœud différente](automation-dsc-getting-started.md#reassign-a-node-to-a-different-node-configuration).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -2,18 +2,19 @@
 title: Tutoriel - Créer et utiliser des disques pour les groupes identiques avec Azure CLI
 description: Découvrez comment utiliser Azure CLI pour créer et utiliser la fonctionnalité Disques managés avec un groupe de machines virtuelles identiques, notamment comment ajouter, préparer, répertorier et détacher les disques.
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: tutorial
-ms.date: 03/27/2018
 ms.author: jushiman
-ms.custom: mvc
-ms.openlocfilehash: 3759fa426a712308e1956376d559c1ac84eadbd7
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: disks
+ms.date: 03/27/2018
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: e50f025ebd22cbe231dcd01e277a76b0f8e9b56d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81008826"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198252"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutoriel : Créer et utiliser des disques avec un groupe de machines virtuelles identiques avec Azure CLI
 Les groupes de machines virtuelles identiques utilisent des disques pour stocker le système d’exploitation, les applications et les données de l’instance de machine virtuelle. Lorsque vous créez et gérez un groupe identique, il est important de choisir une taille de disque et une configuration appropriées à la charge de travail prévue. Ce didacticiel explique comment créer et gérer des disques de machine virtuelle. Ce didacticiel vous montre comment effectuer les opérations suivantes :

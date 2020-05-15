@@ -7,12 +7,12 @@ ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.openlocfilehash: 929ab4109eb8d0e90b6c561a2135c0b7dd4205bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd18fd484ac456f0c38cd6d9b73a2395a08ad5d0
+ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77672257"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82883105"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Installer et configurer l’extension Diagnostics Azure pour Windows (WAD)
 L’extension Diagnostics Azure est un agent présent dans Azure Monitor qui collecte des données de supervision dans le système d’exploitation invité et des charges de travail de machines virtuelles Azure et d’autres ressources de calcul. Cet article fournit des détails sur l’installation et la configuration de l’extension de diagnostic Windows et une description de la façon dont les données sont stockées dans un compte Stockage Azure.
@@ -124,28 +124,28 @@ Voici l’exemple minimal d’un fichier config qui permet la collecte de journa
     "PublicConfig": {
         "WadCfg": {
             "DiagnosticMonitorConfiguration": {
-                "overallQuotaInMB": 10000
-            },
-            "DiagnosticInfrastructureLogs": {
-                "scheduledTransferLogLevelFilter": "Error"
-            },
-            "PerformanceCounters": {
-                "scheduledTransferPeriod": "PT1M",
-                "PerformanceCounterConfiguration": [
-                    {
-                        "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-                        "sampleRate": "PT3M",
-                        "unit": "percent"
-                    }
-                ]
-            },
-            "WindowsEventLog": {
-                "scheduledTransferPeriod": "PT1M",
-                    "DataSource": [
-                    {
-                        "name": "Application!*[System[(Level=1 or Level=2 or Level=3)]]"
-                    }
-                ]
+                "overallQuotaInMB": 10000,
+                "DiagnosticInfrastructureLogs": {
+                    "scheduledTransferLogLevelFilter": "Error"
+                },
+                "PerformanceCounters": {
+                    "scheduledTransferPeriod": "PT1M",
+                    "PerformanceCounterConfiguration": [
+                        {
+                            "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+                            "sampleRate": "PT3M",
+                            "unit": "percent"
+                        }
+                    ]
+                },
+                "WindowsEventLog": {
+                    "scheduledTransferPeriod": "PT1M",
+                        "DataSource": [
+                        {
+                            "name": "Application!*[System[(Level=1 or Level=2 or Level=3)]]"
+                        }
+                    ]
+                }
             }
         },
         "StorageAccount": "mystorageaccount",

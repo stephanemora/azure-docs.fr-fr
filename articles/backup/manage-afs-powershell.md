@@ -3,19 +3,19 @@ title: Gérer les sauvegardes de partage de fichiers Azure avec PowerShell
 description: Découvrez comment PowerShell pour gérer et superviser les partages de fichiers Azure sauvegardés par le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: a9dc421db740963fc5cd11e868eb383694376ce1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ee5fb92e4a66a9d6db66514f966c3650d3a4f13
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77083169"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201965"
 ---
 # <a name="manage-azure-file-share-backups-with-powershell"></a>Gérer les sauvegardes de partage de fichiers Azure avec PowerShell
 
 Cet article explique comment utiliser Azure PowerShell pour gérer et superviser les partages de fichiers Azure sauvegardés par le service Sauvegarde Azure.
 
 > [!WARNING]
-> Vérifiez que la version de PowerShell est mise à niveau vers la version minimale pour « Az.RecoveryServices 2.6.0 » pour les sauvegardes AFS. Pour plus d’informations, reportez-vous à [la section](backup-azure-afs-automation.md#important-notice---backup-item-identification-for-afs-backups) détaillant les conditions de ce changement.
+> Vérifiez que la version de PowerShell est mise à niveau vers la version minimale pour « Az.RecoveryServices 2.6.0 » pour les sauvegardes AFS. Pour plus d’informations, reportez-vous à [la section](backup-azure-afs-automation.md#important-notice-backup-item-identification) détaillant les conditions de ce changement.
 
 ## <a name="modify-the-protection-policy"></a>Modifier la stratégie de protection
 

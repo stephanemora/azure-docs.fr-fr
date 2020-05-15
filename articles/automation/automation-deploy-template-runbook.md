@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 keywords: powerShell, runbook, json, azure automation
-ms.openlocfilehash: 2a6652c988eb77a1c5c7dbf800586b1c5fb756c4
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 1bf381499ac31fafc8aaeef2b4ee488cfa1aa5c1
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392209"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994697"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Déployer un modèle Azure Resource Manager dans un runbook PowerShell Azure Automation
 
@@ -20,9 +20,6 @@ Vous pouvez écrire un [runbook PowerShell Azure Automation](automation-first-ru
 Ainsi, vous pouvez automatiser le déploiement de ressources Azure. Vous pouvez gérer vos modèles Resource Manager à un emplacement central et sécurisé, tel que Stockage Azure.
 
 Dans cet article, nous créons un runbook PowerShell qui utilise un modèle Resource Manager stocké dans le service [Stockage Azure](../storage/common/storage-introduction.md) pour déployer un nouveau compte de stockage Azure.
-
->[!NOTE]
->Cet article a été mis à jour pour tenir compte de l’utilisation du nouveau module Az d’Azure PowerShell. Vous pouvez toujours utiliser le module AzureRM, qui continue à recevoir des correctifs de bogues jusqu’à au moins décembre 2020. Pour en savoir plus sur le nouveau module Az et la compatibilité avec AzureRM, consultez [Présentation du nouveau module Az d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Pour obtenir des instructions relatives à l’installation du module Az sur votre Runbook Worker hybride, voir [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Pour votre compte Automation, vous pouvez mettre à jour vos modules vers la dernière version en suivant les instructions du [Guide de mise à jour des modules Azure PowerShell dans Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="prerequisites"></a>Prérequis
 

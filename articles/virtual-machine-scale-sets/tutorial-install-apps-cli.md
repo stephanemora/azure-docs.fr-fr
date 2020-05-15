@@ -2,18 +2,19 @@
 title: Tutoriel - Installer des applications dans un groupe identique avec Azure CLI
 description: Découvrez comment utiliser Azure CLI pour installer des applications dans des groupes de machines virtuelles identiques à l’aide de l’extension de script personnalisé
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: tutorial
-ms.date: 03/27/2018
 ms.author: jushiman
-ms.custom: mvc
-ms.openlocfilehash: 6faaa3bc5149d4245d026e6f91e358993e15421d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: cli
+ms.date: 03/27/2018
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 56aa67750a4ec51704a440424bfeef15e8806163
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81011213"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197099"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutoriel : Installer des applications dans des groupes de machines virtuelles identiques avec Azure CLI
 Pour exécuter des applications sur des instances de machine virtuelle d’un groupe identique, vous devez d’abord installer les composants d’application et les fichiers requis. Dans un didacticiel précédent, vous avez appris à créer et utiliser une image personnalisée de machine virtuelle pour déployer vos instances de machine virtuelle. Cette image personnalisée comprenait l’installation et la configuration manuelles d’applications. Vous pouvez également automatiser l’installation des applications pour un groupe identique après le déploiement de chaque instance de machine virtuelle, ou mettre à jour une application déjà exécutée dans un groupe identique. Ce didacticiel vous montre comment effectuer les opérations suivantes :

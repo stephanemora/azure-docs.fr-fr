@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 04/03/2019
-ms.openlocfilehash: c0012b61cf43d01afd5e7f5f52948310b5eb8420
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 34e9b40b0b6989edacd72eb23d357e2a84b6f8d8
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73828056"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891080"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Ports au-delà de 1433 pour ADO.NET 4.5
 
@@ -72,9 +72,9 @@ Cette section clarifie les monikers qui font référence aux versions du produit
 
 ## <a name="related-links"></a>Liens connexes
 
-* ADO.NET 4.6 a été publié le 20 juillet 2015. Une annonce dans un billet de blog de l’équipe .NET est disponible [ici](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-net-framework-4-6.aspx).
-* ADO.NET 4.5 a été publié le 15 août 2012. Une annonce dans un billet de blog de l’équipe .NET est disponible [ici](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
-  * Un billet de blog sur ADO.NET 4.5.1 est disponible [ici](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-net-framework-4-5-1-preview.aspx).
+* ADO.NET 4.6 a été publié le 20 juillet 2015. Une annonce dans un billet de blog de l’équipe .NET est disponible [ici](https://devblogs.microsoft.com/dotnet/announcing-net-framework-4-6/).
+* ADO.NET 4.5 a été publié le 15 août 2012. Une annonce dans un billet de blog de l’équipe .NET est disponible [ici](https://devblogs.microsoft.com/dotnet/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code/).
+  * Un billet de blog sur ADO.NET 4.5.1 est disponible [ici](https://devblogs.microsoft.com/dotnet/announcing-the-net-framework-4-5-1-preview/).
 
 * Microsoft® ODBC Driver 17 for SQL Server® - Windows, Linux et macOS https://www.microsoft.com/download/details.aspx?id=56567
 

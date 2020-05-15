@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cc12cc9a4828404e960aee239bd388af5b1ea3b7
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 854a489f6381514f80f16665f89042a0e8ed7470
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427653"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995764"
 ---
 # <a name="monitoring-key-vault-with-azure-event-grid-preview"></a>Supervision de Key Vault avec Azure Event Grid (préversion)
 
@@ -30,8 +30,6 @@ Pour plus d’informations, consultez le [schéma d’événement Key Vault](../
 
 > [!WARNING]
 > Les événements de notification sont déclenchés uniquement sur les nouvelles versions des secrets, clés et certificats, et vous devez d’abord vous abonner à l’événement sur votre coffre de clés pour recevoir ces notifications.
-> 
-> Vous recevrez des événements de notification sur les certificats uniquement lorsque le certificat est automatiquement renouvelé en fonction de la stratégie que vous avez spécifiée pour votre certificat.
 
 ## <a name="practices-for-consuming-events"></a>Pratiques pour la consommation d’événements
 

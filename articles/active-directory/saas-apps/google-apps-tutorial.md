@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 02/14/2020
+ms.date: 05/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b3282dd88b62a6811031e95672638d67702215a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b025d98c230bc82b86a736785fb8e6581ec4519c
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80048459"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864417"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Google Cloud (G Suite) Connector
 
@@ -140,8 +140,8 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     | |
     |--|
-    | `https://google.com` |
-    | `https://google.com/a/<yourdomain.com>` |
+    | `https://www.google.com` |
+    | `https://www.google.com/a/<yourdomain.com>` |
 
 
 1. Dans la section **Configuration SAML de base**, si vous souhaitez procéder à la configuration de **Google Cloud Platform**, effectuez les étapes suivantes :
@@ -161,8 +161,8 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     
     | |
     |--|
-    | `https://google.com` |
-    | `https://google.com/a/<yourdomain.com>` |
+    | `https://www.google.com` |
+    | `https://www.google.com/a/<yourdomain.com>` |
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Google Cloud (G Suite) Connector ne fournit pas de valeur ID d’entité/Identificateur dans la configuration de l’authentification unique. Ainsi, quand vous décochez la case **Use a domain specific issuer** (Utiliser un émetteur spécifique de domaine), la valeur Identificateur est `google.com`. Si vous cochez la case **Utiliser un émetteur spécifique de domaine**, la valeur est `google.com/a/<yourdomainname.com>`. Pour cocher/décocher la case **Utiliser un émetteur spécifique de domaine**, vous devez accéder à la section **Configurer l’authentification unique Google Cloud (G Suite) Connector**, plus loin dans le tutoriel. Pour plus d’informations, contactez l’[équipe du support technique Google Cloud (G Suite) Connector](https://www.google.com/contact/).

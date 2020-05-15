@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/26/2019
+ms.date: 05/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfd61b78ca3027ade1f2f48dec33e0a8ed508d3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae0632fbc3208befe197c15ffdbf2d9a4e7b2d7a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60349820"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926474"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect : Mise à jour automatique
 Cette fonctionnalité date de la build [1.1.105.0 (publiée en février 2016)](reference-connect-version-history.md#111050).  Cette fonctionnalité a été mise à jour dans la [build 1.1.561](reference-connect-version-history.md#115610) et prend désormais en charge des scénarios supplémentaires.
@@ -99,7 +99,6 @@ Voici une liste de messages les plus courants. Elle n’est pas exhaustive, mais
 | UpgradeNotSupportedNonLocalDbInstall |Vous n’utilisez pas une base de données LocalDB SQL Server Express. |
 | UpgradeNotSupportedNonMsolAccount |Le [compte de connecteur AD DS](reference-connect-accounts-permissions.md#ad-ds-connector-account) n’est plus le compte MSOL_ par défaut. |
 | UpgradeNotSupportedNotConfiguredSignInMethod | Lorsque vous configurez AAD Connect, vous avez choisi *Ne pas configurer* lors de la sélection de la méthode d’authentification unique. |
-| UpgradeNotSupportedPtaSignInMethod | Vous avez sélectionné Authentification directe comme mode d’authentification. |
 | UpgradeNotSupportedStagingModeEnabled |Le serveur est défini pour être en [mode intermédiaire](how-to-connect-sync-staging-server.md). |
 | UpgradeNotSupportedUserWritebackEnabled |Vous avez activé la fonctionnalité [Écriture différée de l’utilisateur](how-to-connect-preview.md#user-writeback) . |
 

@@ -2,18 +2,19 @@
 title: Tutoriel - Effectuer une mise à l’échelle automatique d’un groupe identique avec des modèles Azure
 description: Découvrez comment utiliser les modèles Azure Resource Manager pour mettre automatiquement à l’échelle un groupe de machines virtuelles identiques en fonction de l’augmentation et de la baisse des demandes de l’UC
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: tutorial
-ms.date: 03/27/2018
 ms.author: jushiman
-ms.custom: mvc
-ms.openlocfilehash: 02fe74a2dad7da655969c5c9523c696657425e49
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: autoscale
+ms.date: 03/27/2018
+ms.reviewer: avverma
+ms.custom: avverma
+ms.openlocfilehash: 0d857a0066737cd7bdc14dff435e25add66f2cdd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81011308"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201380"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Didacticiel : mettre automatiquement à l’échelle un groupe de machines virtuelles identiques avec un modèle Azure
 Lorsque vous créez un groupe identique, vous définissez le nombre d’instances de machine virtuelle que vous souhaitez exécuter. À mesure que la demande de votre application change, vous pouvez augmenter ou diminuer automatiquement le nombre d’instances de machine virtuelle. La capacité de mise à l’échelle automatique vous permet de suivre la demande du client ou de répondre aux changements de performances de votre application tout au long de son cycle de vie. Ce didacticiel vous montre comment effectuer les opérations suivantes :

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 9940ee4cfce9721ac65f2b3cf1469e180adfa098
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13430ff5f197560089ed184bc4a82f6a179ea3b7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231981"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117986"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Stockage Azure Premium : conception sous le signe de la haute performance
 [!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]
@@ -36,4 +36,4 @@ En savoir plus sur les types de disque disponibles : [Sélectionner un type de 
 Pour les utilisateurs de SQL Server, consultez les articles relatifs aux meilleures pratiques de performances de SQL Server :
 
 * [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](../windows/sql/virtual-machines-windows-sql-performance.md)
-* [Azure Premium Storage provides highest performance for SQL Server in Azure VM (en anglais)](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
+* [Azure Premium Storage provides highest performance for SQL Server in Azure VM (en anglais)](https://cloudblogs.microsoft.com/sqlserver/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm/)

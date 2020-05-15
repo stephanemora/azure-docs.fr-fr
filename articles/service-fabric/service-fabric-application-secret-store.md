@@ -3,12 +3,12 @@ title: Banque de secrets centrale Azure Service Fabric
 description: Cet article explique comment utiliser la banque de secrets centrale (CSS, Central Secrets Store) dans Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.openlocfilehash: 4087e7ccdcb2281c4a08af155d35a10c66147a85
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c48be8945326f0f11ded7c5700cd70043830e4db
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770412"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197764"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Banque de secrets centrale dans Azure Service Fabric 
 Cet article explique comment utiliser la banque de secrets centrale (CSS, Central Secrets Store) dans Azure Service Fabric pour créer des secrets dans des applications Service Fabric. CSS est une banque de secrets locale qui garde chiffrées et en mémoire les données sensibles que sont notamment les mots de passe, les jetons et les clés.
@@ -28,7 +28,7 @@ Ajoutez le script suivant à la configuration de votre cluster sous `fabricSetti
                 },
                 {
                     "name":  "MinReplicaSetSize",
-                    "value":  "3"
+                    "value":  "1"
                 },
                 {
                     "name":  "TargetReplicaSetSize",

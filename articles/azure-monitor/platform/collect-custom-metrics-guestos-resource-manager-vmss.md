@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: fe550bb4f5e63761bb645c9904816048584b1bca
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 9a7aa512c636f700cf9c6d990814d9367007c942
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733243"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125772"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Envoyer des métriques de système d’exploitation invité vers le magasin de métriques d’Azure Monitor à l’aide d’un modèle Azure Resource Manager pour un groupe de machines virtuelles identiques Windows
 
@@ -252,7 +252,7 @@ Pour déployer le modèle Resource Manager, utilisez Azure PowerShell :
    ```
 
    > [!NOTE]  
-   > N’oubliez pas d’utiliser une région Azure dans laquelle les mesures personnalisées sont activées. N’oubliez pas d’utiliser une [région Azure dans laquelle les mesures personnalisées sont activées](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/azure-monitor/platform/metrics-custom-overview.md#supported-regions).
+   > N’oubliez pas d’utiliser une région Azure dans laquelle les mesures personnalisées sont activées. N’oubliez pas d’utiliser une [région Azure dans laquelle les mesures personnalisées sont activées](./metrics-custom-overview.md#supported-regions).
  
 1. Exécutez les commandes suivantes pour déployer la machine virtuelle :  
 

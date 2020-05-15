@@ -3,12 +3,12 @@ title: Compteurs de performances dans Application Insights | Microsoft Docs
 description: Surveillez les compteurs de performances système et .NET personnalisés dans Application Insights.
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: 94d2520c17867f6d70caffd002a76365a425986f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 201338d3a904030ea961aede094b9877bfee3e36
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77669877"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855111"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Compteurs de performances système dans Application Insights
 
@@ -74,7 +74,7 @@ Pour collecter les compteurs de performances système et les envoyer à Applicat
 ```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
-      @"\Process([replace-with-application-process-name])\Page Faults/sec", "PageFaultsPerfSec")));
+      @"\Process([replace-with-application-process-name])\Page Faults/sec", "PageFaultsPerfSec"));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 ```
 

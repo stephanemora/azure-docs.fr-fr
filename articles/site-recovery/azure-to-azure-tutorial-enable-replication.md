@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c5d2bbe920f87421550fadf30a7e7e9d23931bfd
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: 145ae5f6f9204366052d9a182c61d76ff7ffa715
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80292483"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871495"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurer la récupération d’urgence pour les machines virtuelles Azure
 
@@ -170,8 +170,8 @@ Si Azure Disk Encryption est activé sur machine virtuelle source, vérifiez les
    1. **Coffres de clés de chiffrement de clé** : Par défaut, Site Recovery crée un coffre de clés dans la région cible. Le nom comporte un suffixe `asr` et est basé sur les clés de chiffrement principales de machine virtuelle sources. Si le coffre de clés créé par Azure Site Recovery existe déjà, il est réutilisé.
 1. Pour sélectionner des coffres de clés personnalisés, sélectionnez **Personnaliser**.
 
-> [!NOTE]
-> Seules les machines virtuelles Azure exécutant un système d’exploitation Windows et [permettant le chiffrement avec l’application Azure AD](https://aka.ms/ade-aad-app) sont prises en charge par Azure Site Recovery.
+>[!NOTE]
+> Site Recovery prend actuellement en charge ADE, avec et sans Azure Active Directory (AAD) pour les machines virtuelles sur Windows. Dans le cas des systèmes d’exploitation Linux, nous ne gérons ADE que sans AAD. Par ailleurs, les machines virtuelles exécutant ADE 1.1 (sans AAD) doivent utiliser des disques managés. Les machines virtuelles avec des disques non managés ne sont pas prises en charge. Si vous passez de ADE 0.1 (avec AAD) à 1.1, vous devez désactiver la réplication et activer la réplication pour une machine virtuelle après avoir activé 1.1.
 
 ### <a name="track-replication-status"></a>Suivre l’état de la réplication
 

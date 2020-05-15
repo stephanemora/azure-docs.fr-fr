@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3fe3ee79318ab9fdc9f2c0e9585051439b76b5cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3f3b37a6336c578ed25d8ab9553bc1ea9c79872f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77617138"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117205"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Procédure de basculement en cas de récupération d’urgence
 
@@ -34,7 +34,7 @@ Il existe deux cas à prendre en compte lorsque vous basculez vers un site de r�
 >[!NOTE]
 >Les étapes suivantes doivent être effectuées sur l’unité de grande instance HANA, qui représente l’unité de récupération d’urgence (DR). 
  
-Pour restaurer les dernières captures instantanées de stockage répliquées, suivez les étapes décrites dans la section « Exécution d’un basculement complet de récupération d’urgence - azure_hana_dr_failover » relative aux [outils de capture instantanée Microsoft pour SAP HANA sur Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf). 
+Pour restaurer les dernières captures instantanées de stockage répliquées, suivez les étapes décrites dans la section « Exécution d’un basculement complet de récupération d’urgence - azure_hana_dr_failover » relative aux [outils de capture instantanée Microsoft pour SAP HANA sur Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.3/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.3.pdf). 
 
 Si vous souhaitez faire basculer plusieurs instances de SAP HANA, exécutez la commande azure_hana_dr_failover plusieurs fois. Lorsque vous y êtes invité, entrez le SID SAP HANA que vous souhaitez faire basculer et restaurer. 
 

@@ -2,18 +2,19 @@
 title: Mettre à l’échelle automatiquement des groupes de machines virtuelles identiques dans le portail Azure
 description: Guide pratique pour créer des règles de mise à l’échelle automatique pour des groupes de machines virtuelles identiques dans le portail Azure
 author: ju-shim
-tags: azure-resource-manager
-ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 05/29/2018
 ms.author: jushiman
-ms.openlocfilehash: 1915b144aec5a5447504c70d18dbf420d255a08e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms:service: virtual-machine-scale-sets
+ms.subservice: autoscale
+ms.date: 05/29/2018
+ms.reviewer: avverma
+ms.custom: avverma
+ms.openlocfilehash: ea9d243e46aace9030c25222217ac3ad09a31c38
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81010288"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124939"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques dans le portail Azure
 Lorsque vous créez un groupe identique, vous définissez le nombre d’instances de machine virtuelle que vous souhaitez exécuter. À mesure que la demande de votre application change, vous pouvez augmenter ou diminuer automatiquement le nombre d’instances de machine virtuelle. La capacité de mise à l’échelle automatique vous permet de suivre la demande du client ou de répondre aux changements de performances de votre application tout au long de son cycle de vie.

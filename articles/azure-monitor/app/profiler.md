@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: ba9a2aca73dbdb8de298b68670fd6ab16f810a4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d41ece86240a20afea06bff3469b5c02c6e46ff
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234637"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121195"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profiler des applications Azure App Service en production avec Application Insights
 
@@ -58,8 +58,8 @@ Si vous souhaitez activer Profiler pour d’autres clouds, utilisez les paramèt
 
 |Paramètre d'application    | US Government Values| China Cloud |   
 |---------------|---------------------|-------------|
-|ApplicationInsightsProfilerEndpoint         | https://agent.serviceprofiler.azure.us    | https://profiler.applicationinsights.azure.cn |
-|ApplicationInsightsEndpoint | https://dc.applicationinsights.us | https://dc.applicationinsights.azure.cn |
+|ApplicationInsightsProfilerEndpoint         | `https://agent.serviceprofiler.azure.us`    | `https://profiler.applicationinsights.azure.cn` |
+|ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |
 
 ## <a name="disable-profiler"></a>Désactiver Profiler
 

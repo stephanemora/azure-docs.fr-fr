@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.openlocfilehash: b7aac80b19a7c30d994f3c14e19047583d5334ac
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 7902dfdf81d8e44921a5218d56effc90f433f02d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725858"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857407"
 ---
 # <a name="writing-plugins-for-azure-media-player"></a>Écriture de plug-ins pour le Lecteur multimédia Azure #
 
@@ -87,7 +87,7 @@ Pour plus d'exemples de création de plug-ins, consultez notre [galerie](azure-m
 
 ### <a name="plugin-gallery"></a>Galerie de plug-ins ###
 
-La [galerie de plug-ins](http//:aka.ms/ampplugins) contient plusieurs plug-ins auxquels la communauté a contribué en termes de fonctionnalités (marqueurs de temps, zoom, analyse, par exemple). La page fournit des accès aux plug-ins et des instructions sur la façon de les configurer, ainsi qu’une démonstration montrant les plug-ins en action. Si vous pensez que votre plug-in mérite d'être inclus dans notre galerie, n’hésitez pas à nous l'envoyer pour nous permettre de le vérifier.
+La [galerie de plug-ins](https://aka.ms/ampplugins) contient plusieurs plug-ins auxquels la communauté a contribué en termes de fonctionnalités (marqueurs de temps, zoom, analyse, par exemple). La page fournit des accès aux plug-ins et des instructions sur la façon de les configurer, ainsi qu’une démonstration montrant les plug-ins en action. Si vous pensez que votre plug-in mérite d'être inclus dans notre galerie, n’hésitez pas à nous l'envoyer pour nous permettre de le vérifier.
 
 ## <a name="next-steps"></a>Étapes suivantes ##
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 4/2/2020
+ms.date: 4/17/2020
 ms.author: swmachan
-ms.openlocfilehash: fcbaabac0961f1269a929fb4a56f81ac282bae29
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: bf7701055c8c325f02c0daca1755806f3ca17b76
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619160"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857300"
 ---
 # <a name="translator-text-api-v30"></a>API de traduction de texte Translator Text v3.0
 
@@ -147,7 +147,7 @@ Un jeton d’authentification est valide pour une durée de 10 minutes. Le jeto
 
 ## <a name="virtual-network-support"></a>Prise en charge des réseaux virtuels
 
-Le service Translator est désormais disponible avec des fonctionnalités de réseau virtuel dans certaines régions (`WestUS2`, `EastUS`, `SouthCentralUS`, `WestUS`, `Central US EUAP`, `global`). Pour activer le réseau virtuel, consultez [Configuration de réseaux virtuels Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+Le service Translator est désormais disponible avec des fonctionnalités de réseau virtuel dans certaines régions (`WestUS2`, `EastUS`, `SouthCentralUS`, `WestUS`, `CentralUSEUAP`, `global`). Pour activer le réseau virtuel, consultez [Configuration de réseaux virtuels Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
 
 Après avoir activé cette capacité, vous devez utiliser le point de terminaison personnalisé pour appeler l’API Translator. Vous ne pouvez pas utiliser le point de terminaison du traducteur global (« api.cognitive.microsofttranslator.com ») et vous ne pouvez pas vous authentifier avec un jeton d’accès.
 

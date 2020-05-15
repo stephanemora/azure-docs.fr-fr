@@ -1,20 +1,20 @@
 ---
 title: Exemples Azure CLI - Attacher et utiliser des disques de données
 description: Ce script permet de créer un groupe de machines virtuelles identiques Azure, puis d’attacher et de préparer les disques de données avec Azure CLI.
-author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.devlang: azurecli
+author: mimckitt
+ms.author: mimckitt
 ms.topic: sample
+ms.service: virtual-machine-scale-sets
+ms.subservice: disks
 ms.date: 03/27/2018
-ms.author: jushiman
-ms.custom: mvc
-ms.openlocfilehash: 7f8f84639095e4c495bfd24c534ee7c9a64136e5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: 0f2a05f6d7268bea3c5ccdaccc9ac99863aaf5fe
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81010424"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198196"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-the-azure-cli"></a>Attacher et utiliser des disques de données avec un groupe de machines virtuelles identiques au moyen d’Azure CLI
 Ce script permet de créer un groupe de machines virtuelles identiques, puis d’attacher et préparer les disques de données.

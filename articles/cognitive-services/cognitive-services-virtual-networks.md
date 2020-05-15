@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 0988c8154c63bb408493edf3243078e625c80d53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 96108053e6b68a71532d1cf25f8a352b3e0e5ca7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79371220"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202073"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurer des réseaux virtuels Azure Cognitive Services
 
@@ -55,7 +55,7 @@ La prise en charge des réseaux virtuels pour les ressources Cognitive Services 
 
 La prise en charge des réseaux virtuels pour les ressources Cognitive Services répertoriées ci-dessous se limite aux régions Azure *EUAP USA Centre*, *USA Centre Sud*, *USA Est*, *USA Ouest 2*, *Global* et *US Gov Virginie*.
 > [!div class="checklist"]
-> * [Translator Text](./translator/index.yml)
+> * [Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
 
 ## <a name="service-tags"></a>Étiquettes de service
 Outre la prise en charge des points de terminaison de service de réseau virtuel pour les services ci-dessus, Cognitive Services prend également en charge une balise de service pour la configuration des règles du réseau sortant. Les services suivants sont inclus dans la balise de service CognitiveServicesManagement.

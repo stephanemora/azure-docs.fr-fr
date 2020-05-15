@@ -2,18 +2,19 @@
 title: Tutoriel - Créer et gérer un groupe de machines virtuelles identiques Azure
 description: Découvrez comment utiliser Azure PowerShell pour créer un groupe de machines virtuelles identiques, ainsi que certaines tâches de gestion courantes comme le démarrage et l’arrêt d’une instance, ou la modification de la capacité du groupe identique.
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: tutorial
-ms.date: 05/18/2018
 ms.author: jushiman
-ms.custom: mvc
-ms.openlocfilehash: 938b4e64dd5b67488ae5d061f2ceb29ae4bb7f6e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
+ms.date: 05/18/2018
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 2e9c027a927d4aba9c174db8dfc5a72f0cc4f214
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81011235"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195187"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Didacticiel : Créer et gérer un groupe de machines virtuelles identiques avec Azure PowerShell
 

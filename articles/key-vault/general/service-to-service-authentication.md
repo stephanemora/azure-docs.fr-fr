@@ -10,12 +10,12 @@ ms.date: 08/28/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: cd630acfd65f0a79c186ba35bc15627bf7ccfdbe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84cf12aa91de72ae54e63f2cfe7a61586b6bf457
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686192"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857080"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Authentification de service à service auprès d’Azure Key Vault à l’aide de .NET
 
@@ -272,7 +272,7 @@ AzureServiceTokenProvider recherche Azure CLI à ses emplacements d’installati
 
 #### <a name="unauthorized-access-access-denied-forbidden-or-similar-error"></a>Accès non autorisé, accès refusé, interdit, ou erreur similaire
 
-Le principal utilisé n’a pas accès à la ressource à laquelle il tente d’accéder. Accordez à votre compte d’utilisateur ou au « contributeur » MSI d’App Service l’accès à une ressource. Celle-ci varie selon que vous exécutez l’exemple sur votre ordinateur local ou déployé dans Azure sur votre App Service. Certaines ressources, telles que les coffres de clés, disposent également de leurs propres [stratégies d’accès](https://docs.microsoft.com/azure/key-vault/secure-your-key-vault#data-plane-and-access-policies) que vous pouvez utiliser pour accorder l’accès aux principaux (utilisateurs, applications et groupes).
+Le principal utilisé n’a pas accès à la ressource à laquelle il tente d’accéder. Accordez à votre compte d’utilisateur ou au « contributeur » MSI d’App Service l’accès à une ressource. Celle-ci varie selon que vous exécutez l’exemple sur votre ordinateur local ou déployé dans Azure sur votre App Service. Certaines ressources, telles que les coffres de clés, disposent également de leurs propres [stratégies d’accès](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#data-plane-and-access-policies) que vous pouvez utiliser pour accorder l’accès aux principaux (utilisateurs, applications et groupes).
 
 ### <a name="common-issues-when-deployed-to-azure-app-service"></a>Problèmes courants lors du déploiement sur Azure App Service
 

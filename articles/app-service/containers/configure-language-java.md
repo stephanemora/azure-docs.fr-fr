@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 01d94b39354333a8840ded8725625d6a91cf56b7
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: ffc7c289fd675a68c8b02af1777fea3d4530e17a
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592160"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889492"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurer une application Java Linux pour Azure App Service
 
@@ -25,7 +25,7 @@ Ce guide fournit des concepts et des instructions clés aux développeurs Java q
 
 ## <a name="deploying-your-app"></a>Déploiement de votre application
 
-Vous pouvez utiliser le [plug-in Maven pour Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) pour déployer des fichiers .jar et .war. Le déploiement avec des IDE populaires est également pris en charge avec [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) ou [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
+Vous pouvez utiliser le [plug-in Maven pour Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) pour déployer des fichiers .jar et .war. Le déploiement avec des IDE populaires est également pris en charge avec [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) ou [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
 
 Sinon, votre méthode de déploiement dépend du type de votre archive :
 

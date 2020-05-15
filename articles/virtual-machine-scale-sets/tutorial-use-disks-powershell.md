@@ -2,18 +2,19 @@
 title: Tutoriel - Créer et utiliser des disques pour les groupes identiques avec Azure PowerShell
 description: Découvrez comment utiliser Azure PowerShell pour créer et utiliser la fonctionnalité Disques managés avec des groupes identiques de machines virtuelles, notamment comment ajouter, préparer, répertorier et détacher des disques.
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: tutorial
-ms.date: 03/27/2018
 ms.author: jushiman
-ms.custom: mvc
-ms.openlocfilehash: 6cdd1ee3c18d63e1a8c7734a9efc2573f6b04b33
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: disks
+ms.date: 03/27/2018
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 5c82f087505c1634dd621252935c4017687340b2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81011189"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198243"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Didacticiel : Créer et utilisez les disques avec un groupe de machines virtuelles identiques à l’aide de Azure PowerShell
 

@@ -1,19 +1,20 @@
 ---
 title: Exemples Azure PowerShell
 description: Tableau contenant des liens vers des exemples de scripts bash créés à l’aide d’Azure PowerShell permettant, par exemple, de créer et de gérer un groupe identique.
-author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
+author: mimckitt
+ms.author: mimckitt
 ms.topic: sample
+ms.service: virtual-machine-scale-sets
+ms.subservice: powershell
 ms.date: 03/27/2018
-ms.author: jushiman
-ms.custom: mvc
-ms.openlocfilehash: b0c5f7fb3841df1cc5649d48348d985311a97062
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: 2566cc9266128bac7f1d5f6223c72675831539e6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011342"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197059"
 ---
 # <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>Exemples Azure PowerShell Azure pour les groupes de machines virtuelles identiques.
 

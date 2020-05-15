@@ -1,19 +1,20 @@
 ---
 title: 'Tutoriel : Créer un groupe de machines virtuelles identiques Windows'
 description: Découvrez comment utiliser Azure PowerShell pour créer et déployer une application hautement disponible sur les machines virtuelles Windows à l’aide d’un groupe de machines virtuelles identiques
-author: cynthn
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
+author: ju-shim
+ms.author: jushiman
 ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: windows
 ms.date: 11/30/2018
-ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: aba5df346d8df9b9f2ad130ded336e45576dbd89
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 14777b85fdc531b96c61882d5f244ca40ed28fa6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100394"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197988"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Tutoriel : Créer un groupe de machines virtuelles identiques et déployer une application hautement disponible sur Windows avec Azure PowerShell
 Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Vous pouvez mettre à l’échelle manuellement le nombre de machines virtuelles du groupe identique. Vous pouvez également définir des règles pour mettre à l’échelle automatiquement en fonction de l’utilisation des ressources (processeur, demande de mémoire, trafic réseau, etc.). Ce tutoriel explique comment déployer un groupe de machines virtuelles identiques dans Azure et vous apprend à :

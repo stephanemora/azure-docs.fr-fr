@@ -1,19 +1,20 @@
 ---
 title: Exemples Azure PowerShell - Attacher et utiliser des disques de données
 description: Ce script permet de créer un groupe de machines virtuelles identiques Azure, puis d’attacher et de préparer les disques de données avec PowerShell.
-author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
+author: mimckitt
+ms.author: mimckitt
 ms.topic: sample
+ms.service: virtual-machine-scale-sets
+ms.subservice: disks
 ms.date: 03/27/2018
-ms.author: jushiman
-ms.custom: mvc
-ms.openlocfilehash: bff0bb0673862d614aac5bb783bc501516871b29
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: ee9348c835a30c34a45bec78cc0d6b3ee298bf08
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81010387"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201405"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-powershell"></a>Attacher et utiliser des disques de données avec un groupe de machines virtuelles identiques avec PowerShell
 Ce script permet de créer un groupe de machines virtuelles identiques, puis d’attacher et préparer les disques de données.

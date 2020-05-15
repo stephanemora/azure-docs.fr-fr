@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 4cf260620d4e907fdb9190a052155fa22f1c7985
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: fc08916967b4d64667065373cf2d0828a05069d0
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398342"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890940"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes
 
@@ -341,7 +341,7 @@ GO
 ### <a name="maintenance"></a>Maintenance
 
 - **Ajout de nouvelles partitions** : Exécutez le script T-SQL pour activer SNL sur les nouvelles partitions, sinon, les requêtes portant sur ces partitions ne sont pas filtrées.
-- **Ajout de nouvelles tables** : Ajoutez un prédicat FILTER et BLOCK à la stratégie de sécurité sur toutes les partitions chaque fois qu’une table est créée. Dans le cas contraire, les requêtes portant sur la nouvelle table ne sont pas filtrées. Vous pouvez automatiser cet ajout par le biais d’un déclencheur DDL, comme décrit dans l’article [Apply Row-Level Security automatically to newly created tables (Appliquer automatiquement la sécurité au niveau des lignes aux nouvelles tables) (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Ajout de nouvelles tables** : Ajoutez un prédicat FILTER et BLOCK à la stratégie de sécurité sur toutes les partitions chaque fois qu’une table est créée. Dans le cas contraire, les requêtes portant sur la nouvelle table ne sont pas filtrées. Vous pouvez automatiser cet ajout par le biais d’un déclencheur DDL, comme décrit dans l’article [Apply Row-Level Security automatically to newly created tables (Appliquer automatiquement la sécurité au niveau des lignes aux nouvelles tables) (blog)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
 
 ## <a name="summary"></a>Résumé
 

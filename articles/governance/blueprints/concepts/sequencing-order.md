@@ -1,14 +1,14 @@
 ---
 title: Comprendre l’ordre de la séquence de déploiement
 description: Découvrez l’ordre par défaut dans lequel les artefacts de blueprint sont déployés lors d’une affectation de blueprint, et comment personnaliser l’ordre de déploiement.
-ms.date: 08/22/2019
+ms.date: 05/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 41b1b1ada5b7c6c919f227927001570332eeccbf
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 91e11f8127ba2532ad48362de1689f4be2b6f935
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677561"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864519"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Comprendre la séquence de déploiement dans les blueprints Azure
 
@@ -47,8 +47,7 @@ Au moment de composer des définitions de blueprints de grande taille, il peut �
 Le classement est effectué en définissant une propriété `dependsOn` dans le JSON. La définition de blueprint, pour les groupes de ressources, et les objets artefact prennent en charge cette propriété. `dependsOn` est un tableau de chaînes de noms d’artefacts que l’artefact en question doit créer au préalable.
 
 > [!NOTE]
-> Lors de la création d’objets blueprint, chaque ressource d’artefact obtient son nom à partir du nom de fichier si vous utilisez [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact) ou à partir du point de terminaison de l’URL si vous utilisez l’[API REST](/rest/api/blueprints/artifacts/createorupdate).
-> Les références _resourceGroup_ dans les artefacts doivent correspondre à celles définies dans la définition de blueprint.
+> Lors de la création d’objets blueprint, chaque ressource d’artefact obtient son nom à partir du nom de fichier si vous utilisez [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact) ou à partir du point de terminaison de l’URL si vous utilisez l’[API REST](/rest/api/blueprints/artifacts/createorupdate). Les références _resourceGroup_ dans les artefacts doivent correspondre à celles définies dans la définition de blueprint.
 
 ### <a name="example---ordered-resource-group"></a>Exemple - Groupe de ressources classé
 
@@ -137,7 +136,8 @@ L’artefact de modèle de niveau d’abonnement dépendant du groupe de ressour
 
 Pendant le processus de création, un tri topologique est appliqué pour créer le graphe de dépendance des artefacts des blueprints. La vérification permet de garantir que chaque niveau de dépendance entre les groupes de ressources et les artefacts est pris en charge.
 
-Si une dépendance d’artefact qui n’est pas susceptible de modifier l’ordre par défaut est déclarée, aucune modification n’est apportée. Tel est le cas par exemple d’un groupe de ressources qui dépend d’une stratégie au niveau de l’abonnement ou d’une affectation de stratégie enfant « standard-rg » de groupe de ressources qui dépend d’une affectation de rôle enfant « standard-rg » de groupe de ressources. Dans les deux cas, `dependsOn` n’aurait pas modifié l’ordre de séquencement par défaut et aucune modification n’aurait été apportée.
+Si une dépendance d’artefact qui n’est pas susceptible de modifier l’ordre par défaut est déclarée, aucune modification n’est apportée.
+Tel est le cas par exemple d’un groupe de ressources qui dépend d’une stratégie au niveau de l’abonnement ou d’une affectation de stratégie enfant « standard-rg » de groupe de ressources qui dépend d’une affectation de rôle enfant « standard-rg » de groupe de ressources. Dans les deux cas, `dependsOn` n’aurait pas modifié l’ordre de séquencement par défaut et aucune modification n’aurait été apportée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

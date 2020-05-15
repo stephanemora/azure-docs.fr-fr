@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0c61a431b985e494148500ed0a7aeb106534ed2c
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 278c6ee05fdf78cbfa8653381b65233fbb513593
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392115"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996120"
 ---
 # <a name="provide-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Fournir un déploiement continu sur des machines virtuelles à l’aide d’Automation State Configuration et Chocolatey
 
@@ -21,9 +21,6 @@ Azure Automation est un service géré dans Microsoft Azure qui vous permet d’
 Cet article explique comment configurer le déploiement continu (CD) pour un ordinateur Windows. Vous pouvez facilement étendre la technique afin d’inclure autant d’ordinateurs Windows que vous le souhaitez dans le rôle, par exemple un site Web, puis dans des rôles supplémentaires.
 
 ![Déploiement continu pour machines virtuelles IaaS](./media/automation-dsc-cd-chocolatey/cdforiaasvm.png)
-
->[!NOTE]
->Cet article a été mis à jour pour tenir compte de l’utilisation du nouveau module Az d’Azure PowerShell. Vous pouvez toujours utiliser le module AzureRM, qui continue à recevoir des correctifs de bogues jusqu’à au moins décembre 2020. Pour en savoir plus sur le nouveau module Az et la compatibilité avec AzureRM, consultez [Présentation du nouveau module Az d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Pour obtenir des instructions relatives à l’installation du module Az sur votre Runbook Worker hybride, voir [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Pour votre compte Automation, vous pouvez mettre à jour vos modules vers la dernière version en suivant les instructions du [Guide de mise à jour des modules Azure PowerShell dans Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="at-a-high-level"></a>À un niveau élevé
 

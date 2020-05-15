@@ -4,12 +4,12 @@ description: Découvrez comment préparer l’évaluation/la migration des serve
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 539e25f8b6cc92674fef567de6e6de16d0a9394a
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: b7bde5df943a35bfcf08ace3b454a26dae8c1d89
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535279"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901425"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Préparer les serveurs physiques à une évaluation et à une migration vers Azure
 
@@ -105,10 +105,9 @@ Préparez Azure à migrer des serveurs physiques à l’aide de Migration de ser
 ### <a name="assign-azure-account-permissions"></a>Affecter des autorisations de compte Azure
 
 Affectez le rôle Contributeur de machines virtuelles au compte Azure. Cela permet d’effectuer les opérations suivantes :
-
-    - Créer une machine virtuelle dans le groupe de ressources sélectionné
-    - Créer une machine virtuelle dans le réseau virtuel sélectionné
-    - Écrire sur un disque managé Azure. 
+  - Créer une machine virtuelle dans le groupe de ressources sélectionné
+  - Créer une machine virtuelle dans le réseau virtuel sélectionné
+  - Écrire sur un disque managé Azure. 
 
 ### <a name="create-an-azure-network"></a>Créer un réseau Azure
 
