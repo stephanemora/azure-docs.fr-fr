@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 02/27/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1bef4e5f4129ddc8300d61d609392ce0b07b74b8
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 48ce72ee501252e35388f958b5c2e166edc2678f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656249"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196170"
 ---
 # <a name="what-is-azure-private-link"></a>Qu’est-ce que Liaison privée Azure ? 
 Azure Private Link vous permet d’accéder aux services Azure PaaS (par exemple Stockage Azure et SQL Database) ainsi qu’aux services de partenaires ou de clients hébergés par Azure sur un [point de terminaison privé](private-endpoint-overview.md) dans votre réseau virtuel.
@@ -40,29 +40,31 @@ Le service Liaison privée Azure offre les avantages suivants :
 ## <a name="availability"></a>Disponibilité 
  Le tableau suivant liste les services Private Link et les régions où ils sont disponibles. 
 
-|Scénario  |Services pris en charge  |Régions disponibles | Statut  |
-|:---------|:-------------------|:-----------------|:--------|
-|Liaison privée pour les services appartenant au client |Services Private Link derrière l’instance Azure Load Balancer standard | Toutes les régions publiques  | GA <br/> [En savoir plus](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
-|Liaison privée pour les services PaaS Azure   | Stockage Azure        |  Toutes les régions publiques      | GA <br/> [En savoir plus](/azure/storage/common/storage-private-endpoints)  |
-|  | Azure Data Lake Storage Gen2        |  Toutes les régions publiques      | GA <br/> [En savoir plus](/azure/storage/common/storage-private-endpoints)  |
-|  |  Azure SQL Database         | Toutes les régions publiques      |   GA <br/> [En savoir plus](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
-|  |Azure Synapse Analytics (SQL Data Warehouse)| Toutes les régions publiques |GA <br/> [En savoir plus](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
-|  |Azure Cosmos DB|  Toutes les régions publiques |GA <br/> [En savoir plus](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
-|  |  Azure Database pour PostgreSQL - Serveur unique         | Toutes les régions publiques      |   GA <br/> [En savoir plus](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
-|  |  Azure Database pour MySQL         | Toutes les régions publiques      |   GA <br/> [En savoir plus](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
-|  |  Azure Database for MariaDB         | Toutes les régions publiques      |   GA <br/> [En savoir plus](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
-|  |  Azure Key Vault         | Toutes les régions publiques      |   GA   <br/> [En savoir plus](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
-|  |Azure Kubernetes Service - API Kubernetes | Toutes les régions publiques      |   GA   <br/> [En savoir plus](https://docs.microsoft.com/azure/aks/private-clusters)   |
-|  |Recherche Azure | USA Est, USA Ouest 2, USA Centre Sud |   PRÉVERSION    |
-|  |Azure Container Registry | Toutes les régions publiques      |   PRÉVERSION   |
-|  |Azure App Configuration | Toutes les régions publiques      |   PRÉVERSION   |
-|  |Sauvegarde Azure | USA Est, USA Ouest 2, USA Centre Sud     |   PRÉVERSION   |
-|  |Azure Event Hub | Toutes les régions publiques      |   PRÉVERSION    |
-|  |Azure Service Bus | Toutes les régions publiques      |   PRÉVERSION   |
-|  |Azure Relay | Toutes les régions publiques      |   PRÉVERSION   |
-|  |Azure Event Grid| USA Est, USA Ouest 2, USA Centre Sud      |   PRÉVERSION   <br/> [En savoir plus](https://docs.microsoft.com/azure/event-grid/network-security)   |
-|  |Azure Web Apps | USA Est, USA Ouest 2, USA Centre Sud      |   PRÉVERSION   <br/> [En savoir plus](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
-|  |Azure Machine Learning | USA Est, USA Ouest 2, USA Centre Sud      |   PRÉVERSION   <br/> [En savoir plus](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
+|Services pris en charge  |Régions disponibles | Statut  |
+|:-------------------|:-----------------|:--------|
+|Services Private Link derrière l’instance Azure Load Balancer standard | Toutes les régions publiques  | GA <br/> [En savoir plus](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
+| Stockage Azure        |  Toutes les régions publiques       | GA <br/> [En savoir plus](/azure/storage/common/storage-private-endpoints)  |
+| Azure Data Lake Storage Gen2        |  Toutes les régions publiques      | GA <br/> [En savoir plus](/azure/storage/common/storage-private-endpoints)  |
+|  Azure SQL Database         | Toutes les régions publiques      |   GA <br/> [En savoir plus](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
+|Azure Synapse Analytics (SQL Data Warehouse)| Toutes les régions publiques |GA <br/> [En savoir plus](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
+|Azure Cosmos DB|  Toutes les régions publiques |GA <br/> [En savoir plus](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
+|  Azure Database pour PostgreSQL - Serveur unique         | Toutes les régions publiques      |   GA <br/> [En savoir plus](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
+|  Azure Database pour MySQL         | Toutes les régions publiques      |   GA <br/> [En savoir plus](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
+|  Azure Database for MariaDB         | Toutes les régions publiques      |   GA <br/> [En savoir plus](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
+|  Azure Key Vault         | Toutes les régions publiques      |   GA   <br/> [En savoir plus](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
+|Azure Kubernetes Service - API Kubernetes | Toutes les régions publiques      |   GA   <br/> [En savoir plus](https://docs.microsoft.com/azure/aks/private-clusters)   |
+|Recherche Azure | Toutes les régions publiques |   GA   <br/> [En savoir plus](https://docs.microsoft.com/azure/search/search-security-overview#endpoint-access)    |
+|Azure Container Registry | Toutes les régions publiques      |   GA   <br/> [En savoir plus](https://docs.microsoft.com/azure/container-registry/container-registry-private-link)   |
+|Azure App Configuration | Toutes les régions publiques      |   PRÉVERSION   |
+|Sauvegarde Azure | Toutes les régions publiques     |   GA   <br/> [En savoir plus](https://docs.microsoft.com/azure/backup/private-endpoints)   |
+|Azure Event Hub | Toutes les régions publiques      |    GA   <br/> [En savoir plus](https://docs.microsoft.com/azure/event-hubs/private-link-service)  |
+|Azure Service Bus | Toutes les régions publiques      |  GA   <br/> [En savoir plus](https://docs.microsoft.com/azure/service-bus-messaging/private-link-service)    |
+|Azure Relay | Toutes les régions publiques      |   PRÉVERSION <br/> [En savoir plus](https://docs.microsoft.com/azure/service-bus-relay/private-link-service)  |
+|Azure Event Grid| Toutes les régions publiques       |   GA   <br/> [En savoir plus](https://docs.microsoft.com/azure/event-grid/network-security) |
+|Azure Web Apps | USA Est, USA Ouest 2, USA Centre Sud      |   PRÉVERSION   <br/> [En savoir plus](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
+|Azure Machine Learning | USA Est, USA Ouest 2, USA Centre Sud      |   PRÉVERSION   <br/> [En savoir plus](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
+| IoT Hub | Toutes les régions publiques    |   PRÉVERSION   <br/> [En savoir plus](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
+| Azure SignalR | USA Est, USA Ouest 2, USA Centre Sud      |   PRÉVERSION   <br/> [En savoir plus](https://aka.ms/asrs/privatelink)   |
 
 Pour obtenir les notifications les plus récentes, consultez la [page relative aux mises à jour du réseau virtuel Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 

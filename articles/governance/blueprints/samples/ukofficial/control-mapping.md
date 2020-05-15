@@ -1,14 +1,14 @@
 ---
 title: Exemples de contrôle de blueprint UK OFFICIAL et UK NHS
 description: Mappage des contrôles des exemples de blueprint UK OFFICIAL et UK NHS. Chaque contrôle est mis en correspondance avec une ou plusieurs stratégies Azure qui simplifient l’évaluation.
-ms.date: 12/04/2019
+ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 5bef590013a9ef06b791e58dc6c82e74dffe1a17
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 88f9606df5c3dcbca6ade05be918e3500a6ba64c
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74851364"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005610"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mappage des contrôles des exemples de blueprint UK OFFICIAL et UK NHS
 
@@ -27,9 +27,6 @@ Le blueprint vous aide à vérifier que le transfert d’informations avec les s
 - La sécurisation du transfert vers des comptes de stockage doit être activée
 - Afficher les résultats d’audit des serveurs web Windows qui n’utilisent pas de protocole de communication sécurisé
 - Déployer des prérequis pour auditer les serveurs web Windows qui n’utilisent pas de protocole de communication sécurisé
-- La dernière version de TLS doit être utilisée dans votre application API
-- La dernière version de TLS doit être utilisée dans votre application web
-- La dernière version de TLS doit être utilisée dans votre application de fonction
 
 ## <a name="23-data-at-rest-protection"></a>2.3 Protection des données au repos
 
@@ -129,8 +126,8 @@ Ce blueprint vous permet également de contrôler l’accès aux ressources Azur
 
 - \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Linux qui ont des comptes sans mot de passe
 - \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Linux qui autorisent les connexions à distance des comptes sans mot de passe
-- \[Préversion\] : Auditer les machines virtuelles Linux qui ont des comptes sans mot de passe
-- \[Préversion\] : Auditer les machines virtuelles Linux qui autorisent les connexions à distance des comptes sans mot de passe
+- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Linux qui ont des comptes sans mot de passe
+- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Linux qui autorisent les connexions à distance à partir des comptes sans mot de passe
 - Les comptes de stockage doivent être migrés vers de nouvelles ressources Azure Resource Manager
 - Les machines virtuelles doivent être migrées vers de nouvelles ressources Azure Resource Manager
 - Faire l’audit des machines virtuelles n’utilisant aucun disque managé
@@ -141,12 +138,10 @@ Outre l’utilisation de plus de 25 stratégies pour une gestion sécurisée app
 
 - Auditer l'accès réseau non restreint aux comptes de stockage
 - Les ces contrôles d’application adaptatifs doit être activés sur les machines virtuelles
-- Les règles de groupe de sécurité réseau pour les applications web IaaS doivent être renforcées
 - L'accès via un point de terminaison accessible sur Internet doit être limité
-- Les règles de groupe de sécurité réseau pour les machines virtuelles accessibles sur Internet doivent être renforcées
+- Les recommandations de renforcement de réseau adaptatif doivent être appliquées sur les machines virtuelles accessibles à partir d’Internet
 - La solution de protection des points de terminaison doit être installée sur les groupes de machines virtuelles identiques
 - Le contrôle d’accès réseau juste-à-temps doit être appliqué sur les machines virtuelles
-- Auditer l'accès réseau non restreint aux comptes de stockage
 - Le débogage à distance devrait être désactivé pour Function App
 - Le débogage à distance doit être désactivé pour l'application web
 - Le débogage à distance doit être désactivé pour l’application API
@@ -179,13 +174,13 @@ Ce blueprint affecte également des définitions Azure Policy qui permettent de 
 
 Ce blueprint affecte également une définition Azure Policy qui vérifie les autorisations associées aux fichiers de mot de passe des machines virtuelles Linux qui émettent une alerte si elles sont définies incorrectement. Cette conception vous d’appliquer une action corrective pour vérifier que les authentificateurs ne sont pas compromis.
 
-- \[Préversion\] : Vérifier que les autorisations de fichiers /etc/passwd de machine virtuelle Linux sont définies sur 0644
+- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Linux qui n’ont pas les autorisations de fichier passwd définies sur 0644
 
 ## <a name="13-audit-information-for-users"></a>13 Informations d’audit pour les utilisateurs
 
 Ce blueprint vous permet de garantir que les événements système sont journalisés en affectant des définitions [Azure Policy](../../../policy/overview.md) qui vérifient les paramètres de journalisation sur les ressources Azure. Une stratégie affectée vérifie également si les machines virtuelles n’envoient pas de journaux à un espace de travail Log Analytics spécifié.
 
-- L’audit doit être activé sur les paramètres de sécurité des données avancés sur SQL Server
+- Advanced Data Security doit être activé sur vos serveurs SQL
 - Auditer le paramètre de diagnostic
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows

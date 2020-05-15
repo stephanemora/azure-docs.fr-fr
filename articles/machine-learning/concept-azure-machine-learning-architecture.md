@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/17/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 95a1734a3e7fd65fc87f4825ae71ee3006616bc3
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: e70401bbaa97920163f3c7e76e32b9b9be2f5e72
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629369"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871465"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Fonctionnement d’Azure Machine Learning : Architecture et concepts
 
@@ -119,7 +119,7 @@ Pour obtenir des exemples de configurations d’exécutions, consultez [Sélecti
 Lorsque vous envoyez une exécution, Azure Machine Learning compresse le répertoire qui contient le script dans un fichier zip, puis l’envoie à la cible de calcul. Le fichier zip est ensuite décompressé, et le script y est exécuté. Azure Machine Learning stocke également le fichier zip en tant qu’instantané dans l’enregistrement d’exécution. Toute personne ayant accès à l’espace de travail peut parcourir un enregistrement d’exécution et télécharger l’instantané.
 
 > [!NOTE]
-> Pour empêcher que les fichiers inutiles soient inclus dans l’instantané, créez un fichier « ignore» (.gitignore ou .amlignore). Placez ce fichier dans le répertoire des instantanés et ajoutez les noms de fichiers à ignorer qu’il contient. Le fichier .amlignore utilise les mêmes modèles et syntaxe [ que le fichier .gitignore](https://git-scm.com/docs/gitignore). Si les deux fichiers existent, le fichier .amlignore est prioritaire.
+> [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 
 ### <a name="github-tracking-and-integration"></a>Intégration et suivi GitHub
 

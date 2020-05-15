@@ -1,21 +1,19 @@
 ---
-title: Exécuter un conteneur Windows Server dans le cluster Azure Kubernetes Service
+title: Créer un conteneur Windows Server sur un cluster Azure Kubernetes Service (AKS)
 description: Découvrez comment créer rapidement un cluster Kubernetes et déployer une application dans un conteneur Windows Server dans Azure Kubernetes Service (AKS) à l’aide d’Azure CLI.
 services: container-service
 ms.topic: article
-ms.date: 01/27/2020
-ms.openlocfilehash: 2aecebcc45cb24c9ab3a594aa4d74b1584c7ffa7
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.date: 05/06/2020
+ms.openlocfilehash: 28925961ea3b99f939ac650d54b5dcece2551f59
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392661"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926610"
 ---
-# <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Préversion - Créer un conteneur Windows Server sur un cluster Azure Kubernetes Service (AKS) à l’aide d’Azure CLI
+# <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Créer un conteneur Windows Server sur un cluster Azure Kubernetes Service (AKS) à l’aide d’Azure CLI
 
 AKS (Azure Kubernetes Service) est un service Kubernetes managé qui vous permet de déployer et de gérer rapidement des clusters. Dans cet article, vous déployez un cluster AKS à l’aide d’Azure CLI. Vous déployez également un exemple d’application ASP.NET dans un conteneur Windows Server vers le cluster.
-
-Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
 
 ![Image de la navigation vers l’exemple d’application ASP.NET](media/windows-container/asp-net-sample-app.png)
 
@@ -25,63 +23,16 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, cet article vous demande d’exécuter Azure CLI version 2.0.61 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
-
-## <a name="before-you-begin"></a>Avant de commencer
-
-Vous devez ajouter un pool de nœuds supplémentaire après avoir créé votre cluster qui peut exécuter des conteneurs Windows Server. L’ajout d’un pool de nœuds supplémentaire est couvert dans une étape ultérieure, mais vous devez d’abord activer quelques fonctionnalités d’évaluation.
-
-> [!IMPORTANT]
-> Les fonctionnalités d’évaluation AKS sont en libre-service et font l’objet d’un abonnement. Les versions préliminaires sont fournies « en l’état », « avec toutes les erreurs » et « en fonction des disponibilités », et sont exclues des contrats de niveau de service (sla) et de la garantie limitée. Les versions préliminaires AKS sont partiellement couvertes par le service clientèle sur la base du meilleur effort. En tant que tel, ces fonctionnalités ne sont pas destinées à une utilisation en production. Pour obtenir des informations supplémentaires, veuillez lire les articles de support suivants :
->
-> * [Stratégies de support AKS][aks-support-policies]
-> * [FAQ du support Azure][aks-faq]
-
-### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
-
-Pour utiliser des conteneurs Windows Server, vous aurez besoin de l’extension de CLI *aks-preview* version 0.4.12 ou version ultérieure. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-### <a name="register-windows-preview-feature"></a>Enregistrer la fonctionnalité d’évaluation Windows
-
-Pour créer un cluster AKS qui peut utiliser plusieurs pools de nœuds et exécuter des conteneurs Windows Server, commencez par activer les indicateurs de fonctionnalité *WindowsPreview* sur votre abonnement. La fonctionnalité *WindowsPreview* utilise également les clusters de pools multinœuds et le groupe de machines virtuelles identiques pour gérer le déploiement et la configuration des nœuds Kubernetes. Enregistrez l’indicateur de fonctionnalité *WindowsPreview* à l’aide de la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
-
-```azurecli-interactive
-az feature register --name WindowsPreview --namespace Microsoft.ContainerService
-```
-
-> [!NOTE]
-> Tous les clusters AKS que vous créez après avoir enregistré l’indicateur de fonctionnalité *WindowsPreview* utilisent l’expérience de cluster en préversion. Pour continuer à créer des clusters standard et entièrement supportés, n’activez pas les fonctionnalités en préversion sur les abonnements de production. Utilisez abonnement Azure de test ou de développement pour tester les fonctionnalités en préversion.
-
-L’inscription peut prendre quelques minutes. Vérifiez l'état de l'enregistrement à l'aide de la commande [az feature list][az-feature-list] :
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WindowsPreview')].{Name:name,State:properties.state}"
-```
-
-Lorsque l’état d’inscription est `Registered`, appuyez sur Ctrl + C pour arrêter la surveillance de l’état.  Actualisez l’inscription du fournisseur de ressources *Microsoft.ContainerService* à l’aide de la commande [az provider register][az-provider-register] :
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
 ### <a name="limitations"></a>Limites
 
 Les limitations suivantes s’appliquent lorsque vous créez et gérez les clusters AKS prenant en charge plusieurs pools de nœuds :
 
 * Vous ne pouvez pas supprimer le premier pool de nœuds.
 
-Même si cette fonctionnalité est en préversion préliminaire, les limitations supplémentaires suivantes s’appliquent :
+Les limitations supplémentaires suivantes s’appliquent aux pools de nœuds Windows Server :
 
-* Le cluster AKS peut avoir un maximum de huit pools de nœuds.
-* Le cluster AKS peut avoir un maximum de 400 nœuds dans ces huit pools de nœuds.
+* Le cluster AKS peut comprendre au maximum 10 pools de nœuds.
+* Le cluster AKS peut comprendre au maximum 100 nœuds dans chaque pool de nœuds.
 * Le nom de pool de nœud Windows Server a une limite de 6 caractères.
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
@@ -116,45 +67,30 @@ L’exemple de sortie suivant montre que le groupe de ressources a été créé 
 
 ## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
 
-Pour exécuter un cluster AKS qui prend en charge des pools de nœuds pour les conteneurs Windows Server, votre cluster doit utiliser une stratégie de réseau qui utilise un plug-in réseau [Azure CNI][azure-cni-about] (avancé). Pour plus d’informations sur la planification des plages de sous-réseau nécessaires et les considérations réseau, consultez [Configurer le réseau Azure CNI][use-advanced-networking]. Utilisez la commande [az aks create][az-aks-create] pour créer un cluster AKS nommé *myAKSCluster*. Cette commande crée les ressources réseau nécessaires si elles n’existent pas.
-  * Le cluster est configuré avec deux nœuds
-  * Les paramètres *windows-admin-password* et *windows-admin-username* définissent les informations d’identification administrateur pour les conteneurs Windows Server créés sur le cluster.
+Pour exécuter un cluster AKS qui prend en charge des pools de nœuds pour les conteneurs Windows Server, votre cluster doit utiliser une stratégie de réseau qui utilise un plug-in réseau [Azure CNI][azure-cni-about] (avancé). Pour plus d’informations sur la planification des plages de sous-réseau nécessaires et les considérations réseau, consultez [Configurer le réseau Azure CNI][use-advanced-networking]. Utilisez la commande [az aks create][az-aks-create] ci-dessous pour créer un cluster AKS nommé *myAKSCluster*. Cette commande crée les ressources réseau nécessaires si elles n’existent pas.
 
 > [!NOTE]
 > Pour garantir un fonctionnement fiable de votre cluster, vous devez exécuter au moins 2 (deux) nœuds dans le pool de nœuds par défaut.
 
-Fournissez votre propre *PASSWORD_WIN* sécurisé (n’oubliez pas que les commandes dans cet article sont entrées dans un interpréteur de commandes BASH) :
-
 ```azurecli-interactive
-PASSWORD_WIN="P@ssw0rd1234"
-
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-count 2 \
     --enable-addons monitoring \
-    --kubernetes-version 1.15.7 \
+    --kubernetes-version 1.16.7 \
     --generate-ssh-keys \
-    --windows-admin-password $PASSWORD_WIN \
-    --windows-admin-username azureuser \
-    --vm-set-type VirtualMachineScaleSets \
-    --load-balancer-sku standard \
     --network-plugin azure
 ```
 
 > [!Note]
-> Si vous obtenez une erreur de validation de mot de passe, essayez de créer votre groupe de ressources dans une autre région.
-> Puis essayez de créer le cluster avec le nouveau groupe de ressources.
-
-> [!Note]
 > Si vous ne parvenez pas à créer le cluster AKS parce que la version n’est pas prise en charge dans cette région, vous pouvez utiliser la commande [az aks get-versions --location eastus] pour trouver la liste des versions prises en charge pour cette région.
 
-
-Au bout de quelques minutes, la commande se termine et retourne des informations au format JSON sur le cluster. Parfois, le provisionnement du cluster peut prendre plus de quelques minutes. Autorisez jusqu’à 10 minutes dans ces cas de figure. 
+Au bout de quelques minutes, la commande se termine et retourne des informations au format JSON sur le cluster. Parfois, le provisionnement du cluster peut prendre plus de quelques minutes. Autorisez jusqu’à 10 minutes dans ces cas de figure.
 
 ## <a name="add-a-windows-server-node-pool"></a>Ajouter un pool de nœuds Windows Server
 
-Par défaut, un cluster AKS est créé avec un pool de nœuds qui peut exécuter des conteneurs Linux. Utilisez la commande `az aks nodepool add` pour ajouter un pool de nœuds supplémentaire qui peut exécuter des conteneurs Windows Server.
+Par défaut, un cluster AKS est créé avec un pool de nœuds qui peut exécuter des conteneurs Linux. Utilisez la commande `az aks nodepool add` pour ajouter un pool de nœuds supplémentaire qui peut exécuter des conteneurs Windows Server en même temps que le pool de nœuds Linux.
 
 ```azurecli
 az aks nodepool add \
@@ -163,7 +99,7 @@ az aks nodepool add \
     --os-type Windows \
     --name npwin \
     --node-count 1 \
-    --kubernetes-version 1.15.7
+    --kubernetes-version 1.16.7
 ```
 
 La commande ci-dessus crée un pool de nœuds nommé *npwin* et l’ajoute à *myAKSCluster*. Lorsque vous créez un pool de nœuds pour exécuter des conteneurs Windows Server, la valeur par défaut de *node-vm-size* est *Standard_D2s_v3*. Si vous choisissez de définir le paramètre *node-vm-size*, veuillez consulter la liste des [tailles de machines virtuelles limitées][restricted-vm-sizes]. La taille minimale recommandée est *Standard_D2s_v3*. La commande ci-dessus utilise également le sous-réseau par défaut dans le réseau virtuel par défaut créé lors de l’exécution de `az aks create`.
@@ -192,8 +128,8 @@ L’exemple de sortie suivant montre tous les nœuds du cluster. Vérifiez que l
 
 ```output
 NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.15.7
-aksnpwin987654                      Ready    agent   108s   v1.15.7
+aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.16.7
+aksnpwin987654                      Ready    agent   108s   v1.16.7
 ```
 
 ## <a name="run-the-application"></a>Exécution de l'application
@@ -302,7 +238,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Lorsque vous supprimez le cluster, le principal de service Azure Active Directory utilisé par le cluster AKS n’est pas supprimé. Pour obtenir des instructions sur la façon de supprimer le principal de service, consultez [Considérations et suppression du principal de service AKS][sp-delete]. Si vous avez utilisé une identité managée, l’identité est managée par la plateforme et ne nécessite pas de suppression.
+> Lorsque vous supprimez le cluster, le principal de service Azure Active Directory utilisé par le cluster AKS n’est pas supprimé. Pour obtenir des instructions sur la façon de supprimer le principal de service, consultez [Considérations et suppression du principal de service AKS][sp-delete]. Si vous avez utilisé une identité managée, l’identité est managée par la plateforme et n’a pas besoin d’être supprimée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -343,7 +279,7 @@ Pour en savoir plus sur AKS et parcourir le code complet de l’exemple de dépl
 [kubernetes-service]: concepts-network.md#services
 [kubernetes-dashboard]: kubernetes-dashboard.md
 [restricted-vm-sizes]: quotas-skus-regions.md#restricted-vm-sizes
-[use-advanced-networking]: configure-advanced-networking.md
+[use-advanced-networking]: configure-azure-cni.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az-extension-add

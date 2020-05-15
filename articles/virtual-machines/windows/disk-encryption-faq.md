@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: b71384e0a42af5481af7b17b91cd0b1d0ed82ee8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 61de52e5a6703682d52d49efe9decb814231dae4
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82082592"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901280"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>FAQ sur Azure Disk Encryption pour machines virtuelles Windows
 
@@ -21,7 +21,7 @@ Cet article offre des réponses aux questions fréquentes (FAQ) sur Azure Disk E
 
 ## <a name="what-is-azure-disk-encryption-for-windows-vms"></a>Qu’est-ce qu’Azure Disk Encryption pour machines virtuelles Windows ?
 
-Le service Azure Disk Encryption pour machines virtuelles Windows utilise la fonctionnalité Bitlocker de Windows pour effectuer un chiffrement complet du disque du système d’exploitation et des disques de données. Il assure en outre le chiffrement du disque de ressources éphémères lorsque le [paramètre VolumeType est défini sur Tous](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk).  Le contenu est chiffré à partir de la machine virtuelle vers le serveur back-end de stockage. Donc, un chiffrement de bout en bout est assuré avec une clé gérée par le client.
+Le service Azure Disk Encryption pour machines virtuelles Windows utilise la fonctionnalité BitLocker de Windows pour effectuer un chiffrement complet du disque du système d’exploitation et des disques de données. Il assure en outre le chiffrement du disque temporaire lorsque le paramètre [VolumeType est défini sur Tous](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk).  Le contenu est chiffré à partir de la machine virtuelle vers le serveur back-end de stockage. Donc, un chiffrement de bout en bout est assuré avec une clé gérée par le client.
  
 Consultez [Machines virtuelles et systèmes d’exploitation pris en charge](disk-encryption-overview.md#supported-vms-and-operating-systems).
  
@@ -61,7 +61,7 @@ Le chiffrement côté serveur de stockage chiffre les disques managés Azure dan
  
 ## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>En quoi Azure Disk Encryption diffère-t-il du chiffrement côté serveur de stockage avec clé gérée par le client, et quand dois-je utiliser chaque solution ?
 
-Azure Disk Encryption assure un chiffrement de bout en bout pour le disque du système d’exploitation, les disques de données et le disque de ressources éphémères avec une clé gérée par le client.
+Azure Disk Encryption assure un chiffrement de bout en bout pour le disque du système d’exploitation, les disques de données et le disque temporaire en utilisant une clé gérée par le client.
 
 - Si vos exigences incluent tout ce qui précède de bout en bout, optez pour Azure Disk Encryption. 
 - Si vos exigences incluent uniquement le chiffrement des données au repos avec clé gérée par le client, utilisez un [chiffrement côté serveur avec clés gérées par le client](disk-encryption.md). Vous ne pouvez pas chiffrer un disque en utilisant Azure Disk Encryption et un chiffrement côté serveur de stockage avec clés gérées par le client.
@@ -129,9 +129,6 @@ Azure Disk Encryption sélectionne la méthode de chiffrement dans BitLocker en 
 \* La version AES 256 bits avec diffuseur n’est pas prise en charge dans Windows 2012 et versions ultérieures.
 
 Pour déterminer la version du système d’exploitation Windows, exécutez l’outil « winver » sur votre machine virtuelle.
-
-## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Si j’utilise EncryptFormatAll et si je spécifie tous les types de volume, les données de tous les lecteurs de données déjà chiffrés seront-elles effacées ?
-Non, les données ne sont pas effacées des lecteurs de données déjà chiffrés à l’aide d’Azure Disk Encryption. De même qu’EncryptFormatAll n’a pas chiffré à nouveau le lecteur du système d’exploitation, il ne chiffre pas à nouveau le lecteur de données déjà chiffré. 
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Puis-je sauvegarder et restaurer une machine virtuelle chiffrée ? 
 

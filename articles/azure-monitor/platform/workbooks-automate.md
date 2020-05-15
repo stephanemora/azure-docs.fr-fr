@@ -7,18 +7,18 @@ manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 04/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: 2c2d70d1c945e700a3fa42609f8aa0e1607ba77c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 76ecc3ee17353ebd0bbead1bba959f85d521d0df
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77658402"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982137"
 ---
 # <a name="programmatically-manage-workbooks"></a>Gérer programmatiquement des classeurs
 
-Les propriétaires de ressources ont la possibilité de créer et de gérer programmatiquement leurs classeurs au moyen de modèles Resource Manager, 
+Les propriétaires de ressources ont la possibilité de créer et de gérer programmatiquement leurs classeurs au moyen de modèles Resource Manager,
 
 ce qui peut être utile dans différents scénarios :
 * le déploiement de rapports d’analytique propres à l’organisation ou au domaine, ainsi que le déploiement de ressources (par exemple, des classeurs de performances et de défaillances propres à l’organisation pour de nouvelles applications ou machines virtuelles) ;
@@ -26,7 +26,98 @@ ce qui peut être utile dans différents scénarios :
 
 Le classeur sera créé dans le groupe ou sous-groupe de ressources souhaité et comportera le contenu spécifié dans les modèles Resource Manager.
 
-## <a name="azure-resource-manager-template-for-deploying-workbooks"></a>Modèle Resource Manager pour le déploiement de classeurs
+Il existe deux types de ressources de classeur qui peuvent être gérés par programme :
+* [Modèles de classeur](#azure-resource-manager-template-for-deploying-a-workbook-template)
+* [Instances de classeur](#azure-resource-manager-template-for-deploying-a-workbook-instance)
+
+## <a name="azure-resource-manager-template-for-deploying-a-workbook-template"></a>Modèle Azure Resource Manager pour le déploiement d’un modèle de classeur
+
+1. Ouvrez un classeur que vous voulez déployer par programme.
+2. Basculez le classeur en mode d’édition en cliquant sur l’élément _Modifier_ de la barre d’outils.
+3. Ouvrez _l’Éditeur avancé_ avec le bouton _</>_ de la barre d’outils.
+4. Vérifiez que vous êtes sous l’onglet _Modèles de galerie_.
+
+    ![Onglet Modèle de galerie](./media/workbooks-automate/gallery-template.png)
+1. Copiez le JSON figurant dans le modèle de galerie dans le presse-papiers.
+2. Voici un exemple de modèle Azure Resource Manager qui déploie un modèle de classeur dans une galerie de classeurs Azure Monitor. Collez le JSON que vous avez copié à la place de `<PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>`. Vous pouvez trouver [ici](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ARM-template-for-creating-workbook-template) un modèle de référence Azure Resource Manager qui crée un modèle de classeur.
+
+    ```json
+    {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "resourceName": {
+                "type": "string",
+                "defaultValue": "my-workbook-template",
+                "metadata": {
+                    "description": "The unique name for this workbook template instance"
+                }
+            }
+        },
+        "resources": [
+            {
+                "name": "[parameters('resourceName')]",
+                "type": "microsoft.insights/workbooktemplates",
+                "location": "[resourceGroup().location]",
+                "apiVersion": "2019-10-17-preview",
+                "dependsOn": [],
+                "properties": {
+                    "galleries": [
+                        {
+                            "name": "A Workbook Template",
+                            "category": "Deployed Templates",
+                            "order": 100,
+                            "type": "workbook",
+                            "resourceType": "Azure Monitor"
+                        }
+                    ],
+                    "templateData": <PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>
+                }
+            }
+        ]
+    }
+    ```
+1. Dans l’objet `galleries`, renseignez les clés `name` et `category` avec vos valeurs. Apprenez-en davantage sur les [paramètres](#parameters) dans la section suivante.
+2. Déployez ce modèle Azure Resource Manager à l’aide du [Portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template), de l’[interface de ligne de commande](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli), de [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell), etc.
+3. Ouvrez le portail Azure et accédez à la galerie de classeurs choisie dans le modèle Azure Resource Manager. Dans l’exemple de modèle, accédez à la galerie de classeurs Azure Monitor :
+    1. Ouvrez le portail Azure, puis accédez à Azure Monitor.
+    2. Ouvrez `Workbooks` à partir de la table des matières.
+    3. Recherchez votre modèle dans la galerie sous la catégorie `Deployed Templates` (un des éléments violets).
+
+### <a name="parameters"></a>Paramètres
+
+|Paramètres                |Explication                                                                                             |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------|
+| `name`                   | Nom de la ressource de modèle de classeur dans Azure Resource Manager.                                  |
+|`type`                    | Toujours microsoft.insights/workbooktemplates                                                            |
+| `location`               | Emplacement Azure dans lequel le classeur sera créé.                                               |
+| `apiVersion`             | Préversion du 17-10-2019                                                                                     |
+| `type`                   | Toujours microsoft.insights/workbooktemplates                                                            |
+| `galleries`              | Ensemble de galeries dans lequel afficher ce modèle de classeur.                                                |
+| `gallery.name`           | Nom convivial du modèle de classeur dans la galerie.                                             |
+| `gallery.category`       | Groupe dans la galerie dans lequel placer le modèle.                                                     |
+| `gallery.order`          | Nombre qui détermine l’ordre d’affichage du modèle dans une catégorie de la galerie. Un ordre inférieur implique une priorité supérieure. |
+| `gallery.resourceType`   | Type de ressource correspondant à la galerie. Il s’agit généralement de la chaîne de type de ressource correspondant à la ressource (par exemple, microsoft.operationalinsights/workspaces). |
+|`gallery.type`            | Appelé type de classeur, il s’agit d’une clé unique qui distingue la galerie à l’intérieur d’un type de ressource. Les Application Insights, par exemple, ont des types `workbook` et `tsg` correspondant à différentes galeries de classeurs. |
+
+### <a name="galleries"></a>Galeries
+
+| Galerie                                        | Type de ressource                                      | Type de classeur |
+| :--------------------------------------------- |:---------------------------------------------------|:--------------|
+| Classeurs dans Azure Monitor                     | `Azure Monitor`                                    | `workbook`    |
+| Insights de machine virtuelle dans Azure Monitor                   | `Azure Monitor`                                    | `vm-insights` |
+| Classeurs dans l’espace de travail Log Analytics           | `microsoft.operationalinsights/workspaces`         | `workbook`    |
+| Classeurs dans Application Insights              | `microsoft.insights/component`                     | `workbook`    |
+| Guides de résolution des problèmes dans Application Insights | `microsoft.insights/component`                     | `tsg`         |
+| Utilisation dans Application Insights                  | `microsoft.insights/component`                     | `usage`       |
+| Classeurs dans le service Kubernetes                | `Microsoft.ContainerService/managedClusters`       | `workbook`    |
+| Classeurs dans des groupes de ressources                   | `microsoft.resources/subscriptions/resourcegroups` | `workbook`    |
+| Classeurs dans Azure Active Directory            | `microsoft.aadiam/tenant`                          | `workbook`    |
+| Insights de machine virtuelle dans des machines virtuelles                | `microsoft.compute/virtualmachines`                | `insights`    |
+| Insights de machine virtuelle dans des groupes de machines virtuelles identiques      | `microsoft.compute/virtualmachinescalesets`        | `insights`    |
+
+## <a name="azure-resource-manager-template-for-deploying-a-workbook-instance"></a>Modèle Azure Resource Manager pour le déploiement d’une instance de classeur
+
 1. Ouvrez le classeur à déployer programmatiquement.
 2. Basculez le classeur en mode d’édition en cliquant sur l’élément _Modifier_ de la barre d’outils.
 3. Ouvrez _l’Éditeur avancé_ avec le bouton _</>_ de la barre d’outils.
@@ -124,4 +215,3 @@ Pour une raison technique, ce mécanisme ne permet pas de créer des instances d
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment les classeurs sont utilisés dans la nouvelle [expérience Azure Monitor pour le stockage](../insights/storage-insights-overview.md).
-

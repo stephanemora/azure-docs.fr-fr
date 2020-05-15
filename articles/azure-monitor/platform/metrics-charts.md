@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 8d15c217f2e65877ea3baa18f6ba847492bc7fa1
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: e6ff33b6a23cb85649a8811a8bef27ab455ab9e6
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509820"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980896"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Fonctionnalités avancées d’Azure Metrics Explorer
 
@@ -137,9 +137,6 @@ Une fois les graphiques configurés, une couleur est automatiquement attribuée 
 Pour changer la couleur d'une ligne, cliquez sur la barre de couleur dans la légende qui correspond au graphique. La boîte de dialogue du sélecteur de couleurs s'ouvre. Utilisez le sélecteur de couleurs pour configurer la couleur de la ligne.
 
 Une fois configurées, les couleurs sont conservées lorsque vous épinglez le graphique sur un tableau de bord. La section suivante explique comment épingler un graphique.
-
-> [!NOTE]
-> En raison de contraintes liées à notre calendrier de mise en production et de publication, la modification des couleurs des lignes des graphiques nécessite temporairement la transmission d'un paramètre spécial **?feature.colorpicker=true** au démarrage du portail Azure [https://portal.azure.com/?feature.colorpicker=true](https://portal.azure.com/?feature.colorpicker=true). Cette limitation sera supprimée prochainement. 
 
 ![image de métrique](./media/metrics-charts/018.png)
 

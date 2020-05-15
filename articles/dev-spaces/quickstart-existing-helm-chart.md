@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Ce guide de démarrage rapide montre comment utiliser Azure Dev Spaces et la ligne de commande pour développer une application avec un graphique Helm existant sur Azure Kubernetes Service.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: e767b1ade2a80882ee33ff1fdd718c691dcefcf3
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.openlocfilehash: c37ea0b04e99cf1bba555e098bdf33b8a8558cfa
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82025284"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996676"
 ---
 # <a name="quickstart-develop-an-application-with-an-existing-helm-chart-on-kubernetes---azure-dev-spaces"></a>Démarrage rapide : Développer une application avec un graphique Helm existant sur Kubernetes - Azure Dev Spaces
 Dans ce guide, vous allez apprendre à :
@@ -68,7 +68,7 @@ azds prep --enable-ingress --chart webfrontend/
 Vous devez exécuter la commande `prep` à partir du répertoire *dev-spaces/samples/python/getting-started/webfrontend* et spécifier l’emplacement du graphique Helm à l’aide de `--chart`.
 
 > [!NOTE]
-> L’avertissement suivant peut s’afficher : *AVERTISSEMENT : Impossible de générer Dockerfile en raison d’un langage non pris en charge.* lors de l’exécution de `azds prep`. La commande `azds prep` tente de générer [un fichier Dockerfile et un graphique Helm](how-dev-spaces-works-prep.md#prepare-your-code) pour votre projet, mais ne remplace pas les fichiers Dockerfile ou graphiques Helm existants.
+> L’avertissement suivant peut s’afficher : *WARNING: Impossible de générer Dockerfile en raison d’un langage non pris en charge.* lors de l’exécution de `azds prep`. La commande `azds prep` tente de générer [un fichier Dockerfile et un graphique Helm](how-dev-spaces-works-prep.md#prepare-your-code) pour votre projet, mais ne remplace pas les fichiers Dockerfile ou graphiques Helm existants.
 
 ## <a name="build-and-run-code-in-kubernetes"></a>Générer et exécuter du code dans Kubernetes
 
@@ -96,7 +96,7 @@ Press Ctrl+C to detach
 ...
 ```
 
-Vous pouvez voir le service en cours d’exécution en ouvrant l’URL publique qui est affichée dans la sortie de la commande `azds up`. Dans cet exemple, l’URL publique est *http://dev.service.1234567890abcdef1234.eus.azds.io/* .
+Vous pouvez voir le service en cours d’exécution en ouvrant l’URL publique qui est affichée dans la sortie de la commande `azds up`. Dans cet exemple, l’URL publique est `http://dev.service.1234567890abcdef1234.eus.azds.io/`.
 
 > [!NOTE]
 > Quand vous accédez à votre service pendant l’exécution de `azds up`, les traces des requêtes HTTP sont également affichées dans la sortie de la commande `azds up`. Ces traces peuvent vous aider à résoudre les problèmes liés à votre service et à le déboguer. Vous pouvez désactiver ces traces à l’aide de `--disable-http-traces` lors de l’exécution de `azds up`.

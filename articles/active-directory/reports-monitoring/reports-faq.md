@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 273fdb80475defb0576bcd29d1944c5f6c595cfc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 818528ae193209e23424998421ebe2fb0c2b24b3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231785"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199376"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Forum aux questions (FAQ) sur les rapports Azure Active Directory
 
@@ -71,13 +71,7 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 
 **Q : Quelle est la conservation des données pour les journaux d’activité (audit et connexions) dans le portail Azure ?** 
 
-**R :** Le tableau suivant liste les périodes de conservation des données pour les journaux d’activité. Pour en savoir plus, consultez [Stratégies de rétention de données des rapports Azure AD](reference-reports-data-retention.md).
-
-| Rapport                 | Azure AD Gratuit | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--                    | :--           | :--                 | :--                 |
-| Journaux d’audit             | 7 jours        | 30 jours             | 30 jours             |
-| Connexions               | N/A           | 30 jours             | 30 jours             |
-| Utilisation d’Azure MFA        | 30 jours       | 30 jours             | 30 jours             |
+**R :** Pour en savoir plus, consultez [Stratégies de rétention de données des rapports Azure AD](reference-reports-data-retention.md).
 
 ---
 

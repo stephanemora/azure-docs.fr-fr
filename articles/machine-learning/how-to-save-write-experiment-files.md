@@ -12,12 +12,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 12a38b08fd429280f34b4eb02d4b72187b622261
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0938888b7343b441725faace7a5f20d8f50674c8
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79078469"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872069"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Emplacement où enregistrer et écrire des fichiers pour les expériences de Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -54,7 +54,7 @@ Pour résoudre cette erreur, stockez vos fichiers d’expérience sur un magasin
 Description de&nbsp;l’expérience|Solution à la limite de stockage
 ---|---
 Moins de 2 000 fichiers et impossibilité d’utiliser un magasin de données| Remplacez la limite de taille des captures instantanées par <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`<br> Cette opération peut durer plusieurs minutes en fonction de la taille des fichiers et de leur nombre.
-Obligation d’utiliser un répertoire de scripts spécifique| Créez un fichier `.amlignore` pour exclure les fichiers de votre instantané d’expérience qui ne font pas partie du code source. Ajoutez les noms de fichiers au fichier `.amlignore` et placez-le dans le même répertoire que votre script d’entraînement. Le fichier `.amlignore` utilise les mêmes [modèles et syntaxe](https://git-scm.com/docs/gitignore) que le fichier `.gitignore`.
+Obligation d’utiliser un répertoire de scripts spécifique| [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 Pipeline|Utilisez un autre sous-répertoire pour chaque étape.
 Notebooks Jupyter| Créez un fichier `.amlignore` ou déplacez votre notebook vers un nouveau sous-répertoire vide, puis réexécutez votre code.
 

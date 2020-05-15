@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: 1a913e714565ffb99237357e331ef5cf0189c40f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a8743aeea6278588da308feb37016b679a4f0509
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79204219"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929262"
 ---
 # <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Créer des expériences Azure Machine Learning Studio (classique) à partir d’exemples d’utilisation disponibles dans Azure AI Gallery
 
@@ -60,5 +60,4 @@ Une expérience est créée dans votre espace de travail Machine Learning Studio
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Importer des données à partir de diverses sources](import-data.md)
-* [Didacticiel de démarrage rapide sur le langage R pour Machine Learning](r-quickstart.md)
 * [Déploiement d’un service web Machine Learning](deploy-a-machine-learning-web-service.md)

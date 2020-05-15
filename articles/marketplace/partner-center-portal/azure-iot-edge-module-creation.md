@@ -1,36 +1,30 @@
 ---
-title: Créer une offre de module Azure IoT Edge avec l’Espace partenaires - Place de marché Azure
-description: Découvrez comment créer une offre de module IoT Edge dans la Place de marché Azure à l’aide de l’Espace partenaires
+title: Créer une offre de module Azure IoT Edge avec l’Espace partenaires dans la Place de marché Azure
+description: Découvrez comment créer, configurer et publier une offre de module IoT Edge dans la Place de marché Azure à l’aide de l’Espace partenaires.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 6b56b748ef31bcfd33893e55d3ea5f8d9851a3ff
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: d69090eb07159c2c188c54499a167f127269df24
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674944"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857656"
 ---
-# <a name="create-an-iot-edge-module-offer"></a>Créer une offre de module Azure IoT Edge
+# <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Créer, configurer et publier une offre de module IoT Edge dans la Place de marché Azure
 
-> [!IMPORTANT]
-> Nous allons déplacer la gestion de vos offres de module IoT Edge du portail Cloud Partner vers l’Espace partenaires. Tant que vos offres ne sont pas migrées, suivez les instructions indiquées dans [Vue d’ensemble de la publication d’une offre de module Azure IoT Edge](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts) pour que le Portail Cloud Partner gère vos offres.
-
-Cet article explique comment créer et publier une offre de module IoT (Internet of Things) Edge pour la Place de marché Azure.
-
-Avant de pouvoir créer une offre de module IoT Edge, vous devez disposer d’un compte de Place de marché commerciale dans l’Espace partenaires. Si vous n’en avez pas encore créé un, consultez [Créer un compte de Place de marché commerciale dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+Cet article explique comment créer et publier une offre de module IoT (Internet of Things) Edge pour la Place de marché Azure. Avant de commencer, si ce n’est déjà fait, [créez un compte de la Place de marché commerciale dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account). Vérifiez que votre compte est inscrit dans le programme du marketplace commercial.
 
 ## <a name="create-a-new-offer"></a>Créer une offre
 
-1. Connectez-vous à l’Espace partenaires.
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
 2. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Vue d’ensemble**.
+3. Dans la page de présentation, sélectionnez **+ Nouvelle offre** > **Module IoT Edge**.
 
-    ![Illustre le menu de navigation de gauche.](./media/cs-menu-overview.png)
-
-3. Sélectionnez **+ Nouvelle offre** > **Module IoT Edge**. La boîte de dialogue **Nouvelle offre** s’affiche.
+    ![Illustre le menu de navigation de gauche.](./media/new-offer-iot-edge.png)
 
 > [!IMPORTANT]
 > Après la publication d’une offre, les modifications qui lui ont été apportées dans l’Espace partenaires apparaissent uniquement dans les vitrines après la republication de l’offre. Veillez à toujours effectuer une nouvelle publication après avoir apporté des modifications.
@@ -41,14 +35,14 @@ Entrez un **ID d’offre**. Il s’agit d’un identificateur unique par offre d
 
 - Cet ID est visible par les clients dans l’adresse web de l’offre de la Place de marché et des modèles Resource Manager, le cas échéant.
 - Utilisez uniquement des lettres minuscules et des chiffres. Il peut inclure des traits d’union et des traits de soulignement, mais pas d’espaces, et est limité à 50 caractères. Par exemple, si vous entrez **test-offer-1**, l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-- L’ID d’offre ne peut pas être modifié une fois que vous avez sélectionné Créer.
+- L’ID d’offre ne peut pas être changé une fois que vous avez sélectionné **Créer**.
 
-Entrez un **Alias d’offre**. Il s’agit du nom utilisé pour faire référence à l’offre dans l’Espace partenaires.
+Entrez un **Alias d’offre**. Il s’agit du nom attribué à l’offre dans l’Espace partenaires.
 
 - Ce nom n’est pas utilisé dans la Place de marché et est différent du nom de l’offre et des autres informations présentées aux clients.
 - Cet alias ne peut pas être changé une fois que vous avez sélectionné **Créer**.
 
-Après avoir entré ces deux valeurs, sélectionnez **Créer** avant de passer à la page suivante, Vue d’ensemble de l’offre.
+Sélectionnez **Créer** pour générer l’offre et continuer.
 
 ## <a name="offer-overview"></a>Vue d’ensemble de l’offre
 
@@ -86,10 +80,10 @@ Voici des ressources de gestion des prospects supplémentaires :
 
 - [Vue d’ensemble de la gestion des prospects](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [Questions fréquentes sur la gestion des prospects](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Erreurs courantes de configuration des prospects](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Erreurs courantes de configuration des prospects](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
 - PDF [Vue d’ensemble de la gestion des prospects](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (assurez-vous que votre bloqueur de fenêtres publicitaires est désactivé)
 
-Sélectionnez **Enregistrer le brouillon** avant de passer à la section suivante, Propriétés.
+Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
 ### <a name="properties"></a>Propriétés
 
@@ -193,7 +187,7 @@ Pour que la **Description** de votre offre soit plus attrayante, utilisez l’é
 
 #### <a name="privacy-policy-url"></a>URL de la politique de confidentialité
 
-Entrez l’adresse web de la politique de confidentialité de votre organisation. Vous devez veiller à ce que votre offre respecte les lois et les réglementations en matière de confidentialité. Vous devez également veiller à publier une politique de confidentialité conforme sur votre site web.
+Entrez l’adresse web de la politique de confidentialité de votre organisation. Vous devez veiller à ce que votre offre respecte la loi et les réglementations en matière de confidentialité. Vous devez également veiller à publier une politique de confidentialité conforme sur votre site web.
 
 #### <a name="useful-links"></a>Liens utiles
 
@@ -209,8 +203,8 @@ Veillez à ajouter au moins un lien vers votre documentation et un lien vers les
 Entrez le nom, l’adresse e-mail et le numéro de téléphone d’un **contact du support** et d’un **contact d’ingénierie**. Ces informations ne sont pas présentées aux clients. Elles sont disponibles pour Microsoft et peuvent être fournies aux partenaires fournisseurs de solutions Cloud (CSP).
 
 - Contact du support (obligatoire) : Pour toute question de support générale.
-- Contact ingénierie (obligatoire) : Pour les questions techniques et les problèmes de certification.
-- Contact du programme du fournisseur de solutions Cloud (facultatif) : Pour toute question du revendeur relative au programme CSP.
+- Contact en ingénierie (obligatoire) : Pour les questions techniques et les problèmes de certification.
+- Contact du programme du fournisseur de solutions cloud (facultatif) : Pour toute question du revendeur relative au programme CSP.
 
 Dans la section **Contact du support**, fournissez l’adresse web du **site web de support** où les partenaires peuvent trouver un support pour votre offre selon que celle-ci est disponible dans Azure international, Azure Government ou les deux.
 
@@ -223,6 +217,9 @@ Pour en savoir plus sur la création d’annonces d’offres, consultez [Bonnes 
 ### <a name="marketplace-images"></a>Images de la Place de marché
 
 Fournissez des logos et images à utiliser avec votre offre. Toutes les images doivent être au format .png. Les images floues seront rejetées.
+
+>[!Note]
+>Si vous rencontrez un problème lors du chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service https://upload.xboxlive.com utilisé par l’Espace partenaires.
 
 #### <a name="store-logos"></a>Stocker des logos
 
@@ -322,9 +319,9 @@ Cet onglet vous permet de configurer les clouds dans lesquels le plan est dispon
 
 Votre plan doit être disponible dans au moins un cloud à l’aide d’IoT Hub.
 
-Sélectionnez l’option **Azure international** pour que votre plan puisse être utilisé par les clients de toutes les régions Azure du monde qui recourent à la Place de marché. Pour plus d’informations, consultez [Prise en charge de la disponibilité géographique et des devises](https://aka.ms/AzureGovCurrencies).
+Sélectionnez l’option **Azure international** pour que votre plan puisse être utilisé par les clients de toutes les régions Azure du monde qui recourent à la Place de marché. Pour plus d’informations, consultez [Prise en charge de la disponibilité géographique et des devises](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Sélectionnez l’option [Cloud Azure Government](https://aka.ms/WhatIsAzureGovernment) pour que votre solution y apparaisse. Il s’agit d’un cloud communautaire pour le secteur public, accessible à des clients d’agences gouvernementales fédérales, étatiques, locales ou tribales des États-Unis ainsi qu’à des partenaires éligibles pour les servir. En tant qu’éditeur, il vous incombe de mettre en place l’ensemble des contrôles de conformité, des mesures de sécurité et des bonnes pratiques nécessaires pour le cloud de cette communauté. Azure Government utilise des réseaux et des centres de données qui sont physiquement isolés (situés aux États-Unis uniquement). Avant d’effectuer une [publication](https://aka.ms/azuregovpublish) sur Azure Government, testez et vérifiez votre solution dans cette zone, car les résultats peuvent être différents. Pour tester votre solution dans un environnement de préproduction, demandez un compte d’essai depuis la page [Microsoft Azure Government Trial](https://aka.ms/AzureGovernmentTrial).
+Sélectionnez l’option [Cloud Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) pour que votre solution y apparaisse. Il s’agit d’un cloud communautaire pour le secteur public, accessible à des clients d’agences gouvernementales fédérales, étatiques, locales ou tribales des États-Unis ainsi qu’à des partenaires éligibles pour les servir. En tant qu’éditeur, il vous incombe de mettre en place l’ensemble des contrôles de conformité, des mesures de sécurité et des bonnes pratiques nécessaires pour le cloud de cette communauté. Azure Government utilise des réseaux et des centres de données qui sont physiquement isolés (situés aux États-Unis uniquement). Avant d’effectuer une [publication](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) sur Azure Government, testez et vérifiez votre solution dans cette zone, car les résultats peuvent être différents. Pour tester votre solution dans un environnement de préproduction, demandez un compte d’essai depuis la page [Microsoft Azure Government Trial](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
 > Une fois votre plan publié et disponible dans un cloud spécifique, vous ne pouvez pas supprimer ce cloud.
@@ -378,11 +375,11 @@ Ce champ est couramment utilisé dans les cas suivants :
 
 ## <a name="technical-configuration"></a>Configuration technique
 
-Le type d’offre **Module IoT Edge** est un type spécifique de conteneur qui s’exécute sur un appareil IoT Edge. Sous l’onglet **Configuration technique**, vous fournissez des informations de référence pour le dépôt d’images conteneur à l’intérieur du [registre de conteneurs Azure](https://aka.ms/ContainerRegistry) ainsi que des paramètres de configuration qui permettent aux clients d’utiliser le module facilement.
+Le type d’offre **Module IoT Edge** est un type spécifique de conteneur qui s’exécute sur un appareil IoT Edge. Sous l’onglet **Configuration technique**, vous fournissez des informations de référence pour le dépôt d’images conteneur à l’intérieur du [registre de conteneurs Azure](https://azure.microsoft.com/services/container-registry/) ainsi que des paramètres de configuration qui permettent aux clients d’utiliser le module facilement.
 
 Une fois l’offre publiée, votre image conteneur IoT Edge est copiée sur la Place de marché Azure dans un registre de conteneurs public spécifique. Toutes les demandes des utilisateurs Azure pour utiliser votre module sont traitées à partir du registre de conteneurs publics de la Place de marché Azure, et non pas depuis votre registre de conteneurs privé.
 
-Vous pouvez cibler plusieurs plateformes et fournir plusieurs versions de l’image conteneur du module par le biais d’étiquettes. Pour en apprendre davantage sur les étiquettes et le versioning, consultez [Préparer vos ressources techniques de module IoT Edge](https://aka.ms/AzureIoTTechAsset).
+Vous pouvez cibler plusieurs plateformes et fournir plusieurs versions de l’image conteneur du module par le biais d’étiquettes. Pour en apprendre davantage sur les étiquettes et le versioning, consultez [Préparer vos ressources techniques de module IoT Edge](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-iot-edge-module-asset).
 
 ### <a name="image-repository-details"></a>Détails du référentiel d’images
 
@@ -392,25 +389,25 @@ Vous devez fournir les informations suivantes sous l’onglet **Détails du réf
 
 **ID d’abonnement Azure** : indiquez l’ID d’abonnement dans lequel l’utilisation des ressources est signalée et les services sont facturés pour le registre de conteneurs Azure qui contient votre image conteneur. Vous pouvez trouver cet ID dans la [page Abonnements](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) du portail Azure.
 
-**Nom du groupe de ressources Azure** : indiquez le nom du [groupe de ressources](https://aka.ms/ResourceManagerAzurePortal) qui contient le registre de conteneurs Azure abritant votre image conteneur. Le groupe de ressources doit être accessible dans l’ID d’abonnement (ci-dessus). Vous trouverez le nom dans la page [Groupes de ressources](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) du portail Azure.
+**Nom du groupe de ressources Azure** : indiquez le nom du [groupe de ressources](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) qui contient le registre de conteneurs Azure abritant votre image conteneur. Le groupe de ressources doit être accessible dans l’ID d’abonnement (ci-dessus). Vous trouverez le nom dans la page [Groupes de ressources](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) du portail Azure.
 
-**Nom du registre de conteneurs Azure** : indiquez le nom du [registre de conteneurs Azure](https://aka.ms/DockerContainerRegistriesAzure) contenant votre image conteneur. Le registre de conteneurs doit être présent dans le groupe de ressources Azure que vous avez fourni. Indiquez uniquement le nom du registre, et non le nom complet du serveur de connexion. Veillez à omettre **azurecr.io** dans le nom. Vous trouverez le nom du registre dans la [page Registres de conteneurs](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) du portail Azure.
+**Nom du registre de conteneurs Azure** : indiquez le nom du [registre de conteneurs Azure](https://docs.microsoft.com/azure/container-registry/container-registry-intro) contenant votre image conteneur. Le registre de conteneurs doit être présent dans le groupe de ressources Azure que vous avez fourni. Indiquez uniquement le nom du registre, et non le nom complet du serveur de connexion. Veillez à omettre **azurecr.io** dans le nom. Vous trouverez le nom du registre dans la [page Registres de conteneurs](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) du portail Azure.
 
-**Nom d’utilisateur administrateur pour le registre de conteneurs Azure** : indiquez le [nom de l’utilisateur administrateur](https://aka.ms/AdminAccountContainerRegistry) associé au registre de conteneurs Azure contenant votre image conteneur. Le nom d’utilisateur et le mot de passe sont nécessaires pour que votre entreprise ait accès au registre. Pour obtenir le nom de l’utilisateur administrateur et le mot de passe, définissez la propriété **admin-enabled** sur **True** à l’aide de l’interface de ligne de commande Azure (CLI). Vous pouvez éventuellement définir **Utilisateur administrateur** sur **Activer** dans le portail Azure.
+**Nom d’utilisateur administrateur pour le registre de conteneurs Azure** : indiquez le [nom de l’utilisateur administrateur](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account) associé au registre de conteneurs Azure contenant votre image conteneur. Le nom d’utilisateur et le mot de passe sont nécessaires pour que votre entreprise ait accès au registre. Pour obtenir le nom de l’utilisateur administrateur et le mot de passe, définissez la propriété **admin-enabled** sur **True** à l’aide de l’interface de ligne de commande Azure (CLI). Vous pouvez éventuellement définir **Utilisateur administrateur** sur **Activer** dans le portail Azure.
 
 :::image type="content" source="media/iot-edge-module-creation/iot-edge-module-admin-user.png" alt-text="Illustre la boîte de dialogue Mettre à jour le registre de conteneurs.":::
 
-**Mot de passe pour le registre de conteneurs Azure** : indiquez le mot de passe de l’utilisateur administrateur qui est associé au registre de conteneurs Azure et qui a votre image conteneur. Le nom d’utilisateur et le mot de passe sont nécessaires pour que votre entreprise ait accès au registre. Vous pouvez récupérer le mot de passe à partir du portail Azure en accédant à **Registre de conteneurs** > **Clés d’accès** ou avec Azure CLI à l’aide de la [commande show](https://aka.ms/azacrcredentialshow).
+**Mot de passe pour le registre de conteneurs Azure** : indiquez le mot de passe de l’utilisateur administrateur qui est associé au registre de conteneurs Azure et qui a votre image conteneur. Le nom d’utilisateur et le mot de passe sont nécessaires pour que votre entreprise ait accès au registre. Vous pouvez récupérer le mot de passe à partir du portail Azure en accédant à **Registre de conteneurs** > **Clés d’accès** ou avec Azure CLI à l’aide de la [commande show](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
 
 :::image type="content" source="media/iot-edge-module-creation/iot-edge-module-username-password.png" alt-text="Illustre l’écran des clés d’accès dans le portail Azure.":::
 
-**Nom du dépôt au sein du registre de conteneurs Azure**. Indiquez le nom du dépôt Azure Container Registry contenant votre image. Vous spécifiez le nom du dépôt quand vous envoyez (push) l’image vers le registre. Vous trouverez le nom du dépôt en accédant à [Registre de conteneurs](https://aka.ms/ContainerRegistry) > **Page Dépôts**. Pour plus d’informations, consultez [Afficher les dépôts de registre de conteneurs dans le portail Azure](https://aka.ms/ContainerRegistryRepositoriesAzure). Notez qu’une fois le nom défini, il ne peut pas être changé. Utilisez un nom unique pour chaque offre dans votre compte.
+**Nom du dépôt au sein du registre de conteneurs Azure**. Indiquez le nom du dépôt Azure Container Registry contenant votre image. Vous spécifiez le nom du dépôt quand vous envoyez (push) l’image vers le registre. Vous trouverez le nom du dépôt en accédant à [Registre de conteneurs](https://azure.microsoft.com/services/container-registry/) > **Page Dépôts**. Pour plus d’informations, consultez [Afficher les dépôts de registre de conteneurs dans le portail Azure](https://docs.microsoft.com/azure/container-registry/container-registry-repositories). Notez qu’une fois le nom défini, il ne peut pas être changé. Utilisez un nom unique pour chaque offre dans votre compte.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Étiquettes d’image pour les nouvelles versions de votre offre
 
 Quand vous publiez une mise à jour, les clients doivent être en mesure de la récupérer automatiquement de la Place de marché Azure. S’ils ne souhaitent pas effectuer de mise à jour, ils doivent être en mesure de rester sur une version spécifique de votre image. Pour ce faire, vous pouvez ajouter de nouvelles étiquettes d’image chaque fois que vous effectuez une mise à jour de l’image.
 
-**Étiquette d’image**. Ce champ doit inclure une étiquette **latest** qui pointe vers la dernière version de votre image sur toutes les plateformes prises en charge. Il doit également comprendre une étiquette de version (par exemple, commençant par xx.xx.xx, où xx est un nombre). Les clients doivent utiliser des [étiquettes de manifeste](https://aka.ms/GitHubmanifest-tool) pour cibler plusieurs plateformes. Toutes les balises référencées par une balise de manifeste doivent également être ajoutées afin que nous puissions les charger. Toutes les étiquettes de manifeste (sauf l’étiquette « latest ») doivent commencer par X.Y- ou X.Y.Z, où X, Y et Z sont des entiers. Par exemple, si une étiquette « latest » pointe sur 1.0.1-linux-x64, 1.0.1-linux-arm32 et 1.0.1-windows-arm32, ces six étiquettes doivent être ajoutées à ce champ. Pour plus d’informations sur les étiquettes et le versioning, consultez [Préparer vos ressources techniques de module IoT Edge](https://aka.ms/PrepareIoTEdgeModTechAssets).
+**Étiquette d’image**. Ce champ doit inclure une étiquette **latest** qui pointe vers la dernière version de votre image sur toutes les plateformes prises en charge. Il doit également comprendre une étiquette de version (par exemple, commençant par xx.xx.xx, où xx est un nombre). Les clients doivent utiliser des [étiquettes de manifeste](https://github.com/estesp/manifest-tool) pour cibler plusieurs plateformes. Toutes les balises référencées par une balise de manifeste doivent également être ajoutées afin que nous puissions les charger. Toutes les étiquettes de manifeste (sauf l’étiquette « latest ») doivent commencer par X.Y- ou X.Y.Z, où X, Y et Z sont des entiers. Par exemple, si une étiquette « latest » pointe sur 1.0.1-linux-x64, 1.0.1-linux-arm32 et 1.0.1-windows-arm32, ces six étiquettes doivent être ajoutées à ce champ. Pour plus d’informations sur les étiquettes et le versioning, consultez [Préparer vos ressources techniques de module IoT Edge](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets).
 
 ### <a name="default-deployment-settings-optional"></a>Paramètres de déploiement par défaut (facultatif)
 
@@ -418,7 +415,7 @@ Définissez les paramètres les plus courants pour déployer votre module IoT Ed
 
 **Itinéraires par défaut**. Le hub IoT Edge gère la communication entre les modules, le hub IoT et les appareils. Vous pouvez définir des routes pour l’entrée et la sortie de données entre les modules et le hub IoT afin d’envoyer des messages au bon destinataire sans avoir recours à d’autres services pour traiter les messages ou écrire du code supplémentaire. Les routes sont construites à l’aide de paires nom/valeur. Vous pouvez définir jusqu’à cinq noms de routes par défaut, chacun d’une longueur maximale de 512 caractères.
 
-Veillez à utiliser la [syntaxe de route](https://aka.ms/DeclareRoutesAzureIoT) correcte dans la valeur de la route (généralement définie sous la forme FROM/message/* INTO $upstream). Cela signifie que tous les messages envoyés par les modules sont dirigés vers votre hub IoT. Pour faire référence à votre module, utilisez son nom de module par défaut, qui est votre **Nom d’offre** sans espaces ou caractères spéciaux. Pour faire référence à d’autres modules qui ne sont pas encore connus, utilisez la convention <NOM_MODULE_SOURCE> pour informer vos clients qu’ils doivent mettre à jour ces informations. Pour plus d’informations sur les routes IoT Edge, consultez [Déclarer des routes](https://aka.ms/DeclareRoutesAzureIoT).
+Veillez à utiliser la [syntaxe de route](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) correcte dans la valeur de la route (généralement définie sous la forme FROM/message/* INTO $upstream). Cela signifie que tous les messages envoyés par les modules sont dirigés vers votre hub IoT. Pour faire référence à votre module, utilisez son nom de module par défaut, qui est votre **Nom d’offre** sans espaces ou caractères spéciaux. Pour faire référence à d’autres modules qui ne sont pas encore connus, utilisez la convention <NOM_MODULE_SOURCE> pour informer vos clients qu’ils doivent mettre à jour ces informations. Pour plus d’informations sur les routes IoT Edge, consultez [Déclarer des routes](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes).
 
 Par exemple, si le module ContosoModule écoute les entrées sur ContosoInput et les données de sortie au niveau de ContosoOutput, il est judicieux de définir les deux routes par défaut suivantes :
 
@@ -427,7 +424,7 @@ Par exemple, si le module ContosoModule écoute les entrées sur ContosoInput et
 - Nom 2 : FromContosoModuleToCloud
 - Valeur 2 : FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream
 
-**Propriétés souhaitées du jumeau de module par défaut**. Un jumeau de module est un document JSON dans le hub IoT qui stocke les informations d’état d’une instance de module, notamment les propriétés souhaitées. Les propriétés souhaitées sont utilisées en même temps que les propriétés signalées pour synchroniser une configuration ou une condition de module. Le back-end de solution peut définir les propriétés souhaitées et le module peut les lire. Le module peut également recevoir des notifications sur les changements des propriétés souhaitées. Les propriétés souhaitées sont créées à l’aide de cinq paires nom/valeur, et chaque valeur par défaut doit contenir moins de 512 caractères. Vous pouvez définir jusqu’à cinq noms/valeurs de propriétés souhaitées du jumeau. Les valeurs des propriétés souhaitées du jumeau doivent être un code JSON valide, sans séquence d’échappement ni tableaux, ayant une hiérarchie imbriquée maximale de quatre niveaux. Dans un scénario où un paramètre requis pour une valeur par défaut n’est pas judicieux (par exemple, l’adresse IP du serveur d’un client), vous pouvez ajouter un paramètre comme valeur par défaut. Pour plus d’informations sur les propriétés souhaitées du jumeau, consultez [Définir ou mettre à jour les propriétés souhaitées](https://aka.ms/DefineUpdateProperties).
+**Propriétés souhaitées du jumeau de module par défaut**. Un jumeau de module est un document JSON dans le hub IoT qui stocke les informations d’état d’une instance de module, notamment les propriétés souhaitées. Les propriétés souhaitées sont utilisées en même temps que les propriétés signalées pour synchroniser une configuration ou une condition de module. Le back-end de solution peut définir les propriétés souhaitées et le module peut les lire. Le module peut également recevoir des notifications sur les changements des propriétés souhaitées. Les propriétés souhaitées sont créées à l’aide de cinq paires nom/valeur, et chaque valeur par défaut doit contenir moins de 512 caractères. Vous pouvez définir jusqu’à cinq noms/valeurs de propriétés souhaitées du jumeau. Les valeurs des propriétés souhaitées du jumeau doivent être un code JSON valide, sans séquence d’échappement ni tableaux, ayant une hiérarchie imbriquée maximale de quatre niveaux. Dans un scénario où un paramètre requis pour une valeur par défaut n’est pas judicieux (par exemple, l’adresse IP du serveur d’un client), vous pouvez ajouter un paramètre comme valeur par défaut. Pour plus d’informations sur les propriétés souhaitées du jumeau, consultez [Définir ou mettre à jour les propriétés souhaitées](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties).
 
 Par exemple, si un module prend en charge une fréquence d’actualisation configurable de manière dynamique à l’aide de ses propriétés souhaitées du jumeau, il semble judicieux de définir la propriété souhaitée du jumeau par défaut suivante :
 
@@ -441,7 +438,7 @@ Par exemple, si un module a besoin d’accepter des conditions d’utilisation a
 - Nom 1 : ACCEPT_EULA
 - Valeur 1: O
 
-**Options de création de conteneur par défaut**. Les options de création de conteneur dirigent la création du conteneur Docker du module IoT Edge. IoT Edge prend en charge les options de création de conteneur de l’API du moteur Docker. Vous trouverez toutes les options dans la page [List containers](https://aka.ms/ContainerList). Le champ des options de création doit être un code JSON valide, sans séquence d’échappement et contenant moins de 512 caractères.
+**Options de création de conteneur par défaut**. Les options de création de conteneur dirigent la création du conteneur Docker du module IoT Edge. IoT Edge prend en charge les options de création de conteneur de l’API du moteur Docker. Vous trouverez toutes les options dans la page [List containers](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList). Le champ des options de création doit être un code JSON valide, sans séquence d’échappement et contenant moins de 512 caractères.
 
 Par exemple, si un module nécessite une liaison de port, définissez les options de création suivantes :
 

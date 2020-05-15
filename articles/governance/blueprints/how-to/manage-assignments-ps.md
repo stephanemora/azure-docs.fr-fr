@@ -1,14 +1,14 @@
 ---
 title: Guide pratique pour gérer les affectations avec PowerShell
 description: Découvrez comment gérer les affectations de blueprints avec le module PowerShell Azure Blueprint, Az.Blueprint.
-ms.date: 09/30/2019
+ms.date: 05/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 0868e5e207202511c1981a930870bfdc68a77a8f
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: fa0f89df79c4ae1c5b66998089f04575bd53ea37
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677421"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82863975"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Guide pratique pour gérer les affectations avec PowerShell
 
@@ -205,8 +205,7 @@ ResourceGroups    : ResourceGroup
 
 ### <a name="example-2-use-a-json-assignment-definition-file"></a>Exemple 2 : Utiliser un fichier de définition d’attribution JSON
 
-L’exemple suivant crée presque la même attribution que l’[Exemple 1](#example-1-provide-parameters).
-Au lieu de passer des paramètres à l’applet de commande, l’exemple illustre l’utilisation d’un fichier de définition d’attribution JSON et le paramètre **AssignmentFile**. De plus, la propriété **excludedPrincipals** est configurée dans le cadre de **locks**. Il n’existe pas de paramètre PowerShell pour **excludedPrincipals** et la propriété ne peut être configurée qu’en le définissant par le biais du fichier de définition d’attribution JSON.
+L’exemple suivant crée presque la même attribution que l’[Exemple 1](#example-1-provide-parameters). Au lieu de passer des paramètres à l’applet de commande, l’exemple illustre l’utilisation d’un fichier de définition d’attribution JSON et le paramètre **AssignmentFile**. De plus, la propriété **excludedPrincipals** est configurée dans le cadre de **locks**. Il n’existe pas de paramètre PowerShell pour **excludedPrincipals** et la propriété ne peut être configurée qu’en le définissant par le biais du fichier de définition d’attribution JSON.
 
 ```json
 {
@@ -335,7 +334,7 @@ $blueprintAssignment = Get-AzBlueprintAssignment -Name 'Assignment-lock-resource
 Remove-AzBlueprintAssignment -InputObject $blueprintAssignment -SubscriptionId '{subId}'
 ```
 
-## <a name="end-to-end-code-example"></a>Exemple de code de bout en bout
+## <a name="code-example"></a>Exemple de code
 
 Rassemblant toutes les étapes, l’exemple suivant obtient la définition de blueprint, puis crée, met à jour et supprime une affectation de blueprint dans l’abonnement spécifique représenté par `{subId}` :
 

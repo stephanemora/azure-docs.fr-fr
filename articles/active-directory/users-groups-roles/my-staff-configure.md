@@ -9,16 +9,16 @@ ms.topic: article
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 04/14/2020
+ms.date: 05/08/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 3f7c12612dbe37de6b08cb05a64af460296ade93
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 791f2e9bf825bb0a1d1ce555c9fbd879106213df
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393903"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995825"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Gestion des utilisateurs avec Mon personnel (préversion)
 
@@ -26,9 +26,28 @@ Mon personnel permet de déléguer à une figure d’autorité (par exemple, un 
 
 Avant de configurer Mon personnel pour votre organisation, nous vous recommandons de consulter cette documentation ainsi que la [documentation utilisateur](../user-help/my-staff-team-manager.md) pour bien comprendre ses fonctionnalités et son impact sur vos utilisateurs. Vous pouvez utiliser la documentation utilisateur pour former vos utilisateurs et les préparer à la nouvelle expérience, afin de faciliter le déploiement.
 
+L’authentification par SMS des utilisateurs est une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## <a name="how-my-staff-works"></a>Fonctionnement de Mon personnel
 
 Mon personnel se base sur des unités administratives, c’est-à-dire des conteneurs de ressources permettant de limiter l’étendue du contrôle administratif d’une attribution de rôle. Dans Mon personnel, les unités administratives sont utilisées pour définir un sous-ensemble des utilisateurs d’une organisation, par exemple un magasin ou un service. Un rôle étendu à une ou plusieurs unités administratives pourrait alors être attribué à un chef d’équipe. Dans l’exemple ci-dessous, l’utilisateur s’est vu accorder le rôle d’administrateur d’authentification, dont l’étendue couvre les trois unités administratives. Pour plus d’informations sur les unités administratives, consultez [Gestion des unités administratives dans Azure Active Directory](directory-administrative-units.md).
+
+## <a name="before-you-begin"></a>Avant de commencer
+
+Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources et des privilèges suivants :
+
+* Un abonnement Azure actif.
+
+  * Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Un locataire Azure Active Directory associé à votre abonnement.
+
+  * Si nécessaire, [créez un locataire Azure Active Directory](../fundamentals/sign-up-organization.md) ou [associez un abonnement Azure à votre compte](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
+* Vous devez disposer de privilèges d’*administrateur d’entreprise* dans votre locataire Azure AD pour activer l’authentification par SMS.
+* Chaque utilisateur activé dans la stratégie de méthode d’authentification par SMS doit disposer d’une licence, même s’il ne l’utilise pas. Chaque utilisateur activé doit avoir l’une des licences Azure AD ou Microsoft 365 suivantes :
+
+  * [Azure AD Premium P1 ou P2](https://azure.microsoft.com/pricing/details/active-directory/)
+  * [Microsoft 365 (M365) F1 ou F3](https://www.microsoft.com/licensing/news/m365-firstline-workers)
+  * [Enterprise Mobility + Security (EMS) E3 ou E5](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing) ou [Microsoft 365 (M365) E3 ou E5](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)
 
 ## <a name="how-to-enable-my-staff"></a>Activation de Mon personnel
 
@@ -41,16 +60,27 @@ Une fois que vous avez configuré les unités administratives, vous pouvez appli
 > [!Note]
 > Seuls les utilisateurs disposant d’un rôle d’administrateur ont accès à Mon personnel. Si vous activez Mon personnel pour un utilisateur à qui aucun rôle d’administrateur n’est attribué, il ne pourra pas accéder à Mon personnel.
 
+## <a name="conditional-access"></a>Accès conditionnel
+
+Vous pouvez protéger le portail Mon personnel à l’aide d’une stratégie d’accès conditionnel Azure AD. Utilisez celle-ci pour des tâches telles que l’authentification multifacteur avant d’accéder au portail Mon personnel.
+
+Nous vous recommandons vivement de protéger le portail Mon personnel à l’aide de [stratégies d’accès conditionnel Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/). Pour appliquer une stratégie d’accès conditionnel au portail Mon personnel, vous devez créer manuellement le principal du service Mon personnel à l’aide de PowerShell.
+
+### <a name="apply-a-conditional-access-policy-to-my-staff"></a>Appliquer une stratégie d’accès conditionnel au portail Mon personnel
+
+1. Installez les [cmdlets PowerShell Microsoft Graph Beta](https://github.com/microsoftgraph/msgraph-sdk-powershell/blob/dev/samples/0-InstallModule.ps1).
+1. Exécutez les commandes suivantes :
+
+        Connect-Graph -Scopes "Directory.AccessAsUser.All"
+        New-MgServicePrincipal -DisplayName "My Staff" -AppId "ba9ff945-a723-4ab5-a977-bd8c9044fe61"
+
+1. Créez une stratégie d’accès conditionnel qui s’applique à l’application cloud Mon personnel.
+
+    ![Créer une stratégie d’accès conditionnel pour l’application Mon personnel](media/my-staff-configure/conditional-access.png)
+
 ## <a name="using-my-staff"></a>Utilisation de Mon personnel
 
 Quand un utilisateur accède à Mon personnel, il voit apparaître le nom des [unités administratives](directory-administrative-units.md) sur lesquelles il dispose d’autorisations d’administration. Dans la [documentation utilisateur de Mon personnel](../user-help/my-staff-team-manager.md), nous utilisons le terme « emplacement » pour faire référence aux unités administratives. Les autorisations d’un administrateur qui ne comportent pas d’étendue couvrant des unités administratives s’appliquent à l’ensemble de l’organisation. Après l’activation de Mon personnel, les utilisateurs activés et disposant d’un rôle d’administrateur peuvent y accéder à l’adresse [https://mystaff.microsoft.com](https://mystaff.microsoft.com). Ils ont la possibilité de sélectionner une unité administrative pour afficher les utilisateurs qu’elle comporte, et de sélectionner un utilisateur pour ouvrir son profil.
-
-## <a name="licenses"></a>Licences
-
-Même s’il n’utilise pas le portail Mon personnel, chaque utilisateur activé dans Mon personnel doit disposer d’une des licences Azure AD ou Microsoft 365 suivantes :
-
-- Azure AD Premium P1 ou P2
-- Microsoft 365 F1 ou F3
 
 ## <a name="reset-a-users-password"></a>Réinitialiser le mot de passe de l’utilisateur
 

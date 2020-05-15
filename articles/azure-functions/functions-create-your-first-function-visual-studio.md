@@ -1,22 +1,22 @@
 ---
 title: 'Démarrage rapide : Créer votre première fonction dans Azure à l’aide de Visual Studio'
-description: Dans ce guide de démarrage rapide, vous allez apprendre à créer et à publier une fonction Azure déclenchée par HTTP à l’aide de Visual Studio.
+description: Dans ce guide de démarrage rapide, vous allez apprendre à créer et à publier une fonction Azure à déclencheur HTTP en utilisant Visual Studio.
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 03/06/2020
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: e58414fa94a4ef54eb2f288b2cd636c10611460d
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: a4549bd2947332d7140f4f440a5344f417430554
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81308935"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122746"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Démarrage rapide : Créer votre première fonction dans Azure à l’aide de Visual Studio
 
 Azure Functions vous permet d’exécuter votre code dans un environnement serverless, et sans avoir à créer une machine virtuelle ou à publier une application web au préalable.
 
-Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser Visual Studio 2019 pour créer et tester en local une application de fonction C# déclenchée par HTTP, « Hello world », avant de la publier sur Azure. 
+Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser Visual Studio 2019 pour créer et tester en local une application de fonction C# à déclencheur HTTP, « Hello world », avant de la publier sur Azure. 
 
 ![Réponse de la fonction localhost dans le navigateur](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
@@ -38,7 +38,7 @@ Visual Studio crée un projet et une classe qui contient un code réutilisable p
 
 Étendez les capacités de votre fonction à l’aide de liaisons d’entrée et de sortie en appliquant les attributs appropriés à la méthode. Pour plus d’informations, voir la section [Déclencheurs et liaisons](functions-dotnet-class-library.md#triggers-and-bindings) de l’article [Informations de référence pour les développeurs C# sur Azure Functions](functions-dotnet-class-library.md).
 
-Maintenant que vous avez créé un projet de fonction et une fonction déclenchée via HTTP, vous pouvez la tester sur votre ordinateur local.
+Maintenant que vous avez créé un projet de fonction et une fonction à déclencheur HTTP, vous pouvez la tester sur votre ordinateur local.
 
 ## <a name="run-the-function-locally"></a>Exécuter la fonction localement
 
@@ -58,7 +58,7 @@ Avant de pouvoir publier votre projet, vous devez disposer d’une application d
 
 1. Copiez l’URL de base de l’application de fonction à partir de la page de profil **Publier**. Remplacez la partie `localhost:port` de l’URL que vous avez utilisée pour tester en local la fonction par la nouvelle URL de base. Ajoutez la chaîne de requête `?name=<YOUR_NAME>` à cette URL et exécutez la demande.
 
-    L’URL qui appelle la fonction déclenchée via HTTP est au format suivant :
+    L’URL qui appelle la fonction à déclencheur HTTP est au format suivant :
 
     `http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?name=<YOUR_NAME>`
 
@@ -72,7 +72,7 @@ Avant de pouvoir publier votre projet, vous devez disposer d’une application d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez utilisé Visual Studio pour créer et publier une application de fonction C# dans Azure à l’aide d’une simple fonction déclenchée via HTTP. 
+Dans ce guide de démarrage rapide, vous avez utilisé Visual Studio pour créer et publier une application de fonction C# dans Azure à l’aide d’une simple fonction à déclencheur HTTP. 
 
 Passez à l’article suivant pour savoir comment ajouter une liaison de file d’attente de stockage Azure à votre fonction :
 > [!div class="nextstepaction"]

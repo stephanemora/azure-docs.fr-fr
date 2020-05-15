@@ -8,16 +8,16 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
-ms.openlocfilehash: cb38fd17c0c1bfbe3e5957d8f432f0a43b285c93
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c363fd4e55fdd6fe04a099ac833a256bbfd2eb2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60803759"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116966"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Recevoir des événements sur un point de terminaison HTTP
 
-Cet article décrit comment [valider un point de terminaison HTTP](security-authentication.md#webhook-event-delivery) pour recevoir des événements à partir d’un abonnement à des événements, puis désérialiser des événements. Cet article utilise une fonction d’Azure à des fins de démonstration, mais les mêmes concepts s’appliquent quel que soit l’emplacement où l’application est hébergée.
+Cet article décrit comment [valider un point de terminaison HTTP](webhook-event-delivery.md) pour recevoir des événements à partir d’un abonnement à des événements, puis désérialiser des événements. Cet article utilise une fonction d’Azure à des fins de démonstration, mais les mêmes concepts s’appliquent quel que soit l’emplacement où l’application est hébergée.
 
 > [!NOTE]
 > Il est **fortement** recommandé d’utiliser un [déclencheur Event Grid](../azure-functions/functions-bindings-event-grid.md) lors du déclenchement d’une fonction d’Azure avec Event Grid. L’utilisation d’un déclencheur Webhook générique ici est démonstrative.
@@ -28,7 +28,7 @@ Vous avez besoin d’une application de fonction avec une fonction déclenchée 
 
 ## <a name="add-dependencies"></a>Ajout de dépendances
 
-Si vous développez dans .NET, [ajoutez une dépendance](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) à votre fonction pour le `Microsoft.Azure.EventGrid` [package Nuget](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). Les exemples de cet article nécessitent la version 1.4.0 ou ultérieure.
+Si vous développez dans .NET, [ajoutez une dépendance](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) à votre fonction pour le [package NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) `Microsoft.Azure.EventGrid`. Les exemples de cet article nécessitent la version 1.4.0 ou ultérieure.
 
 Des Kits de développement logiciel (SDK) pour d’autres langues sont disponibles via la référence [Kits SDK de publication](./sdk-overview.md#data-plane-sdks). Ces packages incluent les modèles des types d’événement natif comme `EventGridEvent`, `StorageBlobCreatedEventData` et `EventHubCaptureFileCreatedEventData`.
 
@@ -50,7 +50,7 @@ Cliquez sur le lien « Afficher les fichiers » dans votre fonction Azure (volet
 
 ## <a name="endpoint-validation"></a>Validation de point de terminaison
 
-La première chose à faire est de traiter les événements `Microsoft.EventGrid.SubscriptionValidationEvent`. Chaque fois que quelqu’un s’abonne à un événement, Event Grid envoie un événement de validation au point de terminaison avec un `validationCode` dans la charge utile de données. Le point de terminaison est nécessaire pour reproduire cela dans le corps de réponse pour [prouver que le point de terminaison est valide et qu’il vous appartient](security-authentication.md#webhook-event-delivery). Si vous utilisez un [déclencheur Event Grid](../azure-functions/functions-bindings-event-grid.md) au lieu d’une fonction déclenchée par un Webhook, la validation du point de terminaison est traitée pour vous. Si vous utilisez un service d’API tiers (comme [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), vous risquez de ne pas pouvoir envoyer le code de validation par programmation. Pour ces services, vous pouvez manuellement valider l’abonnement à l’aide d’une URL de validation qui est envoyée dans l’événement de validation de l’abonnement. Copiez cette URL dans la propriété `validationUrl` et envoyez une demande GET par le biais d’un client REST ou de votre navigateur web.
+La première chose à faire est de traiter les événements `Microsoft.EventGrid.SubscriptionValidationEvent`. Chaque fois que quelqu’un s’abonne à un événement, Event Grid envoie un événement de validation au point de terminaison avec un `validationCode` dans la charge utile de données. Le point de terminaison est nécessaire pour reproduire cela dans le corps de réponse pour [prouver que le point de terminaison est valide et qu’il vous appartient](webhook-event-delivery.md). Si vous utilisez un [déclencheur Event Grid](../azure-functions/functions-bindings-event-grid.md) au lieu d’une fonction déclenchée par un Webhook, la validation du point de terminaison est traitée pour vous. Si vous utilisez un service d’API tiers (comme [Zapier](https://zapier.com/home) ou [IFTTT](https://ifttt.com/)), vous risquez de ne pas pouvoir envoyer le code de validation par programmation. Pour ces services, vous pouvez manuellement valider l’abonnement à l’aide d’une URL de validation qui est envoyée dans l’événement de validation de l’abonnement. Copiez cette URL dans la propriété `validationUrl` et envoyez une demande GET par le biais d’un client REST ou de votre navigateur web.
 
 Dans C#, la fonction `DeserializeEventGridEvents()` désérialise les événements Event Grid. Elle désérialise les données d’événement dans le type approprié, tel que StorageBlobCreatedEventData. Utilisez la classe `Microsoft.Azure.EventGrid.EventTypes` pour obtenir les types et noms d’événements pris en charge.
 

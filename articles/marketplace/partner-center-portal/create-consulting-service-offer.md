@@ -1,66 +1,61 @@
 ---
-title: Créer une offre de services de conseil dans l’Espace partenaires - Place de marché Azure
-description: Découvrez comment publier une offre de services de conseil sur la Place de marché Azure ou AppSource à l’aide de l’Espace partenaires.
+title: Créer une offre de services de conseil – Place de marché commerciale Microsoft
+description: Découvrez comment publier une offre de services de conseil sur Microsoft AppSource ou sur la Place de marché Azure à l’aide de l’Espace partenaires.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: eff37750f0580a28c9644ee1ffb7fe4e95038709
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/08/2020
+ms.openlocfilehash: 626dc5a7d1cd52182e68eb0d217b2ac4c653330e
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869791"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994348"
 ---
 # <a name="create-a-consulting-service-offer"></a>Créer une offre de services de conseil
 
-> [!IMPORTANT]
-> Nous allons déplacer la gestion de vos offres de services de conseil du portail Cloud Partner vers l’Espace partenaires. Tant que vos offres ne sont pas migrées, suivez les instructions dans [Offre de service de conseil Azure et Dynamics 365](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) pour que le portail Cloud Partner gère vos offres.
+Cet article décrit comment publier une offre de services de conseil sur la [Microsoft AppSource](https://appsource.microsoft.com/) ou sur la [Place de marché Azure](https://azuremarketplace.microsoft.com/). Répertoriez les offres de services de conseil basées sur Microsoft [Dynamics 365](https://dynamics.microsoft.com/) et Power Platform sur AppSource. Répertoriez les offres de services de consulting basées sur Microsoft Azure sur la Place de marché Azure. Avant de commencer, si ce n’est déjà fait, [créez un compte de la Place de marché commerciale dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account). Vérifiez que votre compte est inscrit dans le programme de Place de marché commerciale.
 
-Cet article décrit comment publier une offre de service de conseil sur la [Place de marché Azure](https://azuremarketplace.microsoft.com/) ou sur [AppSource](https://appsource.microsoft.com/). Répertoriez les offres de services de conseil basées sur Microsoft [Dynamics 365](https://dynamics.microsoft.com/) et Power Platform sur AppSource. Répertoriez les offres de services de consulting basées sur Microsoft Azure sur la Place de marché Azure.
-
-Pour créer une offre de services de conseil sur la Place de marché Azure ou AppSource, vous devez d’abord [avoir un compte d’éditeur dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), et votre compte doit être inscrit dans le programme de la Place de marché commerciale. Avant de créer votre offre, passez en revue les conditions préalables dans [Conditions préalables à la publication d’un service de conseil](https://docs.microsoft.com/azure/marketplace/partner-center-portal/consulting-service-prerequisites).
+Avant de créer votre offre, passez en revue les conditions préalables dans [Conditions préalables à la publication d’un service de conseil](https://docs.microsoft.com/azure/marketplace/partner-center-portal/consulting-service-prerequisites).
 
 ## <a name="publishing-benefits"></a>Avantages liés à la publication
 
-Avantages de la publication sur la Place de marché commerciale :
+Avantages de la publication sur le marketplace commercial :
 
 - Promouvez votre entreprise en utilisant la marque Microsoft.
-- Touchez potentiellement plus de 100 millions d'utilisateurs Office 365 et Dynamics 365 sur AppSource, ainsi que plus de 200 000 organisations via la Place de marché Microsoft Azure.
+- Touchez potentiellement plus de 100 millions d’utilisateurs Office 365 et Dynamics 365 sur AppSource, ainsi que plus de 200 000 organisations via la Place de marché Microsoft Azure.
 - Recevez des prospects de grande qualité à partir de ces places de marché.
 - Bénéficiez d’une promotion de vos services assurée par les équipes de terrain et de télévente de Microsoft
 
 ## <a name="create-a-new-offer"></a>Créer une offre
 
-Une fois que vous avez rempli les conditions ci-dessus, suivez les étapes décrites ci-après pour créer une offre de services de conseil.
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+2. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Vue d’ensemble**.
+3. Sur la page de présentation, sélectionnez **+ Nouvelle offre** > **Service de Conseil**.
 
-1. Connectez-vous à [l’Espace partenaires](https://partner.microsoft.com), puis sélectionnez **Tableau de bord** dans le menu supérieur.
-2. Dans la barre de navigation de gauche, sélectionnez **Place de marché commerciale**, puis sélectionnez **Vue d’ensemble**.
+    ![Illustre le menu de navigation de gauche.](./media/new-offer-consulting-service.png)
 
-    :::image type="content" source="media/cs-menu-overview.png" alt-text="Illustre le menu de la Place de marché commerciale":::
+>[!NOTE]
+>Après la publication d’une offre, les modifications qui lui ont été apportées dans l’Espace partenaires apparaissent uniquement dans les vitrines après la republication de l’offre. Veillez à toujours effectuer une nouvelle publication après avoir apporté des modifications.
 
-3. Sélectionnez **+ Nouvelle offre**, puis **Service de conseil**.
+## <a name="new-offer"></a>Nouvelle offre
 
-    :::image type="content" source="media/cs-menu-newoffer.png" alt-text="Illustre le bouton permettant de créer une nouvelle offre.":::
+Entrez un **ID d’offre**. Il s’agit d’un identificateur unique par offre dans votre compte.
 
-4. Entrez un **ID d’offre**. Il s’agit d’un identificateur unique par offre dans votre compte.
+- Cet ID est visible pour les clients dans l’adresse web de l’offre de la Place de marché.
+- Utilisez uniquement des lettres minuscules et des chiffres. Il peut inclure des traits d’union et des traits de soulignement, mais pas d’espaces, et est limité à 50 caractères. Par exemple, si vous entrez **test-offer-1**, l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- L’ID d’offre ne peut pas être changé une fois que vous avez sélectionné **Créer**.
 
-    - Cet ID est visible pour les clients dans l’adresse web de l’offre de la Place de marché.
-    - Utilisez uniquement des lettres minuscules, des chiffres, des tirets et des traits de soulignement, mais pas d’espaces. La longueur du Luid est limitée à 50 caractères. Par exemple, si vous entrez **test-offer-1**, l’URL de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-    - L’ID d’offre ne peut pas être modifié une fois que vous avez sélectionné **Créer**.
+Entrez un **Alias d’offre**. Il s’agit du nom attribué à l’offre dans l’Espace partenaires.
 
-5. Entrez un **Alias d’offre**. Le nom utilisé pour faire référence à l’offre dans l’Espace partenaires.
+- Ce nom n’est pas utilisé dans la Place de marché et est différent du nom de l’offre et des autres informations présentées aux clients.
+- L’alias d’offre ne peut pas être modifié une fois que vous avez sélectionné **Créer**.
 
-    - Ce nom n’est pas utilisé dans la Place de marché. Il est différent du nom de l’offre et des autres valeurs présentées aux clients. Vous pouvez utiliser ce champ pour attribuer un nom à l’offre plus utile pour identifier l’offre en interne ; cette valeur n’est pas présentée aux clients.
-    - L’alias d’offre ne peut pas être modifié une fois que vous avez sélectionné **Créer**.
-
-Après avoir entré ces deux valeurs, sélectionnez **Créer** pour accéder à la page **Configuration de l’offre**.
+Sélectionnez **Créer** pour générer l’offre et continuer.
 
 ## <a name="offer-setup"></a>Configuration de l’offre
-
-Une fois que vous avez entré un ID d’offre et un alias d’offre, l’Espace partenaires crée une offre temporaire et affiche la page **Configuration de l’offre**. Effectuez les étapes suivantes pour configurer votre offre.
 
 ### <a name="connect-lead-management"></a>Connecter la gestion des prospects
 
@@ -73,20 +68,20 @@ Lors de la publication de votre offre sur la Place de marché avec l’Espace pa
     - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
     > [!NOTE]
-    > Si votre système de CRM n’est pas répertorié ci-dessus, utilisez une [table Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) ou un [point de terminaison HTTPS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) pour stocker les données des prospects, puis exporter les données vers votre système CRM.
+    > Si votre système de CRM n’est pas listé ci-dessus, utilisez une [table Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) ou un [point de terminaison HTTPS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) pour stocker les données des prospects, puis exportez les données vers votre système CRM.
 
-2. Connectez votre offre à la destination de prospect tout en la publiant dans l'Espace partenaires.
-3. Vérifiez que la connexion à la destination de prospect est correctement configurée. Une fois que vous avez effectué la publication dans l'Espace partenaires, nous validons la connexion et nous vous envoyons un prospect de test. Lorsque vous visualisez l’offre avant son lancement, vous pouvez également tester votre connexion de prospect en essayant d’acheter vous-même l’offre dans l’environnement en version préliminaire.
+2. Connectez votre offre à la destination de prospect tout en la publiant dans l’Espace partenaires.
+3. Vérifiez que la connexion à la destination de prospect est correctement configurée. Une fois que vous avez effectué la publication dans l’Espace partenaires, nous validons la connexion et nous vous envoyons un prospect de test. Quand vous visualisez l’offre avant son lancement, vous pouvez également tester votre connexion de prospect en essayant d’acheter vous-même l’offre dans l’environnement en version préliminaire.
 4. Assurez-vous que la connexion à la destination de prospect reste à jour afin de ne perdre aucun prospect.
 
-Voici des ressources de gestion des prospects supplémentaires :
+Voici des ressources de gestion des prospects supplémentaires :
 
 - [Vue d’ensemble de la gestion des prospects](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [Questions fréquentes sur la gestion des prospects](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Erreurs courantes de configuration des prospects](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Erreurs courantes de configuration des prospects](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
 - PDF [Vue d’ensemble de la gestion des prospects](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (Assurez-vous que votre bloqueur de fenêtres publicitaires est désactivé)
 
-Sélectionnez **Enregistrer le brouillon** avant de passer à la section suivante, Propriétés.
+Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
 ### <a name="properties"></a>Propriétés
 
@@ -97,41 +92,41 @@ Cette page vous permet de définir le produit principal que votre offre de servi
 
     - **Évaluation** : évaluation de l’environnement d’un client pour déterminer l’applicabilité d’une solution et donner une estimation du coût et de la durée.
     - **Réunion d’information** : Présentation d’une solution ou d’un service de conseil pour susciter l’intérêt du client à l’aide de frameworks, de démonstrations et d’exemples de clients.
-    - **Implémentation** : installation complète qui résulte en une solution entièrement fonctionnelle. Limitez-vous à des solutions qui peuvent être implémentées en deux semaines ou moins.
-    - **Preuve de concept** : implémentation de portée limitée pour déterminer si une solution répond aux exigences du client.
-    - **Atelier** : engagement interactif réalisé dans les locaux du client. Il peut inclure une formation, des réunions d’information, des évaluations ou des démonstrations reposant sur les données ou l’environnement du client.
+    - **Implémentation** : installation complète qui résulte en une solution entièrement fonctionnelle. Limitez-vous à des solutions qui peuvent être implémentées en deux semaines ou moins.
+    - **Preuve de concept** : implémentation de portée limitée pour déterminer si une solution répond aux exigences du client.
+    - **Atelier** : engagement interactif réalisé dans les locaux d’un client. Il peut inclure une formation, des réunions d’information, des évaluations ou des démonstrations reposant sur les données ou l’environnement du client.
 
-1. Si vous avez sélectionné un produit principal **Azure**, sélectionnez jusqu’à trois **Zones de solution**. Elles permettent aux clients de la place de marché Azure de trouver votre offre plus facilement. Si vous n'avez pas choisi Azure, ignorez cette étape.
-2. Si vous avez sélectionné un produit principal _autre_ qu’Azure, sélectionnez jusqu’à trois **Produits applicables**. Elles permettent aux clients d’AppSource de trouver votre offre plus facilement. Pour plus de détails, consultez [Microsoft AppSource consulting services listing guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (Instructions de référencement des services de conseil Microsoft AppSource - PDF).
-3. Sélectionnez jusqu’à six **Secteurs d’activité** auxquels s’applique votre offre. Cela facilitera la recherche de votre offre par les clients.
-4. Ajoutez jusqu’à trois **Compétences** que votre entreprise a obtenu le droit d’afficher sur l’annonce de votre offre de services de conseil. Au moins une compétence est requise, sauf pour Azure Expert MSP et les Azure Networking MSP.
+3. Si vous avez sélectionné un produit principal **Azure**, sélectionnez jusqu’à trois **Zones de solution**. Elles permettent aux clients de la place de marché Azure de trouver votre offre plus facilement. Si vous n’avez pas choisi Azure, ignorez cette étape.
+4. Si vous avez sélectionné un produit principal _autre_ qu’Azure, sélectionnez jusqu’à trois **Produits applicables**. Elles permettent aux clients d’AppSource de trouver votre offre plus facilement. Pour plus de détails, consultez [Microsoft AppSource consulting services listing guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (Instructions de référencement des services de conseil Microsoft AppSource - PDF).
+5. Sélectionnez jusqu’à six **Secteurs d’activité** auxquels s’applique votre offre. Cela facilitera la recherche de votre offre par les clients.
+6. Ajoutez jusqu’à trois **Compétences** que votre entreprise a acquises afin de les afficher dans la description de votre offre de services de conseil. Au moins une compétence est requise, sauf pour les fournisseurs de services gérés Azure Expert et Azure Networking.
 
-Sélectionnez **Enregistrer le brouillon** avant de passer à la section suivante, Annonce de l’offre.
+Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
 ## <a name="offer-listing"></a>Annonce de l’offre
 
-Ici, vous allez définir les détails de l’offre qui s’affichent dans la Place de marché. Cela comprend le nom, la description, les images, etc. de l’offre. Veillez à suivre les stratégies détaillées sur la [page de stratégie Microsoft](https://docs.microsoft.com/legal/marketplace/certification-policies#800-consulting-services) lors de la configuration de cette offre.
+Ici, vous allez définir les détails de l’offre qui s’affichent dans la Place de marché. Cela comprend le nom, la description, les images, etc. de l’offre. Veillez à suivre les stratégies décrites dans la [page des stratégies de certification de la Place de marché commerciale](https://docs.microsoft.com/legal/marketplace/certification-policies#800-consulting-services) lors de la configuration de cette offre.
 
 > [!NOTE]
-> Les détails de l’offre n’ont pas à être en anglais si la description de l’offre commence par l’expression, &quot;This application is available only in [langue non anglaise].&quot; Il est également possible de fournir une URL de lien utile pour offrir du contenu dans une langue autre que celle utilisée dans le contenu de l’annonce de l’offre.
+> Les détails de l’offre ne doivent pas nécessairement être rédigés en anglais si la description de l’offre commence par la phrase &quot;This application is available only in [langue non anglaise]&quot;. Il est également possible de fournir un lien utile pour offrir du contenu dans une langue autre que celle utilisée dans le contenu de l’annonce de l’offre.
 
 ### <a name="name"></a>Nom
 
-Le nom que vous entrez ici s’affiche comme titre de votre offre. Ce champ est prérempli avec le texte que vous avez entré dans la zone **Alias d’offre** lors de la création de l’offre. Vous pouvez modifier ce nom ultérieurement.
+Le nom que vous entrez ici s’affiche comme titre de votre offre. Ce champ est prérempli avec le texte que vous avez entré dans la zone **Alias d’offre** lors de la création de l’offre. Vous pouvez changer ce nom ultérieurement.
 
-Le nom :
+Le nom :
 
 - Peut être une marque déposée (et vous pouvez inclure des symboles de marque ou de copyright).
-- Ne peut pas compter plus de 50 caractères.
+- Ne peut pas compter plus de 50 caractères.
 - Ne peut pas inclure d’emojis.
 
 ### <a name="search-results-summary"></a>Résumé des résultats de recherche
 
-Fournissez une brève description de votre offre. Ce champ peut comporter jusqu’à 100 caractères, et est utilisé dans les résultats de recherche de la Place de marché.
+Fournissez une brève description de votre offre. Ce champ peut comporter jusqu’à 100 caractères, et est utilisé dans les résultats de recherche de la Place de marché.
 
 ### <a name="description"></a>Description
 
-Fournissez une description plus longue de votre offre, jusqu’à 3 000 caractères. S’affichera pour les clients dans la vue d’ensemble de la place de marché.
+Fournissez une description plus longue de votre offre, jusqu’à 3 000 caractères. S’affichera pour les clients dans la vue d’ensemble de la Place de marché.
 
 Incluez un ou plusieurs des éléments suivants dans votre description :
 
@@ -150,9 +145,13 @@ Voici quelques conseils pour rédiger votre description :
 - Ne comptez pas sur les fonctionnalités de votre produit pour convaincre. Concentrez-vous plutôt sur ce que votre application offre.
 - Essayez d’utiliser le vocabulaire propre au secteur visé, ainsi que des termes décrivant les avantages proposés.
 
-Pour que la description offre soit plus attrayante, utilisez l’éditeur de texte enrichi pour mettre en forme votre description. L’éditeur de texte enrichi vous permet d’ajouter des chiffres, des puces, des caractères gras/en italique et des mises en retrait pour rendre votre description plus lisible.
+Pour que la description de votre offre soit plus accrocheuse, utilisez l’éditeur de texte enrichi pour appliquer une mise en forme.
 
-:::image type="content" source="media/cs-rich-text-editor.png" alt-text="Illustre l’éditeur de texte enrichi pour écrire la description de l’offre." border="false":::
+![Utilisation de l’éditeur de texte enrichi](./media/rich-text-editor.png)
+
+| <center>Changer la mise en forme du texte | <center>Ajouter des puces ou une numérotation | <center>Ajouter ou supprimer une mise en retrait de texte |
+| --- | --- | --- |
+| <center>![Changer la mise en forme du texte à l’aide de l’éditeur de texte enrichi](./media/text-editor3.png) |  <center>![Changer la mise en forme du texte à l’aide de l’éditeur de texte enrichi](./media/text-editor4.png) |  <center>![Mettre en retrait à l’aide de l’éditeur de texte enrichi](./media/text-editor5.png) |
 
 ### <a name="keywords"></a>Mots clés
 
@@ -179,7 +178,7 @@ Fournissez des logos et images à utiliser avec votre offre. Toutes les images d
 
 #### <a name="store-logos"></a>Stocker des logos
 
-Fournissez des fichiers .png du logo de votre offre dans chacune des tailles en pixels suivantes :
+Fournissez les fichiers .png du logo de votre offre dans chacune des tailles en pixels suivantes :
 
 - **Petit (48 x 48)**
 - **Grand (216 x 216)**
@@ -188,13 +187,13 @@ Tous les logos sont requis et sont utilisés à différents endroits de l’anno
 
 #### <a name="screenshots-optional"></a>Captures d’écran (facultatif)
 
-Ajoutez jusqu’à cinq captures d’écran qui illustrent le fonctionnement de votre offre. Chacune doit avoir une taille de 1280 x 720 pixels et être au format .png.
+Ajoutez jusqu’à cinq captures d’écran qui illustrent le fonctionnement de votre offre. Chacune doit avoir une taille de 1280 x 720 pixels et être au format .png.
 
 #### <a name="videos-optional"></a>Vidéos (facultatif)
 
 Ajoutez jusqu’à quatre vidéos qui illustrent votre offre. Entrez le nom de la vidéo, son adresse web (URL) et une image miniature .png de 1280 x 720 pixels de la vidéo.
 
-Sélectionnez **Enregistrer le brouillon** avant de passer à la section suivante, Tarification et disponibilité.
+Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
 ## <a name="pricing-and-availability"></a>Tarification et disponibilité
 
@@ -209,9 +208,9 @@ Ici, vous allez définir des éléments tels que la tarification, le marché et 
     > Les offres de services de conseil ne couvrent que l’annonce. Toutes les transactions se produisent directement, en dehors de la Place de marché commerciale.
 
 4. Pour une offre payante, spécifiez les paramètres **Prix et devise** et indiquez si le prix est **Fixe** ou si c’est une **Estimation**. Si c’est une Estimation, vous devez spécifier dans la description les facteurs qui auront une incidence sur le prix.
-5. Sélectionnez **Enregistrer le brouillon**.
+5. Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
-## <a name="review-and-publish"></a>Passer en revue et publier
+## <a name="review-and-publish"></a>Vérifier et publier
 
 Une fois que vous avez rempli toutes les sections requises de l’offre, vous pouvez envoyer votre pour révision et publication.
 

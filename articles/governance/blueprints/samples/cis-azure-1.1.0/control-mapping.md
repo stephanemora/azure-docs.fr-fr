@@ -1,14 +1,14 @@
 ---
 title: Exemples de contrôles de blueprint CIS Microsoft Azure Foundations Benchmark
 description: Correspondance des recommandations de l’exemple de blueprint CIS Microsoft Azure Foundations Benchmark avec Azure Policy.
-ms.date: 11/04/2019
+ms.date: 05/06/2020
 ms.topic: sample
-ms.openlocfilehash: ea61ae4ea05b34c785485cbb5fd39c8a772565e3
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 2163162f52eb4ad7f580c01d6539c242bd332645
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656960"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82863958"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Exemple de blueprint CIS Microsoft Azure Foundations Benchmark : correspondance des recommandations
 
@@ -37,9 +37,9 @@ Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md)
 
 Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui vous permettent de superviser les comptes invités qui doivent peut-être être supprimés.
 
-- Les comptes externes disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations de lecture doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations d’écriture doivent être supprimés de votre abonnement
+- Les comptes externes disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
 
 ## <a name="123-ensure-that-no-custom-subscription-owner-roles-are-created"></a>1.23 Vérifier qu’aucun rôle de propriétaire d’abonnement personnalisé n’est créé
 
@@ -51,7 +51,7 @@ Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md
 
 Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de superviser les réseaux et les machines virtuelles sur lesquels le niveau standard Security Center n’est pas activé.
 
- - Le niveau tarifaire standard Security Center doit être sélectionné
+- Le niveau tarifaire standard Security Center doit être sélectionné
 
 ## <a name="22-ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>2.2 Vérifier que l’option « Provisionnement automatique de l’agent de supervision » est définie sur « Activé »
 
@@ -87,20 +87,14 @@ Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md)
 
 Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de protéger les machines virtuelles accessibles sur Internet.
 
-- Les règles de groupe de sécurité réseau pour les machines virtuelles accessibles sur Internet doivent être renforcées
-
-## <a name="28-ensure-asc-default-policy-setting-monitor-web-application-firewall-is-not-disabled"></a>2.8 Vérifier que le paramètre de stratégie par défaut d’ASC « Surveiller le pare-feu d’applications web » n’est pas défini sur « Désactivé »
-
-Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de protéger les machines virtuelles qui exécutent des applications web.
-
-- Les règles de groupe de sécurité réseau pour les applications web IaaS doivent être renforcées
+- Les recommandations de renforcement de réseau adaptatif doivent être appliquées sur les machines virtuelles accessibles à partir d’Internet
 
 ## <a name="29-ensure-asc-default-policy-setting-enable-next-generation-firewallngfw-monitoring-is-not-disabled"></a>2.9 Vérifier que le paramètre de stratégie par défaut ASC « Activer la supervision du pare-feu de nouvelle génération » n’est pas défini sur « Désactivé »
 
 Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui vous permettent de protéger les sous-réseaux et les machines virtuelles contre les menaces en restreignant l’accès. La stratégie Security Center référencée par cette recommandation CIS Microsoft Azure Foundations Benchmark a été remplacée par deux nouvelles recommandations. Les stratégies référencées ci-dessous traitent les nouvelles recommandations.
 
 - Les sous-réseaux doivent être associés à un groupe de sécurité réseau
-- Les machines virtuelles doivent être associées à un groupe de sécurité réseau
+- Les machines virtuelles accessibles à partir d’Internet doivent être protégées avec des groupes de sécurité réseau
 
 ## <a name="210-ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>2.10 Vérifier que le paramètre de stratégie par défaut d’ASC « Superviser l’évaluation des vulnérabilités » n’est pas défini sur « Désactivé »
 
@@ -128,7 +122,7 @@ Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md)
 
 Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier que l’audit SQL Server est activé.
 
-- L’audit doit être activé sur les paramètres de sécurité des données avancés sur SQL Server
+- L’audit sur SQL Server doit être activé
 
 ## <a name="215-ensure-asc-default-policy-setting-monitor-sql-encryption-is-not-disabled"></a>2.15 Vérifier que le paramètre de stratégie par défaut d’ASC « Surveiller le chiffrement SQL » n’est pas défini sur « Désactivé »
 
@@ -182,7 +176,7 @@ Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md)
 
 Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier que l’audit SQL Server est activé. 
 
-- L’audit doit être activé sur les paramètres de sécurité des données avancés sur SQL Server
+- L’audit sur SQL Server doit être activé
 
 ## <a name="42-ensure-that-auditactiongroups-in-auditing-policy-for-a-sql-server-is-set-properly"></a>4.2 Vérifier que « AuditActionGroups » dans la stratégie « Audit » pour un serveur SQL est correctement défini
 
@@ -200,8 +194,8 @@ Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md)
 
 Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier qu’Advanced Data Security est activé sur les serveurs SQL et les instances managées SQL.
 
-- Advanced Data Security doit être activée sur vos instances managées SQL.
 - Advanced Data Security doit être activé sur vos serveurs SQL
+- Advanced Data Security doit être activée sur vos instances managées SQL.
 
 ## <a name="45-ensure-that-threat-detection-types-is-set-to-all"></a>4.5 Vérifier que l’option « Types de détection des menaces » est définie sur « Tous »
 
@@ -214,15 +208,15 @@ Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md
 
 Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier que les notifications Advanced Data Security sont correctement activées.
 
-- Les paramètres Advanced Data Security pour l’instance gérée SQL doivent inclure une adresse e-mail pour la réception des alertes de sécurité.
 - Les paramètres Advanced Data Security pour le serveur SQL doivent inclure une adresse e-mail pour la réception des alertes de sécurité.
+- Les paramètres Advanced Data Security pour l’instance gérée SQL doivent inclure une adresse e-mail pour la réception des alertes de sécurité.
 
 ## <a name="47-ensure-that-email-service-and-co-administrators-is-enabled"></a>4.7 Vérifier que l’option « Envoyer un e-mail au service et aux coadministrateurs » est définie sur « Activé ».
 
 Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier que les notifications Advanced Data Security sont correctement activées.
 
-- Les notifications par e-mail aux administrateurs et propriétaires d’abonnements doivent être activées dans les paramètres Advanced Data Security de l’instance managée SQL
 - Les notifications par e-mail aux administrateurs et propriétaires d’abonnements doivent être activées dans les paramètres Advanced Data Security SQL Server
+- Les notifications par e-mail aux administrateurs et propriétaires d’abonnements doivent être activées dans les paramètres Advanced Data Security de l’instance managée SQL
 
 ## <a name="48-ensure-that-azure-active-directory-admin-is-configured"></a>4.8 Vérifier que l’administrateur Azure Active Directory est configuré
 
@@ -240,8 +234,8 @@ Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md)
 
 Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui vous permettent de vérifier que la protection Transparent Data Encryption pour les serveurs SQL et les instances managées SQL est chiffrée avec votre propre clé.
 
-- Le protecteur TDE de l’instance gérée SQL doit être chiffré avec votre propre clé.
 - Le protecteur TDE du serveur SQL doit être chiffré avec votre propre clé.
+- Le protecteur TDE de l’instance gérée SQL doit être chiffré avec votre propre clé.
 
 ## <a name="411-ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>4.11 Vérifier que l’option « Appliquer une connexion SSL » est définie sur « ACTIVÉ » pour le serveur de base de données MySQL
 
@@ -315,11 +309,83 @@ Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md)
 
 - Azure Monitor doit collecter les journaux d’activité dans toutes les régions
 
+## <a name="516-ensure-the-storage-account-containing-the-container-with-activity-logs-is-encrypted-with-byok-use-your-own-key"></a>5.1.6 Vérifier que le compte de stockage comprenant le conteneur des journaux d’activité est chiffré avec BYOK (Bring Your Own Key)
+
+Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier que les comptes de stockage contenant les journaux d’activité sont chiffrés avec BYOK.
+
+- Le compte de stockage contenant le conteneur des journaux d’activité doit être chiffré avec BYOK
+
 ## <a name="517-ensure-that-logging-for-azure-keyvault-is-enabled"></a>5.1.7 Vérifier que la journalisation d’Azure KeyVault est définie sur « Activé »
 
 Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier que les journaux de diagnostic sont activés pour les coffres de clés.
 
 - Les journaux de diagnostic dans Key Vault doivent être activés.
+
+## <a name="521-ensure-that-activity-log-alert-exists-for-create-policy-assignment"></a>5.2.1 Vérifier l’existence de l’alerte de journal d’activité pour la création d’attribution de stratégie
+
+Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier l’existence d’alertes de journaux d’activité spécifiques.
+
+- Une alerte de journal d’activité doit exister pour des opérations de stratégie spécifiques
+
+## <a name="522-ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group"></a>5.2.2 Vérifier l’existence d’une alerte de journal d’activité pour la création ou la mise à jour d’un groupe de sécurité réseau
+
+Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier l’existence d’alertes de journaux d’activité spécifiques.
+
+- Une alerte de journal d’activité doit exister pour des opérations d’administration spécifiques
+
+## <a name="523-ensure-that-activity-log-alert-exists-for-delete-network-security-group"></a>5.2.3 Vérifier l’existence d’une alerte de journal d’activité pour la suppression de groupe de sécurité réseau
+
+Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier l’existence d’alertes de journaux d’activité spécifiques.
+
+- Une alerte de journal d’activité doit exister pour des opérations d’administration spécifiques
+
+## <a name="524-ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group-rule"></a>5.2.4 Vérifier l’existence d’une alerte de journal d’activité pour la création ou la mise à jour d’une règle de groupe de sécurité réseau
+
+Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier l’existence d’alertes de journaux d’activité spécifiques.
+
+- Une alerte de journal d’activité doit exister pour des opérations d’administration spécifiques
+
+## <a name="525-ensure-that-activity-log-alert-exists-for-the-delete-network-security-group-rule"></a>5.2.5 Vérifier l’existence d’une alerte de journal d’activité pour la suppression d’une règle de groupe de sécurité réseau
+
+Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier l’existence d’alertes de journaux d’activité spécifiques.
+
+- Une alerte de journal d’activité doit exister pour des opérations d’administration spécifiques
+
+## <a name="526-ensure-that-activity-log-alert-exists-for-create-or-update-security-solution"></a>5.2.6 Vérifier l’existence d’une alerte de journal d’activité pour la création ou la mise à jour d’une solution de sécurité
+
+Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier l’existence d’alertes de journaux d’activité spécifiques.
+
+- Une alerte de journal d’activité doit exister pour des opérations de sécurité spécifiques
+
+## <a name="527-ensure-that-activity-log-alert-exists-for-delete-security-solution"></a>5.2.7 Vérifier l’existence d’une alerte de journal d’activité pour la suppression d’une solution de sécurité
+
+Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier l’existence d’alertes de journaux d’activité spécifiques.
+
+- Une alerte de journal d’activité doit exister pour des opérations de sécurité spécifiques
+
+## <a name="528-ensure-that-activity-log-alert-exists-for-create-or-update-or-delete-sql-server-firewall-rule"></a>5.2.8 Vérifier l’existence d’une alerte de journal d’activité pour la création, la mise à jour ou la suppression d’une règle de pare-feu SQL Server
+
+Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier l’existence d’alertes de journaux d’activité spécifiques.
+
+- Une alerte de journal d’activité doit exister pour des opérations d’administration spécifiques
+
+## <a name="529-ensure-that-activity-log-alert-exists-for-update-security-policy"></a>5.2.9 Vérifier l’existence d’une alerte de journal d’activité pour la mise à jour d’une stratégie de sécurité
+
+Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier l’existence d’alertes de journaux d’activité spécifiques.
+
+- Une alerte de journal d’activité doit exister pour des opérations de sécurité spécifiques
+
+## <a name="61-ensure-that-rdp-access-is-restricted-from-the-internet"></a>6.1 Vérifier que l’accès RDP à partir d’Internet est limité
+
+Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vous assurer que l’accès RDP est limité.
+
+- L’accès RDP à partir d’Internet doit être bloqué
+
+## <a name="62-ensure-that-ssh-access-is-restricted-from-the-internet"></a>6.2 Vérifier que l’accès SSH à partir d’Internet est limité
+
+Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vous assurer que l’accès SSH est limité.
+
+- L’accès SSH à partir d’Internet doit être bloqué
 
 ## <a name="65-ensure-that-network-watcher-is-enabled"></a>6.5 Vérifier que Network Watcher est défini sur « Activé »
 
@@ -349,7 +415,7 @@ Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md)
 
 Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier que seules les extensions de machine virtuelle approuvées sont installées. Cette stratégie requiert un tableau de paramètres qui spécifie toutes les extensions de machine virtuelle approuvées. Cette définition d’initiative de stratégie contient des valeurs par défaut suggérées que les clients doivent valider. 
 
- - Seules les extensions de machine virtuelle approuvées doivent être installées
+- Seules les extensions de machine virtuelle approuvées doivent être installées
 
 ## <a name="75-ensure-that-the-latest-os-patches-for-all-virtual-machines-are-applied"></a>7.5 Vérifier que les derniers correctifs de système d’exploitation sont appliqués pour toutes les machines virtuelles
 
@@ -373,7 +439,15 @@ Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md)
 
 Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier que le contrôle d’accès en fonction du rôle est utilisé pour gérer les autorisations dans les clusters de service Kubernetes
 
-- \[Préversion\] : Le contrôle d’accès en fonction du rôle (RBAC) doit être utilisé sans Kubernetes Services.
+- Le contrôle d’accès en fonction du rôle (RBAC) doit être utilisé sans Kubernetes Services.
+
+## <a name="91-ensure-app-service-authentication-is-set-on-azure-app-service"></a>9.1 Vérifier qu’App Service Authentication est définie sur Azure App Service
+
+Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vous assurer que les requêtes envoyées aux applications App Service sont authentifiées.
+
+- L’authentification doit être activée sur votre application API
+- L’authentification doit être activée sur votre application de fonction
+- L’authentification doit être activée sur votre application web
 
 ## <a name="92-ensure-web-app-redirects-all-http-traffic-to-https-in-azure-app-service"></a>9.2 Vérifier que l’application web redirige tout le trafic HTTP vers HTTPS dans Azure App Service
 
@@ -444,7 +518,6 @@ Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md
 - Vérifier que la version de HTTP est la plus récente, si elle est utilisée pour exécuter l’application API
 - Vérifier que la version de HTTP est la plus récente, si elle est utilisée pour exécuter l’application de fonction
 - Vérifier que la version de HTTP est la plus récente, si elle est utilisée pour exécuter l’application web
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

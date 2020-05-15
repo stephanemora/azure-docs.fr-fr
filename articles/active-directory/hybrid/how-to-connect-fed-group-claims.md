@@ -12,22 +12,22 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: b8708aec1137836516852135412c4c7cec2feba4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a89c5e3fb84f797d9ad7f81626fb7185ce3e076
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79408400"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854151"
 ---
-# <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Configurer des revendications de groupe pour des applications avec Azure Active Directory (préversion publique)
+# <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configurer des revendications de groupe pour des applications avec Azure Active Directory
 
 Azure Active Directory peut fournir une information d’appartenance de groupe d’utilisateurs dans des jetons utilisables au sein d’applications.  Deux modèles principaux sont pris en charge :
 
-- Groupes identifiés par leur attribut d’identificateur d’objet Azure Active Directory (généralement disponible)
-- Groupes identifiés par les attributs sAMAccountName ou GroupSID pour les groupes et utilisateurs synchronisés Active Directory (AD) (préversion publique)
+- Groupes identifiés par leur attribut d’identificateur d’objet Azure Active Directory
+- Groupes identifiés par les attributs sAMAccountName ou GroupSID pour les groupes et utilisateurs synchronisés Active Directory (AD)
 
 > [!IMPORTANT]
-> Il existe un nombre de mises en garde à noter concernant cette fonctionnalité en préversion :
+> Il existe plusieurs mises en garde concernant cette fonctionnalité :
 >
 >- La prise en charge de l’utilisation d’attributs sAMAccountName et d’identificateur de sécurité synchronisés localement est conçue pour permettre le déplacement d’applications existantes à partir d’AD FS et d’autres fournisseurs d’identité. Les groupes gérés dans Azure AD ne contiennent pas les attributs nécessaires pour émettre ces revendications.
 >- Dans les grandes entreprises, le nombre de groupes dont un utilisateur est un membre peut dépasser la limite qu’Azure Active Directory ajoute à un jeton. 150 groupes pour un jeton SAML, et 200 pour un jeton JWT. Cela peut entraîner des résultats imprévisibles. Si vos utilisateurs ont un grand nombre d’appartenances à des groupes, nous vous recommandons d’utiliser l’option permettant de limiter les groupes émis dans les revendications aux groupes appropriés pour l’application.  

@@ -2,13 +2,13 @@
 title: Questions sur la découverte, l’évaluation et l’analyse des dépendances dans Azure Migrate
 description: Obtenez des réponses aux questions courantes sur la découverte, l’évaluation et l’analyse des dépendances dans Azure Migrate.
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 7a63271811053ee2da79f134ac117559e31b0fed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 9374330044bcd0c0c5f2be44688c2b35760d4418
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460804"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996753"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Découverte, évaluation et analyse des dépendances - Questions courantes
 
@@ -19,9 +19,20 @@ Cet article donne des réponses aux questions courantes sur la découverte, l’
 - Questions sur la [migration de serveur](common-questions-server-migration.md)
 - Obtenez des réponses à vos questions sur le [forum Azure Migrate](https://aka.ms/AzureMigrateForum)
 
+
+## <a name="what-geographies-are-supported-for-discovery-and-assessment-with-azure-migrate"></a>Quelles sont les zones géographiques prises en charge pour la détection et l’évaluation avec Azure Migrate ?
+
+Passez en revue les zones géographiques prises en charge pour les clouds [publics](migrate-support-matrix.md#supported-geographies-public-cloud) et [gouvernementaux](migrate-support-matrix.md#supported-geographies-azure-government).
+
+
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Combien de machines virtuelles peut-on détecter avec une appliance ?
 
 Vous pouvez découvrir jusqu’à 10 000 machines virtuelles VMware, jusqu’à 5 000 machines virtuelles Hyper-V et jusqu’à 250 serveurs physiques avec une seule appliance. Si vous avez davantage de machines, découvrez comment [mettre à l’échelle une évaluation Hyper-V](scale-hyper-v-assessment.md), [mettre à l’échelle une évaluation VMware](scale-vmware-assessment.md) ou [mettre à l’échelle une évaluation de serveur physique](scale-physical-assessment.md).
+
+## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Je ne vois pas certains types de machines virtuelles dans Azure Government.
+
+Les types de machines virtuelles pris en charge pour l’évaluation et la migration dépendent de la disponibilité dans l’emplacement Azure Government. Vous pouvez [examiner et comparer](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) les types de machines virtuelles dans Azure Government.
+
 
 ## <a name="the-size-of-my-vm-changed-can-i-run-an-assessment-again"></a>La taille de ma machine virtuelle a changé. Puis-je réexécuter une évaluation ?
 
@@ -80,7 +91,7 @@ Les évaluations basées sur l’importation sont des évaluations créées avec
 La visualisation des dépendances permet d’évaluer les groupes de machines virtuelles à migrer avec une meilleure fiabilité. La visualisation des dépendances vérifie les dépendances croisées des machines avant que vous exécutiez une évaluation. Elle vous permet de vérifier que rien n’est oublié et ainsi d’éviter des interruptions inattendues quand vous migrez vers Azure. Azure Migrate utilise la solution Service Map dans Azure Monitor pour activer la visualisation des dépendances. [Plus d’informations](concepts-dependency-visualization.md)
 
 > [!NOTE]
-> La visualisation des dépendances n’est pas disponible dans Azure Government.
+> L’analyse des dépendances basée sur les agents n’est pas disponible dans Azure Government. Vous pouvez utiliser l’analyse des dépendances sans agent.
 
 ## <a name="whats-the-difference-between-agent-based-and-agentless"></a>Quelle est la différence entre la visualisation basée sur les agents et la visualisation sans agent ?
 
@@ -96,6 +107,11 @@ Fonctionnement | Capture les données de connexion TCP sur les ordinateurs activ
 Données | Nom du serveur de l’ordinateur source, processus, nom de l’application.<br/><br/> Nom du serveur de l’ordinateur de destination, processus, nom de l’application et port. | Nom du serveur de l’ordinateur source, processus, nom de l’application.<br/><br/> Nom du serveur de l’ordinateur de destination, processus, nom de l’application et port.<br/><br/> Le nombre de connexions, la latence et les informations de transfert de données sont collectés et mis à la disposition des requêtes Log Analytics. 
 Visualisation | La carte des dépendances d’un serveur unique peut être affichée sur une durée allant d’une heure à 30 jours. | Carte des dépendances d’un serveur unique.<br/><br/> La carte peut être affichée pendant une heure uniquement.<br/><br/> Carte des dépendances d’un groupe de serveurs.<br/><br/> Ajoutez et supprimez des serveurs dans un groupe à partir de la vue cartographique.
 Exportation de données | Ne peut pas être téléchargée sous forme de tableau. | Les données peuvent être interrogées avec Log Analytics.
+
+
+## <a name="do-i-need-to-deploy-the-appliance-for-agentless-dependency-analysis"></a>Est-ce que je dois déployer l’appliance pour l’analyse des dépendances sans agent ?
+
+Oui, l’[appliance Azure Migrate](migrate-appliance.md) doit être déployée.
 
 ## <a name="do-i-pay-for-dependency-visualization"></a>Dois-je payer pour la visualisation des dépendances ?
 
@@ -125,7 +141,7 @@ Pour la visualisation des dépendances basée sur les agents :
 
 - Utilisez un [script pour installer l’agent de dépendances](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples).
 - Pour MMA, [utilisez la ligne de commande ou l’automatisation](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration), ou utilisez un [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
-- En plus des scripts, vous pouvez utiliser des outils de déploiement tels que Microsoft Endpoint Configuration Manager et [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) pour déployer les agents.
+- En plus des scripts, vous pouvez utiliser des outils de déploiement tels que Microsoft Endpoint Configuration Manager et [Intigua](https://www.intigua.com/intigua-for-azure-migration) pour déployer les agents.
 
 ## <a name="what-operating-systems-does-mma-support"></a>Quels sont les systèmes d’exploitation pris en charge par MMA ?
 

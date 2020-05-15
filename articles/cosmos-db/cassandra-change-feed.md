@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: thvankra
-ms.openlocfilehash: 167d9fc68cb075a2cf96d9079131be9e5a510c08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43743f62b08bb00403f5dac88682d06daab757a4
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137414"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872561"
 ---
 # <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Flux de modification dans l’API Azure Cosmos DB pour Cassandra
 
@@ -21,6 +21,8 @@ La prise en charge du [flux de modification](change-feed.md) dans l’API Azure 
 L’exemple suivant montre comment obtenir un flux de modification sur toutes les lignes d’une table d’espace de clés d’API Cassandra à l’aide de .NET. Le prédicat COSMOS_CHANGEFEED_START_TIME() est utilisé directement dans le langage CQL pour interroger les éléments du flux de modification à partir d’une heure de début spécifiée (dans ce cas, la date et l’heure actuelles). Vous pouvez télécharger l’exemple complet, pour C# [ici](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/) et pour Java [ici](https://github.com/Azure-Samples/cosmos-changefeed-cassandra-java).
 
 Dans chaque itération, la requête reprend au dernier point auquel les modifications ont été lues, à l’aide de l’état de pagination. Nous pouvons voir un flux continu de nouvelles modifications apportées à la table dans l’espace de clés. Nous allons voir les modifications apportées aux lignes insérées ou mises à jour. La surveillance des opérations de suppression à l’aide d’un flux de modification dans l’API Cassandra n’est pas prise en charge actuellement.
+
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```C#
     //set initial start time for pulling the change feed
@@ -70,6 +72,9 @@ Dans chaque itération, la requête reprend au dernier point auquel les modifica
     }
 
 ```
+
+# <a name="java"></a>[Java](#tab/java)
+
 ```java
         Session cassandraSession = utils.getSession();
 
@@ -104,7 +109,11 @@ Dans chaque itération, la requête reprend au dernier point auquel les modifica
         }
 
 ```
+---
+
 Pour obtenir les modifications apportées à une seule ligne par clé primaire, vous pouvez ajouter la clé primaire dans la requête. L’exemple suivant montre comment effectuer le suivi des modifications pour la ligne où « user_id = 1 ».
+
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```C#
     //Return the latest change for all row in 'user' table where user_id = 1
@@ -112,11 +121,15 @@ Pour obtenir les modifications apportées à une seule ligne par clé primaire, 
     $"SELECT * FROM uprofile.user where user_id = 1 AND COSMOS_CHANGEFEED_START_TIME() = '{timeBegin.ToString("yyyy-MM-ddTHH:mm:ss.fffZ", CultureInfo.InvariantCulture)}'");
 
 ```
+
+# <a name="java"></a>[Java](#tab/java)
+
 ```java
     String query="SELECT * FROM uprofile.user where user_id=1 and COSMOS_CHANGEFEED_START_TIME()='" 
                     + dtf.format(now)+ "'";
     SimpleStatement st=new  SimpleStatement(query);
 ```
+---
 ## <a name="current-limitations"></a>Limites actuelles
 
 Les limitations suivantes s’appliquent quand un flux de modification est utilisé avec l’API Cassandra :

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: f592a7f5a4af38988bcf433f0adc89d9be7579cb
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: ce51a1b25453a5bbacbd268b37f2bd21cfe37fea
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82082007"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983463"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Qu’est-ce que le Machine Learning automatisé (AutoML) ?
 
@@ -130,11 +130,72 @@ Un prétraitement avancé et une personnalisation supplémentaires sont égaleme
 
 + Kit de développement logiciel (SDK) Python : en spécifiant `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` pour la [`AutoMLConfig`classe](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
+
+
+## <a name="ensemble-models"></a><a name="ensemble"></a> Modèles ensemblistes
+
+Le Machine Learning automatisé prend en charge les modèles ensemblistes, qui sont activés par défaut. L’apprentissage ensembliste améliore les résultats de Machine Learning et les performances prédictives en combinant plusieurs modèles. Les itérations d’ensembles apparaissent comme les dernières itérations de votre exécution. Le Machine Learning automatisé utilise des méthodes ensemblistes de vote et d’empilement pour combiner les modèles :
+
+* **Vote** : prédictions basées sur la moyenne pondérée des probabilités de classe prédites (pour les tâches de classification) ou des cibles de régression prédites (pour les tâches de régression).
+* **Empilement** : l’empilement combine des modèles hétérogènes et entraîne un métamodèle basé sur la sortie de différents modèles. Actuellement, les métamodèles par défaut sont LogisticRegression pour les tâches de classification, et ElasticNet pour les tâches de régression et de prévision.
+
+L’[algorithme de sélection d’ensemble Caruana](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf), avec initialisation des ensembles triés, est utilisé pour déterminer les modèles qui doivent être utilisés au sein de l’ensemble. Pour résumer, cet algorithme initialise l’ensemble avec un maximum de cinq modèles ayant obtenu les meilleurs scores, puis vérifie que ces scores se situent dans une marge de plus ou moins 5 % par rapport au meilleur score, afin d’éviter un ensemble de niveau médiocre. Ensuite, pour chaque itération d’ensemble, un nouveau modèle est ajouté à l’ensemble existant et le score est calculé. Si un nouveau modèle a amélioré le score existant de l’ensemble, l’ensemble est mis à jour pour inclure le nouveau modèle.
+
+Pour savoir comment modifier les paramètres par défaut de l’ensemble au niveau du Machine Learning automatisé, consultez [cette procédure](how-to-configure-auto-train.md#ensemble).
+
+## <a name="guidance-on-local-vs-remote-managed-ml-compute-targets"></a><a name="local-remote"></a>Conseils concernant les cibles de calcul de Machine Learning managées locales et distantes
+
+L’interface web pour le Machine Learning automatisé utilise toujours une [cible de calcul](concept-compute-target.md) distante.  Toutefois, lorsque vous utilisez le Kit de développement logiciel (SDK) Python, vous devez choisir une cible de calcul locale ou distante pour un apprentissage de Machine Learning automatisé.
+
+* **Calcul local** : l’apprentissage se produit sur votre ordinateur portable ou votre machine virtuelle locaux. 
+* **Calcul distant** : l’apprentissage se produit sur des clusters de calcul Machine Learning.  
+
+### <a name="choose-compute-target"></a>Choisir une cible de calcul
+Lors du choix de votre cible de calcul, considérez les facteurs suivants :
+
+ * **Choisir un calcul local** : si votre scénario concerne des explorations initiales ou des démonstrations utilisant des données de petite taille et des apprentissages courts (de quelques secondes à quelques minutes par exécution enfant), un apprentissage sur votre ordinateur local peut constituer un meilleur choix.  Il n’y a pas de temps de configuration. Les ressources d’infrastructure (votre PC ou votre machine virtuelle) sont directement disponibles.
+ * **Choisir un cluster de calcul de Machine Learning distant** : si vous effectuez un apprentissage avec des jeux de données plus volumineux, tel un apprentissage de production créant des modèles nécessitant des apprentissages plus longs, un calcul distant offre des performances de temps de bout en bout bien meilleures, car `AutoML` parallélise les apprentissages dans les nœuds du cluster. Sur un calcul distant, le temps de démarrage de l’infrastructure interne ajoute environ 1,5 minute par exécution enfant, et des minutes supplémentaires pour l’infrastructure du cluster si les machines virtuelles ne sont pas encore opérationnelles.
+
+### <a name="pros-and-cons"></a>Avantages et inconvénients
+Tenez compte des avantages et des inconvénients suivants lorsque au moment de choisir entre le calcul local ou distant.
+
+|  | Avantages (avantages)  |Inconvénients (handicaps)  |
+|---------|---------|---------|---------|
+|**Cible de calcul locale** |  <li> Aucune heure de démarrage de l’environnement   | <li>  Sous-ensemble de fonctionnalités<li>  Impossible de paralléliser les exécutions <li> Pire pour des données volumineuses <li>Aucune diffusion de données pendant l’apprentissage <li>  Aucun caractérisation basée sur DNN <li> Kit de développement logiciel (SDK) Python uniquement |
+|**Clusters de calcul ML distants**|  <li> Ensemble complet de fonctionnalités <li> Parallélisation des exécutions enfants <li>   Prise en charge de données volumineuses<li>  Caractérisation basée sur DNN <li>  Extensibilité dynamique du cluster de calcul à la demande <li> Expérience sans code (interface utilisateur web) également disponible  |  <li> Temps de démarrage pour les nœuds de cluster <li> Temps de démarrage pour chaque exécution enfant    |
+
+### <a name="feature-availability"></a>Disponibilité des fonctionnalités 
+
+ D’autres fonctionnalités sont disponibles lorsque vous utilisez le calcul distant, comme indiqué dans le tableau ci-dessous. Certaines de ces fonctionnalités sont disponibles uniquement dans un espace de travail d’entreprise.
+
+| Fonctionnalité                                                    | Remote | Local | Nécessite <br>Espace de travail d’entreprise |
+|------------------------------------------------------------|--------|-------|-------------------------------|
+| Streaming de données (prise en charge de données volumineuses jusqu’à 100 Go)          | ✓      |       | ✓                             |
+| Caractérisation de texte et apprentissage basés sur DNN-BERT             | ✓      |       | ✓                             |
+| Prise en charge de GPU prêt à l’emploi (apprentissage et inférence)        | ✓      |       | ✓                             |
+| Prise en charge de la classification d’image et de l’étiquetage                  | ✓      |       | ✓                             |
+| Modèles auto-ARIMA, Prophet et ForecastTCN pour les prévisions | ✓      |       | ✓                             |
+| Exécutions/itérations multiples en parallèle                       | ✓      |       | ✓                             |
+| Créer des modèles avec interprétabilité dans l’interface utilisateur de l’expérience web du studio AutoML      | ✓      |       | ✓                             |
+| Personnalisation de l’ingénierie des fonctionnalités dans l’interface utilisateur de l’expérience web du studio                        | ✓      |       | ✓                              |
+| Optimisation des hyperparamètres d’Azure Machine Learning                             | ✓      |       |                               |
+| Prise en charge des flux de travail du pipeline Azure Machine Learning                         | ✓      |       |                               |
+| Continuer une exécution                                             | ✓      |       |                               |
+| Prévisions                                                | ✓      | ✓     | ✓                             |
+| Créer et exécuter des expériences dans des blocs-notes                    | ✓      | ✓     |                               |
+| Inscrire et visualiser les informations et les métriques de l’expérience dans l’interface utilisateur | ✓      | ✓     |                               |
+| Garde-fous des données                                            | ✓      | ✓     |                               |
+
+
+## <a name="automated-ml-in-azure-machine-learning"></a>Machine learning automatisé dans Azure Machine Learning
+
+Azure Machine Learning offre deux expériences pour utiliser le machine learning automatisé
+
+* Pour les clients expérimentés en programmation, [SDK Python Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
+
+* Pour les clients avec une expérience limitée ou inexistante en programmation, Azure Machine Learning Studio sur [https://ml.azure.com](https://ml.azure.com/)  
+
 <a name="parity"></a>
-
-## <a name="the-studio-vs-sdk"></a>Studio et SDK
-
-Apprenez-en davantage sur la parité et les différences entre les fonctionnalités de ML automatisé de haut niveau disponibles via le SDK Python et le Studio dans Azure Machine Learning. 
 
 ### <a name="experiment-settings"></a>Paramètres de l’expérience 
 
@@ -181,17 +242,6 @@ Ces paramètres vous permettent d’examiner et de contrôler les exécutions de
 |Obtenir des garde-fous| ✓|✓|
 |Mettre en pause et reprendre les exécutions| ✓| |
 
-## <a name="ensemble-models"></a><a name="ensemble"></a> Modèles ensemblistes
-
-Le Machine Learning automatisé prend en charge les modèles ensemblistes, qui sont activés par défaut. L’apprentissage ensembliste améliore les résultats de Machine Learning et les performances prédictives en combinant plusieurs modèles. Les itérations d’ensembles apparaissent comme les dernières itérations de votre exécution. Le Machine Learning automatisé utilise des méthodes ensemblistes de vote et d’empilement pour combiner les modèles :
-
-* **Vote** : prédictions basées sur la moyenne pondérée des probabilités de classe prédites (pour les tâches de classification) ou des cibles de régression prédites (pour les tâches de régression).
-* **Empilement** : l’empilement combine des modèles hétérogènes et entraîne un métamodèle basé sur la sortie de différents modèles. Actuellement, les métamodèles par défaut sont LogisticRegression pour les tâches de classification, et ElasticNet pour les tâches de régression et de prévision.
-
-L’[algorithme de sélection d’ensemble Caruana](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf), avec initialisation des ensembles triés, est utilisé pour déterminer les modèles qui doivent être utilisés au sein de l’ensemble. Pour résumer, cet algorithme initialise l’ensemble avec un maximum de cinq modèles ayant obtenu les meilleurs scores, puis vérifie que ces scores se situent dans une marge de plus ou moins 5 % par rapport au meilleur score, afin d’éviter un ensemble de niveau médiocre. Ensuite, pour chaque itération d’ensemble, un nouveau modèle est ajouté à l’ensemble existant et le score est calculé. Si un nouveau modèle a amélioré le score existant de l’ensemble, l’ensemble est mis à jour pour inclure le nouveau modèle.
-
-Pour savoir comment modifier les paramètres par défaut de l’ensemble au niveau du Machine Learning automatisé, consultez [cette procédure](how-to-configure-auto-train.md#ensemble).
-
 <a name="use-with-onnx"></a>
 
 ## <a name="automl--onnx"></a>AutoML et ONNX
@@ -202,20 +252,19 @@ Découvrez comment convertir au format ONNX [dans cet exemple de notebook Jupyte
 
 Le runtime ONNX prenant également en charge C#, vous pouvez utiliser le modèle généré automatiquement dans vos applications C# sans avoir besoin de recodage ou des latences réseau introduites par les points de terminaison REST. Apprenez-en davantage sur l’[inférence des modèles ONNX avec l’API C# du runtime ONNX](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md). 
 
-
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les exemples et découvrez comment générer des modèles à l’aide du Machine Learning automatisé :
-
-+ Suivez le [Didacticiel : Entraîner automatiquement un modèle de régression avec Azure Machine Learning](tutorial-auto-train-models.md)
 
 + Configurez les paramètres pour l’expérience d’apprentissage automatique :
   + Dans Azure Machine Learning Studio, [suivez ces étapes](how-to-use-automated-ml-for-ml-models.md).
   + Avec le Kit de développement logiciel (SDK) Python, [procédez comme suit](how-to-configure-auto-train.md).
 
++ En savoir plus sur l’utilisation d’une [cible de calcul distant](how-to-auto-train-remote.md)
+
++ Suivez le [Didacticiel : Entraîner automatiquement un modèle de régression avec Azure Machine Learning](tutorial-auto-train-models.md) 
+
 + Découvrez comment effectuer l’apprentissage automatique à l’aide de données de série chronologique [en procédant comme suit](how-to-auto-train-forecast.md).
 
 + Essayez des [exemples de Jupyter Notebook pour le Machine Learning automatisé](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/).
-
 * Le machine learning automatisé est également disponible dans d’autres solutions Microsoft comme [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) et [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)

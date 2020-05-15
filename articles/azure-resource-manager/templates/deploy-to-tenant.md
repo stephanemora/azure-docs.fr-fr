@@ -3,12 +3,12 @@ title: Déployer des ressources sur le locataire
 description: Décrit comment déployer des ressources au niveau du locataire dans un modèle Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: fcdfc5b1c4333a0d7eeec80a09ad85579a1f8b77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a3748c0948238b588a01f7d91780693a2c5bf3a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460260"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930061"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Créer des ressources au niveau du locataire
 
@@ -19,6 +19,7 @@ ms.locfileid: "79460260"
 Vous pouvez déployer les types de ressources suivants au niveau du locataire :
 
 * [déploiements](/azure/templates/microsoft.resources/deployments) : pour les modèles imbriqués déployés sur des groupes d'administration ou des abonnements.
+* managementGroups
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
@@ -103,13 +104,13 @@ Pour les déploiements au niveau du locataire, il existe quelques considération
 * Utilisez la fonction [tenantResourceId()](template-functions-resource.md#tenantresourceid) pour obtenir l’ID des ressources déployées au niveau du locataire.
 
   Par exemple, pour obtenir l’ID de ressource d’une définition de stratégie, utilisez :
-  
+
   ```json
   tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
   ```
-  
+
   L’ID de ressource retourné possède le format suivant :
-  
+
   ```json
   /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```

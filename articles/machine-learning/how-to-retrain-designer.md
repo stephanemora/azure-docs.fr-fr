@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
-ms.openlocfilehash: 721e5414fc4753cd5d58a17fc7ed51ea99868778
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: fb0122833dabe4030232efb3ca07557ce1826aff
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80810349"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981899"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Réentraîner des modèles à l’aide du concepteur Azure Machine Learning (préversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -24,27 +24,21 @@ Ce guide pratique explique comment utiliser le concepteur Azure Machine Learning
 Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
-> * Effectuer l'apprentissage un modèle Machine Learning
+> * Entraîner un modèle Machine Learning
 > * Créer un paramètre de pipeline
-> * Publier le pipeline d’apprentissage
+> * Publier le pipeline d’entraînement
 > * Ré-effectuer l’apprentissage de votre modèle avec de nouveaux paramètres.
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Un espace de travail Azure Machine Learning la référence SKU Entreprise.
-* Jeu de données accessible au concepteur. Il peut s'agir de l'une des ressources suivantes :
-   * Jeu de données Azure Machine Learning inscrit.
-    
-     **-ou-**
-   * Fichier de données stocké dans un magasin de données Azure Machine Learning.
-   
-Pour plus d’informations sur l’accès à des données à l’aide du concepteur, consultez [Comment importer des données dans le concepteur](how-to-designer-import-data.md).
+* Complétez la partie 1 de cette série de procédures, [Transformer des données dans le concepteur](how-to-designer-transform-data.md).
 
 Cet article présuppose également que vous disposez d’une connaissance de base de la création de pipelines dans le concepteur. Pour une présentation guidée, suivez le [tutoriel](tutorial-designer-automobile-price-train-score.md). 
 
 ### <a name="sample-pipeline"></a>Exemple de pipeline
 
-Le pipeline utilisé dans cet article est une version modifiée de l’[Exemple 3 : Prédiction des revenus](samples-designer.md#classification-samples). Le pipeline se sert du module [Importer des données](algorithm-module-reference/import-data.md) plutôt que de l’exemple de jeu de données pour vous montrer comment effectuer l’apprentissage d’un modèle à l’aide de vos propres données.
+Le pipeline utilisé dans cet article est une version modifiée de l’[Exemple 3 : Prédiction des revenus](samples-designer.md#classification). Le pipeline se sert du module [Importer des données](algorithm-module-reference/import-data.md) plutôt que de l’exemple de jeu de données pour vous montrer comment effectuer l’apprentissage d’un modèle à l’aide de vos propres données.
 
 ![Capture d’écran montrant l’exemple de pipeline modifié avec une zone mettant en surbrillance le module Importer des données](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 

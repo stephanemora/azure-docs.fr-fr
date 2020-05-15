@@ -2,12 +2,9 @@
 title: Déploiement SGBD de machines virtuelles IBM Db2 Azure pour charge de travail SAP | Microsoft Docs
 description: Déploiement SGBD de machines virtuelles Azure IBM Db2 pour charge de travail SAP
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
 manager: patfilot
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
@@ -15,14 +12,110 @@ ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 679e033418fba34eddddd21ddca66b1d9bb2fd48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4392fcee9b498a14841742e8313b9fa06dcc7983
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75645886"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82977921"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Déploiement SGBD de machines virtuelles Azure IBM Db2 pour charge de travail SAP
+
+Avec Microsoft Azure, vous pouvez migrer votre application SAP existante exécutée sur IBM Db2 pour Linux, UNIX et Windows (LUW) vers les machines virtuelles Azure. Avec SAP sur IBM Db2 pour LUW, les administrateurs et les développeurs peuvent utiliser les outils de développement et d’administration disponibles en local.
+Des informations générales sur l’exécution de SAP Business Suite sur IBM Db2 pour LUW sont disponibles dans SAP Community Network (SCN) à l’adresse suivante : <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>.
+
+Pour des informations et des mises à jour supplémentaires de SAP sur Db2 pour LUW sur Azure, voir la Note de SAP [2233094]. 
+
+Voici les divers articles publiés sur la charge de travail SAP sur Azure.  Il est recommandé de démarrer avec [Charge de travail SAP sur Azure : prise en main](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started), puis de choisir les sujets qui vous intéresse
+
+Les notes SAP suivantes sont en lien avec SAP sur Azure quant au domaine traité dans ce document :
+
+| Numéro de la note | Intitulé |
+| --- | --- |
+| [1928533] |Applications SAP sur Azure : produits et types de machines virtuelles Azure pris en charge |
+| [2015553] |SAP sur Microsoft Azure : prérequis pour le support |
+| [1999351] |Résolution des problèmes de surveillance Azure améliorée pour SAP |
+| [2178632] |Métriques de surveillance clés pour SAP sur Microsoft Azure |
+| [1409604] |Virtualisation sur Windows : supervision améliorée |
+| [2191498] |SAP sur Linux avec Azure : supervision améliorée |
+| [2233094] |DB6 : exécution d’applications SAP sur Azure à l’aide d’IBM DB2 pour Linux, UNIX et Windows - Informations supplémentaires |
+| [2243692] |Linux sur machine virtuelle Microsoft Azure (IaaS) : problèmes de licence SAP |
+| [1984787] |SUSE LINUX Enterprise Server 12 Notes d'installation |
+| [2002167] |Red Hat Enterprise Linux 7.x : installation et mise à niveau |
+| [1597355] |Recommandations relatives à l’espace d’échange pour Linux |
+
+Condition préalable à ce document, vous devez avoir lu le document [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md) et d’autres guides de la [documentation sur la charge de travail SAP sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
+
+
+## <a name="ibm-db2-for-linux-unix-and-windows-version-support"></a>Prise en charge des versions IBM Db2 pour Linux, UNIX et Windows
+SAP sur IBM Db2 pour LUW est pris en charge sur les services de machines virtuelles Microsoft Azure à compter de la version Db2 10.5.
+
+Pour plus d’informations sur les produits SAP et les types de machines virtuelles Azure pris en charge, consultez la note SAP [1928533].
+
+## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Instructions de configuration IBM Db2 pour Linux, UNIX et Windows pour les installations SAP sur des machines virtuelles Azure
+### <a name="storage-configuration"></a>Configuration du stockage
+Tous les fichiers de base de données doivent être stockés sur le système de fichiers NTFS basé sur les disques directement attachés. Ces disques sont montés sur la machine virtuelle Azure, et sont basés sur le stockage d’objets blob de pages Azure (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou sur la fonctionnalité Disques managés (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Tous les types de lecteurs réseau ou de partages distants tels que les services de fichiers Azure suivants ne sont **PAS** pris en charge pour les fichiers de base de données : 
+
+* <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
+* <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
+
+Si vous utilisez des disques basés sur le stockage d’objets blob de pages Azure ou de la fonctionnalité Disques managés, les instructions figurant dans [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md) s’appliquent également aux déploiements avec le SGBD Db2.
+
+Comme expliqué précédemment dans la partie générale du document, des quotas existent en ce qui concerne le débit d’E/S par seconde pour les disques Azure. Les quotas exacts dépendent du type de machine virtuelle utilisé. La liste des types de machines virtuelles et de leurs quotas est disponible [ici (pour Linux)][virtual-machines-sizes-linux] et [ici (pour Windows)][virtual-machines-sizes-windows].
+
+Tant que le quota actuel d’E/S par seconde par disque est suffisant, il est possible de stocker tous les fichiers de base de données sur un seul disque monté. Alors que vous devez toujours séparer les fichiers de données et les fichiers journaux de transactions sur différents disques/disques durs virtuels.
+
+Pour en savoir plus sur les considérations relatives aux performances, consultez également, dans les guides d’installation SAP, le chapitre portant sur la sécurité des données et les considérations sur les performances pour les répertoires de base de données.
+
+Vous pouvez également utiliser des pools de stockage Windows (fonctionnalité uniquement disponible dans Windows Server 2012 et versions ultérieures), comme décrit dans le chapitre [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md) de ce document, afin de créer une unité logique volumineuse sur plusieurs disques montés.
+
+<!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
+
+Pour les disques contenant les chemins d’accès de stockage Db2 pour vos données SAP et répertoires SAPTMP, vous devez spécifier une taille de secteur de disque physique de 512 Ko. Quand vous utilisez des pools de stockage Windows, vous devez créer les pools de stockage manuellement par le biais de l’interface de ligne de commande en utilisant le paramètre `-LogicalSectorSizeDefault`. Pour plus d’informations, consultez <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
+
+Pour une machine virtuelle Azure de la série M, la latence d’écriture dans les journaux d’activité de transactions peut être réduite par des facteurs, comparée aux performances de stockage Premium Azure, lors de l’utilisation de l’Accélérateur des écritures Azure. Par conséquent, vous devez déployer l’Accélérateur d’écriture Azure pour les disques durs virtuels qui constituent le volume des journaux des transactions Db2. Les détails peuvent être consultés dans le document [Accélérateur des écritures](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
+
+### <a name="backuprestore"></a>Sauvegarde/restauration
+La fonctionnalité de sauvegarde/restauration d’IBM Db2 pour LUW est prise en charge de la même façon que sur les systèmes d’exploitation Windows Server et Hyper-V standard.
+
+Vous devez vous assurer que vous disposez d’une stratégie de sauvegarde de base de données valide en place. 
+
+À l’instar des déploiements sur système nu, les performances de sauvegarde/restauration dépendent du nombre de volumes pouvant être lus en parallèle et du débit éventuel de ces volumes. En outre, la consommation d’UC par la compression de sauvegarde peut jouer un rôle significatif sur les machines virtuelles ayant jusqu’à huit threads d’UC. Par conséquent, on peut partir des hypothèses suivantes :
+
+* Moins il y a de disques utilisés pour stocker les unités de base de données, plus le débit global de lecture est réduit
+* Moins il y a de threads UC dans la machine virtuelle, plus l’impact de la compression de sauvegarde est grave
+* Moins il y a de cibles (répertoires d’agrégation, disques) d’écriture de la sauvegarde, plus le débit est faible
+
+Pour augmenter le nombre de cibles d’écriture, il est possible d’utiliser/de combiner deux options selon vos besoins :
+
+* Agréger le volume cible de sauvegarde sur plusieurs disques, afin d’améliorer le débit d’E/S par seconde sur ce volume agrégé par bandes
+* Utiliser plusieurs répertoires cible d’écriture de la sauvegarde
+
+>[!NOTE]
+>Db2 sur Windows ne prend pas en charge la technologie Windows VSS. Par conséquent, la sauvegarde de machine virtuelle cohérente par rapport à l’application du service de sauvegarde Azure ne peut pas être exploitée pour les machines virtuelles dans lequel le SGBD Db2 est déployé.
+
+### <a name="high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence
+Microsoft Cluster Server (MSCS) n’est pas pris en charge.
+
+La fonction HADR (haute disponibilité et récupération d’urgence) Db2 est prise en charge. Si les machines virtuelles de la configuration haute disponibilité disposent de la résolution de noms de travail, l’installation dans Azure ne diffère pas d’une installation effectuée en local. Il est déconseillé de se fier uniquement à la résolution IP.
+
+N’utilisez pas la géoréplication pour les comptes de stockage qui stockent les disques de base de données. Pour plus d’informations, reportez-vous au document [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md). 
+
+### <a name="accelerated-networking"></a>Mise en réseau accélérée
+Pour les déploiements Db2 sur Windows, il est fortement recommandé d’utiliser la fonctionnalité Azure de mise en réseau accélérée, comme décrit dans le document [Mise en réseau accélérée Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Consultez aussi les recommandations dans [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md). 
+
+
+### <a name="specifics-for-linux-deployments"></a>Caractéristiques pour les déploiements Linux
+Tant que le quota actuel d’E/S par seconde par disque est suffisant, il est possible de stocker tous les fichiers de base de données sur un seul disque. Alors que vous devez toujours séparer les fichiers de données et les fichiers journaux de transactions sur différents disques/disques durs virtuels.
+
+Si le débit d’E/S ou IOPS d’un seul disque dur virtuel Azure n’est pas suffisant, vous pouvez également utiliser MDADM ou LVM (Logical Volume Manager) comme décrit dans le document [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md) pour créer une unité logique volumineuse sur plusieurs disques.
+Pour les disques contenant les chemins d’accès de stockage Db2 pour vos données SAP et répertoires SAPTMP, vous devez spécifier une taille de secteur de disque physique de 512 Ko.
+
+<!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
+
+
+### <a name="other"></a>Autres
+Tous les autres sujets généraux, notamment les groupes à haute disponibilité Azure ou la surveillance SAP, s’appliquent à Oracle Database, comme décrit dans [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md) pour le déploiement de machines virtuelles IBM.
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
@@ -306,101 +399,3 @@ ms.locfileid: "75645886"
 [vpn-gateway-vpn-faq]:../../../vpn-gateway/vpn-gateway-vpn-faq.md
 [xplat-cli]:../../../cli-install-nodejs.md
 [xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
-
-
-
-Avec Microsoft Azure, vous pouvez migrer votre application SAP existante exécutée sur IBM Db2 pour Linux, UNIX et Windows (LUW) vers les machines virtuelles Azure. Avec SAP sur IBM Db2 pour LUW, les administrateurs et les développeurs peuvent utiliser les outils de développement et d’administration disponibles en local.
-Des informations générales sur l’exécution de SAP Business Suite sur IBM Db2 pour LUW sont disponibles dans SAP Community Network (SCN) à l’adresse suivante : <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>.
-
-Pour des informations et des mises à jour supplémentaires de SAP sur Db2 pour LUW sur Azure, voir la Note de SAP [2233094]. 
-
-Voici les divers articles publiés sur la charge de travail SAP sur Azure.  Il est recommandé de démarrer avec [Charge de travail SAP sur Azure : prise en main](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started), puis de choisir les sujets qui vous intéresse
-
-Les notes SAP suivantes sont en lien avec SAP sur Azure quant au domaine traité dans ce document :
-
-| Numéro de la note | Intitulé |
-| --- | --- |
-| [1928533] |Applications SAP sur Azure : produits et types de machines virtuelles Azure pris en charge |
-| [2015553] |SAP sur Microsoft Azure : prérequis pour le support |
-| [1999351] |Résolution des problèmes de surveillance Azure améliorée pour SAP |
-| [2178632] |Métriques de surveillance clés pour SAP sur Microsoft Azure |
-| [1409604] |Virtualisation sur Windows : supervision améliorée |
-| [2191498] |SAP sur Linux avec Azure : supervision améliorée |
-| [2233094] |DB6 : exécution d’applications SAP sur Azure à l’aide d’IBM DB2 pour Linux, UNIX et Windows - Informations supplémentaires |
-| [2243692] |Linux sur machine virtuelle Microsoft Azure (IaaS) : problèmes de licence SAP |
-| [1984787] |SUSE LINUX Enterprise Server 12 Notes d'installation |
-| [2002167] |Red Hat Enterprise Linux 7.x : installation et mise à niveau |
-| [1597355] |Recommandations relatives à l’espace d’échange pour Linux |
-
-Condition préalable à ce document, vous devez avoir lu le document [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md) et d’autres guides de la [documentation sur la charge de travail SAP sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
-
-
-## <a name="ibm-db2-for-linux-unix-and-windows-version-support"></a>Prise en charge des versions IBM Db2 pour Linux, UNIX et Windows
-SAP sur IBM Db2 pour LUW est pris en charge sur les services de machines virtuelles Microsoft Azure à compter de la version Db2 10.5.
-
-Pour plus d’informations sur les produits SAP et les types de machines virtuelles Azure pris en charge, consultez la note SAP [1928533].
-
-## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Instructions de configuration IBM Db2 pour Linux, UNIX et Windows pour les installations SAP sur des machines virtuelles Azure
-### <a name="storage-configuration"></a>Configuration du stockage
-Tous les fichiers de base de données doivent être stockés sur le système de fichiers NTFS basé sur les disques directement attachés. Ces disques sont montés sur la machine virtuelle Azure, et sont basés sur le stockage d’objets blob de pages Azure (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou sur la fonctionnalité Disques managés (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Tous les types de lecteurs réseau ou de partages distants tels que les services de fichiers Azure suivants ne sont **PAS** pris en charge pour les fichiers de base de données : 
-
-* <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
-* <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
-
-Si vous utilisez des disques basés sur le stockage d’objets blob de pages Azure ou de la fonctionnalité Disques managés, les instructions figurant dans [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md) s’appliquent également aux déploiements avec le SGBD Db2.
-
-Comme expliqué précédemment dans la partie générale du document, des quotas existent en ce qui concerne le débit d’E/S par seconde pour les disques Azure. Les quotas exacts dépendent du type de machine virtuelle utilisé. La liste des types de machines virtuelles et de leurs quotas est disponible [ici (pour Linux)][virtual-machines-sizes-linux] et [ici (pour Windows)][virtual-machines-sizes-windows].
-
-Tant que le quota actuel d’E/S par seconde par disque est suffisant, il est possible de stocker tous les fichiers de base de données sur un seul disque monté. Alors que vous devez toujours séparer les fichiers de données et les fichiers journaux de transactions sur différents disques/disques durs virtuels.
-
-Pour en savoir plus sur les considérations relatives aux performances, consultez également, dans les guides d’installation SAP, le chapitre portant sur la sécurité des données et les considérations sur les performances pour les répertoires de base de données.
-
-Vous pouvez également utiliser des pools de stockage Windows (fonctionnalité uniquement disponible dans Windows Server 2012 et versions ultérieures), comme décrit dans le chapitre [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md) de ce document, afin de créer une unité logique volumineuse sur plusieurs disques montés.
-
-<!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
-
-Pour les disques contenant les chemins d’accès de stockage Db2 pour vos données SAP et répertoires SAPTMP, vous devez spécifier une taille de secteur de disque physique de 512 Ko. Quand vous utilisez des pools de stockage Windows, vous devez créer les pools de stockage manuellement par le biais de l’interface de ligne de commande en utilisant le paramètre `-LogicalSectorSizeDefault`. Pour plus d’informations, consultez <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
-
-Pour une machine virtuelle Azure de la série M, la latence d’écriture dans les journaux d’activité de transactions peut être réduite par des facteurs, comparée aux performances de stockage Premium Azure, lors de l’utilisation de l’Accélérateur des écritures Azure. Par conséquent, vous devez déployer l’Accélérateur d’écriture Azure pour les disques durs virtuels qui constituent le volume des journaux des transactions Db2. Les détails peuvent être consultés dans le document [Accélérateur des écritures](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
-
-### <a name="backuprestore"></a>Sauvegarde/restauration
-La fonctionnalité de sauvegarde/restauration d’IBM Db2 pour LUW est prise en charge de la même façon que sur les systèmes d’exploitation Windows Server et Hyper-V standard.
-
-Vous devez vous assurer que vous disposez d’une stratégie de sauvegarde de base de données valide en place. 
-
-À l’instar des déploiements sur système nu, les performances de sauvegarde/restauration dépendent du nombre de volumes pouvant être lus en parallèle et du débit éventuel de ces volumes. En outre, la consommation d’UC par la compression de sauvegarde peut jouer un rôle significatif sur les machines virtuelles ayant jusqu’à huit threads d’UC. Par conséquent, on peut partir des hypothèses suivantes :
-
-* Moins il y a de disques utilisés pour stocker les unités de base de données, plus le débit global de lecture est réduit
-* Moins il y a de threads UC dans la machine virtuelle, plus l’impact de la compression de sauvegarde est grave
-* Moins il y a de cibles (répertoires d’agrégation, disques) d’écriture de la sauvegarde, plus le débit est faible
-
-Pour augmenter le nombre de cibles d’écriture, il est possible d’utiliser/de combiner deux options selon vos besoins :
-
-* Agréger le volume cible de sauvegarde sur plusieurs disques, afin d’améliorer le débit d’E/S par seconde sur ce volume agrégé par bandes
-* Utiliser plusieurs répertoires cible d’écriture de la sauvegarde
-
->[!NOTE]
->Db2 sur Windows ne prend pas en charge la technologie Windows VSS. Par conséquent, la sauvegarde de machine virtuelle cohérente par rapport à l’application du service de sauvegarde Azure ne peut pas être exploitée pour les machines virtuelles dans lequel le SGBD Db2 est déployé.
-
-### <a name="high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence
-Microsoft Cluster Server (MSCS) n’est pas pris en charge.
-
-La fonction HADR (haute disponibilité et récupération d’urgence) Db2 est prise en charge. Si les machines virtuelles de la configuration haute disponibilité disposent de la résolution de noms de travail, l’installation dans Azure ne diffère pas d’une installation effectuée en local. Il est déconseillé de se fier uniquement à la résolution IP.
-
-N’utilisez pas la géoréplication pour les comptes de stockage qui stockent les disques de base de données. Pour plus d’informations, reportez-vous au document [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md). 
-
-### <a name="accelerated-networking"></a>Mise en réseau accélérée
-Pour les déploiements Db2 sur Windows, il est fortement recommandé d’utiliser la fonctionnalité Azure de mise en réseau accélérée, comme décrit dans le document [Mise en réseau accélérée Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Consultez aussi les recommandations dans [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md). 
-
-
-### <a name="specifics-for-linux-deployments"></a>Caractéristiques pour les déploiements Linux
-Tant que le quota actuel d’E/S par seconde par disque est suffisant, il est possible de stocker tous les fichiers de base de données sur un seul disque. Alors que vous devez toujours séparer les fichiers de données et les fichiers journaux de transactions sur différents disques/disques durs virtuels.
-
-Si le débit d’E/S ou IOPS d’un seul disque dur virtuel Azure n’est pas suffisant, vous pouvez également utiliser MDADM ou LVM (Logical Volume Manager) comme décrit dans le document [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md) pour créer une unité logique volumineuse sur plusieurs disques.
-Pour les disques contenant les chemins d’accès de stockage Db2 pour vos données SAP et répertoires SAPTMP, vous devez spécifier une taille de secteur de disque physique de 512 Ko.
-
-<!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
-
-
-### <a name="other"></a>Autres
-Tous les autres sujets généraux, notamment les groupes à haute disponibilité Azure ou la surveillance SAP, s’appliquent à Oracle Database, comme décrit dans [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md) pour le déploiement de machines virtuelles IBM.

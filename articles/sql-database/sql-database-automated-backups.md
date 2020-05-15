@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: 9ac6927df63d51830a58773e32ad0968920c0867
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7cbe0015eeb9b46cd72496a220ce7f7d094cb61d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061759"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198570"
 ---
 # <a name="automated-backups"></a>Sauvegardes automatisées
 
@@ -61,6 +61,8 @@ Vous pouvez essayer certaines de ces opérations en utilisant les exemples suiva
 SQL Database prend en charge la limite de restauration dans le temps en libre-service en créant automatiquement des sauvegardes complètes, des sauvegardes différentielles et des sauvegardes du journal des transactions. Les sauvegardes complètes de base de données sont créées chaque semaine et les sauvegardes différentielles sont généralement créées toutes les 12 heures. Les sauvegardes du journal de transactions sont généralement créées toutes les 5 à 10 minutes. La fréquence des sauvegardes du journal des transactions est basée sur la taille de calcul et le volume d’activité de la base de données. 
 
 La première sauvegarde complète est planifiée immédiatement après la création d’une base de données. Elle s’exécute généralement en 30 minutes, mais elle peut nécessiter davantage de temps si la base de données est volumineuse. Par exemple, la sauvegarde initiale peut prendre davantage de temps sur une base de données restaurée ou une copie de base de données. Après la première sauvegarde complète, toutes les sauvegardes sont planifiées automatiquement et gérées en mode silencieux en arrière-plan. Le moment exact de toutes les sauvegardes de base de données est déterminé par le service SQL Database en fonction de l’équilibrage de la charge de travail globale du système. Vous ne pouvez pas modifier ou désactiver des travaux de sauvegarde.
+
+### <a name="default-backup-retention-period"></a>Période de conservation des sauvegardes par défaut
 
 Les sauvegardes avec récupération jusqu’à une date et heure sont protégées par un stockage géoredondant. Pour plus d’informations, consultez [Redondance de Stockage Azure](../storage/common/storage-redundancy.md).
 

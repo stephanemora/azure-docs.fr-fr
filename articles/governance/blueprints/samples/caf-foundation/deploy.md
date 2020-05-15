@@ -1,14 +1,14 @@
 ---
 title: Déployer un exemple de blueprint de base de CAF
 description: Étapes de déploiement pour l’exemple de blueprint de base du framework d’adoption du cloud, incluant des informations détaillées sur les paramètres d’artefact de blueprint.
-ms.date: 08/20/2019
+ms.date: 05/06/2020
 ms.topic: sample
-ms.openlocfilehash: df17f8c3f539e25635ea4718be9d51d5e5e3f708
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a2d3090e5e9fe265683c077d7056ebf2b108352d
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74545519"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871638"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Déployer l’exemple de blueprint de base du framework d’adoption de Microsoft Cloud pour Azure
 
