@@ -1,19 +1,20 @@
 ---
 title: Préversion des groupes de placements de proximité pour les groupes de machines virtuelles identiques
 description: En savoir plus sur la création et l’utilisation de groupes de placements de proximité pour les groupes de machines virtuelles identiques Windows dans Azure.
-author: cynthn
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
+ms.subservice: availability
 ms.date: 07/01/2019
-ms.author: cynthn
-ms.openlocfilehash: 4fa2949e2a7e1b99ac26caa35f967e9dc9cf359a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 18cb1ae3e549995d7b4732025906329bc609f360
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76273620"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124344"
 ---
 # <a name="preview-creating-and-using-proximity-placement-groups-using-powershell"></a>Aperçu : Création et utilisation de groupes de placements de proximité à l’aide de PowerShell
 

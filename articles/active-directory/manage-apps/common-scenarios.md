@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21caec50bf9c20ec60194976b1bfbf16e4815914
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1874a2f2cf96aaa905616bddcc6cb83c60c1d279
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261038"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115606"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralisation de la gestion des applications avec Azure AD
 
@@ -53,7 +53,7 @@ La plupart des applications requièrent l’approvisionnement d’un utilisateur
 
 |Fonctionnalité  |Description|Recommandation |
 |---------|---------|---------|
-|Approvisionnement SCIM|[SCIM](https://aka.ms/SICMOverview) est une méthode recommandée par l’industrie pour l’automatisation de l’approvisionnement des utilisateurs. Toute application compatible avec SCIM peut être intégrée à Azure AD. Créez, mettez à jour et supprimez automatiquement des comptes d’utilisateur sans avoir à gérer les fichiers CSV, les scripts personnalisés ou les solutions locales.|Consultez la liste croissante des applications [préintégrées](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) dans la Galerie d’applications Azure AD|
+|Approvisionnement SCIM|[SCIM](https://aka.ms/SCIMOverview) est une méthode recommandée par l’industrie pour l’automatisation de l’approvisionnement des utilisateurs. Toute application compatible avec SCIM peut être intégrée à Azure AD. Créez, mettez à jour et supprimez automatiquement des comptes d’utilisateur sans avoir à gérer les fichiers CSV, les scripts personnalisés ou les solutions locales.|Consultez la liste croissante des applications [préintégrées](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) dans la Galerie d’applications Azure AD|
 |Microsoft Graph|Tirez parti de toute la variété et de l’étendue des données Azure AD pour enrichir votre application avec les données dont elle a besoin.|Tirez parti de [Microsoft Graph](https://developer.microsoft.com/graph/) pour récupérer des données sur l’écosystème Microsoft. |
 
 

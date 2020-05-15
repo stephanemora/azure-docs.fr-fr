@@ -1,20 +1,20 @@
 ---
 title: Créer une carte avec Azure Maps | Microsoft Azure Maps
 description: Dans cet article, vous allez apprendre à afficher une carte dans une page web à l’aide du Kit de développement logiciel (SDK) web Microsoft Azure Maps.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: c85d6078fce7fc8e5a5b5d8485517a8b262044a9
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: 97eb1ebb61e5ff78ed918fded8107f5775b533c2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80802329"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124021"
 ---
 # <a name="create-a-map"></a>Créer une carte
 

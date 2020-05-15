@@ -4,15 +4,15 @@ description: En savoir plus sur les disques Ultra pour machines virtuelles Azure
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 05/11/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 857a46bd3995b39a43279188ae37b78d7cd533ec
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: dcecd80fce20046b05a3c35b878e33e13001ee86
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085566"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196942"
 ---
 # <a name="using-azure-ultra-disks"></a>Utilisation de disques Ultra Azure
 

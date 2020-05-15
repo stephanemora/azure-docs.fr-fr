@@ -10,12 +10,12 @@ ms.date: 03/13/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: e32530ece3626807b199850a2b4af5461ff51cde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 901761c8a5dc17cd7f00c3f04153c8e9aa99b648
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414079"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858006"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Comment créer et configurer un runtime d’intégration Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -59,10 +59,10 @@ Pour créer un Azure IR à l’aide de l’interface utilisateur Azure Data Fact
 1. Sur la page **Configuration du runtime d’intégration**, sélectionnez **Azure, auto-hébergé**, puis **Continuer**. 
 
 1. Sur la page suivante, sélectionnez **Azure** pour créer un Azure IR, puis choisissez **Continuer**.
-   ![Créer un runtime d’intégration](media/create-azure-integration-runtime/new-azure-ir.png)
+   ![Créer un runtime d’intégration](media/create-azure-integration-runtime/new-azure-integration-runtime.png)
 
 1. Entrez un nom pour votre Azure IR, puis sélectionnez **Créer**.
-   ![Créer un Azure IR](media/create-azure-integration-runtime/create-azure-ir.png)
+   ![Créer un Azure IR](media/create-azure-integration-runtime/create-azure-integration-runtime.png)
 
 1. Une notification contextuelle s’affiche lorsque la création est terminée. Dans la page **Runtimes d’intégration**, assurez-vous que le runtime d’intégration nouvellement créé est répertorié.
 

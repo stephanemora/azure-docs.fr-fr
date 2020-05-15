@@ -1,17 +1,20 @@
 ---
 title: Créer et chiffrer un groupe de machines virtuelles identiques avec des modèles Azure Resource Manager
 description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser les modèles Azure Resource Manager pour créer et chiffrer un groupe de machines virtuelles identiques
-author: msmbaldwin
-ms.author: mbaldwin
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: quickstart
+ms.subservice: disks
 ms.date: 10/10/2019
-ms.openlocfilehash: aeba9aee8dd10b1245fb0a1e1cc98a1951382c72
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: c2b49a7e7e14bfbefcca64133ff23fdfabe53e7b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "72530937"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198422"
 ---
 # <a name="encrypt-virtual-machine-scale-sets-with-azure-resource-manager"></a>Chiffrer des groupes de machines virtuelles identiques avec Azure Resource Manager
 

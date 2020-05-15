@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7b268f3efa64c2f1ae78794056fdfda2b27434e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c917912e50c864f49abd5afcd28df4633702f0f
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186927"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993710"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisées dans Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -113,7 +113,7 @@ Pour les exécutions à distance, les données d’entraînement doivent être a
 * transférer facilement des données de fichiers statiques ou d’URL sources vers votre espace de travail
 * rendre vos données disponibles pour l’entraînement des scripts dans le cas de l’exécution sur des ressources de calcul cloud
 
-Pour obtenir un exemple d’utilisation de la classe `Dataset` pour monter des données sur la cible de calcul, consultez ce [guide pratique](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target).
+Pour obtenir un exemple d’utilisation de la classe `Dataset` pour monter des données sur la cible de calcul, consultez ce [guide pratique](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets).
 
 ## <a name="train-and-validation-data"></a>Données pour l’entraînement et la validation
 

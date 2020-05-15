@@ -4,17 +4,17 @@ description: Découvrez comment effectuer l’apprentissage d’un modèle, le c
 keywords: déployer sql database edge
 services: sql-database-edge
 ms.service: sql-database-edge
-ms.subservice: machine-learning
+ms.subservice: ''
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 04/23/2020
-ms.openlocfilehash: aa2bf5473bf5bd76cfdad39310ce793ab3921652
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: de1f7db9ca9b8e8d4228ec822a92d43e9b7853f8
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129290"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996089"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-in-sql-database-edge-preview"></a>Déployer et effectuer des prédictions avec un modèle ONNX dans la préversion de SQL Database Edge
 

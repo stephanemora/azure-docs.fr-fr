@@ -1,19 +1,20 @@
 ---
 title: Options de disponibilité pour les groupes de machines virtuelles identiques Azure
 description: En savoir plus sur les fonctionnalités de disponibilité pour l’exécution de groupes de machines virtuelles identiques Windows dans Azure
-author: ju-shim
-ms.author: jushiman
-ms.service: virtual-machine-scale-sets
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
+ms.service: virtual-machine-scale-sets
+ms.subservice: availability
 ms.date: 11/05/2019
-ms.openlocfilehash: 24b1bafaa14f674113e270f64b02d36bee579709
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: 5a0d020e8efdd64a06616d0acfe458148d22de50
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81011036"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198461"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Options de disponibilité pour les machines virtuelles dans Azure
 

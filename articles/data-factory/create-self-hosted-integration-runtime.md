@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 03/13/2020
-ms.openlocfilehash: 6bc0f002c6927cfd9a314797663e1dabbac392b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6d18a8d09749b832984872b57eec8a36abc1b2e2
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416639"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857701"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 
@@ -67,7 +67,7 @@ Suivez les étapes ci-dessous pour créer un runtime d’intégration auto-hébe
 1. Sur la page **Configuration du runtime d’intégration**, sélectionnez **Azure, auto-hébergé**, puis **Continuer**. 
 
 1. Sur la page suivante, sélectionnez **Auto-hébergé** pour créer un runtime d’intégration auto-hébergé, puis sélectionnez **Continuer**.
-   ![Créer un runtime d'intégration auto-hébergé](media/create-self-hosted-integration-runtime/new-selfhosted-ir.png)
+   ![Créer un runtime d'intégration auto-hébergé](media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png)
 
 1. Entrez un nom pour votre runtime d’intégration, puis sélectionnez **Créer**.
 

@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 03/08/2019
-ms.openlocfilehash: 82c3c3274a8a9d66019ce906ee7be47cedac7470
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e7da8905adfbddd7241aff84e4b55917ddbdb6d1
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73822037"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888950"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted : Protéger les données sensibles et stocker les clés de chiffrement dans le magasin de certificats Windows
 
@@ -543,4 +543,4 @@ Après avoir créé une base de données utilisant le chiffrement intégral, vou
 * [Chiffrement transparent des données](https://msdn.microsoft.com/library/bb934049.aspx)
 * [Chiffrement SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Assistant Chiffrement intégral.](https://msdn.microsoft.com/library/mt459280.aspx)
-* [Blog Chiffrement intégral.](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+* [Blog Chiffrement intégral.](https://docs.microsoft.com/archive/blogs/sqlsecurity/always-encrypted-key-metadata)

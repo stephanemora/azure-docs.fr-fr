@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: dsindona
-ms.openlocfilehash: cee28c65b97d4ac163f78b746dc7be9ee210843c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e65f2041cdb2e25341bfd63783c70ec09c1216b5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280352"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124701"
 ---
 # <a name="lead-management-instructions-for-table-storage"></a>Instructions de gestion des prospects pour le stockage Table
 
@@ -98,7 +98,7 @@ Dans les étapes suivantes, vous allez vous connecter à votre table de stockage
 
    - **Requête de filtre** : lorsque vous sélectionnez ce champ, l’icône **Obtenir l’heure passée** s'affiche dans une fenêtre contextuelle. Sélectionnez **Heure passée** afin d'utiliser cette valeur en tant que timestamp pour filtrer la requête. Vous pouvez également coller la fonction suivante dans le champ :
    
-      `CreatedTime Timestamp gt datetime'@{body('Get_past_time')}'` 
+      `CreatedTime Timestamp gt '@{body('Get_past_time')}'` 
 
      ![Configurer la fonction de requête de filtre](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 

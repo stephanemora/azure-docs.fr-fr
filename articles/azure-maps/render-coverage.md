@@ -1,19 +1,19 @@
 ---
 title: Couverture du rendu | Microsoft Azure Maps
 description: Dans cet article, découvrez les régions avec une couverture de rendu Microsoft Azure Maps, ainsi que leur niveau de détails de rendu.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: ddc53111cd69072322f37fdfb25c37665c852c23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e7fffa0e5ab75767ab36c83542ac0e3a9ffb1231
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536749"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123936"
 ---
 # <a name="azure-maps-render-coverage"></a>Couverture du rendu Azure Maps
 

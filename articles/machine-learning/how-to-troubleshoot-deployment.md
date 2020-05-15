@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: fab46f7d7ae74ad643ce3f122b27b0dc767f5a78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01fa9c111371c3ede5d3be33f4066f325bad4680
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399682"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929245"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Résolution des problèmes de déploiement d’Azure Machine Learning, Azure Kubernetes Service et Azure Container Instances
 
@@ -24,12 +24,12 @@ Découvrez comment contourner et résoudre les erreurs courantes de déploiement
 
 Lorsque vous déployez un modèle dans Azure Machine Learning, le système effectue une série de tâches.
 
-L’approche recommandée et la plus récente pour le déploiement de modèle consiste à utiliser l’API [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) avec un objet [Environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) comme paramètre d’entrée. Dans ce cas, notre service crée une image Docker de base pour vous pendant la phase de déploiement, et monte les modèles requis en un seul appel. Les tâches de déploiement de base sont les suivantes :
+L’approche recommandée et la plus récente pour le déploiement de modèle consiste à utiliser l’API [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) avec un objet [Environment](how-to-use-environments.md) comme paramètre d’entrée. Dans ce cas, notre service crée une image Docker de base pour vous pendant la phase de déploiement, et monte les modèles requis en un seul appel. Les tâches de déploiement de base sont les suivantes :
 
 1. Inscrire le modèle dans le registre de modèles de l’espace de travail.
 
 2. Définir la configuration de l’inférence :
-    1. Créez un objet [Environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) basé sur les dépendances que vous spécifiez dans le fichier yaml de l’environnement, ou utilisez l’un de nos environnements provisionnés.
+    1. Créez un objet [Environment](how-to-use-environments.md) basé sur les dépendances que vous spécifiez dans le fichier yaml de l’environnement, ou utilisez l’un de nos environnements provisionnés.
     2. Créez une configuration d’inférence (objet InferenceConfig) basée sur l’environnement et le script de notation.
 
 3. Déployer le modèle sur le service Azure Container Instance (ACI) ou Azure Kubernetes Service (AKS).
@@ -50,7 +50,7 @@ Découvrez-en plus sur ce processus dans la présentation de la [gestion des mod
 
 Si vous rencontrez un problème, la première chose à faire consiste à l’isoler en décomposant la tâche de déploiement (décrite précédemment) en étapes individuelles.
 
-En supposant que vous appliquez la méthode de déploiement nouvelle/recommandée à l’aide de l’API [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) avec un objet [Environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) comme paramètre d’entrée, votre code peut être divisé en trois étapes principales :
+En supposant que vous appliquez la méthode de déploiement nouvelle/recommandée à l’aide de l’API [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) avec un objet [Environment](how-to-use-environments.md) comme paramètre d’entrée, votre code peut être divisé en trois étapes principales :
 
 1. Inscrire le modèle. Voici un exemple de code :
 

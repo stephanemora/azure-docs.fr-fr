@@ -1,17 +1,17 @@
 ---
 title: Inscrire et utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans les kits SDK Azure Cosmos DB
 description: Découvrez comment inscrire et appeler des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur à l’aide des kits de développement logiciel (SDK) Azure Cosmos DB
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/24/2020
-ms.author: mjbrown
-ms.openlocfilehash: 00740bc2255962089789682e3227ce414fd0ce64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/07/2020
+ms.author: tisande
+ms.openlocfilehash: 2e870e6cbc16fd98d8fccb5bbe3ac5d8be634cf2
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77582498"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982307"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Comment inscrire et utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB
 

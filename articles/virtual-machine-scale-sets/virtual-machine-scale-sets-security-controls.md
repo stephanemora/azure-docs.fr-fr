@@ -1,17 +1,20 @@
 ---
 title: Contrôles de sécurité pour Azure Virtual Machine Scale Sets
 description: Check-list des contrôles de sécurité pour l’évaluation d’Azure Virtual Machine Scale Sets
-ms.service: virtual-machine-scale-sets
-author: msmbaldwin
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: security
 ms.date: 09/05/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 4007f4adeee065fe32492d3bd16f3a06d24e7d96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: 030e2c23d68a3fbbc96dd7591583cb27b650d011
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77190604"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200010"
 ---
 # <a name="security-controls-for-azure-virtual-machine-scale-sets"></a>Contrôles de sécurité pour Azure Virtual Machine Scale Sets
 

@@ -9,12 +9,12 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: cc5884e1f70bdccee4e7a113e6e3ee2d6604b50a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: f871b406793e455c857ca14c83434c9ed3e004df
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81406082"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993838"
 ---
 # <a name="remediate-noncompliant-dsc-servers"></a>Remédier aux serveurs DSC non conformes
 
@@ -37,8 +37,7 @@ Update-DscConfiguration -Wait -Verbose
 
 Aucune fonctionnalité similaire n’est actuellement disponibles pour les serveurs Linux.
 La seule option est de recommencer le processus d’inscription.
-
-Pour les nœuds Azure, vous pouvez corriger la dérive depuis le portail Azure ou avec des applets de commande du module Az. Pour plus d’informations sur ce processus, consultez [Intégration des machines pour la gestion par Azure Automation State Configuration](automation-dsc-onboarding.md#onboard-vms-by-using-the-azure-portal).
+Pour les nœuds Azure, vous pouvez corriger la dérive depuis le portail Azure ou avec des applets de commande du module Az. Pour plus d’informations sur ce processus, consultez [Intégration des machines pour la gestion par Azure Automation State Configuration](automation-dsc-onboarding.md#enable-a-vm-using-azure-portal).
 Pour les nœuds hybrides, vous pouvez corriger la dérive en utilisant les scripts Python inclus.
 Consultez [Dépôt Configuration d’état souhaité PowerShell pour Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer)
 

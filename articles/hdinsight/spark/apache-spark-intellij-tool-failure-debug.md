@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: 1a0a6cf5a26854539dc4bbb0ae0254bbf08dad1f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 052b12817b788ff38f0fab72a5420896b062c732
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73494595"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857415"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Échec du débogage du travail Spark avec le kit de ressources Azure pour IntelliJ (préversion)
 
-Cet article fournit des instructions pas à pas sur l’utilisation des outils HDInsight dans le [kit de ressources Azure pour IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) pour exécuter des applications de **débogage d’échec Spark**.
+Cet article fournit des instructions pas à pas sur l’utilisation des outils HDInsight dans le [kit de ressources Azure pour IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij) pour exécuter des applications de **débogage d’échec Spark**.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -26,7 +26,7 @@ Cet article fournit des instructions pas à pas sur l’utilisation des outils H
   
 * IntelliJ IDEA. Cet article utilise [IntelliJ IDEA Community 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows).
   
-* Azure Toolkit for IntelliJ. Consultez [Installation d’Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
+* Azure Toolkit for IntelliJ. Consultez [Installation d’Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/installation).
 
 * Se connecter au cluster HDInsight. Consultez [Se connecter au cluster HDInsight](apache-spark-intellij-tool-plugin.md).
 

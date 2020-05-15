@@ -1,20 +1,20 @@
 ---
 title: Afficher les résultats de la recherche sur une carte | Microsoft Azure Maps
 description: Dans cet article, vous apprendrez à effectuer une demande de recherche à l’aide du Kit de développement logiciel (SDK) web Microsoft Azure Maps et à afficher les résultats sur la carte.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: e82a1daee381c7bad19c83fa735d0028bef2010e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: da67c27f590e60c7ae4eecbe8e139c5519e39e31
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371394"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123953"
 ---
 # <a name="show-search-results-on-the-map"></a>Afficher les résultats de recherche sur la carte
 

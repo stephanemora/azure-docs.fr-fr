@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/21/2020
 tags: azure-synapse
-ms.openlocfilehash: f05b4d4fec99aaa2fb79da46e2167d883d1f15ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 27989687934719be5f1d18b85d3ead92f28b3f60
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767002"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123851"
 ---
 # <a name="data-discovery--classification-for-azure-sql-database-and-azure-synapse-analytics"></a>Découverte et classification des données pour Azure SQL Database et Azure Synapse Analytics
 
@@ -152,18 +152,6 @@ Pour plus d’informations sur l’utilisation de T-SQL pour les classifications
 - Pour supprimer la classification d’une ou plusieurs colonnes : [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - Pour voir toutes les classifications sur la base de données : [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
-### <a name="use-the-rest-api"></a>Utiliser l’API REST
-
-Vous pouvez utiliser l’API REST pour gérer par programme les classifications et les recommandations. L’API REST publiée prend en charge les opérations suivantes :
-
-- [Créer ou mettre à jour](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) : Crée ou met à jour l’étiquette de sensibilité de la colonne spécifiée.
-- [Supprimer](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) : Supprime l’étiquette de sensibilité de la colonne spécifiée.
-- [Désactiver les recommandations](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation) : Désactive les recommandations de sensibilité sur la colonne spécifiée.
-- [Activer une recommandation](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation) : Active les recommandations de sensibilité sur la colonne spécifiée. (Les recommandations sont activées par défaut sur toutes les colonnes.)
-- [Obtenir](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) : Obtient l’étiquette de sensibilité de la colonne spécifiée.
-- [Afficher la liste actuelle par base de données](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) : Obtient les étiquettes de sensibilité actuelles de la base de données spécifiée.
-- [Liste recommandée par base de données](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) : Obtient les étiquettes de sensibilité recommandées pour la base de données spécifiée.
-
 ### <a name="use-powershell-cmdlets"></a>Utiliser des cmdlets PowerShell
 Vous pouvez utiliser PowerShell pour gérer les classifications et les recommandations pour Azure SQL Database et les instances gérées.
 
@@ -185,6 +173,17 @@ Vous pouvez utiliser PowerShell pour gérer les classifications et les recommand
 - [Enable-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
 - [Disable-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
 
+### <a name="use-the-rest-api"></a>Utiliser l’API REST
+
+Vous pouvez utiliser l’API REST pour gérer par programme les classifications et les recommandations. L’API REST publiée prend en charge les opérations suivantes :
+
+- [Créer ou mettre à jour](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) : Crée ou met à jour l’étiquette de sensibilité de la colonne spécifiée.
+- [Supprimer](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) : Supprime l’étiquette de sensibilité de la colonne spécifiée.
+- [Désactiver les recommandations](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation) : Désactive les recommandations de sensibilité sur la colonne spécifiée.
+- [Activer une recommandation](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation) : Active les recommandations de sensibilité sur la colonne spécifiée. (Les recommandations sont activées par défaut sur toutes les colonnes.)
+- [Obtenir](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) : Obtient l’étiquette de sensibilité de la colonne spécifiée.
+- [Afficher la liste actuelle par base de données](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) : Obtient les étiquettes de sensibilité actuelles de la base de données spécifiée.
+- [Liste recommandée par base de données](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) : Obtient les étiquettes de sensibilité recommandées pour la base de données spécifiée.
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Étapes suivantes
 

@@ -1,20 +1,20 @@
 ---
 title: Ajouter une couche de polygones à une carte | Microsoft Azure Maps
 description: Dans cet article, vous allez apprendre à afficher un polygone et un polygone multiple sur une carte à l’aide du SDK web Microsoft Azure Maps.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 9191f054ca3c7374bcbc7bec46573289a512612c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 91d6ed24c85d08c4b3358204980498d64e1b36ba
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535050"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124038"
 ---
 # <a name="add-a-polygon-layer-to-the-map"></a>Ajouter une couche de polygones à la carte
 

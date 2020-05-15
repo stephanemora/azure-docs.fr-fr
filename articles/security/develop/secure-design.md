@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c9e3cfa689f2e528f4d20e796017ae9d91c29fe2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 533f287693ca8aac76a3233674d95f3f49d4ae22
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461716"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857163"
 ---
 # <a name="design-secure-applications-on-azure"></a>Concevoir des applications sécurisées sur Azure
 Cet article présente les activités et contrôles de sécurité à envisager lorsque vous concevez des applications pour le cloud. Les ressources de formation ainsi que les questions et concepts de sécurité à examiner pendant les phases de conception et de configuration des exigences du [Microsoft Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) y sont abordés. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser pour concevoir une application plus sécurisée.
@@ -222,11 +222,11 @@ Un développeur de logiciels a-t-il besoin de droits d’administrateur de domai
 Assurez-vous que votre application suit le principe du [privilège minimum](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) tout au long de ses modèles d’accès.
 
 > [!NOTE]
->  Les règles du privilège minimum doivent s’appliquer au logiciel et aux personnes créant le logiciel. Les développeurs de logiciels peuvent représenter un risque considérable pour la sécurité informatique s’ils ont trop d’accès. Si un développeur est animé d’intentions malveillantes, ou qu’il bénéficie de trop d’accès, les conséquences peuvent être graves. Nous recommandons que les règles du privilège minimum soient appliquées aux développeurs tout au long du cycle de vie de développement.
+> Les règles du privilège minimum doivent s’appliquer au logiciel et aux personnes créant le logiciel. Les développeurs de logiciels peuvent représenter un risque considérable pour la sécurité informatique s’ils ont trop d’accès. Si un développeur est animé d’intentions malveillantes, ou qu’il bénéficie de trop d’accès, les conséquences peuvent être graves. Nous recommandons que les règles du privilège minimum soient appliquées aux développeurs tout au long du cycle de vie de développement.
 
 #### <a name="implement-just-in-time-access"></a>Implémenter l’accès juste-à-temps
 
-Implémentez l’accès *juste-à-temps* (JIT) pour réduire davantage le temps d’exposition des privilèges. Utilisez [Azure AD Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-build-visibility-and-take-full-control-of-admin-activity) pour :
+Implémentez l’accès *juste-à-temps* (JIT) pour réduire davantage le temps d’exposition des privilèges. Utilisez [Azure AD Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-take-control-of-admin-activity) pour :
 
 - Donner aux utilisateurs les autorisations dont ils ont besoin uniquement juste-à-temps.
 - Attribuer des rôles pour une durée plus courte en sachant que les privilèges sont automatiquement révoqués.

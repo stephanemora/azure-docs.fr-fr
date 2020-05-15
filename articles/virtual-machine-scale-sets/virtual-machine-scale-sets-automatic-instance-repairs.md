@@ -2,20 +2,19 @@
 title: Réparations automatiques d’instances avec les groupes de machines virtuelles identiques Azure
 description: Découvrez comment configurer la stratégie de réparation automatique pour les instances de machine virtuelle dans un groupe identique
 author: avirishuv
-manager: vashan
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
-ms.topic: conceptual
-ms.date: 02/28/2020
 ms.author: avverma
-ms.openlocfilehash: 8156c563573183e51e06650914117f8787922e93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: availability
+ms.date: 02/28/2020
+ms.reviewer: jushiman
+ms.custom: avverma
+ms.openlocfilehash: 9e2b15eceff9bca4cee960fa462eb5148e3716dd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81603684"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197034"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Réparations automatiques d’instances pour les groupes de machines virtuelles identiques Azure
 
@@ -154,7 +153,7 @@ az vmss create \
   --generate-ssh-keys \
   --load-balancer <existingLoadBalancer> \
   --health-probe <existingHealthProbeUnderLoaderBalancer> \
-  --automatic-repairs-period 30
+  --automatic-repairs-grace-period 30
 ```
 
 L’exemple ci-dessus utilise un équilibreur de charge et une sonde d’intégrité existants pour surveiller l’état d’intégrité d’application des instances. Si vous préférez utiliser une extension d’intégrité d’application pour l’analyse, vous pouvez créer un groupe identique, configurer l’extension d’intégrité d’application, puis activer la stratégie de réparation automatique d’instances à l’aide de la commande *az vmss update*, comme expliqué dans la section suivante.
@@ -217,7 +216,7 @@ az vmss update \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
   --enable-automatic-repairs true \
-  --automatic-repairs-period 30
+  --automatic-repairs-grace-period 30
 ```
 
 ## <a name="viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy"></a>Affichage et mise à jour de l’état du service de la stratégie de réparation automatique d’instances
