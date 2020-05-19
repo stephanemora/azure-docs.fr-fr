@@ -2,13 +2,13 @@
 title: Qu’est-ce que le service Language Understanding (LUIS) ?
 description: Language Understanding (LUIS) est un service API cloud qui applique une intelligence Machine Learning personnalisée au texte en langage naturel des conversations d’un utilisateur afin d’en prédire le sens général et d’en extraire des informations détaillées pertinentes.
 ms.topic: overview
-ms.date: 02/23/2020
-ms.openlocfilehash: 98fb936422f8e23e728efea19fa2cd75d90fac57
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 05/05/2020
+ms.openlocfilehash: d09aaabeec1d22132843ba98472e1cd89ba95815
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80053350"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592812"
 ---
 # <a name="what-is-language-understanding-luis"></a>Qu’est-ce que le service Language Understanding (LUIS) ?
 
@@ -55,9 +55,9 @@ Le modèle LUIS commence par les catégories d’intentions utilisateur appelée
 
 |Exemple d’énoncé d’un utilisateur|Intentionnel|Données extraites|
 |-----------|-----------|-----------|
-|`Book a flight to __Seattle__?`|RéserverVol|Seattle|
-|`When does your store __open__?`|StoreHoursAndLocation|ouvert|
-|`Schedule a meeting at __1pm__ with __Bob__ in Distribution`|ScheduleMeeting|13h, Bob|
+|`Book a flight to Seattle?`|RéserverVol|Seattle|
+|`When does your store open?`|StoreHoursAndLocation|ouvert|
+|`Schedule a meeting at 1pm with Bob in Distribution`|ScheduleMeeting|13h, Bob|
 
 ## <a name="query-prediction-endpoint"></a>Interroger le point de terminaison de prédiction
 
