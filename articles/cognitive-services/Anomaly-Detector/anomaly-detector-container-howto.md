@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 05/07/2020
 ms.author: aahi
-ms.openlocfilehash: fa25d27e99a9516d461a84dde184e2a6412baa0b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 40906c97dc088687bbd960fecc91921a3eb888a6
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80875037"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589956"
 ---
 # <a name="install-and-run-anomaly-detector-containers-preview"></a>Installer et exécuter des conteneurs du Détecteur d’anomalies (préversion)
 
@@ -42,14 +42,6 @@ L’utilisation des conteneurs Détecteur d’anomalies est soumise aux prérequ
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
-## <a name="request-access-to-the-container-registry"></a>Demander l’accès au registre de conteneurs
-
-Vous devez d’abord compléter et envoyer le [formulaire de requête de conteneur Détecteur d’anomalies](https://aka.ms/adcontainer) pour demander l’accès au conteneur.
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
-[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
-
 ## <a name="the-host-computer"></a>L’ordinateur hôte
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
@@ -75,7 +67,7 @@ Utilisez la commande [`docker pull`](https://docs.docker.com/engine/reference/co
 
 | Conteneur | Référentiel |
 |-----------|------------|
-| cognitive-services-anomaly-detector | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest` |
+| cognitive-services-anomaly-detector | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest` |
 
 <!--
 For a full description of available tags, such as `latest` used in the preceding command, see [anomaly-detector](https://go.microsoft.com/fwlink/?linkid=2083827&clcid=0x409) on Docker Hub.
@@ -85,7 +77,7 @@ For a full description of available tags, such as `latest` used in the preceding
 ### <a name="docker-pull-for-the-anomaly-detector-container"></a>Commande docker pull du conteneur Détecteur d’anomalies
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest
 ```
 
 ## <a name="how-to-use-the-container"></a>Comment utiliser le conteneur
@@ -103,7 +95,7 @@ Utilisez la commande [docker run](https://docs.docker.com/engine/reference/comma
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest \
+mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
