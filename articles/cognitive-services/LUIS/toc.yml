@@ -41,21 +41,9 @@
           href: tutorial-intents-only.md
         - name: 2. Extraire les données utilisateur
           href: tutorial-machine-learned-entity.md
-          displayName: 'n-depth, constraint, descriptor, phrase list, entity'
+          displayName: 'n-depth, constraint, descriptor, phrase list, entity, feature'
         - name: 3. Obtenir des sentiments à partir des énoncés utilisateur
           href: tutorial-publish-settings.md
-    - name: Créer et utiliser des entités
-      items:
-        - name: Entité d’expression régulière
-          href: tutorial-regex-entity.md
-        - name: Lister les entités
-          href: tutorial-list-entity.md
-        - name: Rôles d’entité
-          href: tutorial-entity-roles.md
-          displayName: 'roles, geographyV2, context'
-        - name: Regrouper et extraire les données associées avec des entités composites
-          href: luis-tutorial-composite-entity.md
-          displayName: roles
     - name: Améliorer l’application
       items:
         - name: Corriger des prédictions incertaines
@@ -79,17 +67,19 @@
     - name: Planifier votre application
       displayName: 'simple, composite, prebuilt, list, regex, regular expression'
       href: luis-how-plan-your-app.md
+    - name: Collecte de données
+      href: data-collection.md
     - name: Modèles d’application
       items:
         - name: Types
           href: luis-concept-model.md
-        - name: Intentions
+        - name: Les intentions classifient les énoncés
           href: luis-concept-intent.md
-        - name: Énoncés
-          href: luis-concept-utterance.md
-        - name: Entités
+        - name: Les entités extraient les données
           displayName: 'prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles'
           href: luis-concept-entity-types.md
+        - name: Exemples d’énoncés
+          href: luis-concept-utterance.md
         - name: Modèles prédéfinis
           href: luis-concept-prebuilt-model.md
         - name: Modèles
@@ -97,7 +87,7 @@
           displayName: roles
         - name: Fonctionnalités
           href: luis-concept-feature.md
-          displayName: 'descriptor, phrase list'
+          displayName: 'descriptor, phrase list, feature'
         - name: Étendre l’application au moment de l’exécution
           href: schema-change-prediction-runtime.md
     - name: Scores de prédictions
@@ -153,15 +143,13 @@
           href: howto-add-prebuilt-models.md
         - name: Étiqueter une entité dans un énoncé
           href: label-entity-example-utterance.md
-        - name: Ajouter un descripteur
-          displayName: 'synonym, interchange, phrase list, descriptor'
+        - name: Ajouter une fonctionnalité
+          displayName: 'synonym, interchange, phrase list, descriptor, feature'
           href: luis-how-to-add-features.md
         - name: Avec des API REST
           items:
             - name: Générer une application par programmation à l’aide de Node.js
               href: luis-tutorial-node-import-utterances-csv.md
-            - name: Utiliser une entité de liste pour faire correspondre le texte exact à l’aide de Node.js
-              href: luis-tutorial-list-entity.md
     - name: Integrate
       items:
         - name: Avec l’API Vérification orthographique Bing v7
@@ -193,11 +181,25 @@
       href: luis-how-to-publish-app.md
     - name: Interroger un runtime de prédiction
       href: luis-get-started-get-intent-from-browser.md
+    - name: Migrer
+      items:
+        - name: Migrer à partir d’une entité composite
+          href: migrate-from-composite-entity.md
+        - name: Migrer vers la ressource de création
+          items:
+            - name: Vue d’ensemble
+              href: luis-migration-authoring.md
+            - name: Guide pratique pour migrer
+              href: luis-migration-authoring-steps.md
+        - name: Migrer vers l’API V3
+          href: luis-migration-api-v3.md
     - name: Gérer l’application
       items:
         - name: Ressources Azure
           displayName: 'azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription, authoring, endpoint, prediction'
           href: luis-how-to-azure-subscription.md
+        - name: Paramètres d’application et de version
+          href: how-to-application-settings-portal.md
         - name: Migrer vers la ressource de création
           items:
             - name: Vue d’ensemble
@@ -216,6 +218,8 @@
       items:
         - name: Pour les développeurs
           href: developer-reference-resource.md
+        - name: Schéma d’application
+          href: app-schema-definition.md
         - name: Migrer vers les API de création V3
           href: luis-migration-authoring-entities.md
         - name: Migrer vers les API de prédiction V3
@@ -259,6 +263,8 @@
         - name: Vue d’ensemble
           href: developer-reference-resource.md
           displayName: 'SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot'
+        - name: Schéma d’application
+          href: app-schema-definition.md
         - name: Azure CLI
           href: 'https://go.microsoft.com/fwlink/?linkid=2092156'
         - name: Azure RM PowerShell
@@ -329,7 +335,7 @@
       displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
     - name: limites
       href: luis-limits.md
-    - name: Paramètres de l’application
+    - name: Paramètres d’application et de version
       href: luis-reference-application-settings.md
     - name: Référence d’entité prédéfinie
       items:
@@ -387,7 +393,7 @@
           href: reference-entity-simple.md
     - name: Syntaxe du modèle
       href: reference-pattern-syntax.md
-    - name: Sentiments
+    - name: Informations de référence sur le sentiment
       href: luis-reference-prebuilt-sentiment.md
 - name: Ressources
   items:
