@@ -78,7 +78,7 @@ L’un des paramètres de `geo.distance` doit être une constante de point géog
 La constante de point géographique est au format `geography'POINT(<longitude> <latitude>)'`, où la longitude et latitude sont des constantes numériques.
 
 > [!NOTE]
-> Quand vous utilisez `geo.distance` dans un filtre, vous devez comparer la distance renvoyée par la fonction avec une constante en utilisant `lt`, `le`, `gt` ou `ge`. Les opérateurs `eq` et `ne` ne sont pas pris en charge lors de la comparaison de distances. Voici par exemple une utilisation correcte de `geo.distance` : `$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 5`.
+> Quand vous utilisez `ge` dans un filtre, vous devez comparer la distance renvoyée par la fonction avec une constante en utilisant `geo.distance`, `lt`, `le` ou `gt`. Les opérateurs `eq` et `ne` ne sont pas pris en charge lors de la comparaison de distances. Voici par exemple une utilisation correcte de `geo.distance` : `$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 5`.
 
 ### <a name="geointersects"></a>geo.intersects
 

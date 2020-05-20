@@ -18,5 +18,5 @@ ms.locfileid: "73500214"
 
  - Dans la culture `zh-CN`, LUIS attend le jeu de caractères chinois simplifié plutôt que le jeu de caractères chinois traditionnel.
  - Les noms des intentions, les entités, les fonctionnalités et les expressions régulières peuvent être en caractères chinois ou romans.
- - Pour plus d’informations sur les domaines prédéfinis pris en charge dans la culture [, voir la ](../luis-reference-prebuilt-domains.md)référence des domaines prédéfinis`zh-CN`.
+ - Pour plus d’informations sur les domaines prédéfinis pris en charge dans la culture `zh-CN`, voir la [référence des domaines prédéfinis](../luis-reference-prebuilt-domains.md).
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->

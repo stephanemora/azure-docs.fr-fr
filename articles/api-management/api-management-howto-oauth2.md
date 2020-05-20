@@ -120,7 +120,7 @@ Lorsque **Code d'autorisation** est sélectionné, une fenêtre contextuelle s'a
 
 ![Se connecter][api-management-oauth2-signin]
 
-Une fois que vous êtes connecté, les **En-têtes de demandes** sont renseignés avec un en-tête`Authorization : Bearer` qui autorise la demande.
+Une fois que vous êtes connecté, les **En-têtes de demandes`Authorization : Bearer` sont renseignés avec un en-tête** qui autorise la demande.
 
 ![Jeton d'en-tête de demande][api-management-request-header-token]
 

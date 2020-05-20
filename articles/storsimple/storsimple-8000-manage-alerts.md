@@ -152,7 +152,7 @@ En cas d'échec de la connexion au cloud sur votre appareil de production StorS
 | Basculement de l’appareil vers <*nom de l’appareil*>. |Autre cause/cause inconnue. |Si vous voyez un grand nombre de ces alertes, contactez le Support Microsoft. Une fois que le problème est résolu, effacez cette alerte de la page des alertes. |
 | Un service d’appareil critique indique l’état En échec. |Échec du service du chemin d’accès des données. |Contactez le Support Microsoft pour obtenir de l’assistance. |
 | L’adresse IP virtuelle de l’interface réseau <*DONNÉES*> indique l’état en échec. |Autre cause/cause inconnue. |Les conditions temporaires peuvent parfois provoquer ces alertes. Si tel est le cas, cette alerte est automatiquement effacée après un certain temps. Si le problème persiste, contactez le support technique Microsoft. |
-| L’adresse IP virtuelle de l’interface réseau <*DONNÉES*> indique l’état en échec. |Nom de l’interface : l’adresse IP  *<* DONNÉES`<IP address>`> ne peut pas être mise en ligne, car une adresse IP en double a été détectée sur le réseau. |Assurez-vous que l’adresse IP en double a été supprimée du réseau ou veillez à reconfigurer l’interface avec une adresse IP différente. |
+| L’adresse IP virtuelle de l’interface réseau <*DONNÉES*> indique l’état en échec. |Nom de l’interface : l’adresse IP `<IP address>` <*DONNÉES*> ne peut pas être mise en ligne, car une adresse IP en double a été détectée sur le réseau. |Assurez-vous que l’adresse IP en double a été supprimée du réseau ou veillez à reconfigurer l’interface avec une adresse IP différente. |
 
 ### <a name="disaster-recovery-alerts"></a>Alertes de récupération d'urgence
 

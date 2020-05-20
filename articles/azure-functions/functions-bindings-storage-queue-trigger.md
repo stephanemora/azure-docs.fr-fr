@@ -260,7 +260,7 @@ Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), util
 
 Le compte de stockage à utiliser est déterminé dans l’ordre suivant :
 
-* La propriété `QueueTrigger` de l’attribut `Connection`.
+* La propriété `Connection` de l’attribut `QueueTrigger`.
 * L’attribut `StorageAccount` appliqué au même paramètre que l’attribut `QueueTrigger`.
 * L’attribut `StorageAccount` appliqué à la fonction.
 * L’attribut `StorageAccount` appliqué à la classe.

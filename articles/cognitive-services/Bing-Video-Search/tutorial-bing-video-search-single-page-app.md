@@ -87,7 +87,7 @@ function getSubscriptionKey() {
     return key;
 }
 ```
-La balise `<form>` du code HTML `onsubmit` appelle la fonction `bingWebSearch` pour renvoyer les résultats de la recherche. `bingWebSearch` utilise `getSubscriptionKey()` pour authentifier chaque requête. Comme indiqué dans la définition précédente, `getSubscriptionKey` demande une clé à l’utilisateur si la clé n’a pas été saisie. La clé est ensuite stockée en vue d’une utilisation continue par l’application.
+La balise `onsubmit` du code HTML `<form>` appelle la fonction `bingWebSearch` pour renvoyer les résultats de la recherche. `bingWebSearch` utilise `getSubscriptionKey()` pour authentifier chaque requête. Comme indiqué dans la définition précédente, `getSubscriptionKey` demande une clé à l’utilisateur si la clé n’a pas été saisie. La clé est ensuite stockée en vue d’une utilisation continue par l’application.
 
 ```html
 <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 

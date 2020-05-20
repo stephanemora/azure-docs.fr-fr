@@ -23,7 +23,7 @@ En général, vous appelez l’API Suggestion automatique Bing chaque fois qu’
 
 ## <a name="example-request"></a>Exemple de requête
 
-L’exemple suivant illustre une requête qui renvoie les chaînes de requête suggérées pour *sail* (voile). N’oubliez pas d’encoder en URL le terme de requête partiel de l’utilisateur quand vous définissez le paramètre de requête [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#query). Par exemple, si l’utilisateur a tapé *sailing les*, affectez la valeur `q` ou `sailing+les` à `sailing%20les`.
+L’exemple suivant illustre une requête qui renvoie les chaînes de requête suggérées pour *sail* (voile). N’oubliez pas d’encoder en URL le terme de requête partiel de l’utilisateur quand vous définissez le paramètre de requête [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#query). Par exemple, si l’utilisateur a tapé *sailing les*, affectez la valeur `sailing+les` ou `sailing%20les` à `q`.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1

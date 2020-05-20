@@ -71,7 +71,7 @@ Comme n’importe quelle application web à page unique, l’application du dida
 
 Ce didacticiel n’aborde pas la plupart du code HTML ou CSS en détail, car il est simple.
 
-Le code HTML contient le formulaire de recherche dans lequel l’utilisateur saisit une requête et choisit les options de recherche. Le formulaire est connecté à JavaScript, qui effectue la recherche selon la balise `<form>` de l’attribut `onsubmit` :
+Le code HTML contient le formulaire de recherche dans lequel l’utilisateur saisit une requête et choisit les options de recherche. Le formulaire est connecté à JavaScript, qui effectue la recherche selon la balise `onsubmit` de l’attribut `<form>` :
 
 ```html
 <form name="bing" onsubmit="return newBingEntitySearch(this)">

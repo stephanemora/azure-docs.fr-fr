@@ -150,7 +150,7 @@ Vous ne pouvez pas modifier des champs existants pour les rendre filtrables. À 
 
 ## <a name="text-filter-fundamentals"></a>Notions de base concernant les filtres de texte
 
-Les filtres de texte comparent les champs de chaîne aux chaînes littérales que vous fournissez dans le filtre. Contrairement à la recherche en texte intégral, les filtres de texte n’appliquent aucune analyse lexicale ou césure de mots. Les comparaisons portent alors uniquement sur des correspondances exactes. Par exemple, supposons un champ *f* contenant les mots « Sunny day » (journée ensoleillée). `$filter=f eq 'Sunny'` sera une correspondance, mais pas `$filter=f eq 'sunny day'`. 
+Les filtres de texte comparent les champs de chaîne aux chaînes littérales que vous fournissez dans le filtre. Contrairement à la recherche en texte intégral, les filtres de texte n’appliquent aucune analyse lexicale ou césure de mots. Les comparaisons portent alors uniquement sur des correspondances exactes. Par exemple, supposons un champ *f* contenant les mots « Sunny day » (journée ensoleillée). `$filter=f eq 'sunny day'` sera une correspondance, mais pas `$filter=f eq 'Sunny'`. 
 
 Les chaînes de texte respectent la casse. Il n’y a pas de conversion en minuscules des mots contenant des majuscules. Ainsi, la chaîne `$filter=f eq 'Sunny day'` ne permet pas de trouver « sunny day ».
 

@@ -43,7 +43,7 @@ Bing vous offre la possibilité d’utiliser des caractères Unicode ou des bali
 
 ## <a name="additional-text-decorations"></a>Autres ornements de texte
 
-Bing peut retourner plusieurs ornements de texte différents. Par exemple, le champ `Computation` d’une réponse `log(2)` peut contenir des marqueurs d’indice pour le terme de requête `expression`.
+Bing peut retourner plusieurs ornements de texte différents. Par exemple, le champ `expression` d’une réponse `Computation` peut contenir des marqueurs d’indice pour le terme de requête `log(2)`.
 
 ![marqueurs de calcul](./media/cognitive-services-bing-web-api/bing-markers-computation.png) 
 

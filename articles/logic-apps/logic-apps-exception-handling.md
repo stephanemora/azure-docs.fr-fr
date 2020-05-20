@@ -114,11 +114,11 @@ Bien que cela ne soit pas défini explicitement dans votre action ou déclencheu
 
 ### <a name="none"></a>None
 
-Pour spécifier que l’action ou le déclencheur n’effectue pas de nouvelle tentative en cas d’échec de requête, affectez la valeur  *à <* retry-policy-type`none`>.
+Pour spécifier que l’action ou le déclencheur n’effectue pas de nouvelle tentative en cas d’échec de requête, affectez la valeur `none` à <*retry-policy-type*>.
 
 ### <a name="fixed-interval"></a>Intervalle fixe
 
-Pour spécifier que l’action ou le déclencheur attend l’intervalle spécifié avant d’envoyer la requête suivante, affectez la valeur  *à <* retry-policy-type`fixed`>.
+Pour spécifier que l’action ou le déclencheur attend l’intervalle spécifié avant d’envoyer la requête suivante, affectez la valeur `fixed` à <*retry-policy-type*>.
 
 *Exemple*
 
@@ -143,7 +143,7 @@ Cette stratégie de nouvelle tentative tente d’obtenir les dernières actualit
 
 ### <a name="exponential-interval"></a>Intervalle exponentiel
 
-Pour spécifier que l’action ou le déclencheur attend un intervalle aléatoire avant d’envoyer la requête suivante, affectez la valeur  *à <* retry-policy-type`exponential`>. L’intervalle aléatoire est sélectionné parmi une plage à croissance exponentielle. Si vous le souhaitez, vous pouvez également substituer les intervalles minimaux et maximaux par défaut en spécifiant vos propres intervalles minimaux et maximaux.
+Pour spécifier que l’action ou le déclencheur attend un intervalle aléatoire avant d’envoyer la requête suivante, affectez la valeur `exponential` à <*retry-policy-type*>. L’intervalle aléatoire est sélectionné parmi une plage à croissance exponentielle. Si vous le souhaitez, vous pouvez également substituer les intervalles minimaux et maximaux par défaut en spécifiant vos propres intervalles minimaux et maximaux.
 
 **Plage des variables aléatoires**
 

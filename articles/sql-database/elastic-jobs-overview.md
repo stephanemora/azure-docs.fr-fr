@@ -77,7 +77,7 @@ La préversion est actuellement limitée à 100 travaux simultanés.
 
 Pour éviter la surcharge des ressources durant l’exécution de travaux sur des bases de données dans un pool élastique SQL, vous pouvez configurer les travaux de manière à limiter le nombre de bases de données sur lesquelles un travail peut s’exécuter simultanément.
 
-Définissez le nombre de bases de données simultanées sur lesquelles un travail s’exécute en définissant le paramètre `sp_add_jobstep` de la procédure stockée `@max_parallelism`dans T-SQL, ou `Add-AzSqlElasticJobStep -MaxParallelism` dans PowerShell.
+Définissez le nombre de bases de données simultanées sur lesquelles un travail s’exécute en définissant le paramètre `@max_parallelism` de la procédure stockée `sp_add_jobstep`dans T-SQL, ou `Add-AzSqlElasticJobStep -MaxParallelism` dans PowerShell.
 
 ## <a name="best-practices-for-creating-jobs"></a>Bonnes pratiques relatives à la création de travaux
 

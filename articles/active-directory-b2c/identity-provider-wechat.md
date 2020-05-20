@@ -31,7 +31,7 @@ Pour utiliser un compte WeChat en tant que fournisseur d’identité dans Azure 
 1. Connectez-vous à [https://open.weixin.qq.com/](https://open.weixin.qq.com/) avec vos informations d’identification WeChat.
 1. Cliquez sur **管理中心** (centre de gestion).
 1. Suivez les étapes d’inscription d’une nouvelle application.
-1. Dans le champ `https://your-tenant_name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`授权回调域 **(URL de rappel), entrez**. Par exemple, si le nom de votre locataire est contoso, définissez l’URL sur `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+1. Dans le champ **授权回调域** (URL de rappel), entrez `https://your-tenant_name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Par exemple, si le nom de votre locataire est contoso, définissez l’URL sur `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 1. Copiez l’**ID de l’application** et la **clé de l’application**. Vous aurez besoin des deux pour ajouter le fournisseur d’identité à votre locataire.
 
 ## <a name="configure-wechat-as-an-identity-provider-in-your-tenant"></a>Configurer WeChat en tant que fournisseur d’identité dans votre locataire

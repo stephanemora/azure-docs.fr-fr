@@ -70,7 +70,7 @@ Accédez à votre instance de service dans le portail Azure et sélectionnez **G
 > * Si votre navigateur vous demande d’entrer des informations d’identification de connexion pour afficher la page, utilisez [URL Decode](https://www.urldecoder.org/) pour décoder votre point de terminaison de test. URL Decode retourne une URL au format « https://\<nom_utilisateur>:\<mot_de_passe>@\<nom_cluster>.test.azureapps.io/gateway/green ».  Utilisez-le pour accéder à votre point de terminaison.
 
 >[!NOTE]    
-> Les paramètres du serveur de configuration s’appliquent à votre environnement intermédiaire et à la production. Par exemple, si vous définissez `server.servlet.context-path`somepath *comme chemin du contexte (* ) de votre passerelle d’application dans le serveur de configuration, le chemin à votre déploiement vert devient alors : « https://\<nom_utilisateur>:\<mot_de_passe>@\<nom_cluster>.test.azureapps.io/gateway/green/somepath/... ».
+> Les paramètres du serveur de configuration s’appliquent à votre environnement intermédiaire et à la production. Par exemple, si vous définissez *somepath* comme chemin du contexte (`server.servlet.context-path`) de votre passerelle d’application dans le serveur de configuration, le chemin à votre déploiement vert devient alors : « https://\<nom_utilisateur>:\<mot_de_passe>@\<nom_cluster>.test.azureapps.io/gateway/green/somepath/... ».
  
  Si vous visitez votre passerelle d’application publique à ce stade, vous devriez voir l’ancienne page sans votre nouveau changement.
     

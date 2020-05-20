@@ -13,7 +13,7 @@ ms.locfileid: "77671900"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Télémétrie des requêtes : modèle de données Application Insights
 
-Un élément de télémétrie de demande (dans [Application Insights](../../azure-monitor/app/app-insights-overview.md)) représente la séquence logique d’exécution déclenchée par une demande externe à votre application. Chaque exécution de requête est identifiée par un `ID` et une `url` uniques contenant tous les paramètres d’exécution. Vous pouvez regrouper des requêtes par `name` logique et définir la `source` de cette requête. L’exécution du code peut donner `success` ou `fail` et a une certain durée (`duration`). Les échecs et les réussites d’exécution peuvent être regroupés par `resultCode`. L’heure de début de la télémétrie des requêtes est définie sur le niveau enveloppe.
+Un élément de télémétrie de demande (dans [Application Insights](../../azure-monitor/app/app-insights-overview.md)) représente la séquence logique d’exécution déclenchée par une demande externe à votre application. Chaque exécution de requête est identifiée par un `ID` et une `url` uniques contenant tous les paramètres d’exécution. Vous pouvez regrouper des requêtes par `name` logique et définir la `source` de cette requête. L’exécution du code peut donner `success` ou `duration` et a une certain durée (`fail`). Les échecs et les réussites d’exécution peuvent être regroupés par `resultCode`. L’heure de début de la télémétrie des requêtes est définie sur le niveau enveloppe.
 
 La télémétrie des requêtes prend en charge le modèle d’extensibilité standard en utilisant des propriétés (`properties`) et des mesures (`measurements`) personnalisées.
 

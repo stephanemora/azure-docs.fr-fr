@@ -38,7 +38,7 @@ Pour utiliser un compte QQ en tant que fournisseur d’identité dans Azure Acti
 1. Accédez à [https://connect.qq.com/index.html](https://connect.qq.com/index.html).
 1. Sélectionnez **应用管理** (gestion des applications).
 1. Sélectionnez**创建应用**(créer une application) et entrez les informations requises.
-1. Dans le champ `https://your-tenant-name.b2clogin.com/your-tenant-name}.onmicrosoft.com/oauth2/authresp`授权回调域 **(URL de rappel), entrez**. Par exemple, si votre `tenant_name` est contoso, définissez l’URL sur `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+1. Dans le champ **授权回调域** (URL de rappel), entrez `https://your-tenant-name.b2clogin.com/your-tenant-name}.onmicrosoft.com/oauth2/authresp`. Par exemple, si votre `tenant_name` est contoso, définissez l’URL sur `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 1. Sélectionnez **创建应用** (créer une application).
 1. Dans la page de confirmation, sélectionnez **应用管理** (gestion des applications) pour revenir à la page de gestion des applications.
 1. Sélectionnez **查看** (afficher) en regard de l’application que vous avez créée.

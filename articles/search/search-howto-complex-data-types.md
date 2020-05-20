@@ -145,7 +145,7 @@ Vous pouvez faire référence à des sous-champs d’un champ complexe dans une 
 
     $filter=Address/Country eq 'Canada'
 
-Pour filtrer sur un champ de collection complexe, vous pouvez utiliser une **expression lambda**[avec les opérateurs`any``all` et ](search-query-odata-collection-operators.md). Dans ce cas, la **variable de portée** de l’expression lambda est un objet avec des sous-champs. Vous pouvez consulter ces sous-champs avec la syntaxe de chemin OData standard. Par exemple, le filtre suivant retourne tous les hôtels avec au moins une chambre de luxe et toutes les chambres non-fumeurs :
+Pour filtrer sur un champ de collection complexe, vous pouvez utiliser une **expression lambda**[avec les opérateurs](search-query-odata-collection-operators.md)`any` et `all`. Dans ce cas, la **variable de portée** de l’expression lambda est un objet avec des sous-champs. Vous pouvez consulter ces sous-champs avec la syntaxe de chemin OData standard. Par exemple, le filtre suivant retourne tous les hôtels avec au moins une chambre de luxe et toutes les chambres non-fumeurs :
 
     $filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)
 

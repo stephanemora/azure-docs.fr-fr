@@ -62,7 +62,7 @@ Vous trouverez ci-dessous l’exemple de code d’exécution complet de la fonct
 
 ## <a name="show-labels-with-a-bubble-layer"></a>Afficher les étiquettes avec une couche de bulles
 
-Ce code montre comment utiliser une couche de bulles pour afficher un point sur la carte. Il montre également comment utiliser une couche de symboles pour afficher une étiquette. Pour masquer l’icône de la couche de symboles, affectez la valeur `image` à la propriété `'none'` des options d’icône.
+Ce code montre comment utiliser une couche de bulles pour afficher un point sur la carte. Il montre également comment utiliser une couche de symboles pour afficher une étiquette. Pour masquer l’icône de la couche de symboles, affectez la valeur `'none'` à la propriété `image` des options d’icône.
 
 <br/>
 
