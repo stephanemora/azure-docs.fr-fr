@@ -103,7 +103,7 @@ Si un service dispose d’un insight Azure Monitor, vous pouvez y accéder à pa
 ![Insights](media/monitor-azure-resource/insights.png)
 
 ### <a name="metrics"></a>Mesures
-Analysez les métriques dans le Portail Azure à l’aide de [Metrics Explorer](../platform/metrics-getting-started.md), disponible à partir de l’élément de menu **Métriques** pour la plupart des services. Cet outil vous permet d’utiliser des métriques individuelles ou d’en combiner plusieurs pour identifier les corrélations et les tendances. 
+Analysez les métriques dans le Portail Azure à l’aide de **Metrics Explorer**, disponible à partir de l’élément de menu [Métriques](../platform/metrics-getting-started.md) pour la plupart des services. Cet outil vous permet d’utiliser des métriques individuelles ou d’en combiner plusieurs pour identifier les corrélations et les tendances. 
 
 - Consultez [Bien démarrer avec Azure Metrics Explorer](../platform/metrics-getting-started.md) pour découvrir les principes de base de l’utilisation de Metrics Explorer.
 - Consultez [Fonctionnalités avancées d’Azure Metrics Explorer](../platform/metrics-charts.md) pour découvrir les fonctionnalités avancées de Metrics Explorer, telles que l’utilisation de plusieurs métriques et l’application de filtres et d’un fractionnement.

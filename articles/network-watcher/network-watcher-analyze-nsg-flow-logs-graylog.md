@@ -182,7 +182,7 @@ Une connexion aux journaux de flux étant établie à l’aide de Logstash, et l
 
    ![Prise en main](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
 
-3. Pour lancer la nouvelle entrée, dans la zone de liste déroulante *Select input* (Sélectionner une entrée), sélectionnez **GELF UDP**, puis remplissez le formulaire. GELF est l’acronyme de « Graylog Extended Log Format » et signifie « format de journal étendu Graylog ». Le format GELF est développé par Graylog. Pour plus d’informations sur ses avantages, consultez la [documentation](https://docs.graylog.org/en/2.2/pages/gelf.html) Graylog.
+3. Pour lancer la nouvelle entrée, dans la zone de liste déroulante **Select input** (Sélectionner une entrée), sélectionnez *GELF UDP*, puis remplissez le formulaire. GELF est l’acronyme de « Graylog Extended Log Format » et signifie « format de journal étendu Graylog ». Le format GELF est développé par Graylog. Pour plus d’informations sur ses avantages, consultez la [documentation](https://docs.graylog.org/en/2.2/pages/gelf.html) Graylog.
 
    Veillez à lier l’entrée à l’adresse IP sur laquelle vous avez configurée votre serveur Graylog. L’adresse IP doit correspondre au champ **host** (hôte) de la sortie UDP du fichier de configuration Logstash. Le port par défaut doit être *12201*. Vérifiez que le port correspond au champ **port** dans la sortie UDP désignée dans le fichier de configuration Logstash.
 

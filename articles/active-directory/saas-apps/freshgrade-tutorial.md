@@ -89,7 +89,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 Pour configurer l’authentification unique Azure AD avec FreshGrade, effectuez les étapes suivantes :
 
-1. Dans la page d’intégration de l’application [FreshGrade](https://portal.azure.com/) sur le **portail Azure**, sélectionnez **Authentification unique**.
+1. Dans la page d’intégration de l’application **FreshGrade** sur le [portail Azure](https://portal.azure.com/), sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 

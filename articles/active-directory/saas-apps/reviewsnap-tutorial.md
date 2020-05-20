@@ -89,7 +89,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 Pour configurer l’authentification unique Azure AD avec Reviewsnap, suivez les étapes ci-dessous :
 
-1. Sur la page d’intégration de l’application [Reviewsnap](https://portal.azure.com/) du **Portail Azure**, cliquez sur **Authentification unique**.
+1. Sur la page d’intégration de l’application **Reviewsnap** du [Portail Azure](https://portal.azure.com/), cliquez sur **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 

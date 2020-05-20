@@ -27,7 +27,7 @@ Un service avec état possède un état qui lui est associé. Dans Service Fabri
 
 Il ne peut y avoir qu’un seul réplica principal, mais il peut y avoir plusieurs réplicas secondaires actifs. Le nombre de réplicas secondaires actifs est configurable et un nombre plus élevé de réplicas peut tolérer un plus grand nombre de défaillances logicielles et matérielles simultanées.
 
-En cas d’erreur (quand le réplica principal tombe en panne), Service Fabric choisit l’un des réplicas secondaires actifs comme nouveau réplica principal. Ce réplica secondaire actif possède déjà la version à jour de l’état (via la *réplication*) et peut continuer le traitement des opérations de lecture et d’écriture. Ce processus est appelé une *reconfiguration* et est décrit de façon détaillée dans l’article [Reconfiguration](service-fabric-concepts-reconfiguration.md).
+En cas d’erreur (quand le réplica principal tombe en panne), Service Fabric choisit l’un des réplicas secondaires actifs comme nouveau réplica principal. Ce réplica secondaire actif possède déjà la version à jour de l’état (via la *réplication*) et peut continuer le traitement des opérations de lecture et d’écriture. Ce processus est appelé une [reconfiguration](service-fabric-concepts-reconfiguration.md) et est décrit de façon détaillée dans l’article *Reconfiguration*.
 
 Le concept de réplica, qu’il soit principal ou secondaire actif, correspond au *rôle de réplica*. Ces réplicas sont décrits de façon approfondie dans l’article [Réplicas et instances](service-fabric-concepts-replica-lifecycle.md). 
 

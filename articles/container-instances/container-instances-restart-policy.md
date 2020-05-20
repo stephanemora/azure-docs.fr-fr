@@ -94,7 +94,7 @@ Cet exemple montre la sortie du script envoyé à STDOUT. Toutefois, il est poss
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les scénarios basés sur des tâches, telles que le traitement par lots d’un jeu de données volumineux avec plusieurs conteneurs, peuvent tirer parti de l’utilisation de [lignes de commande](container-instances-environment-variables.md) ou de [variables d’environnement](container-instances-start-command.md) personnalisées au moment de l’exécution.
+Les scénarios basés sur des tâches, telles que le traitement par lots d’un jeu de données volumineux avec plusieurs conteneurs, peuvent tirer parti de l’utilisation de [lignes de commande](container-instances-start-command.md) ou de [variables d’environnement](container-instances-environment-variables.md) personnalisées au moment de l’exécution.
 
 Pour plus d’informations sur la conservation de la sortie de vos conteneurs qui s’exécutent jusqu’à achèvement, consultez [Montage d’un partage de fichiers Azure avec Azure Container Instances](container-instances-mounting-azure-files-volume.md).
 
