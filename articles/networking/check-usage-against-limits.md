@@ -27,7 +27,7 @@ Dans cet article, vous apprendrez comment afficher le nombre de chaque type de r
 
 1. Connectez-vous au [portail](https://portal.azure.com) Azure.
 2. En haut à gauche du portail Azure, sélectionnez **Tous les services**.
-3. Dans la zone *Filtre*, entrez **Abonnements**. Quand la mention **Abonnements** apparaît dans les résultats de recherche, sélectionnez-la.
+3. Dans la zone **Filtre**, entrez *Abonnements*. Quand la mention **Abonnements** apparaît dans les résultats de recherche, sélectionnez-la.
 4. Sélectionnez le nom de l’abonnement pour lequel vous souhaitez afficher les informations d’utilisation.
 5. Sous **PARAMÈTRES**, sélectionnez **Utilisation + quota**.
 6. Vous pouvez sélectionner les options suivantes :

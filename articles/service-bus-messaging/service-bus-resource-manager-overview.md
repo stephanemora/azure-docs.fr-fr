@@ -28,7 +28,7 @@ Cet article décrit comment créer et déployer des ressources Service Bus à l'
 Les modèles Azure Resource Manager vous permettent de définir les ressources à déployer pour une solution et de spécifier les paramètres et variables qui permettent d'entrer des valeurs pour les différents environnements. Le modèle est écrit en JSON et se compose d’expressions que vous pouvez utiliser pour construire des valeurs pour votre déploiement. Pour plus d’informations sur l’écriture de modèles Azure Resource Manager et sur le format du modèle, consultez [Structure et syntaxe de modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 > [!NOTE]
-> Les exemples de cet article montrent comment utiliser Azure Resource Manager pour créer un espace de noms et une entité de messagerie (file d'attente) Service Bus. Pour accéder à d’autres exemples de modèles, recherchez [Service Bus][Azure Quickstart Templates gallery] dans la **galerie de modèles de démarrage rapide Azure**.
+> Les exemples de cet article montrent comment utiliser Azure Resource Manager pour créer un espace de noms et une entité de messagerie (file d'attente) Service Bus. Pour accéder à d’autres exemples de modèles, recherchez **Service Bus** dans la [galerie de modèles de démarrage rapide Azure][Azure Quickstart Templates gallery].
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

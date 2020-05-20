@@ -4,6 +4,14 @@
   items:
     - name: À propos de Peering Service
       href: about.md
+- name: Tutoriels
+  items:
+    - name: Inscrire une connexion Peering Service
+      href: azure-portal.md
+    - name: Créer une connexion Peering Service
+      href: create-connection.md
+    - name: Mesurer la télémétrie de la connexion Peering Service
+      href: measure-connection-telemetry.md
 - name: Concepts
   items:
     - name: Emplacements et partenaires
@@ -18,14 +26,10 @@
   items:
     - name: Inscrire Peering Service
       items:
-        - name: Portail Azure
-          href: azure-portal.md
         - name: Azure PowerShell
           href: powershell.md
         - name: Azure CLI
           href: cli.md
-    - name: Mesurer la télémétrie de la connexion
-      href: measure-connection-telemetry.md
 - name: References
   items:
     - name: Azure PowerShell

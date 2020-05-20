@@ -66,7 +66,7 @@ Découvrez comment effectuer des tâches courantes, notamment :
 * Segmenter et sécuriser votre environnement à l’aide des [tables et règles de pare-feu](firewall.md).
 * Autoriser l’accès Internet entrant aux charges de travail en [allouant des adresses IP publiques](public-ips.md).
 * Activer la connectivité à partir de vos stations de travail clientes ou réseaux internes en [configurant un VPN](vpn-gateway.md).
-* Autoriser les communications vers les [réseaux virtuels Azure](on-premises-connection.md) également à partir de vos [environnements locaux](virtual-network-connection.md).
+* Autoriser les communications vers les [réseaux virtuels Azure](virtual-network-connection.md) également à partir de vos [environnements locaux](on-premises-connection.md).
 * Configurer les cibles des alertes et visualiser la capacité totale achetée dans le [résumé du compte](account.md).
 * Visualiser les [utilisateurs](users.md) qui ont accédé au portail CloudSimple.
 * Gérer des machines virtuelles VMware dans le portail Azure :
