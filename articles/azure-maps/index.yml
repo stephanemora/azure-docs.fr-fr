@@ -9,12 +9,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 1/15/2020
-  ms.openlocfilehash: 852a01416b52c6a7b98c3b4883210749bf3cc509
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: b3e986c67c55af467ea6534dd7484a307ec08227
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "80132446"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83589259"
 landingContent:
 - title: À propos d’Azure Maps
   linkLists:
@@ -56,6 +56,36 @@ landingContent:
       url: how-to-manage-pricing-tier.md
     - text: Afficher les métriques d’utilisation de l’API Azure Maps
       url: how-to-view-api-usage.md
+- title: Développement avec Creator
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Concepts de plans intérieurs
+      url: creator-indoor-maps.md
+  - linkListType: tutorial
+    links:
+    - text: Utiliser Creator pour créer des données de plans intérieurs
+      url: tutorial-creator-indoor-maps.md
+  - linkListType: how-to-guide
+    links:
+    - text: Gérer les plans intérieurs Creator
+      url: how-to-manage-creator.md
+    - text: Implémenter des styles dynamiques pour les plans intérieurs
+      url: indoor-map-dynamic-styling.md
+    - text: Utiliser le visualiseur d’erreurs de dessin Azure Maps
+      url: drawing-error-visualizer.md
+    - text: Utiliser le module de plans intérieurs
+      url: how-to-use-indoor-module.md
+  - linkListType: reference
+    links:
+    - text: Service de conversion
+      url: https://docs.microsoft.com/rest/api/maps/conversion
+    - text: Service de jeu de données
+      url: https://docs.microsoft.com/rest/api/maps/dataset
+    - text: Service d’ensemble de vignettes
+      url: https://docs.microsoft.com/rest/api/maps/tileset
+    - text: Service d’ensemble d’états des fonctionnalités
+      url: https://docs.microsoft.com/rest/api/maps/featurestate
 - title: Développement avec le le kit SDK web
   linkLists:
   - linkListType: concept

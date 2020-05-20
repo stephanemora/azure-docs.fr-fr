@@ -84,7 +84,7 @@ Vérifiez que la région dans laquelle vous essayez de créer une machine virtue
 
 *La création de la machine virtuelle ou du groupe de machines virtuelles identiques prend beaucoup de temps.*
 
-Vérifiez que la valeur **OSType** de la version d’image à partir de laquelle vous tentez de créer la machine virtuelle ou le groupe de machines virtuelles identiques est identique à celle de l’image managée source que vous avez utilisée pour créer la version d’image **.** 
+Vérifiez que la valeur **OSType** de la version d’image à partir de laquelle vous tentez de créer la machine virtuelle ou le groupe de machines virtuelles identiques est identique à celle de l’image managée source que vous avez utilisée pour créer la version d’image. 
 
 ## <a name="unable-to-share-resources"></a>Impossible de partager les ressources
 

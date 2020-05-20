@@ -23,7 +23,7 @@ U-SQL est un langage qui combine le langage SQL déclaratif avec le langage C# i
 
 * Le [Didacticiel U-SQL](https://aka.ms/usqltutorial) fournit une procédure pas à pas pour la plupart du langage U-SQL. La lecture de ce document est recommandée pour tous les développeurs qui veulent apprendre le langage U-SQL.
 * Pour plus d’informations sur la **syntaxe du langage U-SQL**, consultez la [Référence du langage U-SQL](https://docs.microsoft.com/u-sql/).
-* Pour comprendre la **philosophie de conception d’U-SQL**, consultez l’article de blog Visual Studio [Présentation d’U-SQL – Un langage qui facilite le traitement du Big Data](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
+* Pour comprendre la [philosophie de conception d’U-SQL](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/), consultez l’article de blog Visual Studio **Présentation d’U-SQL – Un langage qui facilite le traitement du Big Data**.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 

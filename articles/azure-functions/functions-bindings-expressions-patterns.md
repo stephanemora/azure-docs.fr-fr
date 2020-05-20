@@ -14,7 +14,7 @@ ms.locfileid: "79235213"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Modèles d’expressions de liaison Azure Functions
 
-Les [expressions de liaison](./functions-triggers-bindings.md) sont l’une des fonctionnalités les plus puissantes des *déclencheurs et liaisons*. Dans le fichier *function.json* ainsi que dans les paramètres et le code de la fonction, vous pouvez utiliser des expressions qui sont remplacées par des valeurs provenant de diverses sources.
+Les *expressions de liaison* sont l’une des fonctionnalités les plus puissantes des [déclencheurs et liaisons](./functions-triggers-bindings.md). Dans le fichier *function.json* ainsi que dans les paramètres et le code de la fonction, vous pouvez utiliser des expressions qui sont remplacées par des valeurs provenant de diverses sources.
 
 La plupart des expressions sont identifiées par les accolades qui les entourent. Par exemple, dans une fonction de déclencheur de file d’attente, `{queueTrigger}` correspond au texte du message de file d’attente. Si la propriété `path` pour une liaison de sortie d’objet blob est `container/{queueTrigger}` et que la fonction est déclenchée par un message de file d’attente `HelloWorld`, alors un objet blob nommé `HelloWorld` est créé.
 

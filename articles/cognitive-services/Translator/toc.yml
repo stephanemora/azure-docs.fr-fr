@@ -1,10 +1,10 @@
-- name: Documentation de l’API de traduction de texte Translator Text
+- name: Documentation sur Translator
   href: index.yml
-- name: API de traduction de texte Translator Text
+- name: Convertisseur
   items:
     - name: Vue d’ensemble
       items:
-        - name: "Qu’est-ce que l’API de traduction de texte Translator Text\_?"
+        - name: Présentation de Translator
           href: translator-info-overview.md
     - name: Démarrages rapides
       items:
@@ -22,7 +22,7 @@
           href: quickstart-sentences.md
     - name: Tutoriels
       items:
-        - name: 'Créer une application WPF pour l’API Traduction de texte Translator Text, C#'
+        - name: 'Créer une application WPF pour Translator, C#'
           href: tutorial-wpf-translation-csharp.md
         - name: 'Créer une application de traduction Flask, Python'
           href: tutorial-build-flask-app-translation-synthesis.md
@@ -34,7 +34,7 @@
           href: character-counts.md
     - name: Guides pratiques
       items:
-        - name: Inscrivez-vous à l’API de traduction de texte Translator Text
+        - name: S’inscrire à Translator
           href: translator-text-how-to-signup.md
         - name: Migrer vers l’API de texte V3
           href: migrate-to-v3.md
@@ -66,7 +66,7 @@
           href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby'
     - name: Informations de référence
       items:
-        - name: Référence de l’API Translator Text v3
+        - name: Informations de référence Translator v3
           href: reference/v3-0-reference.md
           items:
             - name: Languages
@@ -83,7 +83,7 @@
               href: reference/v3-0-dictionary-lookup.md
             - name: Exemples de dictionnaire
               href: reference/v3-0-dictionary-examples.md
-        - name: Référence de l’API Translator Text v2 (déconseillée)
+        - name: Informations de référence Translator v2 (déprécié)
           href: reference/v2-0-reference.md
           items:
             - name: Transformer le texte

@@ -65,7 +65,7 @@ Les scripts PowerShell et Bash fournis dans la documentation et les Kits de dév
 
 1. Chargez la signature obtenue en tant que certificat de vérification dans votre service d’approvisionnement dans le portail. Dans le panneau **Détails du certificat** du portail Azure, utilisez l’icône _Explorateur de fichiers_ en regard du champ **Fichier .pem ou .cer du certificat de vérification** pour charger le certificat de vérification signé à partir de votre système.
 
-2. Une fois le chargement du certificat terminé, cliquez sur **Vérifier**. Dans la liste **Explorateur de certificats**, la colonne **ÉTAT** prend la valeur **_Vérifié_** . Si le panneau ne se met pas à jour automatiquement, cliquez sur **Actualiser**.
+2. Une fois le chargement du certificat terminé, cliquez sur **Vérifier**. Dans la liste **Explorateur de certificats**, la colonne **ÉTAT** prend la valeur **_Vérifié_**. Si le panneau ne se met pas à jour automatiquement, cliquez sur **Actualiser**.
 
    ![Charger la vérification du certificat](./media/how-to-verify-certificates/upload-cert-verification.png)  
 

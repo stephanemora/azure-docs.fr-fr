@@ -1,10 +1,10 @@
 ### YamlMime:Landing
-title: Documentation sur la traduction de texte
-summary: L’API de traduction de texte Translator Text est un service de traduction automatique basé sur le cloud que vous pouvez utiliser pour traduire du texte en temps quasi réel via un simple appel d’API REST. L’API utilise les technologies modernes de traduction automatique neuronale et propose des technologies de traduction automatique statistique. Custom Translator est une extension de l’API de traduction de texte qui permet de créer des systèmes de traduction neuronaux. Le système de traduction personnalisé peut être utilisé pour traduire du texte avec l’API de traduction de texte ou les Services Microsoft Speech.
+title: Documentation sur Translator
+summary: Translator est un service de traduction automatique basé sur le cloud que vous pouvez utiliser pour traduire du texte en temps quasi réel via un simple appel d’API REST. Le service utilise les technologies modernes de traduction automatique neuronale et propose des technologies de traduction automatique statistique. Custom Translator est une extension de Translator qui permet de créer des systèmes de traduction neuronaux. Le système de traduction personnalisé peut être utilisé pour traduire du texte avec Translator ou les services de reconnaissance vocale de Microsoft.
 metadata:
-  title: Documentation Traduction de texte Translator Text - guides de démarrage rapide, tutoriels, informations de référence sur les API
+  title: Documentation sur Translator - guides de démarrage rapide, tutoriels, informations de référence sur les API
   titleSuffix: Azure Cognitive Services
-  description: L’API de traduction de texte Translator Text est un service de traduction automatique basé sur le cloud que vous pouvez utiliser pour traduire du texte en temps quasi réel via un simple appel d’API REST. L’API utilise les technologies modernes de traduction automatique neuronale et propose des technologies de traduction automatique statistique. Custom Translator est une extension de l’API de traduction de texte qui permet de créer des systèmes de traduction neuronaux. Le système de traduction personnalisé peut être utilisé pour traduire du texte avec l’API de traduction de texte ou les Services Microsoft Speech.
+  description: Translator est un service de traduction automatique basé sur le cloud que vous pouvez utiliser pour traduire du texte en temps quasi réel via un simple appel d’API REST. Le service utilise les technologies modernes de traduction automatique neuronale et propose des technologies de traduction automatique statistique. Custom Translator est une extension de Translator qui permet de créer des systèmes de traduction neuronaux. Le système de traduction personnalisé peut être utilisé pour traduire du texte avec Translator ou les services de reconnaissance vocale de Microsoft.
   services: cognitive-services
   author: erhopf
   manager: nitinme
@@ -13,18 +13,18 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/14/2019
   ms.author: erhopf
-  ms.openlocfilehash: 47944b573cdc2a8121c525c7750aa868d4a4e696
-  ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+  ms.openlocfilehash: 26fc174ef0993339487a2edcc32cbb4fd864f96e
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81529793"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83592744"
 landingContent:
 - title: Convertisseur
   linkLists:
   - linkListType: overview
     links:
-    - text: API de traduction de texte Translator Text
+    - text: Convertisseur
       url: translator-info-overview.md
     - text: Custom Translator
       url: translator-info-overview.md
@@ -36,7 +36,7 @@ landingContent:
       url: translator-text-how-to-signup.md
     - text: Questions fréquentes (FAQ)
       url: https://www.microsoft.com/translator/faq.aspx
-- title: API de traduction de texte Translator Text
+- title: Bien démarrer
   linkLists:
   - linkListType: quickstart
     links:
@@ -60,7 +60,7 @@ landingContent:
       url: tutorial-build-flask-app-translation-synthesis.md
   - linkListType: reference
     links:
-    - text: Informations de référence sur l’API de traduction de texte (v3)
+    - text: Informations de référence Translator (v3)
       url: reference/v3-0-reference.md
     - text: Limites de requête
       url: request-limits.md

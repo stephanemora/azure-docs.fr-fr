@@ -28,6 +28,24 @@
       items:
         - name: Utiliser des laboratoires pour enseigner des cours
           href: classroom-labs-scenarios.md
+        - name: Laboratoires de classe - Types de classe
+          items:
+            - name: Vue d’ensemble des types de classe
+              href: class-types.md
+            - name: Deep Learning pour le traitement en langage naturel
+              href: class-type-deep-learning-natural-language-processing.md
+            - name: Scripts shell sur Linux
+              href: class-type-shell-scripting-linux.md
+            - name: Piratage éthique
+              href: class-type-ethical-hacking.md
+            - name: Gestion de bases de données
+              href: class-type-database-management.md
+            - name: Python et Jupyter Notebooks
+              href: class-type-jupyter-notebook.md
+            - name: Développement d’applications mobiles avec Android Studio
+              href: class-type-mobile-dev-android-studio.md
+            - name: Analytique du Big Data
+              href: class-type-big-data-analytics.md
 - name: Guides pratiques
   items:
     - name: Guide de l’administrateur
@@ -36,29 +54,13 @@
       href: account-setup-guide.md
     - name: Guide de configuration accélérée d’un laboratoire
       href: setup-guide.md
-    - name: Laboratoires de classe - Types de classe
-      items:
-        - name: Vue d’ensemble des types de classe
-          href: class-types.md
-        - name: Deep Learning pour le traitement en langage naturel
-          href: class-type-deep-learning-natural-language-processing.md
-        - name: Scripts shell sur Linux
-          href: class-type-shell-scripting-linux.md
-        - name: Piratage éthique
-          href: class-type-ethical-hacking.md
-        - name: Gestion de bases de données
-          href: class-type-database-management.md
-        - name: Python et Jupyter Notebooks
-          href: class-type-jupyter-notebook.md
-        - name: Développement d’applications mobiles avec Android Studio
-          href: class-type-mobile-dev-android-studio.md
-        - name: Analytique du Big Data
-          href: class-type-big-data-analytics.md
     - name: Créer et configurer des comptes lab (propriétaire de compte lab)
       items:
         - name: Créer et gérer des comptes lab
           href: how-to-manage-lab-accounts.md
-        - name: Configurer des comptes lab
+        - name: Gérer les laboratoires dans un compte lab
+          href: manage-labs.md
+        - name: Configurer l’arrêt automatique des machines virtuelles
           href: how-to-configure-lab-accounts.md
         - name: Ajouter un créateur de lab
           href: add-lab-creator.md
@@ -108,9 +110,9 @@
           href: how-to-prepare-windows-template.md
         - name: Contrôler le comportement d’arrêt de Windows
           href: how-to-windows-shutdown.md
-        - name: Consulter des informations de support (formateur)
+        - name: Afficher les informations de support (formateur)
           href: lab-creator-support-information.md
-        - name: Accéder aux machines virtuelles des étudiants depuis la vue de l’instructeur
+        - name: Accéder aux machines virtuelles des étudiants depuis la vue du formateur
           href: instructor-access-virtual-machines.md
     - name: Se connecter à des machines virtuelles dans des laboratoires de classe (étudiant)
       items:

@@ -67,6 +67,8 @@
           href: cdn-restrict-access-by-country.md
         - name: Compression des fichiers pour améliorer les performances
           href: cdn-improve-performance.md
+        - name: Plusieurs origines de point de terminaison
+          href: endpoint-multiorigin.md
         - name: Contrôler le comportement de mise en cache
           items:
             - name: Contrôler le comportement de mise en cache en utilisant des règles de mise en cache
