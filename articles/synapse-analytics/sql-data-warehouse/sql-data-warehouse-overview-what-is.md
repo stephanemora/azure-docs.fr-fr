@@ -10,19 +10,18 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 27e6c7beb8c88a29b90b30e0c77e35e493f2480a
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 5c6580d4fe7431c942ec4886b9dafc6148635b18
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690907"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585366"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Qu’est-ce qu’Azure Synapse Analytics (anciennement SQL DW) ?
 
 > [!NOTE] 
-> Essayez les dernières fonctionnalités Azure Synapse, telles que les espaces de travail, Spark, SQL à la demande et l’expérience de Synapse Studio intégrée en [demandant l’accès à Azure Synapse (espaces de travail en préversion)](https://aka.ms/synapsepreview). 
->
 >Explorez la [documentation d’Azure Synapse (espaces de travail en préversion)](../overview-what-is.md).
+>
 
 Azure Synapse est un service d’analytique qui regroupe l’entreposage des données d’entreprise et l’analytique de Big Data. Il vous donne la possibilité d’interroger les données avec votre propre vocabulaire, en utilisant des ressources serverless à la demande ou des ressources provisionnées, le tout à grande échelle. Azure Synapse rassemble ces deux mondes avec une expérience unifiée pour la réception, la préparation, la gestion et la remise de données pour les besoins immédiats d’apprentissage automatique et décisionnels.
 
@@ -30,12 +29,10 @@ Azure Synapse comporte quatre composants :
 
 - Synapse SQL : Effectuer des analyses basées sur T-SQL – Disponibilité générale
   - Pool SQL (paiement par DWU configuré)
-  - SQL à la demande (paiement par To traité) – (Préversion)
+  - SQL à la demande (paiement par To traité) (préversion)
 - Spark : Apache Spark profondément intégré (préversion)
 - Pipelines Azure Synapse : Intégration des données hybrides (préversion)
-- Studio : Expérience d'utilisateur final unifiée.  (Préversion)
-
-
+- Studio : Expérience d'utilisateur final unifiée. (préversion)
 
 ## <a name="synapse-sql-pool-in-azure-synapse"></a>Pool Synapse SQL dans Azure Synapse
 

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
-ms.openlocfilehash: 44bb223dbc944be1b8769aa2572f1b88b916528b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82b294cbda6e9d4b4cfa5ec560d802c8e5c6c51c
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79372038"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590891"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>Chiffrement des données au repos par le traducteur
 
@@ -22,7 +22,7 @@ Le Traducteur chiffre automatiquement vos données, que vous chargez pour créer
 
 ## <a name="about-cognitive-services-encryption"></a>À propos du chiffrement Cognitive Services
 
-Les données sont chiffrées et déchiffrées à l'aide du chiffrement [AES 256 bits](https://en.wikipedia.org/wiki/FIPS_140-2) certifié [FIPS 140-2](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). Le chiffrement et le déchiffrement sont transparents, ce qui signifie que le chiffrement et l'accès sont gérés pour vous. Vos données sont sécurisées par défaut. Vous n'avez pas besoin de modifier votre code ou vos applications pour tirer parti du chiffrement.
+Les données sont chiffrées et déchiffrées à l'aide du chiffrement [AES 256 bits](https://en.wikipedia.org/wiki/FIPS_140-2) certifié [FIPS 140-2](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). Le chiffrement et le déchiffrement sont transparents, ce qui signifie que le chiffrement et l’accès sont gérés automatiquement. Comme vos données sont sécurisées par défaut, vous n’avez pas besoin de modifier votre code ou vos applications pour tirer parti du chiffrement.
 
 ## <a name="about-encryption-key-management"></a>À propos de la gestion des clés de chiffrement
 
@@ -41,7 +41,7 @@ Une option vous permet également de gérer votre abonnement avec vos propres cl
 
 Afin d'activer les clés gérées par le client pour le Traducteur, procédez comme suit :
 
-1. Créez votre nouvelle ressource régionale Traduction de texte Translator Text ou Cognitive Services. Cela ne fonctionnera pas avec une ressource globale.
+1. Créez votre nouvelle ressource Translator régionale ou Cognitive Services régionale. Cela ne fonctionnera pas avec une ressource globale.
 2. Activez l'identité managée sur le portail Azure et ajoutez les informations relatives à vos clés gérées par le client.
 3. Créez un nouvel espace de travail dans Custom Translator et associez ces informations d'abonnement.
 

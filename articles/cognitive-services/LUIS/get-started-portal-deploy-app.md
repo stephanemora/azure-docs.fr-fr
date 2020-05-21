@@ -2,13 +2,13 @@
 title: 'Démarrage rapide : Déployer une application avec le portail LUIS'
 description: Ce guide de démarrage rapide montre comment déployer une application en créant une ressource de point de terminaison de prédiction, en affectant la ressource à l’application, puis en entraînant et en publiant l’application.
 ms.topic: quickstart
-ms.date: 04/06/2020
-ms.openlocfilehash: aaf86766c2357c5382b78cd4a35fd4b159e5c0f3
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.date: 05/06/2020
+ms.openlocfilehash: 9b22f1eda822b5354f0b434a04c2ea03e4c0ff2a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756293"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585064"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Démarrage rapide : Déployer une application dans le portail LUIS
 
@@ -30,7 +30,7 @@ Dans ce démarrage rapide, vous allez apprendre à déployer une application. Cr
 
 Chaque fois que vous créez une ressource de création ou de prédiction de requête pour LUIS, vous devez l’affecter à l’application LUIS. Une fois qu’elle est affectée, vous n’avez plus besoin d’effectuer cette étape, sauf si vous créez une nouvelle ressource. Vous pouvez être amené à créer une nouvelle ressource pour étendre les régions de votre application ou pour prendre en charge un nombre plus élevé de requêtes de prédiction.
 
-1. Connectez-vous à la [préversion du portail LUIS](https://preview.luis.ai), puis choisissez l’application **myEnglishApp** dans la liste des applications.
+1. Connectez-vous au [portail LUIS](https://www.luis.ai), puis choisissez l’application **myEnglishApp** dans la liste des applications.
 
 1. Dans le menu supérieur droit, sélectionnez **Manage** (Gérer), puis **Azure Resources** (Ressources Azure).
 
@@ -59,7 +59,7 @@ Chaque fois que vous créez une ressource de création ou de prédiction de requ
 
 ## <a name="prediction-endpoint-request"></a>Demande de point de terminaison de prédiction
 
-Dans le portail en préversion, `query=` à la fin de l’URL représente l’endroit où l’énoncé de l’utilisateur est ajouté à la requête GET. Après le `query=`, entrez le même énoncé utilisateur que celui utilisé à la fin du guide de démarrage rapide précédent :
+Dans le portail, `query=` à la fin de l’URL représente l’endroit où l’énoncé de l’utilisateur est ajouté à la requête GET. Après le `query=`, entrez le même énoncé utilisateur que celui utilisé à la fin du guide de démarrage rapide précédent :
 
 ```Is there a form named hrf-234098```
 

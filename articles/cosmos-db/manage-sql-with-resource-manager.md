@@ -4,14 +4,14 @@ description: Utiliser des modèles Azure Resource Manager afin de créer et conf
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/08/2020
 ms.author: mjbrown
-ms.openlocfilehash: 577bc34e5e4b01a234460e5e175c23fd8215743f
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: dfdeb210c59377822b2ee69bde286b87c2251021
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791202"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592489"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-with-azure-resource-manager-templates"></a>Gérer les ressources de l’API Core (SQL) Azure Cosmos DB à l’aide de modèles Azure Resource Manager
 
@@ -25,7 +25,7 @@ Cet article présente uniquement des exemples de modèles Azure Resource Manager
 > * Pour changer les valeurs de débit, redéployez le modèle avec les valeurs de RU/s mises à jour.
 > * Quand vous ajoutez ou supprimez des emplacements dans un compte Azure Cosmos, vous ne pouvez pas simultanément modifier d’autres propriétés. Ces opérations doivent être effectuées séparément.
 
-Pour créer l’une des ressources Azure Cosmos DB ci-dessous, copiez l’exemple de modèle suivant dans un nouveau fichier JSON. Vous pouvez éventuellement créer un fichier JSON de paramètres à utiliser lors du déploiement de plusieurs instances de la même ressource avec des valeurs et noms différents. Il existe de nombreuses façons de déployer des modèles Azure Resource Manager, notamment : le [Portail Azure](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) et [GitHub](../azure-resource-manager/templates/deploy-to-azure-button.md).
+Pour créer l’une des ressources Azure Cosmos DB ci-dessous, copiez l’exemple de modèle suivant dans un nouveau fichier json. Vous pouvez éventuellement créer un fichier json de paramètres à utiliser lors du déploiement de plusieurs instances de la même ressource avec des valeurs et noms différents. Il existe de nombreuses façons de déployer des modèles Azure Resource Manager, notamment : le [Portail Azure](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) et [GitHub](../azure-resource-manager/templates/deploy-to-azure-button.md).
 
 <a id="create-autoscale"></a>
 
@@ -36,6 +36,146 @@ Ce modèle crée un compte Azure Cosmos dans deux régions avec des options de c
 [![Déployer sur Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-autoscale%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-sql-autoscale/azuredeploy.json":::
+
+<a id="create-analytical-store"></a>
+
+## <a name="azure-cosmos-account-with-analytical-store"></a>Compte Azure Cosmos avec le magasin analytique
+
+Ce modèle crée un compte Azure Cosmos dans une région avec un conteneur dont une durée de vie analytique est activée et avec des options de débit manuel ou de mise à l’échelle automatique.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+       "accountName": {
+          "type": "string",
+          "defaultValue": "",
+          "metadata": {
+             "description": "Cosmos DB account name"
+          }
+       },
+       "location": {
+          "type": "string",
+          "defaultValue": "",
+          "metadata": {
+             "description": "Location for the Cosmos DB account."
+          }
+       },
+        "databaseName": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "The name for the database"
+            }
+        },
+        "containerName": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "The name for the container"
+            }
+        },
+        "partitionKeyPath": {
+            "type": "string",
+            "defaultValue": "/partitionKey",
+            "metadata": {
+                "description": "The partition key for the container"
+            }
+        },
+        "throughputPolicy":{
+            "type": "string",
+            "defaultValue": "Autoscale",
+            "allowedValues": [ "Manual", "Autoscale" ],
+            "metadata": {
+                "description": "The throughput policy for the container"
+            }
+        },
+        "manualProvisionedThroughput": {
+            "type": "int",
+            "defaultValue": 400,
+            "minValue": 400,
+            "maxValue": 1000000,
+            "metadata": {
+                "description": "Throughput value when using Manual Throughput Policy for the container"
+            }
+        },
+        "maxAutoscaleThroughput": {
+            "type": "int",
+            "defaultValue": 4000,
+            "minValue": 4000,
+            "maxValue": 1000000,
+            "metadata": {
+                "description": "Maximum throughput when using Autoscale Throughput Policy for the container"
+            }
+        }
+    },
+    "variables": {
+        "accountName": "[toLower(parameters('accountName'))]",
+        "locations": 
+        [ 
+            {
+                "locationName": "[parameters('location')]",
+                "failoverPriority": 0,
+                "isZoneRedundant": false
+            }
+        ],
+        "throughputPolicy": {
+            "Manual": {
+                "Throughput": "[parameters('manualProvisionedThroughput')]"
+            },
+            "Autoscale": {
+                "ProvisionedThroughputSettings": "[concat('{\"maxThroughput\":\"', parameters('maxAutoscaleThroughput'), '\"}')]"
+            }            
+        },
+        "throughputPolicyToUse": "[if(equals(parameters('throughputPolicy'), 'Manual'), variables('throughputPolicy').Manual, variables('throughputPolicy').Autoscale)]"
+    },
+    "resources": 
+    [
+        {
+            "type": "Microsoft.DocumentDB/databaseAccounts",
+            "name": "[variables('accountName')]",
+            "apiVersion": "2020-03-01",
+            "location": "[parameters('location')]",
+            "properties": {
+                "consistencyPolicy": {"defaultConsistencyLevel": "Session"},
+                "databaseAccountOfferType": "Standard",
+                "locations": "[variables('locations')]",
+                "enableAnalyticalStorage": true
+            }
+        },
+        {
+            "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases",
+            "name": "[concat(variables('accountName'), '/', parameters('databaseName'))]",
+            "apiVersion": "2020-03-01",
+            "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts', variables('accountName'))]" ],
+            "properties":{
+                "resource":{
+                    "id": "[parameters('databaseName')]"
+                }
+            }
+        },
+        {
+            "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
+            "name": "[concat(variables('accountName'), '/', parameters('databaseName'), '/', parameters('containerName'))]",
+            "apiVersion": "2020-03-01",
+            "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', variables('accountName'), parameters('databaseName'))]" ],
+            "properties":
+            {
+                "resource":{
+                    "id":  "[parameters('containerName')]",
+                    "partitionKey": {
+                        "paths": [ "[parameters('partitionKeyPath')]" ],
+                        "kind": "Hash"
+                    },
+                    "analyticalStorageTtl": -1
+                },
+                "options": "[variables('throughputPolicyToUse')]"
+            }
+        }
+    ]
+}
+```
 
 <a id="create-manual"></a>
 

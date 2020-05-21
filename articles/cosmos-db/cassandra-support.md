@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 223544f7ceddce6bc2071d561da1cff1c0d4b53b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 978dbf3d8e6a92242c0a984b26bb35cf911a3369
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80420148"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590421"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Fonctionnalités Apache Cassandra prises en charge par l’API Cassandra Azure Cosmos DB 
 
@@ -104,9 +104,13 @@ L’API Cassandra Azure Cosmos DB est une plateforme de services managés. Elle 
 
 * L’Explorateur de données du portail Azure, les métriques, les diagnostics de journaux, PowerShell et CLI sont d’autres mécanismes pris en charge pour gérer le compte.
 
-## <a name="cql-shell"></a>Interpréteur de commandes CQL  
+## <a name="hosted-cql-shell-preview"></a>Interpréteur de commandes CQL hébergé (préversion)
 
-L’utilitaire de ligne de commande CQLSH est fourni avec Apache Cassandra 3.1.1. Il est prêt à fonctionner moyennant la définition de certaines variables d’environnement.
+Vous pouvez ouvrir un interpréteur de commandes Cassandra natif hébergé (CQLSH 5.0.1) directement à partir de l’Explorateur de données dans le [Portail Microsoft Azure](data-explorer.md) ou l’[explorateur Azure Cosmos](https://cosmos.azure.com/). Avant l’interpréteur de commandes CQL, vous devez [activer la fonctionnalité Notebooks](enable-notebooks.md) dans votre compte (si ce n’est déjà fait, vous serez invité à cliquer sur `Open Cassandra Shell`). Consultez la note en surbrillance dans [Activer les notebooks pour un compte Azure Cosmos DB](enable-notebooks.md) pour les régions Azure prises en charge.
+
+![CQLSH](./media/cassandra-support/cqlsh.png)
+
+Vous pouvez également vous connecter à l’API Cassandra dans Azure Cosmos DB à l’aide de l’interpréteur CQLSH installé sur un ordinateur local. Il est fourni avec Apache Cassandra 3.1.1 et prêt à fonctionner moyennant la définition des variables d’environnement. Les sections suivantes incluent les instructions d’installation, de configuration et de connexion à l’API Cassandra dans Azure Cosmos DB sur Windows ou Linux à l’aide de CQLSH.
 
 **Windows :**
 
@@ -198,9 +202,8 @@ ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
 
 ## <a name="usage-of-cassandra-retry-connection-policy"></a>Utilisation de la stratégie de connexion de nouvelle tentative Cassandra
 
-Azure Cosmos DB est un système régi par les ressources. Cela signifie que vous pouvez effectuer un certain nombre d’opérations durant une seconde donnée, en fonction des unités de requête consommées par les opérations. Si une application dépasse cette limite durant une seconde donnée, le taux des requêtes est limité et des exceptions sont levées. L’API Cassandra dans Azure Cosmos DB traduit ces exceptions en erreurs surchargées sur le protocole natif Cassandra. Pour vous assurer que votre application peut intercepter et effectuer de nouvelles tentatives de requête en cas de limitation du taux, les extensions [spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) et [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) sont fournies. Si vous utilisez d’autres kits SDK pour accéder à l’API Cassandra dans Azure Cosmos DB, créez une stratégie de connexion pour effectuer une nouvelle tentative quand ces exceptions se produisent.
+Azure Cosmos DB est un système régi par les ressources. Cela signifie que vous pouvez effectuer un certain nombre d’opérations durant une seconde donnée, en fonction des unités de requête consommées par les opérations. Si une application dépasse cette limite durant une seconde donnée, le taux des requêtes est limité et des exceptions sont levées. L’API Cassandra dans Azure Cosmos DB traduit ces exceptions en erreurs surchargées sur le protocole natif Cassandra. Pour vous assurer que votre application peut intercepter et effectuer de nouvelles tentatives de requête en cas de limitation du taux, les extensions [spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) et [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) sont fournies. Consultez également les exemples de code Java pour les pilotes Datastax [version 3](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) et [version 4](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample-v4) lors de la connexion à l’API Cassandra dans Azure Cosmos DB. Si vous utilisez d’autres kits SDK pour accéder à l’API Cassandra dans Azure Cosmos DB, créez une stratégie de connexion pour effectuer une nouvelle tentative quand ces exceptions se produisent.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Bien démarrer avec la [création d’un compte d’API Cassandra, d’une base de données et d’une table](create-cassandra-api-account-java.md) à l’aide d’une application Java
-

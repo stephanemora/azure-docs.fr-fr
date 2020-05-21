@@ -6,40 +6,66 @@ manager: nitinme
 description: Deux tableaux représentant les registres de conteneurs, les dépôts et les noms d’images pour toutes les offres Cognitive Services.
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 04/24/2020
 ms.author: aahi
-ms.openlocfilehash: a854a090af908da691e9b26f5b0714c6560fc0ba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9025e016725a966061c557f16b610d8897c04c11
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876820"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590659"
 ---
 ### <a name="container-repositories-and-images"></a>Images et référentiels de conteneurs
 
-Les tableaux ci-dessous répertorient les images conteneurs offertes par Azure Cognitive Services. Pour obtenir la liste complète de tous les noms d’image conteneur disponibles et leurs étiquettes utilisables, consultez [Étiquettes des images conteneurs Cognitive Services](../container-image-tags.md). Actuellement, il n’existe pas de conteneurs Cognitive Services en disponibilité générale. Pour le moment, jusqu’à ce que d’autres annonces soient faites, les conteneurs sont disponibles de façon *publique non contrôlée* ou en *préversion publique contrôlée*.
+Les tableaux ci-dessous répertorient les images conteneurs offertes par Azure Cognitive Services. Pour obtenir la liste complète de tous les noms d’image conteneur disponibles et leurs étiquettes utilisables, consultez [Étiquettes des images conteneurs Cognitive Services](../container-image-tags.md). 
 
- - *Publique non contrôlée* : les conteneurs sont disponibles publiquement sans mécanisme de contrôle.
- - *Préversion publique contrôlée* : les conteneurs sont disponibles publiquement, mais exigent d’abord une demande formelle pour l’accès au registre des conteneurs.
+#### <a name="generally-available"></a>Mise à la disposition générale 
 
-#### <a name="public-ungated-container-registry-mcrmicrosoftcom"></a>Public « non contrôlé » (registre de conteneurs : `mcr.microsoft.com`)
+Le registre de conteneurs Microsoft (MCR) regroupe tous les conteneurs généralement disponibles publiquement pour Cognitive Services. Les conteneurs sont également accessibles directement à partir du [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
-Le registre de conteneurs Microsoft (MCR) regroupe tous les conteneurs « non contrôlés » disponibles publiquement pour Cognitive Services. Les conteneurs sont également accessibles directement à partir du [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
+#### <a name="luis"></a>[LUIS](#tab/luis)
+
+| Conteneur LUIS | Nom de registre de conteneurs / référentiel / image |
+|--|--|
+| LUIS | `mcr.microsoft.com/azure-cognitive-services/luis` |
+
+Pour plus d’informations, consultez [Comment exécuter et installer des conteneurs LUIS](../../LUIS/luis-container-howto.md).
+
+#### <a name="text-analytics"></a>[Analyse de texte](#tab/text-analytics)
+
+| Conteneur Analyse de texte | Nom de registre de conteneurs / référentiel / image |
+|--|--|
+| Analyse des sentiments v3 (anglais) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-en` |
+| Analyse des sentiments v3 (espagnol) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-es` |
+| Analyse des sentiments v3 (français) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-fr` |
+| Analyse des sentiments v3 (italien) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-it` |
+| Analyse des sentiments v3 (allemand) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-de` |
+| Analyse des sentiments v3 (chinois - simplifié) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-zh` |
+| Analyse des sentiments v3 (chinois - traditionnel) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-zht` |
+| Analyse des sentiments v3 (japonais) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-ja` |
+| Analyse des sentiments v3 (portugais) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-pt` |
+| Analyse des sentiments v3 (néerlandais) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-nl` |
+
+Pour plus d’informations, consultez [Comment exécuter et installer des conteneurs Analyse de texte](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md).
+
+---
+
+#### <a name="public-ungated-preview-container-registry-mcrmicrosoftcom"></a>Préversion « non contrôlée » publique (registre de conteneurs : `mcr.microsoft.com`)
+
+Les conteneurs en préversion sont à la disposition du public. Le registre de conteneurs Microsoft (MCR) regroupe tous les conteneurs non contrôlés disponibles publiquement pour Cognitive Services. Les conteneurs sont également accessibles directement à partir du [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
 | Service | Conteneur | Nom de registre de conteneurs / référentiel / image |
 |--|--|--|
-| [LUIS](../../LUIS/luis-container-howto.md) | LUIS | `mcr.microsoft.com/azure-cogni'ive-services/luis` |
 | [Analyse de texte](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Extraction d’expressions clés | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
 | [Analyse de texte](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Détection de la langue | `mcr.microsoft.com/azure-cognitive-services/language` |
-| [Analyse de texte](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Analyse des sentiments | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
+| [Détecteur d’anomalies](../../anomaly-detector/anomaly-detector-container-howto.md) | Le détecteur d’anomalies | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector` |
 
 #### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>Préversion « contrôlée » publique (registre de conteneurs : `containerpreview.azurecr.io`)
 
-Le registre des conteneurs en préversion héberge tous les conteneurs « contrôlés » disponibles publiquement pour Cognitive Services. L’accès à ces conteneurs nécessite qu’une demande formelle leur soit adressée via leur registre de conteneurs.
+Les conteneurs en préversion contrôlée suivants sont hébergés dans le registre Container Preview et nécessitent une application pour y accéder. Pour plus d’informations, consultez [Processus de contrôle Cognitive Services](../../cognitive-services-gating-process.md).
 
 | Service | Conteneur | Nom de registre de conteneurs / référentiel / image |
 |--|--|--|
-| [Détecteur d’anomalies](../../anomaly-detector/anomaly-detector-container-howto.md) | Le détecteur d’anomalies | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector` |
 | [Vision par ordinateur](../../Computer-vision/computer-vision-how-to-install-containers.md) | Lire | `containerpreview.azurecr.io/microsoft/cognitive-services-read` |
 | [Visage](../../face/face-how-to-install-containers.md) | Face | `containerpreview.azurecr.io/microsoft/cognitive-services-face` |
 | [Form recognizer](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) | Form Recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer` |

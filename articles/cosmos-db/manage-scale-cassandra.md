@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: thvankra
-ms.openlocfilehash: 13d7e0bfd3c7061d9dec68a1d14ff2a5e2c05fcd
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 8f84d611ecdf3fc0f86273498753e550315cd878
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791253"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586182"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Mettre à l’échelle de manière élastique un compte d’API Cassandra Azure Cosmos DB
 
@@ -63,6 +63,22 @@ L’avantage de cette approche est qu’elle vous permet de répondre aux besoin
 En plus de la façon standard (manuelle) ou par programmation d’approvisionner le débit, vous pouvez également configurer des conteneurs Azure Cosmos avec le débit approvisionné en mode de mise à l’échelle automatique. La mise à l’échelle automatique s’adapte automatiquement et instantanément à vos besoins en matière de consommation dans les limites RU spécifiées, sans compromettre les SLA. Pour en savoir plus, consultez l’article [Créer des conteneurs et des bases de données Azure Cosmos en mise à l’échelle automatique](provision-throughput-autoscale.md).
 
 L’avantage de cette approche est qu’il s’agit du moyen le plus simple de gérer les besoins de mise à l’échelle dans votre système. Elle garantit de ne pas appliquer de limitation du débit **dans les plages RU configurées**. L’inconvénient est que, si les besoins en matière de mise à l’échelle dans votre système sont prévisibles, la mise à l’échelle automatique peut être un moyen plus onéreux de gérer vos besoins de mise à l’échelle que d’utiliser les approches du plan de contrôle ou du Kit de développement logiciel (SDK) mentionnées ci-dessus.
+
+Pour définir ou modifier le débit maximal (unités de requête) pour la mise à l’échelle automatique à l’aide de CQL, utilisez la commande suivante (en remplaçant l’espace de noms/le nom de la table en conséquence) :
+
+```Bash
+# to set max throughput (RUs) for autoscale at keyspace level:
+create keyspace <keyspace name> WITH cosmosdb_autoscale_max_throughput=5000;
+
+# to alter max throughput (RUs) for autoscale at keyspace level:
+alter keyspace <keyspace name> WITH cosmosdb_autoscale_max_throughput=4000;
+
+# to set max throughput (RUs) for autoscale at table level:
+create table <keyspace name>.<table name> (pk int PRIMARY KEY, ck int) WITH cosmosdb_autoscale_max_throughput=5000;
+
+# to alter max throughput (RUs) for autoscale at table level:
+alter table <keyspace name>.<table name> WITH cosmosdb_autoscale_max_throughput=4000;
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

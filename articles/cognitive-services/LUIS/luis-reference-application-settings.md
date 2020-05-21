@@ -2,34 +2,29 @@
 title: Paramètres d’application - LUIS
 description: Les paramètres d’application pour des applications Language Understanding Azure Cognitive Services sont stockés dans l’application et le portail.
 ms.topic: reference
-ms.date: 04/14/2020
-ms.openlocfilehash: 9e17736cd6ff5074a6eab76a6cf5bdb8acedc185
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.date: 05/04/2020
+ms.openlocfilehash: 7b545e0959a43520b7d643ef8c0658a1e1a3b295
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382198"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590981"
 ---
-# <a name="application-settings"></a>Paramètres de l’application
+# <a name="app-and-version-settings"></a>Paramètres d’application et de version
 
-Ces paramètres d’application sont stockés dans l’application [exportée](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) et [mis à jour](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) avec les API REST. Le fait de modifier vos paramètres de version d’application réinitialise le statut d’entraînement de votre application sur « Non entraînée ».
+Ces paramètres sont stockés dans l’application [exportée](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) et mis à jour avec les API REST ou le portail LUI.
 
-Découvrez les [concepts](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) des signes diacritiques et de la ponctuation.
+Le fait de modifier vos paramètres de version d’application réinitialise le statut d’entraînement de votre application sur « Non entraînée ».
 
-|Paramètre|Valeur par défaut|Notes|
-|--|--|--|
-|NormalizePunctuation|True|Supprime les signes de ponctuation.|
-|NormalizeDiacritics|True|Supprime les signes diacritiques.|
+[!INCLUDE [App and version settings](includes/app-version-settings.md)]
+
+
+Une référence de texte et des exemples incluent ce qui suit :
+
+* [Ponctuation](#punctuation-normalization)
+* [Signes diacritiques](#diacritics-normalization)
 
 ## <a name="diacritics-normalization"></a>Normalisation des signes diacritiques
-
-Activez la normalisation de l’énoncé pour les signes diacritiques dans votre fichier d’application LUIS JSON avec le paramètre `settings`.
-
-```JSON
-"settings": [
-    {"name": "NormalizeDiacritics", "value": "true"}
-]
-```
 
 Les énoncés suivants montrent l’impact de la normalisation des signes diacritiques sur les énoncés :
 
@@ -133,16 +128,7 @@ Cela inclut les sous-cultures Mexicain et Espagnol.
 |`ü`|`u`|
 |`ñ`|`u`|
 
-
 ## <a name="punctuation-normalization"></a>Normalisation des signes de ponctuation
-
-Activez la normalisation de l’énoncé pour la ponctuation dans votre fichier d’application LUIS JSON avec le paramètre `settings`.
-
-```JSON
-"settings": [
-    {"name": "NormalizePunctuation", "value": "true"}
-]
-```
 
 Les énoncés suivants montrent l’impact de la ponctuation sur les énoncés :
 
