@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: trbye
-ms.openlocfilehash: b7cca314ec59e46cf17751b1aec28b5c3ea029ed
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0e18fd0c52fd4090477599f53cd0ef0bc05855f2
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81401070"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587338"
 ---
 # <a name="long-audio-api-preview"></a>API Audio long (préversion)
 
-L’API Audio long est conçue pour la synthèse asynchrone de texte de long en parole (par exemple, livres audio). Cette API ne retourne pas d’audio synthétisé en temps réel. Au lieu de cela, vous êtes supposé interroger la ou les réponses et utiliser la ou les sorties à mesure que le service les rend disponibles. Contrairement à l’API de synthèse vocale utilisée par le Kit de développement logiciel (SDK) Speech, l’API Audio long peut créer de l’audio synthétisé de plus de 10 minutes, ce qui la rend idéale pour les éditeurs et les plateformes de contenu audio.
+L’API Audio long est conçue pour la synthèse asynchrone de texte long en parole (par exemple, livres audio, articles de presse et documents). Cette API ne retourne pas d’audio synthétisé en temps réel. Au lieu de cela, vous êtes supposé interroger la ou les réponses et utiliser la ou les sorties à mesure que le service les rend disponibles. Contrairement à l’API de synthèse vocale utilisée par le Kit de développement logiciel (SDK) Speech, l’API Audio long peut créer de l’audio synthétisé de plus de 10 minutes, ce qui la rend idéale pour les éditeurs et les plateformes de contenu audio.
 
 Autres avantages de l’API Audio long  :
 
-* La synthèse vocale que le service retourne utilise des voix neuronales, ce qui garantit des sorties audio haute fidélité.
-* Les réponses en temps réel n’étant pas prises en charge, il n’est pas nécessaire de déployer un point de terminaison vocal.
+* La synthèse vocale renvoyée par le service utilise les meilleures voix neuronales.
+* Il n’est pas nécessaire de déployer de point de terminaison vocal, car celui-ci synthétise les voix dans un mode batch qui n’est pas en temps réel.
 
 > [!NOTE]
-> L’API Audio long prend désormais en charge uniquement la [voix neuronale personnalisée](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
+> L’API Audio long prend désormais en charge les [voix neuronales publiques](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) et les [voix neuronales personnalisées](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
 
 ## <a name="workflow"></a>Workflow
 
@@ -52,14 +52,47 @@ Lors de la préparation de votre fichier texte, vérifiez les points suivants :
 
 ## <a name="submit-synthesis-requests"></a>Envoyer des demandes de synthèse vocale
 
-Après avoir préparé le contenu d’entrée, suivez le [Guide de démarrage rapide de la synthèse audio de longue durée](https://aka.ms/long-audio-python) pour envoyer la demande. Si vous avez plusieurs fichiers d’entrée, vous devrez envoyer plusieurs demandes. Il existe certaines limites à connaître : 
-* Le client est autorisé à envoyer jusqu’à 5 demandes par seconde au serveur pour chaque compte d’abonnement Azure. Si la limite est dépassée, le client reçoit un code d’erreur 429 (trop de demandes). Réduisez la quantité de demandes par seconde
-* Le serveur est autorisé à exécuter et à mettre en file d’attente jusqu’à 120 demandes pour chaque compte d’abonnement Azure. Si la limite est dépassée, le serveur retourne un code d’erreur 429 (trop de demandes). Attendez et évitez d’envoyer une nouvelle demande avant que quelques demandes ne soient traitées
-* Le serveur conservera jusqu’à 20 000 demandes pour chaque compte d’abonnement Azure. Si la limite est dépassée, supprimez quelques demandes avant d’en envoyer de nouvelles
+Après avoir préparé le contenu d’entrée, suivez le [Guide de démarrage rapide de la synthèse audio de longue durée](https://aka.ms/long-audio-python) pour envoyer la demande. Si vous avez plusieurs fichiers d’entrée, vous devrez envoyer plusieurs demandes. 
+
+Les **codes d’état HTTP** indiquent les erreurs courantes.
+
+| API | Code d'état HTTP | Description | Proposition |
+|-----|------------------|-------------|----------|
+| Créer | 400 | La synthèse vocale n’est pas activée dans cette région. | Modifiez la clé d’abonnement au service Speech de façon à utiliser une région prise en charge. |
+|        | 400 | Seuls sont valides les abonnements de niveau **Standard** au service Speech pour cette région. | Modifiez la clé d’abonnement au service Speech de façon à utiliser le niveau de tarification « Standard ». |
+|        | 400 | Dépassement de la limite de 20 000 demandes pour le compte Azure. Supprimez des demandes pour pouvoir en envoyer de nouvelles. | Le serveur conserve un maximum de 20 000 demandes pour chaque compte Azure. Supprimez des demandes pour pouvoir en envoyer de nouvelles. |
+|        | 400 | Ce modèle ne peut pas être utilisé dans la synthèse vocale : {modelID}. | Vérifiez que l’état de {modelID} est correct. |
+|        | 400 | La région de la demande ne correspond pas à celle du modèle : {modelID}. | Vérifiez que la région de {modelID} correspond à celle de la demande. |
+|        | 400 | La synthèse vocale ne prend en charge que le fichier texte au format d’encodage UTF-8 avec le marqueur d’ordre d’octet. | Vérifiez que les fichiers d’entrée sont au format d’encodage UTF-8 avec le marqueur d’ordre d’octet. |
+|        | 400 | Seules les entrées SSML valides sont autorisées dans la demande de synthèse vocale. | Vérifiez que les expressions SSML d’entrée sont correctes. |
+|        | 400 | Le nom de voix {voiceName} est introuvable dans le fichier d’entrée. | Le nom de voix SSML d’entrée n’est pas aligné avec l’ID de modèle. |
+|        | 400 | Le nombre de paragraphes dans le fichier d’entrée ne doit pas excéder 10 000. | Vérifiez que le nombre de paragraphes dans le fichier est inférieur à 10 000. |
+|        | 400 | Le fichier d’entrée doit comprendre plus de 400 caractères. | Vérifiez que votre fichier d’entrée comporte plus de 400 caractères. |
+|        | 404 | Le modèle déclaré dans la définition de synthèse vocale est introuvable : {modelID}. | Vérifiez que le {modelID} est correct. |
+|        | 429 | Dépassement de la limite de synthèse vocale active. Veuillez attendre que des demandes soient traitées. | Le serveur est autorisé à exécuter et à mettre en file d’attente un maximum de 120 demandes pour chaque compte Azure. Attendez et évitez d’envoyer de nouvelles demandes avant que quelques demandes ne soient traitées. |
+| Tous       | 429 | Il y a trop de demandes. | Le client est autorisé à envoyer un maximum de 5 demandes par seconde au serveur pour chaque compte Azure. Réduisez la quantité de demandes par seconde. |
+| DELETE    | 400 | La tâche de synthèse vocale est toujours en cours d’utilisation. | Vous ne pouvez supprimer que les demandes ayant l’état **Terminé** ou **Échec**. |
+| GetById   | 404 | L’entité spécifiée est introuvable. | Vérifiez que l’ID de synthèse est correct. |
+
+## <a name="regions-and-endpoints"></a>Régions et points de terminaison
+
+L’API Audio long est disponible dans plusieurs régions avec des points de terminaison uniques.
+
+| Région | Point de terminaison |
+|--------|----------|
+| Australie Est | `https://australiaeast.customvoice.api.speech.microsoft.com` |
+| Centre du Canada | `https://canadacentral.customvoice.api.speech.microsoft.com` |
+| USA Est | `https://eastus.customvoice.api.speech.microsoft.com` |
+| Inde Centre | `https://centralindia.customvoice.api.speech.microsoft.com` |
+| États-Unis - partie centrale méridionale | `https://southcentralus.customvoice.api.speech.microsoft.com` |
+| Asie Sud-Est | `https://southeastasia.customvoice.api.speech.microsoft.com` |
+| Sud du Royaume-Uni | `https://uksouth.customvoice.api.speech.microsoft.com` |
+| Europe Ouest | `https://westeurope.customvoice.api.speech.microsoft.com` |
+| USA Ouest 2 | `https://westus2.customvoice.api.speech.microsoft.com` |
 
 ## <a name="audio-output-formats"></a>Formats de sortie aduio
 
-Nous prenons en charge différents formats de sortie audio. Vous pouvez générer des sorties audio par paragraphe ou concaténer les données audio en une seule sortie en définissant le paramètre « concatenateResult ». Les formats de sortie audio suivants sont pris en charge par l’API Audio long :
+Nous prenons en charge différents formats de sortie audio. Vous pouvez générer des sorties audio par paragraphe ou concaténer les sorties audio en une seule sortie en définissant le paramètre « concatenateResult ». Les formats de sortie audio suivants sont pris en charge par l’API Audio long :
 
 > [!NOTE]
 > Le format audio par défaut est riff-16 khz-16 bits-mono-pcm.

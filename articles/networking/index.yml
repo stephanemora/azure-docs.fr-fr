@@ -3,7 +3,7 @@ title: Documentation sur les réseaux Azure
 summary: Découvrez les différents services réseau Azure qui fournissent une connectivité à vos ressources dans Azure, qui fournissent et protègent des applications et qui permettent de sécuriser votre réseau.
 brand: azure
 metadata:
-  title: Documentation Azure Networking
+  title: Documentation sur les réseaux Azure
   description: Les services réseau Azure offrent une connectivité à vos ressources dans Azure, fournissent et protègent des applications et permettent de sécuriser votre réseau.
   ms.service: virtual-network
   ms.topic: hub-page
@@ -12,12 +12,12 @@ metadata:
   ms.author: kumud
   manager: mtillman
   ms.date: 03/17/2020
-  ms.openlocfilehash: 5745c6c9a7f380d7e9b1d8d59d56a81581c66e14
-  ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+  ms.openlocfilehash: 99b15e3b311a033e346cb8994bb9109401d90a20
+  ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/26/2020
-  ms.locfileid: "80294312"
+  ms.lasthandoff: 05/20/2020
+  ms.locfileid: "83715765"
 highlightedContent:
   items:
   - title: Qu’est-ce qu’Azure Networking ?
@@ -32,9 +32,9 @@ highlightedContent:
   - title: Topologie réseau hub-and-spoke dans Azure
     itemType: architecture
     url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-  - title: Accès privé à un serveur de base de données SQL
-    itemType: tutorial
-    url: ../private-link/create-private-endpoint-portal.md
+  - title: Qu’est-ce qu’une préférence de routage ?
+    itemType: concept
+    url: ../virtual-network/routing-preference-overview.md
   - title: Travail à distance à l’aide des services Azure
     itemType: concept
     url: working-remotely-support.md

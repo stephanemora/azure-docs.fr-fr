@@ -4,8 +4,13 @@
   items:
     - name: "Qu’est-ce qu’Azure Firewall Manager\_?"
       href: overview.md
-- name: Tutoriels
+- name: Démarrages rapides
   expanded: true
+  items:
+    - name: Hub virtuel sécurisé
+      displayName: Resource Manager
+      href: quick-secure-virtual-hub.md
+- name: Tutoriels
   items:
     - name: Sécuriser votre WAN virtuel - Portail
       href: secure-cloud-network.md

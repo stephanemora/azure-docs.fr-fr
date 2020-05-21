@@ -240,10 +240,7 @@
               displayname: 'functions, monitor functions, automation'
               href: ../azure-functions/functions-monitoring.md
             - name: Azure Kubernetes Service
-              items:
-                - name: Kubernetes (déprécié)
-                  displayname: 'aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks'
-                  href: app/kubernetes.md
+              href: app/kubernetes-codeless.md
             - name: Autonome - tous les environnements
               items:
                 - name: Java (préversion)
@@ -1000,8 +997,6 @@
           items:
             - name: Disponibilité
               href: app/monitor-web-app-availability.md
-            - name: Alertes de métrique
-              href: app/alerts.md
         - name: Règles d’alerte de métrique
           items:
             - name: Gérer les alertes de métrique
@@ -1268,6 +1263,8 @@
           href: insights/azure-web-apps-analytics.md
         - name: Application Insights Connector
           href: platform/app-insights-connector.md
+        - name: Application Insights pour AKS sans code
+          href: app/kubernetes.md
         - name: Analyse des applications Docker
           href: app/docker.md
         - name: Obsolescence du portail OMS

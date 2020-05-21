@@ -25,9 +25,13 @@
         - name: Créer un notebook Apache Spark avec des outils web
           href: quickstart-apache-spark-notebook.md
         - name: Créer un pool Apache Spark à l’aide du portail Azure
-          href: quickstart-create-apache-spark-pool.md
-        - name: Créer un pool SQL
-          href: quickstart-create-sql-pool.md
+          href: quickstart-create-apache-spark-pool-portal.md
+        - name: Créer un pool Apache Spark à l’aide de Synapse Studio
+          href: quickstart-create-apache-spark-pool-studio.md
+        - name: Créer un pool SQL à l’aide du portail Azure
+          href: quickstart-create-sql-pool-portal.md
+        - name: Créer un pool SQL à l’aide de Synapse Studio
+          href: quickstart-create-sql-pool-studio.md
     - name: Charger des données avec les pools SQL
       items:
         - name: Instruction COPY
@@ -308,7 +312,7 @@
                   href: sql/develop-storage-files-overview.md
                 - name: Contrôle d’accès du stockage
                   href: sql/develop-storage-files-storage-access-control.md
-                - name: Tables Spark
+                - name: Tables externes Apache Spark pour Azure Synapse
                   href: sql/develop-storage-files-spark-tables.md
         - name: Gestion des charges de travail
           items:
@@ -328,8 +332,16 @@
               href: ./sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Synapse Link
       items:
+        - name: Synapse Link pour Azure Cosmos DB
+          href: ../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Vue d’ensemble du magasin analytique
+          href: ../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Fonctionnalités prises en charge par Synapse Link
           href: ./synapse-link/concept-synapse-link-cosmos-db-support.md
+        - name: Questions fréquentes (FAQ) sur Synapse Link
+          href: ../cosmos-db/synapse-link-frequently-asked-questions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Cas d’utilisation de Synapse Link
+          href: ../cosmos-db/synapse-link-use-cases.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: 'Intégration d’outils (IA, ETL, BI)'
       items:
         - name: Résoudre les problèmes liés à Synapse Analytics Studio
@@ -414,6 +426,8 @@
       items:
         - name: Synapse Link
           items:
+            - name: Configurer Synapse Link
+              href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Se connecter à Azure Synapse Link pour Cosmos DB
               href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
             - name: Interroger le magasin analytique Azure Cosmos DB avec Apache Spark pour Azure Synapse Analytics
@@ -860,14 +874,16 @@
   items:
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
+    - name: Demandes de fonctionnalités
+      href: 'https://feedback.azure.com/forums/307516-sql-data-warehouse/'
     - name: Forum
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse'
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/synapse-analytics/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Demandes de fonctionnalités
-      href: 'https://feedback.azure.com/forums/307516-sql-data-warehouse/'
+    - name: Questions et réponses
+      href: 'https://docs.microsoft.com/en-us/answers/questions/topics/single/25423.html'
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?product=sql-data-warehouse'
     - name: Stack Overflow

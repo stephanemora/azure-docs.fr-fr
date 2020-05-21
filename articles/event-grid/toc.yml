@@ -132,6 +132,14 @@
               href: event-schema-azure-signalr.md
             - name: Abonnements Azure
               href: event-schema-subscriptions.md
+    - name: Rubriques de partenaire
+      items:
+        - name: Vue d’ensemble des rubriques de partenaire
+          href: partner-topics-overview.md
+        - name: Auth0
+          href: auth0-overview.md
+        - name: Devenir partenaire Event Grid
+          href: partner-onboarding-overview.md
     - name: Domaines d'événements
       href: event-domains.md
     - name: Formats de schéma d’événement
@@ -186,6 +194,8 @@
   items:
     - name: Envoyer des messages dans une rubrique personnalisée
       href: post-to-custom-topic.md
+    - name: S’abonner aux événements Auth0
+      href: auth0-how-to.md
     - name: Recevoir des événements sur un point de terminaison HTTP
       href: receive-events.md
     - name: Lettres mortes et nouvelle tentative
@@ -214,6 +224,8 @@
           href: configure-firewall.md
         - name: Sécuriser un WebHook avec AAD
           href: secure-webhook-delivery.md
+        - name: Remise d’événement avec une identité managée
+          href: managed-service-identity.md
     - name: Dépanner
       items:
         - name: Activer les journaux de diagnostic

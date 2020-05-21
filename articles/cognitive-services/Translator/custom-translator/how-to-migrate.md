@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 2fa90a8099778bf37ce8534e968a2b1b4345c2d8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5705e5f29bc851d615f91d902fd505a69b5cfd12
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75446778"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586985"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrer un espace de travail et des projets Microsoft Hub vers Custom Translator
 
@@ -80,9 +80,9 @@ Pour migrer un espace de travail :
 
 4. Dans la page suivante, sélectionnez une de ces deux options :
 
-    a. Deployed Trainings only (Formations déployées uniquement) : cette option migre uniquement vos systèmes déployés et les documents associés.
+    a. Deployed Trainings only (Entraînements déployés uniquement) : cette option migre uniquement vos systèmes déployés et les documents associés.
 
-    b. All Successful Trainings (Toutes les formations réussies) : cette option migrera toutes vos formations réussies et les documents associés.
+    b. All Successful Trainings (Tous les entraînements réussis) : cette option migre tous vos entraînements réussis et les documents associés.
 
     c. Entrez votre ID d’espace de travail de destination dans Custom Translator.
 
@@ -104,13 +104,13 @@ Pour afficher l’historique des migrations, procédez comme suit :
 
 La page de l’historique des migrations s’affiche après les informations suivantes pour récapituler chaque migration que vous avez demandée.
 
-1. Migrated By (Migré par) : nom et adresse e-mail de l’utilisateur qui a soumis cette demande de migration
+1. Migrated By (Migré par) : nom et adresse e-mail de l’utilisateur ayant soumis cette requête de migration
 
 2. Migrated On (Migré le) : date et heure de la migration
 
-3. Projects (Projets) : nombre de projets demandés pour la migration par rapport au nombre de projets effectivement migrés.
+3. Projets : nombre de projets demandés pour la migration par rapport au nombre de projets effectivement migrés.
 
-4. Trainings (Formations) : nombre de formations demandées pour la migration par rapport au nombre de formations effectivement migrées.
+4. Trainings (Entraînements) : nombre d’entraînements demandés pour la migration par rapport au nombre d’entraînements effectivement migrés.
 
 5. Documents : nombre de documents demandés pour la migration par rapport au nombre de documents effectivement migrés.
 
@@ -134,9 +134,9 @@ Ce tableau compare les fonctionnalités de Microsoft Translator Hub et celles de
 |:-----|:----:|:----:|
 |État de la fonctionnalité de personnalisation   | Disponibilité générale  | Disponibilité générale |
 | Version de l'API de texte  | V2    | V3  |
-| Personnalisation TA statistique | Oui   | Non  |
-| Personnalisation TA neuronale | Non     | Oui |
-| Nouvelle personnalisation unifiée des services vocaux | Non     | Oui |
+| Personnalisation TA statistique | Oui   | Non |
+| Personnalisation TA neuronale | Non    | Oui |
+| Nouvelle personnalisation unifiée des services vocaux | Non    | Oui |
 | Sans trace | Oui | Oui |
 
 ## <a name="new-languages"></a>Nouvelles langues
@@ -146,4 +146,4 @@ Si vous êtes une communauté ou une organisation travaillant sur la création d
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Effectuer l’apprentissage d’un modèle](how-to-train-model.md).
-- Commencez à utiliser votre modèle Custom Translator déployé via [Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Commencez à utiliser votre modèle de traduction personnalisé déployé via [Translator V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).

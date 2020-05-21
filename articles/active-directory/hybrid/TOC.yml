@@ -278,6 +278,8 @@
           href: how-to-connect-sync-feature-scheduler.md
         - name: Créer et personnaliser une règle de synchronisation
           href: how-to-connect-create-custom-sync-rule.md
+        - name: API de point de terminaison V2 pour la synchronisation d’Azure AD Connect
+          href: how-to-connect-sync-endpoint-api-v2.md
         - name: Gestionnaire de service de synchronisation d'Azure AD Connect
           items:
             - name: Gérer l’onglet Opérations du gestionnaire de service de synchronisation

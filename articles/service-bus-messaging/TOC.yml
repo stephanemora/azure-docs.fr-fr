@@ -184,6 +184,8 @@
           href: service-bus-nodejs-how-to-use-topics-subscriptions.md
     - name: Gérer
       items:
+        - name: Mettre à jour automatiquement les unités de messagerie
+          href: automate-update-messaging-units.md
         - name: Utiliser Azure PowerShell pour approvisionner des entités
           href: service-bus-manage-with-ps.md
         - name: Superviser Service Bus avec Azure Monitor
@@ -209,7 +211,7 @@
           href: service-bus-ip-filtering.md
         - name: Configurer des points de terminaison de service de réseau virtuel
           href: service-bus-service-endpoints.md
-        - name: Configurer des points de terminaison privés (préversion)
+        - name: Configurer des points de terminaison privés
           href: private-link-service.md
         - name: Configurer les clés gérées par le client
           href: configure-customer-managed-key.md

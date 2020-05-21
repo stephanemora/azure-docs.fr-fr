@@ -1,7 +1,7 @@
 ---
-title: Méthode des exemples de dictionnaire de l’API de traduction de texte Translator Text
+title: Méthode des exemples de dictionnaire du service Translator
 titleSuffix: Azure Cognitive Services
-description: La méthode des exemples de dictionnaire de l’API Traduction de texte Translator Text fournit des exemples qui montrent comment les termes inclus dans le dictionnaire sont utilisés en contexte.
+description: La méthode des exemples de dictionnaire de Translator fournit des exemples qui montrent comment les termes inclus dans le dictionnaire sont utilisés en contexte.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: b3551a8df19e47178c7bacd9218cfa60b66d81f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1d86ac354524cb4d7bf9f9776b8605f244d92f7
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76548065"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592506"
 ---
-# <a name="translator-text-api-30-dictionary-examples"></a>API Translator Text 3.0 : Exemples de dictionnaire
+# <a name="translator-30-dictionary-examples"></a>Translator 3.0 : Exemples de dictionnaire
 
 Fournit des exemples qui illustrent l’utilisation en contexte des termes du dictionnaire. Cette opération est utilisée conjointement à la [recherche dans le dictionnaire](./v3-0-dictionary-lookup.md).
 
@@ -52,9 +52,9 @@ Les en-têtes de demande sont les suivants :
 
 Le corps de la demande est un tableau JSON. Chaque élément du tableau est un objet JSON avec les propriétés suivantes :
 
-  * `Text` : chaîne spécifiant le terme à rechercher. Elle doit correspondre à la valeur d’un champ `normalizedText` d’après les traductions inverses d’une précédente demande de [recherche dans le dictionnaire](./v3-0-dictionary-lookup.md). Elle peut également correspondre à la valeur du champ `normalizedSource`.
+  * `Text`: chaîne spécifiant le terme à rechercher. Elle doit correspondre à la valeur d’un champ `normalizedText` d’après les traductions inverses d’une précédente demande de [recherche dans le dictionnaire](./v3-0-dictionary-lookup.md). Elle peut également correspondre à la valeur du champ `normalizedSource`.
 
-  * `Translation` : chaîne spécifiant le texte traduit et renvoyé au préalable par l’opération de [recherche dans le dictionnaire](./v3-0-dictionary-lookup.md). Elle doit correspondre à la valeur du champ `normalizedTarget` dans la liste `translations` de la réponse à la [recherche dans le dictionnaire](./v3-0-dictionary-lookup.md). Le service renvoie des exemples pour la paire de mots source-cible indiquée.
+  * `Translation`: chaîne spécifiant le texte traduit et retourné au préalable par l’opération de [recherche dans le dictionnaire](./v3-0-dictionary-lookup.md). Elle doit correspondre à la valeur du champ `normalizedTarget` dans la liste `translations` de la réponse à la [recherche dans le dictionnaire](./v3-0-dictionary-lookup.md). Le service renvoie des exemples pour la paire de mots source-cible indiquée.
 
 Voici un exemple :
 
@@ -73,23 +73,23 @@ Les limites suivantes s'appliquent :
 
 Une réponse correcte est un tableau JSON avec un résultat pour chaque chaîne dans le tableau d’entrée. Un objet de résultat inclut les propriétés suivantes :
 
-  * `normalizedSource` : chaîne indiquant la forme normalisée du terme source. En règle générale, elle doit être identique à la valeur du champ `Text` dans l’index de la liste correspondante, dans le corps de la demande.
+  * `normalizedSource`: chaîne indiquant la forme normalisée du terme source. En règle générale, elle doit être identique à la valeur du champ `Text` dans l’index de la liste correspondante, dans le corps de la demande.
     
-  * `normalizedTarget` : chaîne indiquant la forme normalisée du terme cible. En règle générale, elle doit être identique à la valeur du champ `Translation` dans l’index de la liste correspondante, dans le corps de la demande.
+  * `normalizedTarget`: chaîne indiquant la forme normalisée du terme cible. En règle générale, elle doit être identique à la valeur du champ `Translation` dans l’index de la liste correspondante, dans le corps de la demande.
   
-  * `examples` : liste d’exemples pour la paire (terme source, terme cible). Chaque élément de la liste est un objet dont les propriétés sont les suivantes :
+  * `examples`: liste d’exemples pour la paire (terme source, terme cible). Chaque élément de la liste est un objet dont les propriétés sont les suivantes :
 
-    * `sourcePrefix` : chaîne à concaténer _avant_ la valeur de `sourceTerm` pour former un exemple complet. N’ajoutez aucun espace, car la chaîne en contient déjà si besoin. Cette valeur peut être une chaîne vide.
+    * `sourcePrefix`: chaîne à concaténer _avant_ la valeur de `sourceTerm` pour former un exemple complet. N’ajoutez aucun espace, car la chaîne en contient déjà si besoin. Cette valeur peut être une chaîne vide.
 
-    * `sourceTerm` : chaîne égale au terme à rechercher. Cette chaîne est ajoutée avec `sourcePrefix` et `sourceSuffix` pour former un exemple complet. Sa valeur est séparée afin de pouvoir être signalée dans une interface utilisateur (par exemple, en caractères gras).
+    * `sourceTerm`: chaîne égale au terme à rechercher. Cette chaîne est ajoutée avec `sourcePrefix` et `sourceSuffix` pour former un exemple complet. Sa valeur est séparée afin de pouvoir être signalée dans une interface utilisateur (par exemple, en caractères gras).
 
-    * `sourceSuffix` : chaîne à concaténer _après_ la valeur de `sourceTerm` pour former un exemple complet. N’ajoutez aucun espace, car la chaîne en contient déjà si besoin. Cette valeur peut être une chaîne vide.
+    * `sourceSuffix`: chaîne à concaténer _après_ la valeur de `sourceTerm` pour former un exemple complet. N’ajoutez aucun espace, car la chaîne en contient déjà si besoin. Cette valeur peut être une chaîne vide.
 
-    * `targetPrefix` : chaîne similaire à `sourcePrefix`, mais pour la cible.
+    * `targetPrefix`: chaîne similaire à `sourcePrefix`, mais pour la cible.
 
-    * `targetTerm` : chaîne similaire à `sourceTerm`, mais pour la cible.
+    * `targetTerm`: chaîne similaire à `sourceTerm`, mais pour la cible.
 
-    * `targetSuffix` : chaîne similaire à `sourceSuffix`, mais pour la cible.
+    * `targetSuffix`: chaîne similaire à `sourceSuffix`, mais pour la cible.
 
     > [!NOTE]
     > Si le dictionnaire ne contient aucun exemple, la réponse est 200 (OK), mais la liste `examples` est vide.

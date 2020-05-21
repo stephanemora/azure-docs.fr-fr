@@ -200,6 +200,8 @@
               href: howto-create-users.md
             - name: Configurer l’intégration d’Azure AD
               href: howto-configure-sign-in-aad-authentication.md
+            - name: Se connecter avec une identité managée
+              href: howto-connect-with-managed-identity.md
         - name: Optimiser
           items:
             - name: Insertions en bloc

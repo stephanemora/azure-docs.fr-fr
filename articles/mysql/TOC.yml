@@ -276,6 +276,8 @@
       items:
         - name: Configurer l’intégration d’Azure AD
           href: howto-configure-sign-in-azure-ad-authentication.md
+        - name: Se connecter avec une identité managée
+          href: howto-connect-with-managed-identity.md
     - name: Refuser l’accès au réseau public
       items:
         - name: Portail Azure

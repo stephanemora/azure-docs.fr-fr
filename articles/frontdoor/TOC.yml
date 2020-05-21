@@ -21,6 +21,8 @@
       href: front-door-tutorial-geo-filtering.md
     - name: Configurer un moteur de règles
       href: front-door-tutorial-rules-engine.md
+    - name: Pare-feu d’applications web et Front Door
+      href: front-door-waf.md
 - name: Exemples
   items:
     - name: Modèles de Gestionnaire des ressources

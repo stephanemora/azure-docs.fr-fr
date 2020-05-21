@@ -25,8 +25,6 @@
       href: quickstart-create-data-factory-rest-api.md
     - name: Créer une fabrique de données - Modèle Resource Manager
       href: quickstart-create-data-factory-resource-manager-template.md
-    - name: Sécurité - Activer le chiffrement à clé gérée par le client
-      href: quickstart-enable-customer-managed-key.md
     - name: Créer un flux de données
       href: data-flow-create.md
 - name: Tutoriels
@@ -188,8 +186,6 @@
               href: wrangling-data-flow-functions.md
     - name: Rôles et autorisations
       href: concepts-roles-permissions.md
-    - name: Compréhension de la tarification
-      href: pricing-concepts.md
     - name: Règles d’affectation des noms
       href: naming-rules.md
 - name: Guides pratiques
@@ -370,6 +366,8 @@
           href: connector-servicenow.md
         - name: SFTP
           href: connector-sftp.md
+        - name: Liste SharePoint Online
+          href: connector-sharepoint-online-list.md
         - name: Shopify
           href: connector-shopify.md
         - name: Spark
@@ -416,6 +414,8 @@
           href: copy-activity-schema-and-type-mapping.md
         - name: Tolérance de panne
           href: copy-activity-fault-tolerance.md
+        - name: Vérification de la cohérence des données
+          href: copy-activity-data-consistency.md
         - name: Prise en charge du format et de la compression (héritée)
           href: supported-file-formats-and-compression-codecs-legacy.md
     - name: Transformer les données
@@ -553,8 +553,12 @@
           href: encrypt-credentials-self-hosted-integration-runtime.md
         - name: Identité managée pour Data Factory
           href: data-factory-service-identity.md
+        - name: Chiffrement à clé gérée par le client
+          href: quickstart-enable-customer-managed-key.md
     - name: Surveillance et gestion
       items:
+        - name: Surveiller visuellement
+          href: monitor-visually.md
         - name: Surveiller avec Azure Monitor
           href: monitor-using-azure-monitor.md
         - name: Surveiller avec les Kits de développement logiciel (SDK)
@@ -577,6 +581,8 @@
           href: create-azure-ssis-integration-runtime.md
         - name: Runtime d’intégration auto-hébergé partagé
           href: create-shared-self-hosted-integration-runtime-powershell.md
+        - name: Scripts Automation du runtime d’intégration auto-hébergé
+          href: self-hosted-integration-runtime-automation-scripts.md
     - name: "Exécuter des packages\_SSIS dans Azure"
       items:
         - name: "Exécuter des packages\_SSIS dans Azure à partir de SSDT"
@@ -597,12 +603,10 @@
           href: self-hosted-integration-runtime-proxy-ssis.md
         - name: Activer l’authentification Azure AD pour le runtime d’intégration (IR) Azure-SSIS
           href: enable-aad-authentication-azure-ssis-ir.md
-        - name: Se connecter aux données avec l’authentification Windows
-          href: ssis-azure-connect-with-windows-auth.md
-        - name: Enregistrer les fichiers et se connecter aux partages de fichiers
-          href: ssis-azure-files-file-shares.md
         - name: Configurer Enterprise Edition pour le runtime d’intégration (IR) Azure-SSIS
           href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+        - name: Composants intégrés et préinstallés sur Azure-SSIS IR
+          href: built-in-preinstalled-components-ssis-integration-runtime.md
         - name: Personnalisation des configurations du runtime d’intégration (IR) Azure-SSIS
           href: how-to-configure-azure-ssis-ir-custom-setup.md
         - name: Installer les composants sous licence pour le runtime d’intégration (IR) Azure-SSIS
@@ -613,6 +617,8 @@
           href: configure-bcdr-azure-ssis-integration-runtime.md
         - name: Nettoyer les journaux d’activité SSISDB avec les travaux de base de données élastique
           href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+        - name: Utiliser Azure SQL Managed Instance avec Azure-SSIS IR
+          href: how-to-use-sql-managed-instance-with-ir.md
         - name: Migrer les travaux SSIS avec SSMS
           href: how-to-migrate-ssis-job-ssms.md
     - name: Créer des déclencheurs
@@ -645,6 +651,12 @@
           href: solution-template-move-files.md
         - name: Transformation avec Azure Databricks
           href: solution-template-databricks-notebook.md
+    - name: Compréhension de la tarification
+      items:
+        - name: Prévoir et gérer les coûts
+          href: plan-manage-costs.md
+        - name: Exemples de tarification
+          href: pricing-concepts.md
     - name: Guides de résolution des problèmes
       items:
         - name: Activités

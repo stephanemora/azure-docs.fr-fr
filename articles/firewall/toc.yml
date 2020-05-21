@@ -17,13 +17,13 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Déployer avec des groupes IP
+    - name: Déployer avec des groupes IP - Modèle ARM
       displayName: Resource Manager
       href: quick-create-ipgroup-template.md
-    - name: Déployer avec plusieurs adresses
+    - name: Déployer avec plusieurs adresses - Modèle ARM
       displayName: Resource Manager
       href: quick-create-multiple-ip-template.md
-    - name: Déployer avec des zones de disponibilité
+    - name: Déployer avec des zones de disponibilité - Modèle ARM
       displayName: Resource Manager
       href: deploy-template.md
 - name: Exemples

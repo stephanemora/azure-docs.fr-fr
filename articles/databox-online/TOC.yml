@@ -43,7 +43,7 @@
               href: data-box-gateway-manage-access-power-connectivity-mode.md
             - name: Via PowerShell
               href: data-box-gateway-connect-powershell-interface.md
-        - name: Moniteur
+        - name: Superviser
           href: data-box-gateway-monitor.md
         - name: Dépanner
           href: data-box-gateway-troubleshoot.md
@@ -88,7 +88,11 @@
         - name: Présentation de la sécurité
           href: azure-stack-edge-security.md
         - name: Consulter les spécifications
-          href: azure-stack-edge-technical-specifications-compliance.md
+          items:
+            - name: Spécifications de l’appareil
+              href: azure-stack-edge-technical-specifications-compliance.md
+            - name: Spécifications du cordon d’alimentation
+              href: azure-stack-edge-technical-specifications-power-cords-regional.md
     - name: Procédures
       items:
         - name: "Développer un module\_C#"
@@ -113,7 +117,7 @@
           href: azure-stack-edge-troubleshoot.md
         - name: Contacter le support Microsoft
           href: azure-stack-edge-contact-microsoft-support.md
-        - name: Moniteur
+        - name: Superviser
           href: azure-stack-edge-monitor.md
         - name: Retourner ou remplacer un appareil
           href: azure-stack-edge-return-device.md

@@ -21,7 +21,7 @@
       href: hsm-protected-keys.md
     - name: Importer des clés protégées par HSM (préversion)
       href: hsm-protected-keys-vendor-agnostic-byok.md
-    - name: Importer des clés protégées par HSM (héritées)
+    - name: Importer des clés protégées par HSM (hérité)
       href: hsm-protected-keys-legacy.md
 - name: Exemples
   items:

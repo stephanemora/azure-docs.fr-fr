@@ -87,18 +87,26 @@
           href: understand-ea-roles.md
         - name: "Administration du portail Azure\_EA"
           href: ea-portal-administration.md
+        - name: "Administration du portail Azure\_EA pour les partenaires"
+          href: ea-partner-portal-administration.md
+        - name: Transferts Azure Enterprise
+          href: ea-transfers.md
         - name: Tâches EA dans un contrat client Microsoft
           href: mca-enterprise-operations.md
         - name: Contrats et avenants Azure EA
           href: ea-portal-agreements.md
         - name: Factures d’inscription Entreprise
           href: ea-portal-enrollment-invoices.md
+        - name: Prix Azure EA
+          href: ea-pricing-overview.md
         - name: API REST Entreprise Azure
           href: ea-portal-rest-apis.md
         - name: Instances réservées de machine virtuelle Azure EA
           href: ea-portal-vm-reservations.md
         - name: "Résoudre les problèmes d’accès au portail Azure\_EA"
           href: ea-portal-troubleshoot.md
+        - name: Place de marché Azure
+          href: ea-azure-marketplace.md
 - name: Dépanner
   items:
     - name: Aucun abonnement trouvé

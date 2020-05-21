@@ -91,7 +91,7 @@
           items:
             - name: Restreindre l’accès avec un point de terminaison privé
               href: container-registry-private-link.md
-            - name: Configurer les règles de pare-feu des services
+            - name: Configurer l’accès au registre public
               href: container-registry-access-selected-networks.md
             - name: Restreindre l’accès avec un point de terminaison de service (préversion)
               href: container-registry-vnet.md

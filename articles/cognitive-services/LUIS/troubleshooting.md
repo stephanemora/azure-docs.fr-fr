@@ -2,14 +2,14 @@
 title: Forum Aux Questions - LUIS
 description: Cet article contient des réponses aux questions fréquemment posées sur Language Understanding (LUIS).
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 3c7e191ab64d30ddb64f1c3ff4e31b9c20c87b5c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3a30dd1c55d1ee4314e5a9a2f14ffe832994c467
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101108"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592846"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur Language Understanding
 
@@ -66,7 +66,7 @@ Pour transférer une application LUIS vers un autre abonnement Azure, exportez l
 
 ### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Une entité prédéfinie est marquée dans un énoncé exemple au lieu de mon entité personnalisée. Comment la corriger ?
 
-Dans le portail LUIS, vous pouvez étiqueter le texte de l’entité exacte que vous souhaitez extraire. Si le portail LUIS n’indique pas la prédiction d’entité correcte, vous devrez peut-être ajouter d’autres énoncés et étiqueter l’entité dans le texte ou ajouter un descripteur.
+Dans le portail LUIS, vous pouvez étiqueter le texte de l’entité exacte que vous souhaitez extraire. Si le portail LUIS n’indique pas la prédiction d’entité correcte, vous devrez peut-être ajouter d’autres énoncés et étiqueter l’entité dans le texte ou ajouter une fonctionnalité.
 
 ### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>J’ai essayé d’importer un fichier d’application ou de version, mais j’ai obtenu une erreur. Que s’est-il passé ?
 

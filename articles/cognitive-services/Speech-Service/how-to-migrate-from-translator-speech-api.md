@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: aahi
-ms.openlocfilehash: 75a456c4a297b0465c34b8e0af2e87056ad565b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 305242e13dab23b6a003c5d864073372a052601a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77560896"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593169"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Effectuer une migration de l’API de traduction de conversation Translator Speech vers le service Speech
 
@@ -37,7 +37,7 @@ Utilisez cet article pour effectuer la migration de vos applications entre l’A
 | Plusieurs langues traduites en une seule requête | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Kits de développement logiciel (SDK) disponibles                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Pour connaître les kits SDK disponibles, consultez la [documentation du service Speech](index.yml).                                                                                                                                                    |
 | Connexions WebSockets                            | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| API de langues                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | Le service Speech prend en charge les langues décrites dans l’article [Informations de référence sur les langues de l’API de traduction Translator](../translator-speech/languages-reference.md). |
+| API de langues                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | Le service Speech prend en charge les langues décrites dans l’article [Informations de référence sur les langues du service Translator](../translator-speech/languages-reference.md). |
 | Filtre et marqueur de propos vulgaires                       | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | .WAV/PCM en tant qu’entrée                                 | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Autres types de fichiers en tant qu’entrée                         | :heavy_minus_sign:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
@@ -55,14 +55,14 @@ Si vous ou votre organisation disposez d’applications en développement ou en 
 
 * Si votre application utilise des connexions de longue durée et ne peut pas utiliser les SDK disponibles, vous pouvez utiliser une connexion WebSockets. Gérez la limite de délai d’expiration de 10 minutes en vous reconnectant aux moments appropriés.
 
-* Si votre application utilise l’API de traduction de texte Translator Text et l’API de traduction de conversation Translator Speech pour activer des modèles de traduction personnalisée, vous pouvez ajouter des ID Catégorie directement à l’aide du service Speech.
+* Si votre application utilise le service Translator et l’API de traduction de conversation Translator Speech pour activer des modèles de traduction personnalisés, vous pouvez ajouter des ID Catégorie directement à l’aide du service Speech.
 
 * Contrairement à l’API de traduction de conversation Translator Speech, le service Speech peut traduire plusieurs langues en une seule requête.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Essayer gratuitement le service Speech](get-started.md)
-* [Démarrage rapide : reconnaissance vocale dans une application UWP à l’aide du Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
+* [Démarrage rapide : Reconnaissance vocale dans une application UWP à l’aide du kit SDK Speech](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
 ## <a name="see-also"></a>Voir aussi
 

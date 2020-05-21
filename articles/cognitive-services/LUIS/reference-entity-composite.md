@@ -8,22 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 09/29/2019
+ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: a5a1ad467074ee0aa55d14d50ae153ac68304e6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bac37e91933d16f36f2d8917760968122a4f5619
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "71695163"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588902"
 ---
-# <a name="composite-entity"></a>Entité composite 
+# <a name="composite-entity"></a>Entité composite
 
-Une entité composite est constituée d’autres entités (prédéfinies, simples, expressions régulières et listes). Les entités distinctes forment une entité entière. 
+Une entité composite est constituée d’autres entités (prédéfinies, simples, expressions régulières et listes). Les entités distinctes forment une entité entière.
+
+> [!CAUTION]
+> Cette entité est **déconseillée**. Vous devez migrer vers l’[entité issue du Machine Learning](reference-entity-machine-learned-entity.md).
 
 **Cette entité convient bien lorsque les données :**
 
-* Sont associées. 
+* Sont associées.
 * Sont liés l’un à l’autre dans le contexte de l’énoncé.
 * Utilisent divers types d’entités.
 * Doivent être regroupées et traitées par l’application cliente en tant qu’unité d’informations.
@@ -87,7 +90,7 @@ Les entités composites sont retournées dans un tableau `compositeEntities`, et
       ]
     }
   ]
-```    
+```
 
 #### <a name="v3-prediction-endpoint-response"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
 
@@ -169,7 +172,7 @@ Il s’agit du JSON si `verbose=true` est défini dans la chaîne de requête :
 }
 ```
 
-* * * 
+* * *
 
 
 |Objet de données|Nom de l’entité|Valeur|
@@ -179,4 +182,7 @@ Il s’agit du JSON si `verbose=true` est défini dans la chaîne de requête :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce [tutoriel](luis-tutorial-composite-entity.md), vous allez ajouter une **entité composite** pour regrouper les données extraites dans une seule entité contenante. Grâce au regroupement des données, l’application cliente peut extraire facilement les données associées dans différents types de données.
+En savoir plus sur les entités :
+
+* [Concepts](luis-concept-entity-types.md)
+* [Création](luis-how-to-add-entities.md)
