@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 04/17/2020
-ms.openlocfilehash: 3847ba008747bd37d55977ec47014bf76a52ad24
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.date: 05/04/2020
+ms.openlocfilehash: 1dfb1b43eadebbfc7128c5a2451668be8a99329f
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789910"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402535"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -37,7 +37,6 @@ Les limites pour la définition d’une application logique sont les suivantes :
 | Longueur de `description` | 256 caractères | |
 | Valeur maximale pour `parameters` | 50 | |
 | Valeur maximale pour `outputs` | 10 | |
-||||
 
 <a name="run-duration-retention-limits"></a>
 
@@ -144,7 +143,7 @@ Comme certaines opérations de connecteur effectuent des appels asynchrones ou �
 
 | Nom | Limite multilocataire | Limite d’environnement de service d’intégration | Notes |
 |------|--------------------|---------------------------------------|-------|
-| Requête sortante | 120 secondes <br>(2 minutes) | 240 secondes <br>(4 minutes) | Les appels effectués par les déclencheurs HTTP sont des exemples de requêtes sortantes. <p><p>**Conseil** : Pour les opérations en cours d’exécution plus longues, utilisez un [modèle d’interrogation asynchrone](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou une [boucle Until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
+| Requête sortante | 120 secondes <br>(2 minutes) | 240 secondes <br>(4 minutes) | Les appels effectués par les déclencheurs HTTP sont des exemples de requêtes sortantes. <p><p>**Conseil** : Pour les opérations en cours d’exécution plus longues, utilisez un [modèle d’interrogation asynchrone](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou une [boucle Until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Pour contourner les limites de délai d’attente lorsque vous appelez une autre application logique qui a un [point de terminaison appelable](logic-apps-http-endpoint.md), vous pouvez utiliser l’action Azure Logic Apps intégrée à la place, que vous pouvez trouver dans le sélecteur de connecteur sous **Élément intégré**. |
 | Requête entrante | 120 secondes <br>(2 minutes) | 240 secondes <br>(4 minutes) | Les appels reçus par les déclencheurs de requête et les déclencheurs webhook sont des exemples de requêtes entrantes. <p><p>**Remarque** : Pour que l’appelant d’origine obtienne la réponse, toutes les étapes de la réponse doivent être terminées avant la limite, sauf si vous appelez une autre application logique en tant que workflow imbriqué. Pour plus d’informations, consultez [Appeler, déclencher ou imbriquer des applications logiques](../logic-apps/logic-apps-http-endpoint.md). |
 |||||
 
@@ -154,8 +153,8 @@ Comme certaines opérations de connecteur effectuent des appels asynchrones ou �
 
 | Nom | Limite multilocataire | Limite d’environnement de service d’intégration | Notes |
 |------|--------------------|---------------------------------------|-------|
-| Taille des messages | 100 Mo | 200 Mo | Les connecteurs marqués ISE utilisent la limite ISE, et non les limites de leurs connecteurs non ISE. <p><p>Pour contourner cette limite, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). Toutefois, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. |
-| Taille des messages avec segmentation | 1 Go | 5 Go | Cette limite s’applique aux actions qui prennent en charge la segmentation en mode natif ou vous permettent d’activer la segmentation dans la configuration de leur runtime. <p><p>Pour l’environnement de service d’intégration, le moteur Logic Apps prend en charge cette limite, mais les connecteurs ont leurs propres limites de segmentation jusqu’à la limite du moteur. Pour un exemple, voir les [Informations de référence sur l’API du connecteur Stockage Blob Azure](https://docs.microsoft.com/connectors/azureblob/). Pour plus d’informations sur la segmentation, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). |
+| Taille des messages | 100 Mo | 200 Mo | Pour contourner cette limite, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). Toutefois, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. <p><p>- Les connecteurs tels que AS2, X12 et EDIFACT ont leur propre [limites de messages B2B](#b2b-protocol-limits). <br>- Les connecteurs ISE utilisent la limite ISE, et non les limites de leurs connecteurs non-ISE. |
+| Taille des messages avec segmentation | 1 Go | 5 Go | Cette limite s’applique aux actions qui prennent en charge la segmentation en mode natif ou vous permettent d’activer la segmentation dans la configuration de leur runtime. <p><p>Si vous utilisez un ISE, le moteur Logic Apps prend en charge cette limite, mais les connecteurs ont leurs propres limites de segmentation jusqu’à la limite du moteur. Pour un exemple, consultez les [Informations de référence sur l’API du connecteur Stockage Blob Azure](https://docs.microsoft.com/connectors/azureblob/). Pour plus d’informations sur la segmentation, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). |
 |||||
 
 #### <a name="character-limits"></a>Limites de caractères
@@ -175,6 +174,18 @@ Comme certaines opérations de connecteur effectuent des appels asynchrones ou �
 | Nouvelles tentatives | 90 | Valeur par défaut : 4. Pour modifier la valeur par défaut, utilisez le [paramètre de stratégie de nouvelles tentatives](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 | Délai maximal avant nouvelle tentative | 1 jour | Pour modifier la valeur par défaut, utilisez le [paramètre de stratégie de nouvelles tentatives](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 | Délai minimal avant nouvelle tentative | 5 secondes | Pour modifier la valeur par défaut, utilisez le [paramètre de stratégie de nouvelles tentatives](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+||||
+
+<a name="authentication-limits"></a>
+
+### <a name="authentication-limits"></a>Limites d’authentification
+
+Voici les limites d’une application logique qui démarre avec un déclencheur de requête et active [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) pour autoriser les appels entrants vers le déclencheur de requête :
+
+| Nom | Limite | Notes |
+| ---- | ----- | ----- |
+| Stratégies d’autorisation Azure AD | 5 | |
+| Demandes par stratégie d’autorisation | 10 | |
 ||||
 
 <a name="custom-connector-limits"></a>

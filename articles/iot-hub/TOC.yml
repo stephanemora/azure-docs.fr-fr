@@ -81,6 +81,11 @@
       href: tutorial-firmware-update.md
     - name: Connectivité des appareils de test
       href: tutorial-connectivity.md
+- name: Exemples
+  items:
+    - name: Éléments intégrés Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Prise en charge de TLS

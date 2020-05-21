@@ -46,7 +46,7 @@
               maintainContext: true
         - name: R
           items:
-            - name: Vue d'ensemble de R
+            - name: Vue d’ensemble de R
               href: /azure/databricks/spark/latest/sparkr/index
               maintainContext: true
             - name: Vue d’ensemble de SparkR
@@ -1026,7 +1026,7 @@
               href: /azure/databricks/security/access-control/pool-acl
               maintainContext: true
             - name: Contrôle d’accès aux travaux
-              href: /azure/databricks/security/access-control/job-acl
+              href: /azure/databricks/security/access-control/jobs-acl
               maintainContext: true
             - name: Contrôle d’accès aux tables
               items:
@@ -1632,7 +1632,7 @@
                     - name: Résoudre les problèmes des jetons d’accès Azure AD
                       href: /azure/databricks/dev-tools/api/latest/aad/troubleshoot-aad-token
                   maintainContext: true
-                - name: Jetons Azure Active Directory (Azure AD)
+                - name: Jetons Azure Active Directory
                   items:
                     - name: Vue d’ensemble de l’authentification des jetons Azure AD
                       href: /azure/databricks/dev-tools/api/latest/aad/index
@@ -1676,7 +1676,7 @@
                 - name: API SCIM (Users)
                   href: /azure/databricks/dev-tools/api/latest/scim/scim-users
                 - name: API SCIM (Groups)
-                  href: /azure/databricks/dev-tools/api/latest/scim/scim-group
+                  href: /azure/databricks/dev-tools/api/latest/scim/scim-groups
               maintainContext: true
             - name: Secrets
               href: /azure/databricks/dev-tools/api/latest/secrets
@@ -1864,20 +1864,23 @@
                 - name: Versions du runtime
                   href: /azure/databricks/release-notes/runtime/releases
                   maintainContext: true
-                - name: "Databricks Runtime\_7.0 Genomics (bêta)"
-                  href: /azure/databricks/release-notes/runtime/7.0genomics
+                - name: "Databricks Runtime\_7.0 (bêta)"
+                  href: /azure/databricks/release-notes/runtime/7.0
                   maintainContext: true
                 - name: "Databricks Runtime\_7.0 ML (bêta)"
                   href: /azure/databricks/release-notes/runtime/7.0ml
                   maintainContext: true
-                - name: "Databricks Runtime\_7.0 (bêta)"
-                  href: /azure/databricks/release-notes/runtime/7.0
-                  maintainContext: true
-                - name: "Databricks Runtime\_6.6 Genomics (bêta)"
-                  href: /azure/databricks/release-notes/runtime/6.6genomics
+                - name: "Databricks Runtime\_7.0 Genomics (bêta)"
+                  href: /azure/databricks/release-notes/runtime/7.0genomics
                   maintainContext: true
                 - name: "Databricks Runtime\_6.6 (bêta)"
                   href: /azure/databricks/release-notes/runtime/6.6
+                  maintainContext: true
+                - name: "Databricks Runtime\_6.6 ML (bêta)"
+                  href: /azure/databricks/release-notes/runtime/6.6ml
+                  maintainContext: true
+                - name: "Databricks Runtime\_6.6 Genomics (bêta)"
+                  href: /azure/databricks/release-notes/runtime/6.6genomics
                   maintainContext: true
                 - name: "Databricks Runtime\_6.5"
                   href: /azure/databricks/release-notes/runtime/6.5

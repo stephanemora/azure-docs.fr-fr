@@ -50,6 +50,8 @@
           href: ./samples/pattern-parameters.md
         - name: Détails des effets
           href: ./samples/pattern-effect-details.md
+        - name: Balises
+          href: ./samples/pattern-tags.md
         - name: Opérateur value
           href: ./samples/pattern-value-operator.md
         - name: Opérateur count
@@ -76,13 +78,8 @@
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
     - name: Azure Policy pour Kubernetes
-      items:
-        - name: Stratégie pour AKS
-          displayName: 'aks, rego, k8s, opa, open policy agent, gatekeeper, v3, crd, constraints'
-          href: ./concepts/rego-for-aks.md
-        - name: Stratégie pour le moteur AKS
-          displayName: 'aks, k8s, opa, open policy agent, gatekeeper, v3, crd, constraints'
-          href: ./concepts/aks-engine.md
+      displayName: 'aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc'
+      href: ./concepts/policy-for-kubernetes.md
     - name: Auditer les machines virtuelles avec la configuration invité
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md
