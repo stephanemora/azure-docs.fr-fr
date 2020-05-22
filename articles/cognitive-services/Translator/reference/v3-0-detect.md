@@ -1,7 +1,7 @@
 ---
-title: Méthode Detect de l’API de traduction de texte Translator Text
+title: Méthode Detect de Translator
 titleSuffix: Azure Cognitive Services
-description: Identifiez la langue d’un fragment de texte avec la méthode de détection de l’API Traduction de texte Translator Text Azure Cognitive Services.
+description: Identifiez la langue d’un fragment de texte avec la méthode Detect d’Azure Cognitive Services Translator.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 370f3b14c12fc05f181d6497b7069bbf1cf3c9cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adfd91a3f82a83f6bb5e076247f1539029d5a04e
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73837293"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592285"
 ---
-# <a name="translator-text-api-30-detect"></a>API de traduction de texte Translator Text 3.0 : Detect
+# <a name="translator-30-detect"></a>Translator 3.0 : Detect
 
 Identifie la langue d’un texte.
 
@@ -85,15 +85,15 @@ Les limites suivantes s'appliquent :
 
 Une réponse correcte est un tableau JSON avec un résultat pour chaque chaîne dans le tableau d’entrée. Un objet de résultat inclut les propriétés suivantes :
 
-  * `language` : code de la langue détectée.
+  * `language`: code de la langue détectée.
 
-  * `score` : valeur flottante indiquant le niveau de confiance dans le résultat. Le score est compris entre zéro et un, un score faible indiquant un niveau de confiance bas.
+  * `score`: valeur flottante indiquant le niveau de confiance dans le résultat. Le score est compris entre zéro et un, un score faible indiquant un niveau de confiance bas.
 
-  * `isTranslationSupported` : valeur booléenne true si la langue détectée est l’une des langues prises en charge pour la traduction de texte.
+  * `isTranslationSupported`: valeur booléenne true si la langue détectée est l’une des langues prises en charge pour la traduction de texte.
 
-  * `isTransliterationSupported` : valeur booléenne true si la langue détectée est l’une des langues prises en charge pour la translittération.
+  * `isTransliterationSupported`: valeur booléenne true si la langue détectée est l’une des langues prises en charge pour la translittération.
   
-  * `alternatives` : tableau des autres langues possibles. Chaque élément du tableau est un autre objet avec les mêmes propriétés que celles répertoriées ci-dessus : `language`, `score`, `isTranslationSupported` et `isTransliterationSupported`.
+  * `alternatives`: tableau des autres langues possibles. Chaque élément du tableau est un autre objet avec les mêmes propriétés que celles répertoriées ci-dessus : `language`, `score`, `isTranslationSupported` et `isTransliterationSupported`.
 
 Exemple de réponse JSON :
 
@@ -170,7 +170,7 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
   </tr>
 </table> 
 
-Si une erreur se produit, la requête renvoie également une réponse d'erreur JSON. Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTTP à 3 chiffres et un nombre à 3 chiffres qui sert à catégoriser plus précisément l’erreur. Vous trouverez les codes d’erreur les plus courants sur la [page Référence de l’API de traduction de texte Translator Text v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Si une erreur se produit, la requête renvoie également une réponse d'erreur JSON. Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTTP à 3 chiffres et un nombre à 3 chiffres qui sert à catégoriser plus précisément l’erreur. Vous trouverez les codes d’erreur les plus courants sur la [page Référence de Translator v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Exemples
 

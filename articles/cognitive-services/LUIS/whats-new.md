@@ -1,20 +1,33 @@
 ---
 title: 'Nouveauté : service Language Understanding (LUIS)'
 description: Cet article est régulièrement mis à jour avec des informations nouvelles sur l’API Language Understanding Azure Cognitive Services.
-ms.topic: conceptual
-ms.date: 02/11/2020
-ms.openlocfilehash: 8e3b6f729f69866cdb797cdfd1887de4f5e2be05
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: overview
+ms.date: 05/08/2020
+ms.openlocfilehash: d7ef989d04132dedc79d2408b7083b57d8c926b0
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097725"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592795"
 ---
 # <a name="whats-new-in-language-understanding"></a>Nouveauté du service Language Understanding
 
-Découvrir les nouveautés du service. Ces éléments incluent des notes de publication, des vidéos, des billets de blog et d’autres types d’informations. Marquez cette page pour rester aux faits des nouveautés du service.
+Découvrir les nouveautés du service. Ces éléments incluent des notes de publication, des vidéos, des billets de blog et d’autres types d’informations. Marquez cette page pour rester au fait des nouveautés du service.
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="may-2020---build"></a>Mai 2020 – //Build
+
+* Publié en tant que **version en disposition générale** :
+    * [Conteneur Language Understanding](luis-container-howto.md)
+    * La préversion du portail est promue en [version actuelle du portail](https://www.luis.ai), la version [précédente](https://previous.luis.ai) du portail reste toujours disponible
+    * Nouvelle expérience de création d’entités issues du Machine Learning
+    * [Processus de mise à niveau](migrate-from-composite-entity.md) des entités composites et simples aux entités issues du Machine Learning
+    * Prise en charge du [paramètre de normalisation des variantes de mot](how-to-application-settings-portal.md)
+* Modifications apportées aux API de création
+    * Schéma d’application 7.x pour les entités issues du Machine Learning imbriquées
+    * [Migration vers la fonctionnalité requise](luis-migration-authoring-entities.md#api-change-constraint-replaced-with-required-feature)
+
 
 ### <a name="march-2020"></a>Mars 2020
 
@@ -26,7 +39,7 @@ Découvrir les nouveautés du service. Ces éléments incluent des notes de publ
 
 * Amélioration de la productivité des développeurs
     * Disponibilité générale de notre [point de terminaison de prédiction V3](luis-migration-api-v3.md).
-    * Possibilité d’importer et d’exporter des applications avec le format .lu ([LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)). Cela ouvre la voie à un processus d’intégration/livraison continues (CI/CD) efficace.
+    * Possibilité d’importer et d’exporter des applications avec le format `.lu` ([LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)). Cela ouvre la voie à un processus d’intégration/livraison continues (CI/CD) efficace.
 * Extension linguistique
     * [Arabe et hindi](luis-language-support.md) en préversion publique.
 * Modèles prédéfinis

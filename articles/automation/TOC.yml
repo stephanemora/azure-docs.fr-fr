@@ -20,7 +20,7 @@
       href: learn/automation-tutorial-runbook-graphical.md
     - name: Créer un runbook PowerShell
       href: learn/automation-tutorial-runbook-textual-powershell.md
-    - name: Créer un runbook PowerShell Workflow
+    - name: Créer un runbook de workflow PowerShell
       href: learn/automation-tutorial-runbook-textual.md
     - name: Créer un runbook Python
       href: learn/automation-tutorial-runbook-textual-python2.md
@@ -63,7 +63,7 @@
           href: automation-role-based-access-control.md
         - name: Déplacer un compte Automation vers un autre abonnement
           href: how-to/move-account.md
-        - name: Migrer à partir de System Center Orchestrator
+        - name: Migrer d’Orchestrator vers Azure Automation (bêta)
           href: automation-orchestrator-migration.md
     - name: Ressources partagées
       items:
@@ -89,7 +89,7 @@
           href: troubleshoot/shared-resources.md
     - name: Automatisation de processus
       items:
-        - name: Rechercher des runbooks et des modules dans PowerShell Gallery
+        - name: Utiliser les runbooks et les modules de PowerShell Gallery
           href: automation-runbook-gallery.md
         - name: Découvrir PowerShell Workflow
           href: automation-powershell-workflow.md
@@ -123,11 +123,11 @@
               href: automation-runbook-graphical-error-handling.md
             - name: Transférer les données de travail dans Journaux Azure Monitor
               href: automation-manage-send-joblogs-log-analytics.md
-        - name: Dépanner
+        - name: Résoudre les problèmes de runbooks
           items:
-            - name: Résoudre les problèmes de runbooks
+            - name: Résoudre les problèmes de runbook
               href: troubleshoot/runbooks.md
-            - name: Données à collecter avant d’ouvrir un dossier de support
+            - name: Données à collecter à l’ouverture d’un cas pour Microsoft Azure Automation
               href: troubleshoot/collect-data-microsoft-azure-automation-case.md
         - name: Utiliser un runbook Worker hybride
           items:
@@ -137,61 +137,67 @@
               href: automation-linux-hrw-install.md
             - name: Démarrer des runbooks sur un runbook Worker hybride
               href: automation-hrw-run-runbooks.md
-            - name: Dépanner la fonctionnalité Runbook Worker hybride
+            - name: Résoudre les problèmes liés à la fonctionnalité Runbook Worker hybride
               href: troubleshoot/hybrid-runbook-worker.md
         - name: Utiliser l’intégration du contrôle de code source
           href: source-control-integration.md
     - name: Gestion de la configuration
       items:
-        - name: Configuration d’état (DSC)
+        - name: Azure Automation – State Configuration
           items:
             - name: Vue d’ensemble
               href: automation-dsc-overview.md
             - name: Bien démarrer avec State Configuration
               href: automation-dsc-getting-started.md
-            - name: Intégrer des machines pour la gestion
+            - name: Activer State Configuration
               href: automation-dsc-onboarding.md
-            - name: Configurer les machines à l’état souhaité
+            - name: Configurer les serveurs à l’état souhaité et gérer la dérive
               href: tutorial-configure-servers-desired-state.md
-            - name: Compiler des configurations DSC
-              href: automation-dsc-compile.md
-            - name: Corriger une dérive de configuration
-              href: automation-dsc-remediate.md
             - name: Composer des configurations DSC
               href: compose-configurationwithcompositeresources.md
+            - name: Compiler des configurations DSC
+              href: automation-dsc-compile.md
+            - name: Remédier à la non-conformité des serveurs State Configuration
+              href: automation-dsc-remediate.md
             - name: Configurer un déploiement continu avec Chocolatey
               href: automation-dsc-cd-chocolatey.md
             - name: Intégrer à Journaux Azure Monitor
               href: automation-dsc-diagnostics.md
-            - name: Résoudre les problèmes liés à DSC
-              href: troubleshoot/desired-state-configuration.md
-            - name: Historique des versions de l’extension Azure DSC
+            - name: Utiliser l’historique des versions de l’extension State Configuration
               href: automation-dsc-extension-history.md
+            - name: Résoudre les problèmes liés à State Configuration
+              href: troubleshoot/desired-state-configuration.md
         - name: Suivi des modifications et inventaire
           items:
             - name: Vue d’ensemble
               href: change-tracking.md
             - name: Régions prises en charge pour l’espace de travail Log Analytics lié
               href: how-to/region-mappings.md
-            - name: Activer Change Tracking et Inventory
+            - name: Activer
               items:
-                - name: Utiliser le portail Azure
-                  href: automation-onboard-solutions-from-browse.md
-                - name: À partir d’une machine virtuelle Azure
-                  href: automation-onboard-solutions-from-vm.md
-                - name: À partir d’un compte Automation
-                  href: automation-onboard-solutions-from-automation-account.md
-                - name: "À partir d’un runbook\_Automation"
-                  href: automation-onboard-solutions.md
+                - name: Activer Change Tracking et Inventory à partir du portail Azure
+                  href: automation-enable-changes-from-browse.md
+                - name: Activer Change Tracking et Inventory à partir d’une machine virtuelle Azure
+                  href: automation-enable-changes-from-vm.md
+                - name: Activer Change Tracking et Inventory à partir d’un compte Automation
+                  href: automation-enable-changes-from-auto-acct.md
+                - name: Activer Change Tracking et Inventory à partir d’un runbook
+                  href: automation-enable-changes-from-runbook.md
             - name: Gérer Change Tracking et Inventory
               href: change-tracking-file-contents.md
             - name: Gérer une collecte de données d’inventaire à partir de machines virtuelles
               href: automation-vm-inventory.md
+            - name: Utiliser des configurations d’étendues
+              href: automation-scope-configurations-change-tracking.md
+            - name: Dissocier un espace de travail d’un compte Automation
+              href: automation-unlink-workspace-change-tracking.md
+            - name: Supprimer des machines virtuelles de Change Tracking et Inventory
+              href: automation-remove-vms-from-change-tracking.md
             - name: Dépanner
               items:
-                - name: Mise en route
+                - name: Résoudre les problèmes de déploiement de fonctionnalités
                   href: troubleshoot/onboarding.md
-                - name: Utilisation de Change Tracking et Inventory
+                - name: Résoudre les problèmes rencontrés avec Change Tracking et d’inventaire
                   href: troubleshoot/change-tracking.md
     - name: Démarrer/arrêter des machines virtuelles pendant les heures creuses
       items:
@@ -199,13 +205,13 @@
           href: automation-solution-vm-management.md
         - name: Régions prises en charge pour l’espace de travail Log Analytics lié
           href: how-to/region-mappings.md
-        - name: Activer
+        - name: Activer Start/Stop VMs during off-hours
           href: automation-solution-vm-management-enable.md
-        - name: Configurer
+        - name: Configurer Stop/Start VMs during off-hours
           href: automation-solution-vm-management-config.md
-        - name: Analyser des données avec des requêtes de journal
+        - name: Interroger les journaux à partir de Start/Stop VMs during off-hours
           href: automation-solution-vm-management-logs.md
-        - name: Dépanner
+        - name: Résoudre les problèmes liés à Stop/Start VMs during off-hours
           href: troubleshoot/start-stop-vm.md
     - name: Update Management
       items:
@@ -215,21 +221,23 @@
           href: how-to/region-mappings.md
         - name: Activer
           items:
-            - name: Utiliser un modèle Resource Manager
+            - name: Activer Update Management à l’aide d’un modèle Azure Resource Manager
               href: automation-update-management-deploy-template.md
-            - name: Utiliser le portail Azure
+            - name: Activer Update Management à partir du portail Azure
               href: automation-onboard-solutions-from-browse.md
-            - name: À partir d’une machine virtuelle Azure
+            - name: Activer Update Management à partir d’une machine virtuelle Azure
               href: automation-onboard-solutions-from-vm.md
-            - name: À partir d’un compte Automation
+            - name: Activer Update Management à partir d’un compte Automation
               href: automation-onboard-solutions-from-automation-account.md
+            - name: Activer Update Management à partir d’un runbook
+              href: automation-onboard-solutions.md
         - name: Gérer les mises à jour pour vos machines virtuelles Azure
           href: automation-tutorial-update-management.md
         - name: Gérer les mises à jour pour plusieurs machines virtuelles
           href: manage-update-multi.md
         - name: Voir les évaluations des mises à jour
           href: automation-view-update-assessments.md
-        - name: Gérer les pré-scripts et les post-scripts
+        - name: Gérer des pré-scripts et des post-scripts
           href: pre-post-scripts.md
         - name: Intégreravec Configuration Manager
           href: updatemgmt-mecmintegration.md
@@ -239,15 +247,21 @@
           href: automation-update-management-groups.md
         - name: Interroger les journaux Update Management
           href: automation-update-management-query-logs.md
+        - name: Utiliser des configurations d’étendues
+          href: automation-scope-configurations-update-management.md
+        - name: Dissocier un espace de travail d’un compte Automation
+          href: automation-unlink-workspace-update-management.md
+        - name: Supprimer des machines virtuelles d’Update Management
+          href: automation-remove-vms-from-update-management.md
         - name: Dépanner
           items:
-            - name: Mise en route
+            - name: Résoudre les problèmes de déploiement de fonctionnalités
               href: troubleshoot/onboarding.md
-            - name: Utilisation d’Update Management
+            - name: Résoudre les problèmes liés à Update Management
               href: troubleshoot/update-management.md
-            - name: Résolution des problèmes de l’agent Windows Update
+            - name: Résoudre les problèmes de l’agent de mise à jour Windows
               href: troubleshoot/update-agent-issues.md
-            - name: Résolution des problèmes de l’agent Linux Update
+            - name: Résoudre les problèmes de l’agent de mise à jour Linux
               href: troubleshoot/update-agent-issues-linux.md
     - name: Scénarios multicomposants
       items:
@@ -269,7 +283,9 @@
           href: '../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir'
 - name: Informations de référence
   items:
-    - name: Azure PowerShell
+    - name: Azure PowerShell Az
+      href: /powershell/module/az.automation
+    - name: Azure PowerShell AzureRM
       href: /powershell/module/azurerm.automation
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.automation

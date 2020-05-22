@@ -56,6 +56,8 @@
               href: data-box-portal-admin.md
             - name: Gérer via l’interface utilisateur web locale
               href: data-box-local-web-ui-admin.md
+            - name: Utiliser l’expédition autogérée
+              href: data-box-portal-customer-managed-shipping.md
             - name: Activer une clé gérée par le client
               href: data-box-customer-managed-encryption-key-portal.md
             - name: Déplacer des données vers un niveau blob
@@ -117,6 +119,8 @@
           items:
             - name: Gérer via le portail Azure
               href: data-box-portal-ui-admin.md
+            - name: Utiliser l’expédition autogérée
+              href: data-box-disk-portal-customer-managed-shipping.md
             - name: Dépanner
               items:
                 - name: Problèmes de déverrouillage

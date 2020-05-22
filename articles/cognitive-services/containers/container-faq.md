@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: faae149cc6cfe9140f7e6908f5eb92d3031ef6d8
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 0e4f9da3aec42df42cc43f73fdeefa7087de6db5
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690818"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592183"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Questions fréquentes (FAQ) sur les conteneurs Azure Cognitive Services
 
@@ -22,16 +22,7 @@ ms.locfileid: "82690818"
 
 **Q : Qu’est-ce qui est disponible ?**
 
-**R :** [La prise en charge des conteneurs dans Azure Cognitive Services](../cognitive-services-container-support.md) permet aux développeurs d’utiliser les mêmes API intelligentes que celles disponibles dans Azure, avec en plus les [avantages](../cognitive-services-container-support.md#features-and-benefits) de la conteneurisation. La prise en charge des conteneurs est désormais disponible en préversion pour quelques solutions Azure Cognitive Services, dont des composants de :
-
-> [!div class="checklist"]
-> * [Détecteur d’anomalies][ad-containers]
-> * [Vision par ordinateur][cv-containers]
-> * [Visage][fa-containers]
-> * [Form Recognizer][fr-containers]
-> * [Language Understanding (LUIS)][lu-containers]
-> * [API Speech Service][sp-containers]
-> * [Analyse de texte][ta-containers]
+**R :** Les conteneurs Azure Cognitive Services permettent aux développeurs d’utiliser les mêmes API intelligentes que celles disponibles dans Azure, avec les [avantages](../cognitive-services-container-support.md#features-and-benefits) de la mise en conteneur. Certains conteneurs sont disponibles sous la forme d’une [préversion contrôlée](../cognitive-services-gating-process.md), dont l’accès peut nécessiter une application. D’autres conteneurs sont disponibles publiquement en préversion non contrôlée, ou sont mises en disponibilité générale. Pour obtenir la liste complète des conteneurs et leur disponibilité, consultez l’article [Prise en charge des conteneurs dans Azure Cognitive Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services). 
 
 **Q : Existe-t-il des différences entre le cloud Cognitive Services et les conteneurs Cognitive Services ?**
 

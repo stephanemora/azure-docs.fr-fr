@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 7fe773b35c5aba31b2fea66bd2be7b2745eac3ee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e50dd636c1bd9403d5eca2157e4e46772418f92c
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80879239"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592897"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>Limitations des conteneurs Language Understanding (LUIS)
 
@@ -23,7 +23,7 @@ Les conteneurs LUIS présentent quelques limitations notables. Cet article décr
 
 ## <a name="supported-dependencies-for-latest-container"></a>Dépendances prises en charge pour le conteneur `latest`
 
-Le dernier conteneur LUIS, publié sur [//build/ 2019](https://news.microsoft.com/build2019/), prend en charge :
+Le conteneur LUIS le plus récent prend en charge :
 
 * [Nouveaux domaines prédéfinis](luis-reference-prebuilt-domains.md) : ces domaines destinés aux entreprises incluent des entités, des exemples d’énoncé et des modèles. Étendez ces domaines pour votre usage personnel.
 

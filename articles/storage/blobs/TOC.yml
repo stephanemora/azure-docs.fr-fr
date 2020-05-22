@@ -166,6 +166,8 @@
               href: storage-blob-change-feed.md
             - name: Restauration dans le temps
               href: point-in-time-restore-overview.md
+        - name: Réplication d’objets
+          href: object-replication-overview.md
         - name: Niveaux d’accès et de performances
           items:
             - name: Niveaux d’accès
@@ -399,6 +401,8 @@
               href: storage-blob-change-feed-how-to.md
             - name: Activer la restauration dans le temps
               href: point-in-time-restore-manage.md
+        - name: Configurer la réplication d’objets
+          href: object-replication-configure.md
         - name: Gérer la reprise d’activité après sinistre
           items:
             - name: Vérifier la propriété Heure de la dernière synchronisation

@@ -2,13 +2,13 @@
 title: Bons exemples d’énoncés - LUIS
 description: Les énoncés sont des entrées de l’utilisateur que votre application doit interpréter. Collectez des phrases dont vous pensez que les utilisateurs les entreront. Incluez des énoncés de sens identique, mais construits différemment sur le plan de la longueur et du positionnement des mots.
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: d851082a4ec4a003619826eeffd4f4b856a67824
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.date: 05/04/2020
+ms.openlocfilehash: 184038ff2758fbe7c5834682c82c082ef6661234
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382287"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592863"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprendre ce que sont les bons énoncés pour votre application LUIS
 
@@ -68,11 +68,27 @@ Il est préférable de commencer avec quelques énoncés, puis d’[examiner les
 
 ## <a name="utterance-normalization"></a>Normalisation de l’énoncé
 
-La normalisation de l’énoncé est le processus qui consiste à ignorer les effets de la ponctuation et des signes diacritiques au cours de la formation et de la prédiction. Utilisez des [paramètres d’application](luis-reference-application-settings.md) pour contrôler la façon dont la normalisation de l’énoncé impacte les prédictions d’énoncé.
+La normalisation de l’énoncé est le processus qui consiste à ignorer les effets des types de textes, comme la ponctuation et les signes diacritiques au cours de la formation et de la prédiction.
 
-## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Normalisation de l’énoncé pour les signes diacritiques et la ponctuation
+Les paramètres de normalisation de l’énoncé sont désactivés par défaut. Ces paramètres comprennent ce qui suit :
 
-La normalisation de l’énoncé est définie lorsque vous créez ou importez l’application, car il s’agit d’un paramètre dans le fichier JSON de l’application. Les paramètres de normalisation de l’énoncé sont désactivés par défaut.
+* Formes des mots
+* Diacritiques
+* Ponctuation
+
+Si vous activez le paramètre de normalisation, les scores dans le volet **Test**, les tests par lot et les requêtes de point de terminaison changent pour tous les énoncés pour ce paramètre de normalisation.
+
+Lorsque vous clonez une version dans le portail LUIS, les paramètres de version sont toujours appliqués à la nouvelle version clonée.
+
+Définissez les paramètres de version sur le portail LUIS, dans la section **Manage** (Gérer), dans la page **Application Settings** (Paramètres de l’application), ou [Update application version settings](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) (Mettre à jour les paramètres de la version de l’application). Pour en savoir plus sur ces modifications de normalisation, consultez la [Documentation de référence](luis-reference-application-settings.md).
+
+### <a name="word-forms"></a>Formes des mots
+
+La normalisation **word forms** (formes des mots) ignore les différences entre les mots qui se développent au-delà de leur racine. Par exemple, les mots `run`, `running` et `runs` correspondent à différentes formes de conjugaison.
+
+<a name="utterance-normalization-for-diacritics-and-punctuation"></a>
+
+### <a name="diacritics"></a>Diacritiques
 
 Les signes diacritiques sont des marques ou des signes dans le texte, par exemple :
 
@@ -80,24 +96,8 @@ Les signes diacritiques sont des marques ou des signes dans le texte, par exempl
 İ ı Ş Ğ ş ğ ö ü
 ```
 
-Si votre application active la normalisation, les scores dans le volet **Test**, les tests par lot et les requêtes de point de terminaison changent pour tous les énoncés utilisant des signes diacritiques ou de la ponctuation.
-
-Activez la normalisation de l’énoncé pour les signes diacritiques ou la ponctuation dans votre fichier d’application LUIS JSON avec le paramètre `settings`.
-
-```JSON
-"settings": [
-    {"name": "NormalizePunctuation", "value": "true"},
-    {"name": "NormalizeDiacritics", "value": "true"}
-]
-```
-
-La normalisation de la **ponctuation** signifie qu’avant la formation de vos modèles et avant la prédiction de vos requêtes de point de terminaison, la ponctuation est retirée des énoncés.
-
-La normalisation des **signes diacritiques** remplace les caractères avec des signes diacritiques dans les énoncés par des caractères normaux. Par exemple : `Je parle français` devient `Je parle francais`.
-
-La normalisation ne signifie pas que la ponctuation et les signes diacritiques ne s’affichent pas dans vos exemples d’énoncés ou de réponses de prédiction, mais ils seront ignorés pendant la formation et la prédiction.
-
 ### <a name="punctuation-marks"></a>Signes de ponctuation
+La normalisation de la **ponctuation** signifie qu’avant la formation de vos modèles et avant la prédiction de vos requêtes de point de terminaison, la ponctuation est retirée des énoncés.
 
 La ponctuation est un jeton distinct dans LUIS. Un énoncé qui se termine par un point et un énoncé qui n’en comporte pas sont deux énoncés distincts, qui sont susceptibles d’obtenir deux prédictions différentes.
 
@@ -111,7 +111,9 @@ Si la ponctuation n’a aucune signification spécifique dans votre application 
 
 Si vous souhaitez ignorer des mots ou des signes de ponctuation spécifiques dans des modèles, utilisez un [modèle](luis-concept-patterns.md#pattern-syntax) avec la syntaxe _ignore_ ou des crochets, `[]`.
 
-## <a name="training-utterances"></a>Énoncés de formation
+<a name="training-utterances"></a>
+
+## <a name="training-with-all-utterances"></a>Formation avec tous les énoncés
 
 La formation (ou l’entraînement) n’est généralement pas déterministe : la prédiction d’énoncé peut varier légèrement selon la version ou l’application.
 Vous pouvez supprimer une formation non déterministe en mettant à jour l’[API des paramètres de la version](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) avec la paire nom-valeur `UseAllTrainingData` afin d’utiliser toutes les données d’entraînement.

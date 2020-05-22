@@ -1,90 +1,147 @@
 ---
 title: Fonctionnalités – LUIS
-titleSuffix: Azure Cognitive Services
 description: Ajoutez des fonctionnalités à un modèle de langage afin de fournir des conseils sur la façon de reconnaître les entrées que vous souhaitez étiqueter ou classer.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/03/2019
-ms.author: diberry
-ms.openlocfilehash: 5b8257e24cf52d01be8065d97db17fd685aa316d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/23/2020
+ms.openlocfilehash: 906876e39eb7ff31c2e6b954d1514d8afc50bf3a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81531896"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591894"
 ---
-# <a name="machine-learned-features"></a>Fonctionnalités issues de l’apprentissage automatique
+# <a name="machine-learning-ml-features"></a>Caractéristiques de Machine Learning (ML)
 
-En apprentissage automatique, une _caractéristique_ est un trait ou un attribut distinctif des données que votre système observe et dont il apprend. Dans Language Understanding (LUIS), une caractéristique décrit et explique ce qui est important au sujet de vos intentions et entités.
+En Machine Learning, une  **caractéristique**  (« feature ») est un trait ou un attribut distinctif des données observées par le système.
 
-Dans le [portail LUIS en préversion](https://preview.luis.ai), les caractéristiques sont des _descripteurs_, car elles sont utilisées pour _décrire_ l’intention ou l’entité.
+Les caractéristiques de Machine Learning fournissent à LUIS des indications importantes pour rechercher les éléments qui distinguent un concept. Il ne s’agit pas de règles strictes mais de conseils que LUIS peut utiliser.  Ces conseils sont utilisés conjointement avec les étiquettes pour rechercher les données.
 
-## <a name="features-_descriptors_-in-language-understanding"></a>Caractéristiques (_descripteurs_) dans Language Understanding
+ LUIS prend en charge les listes d’expressions et l’utilisation d’autres entités en tant que caractéristiques :
+* Caractéristiques de liste d’expressions
+* Modèle (intention ou entité) en tant que caractéristique
 
-Les caractéristiques, également appelées descripteurs, désignent des indices qui aident Language Understanding à identifier les exemples d’énoncés. Voici quelques fonctionnalités :
+Les caractéristiques doivent être considérées comme une partie nécessaire de la conception de votre schéma.
 
-* Liste d’expressions en tant que caractéristique d’intentions ou d’entités
-* Entités en tant que caractéristiques d’intentions ou d’entités
+## <a name="a-phrase-list-for-a-particular-concept"></a>Liste d’expressions pour un concept particulier
 
-Les caractéristiques doivent être considérées comme une partie nécessaire de votre schéma pour la décomposition du modèle.
+Une liste d’expressions est une liste de mots ou d’expressions qui encapsule un concept particulier.
 
-## <a name="what-is-a-phrase-list"></a>Définition d’une liste d’expressions
+Lorsque vous ajoutez une liste d’expressions, vous pouvez définir la caractéristique comme suit :
+* **[Globale](#global-features)** . Une caractéristique globale s’applique à l’ensemble de l’application.
 
-Une liste d’expressions est une liste de mots, d’expressions, de chiffres ou d’autres caractères qui permettent d’identifier le concept que vous essayez d’identifier. Cette liste n’est pas sensible à la casse.
+### <a name="when-to-use-a-phrase-list"></a>Quand utiliser une liste d’expressions
 
-## <a name="when-to-use-a-phrase-list"></a>Quand utiliser une liste d’expressions
-
-À l’aide d’une liste d’expressions, LUIS prend en compte le contexte et généralise pour identifier les éléments qui y sont similaires, sans être une correspondance de texte exacte. Si votre application LUIS doit être en mesure de généraliser et d’identifier de nouveaux éléments, utilisez une liste d’expressions.
-
-Si vous souhaitez pouvoir reconnaître de nouvelles instances, comme un planificateur de réunions qui doit reconnaître les noms de nouveaux contacts ou une application d’inventaire qui doit reconnaître de nouveaux produits, commencez par une entité issue de l’apprentissage automatique. Créez ensuite une liste d’expressions qui aide LUIS à trouver des mots ayant une signification similaire. Cette liste d’expressions guide LUIS afin qu’il reconnaisse des exemples en ajoutant une précision supplémentaire à la valeur de ces mots.
-
-Les listes d’expression sont comme du vocabulaire spécifique à un domaine qui permet d’améliorer la qualité de compréhension des intentions et des entités.
-
-## <a name="considerations-when-using-a-phrase-list"></a>Considérations relatives à l’utilisation d’une liste d’expressions
-
-Par défaut, une liste d’expressions est appliquée à tous les modèles de l’application. Cela fonctionne pour les listes d’expressions qui peuvent recouper toutes les intentions et entités. Pour permettre la décomposition, vous devez appliquer une liste d’expressions uniquement aux modèles auxquels elle s’applique.
-
-Si vous créez une liste d’expressions (créée globalement par défaut), puis que vous l’appliquez ultérieurement comme descripteur (caractéristique) à un modèle spécifique, elle sera supprimée des autres modèles. Cette suppression ajoute de la pertinence à la liste d’expressions pour le modèle auquel elle est appliquée, ce qui contribue à améliorer l’exactitude qu’elle apporte dans le modèle.
-
-L’indicateur `enabledForAllModels` contrôle l’étendue de ce modèle dans l’API.
-
-<a name="how-to-use-phrase-lists"></a>
+Si votre application LUIS doit être en mesure de généraliser et d’identifier de nouveaux éléments, utilisez une liste d’expressions. Les listes d’expression sont comme du vocabulaire spécifique à un domaine qui permet d’améliorer la qualité de compréhension des intentions et des entités.
 
 ### <a name="how-to-use-a-phrase-list"></a>Comment utiliser une liste d’expressions
 
-[Créez une liste d’expressions](luis-how-to-add-features.md) lorsque votre intention ou entité comprend des mots ou des expressions qui sont importants, par exemple :
+À l’aide d’une liste d’expressions, LUIS prend en compte le contexte et généralise pour identifier les éléments qui y sont similaires, sans être une correspondance de texte exacte.
 
-* Terminologie du secteur
-* Argot
-* Abréviations
-* Termes propres à l’entreprise
-* Mots provenant d’une autre langue, mais qui sont fréquemment utilisés dans votre application
-* Mots clés et expressions dans vos exemples d’énoncés
+Procédure d’utilisation d’une liste d’expressions :
+* Commencez par une entité issue du Machine Learning.
+    * Ajoutez des exemples d’énoncés.
+    * Étiquetez avec une entité issue du Machine Learning.
+* Ajoutez une liste d’expressions.
+    * Ajoutez des mots avec une signification similaire : n’ajoutez **pas** tous les mot ou toutes les expression qui vous passent par la tête. Au lieu de cela, ajoutez quelques mots ou expressions à la fois, puis effectuez à nouveau l’apprentissage et publiez.
+    * Révisez le résultat et ajoutez des mots suggérés.
 
-N’ajoutez **pas** tous les mots ou expressions possibles. Au lieu de cela, ajoutez quelques mots ou expressions à la fois, puis effectuez à nouveau l’apprentissage et publiez. À mesure que la liste s’agrandit, vous constaterez peut-être que certains termes ont de nombreuses formes (synonymes). Faites-en une autre liste.
+### <a name="a-typical-scenario-for-a-phrase-list"></a>Scénario classique pour une liste d’expressions
 
+Un scénario classique pour une liste d’expressions consiste à amplifier les mots liés à une idée spécifique.
+
+Les termes médicaux constituent un bon exemple de mots nécessitant une liste d’expressions pour améliorer leur signification. Ces termes peuvent avoir une signification précise, de l’ordre du physique, du chimique, du thérapeutique... Ou totalement abstraite. Sans liste d’expressions, LUIS ignore quels termes sont importants pour votre domaine de sujet.
+
+Si vous souhaitez extraire les termes médicaux :
+* Commencez par créer des exemples d’énoncés et étiquetez les conditions médicales au sein de ces énoncés.
+* Créez ensuite une liste d’expressions avec des exemples de termes dans le domaine du sujet. Cette liste d’expressions doit inclure le terme que vous avez étiqueté et d’autres termes qui décrivent le même concept.
+* Ajoutez la liste d’expressions à l’entité ou à la sous-entité qui extrait le concept utilisé dans la liste d’expressions. Le scénario le plus courant est un composant (enfant) d’une entité issue du Machine Learning. Si la liste d’expressions doit être appliquée à toutes les intentions ou entités, marquez la liste d’expressions comme une liste d’expressions globale. L’indicateur `enabledForAllModels` contrôle l’étendue de ce modèle dans l’API.
+
+<a name="how-to-use-phrase-lists"></a>
+<a name="how-to-use-a-phrase-lists"></a>
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
-## <a name="when-to-use-an-entity-as-a-feature"></a>Quand utiliser une entité comme caractéristique
+## <a name="a-model-as-a-feature-helps-another-model"></a>Un modèle en tant que caractéristique renforce un autre modèle
 
-Une entité peut être ajoutée en tant que caractéristique au niveau de l’intention ou de l’entité.
+Vous pouvez ajouter un modèle (intention ou entité) en tant que caractéristique à un autre modèle (intention ou entité). En ajoutant une intention ou une entité existante en tant que caractéristique, vous ajoutez un concept bien défini avec des exemples étiquetés.
 
-### <a name="entity-as-a-feature-to-an-intent"></a>Entité en tant que caractéristique d’une intention
+Lorsque vous ajoutez un modèle en tant que caractéristique, vous pouvez définir la caractéristique comme suit :
+* **[Requise](#required-features)** . Une caractéristique requise doit être trouvée afin que le modèle soit retourné à partir du point de terminaison de prédiction.
+* **[Globale](#global-features)** . Une caractéristique globale s’applique à l’ensemble de l’application.
 
-Ajoutez une entité en tant que descripteur (caractéristique) à une intention lorsque la détection de cette entité est significative pour l’intention.
+### <a name="when-to-use-an-entity-as-a-feature-to-an-intent"></a>Quand utiliser une entité comme caractéristique d’une intention
 
-Par exemple, si l’intention vise à réserver un vol et que l’entité désigne les informations du ticket (telles que le nombre de sièges, l’origine et la destination), trouver l’entité d’informations du ticket doit alors ajouter du poids à la prédiction de l’intention de réservation du vol.
+Ajoutez une entité en tant que caractéristique d’une intention lorsque la détection de cette entité est significative pour l’intention.
 
-### <a name="entity-as-a-feature-to-another-entity"></a>Entité en tant que caractéristique d’une autre entité
+Par exemple, si l’intention vise à réserver un vol, `BookFlight`, et que l’entité désigne les informations du billet (telles que le nombre de sièges, l’origine et la destination), trouver l’entité d’informations du billet doit alors ajouter du poids à la prédiction de l’intention `BookFlight`.
+
+### <a name="when-to-use-an-entity-as-a-feature-to-another-entity"></a>Quand utiliser une entité comme caractéristique d’une autre entité
 
 Une entité (A) doit être ajoutée en tant que caractéristique à une autre entité (B) lorsque la détection de cette entité (A) est importante pour la prédiction de l’entité (B).
 
-Par exemple, si l’entité adresse postale (A) est détectée, trouver l’adresse postale (A) ajoute du poids à la prédiction pour l’entité adresse d’expédition (B).
+Par exemple, si n entités d’adresse de livraison contenaient une sous-entité d’adresse de rue, la recherche de la sous-entité d’adresse de rue ajoute un poids significatif à la prédiction pour l’entité d’adresse de livraison.
+
+* Adresse de livraison (entité issue du Machine Learning)
+    * Numéro de rue (sous-entité)
+    * Rue (sous-entité)
+    * Ville (sous-entité)
+    * Région ou département (sous-entité)
+    * Pays (sous-entité)
+    * Code postal (sous-entité)
+
+## <a name="required-features"></a>Caractéristiques requises
+
+Une caractéristique requise doit être trouvée pour que le modèle soit retourné à partir du point de terminaison de prédiction. Utilisez une caractéristique requise lorsque vous savez que vos données entrantes doivent correspondre à la caractéristique.
+
+**Une caractéristique requise utilise une entité non issue du Machine Learning** :
+* Entité d’expression régulière
+* Entité de liste
+* Entité prédéfinie
+
+Quelles caractéristiques faut-il définir comme « requises » ? Si vous êtes sûr que votre modèle sera révélé par les données, définissez la caractéristique comme « requise ». Une caractéristique requise ne retourne rien si elle est introuvable.
+
+Poursuivons avec l’exemple de l’adresse de livraison :
+* Adresse de livraison (entité issue du Machine Learning)
+    * Numéro de rue (sous-entité)
+    * Rue (sous-entité)
+    * Numéro de rue (sous-entité)
+    * Ville (sous-entité)
+    * Région ou département (sous-entité)
+    * Pays (sous-entité)
+    * Code postal (sous-entité)
+
+### <a name="required-feature-using-prebuilt-entities"></a>Caractéristique requise utilisant des entités prédéfinies
+
+La ville, la région et le pays sont généralement un ensemble de listes fermé, ce qui signifie qu’elles ne changent pas beaucoup au fil du temps. Ces entités peuvent avoir des caractéristiques recommandées pertinentes et ces caractéristiques peuvent être définies comme « requises ». Cela signifie que l’intégralité de l’adresse de livraison n’est pas renvoyée, car les entités avec les caractéristiques requises sont introuvables.
+
+Que se passe-t-il si la ville, la région ou le pays se trouvent dans l’énoncé, mais sous la forme d’une localité ou d’un mot d’argot que LUIS ne pourra pas appréhender ? Si vous souhaitez utiliser un post-traitement pour aider à résoudre l’entité (par exemple, si LUIS émet un score de confiance faible), ne définissez pas la caractéristique comme « requise ».
+
+Un autre exemple de caractéristique requise pour l’adresse de livraison consiste à définir le numéro de rue en tant que numéro [prédéfini](luis-reference-prebuilt-entities.md) requis. Cela permet à un utilisateur d’entrer « 1 rue Microsoft » ou « un rue Microsoft ». Ces deux options utiliseront la forme numérique « 1 » pour la sous-entité du numéro de rue.
+
+### <a name="required-feature-using-list-entities"></a>Caractéristique requise utilisant des entités de listes
+
+Une [entité de liste](reference-entity-list.md) est utilisée en tant que liste de noms canoniques, ainsi que leurs synonymes. En tant que caractéristique requise, si l’énoncé n’inclut ni le nom canonique ni un synonyme, l’entité n’est pas retournée dans le cadre du point de terminaison de prédiction.
+
+Continuons avec notre exemple d’adresse de livraison. Supposons que votre entreprise soit livrée uniquement dans certains pays. Vous pouvez créer une entité de liste qui comprend plusieurs méthodes utilisables par votre client pour référencer le pays. Si LUIS ne trouve pas de correspondance exacte dans le texte de l’énoncé, l’entité (qui a la caractéristique requise de l’entité de liste) n’est pas renvoyée dans la prédiction.
+
+|Nom canonique|Synonymes|
+|--|--|
+|États-Unis|É.-U.<br>É.-U. A.<br>US<br>USA<br>0|
+
+L’application cliente, telle qu’un chatbot, peut poser une question de suivi, de sorte que le client comprend que la sélection du pays est limitée et _requise_.
+
+### <a name="required-feature-using-regular-expression-entities"></a>Caractéristique requise utilisant des entités d’expression régulière
+
+Une [entité d’expression régulière](reference-entity-regular-expression.md) utilisée comme caractéristique requise fournit des caractéristiques de recherche en texte enrichi.
+
+Toujours dans notre exemple d’adresse de livraison : vous pouvez créer une expression régulière qui capture les règles de syntaxe des codes postaux des pays.
+
+## <a name="global-features"></a>Caractéristiques globales
+
+Bien que l’utilisation la plus courante consiste à appliquer une caractéristique à un modèle spécifique, vous pouvez configurer la caractéristique en tant que **caractéristique globale** pour l’appliquer à l’ensemble de votre application.
+
+L’utilisation la plus courante d’une caractéristique globale consiste à ajouter un vocabulaire supplémentaire, tel que des mots d’une autre langue, à l’application. Si vos clients utilisent une langue principale, mais s’attendent à pouvoir utiliser une autre langue dans le même énoncé, vous pouvez ajouter une caractéristique qui comprend des mots de la langue secondaire.
+
+Étant donné que l’utilisateur s’attend à utiliser la langue secondaire pour toute intention ou entité, elle doit être ajoutée dans une liste d’expressions avec la liste d’expressions configurée en tant que caractéristique globale.
 
 ## <a name="best-practices"></a>Meilleures pratiques
 Découvrir les [meilleures pratiques](luis-concept-best-practices.md).

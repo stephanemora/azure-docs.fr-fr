@@ -2,13 +2,13 @@
 title: 'Tutoriel : Modèles - LUIS'
 description: Utilisez des modèles pour accroître la prédiction d’intentions et d’entités tout en fournissant moins d’exemples d’énoncés dans ce tutoriel. Le modèle est fourni sous forme d’exemple d’énoncé de modèle, qui comprend la syntaxe pour identifier les entités et le texte pouvant être ignoré.
 ms.topic: tutorial
-ms.date: 04/14/2020
-ms.openlocfilehash: 826334fafd04a6357f529b1dc07408ff1c15ce5c
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.date: 05/07/2020
+ms.openlocfilehash: c9bbd521d49d669e8ebd18b29bda9f2add8f7739
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81380766"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592914"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Tutoriel : Ajouter des formats d’énoncé de modèle courants pour améliorer les prédictions
 
@@ -41,7 +41,8 @@ Utiliser les étapes suivantes :
 
 1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
 
-1. Importez le fichier JSON dans une nouvelle application sur la [préversion du portail LUIS](https://preview.luis.ai). Dans la page **Mes applications**, sélectionnez **+ Nouvelle application de conversation**, puis choisissez **Importer en tant que JSON**. Sélectionnez le fichier que vous avez téléchargé à l’étape précédente.
+1. Connectez-vous au [portail LUIS](https://www.luis.ai) et sélectionnez vos **abonnement** et **ressource de création** pour voir les applications affectées à cette dernière.
+1. Importez le fichier JSON dans une nouvelle application dans le [portail LUIS](https://www.luis.ai). Dans la page **Mes applications**, sélectionnez **+ Nouvelle application de conversation**, puis choisissez **Importer en tant que JSON**. Sélectionnez le fichier que vous avez téléchargé à l’étape précédente.
 
 1. Dans la section **Gérer**, sous l’onglet **Versions**, sélectionnez la version active, puis **Cloner**. Nommez la version clonée `patterns`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
 
@@ -468,33 +469,7 @@ La syntaxe du modèle fournit la syntaxe d’ancre de début et de fin d’énon
 
 ## <a name="using-patternany-entity"></a>Utilisation de l’entité pattern.any
 
-L’entité pattern.any vous permet de rechercher des données en forme libre où le libellé de l’entité ne permet pas de distinguer la fin de l’entité du reste de l’énoncé.
-
-Cette application Ressources humaines permet aux employés de trouver les formulaires de l’entreprise.
-
-|Énoncé|
-|--|
-|Où se trouve **HRF-123456** ?|
-|Qui a créé **HRF-123234** ?|
-|**HRF-456098** est-il publié en français ?|
-
-Toutefois, chaque formulaire comporte à la fois un nom mis en forme utilisé dans le tableau précédent, ainsi qu’un nom convivial, tel que `Request relocation from employee new to the company 2018 version 5`.
-
-Les énoncés avec le nom du formulaire convivial ressemblent à ceci :
-
-|Énoncé|
-|--|
-|Où se trouve le formulaire **Request relocation from employee new to the company 2018 version 5** (demande de réaffectation d'un nouvel employé) ?|
-|Qui a écrit le formulaire **Request relocation from employee new to the company 2018 version 5** (demande de réaffectation d'un nouvel employé - 2018 version 5) ?|
-|Le formulaire **Request relocation from employee new to the company 2018 version 5** (demande de réaffectation d'un nouvel employé - 2018 version 5) ? est-t disponible en français ?|
-
-Certains mots peuvent être source de confusion pour LUIS, qui ne sait pas où se termine l’entité. Dans un modèle, l’entité Pattern.any permet de spécifier le début et la fin du nom du formulaire afin que LUIS puisse extraire correctement son nom.
-
-|Exemple de modèle d’énoncé|
-|--|
-|Où se trouve {FormName}[?]|
-|Qui a créé {FormName}[?]|
-|{nom_formulaire} est-il publié en Français[?]|
+[!INCLUDE [Pattern.any entity - concepts](./includes/pattern-any-entity.md)]
 
 ### <a name="add-example-utterances-with-patternany"></a>Ajouter des exemples d’énoncés avec Pattern.any
 

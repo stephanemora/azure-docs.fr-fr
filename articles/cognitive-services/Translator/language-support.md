@@ -1,7 +1,7 @@
 ---
-title: Prise en charge linguistique - API de traduction de texte Translator Text
+title: Prise en charge linguistique – Translator
 titleSuffix: Azure Cognitive Services
-description: L’API de traduction de texte prend en charge les langues suivantes pour la traduction de texte en texte par traduction automatique neuronale.
+description: Cognitive Services Translator prend en charge les langues suivantes pour la traduction de texte par traduction automatique neuronale.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 0ecde5acb7dc57ed9e5802c1589d5813a9206643
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 15c11a5b94b80a96c520696c45f3eec5c48b7b48
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81684827"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592727"
 ---
-# <a name="language-and-region-support-for-the-translator-text-api"></a>Langues et régions prises en charge par l’API de traduction de texte Translator Text
+# <a name="language-and-region-support-for-translator"></a>Prise en charge de la région et de la langue pour Translator
 
-L’API de traduction de texte Translator Text prend en charge les langues ci-après pour la traduction de texte. La traduction automatique neuronale (NMT) constitue la nouvelle référence en matière de traductions automatiques de grande qualité reposant sur l’intelligence artificielle, et est proposée par défaut dans la version V3 de l’API de traduction de texte Translator Text lorsqu’un système neuronal est disponible.
+Translator prend en charge les langues suivantes pour la traduction de texte. La traduction automatique neuronale (NMT) constitue la nouvelle référence en matière de traductions automatiques de grande qualité reposant sur l’intelligence artificielle, et est proposée par défaut dans Translator v3 lorsqu’un système neuronal est disponible.
 
 [En savoir plus sur le fonctionnement de la traduction automatique](https://www.microsoft.com/translator/mt.aspx)
 
 ## <a name="translation"></a>Traduction
 
-**API Translator V2**
+**Translator v2**
 
 > [!NOTE]
 > La V2 a été déconseillée le 30 avril 2018. Migrez vos applications vers la V3 pour bénéficier des nouvelles fonctionnalités disponibles exclusivement dans la V3.
@@ -35,7 +35,7 @@ L’API de traduction de texte Translator Text prend en charge les langues ci-ap
 * Neural par défaut : Neural est le système de traduction par défaut. Utilisez le paramètre `category=smt` pour accéder au système de statistiques en vue d’une utilisation avec Microsoft Translator Hub.
 * Neural uniquement : Seule la traduction neurale est disponible.
 
-L’**API Translator V3** est neurale par défaut et les systèmes statistiques ne sont disponibles qu’en l’absence d’un système neural.
+**Translator v3** la v3 est neurale par défaut et les systèmes statistiques ne sont disponibles qu’en l’absence d’un système neural.
 
 > [!NOTE]
 > Actuellement, un sous-ensemble de langues neurales est disponible dans Custom Translator et nous les enrichissons progressivement. [Affichez les langues actuellement disponibles dans Custom Translator](#customization).
@@ -204,12 +204,12 @@ Le dictionnaire prend en charge les langues ci-après de ou vers l’anglais à 
 
 ## <a name="detect"></a>Detect
 
-L’API de traduction de texte détecte toutes les langues disponibles pour la traduction et la translittération.
+Translator détecte toutes les langues disponibles pour la traduction et la translittération.
 
 
-## <a name="access-the-translator-text-api-language-list-programmatically"></a>Accéder par programme à la liste de langues de l'API de traduction de texte Translator Text
+## <a name="access-the-translator-language-list-programmatically"></a>Accéder par programme à la liste de langues de Translator
 
-Vous pouvez utiliser la méthode Languages pour récupérer la liste des langues prises en charge pour l'API de traduction de texte Translator Text v3.0. Vous pouvez visualiser la liste par fonctionnalité, par code de langue, ainsi que par le nom de langue en anglais ou dans toute autre langue prise en charge. Cette liste est automatiquement mise à jour par le service Microsoft Translator lorsque de nouvelles langues deviennent disponibles.
+Vous pouvez utiliser la méthode Languages pour récupérer la liste des langues prises en charge par Translator v3.0. Vous pouvez visualiser la liste par fonctionnalité, par code de langue, ainsi que par le nom de langue en anglais ou dans toute autre langue prise en charge. Cette liste est automatiquement mise à jour par le service Microsoft Translator lorsque de nouvelles langues deviennent disponibles.
 
 [Visualiser la documentation de référence sur l’opération Languages](reference/v3-0-languages.md)
 
@@ -269,6 +269,6 @@ Les langues suivantes sont disponibles pour la personnalisation vers ou depuis l
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>Accéder à la liste sur le site web de Microsoft Translator
 
-Si vous souhaitez examiner rapidement les langues, le site web de Microsoft Translator présente toutes les langues prises en charge par les API de traduction de texte Translator Text et Speech. Cette liste ne comporte pas d’informations propres aux développeurs, comme les codes de langue.
+Si vous souhaitez examiner rapidement les langues, le site web de Microsoft Translator présente toutes les langues prises en charge par les API Translator et Speech. Cette liste ne comporte pas d’informations propres aux développeurs, comme les codes de langue.
 
 [Voir la liste des langues](https://www.microsoft.com/translator/languages.aspx)

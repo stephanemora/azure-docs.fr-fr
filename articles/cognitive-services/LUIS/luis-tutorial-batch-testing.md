@@ -2,13 +2,13 @@
 title: 'Tutoriel : Tests par lots pour détecter les problèmes - LUIS'
 description: Ce tutoriel montre comment utiliser des tests par lots pour valider la qualité de votre application Language Understanding (LUIS).
 ms.topic: tutorial
-ms.date: 03/02/2020
-ms.openlocfilehash: c276f0b52f83937fbe3b6fd9e0b7c1a66f665095
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 05/07/2020
+ms.openlocfilehash: c823cbd854c28ab356dd9968e6f8f1a12b6421be
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78250578"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592591"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Tutoriel : Tester des jeux de données par lot
 
@@ -41,7 +41,9 @@ Importez une application qui prend une commande de pizza telle que `1 pepperoni 
 
 1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-with-machine-learned-entity.json?raw=true).
 
-1. Utilisez le [portail LUIS en préversion](https://preview.luis.ai/), importez le fichier JSON dans une nouvelle application, nommez l’application `Pizza app`.
+1. Connectez-vous au [portail LUIS](https://www.luis.ai) et sélectionnez vos **abonnement** et **ressource de création** pour voir les applications affectées à cette dernière.
+1. Importez le code JSON dans une nouvelle application appelée `Pizza app`.
+
 
 1. Sélectionnez **Entraîner** dans le coin supérieur droit de la barre de navigation pour entraîner l’application.
 

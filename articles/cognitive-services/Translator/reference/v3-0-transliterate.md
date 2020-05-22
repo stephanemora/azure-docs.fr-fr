@@ -1,7 +1,7 @@
 ---
-title: Méthode Transliterate de l’API de traduction de texte Translator Text
+title: Méthode Transliterate de Translator
 titleSuffix: Azure Cognitive Services
-description: Convertissez du texte dans une même langue depuis un script vers un autre à l’aide de la méthode de translittération de l’API Traduction de texte Translator Text.
+description: Convertissez du texte dans une même langue depuis un script vers un autre à l’aide de la méthode Transliterate de Translator.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: e6bb1541b2b668796b352bebc68d59b4ade143e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b811c57eb163931c39a311418ac9f1513e9393a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73837281"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592251"
 ---
-# <a name="translator-text-api-30-transliterate"></a>API de traduction de texte Translator Text 3.0 : Transliterate
+# <a name="translator-30-transliterate"></a>Translator 3.0 : Transliterate
 
 Convertit du texte dans une langue d’un script vers un autre script.
 
@@ -98,9 +98,9 @@ Les limites suivantes s'appliquent :
 
 Une réponse correcte est un tableau JSON avec un résultat pour chaque élément dans le tableau d’entrée. Un objet de résultat inclut les propriétés suivantes :
 
-  * `text` : chaîne qui est le résultat de la conversion de la chaîne d’entrée en script de sortie.
+  * `text`: chaîne qui est le résultat de la conversion de la chaîne d’entrée en script de sortie.
   
-  * `script` : chaîne spécifiant le script utilisé dans la sortie.
+  * `script`: chaîne spécifiant le script utilisé dans la sortie.
 
 Exemple de réponse JSON :
 
@@ -159,7 +159,7 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
   </tr>
 </table> 
 
-Si une erreur se produit, la requête renvoie également une réponse d'erreur JSON. Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTTP à 3 chiffres et un nombre à 3 chiffres qui sert à catégoriser plus précisément l’erreur. Vous trouverez les codes d’erreur les plus courants sur la [page Référence de l’API de traduction de texte Translator Text v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Si une erreur se produit, la requête renvoie également une réponse d'erreur JSON. Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTTP à 3 chiffres et un nombre à 3 chiffres qui sert à catégoriser plus précisément l’erreur. Vous trouverez les codes d’erreur les plus courants sur la [page Référence de Translator v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Exemples
 

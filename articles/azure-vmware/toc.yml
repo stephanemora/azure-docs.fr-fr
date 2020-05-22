@@ -30,6 +30,8 @@
       href: concepts-upgrades.md
 - name: Guides pratiques
   items:
+    - name: Configurer HCX
+      href: hybrid-cloud-extension-installation.md
     - name: "Gérer\_DHCP"
       href: manage-dhcp.md
     - name: Récupération d'urgence

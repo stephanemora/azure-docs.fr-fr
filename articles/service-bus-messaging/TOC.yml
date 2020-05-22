@@ -196,6 +196,8 @@
           href: service-bus-diagnostic-logs.md
         - name: Interrompre et réactiver des entités de messagerie
           href: entity-suspend.md
+        - name: Utilisez l’Explorateur Service Bus pour effectuer des opérations de données dans Service Bus
+          href: explorer.md
         - name: Utiliser des modèles ARM
           href: service-bus-resource-manager-overview.md
           items:

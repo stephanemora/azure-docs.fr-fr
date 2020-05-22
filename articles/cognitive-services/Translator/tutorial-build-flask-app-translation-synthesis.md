@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer une application Flask pour traduire, synthétiser et analyser du texte - API Traduction de texte Translator Text'
+title: 'Tutoriel : Créer une application Flask pour traduire, synthétiser et analyser du texte - Translator'
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez créer une application web Flask pour traduire du texte, analyser les sentiments et synthétiser du texte traduit en voix.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 5034dafa015054e9e9d0804088f345929815b974
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 955476eefc7575edb90634ce305bbebdf62e2371
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397949"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592353"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutoriel : Créer une application Flask avec Azure Cognitive Services
 
@@ -27,7 +27,7 @@ Voici ce qui est couvert par ce tutoriel :
 > * Obtenir des clés d’abonnement Azure
 > * Configurer votre environnement de développement et installer les dépendances
 > * Créer une application Flask
-> * Utiliser l’API Traduction de texte
+> * Utiliser Translator pour traduire du texte
 > * Utiliser Analyse de texte pour analyser les sentiments positifs/négatifs de textes et de traductions en entrée
 > * Utiliser les services Speech pour convertir du texte traduit en synthèse vocale
 > * Exécuter votre application Flask localement
@@ -52,14 +52,14 @@ Passons en revue les logiciels et les clés d’abonnement dont vous avez besoin
 * [Outils Git](https://git-scm.com/downloads)
 * Un IDE ou un éditeur de texte, comme [Visual Studio Code](https://code.visualstudio.com/) ou [Atom](https://atom.io/)  
 * [Chrome](https://www.google.com/chrome/browser/) ou [Firefox](https://www.mozilla.org/firefox)
-* Une clé d’abonnement **Traduction de texte** (notez que vous n’êtes pas obligé de sélectionner une région.)
+* Une clé d’abonnement **Translator** (notez que vous n’êtes pas obligé de sélectionner une région.)
 * Une clé d’abonnement **Analyse de texte** dans la région **USA Ouest**.
 * Une clé d’abonnement **Services Speech** dans la région **USA Ouest**.
 
 ## <a name="create-an-account-and-subscribe-to-resources"></a>Créer un compte et s’abonner à des ressources
 
 Comme mentionné précédemment, vous aurez besoin de trois clés d’abonnement pour ce tutoriel. Cela signifie que vous devez créer une ressource dans votre compte Azure pour :
-* Translator Text
+* Convertisseur
 * Analyse de texte
 * Services Speech
 
@@ -245,14 +245,14 @@ Si ces exemples montrent comment effectuer le rendu de pages HTML pour un utilis
 
 Maintenant que vous avez une idée de la façon dont une application Flask simple fonctionne, nous allons :
 
-* Écrire du code Python pour appeler l’API Traduction de texte et retourner une réponse
+* Écrire du code Python pour appeler Translator et retourner une réponse
 * Créer une route Flask pour appeler votre code Python
 * Mettre à jour le code HTML avec une zone de saisie pour le texte et la traduction, un sélecteur de langue et un bouton Translate (Traduire)
 * Écrire du code JavaScript qui permet aux utilisateurs d’interagir avec votre application Flask à partir du HTML
 
-### <a name="call-the-translator-text-api"></a>Appeler l’API Traduction de texte
+### <a name="call-the-translator"></a>Appeler Translator
 
-La première chose à faire est d’écrire une fonction pour appeler l’API Traduction de texte. Cette fonction prend deux arguments : `text_input` et `language_output`. Cette fonction est appelée chaque fois qu’un utilisateur appuie sur le bouton Translate dans votre application. La zone de texte dans le HTML est envoyée en tant que `text_input`, et la valeur de la sélection de la langue dans le HTML est envoyée en tant que `language_output`.
+La première chose à faire est d’écrire une fonction pour appeler Translator. Cette fonction prend deux arguments : `text_input` et `language_output`. Cette fonction est appelée chaque fois qu’un utilisateur appuie sur le bouton Translate dans votre application. La zone de texte dans le HTML est envoyée en tant que `text_input`, et la valeur de la sélection de la langue dans le HTML est envoyée en tant que `language_output`.
 
 1. Commençons par créer un fichier appelé `translate.py` à la racine de votre répertoire de travail.
 2. Ajoutez ensuite ce code à `translate.py`. Cette fonction prend deux arguments : `text_input` et `language_output`.
@@ -288,7 +288,7 @@ La première chose à faire est d’écrire une fonction pour appeler l’API Tr
        response = requests.post(constructed_url, headers=headers, json=body)
        return response.json()
    ```
-3. Ajoutez votre clé d’abonnement Traduction de texte et enregistrez.
+3. Ajoutez votre clé d’abonnement Translator et enregistrez.
 
 ### <a name="add-a-route-to-apppy"></a>Ajouter une route à `app.py`
 
@@ -961,6 +961,6 @@ Le code source de ce projet est disponible sur [GitHub](https://github.com/Micro
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Référence d’API Translator Text](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+* [Informations de référence Translator](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
 * [Informations de référence sur l’API Analyse de texte](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
 * [Référence sur l’API conversion de texte par synthèse vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)

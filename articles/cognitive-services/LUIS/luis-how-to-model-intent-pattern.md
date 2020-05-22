@@ -9,35 +9,34 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 21afb12bf2464218119ebf52ebd980745e3d731d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 077e29856842972fae2c723d4a2c368cbb80df06
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76311714"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593254"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Comment ajouter des modèles pour améliorer la précision de la prédiction
 Lorsqu’une application LUIS reçoit des énoncés de point de terminaison, utilisez un [modèle](luis-concept-patterns.md) pour améliorer la précision de la prédiction des énoncés qui s’appuient sur un modèle d’ordre des mots et de choix de mot. Les modèles utilisent une [syntaxe](luis-concept-patterns.md#pattern-syntax) spécifique pour indiquer l’emplacement des éléments suivants : [entités](luis-concept-entity-types.md), [rôles](luis-concept-roles.md) d’entités et texte facultatif.
 
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
-
 > [!CAUTION]
-> Les modèles incluent uniquement les parents d’entité issus de l’apprentissage automatique, pas les sous-composants.
+> Les modèles incluent uniquement les parents d’entité issues du Machine Learning, pas les sous-entités.
 
 ## <a name="adding-example-utterances-as-pattern"></a>Ajout d’exemples d’énoncés en tant que modèles
 
 Si vous souhaitez ajouter un modèle pour une entité, la méthode _la plus facile_ consiste à créer le modèle à partir de la page Détails de l’intention. Cela garantit que votre syntaxe correspond à l’exemple d’énoncé.
 
-1. Dans le [portail LUIS en préversion](https://preview.luis.ai), sélectionnez l’application dans la page **Mes applications**.
+1. Connectez-vous au [portail LUIS](https://www.luis.ai) et sélectionnez vos **abonnement** et **ressource de création** pour voir les applications affectées à cette dernière.
+1. Ouvrez votre application en sélectionnant son nom dans la page **My Apps** (Mes applications).
 1. Dans la page de la liste **Intentions**, sélectionnez le nom d’intention de l’exemple de énoncé à partir duquel vous souhaitez créer un modèle d’énoncé.
 1. Dans la page Détails de l’intention, sélectionnez la ligne de l’exemple d’énoncé que vous souhaitez utiliser comme modèle d’énoncé, puis sélectionnez **+ Ajouter en tant que modèle** dans la barre d’outils contextuelle.
 
     > [!div class="mx-imgBorder"]
     > ![Capture d’écran de la sélection d’un exemple d’énoncé comme modèle dans la page Détails de l’intention.](./media/luis-how-to-model-intent-pattern/add-example-utterances-as-pattern-template-utterance-from-intent-detail-page.png)
 
-1. Dans la zone contextuelle, sélectionnez **Terminé** dans la page **Confirmer les modèles**. Vous n’avez pas besoin de définir les sous-composants, les contraintes ou les descripteurs des entités. Il vous suffit d’afficher l’entité apprise par l’ordinateur.
+1. Dans la zone contextuelle, sélectionnez **Terminé** dans la page **Confirmer les modèles**. Vous n’avez pas besoin de définir les sous-entités ou les fonctionnalités des entités. Il vous suffit d’afficher l’entité apprise par l’ordinateur.
 
     > [!div class="mx-imgBorder"]
     > ![Capture d’écran de la confirmation de l’exemple d’énoncé en tant que modèle dans la page Détails de l’intention.](./media/luis-how-to-model-intent-pattern/confirm-patterns-from-example-utterance-intent-detail-page.png)
@@ -47,8 +46,9 @@ Si vous souhaitez ajouter un modèle pour une entité, la méthode _la plus faci
 1. Dans la barre de navigation, sélectionnez **Effectuer l’apprentissage** pour effectuer l’apprentissage de l’application avec le nouveau modèle.
 
 ## <a name="add-template-utterance-using-correct-syntax"></a>Ajouter un modèle d’énoncé de modèle utilisant une syntaxe correcte
-
-1. Ouvrez votre application en sélectionnant son nom sur la page **Mes applications**, puis sélectionnez **Patterns** (Modèles) dans le panneau gauche, sous **Improve app performance** (Améliorer les performances de l’application).
+1. Connectez-vous au [portail LUIS](https://www.luis.ai) et sélectionnez vos **abonnement** et **ressource de création** pour voir les applications affectées à cette dernière.
+1. Ouvrez votre application en sélectionnant son nom dans la page **My Apps** (Mes applications).
+1. Dans le volet gauche, sous **Improve app performance** (Améliorer les performances de l’application), sélectionnez **Patterns** (Modèles).
 
     > [!div class="mx-imgBorder"]
     > ![Capture d’écran de la liste de modèles](./media/luis-how-to-model-intent-pattern/patterns-1.png)
