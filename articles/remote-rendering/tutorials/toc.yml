@@ -1,6 +1,4 @@
-- name: Configuration d’un projet Unity en partant de zéro
-  href: unity/project-setup.md
-- name: Utilisation d’entités distantes dans Unity
-  href: unity/working-with-remote-entities.md
-- name: Changement d’environnement et de matériaux
-  href: unity/changing-environment-and-materials.md
+- name: Unity
+  href: unity/toc.yml
+- name: C++ natif
+  href: native-cpp/toc.yml
