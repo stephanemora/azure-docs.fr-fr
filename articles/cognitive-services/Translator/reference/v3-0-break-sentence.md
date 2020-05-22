@@ -1,7 +1,7 @@
 ---
-title: Méthode BreakSentence de l’API de traduction de texte Translator Text.
+title: Méthode BreakSentence de Translator
 titleSuffix: Azure Cognitive Services
-description: La méthode BreakSentence de l’API Traduction de texte Translator Text identifie le positionnement des limites de phrases dans du texte.
+description: La méthode BreakSentence de Translator identifie le positionnement des limites de phrases dans du texte.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: 4c314148b8e1495a8b5a12c42d4989d13cdd6a08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01a5404100da6c669da4513ac9fd08c959df220e
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76548116"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588630"
 ---
-# <a name="translator-text-api-30-breaksentence"></a>API de traduction de texte Translator Text 3.0 : BreakSentence
+# <a name="translator-30-breaksentence"></a>Translator 3.0 : BreakSentence
 
 Identifie le positionnement des limites de phrases dans du texte.
 
@@ -69,13 +69,13 @@ Les limites suivantes s'appliquent :
 
 Une réponse correcte est un tableau JSON avec un résultat pour chaque chaîne dans le tableau d’entrée. Un objet de résultat inclut les propriétés suivantes :
 
-  * `sentLen` : tableau d’entiers représentant les longueurs des phrases dans l’élément de texte. La longueur du tableau correspond au nombre de phrases, et les valeurs sont les longueurs des phrases. 
+  * `sentLen`: tableau d’entiers représentant les longueurs des phrases dans l'élément de texte. La longueur du tableau correspond au nombre de phrases, et les valeurs sont les longueurs des phrases. 
 
-  * `detectedLanguage` : objet décrivant la langue détectée via les propriétés suivantes :
+  * `detectedLanguage`: objet décrivant la langue détectée au moyen des propriétés suivantes :
 
-     * `language` : code de la langue détectée.
+     * `language`: code de la langue détectée.
 
-     * `score` : valeur flottante indiquant le niveau de confiance dans le résultat. Le score est compris entre zéro et un, un score faible indiquant un niveau de confiance bas.
+     * `score`: valeur flottante indiquant le niveau de confiance dans le résultat. Le score est compris entre zéro et un, un score faible indiquant un niveau de confiance bas.
      
     Notez que la propriété `detectedLanguage` n’est présente dans l’objet de résultat que quand la détection automatique de la langue est demandée.
 
@@ -141,7 +141,7 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
   </tr>
 </table> 
 
-Si une erreur se produit, la requête renvoie également une réponse d'erreur JSON. Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTTP à 3 chiffres et un nombre à 3 chiffres qui sert à catégoriser plus précisément l’erreur. Vous trouverez les codes d’erreur les plus courants sur la [page Référence de l’API de traduction de texte Translator Text v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Si une erreur se produit, la requête renvoie également une réponse d'erreur JSON. Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTTP à 3 chiffres et un nombre à 3 chiffres qui sert à catégoriser plus précisément l’erreur. Vous trouverez les codes d’erreur les plus courants sur la [page Référence de Translator v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Exemples
 

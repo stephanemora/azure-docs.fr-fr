@@ -1,7 +1,7 @@
 ---
-title: API de traduction de texte Translator Text v2.0
+title: Translator v2.0
 titleSuffix: Azure Cognitive Services
-description: Documentation de référence pour l’API de traduction de texte Translator Text v2.0.
+description: Documentation de référence pour Translator v2.0.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,28 +10,28 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: swmachan
-ms.openlocfilehash: f111169558118a80602bcb2136bc63ce54c9e0d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fa148579e7525933d388b8a93c9a3476f473cb6
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "72242495"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588613"
 ---
-# <a name="translator-text-api-v20"></a>API de traduction de texte Translator Text v2.0
+# <a name="translator-v20"></a>Translator v2.0
 
 > [!IMPORTANT]
-> Cette version de l’API de traduction de texte Translator Text est désapprouvée. [Consultez la documentation pour la version 3 de l’API de traduction de texte Translator Text](v3-0-reference.md).
+> Cette version de Translator est déconseillée. [Consultez la documentation de Translator v3](v3-0-reference.md).
 
-Vous pouvez intégrer la version 2 de l’API de traduction de texte Translator Text en toute transparence dans vos applications, sites web, outils ou autres solutions pour offrir une expérience utilisateur multilingue. Vous pouvez l’utiliser sur toute plateforme matérielle et avec tout système d’exploitation pour effectuer la traduction et d’autres opérations liées à la langue, telles que la détection de la langue d’un texte et la synthèse vocale, en fonction des normes industrielles. Pour plus d’informations, consultez [API de traduction de texte Translator Text](../translator-info-overview.md).
+Vous pouvez intégrer Translator v2 en toute transparence dans vos applications, sites web, outils ou autres solutions pour offrir une expérience utilisateur multilingue. Vous pouvez l’utiliser sur toute plateforme matérielle et avec tout système d’exploitation pour effectuer la traduction et d’autres opérations liées à la langue, telles que la détection de la langue d’un texte et la synthèse vocale, en fonction des normes industrielles. Pour plus d’informations, consultez [Translator](../translator-info-overview.md).
 
 ## <a name="getting-started"></a>Prise en main
-Pour accéder à l’API de traduction de texte Translator Text, vous devez [vous inscrire à Microsoft Azure](../translator-text-how-to-signup.md).
+Pour accéder à Translator, vous devez [vous inscrire à Microsoft Azure](../translator-text-how-to-signup.md).
 
 ## <a name="authentication"></a>Authentification 
-Tous les appels à l’API de traduction de texte Translator Text nécessitent une clé d’abonnement pour l’authentification. L’API prend en charge trois méthodes d’authentification :
+Tous les appels à Translator nécessitent une clé d’abonnement pour l’authentification. L’API prend en charge trois méthodes d’authentification :
 
 - Un jeton d’accès. Utilisez la clé d’abonnement référencée à l’étape 9 pour créer un jeton d’accès en envoyant une requête POST au service d’authentification. Pour plus d’informations, voir la documentation du service de jetons. Transmettez le jeton d’accès au service Translator à l’aide de l’en-tête `Authorization` ou du paramètre de requête `access_token`. Chaque jeton d’accès est valide pendant 10 minutes. Obtenez un nouveau jeton d’accès toutes les 10 minutes, et utilisez-le pour des requêtes répétées pendant ces 10 minutes.
-- Une clé d’abonnement utilisée directement. Transmettez votre clé d’abonnement en tant que valeur dans l’en-tête `Ocp-Apim-Subscription-Key` inclus avec votre requête adressée à l’API de traduction de texte Translator Text. Quand vous utilisez directement la clé d’abonnement, vous n’êtes pas obligé d’appeler le service d’authentification de jeton pour créer un jeton d’accès.
+- Une clé d’abonnement utilisée directement. Transmettez votre clé d’abonnement en tant que valeur dans l’en-tête `Ocp-Apim-Subscription-Key` inclus avec votre requête adressée à Translator. Quand vous utilisez directement la clé d’abonnement, vous n’êtes pas obligé d’appeler le service d’authentification de jeton pour créer un jeton d’accès.
 - Un [abonnement multiservice Azure Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Cette méthode vous permet d’utiliser une clé secrète unique pour authentifier les requêtes de plusieurs services.
 Quand vous utilisez une clé secrète multiservice, vous devez inclure deux en-têtes d’authentification avec votre requête. Le premier en-tête transmet la clé secrète. Le second en-tête spécifie la région associée à votre abonnement :
    - `Ocp-Apim-Subscription-Key`
@@ -803,6 +803,6 @@ Type de contenu de réponse : application/xml
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Migrer vers l’API de traduction de texte Translator Text v3](../migrate-to-v3.md)
+> [Migrer vers Translator v3](../migrate-to-v3.md)
 
 

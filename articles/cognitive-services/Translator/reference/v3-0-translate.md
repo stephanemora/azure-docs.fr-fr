@@ -1,23 +1,23 @@
 ---
-title: Méthode Translate de l’API de traduction de texte Translator Text
+title: Méthode Translate de Translator
 titleSuffix: Azure Cognitive Services
-description: Comprenez les paramètres, les en-têtes et les messages de corps de la méthode de traduction de l’API Traduction de texte Translator Text Azure Cognitive Services pour traduire du texte.
+description: Comprendre les paramètres, les en-têtes et les messages de corps de la méthode Translate de d’Azure Cognitive Services Translator pour traduire du texte.
 services: cognitive-services
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 04/17/2020
 ms.author: swmachan
-ms.openlocfilehash: 1821623fbe2a22234af649934ac06e72897a19cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 563f4693c358c570caa2566f58002ddfe6c7bc69
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80052391"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584635"
 ---
-# <a name="translator-text-api-30-translate"></a>API de traduction de texte Translator Text 3.0 : Translate
+# <a name="translator-30-translate"></a>Translator 3.0 : Translate
 
 Traduit du texte.
 
@@ -234,7 +234,7 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
   </tr>
 </table> 
 
-Si une erreur se produit, la requête renvoie également une réponse d'erreur JSON. Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTTP à 3 chiffres et un nombre à 3 chiffres qui sert à catégoriser plus précisément l’erreur. Vous trouverez les codes d’erreur les plus courants sur la [page Référence de l’API de traduction de texte Translator Text v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Si une erreur se produit, la requête renvoie également une réponse d'erreur JSON. Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTTP à 3 chiffres et un nombre à 3 chiffres qui sert à catégoriser plus précisément l’erreur. Vous trouverez les codes d’erreur les plus courants sur la page [Informations de référence Translator v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Exemples
 
@@ -454,6 +454,14 @@ La réponse est la suivante :
 
 ### <a name="obtain-alignment-information"></a>Obtenir les informations d’alignement
 
+L’alignement est retourné en tant que valeur de chaîne au format suivant pour chaque mot de la source. Les informations pour chaque mot sont séparées par un espace, y compris pour les langues non séparées par des espaces (scripts) comme le chinois :
+
+[[SourceTextStartIndex]\:[SourceTextEndIndex]–[TgtTextStartIndex]\:[TgtTextEndIndex]] *
+
+Exemple de chaîne d’alignement : « 0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21 ».
+
+En d’autres termes, le signe deux-points sépare les index de début et de fin, le signe tiret sépare les langues et un espace sépare les mots. Un mot peut s’aligner avec zéro, un ou plusieurs mots dans l’autre langue, et les mots alignés peuvent ne pas être contigus. Quand aucune information d’alignement n’est disponible, l’élément Alignment est vide. La méthode ne retourne aucune erreur dans ce cas.
+
 Pour recevoir les informations d’alignement, spécifiez `includeAlignment=true` sur la chaîne de requête.
 
 ```curl
@@ -483,9 +491,10 @@ L'obtention des informations d'alignement est une fonctionnalité expérimentale
 
 * L’alignement n’est pas disponible pour du texte au format HTML, par exemple textType=html
 * L’alignement est renvoyé uniquement pour un sous-ensemble de paires de langues :
-  - de l’anglais vers toute autre langue ;
-  - de toute langue vers l’anglais, à l’exception du chinois simplifié, du chinois traditionnel et du letton vers anglais ;
+  - Anglais vers/depuis n’importe quelle autre langue, à l’exception du chinois traditionnel, du cantonais (traditionnel) ou du serbe (cyrillique).
   - du japonais au coréen ou inversement.
+  - du japonais au chinois simplifié et du chinois simplifié au japonais. 
+  - du chinois simplifié au chinois traditionnel et du chinois traditionnel au chinois simplifié. 
 * Vous ne recevrez pas d’alignement si la phrase est une traduction définie. Des traductions définies sont, par exemple, « Ceci est un test », « Je t’aime » et d’autres phrases extrêmement fréquentes.
 * L'alignement n'est pas possible lorsque vous appliquez l'une des approches visant à empêcher la traduction comme décrit [ici](../prevent-translation.md)
 
@@ -515,7 +524,7 @@ La réponse est la suivante :
 
 ### <a name="translate-with-dynamic-dictionary"></a>Traduire avec un dictionnaire dynamique
 
-Si vous connaissez déjà la traduction que vous souhaitez appliquer à un mot ou à une phrase, vous pouvez la fournir en tant que balisage dans la demande. Le dictionnaire dynamique n’est sûr que pour des noms composés, tels que des noms propres et des noms de produits.
+Si vous connaissez déjà la traduction que vous souhaitez appliquer à un mot ou à une phrase, vous pouvez la fournir en tant que balisage dans la demande. Le dictionnaire dynamique n’est sûr que pour des noms propres comme les noms de personnes et les noms de produits.
 
 Le balisage à fournir utilise la syntaxe suivante.
 

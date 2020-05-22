@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: f90ada6b6cd1760b3b779010625f252533fa611d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe2c0eed2d476d01dffd22a61dd431140f26c475
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218627"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587230"
 ---
 # <a name="how-to-manage-settings"></a>Comment gérer les paramètres
 
@@ -29,11 +29,11 @@ Pour accéder à la page des paramètres :
 
 ## <a name="associating-microsoft-translator-subscription"></a>Association d’abonnement Microsoft Translator
 
-Vous devez avoir une clé d’abonnement d’API de traduction de texte Translator Text Microsoft associée à votre espace de travail pour former ou déployer des modèles.
+Vous devez avoir une clé d’abonnement à Translator associée à votre espace de travail pour entrainer ou déployer des modèles.
 
 Si vous n’avez pas d’abonnement, procédez comme suit :
 
-1. Abonnez-vous à l’API de traduction de texte Translator Text Microsoft. Cet article montre comment s’abonner à API de traduction de texte Translator Text Microsoft.
+1. Abonnez-vous à Translator. Cet article explique comment s’abonner à Translator.
 2. Notez la clé de votre abonnement à Translator. Key1 ou Key2 sont acceptables.
 3. Retournez au portail Custom Translator.
 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 64a934196bb964561f36b9d95a2467b149847225
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 77242ab35416fb24a3a815e7137280e5f3698c30
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69906709"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586615"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
@@ -59,11 +59,11 @@ using Newtonsoft.Json;
 
 ## <a name="create-classes-for-the-json-response"></a>Créer des classes pour la réponse JSON
 
-Ensuite, nous allons créer un ensemble de classes qui sont utilisées lors de la désérialisation de la réponse JSON retournée par l’API Translator Text.
+Ensuite, nous allons créer un ensemble de classes qui sont utilisées lors de la désérialisation de la réponse JSON retournée par Translator.
 
 ```csharp
 /// <summary>
-/// The C# classes that represents the JSON returned by the Translator Text API.
+/// The C# classes that represents the JSON returned by the Translator.
 /// </summary>
 public class TranslationResult
 {
@@ -136,7 +136,7 @@ Dans la classe `Program`, créez une fonction asynchrone appelée `TranslateText
 
 ```csharp
 // This sample requires C# 7.1 or later for async/await.
-// Async call to the Translator Text API
+// Async call to the Translator
 static public async Task TranslateTextRequest(string subscriptionKey, string endpoint, string route, string inputText)
 {
   /*
@@ -293,7 +293,7 @@ N’oubliez pas de supprimer toutes les informations confidentielles (telles que
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez les informations de référence sur l’API pour comprendre tout ce que vous pouvez faire avec l’API Traduction de texte Translator Text.
+Consultez les informations de référence sur l’API pour comprendre tout ce que vous pouvez faire avec Translator.
 
 > [!div class="nextstepaction"]
 > [Informations de référence sur l'API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

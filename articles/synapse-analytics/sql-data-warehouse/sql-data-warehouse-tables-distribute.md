@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 04255fb6fdf83e7249fad01c75425943b580393c
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 599514f6e7b97208194fc4c1660712f4d5e0c4cb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742866"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585349"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Guide de conception de tables distribuées dans un pool SQL Synapse
 
@@ -92,11 +92,11 @@ WITH
 ;
 ```
 
-Le choix d’une colonne de distribution est une décision de conception importante, car les valeurs de cette colonne déterminent la façon dont les lignes sont distribuées. Le meilleur choix dépend de plusieurs facteurs et implique généralement des compromis. Toutefois, si vous ne choisissez pas la meilleure colonne la première fois, vous pouvez utiliser [CTAS (CREATE TABLE AS SELECT)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) pour recréer la table avec une colonne de distribution différente.
+Les données stockées dans la colonne de distribution peuvent être mises à jour. Ces mises à jour peuvent entraîner une lecture aléatoire des données.
 
-### <a name="choose-a-distribution-column-that-does-not-require-updates"></a>Choisir une colonne de distribution qui ne nécessite pas de mises à jour
+Le choix d’une colonne de distribution est une décision de conception importante, car les valeurs de cette colonne déterminent la façon dont les lignes sont distribuées. Le meilleur choix dépend de plusieurs facteurs et implique généralement des compromis. Une fois la colonne de distribution choisie, vous ne pouvez plus la modifier.  
 
-Vous ne pouvez pas mettre à jour une colonne de distribution, sauf si vous supprimez la ligne et insérez une nouvelle ligne avec les valeurs mises à jour. Par conséquent, sélectionnez une colonne avec des valeurs statiques.
+Si vous ne choisissez pas la meilleure colonne la première fois, vous pouvez utiliser [CTAS (CREATE TABLE AS SELECT)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) pour recréer la table avec une colonne de distribution différente.
 
 ### <a name="choose-a-distribution-column-with-data-that-distributes-evenly"></a>Choisir une colonne de distribution avec des données distribuées de manière uniforme
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: aahi
-ms.openlocfilehash: dd4444bf42bcc8dda95f8fa37b42a365538efa85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33200f8807ad28ac160bb377b1107548f4e42d51
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218615"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590806"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Créer un compte Cognitive Services dans le portail Azure
 
@@ -23,7 +23,7 @@ Ce guide de démarrage rapide vous montre comment commencer à utiliser Azure Co
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure valide - [Créer un abonnement gratuitement](https://azure.microsoft.com/free/)
 
@@ -40,7 +40,7 @@ Ce guide de démarrage rapide vous montre comment commencer à utiliser Azure Co
     |                  |                                                      |                    |                               |                  |
     |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
     | Vision par ordinateur  | Content Moderator                                    | Face               | Language Understanding (LUIS) | Analyse de texte   |
-    | Translator Text  | Recherche Bing v7 <br>(Web, Image, Actualités, Vidéo, Visuel) | Recherche personnalisée Bing | Recherche d’entité Bing            | Suggestion automatique Bing |
+    | Convertisseur  | Recherche Bing v7 <br>(Web, Image, Actualités, Vidéo, Visuel) | Recherche personnalisée Bing | Recherche d’entité Bing            | Suggestion automatique Bing |
     | Vérification orthographique Bing |                                                      |                    |                               |                  |
     
     #### <a name="single-service-resource"></a>[Ressource monoservice](#tab/singleservice)
@@ -53,7 +53,7 @@ Ce guide de démarrage rapide vous montre comment commencer à utiliser Azure Co
     | [Service Custom Vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [Reconnaissance de l’orateur](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [Language Understanding (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | [Recherche personnalisée Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) |
     | [Visage](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [Personalizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     | [Recherche d’entités Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingEntitySearch) |
     | [Ink Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Analyse de texte](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |                      | [Vérification orthographique Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
-    |           |                         | [Translator Text](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Suggestion automatique Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
+    |           |                         | [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Suggestion automatique Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
     ***
 
 3. Sur la page **Créer**, renseignez les informations suivantes :

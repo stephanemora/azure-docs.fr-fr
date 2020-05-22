@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: c180a5d751b44346760706b1bd3d1e8acb70099d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: cd5a375460bbedcca5a370d86a1b43493e75f844
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71837524"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587146"
 ---
 [!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
 
@@ -31,7 +31,7 @@ Ces modules sont requis pour construire la requête HTTP et créer un identifica
 
 ## <a name="set-the-subscription-key-and-endpoint"></a>Définir la clé d’abonnement et le point de terminaison
 
-Cet exemple tente de lire la clé d’abonnement et le point de terminaison Translator Text depuis ces variables d’environnement : `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` et `TRANSLATOR_TEXT_ENDPOINT`. Si vous n’êtes pas familiarisé avec les variables d’environnement, vous pouvez définir `subscriptionKey` et `endpoint` en tant que chaînes et commenter les instructions conditionnelles.
+Cet exemple tente de lire la clé d’abonnement et le point de terminaison Translator depuis ces variables d’environnement : `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` et `TRANSLATOR_TEXT_ENDPOINT`. Si vous n’êtes pas familiarisé avec les variables d’environnement, vous pouvez définir `subscriptionKey` et `endpoint` en tant que chaînes et commenter les instructions conditionnelles.
 
 Copiez ce code dans votre projet :
 
@@ -92,7 +92,7 @@ request(options, function(err, res, body){
 
 ## <a name="put-it-all-together"></a>Assemblage
 
-Voilà, vous avez installé un programme simple qui appellera l’API de traduction de texte Translator Text et enverra une réponse JSON. Il est maintenant temps d’exécuter votre programme :
+Voilà, vous avez installé un programme simple qui appellera Translator et enverra une réponse JSON. Il est maintenant temps d’exécuter votre programme :
 
 ```console
 node detect.js
@@ -136,7 +136,7 @@ Si vous avez codé en dur votre clé d’abonnement dans votre programme, veille
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez les informations de référence sur l’API pour comprendre tout ce que vous pouvez faire avec l’API Traduction de texte Translator Text.
+Consultez les informations de référence sur l’API pour comprendre tout ce que vous pouvez faire avec Translator.
 
 > [!div class="nextstepaction"]
 > [Informations de référence sur l'API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

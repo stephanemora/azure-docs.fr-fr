@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: 97d399f4a8ec704fd90eb6c49f0835be7e9e4537
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0413c15c025e554ab8465736dfdb5607149c5ed2
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73836595"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588681"
 ---
 # <a name="custom-translator-frequently-asked-questions"></a>Questions fréquentes sur Custom Translator
 
@@ -41,7 +41,7 @@ En général, le déploiement prend moins d’une heure.
 
 ## <a name="how-do-you-access-a-deployed-system"></a>Comment accéder à un système déployé ?
 
-Les systèmes déployés sont accessibles via l’API de traduction de texte Translator Text V3 de Microsoft en spécifiant le CategoryID. Vous trouverez plus d’informations sur l’API de traduction de texte Translator Text dans la page web [Informations de référence sur les API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
+Les systèmes déployés sont accessibles via Microsoft Translator v3 en spécifiant le CategoryID. Vous trouverez plus d’informations sur Translator dans la page web [Informations de référence sur les API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Comment ignorer l’alignement et la rupture de phrase si mes données sont déjà alignées par phrase ?
 

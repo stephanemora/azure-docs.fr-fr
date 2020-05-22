@@ -3,12 +3,12 @@ title: Points de terminaison et régions de publication – LUIS
 description: La région spécifiée sur le portail Azure est la même que celle dans laquelle vous allez publier l'application LUIS, et une URL de point de terminaison est générée pour cette même région.
 ms.topic: reference
 ms.date: 11/19/2019
-ms.openlocfilehash: a7709d15a51637772d7a4775cd71c307dc21c52b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 680887ecda0843bf770c62a4b9a4d88305ea9e73
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80292085"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590908"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Création et la publication de régions et des clés associées
 
@@ -21,9 +21,9 @@ Il existe trois portails de création LUIS, en fonction de la région. Vous deve
 
 |LUIS|Région de création|Nom de la région Azure|
 |--|--|--|
-|[www.luis.ai][www.luis.ai] <br>[preview.luis.ai](https://preview.luis.ai)|États-Unis<br>pas l’Europe<br>pas l’Australie| `westus`|
-|[au.luis.ai][au.luis.ai] <br>[preview.au.luis.ai](https://preview.au.luis.ai)|Australie| `australiaeast`|
-|[eu.luis.ai][eu.luis.ai] <br>[preview.eu.luis.ai](https://preview.eu.luis.ai)|Europe|`westeurope`|
+|[www.luis.ai][www.luis.ai] <br>[previous.luis.ai](https://previous.luis.ai)|États-Unis<br>pas l’Europe<br>pas l’Australie| `westus`|
+|[au.luis.ai][au.luis.ai] <br>[previous.au.luis.ai](https://previous.au.luis.ai)|Australie| `australiaeast`|
+|[eu.luis.ai][eu.luis.ai] <br>[previous.eu.luis.ai](https://previous.eu.luis.ai)|Europe|`westeurope`|
 
 Les régions de création ont [des régions de basculement jumelées](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 

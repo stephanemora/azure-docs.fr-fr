@@ -1,21 +1,14 @@
 ---
 title: Type d’entité d’expression régulière - LUIS
-titleSuffix: Azure Cognitive Services
 description: Une expression régulière est préférable à un texte d’énoncé brut. Elle ignore la casse et la variante culturelle.  La correspondance d’expression régulière est appliquée après les modifications de la vérification orthographique au niveau du caractère, et non au niveau du jeton.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 09/29/2019
-ms.author: diberry
-ms.openlocfilehash: b9da76a80183f353a74d43e667bf6c9219eb6c05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 90260fca10fc087225f6b1286e9fa2dd6d17c836
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74841215"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585604"
 ---
 # <a name="regular-expression-entity"></a>Entité d’expression régulière
 
@@ -106,4 +99,7 @@ Il s’agit du JSON si `verbose=true` est défini dans la chaîne de requête :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce [tutoriel](tutorial-regex-entity.md), créez une application pour extraire des données mises en forme de façon homogène à partir d’un énoncé avec l’entité **Expression régulière**.
+En savoir plus sur les entités :
+
+* [Concepts](luis-concept-entity-types.md)
+* [Création](luis-how-to-add-entities.md)

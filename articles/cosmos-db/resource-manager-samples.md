@@ -4,14 +4,14 @@ description: Utilisez des modèles Azure Resource Manager pour créer et configu
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/08/2020
 ms.author: mjbrown
-ms.openlocfilehash: 501065875cafc035d491e606c016f3ad4dbfc5d4
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: a98aee61c3a330344b5b7fa0a5f7f53a65e5ecdb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791627"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586148"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Modèles Azure Resource Manager pour Azure Cosmos DB
 
@@ -22,6 +22,7 @@ Les tableaux suivants incluent des liens vers des modèles Azure Resource Manage
 |**Modèle**|**Description**|
 |---|---|
 |[Créer un compte, une base de données et un conteneur Azure Cosmos avec un débit de mise à l’échelle automatique](manage-sql-with-resource-manager.md#create-autoscale) | Ce modèle crée un compte d’API Core (SQL) dans deux régions, une base de données et un conteneur avec un débit de mise à l’échelle automatique. |
+|[Créer un compte, une base de données et un conteneur Azure Cosmos avec un magasin analytique](manage-sql-with-resource-manager.md#create-analytical-store) | Ce modèle crée un compte d’API Core (SQL) dans une région avec un conteneur configuré avec une durée de vie Analytical TTL activée et une option d’utilisation de débit manuel ou de mise à l’échelle automatique. |
 |[Créer un compte, une base de données et un conteneur Azure Cosmos avec un débit (manuel) standard](manage-sql-with-resource-manager.md#create-manual) | Ce modèle crée un compte d’API Core (SQL) dans deux régions, une base de données et un conteneur avec un débit standard. |
 |[Créer un compte Azure Cosmos, une base de données et un conteneur avec une procédure stockée, un déclencheur et une fonction définie par l’utilisateur](manage-sql-with-resource-manager.md#create-sproc) | Ce modèle crée un compte d’API Core (SQL) dans deux régions avec une procédure stockée, un déclencheur et un UDF pour un conteneur. |
 |[Créer un point de terminaison privé pour un compte Azure Cosmos](how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-a-resource-manager-template) |  Ce modèle crée un point de terminaison privé pour un compte d’API Core (SQL) Azure Cosmos existant dans un réseau virtuel existant. |

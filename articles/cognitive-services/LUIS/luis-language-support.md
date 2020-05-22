@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 82efa70b30e829cfedd0b1fa7a21fd06949aa6d5
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: e859ac18276d10960a5a8488a6051252d90e0fcd
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80744153"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591044"
 ---
 # <a name="language-and-region-support-for-luis"></a>Prise en charge de la région et de la langue pour LUIS
 
@@ -24,7 +24,7 @@ LUIS possède un éventail de fonctionnalités au sein du service. Certaines fon
 
 ## <a name="multi-language-luis-apps"></a>Applications LUIS multilingues
 
-Si vous avez besoin d’une application client LUIS multilingue, comme un chatbot, vous avez plusieurs options. Si LUIS prend en charge toutes les langues, vous développez une application LUIS pour chaque langue. Chaque application LUIS possède un ID d’application unique et un journal de point de terminaison. Si vous avez besoin d’une compréhension pour une langue non prise en charge par LUIS, vous pouvez utiliser l’[API Microsoft Translator](../Translator/translator-info-overview.md) pour traduire l’énoncé dans un langage pris en charge, envoyer l’énoncé au point de terminaison LUIS et recevoir le scores obtenu.
+Si vous avez besoin d’une application client LUIS multilingue, comme un chatbot, vous avez plusieurs options. Si LUIS prend en charge toutes les langues, vous développez une application LUIS pour chaque langue. Chaque application LUIS possède un ID d’application unique et un journal de point de terminaison. Si vous avez besoin du service Language Understanding pour une langue non prise en charge par LUIS, vous pouvez utiliser le service [Translator](../Translator/translator-info-overview.md) pour traduire l’énoncé dans une langue prise en charge, envoyer l’énoncé au point de terminaison LUIS et recevoir les scores obtenu.
 
 ## <a name="languages-supported"></a>Langues prises en charge
 

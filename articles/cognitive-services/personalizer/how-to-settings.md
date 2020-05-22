@@ -2,13 +2,13 @@
 title: Configurer Personalizer
 description: La configuration du service porte sur la façon dont le service traite les récompenses, la fréquence à laquelle le service effectue une exploration, la fréquence à laquelle le modèle est réentraîné et la quantité de données stockées.
 ms.topic: conceptual
-ms.date: 02/19/2020
-ms.openlocfilehash: ac31a9f907defeb44dbd4748a4395d3aec34d30c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/29/2020
+ms.openlocfilehash: 8df851c70650f3d59efc4c7507ce4b1c8a00fbe3
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218571"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584652"
 ---
 # <a name="configure-personalizer-learning-loop"></a>Configurer la boucle d’apprentissage de Personalizer
 
@@ -18,6 +18,23 @@ Configurez la boucle d’apprentissage sur la page **Configuration** du Portail 
 
 <a name="configure-service-settings-in-the-azure-portal"></a>
 <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>
+
+## <a name="planning-configuration-changes"></a>Planification des modifications de configuration
+
+Dans la mesure où certaines modifications de configuration [réinitialisent votre modèle](#settings-that-include-resetting-the-model), vous devez planifier vos modifications.
+
+Si vous prévoyez d'utiliser le [mode Apprenti](concept-apprentice-mode.md), commencez par revoir la configuration de Personalizer.
+
+<a name="clear-data-for-your-learning-loop"></a>
+
+## <a name="settings-that-include-resetting-the-model"></a>Paramètres qui incluent la réinitialisation du modèle
+
+Les actions suivantes déclenchent un nouvel apprentissage du modèle à l'aide des données disponibles jusqu'aux 2 derniers jours.
+
+* Récompense
+* Exploration
+
+Pour [effacer](how-to-manage-model.md) toutes vos données, utilisez la page **Paramètres de modèle et d'apprentissage**.
 
 ## <a name="configure-rewards-for-the-feedback-loop"></a>Configurer les récompenses pour la boucle de rétroaction
 
@@ -66,16 +83,7 @@ Après avoir changé cette valeur, veillez à sélectionner **Enregistrer**.
 
 Après avoir changé cette valeur, veillez à sélectionner **Enregistrer**.
 
-<a name="clear-data-for-your-learning-loop"></a>
 
-## <a name="settings-that-include-resetting-the-model"></a>Paramètres qui incluent la réinitialisation du modèle
-
-Les actions suivantes incluent une nouvelle formation immédiate du modèle avec les deux derniers jours de données.
-
-* Récompense
-* Exploration
-
-Pour [effacer](how-to-manage-model.md) toutes vos données, utilisez la page **Paramètres de modèle et d’apprentissage**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

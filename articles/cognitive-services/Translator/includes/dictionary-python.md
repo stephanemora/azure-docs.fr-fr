@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 6c72cd270e634ca0aebff7c17d5663241428e182
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: d52c4ba9bc4fdb5a696b43aa2b8358992182c553
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69907067"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586957"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
 
@@ -27,11 +27,11 @@ import os, requests, uuid, json
 > [!NOTE]
 > Si vous n’avez jamais utilisé ces modules auparavant, vous devrez les installer avant d’exécuter votre programme. Pour installer ces packages, exécuter `pip install requests uuid`.
 
-Le premier commentaire ordonne à votre interpréteur Python d’utiliser l’encodage UTF-8. Puis, les modules requis sont importés pour lire votre clé d’abonnement depuis une variable d’environnement, élaborer la requête http, créer un identificateur unique et gérer la réponse JSON rendue par l’API Translator Text.
+Le premier commentaire ordonne à votre interpréteur Python d’utiliser l’encodage UTF-8. Puis, les modules requis sont importés pour lire votre clé d’abonnement depuis une variable d’environnement, élaborer la requête http, créer un identificateur unique et gérer la réponse JSON retournée par Translator.
 
 ## <a name="set-the-subscription-key-endpoint-and-path"></a>Définir la clé d’abonnement, le point de terminaison et le chemin
 
-Cet exemple tente de lire la clé d’abonnement et le point de terminaison Translator Text depuis les variables d’environnement : `TRANSLATOR_TEXT_KEY` et `TRANSLATOR_TEXT_ENDPOINT`. Si vous n’êtes pas familiarisé avec les variables d’environnement, vous pouvez définir `subscription_key` et `endpoint` en tant que chaînes et commenter les instructions conditionnelles.
+Cet exemple tente de lire la clé d’abonnement et le point de terminaison Translator depuis les variables d’environnement : `TRANSLATOR_TEXT_KEY` et `TRANSLATOR_TEXT_ENDPOINT`. Si vous n’êtes pas familiarisé avec les variables d’environnement, vous pouvez définir `subscription_key` et `endpoint` en tant que chaînes et commenter les instructions conditionnelles.
 
 Copiez ce code dans votre projet :
 
@@ -47,12 +47,12 @@ if not endpoint_var_name in os.environ:
 endpoint = os.environ[endpoint_var_name]
 ```
 
-Le point de terminaison global de l’API de traduction de texte Translator Text est défini sur `endpoint`. `path` définit le chemin des `dictionary/lookup` et reconnait que nous souhaitons atteindre la version 3 de l’API.
+Le point de terminaison global de Translator est défini sur `endpoint`. `path` définit le chemin des `dictionary/lookup` et reconnait que nous souhaitons atteindre la version 3 de l’API.
 
 Les `params` servent à définir les langues source et de sortie. Dans cet exemple, nous utilisons l’anglais et l’espagnol : `en` et `es`.
 
 >[!NOTE]
-> Pour plus d’informations concernant les points de terminaison, les itinéraires et les paramètres de la requête, consultez [API Translator Text 3.0 : Recherche dans le dictionnaire](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+> Pour plus d’informations sur les points de terminaison, les itinéraires et les paramètres de requête, consultez [Translator 3.0 : Recherche dans le dictionnaire](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ```python
 path = '/dictionary/lookup?api-version=3.0'
@@ -105,7 +105,7 @@ print(json.dumps(response, sort_keys=True, indent=4,
 
 ## <a name="put-it-all-together"></a>Assemblage
 
-Voilà, vous avez installé un programme simple qui appellera l’API de traduction de texte Translator Text et enverra une réponse JSON. Il est maintenant temps d’exécuter votre programme :
+Voilà, vous avez installé un programme simple qui appellera Translator et enverra une réponse JSON. Il est maintenant temps d’exécuter votre programme :
 
 ```console
 python alt-translations.py
@@ -147,7 +147,7 @@ Si vous avez codé en dur votre clé d’abonnement dans votre programme, veille
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez les informations de référence sur l’API pour comprendre tout ce que vous pouvez faire avec l’API Traduction de texte Translator Text.
+Consultez les informations de référence sur l’API pour comprendre tout ce que vous pouvez faire avec Translator.
 
 > [!div class="nextstepaction"]
 > [Informations de référence sur l'API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

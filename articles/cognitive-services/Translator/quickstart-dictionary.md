@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Rechercher des mots avec le dictionnaire bilingue - API de traduction de texte Translator Text'
+title: 'Démarrage rapide : Rechercher des mots avec le dictionnaire bilingue - Translator'
 titleSuffix: Azure Cognitive Services
-description: Dans ce guide de démarrage rapide, vous allez découvrir comment obtenir d’autres traductions possibles d’un terme, ainsi que des exemples d’utilisation de ces traductions à l’aide de l’API de traduction de texte Translator Text.
+description: Dans ce guide de démarrage rapide, vous allez découvrir comment obtenir d’autres traductions possibles d’un terme, ainsi que des exemples d’utilisation de ces traductions à l’aide du Traducteur.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 07fd984f72628ac4f6d6736bf0ab903619e96c72
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: fe2f4f2bea52650c2baa2ac3380b5b92f01c15eb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77525156"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586955"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary"></a>Démarrage rapide : Rechercher des mots avec le dictionnaire bilingue
 
-Dans ce guide de démarrage rapide, vous allez découvrir comment obtenir d’autres traductions possibles d’un terme, ainsi que des exemples d’utilisation de ces traductions à l’aide de l’API de traduction de texte Translator Text.
+Dans ce guide de démarrage rapide, vous allez découvrir comment obtenir d’autres traductions possibles d’un terme, ainsi que des exemples d’utilisation de ces traductions à l’aide du Traducteur.
 
-Pour suivre ce démarrage rapide, vous devrez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource Traduction de texte Translator Text. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/) pour obtenir une clé d’abonnement.
+Pour suivre ce démarrage rapide, vous devrez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource Translator. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/) pour obtenir une clé d’abonnement.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/dictionary-csharp.md)]

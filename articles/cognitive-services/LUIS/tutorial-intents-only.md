@@ -1,14 +1,14 @@
 ---
 title: 'Tutoriel : Prédire les intentions - LUIS'
-description: Dans ce tutoriel, vous allez créer une application personnalisée qui prédit l’intention d’un utilisateur. Cette application est le type d’application LUIS le plus simple, car elle n’extrait pas divers éléments de données du texte de l’énoncé tels que les adresses e-mail ou les dates.
+description: Dans ce tutoriel, vous allez créer une application personnalisée qui prédit l’intention d’un utilisateur sur la base de l’énoncé (texte).
 ms.topic: tutorial
-ms.date: 03/24/2020
-ms.openlocfilehash: c58c96f717de77c065d7f844928714eb4fb3e4db
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 05/05/2020
+ms.openlocfilehash: c76273d7c180928d25be70e0abd7abf26c90b44a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80286742"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588936"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Tutoriel : Générer une application LUIS pour déterminer les intentions d’un utilisateur
 
@@ -37,7 +37,7 @@ Ces intentions sont classées dans la catégorie **intentions**.
 |`ModifyOrder`|Déterminer la commande de pizza de l’utilisateur.|
 |`Greeting`|Commencez la conversation avec le bot.|
 |`ConfirmOrder`|Confirmez la commande de pizza.|
-|`None`|Déterminez si l’utilisateur demande une chose à laquelle l’application n’est pas censée répondre. Cette intention est fournie dans le cadre de la création de l’application et elle ne peut pas être supprimée. |
+|`None`|Déterminez si l’utilisateur demande une chose à laquelle l’application LUIS n’est pas conçue pour répondre. Cette intention est fournie dans le cadre de la création de l’application et elle ne peut pas être supprimée. |
 
 ## <a name="create-a-new-app"></a>Créer une application
 
@@ -64,9 +64,10 @@ Pour classifier un énoncé, l’intention a besoin d’exemples d’énoncés u
     |`i need 2 large cheese pizzas 6 large pepperoni pizzas and 1 large supreme pizza`|
     |`Order a pizza for me`|
 
-    ![Ajouter des exemples d’énoncés](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
+    > [!div class="mx-imgBorder"]
+    > ![Capture d’écran de l’ajout d’exemples d’énoncés dans le portail LUIS sur la page des intentions](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 
-    En fournissant des _exemples d’énoncés_, vous formez LUIS à déterminer les types d’énoncés à prédire pour cette intention.
+    En fournissant des _exemples d’énoncés_, vous formez LUIS à déterminer les types d’énoncés à prédire pour cette intention. Il s’agit d’exemples positifs. Les énoncés de toutes les autres intentions sont traités comme des exemples négatifs pour cette intention.
 
     [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]
 
@@ -178,6 +179,8 @@ Pour classifier un énoncé, l’intention a besoin d’exemples d’énoncés u
 
 ## <a name="client-application-next-steps"></a>Étapes suivantes de l’application cliente
 
+Dans ce didacticiel, vous avez créé une application LUIS et des intentions, ajouté des exemples d’énoncés pour chaque intention, ajouté des exemples d’énoncés à l’intention None, puis effectué un apprentissage, publié et testé au niveau du point de terminaison. Ce sont les étapes de base de la génération d’un modèle LUIS.
+
 Une fois que LUIS a retourné la réponse JSON, il en a fini avec cette demande. LUIS ne fournit pas de réponses aux énoncés de l’utilisateur ; il identifie uniquement le type d’informations demandé dans un langage naturel. Le suivi de la conversation est fourni par l’application cliente telle qu’un bot Azure.
 
 
@@ -193,8 +196,6 @@ Une fois que LUIS a retourné la réponse JSON, il en a fini avec cette demande.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-Dans ce didacticiel, vous avez créé une application LUIS et des intentions, ajouté des exemples d’énoncés pour chaque intention, ajouté des exemples d’énoncés à l’intention None, puis effectué un apprentissage, publié et testé au niveau du point de terminaison. Ce sont les étapes de base de la génération d’un modèle LUIS.
 
 > [!div class="nextstepaction"]
 > [Ajouter une entité décomposable à cette application](tutorial-machine-learned-entity.md)

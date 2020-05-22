@@ -9,19 +9,34 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: e502b886c8031174180d40f1c5b7e373a974ee8e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a3db0e2ffdd4a75f02634ca2227c3c41416d4f65
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877007"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588378"
 ---
-#### <a name="docker-pull-for-the-sentiment-analysis-container"></a>Docker pull du conteneur Analyse des sentiments
+#### <a name="docker-pull-for-the-sentiment-analysis-v3-container"></a>Docker pull du conteneur Analyse des sentiments v3
 
-Utilisez la commande [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) pour télécharger une image conteneur à partir de Microsoft Container Registry.
-
-Pour obtenir une description complète des balises disponibles pour les conteneurs Analyse de texte, consultez le conteneur [Analyse des sentiments](https://go.microsoft.com/fwlink/?linkid=2018654) dans le Docker Hub.
+Le conteneur Analyse des sentiments v3 est disponible dans plusieurs langues. Pour télécharger la version anglaise du conteneur, utilisez la commande ci-dessous. 
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-en
 ```
+
+Pour télécharger le conteneur dans une autre langue, remplacez `en` par l’un des codes de langue ci-dessous. 
+
+| Conteneur Analyse de texte | Code langue |
+|--|--|
+| Anglais | `en` |
+| Espagnol | `es` |
+| Français | `fr` |
+| Italien | `it` |
+| Allemand | `de` |
+| Chinois - simplifié | `zh` |
+| Chinois - traditionnel | `zht` |
+| Japonais | `ja` |
+| Portugais | `pt` |
+| Néerlandais | `nl` |
+
+Pour obtenir une description complète des balises disponibles pour le conteneur Analyse de texte, consultez [Docker Hub](https://go.microsoft.com/fwlink/?linkid=2018654).

@@ -2,14 +2,14 @@
 title: Meilleures pratiques pour la création de votre application LUIS
 description: Découvrez les meilleures pratiques pour obtenir les meilleurs résultats à partir du modèle de votre application LUIS.
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 525d450084723a53ae090319d9ebf3f68d63beee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 43ca033c98d9997aecaf919b994a89d4e618d49b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382386"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589803"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Meilleures pratiques pour la création d’une application LUIS (Language Understanding)
 Suivez le processus de création d’applications pour générer votre application LUIS :
@@ -31,11 +31,11 @@ La liste suivante indique les meilleures pratiques pour les applications LUIS :
 
 |À faire|À ne pas faire|
 |--|--|
-|[Définir des intentions distinctes](#do-define-distinct-intents)<br>[Ajouter des descripteurs aux intentions](#do-add-descriptors-to-intents) |[Ajouter de nombreux exemples d’énoncés aux intentions](#dont-add-many-example-utterances-to-intents)<br>[Utiliser peu d’entités ou des entités simples](#dont-use-few-or-simple-entities) |
+|[Définir des intentions distinctes](#do-define-distinct-intents)<br>[Ajouter des fonctionnalités aux intentions](#do-add-features-to-intents) |[Ajouter de nombreux exemples d’énoncés aux intentions](#dont-add-many-example-utterances-to-intents)<br>[Utiliser peu d’entités ou des entités simples](#dont-use-few-or-simple-entities) |
 |[Trouver l’équilibre idéal, ni trop générique ni trop spécifique, pour chaque intention](#do-find-sweet-spot-for-intents)|[Utiliser LUIS comme plateforme d’apprentissage](#dont-use-luis-as-a-training-platform)|
 |[Générer l’application de manière itérative avec des versions](#do-build-your-app-iteratively-with-versions)<br>[Générer des entités pour la décomposition du modèle](#do-build-for-model-decomposition)|[Ajouter de nombreux exemples d’énoncés du même format, en ignorant les autres formats](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
 |[Ajouter des modèles dans les itérations ultérieures](#do-add-patterns-in-later-iterations)|[Mélanger la définition des intentions et des entités](#dont-mix-the-definition-of-intents-and-entities)|
-|[Équilibrer vos énoncés entre toutes les intentions](#balance-your-utterances-across-all-intents), sauf l’intention None.<br>[Ajouter des exemples d’énoncés à l’intention None](#do-add-example-utterances-to-none-intent)|[Créer des descripteurs avec toutes les valeurs possibles](#dont-create-descriptors-with-all-the-possible-values)|
+|[Équilibrer vos énoncés entre toutes les intentions](#balance-your-utterances-across-all-intents), sauf l’intention None.<br>[Ajouter des exemples d’énoncés à l’intention None](#do-add-example-utterances-to-none-intent)|[Créer des listes d’expressions avec toutes les valeurs possibles](#dont-create-phrase-lists-with-all-the-possible-values)|
 |[Tirer parti de la fonctionnalité de suggestion pour l’apprentissage actif](#do-leverage-the-suggest-feature-for-active-learning)|[Ajouter trop de modèles](#dont-add-many-patterns).|
 |[Analyser les performances de l’application avec des tests par lots](#do-monitor-the-performance-of-your-app)|[Effectuer l’apprentissage et publier à chaque ajout d’exemple d’énoncé](#dont-train-and-publish-with-every-single-example-utterance)|
 
@@ -53,9 +53,9 @@ Prenons les exemples d’énoncés suivants :
 
 `Book a flight` et `Book a hotel` utilisent le même vocabulaire de `book a `. Le format étant le même, il doit s’agir de la même intention avec différentes entités extraites pour les mots `flight` et `hotel`.
 
-## <a name="do-add-descriptors-to-intents"></a>Ajouter des descripteurs aux intentions
+## <a name="do-add-features-to-intents"></a>Ajouter des fonctionnalités aux intentions
 
-Les descripteurs aident à décrire les fonctionnalités d’une intention. Un descripteur peut être une liste d’expressions de mots significatifs pour cette intention ou une entité significative pour cette intention.
+Les fonctionnalités décrivent les concepts d’une intention. Une fonctionnalité peut être une liste d’expressions de mots significatifs pour cette intention ou une entité significative pour cette intention.
 
 ## <a name="do-find-sweet-spot-for-intents"></a>Trouver l’équilibre idéal pour les intentions
 Utilisez les données de prédiction de LUIS pour déterminer si vos intentions se chevauchent, ce qui serait source de confusion pour LUIS. La meilleure intention serait alors trop proche d’une autre intention. Dans la mesure où LUIS n’utilise pas à chaque fois le même chemin d’accès à travers les données pour l’apprentissage, l’intention présentant un recoupement a des chances de finir première ou deuxième lors de l’apprentissage. Pour éviter cela, il faut que le score de l’énoncé de chaque intention soit plus éloigné. Lorsque les intentions sont bien distinctes les unes des autres, la meilleure intention devrait être à chaque fois conforme aux attentes.
@@ -73,17 +73,22 @@ La décomposition du modèle comprend un processus type :
 * créer une **Intention** en fonction des intentions de l’utilisateur de l’application cliente
 * ajouter 15-30 exemples d’énoncés basés sur une entrée utilisateur réelle
 * étiqueter le concept de données de niveau supérieur dans l’exemple d’énoncé
-* fractionner le concept de données en sous-composants
-* ajouter des descripteurs (fonctionnalités) à des sous-composants
-* ajouter des descripteurs (fonctionnalités) à une intention
+* fractionner le concept de données en sous-entités
+* ajouter des fonctionnalités aux sous-entités
+* ajouter des fonctionnalités aux intentions
 
 Une fois que vous avez créé l’intention et ajouté des exemples d’énoncés, l’exemple suivant décrit la décomposition d’entité.
 
-Commencez par identifier les concepts de données complets que vous souhaitez extraire dans un énoncé. Il s’agit de votre entité issue de l’apprentissage automatique. Décomposez ensuite l’expression en ses parties. Cela comprend l’identification des sous-composants (en tant qu’entités), ainsi que des descripteurs et des contraintes.
+Commencez par identifier les concepts de données complets que vous souhaitez extraire dans un énoncé. Il s’agit de votre entité issue de l’apprentissage automatique. Décomposez ensuite l’expression en ses parties. Cela comprend l’identification des sous-entités et des fonctionnalités.
 
-Par exemple, si vous souhaitez extraire une adresse, la première entité issue de l’apprentissage automatique peut être appelée `Address`. Lors de la création de l’adresse, identifiez certains de ses sous-composants, tels que l’adresse postale, la ville, l’État et le code postal.
+Par exemple, si vous souhaitez extraire une adresse, la première entité issue de l’apprentissage automatique peut être appelée `Address`. Lors de la création de l’adresse, identifiez certaines de ses sous-entités, tels que l’adresse postale, la ville, l’État et le code postal.
 
-Continuez à décomposer ces éléments en **contraignant** le code postal en une expression régulière. Décomposez l’adresse postale en parties d’un numéro de rue (à l’aide d’un numéro prédéfini), d’un nom de rue et d’un type de rue. Le type de rue peut être décrit à l’aide d’une liste **descripteur** comme avenue, cercle, route et voie.
+Continuez à décomposer ces éléments en :
+* Ajoutant une fonctionnalité requise du code postal en tant qu’entité d’expression régulière.
+* Décomposition de l’adresse postale en parties :
+    * Un **numéro de rue** avec une fonctionnalité requise d’une entité de nombre prédéfinie.
+    * Un **nom de rue**.
+    * Un **type de rue** avec une fonctionnalité requise d’une entité de liste incluant des mots tels que avenue, rond-point, route et ruelle.
 
 L’API de création V3 permet la décomposition du modèle.
 
@@ -109,7 +114,7 @@ Cette intention est l’intention de secours, et indique tout ce qui ne concerne
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Tirer parti de la fonctionnalité de suggestion pour l’apprentissage actif
 
-Utilisez régulièrement la fonctionnalité [Vérifier les énoncés du point de terminaison](luis-how-to-review-endpoint-utterances.md) de **l’apprentissage actif**, au lieu d’ajouter d’autres exemples d’énoncés aux intentions. L’application reçoit constamment des énoncés du point de terminaison, ce qui allonge et fait évoluer cette liste.
+Utilisez régulièrement la fonctionnalité **Vérifier les énoncés du point de terminaison** de [l’apprentissage actif](luis-how-to-review-endpoint-utterances.md), au lieu d’ajouter d’autres exemples d’énoncés aux intentions. L’application reçoit constamment des énoncés du point de terminaison, ce qui allonge et fait évoluer cette liste.
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Analyser les performances de l’application
 
@@ -145,9 +150,9 @@ Créez une intention pour chaque action du bot. Utilisez des entités comme des 
 
 Pour un bot qui réserve des vols, créez une intention **BookFlight**. Ne créez pas une intention pour chaque compagnie aérienne ou chaque destination. Utilisez ces éléments de données comme [entités](luis-concept-entity-types.md) et marquez-les dans les exemples d’énoncés.
 
-## <a name="dont-create-descriptors-with-all-the-possible-values"></a>Ne pas créer de descripteurs avec toutes les valeurs possibles
+## <a name="dont-create-phrase-lists-with-all-the-possible-values"></a>Ne pas créer des listes d’expressions avec toutes les valeurs possibles
 
-Donnez quelques exemples dans les [listes d’expressions](luis-concept-feature.md) de descripteur, mais pas tous les mots. LUIS généralise et tient compte du contexte.
+Donnez quelques exemples dans les [listes d’expressions](luis-concept-feature.md), mais pas tous les mots ou expressions. LUIS généralise et tient compte du contexte.
 
 ## <a name="dont-add-many-patterns"></a>Ne pas ajouter de nombreux modèles
 

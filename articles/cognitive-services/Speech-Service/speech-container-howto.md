@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: efca7eceae74416945c568268edfe0b13a21861a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: dc11d9d7dfa7ededa19e11c9e1bc38e1eaaec93f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856412"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591016"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installer et exécuter des conteneurs du service Speech (préversion)
 
@@ -47,7 +47,7 @@ L’utilisation des conteneurs Speech est soumise aux prérequis suivants :
 
 ## <a name="request-access-to-the-container-registry"></a>Demander l’accès au registre de conteneurs
 
-Complétez et envoyez le [formulaire de demande de conteneurs Cognitive Services Speech](https://aka.ms/speechcontainerspreview/) pour demander l’accès au conteneur. 
+Complétez et envoyez le [formulaire de demande de conteneurs Cognitive Services](https://aka.ms/cognitivegate) pour demander l’accès au conteneur.
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 

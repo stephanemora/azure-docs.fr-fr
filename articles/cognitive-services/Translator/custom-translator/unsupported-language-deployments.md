@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: 3c5c74fc853b5a2425a58e1704aad43350cba212
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 252759139de7f53cd7875efeb7f477219092aa0b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73837453"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584691"
 ---
 # <a name="unsupported-language-deployments"></a>Déploiements de langages non pris en charge
 
@@ -57,4 +57,4 @@ Contrairement aux modèles Custom Translator standard, les modèles du hub ne so
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Effectuer l’apprentissage d’un modèle](how-to-train-model.md).
-- Commencez à utiliser votre modèle Custom Translator déployé via [Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Commencez à utiliser votre modèle de traduction personnalisé déployé via [Translator V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).

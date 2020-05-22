@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: 4517f85fae278bd8bc15a9586d9dc0202e7dfe56
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.date: 05/8/2020
+ms.openlocfilehash: d1eda3671b52a1e4bbae9af2d97010657880c383
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475230"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585400"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Comprendre les sorties d’Azure Stream Analytics
 
@@ -65,6 +65,33 @@ Le tableau suivant répertorie les noms de propriétés et leur description pour
 | Table de charge de travail | Nom de la table dans laquelle la sortie sera écrite. Le nom de la table respecte la casse. Le schéma de cette table doit correspondre exactement au nombre de champs et aux types que votre sortie de travail génère. |
 |Hériter du schéma de partition| Option qui permet d’hériter du schéma de partition de l’étape de requête précédente afin d’obtenir une topologie entièrement parallèle avec plusieurs rédacteurs dans la table. Pour plus d'informations, consultez [Sortie d'Azure Stream Analytics dans Azure SQL Database](stream-analytics-sql-output-perf.md).|
 |Nombre maximal de lots| Limite supérieure recommandée pour le nombre d’enregistrements envoyés avec chaque transaction d’insertion en bloc.|
+
+Deux adaptateurs sont activés pour la sortie d'Azure Stream Analytics vers Azure Synapse Analytics (anciennement SQL Data Warehouse) : SQL Database et Azure Synapse. Nous vous recommandons d'opter pour l’adaptateur Azure Synapse Analytics plutôt que l'adaptateur SQL Database si l’une des conditions suivantes est remplie :
+
+* **Débit** : Si le débit attendu est supérieur à 10 Mo/s, utilisez l’option de sortie Azure Synapse pour obtenir de meilleures performances.
+
+* **Partitions d'entrée** : Si vous disposez d'un minimum de huit partitions, utilisez l’option de sortie Azure Synapse pour améliorer la montée en charge.
+
+## <a name="azure-synapse-analytics-preview"></a>Azure Synapse Analytics (préversion)
+
+[Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) (anciennement SQL Data Warehouse) est un service d’analytique illimité qui regroupe l’entreposage des données d’entreprise et l’analytique du Big Data. 
+
+Les tâches Azure Stream Analytics peuvent définir une sortie vers une table de pool SQL dans Azure Stream Analytics et traiter des débits jusqu’à 200 Mo/s. Cela permet de prendre en charge les besoins les plus exigeants en matière d'analytique en temps réel et de traitement des données de chemin réactif pour des charges de travail telles que la création de rapports et de tableaux de bord.  
+
+La table de pool SQL doit être présente pour vous permettre de l'ajouter en tant qu'entrée à votre tâche Stream Analytics. Le schéma de table doit correspondre aux champs et aux types dans la sortie de votre travail. 
+
+Pour utiliser Azure Synapse en tant que sortie, assurez-vous que le compte de stockage est configuré. Accédez aux paramètres du compte de stockage pour configurer le compte de stockage. Seuls les types de compte de stockage prenant en charge les tables sont autorisés : Usage général V2 et Usage général V1   
+
+Le tableau suivant répertorie les noms de propriétés et leur description pour la création d’une sortie Azure Synapse Analytics.
+
+|Nom de la propriété|Description|
+|-|-|
+|Alias de sortie |Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cette base de données. |
+|Base de données |Nom du pool SQL où vous envoyez votre sortie. |
+|Nom du serveur |Nom du serveur Azure Synapse.  |
+|Nom d’utilisateur |Nom de l’utilisateur qui a accès en écriture à la base de données. Stream Analytics prend uniquement en charge l’authentification SQL. |
+|Mot de passe |Mot de passe de connexion à la base de données. |
+|Table de charge de travail  | Nom de la table dans laquelle la sortie sera écrite. Le nom de la table respecte la casse. Le schéma de cette table doit correspondre exactement au nombre de champs et aux types que votre sortie de travail génère.|
 
 ## <a name="blob-storage-and-azure-data-lake-gen2"></a>Stockage d’objets BLOB et Azure Data Lake Gen2
 

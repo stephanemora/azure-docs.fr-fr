@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 108e5ebfa34db711af4ff33cbf4fbba897b8947d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c7dd916b27cd8005162c09f7e6a090293e336719
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73647691"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590636"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Sous-domaines personnalisés pour Cognitive Services
 
@@ -66,11 +66,11 @@ Chaque nom de sous-domaine personnalisé étant unique, pour pouvoir réutiliser
 Oui. Il s’agit d’une liste de points de terminaison régionaux que vous pouvez utiliser avec les ressources Azure Cognitive Services.
 
 > [!NOTE]
-> Les API de traduction de texte Translator Text et de recherche Bing Search utilisent des points de terminaison globaux.
+> Les API Translator et Bing Search utilisent des points de terminaison globaux.
 
 | Type de point de terminaison | Région | Point de terminaison |
 |---------------|--------|----------|
-| Public | Global (Traduction de texte Translator Text et Bing) | `https://api.cognitive.microsoft.com` |
+| Public | Global (Translator et Bing) | `https://api.cognitive.microsoft.com` |
 | | Australie Est | `https://australiaeast.api.cognitive.microsoft.com` |
 | | Brésil Sud | `https://brazilsouth.api.cognitive.microsoft.com` |
 | | Centre du Canada | `https://canadacentral.api.cognitive.microsoft.com` |

@@ -1,32 +1,28 @@
 ---
 title: 'Didacticiel : extraire des données structurées avec une entité issue de l’apprentissage automatique – LUIS'
-description: Extrayez des données structurées d’un énoncé à l’aide de l’entité issue de l’apprentissage automatique. Pour augmenter la précision de l’extraction, ajoutez des sous-composants avec des descripteurs et des contraintes.
+description: Extrayez des données structurées d’un énoncé à l’aide de l’entité issue de l’apprentissage automatique. Pour augmenter la précision de l’extraction, ajoutez des sous-entités avec des composants.
 ms.topic: tutorial
-ms.date: 04/01/2020
-ms.openlocfilehash: 52bf2fb0b9f37e0c731a46c0aaf8b6c5e7f0e911
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 05/08/2020
+ms.openlocfilehash: d1bc8fc6aac52e264cb4352ca05f9df45ccfc50e
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545857"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588868"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learned-entities-in-language-understanding-luis"></a>Tutoriel : Extraire des données structurées à partir d’un énoncé utilisateur avec des entités issues du Machine Learning dans LUIS
 
 Dans ce didacticiel, vous allez extraire des données structurées d’un énoncé à l’aide de l’entité issue de l’apprentissage automatique.
 
-L’entité issue de l’apprentissage automatique prend en charge le concept de [décomposition du modèle](luis-concept-model.md#v3-authoring-model-decomposition) en fournissant des entités de sous-composants avec leurs descripteurs et contraintes.
+L’entité issue de l’apprentissage automatique prend en charge le [concept de décomposition du modèle](luis-concept-model.md#v3-authoring-model-decomposition) en fournissant des entités de sous-entités avec leurs [composants](luis-concept-feature.md).
 
 **Dans ce tutoriel, vous allez découvrir comment :**
 
 > [!div class="checklist"]
 > * Importer l’exemple d’application
 > * Ajouter une entité issue de l’apprentissage automatique
-> * Ajouter un sous-composant
-> * Ajouter un descripteur du sous-composant
-> * Ajouter une contrainte du sous-composant
-> * Entraîner une application
-> * Tester une application
-> * Publier une application
+> * Ajouter une sous-entité et un composant
+> * Former, tester et publier l’application
 > * Obtenir une prédiction d’entité d’un point de terminaison
 
 [!INCLUDE [LUIS Free account](includes/quickstart-tutorial-use-free-starter-key.md)]
@@ -34,29 +30,31 @@ L’entité issue de l’apprentissage automatique prend en charge le concept de
 
 ## <a name="why-use-a-machine-learned-entity"></a>Pourquoi utiliser une entité issue de l’apprentissage automatique ?
 
-Ce didacticiel ajoute une entité issue de l’apprentissage automatique pour extraire des données d’un énoncé.
+Ce tutoriel ajoute une entité issue de l’apprentissage automatique pour extraire des données d’un énoncé de l’utilisateur.
 
 L’entité définit les données à extraire de l’énoncé. Cela inclut l’attribution aux données d’un nom, d’un type (si possible), d’une résolution en cas d’ambiguïté, et du texte exact qui les compose.
 
-Pour définir l’entité, vous devez la créer, puis étiqueter le texte représentant l’entité dans les exemples d’énoncés de toutes les intentions. Ces exemples étiquetés enseignent à LUIS la nature de l’entité et l’emplacement où elle se trouve dans un énoncé.
+Pour définir les données, vous devez :
+* Créer l’entité
+* Étiqueter le texte dans des exemples d’énoncés représentant l’entité. Ces exemples étiquetés enseignent à LUIS la nature de l’entité et l’emplacement où elle se trouve dans un énoncé.
 
 ## <a name="entity-decomposability-is-important"></a>La possibilité de décomposer l’entité est importante
 
 La possibilité de décomposer l’entité est importante tant pour la prédiction d’intention que pour l’extraction de données avec l’entité.
 
-Commencez avec une entité issue de l’apprentissage automatique, qui est l’entité de début et de niveau supérieur pour l’extraction de données. Décomposez ensuite l’entité de façon à obtenir les éléments dont l’application cliente a besoin.
+Commencez avec une entité issue de l’apprentissage automatique, qui est l’entité de début et de niveau supérieur pour l’extraction de données. Décomposez ensuite l’entité en sous-entités.
 
-Si vous ignorez à quel point votre entité doit être détaillée, lorsque vous démarrez votre application, la meilleure pratique consiste à commencer avec une entité issue de l’apprentissage automatique, puis à décomposer celle-ci en sous-composants à mesure que votre application mûrit.
+Si vous ignorez à quel point votre entité doit être détaillée, lorsque vous démarrez votre application, la meilleure pratique consiste à commencer avec une entité issue de l’apprentissage automatique, puis à décomposer celle-ci en sous-entités à mesure que votre application mûrit.
 
-Ici, vous allez créer une entité issue de l’apprentissage automatique pour représenter une commande pour une application de pizza. La commande doit contenir tous les éléments nécessaires à son traitement commande. Pour commencer, l’entité va extraire le texte relatif à la commande, notamment la taille et la quantité.
+Dans ce tutoriel, vous allez créer une entité issue de l’apprentissage automatique pour représenter une commande pour une application de pizza. L’entité va extraire le texte relatif à la commande, notamment la taille et la quantité.
 
-Un énoncé pour `Please deliver one large cheese pizza to me` doit extraire `one large cheese pizza` comme la commande, puis extraire également `1` et `large`.
+Un énoncé de `Please deliver one large cheese pizza to me` doit extraire `one large cheese pizza` comme ordre, puis extraire également `1` pour la quantité et `large` pour la taille.
 
-Vous pouvez ajouter une autre décomposition, en créant par exemple des sous-composants correspondant à la garniture et au type de pâte. À l’issue de ce didacticiel, vous ne devriez pas hésiter à ajouter ces sous-composants à votre entité `Order` existante.
+## <a name="download-json-file-for-app"></a>Télécharger le fichier JSON pour l’application
 
-## <a name="import-example-json-to-begin-app"></a>Exemple d’importation .json pour commencer une application
+Téléchargez et enregistrez le [fichier JSON de l’application](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-intents-only.json).
 
-1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-intents-only.json).
+## <a name="import-json-file-for-app"></a>Importer le fichier JSON pour l’application
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
@@ -79,24 +77,24 @@ Pour extraire des détails d’une commande de pizza, créez une entité `Order`
     > [!NOTE]
     > Une entité n’est pas toujours l’intégralité d’un énoncé. Dans ce cas précis, `pickup` indique comment la commande doit être reçue. D’un point de vue conceptuel, `pickup` doit faire partie de l’entité étiquetée pour la commande.
 
-1. Dans la zone **Choisir un type d’entité**, sélectionnez **Ajouter une structure** puis **Suivant**. Une structure est nécessaire pour permettre l’ajout de sous-composants tels que la taille et la quantité.
+1. Dans la zone **Choisir un type d’entité**, sélectionnez **Ajouter une structure** puis **Suivant**. Une structure est nécessaire pour permettre l’ajout de sous-entités comme la taille et la quantité.
 
     ![Ajouter une structure à une entité](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
 1. Dans la zone **Créer une entité issue de l’apprentissage automatique**, dans la zone **Structure**, ajoutez `Size`, puis sélectionnez Entrée.
-1. Pour ajouter un **descripteur**, sélectionnez le signe `+` dans la zone **Descripteurs**, puis sélectionnez **Créer une liste d’expressions**.
+1. Pour ajouter un **composant**, sélectionnez le signe `+` dans la zone **Composants**, puis sélectionnez **Créer une liste d’expressions**.
 
-1. Dans la zone **Créer un descripteur de liste d’expressions**, entrez le nom `SizeDescriptor`, puis entrez les valeurs des options `small`, `medium` et `large`. Quand la zone **Suggestions** se remplit, sélectionnez `extra large` et `xl`. Sélectionnez **Terminé** pour créer la liste d’expressions.
+1. Dans la zone **Créer une liste d’expressions**, entrez le nom `SizeFeature`, puis entrez les valeurs des options `small`, `medium` et `large`. Quand la zone **Suggestions** se remplit, sélectionnez `extra large` et `xl`. Sélectionnez **Terminé** pour créer la liste d’expressions.
 
-    Ce descripteur de liste d’expressions aide le sous-composant `Size` à trouver des mots associés à la taille en lui fournissant un exemple de mot. Cette liste n’a pas besoin d’inclure toutes les mots associés à la taille, mais doit inclure des mots censés indiquer la taille.
+    Ce composant de liste d’expressions aide la sous-entité `Size` à trouver des mots associés à la taille en lui fournissant des exemples de mots. Cette liste n’a pas besoin d’inclure toutes les mots associés à la taille, mais doit inclure des mots censés indiquer la taille.
 
-    ![Créer un descripteur pour le sous-composant taille](media/tutorial-machine-learned-entity/size-entity-size-descriptor-phrase-list.png)
+    ![Créer une fonctionnalité pour la sous-entité de taille](media/tutorial-machine-learned-entity/size-entity-size-descriptor-phrase-list.png)
 
-1. Dans la fenêtre **Créer une entité issue de l’apprentissage automatique**, sélectionnez **Créer** pour achever la création du sous-composant `Size`.
+1. Dans la fenêtre **Créer une entité issue de l’apprentissage automatique**, sélectionnez **Créer** pour achever la création de la sous-entité `Size`.
 
-    L’entité `Order` avec un composant `Size` est créée, mais seule l’entité `Order` a été appliquée à l’énoncé. Vous devez étiqueter le texte de l’entité `Size` dans l’exemple d’énoncé.
+    L’entité `Order` avec une entité `Size` est créée, mais seule l’entité `Order` a été appliquée à l’énoncé. Vous devez étiqueter le texte de l’entité `Size` dans l’exemple d’énoncé.
 
-1. Dans le même exemple d’énoncé, étiquetez le sous-composant **taille** de `large` en sélectionnant le mot, puis l’entité **Size** dans la liste déroulante.
+1. Dans le même exemple d’énoncé, étiquetez la sous-entité **taille** de `large` en sélectionnant le mot, puis l’entité **Size** dans la liste déroulante.
 
     ![Étiquetez l’entité Size pour le texte dans l’énoncé.](media/tutorial-machine-learned-entity/mark-and-create-size-entity.png)
 
@@ -111,7 +109,7 @@ Pour extraire des détails d’une commande de pizza, créez une entité `Order`
     |`[delivery for a [small] pepperoni pizza]`|
     |`i need [2 [large] cheese pizzas 6 [large] pepperoni pizzas and 1 [large] supreme pizza]`|
 
-    ![Créez une entité et des sous-composants dans tous les exemples d’énoncés restants.](media/tutorial-machine-learned-entity/entity-subentity-labeled-not-trained.png)
+    ![Créez une entité et des sous-entités dans tous les exemples d’énoncés restants.](media/tutorial-machine-learned-entity/entity-subentity-labeled-not-trained.png)
 
     > [!CAUTION]
     > Comment traiter des données implicites telles que la lettre `a` impliquant une seule pizza ? Ou l’absence de `pickup` et `delivery` pour indiquer où la pizza est attendue ? Ou l’absence de taille pour indiquer votre taille par défaut, petite ou grande ? Envisagez d’inclure la gestion des données implicites dans les règles métier de l’application cliente, à la place de, ou en plus de LUIS.
@@ -124,7 +122,7 @@ Pour extraire des détails d’une commande de pizza, créez une entité `Order`
     |--|
     |`pickup XL meat lovers pizza`|
 
-    L’entité supérieure globale, `Order`, est étiquetée. Le sous-composant `Size` l’est également avec des lignes en pointillés.
+    L’entité supérieure globale, `Order`, est étiquetée. La sous-entité `Size` l’est également avec des lignes en pointillés.
 
     ![Nouvel exemple d’énoncé prédit avec une entité](media/tutorial-machine-learned-entity/new-example-utterance-predicted-with-entity.png)
 
@@ -134,11 +132,17 @@ Pour extraire des détails d’une commande de pizza, créez une entité `Order`
 
     ![Acceptez la prédiction en sélectionnant Confirmer la prédiction d’entité.](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance.png)
 
-    À ce stade, l’entité issue de l’apprentissage automatique fonctionne, car elle peut trouver l’entité dans un nouvel exemple d’énoncé. Lorsque vous ajoutez des exemples d’énoncés, si l’entité n’est pas correctement prédite, étiquetez-la, ainsi que les sous-composants. Si l’entité est correctement prédite, veillez à confirmer les prédictions.
+    À ce stade, l’entité issue de l’apprentissage automatique fonctionne, car elle peut trouver l’entité dans un nouvel exemple d’énoncé. Lorsque vous ajoutez des exemples d’énoncés, si l’entité n’est pas correctement prédite, étiquetez-la, ainsi que les sous-entités. Si l’entité est correctement prédite, veillez à confirmer les prédictions.
 
-## <a name="add-prebuilt-number-to-help-extract-data"></a>Ajouter un numéro prédéfini pour faciliter l’extraction des données
 
-Les informations de commande doivent également inclure le nombre d’exemplaires d’un article dans la commande, par exemple le nombre de pizzas. Pour extraire ces données, un nouveau sous-composant issu de l’apprentissage automatique doit être ajouté à `Order`, qui nécessite une contrainte de nombre prédéfini. Si vous limitez l’entité à un nombre prédéfini, elle trouve et extrait des nombres, que le texte soit un chiffre `2` ou un mot `two`.
+<a name="create-subcomponent-entity-with-constraint-to-help-extract-data"></a>
+
+## <a name="add-subentity-with-feature-of-prebuilt-entity"></a>Ajouter une sous-entité avec le composant d’une entité prégénérée
+
+Les informations de commande doivent également inclure le nombre d’exemplaires de l’article dans la commande, par exemple le nombre de pizzas. Pour extraire ces données, un nouveau sous-composant issu de l’apprentissage automatique doit être ajouté à `Order`, qui nécessite un composant contraint de nombre prédéfini. En utilisant un composant d’entité prédéfini et en limitant l’entité à un nombre prédéfini, elle trouve et extrait les nombres, que le texte soit un chiffre `2` ou un mot `two`.
+
+## <a name="add-prebuilt-number-entity-to-app"></a>Ajouter l’entité de nombre prédéfinie dans l’application
+Les informations de commande doivent également inclure le nombre d’exemplaires de l’article dans la commande, par exemple le nombre de pizzas. Pour extraire ces données, un nouveau sous-composant issu de l’apprentissage automatique doit être ajouté à `Order`, qui nécessite un composant contraint de nombre prédéfini. Si vous limitez l’entité à un nombre prédéfini, elle trouve et extrait des nombres, que le texte soit un chiffre `2` ou un mot `two`.
 
 Commencez par ajouter l’entité du numéro prédéfini à l’application.
 
@@ -148,18 +152,18 @@ Commencez par ajouter l’entité du numéro prédéfini à l’application.
 
     ![Ajouter une entité prédéfinie](media/tutorial-machine-learned-entity/add-prebuilt-entity-as-constraint-to-quantity-subcomponent.png)
 
-    L’entité prédéfinie est ajoutée à l’application, mais ne constitue pas encore une contrainte.
+    L’entité prédéfinie est ajoutée à l’application, mais ne constitue pas encore un composant.
 
-## <a name="create-subcomponent-entity-with-constraint-to-help-extract-data"></a>Créer une entité de sous-composant avec une contrainte pour faciliter l’extraction de données
+## <a name="create-subentity-entity-with-required-feature-to-help-extract-data"></a>Créer une entité de sous-entité avec le composant contraint pour faciliter l’extraction des données
 
-L’entité `Order` doit avoir un sous-composant `Quantity` pour déterminer le nombre d’articles commandés. La quantité doit être limitée à un nombre afin que les données extraites soient immédiatement accessibles à l’application cliente par nom.
+L’entité `Order` doit avoir une sous-entité `Quantity` pour déterminer le nombre d’articles commandés. La quantité doit utiliser un composant contraint de nombre prédéfini afin que les données extraites soient immédiatement accessibles à l’application cliente par nom.
 
-Une contrainte est appliquée comme une correspondance de texte, soit avec une correspondance exacte (telle une entité de liste), soit via des expressions régulières (telle une entité d’expression régulière ou une entité prédéfinie).
+Un composant contraint est appliqué comme une correspondance de texte, soit avec une correspondance exacte (telle une entité de liste), soit via des expressions régulières (telle une entité d’expression régulière ou une entité prédéfinie).
 
-Quand vous utilisez une contrainte, seul le texte correspondant à cette contrainte est extrait.
+En utilisant comme composant une entité qui ne fait pas partie de l’apprentissage machine, seul le texte correspondant est extrait.
 
 1. Sélectionnez **Entités** puis l’entité `Order`.
-1. Sélectionnez **+ Ajouter un composant**, entrez le nom `Quantity`, puis sélectionnez Entrée pour ajouter le nouveau sous-composant à l’entité `Order`.
+1. Sélectionnez **+ Ajouter une entité**, entrez le nom `Quantity`, puis sélectionnez Entrée pour ajouter la nouvelle sous-entité à l’entité `Order`.
 1. Après la notification de réussite, dans les **Options avancées**, sélectionnez le crayon Contrainte.
 1. Dans la liste déroulante, sélectionnez le nombre prédéfini.
 
@@ -167,10 +171,10 @@ Quand vous utilisez une contrainte, seul le texte correspondant à cette contrai
 
     L’entité `Quantity` est appliquée quand le texte correspond à l’entité de nombre prédéfini.
 
-    L’entité contrainte est créée mais pas encore appliquée aux exemples d’énoncés.
+    L’entité avec le composant contraint est créée, mais pas encore appliquée aux exemples d’énoncés.
 
     > [!NOTE]
-    > Un sous-composant peut être imbriqué dans un sous-composant de niveau supérieur, jusqu’à 5 niveaux. Bien que cela ne soit pas illustré dans cet article, il est disponible à partir du portail et de l’API.
+    > Une sous-entité peut être imbriquée dans une sous-entité jusqu’à 5 niveaux. Bien que cela ne soit pas illustré dans cet article, il est disponible à partir du portail et de l’API.
 
 ## <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>Étiqueter l’exemple d’énoncé pour que LUIS puisse en savoir plus sur l’entité
 
@@ -184,11 +188,11 @@ Quand vous utilisez une contrainte, seul le texte correspondant à cette contrai
 
 ## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Effectuer l’apprentissage de l’application pour appliquer les modifications d’entité à l’application
 
-Sélectionnez **former** pour effectuer l’apprentissage l’application avec ces nouveaux énoncés. Après l’entraînement, le sous-composant `Quantity` est correctement prédit dans le composant `Order`. Le fait que cette prédiction soit correcte est indiqué par un trait plein.
+Sélectionnez **former** pour effectuer l’apprentissage l’application avec ces nouveaux énoncés. Après l’apprentissage, la sous-entité `Quantity` est correctement prédite dans l’entité `Order`. Le fait que cette prédiction soit correcte est indiqué par un trait plein.
 
 ![Effectuez l’apprentissage de l’application, puis examinez les exemples d’énoncés.](media/tutorial-machine-learned-entity/trained-example-utterances.png)
 
-À ce stade, la commande contient des détails qui peuvent être extraits (taille, quantité et texte de la commande totale). Il y a un affinement supplémentaire de l’entité `Order`, comme les garnitures de pizza, le type de croûte et les à côtés. Chacun de ces éléments doit être créé en tant que sous-composant de l’entité `Order`.
+À ce stade, la commande contient des détails qui peuvent être extraits (taille, quantité et texte de la commande totale). Il y a un affinement supplémentaire de l’entité `Order`, comme les garnitures de pizza, le type de croûte et les à côtés. Chacun de ces éléments doit être créé en tant que sous-entités de l’entité `Order`.
 
 ## <a name="test-the-app-to-validate-the-changes"></a>Tester l’application pour valider les modifications
 
@@ -203,7 +207,7 @@ Testez l’application à l’aide du volet **Test** interactif. Ce processus vo
 
     ![Affichez les prédictions d’entité dans le panneau de test interactif.](media/tutorial-machine-learned-entity/interactive-test-panel-with-first-utterance-and-entity-predictions.png)
 
-    La taille a été correctement identifiée. N’oubliez pas que les exemples d’énoncés dans l’intention `OrderPizza` ne comprennent pas d’exemple de taille `medium`, mais utilisent un descripteur d’une liste d’expressions `SizeDescriptor` incluant medium.
+    La taille a été correctement identifiée. N’oubliez pas que les exemples d’énoncés dans l’intention `OrderPizza` ne comprennent pas d’exemple de taille `medium`, mais utilisent un composant d’une liste d’expressions `SizeFeature` incluant medium.
 
     La quantité n’est pas correctement prédite. Vous pouvez corriger cela dans votre application cliente en définissant une taille par défaut égale à un (1) si aucune taille n’est retournée dans la prédiction LUIS.
 

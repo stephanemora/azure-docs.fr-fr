@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/30/2019
+ms.date: 04/30/2020
 ms.author: diberry
-ms.openlocfilehash: aac4ba3ec63d425cac782f5db65bba923d24ed71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f663379939f24d16fb63e8e5b002fe088a2d9f8
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75551996"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585587"
 ---
 # <a name="machine-learned-entity"></a>Entité apprise par la machine
 
@@ -38,7 +38,7 @@ Les exemples d’énoncés sont les suivants :
 
 #### <a name="v3-prediction-endpoint-response"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
 
-Il ne s’agit là que d’un exemple car une entité apprise par l’ordinateur peut disposer de nombreux sous-composants avec des contraintes et des descripteurs. Il doit être considéré comme un guide pour le résultat produit par votre entité.
+Il ne s’agit là que d’un exemple, car une entité issue du Machine Learning peut disposer de nombreuses sous-entités avec des fonctionnalités requises. Il doit être considéré comme un guide pour le résultat produit par votre entité.
 
 Considérez la requête :
 

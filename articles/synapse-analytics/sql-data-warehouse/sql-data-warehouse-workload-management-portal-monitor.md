@@ -11,14 +11,14 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: a79e6fb2be717b5ecee243b26824039630e1a416
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 31533eefbfae63e0eb4049d2eabaf6b853340636
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80744293"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590245"
 ---
-# <a name="azure-synapse-analytics--workload-management-portal-monitoring-preview"></a>Azure Synapse Analytics – Supervision du portail de gestion des charges de travail (préversion)
+# <a name="azure-synapse-analytics--workload-management-portal-monitoring"></a>Azure Synapse Analytics – Supervision du portail de gestion des charges de travail
 
 Cet article explique comment surveiller l’utilisation des ressources et l’activité des requêtes des [groupes de charge de travail](sql-data-warehouse-workload-isolation.md#workload-groups).
 Pour plus d’informations sur la configuration d’Azure Metrics Explorer, consultez l’article [Prise en main d’Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).  Pour plus d’informations sur la supervision de la consommation des ressources système, consultez la section [Utilisation des ressources](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) dans la documentation Supervision d’Azure Synapse Analytics.

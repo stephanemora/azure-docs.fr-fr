@@ -2,13 +2,13 @@
 title: 'Démarrage rapide : Créer une application - LUIS'
 description: Ce guide de démarrage rapide montre comment créer une application LUIS qui utilise le domaine prédéfini `HomeAutomation` pour allumer et éteindre des lumières et des appareils électriques. Ce domaine prédéfini vous fournit les intentions, les entités et des exemples d’énoncés. À la fin du processus, vous disposerez d’un point de terminaison LUIS exécuté dans le cloud.
 ms.topic: quickstart
-ms.date: 03/24/2020
-ms.openlocfilehash: de6cf5e95ee63fc9500cf1b5edab78597bdb18af
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 05/05/2020
+ms.openlocfilehash: 186a60a7fd8315d68718ceedd3b5cadb4d3645e8
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80287796"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589130"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Démarrage rapide : Utiliser une application domotique prédéfinie
 
@@ -21,11 +21,15 @@ Dans ce guide de démarrage rapide, vous allez créer une application LUIS qui u
 ## <a name="create-a-new-app"></a>Créer une application
 Vous pouvez créer et gérer vos applications sur la page **Mes applications**.
 
-1. Dans la liste My apps, sélectionnez **+ New app for conversation** (Nouvelle application pour la conversation).
+1. Dans la liste Mes applications, sélectionnez **+Nouvelle application de conversation**, puis dans la liste des options, sélectionnez à nouveau **+Nouvelle application de conversation**.
 
-1. Dans la boîte de dialogue, nommez votre application `Home Automation`. Sélectionnez **English** comme culture. La description est facultative et n’est pas utilisée pour la création ou la prédiction. La ressource de prédiction est également facultative lors de la création d’une application LUIS. Sélectionnez **Terminé**.
+1. Dans la boîte de dialogue, nommez votre application `Home Automation`.
+1. Sélectionnez **English** comme culture.
+1. Entrer une description facultative.
+1. Ne sélectionnez pas de ressource de prédiction si vous n’avez pas encore créé la ressource. Pour utiliser le point de terminaison de prédiction de votre application (intermédiaire ou production), vous devez affecter une ressource de prédiction.
+1. Sélectionnez **Terminé**.
 
-    LUIS crée l’application. Lorsque vous publiez votre application en production, vous devez affecter une ressource de prédiction afin que votre application puisse gérer de nombreuses requêtes.
+    LUIS crée l’application.
 
     ![Dans la boîte de dialogue, nommez votre application « Home Automation ».](./media/create-new-app-details.png)
 
@@ -34,24 +38,27 @@ Vous pouvez créer et gérer vos applications sur la page **Mes applications**.
 
 ## <a name="add-prebuilt-domain"></a>Ajouter un domaine prédéfini
 
-Sélectionnez **Domaines prédéfinis**, puis recherchez **HomeAutomation**. Sélectionnez **Ajouter un domaine** sur la carte HomeAutomation.
+1. Dans le volet de navigation de gauche, sélectionnez **Domaines prédéfinis**.
+1. Recherchez **HomeAutomation**.
+1. Sélectionnez **Ajouter un domaine** sur la carte HomeAutomation.
 
-![Sélectionnez « Domaines prédéfinis », puis recherchez « HomeAutomation ». Sélectionnez « Ajouter un domaine » sur la carte « HomeAutomation ».](media/luis-quickstart-new-app/home-automation.png)
+    ![Sélectionnez « Domaines prédéfinis », puis recherchez « HomeAutomation ». Sélectionnez « Ajouter un domaine » sur la carte « HomeAutomation ».](media/luis-quickstart-new-app/home-automation.png)
 
-Une fois le domaine ajouté, la zone de domaine prédéfini affiche un bouton **Supprimer le domaine**.
+    Une fois le domaine ajouté, la zone de domaine prédéfini affiche un bouton **Supprimer le domaine**.
 
 ## <a name="intents-and-entities"></a>Intentions et entités
 
-Sélectionnez **Intentions** pour passer en revue les intentions du domaine HomeAutomation. Les intentions de domaine prédéfini comportent des exemples d’énoncés.
+1. Sélectionnez **Intentions** pour passer en revue les intentions du domaine HomeAutomation. Les intentions de domaine prédéfini comportent des exemples d’énoncés.
 
-![Capture d’écran de la liste des intentions de HomeAutomation](media/luis-quickstart-new-app/home-automation-intents.png "Capture d’écran de la liste des intentions de HomeAutomation")
+    ![Capture d’écran de la liste des intentions de HomeAutomation](media/luis-quickstart-new-app/home-automation-intents.png "Capture d’écran de la liste des intentions de HomeAutomation")
 
-> [!NOTE]
-> **Aucun** est une intention fournie par toutes les applications LUIS. Elle vous permet de gérer les énoncés qui ne correspondent pas aux fonctionnalités fournies par votre application.
+    > [!NOTE]
+    > **Aucun** est une intention fournie par toutes les applications LUIS. Elle vous permet de gérer les énoncés qui ne correspondent pas aux fonctionnalités fournies par votre application.
 
-Sélectionnez l’intention **HomeAutomation.TurnOff**. Vous pouvez voir que l’intention contient une liste d’énoncés qui sont associés à des entités.
+1. Sélectionnez l’intention **HomeAutomation.TurnOff**. L’intention contient une liste d’exemples d’énoncés qui sont associés à des entités.
 
-[![Capture d’écran de l’intention HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png "Capture d’écran de l’intention HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
+    > [!div class="mx-imgBorder"]
+    > [![Capture d’écran de l’intention HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png "Capture d’écran de l’intention HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
 
 ## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
 
@@ -60,21 +67,22 @@ Sélectionnez l’intention **HomeAutomation.TurnOff**. Vous pouvez voir que l�
 ## <a name="test-your-app"></a>Test de l'application
 Une fois que vous avez formé votre application, vous pouvez la tester.
 
-1. Sélectionnez **Test** dans le menu en haut à droite. 1. Saisissez un énoncé de test tel que `Turn off the lights` dans le volet de test interactif, puis appuyez sur Entrée.
+1. Sélectionnez **Test** dans le menu en haut à droite.
+
+1. Saisissez un énoncé de test tel que `Turn off the lights` dans le volet de test interactif, puis appuyez sur Entrée.
 
     ```
     Turn off the lights
     ```
 
-    Vérifiez que l’intention avec le score le plus élevé correspond à l’intention attendue pour chaque énoncé de test.
-
     Dans cet exemple, `Turn off the lights` est identifié correctement comme l’intention avec le score le plus élevé pour **HomeAutomation.TurnOff**.
 
     ![Capture d’écran du panneau Test avec l’énoncé mis en surbrillance](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
 
-1. Sélectionnez **Inspecter** pour passer en revue des informations supplémentaires sur la prédiction.
+1. Sélectionnez **Inspecter** pour voir plus d’informations sur la prédiction.
 
-    ![Capture d’écran du panneau Test avec les informations d’inspection](media/luis-quickstart-new-app/test.png)
+    > [!div class="mx-imgBorder"]
+    > ![Capture d’écran du panneau Test avec les informations d’inspection](media/luis-quickstart-new-app/test.png)
 
 1. Fermez le volet de test.
 

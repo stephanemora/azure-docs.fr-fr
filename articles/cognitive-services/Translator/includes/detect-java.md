@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 9ce4b25d26c0294cf7618b5851c0956af7687ee7
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 4c10cbec8e22a383ed303b169551999a805f4db6
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71837519"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587144"
 ---
 [!INCLUDE [Prerequisites](prerequisites-java.md)]
 
@@ -126,7 +126,7 @@ public String Post() throws IOException {
 
 ## <a name="create-a-function-to-parse-the-response"></a>Créer une fonction pour analyser la réponse
 
-Cette fonction simple analyse et agrémente la réponse JSON retournée par le service de traduction de texte Translator Text.
+Cette fonction simple analyse et agrémente la réponse JSON retournée par le service Translator.
 
 ```java
 // This function prettifies the json response.
@@ -202,7 +202,7 @@ Après avoir exécuté l’exemple, vous devriez voir ce qui suit sur le termina
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez les informations de référence sur l’API pour comprendre tout ce que vous pouvez faire avec l’API Traduction de texte Translator Text.
+Consultez les informations de référence sur l’API pour comprendre tout ce que vous pouvez faire avec Translator.
 
 > [!div class="nextstepaction"]
 > [Informations de référence sur l'API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

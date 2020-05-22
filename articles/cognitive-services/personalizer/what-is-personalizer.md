@@ -3,12 +3,12 @@ title: Qu’est-ce que Personalizer ?
 description: Personalizer est un service d’API cloud qui vous permet de choisir la meilleure expérience à montrer à vos utilisateurs, en apprenant de leur comportement en temps réel.
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 3ae425479d764c0a6bf6c63bdd54a964c48af8b6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cf046ada21c4920ea9e3853668a5928b2ca9f33a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687257"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586216"
 ---
 # <a name="what-is-personalizer"></a>Qu’est-ce que Personalizer ?
 
@@ -69,18 +69,25 @@ Utilisez Personalizer si votre contenu :
 
 ## <a name="how-to-design-and-implement-personalizer-for-your-client-application"></a>Comment concevoir et implémenter Personalizer pour votre application cliente
 
-1. [Concevez](concepts-features.md) et planifiez le contenu, les **_actions_** et le **_contexte_** . Déterminez l’algorithme de récompense pour le score de **_récompense_** .
-1. Chaque [ressource Personalizer](how-to-settings.md) que vous créez est considérée comme 1 boucle d’apprentissage. La boucle recevra les appels des API Rank et Reward pour ce contenu ou cette expérience utilisateur.
-1. Ajoutez Personalizer à votre site web ou à votre système de contenu :
+1. [Concevez](concepts-features.md) et planifiez le contenu, les **_actions_** et le **_contexte_**. Déterminez l’algorithme de récompense pour le score de **_récompense_**.
+1. Chaque [ressource Personalizer](how-to-settings.md) que vous créez est considérée comme une boucle d’apprentissage. La boucle recevra les appels des API Rank et Reward pour ce contenu ou cette expérience utilisateur.
+
+    |Type de ressource| Objectif|
+    |--|--|
+    |[Mode apprenti](concept-apprentice-mode.md) `E0`|Effectuez l'apprentissage du modèle Personalizer sans affecter votre application existante, puis déployez le comportement d'apprentissage en ligne dans un environnement de production.|
+    |Standard, `S0`|Comportement d’apprentissage en ligne dans un environnement de production|
+    |Gratuit, `F0`| Essayer le comportement d’apprentissage en ligne dans un environnement hors production|
+
+1. Ajoutez Personalizer à votre application, site web ou système :
     1. Ajoutez un appel **Rank** à Personalizer dans votre application, votre site web ou votre système afin de déterminer l’élément de _contenu_ le mieux adapté avant que celui-ci ne soit présenté à l’utilisateur.
     1. Présentez l’élément de _contenu_ le mieux adapté (qui correspond à l’_ID d’action récompensée_) à l’utilisateur.
-    1. Appliquez un _algorithme_ aux informations collectées concernant le comportement de l’utilisateur, afin de déterminer le score de **récompense**, par exemple :
+    1. Appliquez une _logique métier_ aux informations collectées concernant le comportement de l’utilisateur, afin de déterminer le score de **récompense**, par exemple :
 
-        |Comportement|Score de récompense calculé|
-        |--|--|
-        |L’utilisateur a sélectionné l’élément de _contenu_ le mieux adapté (ID d’action récompensée)|**1**|
-        |L’utilisateur a sélectionné un autre contenu|**0**|
-        |L’utilisateur s’est interrompu, a fait défiler la liste de manière indécise, puis a sélectionné l’élément de _contenu_ le mieux adapté (ID d’action récompensée)|**0,5**|
+    |Comportement|Score de récompense calculé|
+    |--|--|
+    |L’utilisateur a sélectionné l’élément de _contenu_ le mieux adapté (ID d’action récompensée)|**1**|
+    |L’utilisateur a sélectionné un autre contenu|**0**|
+    |L’utilisateur s’est interrompu, a fait défiler la liste de manière indécise, puis a sélectionné l’élément de _contenu_ le mieux adapté (ID d’action récompensée)|**0,5**|
 
     1. Ajoutez un appel **Reward** en envoyant un score de récompense compris entre 0 et 1 :
         * Immédiatement après avoir affiché le contenu

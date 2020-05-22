@@ -11,14 +11,14 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 5d81dc1f4da6e952061496fa348d0f8e87b00b81
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c30429653c024c669d273c45d12236afa8cdbb83
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80742976"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591503"
 ---
-# <a name="azure-synapse-analytics-workload-group-isolation-preview"></a>Isolation des groupes de charges de travail Azure Synapse Analytics (préversion)
+# <a name="azure-synapse-analytics-workload-group-isolation"></a>Isolation des groupes de charges de travail Azure Synapse Analytics
 
 Cet article explique comment les groupes de charge de travail peuvent être utilisés pour configurer l’isolation de la charge de travail, contenir des ressources et appliquer des règles runtime pour l’exécution des requêtes.
 

@@ -1,7 +1,7 @@
 ---
-title: Méthode Languages de l’API de traduction de texte Translator Text
+title: Méthode des langues de Translator
 titleSuffix: Azure Cognitive Services
-description: La méthode Languages permet d’obtenir l’ensemble des langues actuellement prises en charge par d’autres opérations de l’API Traduction de texte Translator Text.
+description: La méthode Languages permet d’obtenir l’ensemble des langues actuellement prises en charge par d’autres opérations de Translator.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 37f70399e8125db559098869cdfffdf4533498d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1f4dfc4b80aff01e4b7fe7ebae4850b28cd6a498
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73835827"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588596"
 ---
-# <a name="translator-text-api-30-languages"></a>API de traduction de texte Translator Text 3.0 : Languages
+# <a name="translator-30-languages"></a>Translator 3.0 : Languages
 
-Permet d’obtenir l’ensemble des langues actuellement prises en charge par d’autres opérations de l’API de traduction de texte Translator Text. 
+Permet d’obtenir l’ensemble des langues actuellement prises en charge par d’autres opérations de Translator. 
 
 ## <a name="request-url"></a>URL de la demande
 
@@ -97,11 +97,11 @@ La valeur de chaque propriété prend la forme suivante.
 
   La valeur de la propriété `translation` est un dictionnaire composé de paires (clé, valeur). Chaque clé est une balise de langue BCP 47. Une clé identifie une langue pour laquelle du texte peut être traduit de ou vers une autre langue. La valeur associée à cette clé est un objet JSON avec des propriétés décrivant la langue :
 
-  * `name` : nom d’affichage de la langue dans les paramètres régionaux demandés via l’en-tête `Accept-Language`.
+  * `name`: nom d’affichage de la langue dans les paramètres régionaux demandés via l’en-tête `Accept-Language`.
 
-  * `nativeName` : nom d’affichage de la langue dans les paramètres régionaux natifs de cette langue.
+  * `nativeName`: nom d’affichage de la langue dans les paramètres régionaux natifs de cette langue.
 
-  * `dir` : direction, soit `rtl` pour les langues s’écrivant de la droite vers la gauche ou `ltr` pour celles s’écrivant de la gauche vers la droite.
+  * `dir`: sens de l’écriture, `rtl` pour les langues qui se lisent de droite à gauche, ou `ltr` pour les langues qui se lisent de gauche à droite.
 
   Voici un exemple :
           
@@ -123,21 +123,21 @@ La valeur de chaque propriété prend la forme suivante.
 
   La valeur de la propriété `transliteration` est un dictionnaire composé de paires (clé, valeur). Chaque clé est une balise de langue BCP 47. Une clé identifie une langue pour laquelle du texte peut être converti d’un script à l’autre. La valeur associée à cette clé est un objet JSON avec des propriétés décrivant la langue et ses scripts pris en charge :
 
-  * `name` : nom d’affichage de la langue dans les paramètres régionaux demandés via l’en-tête `Accept-Language`.
+  * `name`: nom d’affichage de la langue dans les paramètres régionaux demandés via l’en-tête `Accept-Language`.
 
-  * `nativeName` : nom d’affichage de la langue dans les paramètres régionaux natifs de cette langue.
+  * `nativeName`: nom d’affichage de la langue dans les paramètres régionaux natifs de cette langue.
 
-  * `scripts` : liste de scripts à partir desquels exécuter la conversion. Chaque élément de la liste `scripts` possède des propriétés :
+  * `scripts`: liste de scripts à partir desquels exécuter la conversion. Chaque élément de la liste `scripts` possède des propriétés :
 
-    * `code` : code identifiant le script.
+    * `code`: code identifiant le script.
 
-    * `name` : nom d’affichage du script dans les paramètres régionaux demandés via l’en-tête `Accept-Language`.
+    * `name`: nom d’affichage du script dans les paramètres régionaux demandés via l’en-tête `Accept-Language`.
 
-    * `nativeName` : nom d’affichage de la langue dans les paramètres régionaux natifs de cette langue.
+    * `nativeName`: nom d’affichage de la langue dans les paramètres régionaux natifs de cette langue.
 
-    * `dir` : direction, soit `rtl` pour les langues s’écrivant de la droite vers la gauche ou `ltr` pour celles s’écrivant de la gauche vers la droite.
+    * `dir`: sens de l’écriture, `rtl` pour les langues qui se lisent de droite à gauche, ou `ltr` pour les langues qui se lisent de gauche à droite.
 
-    * `toScripts` : liste de scripts disponibles en lesquels convertir le texte. Chaque élément de la liste `toScripts` possède des propriétés `code`, `name`, `nativeName` et `dir`, comme décrit précédemment.
+    * `toScripts`: liste de scripts disponibles en lesquels convertir le texte. Chaque élément de la liste `toScripts` possède des propriétés `code`, `name`, `nativeName` et `dir`, comme décrit précédemment.
 
   Voici un exemple :
 
@@ -188,21 +188,21 @@ La valeur de chaque propriété prend la forme suivante.
 
   La valeur de la propriété `dictionary` est un dictionnaire composé de paires (clé, valeur). Chaque clé est une balise de langue BCP 47. La clé identifie une langue pour laquelle d’autres traductions et des traductions inverses sont disponibles. La valeur est un objet JSON qui décrit la langue source et les langues cibles avec les traductions disponibles :
 
-  * `name` : nom d’affichage de la langue source dans les paramètres régionaux demandés via l’en-tête `Accept-Language`.
+  * `name`: nom d’affichage de la langue source dans les paramètres régionaux demandés via l’en-tête `Accept-Language`.
 
-  * `nativeName` : nom d’affichage de la langue dans les paramètres régionaux natifs de cette langue.
+  * `nativeName`: nom d’affichage de la langue dans les paramètres régionaux natifs de cette langue.
 
-  * `dir` : direction, soit `rtl` pour les langues s’écrivant de la droite vers la gauche ou `ltr` pour celles s’écrivant de la gauche vers la droite.
+  * `dir`: sens de l’écriture, `rtl` pour les langues qui se lisent de droite à gauche, ou `ltr` pour les langues qui se lisent de gauche à droite.
 
-  * `translations` : liste de langues avec des traductions alternatives et des exemples pour la requête exprimée en langue source. Chaque élément de la liste `translations` possède des propriétés :
+  * `translations`: liste de langues avec des traductions alternatives et des exemples pour la requête exprimée en langue source. Chaque élément de la liste `translations` possède des propriétés :
 
-    * `name` : nom d’affichage de la langue cible dans les paramètres régionaux demandés via l’en-tête `Accept-Language`.
+    * `name`: nom d’affichage de la langue cible dans les paramètres régionaux demandés via l’en-tête `Accept-Language`.
 
-    * `nativeName` : nom d’affichage de la langue cible dans les paramètres régionaux natifs de cette langue.
+    * `nativeName`: nom d’affichage de la langue cible dans les paramètres régionaux natifs de cette langue.
 
-    * `dir` : direction, soit `rtl` pour les langues s’écrivant de la droite vers la gauche ou `ltr` pour celles s’écrivant de la gauche vers la droite.
+    * `dir`: sens de l’écriture, `rtl` pour les langues qui se lisent de droite à gauche, ou `ltr` pour les langues qui se lisent de gauche à droite.
     
-    * `code` : code de langue identifiant la langue cible.
+    * `code`: code de langue identifiant la langue cible.
 
   Voici un exemple :
 
@@ -275,7 +275,7 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
   </tr>
 </table> 
 
-Si une erreur se produit, la requête renvoie également une réponse d'erreur JSON. Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTTP à 3 chiffres et un nombre à 3 chiffres qui sert à catégoriser plus précisément l’erreur. Vous trouverez les codes d’erreur les plus courants sur la [page Référence de l’API de traduction de texte Translator Text v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Si une erreur se produit, la requête renvoie également une réponse d'erreur JSON. Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTTP à 3 chiffres et un nombre à 3 chiffres qui sert à catégoriser plus précisément l’erreur. Vous trouverez les codes d’erreur les plus courants sur la [page Référence de Translator v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Exemples
 

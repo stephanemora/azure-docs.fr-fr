@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 9aecaa6195509ec4c1f0d6b4b14b9bb30817da34
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 758bd9b424146d62ab64f9721c67af4910e006e1
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69906834"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586719"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
 
@@ -35,7 +35,7 @@ import (
 
 ## <a name="create-the-main-function"></a>Créer la fonction main
 
-Cet exemple tente de lire la clé d’abonnement et le point de terminaison Translator Text depuis ces variables d’environnement : `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` et `TRANSLATOR_TEXT_ENDPOINT`. Si vous n’êtes pas familiarisé avec les variables d’environnement, vous pouvez définir `subscriptionKey` et `endpoint` en tant que chaînes et commenter les instructions conditionnelles.
+Cet exemple tente de lire la clé d’abonnement et le point de terminaison Translator depuis ces variables d’environnement : `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` et `TRANSLATOR_TEXT_ENDPOINT`. Si vous n’êtes pas familiarisé avec les variables d’environnement, vous pouvez définir `subscriptionKey` et `endpoint` en tant que chaînes et commenter les instructions conditionnelles.
 
 Copiez ce code dans votre projet :
 
@@ -67,7 +67,7 @@ func main() {
 
 ## <a name="create-a-function-to-determine-sentence-length"></a>Créer une fonction pour déterminer la longueur de phrase
 
-Créons une fonction pour déterminer la longueur de phrase. Cette fonction n’utilisera qu’un seul argument, votre clé d’abonnement d’API de traduction de texte Translator Text.
+Créons une fonction pour déterminer la longueur de phrase. Cette fonction n’utilisera qu’un seul argument, votre clé d’abonnement Translator.
 
 ```go
 func breakSentence(subscriptionKey string, uri string)
@@ -91,7 +91,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Pour plus d’informations sur les points de terminaison, les itinéraires et les paramètres de requête, consultez [API de traduction de texte Translator Text 3.0 : BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+> Pour plus d’informations sur les points de terminaison, les itinéraires et les paramètres de requête, consultez [Translator 3.0 : BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ## <a name="create-a-struct-for-your-request-body"></a>Créer une structure pour le corps de la demande
 
@@ -109,7 +109,7 @@ b, _ := json.Marshal(body)
 
 ## <a name="build-the-request"></a>Générer la demande
 
-Maintenant que vous avez codé le corps de la demande au format JSON, vous pouvez créer votre requête POST et appeler l’API de traduction de texte Translator Text.
+Maintenant que vous avez codé le corps de la demande au format JSON, vous pouvez créer votre requête POST et appeler Translator.
 
 ```go
 // Build the HTTP POST request
@@ -121,7 +121,7 @@ if err != nil {
 req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 req.Header.Add("Content-Type", "application/json")
 
-// Call the Translator Text API
+// Call the Translator
 res, err := http.DefaultClient.Do(req)
 if err != nil {
     log.Fatal(err)
@@ -147,7 +147,7 @@ fmt.Printf("%s\n", prettyJSON)
 
 ## <a name="put-it-all-together"></a>Assemblage
 
-Voilà, vous avez installé un programme simple qui appellera l’API de traduction de texte Translator Text et enverra une réponse JSON. Il est maintenant temps d’exécuter votre programme :
+Voilà, vous avez installé un programme simple qui appellera Translator et enverra une réponse JSON. Il est maintenant temps d’exécuter votre programme :
 
 ```console
 go run sentence-length.go
@@ -175,7 +175,7 @@ Si vous souhaitez comparer votre code avec le nôtre, l’exemple de code comple
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez les informations de référence sur l’API pour comprendre tout ce que vous pouvez faire avec l’API Traduction de texte Translator Text.
+Consultez les informations de référence sur l’API pour comprendre tout ce que vous pouvez faire avec Translator.
 
 > [!div class="nextstepaction"]
 > [Informations de référence sur l'API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Obtenir la longueur des phrases - API de traduction de texte Translator Text'
+title: 'Démarrage rapide : Obtenir la longueur des phrases - Translator'
 titleSuffix: Azure Cognitive Services
-description: Dans ce guide de démarrage rapide, vous allez apprendre à déterminer la longueur des phrases à l’aide de l’API de traduction de texte Translator Text.
+description: Dans ce guide de démarrage rapide, vous allez apprendre à déterminer la longueur des phrases à l’aide de Translator.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: b2569859a039739f2804a180be44e621421f0cd2
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ca468993798c02c02380eeac7f68e4d3504ec1d8
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77525108"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586722"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text pour déterminer la longueur des phrases
+# <a name="quickstart-use-the-translator-to-determine-sentence-length"></a>Démarrage rapide : Utiliser Translator pour déterminer la longueur des phrases
 
-Dans ce guide de démarrage rapide, vous allez apprendre à déterminer la longueur des phrases à l’aide de l’API de traduction de texte Translator Text.
+Dans ce guide de démarrage rapide, vous allez apprendre à déterminer la longueur des phrases à l’aide de Translator.
 
-Pour suivre ce démarrage rapide, vous devrez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource Traduction de texte Translator Text. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/) pour obtenir une clé d’abonnement.
+Pour suivre ce démarrage rapide, vous devrez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource Translator. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/) pour obtenir une clé d’abonnement.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/sentences-csharp.md)]

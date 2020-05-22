@@ -2,13 +2,13 @@
 title: Type d’entité de liste - LUIS
 description: Les entités de liste représentent un ensemble fixe, fermé de mots associés, ainsi que leurs synonymes. LUIS ne détecte pas les valeurs supplémentaires pour les entités de liste. Utilisez la fonctionnalité Recommander pour trouver des suggestions de nouveaux mots à partir de la liste actuelle.
 ms.topic: reference
-ms.date: 03/12/2020
-ms.openlocfilehash: 273fabae38f6682cfaaffcdcc19e62adc41b7a47
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/14/2020
+ms.openlocfilehash: 339fb832ef4af069b6f040c5264426002189f93f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097572"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588885"
 ---
 # <a name="list-entity"></a>Entité de liste
 
@@ -132,4 +132,7 @@ Il s’agit du JSON si `verbose=true` est défini dans la chaîne de requête :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce [didacticiel](tutorial-list-entity.md), vous allez apprendre à utiliser une **entité de liste** pour extraire des correspondances exactes de texte à partir d’une liste d’éléments connus.
+En savoir plus sur les entités :
+
+* [Concepts](luis-concept-entity-types.md)
+* [Création](luis-how-to-add-entities.md)

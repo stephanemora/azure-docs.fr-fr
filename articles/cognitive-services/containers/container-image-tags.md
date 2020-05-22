@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 850d7b9732ad547d502b042e7eaad5d3b471030e
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: cabc3d2a0f8eb3a75938d1768bb0085aab528391
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82925998"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584601"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Étiquettes des images conteneur Azure Cognitive Services
 
@@ -25,15 +25,13 @@ Azure Cognitive Services propose de nombreuses images conteneur. Les registres d
 
 ## <a name="anomaly-detector"></a>Le détecteur d’anomalies
 
-L’image conteneur [Détecteur d’anomalies][ad-containers] se trouve dans le registre de conteneurs `containerpreview.azurecr.io`. Elle réside dans le référentiel `microsoft` et se nomme `cognitive-services-anomaly-detector`. Le nom complet de l’image conteneur est `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector`.
+L’image conteneur [Détecteur d’anomalies][ad-containers] se trouve dans le registre de conteneurs `mcr.microsoft.com`. Elle réside dans le référentiel `azure-cognitive-services` et se nomme `anomaly-detector`. Le nom complet de l’image conteneur est `mcr.microsoft.com/azure-cognitive-services/anomaly-detector`.
 
 Les étiquettes suivantes sont disponibles pour cette image conteneur :
 
 | Étiquettes d’image                    | Notes |
 |-------------------------------|:------|
 | `latest`                      |       |
-| `1.1.009301-amd64-preview`    |       |
-| `1.1.008500001-amd64-preview` |       |
 
 ## <a name="computer-vision"></a>Vision par ordinateur
 
@@ -657,10 +655,20 @@ L’image conteneur [Analyse des sentiments][ta-se] se trouve dans le syndicat d
 
 Les étiquettes suivantes sont disponibles pour cette image conteneur :
 
-| Étiquettes d’image                    | Notes |
-|-------------------------------|:------|
-| `latest`                      |       |
-| `1.1.009301-amd64-preview`    |       |
+| Étiquettes d’image | Notes                                         |
+|------------|:----------------------------------------------|
+| `latest`   |                                               |
+| `3.0-en`   | Analyse des sentiments v3 (anglais)               |
+| `3.0-es`   | Analyse des sentiments v3 (espagnol)               |
+| `3.0-fr`   | Analyse des sentiments v3 (français)                |
+| `3.0-it`   | Analyse des sentiments v3 (italien)               |
+| `3.0-de`   | Analyse des sentiments v3 (allemand)                |
+| `3.0-zh`   | Analyse des sentiments v3 (chinois – simplifié)  |
+| `3.0-zht`  | Analyse des sentiments v3 (chinois – traditionnel) |
+| `3.0-ja`   | Analyse des sentiments v3 (japonais)              |
+| `3.0-pt`   | Analyse des sentiments v3 (portugais)            |
+| `3.0-nl`   | Analyse des sentiments v3 (néerlandais)                 |
+| `1.1.009301-amd64-preview`    | Analyse des sentiments v2      |
 | `1.1.008510001-amd64-preview` |       |
 | `1.1.007750002-amd64-preview` |       |
 | `1.1.007360001-amd64-preview` |       |
