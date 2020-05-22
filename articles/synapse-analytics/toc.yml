@@ -44,6 +44,8 @@
       href: quickstart-connect-synapse-link-cosmos-db.md
 - name: Tutoriels
   items:
+    - name: Bien démarrer
+      href: get-started.md
     - name: Exécuter des applications Apache Spark pour des pools Spark
       href: ./spark/intellij-tool-synapse.md
     - name: Définitions des travaux Spark
