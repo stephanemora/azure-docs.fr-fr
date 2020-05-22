@@ -1623,20 +1623,6 @@
                     - name: Vue d’ensemble de l’authentification des jetons Azure AD
                       href: /azure/databricks/dev-tools/api/latest/aad/index
                       maintainContext: true
-                    - name: Obtenir un jeton Azure AD avec la bibliothèque d’authentification Azure AD
-                      href: /azure/databricks/dev-tools/api/latest/aad/app-aad-token
-                      maintainContext: true
-                    - name: Obtenir un jeton Azure AD avec un principal de service
-                      href: /azure/databricks/dev-tools/api/latest/aad/service-prin-aad-token
-                      maintainContext: true
-                    - name: Résoudre les problèmes des jetons d’accès Azure AD
-                      href: /azure/databricks/dev-tools/api/latest/aad/troubleshoot-aad-token
-                  maintainContext: true
-                - name: Jetons Azure Active Directory
-                  items:
-                    - name: Vue d’ensemble de l’authentification des jetons Azure AD
-                      href: /azure/databricks/dev-tools/api/latest/aad/index
-                      maintainContext: true
                     - name: Obtenir un jeton Azure AD avec la bibliothèque d’authentification AAD
                       href: /azure/databricks/dev-tools/api/latest/aad/app-aad-token
                       maintainContext: true
