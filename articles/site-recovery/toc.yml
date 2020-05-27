@@ -388,6 +388,8 @@
               href: service-updates-how-to.md
             - name: Supprimer un coffre
               href: delete-vault.md
+    - name: Prise en charge de Site Recovery pour les groupes de placement de proximité
+      href: how-to-enable-replication-proximity-placement-groups.md
     - name: Récupération d’urgence pour les applications
       items:
         - name: À propos de la reprise d’activité pour les applications locales
@@ -514,8 +516,8 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Blog
       href: 'https://azure.microsoft.com/blog/tag/azure-site-recovery/'
-    - name: Forum
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr'
+    - name: Page de questions Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-site-recovery.html'
     - name: Parcours d’apprentissage
       href: /learn/azure/
     - name: Tarifs

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: 1b23340840c2b88ea3f4f9927364bd3e01d8d55a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8325d63881c72a795e3b9e9a6d1d8498c84972ad
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596128"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829322"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-powershell"></a>Configurer la préférence de routage pour une machine virtuelle à l’aide d’Azure PowerShell
 
@@ -32,7 +32,7 @@ Cet article explique comment créer une machine virtuelle avec une adresse IP pu
 ## <a name="register-the-feature-for-your-subscription"></a>Inscrire la fonctionnalité pour votre abonnement
 La fonctionnalité de préférence de routage est actuellement en préversion. Inscrivez la fonctionnalité pour votre abonnement comme suit :
 ```azurepowershell
-Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature ProviderNamespace Microsoft.Network
+Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature -ProviderNamespace Microsoft.Network
 ```
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
