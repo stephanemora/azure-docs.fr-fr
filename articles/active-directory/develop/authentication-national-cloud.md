@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: negoe,celested
 ms.custom: aaddev
-ms.openlocfilehash: 20a053369149dc29d6485c49bb091a75bb9fb591
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a8d9c5c0a24e59c8f6345666f8838aa4c41d0f9
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230705"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845183"
 ---
 # <a name="national-clouds"></a>Clouds nationaux
 
@@ -60,8 +60,8 @@ Le tableau suivant répertorie les URL de base des points de terminaison Azure A
 
 Vous pouvez former des requêtes pour les points de terminaison de jeton ou d’autorisation Azure AD à l’aide de l’URL de base spécifique de la région appropriée. Par exemple, pour Azure Allemagne :
 
-  - Le point de terminaison d’autorisation commun est `https://login.microsoftonline.de/common/oauth2/authorize`.
-  - Le point de terminaison de jeton commun est `https://login.microsoftonline.de/common/oauth2/token`.
+  - Le point de terminaison d’autorisation commun est `https://login.microsoftonline.de/common/oauth2/v2.0/authorize`.
+  - Le point de terminaison de jeton commun est `https://login.microsoftonline.de/common/oauth2/v2.0/token`.
 
 Pour les applications à client unique, remplacez « common » dans les URL ci-dessus par l’ID ou le nom de votre locataire. par exemple `https://login.microsoftonline.de/contoso.com`.
 
