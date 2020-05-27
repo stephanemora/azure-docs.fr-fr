@@ -20,7 +20,7 @@
       href: data-catalog-dsr.md
     - name: Adoption d’Azure Data Catalog
       href: data-catalog-adopting-data-catalog.md
-    - name: Conditions préalables requises
+    - name: Prérequis
       href: data-catalog-prerequisites.md
     - name: Questions fréquentes (FAQ)
       href: data-catalog-frequently-asked-questions.md
@@ -68,8 +68,8 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Raccourcis clavier pour Azure Data Catalog
       href: data-catalog-keyboard-shortcuts.md
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog'
+    - name: Page de questions Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-data-catalog.html'
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/data-catalog/'
     - name: Calculatrice de prix

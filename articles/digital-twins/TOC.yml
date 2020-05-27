@@ -98,14 +98,14 @@
           href: 'https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help'
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/azure-digital-twins'
-        - name: Forum MSDN
-          href: 'https://social.msdn.microsoft.com/Forums/home?category=&forum=&filter=&sort=relevancedesc&brandIgnore=true&searchTerm=Azure+Digital+Twins'
+        - name: Page de questions Microsoft Q&A
+          href: 'https://docs.microsoft.com/answers/topics/azure-digital-twins.html'
         - name: Exemples de code Azure IoT
           href: 'https://docs.microsoft.com/samples/browse/?term=iot'
     - name: Commentaires et forums
       items:
-        - name: Forum MSDN
-          href: 'https://social.msdn.microsoft.com/Forums/home?category=&forum=&filter=&sort=relevancedesc&brandIgnore=true&searchTerm=Azure+Digital+Twins'
+        - name: Page de questions Microsoft Q&A
+          href: 'https://docs.microsoft.com/answers/topics/azure-digital-twins.html'
         - name: Demandes de produit et suggestions
           href: 'https://feedback.azure.com/forums/916621-azure-digital-twins'
     - name: Témoignages client
