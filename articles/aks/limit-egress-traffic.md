@@ -4,12 +4,12 @@ description: Découvrez les ports et adresses requis pour contrôler le trafic d
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: d723f7b1e7331e65d17dca5873b891ec46d76c0e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 194e799daf107220c28404001d223e521dceeb3f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207171"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870902"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Contrôler le trafic de sortie pour les nœuds de cluster dans Azure Kubernetes Service (AKS)
 
@@ -147,8 +147,8 @@ Les règles de nom de domaine complet/d’application suivantes sont requises po
 | FQDN                                    | Port      | Utilisation      |
 |-----------------------------------------|-----------|----------|
 | cloudflare.docker.com | HTTPS:443 | Cette adresse est utilisée pour extraire des images Linux Alpine et d’autres Azure Dev Spaces Alpine |
-| gcr.io | HTTP:443 | Cette adresse est utilisée pour extraire les images Helm/Tiller |
-| storage.googleapis.com | HTTP:443 | Cette adresse est utilisée pour extraire les images Helm/Tiller |
+| gcr.io | HTTPS:443 | Cette adresse est utilisée pour extraire les images Helm/Tiller |
+| storage.googleapis.com | HTTPS:443 | Cette adresse est utilisée pour extraire les images Helm/Tiller |
 | azds-\<guid\>.\<location\>.azds.io | HTTPS:443 | Pour communiquer avec les services back-end Azure Dev Spaces pour votre contrôleur. Le nom de domaine complet exact se trouve dans « dataplaneFqdn » dans %USERPROFILE%\.azds\settings.json |
 
 ## <a name="required-addresses-and-ports-for-aks-clusters-with-azure-policy-in-public-preview-enabled"></a>Adresses et ports requis pour les clusters AKS avec Azure Policy (en préversion publique) activé
