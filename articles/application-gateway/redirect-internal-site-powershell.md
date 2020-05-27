@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/03/2020
 ms.author: victorh
-ms.openlocfilehash: 92fed35c828398c048d704e1ec9b537904939967
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56c7ddd6eda021c802eb256c62fcae680d573b69
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78272941"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681362"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Créer une passerelle d’application avec redirection interne à l’aide d’Azure PowerShell
 
@@ -292,11 +292,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 
-Entrez votre nom de domaine dans la barre d’adresse de votre navigateur. Par exemple, [https://www.contoso.com](https://www.contoso.com).
+Entrez votre nom de domaine dans la barre d’adresse de votre navigateur. Par exemple, `https://www.contoso.com`.
 
 ![Tester le site contoso dans la passerelle d’application](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-Remplacez l’adresse par celle de votre autre domaine, par exemple https://www.contoso.org. Vous devriez alors remarquer que le trafic est redirigé vers l’écouteur pour www\. contoso.com.
+Remplacez l’adresse par celle de votre autre domaine, par exemple `https://www.contoso.org`. Vous devriez alors remarquer que le trafic est redirigé vers l’écouteur pour www\.contoso.com.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 94fed6f4aa62c7e649cf7d644e571b30561e0da4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2850ca3f23e61be54702878c0683af9fdb1fad91
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80050240"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826857"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Démarrage rapide : Modifier les comptes pris en charge par une application
 
@@ -69,6 +69,8 @@ Par défaut, l’accord implicite OAuth 2.0 est désactivé pour les applicatio
 
 ### <a name="to-enable-oauth-20-implicit-grant"></a>Pour activer l’accord implicite OAuth 2.0
 
+1. Dans le volet de navigation de gauche, sélectionnez le service **Azure Active Directory**, puis **Inscriptions d’applications**.
+1. Recherchez et sélectionnez l’application que vous souhaitez configurer. Une fois l’application sélectionnée, vous pourrez voir sa **présentation** ou sa page d’inscription principale.
 1. Sélectionnez la section **Authentification** sur la page de **présentation** de l’application.
 1. Sous **Paramètres avancés**, localisez la section **octroi implicite**.
 1. Sélectionnez **Jetons d’ID**, **Jetons d’accès**, ou les deux.

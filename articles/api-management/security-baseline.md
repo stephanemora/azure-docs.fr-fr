@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: aa59a37f3a4413c92a483746ed4a08c363ab8457
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: ceaa44429d105c2a6a1d0883ab29ed11b63ad497
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793817"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736073"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Base de référence sur la sécurité Azure pour la Gestion des API
 
@@ -112,7 +112,7 @@ Utilisez la fonctionnalité de renseignement sur les menaces intégrée à Azure
 
 Attention : Lorsque vous configurez un groupe de sécurité réseau sur le sous-réseau de gestion des API, certains ports doivent rester ouverts. Si ces ports ne sont pas disponibles, la gestion des API risque de ne pas fonctionner correctement et d’être inaccessible.
 
-* [Configurations NSG pour la gestion des API Azure](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues)
+* [Configurations NSG pour la Gestion des API Azure](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues)
 
 * [Guide pratique pour activer les journaux de flux NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
 
@@ -170,7 +170,7 @@ Remarque : Cette fonctionnalité est disponible dans les niveaux Premium et Dé
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8 : Réduire la complexité et les frais administratifs liés aux règles de sécurité réseau
 
-**Aide** : Utilisez des étiquettes de service de réseau virtuel pour définir des contrôles d’accès réseau dans les groupes de sécurité réseau qui sont utilisés sur vos sous-réseaux de gestion des API. Vous pouvez utiliser des étiquettes de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de l’étiquette de service (par exemple, ApiManagement) dans le champ Source ou Destination approprié d'une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant. Microsoft gère les préfixes d’adresse englobés par l’étiquette de service et met à jour automatiquement l’étiquette de service quand les adresses changent.
+**Aide** : Utilisez des étiquettes de service de réseau virtuel pour définir des contrôles d’accès réseau dans les groupes de sécurité réseau qui sont utilisés sur vos sous-réseaux de gestion des API. Vous pouvez utiliser des balises de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de la balise de service (par exemple, ApiManagement) dans le champ Source ou Destination approprié d'une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant. Microsoft gère les préfixes d’adresse englobés par la balise de service et met à jour automatiquement la balise de service quand les adresses changent.
 
 Attention : Lorsque vous configurez un groupe de sécurité réseau sur le sous-réseau de gestion des API, certains ports doivent rester ouverts. Si ces ports ne sont pas disponibles, la gestion des API risque de ne pas fonctionner correctement et d’être inaccessible.
 
@@ -361,7 +361,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 ## <a name="identity-and-access-control"></a>Contrôle des accès et des identités
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Contrôle des accès et des identités](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : contrôle des accès et des identités](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1 : Tenir un inventaire des comptes d’administration
 
@@ -756,7 +756,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 ### <a name="62-maintain-asset-metadata"></a>6.2 : Gérer les métadonnées de ressources
 
-**Conseils** : Appliquez des étiquettes aux ressources Azure en fournissant des métadonnées pour les organiser de façon logique par catégories.
+**Conseils** : Appliquez des balises aux ressources Azure en fournissant des métadonnées pour les organiser de façon logique par catégories.
 
 * [Créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -1070,9 +1070,9 @@ La fonctionnalité de sauvegarde et de restauration de service de la Gestion des
 
 * [Comment implémenter une récupération d’urgence à l’aide d’une sauvegarde de service et la récupérer dans Gestion des API Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-disaster-recovery-backup-restore#calling-the-backup-and-restore-operations)
 
-* [Appeler l’opération de sauvegarde de la Gestion des API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apimanagementservice/backup)
+* [Appeler l’opération de sauvegarde de la Gestion des API](/rest/api/apimanagement/2019-12-01/apimanagementservice/backup)
 
-* [Appeler l’opération de restauration de la Gestion des API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apimanagementservice/restore)
+* [Appeler l’opération de restauration de la Gestion des API](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -1096,7 +1096,7 @@ Vous pouvez utiliser des identités managées afin d’obtenir des certificats p
 
 **Aide** : Validez les sauvegardes en effectuant un test de restauration du service et des certificats à partir des sauvegardes.
 
-* [Appeler l’opération de restauration de la Gestion des API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apimanagementservice/restore)
+* [Appeler l’opération de restauration de la Gestion des API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)
 
 * [Restaurer des certificats Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
 
@@ -1122,7 +1122,7 @@ Activez la suppression réversible dans Key Vault pour protéger les clés contr
 
 ## <a name="incident-response"></a>Réponse aux incidents
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Réponse aux incidents](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : réponse aux incidents](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1 : Créer un guide de réponse aux incidents
 
@@ -1210,5 +1210,5 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez le [benchmark de sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Apprenez-en davantage sur les [bases de référence de sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Consulter le [benchmark de sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
+- En savoir plus sur les [bases de référence de la sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

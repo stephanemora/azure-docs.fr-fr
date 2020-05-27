@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: dbe13b2d1291f212af7da9d1176bc3d90997978b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: cd8557a33971be9fd0913bfdf84397d344901581
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426749"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834376"
 ---
 # <a name="azure-key-vault-security"></a>Sécurité d’Azure Key Vault
 
@@ -42,7 +42,7 @@ Le modèle d’un mécanisme d’authentification unique auprès des deux plans 
 
 - Les organisations peuvent contrôler de manière centralisée l’accès à tous leurs coffres de clés.
 - Si un utilisateur part, il perd instantanément l’accès à tous les coffres de clés de l’organisation.
-- Les organisations peuvent personnaliser l’authentification à l’aide des options d’Azure AD (par exemple, pour activer l’authentification multifacteur afin de renforcer la sécurité).
+- Les organisations peuvent personnaliser l’authentification à l’aide des options dans Azure AD, par exemple pour activer l’authentification multifacteur afin de renforcer la sécurité.
 
 ### <a name="managing-administrative-access-to-key-vault"></a>Gestion de l’accès administratif à Key Vault
 
@@ -99,4 +99,4 @@ Pour toute recommandation quant à la gestion sécurisée des comptes de stockag
 
 - [Points de terminaison de service de réseau virtuel pour Azure Key Vault](overview-vnet-service-endpoints.md)
 - [Contrôle d’accès en fonction du rôle (RBAC) : Rôles intégrés](../../role-based-access-control/built-in-roles.md)
-- [Points de terminaison de service de réseau virtuel pour Azure Key Vault](overview-vnet-service-endpoints.md)
+- [points de terminaison de service de réseau virtuel pour Azure Key Vault](overview-vnet-service-endpoints.md)

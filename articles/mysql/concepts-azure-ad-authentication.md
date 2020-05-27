@@ -6,22 +6,17 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: 960536c3f80aa7870d6f2056d8e95cd1a4338dfe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c56652b4e098213bae0c69d4be5ac77e1b1393c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299020"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83635284"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Utiliser Azure Active Directory pour l’authentification avec MySQL
 
 L’authentification Microsoft Azure Active Directory (Azure AD) est un mécanisme de connexion à Azure Database pour MySQL à l’aide d’identités définies dans Azure AD.
 Avec l’authentification Azure AD, vous pouvez gérer les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé, ce qui simplifie la gestion des autorisations.
-
-> [!IMPORTANT]
-> L’authentification Azure AD pour Azure Database pour MySQL est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Les avantages liés à l’utilisation d’Azure AD incluent ce qui suit :
 

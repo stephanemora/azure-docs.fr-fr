@@ -1,14 +1,14 @@
 ---
-title: Haute disponibilité et reprise d’activité après sinistre - Azure Batch
-description: Apprenez à concevoir votre application Azure Batch afin de faire face à une panne régionale. Les charges de travail doivent basculer vers une autre région ou être réparties entre deux régions ou plus.
-ms.topic: article
+title: Haute disponibilité et récupération d’urgence
+description: Apprenez à concevoir votre application Azure Batch afin de faire face à une panne régionale.
+ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: da46753906e27a94e3c76fcaf9c4a26861bba6c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1e22cb19aba1dcedc4ece7ddc2d1de0ab3233238
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117435"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725735"
 ---
 # <a name="design-your-application-for-high-availability"></a>Concevoir votre application à des fins de haute disponibilité
 

@@ -2,21 +2,21 @@
 title: Vider les étiquettes et les manifestes
 description: Utilisez une commande de vidage pour supprimer plusieurs balises et manifestes d’un registre de conteneurs Azure en fonction d’un filtre d’âge et d’étiquette, et planifiez éventuellement des opérations de vidage.
 ms.topic: article
-ms.date: 08/14/2019
-ms.openlocfilehash: f9d86b628bdd0ce0db3067b02a47517d8aadcba3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/14/2020
+ms.openlocfilehash: ab6794648babd2bd491ded5788455b75c10d675a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79087337"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652635"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Purger automatiquement les images d’un registre de conteneurs Azure
 
 Lorsque vous utilisez un registre de conteneurs Azure dans le cadre d’un workflow de développement, le registre peut rapidement se remplir d’images ou d’autres artefacts qui ne sont pas nécessaires après une brève période. Vous souhaiterez peut-être supprimer toutes les étiquettes antérieures à une certaine durée ou correspondant à un filtre de nom spécifié. Pour supprimer rapidement plusieurs artefacts, cet article présente la commande `acr purge` que vous pouvez exécuter en tant que tâche ACR à la demande ou [planifiée](container-registry-tasks-scheduled.md). 
 
-La commande `acr purge` est actuellement distribuée dans une image de conteneur public (`mcr.microsoft.com/acr/acr-cli:0.1`), générée à partir du code source dans le référentiel [acr-cli](https://github.com/Azure/acr-cli) dans GitHub.
+La commande `acr purge` est actuellement distribuée dans une image de conteneur public (`mcr.microsoft.com/acr/acr-cli:0.2`), générée à partir du code source dans le référentiel [acr-cli](https://github.com/Azure/acr-cli) dans GitHub.
 
-Pour utiliser les exemples de tâche ACR de cet article, vous pouvez utiliser Azure Cloud Shell ou une installation locale d’Azure CLI. Si vous souhaitez l’utiliser en local, la version 2.0.69 ou ultérieure est requise. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install]. 
+Pour utiliser les exemples de tâche ACR de cet article, vous pouvez utiliser Azure Cloud Shell ou une installation locale d’Azure CLI. Si vous souhaitez l’utiliser en local, la version 2.0.76 ou une version ultérieure est requise. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install]. 
 
 > [!IMPORTANT]
 > Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.

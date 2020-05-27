@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 4362d0875ac2c20fc6963d404f86898a12387dad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dc8ca7296658f4113d86765f230ca0158727255f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260919"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649199"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Guide pratique pour utiliser des valeurs nommées dans les stratégies Gestion des API Azure
 
@@ -36,7 +36,7 @@ Chaque instance du service Gestion des API possède une collection de paires cl�
 
 Les valeurs nommées peuvent contenir des chaînes littérales et des [expressions de stratégie](/azure/api-management/api-management-policy-expressions). Par exemple, la valeur de `Expression` est une expression de stratégie qui retourne une chaîne contenant la date et l’heure actuelles. La valeur nommée `Credential` est marquée en tant que secret. Par défaut, cette valeur n’est donc pas affichée.
 
-| Name       | Valeur                      | Secret | Balises          |
+| Nom       | Valeur                      | Secret | Balises          |
 | ---------- | -------------------------- | ------ | ------------- |
 | Valeur      | 42                         | False  | vital-numbers |
 | Informations d'identification | ••••••••••••••••••••••     | True   | security      |
@@ -59,16 +59,12 @@ Les valeurs nommées peuvent contenir des chaînes littérales et des [expressio
 
 Une fois la valeur nommée créée, vous pouvez la modifier en cliquant dessus. Si vous modifiez le nom de valeur nommée, toutes les stratégies qui font référence à cette valeur nommée sont automatiquement mises à jour pour utiliser le nouveau nom.
 
-Pour plus d’informations sur la modification d’une valeur nommée à l’aide de l’API REST, consultez [Modifier une valeur nommée à l’aide de l’API REST](/rest/api/apimanagement/2019-12-01/property?patch).
-
 ## <a name="to-delete-a-named-value"></a>Pour supprimer une valeur nommée
 
 Pour supprimer une valeur nommée, cliquez sur **Supprimer** en regard de la valeur nommée à supprimer.
 
 > [!IMPORTANT]
 > Si la valeur nommée est référencée par des stratégies, vous ne pouvez pas la supprimer correctement tant que vous ne l’avez pas supprimée de toutes les stratégies qui l’utilisent.
-
-Pour plus d’informations sur la suppression d’une valeur nommée à l’aide de l’API REST, consultez [Supprimer une valeur nommée à l’aide de l’API REST](/rest/api/apimanagement/2019-12-01/property/delete).
 
 ## <a name="to-search-and-filter-named-values"></a>Pour rechercher et filtrer des valeurs nommées
 

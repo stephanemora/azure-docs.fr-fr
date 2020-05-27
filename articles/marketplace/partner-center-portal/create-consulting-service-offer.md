@@ -6,13 +6,13 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.openlocfilehash: 626dc5a7d1cd52182e68eb0d217b2ac4c653330e
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.date: 05/19/2020
+ms.openlocfilehash: bd9d643708515855e81ac6729843388a690b2c45
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994348"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700953"
 ---
 # <a name="create-a-consulting-service-offer"></a>Créer une offre de services de conseil
 
@@ -126,32 +126,11 @@ Fournissez une brève description de votre offre. Ce champ peut comporter jusqu�
 
 ### <a name="description"></a>Description
 
-Fournissez une description plus longue de votre offre, jusqu’à 3 000 caractères. S’affichera pour les clients dans la vue d’ensemble de la Place de marché.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Incluez un ou plusieurs des éléments suivants dans votre description :
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- La valeur et les avantages principaux de votre offre
-- Catégorie ou associations de secteurs, ou les deux
-- Opportunités d’achats dans l’application
-- Toutes les informations requises
-
-Voici quelques conseils pour rédiger votre description :
-
-- Décrivez clairement la valeur de votre offre dans les premières phrases de votre description. Incorporez les éléments suivants :
-  - Description de l’offre.
-  - Le type d’utilisateur qui tire parti de l’offre.
-  - Les besoins ou problèmes auxquels l’offre répond.
-- Gardez à l’esprit que les premières phrases peuvent être affichées dans les résultats de recherche.
-- Ne comptez pas sur les fonctionnalités de votre produit pour convaincre. Concentrez-vous plutôt sur ce que votre application offre.
-- Essayez d’utiliser le vocabulaire propre au secteur visé, ainsi que des termes décrivant les avantages proposés.
-
-Pour que la description de votre offre soit plus accrocheuse, utilisez l’éditeur de texte enrichi pour appliquer une mise en forme.
-
-![Utilisation de l’éditeur de texte enrichi](./media/rich-text-editor.png)
-
-| <center>Changer la mise en forme du texte | <center>Ajouter des puces ou une numérotation | <center>Ajouter ou supprimer une mise en retrait de texte |
-| --- | --- | --- |
-| <center>![Changer la mise en forme du texte à l’aide de l’éditeur de texte enrichi](./media/text-editor3.png) |  <center>![Changer la mise en forme du texte à l’aide de l’éditeur de texte enrichi](./media/text-editor4.png) |  <center>![Mettre en retrait à l’aide de l’éditeur de texte enrichi](./media/text-editor5.png) |
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 ### <a name="keywords"></a>Mots clés
 

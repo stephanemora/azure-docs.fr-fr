@@ -4,23 +4,23 @@ description: Cet article fournit une présentation et les avantages clés de l�
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/21/2020
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: acd87fac5ec2edc40d27d98f073e13c0acae8d8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 16aac5c765c36c49919685ee58e8034786ddf1ae
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79498592"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797355"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-etcd-api-preview"></a>Présentation de l’API etcd Azure Cosmos DB (préversion)
 
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale pour les applications stratégiques. Il fournit la distribution mondiale clés en main, la mise à l’échelle élastique du débit et du stockage, des latences de l’ordre de quelques millisecondes dans plus de 99 pour cent des cas, et une haute disponibilité garantie, le tout soutenu par nos contrats de niveau de service de pointe.
 
-[ETCD](https://github.com/etcd-io/etcd) est un magasin de clés/valeurs distribué. Dans [Kubernetes](https://kubernetes.io/), etcd est utilisé pour stocker l’état et la configuration des clusters Kubernetes. Garantir la disponibilité, la fiabilité et les performances d’etcd est essentiel pour l’intégrité globale du cluster, l’extensibilité, la disponibilité de l’élasticité et les performances d’un cluster Kubernetes. 
+[ETCD](https://github.com/etcd-io/etcd) est un magasin de clés/valeurs distribué. Dans [Kubernetes](https://kubernetes.io/), etcd est utilisé pour stocker l’état et la configuration des clusters Kubernetes. Garantir la disponibilité, la fiabilité et les performances d’etcd est essentiel pour l’intégrité globale du cluster, l’extensibilité, la disponibilité de l’élasticité et les performances d’un cluster Kubernetes.
 
-L’API etcd Azure Cosmos DB vous permet d’utiliser Azure Cosmos DB en tant que magasin principal pour [Azure Kubernetes](../aks/index.yml). Dans Azure Cosmos DB, l'API etcd est actuellement préversion. Azure Cosmos DB implémente le protocole filaire etcd. Grâce à l’API etcd dans Azure Cosmos DB, les développeurs obtiennent automatiquement un cluster Kubernetes hautement fiable, [disponible](high-availability.md) et [distribué à l’échelle mondiale](distribute-data-globally.md). Cette API permet aux développeurs de mettre à l’échelle la gestion de l’état de Kubernetes sur un service PaaS natif cloud complètement managé. 
+L'API etcd d'Azure Cosmos DB vous permet d’utiliser Azure Cosmos DB en tant que magasin principal pour Azure Kubernetes. Dans Azure Cosmos DB, l'API etcd est actuellement préversion. Azure Cosmos DB implémente le protocole filaire etcd. Grâce à l’API etcd dans Azure Cosmos DB, les développeurs obtiennent automatiquement un cluster Kubernetes hautement fiable, [disponible](high-availability.md) et [distribué à l’échelle mondiale](distribute-data-globally.md). Cette API permet aux développeurs de mettre à l’échelle la gestion de l’état de Kubernetes sur un service PaaS natif cloud complètement managé. 
 
 > [!NOTE]
 > Contrairement à d’autres API dans Azure Cosmos DB, vous ne pouvez pas approvisionner un compte d’API etcd via le Portail Azure, la CLI ou les Kits de développement logiciel (SDK). Vous pouvez approvisionner un compte d’API etcd en déployant le modèle Resource Manager uniquement ; pour des instructions détaillées, consultez l’article [How to provision Azure Kubernetes with Azure Cosmos DB](bootstrap-kubernetes-cluster.md) (Comment approvisionner Azure Kubernetes avec Azure Cosmos DB). L’API etcd Azure Cosmos DB est actuellement en préversion limitée. Vous pouvez vous [inscrire à la préversion](https://aka.ms/cosmosetcdapi-signup) en remplissant le formulaire d’inscription.
@@ -50,7 +50,7 @@ Azure Cosmos DB offre une extensibilité élastique de lecture et d’écritures
 
 ### <a name="security--enterprise-readiness"></a>Sécurité et préparation pour l’entreprise
 
-Lorsque des données etcd sont stockées dans Azure Cosmos DB, les développeurs Kubernetes obtiennent automatiquement le [chiffrement intégré au repos](database-encryption-at-rest.md), les [certifications et conformité](compliance.md) et les [fonctionnalités de sauvegarde et restauration](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) pris en charge par Azure Cosmos DB. 
+Lorsque des données etcd sont stockées dans Azure Cosmos DB, les développeurs Kubernetes obtiennent automatiquement le [chiffrement intégré au repos](database-encryption-at-rest.md), les [certifications et conformité](compliance.md) et les [fonctionnalités de sauvegarde et restauration](online-backup-and-restore.md) pris en charge par Azure Cosmos DB. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

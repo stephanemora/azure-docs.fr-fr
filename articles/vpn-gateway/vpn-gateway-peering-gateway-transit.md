@@ -1,6 +1,6 @@
 ---
 title: Configurer le transit par passerelle VPN pour le peering de réseaux virtuels
-description: Configurez le transit par passerelle VPN pour le peering de réseaux virtuels.
+description: Configurez le transit par passerelle VPN pour le peering de réseaux virtuels.Configurez le transit par passerelle VPN pour le peering de réseaux virtuels.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: yushwang
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 3917101ee7ac151cf624e5be0f51ccf01c8cb1cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c243c6ded4057c9e4ac63345f300f3b3b690b363
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77161883"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798939"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurer le transit par passerelle VPN pour le peering de réseaux virtuels
 
-Cet article explique comment configurer le transit par passerelle pour le peering de réseaux virtuels. Le [peering de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md) connecte en toute transparence deux réseaux virtuels Azure de manière à les fusionner en un seul réseau virtuel à des fins de connectivité. Le [transit par passerelle](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) est une propriété de peering qui permet à un réseau virtuel d’exploiter la passerelle VPN du réseau virtuel appairé pour la mise en œuvre d’une connectivité intersite ou de réseau virtuel à réseau virtuel. Le diagramme suivant illustre le fonctionnement du transit par passerelle avec le peering de réseaux virtuels.
+Cet article explique comment configurer le transit par passerelle pour le peering de réseaux virtuels.Cet article explique comment configurer le transit par passerelle pour le peering de réseaux virtuels. Le [peering de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md) connecte en toute transparence deux réseaux virtuels Azure de manière à les fusionner en un seul réseau virtuel à des fins de connectivité. Le [transit par passerelle](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) est une propriété de peering qui permet à un réseau virtuel d’exploiter la passerelle VPN du réseau virtuel appairé pour la mise en œuvre d’une connectivité intersite ou de réseau virtuel à réseau virtuel. Le diagramme suivant illustre le fonctionnement du transit par passerelle avec le peering de réseaux virtuels.
 
 ![Transit par passerelle](./media/vpn-gateway-peering-gateway-transit/gatewaytransit.png)
 
@@ -30,6 +30,11 @@ Deux scénarios sont décrits dans le présent document :
 
 1. Les deux réseaux virtuels utilisent le modèle de déploiement Resource Manager
 2. Le réseau virtuel spoke utilise le modèle de déploiement Classic et le réseau virtuel hub avec la passerelle utilise le modèle Resource Manager
+
+
+>[!NOTE]
+> Si vous apportez un changement à la topologie de votre réseau et que vous avez des clients VPN Windows, vous devez retélécharger et réinstaller le package client VPN pour les clients Windows afin d’appliquer ce changement au client.
+>
 
 ## <a name="requirements"></a>Spécifications
 

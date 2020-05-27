@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: cb8b38addef736914a8627971e57ea2b173293d6
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 42efc1395fee28a3854420f15c2ad08b301cc1f7
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679415"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758739"
 ---
 # <a name="components"></a>Components
 
@@ -38,6 +38,20 @@ lightComponent.Intensity = 11;
 lightComponent.Destroy();
 lightComponent = null;
 ```
+
+```cpp
+// create a point light component
+ApiHandle<AzureSession> session = GetCurrentlyConnectedSession();
+
+ApiHandle<PointLightComponent> lightComponent = session->Actions()->CreateComponent(ObjectType::PointLightComponent, ownerEntity)->as<PointLightComponent>();
+
+// ...
+
+// destroy the component
+lightComponent->Destroy();
+lightComponent = nullptr;
+```
+
 
 Un composant est attaché à une entité au moment de la création. Il n’est pas possible de le déplacer vers une autre entité par la suite. Les composants sont supprimés explicitement avec `Component.Destroy()` ou automatiquement lors de la destruction de l’entité propriétaire du composant.
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7d659ca519e5bd7f26e4cca17707e0db397aae98
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 33842707f04e55b311aeeabe2f1bbc83204ec0c9
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421173"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652278"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide du portail Azure
 
@@ -63,7 +63,11 @@ Pour ajouter un secret au coffre, vous devez effectuer deux autres opérations. 
     - **Valeur** : hVFkk965BuUv
     - Conservez les valeurs par défaut des autres options. Cliquez sur **Créer**.
 
-Lorsque vous recevez le message confirmant la création du secret, cliquez dessus dans la liste. Certaines propriétés s’affichent. Si vous cliquez sur la version actuelle, vous voyez la valeur que vous avez spécifiée à l’étape précédente.
+Lorsque vous recevez le message confirmant la création du secret, cliquez dessus dans la liste. 
+
+## <a name="retrieve-a-secret-from-key-vault"></a>Récupérer un secret à partir de Key Vault
+
+Si vous cliquez sur la version actuelle, vous voyez la valeur que vous avez spécifiée à l’étape précédente.
 
 ![Propriétés de secret](../media/quick-create-portal/current-version-hidden.png)
 

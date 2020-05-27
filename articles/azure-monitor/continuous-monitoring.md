@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: b9ca8a703ed8a84148abd23e90114402d8806bd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6df27dde997bd34e86b1bb340817648bfe68f2c4
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77667191"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797597"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Supervision continue avec Azure Monitor
 
@@ -74,7 +74,7 @@ Un aspect essentiel de la supervision est la notification des administrateurs à
 Le fait de veiller à ce que votre développement et vos opérations aient accès à la même télémétrie et aux mêmes outils leur permet d’afficher des modèles dans tout votre environnement, et de réduire les temps de détection moyen (MTTD) et temps de restauration moyen (MTTR).
 
 - Préparez des [tableaux de bord personnalisés](../azure-monitor/learn/tutorial-app-dashboards.md) en fonction des journaux d’activité et métriques communs des différents rôles de votre organisation. Les tableaux de bord peuvent combiner des données provenant de toutes les ressources Azure.
-- Préparez des [classeurs](../azure-monitor/app/usage-workbooks.md) pour garantir le partage des connaissances entre le développement et les opérations. Ils peuvent être organisés sous forme de rapports dynamiques contenant des graphiques de métrique et des requêtes de journal, ou même sous forme de guides de résolution des problèmes, conçus par des développeurs aidant le support technique ou les opérations à régler des problèmes de base.
+- Préparez des [classeurs](../azure-monitor/platform/workbooks-overview.md) pour garantir le partage des connaissances entre le développement et les opérations. Ils peuvent être organisés sous forme de rapports dynamiques contenant des graphiques de métrique et des requêtes de journal, ou même sous forme de guides de résolution des problèmes, conçus par des développeurs aidant le support technique ou les opérations à régler des problèmes de base.
 
 ## <a name="continuously-optimize"></a>Optimiser en continu
  La supervision est un des aspects fondamentaux de la philosophie très répandue Construire-Mesurer-Apprendre ; elle recommande le suivi en continu des KPI et des métriques de comportement d’utilisateur, pour ensuite s’efforcer de les optimiser par la planification d’itérations. Azure Monitor vous permet de collecter des journaux d’activité et des métriques en rapport avec votre activité, et d’ajouter de nouveaux points de données dans le déploiement suivant, en fonction des besoins.

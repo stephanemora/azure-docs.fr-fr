@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: bf690ad3ad38632834a92c4a743b1cb584beaf65
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 9c16cd4143bc07bf5f3b1d00b890dc54bd5ea318
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838822"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659880"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Support des machines virtuelles de 2e génération dans Azure
 
@@ -128,12 +128,6 @@ Par exemple, utilisez l’applet de commande PowerShell suivante pour obtenir un
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
 
-Vous pouvez également utiliser Azure CLI pour voir les images de génération 2 disponibles, listées par **Éditeur**.
-
-```azurecli
-az vm image list --publisher Canonical --sku gen2 --output table --all
-```
-
 Si vous créez une machine virtuelle avec le système d’exploitation Windows Server 2012, vous devez sélectionner le SKU de machine virtuelle génération 1 (BIOS) ou génération 2 (UEFI), comme suit :
 
 ```powershell
@@ -143,11 +137,19 @@ Si vous créez une machine virtuelle avec le système d’exploitation Windows S
 
 Consultez la section [ Fonctionnalités et capacités](#features-and-capabilities) pour obtenir une liste actuelle des images de la Place de marché prises en charge.
 
+#### <a name="azure-cli"></a>Azure CLI
+
+Vous pouvez également utiliser Azure CLI pour voir les images de génération 2 disponibles, listées par **Éditeur**.
+
+```azurecli
+az vm image list --publisher Canonical --sku gen2 --output table --all
+```
+
 ### <a name="managed-image-or-managed-disk"></a>Image ou disque managé
 
 Vous pouvez créer une machine virtuelle de 2e génération à partir d’une image managée ou d’un disque managé, de la même façon que pour une machine virtuelle de 1ère génération.
 
-### <a name="virtual-machine-scale-sets"></a>Groupes identiques de machines virtuelles 
+### <a name="virtual-machine-scale-sets"></a>Groupes identiques de machines virtuelles
 
 Vous pouvez également créer des machines virtuelles de 2e génération à l’aide de groupes de machines virtuelles identiques. Dans Azure CLI, utilisez les groupes identiques Azure pour créer des machines virtuelles de 2e génération.
 

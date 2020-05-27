@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6316165ba08d055be1186995e2fe2ad5a0079fb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 78f7c8eb363d791b7109aebced668c1e0a952274
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80330719"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636092"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Procédure pas à pas : Ajouter des échanges de revendications d’API REST aux stratégies personnalisées dans Azure Active Directory B2C
 
@@ -77,7 +77,7 @@ Une revendication fournit un stockage temporaire de données lors d’une exécu
 
 ## <a name="configure-the-restful-api-technical-profile"></a>Configurer le profil technique de l’API RESTful 
 
-Un [profil technique RESTful](restful-technical-profile.md) prend en charge la création d’une interface avec votre propre service RESTful. Azure Active Directory B2C envoie des données au service RESTful dans une collection `InputClaims` et reçoit des données en retour dans une collection `OutputClaims`. Recherchez l’élément **ClaimsProviders** dans votre fichier <em>**`TrustFrameworkExtensions.xml`**</em> et ajoutez un fournisseur de revendications comme suit :
+Un [profil technique RESTful](restful-technical-profile.md) prend en charge la création d’une interface avec votre propre service RESTful. Azure Active Directory B2C envoie des données au service RESTful dans une collection `InputClaims` et reçoit des données en retour dans une collection `OutputClaims`. Recherchez l’élément **ClaimsProviders** dans votre fichier <em> **`TrustFrameworkExtensions.xml`**</em> et ajoutez un fournisseur de revendications comme suit :
 
 ```xml
 <ClaimsProvider>
@@ -209,9 +209,6 @@ Enregistrez les fichiers que vous avez modifiés : *TrustFrameworkBase.xml*, *T
   ...
 }
 ```
-
-## <a name="next-steps"></a>Étapes suivantes
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4581ab89f74425682f569425f62714ead2c27c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 764071eeaf368ecf78679632cffbd6964db40aa5
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230813"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681034"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Installer l’agent de provisionnement cloud Azure AD Connect
 Ce document vous guide tout au long du processus d’installation de l’agent d’approvisionnement Azure Active Directory (Azure AD) Connecte, et explique comment le configurer au départ dans le portail Azure.
@@ -77,14 +77,7 @@ Pour vérifier que l’agent est visible par Azure, procédez comme suit.
 
    ![Écran Agents de provisionnement locaux](media/how-to-install/verify1.png)</br>
 
-### <a name="verify-the-port"></a>Vérifier le port
-Pour vérifier que le service Azure est à l’écoute sur le port 443 et que votre agent peut communiquer avec lui, procédez comme suit.
 
-https://aadap-portcheck.connectorporttest.msappproxy.net/ 
-
-Ce test vérifie que vos agents peuvent communiquer avec Azure via le port 443. Ouvrez un navigateur et accédez à l’URL précédents à partir du serveur sur lequel l’agent est installé.
-
-![Vérification de l’accessibilité du port](media/how-to-install/verify2.png)
 
 ### <a name="on-the-local-server"></a>Sur le serveur local
 Pour vérifier que l’agent est en cours d’exécution, procédez comme suit.

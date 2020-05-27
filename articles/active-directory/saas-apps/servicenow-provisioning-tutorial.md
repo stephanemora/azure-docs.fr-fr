@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 9e93d4b3f1880f2ac56a32a7b85aa6801fb7c14e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3d4ca6f8e67f069bffcd27563d7f32b55f6591e
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78205098"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780511"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutoriel : Configurer ServiceNow pour l'approvisionnement automatique d'utilisateurs
 
@@ -141,7 +141,6 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 * **InvalidLookupReference :** Lors de l’approvisionnement de certains attributs, tels que le service et l’emplacement dans ServiceNow, les valeurs doivent déjà exister dans une table de référence dans ServiceNow. Par exemple, vous pouvez avoir deux emplacements (Seattle, Los Angeles) et trois départements (ventes, finance, marketing) dans la table **insérer le nom de table** dans ServiceNow. Si vous tentez d’approvisionner un utilisateur dont le service est « Ventes » et où l’emplacement est « Seattle », il sera approvisionné avec succès. Si vous tentez d’approvisionner un utilisateur avec le département « Ventes » et l’emplacement « LA », l’utilisateur ne sera pas approvisionné. L’emplacement LA doit être ajouté à la table de référence dans ServiceNow ou l’attribut utilisateur dans Azure AD doit être mis à jour pour correspondre au format dans ServiceNow. 
 * **EntryJoiningPropertyValueIsMissing :** Passez en revue vos [mappages d’attributs](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) pour identifier l’attribut correspondant. Cette valeur doit être présente sur l’utilisateur ou le groupe que vous tentez d’approvisionner. 
 * Passez en revue l’[API SOAP de ServiceNow](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) pour comprendre les exigences ou les limitations (par exemple, le format pour spécifier l’indicatif du pays pour un utilisateur).
-* Certains déploiements ServiceNow nécessitent l’autorisation des plages d’adresses IP pour le service d’approvisionnement Azure AD. Les plages d’adresses IP réservées pour le service d’approvisionnement Azure AD se trouvent [ici](https://www.microsoft.com/download/details.aspx?id=56519) sous « AzureActiveDirectoryDomainServices ».
 * Par défaut, les demandes d'approvisionnement sont envoyées à https://{nom-de-votre-instance}.service-now.com/{nom-table}. Si vous avez besoin de l'URL d'un locataire personnalisé, vous pouvez entrer l'URL complète dans le champ du nom de l'instance.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

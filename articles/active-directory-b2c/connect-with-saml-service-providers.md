@@ -8,22 +8,20 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 38c98a65ac0b0f95a9a6e111a79b5dede04912c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ff5d8ecaaeff67e1a97c4afd4ca8119f8ac7c1e1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229746"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696944"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Inscrire une application SAML dans Azure AD B2C
 
 Dans cet article, vous allez apprendre à configurer Azure Active Directory B2C (Azure AD B2C) pour agir en tant que fournisseur d’identité (IdP) Security Assertion Markup Language (SAML) pour vos applications.
-
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="scenario-overview"></a>Présentation du scénario
 
@@ -115,7 +113,7 @@ Ensuite, chargez le certificat de signature d’assertion et de réponse SAML su
 
 À présent, ajoutez la capacité de votre locataire à émettre des jetons SAML à l’aide des profils techniques [émetteur de jeton SAML](saml-issuer-technical-profile.md) et [fournisseur de session SAML](custom-policy-reference-sso.md#samlssosessionprovider).
 
-Ouvrez `SocialAndLocalAccounts\` **`TrustFrameworkExtensions.xml`** dans le pack de démarrage de stratégie personnalisée.
+Ouvrez `SocialAndLocalAccounts\`**`TrustFrameworkExtensions.xml`** dans le pack de démarrage de stratégie personnalisée.
 
 Recherchez la section `<ClaimsProviders>` et ajoutez l’extrait de code XML suivant.
 
@@ -371,7 +369,6 @@ Les scénarios de la partie de confiance SAML suivants sont pris en charge via v
 * Plusieurs URL de déconnexion ou une liaison POST pour l’URL de déconnexion dans l’objet principal du service ou de l’application.
 * Spécifiez la clé de signature pour vérifier les demandes de partie de confiance dans l’objet principal du service ou de l’application.
 * Spécifiez la clé de chiffrement de jeton dans l’objet principal du service ou de l’application.
-* Les connexions établies par le fournisseur d’identité ne sont actuellement pas prises en charge dans la version préliminaire.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

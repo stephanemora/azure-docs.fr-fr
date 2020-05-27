@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2020
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae0632fbc3208befe197c15ffdbf2d9a4e7b2d7a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a05de8bf6a6e4ab79e63d6634ddb1b79fae6045f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926474"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680219"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect : Mise à jour automatique
 Cette fonctionnalité date de la build [1.1.105.0 (publiée en février 2016)](reference-connect-version-history.md#111050).  Cette fonctionnalité a été mise à jour dans la [build 1.1.561](reference-connect-version-history.md#115610) et prend désormais en charge des scénarios supplémentaires.
@@ -92,7 +92,7 @@ Voici une liste de messages les plus courants. Elle n’est pas exhaustive, mais
 | UpgradeNotSupportedAdfsSignInMethod | Vous avez sélectionné AD FS en tant que méthode de connexion. |
 | UpgradeNotSupportedCustomizedSyncRules |Vous avez ajouté vos propres règles de personnalisation à la configuration. |
 | UpgradeNotSupportedDeviceWritebackEnabled |Vous avez activé la fonctionnalité [Écriture différée des appareils](how-to-connect-device-writeback.md) . |
-| UpgradeNotSupportedGroupWritebackEnabled |Vous avez activé la fonctionnalité [Écriture différée de groupe](how-to-connect-preview.md#group-writeback) . |
+| UpgradeNotSupportedGroupWritebackEnabled |Vous avez activé la fonctionnalité Écriture différée de groupe. |
 | UpgradeNotSupportedInvalidPersistedState |L’installation n’est pas une configuration rapide ou une mise à niveau DirSync. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |Vous avez plus de 100 000 objets dans le métaverse. |
 | UpgradeNotSupportedMultiForestSetup |Vous vous connectez à plusieurs forêts. L’installation rapide se connecte à une seule forêt. |

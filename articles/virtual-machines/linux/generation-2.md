@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: ae76c30f63c87f7e741fff31792d520fb144b93b
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 3336869a5f91613849cdccb67f9d804205148608
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82084275"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652514"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Support des machines virtuelles de 2e génération dans Azure
 
@@ -35,13 +35,13 @@ Les machines virtuelles de 1ère génération sont prises en charge dans toutes 
 * [Série HB](../hb-series.md)
 * [Série HC](../hc-series.md)
 * Séries [Ls](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) et [Lsv2](../lsv2-series.md)
-* [Série Mv2](../mv2-series.md)
+* [Série M](../m-series.md)
+* [Série Mv2](../mv2-series.md)<sup>1</sup>
 * [Série NCv2](../ncv2-series.md) et [série NCv3](../ncv3-series.md)
 * [Série ND](../nd-series.md)
 * [Série NVv3](../nvv3-series.md)
 
-> [!NOTE]
-> L’utilisation d’images de machine virtuelle de 2e génération pour les machines virtuelles de la série MV2 est généralement disponible, car la série MV2 fonctionne exclusivement avec les images de machine virtuelle de 2e génération. Les images de machine virtuelle de génération 1 ne sont pas prises en charge sur les machines virtuelles de série MV2. 
+<sup>1</sup> La série MV2 ne prend pas en charge les images de machine virtuelle de 1re génération et ne prend en charge qu’un sous-ensemble d’images de 2e génération. Pour plus d’informations, consultez la [documentation de la série MV2](https://docs.microsoft.com/azure/virtual-machines/mv2-series).
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Images de machine virtuelle de 2e génération dans la Place de marché Azure
 
@@ -122,12 +122,6 @@ Par exemple, utilisez l’applet de commande PowerShell suivante pour obtenir un
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
 
-Vous pouvez également utiliser Azure CLI pour voir les images de génération 2 disponibles, listées par **Éditeur**.
-
-```azurecli
-az vm image list --publisher Canonical --sku gen2 --output table --all
-```
-
 Si vous créez une machine virtuelle avec le système d’exploitation Windows Server 2012, vous devez sélectionner le SKU de machine virtuelle génération 1 (BIOS) ou génération 2 (UEFI), comme suit :
 
 ```powershell
@@ -136,6 +130,14 @@ Si vous créez une machine virtuelle avec le système d’exploitation Windows S
 ```
 
 Consultez la section [ Fonctionnalités et capacités](#features-and-capabilities) pour obtenir une liste actuelle des images de la Place de marché prises en charge.
+
+#### <a name="azure-cli"></a>Azure CLI
+
+Vous pouvez également utiliser Azure CLI pour voir les images de génération 2 disponibles, listées par **Éditeur**.
+
+```azurecli
+az vm image list --publisher Canonical --sku gen2 --output table --all
+```
 
 ### <a name="managed-image-or-managed-disk"></a>Image ou disque managé
 

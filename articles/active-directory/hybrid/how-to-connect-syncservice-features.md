@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/25/2018
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3f6b698922440c6e3e9b488cca93ca8d98d9c59
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: b23c2b81d281f787914e32818d768d2d531537f4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983073"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682231"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Fonctionnalités de service de synchronisation d’Azure AD Connect
 
@@ -62,7 +62,7 @@ Les paramètres suivants sont configurés par Azure AD Connect et ne peuvent pas
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Permet à un attribut d’être mis en quarantaine lorsqu’il est un doublon d’un autre objet, plutôt que mettre en échec l’objet entier lors de l’exportation. |
 | Synchronisation de hachage de mot de passe |[Implémenter la synchronisation du hachage de mot de passe avec Azure AD Connect Sync](how-to-connect-password-hash-synchronization.md) |
 |Authentification directe|[Connexion de l’utilisateur avec l’authentification directe Azure Active Directory](how-to-connect-pta.md)|
-| UnifiedGroupWriteback |[Préversion : Réécriture de groupe](how-to-connect-preview.md#group-writeback) |
+| UnifiedGroupWriteback |Écriture différée de groupe|
 | UserWriteback |Non pris en charge actuellement. |
 
 ## <a name="duplicate-attribute-resiliency"></a>Résilience d’attribut en double
