@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 7c843b45b5a398aaaa1aab66f80961560477cf18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 794c88556fb69aae11c582afd03f548480469e34
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128055"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684712"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Collecter les données de télémétrie pour l’analyse du trafic de recherche
 
@@ -236,4 +236,4 @@ Instrumentez votre application de recherche pour obtenir des données puissantes
 
 Des informations supplémentaires sur [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) sont disponibles. Vous pouvez également visiter la [page des tarifs](https://azure.microsoft.com/pricing/details/application-insights/) pour en savoir plus sur les différents niveaux de service.
 
-En savoir plus sur la création de rapports exceptionnels. Pour plus d’informations, consultez [Bien démarrer avec Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/).
+En savoir plus sur la création de rapports exceptionnels. Pour plus d’informations, consultez [Bien démarrer avec Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started).

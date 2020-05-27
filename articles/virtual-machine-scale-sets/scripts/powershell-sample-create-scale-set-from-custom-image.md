@@ -9,12 +9,12 @@ ms.subservice: imaging
 ms.date: 03/27/2018
 ms.reviewer: cynthn
 ms.custom: akjosh
-ms.openlocfilehash: b99077223581c4960c838b54b6b8885309f7d999
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: bdd36a2c58bddce5bea0ba43e5d21da9ef89a14d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125126"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699460"
 ---
 # <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-powershell"></a>Créer un groupe de machines virtuelles identiques à partir d’une image de machine virtuelle personnalisée avec Azure PowerShell
 Ce script permet de créer un groupe de machines virtuelles identiques qui utilise une image de machine virtuelle personnalisée comme source pour les instances de machine virtuelle.
@@ -44,5 +44,3 @@ Ce script a recours aux commandes suivantes pour créer le déploiement. Chaque 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/overview).
-
-Vous trouverez des exemples supplémentaires de scripts PowerShell de groupes de machines virtuelles identiques dans la [documentation relative aux groupes de machines virtuelles identiques Azure](../powershell-samples.md).

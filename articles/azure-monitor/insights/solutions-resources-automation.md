@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ef9f27546e9db95d5a41769e1b5bc7bc0c2f851
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3b1b134afbc4a13d7888281a82609d444cee377
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663060"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682875"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Ajout de ressources Azure Automation à une solution de gestion (préversion)
 > [!NOTE]
@@ -33,7 +33,7 @@ Cet article suppose que vous êtes déjà familiarisé avec les informations sui
 - Guide de [Création de modèles Resource Manager](../../azure-resource-manager/templates/template-syntax.md)
 
 ## <a name="automation-account"></a>Compte Automation
-Toutes les ressources dans Azure Automation sont contenues dans un [compte Automation](../../automation/automation-security-overview.md#automation-account-overview).  Comme décrit dans [Espace de travail Log Analytics et compte Automation]( solutions.md#log-analytics-workspace-and-automation-account), le compte Automation n’est pas inclus dans la solution de gestion, mais doit exister avant l’installation de la solution.  Si ce n’est pas le cas, l’installation de la solution échoue.
+Toutes les ressources dans Azure Automation sont contenues dans un [compte Automation](../../automation/automation-security-overview.md).  Comme décrit dans [Espace de travail Log Analytics et compte Automation]( solutions.md#log-analytics-workspace-and-automation-account), le compte Automation n’est pas inclus dans la solution de gestion, mais doit exister avant l’installation de la solution.  Si ce n’est pas le cas, l’installation de la solution échoue.
 
 Le nom de chaque ressource Automation inclut le nom de son compte Automation.  Pour cela, utilisez le paramètre **accountName** comme dans l’exemple suivant d’une ressource de runbook.
 

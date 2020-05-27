@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2fc9a23a8b0ef69760867dd5768510397f8570e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9804a44a29f4540c28ec4e1eb6927e65af70218c
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80129786"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682949"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Tutoriel : Intégration d’Azure Active Directory à Palo Alto Networks - Admin UI
 
@@ -124,7 +124,7 @@ Pour configurer l’authentification unique Azure AD avec Palo Alto Networks - A
     > [!NOTE]
     > Pour plus d'informations sur les attributs, consultez les articles suivants :
     > * [Profil de rôle d’administrateur pour Admin UI (adminrole)](https://www.paloaltonetworks.com/documentation/80/pan-os/pan-os/firewall-administration/manage-firewall-administrators/configure-an-admin-role-profile)
-    > * [Domaine d’accès de périphérique pour Admin UI (accessdomain)](https://www.paloaltonetworks.com/documentation/80/pan-os/web-interface-help/device/device-access-domain)
+    > * [Domaine d’accès de périphérique pour Admin UI (accessdomain)](https://docs.paloaltonetworks.com/pan-os/8-0/pan-os-web-interface-help/device/device-access-domain.html)
 
 1. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 

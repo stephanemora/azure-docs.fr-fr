@@ -12,12 +12,12 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
-ms.openlocfilehash: 74a6d1aecfc83ea68b9e30453056d231f4bf3e65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: daaa5e3a075eee19ab473818ae3bd84d4bd3b32b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416185"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683669"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analyse des données avec Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -132,4 +132,4 @@ Vous verrez deux colonnes supplémentaires ajoutées à votre groupe de données
 En comparant la colonne BikeBuyer (réelle) avec les étiquettes de marquage (prévision), vous pouvez voir comment le modèle a fonctionné. Ensuite, vous pouvez utiliser ce modèle pour élaborer des prédictions pour les nouveaux clients et publier ce modèle en tant que service web ou écrire les résultats dans Azure Synapse.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur la création de modèles Machine Learning prédictifs, reportez-vous à [Introduction à Machine Learning sur Azure](https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/).
+Pour en savoir plus sur la création de modèles Machine Learning prédictifs, reportez-vous à [Introduction à Machine Learning sur Azure](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).

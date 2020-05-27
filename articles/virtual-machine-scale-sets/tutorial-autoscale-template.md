@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 0d857a0066737cd7bdc14dff435e25add66f2cdd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 95baaaff0936d288b5a56efb8f6ce1ba87637d8a
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201380"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700926"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Didacticiel : mettre automatiquement à l’échelle un groupe de machines virtuelles identiques avec un modèle Azure
 Lorsque vous créez un groupe identique, vous définissez le nombre d’instances de machine virtuelle que vous souhaitez exécuter. À mesure que la demande de votre application change, vous pouvez augmenter ou diminuer automatiquement le nombre d’instances de machine virtuelle. La capacité de mise à l’échelle automatique vous permet de suivre la demande du client ou de répondre aux changements de performances de votre application tout au long de son cycle de vie. Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -272,8 +272,3 @@ Dans ce tutoriel, vous avez appris à effectuer automatiquement un scale-in ou u
 > * Créer et utiliser des règles de mise à l’échelle automatique
 > * Effectuer un test de contrainte sur les instances de machine virtuelle et déclencher des règles de mise à l’échelle automatique
 > * Remettre à l’échelle automatiquement en cas de baisse de la demande
-
-Pour plus d’exemples de groupes de machines virtuelles identiques en action, consultez les exemples suivants de scripts Azure CLI :
-
-> [!div class="nextstepaction"]
-> [Exemples de scripts de groupe identique pour Azure CLI](cli-samples.md)

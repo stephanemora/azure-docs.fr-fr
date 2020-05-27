@@ -3,12 +3,12 @@ title: Compteurs de performances dans Application Insights | Microsoft Docs
 description: Surveillez les compteurs de performances système et .NET personnalisés dans Application Insights.
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: 201338d3a904030ea961aede094b9877bfee3e36
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 274e02c484c091cbb13ac2cf69bf99672f579f33
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855111"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701464"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Compteurs de performances système dans Application Insights
 
@@ -147,7 +147,7 @@ La prise en charge des compteurs de performances dans ASP.Net Core est limitée�
 * Les versions 2.8.0 et ultérieures du kit de développement logiciel (SDK) prennent en charge le compteur processeur/mémoire dans Linux. Aucun autre compteur n’est pris en charge dans Linux. La méthode recommandée pour obtenir les compteurs système dans Linux (et dans d’autres environnements non-Windows) consiste à utiliser [EventCounters](eventcounters.md)
 
 ## <a name="alerts"></a>Alertes
-Comme d’autres mesures, vous pouvez [définir une alerte](../../azure-monitor/app/alerts.md) pour vous avertir si un compteur de performances dépasse une limite que vous spécifiez. Ouvrez le volet Alertes et cliquez sur Ajouter une alerte.
+Comme d’autres mesures, vous pouvez [définir une alerte](../../azure-monitor/platform/alerts-log.md) pour vous avertir si un compteur de performances dépasse une limite que vous spécifiez. Ouvrez le volet Alertes et cliquez sur Ajouter une alerte.
 
 ## <a name="next-steps"></a><a name="next"></a>Étapes suivantes
 

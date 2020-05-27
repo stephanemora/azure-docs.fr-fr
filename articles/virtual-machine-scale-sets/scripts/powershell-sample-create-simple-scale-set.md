@@ -9,12 +9,12 @@ ms.subservice: powershell
 ms.date: 03/27/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 6da415d3fc9e408a0676e2bd01cc725ffb262ea7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 3d49212e6d35e2a348a7e31ff7d2f0ad49eabfc2
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197540"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699503"
 ---
 # <a name="create-a-basic-virtual-machine-scale-set-with-powershell"></a>Créer un groupe de machines virtuelles identiques de base à l’aide de PowerShell
 Ce script crée un groupe de machines virtuelles identiques exécutant Windows Server 2016. Une fois que vous avez exécuté le script, vous pouvez accéder aux instances de la machine virtuelle via RDP.
@@ -45,5 +45,3 @@ Ce script a recours aux commandes suivantes pour créer le déploiement. Chaque 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/overview).
-
-Vous trouverez des exemples supplémentaires de scripts PowerShell de groupes de machines virtuelles identiques dans la [documentation relative aux groupes de machines virtuelles identiques Azure](../powershell-samples.md).

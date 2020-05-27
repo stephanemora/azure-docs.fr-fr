@@ -3,12 +3,12 @@ title: Diagnostiquer des scénarios courants avec Azure Service Fabric
 description: Découvrez comment résoudre les problèmes liés aux scénarios de supervision et de diagnostic courants au sein des applications Azure Service Fabric.
 ms.topic: article
 ms.date: 02/25/2019
-ms.openlocfilehash: 3c7f027bad71d48db5fba002f778f23db8225fa5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bc17f00dc46c6e995d18621353c8f10cacf7759c
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76906949"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697687"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnostiquer des scénarios courants avec Service Fabric
 
@@ -133,7 +133,7 @@ Consultez ces liens pour obtenir la liste complète des compteurs de performance
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Rechercher des erreurs d’activation du package de code commun](./service-fabric-diagnostics-code-package-errors.md)
-* [Configurer des alertes dans AI](../azure-monitor/app/alerts.md) pour être averti des changements de performances ou d’utilisation
+* [Configurer des alertes dans AI](/azure/azure-monitor/platform/alerts-log) pour être averti des changements de performances ou d’utilisation
 * La [détection intelligente dans Application Insights](../azure-monitor/app/proactive-diagnostics.md) effectue une analyse proactive de la télémétrie envoyée à AI pour vous avertir d’éventuels problèmes de performances
 * Découvrez plus en détail la [création d’alertes](../log-analytics/log-analytics-alerts.md) dans les journaux Azure Monitor pour faciliter la détection et les diagnostics.
 * Pour les clusters locaux, les journaux Azure Monitor proposent une passerelle (proxy de transfert HTTP) qui peut être utilisée pour envoyer des données aux journaux Azure Monitor. Pour plus d’informations à ce sujet, consultez [Connexion d’ordinateurs aux journaux Azure Monitor sans accès Internet à l’aide de la passerelle Log Analytics](../azure-monitor/platform/gateway.md)

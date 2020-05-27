@@ -9,12 +9,12 @@ ms.subservice: imaging
 ms.date: 03/27/2018
 ms.reviewer: cynthn
 ms.custom: akjosh
-ms.openlocfilehash: 7e706eb76560b6479d7579c59aaf48b5dfdaf968
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 91673f945104bd7b26d21b11ec3b710bac9db9cb
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117221"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699908"
 ---
 # <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-the-azure-cli"></a>Créer un groupe de machines virtuelles identiques à partir d’une image de machine virtuelle personnalisée avec Azure CLI
 Ce script permet de créer un groupe de machines virtuelles identiques qui utilise une image de machine virtuelle personnalisée comme source pour les instances de machine virtuelle.
@@ -44,5 +44,3 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
-
-Vous trouverez des exemples supplémentaires de scripts Azure CLI de groupes de machines virtuelles identiques dans la [documentation relative aux groupes de machines virtuelles identiques Azure](../cli-samples.md).

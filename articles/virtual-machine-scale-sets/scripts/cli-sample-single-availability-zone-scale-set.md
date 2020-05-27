@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 03/27/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: dc98085ca017f7249e225e8c1c009b3d255f1719
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 8883bd099b684b5086554feded88e133764e614f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195792"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701610"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-the-azure-cli"></a>Créer un groupe de machines virtuelles identiques dans une zone unique à l’aide d’Azure CLI
 Ce script permet de créer un groupe de machines virtuelles identiques exécutant Ubuntu dans une zone de disponibilité unique. Une fois que vous avez exécuté le script, vous pouvez accéder à la machine virtuelle via RDP.
@@ -44,5 +44,3 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
-
-Vous trouverez des exemples supplémentaires de scripts Azure CLI de groupes de machines virtuelles identiques dans la [documentation relative aux groupes de machines virtuelles identiques Azure](../cli-samples.md).

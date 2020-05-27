@@ -5,12 +5,12 @@ ms.subservice: pod
 ms.topic: include
 ms.date: 05/22/2019
 ms.author: alkohli
-ms.openlocfilehash: bc156b8c18f46cccf6fc775b82f76383b8c43861
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f230fc247c6ad94bfdfb3cdbc0f897d66313b039
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "66242129"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696513"
 ---
 Voici une liste des comptes de stockage et des types de stockage pris en charge pour l’appareil Data Box. Pour obtenir la liste complète des différents types de comptes de stockage et de leurs fonctionnalités, consultez [Types de comptes de stockage](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
 
@@ -24,6 +24,3 @@ Voici une liste des comptes de stockage et des types de stockage pris en charge 
 | Stockage d'objets blob Standard |O | | |Les objets chauds et froids sont pris en charge. |
 
 \* *Les données chargées dans des objets blob de pages doivent être alignées sur 512 octets (disques durs virtuels, par exemple).*
-
->[!NOTE]
-> Les comptes Azure Data Lake Storage Gen 2 ne sont pas pris en charge.

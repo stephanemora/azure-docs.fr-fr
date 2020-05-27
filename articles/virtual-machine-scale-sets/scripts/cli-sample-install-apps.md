@@ -9,12 +9,12 @@ ms.subservice: cli
 ms.date: 03/27/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 202dcbb2cdb3b26a9d615b0fab29a2c49a7cda6b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 2e284032cfc6723fb56454376edafa6d99ae7e0a
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195803"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699699"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-the-azure-cli"></a>Installer des applications dans un groupe de machines virtuelles identiques avec Azure CLI
 Ce script crée un groupe de machines virtuelles identiques exécutant Ubuntu et utilisant l’extension de script personnalisé pour installer une application web de base. Une fois que vous avez exécuté le script, vous pouvez accéder à l’application web via un navigateur web.
@@ -47,5 +47,3 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
-
-Vous trouverez des exemples supplémentaires de scripts Azure CLI de groupes de machines virtuelles identiques dans la [documentation relative aux groupes de machines virtuelles identiques Azure](../cli-samples.md).

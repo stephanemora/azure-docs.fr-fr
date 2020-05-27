@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 0d73d0b395547c281a2dbbe6a6ac5e8dc6dfd849
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d79c42f3bdf84efcdf2187741ac270087be05272
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596778"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682013"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>Erreurs et avertissements liés à la conversion de dessin
 
-Le [service de conversion d’Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) vous permet de convertir les packages de dessin chargés en données cartographiques. Les packages de dessin doivent respecter les [exigences du package de dessin](drawing-requirements.md). Si une ou plusieurs exigences ne sont pas satisfaites, le service de conversion renverra des erreurs ou avertissements. Cet article répertorie les codes d’erreur et d’avertissement liés à la conversion, ainsi que des recommandations sur la façon de les résoudre. Il fournit également des exemples de dessins qui peuvent provoquer le renvoi de ces codes par le service de conversion.
+Le [service de conversion d’Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) vous permet de convertir les packages de dessin chargés en données cartographiques. Les packages de dessin doivent respecter les [exigences du package de dessin](drawing-requirements.md). Si une ou plusieurs exigences ne sont pas satisfaites, le service de conversion renverra des erreurs ou avertissements. Cet article répertorie les codes d’erreur et d’avertissement liés à la conversion, ainsi que des recommandations sur la façon de les résoudre. Il fournit également des exemples de dessins qui peuvent provoquer le renvoi de ces codes par le service de conversion.
 
 Le service de conversion fonctionnera s’il y a des avertissements de conversion. Toutefois, il est recommandé d’examiner et de résoudre tous les avertissements. Un avertissement signifie qu’une partie de la conversion a été ignorée ou corrigée automatiquement. L’échec de la résolution des avertissements pourrait entraîner des erreurs dans les derniers processus.
 
@@ -73,7 +73,7 @@ L’avertissement **unsupportedFeatureRepresentation** se produit quand le dessi
 
 L’image ci-dessous montre un type d’entité non pris en charge, tel qu’un objet texte multiligne sur un calque d’étiquette.
   
-![Exemple d’objet texte multiligne sur un calque d’étiquette](./media/drawing-conversion-error-codes/multiline.png)
+![Exemple d’objet texte multiligne sur un calque d’étiquette](./media/drawing-conversion-error-codes/multi-line.png)
 
 #### <a name="how-to-fix-unsupportedfeaturerepresentation"></a>*Comment corriger un avertissement unsupportedFeatureRepresentation*
 
@@ -494,7 +494,7 @@ L’image ci-dessous montre une zone de pénétration verticale sans zone de pé
 
 L’illustration suivante montre une zone de pénétration verticale qui chevauche plus d’une zone de pénétration verticale sur un niveau adjacent.
 
-![Exemple de pénétration verticale 2](./media/drawing-conversion-error-codes/vrt.png)
+![Exemple de pénétration verticale 2](./media/drawing-conversion-error-codes/vrt-1.png)
 
 #### <a name="how-to-fix-verticalpenetrationerror"></a>Comment corriger une erreur verticalPenetrationError
 

@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: d050efe1224e2783cdad52a12c842f7abe44b7af
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 73a96f295d5dfa74130927e5096e9278a0e348e8
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595068"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682422"
 ---
 # <a name="publisher-verification-preview"></a>Vérification de l'éditeur (préversion)
 
-La vérification de l'éditeur (préversion) permet aux administrateurs et aux utilisateurs finaux de s'assurer de l'authenticité des développeurs d'applications qui s'intègrent à la Plateforme d'identités Microsoft. En d'autres termes, l'éditeur est-il une source connue ou un intervenant malveillant qui se fait passer pour un éditeur connu ? Lorsqu'une application est accompagnée de la mention « éditeur vérifié », cela signifie que l'éditeur a validé son identité à l'aide d'un compte [Microsoft Partner Network](https://partner.microsoft.com/membership) auquel le processus de [vérification](/partner-center/verification-responses) a été appliqué jusqu'à son terme et qu'il a associé ce compte MPN à son inscription d'application. 
+La vérification de l'éditeur (préversion) permet aux administrateurs et aux utilisateurs finaux de s'assurer de l'authenticité des développeurs d'applications qui s'intègrent à la Plateforme d'identités Microsoft. Lorsqu'une application est accompagnée de la mention « éditeur vérifié », cela signifie que l'éditeur a validé son identité à l'aide d'un compte [Microsoft Partner Network](https://partner.microsoft.com/membership) auquel le processus de [vérification](/partner-center/verification-responses) a été appliqué jusqu'à son terme et qu'il a associé ce compte MPN à son inscription d'application. 
 
 Un badge bleu « vérifié » apparaît sur l'invite de consentement d'Azure AD et sur d'autres écrans : ![Invite de consentement](./media/publisher-verification-overview/consent-prompt.png)
 

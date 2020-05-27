@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 1ad41b0b7391236a15b7c1be7d42ed81aaf5b51a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f711d0dbc2df2a5ab102b520fb0d166a459383c1
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61483432"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684453"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Offres de conformité sur Stockage Azure
 
@@ -64,7 +64,6 @@ Vous trouverez ci-dessous les offres de conformité qui permettent à votre serv
 * [MAS + ABS (Singapour)](https://aka.ms/AzureCompliance)
 * [MPAA](https://www.microsoft.com/trustcenter/compliance/mpaa)
 * [NEN-7510 (Pays-Bas)](https://www.microsoft.com/trustcenter/compliance/nen-7510)
-* [NHS IG Toolkit (Royaume-Uni)](https://www.microsoft.com/trustcenter/Compliance/NHS)
 * [PCI DSS](https://www.microsoft.com/trustcenter/compliance/pci)
 * [Évaluations partagées](https://aka.ms/AzureCompliance)
 * [SOX](https://www.microsoft.com/trustcenter/compliance/SOX)

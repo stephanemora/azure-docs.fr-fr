@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3f3f06bd5a9b6a78b45a63de0684b580e662075b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 88e9cdfa8ea4554a44ddfc25cde2b0eb2aed7a57
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81256516"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682705"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plateformes et outils pour les projets de science des données
 
@@ -49,7 +49,7 @@ Il inclut également des **outils ML et AI** comme xgboost, mxnet et Vowpal Wab
 
 La machine virtuelle DSVM est disponible sur les systèmes d’exploitation **Windows** et **CentOS Linux**. Déterminez la taille de votre machine virtuelle DSVM (nombre de cœurs de processeur et quantité de mémoire) en fonction des exigences des projets de science des données que vous prévoyez d’exécuter sur cette instance. 
 
-Pour plus d’informations sur l’édition Windows de DSVM, consultez [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) sur la Place de marché Azure. Pour l’édition Linux de DSVM, consultez [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804).
+Pour plus d’informations sur l’édition Windows de DSVM, consultez [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) sur la Place de marché Azure. Pour l’édition Linux de DSVM, consultez [Linux Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804).
 
 Pour découvrir comment effectuer efficacement certaines tâches courantes de science des données sur la machine virtuelle DSVM, consultez [Dix tâches possibles sur une machine virtuelle DSVM](../data-science-virtual-machine/vm-do-ten-things.md)
 

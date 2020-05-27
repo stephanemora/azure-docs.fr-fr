@@ -4,14 +4,14 @@ description: Utilisez des modèles Azure Resource Manager pour créer et configu
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: defeec2317f47e9d79245cbde0ef81c8a3543bfb
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 0f807213d68e2731e784198f8ce968cdea9b3957
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791236"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684817"
 ---
 # <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>Gérer les ressources de l’API Gremlin Azure Cosmos DB à l’aide de modèles Azure Resource Manager
 
@@ -31,9 +31,7 @@ Pour créer l’une des ressources Azure Cosmos DB ci-dessous, copiez l’exempl
 
 ## <a name="azure-cosmos-db-account-for-gremlin-with-autoscale-provisioned-throughput"></a>Compte Azure Cosmos DB pour Gremlin avec débit approvisionné en mode de mise à l’échelle automatique
 
-Ce modèle crée un compte Azure Cosmos pour l’API Gremlin avec une base de données et un graphique configurés pour le débit approvisionné en mode de mise à l’échelle automatique.
-
-Ce modèle est également disponible pour un déploiement en un clic à partir de la galerie de modèles de démarrage rapide Azure.
+Ce modèle crée un compte Azure Cosmos pour l’API Gremlin avec une base de données et un graphique configurés pour le débit approvisionné en mode de mise à l’échelle automatique. Ce modèle est également disponible pour un déploiement en un clic à partir de la galerie de modèles de démarrage rapide Azure.
 
 [![Déployer sur Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-gremlin-autoscale%2Fazuredeploy.json)
 
@@ -43,9 +41,7 @@ Ce modèle est également disponible pour un déploiement en un clic à partir d
 
 ## <a name="azure-cosmos-db-account-for-gremlin-with-standard-provisioned-throughput"></a>Compte Azure Cosmos DB pour Gremlin avec débit approvisionné en mode standard
 
-Ce modèle crée un compte Azure Cosmos pour l’API Gremlin avec une base de données et un graphique configurés pour le débit standard (manuel).
-
-Ce modèle est également disponible pour un déploiement en un clic à partir de la galerie de modèles de démarrage rapide Azure.
+Ce modèle crée un compte Azure Cosmos pour l’API Gremlin avec une base de données et un graphique configurés pour le débit standard (manuel). Ce modèle est également disponible pour un déploiement en un clic à partir de la galerie de modèles de démarrage rapide Azure.
 
 [![Déployer sur Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-gremlin%2Fazuredeploy.json)
 

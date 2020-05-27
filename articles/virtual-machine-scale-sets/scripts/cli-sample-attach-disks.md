@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 0f2a05f6d7268bea3c5ccdaccc9ac99863aaf5fe
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: e60e4cc907dd96d85d45978cb914e6dd8db39141
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198196"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700006"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-the-azure-cli"></a>Attacher et utiliser des disques de données avec un groupe de machines virtuelles identiques au moyen d’Azure CLI
 Ce script permet de créer un groupe de machines virtuelles identiques, puis d’attacher et préparer les disques de données.
@@ -46,5 +46,3 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
-
-Vous trouverez des exemples supplémentaires de scripts Azure CLI de groupes de machines virtuelles identiques dans la [documentation relative aux groupes de machines virtuelles identiques Azure](../cli-samples.md).

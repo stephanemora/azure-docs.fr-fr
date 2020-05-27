@@ -4,12 +4,12 @@ description: Vous prévient en cas de modifications inhabituelles du taux d’é
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: a1bce3ab86748d8247a72da3bd70e0f2e8155dbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4a629b4c33c22bf5663d6f8e8b9d0ba11ac24dc
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536809"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700771"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Détection intelligente des anomalies de type échec
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) vous alerte automatiquement en quasi temps réel si votre application web enregistre une hausse anormale du taux de requêtes ayant échoué. Il détecte une augmentation inhabituelle du nombre de demandes HTTP ou d’appels de dépendance signalés comme défaillants. Les requêtes ayant échoué ont généralement un code de réponse supérieur ou égal à 400. Pour vous aider à trier et diagnostiquer les causes du problème, les détails de l’alerte s’accompagnent d’une analyse des caractéristiques des échecs et des données d’application associées. Elle fournit également des liens vers le portail Application Insights pour un diagnostic plus poussé. La fonctionnalité ne requiert ni installation ni configuration, puisqu’elle utilise des algorithmes d’apprentissage automatique pour prédire le taux d’échec normal.
@@ -31,7 +31,7 @@ Les détails de l’alerte indiquent :
 * les liens directs aux recherches pertinentes sur les données dans Application Insights.
 
 ## <a name="benefits-of-smart-detection"></a>Avantages de la détection intelligente
-Les [alertes de mesure](../../azure-monitor/app/alerts.md) ordinaires vous indiquent un problème potentiel. Mais la détection intelligente démarre le travail de diagnostic automatiquement et effectue la majeure partie de l’analyse à votre place. Vous obtenez les résultats clairement empaquetés, ce qui vous permet d’accéder rapidement à l’origine du problème.
+Les [alertes de mesure](../../azure-monitor/platform/alerts-log.md) ordinaires vous indiquent un problème potentiel. Mais la détection intelligente démarre le travail de diagnostic automatiquement et effectue la majeure partie de l’analyse à votre place. Vous obtenez les résultats clairement empaquetés, ce qui vous permet d’accéder rapidement à l’origine du problème.
 
 ## <a name="how-it-works"></a>Fonctionnement
 La détection intelligente analyse les données reçues de votre application, en particulier le taux d’échecs. Cette règle compte le nombre de demandes dont la propriété `Successful request` a la valeur false, et le nombre d’appels de dépendance dont la propriété `Successful call` a la valeur false. Pour les demandes, `Successful request == (resultCode < 400)` par défaut (sauf si vous avez ajouté du code personnalisé pour [filtrer](../../azure-monitor/app/api-filtering-sampling.md#filtering) ou générer vos propres appels [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)). 
@@ -48,7 +48,7 @@ Quand votre service est instrumenté avec ces appels, l’analyseur recherche un
 
 L’analyse obtenue vous est envoyée sous forme d’alerte, sauf si vous n’avez pas configuré cette option.
 
-Comme pour les [alertes définies manuellement](../../azure-monitor/app/alerts.md), vous pouvez inspecter l’état de l’alerte déclenchée, qui peut être résolue si le problème est corrigé. Configurez les règles d’alerte dans la page Alertes de votre ressource Application Insights. Cependant, contrairement aux autres alertes, vous n’avez pas besoin d’installer ni de configurer la détection intelligente. Si vous le souhaitez, vous pouvez la désactiver ou changer l’adresse de messagerie électronique cible.
+Comme pour les [alertes définies manuellement](../../azure-monitor/platform/alerts-log.md), vous pouvez inspecter l’état de l’alerte déclenchée, qui peut être résolue si le problème est corrigé. Configurez les règles d’alerte dans la page Alertes de votre ressource Application Insights. Cependant, contrairement aux autres alertes, vous n’avez pas besoin d’installer ni de configurer la détection intelligente. Si vous le souhaitez, vous pouvez la désactiver ou changer l’adresse de messagerie électronique cible.
 
 ### <a name="alert-logic-details"></a>Détails de la logique d’alerte
 
@@ -317,7 +317,7 @@ Cliquez sur **Alertes** dans la page de ressources Application Insights pour acc
 ## <a name="whats-the-difference-"></a>Quelle est la différence ?
 La détection intelligente des anomalies de type échec vient compléter d’autres fonctionnalités d’Application Insights similaires, mais distinctes.
 
-* [Metric Alerts](../../azure-monitor/app/alerts.md) , qui peuvent surveiller un large éventail de mesures telles que l’occupation du processeur, les taux de demandes, les temps de chargement de page, etc. Vous pouvez les utiliser pour savoir si vous devez ajouter des ressources, par exemple. En revanche, la détection intelligente des anomalies de type échec ne couvre qu’une petite gamme de métriques critiques (pour l’instant, le taux de requêtes en échec uniquement), conçues pour vous avertir en quasi temps réel si le taux de requêtes en échec de votre application web augmente par rapport à la normale. Contrairement aux alertes métriques, la détection intelligente définit et met à jour automatiquement les seuils en réponse aux changements dans le comportement. La détection intelligente démarre également le travail de diagnostic à votre place, ce qui vous aide à résoudre plus vite les problèmes.
+* [Metric Alerts](../../azure-monitor/platform/alerts-log.md) , qui peuvent surveiller un large éventail de mesures telles que l’occupation du processeur, les taux de demandes, les temps de chargement de page, etc. Vous pouvez les utiliser pour savoir si vous devez ajouter des ressources, par exemple. En revanche, la détection intelligente des anomalies de type échec ne couvre qu’une petite gamme de métriques critiques (pour l’instant, le taux de requêtes en échec uniquement), conçues pour vous avertir en quasi temps réel si le taux de requêtes en échec de votre application web augmente par rapport à la normale. Contrairement aux alertes métriques, la détection intelligente définit et met à jour automatiquement les seuils en réponse aux changements dans le comportement. La détection intelligente démarre également le travail de diagnostic à votre place, ce qui vous aide à résoudre plus vite les problèmes.
 
 * La [détection intelligente des anomalies de performance](proactive-performance-diagnostics.md) utilise également l’intelligence artificielle pour découvrir des modèles inhabituels dans vos mesures, sans qu’aucune configuration ne soit nécessaire. Toutefois, contrairement à la détection intelligente des anomalies de type échec, l’objectif de la détection intelligente des anomalies de performance est de repérer les segments de votre collecteur d’utilisation qui peuvent être mal pris en charge (par certaines pages sur un certain type de navigateur, par exemple). L’analyse est effectuée tous les jours, et si elle renvoie un résultat, il est souvent bien moins urgent qu’une alerte. En revanche, l’analyse des anomalies de type échec est exécutée en continu sur les données d’application entrantes. Si le taux d’échec du serveur est plus élevé que prévu, vous en êtes averti en quelques minutes.
 
@@ -359,5 +359,5 @@ Ces outils de diagnostic vous aident à inspecter les données reçues de votre 
 
 Les détections intelligentes sont automatiques. Mais vous souhaitez peut-être configurer des alertes supplémentaires ?
 
-* [Alertes de mesures configurées manuellement](../../azure-monitor/app/alerts.md)
+* [Alertes de mesures configurées manuellement](../../azure-monitor/platform/alerts-log.md)
 * [Tests web de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md)

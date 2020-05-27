@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f4a961e601949689db89f8819f0a1fe1c5a7b3a
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 8f77304beb598094e8dbbc51ebf624acd71b554b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80875790"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681729"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Questions fréquentes (FAQ) sur Azure Active Directory
 Azure Active Directory (Azure AD) est une solution IDaaS (Identity as a Service) complète qui couvre tous les aspects de l’identité, la gestion des accès et la sécurité.
@@ -153,7 +153,7 @@ Nous disposons d’une passerelle qui filtre les demandes et offre une certaine 
 
 **R :** Azure AD offre plus de 2 600 applications pré-intégrées développées par Microsoft, des fournisseurs de services d’application et des partenaires. Toutes les applications pré-intégrées prennent en charge l’authentification unique (SSO). L’authentification unique vous permet d’utiliser vos informations d’identification professionnelles pour accéder à vos applications. Certaines applications prennent également en charge l’approvisionnement et l’annulation d’approvisionnement automatisés.
 
-Pour obtenir une liste complète des applications déjà intégrées, voir [Marketplace Active Directory](https://azure.microsoft.com/marketplace/active-directory/).
+Pour obtenir une liste complète des applications déjà intégrées, voir [Marketplace Active Directory](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory).
 
 ---
 **Q : Que se passe-t-il si l’application dont j’ai besoin ne figure pas dans la Place de marché Azure AD ?**

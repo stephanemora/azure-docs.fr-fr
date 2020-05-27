@@ -4,16 +4,16 @@ description: Découvrez comment ajouter un principal de service d’automatisati
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 925fbbb51ac240b96486a2c0aa09c850a8d164bc
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: bc3e17ce5becf039703585167e1ef3aa825cf2ab
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408642"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697530"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Ajouter un principal de service au rôle d’administrateur du serveur 
 

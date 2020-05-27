@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 5b1c6561519bc25c2b7ac77f0a25eff89413a07a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: dea5b3fb6cf20924666668e59e370399664d6b28
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81256482"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684752"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model"></a>Tutoriel : Utiliser R pour créer un modèle Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -338,7 +338,7 @@ inference_config <- inference_config(
 ```
 
 ### <a name="deploy-to-aci"></a>Déployer sur ACI
-Dans ce tutoriel, vous allez déployer votre service dans ACI. Ce code provisionne un conteneur unique pour répondre aux demandes entrantes, ce qui convient pour les tests et les charges légères. Pour plus d’options configurables, consultez [`aci_webservice_deployment_config()`](https://azure.github.io/azureml-sdk-for-r/reference/aci_webservice_deployment_config.html). (Pour les déploiements à l’échelle de la production, vous pouvez également [déployer dans Azure Kubernetes Service](https://azure.github.io/azureml-sdk-for-r/articles/deploy-to-aks/deploy-to-aks.html).)
+Dans ce tutoriel, vous allez déployer votre service dans ACI. Ce code provisionne un conteneur unique pour répondre aux demandes entrantes, ce qui convient pour les tests et les charges légères. Pour plus d’options configurables, consultez [`aci_webservice_deployment_config()`](https://azure.github.io/azureml-sdk-for-r/reference/aci_webservice_deployment_config.html). (Pour les déploiements à l’échelle de la production, vous pouvez également [déployer dans Azure Kubernetes Service](https://azure.github.io/azureml-sdk-for-r/articles/deploy-to-aks.html).)
 
 ``` R
 aci_config <- aci_webservice_deployment_config(cpu_cores = 1, memory_gb = 0.5)

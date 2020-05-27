@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2b80efa30ac7e04b9eb21dd6f8a39ab4ee90adf6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ff29b9ab87b2cd48297f5f1ee195f11fb56b428a
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421223"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700318"
 ---
 # <a name="sql-authentication"></a>Authentification SQL
 
@@ -50,7 +50,7 @@ Les comptes d’**administrateur de serveur** et d’**administrateur Azure AD**
 - Ces comptes peuvent ajouter et supprimer des membres aux rôles `dbmanager` et `loginmanager`.
 - Ces comptes peuvent afficher la table système `sys.sql_logins`.
 
-## <a name="sql-on-demand-preview"></a>SQL à la demande (préversion)
+## <a name="sql-on-demand-preview"></a>[SQL à la demande (préversion)](#tab/serverless)
 
 Pour gérer les utilisateurs ayant accès à SQL à la demande, vous pouvez utiliser les instructions ci-dessous.
 
@@ -72,7 +72,7 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 
 Dès la connexion et l’utilisateur créés, vous pouvez vous servir de la syntaxe SQL Server standard pour octroyer des droits.
 
-## <a name="sql-pool"></a>Pool SQL
+## <a name="sql-pool"></a>[Pool SQL](#tab/provisioned)
 
 ### <a name="administrator-access-path"></a>Chemin d’accès administrateur
 
@@ -127,6 +127,8 @@ Désormais, l’utilisateur peut se connecter à la base de données `master` et
 ### <a name="login-managers"></a>Gestionnaires de connexion
 
 L’autre rôle d’administration est le rôle loginmanager. Les membres de ce rôle peuvent créer des connexions dans la base de données MASTER. Si vous le souhaitez, vous pouvez effectuer les mêmes étapes (créer une connexion et un utilisateur, puis ajouter l’utilisateur au rôle **loginmanager**) pour permettre aux utilisateurs de créer des connexions dans la base de données MASTER. Cela n’est généralement pas nécessaire, car Microsoft recommande d’avoir recours aux utilisateurs de base de données autonome qui s’authentifient au niveau de la base de données plutôt qu’à des utilisateurs basés sur les connexions. Pour plus d’informations, voir [Utilisateurs de base de données autonome - Rendre votre base de données portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+
+---
 
 ## <a name="non-administrator-users"></a>Utilisateurs non administrateurs
 

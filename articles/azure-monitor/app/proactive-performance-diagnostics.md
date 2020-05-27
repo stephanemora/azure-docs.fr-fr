@@ -4,12 +4,12 @@ description: Application Insights réalise une analyse télémétrique intellige
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 6c5b19c7e03993ef973cd708ed7a6fe89feb01a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad4341993d92052123eacd3d37500905a0b25179
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687690"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697176"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Détection intelligente - anomalies de performances
 
@@ -70,12 +70,12 @@ Les courriers électroniques relatifs aux anomalies de performances de détectio
 * *Puis-je créer mes propres règles de détection d’anomalies ou personnaliser des règles existantes ?*
 
   * Pas encore, mais vous pouvez :
-    * [configurer des alertes](../../azure-monitor/app/alerts.md) qui vous indiquent qu'une métrique dépasse un seuil ;
+    * [configurer des alertes](/azure/azure-monitor/platform/alerts-log) qui vous indiquent qu'une métrique dépasse un seuil ;
     * [exporter la télémétrie](../../azure-monitor/app/export-telemetry.md) vers une [base de données](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) ou vers [Power BI](../../azure-monitor/app/export-power-bi.md ), où vous pouvez les analyser vous-même.
 * *À quelle fréquence sont réalisées les analyses ?*
 
   * Nous exécutons l’analyse tous les jours sur la télémétrie du jour précédent (jour complet en heure UTC).
-* *Cela remplace-t-il les [alertes de métrique](../../azure-monitor/app/alerts.md)?*
+* *Cela remplace-t-il les [alertes de métrique](/azure/azure-monitor/platform/alerts-log)?*
   * Non.  Nous ne détectons pas tous les comportements que vous pouvez considérer comme étant anormaux.
 
 
@@ -180,5 +180,5 @@ Ces outils de diagnostic vous aident à inspecter les données de télémétrie 
 
 Les détections intelligentes sont entièrement automatiques. Mais vous souhaitez peut-être configurer des alertes supplémentaires ?
 
-* [Alertes de mesures configurées manuellement](../../azure-monitor/app/alerts.md)
+* [Alertes de mesures configurées manuellement](/azure/azure-monitor/platform/alerts-log)
 * [Tests web de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md)

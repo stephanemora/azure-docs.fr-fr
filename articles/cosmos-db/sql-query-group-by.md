@@ -4,22 +4,18 @@ description: Découvrez la clause GROUP BY pour Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 05/19/2020
 ms.author: tisande
-ms.openlocfilehash: 8a3cbbafc066747b62f79934f2cd12301aa1ba17
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: b602b56d37cec0e23d31318f6675d031bdd6bcdb
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261599"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700992"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Clause GROUP BY dans Azure Cosmos DB
 
 La clause GROUP BY divise les résultats de la requête en fonction des valeurs d’une ou plusieurs propriétés spécifiées.
-
-> [!NOTE]
-> Azure Cosmos DB prend actuellement en charge GROUP BY dans le kit SDK .NET 3.3 et les versions ultérieures, ainsi que le kit SDK JavaScript 3.4 et les versions ultérieures.
-> La prise en charge de kits SDK dans d’autres langages n’est pas encore disponible, mais elle est prévue.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -56,7 +52,12 @@ La clause GROUP BY divise les résultats de la requête en fonction des valeurs 
 Les requêtes comprenant une fonction système d’agrégation et une sous-requête avec `GROUP BY` ne sont pas prises en charge. Par exemple, la requête suivante n’est pas prise en charge :
 
 ```sql
-SELECT COUNT(UniqueLastNames) FROM (SELECT AVG(f.age) FROM f GROUP BY f.lastName) AS UniqueLastNames
+SELECT COUNT(UniqueLastNames)
+FROM (
+SELECT AVG(f.age)
+FROM f
+GROUP BY f.lastName
+) AS UniqueLastNames
 ```
 
 ## <a name="examples"></a>Exemples
@@ -74,22 +75,24 @@ GROUP BY f.foodGroup
 Certains résultats sont présentés ci-après (le mot clé TOP est utilisé pour limiter les résultats) :
 
 ```json
-[{
-  "foodGroup": "Fast Foods",
-  "foodGroupCount": 371
-},
-{
-  "foodGroup": "Finfish and Shellfish Products",
-  "foodGroupCount": 267
-},
-{
-  "foodGroup": "Meals, Entrees, and Side Dishes",
-  "foodGroupCount": 113
-},
-{
-  "foodGroup": "Sausages and Luncheon Meats",
-  "foodGroupCount": 244
-}]
+[
+    {
+        "foodGroupCount": 183,
+        "foodGroup": "Cereal Grains and Pasta"
+    },
+    {
+        "foodGroupCount": 133,
+        "foodGroup": "Nut and Seed Products"
+    },
+    {
+        "foodGroupCount": 113,
+        "foodGroup": "Meals, Entrees, and Side Dishes"
+    },
+    {
+        "foodGroupCount": 64,
+        "foodGroup": "Spices and Herbs"
+    }
+]
 ```
 
 Cette requête comporte deux expressions utilisées pour diviser les résultats :
@@ -103,26 +106,28 @@ GROUP BY f.foodGroup, f.version
 Certains résultats sont présentés ci-après :
 
 ```json
-[{
-  "version": 1,
-  "foodGroup": "Nut and Seed Products",
-  "foodGroupCount": 133
-},
-{
-  "version": 1,
-  "foodGroup": "Finfish and Shellfish Products",
-  "foodGroupCount": 267
-},
-{
-  "version": 1,
-  "foodGroup": "Fast Foods",
-  "foodGroupCount": 371
-},
-{
-  "version": 1,
-  "foodGroup": "Sausages and Luncheon Meats",
-  "foodGroupCount": 244
-}]
+[
+    {
+        "foodGroupCount": 183,
+        "foodGroup": "Cereal Grains and Pasta",
+        "version": 1
+    },
+    {
+        "foodGroupCount": 133,
+        "foodGroup": "Nut and Seed Products",
+        "version": 1
+    },
+    {
+        "foodGroupCount": 113,
+        "foodGroup": "Meals, Entrees, and Side Dishes",
+        "version": 1
+    },
+    {
+        "foodGroupCount": 64,
+        "foodGroup": "Spices and Herbs",
+        "version": 1
+    }
+]
 ```
 
 Cette requête comporte une fonction système dans la clause GROUP BY :
@@ -136,22 +141,24 @@ GROUP BY UPPER(f.foodGroup)
 Certains résultats sont présentés ci-après :
 
 ```json
-[{
-  "foodGroupCount": 371,
-  "upperFoodGroup": "FAST FOODS"
-},
-{
-  "foodGroupCount": 267,
-  "upperFoodGroup": "FINFISH AND SHELLFISH PRODUCTS"
-},
-{
-  "foodGroupCount": 389,
-  "upperFoodGroup": "LEGUMES AND LEGUME PRODUCTS"
-},
-{
-  "foodGroupCount": 113,
-  "upperFoodGroup": "MEALS, ENTREES, AND SIDE DISHES"
-}]
+[
+    {
+        "foodGroupCount": 183,
+        "upperFoodGroup": "CEREAL GRAINS AND PASTA"
+    },
+    {
+        "foodGroupCount": 133,
+        "upperFoodGroup": "NUT AND SEED PRODUCTS"
+    },
+    {
+        "foodGroupCount": 113,
+        "upperFoodGroup": "MEALS, ENTREES, AND SIDE DISHES"
+    },
+    {
+        "foodGroupCount": 64,
+        "upperFoodGroup": "SPICES AND HERBS"
+    }
+]
 ```
 
 Cette requête utilise des mots clés et des fonctions système dans l’expression de propriété de l’élément :
@@ -165,16 +172,18 @@ GROUP BY ARRAY_CONTAINS(f.tags, {name: 'orange'}), f.version BETWEEN 0 AND 2
 Les résultats sont :
 
 ```json
-[{
-  "correctVersion": true,
-  "containsOrangeTag": false,
-  "foodGroupCount": 8608
-},
-{
-  "correctVersion": true,
-  "containsOrangeTag": true,
-  "foodGroupCount": 10
-}]
+[
+    {
+        "foodGroupCount": 10,
+        "containsOrangeTag": true,
+        "correctVersion": true
+    },
+    {
+        "foodGroupCount": 8608,
+        "containsOrangeTag": false,
+        "correctVersion": true
+    }
+]
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

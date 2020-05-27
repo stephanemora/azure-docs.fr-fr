@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 987c3ee7c90eb0bb793b96eb2771efbb258f16a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 37935d229f62028e074f92bb6f8b70b9eebd87dc
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77565500"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685205"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Partage de comptes avec Azure AD
 
@@ -62,13 +62,13 @@ Les fonctionnalités Azure AD qui permettent le partage de compte sont les suiva
 * [Tableau de bord/rapports d’utilisation des applications](../active-directory-passwords-get-insights.md)
 * Portails d’accès des utilisateurs finaux
 * [Proxy d’application](../manage-apps/application-proxy.md)
-* [Marketplace Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/)
+* [Marketplace Active Directory](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory)
 
 ## <a name="sharing-an-account"></a>Partage d’un compte
 
 Pour utiliser Azure AD pour partager un compte, vous devez effectuer les opérations suivantes :
 
-* Ajouter une application à la [galerie d’applications](https://azure.microsoft.com/marketplace/active-directory/) ou aux [applications personnalisées](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
+* Ajouter une application à la [galerie d’applications](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) ou aux [applications personnalisées](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
 * Configurer l’application pour l’authentification unique avec mot de passe.
 * Utiliser [l’affectation basée sur le groupe](groups-saasapps.md) et sélectionner l’option permettant d’entrer des informations d’identification partagées.
 

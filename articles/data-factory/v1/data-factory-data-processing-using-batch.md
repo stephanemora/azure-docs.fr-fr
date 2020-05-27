@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 7a6540b5784a76acfc248fb15feb1aaf39420845
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2143546e10b413d1492b8734d2594de42fd37cf3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80546942"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684404"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Traiter des jeux de données volumineux à l’aide de Data Factory et de Batch
 > [!NOTE]
@@ -960,7 +960,7 @@ Vous pouvez étendre cet exemple pour en savoir plus sur les fonctionnalités Az
 Après avoir traité des données, vous pouvez les consommer avec des outils en ligne tels que Power BI. Voici des liens pour vous aider à comprendre Power BI et comment l’utiliser dans Azure :
 
 * [Explorer un jeu de données dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
-* [Prise en main de Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
+* [Prise en main de Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started)
 * [Actualisation des données dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
 * [Azure et Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 

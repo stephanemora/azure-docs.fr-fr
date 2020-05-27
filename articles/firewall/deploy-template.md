@@ -5,26 +5,27 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 04/30/2020
 ms.author: victorh
-ms.openlocfilehash: 17ab693033b61c25ba2f5b5bd588ef52caf8c046
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 9b9b7926caa717c1a02988ac7a927bd9bd39d52a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597703"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683706"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---resource-manager-template"></a>Démarrage rapide : Déployer un pare-feu Azure avec Zones de disponibilité - Modèle Resource Manager
 
 Dans ce guide de démarrage rapide, vous utilisez un modèle Resource Manager pour déployer un pare-feu Azure dans trois zones de disponibilité. 
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Le modèle crée un environnement réseau de test avec un pare-feu. Le réseau a un réseau virtuel avec trois sous-réseaux : *AzureFirewallSubnet*, *ServersSubnet* et *JumpboxSubnet*. Les sous-réseaux *ServersSubnet* et *JumpboxSubnet* ont chacun une machine virtuelle Windows Server à deux cœurs.
 
 Le pare-feu se trouve dans le sous-réseau *AzureFirewallSubnet* et a une collection de règles d’application avec une seule règle qui autorise l’accès à `www.microsoft.com`.
 
 Une route définie par l’utilisateur dirige le trafic réseau du sous-réseau *ServersSubnet* à travers le pare-feu, où les règles de pare-feu s’appliquent.
-
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Pour plus d’informations sur le Pare-feu Azure, consultez [Déployer et configurer le Pare-feu Azure à l’aide du portail Azure](tutorial-firewall-deploy-portal.md).
 
@@ -38,20 +39,20 @@ Ce modèle crée un pare-feu Azure avec Zones de disponibilité ainsi que les re
 
 ### <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-azurefirewall-with-zones-sandbox/azuredeploy.json).
+Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-azurefirewall-with-zones-sandbox).
 
 :::code language="json" source="~/quickstart-templates/101-azurefirewall-with-zones-sandbox/azuredeploy.json" range="001-444" highlight="369-442":::
 
 Plusieurs ressources Azure sont définies dans le modèle :
 
-- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
-- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
 - [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
-- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
 ### <a name="deploy-the-template"></a>Déployer le modèle
 
@@ -82,10 +83,12 @@ Quand vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressource
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup
 ```
+
 Ne supprimez pas le groupe de ressources et le pare-feu si vous voulez continuer avec le tutoriel de supervision du pare-feu. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ensuite, vous pouvez surveiller les journaux d’activité de Pare-feu Azure :
+Ensuite, vous pouvez surveiller les journaux d’activité de Pare-feu Azure.
 
-[Tutoriel : Superviser les journaux d’activité de Pare-feu Azure](./tutorial-diagnostics.md)
+> [!div class="nextstepaction"]
+> [Tutoriel : Superviser les journaux d’activité de Pare-feu Azure](tutorial-diagnostics.md)

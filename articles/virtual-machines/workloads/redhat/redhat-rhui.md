@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: aa9fd230f59b5e46576e78beb0436c85449d3c5d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b46e8efb252224f83603000777b2e342f7e7ab9d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80256910"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684445"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infrastructure de mise à jour Red Hat pour machines virtuelles Red Hat Enterprise Linux à la demande dans Azure
  [Infrastructure de mise à jour Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permet aux fournisseurs de cloud, par exemple Azure, de mettre en miroir le contenu du référentiel hébergé par Red Hat, de créer des référentiels personnalisés avec du contenu spécifique à Azure et de rendre ces référentiels accessibles aux machines virtuelles des utilisateurs finaux.
@@ -241,6 +241,6 @@ Cette procédure est fournie uniquement à titre de référence. Les images RHEL
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour créer une machine virtuelle Red Hat Enterprise Linux à partir d’une image PAYG dans le service Marketplace Azure et utiliser l’infrastructure RHUI hébergée sur Azure, voir [Place de marché Azure](https://azure.microsoft.com/marketplace/partners/redhat/).
+* Pour créer une machine virtuelle Red Hat Enterprise Linux à partir d’une image PAYG dans le service Marketplace Azure et utiliser l’infrastructure RHUI hébergée sur Azure, voir [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RHEL_6).
 * Pour en savoir plus sur les images Red Hat dans Azure, accédez à la [page de documentation](./redhat-images.md).
 * Vous trouverez des informations sur les stratégies de prise en charge de Red Hat pour toutes les versions de RHEL sur la page [Cycle de vie de Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).

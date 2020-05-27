@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 3c8488fa794e2bfa4de7833cb4cd4756b5394263
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d2e10c2a02bf14f7a01ce03bc70f6e3f43b96385
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201368"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700828"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutoriel : Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques avec Azure PowerShell
 
@@ -255,8 +255,3 @@ Dans ce didacticiel, vous avez appris à effectuer automatiquement un scale-in o
 > * Créer et utiliser des règles de mise à l’échelle automatique
 > * Effectuer un test de contrainte sur les instances de machine virtuelle et déclencher des règles de mise à l’échelle automatique
 > * Remettre à l’échelle automatiquement en cas de baisse de la demande
-
-Pour plus d’exemples de groupes identiques de machines virtuelles en action, consultez les exemples suivants de scripts Azure PowerShell :
-
-> [!div class="nextstepaction"]
-> [Exemples de scripts de groupe identique pour Azure PowerShell](powershell-samples.md)

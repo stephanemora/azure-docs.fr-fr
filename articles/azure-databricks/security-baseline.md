@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7d417f412592d87dec751b9d98a26bf786c719e5
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 23057723d46ed5d9203741ab2eb1a15edb5bd510
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793917"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681697"
 ---
 # <a name="azure-security-baseline-for-azure-databricks"></a>Base de référence de sécurité Azure pour Azure Databricks
 
@@ -146,7 +146,7 @@ Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiemen
 
 **Aide** : Utilisez des étiquettes pour les groupes de sécurité réseau et d’autres ressources liées à la sécurité réseau et au flux de trafic qui sont associés à vos instances Azure Databricks. Concernant les règles NSG individuelles, utilisez le champ « Description » afin de spécifier le besoin métier et/ou la durée (etc.) pour toutes les règles qui autorisent le trafic vers/depuis un réseau.
 
-* [Guide pratique pour créer et utiliser des étiquettes](httphttps://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Supervision d’Azure Security Center** : Non applicable
 

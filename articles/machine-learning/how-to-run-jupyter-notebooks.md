@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/21/2020
-ms.openlocfilehash: 67da2cb31d59838bb3ad2b964530d85d8be9be4c
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 96e37afd8bf7d59eef4a4c0c831f535faa36d34d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82782590"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681447"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Comment exécuter des blocs-notes Jupyter dans votre espace de travail
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -62,7 +62,7 @@ Votre espace de travail comprend un dossier **Exemples** contenant des blocs-not
 
 Pour obtenir un exemple, consultez [Tutoriel : Créer votre première expérience ML](tutorial-1st-experiment-sdk-setup.md#azure).
 
-### <a name="a-nameterminal-use-files-from-git-and-version-my-files"></a><a name="terminal"> Utiliser des fichiers de Git et contrôler la version de mes fichiers
+### <a name="use-files-from-git-and-version-my-files"></a><a name="terminal"></a> Utiliser des fichiers de Git et contrôler la version de mes fichiers
 
 Vous pouvez accéder à toutes les opérations Git à l’aide d’une fenêtre de terminal. Tous les fichiers et dossiers Git sont stockés dans le système de fichiers de votre espace de travail.
 

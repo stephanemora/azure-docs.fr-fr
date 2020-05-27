@@ -8,12 +8,13 @@ ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 0bbffacc0a8c47950b8637e826d1d5db9fbdb234
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: monitoring
+ms.openlocfilehash: 71f2acfc7c1d227d89f96f753572f4631f4cad65
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605062"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684660"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -359,7 +360,7 @@ Le service de stockage calcule uniquement la métrique **AverageE2ELatency** pou
 #### <a name="investigating-client-performance-issues"></a>Enquête sur les problèmes de performances client
 Les raisons possibles à une réponse lente du client incluent un nombre limité de connexions ou threads disponibles, ou l’insuffisance de ressources telles que le processeur, la mémoire ou la bande passante réseau. Il se peut que le problème puisse être résolu en modifiant le code client afin de le rendre plus efficace (par exemple, en utilisant des appels asynchrones vers le service de stockage), ou en utilisant une machine virtuelle plus puissante (avec davantage de cœurs et de mémoire).
 
-Pour les services Table et File d’attente, l’algorithme Nagle peut également provoquer des valeurs élevées de la métrique **AverageE2ELatency** par rapport à **AverageServerLatency** : pour plus d’informations, consultez la publication [Nagle’s Algorithm is Not Friendly towards Small Requests](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) (L’algorithme Nagle n’est pas convivial pour les petites requêtes). Vous pouvez désactiver l’algorithme Nagle dans le code en utilisant la classe **ServicePointManager** dans l’espace de noms **System.Net**. Cette opération doit être effectuée avant de réaliser des appels vers les services de table et de file d’attente dans votre application, car elle n’affecte pas les connexions déjà ouvertes. L’exemple suivant provient de la méthode **Application_Start** dans un rôle de travail.
+Pour les services Table et File d’attente, l’algorithme Nagle peut également provoquer des valeurs élevées de la métrique **AverageE2ELatency** par rapport à **AverageServerLatency** : pour plus d’informations, consultez la publication [Nagle’s Algorithm is Not Friendly towards Small Requests](https://docs.microsoft.com/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests) (L’algorithme Nagle n’est pas convivial pour les petites requêtes). Vous pouvez désactiver l’algorithme Nagle dans le code en utilisant la classe **ServicePointManager** dans l’espace de noms **System.Net**. Cette opération doit être effectuée avant de réaliser des appels vers les services de table et de file d’attente dans votre application, car elle n’affecte pas les connexions déjà ouvertes. L’exemple suivant provient de la méthode **Application_Start** dans un rôle de travail.
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);

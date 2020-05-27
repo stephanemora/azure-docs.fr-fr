@@ -3,12 +3,12 @@ title: Compteurs d’événements dans Application Insights | Microsoft Docs
 description: Supervisez les compteurs d’événements .NET/.NET Core système et personnalisés dans Application Insights.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: e1037766587f58a30c20f614726e1241c16e5a16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 37d0e1e741548986788be78860830f36add1f5a8
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187093"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700439"
 ---
 # <a name="eventcounters-introduction"></a>Présentation des compteurs d’événements
 
@@ -124,7 +124,7 @@ customMetrics
 Comme les autres données de télémétrie, **customMetrics** possède également une colonne `cloud_RoleInstance` qui indique l’identité de l’instance de serveur hôte sur lequel votre application est en cours d’exécution. La requête ci-dessus montre la valeur de compteur par instance et peut servir à comparer les performances des différentes instances de serveur.
 
 ## <a name="alerts"></a>Alertes
-À l’instar d’autres métriques, vous pouvez [définir une alerte](../../azure-monitor/app/alerts.md) pour vous avertir si un compteur d’événements dépasse une limite que vous spécifiez. Ouvrez le volet Alertes et cliquez sur Ajouter une alerte.
+À l’instar d’autres métriques, vous pouvez [définir une alerte](../../azure-monitor/platform/alerts-log.md) pour vous avertir si un compteur d’événements dépasse une limite que vous spécifiez. Ouvrez le volet Alertes et cliquez sur Ajouter une alerte.
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 

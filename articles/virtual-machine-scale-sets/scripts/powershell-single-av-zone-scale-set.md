@@ -1,23 +1,23 @@
 ---
-title: Exemples Azure PowerShell - Attacher et utiliser des disques de données
-description: Ce script permet de créer un groupe de machines virtuelles identiques Azure, puis d’attacher et de préparer les disques de données avec PowerShell.
+title: Exemples Azure PowerShell - Groupe identique dans une zone unique
+description: Ce script permet de créer un groupe de machines virtuelles identiques exécutant Windows Server 2016 dans une zone de disponibilité unique.
 author: mimckitt
 ms.author: mimckitt
 ms.topic: sample
 ms.service: virtual-machine-scale-sets
-ms.subservice: disks
-ms.date: 03/27/2018
+ms.subservice: availability
+ms.date: 04/05/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 39c1c534a930dae2967d982f7c175fadb3222e83
+ms.openlocfilehash: 222b45e455f42264a5324f138c55b822d9d8e7a1
 ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700912"
+ms.locfileid: "83698610"
 ---
-# <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-powershell"></a>Attacher et utiliser des disques de données avec un groupe de machines virtuelles identiques avec PowerShell
-Ce script permet de créer un groupe de machines virtuelles identiques, puis d’attacher et préparer les disques de données.
+# <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>Créer un groupe de machines virtuelles identiques dans une zone unique à l’aide de PowerShell
+Ce script permet de créer un groupe de machines virtuelles identiques exécutant Windows Server 2016 dans une zone de disponibilité unique. Une fois que vous avez exécuté le script, vous pouvez accéder à la machine virtuelle via RDP.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -25,7 +25,7 @@ Ce script permet de créer un groupe de machines virtuelles identiques, puis d�
 
 ## <a name="sample-script"></a>Exemple de script
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/use-data-disks/use-data-disks.ps1 "Create a virtual machine scale set with data disks")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/create-single-availability-zone/create-single-availability-zone.ps1 "Create single-zone scale set")]
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 Exécutez la commande suivante pour supprimer le groupe de ressources, le groupe identique et toutes les ressources associées.
@@ -43,7 +43,9 @@ Ce script a recours aux commandes suivantes pour créer le déploiement. Chaque 
 | [Get-AzVmss](/powershell/module/az.compute/get-azvmss) | Obtient des informations relatives à un groupe de machines virtuelles identiques. |
 | [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) | Ajoute une extension de machine virtuelle pour le script personnalisé afin d’installer une application web de base. |
 | [Update-AzVmss](/powershell/module/az.compute/update-azvmss) | Met à jour le modèle de groupe de machines virtuelles identiques pour appliquer l’extension de machine virtuelle. |
+| [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) | Obtient des informations sur l’adresse IP publique assignée qui est utilisée par l’équilibreur de charge. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources et toutes les ressources contenues. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/overview).
+

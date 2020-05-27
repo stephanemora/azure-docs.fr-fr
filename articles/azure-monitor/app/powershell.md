@@ -3,18 +3,18 @@ title: Automatiser Azure Application Insights avec PowerShell | Microsoft Docs
 description: Automatisez la création et la gestion des ressources, des alertes et des tests de disponibilité dans PowerShell à l’aide d’un modèle Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: fba85981f32611164c328945e45de4032ad949eb
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: a6653582a990b97775976b757198f11b2a46c46b
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780485"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697924"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gérer les ressources Application Insights à l’aide de PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Cet article explique comment automatiser la création et la mise à jour de ressources [Application Insights](../../azure-monitor/app/app-insights-overview.md) à l’aide du service de gestion des ressources Azure. Cette opération peut par exemple avoir lieu dans le cadre du processus de génération. Avec la ressource Application Insights de base, vous pouvez créer des [tests web de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md), configurer [des alertes](../../azure-monitor/app/alerts.md) et un [mécanisme de tarification](pricing.md), mais aussi créer d’autres ressources Azure.
+Cet article explique comment automatiser la création et la mise à jour de ressources [Application Insights](../../azure-monitor/app/app-insights-overview.md) à l’aide du service de gestion des ressources Azure. Cette opération peut par exemple avoir lieu dans le cadre du processus de génération. Avec la ressource Application Insights de base, vous pouvez créer des [tests web de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md), configurer [des alertes](../../azure-monitor/platform/alerts-log.md) et un [mécanisme de tarification](pricing.md), mais aussi créer d’autres ressources Azure.
 
 Les éléments importants pour la création de ces ressources sont les modèles JSON pour [Azure Resource Manager](../../azure-resource-manager/management/manage-resources-powershell.md). La procédure de base est la suivante : téléchargez les définitions JSON des ressources existantes, paramétrez certaines valeurs telles que les noms, puis exécutez le modèle chaque fois que vous souhaitez créer une ressource. Vous pouvez regrouper plusieurs ressources pour les créer en une fois, par exemple une analyse d’application avec des tests de disponibilité, des alertes et le stockage pour l’exportation continue. Certains paramètres ont des particularités que nous aborderons ici.
 

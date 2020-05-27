@@ -9,12 +9,12 @@ ms.subservice: cli
 ms.date: 03/27/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: ad21a816aba5bd8f8de1c541cc4bc34243956d35
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 7f80515a0a441f910a2133a36d62a09062c3840f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200989"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699797"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Créer un groupe de machines virtuelles identiques avec Azure CLI
 Ce script permet de créer un groupe de machines virtuelles identiques Azure avec un système d’exploitation Ubuntu et les ressources réseau associées, y compris un équilibreur de charge. Une fois que vous avez exécuté le script, vous pouvez accéder aux instances de la machine virtuelle sur SSH.
@@ -44,5 +44,3 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview).
-
-Vous trouverez des exemples supplémentaires de scripts Azure CLI de groupes de machines virtuelles identiques dans la [documentation relative aux groupes de machines virtuelles identiques Azure](../cli-samples.md).

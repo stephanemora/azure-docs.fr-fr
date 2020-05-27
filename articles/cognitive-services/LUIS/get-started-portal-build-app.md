@@ -2,13 +2,13 @@
 title: 'Démarrage rapide : Créer une application dans le portail LUIS'
 description: Dans ce guide de démarrage rapide, vous créez les éléments de base d’une application, les intentions et les entités, et vous les testez avec l’exemple d’énoncé dans le portail LUIS.
 ms.topic: quickstart
-ms.date: 05/05/2020
-ms.openlocfilehash: b2ab2ec0fa5398ae8a69906aee25ef44ad5db3c9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: 7cf55a7891b7e06c18c80d9d359b19e54f0413a9
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585203"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697282"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Démarrage rapide : Créer une application dans le portail LUIS
 
@@ -137,7 +137,7 @@ Les exemples d’énoncés de l’intention **None** doivent figurer en dehors d
 
 1. Vérifiez que l’entité se trouve dans l’intention **FindForm** en sélectionnant **Intents** (Intentions) dans le menu de gauche. Sélectionnez ensuite l’intention **FindForm**.
 
-   L’entité est marquée à l’emplacement où elle figure dans les exemples d’énoncés. Pour afficher le texte d’origine au lieu du nom d’entité, désactivez **Entities View** (Afficher les entités) dans la barre d’outils.
+   L’entité est marquée à l’emplacement où elle figure dans les exemples d’énoncés.
 
    > [!div class="mx-imgBorder"]
    > [![Capture d’écran de tous les exemples d’énoncés marqués avec des entités](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)

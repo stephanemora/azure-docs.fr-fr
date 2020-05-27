@@ -3,12 +3,12 @@ title: Configurer des analyses d’application web pour ASP.NET avec Azure Appli
 description: Configurez les outils d’analytique des performances, de la disponibilité et du comportement des utilisateurs de votre site web ASP.NET, hébergé en local ou dans Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: d3181c3d43f07c7cb920b9fe265a8420c1417a56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa4449a0229ba156dbeed37c10ed21f8b1b5f201
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145278"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698502"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurer Application Insights pour votre site web ASP.NET
 
@@ -139,7 +139,7 @@ Vous pouvez consulter d’autres rubriques selon les aspects qui vous intéresse
 
 * [Tests de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md) : créez des tests pour vous assurer que votre site est visible sur le web.
 * [Diagnostics intelligents](../../azure-monitor/app/proactive-diagnostics.md) : ces tests s’exécutent automatiquement, sans que vous n’ayez rien à faire pour les configurer. Ils vous indiquent si votre application affiche un taux inhabituel de demandes ayant échoué.
-* [Alertes de métriques](../../azure-monitor/app/alerts.md) : Définissez des alertes qui vous avertissent si un indicateur de performance dépasse un seuil. Vous pouvez définir des mesures personnalisées que vous codez dans votre application.
+* [Alertes de métriques](../../azure-monitor/platform/alerts-log.md) : Définissez des alertes qui vous avertissent si un indicateur de performance dépasse un seuil. Vous pouvez définir des mesures personnalisées que vous codez dans votre application.
 
 ### <a name="automation"></a>Automatisation
 

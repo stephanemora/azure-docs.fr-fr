@@ -9,12 +9,12 @@ ms.subservice: powershell
 ms.date: 05/29/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 2d4e252484515f43e53bdfbed58f7350d4d82cb3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: df2c1b10f0d63e3cafbd6f20805a296710219461
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200281"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699553"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>Créer un groupe de machines virtuelles identiques complet à l’aide de PowerShell
 
@@ -62,5 +62,3 @@ Ce script a recours aux commandes suivantes pour créer le déploiement. Chaque 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur le module Azure PowerShell, consultez [Documentation Azure PowerShell](/powershell/azure/overview).
-
-Vous trouverez des exemples supplémentaires de scripts PowerShell de groupes de machines virtuelles identiques dans la [documentation relative aux groupes de machines virtuelles identiques Azure](../powershell-samples.md).

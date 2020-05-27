@@ -3,12 +3,12 @@ title: Détection intelligente dans Azure Application Insights | Microsoft Docs
 description: Application Insights réalise une analyse télémétrique approfondie automatique de votre application et vous avertit des éventuels problèmes de performances.
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: ff9f88e1d2e643d04c4417283420217e7d496caf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7fecf886515780858ecc503a29be3bd76b73c3f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536792"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700842"
 ---
 # <a name="smart-detection-in-application-insights"></a>Détection intelligente dans Application Insights
  La détection intelligente vous informe automatiquement des éventuels problèmes de performances et des défaillances dans votre application web. Elle effectue une analyse proactive des données de télémétrie que votre application envoie à [Application Insights](../../azure-monitor/app/app-insights-overview.md). S’ils détectent une augmentation soudaine du taux d’échec, ou des modèles anormaux de performances client ou serveur, vous recevez une alerte. Cette fonctionnalité ne nécessite aucune configuration. Elle fonctionne si votre application envoie suffisamment de données de télémétrie.
@@ -59,6 +59,6 @@ Ces outils de diagnostic vous aident à inspecter les données de télémétrie 
 
 La détection intelligente est entièrement automatique. Mais vous souhaitez peut-être configurer des alertes supplémentaires ?
 
-* [Alertes de mesures configurées manuellement](../../azure-monitor/app/alerts.md)
+* [Alertes de mesures configurées manuellement](../../azure-monitor/platform/alerts-log.md)
 * [Tests web de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md) 
 

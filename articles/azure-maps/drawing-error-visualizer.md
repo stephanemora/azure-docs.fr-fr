@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e1b5b16d5522285f2d028303f3295cc1fb740330
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 01d131833f36c1b46eea1b9c08339b067fb9e937
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596658"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681958"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Utilisation du Visualiseur d’erreurs de dessin Azure Maps
 
-Le Visualiseur d’erreurs de dessin est une application web autonome qui affiche les [Avertissements et erreurs du package de dessin](drawing-conversion-error-codes.md) détectés pendant le processus de conversion. L’application web du Visualiseur d’erreurs se compose d’une page statique que vous pouvez utiliser sans vous connecter à Internet.  Vous pouvez utiliser le Visualiseur d’erreurs pour corriger les erreurs et les avertissements conformément aux [Exigences du package de dessin](drawing-requirements.md). L’[API de conversion Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) retourne une réponse avec un lien vers le Visualiseur d’erreurs uniquement quand une erreur est détectée.
+Le Visualiseur d’erreurs de dessin est une application web autonome qui affiche les [Avertissements et erreurs du package de dessin](drawing-conversion-error-codes.md) détectés pendant le processus de conversion. L’application web du Visualiseur d’erreurs se compose d’une page statique que vous pouvez utiliser sans vous connecter à Internet.  Vous pouvez utiliser le Visualiseur d’erreurs pour corriger les erreurs et les avertissements conformément aux [Exigences du package de dessin](drawing-requirements.md). L’[API de conversion Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) retourne une réponse avec un lien vers le Visualiseur d’erreurs uniquement quand une erreur est détectée.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -90,7 +90,7 @@ Une fois le fichier _ConversionWarningsAndErrors.json_ chargé, vous voyez s’a
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que votre [Package de dessin répond aux exigences](https://docs.microsoft.com/rest/api/maps/data/conversion), vous pouvez utiliser le [service Jeu de données Azure Maps](drawing-requirements.md) pour convertir le package en un jeu de données. Ensuite, vous pouvez utiliser le module web Cartes d’intérieur pour développer votre application. Pour en savoir plus, consultez les articles suivants :
+Une fois que votre [Package de dessin répond aux exigences](https://docs.microsoft.com/rest/api/maps/conversion), vous pouvez utiliser le [service Jeu de données Azure Maps](drawing-requirements.md) pour convertir le package en un jeu de données. Ensuite, vous pouvez utiliser le module web Cartes d’intérieur pour développer votre application. Pour en savoir plus, consultez les articles suivants :
 
 > [!div class="nextstepaction"]
 > [Codes d’erreur de conversion de dessin](drawing-conversion-error-codes.md)
