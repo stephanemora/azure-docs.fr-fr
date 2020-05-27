@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: dsindona
-ms.openlocfilehash: abc71d644b44b432d0ebf2a8c849554fe8db0256
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 25753ce4c313a60b06147ab06dbf0b5e3e05865f
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190331"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800514"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vos avantages sur la place de marché commerciale
 
@@ -36,7 +36,7 @@ La configuration minimale requise pour publier en vitrine est un MPNID. Ainsi, c
 
 Vous bénéficierez d’un support technique pour comprendre les ressources disponibles et mettre en œuvre les meilleures pratiques, que vous pouvez également [évaluer vous-même](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
-Vous trouverez une description détaillée de tous les avantages du programme dans le [Jeu du programme de récompenses de la place de marché](https://onedrive.live.com/view.aspx?resid=6C423AE231DA44BB!356&ithint=file%2cpptx&authkey=!ANmCupRE4iK9S2c).
+Vous trouverez une description détaillée de tous les avantages du programme dans le [Jeu du programme de récompenses de la place de marché](https://aka.ms/marketplacerewards).
 
 Les étapes à suivre pour démarrer sont simples :
 
@@ -56,7 +56,7 @@ Les étapes à suivre pour démarrer sont simples :
 2. La façon d’utiliser les avantages du parrainage Azure sera partagée par e-mail à mesure que vous déverrouillerez ces avantages.
 
 >[!Note]
->Si votre offre a été publiée depuis plus de quatre semaines et que vous n’avez pas reçu de message, vérifiez au sein de votre organisation qui est le propriétaire de l’offre en question en consultant l’Espace partenaires. Cette personne devrait disposer de la communication et des étapes suivantes. <br> <br> Si vous ne pouvez pas déterminer le propriétaire ou si le propriétaire a quitté votre entreprise, vous pouvez envoyer un ticket de support à l’équipe [Aide et support](https://partner.microsoft.com/support/v2/?stage=1).
+>Si votre offre a été publiée depuis plus de quatre semaines et que vous n’avez pas reçu de message, vérifiez au sein de votre organisation qui est le propriétaire de l’offre en question en consultant l’Espace partenaires. Cette personne devrait disposer de la communication et des étapes suivantes. <br> <br> Si vous ne pouvez pas déterminer le propriétaire ou si le propriétaire a quitté votre entreprise, vous pouvez envoyer un ticket de support à l’équipe [Aide et support](https://aka.ms/marketplacepublishersupport).
 
 La portée des activités à votre disposition augmente à mesure que vous développez vos offres sur la Place de marché. Toutes les offres reçoivent un niveau de base de recommandations d’optimisation et de promotion dans le cadre d’un e-mail en libre-service de ressources et de meilleures pratiques.
 
@@ -68,7 +68,7 @@ Le tableau ci-dessous récapitule les conditions d’éligibilité pour les offr
 
 ![Avantages de la mise sur le marché](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
-Vous trouverez une description détaillée de tous ces avantages dans le [Jeu du programme de récompenses de la place de marché](https://onedrive.live.com/view.aspx?resid=6C423AE231DA44BB!356&ithint=file%2cpptx&authkey=!ANmCupRE4iK9S2c).
+Vous trouverez une description détaillée de tous ces avantages dans le [Jeu du programme de récompenses de la place de marché](https://aka.ms/marketplacerewards).
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>Récompenses de la Place de marché pour les partenaires de transaction
 
@@ -89,7 +89,7 @@ Tous les partenaires qui disposent d’une offre publiée peuvent travailler ave
 
 \* Le seuil des sièges vendus s’applique uniquement aux applications Microsoft 365 (applications SaaS avec des intégrations à Microsoft Teams, Office, Outlook ou SharePoint) et les avantages doivent être utilisés avant le 30 juin 2020.
 
-Vous trouverez une description détaillée de tous ces avantages dans le [Jeu du programme de récompenses de la place de marché](https://onedrive.live.com/view.aspx?resid=6C423AE231DA44BB!356&ithint=file%2cpptx&authkey=!ANmCupRE4iK9S2c).
+Vous trouverez une description détaillée de tous ces avantages dans le [Jeu du programme de récompenses de la place de marché](https://aka.ms/marketplacerewards).
 
 En plus des avantages en matière de récompenses, les partenaires d’applications professionnelles avec des offres Dynamics publiées sur Microsoft AppSource ont une programmation supplémentaire disponible via [ISV Connect](https://partner.microsoft.com/solutions/business-applications/isv-overview). Cela comprend le support technique, marketing et commercial, spécialisé pour les besoins des partenaires d’applications professionnelles.
 
@@ -97,7 +97,7 @@ En plus des avantages en matière de récompenses, les partenaires d’applicati
 
 ### <a name="publisher-agreement"></a>Contrat de l’éditeur
 
-Toutes les activités décrites dans cette page sont couvertes par le [contrat d’éditeur de la place de marché](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) et sont couvertes par l’Addendum relatif au programme des avantages commerciaux.
+Toutes les activités décrites dans cette page sont couvertes par le [contrat d’éditeur de la place de marché](https://go.microsoft.com/fwlink/?LinkID=699560) et sont couvertes par l’Addendum relatif au programme des avantages commerciaux.
 
 ### <a name="cancellation-policy"></a>Politique d’annulation
 
@@ -122,6 +122,6 @@ Si vous avez créé votre offre dans l’[Espace partenaires](https://partner.mi
 
 Passez en revue les [ressources libre-service disponibles](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
-Inscrivez-vous au [Forum de la communauté Microsoft AppSource et de la place de marché Azure](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222) et découvrez des sujets pertinents ou participez à la discussion.
+Inscrivez-vous au [Forum de la communauté Microsoft AppSource et de la place de marché Azure](https://aka.ms/MarketplaceCommunity) et découvrez des sujets pertinents ou participez à la discussion.
 
 ---

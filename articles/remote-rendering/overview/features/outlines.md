@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 8b52dbe8cd12e51c42677ce37acbd57ad551ec50
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 4f3889a0ba121cb9a3167c1f6ac95f0bed280539
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679087"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759011"
 ---
 # <a name="outline-rendering"></a>Rendu en mode contour
 
@@ -34,13 +34,25 @@ La classe `OutlineSettings` contient les paramètres relatifs aux propriétés d
 
 Le code suivant montre un exemple de définition de paramètres de contour via l’API :
 
-``` cs
+```cs
 void SetOutlineParameters(AzureSession session)
 {
     OutlineSettings outlineSettings = session.Actions.OutlineSettings;
     outlineSettings.Color = new Color4Ub(255, 255, 0, 255);
     outlineSettings.PulseRateHz = 2.0f;
     outlineSettings.PulseIntensity = 0.5f;
+}
+```
+
+```cpp
+void SetOutlineParameters(ApiHandle<AzureSession> session)
+{
+    ApiHandle<OutlineSettings> outlineSettings = *session->Actions()->OutlineSettings();
+    Color4Ub outlineColor;
+    outlineColor.channels = { 255, 255, 0, 255 };
+    outlineSettings->Color(outlineColor);
+    outlineSettings->PulseRateHz(2.0f);
+    outlineSettings->PulseIntensity(0.5f);
 }
 ```
 

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: c41831f528ae425b35a04503180a956f67762b70
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f8b466dca9f3af55e3c11b39b3fbdac315af3675
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789842"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798586"
 ---
 # <a name="lead-management-for-commercial-marketplace"></a>Gestion des prospects pour la Place de marché commerciale
 
@@ -86,7 +86,7 @@ Les prospects sont des clients qui déploient vos produits à partir de la Place
 
 **Où puis-je obtenir de l’aide pour configurer la destination des prospects ?** 
 
-Vous pouvez rechercher des informations dans [Obtenir des prospects](./partner-center-portal/commercial-marketplace-get-customer-leads.md) ou envoyer un ticket de support dans [Aide et support](https://partner.microsoft.com/support/v2/?stage=1). Sélectionnez le type d’offre et la gestion des prospects. 
+Vous pouvez rechercher des informations dans [Obtenir des prospects](./partner-center-portal/commercial-marketplace-get-customer-leads.md) ou envoyer un ticket de support dans [Aide et support](https://aka.ms/marketplacepublishersupport). Sélectionnez le type d’offre et la gestion des prospects. 
 
 **Dois-je obligatoirement configurer une destination des prospects pour publier une offre sur la Place de marché ?**
 
@@ -183,7 +183,7 @@ Les prospects sont écrits uniquement si vous sélectionnez le Stockage Blob Azu
 
 **J’ai reçu un e-mail de la Place de marché. Pourquoi donc je ne trouve pas les prospects dans mon système CRM ?**  
 
-Il est possible que le domaine de messagerie de l’utilisateur final soit .edu. Pour des raisons de confidentialité, nous ne transmettons pas de données personnelles identifiables en provenance du domaine .edu. Envoyez un ticket de support dans [Aide et support](https://partner.microsoft.com/support/v2/?stage=1).
+Il est possible que le domaine de messagerie de l’utilisateur final soit .edu. Pour des raisons de confidentialité, nous ne transmettons pas de données personnelles identifiables en provenance du domaine .edu. Envoyez un ticket de support dans [Aide et support](https://aka.ms/marketplacepublishersupport).
 
 **J’ai configuré Table Azure/Blob Azure comme destination des prospects. Pourquoi ne vois-je pas les prospects ?** 
 
@@ -193,7 +193,7 @@ Vous pouvez accéder à l’objet blob ou à la table Azure sur le portail Azure
 
 Oui, pour configurer Table Azure + Azure Function, suivez les instructions fournies dans la documentation [ici](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md). 
 
-**J’ai configuré Salesforce comme destination des prospects. Pourquoi donc je ne trouve pas les prospects  ?** 
+**J’ai configuré Salesforce comme destination des prospects. Pourquoi donc je ne trouve pas les prospects  ?**
 
 Vérifiez si le formulaire « web to lead » est un champ obligatoire basé sur une liste déroulante. Si c’est le cas, faites-en un champ de texte non obligatoire.  
  

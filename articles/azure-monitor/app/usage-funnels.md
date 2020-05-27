@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/17/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 89440a6385bab5b917a866b686e8d2ba828c92e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 09c1899004bd93d0f2365c3bbc000c37459e8d89
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671050"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797829"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Découvrir comment les clients utilisent votre application avec les entonnoirs Application Insights
 
@@ -46,7 +46,7 @@ La capture d’écran précédente inclut cinq zones mises en surbrillance. Il s
   * [Vue d’ensemble de l’utilisation](usage-overview.md)
   * [Utilisateurs, Sessions et Événements](usage-segmentation.md)
   * [Rétention](usage-retention.md)
-  * [Classeurs](../../azure-monitor/app/usage-workbooks.md)
+  * [Classeurs](../../azure-monitor/platform/workbooks-overview.md)
   * [Ajouter du contexte utilisateur](usage-send-user-context.md)
   * [Exporter vers Power BI](../../azure-monitor/app/export-power-bi.md )
 

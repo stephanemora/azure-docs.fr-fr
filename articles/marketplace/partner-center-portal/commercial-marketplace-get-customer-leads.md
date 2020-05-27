@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 5d1bf859968c7b7a889abe635c917d0da11bf6e1
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 6234719216c7ef40df99a26153d7677f7a747f55
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837326"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800933"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Prospects de votre offre de marketplace commercial
 
@@ -96,7 +96,7 @@ Les informations du client sont envoyées dans plusieurs champs. L’exemple sui
 
 ### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>Où puis-je obtenir de l’aide pour configurer la destination des prospects ?
 
-Suivez les étapes de la section [Connexion à votre système CRM](#connect-to-your-crm-system) ou soumettez un ticket de support via [Aide et support de l’Espace partenaires](https://partner.microsoft.com/support/v2/?stage=1). Sélectionnez ensuite **Création d’offre** > **Votre type d’offre** > **Configuration de la gestion des prospects**.
+Suivez les étapes de la section [Connexion à votre système CRM](#connect-to-your-crm-system) ou soumettez un ticket de support via [Aide et support de l’Espace partenaires](https://aka.ms/marketplacepublishersupport). Sélectionnez ensuite **Création d’offre** > **Votre type d’offre** > **Configuration de la gestion des prospects**.
 
 ### <a name="am-i-required-to-configure-a-lead-destination-in-order-to-publish-an-offer-in-the-commercial-marketplace"></a>Dois-je obligatoirement configurer une destination de prospect pour publier une offre sur la place de marché commerciale ?
 
@@ -133,7 +133,7 @@ Le stockage Blob Azure n’est plus pris en charge comme destination de prospect
 
 ### <a name="i-received-an-email-from-the-commercial-marketplace-but-why-cant-i-find-the-lead-in-my-crm"></a>J’ai reçu un e-mail de la Place de marché commerciale, mais pourquoi le prospect est-il introuvable dans mon système CRM ?
 
-Il est possible que le domaine de messagerie de l’utilisateur final soit .edu. Pour des raisons de confidentialité, nous ne transmettons pas d’informations personnelles en provenance du domaine .edu. Soumettez un ticket de support via [Aide et support de l’Espace partenaires](https://partner.microsoft.com/support/v2/?stage=1).
+Il est possible que le domaine de messagerie de l’utilisateur final soit .edu. Pour des raisons de confidentialité, nous ne transmettons pas d’informations personnelles en provenance du domaine .edu. Soumettez un ticket de support via [Aide et support de l’Espace partenaires](https://aka.ms/marketplacepublishersupport).
 
 ### <a name="i-configured-an-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>J’ai configuré une table Azure comme destination de prospect. Comment afficher les prospects ?
 

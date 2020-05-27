@@ -5,14 +5,14 @@ services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 05/21/2020
 ms.author: charwen
-ms.openlocfilehash: 6bf80be4868295145fa79ae29d5322181b6131d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 617ec30fc9b97e89b6ccd0de6255d65da94d7b63
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619193"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780447"
 ---
 # <a name="session-monitoring-and-management-for-azure-bastion"></a>Surveillance et gestion de session Azure Bastion
 
@@ -30,9 +30,6 @@ Une fois que le service Bastion approvisionné et déployé dans votre réseau v
 
    ![actualiser](./media/session-monitoring/refresh.png)
 
->[!IMPORTANT]
-> Activez le port 4443 pour le trafic entrant à partir du Gestionnaire de passerelle pour que la surveillance de session fonctionne.
->
 
 ## <a name="delete-or-force-disconnect-an-ongoing-remote-session"></a><a name="view"></a>Forcer la déconnexion d’une session à distance en cours ou la supprimer
 
@@ -46,7 +43,7 @@ Vous pouvez sélectionner un ensemble de sessions et forcer leur déconnexion. L
    ![afficher la liste des sessions](./media/session-monitoring/list.png)
 3. Sélectionnez une session à distance et les trois ellipses situées à droite de la ligne de la session, puis choisissez **Supprimer**.
 
-   ![delete](./media/session-monitoring/delete.png)
+   ![supprimer](./media/session-monitoring/delete.png)
 4. Lorsque vous sélectionnez Supprimer, la session à distance est déconnectée et l’utilisateur voit s’afficher un message « Vous avez été déconnecté » dans la session à distance.
 
    ![déconnecter](./media/session-monitoring/disconnect.png)

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1d2dfdb203b05f2f6b7de740718d7407bd88066c
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: d9f970d08318d7dec685d3021c72b7f80de90049
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679359"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758875"
 ---
 # <a name="object-bounds"></a>Limites des objets
 
@@ -24,7 +24,7 @@ Il est possible de calculer les limites d’une hiérarchie d’objets entière 
 
 Il est plus avantageux d’appeler `QueryLocalBoundsAsync` ou `QueryWorldBoundsAsync` sur une entité. Le calcul est ensuite déplacé sur le serveur et retourné sous un délai minime.
 
-``` cs
+```cs
 private BoundsQueryAsync _boundsQuery = null;
 
 public void GetBounds(Entity entity)
@@ -39,6 +39,22 @@ public void GetBounds(Entity entity)
             // ...
         }
     };
+}
+```
+
+```cpp
+void GetBounds(ApiHandle<Entity> entity)
+{
+    ApiHandle<BoundsQueryAsync> boundsQuery = *entity->QueryWorldBoundsAsync();
+    boundsQuery->Completed([](ApiHandle<BoundsQueryAsync> bounds)
+    {
+        if (bounds->IsRanToCompletion())
+        {
+            Double3 aabbMin = bounds->Result()->min;
+            Double3 aabbMax = bounds->Result()->max;
+            // ...
+        }
+    });
 }
 ```
 

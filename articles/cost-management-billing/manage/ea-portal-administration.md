@@ -3,34 +3,20 @@ title: Administration du portail Azure EA
 description: Cet article présente les tâches courantes à la charge d’un administrateur dans le portail Azure EA.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 2b2ec7a5954649c36cf9da5d7933c83eec67faa3
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: a3551b4f09202b33cee768a69f31a6c5d5d36777
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692638"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648203"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration du portail Azure EA
 
 Cet article présente les tâches courantes à la charge d’un administrateur dans le portail Azure EA (https://ea.azure.com). Le portail Azure EA est un portail de gestion en ligne qui permet aux clients de gérer le coût de leurs services Azure EA. Pour obtenir des informations préliminaires sur le portail Azure EA, consultez l’article [Bien démarrer avec le portail Azure EA](ea-portal-get-started.md).
-
-## <a name="add-a-new-enterprise-administrator"></a>Ajouter un nouvel administrateur d’entreprise
-
-Les administrateurs d’entreprise disposent de la majorité des privilèges lors de la gestion d’une inscription Azure EA. L’administrateur Azure EA initial a été créé lors de la configuration du Contrat Entreprise. Toutefois, vous pouvez ajouter ou supprimer de nouveaux administrateurs à tout moment. Les nouveaux administrateurs peuvent être ajoutés uniquement par des administrateurs existants. Pour plus d’informations sur l’ajout d’administrateurs d'entreprise supplémentaires, consultez [Créer un autre administrateur d’entreprise](ea-portal-get-started.md#create-another-enterprise-administrator). Pour plus d’informations sur les rôles et les tâches d’un profil de facturation, consultez [Tâches et rôles du profil de facturation](understand-mca-roles.md#billing-profile-roles-and-tasks).
-
-## <a name="update-user-state-from-pending-to-active"></a>Mettre à jour l’état utilisateur de En attente à Actif
-
-Lorsque de nouveaux propriétaires de compte sont ajoutés pour la première fois à une inscription Azure EA, leur état est _En attente_. Quand un nouveau propriétaire de compte reçoit l’e-mail de bienvenue et d’activation, il peut se connecter pour activer son compte. Une fois qu’il active son compte, l’état du compte est mis à jour de _En attente_ à _Actif_. Le propriétaire du compte doit lire le message « Avertissement », puis sélectionner **Continuer**. Un nouvel utilisateur peut être invité à entrer son prénom et son nom pour créer un compte de commerce. Dans ce cas, il doit ajouter les informations nécessaires pour continuer. Le compte est alors activé.
-
-## <a name="add-a-department-admin"></a>Ajouter un administrateur de service
-
-Une fois qu’un administrateur Azure EA a créé un service, l’administrateur d’entreprise Azure peut ajouter des administrateurs de service et associer chacun d’eux à un service. Un administrateur de service peut créer des comptes. Ces comptes sont nécessaires pour créer des abonnements Azure EA.
-
-Pour plus d’informations sur l’ajout d’un administrateur de service, consultez [Créer un administrateur de service Azure EA](ea-portal-get-started.md#add-a-department-administrator).
 
 ## <a name="associate-an-account-to-a-department"></a>Associer un compte à un service
 
@@ -114,108 +100,6 @@ Lorsqu’un utilisateur est ajouté en tant que propriétaire du compte par le b
 
 L’offre Dev/Test ne s’applique pas aux clients Azure Government pour le moment.
 
-## <a name="transfer-an-enterprise-account-to-a-new-enrollment"></a>Transférer un compte d’entreprise vers une nouvelle inscription
-
-Un transfert de compte déplace un propriétaire de compte d’une inscription à une autre. Tous les abonnements associés sous le propriétaire du compte seront déplacés vers l’inscription cible. Utilisez un transfert de compte quand vous avez plusieurs inscriptions actives et que vous voulez uniquement déplacer les propriétaires de comptes sélectionnés.
-
-Cette section est fournie à titre d’information uniquement, car l’action ne peut pas être effectuée par un administrateur d’entreprise. Pour transférer un compte d’entreprise vers une nouvelle inscription, une demande de support est nécessaire.
-
-Gardez les points suivants à l’esprit quand vous transférez un compte d’entreprise vers une nouvelle inscription :
-
-- Seuls les comptes spécifiés dans la demande sont transférés. Si tous les comptes sont choisis, ils sont tous transférés.
-- L’inscription source conserve son état actif ou étendu. Vous pouvez continuer à utiliser l’inscription jusqu’à ce qu’elle expire.
-
-### <a name="prerequisites"></a>Prérequis
-
-Lorsque vous demandez un transfert de compte, fournissez les informations suivantes :
-
-- Le numéro de l’inscription cible, le nom du compte et l’e-mail du propriétaire du compte à transférer
-- Pour l’inscription source, le numéro d’inscription et le compte à transférer
-
-Autres points à garder à l’esprit avant un transfert de compte :
-
-- L’approbation d’un administrateur EA est requise pour les inscriptions source et cible.
-- Si un transfert de compte ne répond pas à vos exigences, envisagez un transfert d’inscription.
-- Le transfert de compte transfère tous les services et abonnements associés aux comptes spécifiques.
-- Au terme du transfert, le compte transféré est indiqué comme inactif sous l’inscription source et comme actif sous l’inscription cible.
-- Le compte affiche la date de fin correspondant à la date de transfert effectif sur l’inscription source, et comme date de début sur l’inscription cible.
-- Toute utilisation du compte effectuée avant la date de transfert effectif reste sous l’inscription source.
-
-
-## <a name="transfer-enterprise-enrollment-to-a-new-one"></a>Transférer l’inscription d’entreprise vers une nouvelle inscription
-
-Un transfert d’inscription est envisagé dans les cas suivants :
-
-- La durée d’engagement d’une inscription en cours se termine.
-- Une inscription présente l’état expiré/étendu et un nouveau contrat est négocié.
-- Vous avez plusieurs inscriptions et vous voulez combiner tous les comptes et la facturation sous une seule inscription.
-
-Cette section est fournie à titre d’information uniquement, car l’action ne peut pas être effectuée par un administrateur d’entreprise. Pour transférer une inscription d’entreprise vers une nouvelle, une demande de support est nécessaire.
-
-Lorsque vous demandez à transférer une inscription d’entreprise complète vers une autre inscription, les actions suivantes se produisent :
-
-- L’ensemble des services, abonnements et comptes Azure, ainsi que la structure d’inscription toute entière, dont tous les administrateurs de service EA, effectuent un transfert vers une nouvelle inscription cible.
-- L’état de l’inscription est défini sur _Transféré_. L’inscription transférée est disponible uniquement à des fins de création de rapports d’utilisation.
-- Vous ne pouvez pas ajouter de rôles ni d’abonnements à une inscription transférée. L’état transféré empêche une utilisation supplémentaire en relation avec l’inscription.
-- Tout solde restant de l’engagement monétaire dans le contrat est perdu, y compris les termes futurs.
--    Si l’inscription à partir de laquelle vous effectuez le transfert inclut des achats RI, les frais d’achat RI resteront dans l’inscription source. Toutefois, tous les avantages RI seront transférés pour être utilisés dans la nouvelle inscription.
--    Les frais d’achat à usage unique de la place de marché et les frais fixes mensuels déjà engagés sur l’ancienne inscription ne seront pas transférés vers la nouvelle inscription. Les frais de la place de marché basés sur la consommation seront transférés.
-
-### <a name="effective-transfer-date"></a>Date de transfert effectif
-
-Le jour du transfert effectif peut correspondre à la date de début de l’inscription cible ou à une date ultérieure.
-
-L’utilisation de l’inscription source est facturée dans le cadre de l’engagement monétaire ou comme dépassement. L’utilisation postérieure à la date de transfert effectif est transférée vers la nouvelle inscription et facturée en conséquence.
-
-### <a name="prerequisites"></a>Prérequis
-
-Lorsque vous demandez un transfert d’inscription, fournissez les informations suivantes :
-
-- Pour l’inscription source, le numéro d’inscription.
-- Pour l’inscription cible, le numéro de l’inscription vers laquelle effectuer le transfert.
-- Pour la date de transfert effectif de l’inscription, il peut s’agir d’une date identique ou postérieure à la date de début de l’inscription cible. La date choisie ne peut pas affecter l’utilisation pour une facture de dépassement déjà émise.
-
-Autres points à garder à l’esprit avant un transfert d’inscription :
-
-- L’approbation des administrateurs EA pour les inscriptions source et cible est obligatoire.
-- Si un transfert d’inscription ne répond pas à vos exigences, envisagez un transfert de compte.
-- L’état de l’inscription source est mis à jour sur Transféré et sera disponible uniquement à des fins de création de rapports d’utilisation historiques.
-
-### <a name="monetary-commitment"></a>Engagement monétaire
-
-L’engagement monétaire n’est pas transférable entre les inscriptions. Les soldes d’engagement monétaire sont liées contractuellement à l’inscription dans laquelle elles ont été commandées. L’engagement monétaire n’est pas transféré dans le cadre du processus de transfert d’un compte ou d’une inscription.
-
-### <a name="no-services-affected-for-account-and-enrollment-transfers"></a>Aucun service n’est affecté pour les transferts de comptes et d’inscriptions
-
-Il n’y a aucun temps d’arrêt lors du transfert d’un compte ou d’une inscription. Il peut être effectué le même jour que votre demande si toutes les informations requises sont fournies.
-
-## <a name="change-account-owner"></a>Changer le propriétaire du compte
-
-Le portail Azure EA peut transférer des abonnements d’un propriétaire de compte à un autre. Pour plus d’informations, consultez [Changer le propriétaire du compte](ea-portal-get-started.md#change-account-owner).
-
-## <a name="subscription-transfer-effects"></a>Effets d’un transfert d'abonnement
-
-Quand un abonnement Azure est transféré vers un compte figurant dans le même locataire Azure Active Directory, tous les utilisateurs, groupes et principaux de service qui disposaient d’un [contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/overview.md) pour gérer les ressources conservent leur accès.
-
-Pour afficher les utilisateurs disposant d’un accès RBAC à l’abonnement :
-
-1. Sur le portail Azure, ouvrez **Abonnements**.
-2. Sélectionnez l’abonnement à visualiser, puis sélectionnez **Contrôle d’accès (IAM)** .
-3. Sélectionnez **Attributions de rôles**. La page des attributions de rôles liste tous les utilisateurs qui disposent d’un accès RBAC à l’abonnement.
-
-Si l’abonnement est transféré vers un compte figurant dans un autre locataire Azure AD, tous les utilisateurs, groupes et principaux de service qui disposaient d’un contrôle [RBAC](../../role-based-access-control/overview.md) pour gérer les ressources _perdent_ leur accès. Même si l’accès RBAC n’est pas présent, l’accès à l’abonnement peut être disponible par le biais de mécanismes de sécurité, notamment :
-
-- Certificats de gestion accordant à l’utilisateur des droits d’administrateur sur les ressources d’abonnement. Pour plus d'informations, consultez la rubrique [Créer et télécharger un certificat de gestion pour Microsoft Azure](../../cloud-services/cloud-services-certs-create.md).
-- Touches d’accès rapide pour les services tels que Storage. Pour plus d’informations, consultez [Vue d’ensemble des comptes de stockage Azure](../../storage/common/storage-account-overview.md).
-- Informations d’identification d’accès à distance pour les services tels que les machines virtuelles Azure.
-
-Le destinataire doit envisager la mise à jour des secrets associés au service s’il doit restreindre l’accès à ses ressources Azure. La plupart des ressources peuvent être mises à jour en procédant comme suit :
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Dans le menu Hub, sélectionnez **Toutes les ressources**.
-3. Sélectionnez la ressource.
-4. Dans la page des ressources, sélectionnez **Paramètres** pour voir et mettre à jour les secrets existants.
-
 ## <a name="delete-subscription"></a>Supprimer l’abonnement
 
 Pour supprimer un abonnement dans lequel vous êtes le propriétaire du compte :
@@ -260,60 +144,6 @@ Pour ajouter un contact :
 Le nouveau contact de notification s’affiche dans la section **Contact de notification**. Pour changer la fréquence de notification, sélectionnez le contact de notification, puis le symbole de crayon à droite de la ligne sélectionnée. Définissez la fréquence sur **quotidienne**, **hebdomadaire**, **mensuelle** ou **aucune**.
 
 Vous pouvez supprimer les notifications de cycle de vie _La date de fin de la période de couverture approche_ et _La date de désactivation et de déprovisionnement approche_. La désactivation des notifications de cycle de vie supprime les notifications relatives à la période de couverture et à la date de fin du contrat.
-
-## <a name="manage-partner-administrators"></a>Gérer les administrateurs partenaires
-
-Chaque administrateur partenaire dans le portail Azure EA peut ajouter ou supprimer d’autres administrateurs partenaires. Les administrateurs partenaires sont associés aux organisations partenaires d’inscriptions indirectes et ne sont pas directement associés aux inscriptions.
-
-### <a name="add-a-partner-administrator"></a>Ajouter un administrateur partenaire
-
-Pour voir la liste de toutes les inscriptions associées à la même organisation partenaire que l’utilisateur actuel, sélectionnez l’onglet **Inscription**, puis sélectionnez une zone d’inscription souhaitée.
-
-1. Connectez-vous en tant qu’administrateur partenaire.
-1. Sélectionnez **Gérer** dans le volet de navigation de gauche.
-1. Sélectionnez l’onglet **Partenaire**.
-1. Sélectionnez **+ Ajouter un administrateur**, puis renseignez l’adresse e-mail, le contact de notification et les détails de notification.
-1. Sélectionnez **Ajouter**.
-
-### <a name="remove-a-partner-administrator"></a>Supprimer un administrateur partenaire
-
-Pour voir la liste de toutes les inscriptions associées à la même organisation partenaire que l’utilisateur actuel, sélectionnez l’onglet **Inscription**, puis sélectionnez une zone d’inscription souhaitée.
-
-1. Connectez-vous en tant qu’administrateur partenaire.
-1. Sélectionnez **Gérer** dans le volet de navigation de gauche.
-1. Sélectionnez l’onglet **Partenaire**.
-1. Sous la section Administrateur, sélectionnez la ligne appropriée pour l’administrateur que vous souhaitez supprimer.
-1. Sélectionnez le symbole X, à droite.
-1. Confirmez la suppression.
-
-## <a name="manage-partner-notifications"></a>Gérer les notifications des partenaires
-
-Les administrateurs partenaires peuvent gérer la fréquence à laquelle ils reçoivent des notifications d’utilisation pour leurs inscriptions. Ils reçoivent automatiquement des notifications hebdomadaires de leur solde non facturé. Ils peuvent modifier la fréquence des notifications individuelles pour spécifier une fréquence mensuelle, hebdomadaire ou quotidienne, ou pour les désactiver complètement.
-
-Si une notification n’est pas reçue par un utilisateur, vérifiez que les paramètres de notification de l’utilisateur sont corrects en procédant comme suit.
-
-1. Connectez-vous au portail Azure EA en tant qu’administrateur d’entreprise.
-2. Sélectionnez **Gérer**, puis l’onglet **Partenaire**.
-3. Affichez la liste des administrateurs dans la section Administrateur.
-4. Pour modifier les préférences de notification, pointez sur l’administrateur approprié, puis sélectionnez le symbole de crayon.
-5. Augmentez la fréquence de notification et les notifications de cycle de vie en fonction des besoins.
-6. Ajoutez un contact, si nécessaire, puis sélectionnez **Ajouter**.
-7. Sélectionnez **Enregistrer**.
-
-![Exemple montrant la zone Ajouter un contact ](./media/ea-portal-administration/create-ea-manage-partner-notification.png)
-
-## <a name="view-enrollments-for-partner-administrators"></a>Afficher les inscriptions pour les administrateurs partenaires
-
-Les administrateurs partenaires peuvent consulter une liste de toutes leurs inscriptions directes et indirectes dans le portail Azure EA. Les zones contenant une vue d’ensemble de chaque inscription s’affichent avec le numéro d’inscription, le nom de l’inscription, le solde et les quantités de dépassement.
-
-### <a name="view-a-list-of-enrollments"></a>Afficher une liste d’inscriptions
-
-1. Connectez-vous en tant qu’administrateur partenaire.
-1. Sélectionnez **Gérer** dans la barre de navigation sur le côté gauche de la page.
-1. Sélectionnez l’onglet **Inscription**.
-1. Cochez la case correspondant à l’inscription.
-
-Une vue de toutes les inscriptions reste en haut de la page, avec des zones pour chaque inscription. Vous pouvez également naviguer entre les inscriptions en sélectionnant le numéro d’inscription en cours dans la barre de navigation sur le côté gauche de la page. Une fenêtre contextuelle s’affiche pour vous permettre de rechercher des inscriptions ou de sélectionner une autre inscription en sélectionnant la zone appropriée.
 
 ## <a name="azure-sponsorship-offer"></a>Offre Azure Sponsorship
 

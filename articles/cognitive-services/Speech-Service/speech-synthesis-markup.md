@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 41de12c08dee52240f9b10c191ced4aacaea8e94
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8ec4c87dc4f19c140c5ac02779c5551016dfb0b3
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592778"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714319"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Améliorer la synthèse avec le langage de balisage de synthèse vocale (SSML, Speech Synthesis Markup Language)
 
@@ -195,10 +195,8 @@ Par défaut, le service de synthèse vocale synthétise le texte à l’aide d�
 
 Actuellement, des ajustements de style oral sont pris en charge pour ces voix neuronales :
 * `en-US-AriaNeural`
-* `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
-* `zh-CN-YunyeNeural`
 
 Des modifications sont appliquées au niveau de la phrase, et le style varie selon la voix. Si un style n’est pas pris en charge, le service renvoie la voix dans le style oral neutre par défaut.
 
@@ -223,15 +221,11 @@ Reportez-vous à ce tableau pour déterminer les styles oraux pris en charge pou
 |                         | `style="chat"`            | Exprime un ton informel et détendu                         |
 |                         | `style="cheerful"`        | Exprime un ton positif et joyeux                         |
 |                         | `style="empathetic"`      | Exprime une de la compassion et de la compréhension               |
-|   `pt-BR-FranciscaNeural`| `style="calm"`      | Exprime un ton calme               |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Exprime un ton formel et professionnel pour la présentation des actualités |
 |                         | `style="customerservice"` | Exprime un ton convivial et pragmatique pour le support technique  |
 |                         | `style="assistant"`       | Exprime un ton chaud et détendu pour les assistants numériques    |
 |                         | `style="lyrical"`         | Exprime les émotions d’une manière mélodique et sentimentale         |   
-| `zh-CN-YunyangNeural`  | `style="customerservice"` | Exprime un ton convivial et pragmatique pour le support technique  |
-| `zh-CN-YunyeNeural`  | `style="calm"`      | Exprime un ton calme               |  
-|                         | `style="sad"`       | Exprime un ton mécontent et contrarié    |
-|                         | `style="serious"`         | Exprime un ton sérieux        |   
+| `zh-CN-YunyangNeural`   | `style="customerservice"` | Exprime un ton convivial et pragmatique pour le support technique  | 
 
 **Exemple**
 

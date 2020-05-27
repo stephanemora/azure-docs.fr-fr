@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 03f5b0124f95465c4a5da5043364a2f5816dae62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 58f5d2e641cfe4913d6a06621b663d8a61cd00bb
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81685747"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800284"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Développer des applications sécurisées sur Azure
 Cet article présente les activités et contrôles de sécurité à prendre en compte lorsque vous développez des applications pour le cloud. Les questions et concepts de sécurité à prendre en compte pendant les phases d’implémentation et de vérification du [Microsoft Security Development Lifecycle](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) y sont abordées. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser pour développer une application plus sécurisée.
@@ -38,7 +38,7 @@ Avant d’archiver du code, [révisez-le](https://docs.microsoft.com/azure/devop
 
 ### <a name="perform-static-code-analysis"></a>Effectuer une analyse du code statique
 
-L’[analyse du code statique](https://www.owasp.org/index.php/Static_Code_Analysis) (également appelée *analyse du code source*) est généralement effectuée dans le cadre d’une révision du code. L’analyse du code statique consiste à exécuter des outils d’analyse du code statique pour rechercher les vulnérabilités potentielles dans le code qui n’est pas en cours d’exécution à l’aide de techniques, telles que la [vérification de teinte](https://en.wikipedia.org/wiki/Taint_checking) et l’[analyse du flux de données](https://en.wikipedia.org/wiki/Data-flow_analysis).
+L’[analyse du code statique](https://owasp.org/www-community/controls/Static_Code_Analysis) (également appelée *analyse du code source*) est généralement effectuée dans le cadre d’une révision du code. L’analyse du code statique consiste à exécuter des outils d’analyse du code statique pour rechercher les vulnérabilités potentielles dans le code qui n’est pas en cours d’exécution à l’aide de techniques, telles que la [vérification de teinte](https://en.wikipedia.org/wiki/Taint_checking) et l’[analyse du flux de données](https://en.wikipedia.org/wiki/Data-flow_analysis).
 
 Place de marché Azure propose des [outils de développement](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review) qui permettent d’effectuer une analyse du code statique et de réviser le code.
 
@@ -98,7 +98,7 @@ Si l’application doit générer automatiquement des mots de passe, assurez-vou
 
 ### <a name="validate-file-uploads"></a>Valider des chargements de fichiers
 
-Si votre application autorise les [chargements de fichiers](https://www.owasp.org/index.php/Unrestricted_File_Upload), envisagez les précautions que vous pouvez prendre pour cette activité à risque. La première étape de nombreuses attaques consiste à obtenir un code malveillant dans un système subissant une attaque. Un chargement de fichier permet aux personnes malveillantes d’accomplir cette étape. OWASP propose des solutions permettant de valider un fichier afin de garantir que le fichier chargé est sécurisé.
+Si votre application autorise les [chargements de fichiers](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload), envisagez les précautions que vous pouvez prendre pour cette activité à risque. La première étape de nombreuses attaques consiste à obtenir un code malveillant dans un système subissant une attaque. Un chargement de fichier permet aux personnes malveillantes d’accomplir cette étape. OWASP propose des solutions permettant de valider un fichier afin de garantir que le fichier chargé est sécurisé.
 
 Une solution de protection contre les programmes malveillants permet d’identifier et de supprimer les virus, logiciels espions et autres logiciels malveillants. Vous pouvez installer [Microsoft Antimalware](../fundamentals/antimalware.md) ou une solution de protection des points de terminaison d’un partenaire de Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) ou [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection)).
 

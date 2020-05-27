@@ -7,12 +7,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6d97e40bf2bf2298fb53609621db8ff2c6f1038f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 06bdedf1dac92a2010718ffd3eb5c6e43bb51e6c
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663536"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798125"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Surveiller les groupes de ressources avec Azure Monitor (préversion)
 
@@ -117,6 +117,6 @@ Azure Monitor pour les groupes de ressources s’appuie sur le système Azure Mo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Classeurs Azure Monitor](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
+- [Classeurs Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
 - [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview)
 - [Alertes Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)

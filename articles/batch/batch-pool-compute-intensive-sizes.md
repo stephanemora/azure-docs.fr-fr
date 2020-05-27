@@ -1,15 +1,14 @@
 ---
 title: Utiliser des machines virtuelles Azure nécessitant beaucoup de ressources système avec Batch
 description: Découvrez comment tirer parti des tailles de machines virtuelles HPC et GPU dans des pools Azure Batch Apprenez-en davantage sur les dépendances du système d’exploitation et découvrez plusieurs exemples de scénarios.
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/17/2018
-ms.author: labrenne
-ms.openlocfilehash: 674ee6c5b96c7aaf2926b51824488d03fc56d0a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7abe3c9bd689b20f608ad40105c1bb4d7108dbc6
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115956"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779746"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Utiliser des instances RDMA ou GPU dans des pools Batch
 
@@ -80,7 +79,7 @@ Pour configurer une taille de machine virtuelle spécialisée pour votre pool Ba
 
 * Créez une [image de machine virtuelle Windows ou Linux personnalisée](batch-sig-images.md) sur laquelle vous avez installé des pilotes, des logiciels ou d’autres paramètres nécessaires à la taille de machine virtuelle. 
 
-* Créez un [package d’application](batch-application-packages.md) Batch à partir d’un pilote compressé ou d’un programme d’installation d’application, puis configurez Batch pour déployer le package sur les nœuds du pool et l’installer une fois au moment de la création de chaque nœud. Par exemple, si le package d’application est un programme d’installation, créez une ligne de commande de [tâche de démarrage](batch-api-basics.md#start-task) pour effectuer une installation de l’application en mode silencieux sur tous les nœuds du pool. Envisagez d’utiliser un package d’application et une tâche de démarrage de pool si votre charge de travail dépend d’une version de pilote particulière.
+* Créez un [package d’application](batch-application-packages.md) Batch à partir d’un pilote compressé ou d’un programme d’installation d’application, puis configurez Batch pour déployer le package sur les nœuds du pool et l’installer une fois au moment de la création de chaque nœud. Par exemple, si le package d’application est un programme d’installation, créez une ligne de commande de [tâche de démarrage](jobs-and-tasks.md#start-task) pour effectuer une installation de l’application en mode silencieux sur tous les nœuds du pool. Envisagez d’utiliser un package d’application et une tâche de démarrage de pool si votre charge de travail dépend d’une version de pilote particulière.
 
   > [!NOTE] 
   > La tâche de démarrage doit s’exécuter avec des autorisations élevées (d’administrateur) et doit attendre de réussir. Les tâches à exécution longue augmentent le temps de provisionnement d’un pool Batch.

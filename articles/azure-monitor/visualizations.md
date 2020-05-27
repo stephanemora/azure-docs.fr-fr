@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 877616f6fd31bdfbe193bd8f03efb3f79317ad42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2da0cd2ede33abe8ebbe3616192349112fb24bae
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535367"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797500"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisation des données à partir d’Azure Monitor
 Cet article récapitule les méthodes disponibles pour visualiser les métriques et les données de journal stockées dans Azure Monitor.
@@ -19,7 +19,7 @@ Cet article récapitule les méthodes disponibles pour visualiser les métriques
 Les visualisations telles que les diagrammes ou graphiques peuvent vous aider à analyser vos données de supervision pour explorer des problèmes en profondeur et identifier des modèles. En fonction de l’outil que vous utilisez, vous pouvez également avoir la possibilité de partager les visualisations avec d’autres utilisateurs à l’intérieur et en dehors de votre organisation.
 
 ## <a name="workbooks"></a>Workbooks
-Les [classeurs](../azure-monitor/app/usage-workbooks.md) sont des documents interactifs qui fournissent des insights détaillés sur vos données, et favorisent l’investigation et la collaboration au sein de l’équipe. Parmi les exemples typiques d’utilisation des classeurs citons les guides de résolution des problèmes et les bilans d’incidents.
+Les [classeurs](../azure-monitor/platform/workbooks-overview.md) sont des documents interactifs qui fournissent des insights détaillés sur vos données, et favorisent l’investigation et la collaboration au sein de l’équipe. Parmi les exemples typiques d’utilisation des classeurs citons les guides de résolution des problèmes et les bilans d’incidents.
 
 ![Classeur](media/visualizations/workbook.png)
 
@@ -137,7 +137,7 @@ Les [affichages dans Azure Monitor](platform/view-designer.md) vous permettent d
 - Découvrez les [données collectées par Azure Monitor](platform/data-platform.md).
 - Découvrez les [tableaux de bord Azure](../azure-portal/azure-portal-dashboards.md).
 - Découvrez les [affichages dans Azure Monitor](platform/view-designer.md).
-- Découvrez les [classeurs](../azure-monitor/app/usage-workbooks.md).
+- Découvrez les [classeurs](../azure-monitor/platform/workbooks-overview.md).
 - Découvrez [l’importation de données de journal dans Power BI](../azure-monitor/platform/powerbi.md).
 - Découvrez le [plug-in de source de données Azure Monitor pour Grafana](../azure-monitor/platform/grafana-plugin.md).
 

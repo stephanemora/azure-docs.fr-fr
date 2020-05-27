@@ -1,16 +1,15 @@
 ---
 title: Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch
 description: Activer la mise à l’échelle automatique sur un pool de cloud pour ajuster dynamiquement le nombre de nœuds de calcul dans le pool.
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/24/2019
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: b790ee286d9edd8cee04ef1db719be6395509be2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad1bf47cd2b9d8db950154b5a36786c294549566
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113559"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780245"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Créer une formule automatique pour la mise à l’échelle des nœuds de calcul dans un pool Batch
 
@@ -23,7 +22,7 @@ Vous pouvez activer la mise à l’échelle automatique lors de la création d�
 Cet article décrit les différentes entités qui composent vos formules de mise à l’échelle automatique, à savoir les variables, les opérateurs, les opérations et les fonctions. Nous allons expliquer comment obtenir différentes mesures de ressources et de tâches de calcul au sein de Batch. Vous pouvez utiliser ces mesures pour ajuster votre nombre de nœuds de calcul en fonction de l’utilisation des ressources et de l’état des tâches. Nous vous indiquerons ensuite comment construire une formule et activer la mise à l’échelle automatique dans un pool à l’aide des API REST et .NET de Batch. Et nous terminerons par quelques exemples de formule.
 
 > [!IMPORTANT]
-> Lorsque vous créez un compte Batch, vous pouvez spécifier la [configuration du compte](batch-api-basics.md#account), qui détermine si les pools sont alloués dans un abonnement au service Batch (par défaut), ou dans votre abonnement utilisateur. Si vous avez créé votre compte Batch avec la configuration de service Batch par défaut, votre compte est limité à un nombre maximal de cœurs utilisables pour le traitement. Le service Batch met à l’échelle des nœuds uniquement jusqu’à cette limite de cœurs. C’est pourquoi le service Batch peut ne pas atteindre le nombre cible de nœuds de calcul spécifié par une formule de mise à l’échelle automatique. Consultez [Quotas et limites du service Azure Batch](batch-quota-limit.md) pour obtenir des instructions sur l’affichage et l’augmentation des quotas de votre compte.
+> Lorsque vous créez un compte Batch, vous pouvez spécifier la [configuration du compte](accounts.md), qui détermine si les pools sont alloués dans un abonnement au service Batch (par défaut), ou dans votre abonnement utilisateur. Si vous avez créé votre compte Batch avec la configuration de service Batch par défaut, votre compte est limité à un nombre maximal de cœurs utilisables pour le traitement. Le service Batch met à l’échelle des nœuds uniquement jusqu’à cette limite de cœurs. C’est pourquoi le service Batch peut ne pas atteindre le nombre cible de nœuds de calcul spécifié par une formule de mise à l’échelle automatique. Consultez [Quotas et limites du service Azure Batch](batch-quota-limit.md) pour obtenir des instructions sur l’affichage et l’augmentation des quotas de votre compte.
 >
 >Si vous avez créé votre compte avec la configuration d’abonnement utilisateur, votre compte partage le quota de cœurs associé à l’abonnement. Pour en savoir plus, consultez le paragraphe [Limites de machines virtuelles](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits) de la section [Abonnement Azure et limites, quotas et contraintes de service](../azure-resource-manager/management/azure-subscription-service-limits.md).
 >

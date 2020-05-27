@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 7d0f246a96072a6e433b0762256467f1c20a45fe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 517bdc0846ae56e0db41631f1dc5411471c6c2bd
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77581716"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800140"
 ---
 # <a name="what-is-azure-sentinel"></a>Qu’est-ce qu’Azure Sentinel ?
 
@@ -51,7 +51,7 @@ Pour intégrer Azure Sentinel, vous devez d’abord [vous connecter à vos sourc
 
 ## <a name="workbooks"></a>Workbooks
 
-Après avoir  [connecté vos sources de données](quickstart-onboard.md) à Azure Sentinel, vous pouvez superviser les données à l’aide de l’intégration Azure Sentinel avec des classeurs Azure Monitor, ce qui offre une grande souplesse lors de la création de classeurs personnalisés. Même si les classeurs s’affichent différemment dans Azure Sentinel, il peut être utile de voir comment [créer des rapports interactifs avec les classeurs Azure Monitor](../azure-monitor/app/usage-workbooks.md). Azure Sentinel vous permet de créer des classeurs personnalisés sur l’ensemble de vos données. Il est également fourni avec des modèles de classeurs intégrés avec lesquels vous obtenez rapidement des insights sur vos données dès que vous connectez une source de données.
+Après avoir  [connecté vos sources de données](quickstart-onboard.md) à Azure Sentinel, vous pouvez superviser les données à l’aide de l’intégration Azure Sentinel avec des classeurs Azure Monitor, ce qui offre une grande souplesse lors de la création de classeurs personnalisés. Même si les classeurs s’affichent différemment dans Azure Sentinel, il peut être utile de voir comment [créer des rapports interactifs avec les classeurs Azure Monitor](../azure-monitor/platform/workbooks-overview.md). Azure Sentinel vous permet de créer des classeurs personnalisés sur l’ensemble de vos données. Il est également fourni avec des modèles de classeurs intégrés avec lesquels vous obtenez rapidement des insights sur vos données dès que vous connectez une source de données.
 
 ![Tableaux de bord](./media/tutorial-monitor-data/access-workbooks.png)
 

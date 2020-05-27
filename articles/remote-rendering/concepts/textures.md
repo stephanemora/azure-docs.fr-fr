@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09fa22d33377dfcbafd84f0caeb5f33a575b1bce
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: de3f127d97803ea920d61d748a1af0c80a1a1afc
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679343"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759130"
 ---
 # <a name="textures"></a>Textures
 
@@ -39,11 +39,11 @@ Comme pour le chargement de modèles, il existe deux méthodes pour envoyer une 
 
 L’exemple de code suivant montre comment charger une texture (ou une texture intégrée) par le biais de son URI SAS. Notez que seul le paramètre/la fonction de chargement diffère de l’autre cas :
 
-``` cs
+```cs
 LoadTextureAsync _textureLoad = null;
 void LoadMyTexture(AzureSession session, string textureUri)
 {
-    _textureLoad = session.Actions.LoadTextureAsync(new LoadTextureParams(textureUri, TextureType.Texture2D));
+    _textureLoad = session.Actions.LoadTextureFromSASAsync(new LoadTextureFromSASParams(textureUri, TextureType.Texture2D));
     _textureLoad.Completed +=
         (LoadTextureAsync res) =>
         {
@@ -59,6 +59,28 @@ void LoadMyTexture(AzureSession session, string textureUri)
         };
 }
 ```
+
+```cpp
+void LoadMyTexture(ApiHandle<AzureSession> session, std::string textureUri)
+{
+    LoadTextureFromSASParams params;
+    params.TextureType = TextureType::Texture2D;
+    params.TextureUrl = std::move(textureUri);
+    ApiHandle<LoadTextureAsync> textureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
+    textureLoad->Completed([](ApiHandle<LoadTextureAsync> res)
+    {
+        if (res->IsRanToCompletion())
+        {
+            //use res->Result()
+        }
+        else
+        {
+            printf("Texture loading failed!");
+        }
+    });
+}
+```
+
 
 Selon la façon dont vous envisagez d’utiliser la texture, son contenu et son type peuvent être soumis à des restrictions. Par exemple, la carte de rugosité d’un [matériau PBR](../overview/features/pbr-materials.md) doit être en nuances de gris.
 

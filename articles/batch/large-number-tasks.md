@@ -1,14 +1,14 @@
 ---
 title: Soumettre un grand nombre de tâches
 description: Comment envoyer efficacement un très grand nombre de tâches dans un même travail Azure Batch
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/24/2018
-ms.openlocfilehash: 0be30e1a413a224d566db535d369a0b285b1f668
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 46ab5e8879167a1808c51d4c4cd5c7071cb67cff
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117401"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83778953"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Envoyer un grand nombre de tâches dans un travail Batch
 
@@ -41,7 +41,7 @@ La taille maximale de la collection de tâches qu’il est possible d’ajouter 
 
 L’ajout d’une collection de tâches volumineuse à un travail peut prendre un certain temps (jusqu’à 1 minute, par exemple, pour ajouter 20 000 tâches via l’API .NET). En fonction de l’API Batch et de votre charge de travail, vous pouvez améliorer le débit d’envoi des tâches en modifiant un ou plusieurs des éléments suivants :
 
-* **La taille de la tâche** : l’ajout de tâches volumineuses prend plus de temps que l’ajout de tâches plus petites. Pour réduire la taille de chaque tâche d’une collection, vous pouvez simplifier la ligne de commande des tâches, réduire le nombre de variables d’environnement ou gérer plus efficacement les exigences d’exécution des tâches. Par exemple, au lieu d’utiliser un grand nombre de fichiers de ressources, installez les dépendances des tâches à l’aide d’une [tâche de démarrage](batch-api-basics.md#start-task) dans le pool. Vous pouvez également utiliser un [package d’application](batch-application-packages.md) ou un [conteneur Docker](batch-docker-container-workloads.md).
+* **La taille de la tâche** : l’ajout de tâches volumineuses prend plus de temps que l’ajout de tâches plus petites. Pour réduire la taille de chaque tâche d’une collection, vous pouvez simplifier la ligne de commande des tâches, réduire le nombre de variables d’environnement ou gérer plus efficacement les exigences d’exécution des tâches. Par exemple, au lieu d’utiliser un grand nombre de fichiers de ressources, installez les dépendances des tâches à l’aide d’une [tâche de démarrage](jobs-and-tasks.md#start-task) dans le pool. Vous pouvez également utiliser un [package d’application](batch-application-packages.md) ou un [conteneur Docker](batch-docker-container-workloads.md).
 
 * **Le nombre d’opérations parallèles** : selon l’API Batch, vous pouvez augmenter le débit en augmentant le nombre maximal d’opérations simultanées que peut exécuter le client Batch. Configurez ce paramètre à l’aide de la propriété [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) dans l’API .NET, ou du paramètre `threads` des méthodes telles que [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)dans l’extension du SDK Python pour Batch (cette propriété n’est pas disponible dans la version native du SDK Python pour Batch). Par défaut, cette propriété est définie sur 1. Toutefois, vous pouvez définir une valeur supérieure pour améliorer le débit des opérations. L’inconvénient d’un débit élevé est la grande consommation de bande passante réseau et la baisse des performances de l’UC. Le débit des tâches peut augmenter jusqu’à 100 fois le `MaxDegreeOfParallelism` ou les `threads`. Dans la pratique, le nombre d’opérations simultanées doit être inférieur à 100. 
  

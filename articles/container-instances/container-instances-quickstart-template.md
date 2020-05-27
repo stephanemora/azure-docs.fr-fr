@@ -6,18 +6,16 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/30/2020
-ms.openlocfilehash: f9f789d2f2c6c21e38f241b445c72b330c689a8d
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 17f71d1c383c72fab748a9bdb789158095616f2d
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930418"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779868"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-a-resource-manager-template"></a>Démarrage rapide : Déployer une instance de conteneur dans Azure à l’aide d’un modèle Resource Manager
 
-Utilisez Azure Container Instances pour exécuter, facilement et rapidement, des conteneurs Docker serverless dans Azure. Déployez une application sur une instance de conteneur à la demande lorsque vous n’avez pas besoin d’une plateforme d’orchestration de conteneur complète telle qu’Azure Kubernetes Service.
-
-Dans ce guide de démarrage rapide, vous utilisez un modèle Azure Resource Manager pour déployer un conteneur Docker isolé et mettre son application web à disposition avec une adresse IP publique. 
+Utilisez Azure Container Instances pour exécuter, facilement et rapidement, des conteneurs Docker serverless dans Azure. Déployez une application sur une instance de conteneur à la demande lorsque vous n’avez pas besoin d’une plateforme d’orchestration de conteneur complète telle qu’Azure Kubernetes Service. Dans ce guide de démarrage rapide, vous utilisez un modèle Azure Resource Manager pour déployer un conteneur Docker isolé et mettre son application web à disposition avec une adresse IP publique.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -31,9 +29,9 @@ Aucun.
 
 ### <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-linuxcontainer-public-ip).
+Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-aci-linuxcontainer-public-ip/).
 
-[!code-json[<Azure Resource Manager template create geo-replicated registry>](~/quickstart-templates/101-aci-linuxcontainer-public-ip/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-aci-linuxcontainer-public-ip/azuredeploy.json" range="1-107" highlight="61-100":::
 
 La ressource suivante est définie dans le modèle :
 

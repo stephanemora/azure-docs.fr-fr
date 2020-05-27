@@ -5,12 +5,12 @@ author: jumeder
 ms.author: jumeder
 ms.date: 04/09/2020
 ms.topic: article
-ms.openlocfilehash: f10c736cad9322752d5d552d29ef0c63635628a5
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: dc07b20340b852eadeb7c93e5cef2ed2092b3641
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81868156"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758654"
 ---
 # <a name="debug-rendering"></a>Rendu du débogage
 
@@ -26,7 +26,7 @@ L’API de rendu du débogage fournit un large éventail d’options globales po
 
 Le code suivant active ces effets de débogage :
 
-``` cs
+```cs
 void EnableDebugRenderingEffects(AzureSession session, bool highlight)
 {
     DebugRenderingSettings settings = session.Actions.DebugRenderingSettings;
@@ -39,6 +39,22 @@ void EnableDebugRenderingEffects(AzureSession session, bool highlight)
 
     // Enable wireframe rendering of object geometry on the server
     settings.RenderWireframe = true;
+}
+```
+
+```cpp
+void EnableDebugRenderingEffects(ApiHandle<AzureSession> session, bool highlight)
+{
+    ApiHandle<DebugRenderingSettings> settings = *session->Actions()->DebugRenderingSettings();
+
+    // Enable frame counter text overlay on the server side rendering
+    settings->RenderFrameCount(true);
+
+    // Enable polygon count text overlay on the server side rendering
+    settings->RenderPolygonCount(true);
+
+    // Enable wireframe rendering of object geometry on the server
+    settings->RenderWireframe(true);
 }
 ```
 

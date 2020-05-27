@@ -5,12 +5,12 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 62b2738324f4c728cd4b5959c04c93649c156afb
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 7f0c99899b647c677025dbb38480b4d7f64c24fa
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81114438"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739986"
 ---
 # <a name="common-alert-schema-definitions"></a>Définitions de schéma d’alerte courant
 
@@ -149,7 +149,7 @@ Chaque instance d’alerte décrit la ressource affectée et la cause de l’ale
 ### <a name="log-alerts"></a>Alertes de journal
 
 > [!NOTE]
-> Pour des alertes de journal contenant une charge utile d’objet d’e-mail ou de JSON personnalisée définie, l’activation du schéma commun a pour effet de rétablir le schéma d’objet d’e-mail et/ou de charge utile décrit ci-après. Les alertes sur lesquelles le schéma commun est activé ont une limite de taille maximale de 256 Ko par alerte. Les résultats de la recherche ne sont pas incorporés dans la charge utile des alertes de journal si la taille de l’alerte dépasse ce seuil. Vous pouvez le déterminer cela en vérifiant l’indicateur `IncludeSearchResults`. Lorsque les résultats de recherche ne sont pas inclus, il est recommandé d’utiliser la requête de recherche conjointement avec l’[API Log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
+> Pour des alertes de journal contenant une charge utile d’objet d’e-mail ou de JSON personnalisée définie, l’activation du schéma commun a pour effet de rétablir le schéma d’objet d’e-mail et/ou de charge utile décrit ci-après. Les alertes sur lesquelles le schéma commun est activé ont une limite de taille maximale de 256 Ko par alerte. Les résultats de la recherche ne sont pas incorporés dans la charge utile des alertes de journal si la taille de l’alerte dépasse ce seuil. Vous pouvez le déterminer cela en vérifiant l’indicateur `IncludeSearchResults`. Lorsque les résultats de recherche ne sont pas inclus, il est recommandé d’utiliser la requête de recherche conjointement avec l’[API Log Analytics](https://docs.microsoft.com/rest/api/loganalytics/dataaccess/query/get). 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
