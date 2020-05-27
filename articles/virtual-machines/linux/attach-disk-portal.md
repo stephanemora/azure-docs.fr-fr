@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 746cef8dfe026c731a677cbf77f729d36342f007
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c485c1612df526e813119239fd2202b7657db9c
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78969353"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774194"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Utiliser le portail pour attacher un disque de données à une machine virtuelle Linux 
 Cet article vous explique comment attacher des disques nouveaux et existants à une machine virtuelle Linux par le biais du portail Azure. Vous pouvez également [attacher un disque de données à une machine virtuelle Windows dans le Portail Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -179,6 +179,7 @@ Writing superblocks and filesystem accounting information: done
 L’utilitaire fdisk a besoin d’une entrée interactive et n’est donc pas idéal pour une utilisation dans les scripts d’automatisation. Toutefois, l’utilitaire [parted](https://www.gnu.org/software/parted/) peut être scripté et se prête donc mieux aux scénarios d’automatisation. L’utilitaire parted peut être utilisé pour partitionner et formater un disque de données. Pour la procédure pas à pas ci-dessous, nous utilisons un nouveau disque de données /dev/sdc et le formatons à l’aide du système de fichiers [XFS](https://xfs.wiki.kernel.org/).
 ```bash
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
+sudo mkfs.xfs /dev/sdc1
 partprobe /dev/sdc1
 ```
 Comme indiqué ci-dessus, nous utilisons l’utilitaire [partprobe](https://linux.die.net/man/8/partprobe) pour vérifier que le noyau est immédiatement conscient de la nouvelle partition et du nouveau système de fichiers. Si vous ne parvenez pas à utiliser partprobe, les commandes blkid ou lslbk ne retournent pas immédiatement l’UUID du nouveau système de fichiers.
