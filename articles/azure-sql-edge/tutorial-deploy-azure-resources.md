@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 8c648e3f9e0b36f11a031110f9b0638dc68a4a76
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c74e402fa1faa883b1e456f11a8d9d7b1e750d27
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593531"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772826"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>Installer les logiciels et configurer les ressources pour le tutoriel
 
@@ -42,9 +42,12 @@ Déployez les ressources Azure requises par ce tutoriel Azure SQL Edge. Celles-c
    Import-Module -Name Az -RequiredVersion 3.5.0
    Import-Module Az.IotHub -RequiredVersion 2.1.0
    Import-Module Az.Compute -RequiredVersion 3.5.0
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    az extension add --name azure-cli-ml
    ```
+
+   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+
 
 2. Déclarez les variables requises par le script PowerShell.
 
