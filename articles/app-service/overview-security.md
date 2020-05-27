@@ -5,27 +5,18 @@ keywords: azure app service, application web, application mobile, application d�
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8a098b1924bf7c2866f6afd7452b8dd3b93f3109
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a4d3518c3325eff2b3c3db111babb9e784d5e31
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535653"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649027"
 ---
 # <a name="security-in-azure-app-service"></a>Sécurité dans Azure App Service
 
 Cet article vous montre comment [Azure App Service](overview.md) vous aide à sécuriser votre application web, backend d’application mobile, application API et [application de fonction](/azure/azure-functions/). Il vous montre également comment renforcer la sécurité de votre application avec les fonctionnalités App Service intégrées.
 
-Les composants de plateforme d’App Service, notamment les machines virtuelles Azure, le stockage, les connexions réseau, les frameworks web, les fonctionnalités de gestion et d’intégration, sont activement sécurisés et renforcés. App Service fait régulièrement l’objet de vérifications de conformité strictes pour garantir les points suivants :
-
-- Les ressources de votre application sont [protégées](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) des ressources Azure des autres clients.
-- Les [instances de machine virtuelle et les logiciels de runtime sont régulièrement mis à jour](overview-patch-os-runtime.md) pour que soient traitées les vulnérabilités récemment découvertes. 
-- La communication de secrets (tels que des chaînes de connexion) entre votre application et d’autres ressources Azure (telles que [SQL Database](https://azure.microsoft.com/services/sql-database/)) reste dans Azure et ne franchit pas les limites du réseau. Les secrets sont toujours chiffrés quand ils sont stockés.
-- Toutes les communications via les fonctionnalités de connectivité d’App Service, telles que la [connexion hybride](app-service-hybrid-connections.md), sont chiffrées. 
-- Toutes les connexions avec les outils de gestion à distance, tels qu’Azure PowerShell, Azure CLI, les SDK Azure et les API REST, sont chiffrées.
-- La gestion continue des menaces protège l’infrastructure et la plateforme contre les programmes malveillants, le déni de service distribué (DDoS), les attaques de l’intercepteur (man-in-the-middle, MITM) et bien d’autres menaces.
-
-Pour plus d’informations sur la sécurité de l’infrastructure et de la plateforme dans Azure, consultez [Centre de confidentialité Azure](https://azure.microsoft.com/overview/trusted-cloud/).
+[!INCLUDE [app-service-security-intro](../../includes/app-service-security-intro.md)]
 
 Les sections suivantes vous montrent comment renforcer la protection de votre application App Service contre les menaces.
 

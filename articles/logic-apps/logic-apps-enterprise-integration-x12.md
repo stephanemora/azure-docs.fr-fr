@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/29/2020
-ms.openlocfilehash: 8ec20e03544ba54b83130ae41244dcdb186252d0
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 9398b40763e8226cedf788f9cefbf5ed28cd649d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82613058"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739530"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Échanger des messages X12 dans le cadre d’une intégration d’entreprise B2B dans Azure Logic Apps avec Enterprise Integration Pack
 
@@ -319,8 +319,8 @@ Ce tableau répertorie les types de messages affectés, les variantes et les num
 | Type de message ou variant |  Description | Numéro de version de document (GS8) |
 |-------------------------|--------------|-------------------------------|
 | 277 | Notification d'état d'informations relatives aux services de santé | 005010X212 |
-| 837_I | Demande de remboursement de soins dentaires | 004010X096A1 <br>005010X223A1 <br>005010X223A2 |
-| 837_D | Demande de remboursement de frais médicaux par les organismes institutionnels | 004010X097A1 <br>005010X224A1 <br>005010X224A2 |
+| 837_I | Demande de remboursement de frais médicaux par les organismes institutionnels | 004010X096A1 <br>005010X223A1 <br>005010X223A2 |
+| 837_D | Demande de remboursement de soins dentaires | 004010X097A1 <br>005010X224A1 <br>005010X224A2 |
 | 837_P | Demande de remboursement de frais médicaux par les organismes professionnels | 004010X098A1 <br>005010X222 <br>005010X222A1 |
 |||
 

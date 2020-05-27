@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: b6e501cdc1d5091a27d86406c6919587bedb261a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 6a1a51ee09422607ae1392704add4d49d3367d57
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417689"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759045"
 ---
 # <a name="limitations"></a>Limites
 
@@ -44,7 +44,6 @@ Le nombre autorisé de polygones pour tous les modèles chargés dépend de la t
 
 **Bureau Windows 10**
 
-* Un déploiement « PC autonome » à partir d’Unity n’est pas pris en charge. Utilisez UWP à la place.
 * UWP/x86 est la seule plateforme UWP prise en charge. UWP/x64 n’est pas pris en charge.
 
 **HoloLens 2**

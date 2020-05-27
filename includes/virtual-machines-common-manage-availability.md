@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: ba21dfc900145ceeacab6c363e5de84b830282b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f65912d0e2ab322d73315828a98cc48274850fc
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82109518"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696515"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Comprendre les redémarrages des machines virtuelles : maintenance et temps d’arrêt
 Il existe trois scénarios pouvant affecter une machine virtuelle dans Azure : maintenance matérielle non planifiée, temps d’arrêt imprévu et maintenance planifiée.
@@ -33,7 +33,7 @@ Pour réduire l'effet des interruptions de service dues à un ou plusieurs de ce
 * [Configuration de plusieurs machines virtuelles dans un groupe à haute disponibilité pour assurer la redondance]
 * [Utilisation de disques managés pour les machines virtuelles dans le groupe à haute disponibilité]
 * [Utiliser des événements planifiés pour répondre de façon proactive aux événements qui impactent les machines virtuelles](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
-* [Configuration de chaque couche application dans des groupes à haute disponibilité séparés]
+* [Configurer chaque couche application dans des groupes à haute disponibilité séparés]
 * [Combinaison de l’équilibrage de charge et des groupes à haute disponibilité]
 * [Utiliser les zones de disponibilité pour se protéger contre les défaillances au niveau du centre de données]
 
@@ -97,13 +97,6 @@ Si vous prévoyez d’utiliser des machines virtuelles avec des disques non mana
 
 Quand vous vous abonnez à des [événements planifiés](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events), votre machine virtuelle reçoit une notification relative aux futurs événements de maintenance susceptibles de l’impacter. Quand des événements planifiés sont activés, votre machine virtuelle dispose d’un délai minimal avant l’exécution de l’activité de maintenance. Par exemple, les mises à jour du système d’exploitation hôte susceptibles d’impacter votre machine virtuelle sont mises en file d’attente en tant qu’événements indiquant l’impact ainsi que l’heure d’exécution de la maintenance si aucune action n’est entreprise. Les événements de planification sont également mis en file d’attente quand Azure détecte une défaillance matérielle imminente pouvant impacter votre machine virtuelle, ce qui vous permet de décider du moment de la réparation. Les clients peuvent utiliser l’événement pour effectuer des tâches préalables à la maintenance, par exemple une sauvegarde de l’état, un basculement vers le nœud secondaire, etc. Une fois que vous avez fini de mettre au point votre logique de gestion de l’événement de maintenance, vous pouvez approuver l’événement planifié en attente pour permettre à la plateforme de procéder à la maintenance.
 
-## <a name="configure-each-application-tier-into-separate-availability-zones-or-availability-sets"></a>Configurer chaque couche Application dans des zones de disponibilité ou des groupes à haute disponibilité distincts
-Si vos machines virtuelles sont quasiment identiques et ont la même fonction pour votre application, nous vous recommandons de configurer une zone de disponibilité ou un groupe à haute disponibilité pour chaque couche de votre application.  Si vous placez deux couches différentes dans la même zone de disponibilité ou dans le même groupe à haute disponibilité, toutes les machines virtuelles de la même couche Application peuvent être redémarrées en même temps. En configurant deux machines virtuelles ou plus dans une zone de disponibilité ou dans un groupe à haute disponibilité par couche, vous vous assurez qu'au moins une machine de chaque couche reste disponible.
-
-Par exemple, vous pouvez rassembler dans une seule zone de disponibilité ou un seul groupe à haute disponibilité toutes les machines virtuelles du composant frontal de votre application exécutant IIS, Apache et Nginx. Assurez-vous que seules les machines virtuelles frontales sont placées dans la même zone de disponibilité ou dans le même groupe à haute disponibilité. Assurez-vous également que seules les machines virtuelles de la couche de données sont placées dans leur propre zone de disponibilité ou groupe à haute disponibilité, au même titre que vos machines virtuelles répliquées SQL Server ou vos machines MySQL.
-
-<!--Image reference-->
-   ![Couches Application](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 ## <a name="combine-a-load-balancer-with-availability-zones-or-sets"></a>Combiner un équilibreur de charge avec des zones de disponibilité ou des groupes à haute disponibilité
 Combinez [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) avec une zone de disponibilité ou un groupe à haute disponibilité pour une meilleure résilience de votre application. L'équilibrage de charge Azure répartit le trafic entre plusieurs machines virtuelles. L'équilibrage de charge Azure est compris pour nos machine virtuelles de niveau Standard. Certains niveaux de machines virtuelles n’intègrent pas Azure Load Balancer. Pour plus d’informations sur l’équilibrage de charge des machines virtuelles, consultez [Équilibrage de charge des machines virtuelles](../articles/virtual-machines/virtual-machines-linux-load-balance.md).
@@ -115,7 +108,6 @@ Pour bénéficier d'un didacticiel sur l'équilibrage de charge dans les différ
 
 <!-- Link references -->
 [Configuration de plusieurs machines virtuelles dans un groupe à haute disponibilité pour assurer la redondance]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-[Configuration de chaque couche application dans des groupes à haute disponibilité séparés]: #configure-each-application-tier-into-separate-availability-zones-or-availability-sets
 [Combinaison de l’équilibrage de charge et des groupes à haute disponibilité]: #combine-a-load-balancer-with-availability-zones-or-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Utilisation de disques managés pour les machines virtuelles dans le groupe à haute disponibilité]: #use-managed-disks-for-vms-in-an-availability-set

@@ -5,21 +5,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 03/13/2020
+ms.date: 05/20/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 6cd883289513091ff1a57a130b12e25e012c1160
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 72afa8ebea4cb9bf07cb3ce56583cbdf1849be9e
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334955"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778271"
 ---
-Le tableau suivant décrit les limites par défaut pour les comptes de stockage universels Azure v1, v2, stockage d’objets blob, stockage d’objets blob de blocs et Data Lake Storage Gen2. La limite d’*entrée* désigne toutes les données envoyées à un compte de stockage. La limite de *sortie* désigne toutes les données reçues d’un compte de stockage.
+Le tableau suivant présente les limites par défaut pour les comptes de stockage d’objets blob, d’objets blob de blocs et V1 et V2 universels. La limite d’*entrée* désigne toutes les données envoyées à un compte de stockage. La limite de *sortie* désigne toutes les données reçues d’un compte de stockage.
 
 | Ressource | Limite |
 | --- | --- |
-| Nombre de comptes de stockage par région et par abonnement, y compris les comptes Standard, Premium et compatibles Data Lake Storage Gen2.<sup>3</sup> | 250 |
+| Nombre de comptes de stockage par région et par abonnement, y compris les comptes de stockage standard et premium.| 250 |
 | Capacité maximale du compte de stockage | 5 Pio <sup>1</sup>|
 | Nombre maximal de conteneurs d’objets blob, de partages de fichiers, de tables, de files d’attente, d’entités ou de messages par compte de stockage | Aucune limite |
 | Taux de demande maximal<sup>1</sup> par compte de stockage | 20 000 demandes par seconde |
@@ -37,7 +37,7 @@ Le tableau suivant décrit les limites par défaut pour les comptes de stockage 
 
 [!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
 
-<sup>3</sup> [Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md) est un ensemble de fonctionnalités dédiées à l’analytique du Big Data et basées sur le stockage Blob Azure. Les limitations du stockage Azure et du stockage d’objets blob s’appliquent à Data Lake Storage Gen2.
+<sup>3</sup> [Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md) est un ensemble de fonctionnalités dédiées à l’analytique du Big Data et basées sur le stockage Blob Azure.
 
 > [!NOTE]
 > Microsoft recommande d’utiliser des comptes de stockage universels v2 pour la plupart des scénarios. Vous pouvez facilement mettre à niveau un compte de stockage universel v1 ou un compte de stockage d’objets blob Azure vers un compte universel v2, sans que cela nécessite un temps d’arrêt ou la copie de données. Pour obtenir plus d’informations, consultez [Mettre à niveau vers un compte de stockage v2 à usage général](../articles/storage/common/storage-account-upgrade.md).

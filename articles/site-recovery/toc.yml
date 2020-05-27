@@ -388,7 +388,7 @@
               href: service-updates-how-to.md
             - name: Supprimer un coffre
               href: delete-vault.md
-    - name: Prise en charge de Site Recovery pour les groupes de placement de proximité
+    - name: Site Recovery pour les groupes de placement de proximité
       href: how-to-enable-replication-proximity-placement-groups.md
     - name: Récupération d’urgence pour les applications
       items:

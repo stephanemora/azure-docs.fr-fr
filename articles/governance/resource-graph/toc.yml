@@ -17,6 +17,9 @@
     - name: Exécuter votre première requête - PowerShell
       displayName: 'module, docker, Az.ResourceGraph'
       href: first-query-powershell.md
+    - name: Exécuter votre première requête – Python
+      displayName: 'library, azure-mgmt, cli'
+      href: first-query-python.md
     - name: Déployer une requête partagée - Modèle ARM
       displayName: 'resource manager, queries'
       href: shared-query-template.md
@@ -87,13 +90,13 @@
       href: ./reference/supported-tables-resources.md
 - name: Ressources
   items:
+    - name: GitHub – Exemples de gouvernance
+      href: 'https://github.com/Azure-Samples/Governance/tree/master/src/resource-graph'
+    - name: Chaîne YouTube Governance
+      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Exemples de dépôts GitHub
-      href: 'https://github.com/Azure-Samples/Governance/tree/master/src/resource-graph'
     - name: UserVoice
       href: 'https://feedback.azure.com/forums/915958-azure-governance?category_id=345061'
-    - name: Chaîne YouTube Governance
-      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'

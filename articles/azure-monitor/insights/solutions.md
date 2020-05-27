@@ -5,26 +5,19 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 04/23/2020
-ms.openlocfilehash: 58dbb52cd906d91daec7e4b16625bc264135e90c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/12/2020
+ms.openlocfilehash: 2627cd540efe644315e303337b7dce95a6e2d126
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82114851"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832042"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Solutions de monitoring dans Azure Monitor
 
 Les solutions de monitoring exploitent les services Azure pour offrir des insights supplémentaires sur le fonctionnement d’une application ou d’un service en particulier. Cet article offre une vue d’ensemble des solutions de monitoring Azure et des informations sur leur utilisation et leur installation.
 
-> [!NOTE]
-> Les solutions de monitoring étaient précédemment nommées solutions de gestion.
-
-En règle générale, les solutions de monitoring collectent des données de journal et fournissent des requêtes et des vues permettant d’analyser ces données. Ces solutions peuvent également tirer profit d’autres services tels qu’Azure Automation pour exécuter des actions liées à l’application ou au service.
-
 Vous pouvez ajouter des solutions de monitoring à Azure Monitor pour toutes les applications et tous les services que vous utilisez. Ces solutions sont généralement disponibles gratuitement, mais elles collectent des données susceptibles d’occasionner des frais d’utilisation. Outre les solutions proposées par Microsoft, les partenaires et les clients peuvent [créer des solutions de gestion](solutions-creating.md) utilisables dans leur propre environnement ou mises à la disposition des clients par le biais de la communauté.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="use-monitoring-solutions"></a>Utiliser des solutions de supervision
 
@@ -80,7 +73,7 @@ Les membres de la communauté peuvent soumettre des solutions de gestion aux mod
 
 ## <a name="log-analytics-workspace-and-automation-account"></a>Espace de travail Log Analytics et compte Automation
 
-Toutes les solutions de supervision ont besoin d’un [espace de travail Log Analytics](../platform/manage-access.md) pour stocker les données qu’elles collectent et héberger leurs recherches dans les journaux, ainsi que leurs vues. Certaines solutions nécessitent également un [compte Automation](../../automation/automation-security-overview.md#automation-account-overview) destiné à contenir les runbooks et les ressources associées. L’espace de travail et le compte doivent répondre aux exigences suivantes.
+Toutes les solutions de supervision ont besoin d’un [espace de travail Log Analytics](../platform/manage-access.md) pour stocker les données qu’elles collectent et héberger leurs recherches dans les journaux, ainsi que leurs vues. Certaines solutions nécessitent également un [compte Automation](../../automation/automation-security-overview.md) destiné à contenir les runbooks et les ressources associées. L’espace de travail et le compte doivent répondre aux exigences suivantes.
 
 * Chaque installation d’une solution ne peut utiliser qu’un seul espace de travail Log Analytics et un seul compte Automation. Vous pouvez installer la solution séparément dans plusieurs espaces de travail.
 * Si une solution nécessite un compte Automation, l’espace de travail Log Analytics et le compte Automation doivent être liés l’un à l’autre. Un espace de travail Log Analytics ne peut être lié qu’à un seul compte Automation, et un compte Automation ne peut être lié qu’à un seul espace de travail Log Analytics.

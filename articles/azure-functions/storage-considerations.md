@@ -3,12 +3,12 @@ title: Considérations relatives au stockage pour Azure Functions
 description: En savoir plus sur les exigences de stockage d’Azure Functions et sur le chiffrement des données stockées.
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 48ff2dedd997cccb76b13acdadc895504f656ea3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 324516240d09a5443908cbffec514e4caba2b604
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984161"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648802"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considérations relatives au stockage pour Azure Functions
 
@@ -53,9 +53,7 @@ Plusieurs applications de fonction peuvent partager le même compte de stockage 
 
 ## <a name="storage-data-encryption"></a>Chiffrement des données de stockage
 
-Le stockage Azure chiffre toutes les données dans un compte de stockage au repos. Pour plus d'informations, consultez [Fonctionnalité de chiffrement du service Stockage Azure pour les données au repos](../storage/common/storage-service-encryption.md).
-
-Par défaut, les données sont chiffrées avec des clés managées par Microsoft Pour plus de contrôle sur les clés de chiffrement, vous pouvez fournir des clés gérées par le client à utiliser pour le chiffrement des données de fichiers et d’objets blob. Ces clés doivent être présentes dans Azure Key Vault pour que Functions puisse accéder au compte de stockage. Pour en savoir plus, consultez [Configurer des clés gérées par le client avec Azure Key Vault en utilisant le Portail Azure](../storage/common/storage-encryption-keys-portal.md).  
+[!INCLUDE [functions-storage-encryption](../../includes/functions-storage-encryption.md)]
 
 ## <a name="mount-file-shares-linux"></a>Monter des partages de fichiers (Linux)
 

@@ -3,12 +3,12 @@ title: Types de ressource pris en charge par Azure Resource Health | Microsoft D
 description: Types de ressource pris en charge par Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 5cc80147730fdc97b1181690f6e70fc538d4afcc
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 38c7e0754649d650521cc510bcac326496bcec38
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478905"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816096"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Types de ressources et les contrôles d’intégrité dans Azure Resource Health
 Voici une liste complète de toutes les vérifications exécutées via Resource Health par type de ressource.
@@ -204,7 +204,7 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |---|
 |<ul><li>La base de données est-elle opérationnelle ?</li></ul>|
 
-## <a name="microsoftsqlserverdatabases"></a>Microsoft.SQL/Server/databases
+## <a name="microsoftsqlserversdatabases"></a>Microsoft.SQL/servers/databases
 |Vérifications exécutées|
 |---|
 |<ul><li>Y a-t-il eu des connexions à la base de données ?</li></ul>|
