@@ -14,6 +14,8 @@
       href: ./create.md
     - name: Gérer vos ressources
       href: ./manage.md
+    - name: Protéger la hiérarchie de vos ressources
+      href: ./how-to/protect-resource-hierarchy.md
 - name: Informations de référence
   items:
     - name: Azure CLI

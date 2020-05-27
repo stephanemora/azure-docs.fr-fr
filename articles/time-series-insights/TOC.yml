@@ -166,12 +166,12 @@
           href: 'https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help'
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
-        - name: Forum MSDN
-          href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights'
+        - name: Page de questions Microsoft Q&A
+          href: 'https://docs.microsoft.com/answers/topics/azure-time-series-insights.html'
     - name: Commentaires et forums
       items:
-        - name: Forum MSDN
-          href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights'
+        - name: Page de questions Microsoft Q&A
+          href: 'https://docs.microsoft.com/answers/topics/azure-time-series-insights.html'
         - name: Demandes de produit et suggestions
           href: 'https://feedback.azure.com/forums/906859-azure-time-series-insights'
     - name: Vidéos Azure

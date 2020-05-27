@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 81309f0b5781e6302887a5b079ed359e70659834
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 86314fd5bfe103cef8332ee3113f46fb0e39dafc
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77658963"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836360"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Rôles, autorisations et sécurité dans Azure Monitor
 
@@ -28,7 +28,7 @@ Les personnes affectées au rôle de lecteur d’analyse peuvent afficher toutes
 
 * Afficher des tableaux de bord d’analyse dans le portail et créer leurs propres tableaux de bord privés d’analyse.
 * Afficher les règles d’alerte définies dans [Alertes Azure](alerts-overview.md)
-* Requête de mesures avec l’[API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), les [applets de commande PowerShell](powershell-quickstart-samples.md) ou le [CLI multiplateforme](cli-samples.md).
+* Requête de mesures avec l’[API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), les [applets de commande PowerShell](powershell-quickstart-samples.md) ou le [CLI multiplateforme](../samples/cli-samples.md).
 * Interroger le journal d’activité via le portail, l’API REST Azure Monitor, les applets de commande PowerShell ou le CLI multiplateforme.
 * Affichez les [Paramètres de diagnostic](diagnostic-settings.md) pour une ressource.
 * Afficher le [profil de journalisation](activity-log-export.md) pour un abonnement.

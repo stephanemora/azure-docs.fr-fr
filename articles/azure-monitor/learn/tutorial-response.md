@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
-ms.openlocfilehash: 756ce6c8551d259fc27855489b4276d90c7aa771
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8af1acb67961de105e5bf5900d7b10c437cb30d8
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77670370"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835867"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Répondre aux événements avec les alertes Azure Monitor
 Les alertes dans Azure Monitor identifient des informations importantes dans votre référentiel Log Analytics. Elles sont créées par des règles d’alerte qui exécutent automatiquement des recherches dans les journaux à intervalles réguliers. Si les résultats de la recherche dans les journaux correspondent à des critères particuliers, un enregistrement d’alerte est créé et peut être configuré pour exécuter une réponse automatisée.  Ce didacticiel est la suite du didacticiel [Créer et partager des tableaux de bord de données Log Analytics](tutorial-logs-dashboards.md).   
@@ -23,7 +23,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Création d'une règle d'alerte
 > * Configurer un groupe d’action qui envoie une notification par e-mail
 
-Pour effectuer l’exemple de ce didacticiel, vous devez disposer d’une machine virtuelle [connectée à l’espace de travail Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md).  
+Pour effectuer l’exemple de ce didacticiel, vous devez disposer d’une machine virtuelle [connectée à l’espace de travail Log Analytics](quick-collect-azurevm.md).  
 
 ## <a name="sign-in-to-azure-portal"></a>Se connecter au portail Azure
 Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com). 
@@ -69,4 +69,4 @@ Dans ce didacticiel, vous avez découvert en quoi les règles d’alerte permett
 Suivez ce lien pour examiner des exemples de scripts Log Analytics prédéfinis.  
 
 > [!div class="nextstepaction"]
-> [Exemples de scripts Log Analytics](../../azure-monitor/platform/powershell-samples.md)
+> [Exemples de scripts Log Analytics](../samples/powershell-samples.md)

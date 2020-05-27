@@ -182,8 +182,8 @@
       href: frequently-asked-questions.md
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Page de questions Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/network-watcher/'
     - name: Mises à jour de service

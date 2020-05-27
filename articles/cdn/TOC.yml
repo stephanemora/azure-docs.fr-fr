@@ -67,8 +67,6 @@
           href: cdn-restrict-access-by-country.md
         - name: Compression des fichiers pour améliorer les performances
           href: cdn-improve-performance.md
-        - name: Plusieurs origines de point de terminaison
-          href: endpoint-multiorigin.md
         - name: Contrôler le comportement de mise en cache
           items:
             - name: Contrôler le comportement de mise en cache en utilisant des règles de mise en cache
@@ -185,8 +183,8 @@
       href: cdn-billing.md
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=azurecdn'
+    - name: Page de questions Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-cdn.html'
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/cdn/'
     - name: Calculatrice de prix

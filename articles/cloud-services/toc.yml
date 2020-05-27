@@ -102,7 +102,7 @@
           href: cloud-services-certs-create.md
         - name: Configuration du chiffrement SSL
           href: cloud-services-configure-ssl-certificate-portal.md
-    - name: Moniteur
+    - name: Superviser
       items:
         - name: Surveiller le service cloud
           href: cloud-services-how-to-monitor.md
@@ -191,8 +191,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: Parcours d’apprentissage
       href: 'https://azure.microsoft.com/documentation/learning-paths/cloud-services/'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment'
+    - name: Page de questions Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-cloud-services.html'
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/cloud-services/'
     - name: Calculatrice de prix

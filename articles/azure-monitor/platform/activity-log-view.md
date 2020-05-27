@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 4ea29888d4dcf589e3e5d4dfe594f5f4bff2287e
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 3327f0bdaff641055cf84ab205d847f0fb73bfe8
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559981"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834609"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>Afficher et récupérer les événements du journal d’activité Azure
 
@@ -112,7 +112,7 @@ Get-AzLog -MaxRecord 1000
 
 
 ## <a name="cli"></a>Interface de ligne de commande
-Utilisez [az monitor activity-log](cli-samples.md#view-activity-log-for-a-subscription) pour récupérer le journal d’activité à partir de l’interface CLI. Voici quelques exemples courants.
+Utilisez [az monitor activity-log](../samples/cli-samples.md#view-activity-log-for-a-subscription) pour récupérer le journal d’activité à partir de l’interface CLI. Voici quelques exemples courants.
 
 
 Affichez toutes les options disponibles.

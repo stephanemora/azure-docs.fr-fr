@@ -201,8 +201,8 @@
       href: data-factory-customer-case-studies.md
     - name: Parcours d’apprentissage
       href: 'https://azure.microsoft.com/documentation/learning-paths/data-factory'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'
+    - name: Page de questions Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-data-factory.html'
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/data-factory/'
     - name: Calculatrice de prix
