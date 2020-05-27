@@ -3,7 +3,7 @@ title: Rétention des sauvegardes à long terme
 description: Découvrez comment Azure SQL Database prend en charge le stockage des sauvegardes complètes de bases de données jusqu’à une durée de 10 ans via une stratégie de rétention à long terme.
 services: sql-database
 ms.service: sql-database
-ms.subservice: backup-restore
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
-ms.openlocfilehash: e85c8c0990a2659dba1f254a8f1aa7c7be7852eb
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 6fc5fab9ae61c8c8ade9260b32078ffa430b077f
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508086"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771398"
 ---
 # <a name="azure-sql-database-long-term-retention"></a>Conservation à long terme Azure SQL Database
 

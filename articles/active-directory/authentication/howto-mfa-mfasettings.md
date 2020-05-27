@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfde52db9cbe5bc14be7b30c1063215472bff699
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 3ef98f243abd02f0156190638cda8ab7c33f935d
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116286"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770905"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 
@@ -36,7 +36,7 @@ Certains de ces paramètres s’appliquent à MFA Server, à Azure MFA ou aux de
 | [Blocage/déblocage des utilisateurs](#block-and-unblock-users) | Utilisé pour empêcher des utilisateurs spécifiques de recevoir des demandes d’authentification multifacteur. Toutes les tentatives d’authentification des utilisateurs bloqués sont automatiquement refusées. La durée de blocage de ces utilisateurs est de 90 jours à partir du moment où ils sont bloqués. |
 | [Alerte de fraude](#fraud-alert) | Configurez les paramètres liés à la possibilité pour les utilisateurs de signaler des demandes de vérification frauduleuses. |
 | [Notifications](#notifications) | Activez les notifications des événements provenant de MFA Server. |
-| [Jetons OATH](concept-authentication-methods.md#oath-hardware-tokens) | Utilisé dans les environnements Azure MFA cloud afin de gérer les jetons OATH pour les utilisateurs. |
+| [Jetons OATH](concept-authentication-methods.md#oath-tokens) | Utilisé dans les environnements Azure MFA cloud afin de gérer les jetons OATH pour les utilisateurs. |
 | [Paramètres de l’appel téléphonique](#phone-call-settings) | Configurez les paramètres liés aux appels téléphoniques et aux messages d’accueil pour les environnements cloud et locaux. |
 | Fournisseurs | Ceci montre tous les fournisseurs d’authentification existants que vous avez associés à votre compte. À compter du 1er septembre 2018, vous ne pouvez plus créer des fournisseurs d’authentification |
 

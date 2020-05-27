@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6edc114a2d69dfe8f1e6e5d3c0a2d4af26dbad67
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6d31edaea109f2969cc68c566594dc436be203d7
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596598"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743544"
 ---
 # <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Implémenter des styles dynamiques pour les cartes d’intérieur du Créateur
 
-Le [service État de caractéristique](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) du Créateur Azure Maps permet d’appliquer des styles basés sur les propriétés dynamiques des caractéristiques de données cartographiques intérieures.  Par exemple, vous pouvez afficher des salles de réunion d’un bâtiment dans une couleur spécifique reflétant leur état d’occupation. Cet article explique comment afficher de façon dynamique des caractéristiques de carte d’intérieur avec le [service État de caractéristique](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) et le [module web Intérieur](how-to-use-indoor-module.md).
+Le [service État de caractéristique](https://docs.microsoft.com/rest/api/maps/featurestate) du Créateur Azure Maps permet d’appliquer des styles basés sur les propriétés dynamiques des caractéristiques de données cartographiques intérieures.  Par exemple, vous pouvez afficher des salles de réunion d’un bâtiment dans une couleur spécifique reflétant leur état d’occupation. Cet article explique comment afficher de façon dynamique des caractéristiques de carte d’intérieur avec le [service État de caractéristique](https://docs.microsoft.com/rest/api/maps/featurestate) et le [module web Intérieur](how-to-use-indoor-module.md).
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -3,19 +3,19 @@ title: Activer la configuration de sous-réseau assistée par le service pour Az
 description: Activer la configuration de sous-réseau assistée par le service pour Azure SQL Database Managed Instance
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.date: 03/12/2020
-ms.openlocfilehash: efc2b8578651f68d052f227694f85348853e191f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f22c713af700225ffe6954460c36217abdea5eea
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79533264"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770157"
 ---
 # <a name="enabling-service-aided-subnet-configuration-for-azure-sql-database-managed-instance"></a>Activer la configuration de sous-réseau assistée par le service pour Azure SQL Database Managed Instance
 La configuration de sous-réseau assistée par le service fournit une gestion automatique de la configuration de réseau pour les sous-réseaux hébergeant des instances gérées. Avec la configuration de sous-réseau assistée par service, l’utilisateur continue de contrôler totalement l'accès au trafic de données (TDS), tandis que l'instance gérée assume la responsabilité de garantir un flux ininterrompu du trafic de gestion afin de respecter le contrat de niveau de service.

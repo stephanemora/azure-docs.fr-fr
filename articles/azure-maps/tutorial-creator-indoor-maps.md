@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5a7f64ead6d2e19242950002feed1cd1491dbacc
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 4d150135e15fb167a9c2d56c74e7bc4fc91c0953
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596588"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745933"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Utiliser le Créateur pour créer des cartes d’intérieur
 
@@ -57,7 +57,7 @@ L’API de chargement de données est une transaction de longue durée qui impl�
 
 4. Sous l’onglet **En-têtes**, spécifiez une valeur pour la clé `Content-Type`. Le package de dessin étant un dossier compressé, utilisez la valeur `application/octet-stream`. Sous l’onglet **Corps**, sélectionnez **binaire**. Cliquez sur **Sélectionner un fichier**, puis choisissez un package de dessin.
 
-     ![data-management](./media/tutorial-creator-indoor-maps/enter-content-type.png)
+     ![data-management](./media/tutorial-creator-indoor-maps/enter-content-type-dialog.png)
 
 5. Cliquez sur le bouton bleu **Envoyer**, puis attendez que la requête soit traitée. Une fois la requête terminée, accédez à l’onglet **En-têtes** de la réponse. Copiez la valeur de la **Emplacement**, qui est l’URL `status URL`.
 
@@ -215,7 +215,7 @@ Un tileset est un ensemble de vignettes vectorielles qui s’affichent sur la ca
     https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-3. Le corps de la réponse est fourni au format GeoJSON, et contient toutes les collections dans le jeu de données. Par souci de simplicité, l’exemple fourni ici affiche uniquement la collection `unit`. Pour voir un exemple contenant tous les collections, consultez [API Describe Collections du service de caractéristique web](https://docs.microsoft.com/rest/api/maps/wfs/describecollectionspreview). Pour en savoir plus sur une collection, vous pouvez cliquer sur l’une des URL à l’intérieur de l’élément `link`.
+3. Le corps de la réponse est fourni au format GeoJSON, et contient toutes les collections dans le jeu de données. Par souci de simplicité, l’exemple fourni ici affiche uniquement la collection `unit`. Pour voir un exemple contenant tous les collections, consultez [API Describe Collections du service de caractéristique web](https://docs.microsoft.com/rest/api/maps/wfs/collectiondescriptionpreview). Pour en savoir plus sur une collection, vous pouvez cliquer sur l’une des URL à l’intérieur de l’élément `link`.
 
     ```json
     {
@@ -285,7 +285,7 @@ Un tileset est un ensemble de vignettes vectorielles qui s’affichent sur la ca
 
 1. Dans l’application Postman, sélectionnez **Nouveau**. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Nom de demande**, puis sélectionnez une collection. Cliquez sur **Enregistrer**.
 
-2. Adressez une requête **POST** à l’[API de création de stateset](https://docs.microsoft.com/rest/api/maps/featurestate/createstatepreview). Utilisez l’ID `datasetId` du jeu de données contenant l’état que vous souhaitez modifier. La requête doit ressembler à l’URL suivante :
+2. Adressez une requête **POST** à l’[API de création de stateset](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview). Utilisez l’ID `datasetId` du jeu de données contenant l’état que vous souhaitez modifier. La requête doit ressembler à l’URL suivante :
 
     ```http
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}

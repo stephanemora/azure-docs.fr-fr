@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 5e155758d19b45d977fcd087bff0ceb85898f8f8
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 4e64873cc2e7779c4d931018fd16bdca08596aa2
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548300"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757821"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Meilleures pratiques Azure pour la sécurité réseau
 Cet article présente l’ensemble des meilleures pratiques Azure pour améliorer votre sécurité réseau. Ces meilleures pratiques sont issues de notre expérience dans le domaine de la mise en réseau Azure, mais également de celle des clients, comme vous.
@@ -74,7 +74,7 @@ Les réseaux doivent se développer à partir des défenses traditionnelles, car
 Les meilleures pratiques sont :
 
 **Bonne pratique** : Donnez l’accès conditionnel aux ressources en fonction de l’appareil, de l’identité, de l’assurance, de l’emplacement réseau, etc.  
-**Détail** : [L’accès conditionnel Azure AD](/azure/active-directory/conditional-access/overview) vous permet d’appliquer les contrôles d’accès appropriés en implémentant des décisions de contrôle d’accès automatisées, basées sur les conditions exigées. Pour plus informations, consultez [Gérer l’accès à la gestion Azure avec l’accès conditionnel](../../role-based-access-control/conditional-access-azure-management.md).
+**Détail** : [L’accès conditionnel Azure AD](../../active-directory/conditional-access/overview.md) vous permet d’appliquer les contrôles d’accès appropriés en implémentant des décisions de contrôle d’accès automatisées, basées sur les conditions exigées. Pour plus informations, consultez [Gérer l’accès à la gestion Azure avec l’accès conditionnel](../../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).
 
 **Bonne pratique** : Activez l’accès au port uniquement après l’approbation du flux de travail.  
 **Détail** : Vous pouvez utiliser [l’accès juste-à-temps aux machines virtuelles dans Azure Security Center](../../security-center/security-center-just-in-time.md) pour verrouiller le trafic entrant vers vos machines virtuelles Azure, ce qui réduit l’exposition aux attaques et facilite la connexion aux machines virtuelles en cas de besoin.

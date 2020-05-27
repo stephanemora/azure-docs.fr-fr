@@ -3,7 +3,7 @@ title: 'Base de données unique : Gérer la rétention des sauvegardes à long 
 description: Découvrez comment stocker et restaurer des sauvegardes automatisées pour une base de données unique ou mise en pool Azure SQL Database dans un stockage Azure (jusqu’à 10 ans) à l’aide du portail Azure et de PowerShell
 services: sql-database
 ms.service: sql-database
-ms.subservice: backup-restore
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/14/2020
-ms.openlocfilehash: 1fedf889fa8d39a926067eb227b895d4fe1e3c39
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 3b35a9995a391f2661d8b9c800dbe7193203999b
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509344"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771551"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gérer la conservation à long terme des sauvegardes Azure SQL Database
 
