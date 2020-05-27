@@ -13,13 +13,13 @@ ms.custom:
 - seo-java-august2019
 - seo-java-september2019
 - mqtt
-ms.date: 06/21/2019
-ms.openlocfilehash: 954fe6f92b68d011aaff0fff7925b3409ee628cb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/26/2020
+ms.openlocfilehash: 225b9407bff4294288bb4834cbb0d919698b78c6
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769102"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873152"
 ---
 # <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>Démarrage rapide : Envoyer de la télémétrie à un hub IoT Azure et la lire avec une application Java
 
@@ -133,7 +133,7 @@ L’application d’appareil simulé se connecte à un point de terminaison spé
 
     La capture d’écran suivante présente la sortie lorsque l’application d’appareil simulé envoie des données de télémétrie à votre IoT Hub :
 
-    ![Sortie des données de télémétrie envoyées par l’appareil à votre hub IoT](media/quickstart-send-telemetry-java/iot-hub-simulated-device.png)
+    ![Sortie des données de télémétrie envoyées par l’appareil à votre hub IoT](media/quickstart-send-telemetry-java/simulated-device.png)
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Lire les données de télémétrie envoyées par votre hub
 
@@ -145,9 +145,9 @@ L’application back-end se connecte au point de terminaison **Événements** du
 
     | Variable | Valeur |
     | -------- | ----------- |
-    | `eventHubsCompatibleEndpoint` | Remplacez la valeur de la variable par le point de terminaison compatible Event Hubs que vous avez noté précédemment. |
-    | `eventHubsCompatiblePath`     | Remplacez la valeur de la variable par le chemin compatible Event Hubs que vous avez noté précédemment. |
-    | `iotHubSasKey`                | Remplacez la valeur de la variable par la clé principale de service que vous avez notée précédemment. |
+    | `EVENT_HUBS_COMPATIBLE_ENDPOINT` | Remplacez la valeur de la variable par le point de terminaison compatible Event Hubs que vous avez noté précédemment. |
+    | `EVENT_HUBS_COMPATIBLE_PATH`     | Remplacez la valeur de la variable par le chemin compatible Event Hubs que vous avez noté précédemment. |
+    | `IOT_HUB_SAS_KEY`                | Remplacez la valeur de la variable par la clé principale de service que vous avez notée précédemment. |
 
 3. Dans la fenêtre de terminal local, exécutez les commandes suivantes pour installer les bibliothèques requises et générer l’application back-end :
 
@@ -163,7 +163,7 @@ L’application back-end se connecte au point de terminaison **Événements** du
 
     La capture d’écran suivante présente la sortie lorsque l’application back-end reçoit les données de télémétrie envoyées par l’appareil simulé au concentrateur :
 
-    ![La sortie en tant qu’application back-end reçoit les données de télémétrie envoyées à votre hub IoT](media/quickstart-send-telemetry-java/iot-hub-read-device-to-cloud.png)
+    ![La sortie en tant qu’application back-end reçoit les données de télémétrie envoyées à votre hub IoT](media/quickstart-send-telemetry-java/read-device-to-cloud.png)
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

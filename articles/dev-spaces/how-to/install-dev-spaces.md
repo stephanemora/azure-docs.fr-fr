@@ -5,12 +5,12 @@ ms.date: 07/24/2019
 ms.topic: conceptual
 description: Découvrez comment activer Azure Dev Spaces sur un cluster AKS et installer les outils côté client.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
-ms.openlocfilehash: a6b3be5ceba5e60b99b2f75e060f3321cd3151f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3666eeb995c73615c522200a3619d785814ea0b5
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898952"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873515"
 ---
 # <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>Activer Azure Dev Spaces sur un cluster AKS et installer les outils côté client
 
@@ -84,7 +84,6 @@ Vous pouvez utiliser les outils côté client Azure Dev Spaces pour interagir av
 
 * Dans [Visual Studio Code][vscode], installez l’[extension Azure Dev Spaces][vscode-extension].
 * Dans [Visual Studio 2019][visual-studio], installez la charge de travail Développement Azure.
-* Dans Visual Studio 2017, installez la charge de travail Développement web et [Visual Studio Tools pour Kubernetes][visual-studio-k8s-tools].
 * Téléchargez et installez l’interface CLI [Windows][cli-win], [Mac][cli-mac] ou [Linux][cli-linux]
 
 ## <a name="next-steps"></a>Étapes suivantes
