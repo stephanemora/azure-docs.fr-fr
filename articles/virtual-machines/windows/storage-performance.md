@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: cd15df2a7074463789bcf4a2d4de3c41bd012bbb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a093303efe63a051e8e2ff9824a35228e44e1aa
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100547"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652601"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Optimiser les performances sur les machines virtuelles de la série Lsv2
 
@@ -21,7 +21,7 @@ Les machines virtuelles de la série Lsv2 prennent en charge diverses charges de
 
 La conception des machines virtuelles de la série Lsv2 exploite au maximum le processeur AMD EPYC™ 7551 pour offrir des performances optimales entre le processeur, la mémoire, les appareils NVMe et les machines virtuelles. En plus de maximiser les performances matérielles, les machines virtuelles de la série Lsv2 ont été conçues pour répondre aux besoins des systèmes d’exploitation Windows et Linux afin d’offrir de meilleures performances sur le plan matériel et logiciel.
 
-Les ajustements apportés aux logiciels et au matériel ont engendré la version optimisée de [Windows Server 2019 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), qui a été publiée début décembre 2018 sur la Place de marché Azure, qui autorise des performances maximales sur les appareils NVMe des machines virtuelles de la série Lsv2.
+Les ajustements apportés aux logiciels et au matériel ont engendré la version optimisée de [Windows Server 2019 Datacenter](https://www.microsoft.com/cloud-platform/windows-server-pricing), qui a été publiée début décembre 2018 sur la Place de marché Azure, qui autorise des performances maximales sur les appareils NVMe des machines virtuelles de la série Lsv2.
 
 Cet article fournit des conseils et des suggestions pour faire en sorte que vos charges de travail et vos applications atteignent les performances maximales dans les machines virtuelles. Les informations contenues dans cette page seront constamment mises à jour à mesure que de nouvelles images optimisées Lsv2 seront ajoutées à la Place de marché Azure.
 

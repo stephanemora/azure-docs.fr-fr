@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: a09094cf0d1bd3c2e299e968d7de8410dcd9c3cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 269cadc50d55c4b986c55f489cecd7fa17922ba8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76721878"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656548"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de détection des anomalies Machine Learning
 
@@ -24,7 +24,7 @@ ms.locfileid: "76721878"
 > Cet élément est en cours de maintenance. Nous vous encourageons à utiliser le [service d’API de détecteur d’anomalies](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) alimenté par des algorithmes de Machine Learning sous Azure Cognitive Services pour détecter les anomalies à partir de métriques d’entreprise, opérationnelles et IoT.
 
 ## <a name="overview"></a>Vue d’ensemble
-L’[API de détection des anomalies](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) est un exemple d’API généré avec Microsoft Azure Machine Learning. Elle détecte des anomalies dans les données de séries chronologiques présentant des valeurs numériques qui sont réparties uniformément dans le temps.
+L’[API de détection des anomalies](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2) est un exemple d’API généré avec Microsoft Azure Machine Learning. Elle détecte des anomalies dans les données de séries chronologiques présentant des valeurs numériques qui sont réparties uniformément dans le temps.
 
 Cette API peut détecter les types suivants de schémas anormaux dans les données de séries chronologiques :
 
@@ -39,20 +39,20 @@ L’offre de détection des anomalies inclut des outils utiles pour bien commenc
 * [L’application web](https://anomalydetection-aml.azurewebsites.net/) vous aide à évaluer et à visualiser les résultats de l’exécution de l’API de détection des anomalies sur vos données.
 
 > [!NOTE]
-> Essayez la **solution IT Anomaly Insights** basée sur [cette API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).
+> Essayez la **solution IT Anomaly Insights** basée sur [cette API](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2).
 >
 <!-- This Solution is no longer available
 > To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
 -->
 
 ## <a name="api-deployment"></a>Déploiement de l’API
-Pour pouvoir utiliser l’API, vous devez la déployer dans votre abonnement Azure où elle sera hébergée comme un service web Azure Machine Learning.  Vous pouvez effectuer cette opération dans la [galerie Azure AI](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Cette action déploie deux services web Azure Machine Learning Studio (classique) (et leurs ressources associées) dans votre abonnement Azure : un pour la détection d’anomalies avec détection de saisonnalité et un autre sans détection de saisonnalité.  Une fois le déploiement terminé, vous serez en mesure de gérer vos API à partir de la page des [services web Azure Machine Learning Studio (classique)](https://services.azureml.net/webservices/).  Sur cette page, vous pourrez trouver l’emplacement de vos points de terminaison, de vos clés API, ainsi que les exemples de code pour appeler l’API.  Des instructions plus détaillées sont disponibles [ici](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
+Pour pouvoir utiliser l’API, vous devez la déployer dans votre abonnement Azure où elle sera hébergée comme un service web Azure Machine Learning.  Vous pouvez effectuer cette opération dans la [galerie Azure AI](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2).  Cette action déploie deux services web Azure Machine Learning Studio (classique) (et leurs ressources associées) dans votre abonnement Azure : un pour la détection d’anomalies avec détection de saisonnalité et un autre sans détection de saisonnalité.  Une fois le déploiement terminé, vous serez en mesure de gérer vos API à partir de la page des [services web Azure Machine Learning Studio (classique)](https://services.azureml.net/webservices/).  Sur cette page, vous pourrez trouver l’emplacement de vos points de terminaison, de vos clés API, ainsi que les exemples de code pour appeler l’API.  Des instructions plus détaillées sont disponibles [ici](/azure/machine-learning/studio/manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>Mise à l’échelle de l’API
 Par défaut, votre déploiement est assorti d’un plan de facturation Dev/Test gratuit comprenant 1 000 transactions et 2 heures de calcul par mois.  Vous pouvez mettre à niveau votre plan en fonction de vos besoins.  Vous pouvez retrouver des informations sur la tarification des différents plans [ici](https://azure.microsoft.com/pricing/details/machine-learning/) sous « Tarification des API web de production ».
 
 ## <a name="managing-aml-plans"></a>Gestion des plans AML
-Vous pouvez gérer votre plan de facturation [ici](https://services.azureml.net/plans/).  Le nom du plan doit être basé sur le nom du groupe de ressources que vous avez choisi lors du déploiement de l’API, plus une chaîne unique à votre abonnement.  Vous pouvez retrouver des instructions sur la mise à niveau de votre plan [ici](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice) dans la section « Gestion des plans de facturation ».
+Vous pouvez gérer votre plan de facturation [ici](https://services.azureml.net/plans/).  Le nom du plan doit être basé sur le nom du groupe de ressources que vous avez choisi lors du déploiement de l’API, plus une chaîne unique à votre abonnement.  Vous pouvez retrouver des instructions sur la mise à niveau de votre plan [ici](/azure/machine-learning/studio/manage-new-webservice) dans la section « Gestion des plans de facturation ».
 
 ## <a name="api-definition"></a>Définition de l’API
 Le service web fournit des API REST sur HTTPS qui peuvent être utilisées de différentes façons, notamment une application web ou mobile, R, Python, Excel, etc.  L’envoi des données de séries chronologiques à ce service se fait via un appel d’API REST ; celui-ci exécute une combinaison des trois types de détection d’anomalie décrits ci-dessous.

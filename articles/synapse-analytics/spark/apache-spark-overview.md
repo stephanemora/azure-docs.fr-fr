@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: b6af42f09351df60beb2aa449f8fcd2ff6a554e8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 470cc8cc16c8bdb32bac32a7227690899abb9c51
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82116653"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644668"
 ---
 # <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>Présentation d’Apache Spark dans Azure Synapse Analytics
 
@@ -35,7 +35,7 @@ Les pools Spark dans Azure Synapse offrent un service Spark complètement manag�
 | Fonctionnalité | Description |
 | --- | --- |
 | Vitesse et efficacité |Les instances Spark démarrent en environ deux minutes pour moins de 60 nœuds, et environ cinq minutes pour plus de 60 nœuds. Par défaut, l’instance s’arrête cinq minutes après l’exécution du dernier travail, sauf si elle est maintenue active par une connexion de notebook. |
-| Facilité de création |Vous pouvez créer un pool Spark dans Azure Synapse en quelques minutes à l’aide du portail Azure, d’Azure PowerShell ou du SDK .NET Synapse Analytics. Consultez [Bien démarrer avec les pools Spark dans Synapse Analytics](../quickstart-create-apache-spark-pool.md). |
+| Facilité de création |Vous pouvez créer un pool Spark dans Azure Synapse en quelques minutes à l’aide du portail Azure, d’Azure PowerShell ou du SDK .NET Synapse Analytics. Consultez [Bien démarrer avec les pools Spark dans Synapse Analytics](../quickstart-create-apache-spark-pool-studio.md). |
 | Simplicité d'utilisation |Synapse Analytics comprend un notebook personnalisé dérivé de [Nteract](https://nteract.io/). Vous pouvez utiliser les blocs-notes pour le traitement interactif et la visualisation des données.|
 | API REST |Spark dans Synapse Analytics comprend [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), un serveur de travaux Spark basé sur une API REST qui permet de soumettre et de superviser à distance des travaux. |
 | Prise en charge d’Azure Data Lake Storage Generation 2| Les pools Spark dans Azure Synapse peuvent utiliser Azure Data Lake Storage Generation 2 et le stockage d’objets blob. Pour plus d’informations sur Data Lake Storage, consultez [Vue d’ensemble d’Azure Data Lake Storage](../../data-lake-store/data-lake-store-overview.md). |
@@ -78,7 +78,7 @@ Apache Spark est fourni avec [MLlib](https://spark.apache.org/mllib/), biblioth�
 
 Consultez les articles suivants pour en savoir plus sur Apache Spark dans Synapse Analytics :
 
-- [Démarrage rapide : Créer un pool Spark dans Azure Synapse](../quickstart-create-apache-spark-pool.md)
+- [Démarrage rapide : Créer un pool Spark dans Azure Synapse](../quickstart-create-apache-spark-pool-portal.md)
 - [Démarrage rapide : Créer un notebook Apache Spark](../quickstart-apache-spark-notebook.md)
 - [Tutoriel : Machine Learning avec Apache Spark](./apache-spark-machine-learning-mllib-notebook.md)
 - [Documentation officielle Apache Spark](https://spark.apache.org/docs/latest/)
@@ -90,4 +90,4 @@ Consultez les articles suivants pour en savoir plus sur Apache Spark dans Synaps
 
 Cette présentation offre une vue d’ensemble d’Apache Spark dans Azure Synapse Analytics. Passez à l’article suivant pour découvrir comment créer un pool Spark dans Azure Synapse Analytics :
 
-- [Créer un pool Spark dans Azure Synapse](../quickstart-create-apache-spark-pool.md)
+- [Créer un pool Spark dans Azure Synapse](../quickstart-create-apache-spark-pool-portal.md)

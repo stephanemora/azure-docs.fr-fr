@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/25/2019
-ms.openlocfilehash: 84b72a71ed2de910bce44b0c3f3309782f096680
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf63d5c8cb46fd791508af40dcefd7b39d4ba9de
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77581835"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652030"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Utiliser Jupyter Notebook pour rechercher des menaces de sécurité
 
@@ -125,7 +125,7 @@ Chaque notebook vous guide dans la procédure de recherche ou d’investigation.
 
 Recommandations :
 
-- Pour une présentation rapide de l’interrogation des données dans Azure Sentinel, consultez le notebook [GetStarted](https://github.com/Azure/Azure-Sentinel/blob/master/Notebooks/Get%20Started.ipynb) le dossier principal **Notebooks**. 
+- Pour une présentation rapide de l’interrogation des données dans Azure Sentinel, consultez le notebook [GetStarted](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/345cf9f7c8f6137f5af4593a3f9d7568acd6cbc2/DeprecatedNotebooks/Get%20Started.ipynb) le dossier principal **Notebooks**. 
 
 - Vous trouverez des exemples supplémentaires de notebooks dans le sous-dossier **Sample-Notebooks**. Les exemples de notebooks ont été enregistrés avec des données pour que vous puissiez voir plus facilement le résultat prévu. Nous vous recommandons de les afficher dans [nbviewer](https://nbviewer.jupyter.org/). 
 

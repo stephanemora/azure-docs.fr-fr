@@ -5,16 +5,17 @@ description: Découvrez comment utiliser Python dans le concepteur Azure Machine
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
-ms.openlocfilehash: a2bd9845cd29c7d139e2042f39b4697847639207
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: designer
+ms.openlocfilehash: e27844f9f534ea4db1aba53c12fb3947e7269846
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79455789"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644466"
 ---
 # <a name="execute-python-code-in-azure-machine-learning-designer"></a>Exécuter du code Python dans le concepteur Azure Machine Learning
 

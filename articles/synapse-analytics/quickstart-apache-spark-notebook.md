@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: 9e8a539421a76b6f94f10d559ad0086c9d87abf4
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 27ec09f1286f4e7999db56acdedaba1a37122aad
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592948"
+ms.locfileid: "83656199"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-in-azure-synapse-analytics-using-web-tools"></a>Démarrage rapide : Créer un pool Apache Spark (préversion) dans Azure Synapse Analytics avec des outils web
 
@@ -29,7 +29,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit avant de co
 
 - Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 - [Espace de travail Synapse Analytics](quickstart-create-workspace.md)
-- [Pool Apache Spark](quickstart-create-apache-spark-pool.md)
+- [Pool Apache Spark](quickstart-create-apache-spark-pool-studio.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -133,7 +133,9 @@ SQL (Structured Query Language) est le langage le plus courant et le plus largem
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Azure Synapse enregistre vos données dans Azure Data Lake Storage. Vous pouvez autoriser une instance Spark à s’arrêter de manière sécurisée quand elle n’est pas utilisée. Un pool Apache Spark d’Azure Synapse vous est facturé tant qu’il est en cours d’exécution, même s’il n’est pas en cours d’utilisation. Les frais liés au pool sont beaucoup plus élevés que les frais de stockage. Ainsi, il est judicieux d’un point de vue financier de laisser les instances Spark s’arrêter quand elles ne sont pas en cours d’utilisation.
+Azure Synapse enregistre vos données dans Azure Data Lake Storage. Vous pouvez laisser une instance Spark s’arrêter en toute sécurité quand elle n’est pas utilisée. Un pool Apache Spark d’Azure Synapse vous est facturé tant qu’il est en cours d’exécution, même s’il n’est pas en cours d’utilisation. 
+
+Étant donné que les frais pour le pool sont bien plus élevés que les frais de stockage, économique, mieux vaut laisser les instances Spark s’arrêter quand elles ne sont pas utilisées.
 
 Pour vous assurer que l’instance Spark est arrêtée, mettez fin aux sessions connectées (notebooks). Le pool s’arrête quand la **durée d’inactivité** spécifiée dans le pool Apache Spark est atteinte. Vous pouvez également sélectionner **terminer la session** dans la barre d’état en bas du notebook.
 

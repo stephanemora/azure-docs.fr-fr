@@ -5,14 +5,14 @@ description: Apprenez à exporter des étiquettes de données à partir de vos p
 author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
-ms.topic: how-to
-ms.date: 01/21/2020
-ms.openlocfilehash: 5138109de3f80d405ce95b605714b511480563f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 05/14/2020
+ms.openlocfilehash: 657b1dbb169d80a3e5563dd1a4fa52eac2278aae
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76549345"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655768"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Créer et explorer un jeu de données Azure Machine Learning avec des étiquettes
 

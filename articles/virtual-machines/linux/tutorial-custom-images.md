@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc
 ms.reviewer: akjosh
-ms.openlocfilehash: 9f3a175352aa0455cecc2e31e235a60cc27c76c5
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: bed65754dd872d51d4cbd1bccc673373e8e96846
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792171"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652998"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Tutoriel : Créer une image personnalisée d’une machine virtuelle Azure avec Azure CLI
 
@@ -196,5 +196,5 @@ Ce didacticiel vous montré comment créer une image de machine virtuelle. Vous 
 Pour découvrir les machines virtuelles hautement disponibles, passez au didacticiel suivant.
 
 > [!div class="nextstepaction"]
-> [How to use availability sets](tutorial-availability-sets.md) (Comment utiliser des groupes à haute disponibilité).
+> [Créer des machines virtuelles hautement disponibles](tutorial-availability-sets.md)
 

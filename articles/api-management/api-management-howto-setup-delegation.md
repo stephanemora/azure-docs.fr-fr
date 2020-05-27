@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: c28872e6cffa973f01b3f5a87c423d9dd93a2aa5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7dfb863da9f06cfc0c81944aa4037933cdd650ad
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259100"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649186"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Délégation de l'inscription des utilisateurs et des abonnements aux produits
 
@@ -74,7 +74,7 @@ Pour commencer, configurons Gestion des API pour que les demandes soient achemin
    * [Demandez un jeton d'authentification unique (SSO)] via l'API REST Gestion des API.
    * Ajoutez un paramètre de requête returnUrl à l'URL SSO reçue de l'appel d'API ci-dessus :
      
-     > par exemple, https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+     > par exemple, `https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url` 
      > 
      > 
    * Redirigez l'utilisateur vers l'URL générée.

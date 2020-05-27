@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a421afc736399472a513dfc145321ba33ef6fdca
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d353aad9f0ecf871410dd94b0081381a0b1304c6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71129721"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647330"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-apptio"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Apptio
 
@@ -129,11 +129,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-apptio-sso"></a>Configurer l’authentification unique Apptio
 
-Pour configurer l’authentification unique côté **Apptio**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL copiées dans le portail Azure à l’[équipe du support technique Apptio](https://www.apptio.com/about/contact). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Apptio**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL copiées dans le portail Azure à l’[équipe du support technique Apptio](https://www.apptio.com/resources/customer-support/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-apptio-test-user"></a>Créer un utilisateur de test Apptio
 
-Dans cette section, vous créez un utilisateur appelé B.Simon dans Apptio. Contactez l’ [équipe du support technique Apptio](https://www.apptio.com/about/contact) pour ajouter des utilisateurs à la plateforme Apptio. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous créez un utilisateur appelé B.Simon dans Apptio. Contactez l’ [équipe du support technique Apptio](https://www.apptio.com/resources/customer-support/) pour ajouter des utilisateurs à la plateforme Apptio. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

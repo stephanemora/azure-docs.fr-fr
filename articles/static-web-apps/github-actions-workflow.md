@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: chnwamba
-ms.openlocfilehash: c7180be2afa541f743d7bd81627b93f34d9bb4eb
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 44472eb697a4d191d4ed99b7879654fcca61383b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595268"
+ms.locfileid: "83655205"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Flux de travail GitHub Actions pour Azure Static Web Apps - Préversion
 
@@ -150,7 +150,7 @@ Le déploiement appelle toujours `npm install` avant toute commande personnalis�
 
 | Commande            | Description |
 |---------------------|-------------|
-| `app_build_command` | Définit une commande personnalisée à exécuter pendant le déploiement de l’application de contenu statique.<br><br>Par exemple, pour configurer une compilation de production pour une application Angular, entrez `ng build -prod`. Si elle n’est pas renseignée, le flux de travail tente d’exécuter les commandes `npm run build` ou `npm run build:Azure`.  |
+| `app_build_command` | Définit une commande personnalisée à exécuter pendant le déploiement de l’application de contenu statique.<br><br>Par exemple, pour configurer une compilation de production pour une application Angular, entrez `ng build --prod`. Si elle n’est pas renseignée, le flux de travail tente d’exécuter les commandes `npm run build` ou `npm run build:Azure`.  |
 | `api_build_command` | Définit une commande personnalisée à exécuter pendant le déploiement de l’application API Azure Functions. |
 
 ## <a name="route-file-location"></a>Emplacement du fichier de routage

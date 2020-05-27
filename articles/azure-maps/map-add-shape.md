@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 91d6ed24c85d08c4b3358204980498d64e1b36ba
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ecbb5d636b6a6e2fa89d34380e87b6979110f6e3
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124038"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648530"
 ---
 # <a name="add-a-polygon-layer-to-the-map"></a>Ajouter une couche de polygones à la carte
 
@@ -57,6 +57,8 @@ Voici l’exemple complet et en cours d’exécution du code ci-dessus.
 ## <a name="use-a-polygon-and-line-layer-together"></a>Utiliser une couche de polygones et une couche de lignes ensemble
 
 Une couche de lignes est utilisée pour restituer le contour de polygones. L’exemple de code suivant restitue un polygone comme l’exemple précédent, mais ajoute à présent une couche de lignes. Cette couche de lignes est une deuxième couche connectée à la source de données.  
+
+<br/>
 
 <iframe height='500' scrolling='no' title='Couches de polygones et de lignes pour ajouter un polygone' src='//codepen.io/azuremaps/embed/aRyEPy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la page <a href='https://codepen.io/azuremaps/pen/aRyEPy/'>Polygon and line layer to add polygon</a> (Couches de polygones et de lignes pour ajouter un polygone) d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) de la section Pens (Extraits de code) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>

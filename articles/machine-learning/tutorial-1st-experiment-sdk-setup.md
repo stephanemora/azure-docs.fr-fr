@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: 535cf95216cca210b5add5ca22cd6e5b1b997541
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 3177de6816dd690514620098e79db844077fbaf6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82778999"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655451"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutoriel : Bien démarrer avec la création de votre première expérience ML avec le SDK Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -47,7 +47,9 @@ Vous créez un espace de travail par le biais du portail Azure, une console web 
 
 Ce tutoriel utilise le serveur de notebook cloud dans votre espace de travail pour une expérience préconfigurée sans installation. Utilisez [votre propre environnement](how-to-configure-environment.md#local) si vous préférez contrôler votre environnement, vos packages et vos dépendances.
 
- Suivez les étapes détaillées ci-dessous pour cloner et exécuter le tutoriel à partir de votre espace de travail. 
+ Suivez cette vidéo ou suivez les étapes détaillées ci-dessous pour cloner et exécuter le tutoriel à partir de votre espace de travail. 
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
 
 ### <a name="clone-a-notebook-folder"></a>Cloner un dossier de notebooks
 

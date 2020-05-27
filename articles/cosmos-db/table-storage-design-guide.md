@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
-ms.openlocfilehash: fcae1ed9064d38457ede73c675afb75ce4872fe6
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 78a38938ad31bb349b7215f0a26dda69f4fec966
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611776"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651923"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guide de conception de table de stockage Table Azure : tables scalables et performantes
 
@@ -134,7 +134,7 @@ Le nom du compte, le nom de la table et la valeur de `PartitionKey` identifient 
 
 Dans le stockage Table, un nœud individuel traite une ou plusieurs partitions complètes, et le service se met à l’échelle en équilibrant la charge des partitions de manière dynamique parmi les nœuds. Si un nœud est en cours de chargement, le stockage Table peut fractionner la plage de partitions servie par ce nœud sur des nœuds différents. Quand le trafic diminue, le stockage Table peut refusionner les plages de partitions des nœuds calmes sur un nœud unique.  
 
-Pour plus d’informations sur les détails internes du stockage Table, et notamment la façon dont il gère les partitions, consultez [Stockage Microsoft Azure : service de stockage cloud hautement disponible à cohérence forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Pour plus d’informations sur les détails internes du stockage Table, et notamment la façon dont il gère les partitions, consultez [Stockage Microsoft Azure : service de stockage cloud hautement disponible à cohérence forte](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
 
 ### <a name="entity-group-transactions"></a>Transactions de groupe d’entités
 Dans le stockage Table, les transactions de groupe d’entités (EGT) constituent l’unique mécanisme intégré pour effectuer des mises à jour atomiques entre plusieurs entités. Les EGT sont également appelées *transactions par lots*. Les transactions EGT peuvent uniquement utiliser des entités stockées dans la même partition (partageant la même clé de partition dans une table donnée). Par conséquent, quand vous avez besoin d’un comportement transactionnel atomique entre plusieurs entités, vérifiez que ces entités sont dans la même partition. Ceci justifie souvent la conservation de plusieurs types d’entité dans la même table (et partition) plutôt que l’utilisation de plusieurs tables pour différents types d’entité. Une seule EGT peut traiter jusqu'à 100 entités.  Si vous envoyez plusieurs EGT simultanées pour traitement, vérifiez bien que ces EGT n’opèrent pas sur des entités communes aux différentes EGT. Sinon, le traitement risque d’être retardé.

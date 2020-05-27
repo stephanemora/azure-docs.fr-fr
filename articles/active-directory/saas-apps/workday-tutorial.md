@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2f39b6f58b250d68a3b2ce962f158c7df36d812
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 83fd986e31410e34871d1b795db0c8c83ece688e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77046600"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648602"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Workday
 
@@ -247,7 +247,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ### <a name="create-workday-test-user"></a>Créer un utilisateur de test Workday
 
-Dans cette section, vous créez un utilisateur appelé B.Simon dans Workday. Collaborez avec [l’équipe du support technique Workday](https://www.workday.com/partners-services/services/support.html) pour ajouter des utilisateurs sur la plateforme Workday. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous créez un utilisateur appelé B.Simon dans Workday. Collaborez avec [l’équipe du support technique Workday](https://www.workday.com/en-us/partners-services/services/support.html) pour ajouter des utilisateurs sur la plateforme Workday. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 

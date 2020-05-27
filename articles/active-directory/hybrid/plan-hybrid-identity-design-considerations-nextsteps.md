@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 378aa35ff4b43f5a268ac3dcd9530783ada6921e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f834924a564f92fe7050a1236701701af7f5229
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76512961"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647274"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Considérations relatives à la conception d'identités hybrides Azure Active Directory - Suite
 Maintenant que vous avez défini vos exigences et examiné toutes les options pour votre solution de gestion des périphériques mobiles, vous êtes prêt à passer aux étapes suivantes et à déployer l'infrastructure sous-jacente qui vous est adaptée ainsi qu'à votre organisation.
@@ -37,8 +37,8 @@ Les contenus relatifs à la planification conceptuelle et procédurale, au dépl
 L'analyse des ressources suivantes fournit souvent les dernières actualités et mises à jour des solutions de gestion des périphériques mobiles :
 
 * [Blog Microsoft Enterprise Mobility](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
-* [Blog Microsoft In The Cloud](https://blogs.technet.com/b/in_the_cloud/)
-* [Blog Microsoft Intune](https://blogs.technet.com/b/microsoftintune/)
+* [Blog Microsoft In The Cloud](https://cloudblogs.microsoft.com/)
+* [Blog Microsoft Intune](https://techcommunity.microsoft.com/t5/intune-customer-success/welcome-to-the-new-intune-customer-success-blog/ba-p/281367)
 * [Blog Microsoft Endpoint Configuration Manager](https://techcommunity.microsoft.com/t5/Configuration-Manager-Blog/bg-p/ConfigurationManagerBlog)
 
 ## <a name="see-also"></a>Voir aussi

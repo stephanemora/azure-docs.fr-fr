@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: b8fad566b54ab645660011ad3188394b6f8190b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 074098c3adae0dd8ff2a127d819e2b3630b754da
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68728070"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650090"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Infrastructure de sécurité : gestion des exceptions | Atténuation des risques 
 | Produit/Service | Article |
@@ -223,7 +223,7 @@ Vérifiez les liens dans la section Références pour plus d’informations sur 
 | **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [Échec en toute sécurité](https://www.owasp.org/index.php/Fail_securely) |
+| **Informations de référence**              | [Échec en toute sécurité](https://owasp.org/www-community/Fail_securely) |
 | **Étapes** | L’application doit échouer en toute sécurité. Toute méthode renvoyant une valeur booléenne, en fonction de la décision prise, doit comporter un bloc d’exception créé avec soin. Il existe un grand nombre d’erreurs logiques dues à des problèmes de sécurité lorsque le bloc d’exception n’est pas écrit correctement.|
 
 ### <a name="example"></a>Exemple

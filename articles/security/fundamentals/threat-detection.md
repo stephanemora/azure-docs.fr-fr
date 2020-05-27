@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 3c1c385a87fc302d180729ec2e4bcd1c4a315f6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 43a5360965c13df3227ecbc0c716327346244ebd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75981467"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653626"
 ---
 # <a name="azure-advanced-threat-detection"></a>Détection avancée des menaces Azure
 
@@ -268,7 +268,7 @@ Les fonctions SQL Database Threat Detector utilisent les méthodes de détection
 
 ### <a name="application-gateway-web-application-firewall"></a>Pare-feu d’applications web sur Application Gateway
 
-Le [pare-feu d’applications web (WAF)](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md) est une fonction de [passerelle Azure Application Gateway](../../application-gateway/application-gateway-web-application-firewall-overview.md) qui offre une protection pour les applications web qui utilisent la passerelle d’application pour les fonctions de [contrôle de remise d’application](https://kemptechnologies.com/in/application-delivery-controllers) standard. Le pare-feu d’applications web le fait en les protégeant contre la plupart des [10 plus courantes vulnérabilités web de l’OWASP (Open Web Application Security Project](https://www.owasp.org/index.php/Top_10_2010-Main).
+Le [pare-feu d’applications web (WAF)](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md) est une fonction de [passerelle Azure Application Gateway](../../application-gateway/application-gateway-web-application-firewall-overview.md) qui offre une protection pour les applications web qui utilisent la passerelle d’application pour les fonctions de [contrôle de remise d’application](https://kemptechnologies.com/in/application-delivery-controllers) standard. Le pare-feu d’applications web le fait en les protégeant contre la plupart des [10 plus courantes vulnérabilités web de l’OWASP (Open Web Application Security Project](https://owasp.org/www-project-top-ten/).
 
 ![Diagramme du Pare-feu d’applications web sur Application Gateway](./media/threat-detection/azure-threat-detection-fig13.png)
 

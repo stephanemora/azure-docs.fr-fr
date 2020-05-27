@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 712a0707826f97f29b015a2c5892f8d20577e41b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e597fb9208430b8da447768608c48edef049d83
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687890"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653116"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Infrastructure de sécurité : validation des entrées | Mesures d’atténuation 
 | Produit/Service | Article |
@@ -71,7 +71,7 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 | **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [IE8 Security Part V - Comprehensive Protection (Sécurité IE8 Partie V - Protection complète)](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)  |
+| **Informations de référence**              | [IE8 Security Part V - Comprehensive Protection (Sécurité IE8 Partie V - Protection complète)](https://docs.microsoft.com/archive/blogs/ie/ie8-security-part-v-comprehensive-protection)  |
 | **Étapes** | <p>Pour chaque page susceptible de comporter du contenu contrôlable par l’utilisateur, vous devez utiliser l’en-tête HTTP `X-Content-Type-Options:nosniff`. Pour satisfaire cette exigence, vous pouvez définir l’en-tête requis page par page uniquement pour les pages susceptibles de comporter du contenu contrôlable par l’utilisateur, ou vous pouvez définir un en-tête global pour toutes les pages de l’application.</p><p>Chaque type de fichier provenant d’un serveur web est associé à un [type MIME](https://en.wikipedia.org/wiki/Mime_type) (également appelé *type de contenu*) qui décrit la nature du contenu (image, texte, application, etc.)</p><p>L’en-tête X-Content-Type-Options est un en-tête HTTP permettant aux développeurs de spécifier que leur contenu ne doit pas être détecté par MIME. Cet en-tête est conçu pour limiter les attaques par détection MIME. La prise en charge de cet en-tête a été ajoutée dans Internet Explorer 8 (IE8).</p><p>Seuls les utilisateurs d’Internet Explorer 8 (IE8) bénéficient de l’en-tête X-Content-Type-Options. À l’heure actuelle, les versions antérieures d’Internet Explorer ne prennent pas en charge l’en-tête X-Content-Type-Options</p><p>Internet Explorer 8 (et les versions ultérieures) constitue le seul navigateur majeur permettant d’implémenter une fonctionnalité de refus de la détection MIME. Si d’autres navigateurs majeurs (Firefox, Safari, Chrome) implémentent des fonctionnalités similaires, cette recommandation sera mise à jour afin d’inclure également la syntaxe de ces navigateurs</p>|
 
 ### <a name="example"></a> Exemple
@@ -213,7 +213,7 @@ Dans MSXML6, la valeur ProhibitDTD est définie sur true (ce qui désactive le t
 | **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [Unrestricted File Upload (Chargement de fichiers sans restriction)](https://www.owasp.org/index.php/Unrestricted_File_Upload), [File Signature Table (Table de signatures de fichier)](https://www.garykessler.net/library/file_sigs.html) |
+| **Informations de référence**              | [Unrestricted File Upload (Chargement de fichiers sans restriction)](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload), [File Signature Table (Table de signatures de fichier)](https://www.garykessler.net/library/file_sigs.html) |
 | **Étapes** | <p>Les fichiers téléchargés constituent un risque significatif pour les applications.</p><p>La première étape de nombreuses attaques consiste à obtenir un code permettant d’attaquer le système. Il suffit ensuite que l’attaque trouve un moyen d’exécuter le code. Un téléchargement de fichier permet aux personnes malveillantes d’accomplir la première étape. Les conséquences d’un téléchargement de fichier sans restriction peuvent varier, de la prise de contrôle totale du système à la surcharge d’un système de fichiers ou d’une base de données, en passant par le transfert d’attaques vers les systèmes back-end ou la simple dégradation.</p><p>Tout dépend de ce que l’application fait du fichier téléchargé, et surtout de l’emplacement de stockage du fichier. Il manque la validation des téléchargements de fichiers côté serveur. Le suivi des contrôles de sécurité doit être implémenté pour la fonctionnalité de téléchargement de fichiers :</p><ul><li>Vérification de l’extension du fichier (seul un ensemble valide de types de fichiers autorisés doit être accepté)</li><li>Taille maximale du fichier</li><li>Le fichier ne doit pas être téléchargé sur webroot : l’emplacement choisi doit être un répertoire présent sur un lecteur autre que le lecteur système</li><li>La convention d’affectation de noms doit être suivie : par exemple, le nom du fichier téléchargé doit avoir un caractère aléatoire afin d’éviter l’écrasement du fichier</li><li>Les fichiers doivent être analysés par un antivirus avant d’être écrits sur le disque</li><li>Assurez-vous que le nom de fichier et toute autre métadonnée (par exemple, chemin d’accès) ne comporte pas de caractère nuisible</li><li>La signature de format de fichier doit être vérifiée afin que les utilisateurs ne puissent pas télécharger de fichier déguisé (par exemple, téléchargement d’un fichier exe en remplaçant l’extension par .txt)</li></ul>| 
 
 ### <a name="example"></a> Exemple

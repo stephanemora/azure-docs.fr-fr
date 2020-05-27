@@ -1,17 +1,17 @@
 ---
 title: Définitions de stratégie intégrées pour les fournisseurs de ressources personnalisés Azure
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour les fournisseurs de ressources personnalisés Azure. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 05/05/2020
+ms.date: 05/13/2020
 ms.topic: sample
 author: jjbfour
 ms.author: jobreen
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 71e4f16ab90a8188419ee5a8ff297b768c9c7d97
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: ecac6cb1217c10bf894ed4bbc9dc747f76e8cb79
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836975"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652433"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-custom-resource-providers"></a>Définitions de stratégie intégrées d’Azure Policy pour les fournisseurs de ressources personnalisés Azure
 

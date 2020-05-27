@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 9879f98e72e22fc0745a9e91f29216cbe74ab8fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 45eb227d5e2608f4fbe6a75f3d95e46dbc3bdee4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228337"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655929"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gestion de l’accès concurrentiel dans Microsoft Azure Storage
 
@@ -292,5 +292,5 @@ Pour plus d’informations concernant Azure Storage, consultez la page :
 * [Page d’accueil de Microsoft Azure Storage](https://azure.microsoft.com/services/storage/)
 * [Introduction à Azure Storage](storage-introduction.md)
 * Prise en main du Stockage [Blob](../blobs/storage-dotnet-how-to-use-blobs.md), [Table](../../cosmos-db/table-storage-how-to-use-dotnet.md), [File d’attente](../storage-dotnet-how-to-use-queues.md) et [Fichier](../storage-dotnet-how-to-use-files.md)
-* Architecture de stockage – [Stockage Azure : service de stockage cloud à haute disponibilité et à forte cohérence](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+* Architecture de stockage – [Stockage Azure : service de stockage cloud à haute disponibilité et à forte cohérence](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency)
 

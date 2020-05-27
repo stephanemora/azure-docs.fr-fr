@@ -4,21 +4,21 @@ description: Procurez-vous les exemples Azure PowerShell pour effectuer diverses
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 12/02/2019
+ms.date: 05/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: d0deef4df6cfdcfdb2d549cee35892620cf6b791
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 175e527e46bc15b894f7beec7c6c95d56e8c6d17
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365734"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649724"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-gremlin-api"></a>Exemples Azure PowerShell pour Azure Cosmos DB - API Gremlin
 
 Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerShell pour l’API Gremlin Azure Cosmos DB.
 
 > [!NOTE]
-> Les exemples utilisent les applets de commande de gestion [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb). Notez que les applets de commande `Az.CosmosDB` sont toujours en préversion et peuvent changer avant la mise en production. Vérifiez régulièrement les mises à jour de `Az.CosmosDB`.
+> Les exemples utilisent les applets de commande de gestion [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb). Vérifiez régulièrement les mises à jour de `Az.CosmosDB`.
 
 | | |
 |---|---|

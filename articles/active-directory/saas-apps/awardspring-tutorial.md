@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ab8f18c065b283883cfca0a0d555a5fa3bb9d5a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e199b0d6cf2be7dc956267843f4dabe521d87428
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78897815"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647630"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-awardspring"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à AwardSpring
 
@@ -157,7 +157,7 @@ Pour configurer l’authentification unique côté **AwardSpring**, vous devez e
 Dans cette section, un utilisateur appelé B.Simon est créé dans AwardSpring. AwardSpring prend en charge le provisionnement d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans AwardSpring, il en est créé un après l’authentification.
 
 > [!Note]
-> Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support AwardSpring](maito:support@awardspring.com).
+> Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support AwardSpring](mailto:support@awardspring.com).
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
