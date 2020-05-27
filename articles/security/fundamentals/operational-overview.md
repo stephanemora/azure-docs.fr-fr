@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: bcaf45af4c02dad22e2cc611fa7ea5a32ad3a853
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 00a71fec9c0bfc1db45eee7129b7c2a8adaef0fa
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443878"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674229"
 ---
 # <a name="azure-operational-security-overview"></a>Vue d’ensemble d’Azure Operational Security
 
@@ -60,7 +60,7 @@ Pour plus d’informations, consultez le [tableau des composants de Sauvegarde A
 
 -   Autorise la gestion des identités et des accès (IAM) dans un service cloud.
 -   Assure une gestion centralisée des accès, l’authentification unique et la création de rapports.
--   Prend en charge la gestion intégrée des accès à des [milliers d’applications](https://azure.microsoft.com/marketplace/active-directory/) dans Place de marché Microsoft Azure, notamment Salesforce, Google Apps, Box et Concur.
+-   Prend en charge la gestion intégrée des accès à des [milliers d’applications](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) dans Place de marché Microsoft Azure, notamment Salesforce, Google Apps, Box et Concur.
 
 Azure AD inclut également une suite complète de [fonctionnalités de gestion des identités](/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), dont :
 

@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/30/2020
-ms.openlocfilehash: f327844be57d7f8e177f3bf72b1e3b56c5147e00
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 2d6f667b6a49520dfe210fd797a828328899b634
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629318"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674596"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Contrôle de code source dans Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -181,7 +181,7 @@ Lorsque vous êtes prêt à fusionner les modifications de votre branche de fonc
 
 ### <a name="configure-publishing-settings"></a>Configurer les paramètres de publication
 
-Par défaut, la fabrique de données génère les modèles Resource Manager de la fabrique publiée et les enregistre dans une branche nommée `adf_public`. Pour configurer une branche de publication personnalisée, ajoutez un fichier `publish_config.json` au dossier racine dans la branche de collaboration. Lors de la publication, ADF lit ce fichier, recherche le champ `publishBranch`, puis enregistre tous les modèles Resource Manager dans l’emplacement spécifié. Si la branche n’existe pas, la fabrique de données le crée automatiquement. Vous trouverez ci-dessous un exemple de ce à quoi ressemble ce fichier :
+Par défaut, la fabrique de données génère les modèles Resource Manager de la fabrique publiée et les enregistre dans une branche nommée `adf_publish`. Pour configurer une branche de publication personnalisée, ajoutez un fichier `publish_config.json` au dossier racine dans la branche de collaboration. Lors de la publication, ADF lit ce fichier, recherche le champ `publishBranch`, puis enregistre tous les modèles Resource Manager dans l’emplacement spécifié. Si la branche n’existe pas, la fabrique de données le crée automatiquement. Vous trouverez ci-dessous un exemple de ce à quoi ressemble ce fichier :
 
 ```json
 {

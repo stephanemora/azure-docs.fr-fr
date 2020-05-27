@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 499e4cb2cb62ccc170637bad60898b38b4ff3be7
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 811feb26e492efeb505f43202bee484d3edfb8a5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204251"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658608"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Infrastructure de sécurité : gestion des configurations | Atténuation des risques 
 | Produit/Service | Article |
@@ -212,7 +212,7 @@ Notez que la fonctionnalité de validation des demandes n’est pas prise en cha
 | **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [IE8 Security Part V: Comprehensive Protection (Sécurité IE8 Partie V - Protection complète)](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [MIME type (Type MIME)](https://en.wikipedia.org/wiki/Mime_type) |
+| **Informations de référence**              | [IE8 Security Part V: Comprehensive Protection (Sécurité IE8 Partie V - Protection complète)](https://docs.microsoft.com/archive/blogs/ie/ie8-security-part-v-comprehensive-protection), [MIME type (Type MIME)](https://en.wikipedia.org/wiki/Mime_type) |
 | **Étapes** | L’en-tête X-Content-Type-Options est un en-tête HTTP permettant aux développeurs de spécifier que leur contenu ne doit pas être détecté par MIME. Cet en-tête est conçu pour limiter les attaques par détection MIME. Pour chaque page susceptible de comporter du contenu contrôlable par l’utilisateur, vous devez utiliser l’en-tête HTTP X-Content-Type-Options:nosniff. Pour activer l’en-tête requis sur toutes les pages de l’application, vous pouvez effectuer l’une des opérations suivantes :|
 
 ### <a name="example"></a> Exemple

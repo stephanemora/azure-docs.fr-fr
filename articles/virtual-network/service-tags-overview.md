@@ -10,15 +10,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/12/2020
+ms.date: 05/18/2020
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 7da20a0bf87b33f05ea7f1d457157c5b7ee2ec7b
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: bfeded391f582ab0ac6f3c15d2086789228f1494
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631525"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660590"
 ---
 # <a name="virtual-network-service-tags"></a>Balises de service du réseau virtuel
 <a name="network-service-tags"></a>
@@ -100,7 +100,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **SqlManagement** | Trafic de gestion pour les déploiements dédiés de SQL. | Les deux | Non | Oui |
 | **Stockage** | Stockage Azure. <br/><br/>*Remarque :* Cette balise représente le service, mais pas des instances spécifiques du service. Par exemple, la balise représente le service Azure Storage, mais pas un compte Azure Storage spécifique. | Règle de trafic sortant | Oui | Oui |
 | **StorageSyncService** | Service de synchronisation du stockage. | Les deux | Non | Non |
-| **WindowsVirtualDesktop** | Windows Virtual Desktop. | Les deux | Non | Non |
+| **WindowsVirtualDesktop** | Windows Virtual Desktop. | Les deux | Non | Oui |
 | **VirtualNetwork** | L’espace d’adressage du réseau virtuel (toutes les plages d’adresses IP définies pour le réseau virtuel), tous les espaces d’adressage locaux connectés, les réseaux virtuels [appairés](virtual-network-peering-overview.md) ou connectés à une [passerelle de réseau virtuel](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), l’[adresse IP virtuelle de l’hôte](security-overview.md#azure-platform-considerations) et les préfixes d’adresse utilisés sur les [routes définies par l’utilisateur](virtual-networks-udr-overview.md). Cette balise peut également contenir des itinéraires par défaut. | Les deux | Non | Non |
 
 >[!NOTE]

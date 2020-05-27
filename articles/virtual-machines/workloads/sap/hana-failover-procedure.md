@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f3b37a6336c578ed25d8ab9553bc1ea9c79872f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6454903a7c37da30e317e29c126109b39b14efbc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117205"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660585"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Procédure de basculement en cas de récupération d’urgence
 
@@ -39,7 +39,7 @@ Pour restaurer les dernières captures instantanées de stockage répliquées, s
 Si vous souhaitez faire basculer plusieurs instances de SAP HANA, exécutez la commande azure_hana_dr_failover plusieurs fois. Lorsque vous y êtes invité, entrez le SID SAP HANA que vous souhaitez faire basculer et restaurer. 
 
 
-Vous pouvez également tester le basculement de récupération d’urgence (DR) sans impacter la relation de réplication réelle. Pour effectuer un test de basculement, suivez les étapes décrites dans la section « Exécution d’un test de basculement - azure_hana_test_dr_failover » relative aux [outils de capture instantanée Microsoft pour SAP HANA sur Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf). 
+Vous pouvez également tester le basculement de récupération d’urgence (DR) sans impacter la relation de réplication réelle. Pour effectuer un test de basculement, suivez les étapes décrites dans la section « Exécution d’un test de basculement - azure_hana_test_dr_failover » relative aux [outils de capture instantanée Microsoft pour SAP HANA sur Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.3/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.3.pdf). 
 
 >[!IMPORTANT]
 >N’exécutez *pas* de transactions de production sur l’instance que vous avez créée sur le site de récupération d’urgence (DR), en suivant le processus de **test d’un basculement**. La commande azure_hana_test_dr_failover crée un ensemble de volumes sans aucune relation avec le site principal. Par conséquent, une resynchronisation au site principal n’est *pas* possible. 
@@ -117,7 +117,7 @@ Procédez comme suit :
 
 Pour surveiller l’état de la progression de la réplication de stockage, exécutez le script `azure_hana_replication_status`. Pour fonctionner comme prévu, cette commande doit être exécutée depuis une unité en cours d’exécution sur l’emplacement de la récupération d’urgence. La commande fonctionne que la réplication soit active ou non. Vous pouvez exécuter la commande pour chaque unité de grande instance HANA de votre locataire à l’emplacement de la récupération d’urgence. Vous ne pouvez pas l’utiliser pour obtenir des détails sur le volume de démarrage. 
 
-Pour plus d’informations sur la commande et sa sortie, consultez la section « Obtention de l’état de réplication de récupération d’urgence - azure_hana_replication_status » relative aux [outils de capture instantanée Microsoft pour SAP HANA sur Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf).
+Pour plus d’informations sur la commande et sa sortie, consultez la section « Obtention de l’état de réplication de récupération d’urgence - azure_hana_replication_status » relative aux [outils de capture instantanée Microsoft pour SAP HANA sur Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.3/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.3.pdf).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
