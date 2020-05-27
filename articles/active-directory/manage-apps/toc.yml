@@ -159,6 +159,8 @@
               href: manage-self-service-access.md
             - name: Découverte du domaine d’accueil
               href: configure-authentication-for-federated-users-portal.md
+        - name: Automatiser l’authentification unique basée sur SAML avec les API MS Graph
+          href: application-saml-sso-configure-api.md
         - name: Migrer des applications vers Azure AD
           items:
             - name: Ressources de migration

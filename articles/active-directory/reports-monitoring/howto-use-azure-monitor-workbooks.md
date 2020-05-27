@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 094939ee62046c72f07ac46f0781e687034f731f
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 3c6b8ef04e44a68290f61ed4688e3379130231ef
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690628"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799363"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Comment utiliser des classeurs Azure Monitor pour créer des rapports Azure Active Directory
 
@@ -42,13 +42,13 @@ Vous voulez...
 
 - Acquérez une meilleure compréhension des requêtes de journal de connexion, le classeur signalant le nombre d’utilisateurs auxquels l’accès a été accordé ou refusé, ainsi que le nombre d’utilisateurs ayant contourné les stratégies d’accès conditionnel lors de l’accès aux ressources.
 
-- Pour vous aider à résoudre ces problèmes, Azure Active Directory fournit des classeurs à des fins de supervision. Les [classeurs Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) regroupent du texte, des requêtes Analytics, des mesures et des paramètres sous la forme de rapports interactifs riches en contenu.
+- Pour vous aider à résoudre ces problèmes, Azure Active Directory fournit des classeurs à des fins de supervision. Les [classeurs Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) regroupent du texte, des requêtes Analytics, des mesures et des paramètres sous la forme de rapports interactifs riches en contenu.
 
 
 
 Cet article :
 
-- suppose que vous êtes familiarisé avec la procédure de [création de rapports interactifs à l’aide de classeurs Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) et
+- suppose que vous êtes familiarisé avec la procédure de [création de rapports interactifs à l’aide de classeurs Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) et
 
 - explique comment utiliser les classeurs Azure Monitor pour comprendre l’impact de vos stratégies d’accès conditionnel, pour résoudre les échecs de connexion et pour identifier les authentifications héritées.
  
@@ -302,4 +302,4 @@ Pour vous aider à résoudre les problèmes de connexion, Azure Monitor vous fou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Créer des rapports interactifs à l’aide de classeurs Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
+[Créer des rapports interactifs à l’aide de classeurs Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).

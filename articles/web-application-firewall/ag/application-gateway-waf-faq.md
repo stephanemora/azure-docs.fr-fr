@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: 57081cd948bcee1261415eae31f91b3c61f08c9f
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 3bc71e10167b21b65616dd20f8edb9a1d902527e
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82842551"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798348"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-application-gateway"></a>Forum aux questions concernant le pare-feu d’applications web Azure sur Application Gateway
 
@@ -52,7 +52,7 @@ WAF prend actuellement en charge CRS [2.2.9](application-gateway-crs-rulegroups
 * Protection contre les robots, les crawlers et les scanneurs
 * Détection des erreurs de configuration d’application courantes (par exemple, Apache, IIS, etc.)
 
-Pour plus d’informations, consultez [Les 10 principales vulnérabilités identifiées par l'OWASP](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013).
+Pour plus d’informations, consultez [Les 10 principales vulnérabilités identifiées par l'OWASP](https://owasp.org/www-project-top-ten/).
 
 ## <a name="does-waf-support-ddos-protection"></a>WAF prend-il en charge la protection DDoS ?
 

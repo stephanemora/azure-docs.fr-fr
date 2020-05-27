@@ -32,8 +32,6 @@
           href: quickstarts/speech-to-text-from-file.md
         - name: Reconnaître la voix stockée dans Stockage Blob
           href: quickstarts/from-blob.md
-        - name: Évaluation de la prononciation avec une entrée de référence
-          href: 'rest-speech-to-text.md#pronunciation-assessment-parameters'
     - name: Guides pratiques
       items:
         - name: Choisir un mode de reconnaissance vocale
@@ -563,11 +561,14 @@
           href: devices-sdk-release-notes.md
 - name: Outils
   items:
-    - name: SPX
+    - name: Interface CLI Speech
+      displayName: SPX
       items:
-        - name: "Qu’est-ce que SPX\_?"
+        - name: "Qu’est-ce que l’interface CLI Speech\_?"
+          displayName: What is SPX?
           href: spx-overview.md
-        - name: Bases de SPX
+        - name: Bases de l’interface CLI Speech
+          displayName: SPX basics
           href: spx-basics.md
     - name: Speech Studio
       items:

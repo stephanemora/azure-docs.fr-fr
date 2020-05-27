@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 15fd3c18d059466c2b2bd5e2431013f393092b4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 548cacfb76aba9093a59a5c87525d038558bf353
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77526227"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592625"
 ---
 # <a name="classroom-labs-concepts"></a>Concepts des laboratoires de salle de classe
 
@@ -26,13 +26,13 @@ La liste suivante présente les définitions et concepts principaux de Lab Servi
 
 ## <a name="quota"></a>Quota
 
-Le quota est la limite d’utilisation (en heures) d’une machine virtuelle de laboratoire qu’un enseignant peut accorder à un étudiant. Il peut être défini sur 0 ou un nombre d’heures spécifique. Si le quota est défini sur 0, un étudiant ne peut utiliser la machine virtuelle que lorsqu’une planification est en cours d’exécution ou lorsqu’un enseignant active manuellement la machine virtuelle de l’étudiant.  
+Le quota est la limite d’utilisation (en heures) d’une machine virtuelle de laboratoire qu’un formateur peut accorder à un étudiant. Il peut être défini sur 0 ou un nombre d’heures spécifique. Si le quota est défini sur 0, un étudiant ne peut utiliser la machine virtuelle que quand une planification est en cours d’exécution ou quand un formateur active manuellement la machine virtuelle de l’étudiant.  
 
-Les heures de quota sont comptabilisées quand l’étudiant démarre lui-même la machine virtuelle lab.  Si un enseignant démarre manuellement la machine virtuelle de laboratoire d’un étudiant, les heures de quota ne sont pas utilisées pour cet étudiant.
+Les heures de quota sont comptabilisées quand l’étudiant démarre lui-même la machine virtuelle lab.  Si un formateur démarre manuellement la machine virtuelle de laboratoire d’un étudiant, les heures de quota ne sont pas utilisées pour cet étudiant.
 
 ## <a name="schedules"></a>Planifications
 
-Les planifications sont les créneaux horaires qu’un enseignant peut créer pour la classe afin que les machines virtuelles des étudiants soient disponibles pour le temps de classe.  Les planifications peuvent être ponctuelles ou récurrentes.  Les heures de quota ne sont pas utilisées lorsqu’une planification est cours d’exécution.
+Les planifications sont les créneaux horaires qu’un formateur peut créer pour la classe afin que les machines virtuelles des étudiants soient disponibles pour le temps de classe.  Les planifications peuvent être ponctuelles ou récurrentes.  Les heures de quota ne sont pas utilisées lorsqu’une planification est cours d’exécution.
 
 Il existe trois types de planifications : Standard, Démarrage uniquement et Arrêt uniquement.
 
@@ -50,13 +50,13 @@ Cet article décrit les profils utilisateur disponibles dans Azure Lab Services.
 
 ### <a name="lab-account-owner"></a>Propriétaire du compte du laboratoire
 
-En règle générale, l’administrateur informatique des ressources de cloud de l’organisation, qui est propriétaire de l’abonnement Azure, se comporte comme un propriétaire de compte de laboratoire et effectue les tâches suivantes :
+En règle générale, un administrateur informatique des ressources cloud de l’organisation, qui est propriétaire de l’abonnement Azure, se comporte comme un propriétaire de compte lab et effectue les tâches suivantes :
 
 - Définit un compte de laboratoire pour votre organisation.
 - Gère et configure les stratégies sur l’ensemble des laboratoires.
 - Attribue des autorisations aux personnes de l’organisation pour créer un laboratoire sous le compte de laboratoire.
 
-### <a name="professor"></a>Professeur
+### <a name="educator"></a>Formateur
 
 En général, les utilisateurs comme les enseignants ou les formateurs en ligne créent des laboratoires de salle de classe sous un compte de laboratoire. Un formateur effectue les tâches suivantes :
 

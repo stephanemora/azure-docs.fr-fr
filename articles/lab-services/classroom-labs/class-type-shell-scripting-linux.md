@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 100a485588c77f6977001dae984b30ebcb1de557
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 66b325eb1d268fdd5b1052a0da84c603186edf65
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77443548"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589497"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Configurer un labo pour enseigner la création de scripts shell sur Linux
 Cet article vous montre comment configurer un labo pour enseigner la création de scripts shell sur Linux. Dans le cadre de l’administration système, l’écriture de scripts permet aux administrateurs d’éviter les tâches répétitives. Dans cet exemple de scénario, les scripts bash traditionnels et les scripts améliorés sont abordés. Les scripts améliorés sont des scripts qui associent des commandes bash et Ruby. Cette approche permet à Ruby de passer des données et fournit des commandes bash pour interagir avec le shell. 
@@ -32,19 +32,19 @@ Après avoir créé le compte lab, activez les paramètres suivants dans celui-c
 
 | Paramètres du compte lab | Instructions |
 | ----------- | ------------ |  
-| Images de la Place de marché | Activez l’image [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) pour l’utiliser dans votre compte lab. Pour plus d’informations, consultez [Spécifier les images de la Place de Marché accessibles aux créateurs de labo](specify-marketplace-images.md). | 
+| Images de la Place de marché | Activez l’image Ubuntu Server 18.04 LTS pour l’utiliser dans votre compte lab. Pour plus d’informations, consultez [Spécifier les images de la Place de Marché accessibles aux créateurs de labo](specify-marketplace-images.md). | 
 
 Suivez [ce tutoriel](tutorial-setup-classroom-lab.md) pour créer un labo et appliquer les paramètres suivants :
 
 | Paramètres du labo | Valeur/instructions | 
 | ------------ | ------------------ |
 | Taille de machine virtuelle | Petite  |
-| Image de machine virtuelle | [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) |
-| Activer la connexion Bureau à distance | Activer. <p>L’activation de ce paramètre permet aux enseignants et aux étudiants de se connecter à leurs machines virtuelles à l’aide du Bureau à distance (RDP). Pour plus d’informations, consultez [Activer le Bureau à distance pour les machines virtuelles Linux dans un labo dans Azure Lab Services](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
+| Image de machine virtuelle | Ubuntu Server 18.04 LTS |
+| Activer la connexion Bureau à distance | Activer. <p>L’activation de ce paramètre permet aux formateurs et aux étudiants de se connecter à leurs machines virtuelles à l’aide du Bureau à distance (RDP). Pour plus d’informations, consultez [Activer le Bureau à distance pour les machines virtuelles Linux dans un labo dans Azure Lab Services](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
 
 
 ## <a name="install-desktop-and-xrdp"></a>Installer le Bureau à distance et xrdp
-Aucun serveur Bureau à distance n’est installé par défaut sur l’image [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic). Suivez les instructions de l’article [Installer et configurer le Bureau à distance pour effectuer une connexion à une machine virtuelle Linux dans Azure](../../virtual-machines/linux/use-remote-desktop.md) afin d’installer les packages nécessaires sur la machine modèle pour se connecter via le protocole RDP (Remote Desktop Protocol).
+Aucun serveur Bureau à distance n’est installé par défaut sur l’image Ubuntu Server 18.04 LTS. Suivez les instructions de l’article [Installer et configurer le Bureau à distance pour effectuer une connexion à une machine virtuelle Linux dans Azure](../../virtual-machines/linux/use-remote-desktop.md) afin d’installer les packages nécessaires sur la machine modèle pour se connecter via le protocole RDP (Remote Desktop Protocol).
 
 ## <a name="install-ruby"></a>Installer Ruby
 Ruby est un langage dynamique open source qui peut être combiné avec des scripts bash. Cette section montre comment utiliser `apt-get` pour installer la dernière version de [Ruby](https://www.ruby-lang.org/).

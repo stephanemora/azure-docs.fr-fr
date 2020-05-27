@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: a834c68119340d796f87971912a07fc0524a6d21
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a207118af0b07be79c934a9665f47e73c5eecde0
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79218855"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589191"
 ---
 # <a name="language-support-for-computer-vision"></a>Prise en charge des langues pour la Vision par ordinateur
 
@@ -23,38 +23,36 @@ Certaines des fonctionnalités de la Vision par ordinateur prennent en charge pl
 
 ## <a name="text-recognition"></a>Reconnaissance de texte
 
-La Vision par ordinateur peut reconnaître du texte dans de nombreuses langues. Plus précisément, l’API [OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) gère tout une série de langues, tandis que les API [Lire](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) et [Reconnaître le texte](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) ne prennent en charge que l’anglais. Pour plus d’informations sur cette fonctionnalité et sur les avantages de chaque API, voir [Reconnaître du texte imprimé et du texte manuscrit](concept-recognizing-text.md).
+La Vision par ordinateur peut reconnaître du texte dans de nombreuses langues. Les API OCR et Lire ne vous obligent pas à spécifier un code de langue. Pour plus d’informations sur cette fonctionnalité et sur les avantages de chaque API, voir [Reconnaître du texte imprimé et du texte manuscrit](concept-recognizing-text.md).
 
-L’OCR détecte automatiquement la langue du matériau d’entrée ; il est donc inutile de spécifier un code de langue dans l’appel d’API. Les codes de langue sont toujours retournés dans la valeur du nœud `"language"` de la réponse JSON.
-
-|Langage| Code langue | API OCR |
-|:-----|:----:|:-----:|
-|Arabe | `ar`|✔ |
-|Chinois (simplifié) | `zh-Hans`|✔ |
-|Chinois (traditionnel) | `zh-Hant`|✔ |
-|Tchèque | `cs` |✔ |
-|Danois | `da` |✔ |
-|Néerlandais | `nl` |✔ |
-|Anglais | `en` |✔ |
-|Finnois | `fi` |✔ |
-|Français | `fr` |✔ |
-|Allemand | `de` |✔ |
-|Grec | `el` |✔ |
-|Hongrois | `hu` |✔ |
-|Italien | `it` |✔ |
-|Japonais | `ja` |✔ |
-|Coréen | `ko` |✔ |
-|Norvégien | `nb` |✔ |
-|Polonais | `pl` |✔ |
-|Portugais | `pt` |✔ |
-|Roumain | `ro` |✔ |
-|Russe | `ru` |✔ |
-|Serbe (cyrillique) | `sr-Cyrl` |✔ |
-|Serbe (latin) | `sr-Latn` |✔ |
-|Slovaque | `sk` |✔ |
-|Espagnol | `es` |✔ |
-|Suédois | `sw` |✔ |
-|Turc | `tr` |✔ |
+|Langage| Code langue | API OCR | API Lire |
+|:-----|:----:|:-----:|:---:|
+|Arabe | `ar`|✔ | |
+|Chinois (simplifié) | `zh-Hans`|✔ | |
+|Chinois (traditionnel) | `zh-Hant`|✔ | |
+|Tchèque | `cs` |✔ | |
+|Danois | `da` |✔ | |
+|Néerlandais | `nl` |✔ |✔ |
+|Anglais | `en` |✔ |✔ |
+|Finnois | `fi` |✔ | |
+|Français | `fr` |✔ |✔ |
+|Allemand | `de` |✔ |✔ |
+|Grec | `el` |✔ | |
+|Hongrois | `hu` |✔ | |
+|Italien | `it` |✔ |✔ |
+|Japonais | `ja` |✔ | |
+|Coréen | `ko` |✔ | |
+|Norvégien | `nb` |✔ | |
+|Polonais | `pl` |✔ | |
+|Portugais | `pt` |✔ |✔ |
+|Roumain | `ro` |✔ | |
+|Russe | `ru` |✔ | |
+|Serbe (cyrillique) | `sr-Cyrl` |✔ | |
+|Serbe (latin) | `sr-Latn` |✔ | |
+|Slovaque | `sk` |✔ | |
+|Espagnol | `es` |✔ |✔ |
+|Suédois | `sw` |✔ | |
+|Turc | `tr` |✔ | |
 
 ## <a name="image-analysis"></a>Analyse d’image
 

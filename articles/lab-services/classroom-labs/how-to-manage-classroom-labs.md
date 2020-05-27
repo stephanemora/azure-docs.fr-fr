@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 46c53c99c12ade986ab913bf013b652a931a4d22
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 7a60f761e4ee575e3196bb1ccd3baa42f27221f8
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257740"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588171"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gérer des laboratoires de classe dans Azure Lab Services 
 Cet article décrit comment créer et supprimer un laboratoire de classe. Il montre également comment afficher tous les laboratoires de classe dans un compte de laboratoire. 
@@ -54,7 +54,7 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
         > Notez le nom d'utilisateur et le mot de passe que vous créez. Ils ne s’afficheront plus.
     3. Désactivez l’option **Use same password for all virtual machines** (Utiliser le même mot de passe pour toutes les machines virtuelles) si vous souhaitez que les étudiants définissent leurs propres mots de passe. Cette étape est **facultative**. 
 
-        Un enseignant peut choisir d’utiliser le même mot de passe pour toutes les machines virtuelles du laboratoire ou d’autoriser les étudiants à des mots de passe pour leurs machines virtuelles. Par défaut, ce paramètre est activé pour toutes les images Windows et Linux, à l’exception d’Ubuntu. Lorsque vous sélectionnez une machine virtuelle **Ubuntu**, ce paramètre est désactivé. Les étudiants sont ainsi invités à définir un mot de passe lorsqu’ils se connectent à la machine virtuelle pour la première fois.  
+        Un formateur peut choisir d’utiliser le même mot de passe pour toutes les machines virtuelles du laboratoire ou d’autoriser les étudiants à définir des mots de passe pour leurs machines virtuelles. Par défaut, ce paramètre est activé pour toutes les images Windows et Linux, à l’exception d’Ubuntu. Lorsque vous sélectionnez une machine virtuelle **Ubuntu**, ce paramètre est désactivé. Les étudiants sont ainsi invités à définir un mot de passe lorsqu’ils se connectent à la machine virtuelle pour la première fois.  
 
         ![Fenêtre Nouveau labo](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
     4. Ensuite, sélectionnez **Suivant** dans la page **Informations d’identification de la machine virtuelle**. 
@@ -103,14 +103,16 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
 | ---- | ----- | --- | ----------- | 
 | Petite | 2 | 3,5 Go | Cette taille est idéale pour la ligne de commande, l’ouverture d’un navigateur web, les serveurs web à faible trafic et les bases de données de petite et moyenne taille. |
 | Moyenne | 4 | 7 Go | Cette taille est idéale pour les bases de données relationnelles, le caching en mémoire et l’analyse | 
-| Moyenne (virtualisation imbriquée) | 4 | 16 Go | Cette taille est idéale pour les bases de données relationnelles, le caching en mémoire et l’analyse. Cette taille prend également en charge la virtualisation imbriquée. <p>Cette taille peut être utilisée dans des scénarios où chaque étudiant a besoin de plusieurs machines virtuelles. Les enseignants peuvent utiliser la virtualisation imbriquée pour configurer quelques machines virtuelles imbriquées de petite taille dans la machine virtuelle. </p> |
-| grand | 8 | 32 Go | Cette taille est idéale pour les applications nécessitant des UC plus rapides, de meilleures performances du disque local, des bases de données volumineuses et des caches mémoire volumineux. Cette taille prend également en charge la virtualisation imbriquée |  
+| Moyenne (virtualisation imbriquée) | 4 | 16 Go | Cette taille est idéale pour les bases de données relationnelles, le caching en mémoire et l’analyse. Cette taille prend également en charge la virtualisation imbriquée. <p>Cette taille peut être utilisée dans des scénarios où chaque étudiant a besoin de plusieurs machines virtuelles. Les formateurs peuvent utiliser la virtualisation imbriquée pour configurer quelques machines virtuelles imbriquées de petite taille dans la machine virtuelle. </p> |
+| GPU de petite taille (calcul) | 6 | 56 Go | <p>Cette taille est optimisée pour les applications nécessitant beaucoup de ressources système et de ressources réseau, notamment l'intelligence artificielle et les applications d'apprentissage approfondi (Deep Learning).</p><p>Azure Lab Services installe et configure automatiquement les pilotes GPU nécessaires quand vous créez un laboratoire avec des images GPU. </p> | 
 | GPU de petite taille (visualisation) | 6 | 56 Go | Cette taille est optimisée pour la visualisation à distance, la diffusion en continu, les jeux et l’encodage avec des infrastructures comme OpenGL ou DirectX. | 
-| GPU de petite taille (calcul) | 6 | 56 Go | Cette taille est optimisée pour les applications nécessitant beaucoup de ressources système et de ressources réseau, notamment l'intelligence artificielle et les applications d'apprentissage approfondi (Deep Learning). | 
+| grand | 8 | 16 Go | Cette taille est idéale pour les applications nécessitant des UC plus rapides, de meilleures performances du disque local, des bases de données volumineuses et des caches mémoire volumineux. |
+| Grande (virtualisation imbriquée) | 8 | 32 Go | Cette taille est idéale pour les applications nécessitant des UC plus rapides, de meilleures performances du disque local, des bases de données volumineuses et des caches mémoire volumineux. Cette taille prend également en charge la virtualisation imbriquée. |  
 | GPU de taille moyenne (visualisation) | 12 | 112 Go | Cette taille est optimisée pour la visualisation à distance, la diffusion en continu, les jeux et l’encodage avec des infrastructures comme OpenGL ou DirectX. | 
 
 > [!NOTE]
-> Azure Lab Services installe et configure automatiquement les pilotes GPU nécessaires quand vous créez un laboratoire avec des images GPU.  
+> Il se peut que certaines de ces tailles de machine virtuelle ne s’affichent pas dans la liste lors de la création d’un laboratoire de classe. La liste est remplie en fonction de la capacité actuelle de l’emplacement du laboratoire. Si le créateur du compte lab [permet aux créateurs de laboratoire de choisir un emplacement pour le laboratoire](allow-lab-creator-pick-lab-location.md), vous pouvez essayer de choisir un autre emplacement pour le laboratoire et voir si la taille de la machine virtuelle est disponible. 
+
 
 ## <a name="view-all-classroom-labs"></a>Afficher tous les laboratoires de classe
 1. Accédez au [portail Azure Lab Services](https://labs.azure.com).

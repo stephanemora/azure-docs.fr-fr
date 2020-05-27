@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 65f6c6627093358f8cbc66055bb9b16561f7c610
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5c458b1c04a7f3be1a43d725591426e619286b7d
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420953"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587871"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Présentation d’Azure Synapse Analytics (espaces de travail, préversion)
 
@@ -24,11 +24,11 @@ Aujourd’hui, l’analytique d’entreprise doit pouvoir traiter des quantités
 
 De telles solutions sont difficiles à créer, configurer, sécuriser et gérer, ce qui retarde la possibilité d’extraire des insights intéressants.
 
-**Azure Synapse** est un service d’analytique intégré qui accélère la génération d’insights à partir d’un ensemble de données provenant d’entrepôts de données et de systèmes d’analytique de Big Data, quelle que soit l’échelle. Il réunit ce qu’il se fait de mieux dans les technologies **SQL** utilisées dans l’entreposage des données d’entreprise, les **technologies Spark** utilisées dans l’analytique du Big Data et les **pipelines** pour orchestrer les activités et le déplacement des données. 
+**Azure Synapse** est un service d’analytique intégré qui accélère la génération d’insights à partir d’un ensemble de données provenant d’entrepôts de données et de systèmes d’analytique de Big Data, quelle que soit l’échelle. Il réunit ce qu’il se fait de mieux dans les technologies **SQL** utilisées dans l’entreposage des données d’entreprise, les **technologies Spark** utilisées dans l’analytique du Big Data et les **pipelines** pour orchestrer les activités et le déplacement des données.
 
 Azure Synapse offre aux utilisateurs une expérience native sur le web de type **Studio** qui propose un environnement et un modèle uniques pour la gestion, la supervision, le codage et la sécurité.
 
-Azure Synapse fournit aux entreprises le moyen le plus simple et le plus rapide de collecter des insights sur toutes leurs données, quelle que soit leur taille, à l’aide d’outils d’analytique qu’elles connaissent bien. Du fait de son intégration étroite à **Power BI**, les ingénieurs de données peuvent créer des solutions d’analytique qui fonctionnent de bout en bout pour le décisionnel. 
+Azure Synapse fournit aux entreprises le moyen le plus simple et le plus rapide de collecter des insights sur toutes leurs données, quelle que soit leur taille, à l’aide d’outils d’analytique qu’elles connaissent bien. Du fait de son intégration étroite à **Power BI**, les ingénieurs de données peuvent créer des solutions d’analytique qui fonctionnent de bout en bout pour le décisionnel.
 
 Azure Synapse facilite par ailleurs la génération de modèles prédictifs et l’analytique avancée avec le Machine Learning grâce à sa prise en charge intégrée d’**AzureML**.
 
@@ -44,14 +44,14 @@ Azure Synapse facilite par ailleurs la génération de modèles prédictifs et l
 
 ### <a name="industry-standard-apache-spark"></a>Apache Spark standard
 
-**Synapse Spark** offre une intégration profonde et fluide avec Apache Spark, le moteur de Big Data open source le plus répandu dans les domaines de la préparation des données, de l’engineering données, des processus ETL (extraction, transformation et chargement) et du Machine Learning.
+**Apache Spark pour Azure Synapse** offre une intégration profonde et fluide avec Apache Spark, le moteur de Big Data open source le plus répandu dans les domaines de la préparation des données, de l’engineering données, des processus ETL (extraction, transformation et chargement) et de l’apprentissage automatique.
 
 * Modèles ML avec algorithmes SparkML et intégration d’AzureML pour Apache Spark 2.4 avec prise en charge intégrée de Linux Foundation Delta Lake.
 * Modèle de ressource simplifié qui vous évite d’avoir à vous soucier de la gestion des clusters.
 * Démarrage rapide Spark et mise à l’échelle automatique agressive.
 * Prise en charge intégrée de .NET pour Spark, ce qui vous permet de mettre à profit votre expertise en C# et votre code .NET existant au sein d’une application Spark.
 
-### <a name="interop-of-sql-and-spark-on-your-data-lake"></a>Interop de SQL et Spark sur votre lac de données
+### <a name="interop-of-sql-and-apache-spark-on-your-data-lake"></a>Interop de SQL et Apache Spark sur votre lac de données
 
 Azure Synapse supprime les barrières technologiques traditionnelles qui empêchent d’utiliser conjointement SQL et Spark. Vous pouvez mélanger les fonctions de façon fluide selon vos besoins et votre expertise.
 

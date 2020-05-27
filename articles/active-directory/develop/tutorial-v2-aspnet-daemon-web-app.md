@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: b9c40d93c48bcf5959b5d9651510ce6076eb789e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b63aa2b2d98a12246d0dc2c35e015da872caff28
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201752"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83641101"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Tutoriel : Créer un démon multilocataire qui utilise le point de terminaison de la plateforme d’identités Microsoft
 
@@ -235,8 +235,8 @@ Visual Studio publie le projet et ouvre automatiquement l’URL du projet dans u
 1. Revenez au [portail Azure](https://portal.azure.com).
 1. Dans le volet de gauche, sélectionnez le service **Azure Active Directory**, puis **Inscriptions d’applications**.
 1. Sélectionnez l’application **dotnet-web-daemon-v2**.
-1. Dans la page **Authentification** de votre application, mettez à jour les champs **URL de déconnexion** avec l’adresse de votre service. Par exemple, utilisez [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net).
-1. Dans le menu **Personnalisation**, mettez à jour l’**URL de la page d’accueil** avec l’adresse de votre service. Par exemple, utilisez [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net).
+1. Dans la page **Authentification** de votre application, mettez à jour les champs **URL de déconnexion** avec l’adresse de votre service. Par exemple, utilisez `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
+1. Dans le menu **Personnalisation**, mettez à jour l’**URL de la page d’accueil** avec l’adresse de votre service. Par exemple, utilisez `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
 1. Enregistrez la configuration.
 1. Ajoutez la même URL à la liste d’URL du menu **Authentification** > **URI de redirection**. Si vous avez plusieurs URL de redirection, vérifiez qu’il existe une nouvelle entrée correspondant à l’URI du service d’application pour chaque URL de redirection.
 

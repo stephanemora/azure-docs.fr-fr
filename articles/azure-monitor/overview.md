@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: cfdd0beac7d257a424d327df71602b4612c3da3b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dbace6b93e07571693b221bb3d2a947010b1e476
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79536851"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799995"
 ---
 # <a name="azure-monitor-overview"></a>Vue d’ensemble d’Azure Monitor
 
@@ -23,7 +23,7 @@ Voici quelques exemples de ce que vous pouvez faire avec Azure Monitor :
 - Mettre en corrélation les problèmes d’infrastructure avec [Azure Monitor pour machines virtuelles](insights/vminsights-overview.md) et [Azure Monitor pour conteneurs](insights/container-insights-overview.md)
 - Explorer vos données de supervision avec [Log Analytics](log-query/log-query-overview.md) pour résoudre les problèmes et établir des diagnostics approfondis
 - Prendre en charge des opérations à grande échelle avec des [alertes intelligentes](platform/alerts-smartgroups-overview.md) et des [actions automatisées](platform/alerts-action-rules.md)
-- Créer des visualisations avec les [tableaux de bord](learn/tutorial-logs-dashboards.md) et [classeurs](app/usage-workbooks.md) Azure
+- Créer des visualisations avec les [tableaux de bord](learn/tutorial-logs-dashboards.md) et [classeurs](platform/workbooks-overview.md) Azure
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4qXeL]
 
@@ -56,9 +56,9 @@ Azure Monitor peut recueillir des données de diverses sources. Vous pouvez envi
 
 - **Données de surveillance de l’application** : données concernant les performances et la fonctionnalité du code que vous avez écrit, quelle que soit la plateforme.
 - **Données de surveillance du système d’exploitation invité** : données concernant le système d’exploitation sur lequel votre application est exécutée. Il peut s’agir d’Azure, d’un autre cloud ou d’un système local. 
-- **Données de surveillance des ressources Azure** : données concernant le fonctionnement d’une ressource Azure.
-- **Données de surveillance d’abonnement Azure** : données concernant le fonctionnement et la gestion d’un abonnement Azure, mais aussi données concernant l’intégrité et le fonctionnement d’Azure. 
-- **Données de surveillance de locataire Azure** : données concernant le fonctionnement des services Azure au niveau du locataire, tels qu’Azure Active Directory.
+- **Données de surveillance des ressources Azure** : données sur le fonctionnement d’une ressource Azure.
+- **Données de surveillance de l’abonnement Azure** : données concernant le fonctionnement et la gestion d’un abonnement Azure, mais aussi données concernant l’intégrité et le fonctionnement d’Azure. 
+- **Données de surveillance du locataire Azure** : données concernant le fonctionnement des services Azure au niveau du locataire, tels qu’Azure Active Directory.
 
 Dès que vous créez un abonnement Azure et commencez à ajouter des ressources telles que des machines virtuelles et des applications web, Azure Monitor commence la collecte de données.  Les [journaux d’activité](platform/platform-logs-overview.md) enregistrent la création et la modification des ressources. Les [métriques](platform/data-platform.md) vous indiquent les performances de la ressource et les ressources qu’elle consomme. 
 

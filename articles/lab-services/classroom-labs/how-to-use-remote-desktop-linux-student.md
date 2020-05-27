@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 0f45af2730b05998fc82212c63778c89bb16b6ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8ccad0698ea6560dd183cacc71f5f3a644e8220c
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73585077"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588103"
 ---
 # <a name="use-remote-desktop-for-linux-virtual-machines-in-a-classroom-lab-of-azure-lab-services"></a>Utiliser le Bureau à distance pour les machines virtuelles Linux dans un labo de classe dans Azure Lab Services
 Cet article explique comment les étudiants peuvent se connecter à une machine virtuelle Linux d’un labo en utilisant RDP/SSH. 
@@ -29,7 +29,7 @@ Un formateur doit activer la fonctionnalité de connexion du Bureau à distance 
 > L’activation de la **connexion Bureau à distance** ouvre uniquement le port **RDP** sur les machines Linux. Un formateur peut se connecter à la machine Linux à l’aide de SSH la première fois, et installer les packages RDP et GUI de manière à se connecter à la machine Linux à l'aide de RDP ensuite. 
 
 ## <a name="connect-to-the-student-vm"></a>Se connecter-vous à la machine virtuelle de l’étudiant
-Les étudiants peuvent se connecter via RDP à leurs machines virtuelles Linux après que le propriétaire du labo (enseignant) a **publié** le modèle de machine virtuelle avec les packages RDP et GUI installés. Voici la procédure à suivre : 
+Les étudiants peuvent se connecter via RDP à leurs machines virtuelles Linux après que le propriétaire du laboratoire (formateur) a **publié** le modèle de machine virtuelle avec les packages RDP et GUI installés. Voici la procédure à suivre : 
 
 1. Lorsqu’un étudiant se connecte directement au portail Labs (`https://labs.azure.com`) ou à l'aide d'un lien d’inscription (`https://labs.azure.com/register/<registrationCode>`), une vignette correspondant à chaque lab auquel l'étudiant a accès s'affiche. 
 2. Sur la vignette, basculez le bouton pour démarrer la machine virtuelle si elle est en état arrêté. 
