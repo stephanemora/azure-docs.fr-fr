@@ -3,12 +3,12 @@ title: Comment... dans Azure Application Insights | Microsoft Docs
 description: FAQ dans Application Insights
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 8d4b1e79c48b14ed7dce756468e4c48d633c3f04
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ca5900bc9172b1f4ef9b1a7a660c6936ac38095
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536860"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701943"
 ---
 # <a name="how-do-i--in-application-insights"></a>Comment ... dans Application Insights ?
 ## <a name="get-an-email-when-"></a>Recevoir un message électronique quand...
@@ -16,7 +16,7 @@ ms.locfileid: "81536860"
 Définissez un [test web de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md).
 
 ### <a name="email-if-my-site-is-overloaded"></a>Envoyer un message électronique si mon site est surchargé
-Définissez une [alerte](../../azure-monitor/app/alerts.md) sur le **Temps de réponse du serveur**. Un seuil compris entre 1 et 2 secondes doit fonctionner.
+Définissez une [alerte](../../azure-monitor/platform/alerts-log.md) sur le **Temps de réponse du serveur**. Un seuil compris entre 1 et 2 secondes doit fonctionner.
 
 ![](./media/how-do-i/030-server.png)
 
@@ -26,10 +26,10 @@ Si vous voulez définir une alerte sur les **Exceptions du serveur**, vous devre
 
 ### <a name="email-on-exceptions"></a>Envoyer un message électronique en cas d’exceptions
 1. [Configurer la surveillance des exceptions](../../azure-monitor/app/asp-net-exceptions.md)
-2. [Définir une alerte](../../azure-monitor/app/alerts.md) sur la métrique Nombre d’exceptions
+2. [Définir une alerte](../../azure-monitor/platform/alerts-log.md) sur la métrique Nombre d’exceptions
 
 ### <a name="email-on-an-event-in-my-app"></a>Envoyer un message électronique en réponse à un événement dans mon application
-Supposons que vous vouliez recevoir un e-mail quand un événement spécifique se produit. Application Insights ne fournit pas directement cette fonctionnalité, mais peut [envoyer une alerte quand une métrique dépasse un seuil](../../azure-monitor/app/alerts.md).
+Supposons que vous vouliez recevoir un e-mail quand un événement spécifique se produit. Application Insights ne fournit pas directement cette fonctionnalité, mais peut [envoyer une alerte quand une métrique dépasse un seuil](../../azure-monitor/platform/alerts-log.md).
 
 Les alertes peuvent être définies sur des [métriques personnalisées](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), et non sur des événements personnalisés. Écrivez du code pour augmenter une métrique quand l’événement se produit :
 
@@ -65,11 +65,11 @@ Vous recevrez des messages électroniques quand la métrique est supérieure et 
 * Étant donné que les messages électroniques sont envoyés à la fois pour les états « alerte » et « intègre », vous devrez peut-être remplacer votre événement à déclenchement unique par une condition à deux états. Par exemple, au lieu d’un événement « tâche terminée », définissez une condition « tâche en cours », pour laquelle vous obtenez des messages électroniques au début et à la fin d’une tâche.
 
 ### <a name="set-up-alerts-automatically"></a>Configurer automatiquement des alertes
-[Utiliser PowerShell pour créer des alertes](../../azure-monitor/app/alerts.md#automation)
+[Utiliser PowerShell pour créer des alertes](../../azure-monitor/platform/alerts-log.md)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>Utiliser PowerShell pour gérer Application Insights
 * [Créer des ressources](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
-* [Créer des alertes](../../azure-monitor/app/alerts.md#automation)
+* [Créer des alertes](../../azure-monitor/platform/alerts-log.md)
 
 ## <a name="separate-telemetry-from-different-versions"></a>Télémétrie distincte des différentes versions
 

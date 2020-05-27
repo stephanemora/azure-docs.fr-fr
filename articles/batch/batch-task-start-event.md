@@ -1,14 +1,14 @@
 ---
 title: Événement de début de tâche Azure Batch
 description: Informations de référence sur l’événement de début de tâche Batch. Cet événement est émis quand une tâche est planifiée pour démarrer sur un nœud de calcul par le Scheduler.
-ms.topic: article
+ms.topic: reference
 ms.date: 04/20/2017
-ms.openlocfilehash: 6e897cb02163d11657c915d31ee5564e5bbd7407
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f872e6c89e2f528729ae08125c6cc3eb5718e19a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116398"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725786"
 ---
 # <a name="task-start-event"></a>Événement de début de tâche
 

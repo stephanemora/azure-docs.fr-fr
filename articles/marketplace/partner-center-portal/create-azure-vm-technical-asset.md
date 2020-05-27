@@ -7,17 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 4d2d33f9d83132147b5b257ffcd6d659f272b8ec
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 3c4e5fa4ce960f8113504b52aa0d5055bf1bf85a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81730721"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722709"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Créer vos ressources techniques Machine virtuelle Azure
-
-> [!IMPORTANT]
-> Nous allons déplacer la gestion de vos offres de machines virtuelles Azure du portail Cloud Partner vers l’Espace partenaires. Tant que vos offres ne sont pas migrées, suivez les instructions indiquées dans [Créer des ressources techniques pour une offre de machine virtuelle](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-technical-assets) pour gérer vos offres.
 
 Cet article explique comment créer et configurer des ressources techniques pour une offre de machine virtuelle pour la Place de marché Azure. Une machine virtuelle héberge deux composants, le disque dur virtuel du système d’exploitation et les éventuels disques durs virtuels de données associés :
 

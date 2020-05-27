@@ -4,14 +4,14 @@ description: Procurez-vous les exemples Azure PowerShell pour effectuer diverses
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 03/26/2020
+ms.date: 05/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: efc0ff8e6c198071d3906a0e7e999510198f73bf
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 7cd14151d8cb0fbef7593d62eee050be7987ab18
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366180"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713537"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db---sql-core-api"></a>Exemples Azure PowerShell pour Azure Cosmos DB - API SQL (Core)
 
@@ -20,7 +20,7 @@ Le tableau suivant comprend des liens vers des scripts Azure PowerShell couramme
 Pour obtenir d’autres exemples Cosmos DB PowerShell pour l’API SQL (Core) et pour parcourir la documentation, consultez [Gérer les ressources de l’API SQL Azure Cosmos DB à l’aide de PowerShell](manage-with-powershell.md). Pour obtenir des exemples Cosmos DB PowerShell pour d’autres API, consultez [API Cassandra](powershell-samples-cassandra.md), [API MongoDB](powershell-samples-mongodb.md), [API Gremlin](powershell-samples-gremlin.md)et [API Table](powershell-samples-table.md).
 
 > [!NOTE]
-> Les exemples utilisent les applets de commande de gestion [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb). Notez que les applets de commande `Az.CosmosDB` sont toujours en préversion et peuvent changer avant la mise en production. Vérifiez régulièrement les mises à jour de `Az.CosmosDB`.
+> Les exemples utilisent les applets de commande de gestion [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb). Vérifiez régulièrement les mises à jour de `Az.CosmosDB`.
 
 | | |
 |---|---|

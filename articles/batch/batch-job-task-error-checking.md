@@ -2,15 +2,15 @@
 title: Rechercher les erreurs de travail et de tâche
 description: Erreurs à vérifier et résolution des problèmes de travaux et des tâches
 author: mscurrell
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/10/2019
 ms.author: markscu
-ms.openlocfilehash: 0c58bdf50f3e69b2b7d18f750f94fecdb512af85
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 368b803ae3e62c0e27da9e52d9df9842037757ff
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116024"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726619"
 ---
 # <a name="job-and-task-error-checking"></a>Vérification des erreurs de travail et de tâche
 

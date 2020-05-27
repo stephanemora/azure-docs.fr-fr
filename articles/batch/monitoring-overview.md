@@ -1,14 +1,14 @@
 ---
 title: Superviser Azure Batch
 description: Découvrez les services de supervision Azure, les métriques, les journaux de diagnostic et d’autres fonctionnalités de supervision d’Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/05/2018
-ms.openlocfilehash: c8b11d0b7187d6c4b5b3ccff1e19eb533ff3f0da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09ac9c676dc1e95cbece6fa500b4f2cf554f8526
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113888"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723525"
 ---
 # <a name="monitor-batch-solutions"></a>Solutions Monitor Batch
 

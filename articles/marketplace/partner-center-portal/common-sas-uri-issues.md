@@ -7,17 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: fb86b1c5ec3be5a423dc2abd295aa8beb8f23f47
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 56db3562efdc0406e745fd38b73df0a473d0ecd5
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81265093"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724596"
 ---
 # <a name="common-sas-uri-issues-and-fixes"></a>Problèmes courants des URI SAS et correctifs
-
-> [!IMPORTANT]
-> Nous allons déplacer la gestion de vos offres de machines virtuelles Azure du portail Cloud Partner vers l’Espace partenaires. Tant que vous n’avez pas effectué la migration de vos offres, suivez les instructions fournies dans [Problèmes courants et correctifs relatifs aux URI SAS](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues) sur le portail Cloud Partner pour gérer vos offres.
 
 Voici certains des problèmes couramment rencontrés dans le cadre de l’utilisation des signatures d’accès partagé (qui permettent d’identifier et de partager les disques durs virtuels chargés pour votre solution), ainsi que des suggestions de résolution.
 

@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 999204cf2fc8ce18b42f873b9d34af4e6c08052b
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 3edd29703f74c7671537fbcf08159dd830e5453c
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411492"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726224"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Authentifier un appareil en aval auprès d’Azure IoT Hub
 
@@ -59,7 +59,7 @@ Vous pouvez utiliser l’[extension IoT pour Azure CLI](https://github.com/Azure
 az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
 ```
 
-Pour plus d’informations sur les commandes Azure CLI permettant de créer des appareils et de gérer les relations parent/enfant, consultez la documentation de référence des commandes [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest).
+Pour plus d’informations sur les commandes Azure CLI permettant de créer des appareils et de gérer les relations parent/enfant, consultez la documentation de référence des commandes [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest).
 
 
 Ensuite, [récupérez et Modifiez la chaîne de connexion](#retrieve-and-modify-connection-string) de sorte que votre appareil sache qu’il se connecte via sa passerelle.
@@ -109,7 +109,7 @@ Vous pouvez utiliser l’[extension IoT pour Azure CLI](https://github.com/Azure
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
 
-Pour plus d’informations sur les commandes Azure CLI permettant de créer des appareils, de générer des certificats et de gérer les relations parent/enfant, consultez la documentation de référence des commandes [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest).
+Pour plus d’informations sur les commandes Azure CLI permettant de créer des appareils, de générer des certificats et de gérer les relations parent/enfant, consultez la documentation de référence des commandes [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest).
 
 Ensuite, [récupérez et Modifiez la chaîne de connexion](#retrieve-and-modify-connection-string) de sorte que votre appareil sache qu’il se connecte via sa passerelle.
 
@@ -152,7 +152,7 @@ Vous pouvez utiliser l’[extension IoT pour Azure CLI](https://github.com/Azure
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
 ```
 
-Pour plus d’informations, consultez le contenu de référence Azure CLI relatif au commandes [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest).
+Pour plus d’informations, consultez le contenu de référence Azure CLI relatif au commandes [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest).
 
 Ensuite, [récupérez et Modifiez la chaîne de connexion](#retrieve-and-modify-connection-string) de sorte que votre appareil sache qu’il se connecte via sa passerelle.
 

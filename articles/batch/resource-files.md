@@ -2,13 +2,13 @@
 title: Création et utilisation de fichiers de ressources
 description: Découvrez comment créer des fichiers de ressources Batch à partir de diverses sources d’entrée. Cet article décrit quelques méthodes courantes pour les créer et les placer sur une machine virtuelle.
 ms.date: 03/18/2020
-ms.topic: article
-ms.openlocfilehash: c9a2e581d0cada467e89e3da731fac7f78b22992
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: ea349c3a190b78297d9ad4555258d0cfd8828ed4
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117180"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723457"
 ---
 # <a name="creating-and-using-resource-files"></a>Création et utilisation de fichiers de ressources
 

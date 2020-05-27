@@ -10,12 +10,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 8fdc64632be8b5fcb3dca8de2ee833fef25719fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7aefc54a20e23ae969750532e7e3bc824f69c56
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77656736"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725310"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Limitations et restrictions des URL de réponse/URI de redirection
 
@@ -23,8 +23,9 @@ Un URI de redirection ou une URL de réponse correspond à l'emplacement vers le
 
  Les restrictions suivantes s’appliquent aux URL de réponse :
 
-    * L’URL de réponse doit commencer par le schéma `https`.
-    * L’URL de réponse respecte la casse. Sa casse doit correspondre à celle du chemin d’URL de votre application en cours d’exécution. Par exemple, si votre application comprend `.../abc/response-oidc` dans son chemin, ne spécifiez pas `.../ABC/response-oidc` dans l’URL de réponse. Étant donné que le navigateur web considère que les chemins respectent la casse, les cookies associés à `.../abc/response-oidc` peuvent être exclus s’ils sont redirigés vers l’URL `.../ABC/response-oidc` qui ne correspond pas à la casse.
+* L’URL de réponse doit commencer par le schéma `https`.
+
+* L’URL de réponse respecte la casse. Sa casse doit correspondre à celle du chemin d’URL de votre application en cours d’exécution. Par exemple, si votre application comprend `.../abc/response-oidc` dans son chemin, ne spécifiez pas `.../ABC/response-oidc` dans l’URL de réponse. Étant donné que le navigateur web considère que les chemins respectent la casse, les cookies associés à `.../abc/response-oidc` peuvent être exclus s’ils sont redirigés vers l’URL `.../ABC/response-oidc` qui ne correspond pas à la casse.
     
 ## <a name="maximum-number-of-redirect-uris"></a>Nombre maximal d'URI de redirection
 

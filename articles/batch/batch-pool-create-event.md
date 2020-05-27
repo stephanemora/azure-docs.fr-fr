@@ -1,15 +1,14 @@
 ---
 title: Événement de création de pool Azure Batch
 description: Informations de référence pour l’événement de création de pool Batch, qui est émis après la création d’un pool. Le contenu du journal fournit des informations générales sur le pool.
-ms.topic: article
+ms.topic: reference
 ms.date: 04/20/2017
-ms.author: labrenne
-ms.openlocfilehash: 755fbe548b4be729d20788597db05f4d9678ebea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe327b7c369405cb3160c67d79e5dbdf55463f77
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116551"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724035"
 ---
 # <a name="pool-create-event"></a>Événement de création de pool
 

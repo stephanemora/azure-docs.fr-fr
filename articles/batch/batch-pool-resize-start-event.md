@@ -1,15 +1,14 @@
 ---
 title: Événement de début de redimensionnement de pool Azure Batch
 description: Référence pour l’événement de début de redimensionnement de pool Batch. L’exemple montre le corps d’un événement de début de redimensionnement de pool, pour un redimensionnement de pool de 0 à 2 en mode manuel.
-ms.topic: article
+ms.topic: reference
 ms.date: 04/20/2017
-ms.author: labrenne
-ms.openlocfilehash: b4aa503c5dfbe00a77216277bdaf7e4c0dc3b1bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 63576b04b06aad024211d0a50225907c88c138ce
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115871"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723729"
 ---
 # <a name="pool-resize-start-event"></a>Événement de début de redimensionnement de pool
 

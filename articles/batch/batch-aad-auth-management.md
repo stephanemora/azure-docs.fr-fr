@@ -1,15 +1,15 @@
 ---
 title: Utiliser Azure Active Directory pour authentifier des solutions Batch Management
 description: Découvrez comment utiliser Azure Active Directory pour l’authentification à partir d’applications qui utilisent la bibliothèque Batch Management .NET.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/27/2017
 ms.custom: has-adal-ref
-ms.openlocfilehash: 7ca32e5f9ff32d635d7f662c74dea5534e3dd072
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: ec9cf15f37c3ca7e4e477c628733d34cac21c141
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608453"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726891"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Authentification de solutions de gestion Batch avec Active Directory
 

@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 588926a90d9a40c00bca4914dc1d5ed08301ff75
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: ef6ed74149f106b801049da429dfe7b79b984a70
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780791"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725242"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Comprendre les fonctionnalités hors connexion étendues pour les appareils, modules et appareils enfants IoT Edge
 
@@ -68,7 +68,7 @@ Vous pouvez déclarer les relations parent-enfant au moment où vous créez un a
 
 #### <a name="option-2-use-the-az-command-line-tool"></a>Option n°2 : Utiliser l’outil de ligne de commande `az`
 
-À l’aide de l’interface de ligne de commande [Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) avec l’[extension IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 ou version ultérieure), vous pouvez gérer les relations parent-enfant avec les sous-commandes [device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest). L’exemple ci-dessous utilise une requête pour affecter tous les appareils non IoT Edge dans le hub à des appareils enfants d’un appareil IoT Edge.
+À l’aide de l’interface de ligne de commande [Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) avec l’[extension IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 ou version ultérieure), vous pouvez gérer les relations parent-enfant avec les sous-commandes [device-identity](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest). L’exemple ci-dessous utilise une requête pour affecter tous les appareils non IoT Edge dans le hub à des appareils enfants d’un appareil IoT Edge.
 
 ```azurecli
 # Set IoT Edge parent device

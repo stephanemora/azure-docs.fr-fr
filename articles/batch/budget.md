@@ -1,14 +1,14 @@
 ---
 title: Analyse des coûts et budget
 description: Découvrez comment obtenir une analyse des coûts et définir un budget pour les ressources de calcul et licences logicielles sous-jacentes utilisées dans le cadre de l’exécution de vos charges de travail Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/19/2019
-ms.openlocfilehash: c3c3203882d003d7fbb5f9d5092a1c93886f313a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 13c8cc508a4940b5e21570104527c40988879919
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117486"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725769"
 ---
 # <a name="cost-analysis-and-budgets-for-azure-batch"></a>Analyse des coûts et budgets pour Azure Batch
 
