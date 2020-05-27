@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 05/07/2020
 ms.author: spelluru
-ms.openlocfilehash: 8d1ed128181d036af0026ae273c2c5bf1d3a066e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11cb0d995537b8979c3727bf508045c6e31fc208
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77443497"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592608"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Labs de salle de classe dans Azure Lab Services - Forum aux questions (FAQ)
 Obtenez des réponses aux questions les plus fréquemment posées sur les labs de salle de classe dans Azure Lab Services. 
@@ -28,8 +28,8 @@ Obtenez des réponses aux questions les plus fréquemment posées sur les labs d
 ### <a name="is-the-quota-per-user-or-per-week-or-per-entire-duration-of-the-lab"></a>Le quota est-il appliqué par utilisateur, par semaine ou pour toute la durée du lab ? 
 Le quota que vous définissez pour un lab s’applique à chaque étudiant pour toute la durée du lab. Le [temps d’exécution planifié des machines virtuelles](how-to-create-schedules.md) ne compte pas dans le quota alloué à un utilisateur. Le quota s’applique au temps pendant lequel un étudiant utilise les machines virtuelles en dehors des heures planifiées.  Pour plus d’informations sur les quotas, consultez [Définir des quotas pour les utilisateurs](how-to-configure-student-usage.md#set-quotas-for-users).
 
-### <a name="if-professor-turns-on-a-student-vm-does-that-affect-the-student-quota"></a>Si le professeur active la machine virtuelle d’un étudiant, cela affecte-t-il le quota de l’étudiant ? 
-Non. Non. Quand le professeur active la machine virtuelle d’un étudiant, cela n’affecte pas le quota alloué à l’étudiant. 
+### <a name="if-educator-turns-on-a-student-vm-does-that-affect-the-student-quota"></a>Si le formateur active la machine virtuelle d’un étudiant, cela affecte-t-il le quota de celui-ci ? 
+Non. Non. Quand le formateur active la machine virtuelle d’un étudiant, cela n’affecte pas le quota alloué à celui-ci. 
 
 ## <a name="schedules"></a>Planifications
 
@@ -58,13 +58,16 @@ Consultez [Plages d’adresses IP et balises de service Azure - Cloud public](ht
 
 Quand un administrateur vous ajoute à un compte lab comme créateur de labo, vous êtes autorisé à créer des labos. Toutefois, vous ne disposez pas des autorisations nécessaires pour modifier les paramètres du compte lab, notamment la liste des images de machine virtuelle activées. Pour activer des images supplémentaires, demandez à l’administrateur de votre compte lab de le faire pour vous ou demandez-lui de vous ajouter au compte lab avec un rôle de contributeur. Le rôle de contributeur vous donne les autorisations nécessaires pour modifier la liste des images de machine virtuelle dans le compte lab.
 
+### <a name="can-i-attach-additional-disks-to-a-virtual-machine"></a>Puis-je attacher des disques supplémentaires à une machine virtuelle ?
+Non. Il n’est pas possible d’attacher des disques supplémentaires à une machine virtuelle dans un laboratoire de classe. 
+
 ## <a name="users"></a>Utilisateurs
 
 ### <a name="how-many-users-can-be-in-a-classroom-lab"></a>Combien peut-il y avoir d’utilisateurs dans un laboratoire de classe ?
 Vous pouvez ajouter jusqu’à 400 utilisateurs à un laboratoire de classe. 
 
 ## <a name="blog-post"></a>Billet de blog
-Abonnez-vous au [blog Azure Lab Services](https://azure.microsoft.com/blog/tag/azure-lab-services/).
+Abonnez-vous au [blog Azure Lab Services](https://aka.ms/azlabs-blog).
 
 ## <a name="update-notifications"></a>Notifications de mise à jour
 Abonnez-vous aux [mises à jour de Lab Services](https://azure.microsoft.com/updates/?product=lab-services) pour rester informé des nouvelles fonctionnalités de Lab Services.
@@ -74,6 +77,6 @@ Abonnez-vous aux [mises à jour de Lab Services](https://azure.microsoft.com/upd
 Si votre question n’est pas répertoriée ici, faites-le-nous savoir pour que nous puissions vous aider à trouver une réponse.
 
 - Postez une question à la fin de ce Forum aux questions. 
-- Pour atteindre un public plus large, postez une question sur le [forum Stack Overflow consacré à Azure Lab Services](https://stackoverflow.com/questions/tagged/azure-lab-services). 
+- Pour atteindre un public plus large, posez une question sur le [forum de la communauté technique Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices). 
 - Concernant les demandes de fonctionnalité, transmettez vos questions et idées à [Azure Lab Services - User Voice](https://feedback.azure.com/forums/320373-lab-services?category_id=352774).
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: c829579f3ad9922c8c621b6dbfa966b69a2497d1
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 5d0a9771e5b999028996676ea72f8def3c5d63cf
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690810"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589854"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Reconnaître le texte imprimé et manuscrit
 
@@ -26,10 +26,9 @@ L’API Vision par ordinateur fournit un certain nombre de services pour détect
 
 L’API Lire détecte le contenu textuel d'une image à l’aide de nos derniers modèles de reconnaissance et convertit le texte identifié en flux de caractères lisibles par ordinateur. Elle est optimisée pour les images comportant beaucoup de texte (tels que les documents numérisés) et pour les images comportant beaucoup de bruit visuel. Elle détermine le modèle de reconnaissance à utiliser pour chaque ligne de texte et prend en charge les images contenant à la fois du texte imprimé et manuscrit. L’API Lire s’exécute de façon asynchrone, car les documents volumineux peuvent prendre plusieurs minutes pour retourner un résultat.
 
-L’opération de lecture conserve les groupements de lignes d’origine des mots reconnus dans sa sortie. Chaque ligne est accompagnée des coordonnées de son cadre englobant, et chaque mot dans la ligne a également ses propres coordonnées. Si un mot a été reconnu avec une faible confiance, cette information est également transmise. Pour en savoir plus, consultez la [documentation de référence de l’API Lire v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) ou la [documentation de référence de l’API Lire v3.0 en préversion](https://go.microsoft.com/fwlink/?linkid=2118322).
+L’opération de lecture conserve les groupements de lignes d’origine des mots reconnus dans sa sortie. Chaque ligne est accompagnée des coordonnées de son cadre englobant, et chaque mot dans la ligne a également ses propres coordonnées. Si un mot a été reconnu avec une faible confiance, cette information est également transmise. Pour en savoir plus, consultez la [documentation de référence de l’API Lire v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) ou la [documentation de référence de l’API Lire v3.0](https://aka.ms/computer-vision-v3-ref).
 
-> [!NOTE]
-> Cette fonctionnalité est disponible uniquement pour du texte en anglais et en espagnol (v3.0 en préversion).
+L’API Lire peut reconnaître du texte en anglais, espagnol, allemand, français, italien, portugais et néerlandais.
 
 ### <a name="image-requirements"></a>Exigences des images
 

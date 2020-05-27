@@ -1,5 +1,5 @@
 ---
-title: Bonnes pratiques pour SQL à la demande (préversion) dans Azure Synapse Analytics
+title: Meilleures pratiques pour SQL à la demande (préversion) dans Azure Synapse Analytics
 description: Recommandations et meilleures pratiques à connaître si vous utilisez SQL à la demande.
 services: synapse-analytics
 author: filippopovic
@@ -10,16 +10,16 @@ ms.subservice: ''
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0015beadfea61fc31bf3f37232105b9cfd2ced71
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 86678365d1510199247e8a1aaa48ec844d07de32
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692149"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592931"
 ---
-# <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Bonnes pratiques pour SQL à la demande (préversion) dans Azure Synapse Analytics
+# <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Meilleures pratiques pour SQL à la demande (préversion) dans Azure Synapse Analytics
 
-Cet article présente un ensemble de bonnes pratiques pour utiliser SQL à la demande (préversion). SQL à la demande est une ressource supplémentaire au sein d’Azure Synapse Analytics.
+Cet article présente un ensemble de meilleures pratiques pour l’utilisation de SQL à la demande (préversion). SQL à la demande est une ressource supplémentaire au sein d’Azure Synapse Analytics.
 
 ## <a name="general-considerations"></a>Considérations d’ordre général
 
@@ -44,7 +44,7 @@ Quand une limitation est détectée, SQL à la demande dispose d’une fonction 
 
 Si possible, vous pouvez préparer les fichiers pour améliorer les performances :
 
-- Convertir CSV en Parquet – Parquet est un format en colonnes. Dans la mesure où il est compressé, ses fichiers sont de plus petite taille que des fichiers CSV contenant les mêmes données. SQL à la demande a besoin de moins de temps et de demandes de stockage pour le lire.
+- Convertir CSV et JSON en Parquet – Parquet est un format en colonnes. Dans la mesure où il est compressé, ses fichiers sont de plus petite taille que des fichiers CSV ou JSON contenant les mêmes données. SQL à la demande a besoin de moins de temps et de demandes de stockage pour le lire.
 - Si une requête cible un seul fichier volumineux, il est avantageux de fractionner celui-ci en fichiers plus petits.
 - Essayez de conserver une taille de fichier CSV inférieure à 10 Go.
 - Il est préférable d’avoir des fichiers de taille identique pour un chemin d’accès OPENROWSET unique ou un emplacement de table externe.
@@ -118,7 +118,14 @@ Pour plus d’informations, consultez les fonctions [filename](develop-storage-f
 > [!TIP]
 > Castez toujours le résultat des fonctions filepath et fileinfo en types de données appropriés. Si vous utilisez des types de données caractères, assurez-vous que la longueur appropriée est utilisée.
 
+> [!NOTE]
+> Les fonctions utilisées pour l’élimination de partition, filepath et fileinfo, ne sont actuellement pas prises en charge pour des tables externes autres que celles créées automatiquement pour chaque table créée dans Apache Spark pour Azure Synapse Analytics.
+
 Si vos données stockées ne sont pas partitionnées, envisagez de les partitionner afin de pouvoir utiliser ces fonctions pour optimiser les requêtes ciblant ces fichiers. Lorsque de l’[interrogation de tables Spark partitionnées](develop-storage-files-spark-tables.md) à partir de SQL à la demande, la requête cible automatiquement uniquement les fichiers nécessaires.
+
+## <a name="use-parser_version-20-for-querying-csv-files"></a>Utiliser PARSER_VERSION 2.0 pour l’interrogation de fichiers CSV
+
+Vous pouvez utiliser l’analyseur à performances optimisées lors de l’interrogation des fichiers CSV. Pour plus d’informations, consultez [PARSER_VERSION](develop-openrowset.md).
 
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Utiliser CETAS pour améliorer les performances des requêtes et les jointures
 
@@ -127,6 +134,12 @@ Si vos données stockées ne sont pas partitionnées, envisagez de les partition
 Vous pouvez utiliser CETAS pour stocker dans un nouveau jeu de fichiers des parties de requêtes souvent utilisées, telles des tables de référence jointes. Ensuite, vous pouvez joindre une telle table externe au lieu de répéter des jointures communes dans plusieurs requêtes.
 
 Comme CETAS génère des fichiers Parquet, les statistiques sont automatiquement créées lorsque la première requête cible cette table externe, ce qui améliore les performances.
+
+## <a name="aad-pass-through-performance"></a>Performances directes AAD
+
+SQL à la demande vous permet d’accéder à des fichiers dans le stockage en utilisant une connexion directe AAD ou des informations d’identification SAP. Vous pouvez constater un ralentissement des performances de la connexion directe AAD en comparaison de SAP. 
+
+Si vous avez besoin de meilleures performances, essayez d’utiliser les informations d’identification SAP pour accéder au stockage jusqu’à ce que les performances directes AAD soient améliorées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

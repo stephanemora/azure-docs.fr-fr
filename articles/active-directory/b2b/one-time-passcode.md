@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6d897bb983eb06baa4f1573f1f875eea8bb8afc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 520f42956a1e096893935b6b7844d67060958829
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230821"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585915"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Authentification par code secret à usage unique d’e-mail (préversion)
 
@@ -56,7 +56,7 @@ Quand un utilisateur invité accepte une invitation ou utilise un lien vers une 
 
 Au moment de l’invitation, rien n’indique que l’utilisateur que vous invitez devra utiliser l’authentification par code secret à usage unique. Mais lorsque l’utilisateur invité se connecte, l’authentification par code secret à usage unique est la méthode de secours si aucune autre méthode d’authentification ne peut être utilisée. 
 
-Vous pouvez afficher les utilisateurs invités qui s’authentifient à l’aide de codes secrets à usage unique dans le portail Azure en accédant à **Azure Active Directory** > **Relations organisationnelles** > **Utilisateurs d’autres organisations**.
+Vous pouvez afficher les utilisateurs invités qui s’authentifient à l’aide de codes secrets à usage unique dans le portail Azure en accédant à **Azure Active Directory** > **Utilisateurs**.
 
 ![Capture d’écran montrant un utilisateur de code secret à usage unique avec la valeur Source définie sur Code secret à usage unique](media/one-time-passcode/otp-users.png)
 
@@ -72,8 +72,7 @@ Quelques minutes peuvent être nécessaires à la validation du choix. Après ce
 ### <a name="to-opt-in-using-the-azure-ad-portal"></a>Pour choisir à l’aide du portail Azure AD
 1.  Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général Azure AD.
 2.  Dans le volet de navigation, sélectionnez **Azure Active Directory**.
-3.  Sous **Gérer**, sélectionnez **Relations organisationnelles**.
-4.  Sélectionnez **Paramètres**.
+3.  Sélectionnez **Identités externes** > **Paramètres de collaboration externe**.
 5.  Sous **Activer le mot de passe e-mail à usage unique pour les invités (préversion)** , sélectionnez **Oui**.
  
 ### <a name="to-opt-in-using-powershell"></a>Pour choisir à l’aide de PowerShell
@@ -139,8 +138,7 @@ Quelques minutes peuvent être nécessaires à la validation du refus. Si vous d
 ### <a name="to-turn-off-the-preview-using-the-azure-ad-portal"></a>Pour désactiver la préversion à l’aide du portail Azure AD
 1.  Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général Azure AD.
 2.  Dans le volet de navigation, sélectionnez **Azure Active Directory**.
-3.  Sous **Gérer**, sélectionnez **Relations organisationnelles**.
-4.  Sélectionnez **Paramètres**.
+3.  Sélectionnez **Identités externes** > **Paramètres de collaboration externe**.
 5.  Sous **Activer le mot de passe e-mail à usage unique pour les invités (préversion)** , sélectionnez **Non**.
 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>Pour désactiver la préversion à l’aide de PowerShell

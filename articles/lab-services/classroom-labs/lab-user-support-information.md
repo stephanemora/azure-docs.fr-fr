@@ -1,17 +1,17 @@
 ---
 title: Azure Lab Services – Affichage des informations de support (utilisateur de labo)
-description: Cet article explique aux utilisateurs et instructeurs de labo comment afficher des informations de support pour obtenir de l’aide.
+description: Cet article explique aux utilisateurs et formateurs de labo comment afficher des informations de support pour obtenir de l’aide.
 author: spelluru
 ms.author: spelluru
 ms.date: 02/14/2020
 ms.topic: how-to
 ms.service: lab-services
-ms.openlocfilehash: bd92d53e09774183edadff0f949820f8feec6180
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 45cfc327f8534336ba2d9fb404a50e9bd530dccb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80089077"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585553"
 ---
 # <a name="view-support-information-lab-user-in-azure-lab-services"></a>Affichage des informations de support (utilisateur de labo dans Azure Lab Services)
 Cet article explique comment, en tant qu’utilisateur de labo, afficher les informations de support suivantes :

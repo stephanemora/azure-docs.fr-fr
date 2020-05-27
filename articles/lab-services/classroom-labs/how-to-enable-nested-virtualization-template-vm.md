@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 3c954c4689281838ea8c61c932cdcc3b74bac442
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7831e554fcca20134d5cf8608481ff0c82eb8a0
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82184671"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591996"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services"></a>Activer la virtualisation imbriquée pour une machine virtuelle modèle dans Azure Lab Services
 
-Actuellement, Azure Lab Services vous permet de configurer un seul modèle de machine virtuelle dans un labo et de rendre disponible une seule copie pour chacun de vos utilisateurs. Si vous êtes professeur enseignant des classes de mise en réseau, de sécurité ou d’informatique, il peut être nécessaire de fournir à chacun de vos étudiants un environnement où plusieurs machines virtuelles peuvent communiquer entre elles sur un réseau.
+Actuellement, Azure Lab Services vous permet de configurer un seul modèle de machine virtuelle dans un labo et de rendre disponible une seule copie pour chacun de vos utilisateurs. Si vous êtes formateur enseignant des classes de mise en réseau, de sécurité ou d’informatique, il peut être nécessaire de fournir à chacun de vos étudiants un environnement où plusieurs machines virtuelles peuvent communiquer entre elles sur un réseau.
 
 La virtualisation imbriquée vous permet de créer un environnement avec plusieurs machines virtuelles au sein de la machine virtuelle d’un modèle de labo. La publication du modèle fournit à chaque utilisateur du labo une machine virtuelle configurée avec plusieurs machines virtuelles en son sein.  Cet article explique comment configurer la virtualisation imbriquée pour une machine modèle dans Azure Lab Services.
 

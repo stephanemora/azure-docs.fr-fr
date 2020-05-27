@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6a6cc8e5931f3e29c242f51a6e062441953228ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a62cd4ad6d992d8994fbd3e66bd0b90e45aa213
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80337283"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83637000"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-custom-policy"></a>Intégrer des échanges de revendications de l’API REST dans votre stratégie personnalisée Azure AD B2C
 
@@ -162,7 +162,7 @@ Dans un profil technique RESTful, vous pouvez envoyer la langue/les paramètres 
 
 ## <a name="handling-error-messages"></a>Gestion des messages d’erreur
 
-Il se peut que votre API REST doive retourner un message d’erreur tel que « Utilisateur introuvable dans le système CRM ». Quand une erreur se produit, l’API REST doit retourner un message d’erreur HTTP 409 (code d’état de réponse Conflit). Pour plus d’informations, consultez le [Profil technique RESTful ](https://identitydivision.visualstudio.com/defaultcollection/Identity%20CXP/_git/GTP?path=%2Fyoelh%2Fdocs%2Frest-api%2Frestful-technical-profile.md&version=GBmaster&anchor=returning-error-message).
+Il se peut que votre API REST doive retourner un message d’erreur tel que « Utilisateur introuvable dans le système CRM ». Quand une erreur se produit, l’API REST doit retourner un message d’erreur HTTP 409 (code d’état de réponse Conflit). Pour plus d’informations, consultez le [Profil technique RESTful ](restful-technical-profile.md#returning-error-message).
 
 Pour ce faire, il suffit d’appeler un profil technique d’API REST à partir d’un profil technique de validation. Cela permet à l’utilisateur de corriger les données sur la page et de réexécuter la validation lors de l’envoi de la page.
 

@@ -1,15 +1,15 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Batch
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Batch. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 05/05/2020
+ms.date: 05/13/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: bd014d7dc79ce310ef95a188d6e7d064b55672be
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 8ba3c2705be1c165391c2cbc9f11b15e9396ec40
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837263"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83637358"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-batch"></a>Définitions de stratégie intégrées d’Azure Policy pour Azure Batch
 

@@ -3,22 +3,22 @@ title: Créer une fonction déclenchée par Azure Cosmos DB
 description: Utilisez Azure Functions pour créer une fonction sans serveur qui est appelée quand des données sont ajoutées à une base de données dans Azure Cosmos DB.
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
-ms.date: 10/02/2018
+ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 6045c61dc9837667bfaf01c685f687fcf5816e4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c16bd728fe81796d671762615ec8dc4ad6e1d87d
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80754201"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83123739"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Créer une fonction déclenchée par Azure Cosmos DB
 
-Découvrez comment créer une fonction qui est déclenchée quand des données sont ajoutées à Azure Cosmos DB ou y sont changées. Pour découvrir plus en détail Azure Cosmos DB, consultez [Azure Cosmos DB : traitement de base de données sans serveur à l’aide d’Azure Functions](../cosmos-db/serverless-computing-database.md).
+Découvrez comment créer une fonction qui est déclenchée quand des données sont ajoutées à Azure Cosmos DB ou y sont changées. Pour plus d’informations sur Azure Cosmos DB, consultez [Azure Cosmos DB : Utilisation des bases de données serverless avec Azure Functions](../cosmos-db/serverless-computing-database.md).
 
-![Affichez le message dans les journaux d’activité.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
+:::image type="content" source="./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png" alt-text="Code Azure Cosmos DB":::
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce tutoriel :
 
@@ -26,6 +26,9 @@ Pour suivre ce tutoriel :
 
 > [!NOTE]
 > [!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
+
+## <a name="sign-in-to-azure"></a>Connexion à Azure
+Connectez-vous au [portail Azure](https://portal.azure.com/) avec votre compte Azure.
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Création d’un compte Azure Cosmos DB
 
@@ -43,35 +46,33 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
 ## <a name="create-azure-cosmos-db-trigger"></a>Créer le déclencheur Azure Cosmos DB
 
-1. Développez votre Function App, puis cliquez sur le bouton **+** en regard de **Fonctions**. S’il s’agit de la première fonction de votre application de fonction, sélectionnez **Dans le portail**, puis **Continuer**. Sinon, passez à l’étape 3.
+1. Dans votre application de fonction, sélectionnez **Fonctions** dans le menu de gauche, puis **Ajouter** dans le menu supérieur. 
 
-   ![Page de démarrage rapide des fonctions sur le portail Azure](./media/functions-create-cosmos-db-triggered-function/function-app-quickstart-choose-portal.png)
+1. Sur la page **Nouvelle fonction**, entrez `cosmos` dans le champ de recherche, puis choisissez le modèle **Déclencheur Azure Cosmos DB**.
 
-1. Choisissez **Autres modèles**, puis **Terminer et afficher les modèles**.
+   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Page Fonctions dans le portail Azure":::
 
-    ![Page de démarrage rapide Functions permettant de choisir d’autres modèles](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
-1. Dans le champ Rechercher, tapez `cosmos`, puis choisissez le modèle **Déclencheur Azure Cosmos DB**.
-
-1. Si vous y êtes invité, sélectionnez **Installer** pour installer l’extension Azure Cosmos DB dans l’application de fonction. Une fois l’installation réussie, sélectionnez **Continuer**.
-
-    ![Installer des extensions de liaison](./media/functions-create-cosmos-db-triggered-function/functions-create-cosmos-db-trigger-portal.png)
-
-1. Configurez le nouveau déclencheur avec les paramètres comme spécifié dans le tableau situé sous l’image.
-
-    ![Créer la fonction déclenchée par Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png)
+1. Configurez le nouveau déclencheur avec les paramètres spécifiés dans le tableau suivant :
 
     | Paramètre      | Valeur suggérée  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Nom** | Default | Utilisez le nom de fonction par défaut suggéré par le modèle.|
-    | **Connexion de compte Azure Cosmos DB** | Nouveau paramètre | Sélectionnez **Nouveau**, puis choisissez votre **Abonnement**, le **Compte de base de données** que vous avez créé précédemment, puis **Sélectionner**. Cette opération crée un paramètre d’application pour votre connexion de compte. Ce paramètre est utilisé par la liaison pour se connecter à la base de données. |
-    | **Nom du conteneur** | Éléments | Nom du conteneur à superviser. |
-    | **Créer le conteneur de baux s’il n’existe pas** | Activé | Le conteneur n’existe pas encore. Créez-le. |
-    | **Nom de la base de données** | Tâches | Nom de la base de données avec le conteneur à superviser. |
+    | **Nouvelle fonction** | Acceptez le nom par défaut | Nom de la fonction. |
+    | **Connexion au compte Cosmos DB** | Acceptez le nouveau nom par défaut | Sélectionnez **Nouveau**, le **Compte de base de données** que vous avez créé précédemment, puis **OK**. Cette action crée un paramètre d’application pour votre connexion de compte. Ce paramètre est utilisé par la liaison pour se connecter à la base de données. |
+    | **Nom de la base de données** | Tâches | Nom de la base de données qui inclut la collection à surveiller. |
+    | **Nom de la collection** | Éléments | Nom de la collection à surveiller. |
+    | **Nom de collection pour les baux** | baux | Nom de la collection dans laquelle stocker les baux. |
+    | **Créer une collection de baux si elle n’existe pas** | Oui | Vérifie l’existence de la collection de baux et la crée automatiquement si nécessaire. |
 
-1. Cliquez sur **Créer** pour créer votre fonction déclenchée par Azure Cosmos DB. Une fois la fonction créée, le code de fonction basé sur le modèle s’affiche.  
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Créer la fonction déclenchée par Azure Cosmos DB":::
 
-    ![Modèle de fonction Cosmos DB en C#](./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png)
+1. Sélectionnez **créer une fonction**. 
+
+    Azure crée la fonction de déclencheur Cosmos DB.
+
+1. Pour afficher le code de fonction basé sur un modèle, sélectionnez **Code + test**.
+
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Modèle de fonction Cosmos DB en C#":::
 
     Ce modèle de fonction écrit le nombre de documents et le premier ID de document dans les journaux d’activité.
 
@@ -110,7 +111,7 @@ Une fois que le conteneur spécifié dans la liaison de fonction a été créé,
 
 1. Développez le nouveau conteneur **Éléments** dans l’Explorateur de données, choisissez **Éléments**, puis sélectionnez **Nouvel élément**.
 
-    ![Créer un élément dans un conteneur d’éléments](./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png)
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Créer un élément dans un conteneur d’éléments":::
 
 1. Remplacez le contenu du nouvel élément par le contenu suivant, puis choisissez **Enregistrer**.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 0ff464936025a20cb6925adc7ef6eb44c2fe1f0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8479c00ed2129d5726421f576e1fffdb4506fb4b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78933807"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592472"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurer et gérer un pool de machines virtuelles 
 Cet article explique comment effectuer les tâches suivantes :
@@ -74,14 +74,14 @@ Dans la boîte de dialogue **Réinitialiser la ou les machines virtuelles**, sé
 
 
 ## <a name="set-password-for-vms"></a>Définir un mot de passe pour des machines virtuelles
-Un propriétaire de labo (enseignant) peut définir/réinitialiser le mot de passe pour des machines virtuelles au moment de la création du labo (avec l’Assistant de création de labo) ou après l’avoir créé, sur la page **Modèle**. 
+Un propriétaire de laboratoire (formateur) peut définir/réinitialiser le mot de passe pour des machines virtuelles au moment de la création du labo (avec l’Assistant de création de labo) ou après l’avoir créé, sur la page **Modèle**. 
 
 ### <a name="set-password-at-the-time-of-lab-creation"></a>Définir le mot de passe au moment de la création du labo
-Un propriétaire de labo (enseignant) peut définir un mot de passe pour des machines virtuelles dans le labo, sur la page **Informations d’identification de machine virtuelle** de l’Assistant de création de labo.
+Un propriétaire de laboratoire (formateur) peut définir un mot de passe pour des machines virtuelles dans le labo, sur la page **Informations d’identification de machine virtuelle** de l’Assistant de création de labo.
 
 ![Fenêtre Nouveau labo](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
 
-En activant ou désactivant l’option **Use same password for all virtual machines** (Utiliser le même mot de passe pour toutes les machines virtuelles) figurant sur cette page, un professeur peut choisir d’utiliser le même mot de passe pour toutes les machines virtuelles du labo, ou autoriser les étudiants à définir leur propre mot de passe pour l’accès aux machines virtuelles. Par défaut, ce paramètre est activé pour toutes les images de systèmes d’exploitation Windows et Linux, à l’exception d’Ubuntu. Lorsque ce paramètre est désactivé, les étudiants sont invités à définir un mot de passe lorsqu’ils tentent de se connecter à la machine virtuelle pour la première fois. 
+En activant ou désactivant l’option **Use same password for all virtual machines** (Utiliser le même mot de passe pour toutes les machines virtuelles) figurant sur cette page, un formateur peut choisir d’utiliser le même mot de passe pour toutes les machines virtuelles du labo, ou autoriser les étudiants à définir leur propre mot de passe pour l’accès aux machines virtuelles. Par défaut, ce paramètre est activé pour toutes les images de systèmes d’exploitation Windows et Linux, à l’exception d’Ubuntu. Lorsque ce paramètre est désactivé, les étudiants sont invités à définir un mot de passe lorsqu’ils tentent de se connecter à la machine virtuelle pour la première fois. 
 
 ### <a name="reset-password-later"></a>Réinitialiser le mot de passe plus tard
 
@@ -91,7 +91,7 @@ En activant ou désactivant l’option **Use same password for all virtual machi
     ![Boîte de dialogue Set Password (Définir un mot de passe)](../media/how-to-set-virtual-machine-passwords/set-password.png)
 
 ## <a name="connect-to-student-vms"></a>Se connecter à des machines virtuelles d’étudiant
-Le créateur de laboratoire (formateur/professeur) peut se connecter à une machine virtuelle d’étudiant, si les conditions suivantes sont remplies : 
+Le créateur de laboratoire (formateur) peut se connecter à une machine virtuelle d’étudiant, si les conditions suivantes sont réunies : 
 
 - L’option **Use same password for all virtual machines** (Utiliser le même mot de passe pour toutes les machines virtuelles) a été sélectionnée lors de la création du laboratoire
 - La machine virtuelle est en cours d’exécution 
@@ -101,7 +101,7 @@ Le créateur de laboratoire (formateur/professeur) peut se connecter à une mach
 ![Se connecter au bouton de machines virtuelles d’étudiant](../media/how-to-set-virtual-machine-passwords/connect-student-vm.png)
 
 > [!NOTE]
-> Lorsque le professeur démarre la machine virtuelle et se connecte à celle-ci, le quota d’étudiants n’est pas modifié. 
+> Lorsque le formateur démarre la machine virtuelle et se connecte à celle-ci, le quota d’étudiants n’est pas modifié. 
 
 ## <a name="export-list-of-virtual-machines-to-a-csv-file"></a>Exporter la liste des machines virtuelles vers un fichier CSV
 

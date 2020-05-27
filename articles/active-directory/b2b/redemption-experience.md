@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7917b63b86e4d103061a902f74c368dfd6c123b
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: a0e3a2ddda4529cee584f5eabf6677af940d2bdd
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160736"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585893"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Utilisation d'invitations Azure Active Directory B2B Collaboration
 
@@ -99,7 +99,7 @@ Lorsqu’un invité se connecte la première fois pour accéder aux ressources d
 
    ![Capture d’écran montrant les nouvelles conditions d’utilisation](media/redemption-experience/terms-of-use-accept.png) 
 
-   Vous pouvez configurer les [conditions d’utilisation](../governance/active-directory-tou.md) dans **Gérer** > **Relations organisationnelles** > **Conditions d’utilisation**.
+   Vous pouvez configurer les [conditions d’utilisation](../governance/active-directory-tou.md) dans **Identités externes** > **conditions d’utilisation**.
 
 3. Sauf indication contraire, l’invité est redirigé vers le panneau d’accès des applications qui liste les applications auxquelles l’invité peut accéder.
 

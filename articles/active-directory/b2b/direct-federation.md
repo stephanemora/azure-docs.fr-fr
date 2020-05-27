@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b99a80a90df8fcfc5efe6dfa0c2cd7e8e5e04e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 299b0a677e7ca7bea9481d94ecf98c993af0a6ed
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80050874"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591214"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Fédération directe avec AD FS et des fournisseurs tiers pour les utilisateurs invités (version préliminaire)
 |     |
@@ -50,10 +50,13 @@ Le domaine avec lequel vous voulez vous fédérer ne doit ***pas*** être vérif
 
 ### <a name="authentication-url"></a>URL d’authentification
 La fédération directe est uniquement autorisée pour les stratégies où le domaine de l’URL d’authentification correspond au domaine cible, ou lorsque l’URL d’authentification correspond à l’un de ces fournisseurs d’identité autorisés (cette liste est susceptible de changer) :
+
 -   accounts.google.com
 -   pingidentity.com
 -   login.pingone.com
 -   okta.com
+-   oktapreview.com
+-   okta-emea.com
 -   my.salesforce.com
 -   federation.exostar.com
 -   federation.exostartest.com
@@ -143,8 +146,8 @@ Ensuite, vous allez configurer la fédération avec le fournisseur d’identité
 ### <a name="to-configure-direct-federation-in-the-azure-ad-portal"></a>Pour configurer la fédération directe dans le portail Azure AD
 
 1. Accédez au [portail Azure](https://portal.azure.com/). Sélectionnez **Azure Active Directory** dans le volet de gauche. 
-2. Sélectionnez **Organizational Relationships** (norme américaine pour les relations organisationnelles).
-3. Cliquez sur **Fournisseurs d’identité**, puis sélectionnez **Nouveau fournisseur d’identité SAML/WS-Fed**.
+2. Sélectionnez **Identités externes** > **Tous les fournisseurs d’identité**.
+3. Sélectionnez ensuite **Nouvel IdP SAML/WS-Fed**.
 
     ![Capture d’écran montrant le bouton pour ajouter un nouveau fournisseur d’identité SAML ou WS-Fed](media/direct-federation/new-saml-wsfed-idp.png)
 
@@ -191,8 +194,8 @@ Testez maintenant la configuration de votre fédération directe en invitant un 
 ## <a name="how-do-i-edit-a-direct-federation-relationship"></a>Comment modifier une relation de fédération directe ?
 
 1. Accédez au [portail Azure](https://portal.azure.com/). Sélectionnez **Azure Active Directory** dans le volet de gauche. 
-2. Sélectionnez **Organizational Relationships** (norme américaine pour les relations organisationnelles).
-3. Sélectionnez **Fournisseurs d’identité**.
+2. Sélectionnez **Identités externes**.
+3. Sélectionnez **Tous les fournisseurs d’identité**
 4. Sous **Fournisseurs d’identité SAML/WS-Fed**, sélectionnez le fournisseur.
 5. Dans le volet des informations du fournisseur identité, mettez à jour les valeurs.
 6. Sélectionnez **Enregistrer**.
@@ -202,8 +205,8 @@ Testez maintenant la configuration de votre fédération directe en invitant un 
 Vous pouvez supprimer la configuration de votre fédération directe. Si vous le faites, les utilisateurs invités par fédération directe qui ont déjà utilisé leur invitation ne pourront plus se connecter. Mais vous pouvez leur donner accès à vos ressources à nouveau en les supprimant du répertoire et en les réinvitant. Pour supprimer une fédération directe avec un fournisseur d’identité dans le portail Azure AD :
 
 1. Accédez au [portail Azure](https://portal.azure.com/). Sélectionnez **Azure Active Directory** dans le volet de gauche. 
-2. Sélectionnez **Organizational Relationships** (norme américaine pour les relations organisationnelles).
-3. Sélectionnez **Fournisseurs d’identité**.
+2. Sélectionnez **Identités externes**.
+3. Sélectionnez **Tous les fournisseurs d’identité**.
 4. Sélectionnez le fournisseur d’identité, puis **Supprimer**. 
 5. Sélectionnez **Oui** pour confirmer la suppression. 
 

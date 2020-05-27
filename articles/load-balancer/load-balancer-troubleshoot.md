@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: ca9b70bd71a618f8e3d5f4fe9504ba66a9f14c6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 26a4ae7d1a2ef253c0cb62f6bb53f83152676595
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76935474"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590262"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Résoudre les problèmes liés à Azure Load Balancer
 
-Cette page contient des informations pour résoudre les problèmes courants liés à Azure Load Balancer (versions De base et Standard). Pour plus d’informations sur Standard Load Balancer, consultez la [présentation de Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics).
+Cette page contient des informations pour résoudre les problèmes courants liés à Azure Load Balancer (versions De base et Standard). Pour plus d’informations sur Standard Load Balancer, consultez la [présentation de Standard Load Balancer](load-balancer-standard-diagnostics.md).
 
 Lorsque la connectivité de l’équilibreur de charge n’est pas disponible, les symptômes les plus courants sont les suivants : 
 
@@ -124,19 +124,23 @@ Si l’application hébergée sur la machine virtuelle principale d’un équili
 
 ### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>Cause 4 : Accès au serveur frontal Load Balancer interne à partir de la machine virtuelle du pool principal Load Balancer
 
-Si un serveur Load Balancer interne est configuré au sein d’un réseau virtuel, et si l’une des machines virtuelles principales participantes essaie d’accéder au serveur frontal Load Balancer interne, des défaillances peuvent se produire lorsque le flux est mappé à la machine virtuelle d’origine. Ce scénario n'est pas pris en charge. Vérifiez les [limites](concepts-limitations.md#limitations) pour en savoir plus.
+Si un serveur Load Balancer interne est configuré au sein d’un réseau virtuel, et si l’une des machines virtuelles principales participantes essaie d’accéder au serveur frontal Load Balancer interne, des défaillances peuvent se produire lorsque le flux est mappé à la machine virtuelle d’origine. Ce scénario n'est pas pris en charge. Vérifiez les [limites](concepts.md#limitations) pour en savoir plus.
 
 **Résolution** Il existe plusieurs façons pour débloquer ce scénario, notamment l’utilisation d’un proxy. Évaluez Application Gateway ou d’autres proxies tiers (par exemple, nginx ou haproxy). Pour plus d’informations sur Application Gateway, consultez la page [Vue d’ensemble de la passerelle Application Gateway](../application-gateway/application-gateway-introduction.md).
 
 ## <a name="symptom-cannot-change-backend-port-for-existing-lb-rule-of-a-load-balancer-which-has-vm-scale-set-deployed-in-the-backend-pool"></a>Symptôme : Impossible de modifier le port principal pour la règle d'équilibrage de charge existante d'un équilibreur de charge qui dispose d'un groupe de machines virtuelles identiques déployé dans le pool principal. 
-### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>Cause : Le port principal ne peut pas être modifié lorsqu'une règle d'équilibrage de charge est utilisée par une sonde d'intégrité pour l'équilibreur de charge référencé par le groupe de machines virtuelles identiques.
+### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>Cause : Le port principal ne peut pas être modifié lorsqu’une règle d’équilibrage de charge est utilisée par une sonde d’intégrité pour l’équilibreur de charge référencé par le groupe de machines virtuelles identiques.
 **Résolution** Pour modifier le port, vous pouvez supprimer la sonde d'intégrité en mettant à jour le groupe de machines virtuelles identiques, puis mettre à jour le port et reconfigurer la sonde d'intégrité.
+
+## <a name="symptom-small-traffic-is-still-going-through-load-balancer-after-removing-vms-from-backend-pool-of-the-load-balancer"></a>Symptôme : Le petit trafic passe toujours par l’équilibreur de charge après la suppression des machines virtuelles du pool principal de l’équilibreur de charge. 
+### <a name="cause--vms-removed-from-backend-pool-should-no-longer-receive-traffic-the-small-amount-of-network-traffic-could-be-related-to-storage-dns-and-other-functions-within-azure"></a>Cause : Les machines virtuelles supprimées du pool principal ne doivent plus recevoir le trafic. La faible quantité de trafic réseau peut être liée à un stockage, à un DNS et à d’autres fonctions dans Azure. 
+Pour vérifier, vous pouvez suivre une trace réseau. Le nom de domaine complet utilisé pour vos comptes de stockage blob est répertorié dans les propriétés de chaque compte de stockage.  À partir d’une machine virtuelle au sein de votre abonnement Azure, vous pouvez exécuter une commande nslookup pour déterminer l’adresse IP Azure attribuée à ce compte de stockage.
 
 ## <a name="additional-network-captures"></a>Captures de réseau supplémentaires
 Si vous décidez d’ouvrir un dossier de support, collectez les informations suivantes pour accélérer la résolution du problème. Choisissez une machine virtuelle principale unique pour effectuer les tests suivants :
 - Utilisez Psping à partir d’une des machines virtuelles principales dans le réseau virtuel pour tester la réponse du port de la sonde (exemple : psping 10.0.0.4:3389) et enregistrez les résultats. 
 - Si aucune réponse n’est reçue dans ces tests Ping, exécutez une trace Netsh simultanée sur la machine virtuelle principale et la machine virtuelle de test du réseau virtuel tout en exécutant PsPing, puis arrêtez la trace Netsh. 
-  
+ 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Si les étapes précédentes ne vous permettent pas de résoudre le problème, ouvrez un [ticket d’incident](https://azure.microsoft.com/support/options/).

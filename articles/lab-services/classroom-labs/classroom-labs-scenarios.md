@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 155806222f9e11fec177487b7147d81054ac06ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 26caebafc7c147452decbb28e313513072d7511b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76717987"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592047"
 ---
 # <a name="use-classroom-labs-for-trainings"></a>Utiliser des laboratoires de classe pour les formations
-Vous pouvez configurer un laboratoire pour des formations. Les laboratoires de classe d’Azure Lab Services vous permettent de créer un laboratoire pour votre formation où chaque participant utilise des environnements identiques et isolés à des fins d’apprentissage. Vous pouvez appliquer des stratégies pour vous assurer que les environnements de formation sont à la disposition des participants uniquement lorsque ces derniers en ont besoin et qu’ils contiennent suffisamment de ressources (telles que des machines virtuelles) pour la formation. 
+Les services Azure Labs permettent aux formateurs (enseignants, professeurs, animateurs ou assistants, etc.) de créer rapidement et facilement un laboratoire en ligne afin d’approvisionner des environnements d’apprentissage préconfigurés pour les stagiaires. Chaque candidat doit être capable d’utiliser des environnements identiques et isolés pour la formation. Vous pouvez appliquer des stratégies pour vous assurer que les environnements de formation sont à la disposition des participants uniquement lorsque ces derniers en ont besoin et qu’ils contiennent suffisamment de ressources (telles que des machines virtuelles) pour la formation. 
 
 ![Laboratoire de classe](../media/classroom-labs-scenarios/classroom.png)
 
@@ -40,7 +40,7 @@ Cet article présente les différentes fonctionnalités d’Azure Lab Services q
 La première étape à effectuer dans Azure Lab Services consiste à créer un compte de laboratoire dans le portail Azure. L’administrateur qui crée le compte de laboratoire ajoute les utilisateurs qui souhaitent créer des laboratoires au rôle **Créateur de laboratoire**. Les formateurs créent des laboratoires avec des machines virtuelles pour que les étudiants y effectuent les exercices du cours qu’ils enseignent. Pour plus d’informations, consultez [Créer et gérer des comptes de laboratoire](how-to-manage-lab-accounts.md)
 
 ## <a name="create-and-manage-classroom-labs"></a>Créer et gérer des laboratoires de classe
-Un formateur, qui est membre du rôle Créateur de laboratoire dans un compte de laboratoire, peut créer un ou plusieurs laboratoires dans le compte de laboratoire. Créez et configurez un modèle de machine virtuelle avec tous les logiciels requis pour effectuer les exercices de votre cours. Choisissez une image prête à l’emploi parmi les images disponibles pour la création d’un laboratoire de classe et personnalisez-la en installant le logiciel requis pour le laboratoire. Pour plus d’informations, consultez [Créer et gérer des laboratoires de classe](how-to-manage-classroom-labs.md).
+Un formateur, qui est membre du rôle Créateur de laboratoire dans un compte lab, peut créer un ou plusieurs laboratoires dans le compte lab. Créez et configurez un modèle de machine virtuelle avec tous les logiciels requis pour effectuer les exercices de votre cours. Choisissez une image prête à l’emploi parmi les images disponibles pour la création d’un laboratoire de classe et personnalisez-la en installant le logiciel requis pour le laboratoire. Pour plus d’informations, consultez [Créer et gérer des laboratoires de classe](how-to-manage-classroom-labs.md).
 
 ## <a name="configure-usage-settings-and-policies"></a>Configurer des paramètres et des stratégies d’utilisation
 Le créateur de laboratoire peut ajouter ou supprimer des utilisateurs au laboratoire, obtenir le lien d’inscription à envoyer aux utilisateurs du laboratoire, définir des stratégies telles que la définition de quotas individuels par utilisateur, mettre à jour le nombre de machines virtuelles disponibles dans le laboratoire et bien plus encore. Pour plus d’informations, consultez [Configurer des paramètres et des stratégies d’utilisation](how-to-configure-student-usage.md).

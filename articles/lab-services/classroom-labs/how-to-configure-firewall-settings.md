@@ -3,15 +3,15 @@ title: Paramètres de pare-feu pour Azure Lab Services
 description: Découvrez comment déterminer l’adresse IP publique et la plage de numéros de port pour les machines virtuelles d’un labo de façon à pouvoir ajouter ces informations aux règles de pare-feu.
 author: emaher
 ms.author: enewman
-ms.date: 02/14/2020
+ms.date: 05/15/2020
 ms.topic: article
 ms.service: lab-services
-ms.openlocfilehash: fbd45af0c9b94f04fdaad9d9b5c8214a91a8db91
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dcb8c0d5304f052dbe7f14386425ce67ae3b79a6
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77443451"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589531"
 ---
 # <a name="firewall-settings-for-azure-lab-services"></a>Paramètres de pare-feu pour Azure Lab Services
 
@@ -24,7 +24,7 @@ Chaque labo utilise une adresse IP publique unique et plusieurs ports.  Toutes l
 
 ## <a name="find-public-ip-for-a-lab"></a>Trouver l’adresse IP publique d’un labo
 
-L’adresse IP publique de chaque labo figure dans la page **Tous les labs** du compte Lab Services.  Pour savoir comment trouver la page **Tous les labs**, suivez les instructions dans [Gérer les labos dans un compte Lab](how-to-manage-lab-accounts.md#view-and-manage-labs-in-the-lab-account).  
+L’adresse IP publique de chaque labo figure dans la page **Tous les labs** du compte Lab Services.  Pour savoir comment trouver la page **Tous les labs**, consultez [Afficher les laboratoires dans un compte lab](manage-labs.md#view-labs-in-a-lab-account).  
 
 > [!div class="mx-imgBorder"]
 > ![Page Tous les labs](../media/how-to-configure-firewall-settings/all-labs-properties.png)
@@ -39,8 +39,8 @@ Nous connaissons maintenant l’adresse IP publique du labo.  Des règles trafic
 ## <a name="next-steps"></a>Étapes suivantes
 Voir les articles suivants :
 
-- [Autoriser le créateur du lab à choisir l’emplacement du lab](allow-lab-creator-pick-lab-location.md)
-- [Connecter le réseau de votre labo avec un réseau virtuel pair](how-to-connect-peer-virtual-network.md)
+- [Autoriser un créateur de labo à choisir l’emplacement du labo](allow-lab-creator-pick-lab-location.md)
+- [Connecter un réseau lab avec un réseau virtuel pair](how-to-connect-peer-virtual-network.md)
 - [Attacher une galerie d’images partagées à un lab](how-to-attach-detach-shared-image-gallery.md)
 - [Ajouter un utilisateur comme propriétaire de labo](how-to-add-user-lab-owner.md)
 - [Afficher les paramètres de pare-feu pour un labo](how-to-configure-firewall-settings.md)

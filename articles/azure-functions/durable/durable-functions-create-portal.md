@@ -2,14 +2,14 @@
 title: Créer des fonctions Durable Functions à l’aide du portail Azure
 description: Découvrez comment installer l’extension Durable Functions pour Azure Functions pour le développement de portails.
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 04/10/2020
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 0060088acb100036c094406e01d0d736a4af88eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6416ae4aba8b045c6c4fb0fe6557bdcd1efb3a9b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75769640"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83120140"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Créer des fonctions Durable Functions à l’aide du portail Azure
 
@@ -30,15 +30,17 @@ Par défaut, l’application de fonction créée utilise la version 2.x du runt
 
 ## <a name="install-the-durable-functions-npm-package-javascript-only"></a>Installer le package npm durable-functions (JavaScript uniquement)
 
-Si vous créez des fonctions Durable Functions JavaScript, vous devez installer le [package npm `durable-functions`](https://www.npmjs.com/package/durable-functions).
+Si vous créez des fonctions Durable Functions JavaScript, vous devez installer le [package NPM `durable-functions`](https://www.npmjs.com/package/durable-functions) :
 
-1. Sélectionnez le nom de votre application de fonction, puis **Fonctionnalités de la plateforme** et enfin **Outils avancés (Kudu)** .
+1. Dans la page de votre application de fonction, dans le volet gauche, sélectionnez **Outils avancés** sous **Outils de développement**.
 
-   ![Les fonctionnalités de la plateforme Functions choisissent Kudu](./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png)
+   :::image type="content" source="./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png" alt-text="Les fonctionnalités de la plateforme Functions choisissent Kudu":::
 
-2. Dans la console Kudu, sélectionnez **Console de débogage**, puis **CMD**.
+2. Dans la page **Outils avancés**, sélectionnez **Go**.
 
-   ![Console de débogage Kudu](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+3. Dans la console Kudu, sélectionnez **Console de débogage**, puis **CMD**.
+
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Console de débogage Kudu":::
 
 3. La structure de répertoires de fichiers de votre application de fonction doit s’afficher. Accédez au dossier `site/wwwroot`. À partir de cet emplacement, vous pouvez charger un fichier `package.json` en le faisant glisser et en le déposant dans la fenêtre de répertoires de fichiers. Voici un exemple de fichier `package.json` :
 
@@ -50,7 +52,7 @@ Si vous créez des fonctions Durable Functions JavaScript, vous devez installer 
     }
     ```
 
-   ![Chargement du fichier package.json dans Kudu](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Chargement du fichier package.json dans Kudu":::
 
 4. Une fois votre fichier `package.json` chargé, exécutez la commande `npm install` dans la console d’exécution à distance Kudu.
 
@@ -58,21 +60,15 @@ Si vous créez des fonctions Durable Functions JavaScript, vous devez installer 
 
 ## <a name="create-an-orchestrator-function"></a>Créer une fonction d’orchestrateur
 
-1. Développez votre Function App, puis cliquez sur le bouton **+** en regard de **Fonctions**. S’il s’agit de la première fonction de votre application de fonction, sélectionnez **Dans le portail**, puis **Continuer**. Sinon, passez à l’étape 3.
+1. Dans votre application de fonction, sélectionnez **Fonctions** dans le volet de gauche, puis **Ajouter** dans le menu supérieur. 
 
-   ![Page de démarrage rapide des fonctions sur le portail Azure](./media/durable-functions-create-portal/function-app-quickstart-choose-portal.png)
+1. Dans le champ de recherche de la page **nouvelle fonction**, entrez `durable`, puis choisissez le modèle **Démarrage HTTP Durable Functions**.
 
-1. Choisissez **Autres modèles**, puis **Terminer et afficher les modèles**.
+   :::image type="content" source="./media/durable-functions-create-portal/durable-functions-http-starter-template.png" alt-text="Sélectionner Démarrage HTTP Durable Functions":::
 
-    ![Page de démarrage rapide Functions permettant de choisir d’autres modèles](./media/durable-functions-create-portal/add-first-function.png)
+1. Pour la nom de la **Nouvelle fonction**, entrez `HttpStart`, puis sélectionnez **Créer une fonction**.
 
-1. Dans le champ de recherche, tapez `durable`, puis choisissez le modèle **Starter HTTP Durable Functions**.
-
-1. Si vous y êtes invité, sélectionnez **Installer** pour installer l’extension Azure DurableTask et toutes les dépendances dans l’application de fonction. Il vous suffit d’installer l’extension une seule fois pour une application de fonction donnée. Une fois l’installation réussie, sélectionnez **Continuer**.
-
-    ![Installer des extensions de liaison](./media/durable-functions-create-portal/install-durabletask-extension.png)
-
-1. Une fois l’installation terminée, nommez la nouvelle fonction `HttpStart` et choisissez **Créer**. La fonction créée est utilisée pour démarrer l’orchestration.
+   La fonction créée est utilisée pour démarrer l’orchestration.
 
 1. Créez une autre fonction dans l’application de fonction, cette fois en utilisant le modèle **Orchestrateur Durable Functions**. Nommez votre nouvelle fonction d’orchestration `HelloSequence`.
 
@@ -80,7 +76,7 @@ Si vous créez des fonctions Durable Functions JavaScript, vous devez installer 
 
 ## <a name="test-the-durable-function-orchestration"></a>Tester l’orchestration de la fonction durable
 
-1. Revenez à la fonction **HttpStart**, choisissez **</> Obtenir l’URL de la fonction** et **copiez** l’URL. Cette URL vous permet de démarrer la fonction **HelloSequence**.
+1. Revenez à la fonction **HttpStart**, choisissez **Obtenir l’URL de la fonction**, puis sélectionnez l’icône **Copier dans le Presse-papiers** pour copier l’URL. Cette URL vous permet de démarrer la fonction **HelloSequence**.
 
 1. Utilisez un outil HTTP tel que Postman ou cURL pour envoyer une requête POST à l’URL que vous avez copiée. L’exemple suivant est une commande cURL qui envoie une requête POST à la fonction durable :
 

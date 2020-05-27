@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: spelluru
-ms.openlocfilehash: dfd16d0977504e598492225238d29c83fcb7a028
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: a40575340fc5b1c202be6b001807085954439f03
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598060"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588154"
 ---
 # <a name="enable-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Activer le Bureau à distance pour les machines virtuelles Linux dans un labo Azure Lab Services
 Cet article explique comment effectuer les tâches suivantes :
 
 - Activer Bureau à distance pour une machine virtuelle Linux
-- Comment les enseignants peuvent se connecter au modèle de machine virtuelle via une connexion Bureau à distance (RDP).
+- Comment un formateur peut se connecter au modèle de machine virtuelle via une connexion Bureau à distance (RDP).
 
 ## <a name="enable-remote-desktop-for-linux-vm"></a>Activer Bureau à distance pour une machine virtuelle Linux
-Lors de la création du lab, les enseignants peuvent activer une **connexion Bureau à distance** pour les images **Linux**. L'option **Activer la connexion Bureau à distance** s'affiche lorsqu'une image Linux est sélectionnée pour le modèle. Lorsque cette option est activée, les enseignants peuvent se connecter au modèle de machine virtuelle et aux machines virtuelles des étudiants via RDP (Bureau à distance). 
+Lors de la création du laboratoire, les formateurs peuvent activer une **connexion Bureau à distance** pour les images **Linux**. L'option **Activer la connexion Bureau à distance** s'affiche lorsqu'une image Linux est sélectionnée pour le modèle. Lorsque cette option est activée, les formateurs peuvent se connecter au modèle de machine virtuelle et aux machines virtuelles des étudiants via RDP (Bureau à distance). 
 
 ![Activer la connexion Bureau à distance pour une image Linux](../media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
 
@@ -49,7 +49,7 @@ Actuellement, la connexion Bureau à distance est prise en charge pour les syst�
 - Ubuntu Server 16.04 LTS
 
 ## <a name="connect-to-the-template-vm"></a>Se connecter au modèle de machine virtuelle 
-Les enseignants doivent se connecter au modèle de machine virtuelle à l’aide de SSH la première fois, puis installer les packages RDP et GUI. Ensuite, les enseignants peuvent utiliser le protocole RDP pour se connecter au modèle de machine virtuelle : 
+Les formateurs doivent se connecter au modèle de machine virtuelle à l’aide de SSH la première fois, puis installer les packages RDP et GUI. Ensuite, les formateurs peuvent utiliser le protocole RDP pour se connecter au modèle de machine virtuelle : 
 
 1. Si vous voyez l’option **Personnaliser le modèle** dans la barre d’outils, sélectionnez-la. Ensuite, sélectionnez **Continuer** dans la boîte de dialogue **Personnaliser le modèle**. Cette action démarre le modèle de machine virtuelle.  
 

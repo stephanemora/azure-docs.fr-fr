@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 166ec4db2a2891d25a1e80526f8c1bd9770f9eef
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b3a9c95233c2016dc35f4fcade3e2634e121d252
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77592218"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591775"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutoriel : Configurer un laboratoire de salle de classe 
 Dans ce tutoriel, vous allez configurer un laboratoire de classe avec des machines virtuelles utilisées par les étudiants dans la classe.  
@@ -37,9 +37,9 @@ Dans ce tutoriel, vous allez configurer un labo avec des machines virtuelles pou
 
 Voici le workflow standard quand vous utilisez Azure Lab Services :
 
-1. Un créateur de compte de laboratoire ajoute d’autres utilisateurs au rôle **Créateur de laboratoire**. Par exemple, le créateur/administrateur du compte de laboratoire ajoute des professeurs au rôle **Créateur de laboratoire** afin qu’ils puissent créer des laboratoires pour leurs classes. 
-2. Les professeurs créent ensuite des laboratoires avec des machines virtuelles pour leurs classes et envoient des liens d’inscription aux étudiants de la classe. 
-3. Les étudiants utilisent le lien d’inscription qu’ils reçoivent des professeurs pour s’inscrire au laboratoire. Une fois inscrits, ils peuvent utiliser des machines virtuelles dans les laboratoires pour faire le travail en classe et leurs devoirs. 
+1. Un créateur de compte de laboratoire ajoute d’autres utilisateurs au rôle **Créateur de laboratoire**. Par exemple, le créateur/administrateur du compte lab ajoute des formateurs au rôle **Créateur de laboratoire** afin qu’ils puissent créer des laboratoires pour leurs classes. 
+2. Les formateurs créent ensuite des laboratoires avec des machines virtuelles pour leurs classes et envoient des liens d’inscription aux étudiants de la classe. 
+3. Les étudiants utilisent le lien d’inscription qu’ils reçoivent des formateurs pour s’inscrire au laboratoire. Une fois inscrits, ils peuvent utiliser des machines virtuelles dans les laboratoires pour faire le travail en classe et leurs devoirs. 
 
 ## <a name="create-a-classroom-lab"></a>Créer un laboratoire de classe
 Dans cette étape, vous créez un laboratoire pour votre classe dans Azure. 

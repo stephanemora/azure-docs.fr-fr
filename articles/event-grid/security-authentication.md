@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: babanisa
-ms.openlocfilehash: 528c3613549ee49009f99d45e5bd9c2cf1745d78
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 71d47c83586f7e5e31b148714e2804686422326a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779992"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588256"
 ---
 # <a name="authenticating-access-to-azure-event-grid-resources"></a>Authentification de l’accès aux ressources Azure Event Grid
 Cet article fournit des informations sur les scénarios suivants :  
@@ -28,12 +28,18 @@ Vous incluez la valeur d’authentification dans l’en-tête HTTP. Pour une SAP
 
 ### <a name="key-authentication"></a>Authentification par clé
 
-L’authentification par clé est la plus simple. Utilisez le format : `aeg-sas-key: <your key>`
+L’authentification par clé est la plus simple. Utilisez le format : `aeg-sas-key: <your key>` dans l’en-tête du message.
 
 Par exemple, vous transmettez une clé avec :
 
 ```
-aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
+aeg-sas-key: XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
+```
+
+Vous pouvez également spécifier `aeg-sas-key` en tant que paramètre de requête. 
+
+```
+https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01&&aeg-sas-key=XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
 ```
 
 ### <a name="sas-tokens"></a>Jetons SAS

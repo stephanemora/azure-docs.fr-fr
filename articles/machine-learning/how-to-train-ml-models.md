@@ -11,19 +11,20 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3c96ba3496f4542658878518207b2033342e33f5
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: c47bdc17041b2c388b01681dc1e65ddea29b0efb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628757"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584397"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Former des modèles avec Azure Machine Learning à l’aide de l’estimateur
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Avec Azure Machine Learning, vous pouvez facilement envoyer votre script d’entraînement à [différentes cibles de calcul](how-to-set-up-training-targets.md#compute-targets-for-training) à l’aide d’un [objet RunConfiguration](how-to-set-up-training-targets.md#whats-a-run-configuration) et d’un [objet ScriptRunConfig](how-to-set-up-training-targets.md#submit). Ce modèle permet une grande flexibilité et un contrôle maximal.
 
-Pour faciliter la formation de modèles Deep Learning, le kit de développement logiciel (SDK) Python d’Azure Machine Learning fournit une alternative d’abstraction de plus haut niveau, la classe d’estimateur, qui permet aux utilisateurs de construire facilement des configurations d’exécution. Vous pouvez créer et utiliser un [estimateur](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) générique afin de soumettre un script d’entraînement à l’aide de n’importe quel framework d’entraînement (tel que scikit-learn) sur la cible de calcul de votre choix, qu’il s’agisse de votre ordinateur local, d’une seule machine virtuelle Azure ou d’un cluster GPU Azure. Pour les tâches PyTorch, TensorFlow et Chainer, Azure Machine Learning fournit aussi les estimateurs [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) et [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py), qui simplifient l’utilisation de ces frameworks.
+
+La classe estimateur facilite l’apprentissage des modèles grâce à l’apprentissage profond et à l’apprentissage par renforcement. Elle fournit une abstraction de haut niveau qui vous permet de construire facilement une configuration d’exécution. Vous pouvez créer et utiliser un [estimateur](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) générique afin de soumettre un script d’entraînement à l’aide de n’importe quel framework d’entraînement (tel que scikit-learn) sur la cible de calcul de votre choix, qu’il s’agisse de votre ordinateur local, d’une seule machine virtuelle Azure ou d’un cluster GPU Azure. Pour les travaux PyTorch, TensorFlow, Chainer et d’apprentissage par renforcement, Azure Machine Learning fournit également des estimateurs [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py), [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) et d’[apprentissage par renforcement](how-to-use-reinforcement-learning.md) afin de simplifier l’utilisation de ces infrastructures.
 
 ## <a name="train-with-an-estimator"></a>Entraîner avec un estimateur
 
@@ -156,6 +157,7 @@ Pour les notebooks d’entraînement des modèles à l’aide d’estimateurs sp
 * [Effectuer le suivi des métriques d’exécution pendant l’entraînement](how-to-track-experiments.md)
 * [Entraîner des modèles PyTorch](how-to-train-pytorch.md)
 * [Entraîner des modèles TensorFlow](how-to-train-tensorflow.md)
+* [Former un réseau neuronal profond d’apprentissage par renforcement](how-to-use-reinforcement-learning.md)
 * [Optimiser les hyperparamètres](how-to-tune-hyperparameters.md)
 * [Déployer un modèle entraîné](how-to-deploy-and-where.md)
 * [Créer et gérer des environnements pour l’entraînement et le déploiement](how-to-use-environments.md)

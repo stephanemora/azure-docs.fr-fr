@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fb10863334392b207c7cfd2172dc9260cf15e2d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cf872991adbf1361a482f6618e57304e33ec1261
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74272896"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591282"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Permettre une collaboration B2B externe et gérer les utilisateurs autorisés à en inviter d’autres
 
@@ -36,11 +36,9 @@ Par défaut, tous les utilisateurs, notamment les invités, peuvent inviter des 
 ### <a name="to-configure-external-collaboration-settings"></a>Pour configurer les paramètres de la collaboration externe, procédez comme suit :
 
 1. Connectez-vous au [portail Microsoft Azure](https://portal.azure.com) en tant qu’administrateur de locataires.
-2. Sélectionnez **Azure Active Directory** > **Utilisateurs** > **Paramètres d’utilisateur**.
-3. Sous **Utilisateurs externes**, sélectionnez **Gérer les paramètres de collaboration externe**.
-   > [!NOTE]
-   > Les **Paramètres de collaboration externe** sont également disponibles dans la page **Relations organisationnelles**. Dans Azure Active Directory, sous **Gérer**, accédez à **Relations organisationnelles** > **Paramètres**.
-4. Sur la page **Paramètres de collaboration externe**, choisissez les stratégies que vous souhaitez activer.
+2. Sélectionnez **Azure Active Directory**.
+3. Sélectionnez **Identités externes** > **Paramètres de collaboration externe**.
+6. Sur la page **Paramètres de collaboration externe**, choisissez les stratégies que vous souhaitez activer.
 
    ![Paramètres de collaboration externe](./media/delegate-invitations/control-who-to-invite.png)
 
