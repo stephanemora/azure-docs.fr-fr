@@ -9,12 +9,13 @@ ms.date: 12/20/2019
 ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8dc3c629830019a6c207c18f1783559e89512172
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.custom: monitoring
+ms.openlocfilehash: 9b4accd14785aedee06850d5a79dc9835086306a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610970"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680370"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Résolution des problèmes de bout en bout avec les métriques et la journalisation Stockage Azure, AzCopy et Message Analyzer
 
@@ -85,7 +86,7 @@ Dans ce didacticiel, nous allons utiliser Message Analyzer pour travailler avec 
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Configuration de la journalisation et des métriques côté serveur
 
-Tout d’abord, nous allons devoir configurer la journalisation et les métriques du stockage Azure afin d’avoir des données du côté client à analyser. Vous pouvez configurer la journalisation et les métriques de plusieurs manières : via le [portail Azure](https://portal.azure.com), à l’aide de PowerShell ou par programme. Consultez [Activer les métriques](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) et [Activer la journalisation](storage-analytics-logging.md#enable-storage-logging) pour plus d’informations sur la configuration de la journalisation et des métriques.
+Tout d’abord, nous allons devoir configurer la journalisation et les métriques du stockage Azure afin d’avoir des données du côté client à analyser. Vous pouvez configurer la journalisation et les métriques de plusieurs manières : via le [portail Azure](https://portal.azure.com), à l’aide de PowerShell ou par programme. Consultez [Activer les métriques](storage-analytics-metrics.md#enable-metrics-by-using-the-azure-portal) et [Activer la journalisation](storage-analytics-logging.md#enable-storage-logging) pour plus d’informations sur la configuration de la journalisation et des métriques.
 
 ### <a name="configure-net-client-side-logging"></a>Configuration de la journalisation côté client .NET
 
