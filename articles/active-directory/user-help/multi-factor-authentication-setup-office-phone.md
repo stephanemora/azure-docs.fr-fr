@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: b94c739abffa8792afbfab4285c54a67f3eb4b65
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 9dd9853bae324a047c673852f14d2b4c1639d914
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77062521"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739207"
 ---
 # <a name="set-up-an-office-phone-as-your-two-factor-verification-method"></a>Configurer un téléphone professionnel comme méthode de vérification à deux facteurs
 

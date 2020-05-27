@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 489b15423add03d69070bc32057af97396a85309
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a694c9f6fc9d3a0b7e73c1565501915aa1470bc
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409064"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739823"
 ---
 # <a name="managing-access-to-apps"></a>Gestion de l’accès aux applications
 
@@ -78,7 +78,7 @@ Avec Azure AD, les applications telles que Salesforce peuvent être préconfigu
 
 Dans ce cas, tous les utilisateurs affectés sont automatiquement approvisionnés dans Salesforce ; quand ils sont ajoutés aux différents groupes, leur affectation de rôle est actualisée dans Salesforce. Les utilisateurs peuvent découvrir Salesforce et y accéder par le biais du panneau d’accès des applications Microsoft, des clients web Office ou même de la page de connexion à Salesforce propre à leur organisation. Les administrateurs peuvent facilement afficher l’état de l’utilisation et des affectations à l’aide de rapports d’Azure AD.
 
-Les administrateurs peuvent utiliser l’ [accès conditionnel Azure AD](../active-directory-conditional-access-azure-portal.md) pour définir des stratégies d’accès pour des rôles spécifiques. Ces stratégies peuvent indiquer si l’accès est autorisé en dehors de l’environnement de l’entreprise, et même inclure des exigences Multi-Factor Authentication ou liées aux appareils déterminant l’octroi de l’accès dans divers cas.
+Les administrateurs peuvent utiliser l’ [accès conditionnel Azure AD](../conditional-access/concept-conditional-access-users-groups.md) pour définir des stratégies d’accès pour des rôles spécifiques. Ces stratégies peuvent indiquer si l’accès est autorisé en dehors de l’environnement de l’entreprise, et même inclure des exigences Multi-Factor Authentication ou liées aux appareils déterminant l’octroi de l’accès dans divers cas.
 
 ## <a name="access-to-microsoft-applications"></a>Accéder aux applications Microsoft
 
@@ -97,5 +97,5 @@ Les utilisateurs peuvent accéder aux applications Office 365 via leur portail 
 Comme avec les applications d’entreprise, vous pouvez [affecter des utilisateurs](assign-user-or-group-access-portal.md) à certaines applications Microsoft via le portail Azure ou, si l’option du portail n’est pas disponible, à l’aide de PowerShell.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Protection des applications avec un accès conditionnel](../active-directory-conditional-access-azure-portal.md)
+* [Protection des applications avec un accès conditionnel](../conditional-access/concept-conditional-access-cloud-apps.md)
 * [Gestion des groupes en libre service/accès aux applications en libre-service](../users-groups-roles/groups-self-service-management.md)

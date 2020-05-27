@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40f89fbe19b93601f9e0525f0387e402bd175fe4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e4521cb67ae95a1cd4a3e728a13e43bfd5773ab
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78672679"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737025"
 ---
 # <a name="azure-ad-joined-devices"></a>Appareils joints Azure AD
 
@@ -43,7 +43,7 @@ La jonction Azure AD est destinée aux organisations axées en priorité ou uniq
 |   | Réinitialisation de mot de passe en libre-service et réinitialisation du code confidentiel Windows Hello sur l’écran de verrouillage |
 |   | Enterprise State Roaming entre appareils |
 
-Les appareils joints Azure AD sont connectés au moyen d’un compte professionnel Azure AD. L’accès aux ressources de l’organisation peut être limité par ce compte Azure AD et les [stratégies d’accès conditionnel](../conditional-access/overview.md) appliquées à l’identité de l’appareil.
+Les appareils joints Azure AD sont connectés au moyen d’un compte professionnel Azure AD. L’accès aux ressources de l’organisation peut être limité par ce compte Azure AD et les [stratégies d’accès conditionnel](../conditional-access/howto-conditional-access-policy-compliant-device.md) appliquées à l’identité de l’appareil.
 
 Les administrateurs peuvent sécuriser et mieux contrôler les appareils joints Azure AD à l’aide d’outils de gestion des périphériques mobiles (GPM), tels que Microsoft Intune ou dans des scénarios de cogestion à l’aide de Microsoft Endpoint Configuration Manager. Ces outils permettent d’appliquer les configurations requises par l’organisation, comme l’exigence du chiffrement du stockage, la complexité des mots de passe, les installations de logiciels et les mises à jour logicielles. Les administrateurs peuvent mettre des applications d’organisation à la disposition des appareils joints Azure AD des à l’aide de Configuration Manager pour [gérer des applications à partir des Microsoft Store pour les entreprises et l’enseignement](/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
 

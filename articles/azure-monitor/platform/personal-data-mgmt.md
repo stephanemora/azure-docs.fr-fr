@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: a720627e1783d2e29ef180b7855132ea59444cab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 569731faffd97e816567af3f6ed1cf8cdf49f240
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226321"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83740448"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Guide pour les données personnelles stockées dans Log Analytics et Application Insights
 
@@ -101,7 +101,7 @@ Une fois que le rôle Azure Resource Manager a été affecté, deux nouveaux che
 
 #### <a name="log-data"></a>Données de journal
 
-* [POST purge](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - prend un objet spécifiant les paramètres des données à supprimer et retourne un GUID de référence 
+* [POST purge](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/purge) - prend un objet spécifiant les paramètres des données à supprimer et retourne un GUID de référence 
 * GET purge status - l’appel de POST purge retourne un en-tête « x-ms-état-location » qui inclut une URL que vous pouvez appeler pour déterminer l’état de votre API de vidage. Par exemple :
 
     ```

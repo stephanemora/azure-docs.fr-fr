@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: b0bfaa87c77ba9fff9f6605c1989e48ffbc3fb35
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 76809a41400502ec48c2dd674f8976bb168ec9f9
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77062504"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83735988"
 ---
 # <a name="set-up-a-mobile-device-as-your-two-factor-verification-method"></a>Configurer un appareil mobile comme méthode de vérification à deux facteurs
 

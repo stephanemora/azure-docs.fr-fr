@@ -16,12 +16,12 @@ ms.date: 04/24/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91bb5a342eea079b6e9abcf109ad472151d3c13d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab2974cf95726f44641b4ac220c7ee871890ca56
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144496"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736839"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Utiliser les révisions d’accès Azure AD pour gérer les utilisateurs exclus des stratégies d’accès conditionnel
 
@@ -32,7 +32,7 @@ Idéalement, tous les utilisateurs respectent les stratégies d’accès pour s�
 
 ## <a name="why-would-you-exclude-users-from-policies"></a>Pourquoi exclure certains utilisateurs des stratégies ?
 
-Supposons qu’en tant qu’administrateur, vous décidiez d’utiliser un [accès conditionnel Azure AD](../conditional-access/overview.md) pour exiger une authentification multifacteur (MFA) et limiter les demandes d’authentification à des réseaux ou appareils spécifiques. Au cours de la planification du déploiement, vous vous rendez compte que certaines utilisateurs ne peuvent pas satisfaire ces exigences. Par exemple, vous pouvez avoir des utilisateurs qui travaillent à partir de bureaux distants ne faisant pas partie de votre réseau interne. Vous devez peut-être aussi prendre en charge des utilisateurs qui se connectent à l’aide d’appareils non pris en charge en attendant le remplacement de ceux-ci. En bref, l’entreprise ayant besoin que ces utilisateurs se connectent pour accomplir leur travail, vous les excluez des stratégies d’accès conditionnel.
+Supposons qu’en tant qu’administrateur, vous décidiez d’utiliser un [accès conditionnel Azure AD](../conditional-access/concept-conditional-access-policy-common.md) pour exiger une authentification multifacteur (MFA) et limiter les demandes d’authentification à des réseaux ou appareils spécifiques. Au cours de la planification du déploiement, vous vous rendez compte que certaines utilisateurs ne peuvent pas satisfaire ces exigences. Par exemple, vous pouvez avoir des utilisateurs qui travaillent à partir de bureaux distants ne faisant pas partie de votre réseau interne. Vous devez peut-être aussi prendre en charge des utilisateurs qui se connectent à l’aide d’appareils non pris en charge en attendant le remplacement de ceux-ci. En bref, l’entreprise ayant besoin que ces utilisateurs se connectent pour accomplir leur travail, vous les excluez des stratégies d’accès conditionnel.
 
 Il se peut également que vous utilisiez des [emplacements nommés](../conditional-access/location-condition.md) dans l’accès conditionnel afin de spécifier un ensemble de pays et régions à partir desquels vous ne voulez pas que des utilisateurs soient autorisés à accéder à leur locataire.
 
