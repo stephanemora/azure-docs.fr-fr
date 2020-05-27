@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/31/2019
+ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 00938d831e70289b24acb599b81016aa6e564d78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ffadca550a3a28b0ab490dd43c3b884602c93df
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78186928"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638494"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Sécuriser une API Gestion des API Azure avec Azure AD B2C
 
@@ -69,15 +69,15 @@ Procurez-vous ensuite l’URL de configuration connue pour l’un de vos flux d�
 1. Sélectionnez le lien hypertexte pour accéder à la page de configuration OpenID Connect bien connue.
 1. Dans la page qui s’ouvre dans votre navigateur, enregistrez la valeur `issuer`, par exemple :
 
-    `https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/`
+    `https://<tenant-name>.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/`
 
     Vous utilisez cette valeur dans la section suivante lorsque vous configurez votre API dans Gestion des API Azure.
 
 Vous devez maintenant avoir deux URL enregistrées pour une utilisation dans la section suivante : l’URL de point de terminaison de configuration OpenID Connect bien connue et l’URI de l’émetteur. Par exemple :
 
 ```
-https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1
-https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
+https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration
+https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
 ```
 
 ## <a name="configure-inbound-policy-in-azure-api-management"></a>Configurer la stratégie de trafic entrant dans Gestion des API Azure
@@ -99,12 +99,12 @@ Vous êtes maintenant prêt à ajouter la stratégie de trafic entrant dans Gest
     <policies>
         <inbound>
             <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-                <openid-config url="https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1" />
+                <openid-config url="https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration" />
                 <audiences>
                     <audience>44444444-0000-0000-0000-444444444444</audience>
                 </audiences>
                 <issuers>
-                    <issuer>https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
+                    <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
                 </issuers>
             </validate-jwt>
             <base />
@@ -232,7 +232,7 @@ De même, pour prendre en charge plusieurs émetteurs de jetons, ajoutez leurs U
 ```XML
 <!-- Accept tokens from multiple issuers -->
 <issuers>
-    <issuer>https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
+    <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
     <issuer>https://login.microsoftonline.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
 </issuers>
 ```
@@ -253,14 +253,14 @@ L’exemple de stratégie de trafic entrant APIM suivant illustre comment accept
 <policies>
     <inbound>
         <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-            <openid-config url="https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1" />
+            <openid-config url="https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration" />
             <audiences>
                 <audience>44444444-0000-0000-0000-444444444444</audience>
                 <audience>66666666-0000-0000-0000-666666666666</audience>
             </audiences>
             <issuers>
                 <issuer>https://login.microsoftonline.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
-                <issuer>https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
+                <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
             </issuers>
         </validate-jwt>
         <base />
