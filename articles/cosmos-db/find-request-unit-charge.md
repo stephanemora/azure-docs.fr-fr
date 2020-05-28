@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: thweiss
-ms.openlocfilehash: c5699bb851bd0a818a987228155c62683e93f51a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e5420b9b765fffcf7b4ccd6775d05795b1b13871
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77585898"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872237"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Rechercher les frais d’unités de requête dans Azure Cosmos DB
 
@@ -40,7 +40,8 @@ Actuellement, vous pouvez trouver les frais de requête sur le portail Azure uni
 ![Capture d’écran des frais de demande de requête SQL sur le portail Azure](./media/find-request-unit-charge/portal-sql-query.png)
 
 ### <a name="use-the-net-sdk"></a>Utiliser le kit de développement logiciel (SDK) .NET
-### <a name="net-v2-sdk"></a>SDK .Net v2
+
+# <a name="net-sdk-v2"></a>[Kit de développement logiciel (SDK) .NET V2](#tab/dotnetv2)
 
 Les objets retournés à partir du [Kit de développement logiciel (SDK) .NET v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) exposent une propriété `RequestCharge` :
 
@@ -75,13 +76,15 @@ while (query.HasMoreResults)
 }
 ```
 
-### <a name="net-v3-sdk"></a>SDK .Net v3
+# <a name="net-sdk-v3"></a>[Kit de développement logiciel (SDK) .NET V3](#tab/dotnetv3)
 
 Les objets retournés à partir du [SDK .NET v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) exposent une propriété `RequestCharge` :
 
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/CustomDocsSampleCode.cs?name=GetRequestCharge)]
 
 Pour plus d’informations, consultez [Démarrage rapide : Générer une application web .NET à l’aide d’un compte d’API SQL dans Azure Cosmos DB](create-sql-api-dotnet.md).
+
+---
 
 ### <a name="use-the-java-sdk"></a>Utiliser le SDK Java
 
