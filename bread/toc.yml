@@ -264,7 +264,7 @@
     - name: Utilisateur Azure Stack
       tocHref: /azure/azure-stack/user/
       topicHref: /azure/azure-stack/user/
-    - name: Backup
+    - name: Sauvegarde
       tocHref: /azure/backup/
       topicHref: /azure/backup/
     - name: Batch
@@ -482,10 +482,10 @@
         - name: Groupes d'administration
           tocHref: /azure/governance/management-groups/
           topicHref: /azure/governance/management-groups/
-        - name: Stratégie
+        - name: Policy
           tocHref: /azure/governance/policy/
           topicHref: /azure/governance/policy/
-        - name: Graphe des ressources
+        - name: Resource Graph
           tocHref: /azure/governance/resource-graph/
           topicHref: /azure/governance/resource-graph/
     - name: Assistance
@@ -767,9 +767,26 @@
     - name: Synapse Analytics
       tocHref: /azure/synapse-analytics/
       topicHref: /azure/synapse-analytics/
-    - name: SQL Database
-      tocHref: /azure/sql-database/
-      topicHref: /azure/sql-database/
+    - name: Azure SQL
+      tocHref: /azure/azure-sql/
+      topicHref: /azure/azure-sql/
+      items:
+        - name: SQL Database
+          tocHref: /azure/azure-sql/database
+          topicHref: /azure/azure-sql/database
+        - name: Instance managée SQL
+          tocHref: /azure/azure-sql/managed-instance
+          topicHref: /azure/azure-sql/managed-instance
+        - name: SQL Server sur une machine virtuelle Azure
+          tocHref: /azure/azure-sql/virtual-machines
+          topicHref: /azure/azure-sql/virtual-machines
+          items:
+            - name: Windows
+              tocHref: /azure/azure-sql/virtual-machines/windows
+              topicHref: /azure/azure-sql/virtual-machines/windows
+            - name: Linux
+              tocHref: /azure/azure-sql/virtual-machines/linux
+              topicHref: /azure/azure-sql/virtual-machines/linux
     - name: Azure SQL Edge
       tocHref: /azure/azure-sql-edge/
       topicHref: /azure/azure-sql-edge/

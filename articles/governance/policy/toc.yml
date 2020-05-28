@@ -133,7 +133,7 @@
       href: /cli/azure/policy
     - name: Azure PowerShell
       items:
-        - name: Stratégie
+        - name: Policy
           href: '/powershell/module/az.resources/#policies'
         - name: Policy Insights
           href: '/powershell/module/az.policyinsights#policy_insights'
@@ -153,13 +153,13 @@
           href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions?view=azure-java-stable
     - name: SDK Azure pour Node
       items:
-        - name: Stratégie
+        - name: Policy
           href: /javascript/api/@azure/arm-policy
         - name: Policy Insights
           href: /javascript/api/@azure/arm-policyinsights
     - name: Kit SDK Azure pour Python
       items:
-        - name: Stratégie
+        - name: Policy
           href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy
         - name: Client de stratégie
           href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policyclient
@@ -198,7 +198,7 @@
     - name: GitHub - Dépôt Community Policy
       href: 'https://github.com/Azure/Community-Policy'
     - name: Microsoft Q&A pour Azure Policy
-      href: /answers/topics/azure-policy.html
+      href: /answers/topics/azure-policy.html.html
     - name: Chaîne YouTube Governance
       href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
     - name: Vidéos de configuration invité

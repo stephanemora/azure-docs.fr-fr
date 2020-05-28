@@ -52,8 +52,12 @@
       href: container-instances-region-availability.md
     - name: Relation aux utilisateurs d’Orchestrator
       href: container-instances-orchestrator-relationship.md
-    - name: Considérations relatives à la sécurité
-      href: container-instances-image-security.md
+    - name: Sécurité
+      items:
+        - name: Base de référence de la sécurité
+          href: security-baseline.md
+        - name: Considérations relatives à la sécurité
+          href: container-instances-image-security.md
     - name: Réseau virtuel
       href: container-instances-virtual-network-concepts.md
 - name: Guides pratiques

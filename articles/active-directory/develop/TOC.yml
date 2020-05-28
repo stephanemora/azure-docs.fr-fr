@@ -595,7 +595,7 @@
       displayName: 'MSAL, auth library, SDK'
       href: reference-v2-libraries.md
     - name: API d’identité et d’accès dans Microsoft Graph
-      href: 'https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta'
+      href: 'https://docs.microsoft.com/graph/api/resources/azure-ad-overview'
     - name: Codes d’erreur d’authentification et d’autorisation
       displayName: AADSTS
       href: reference-aadsts-error-codes.md
@@ -605,7 +605,7 @@
   items:
     - name: Glossaire
       href: developer-glossary.md
-    - name: Videos
+    - name: Vidéos
       href: identity-videos.md
     - name: Blog développeur sur la plateforme d’identités Microsoft
       href: 'https://developer.microsoft.com/en-us/identity/blogs/'
