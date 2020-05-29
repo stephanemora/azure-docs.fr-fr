@@ -7,12 +7,15 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Créer un espace de travail Databricks - Portail
-      href: quickstart-create-databricks-workspace-portal.md
-    - name: Créer un espace de travail Databricks - Modèle Resource Manager
-      href: quickstart-create-databricks-workspace-resource-manager-template.md
-    - name: Créer un espace de travail Databricks - Réseau virtuel
-      href: quickstart-create-databricks-workspace-vnet-injection.md
+    - name: Créer un espace de travail
+      items:
+        - name: Portail
+          href: quickstart-create-databricks-workspace-portal.md
+        - name: Modèle ARM
+          displayName: Resource Manager
+          href: quickstart-create-databricks-workspace-resource-manager-template.md
+        - name: Réseau virtuel
+          href: quickstart-create-databricks-workspace-vnet-injection.md
 - name: Tutoriels
   items:
     - name: Interroger SQL Server exécuté dans un conteneur Docker
@@ -1593,7 +1596,7 @@
         - name: Databricks Connect
           href: /azure/databricks/dev-tools/databricks-connect
           maintainContext: true
-        - name: Intégration/déploiement continues
+        - name: CI/CD
           items:
             - name: CI/CD avec Azure DevOps
               href: /azure/databricks/dev-tools/ci-cd/ci-cd-azure-devops

@@ -9,14 +9,18 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Créer un travail - Portail Azure
-      href: stream-analytics-quick-create-portal.md
-    - name: Créer un travail - PowerShell
-      href: stream-analytics-quick-create-powershell.md
-    - name: Créer un travail - Visual Studio
-      href: stream-analytics-quick-create-vs.md
-    - name: Créer un travail - Visual Studio Code
-      href: quick-create-vs-code.md
+    - name: Créer un travail
+      items:
+        - name: Portail Azure
+          href: stream-analytics-quick-create-portal.md
+        - name: Modèle ARM
+          href: quick-create-azure-resource-manager.md
+        - name: PowerShell
+          href: stream-analytics-quick-create-powershell.md
+        - name: Visual Studio
+          href: stream-analytics-quick-create-vs.md
+        - name: Visual Studio Code
+          href: quick-create-vs-code.md
 - name: Tutoriels
   items:
     - name: 1 - Créer/gérer un travail
@@ -627,7 +631,7 @@
       href: 'https://azure.microsoft.com/updates/?product=stream-analytics'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-stream-analytics'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest'
     - name: Études de cas clients
       href: 'https://azure.microsoft.com/case-studies/?service=stream-analytics'
