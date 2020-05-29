@@ -82,6 +82,8 @@
           href: logic-apps-exceed-default-page-size-with-pagination.md
         - name: Messages du processus de traitement par lot
           href: logic-apps-batch-process-send-receive-messages.md
+        - name: Envoyer des messages dans l’ordre - convoi séquentiel
+          href: send-related-messages-sequential-convoy.md
         - name: Créer des définitions JSON
           href: logic-apps-author-definitions.md
         - name: Gérer les types de contenu
@@ -416,7 +418,7 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Témoignages client
       href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20Logic%20Apps%20%22&ff=story_product_categories%26%3EAzure&p=0&so=story_publish_date%20desc'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest'
     - name: Page de questions Microsoft Q&A
       href: 'https://docs.microsoft.com/answers/topics/azure-logic-apps.html'

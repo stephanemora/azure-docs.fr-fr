@@ -80,8 +80,10 @@
           href: virtual-network-for-azure-services.md
     - name: Services IP
       items:
-        - name: Adressage IP
-          href: virtual-network-ip-addresses-overview-arm.md
+        - name: Adresses IP publiques
+          href: public-ip-addresses.md
+        - name: Adresses IP privées
+          href: private-ip-addresses.md
         - name: Préfixe d’adresse IP publique
           href: public-ip-address-prefix.md
         - name: IPv6 pour les réseaux virtuels Azure

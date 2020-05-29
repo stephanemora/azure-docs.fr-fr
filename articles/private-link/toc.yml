@@ -12,6 +12,8 @@
       href: create-private-endpoint-powershell.md
     - name: Créer un point de terminaison privé - Azure CLI
       href: create-private-endpoint-cli.md
+    - name: Créer un point de terminaison privé - Modèle ARM
+      href: create-private-endpoint-template.md
     - name: Créer un service Private Link - Portail
       href: create-private-link-service-portal.md
     - name: Créer un service Private Link - PowerShell
