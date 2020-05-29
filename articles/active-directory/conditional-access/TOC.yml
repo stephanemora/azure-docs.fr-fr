@@ -102,6 +102,8 @@
           href: troubleshoot-conditional-access.md
         - name: Résoudre les problèmes avec l’outil What If
           href: troubleshoot-conditional-access-what-if.md
+        - name: Questions fréquentes (FAQ)
+          href: faqs.md
 - name: Ressources
   items:
     - name: Forum de commentaires Azure
@@ -114,5 +116,5 @@
       href: ../fundamentals/whats-new.md
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

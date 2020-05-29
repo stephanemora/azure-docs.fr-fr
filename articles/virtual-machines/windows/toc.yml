@@ -147,6 +147,9 @@
       href: shared-image-galleries.md
     - name: Azure Resource Manager
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      items:
+        - name: Modèles Resource Manager
+          href: template-description.md
     - name: Régions
       href: regions.md
       items:
@@ -1007,7 +1010,7 @@
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-virtual-machine'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'
     - name: Questions fréquentes (FAQ)
       href: faq.md
