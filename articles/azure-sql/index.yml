@@ -1,0 +1,183 @@
+### YamlMime:Landing
+title: Documentation SQL Azure
+summary: 'Découvrez la documentation de la famille SQL Azure des produits de moteur de base de données SQL Server dans le cloud : Azure SQL Database, Azure SQL Managed Instance et SQL Server sur machine virtuelle Azure. '
+metadata:
+  title: Documentation SQL Azure
+  description: SQL Azure est une famille de produits de moteur de base de données SQL Server dans le cloud, avec une base de données complètement managée dans Azure SQL Database, une instance complètement managée dans Azure SQL Managed Instance ou SQL Server installé sur une machine virtuelle dans Azure.
+  services: sql-database
+  ms.service: sql-database
+  ms.subservice: service
+  ms.tgt_pltfrm: na
+  ms.devlang: 
+  ms.topic: landing-page
+  author: MashaMSFT
+  ms.author: mathoma
+  ms.reviewer: carlrab
+  ms.date: 10/30/2019
+  ms.openlocfilehash: 449fa109712c3a92a48cc1e1997da3d2703bb1b2
+  ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 05/27/2020
+  ms.locfileid: "84023685"
+landingContent:
+- title: Azure SQL Database
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Nouveautés
+      url: database/doc-changes-updates-release-notes.md?tabs=single-database
+    - text: Définition de la base de données SQL
+      url: database/sql-database-paas-overview.md
+    - text: Qu’est-ce qu’un pool élastique ?
+      url: database/elastic-pool-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Créer une base de données SQL
+      url: database/single-database-create-quickstart.md
+    - text: Configurer le pare-feu
+      url: database/firewall-create-server-level-portal-quickstart.md
+  - linkListType: concept
+    links:
+    - text: Migrer à partir de SQL Server
+      url: database/migrate-to-database-from-sql-server.md
+    - text: Sécurité avancée
+      url: database/security-overview.md
+    - text: Continuité de l’activité
+      url: database/business-continuity-high-availability-disaster-recover-hadr-overview.md
+    - text: Analyse et réglage
+      url: database/monitor-tune-overview.md
+    - text: Différences T-SQL avec SQL Server
+      url: database/transact-sql-tsql-differences-sql-server.md
+- title: Azure SQL Managed Instance
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Nouveautés
+      url: database/doc-changes-updates-release-notes.md?tabs=managed-instance
+    - text: Qu’est-ce que SQL Managed Instance ?
+      url: managed-instance/sql-managed-instance-paas-overview.md
+    - text: Que sont les pools d’instances ?
+      url: managed-instance/instance-pools-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Créer une instance managée SQL
+      url: managed-instance/instance-create-quickstart.md
+    - text: Configurer une machine virtuelle à connecter
+      url: managed-instance/connect-vm-instance-configure.md
+    - text: Restaurer un exemple de base de données
+      url: managed-instance/restore-sample-database-quickstart.md
+  - linkListType: concept
+    links:
+    - text: Migrer à partir de SQL Server
+      url: managed-instance/migrate-to-instance-from-sql-server.md
+    - text: Sécurité avancée
+      url: database/security-overview.md
+    - text: Continuité de l’activité
+      url: database/business-continuity-high-availability-disaster-recover-hadr-overview.md
+    - text: Analyse et réglage
+      url: database/monitor-tune-overview.md
+    - text: Différences T-SQL avec SQL Server
+      url: managed-instance/transact-sql-tsql-differences-sql-server.md
+- title: SQL Server sur une machine virtuelle Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Nouveautés
+      url: virtual-machines/windows/doc-changes-updates-release-notes.md
+    - text: Qu’est-ce que SQL Server sur machines virtuelles Windows ?
+      url: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+    - text: Qu’est-ce que SQL Server sur machines virtuelles Linux ?
+      url: virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Créer une instance SQL sur machine virtuelle Azure (Windows)
+      url: virtual-machines/windows/sql-vm-create-portal-quickstart.md
+    - text: Créer une instance SQL sur machine virtuelle Azure (Linux)
+      url: virtual-machines/linux/sql-vm-create-portal-quickstart.md
+  - linkListType: concept
+    links:
+    - text: Migrer à partir de SQL Server
+      url: virtual-machines/windows/migrate-to-vm-from-sql-server.md
+    - text: Considérations relatives à la sécurité
+      url: virtual-machines/windows/security-considerations-best-practices.md
+    - text: Haute disponibilité et reprise d’activité après sinistre
+      url: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+    - text: Recommandations sur les performances
+      url: virtual-machines/windows/performance-guidelines-best-practices.md
+- title: Se connecter et interroger
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Vue d’ensemble
+      url: database/connect-query-content-reference-guide.md
+    - text: SQL Server Management Studio (SSMS)
+      url: database/connect-query-ssms.md
+    - text: Azure Data Studio
+      url: /azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fsql-database%2Ftoc.json
+    - text: Portail Azure
+      url: database/connect-query-portal.md
+    - text: Visual Studio (.NET)
+      url: database/connect-query-dotnet-visual-studio.md
+    - text: Visual Studio Code
+      url: database/connect-query-vscode.md
+    - text: .NET Core
+      url: database/connect-query-dotnet-core.md
+    - text: Python
+      url: database/connect-query-python.md
+- title: Développement
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Développement d’applications
+      url: database/develop-overview.md
+    - text: Conception d’applications de reprise d’activité
+      url: database/designing-cloud-solutions-for-disaster-recovery.md
+    - text: Gestion des mises à niveau propagées (SQL DB)
+      url: database/manage-application-rolling-upgrade.md
+    - text: Stratégies de développement (machine virtuelle SQL)
+      url: virtual-machines/windows/application-patterns-development-strategies.md
+    - text: Modèles de location de base de données SaaS
+      url: database/saas-tenancy-app-design-patterns.md
+  - linkListType: how-to-guide
+    links:
+    - text: Concevoir votre première base de données (SSMS)
+      url: database/design-first-database-tutorial.md
+    - text: Concevoir votre première base de données (C#)
+      url: database/design-first-database-csharp-tutorial.md
+- title: Informations de référence
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Ressources SQL éducatives
+      url: /sql/sql-server/educational-sql-resources
+  - linkListType: deploy
+    links:
+    - text: Exemples d’interface de ligne de commande Azure
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: Exemples PowerShell
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: Exemples de modèles ARM
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+  - linkListType: download
+    links:
+    - text: SQL Server Management Studio (SSMS)
+      url: /sql/ssms/download-sql-server-management-studio-ssms
+    - text: Azure Data Studio
+      url: /sql/azure-data-studio/download-azure-data-studio
+    - text: SQL Server Data Tools
+      url: /sql/ssdt/download-sql-server-data-tools-ssdt
+    - text: Visual Studio 2019
+      url: https://visualstudio.microsoft.com/downloads/
+  - linkListType: reference
+    links:
+    - text: Guide de migration
+      url: https://datamigration.microsoft.com/
+    - text: Transact-SQL (T-SQL)
+      url: /sql/t-sql/language-reference
+    - text: Azure CLI
+      url: https://docs.microsoft.com/cli/azure/sql
+    - text: PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.sql
+    - text: API REST
+      url: https://docs.microsoft.com/rest/api/sql/

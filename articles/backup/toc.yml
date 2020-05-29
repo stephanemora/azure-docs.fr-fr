@@ -107,7 +107,7 @@
       items:
         - name: Vue d’ensemble
           href: backup-azure-vms-introduction.md
-        - name: Backup
+        - name: Sauvegarde
           items:
             - name: Sauvegarder et restaurer des machines virtuelles Azure avec la restauration instantanée de Sauvegarde Azure
               href: backup-instant-restore-capability.md
@@ -139,7 +139,7 @@
       items:
         - name: Vue d’ensemble
           href: backup-azure-sql-database.md
-        - name: Backup
+        - name: Sauvegarde
           href: backup-sql-server-database-azure-vms.md
         - name: Restaurer
           href: restore-sql-database-azure-vm.md
@@ -155,7 +155,7 @@
               href: install-mars-agent.md
             - name: Mettre à niveau l’agent MARS
               href: upgrade-mars-agent.md
-        - name: Backup
+        - name: Sauvegarde
           items:
             - name: Sauvegarder les fichiers et dossiers de Windows Server
               href: backup-windows-with-mars-agent.md
@@ -175,7 +175,7 @@
           href: azure-file-share-backup-overview.md
         - name: À partir du portail Azure
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-afs.md
             - name: Restaurer
               href: restore-afs.md
@@ -183,7 +183,7 @@
               href: manage-afs-backup.md
         - name: Avec l’interface de ligne de commande Azure
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-afs-cli.md
             - name: Restaurer
               href: restore-afs-cli.md
@@ -191,7 +191,7 @@
               href: manage-afs-backup-cli.md
         - name: Avec PowerShell
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-azure-afs-automation.md
             - name: Restaurer
               href: restore-afs-powershell.md
@@ -199,7 +199,7 @@
               href: manage-afs-powershell.md
         - name: Avec l’API REST
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-azure-file-share-rest-api.md
             - name: Restaurer
               href: restore-azure-file-share-rest-api.md
@@ -209,7 +209,7 @@
       items:
         - name: Vue d’ensemble
           href: sap-hana-db-about.md
-        - name: Backup
+        - name: Sauvegarde
           href: backup-azure-sap-hana-database.md
         - name: Restaurer
           href: sap-hana-db-restore.md
@@ -355,6 +355,8 @@
               href: soft-delete-virtual-machines.md
             - name: Pour SQL Server et SAP HANA dans les machines virtuelles Azure
               href: soft-delete-sql-saphana-in-azure-vm.md
+        - name: Supprimer la protection pour les partages de fichiers Azure
+          href: soft-delete-azure-file-share.md
         - name: Sécurité pour les sauvegardes hybrides
           href: backup-azure-security-feature.md
         - name: Points de terminaison privés
@@ -415,5 +417,5 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?product=backup'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=backup'

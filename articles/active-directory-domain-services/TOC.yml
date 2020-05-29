@@ -47,6 +47,8 @@
       href: synchronization.md
     - name: Fonctionnement de la synchronisation de hachage de mot de passe
       href: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: Avantages de la migration de déploiement classique
+      href: concepts-migration-benefits.md
     - name: "Qu’est-ce qu’Azure Active Directory\_?"
       href: ../active-directory/fundamentals/active-directory-whatis.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
     - name: Architecture Azure Active Directory

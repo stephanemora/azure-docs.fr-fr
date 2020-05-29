@@ -120,7 +120,7 @@
       items:
         - name: Données de journal
           href: platform/data-security.md
-        - name: Clés managées par le client
+        - name: Clés gérées par le client
           href: platform/customer-managed-keys.md
         - name: Réseau de liaison privée
           href: platform/private-link-security.md
@@ -972,6 +972,8 @@
           href: insights/container-insights-update-metrics.md
         - name: Configuration de la supervision de l’intégrité
           href: insights/container-insights-health-monitors-config.md
+        - name: Gérer le coût et l’utilisation
+          href: insights/container-insights-cost.md
         - name: Désactiver l’analyse
           items:
             - name: Désactiver la supervision AKS
@@ -991,7 +993,7 @@
         - name: Azure Cosmos DB
           href: insights/cosmosdb-insights-overview.md
         - name: Key Vault
-          href: insights/key-vault-insights-overview.md
+          href: insights/key-vaults-insights-overview.md
         - name: Réseaux
           href: insights/network-insights-overview.md
         - name: Stockage
