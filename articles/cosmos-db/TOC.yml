@@ -201,9 +201,9 @@
                 - name: Fonctions système
                   displayName: 'functions, system functions, built-in functions'
                   href: sql-query-system-functions.md
-                - name: Fonctions Tableau
+                - name: Fonctions de tableau
                   items:
-                    - name: Fonctions Tableau
+                    - name: Fonctions de tableau
                       displayName: 'array functions, array, system functions, built-in functions'
                       href: sql-query-array-functions.md
                     - name: ARRAY_CONCAT
@@ -326,9 +326,9 @@
                     - name: ST_ISVALIDDETAILED
                       displayName: 'ST_ISVALIDDETAILED, st isvaliddetailed, is valid detailed, built-in functions'
                       href: sql-query-st-isvaliddetailed.md
-                - name: Fonctions de chaînes
+                - name: Fonctions de chaîne
                   items:
-                    - name: Fonctions de chaînes
+                    - name: Fonctions de chaîne
                       displayName: 'string functions, string, system functions, built-in functions'
                       href: sql-query-string-functions.md
                     - name: CONCAT
@@ -1237,7 +1237,9 @@
       href: whitepapers.md
     - name: Partenaires
       href: partners-migration-cosmosdb.md
-    - name: Videos
+    - name: Page de questions Microsoft Q&A
+      href: 'https://docs.microsoft.com/answers/topics/azure-cosmos-db.html'
+    - name: Vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cosmos-db'
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'

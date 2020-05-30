@@ -422,6 +422,8 @@
                       href: ../image-version-another-gallery-cli.md
                 - name: Créer une machine virtuelle
                   items:
+                    - name: Spécialisée
+                      href: ../vm-specialized-image-version-cli.md
                     - name: Généralisée
                       href: ../vm-generalized-image-version-cli.md
                 - name: Mettre à jour les ressources d’image
@@ -1097,7 +1099,7 @@
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-virtual-machine'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'
     - name: Questions fréquentes (FAQ)
       href: faq.md

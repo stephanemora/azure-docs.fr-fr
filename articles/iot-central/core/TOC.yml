@@ -87,8 +87,6 @@
           href: howto-manage-devices.md
         - name: Configurer des règles
           href: howto-configure-rules.md
-        - name: Utiliser des workflows pour l’intégration aux autres services
-          href: howto-configure-rules-advanced.md
         - name: Analyser les données de votre appareil
           href: howto-create-analytics.md
         - name: Ajouter des vignettes à votre tableau de bord
@@ -103,6 +101,8 @@
           href: howto-export-data.md
         - name: Créer des webhooks sur des règles
           href: howto-create-webhooks.md
+        - name: Utiliser des workflows pour l’intégration aux autres services
+          href: howto-configure-rules-advanced.md
         - name: Connecter des groupes d’actions Azure Monitor sur des règles
           href: howto-use-action-groups.md
         - name: Créer des règles personnalisées
