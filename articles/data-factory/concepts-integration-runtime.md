@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/26/2020
-ms.openlocfilehash: ffa348c796a4d9d4e3bdb8e7ce18ba0eb82e17ad
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 214d97822bdb2efbe164c3526939ddbe78777e59
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418378"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890737"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastructure Integration Runtime dans Azure Data Factory 
 
@@ -55,7 +55,7 @@ Le schéma suivant montre comment les différents runtimes d’intégration peuv
 
 Un runtime d'intégration Azure peut :
 
-- Exécuter des flux de données dans Azure 
+- Exécution de flux de données dans Azure 
 - Exécuter des activités de copie entre les magasins de données cloud
 - Répartir les activités de transformation suivantes dans un réseau public : Notebook Databricks / Jar /activité Python, activité Hive HDInsight, activité Pig HDInsight, activité MapReduce HDInsight, activité Spark HDInsight, activité de diffusion en continu HDInsight, activité d’exécution par lot Machine Learning, activités des ressources de mise à jour de Machine Learning, activité de procédure stockée, activité U-SQL Data Lake Analytics, activité personnalisée .NET, activité web, activité de recherche et activité d’obtention des métadonnées.
 
@@ -128,6 +128,10 @@ L’emplacement du runtime d’intégration définit l’emplacement de son calc
 
 ### <a name="azure-ir-location"></a>Emplacement du runtime d'intégration Azure
 
+Vous pouvez définir l’emplacement spécifique d’un Azure IR, auquel cas l’exécution ou la distribution d’activité se fera dans cette région spécifique.
+
+Si vous choisissez d’utiliser la résolution automatique d’Azure Integration Runtime, définie par défaut,
+
 - Pour une activité de copie, ADF fera au mieux pour détecter automatiquement l'emplacement du magasin de données de votre récepteur, puis utiliser l'IR dans la même région si disponible ou dans région la plus proche dans la même zone géographique ; si la région du magasin de données du récepteur ne peut être détectée, l'IR de la région de la fabrique de donnée est utilisé comme alternative.
 
   Par exemple, votre fabrique est créée dans la région USA Est, 
@@ -135,7 +139,8 @@ L’emplacement du runtime d’intégration définit l’emplacement de son calc
   - Lorsque vous copiez des données vers un objet blob Azure dans la région USA Ouest, si ADF a détecté l’objet blob situé dans la région USA Ouest, l’activité de copie est exécutée sur l’IR dans cette région ; si la détection de la région échoue, l’activité de copie est exécutée sur l’IR de la région USA Est.
   - Lorsque vous copiez des données vers Salesforce et que la région n’est pas détectable, l’activité de copie est exécutée sur l'IR de la région USA Est.
 
-- Pour l'activité de copie, ADF fait au mieux pour détecter automatiquement votre récepteur et le magasin de données source afin de choisir le meilleur emplacement, que ce soit dans la même région (si disponible) ou dans la région la plus proche de la même zone géographique. S'ils ne sont pas détectables, il utilise la région de la fabrique de données comme alternative.
+  >[!TIP] 
+  >Si vos exigences en termes de conformité des données sont strictes et que vous avez besoin de vous assurer que les données restent dans une certaine zone géographique, vous pouvez explicitement créer un runtime d'intégration Azure dans une région donnée et diriger le service lié vers ce runtime d'intégration via la propriété ConnectVia. Par exemple, si vous voulez copier des données depuis Blob dans la région Sud du Royaume-Uni vers SQL DW dans la région Sud du Royaume-Uni et souhaitez vous assurer que les données ne quittent pas le Royaume-Uni, créez un runtime d'intégration dans la région Royaume-Uni Sud et liez les deux services liés à ce runtime.
 
 - Pour l'exécution des activités Lookup/GetMetadata/Delete (également connues sous le nom d'activités de pipeline), la répartition des activités de transformation (également connues sous le nom d'activités externes) et les opérations de création (tester la connexion, parcourir la liste des dossiers et des tables, prévisualiser les données), ADF utilise le runtime d'intégration de la région de la fabrique de données.
 

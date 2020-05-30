@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 38116efc9e87eca8e2514a0a84045a69b8d42326
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 0a0feb6b638cb6e3a74fcd30baea5e8a04375699
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887042"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857790"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Utiliser l’API REST de conversion de modèle
 
@@ -120,6 +120,7 @@ Vous pouvez interroger l’état d’une conversion en cours démarrée avec l�
 
 Retourne un document JSON avec un champ « status » qui peut avoir les valeurs suivantes :
 
+- « Created »
 - « Running »
 - « Success »
 - « Failure »

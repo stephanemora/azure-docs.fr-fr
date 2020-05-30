@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: lahugh
-ms.openlocfilehash: d35e37e53b84d317446a93a2301fc3b703b426b7
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 431c1b1211165f43feb7fe1f93c73c2bf141e004
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085720"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871799"
 ---
 # <a name="dcsv2-series"></a>série DCsv2
 
@@ -33,12 +33,12 @@ Mises à jour avec préservation de la mémoire : Non pris en charge
 
 
 
-| Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max. de cartes réseau / Bande passante réseau attendue (Mbits/s) |
-|------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|-------------------------------------------|----------------------------------------------|
-| Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 2000/16 (21)                                                            | 1600/24                                   | 2                                            |
-| Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 4 000/32 (43)                                                            | 3 200/48                                   | 2                                            |
-| Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 8 000/64 (86)                                                            | 6 400/96                                   | 2                                            |
-| Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16 000/128 (172)                                                         | 12 800/192                                 | 2                                            |
+| Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max. de cartes réseau / Bande passante réseau attendue (Mbits/s) | Mémoire EPC (Mio) |
+|------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|-------------------------------------------|----------------------------------------------|---------------------|
+| Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 2000/16 (21)                                                            | 1600/24                                   | 2   | 28                                      |
+| Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 4 000/32 (43)                                                            | 3 200/48                                   | 2  | 56                                          |
+| Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 8 000/64 (86)                                                            | 6 400/96                                   | 2  | 112                                          |
+| Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16 000/128 (172)                                                         | 12 800/192                                 | 2   | 168                                         |
 
 - Les machines virtuelles de la série DCsv2 sont des [machines virtuelles de 2e génération](./linux/generation-2.md#creating-a-generation-2-vm) et ne prennent en charge que les images `Gen2`.
 - Elles sont actuellement disponibles uniquement dans les régions Royaume-Uni Sud, Canada Centre et USA Est.

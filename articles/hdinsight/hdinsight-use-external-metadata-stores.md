@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/03/2020
-ms.openlocfilehash: e53164d1e25f8a8d0a14d21c0544d95cf912fe9f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.date: 04/30/2020
+ms.openlocfilehash: 14d4a3616a1be0964029ddfd8d2697df8e4e8031
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313970"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929330"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Utiliser des magasins de métadonnées externes dans Azure HDInsight
 
@@ -41,6 +41,8 @@ Par défaut, HDInsight crée un metastore avec chaque type de cluster. Vous pouv
 * Le metastore par défaut utilise une base de données Azure SQL de base, qui a une limite de cinq DTU (unités de transaction de base de données).
 Ce metastore par défaut est généralement utilisé pour les charges de travail relativement simples. Ces charges de travail n’ont pas besoin de plusieurs clusters et ne nécessitent pas la conservation des métadonnées au-delà du cycle de vie du cluster.
 
+* Pour les charges de travail de production, nous vous recommandons de migrer vers un metastore externe. Pour plus d’informations, consultez la section ci-dessous.
+
 ## <a name="custom-metastore"></a>Metastore personnalisé
 
 HDInsight prend également en charge les magasins de métadonnées personnalisés, qui sont recommandés pour les clusters de production :
@@ -64,6 +66,8 @@ HDInsight prend également en charge les magasins de métadonnées personnalisé
 Créer ou avoir une base de données Azure SQL Database existante avant de configurer un metastore Hive personnalisé pour un cluster HDInsight.  Pour plus d’informations, consultez [Démarrage rapide : Créer une base de données unique dans Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
 
 Lors de la création du cluster, le service HDInsight doit se connecter au metastore externe et vérifier vos informations d'identification. Configurez des règles de pare-feu Azure SQL Database pour autoriser les services et ressources Azure à accéder au serveur. Activez cette option dans le Portail Azure en sélectionnant **Paramétrer le pare-feu du serveur**. Sélectionnez ensuite **Non** sous **Refuser l’accès au réseau public**, puis **Oui** sous **Autoriser les services et les ressources Azure à accéder à ce serveur** pour la base de données ou le serveur Azure SQL Database. Pour plus d’informations, consultez [Créer et gérer des règles de pare-feu IP](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+
+Les points de terminaison privés pour les magasins SQL ne sont pas pris en charge.
 
 ![bouton Définir le pare-feu du serveur](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
 
@@ -94,6 +98,8 @@ Vous pouvez pointer votre cluster vers une instance Azure SQL Database précéde
 * Si vous partagez un metastore sur plusieurs clusters, assurez-vous que tous les clusters utilisent la même version de HDInsight. Différentes versions d’Hive utilisent différents schémas de base de données de metastore. Par exemple, vous ne pouvez pas partager un metastore entre des clusters Hive de versions 2.1 et 3.1.
 
 * Dans HDInsight 4.0, Spark et Hive utilisent des catalogues indépendants pour accéder aux tables SparkSQL ou Hive. Les tables créées par Spark résident dans le catalogue Spark. Les tables créées par Hive résident dans le catalogue Hive. Ce comportement est différent de HDInsight 3.6, où Hive et Spark partageaient le même catalogue. L’intégration de Hive et Spark à HDInsight 4.0 s’appuie sur le connecteur Hive Warehouse Connector (HWC). Le connecteur HWC sert de pont entre Spark et Hive. [En savoir plus sur le connecteur Hive Warehouse Connector](../hdinsight/interactive-query/apache-hive-warehouse-connector.md)
+
+* Dans HDInsight 4.0, si vous souhaitez partager le metastore entre Hive et Spark, vous pouvez le faire en remplaçant la propriété metastore.catalog.default par hive dans votre cluster Spark. Vous pouvez trouver cette propriété dans Ambari Advanced spark2-hive-site-override. Il est important de comprendre que le partage du metastore ne fonctionne que pour les tables Hive externes. Cela ne fonctionnera pas si vous avez des tables Hive internes/gérées ou des tables ACID.  
 
 ## <a name="apache-oozie-metastore"></a>Metastore Apache Oozie
 

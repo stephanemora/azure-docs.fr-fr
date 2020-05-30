@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/28/2019
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1f7be4d01dd930e9ff421b2a163f1648f1793da9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ea8c40faad4ee709ae98f868e36fd42e46501bea
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82230791"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927035"
 ---
 # <a name="azure-ad-b2c-session"></a>Session Azure AD B2C
 
@@ -99,22 +99,20 @@ Lors d’une demande de déconnexion, Azure AD B2C effectue les opérations suiv
    - SAML : si les métadonnées du fournisseur d’identité contiennent l’emplacement `SingleLogoutService`.
 1. Si vous le souhaitez, se déconnecte d’autres applications. Pour plus d’informations, consultez la section [Déconnexion unique](#single-sign-out).
 
-> [!NOTE]
-> La déconnexion efface l’état d’authentification unique de l’utilisateur auprès d’Azure AD B2C, mais il est possible qu’elle ne déconnecte pas l’utilisateur de sa session de fournisseur d’identité sociale. Si l’utilisateur sélectionne le même fournisseur d’identité lors d’une connexion ultérieure, il pourrait se réauthentifier sans avoir à entrer ses informations d’identification. Si un utilisateur veut se déconnecter de l’application, cela ne signifie pas nécessairement qu’il souhaite se déconnecter de son compte Facebook. Toutefois, si les comptes locaux sont utilisés, la session de l’utilisateur se termine correctement.
+La déconnexion efface l’état d’authentification unique de l’utilisateur auprès d’Azure AD B2C, mais il est possible qu’elle ne déconnecte pas l’utilisateur de sa session de fournisseur d’identité sociale. Si l’utilisateur sélectionne le même fournisseur d’identité lors d’une connexion ultérieure, il pourrait se réauthentifier sans avoir à entrer ses informations d’identification. Si un utilisateur veut se déconnecter de l’application, cela ne signifie pas nécessairement qu’il souhaite se déconnecter de son compte Facebook. Toutefois, si les comptes locaux sont utilisés, la session de l’utilisateur se termine correctement.
 
-### <a name="single-sign-out"></a>Déconnexion unique
+### <a name="single-sign-out"></a>Déconnexion unique 
+
+
+> [!NOTE]
+> Cette fonctionnalité est limitée à des [stratégies personnalisées](custom-policy-overview.md).
 
 Lorsque vous redirigez l’utilisateur vers le point de terminaison de déconnexion Azure AD B2C (pour les protocoles OAuth2 et SAML), Azure AD B2C efface la session de l’utilisateur du navigateur. Toutefois, l’utilisateur pourrait rester connecté à d’autres applications utilisant Azure AD B2C pour l’authentification. Pour permettre à ces applications de déconnecter l’utilisateur simultanément, Azure AD B2C envoie une requête HTTP GET à la `LogoutUrl` inscrite de toutes les applications auxquelles l’utilisateur est actuellement connecté.
 
-Les applications doivent répondre à cette requête en effaçant toute session qui identifie l’utilisateur et en renvoyant une réponse `200`. Si vous souhaitez prendre en charge la déconnexion unique dans votre application, vous devez implémenter une `LogoutUrl` dans le code de votre application. Vous pouvez définir le paramètre `LogoutUrl` à partir du portail Azure :
 
-1. Accédez au [portail Azure](https://portal.azure.com).
-1. Sélectionnez votre client Azure AD B2C en cliquant sur votre compte en haut à droite de la page.
-1. Dans le volet de navigation de gauche, choisissez **Azure AD B2C**, **Inscriptions d’applications**, puis sélectionnez votre application.
-1. Sélectionnez **Paramètres**, **Propriétés**, puis recherchez la zone de texte **URL de déconnexion**. 
-
+Les applications doivent répondre à cette requête en effaçant toute session qui identifie l’utilisateur et en renvoyant une réponse `200`. Si vous souhaitez prendre en charge la déconnexion unique dans votre application, vous devez implémenter une `LogoutUrl` dans le code de votre application. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment [configurer un comportement de session dans un flux d’utilisateur](session-behavior.md).
-- Découvrez comment [configurer un comportement de session dans une stratégie personnalisée](custom-policy-manage-sso-and-token-config.md#session-behavior-and-sso).
+- Découvrez comment [configurer un comportement de session dans des stratégies personnalisées](session-behavior-custom-policy.md).

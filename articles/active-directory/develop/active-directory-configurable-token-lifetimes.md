@@ -13,19 +13,19 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: f4138c4ae24ae599d4058c9fd06c33b69657fe38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3e66cd6a05a7c616b22eefffdd9d132aa0f4d36d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81680068"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853971"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durées de vie des jetons configurables dans Azure Active Directory (préversion)
 
 Vous pouvez spécifier la durée de vie d’un jeton émis par Azure Active Directory (Azure AD). Vous pouvez définir les durées de vie des jetons pour toutes les applications de votre organisation, pour une application mutualisée (plusieurs organisations) ou pour un principal de service spécifique de votre organisation.
 
 > [!IMPORTANT]
-> En réponse aux retours des clients au cours de la préversion, nous avons implémenté des [fonctionnalités de gestion des sessions d’authentification](https://go.microsoft.com/fwlink/?linkid=2083106) dans l’accès conditionnel Azure AD. Vous pouvez utiliser cette nouvelle fonctionnalité pour configurer les durées de vie des jetons d’actualisation en définissant la fréquence de connexion. Après le 1er mai 2020, vous ne pourrez plus utiliser la stratégie configurable de durée de vie des jetons pour configurer les jetons de session et d’actualisation. Vous pourrez toujours configurer la durée de vie des jetons d'accès après la dépréciation.
+> En réponse aux retours des clients au cours de la préversion, nous avons implémenté des [fonctionnalités de gestion des sessions d’authentification](https://go.microsoft.com/fwlink/?linkid=2083106) dans l’accès conditionnel Azure AD. Vous pouvez utiliser cette nouvelle fonctionnalité pour configurer les durées de vie des jetons d’actualisation en définissant la fréquence de connexion. Après le 30 mai 2020, aucun locataire ne pourra plus utiliser la stratégie configurable de durée de vie des jetons pour configurer les jetons de session et d’actualisation. La dépréciation se produira dans un délai de plusieurs mois après cela, ce qui signifie que nous cesserons de prendre en compte les stratégies de session et d’actualisation des jetons existantes. Vous pourrez toujours configurer la durée de vie des jetons d'accès après la dépréciation.
 
 Dans Azure AD, un objet de stratégie représente un ensemble de règles appliquées sur des applications individuelles ou sur toutes les applications d’une organisation. Chaque type de stratégie comporte une structure unique avec un ensemble de propriétés qui sont ensuite appliquées aux objets auxquels elles sont affectées.
 
@@ -393,7 +393,7 @@ Permet de créer une stratégie.
 New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type>
 ```
 
-| Paramètres | Description |  Exemple |
+| Paramètres | Description | Exemple |
 | --- | --- | --- |
 | <code>&#8209;Definition</code> |Tableau de champs de chaîne JSON qui contient toutes les règles de la stratégie. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;DisplayName</code> |Chaîne du nom de la stratégie. |`-DisplayName "MyTokenPolicy"` |
@@ -410,7 +410,7 @@ Permet d’obtenir toutes les stratégies d’Azure AD ou une stratégie spéci
 Get-AzureADPolicy
 ```
 
-| Paramètres | Description |  Exemple |
+| Paramètres | Description | Exemple |
 | --- | --- | --- |
 | <code>&#8209;Id</code> [Facultatif] |**ObjectId (ID)** de la stratégie souhaitée. |`-Id <ObjectId of Policy>` |
 
@@ -423,7 +423,7 @@ Permet d’obtenir toutes les applications et tous les principaux de service li�
 Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
-| Paramètres | Description |  Exemple |
+| Paramètres | Description | Exemple |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (ID)** de la stratégie souhaitée. |`-Id <ObjectId of Policy>` |
 
@@ -436,7 +436,7 @@ Met à jour une stratégie existante.
 Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 ```
 
-| Paramètres | Description |  Exemple |
+| Paramètres | Description | Exemple |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (ID)** de la stratégie souhaitée. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Chaîne du nom de la stratégie. |`-DisplayName "MyTokenPolicy"` |
@@ -454,7 +454,7 @@ Supprime la stratégie spécifiée.
  Remove-AzureADPolicy -Id <ObjectId of Policy>
 ```
 
-| Paramètres | Description |  Exemple |
+| Paramètres | Description | Exemple |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (ID)** de la stratégie souhaitée. | `-Id <ObjectId of Policy>` |
 
@@ -470,7 +470,7 @@ Lie la stratégie spécifiée à une application.
 Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
-| Paramètres | Description |  Exemple |
+| Paramètres | Description | Exemple |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ID d’objet** de la stratégie. | `-RefObjectId <ObjectId of Policy>` |
@@ -484,7 +484,7 @@ Permet d’obtenir la stratégie affectée à une application.
 Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 ```
 
-| Paramètres | Description |  Exemple |
+| Paramètres | Description | Exemple |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 
@@ -497,7 +497,7 @@ Supprime une stratégie d’une application.
 Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
 ```
 
-| Paramètres | Description |  Exemple |
+| Paramètres | Description | Exemple |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ID d’objet** de la stratégie. | `-PolicyId <ObjectId of Policy>` |
@@ -514,7 +514,7 @@ Lie la stratégie spécifiée à un principal de service.
 Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
 ```
 
-| Paramètres | Description |  Exemple |
+| Paramètres | Description | Exemple |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ID d’objet** de la stratégie. | `-RefObjectId <ObjectId of Policy>` |
@@ -528,7 +528,7 @@ Permet d’obtenir une stratégie liée au principal de service spécifié.
 Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 ```
 
-| Paramètres | Description |  Exemple |
+| Paramètres | Description | Exemple |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 
@@ -541,7 +541,7 @@ Supprime la stratégie du principal de service spécifié.
 Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 
-| Paramètres | Description |  Exemple |
+| Paramètres | Description | Exemple |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ID d’objet** de la stratégie. | `-PolicyId <ObjectId of Policy>` |

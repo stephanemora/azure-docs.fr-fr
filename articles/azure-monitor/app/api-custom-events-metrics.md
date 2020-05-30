@@ -2,13 +2,13 @@
 title: API Application Insights pour les événements et les métriques personnalisés | Microsoft Docs
 description: Insérez quelques lignes de code dans votre application de périphérique ou de bureau, votre page web ou votre service pour suivre l'utilisation et diagnostiquer les problèmes.
 ms.topic: conceptual
-ms.date: 03/27/2019
-ms.openlocfilehash: 152bd117ec0ae76c2c85ead26ba5278aa71d582f
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.date: 05/11/2020
+ms.openlocfilehash: ae96609446818802b70cab9c31f6527264046eb9
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509285"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115657"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API Application Insights pour les événements et les mesures personnalisés
 
@@ -649,7 +649,7 @@ Dans l’idéal, il est recommandé d’utiliser la méthode flush() dans l’ac
 
 ## <a name="authenticated-users"></a>Utilisateurs authentifiés
 
-Dans une application web, les utilisateurs sont identifiés par des cookies par défaut. Un utilisateur peut être compté plusieurs fois s’il accède à votre application à partir d’un autre ordinateur ou navigateur, ou s’il supprime des cookies.
+Dans une application web, les utilisateurs sont [identifiés par des cookies](../../azure-monitor/app/usage-segmentation.md#the-users-sessions-and-events-segmentation-tool) (par défaut). Un utilisateur peut être compté plusieurs fois s’il accède à votre application à partir d’un autre ordinateur ou navigateur, ou s’il supprime des cookies.
 
 Mais si les utilisateurs se connectent à votre application, vous pouvez obtenir un nombre plus précis en définissant l’ID de l’utilisateur authentifié dans le code du navigateur :
 
@@ -1096,16 +1096,14 @@ Pour déterminer la durée de conservation des données, consultez [Rétention d
 * [Référence Java](https://docs.microsoft.com/java/api/overview/azure/appinsights?view=azure-java-stable/)
 * [Référence JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
-
 ## <a name="sdk-code"></a>Code de Kit de développement logiciel (SDK)
 
-* [Kit de développement logiciel (SDK) principal ASP.NET](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+* [Kit de développement logiciel (SDK) principal ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
-* [Packages Windows Server](https://github.com/Microsoft/applicationInsights-dotnet-server)
+* [Packages Windows Server](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Kit SDK Java](https://github.com/Microsoft/ApplicationInsights-Java)
 * [Kit de développement logiciel (SDK) Node.js](https://github.com/Microsoft/ApplicationInsights-Node.js)
 * [Kit de développement logiciel (SDK) JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
-
 
 ## <a name="questions"></a>Questions
 

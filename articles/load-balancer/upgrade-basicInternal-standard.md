@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 02/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 239dc0f3133a5adf59a23d333131c91d3a655597
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 960897abca67bf2a43c4c056b8dfa8cce0119faa
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770384"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871585"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Mettre à niveau l’équilibreur de charge interne Azure – Aucune connexion sortante nécessaire
-[Azure Standard Load Balancer](load-balancer-overview.md) offre un ensemble complet de fonctionnalités et une haute disponibilité avec la redondance de zone. Pour en savoir plus sur la référence SKU de Load Balancer, consultez le [tableau comparatif](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
+[Azure Standard Load Balancer](load-balancer-overview.md) offre un ensemble complet de fonctionnalités et une haute disponibilité avec la redondance de zone. Pour en savoir plus sur la référence SKU de Load Balancer, consultez le [tableau comparatif](https://docs.microsoft.com/azure/load-balancer/skus#skus).
 
 Cet article présente un script PowerShell qui crée une instance Standard Load Balancer avec la même configuration que le Basic Load Balancer et qui migre le trafic de Basic Load Balancer à Standard Load Balancer.
 
@@ -31,12 +31,24 @@ Un script Azure PowerShell est disponible qui effectue les opérations suivantes
 ### <a name="caveatslimitations"></a>Mises en garde/Limitations
 
 * Le script ne prend en charge que la mise à niveau de l’équilibreur de charge interne lorsqu’aucune connexion sortante n’est requise. Si vous avez besoin d’une [connexion sortante](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) pour certaines de vos machines virtuelles, consultez cette [page](upgrade-InternalBasic-To-PublicStandard.md) pour obtenir des instructions. 
+* L’instance Load Balancer de base doit se trouver dans le même groupe de ressources que les machines virtuelles principales et les cartes réseau.
 * Si l’instance Standard Load Balancer est créée dans une autre région, vous ne pouvez pas associer les machines virtuelles existant dans l’ancienne région avec l’instance Standard Load Balancer nouvellement créée. Pour contourner cette limitation, prenez soin de créer la machine virtuelle dans la nouvelle région.
 * Si votre équilibreur de charge ne dispose pas de configuration d’adresse IP front-end ni de pool de back-ends, vous risquez de rencontrer une erreur lors de l’exécution du script. Vérifiez qu’ils ne sont pas vides.
 
+## <a name="change-ip-allocation-method-to-static-for-frontend-ip-configuration-ignore-this-step-if-its-already-static"></a>Modifiez la méthode d’allocation d’adresses IP en statique pour la configuration d’adresse IP frontale (ignorez cette étape si elle est déjà statique)
+
+1. Sélectionnez **Tous les services** dans le menu de gauche, **Toutes les ressources**, puis votre instance Load Balancer de base dans la liste des ressources.
+
+2. Sous **Paramètres**, sélectionnez **Configuration d’adresses IP frontales**, puis sélectionnez la première configuration d’adresses IP frontales. 
+
+3. Pour **Affectation**, sélectionnez **Statique**.
+
+4. Répétez l’étape 3 pour toutes les configurations d’adresse IP frontales de l’instance Load Balancer de base.
+
+
 ## <a name="download-the-script"></a>Télécharger le script
 
-Téléchargez le script de migration à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureILBUpgrade/2.0).
+Téléchargez le script de migration à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureILBUpgrade/3.0).
 ## <a name="use-the-script"></a>Utiliser le script
 
 Vous disposez de deux options selon vos préférences et votre configuration de l’environnement PowerShell local :

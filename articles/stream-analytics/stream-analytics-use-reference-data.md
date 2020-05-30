@@ -6,17 +6,28 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/8/2019
-ms.openlocfilehash: b3808524706b13761dd8eccffa301c602d08f481
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 5/11/2020
+ms.openlocfilehash: 524fc747e8e3dc70bdcc594a38b2a083b8381daa
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79232025"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124072"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Utiliser des données de référence pour effectuer des recherches dans Stream Analytics
 
 Les données de référence (également appelées « tables de choix ») sont un jeu de données finies, statiques ou variant lentement par nature, utilisé pour effectuer des recherches ou pour augmenter vos flux de données. Par exemple, dans un scénario IoT, vous pourriez stocker des métadonnées sur les capteurs (qui ne changent pas souvent) dans les données de référence et les associer à des flux de données IoT en temps réel. Azure Stream Analytics charge les données de référence dans la mémoire pour obtenir un traitement de flux à faible latence. Pour utiliser des données de référence dans votre travail Azure Stream Analytics, vous utiliserez généralement une [jointure de données de référence](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) dans votre requête. 
+
+## <a name="example"></a>Exemple  
+Vous pouvez avoir un flux d’événements en temps réel généré quand les voitures passent un poste de péage. Le poste de péage peut capturer la plaque de licence en temps réel et associer un jeu de données statique qui contient les détails de l’inscription pour identifier les plaques de licence qui ont expiré.  
+  
+```SQL  
+SELECT I1.EntryTime, I1.LicensePlate, I1.TollId, R.RegistrationId  
+FROM Input1 I1 TIMESTAMP BY EntryTime  
+JOIN Registration R  
+ON I1.LicensePlate = R.LicensePlate  
+WHERE R.Expired = '1'
+```  
 
 Stream Analytics prend en charge le stockage Blob Azure et Azure SQL Database comme couche de stockage pour les données de référence. Vous pouvez également transformer et/ou copier des données de référence dans le stockage d’objets Blob à partir d’Azure Data Factory pour utiliser [n’importe quel nombre de banques de données cloud et locales](../data-factory/copy-activity-overview.md).
 
@@ -34,9 +45,9 @@ Pour configurer vos données de référence, vous devez d'abord créer une entr�
 |Compte de stockage   | Nom du compte de stockage dans lequel se trouvent vos blobs. S’il se trouve dans le même abonnement que votre travail Stream Analytics, vous pouvez le sélectionner dans la liste déroulante.   |
 |Clé du compte de stockage   | Clé secrète associée au compte de stockage. Elle est remplie automatiquement si le compte de stockage se trouve dans le même abonnement que votre travail Stream Analytics.   |
 |Conteneur de stockage   | Les conteneurs fournissent un regroupement logique des objets blob stockés dans le service d’objets blob Microsoft Azure. Lorsque vous téléchargez un objet blob dans le service d'objets Blob, vous devez spécifier un conteneur pour cet objet blob.   |
-|Modèle de chemin d'accès   | Chemin d’accès utilisé pour localiser vos blobs dans le conteneur spécifié. Dans le chemin d’accès, vous pouvez choisir de spécifier une ou plusieurs instances de l’une des 2 variables suivantes :<BR>{date}, {time}<BR>Exemple 1 : products/{date}/{time}/product-list.csv<BR>Exemple 2 : products/{date}/product-list.csv<BR>Exemple 3 : product-list.csv<BR><br> Si l’objet blob n’existe pas dans le chemin d’accès spécifié, le travail Stream Analytics attend indéfiniment que l’objet blob devienne disponible.   |
-|Format de la date [facultatif]   | Si vous avez utilisé {date} dans le modèle de chemin d’accès que vous avez spécifié, vous pouvez sélectionner le format de date selon lequel vos blobs sont organisés dans la liste déroulante des formats pris en charge.<BR>Exemple : AAAA/MM/JJ, MM/JJ/AAAA, etc.   |
-|Format de l’heure [facultatif]   | Si vous avez utilisé {time} dans le modèle de chemin d’accès que vous avez spécifié, vous pouvez sélectionner le format d’heure selon lequel vos blobs sont organisés dans la liste déroulante des formats pris en charge.<BR>Exemple : HH, HH/mm ou HH-mm.  |
+|Modèle de chemin d'accès   | C’est une propriété obligatoire qui est utilisée pour localiser vos objets blob dans le conteneur spécifié. Dans le chemin d’accès, vous pouvez choisir de spécifier une ou plusieurs instances de l’une des 2 variables suivantes :<BR>{date}, {time}<BR>Exemple 1 : products/{date}/{time}/product-list.csv<BR>Exemple 2 : products/{date}/product-list.csv<BR>Exemple 3 : product-list.csv<BR><br> Si l’objet blob n’existe pas dans le chemin d’accès spécifié, le travail Stream Analytics attend indéfiniment que l’objet blob devienne disponible.   |
+|Format de la date [facultatif]   | Si vous avez utilisé {date} dans le modèle de chemin d’accès que vous avez spécifié, vous pouvez sélectionner le format de date selon lequel vos blobs sont organisés dans la liste déroulante des formats pris en charge.<BR>Exemple : AAAA/MM/JJ, MM/JJ/AAAA, etc.   |
+|Format de l’heure [facultatif]   | Si vous avez utilisé {time} dans le modèle de chemin d’accès que vous avez spécifié, vous pouvez sélectionner le format d’heure selon lequel vos blobs sont organisés dans la liste déroulante des formats pris en charge.<BR>Exemple : HH, HH/mm ou HH-mm.  |
 |Format de sérialisation de l’événement   | Pour s’assurer que vos requêtes fonctionnent comme prévu, Stream Analytics a besoin de connaître le format de sérialisation que vous utilisez pour les flux de données d’entrée. Pour les données de référence, les formats pris en charge sont CSV et JSON.  |
 |Encodage   | UTF-8 est le seul format de codage actuellement pris en charge.  |
 
@@ -90,7 +101,7 @@ Vous pouvez utiliser [Azure SQL Database Managed Instance](https://docs.microsof
 |**Nom de la propriété**|**Description**  |
 |---------|---------|
 |Alias d’entrée|Nom convivial qui servira dans la requête de tâche pour faire référence à cette entrée.|
-|Subscription|Choisir votre abonnement|
+|Abonnement|Choisir votre abonnement|
 |Base de données|Base de données Azure SQL qui contient vos données de référence. Pour Azure SQL Database Managed Instance, il est nécessaire de spécifier le port 3342. Par exemple, *sampleserver.public.database.windows.net,3342*|
 |Nom d’utilisateur|Nom d’utilisateur associé à votre base de données Azure SQL.|
 |Mot de passe|Mot de passe associé à votre base de données Azure SQL.|
@@ -100,21 +111,36 @@ Vous pouvez utiliser [Azure SQL Database Managed Instance](https://docs.microsof
 
 ## <a name="size-limitation"></a>Limite de taille
 
-Stream Analytics prend en charge les données de référence avec une **taille maximale de 300 Mo**. La limite de taille maximale de 300 Mo pour les données de référence est réalisable uniquement avec des requêtes simples. À mesure que la complexité des requêtes augmente pour inclure un traitement avec état comme les agrégations fenêtrées, les jointures temporelles et les fonctions analytiques temporelles, il est probable que la taille maximale prise en charge pour les données de référence diminue. Si Azure Stream Analytics ne peut pas charger les données de référence et effectuer des opérations complexes, le travail manque de mémoire et échoue. Dans ce cas, la métrique d’utilisation SU % atteindra 100 %.    
+Nous vous recommandons d’utiliser des jeux de données de référence qui sont inférieurs à 300 Mo pour des performances optimales. L’utilisation de données de référence supérieures à 300 Mo est prise en charge dans les travaux avec 6 SU ou plus. Cette fonctionnalité est en version préliminaire et ne doit pas être utilisée en production. L’utilisation de données de référence très volumineuses peut avoir un impact sur les performances de votre travail. À mesure que la complexité des requêtes augmente pour inclure un traitement avec état comme les agrégations fenêtrées, les jointures temporelles et les fonctions analytiques temporelles, il est probable que la taille maximale prise en charge pour les données de référence diminue. Si Azure Stream Analytics ne peut pas charger les données de référence et effectuer des opérations complexes, le travail manque de mémoire et échoue. Dans ce cas, la métrique d’utilisation SU % atteindra 100 %.    
 
-|**Nombre d’unités de streaming**  |**Taille maximale approximative prise en charge (en Mo)**  |
+|**Nombre d’unités de streaming**  |**Taille recommandée**  |
 |---------|---------|
-|1   |50   |
-|3   |150   |
-|6 et au-delà   |300   |
+|1   |50 Mo ou moins   |
+|3   |150 Mo ou moins   |
+|6 et au-delà   |300 Mo ou moins. L’utilisation de données de référence supérieures à 300 Mo est prise en charge en version préliminaire et peut avoir un impact sur les performances de votre travail.    |
 
-Augmenter le nombre d’unités de streaming d’un travail au-delà de 6 n’augmente pas la taille maximale prise en charge des données de référence.
+La prise en charge de la compression n’est pas disponible pour les données de référence.
 
-La prise en charge de la compression n’est pas disponible pour les données de référence. 
+## <a name="joining-multiple-reference-datasets-in-a-job"></a>Jointure de plusieurs jeux de données de référence dans un travail
+Vous pouvez joindre une seule entrée de flux avec une entrée de données de référence en une seule étape de votre requête. Toutefois, vous pouvez joindre plusieurs jeux de données de référence en fractionnant la requête en plusieurs étapes. Voici un exemple.
+
+```SQL  
+With Step1 as (
+    --JOIN input stream with reference data to get 'Desc'
+    SELECT streamInput.*, refData1.Desc as Desc
+    FROM    streamInput
+    JOIN    refData1 ON refData1.key = streamInput.key 
+)
+--Now Join Step1 with second reference data
+SELECT *
+INTO    output 
+FROM    Step1
+JOIN    refData2 ON refData2.Desc = Step1.Desc 
+``` 
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
-> [Guide de démarrage rapide : Créer un travail Stream Analytics à l’aide du Portail Azure](stream-analytics-quick-create-portal.md)
+> [Démarrage rapide : Créer un travail Stream Analytics à l’aide du portail Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
