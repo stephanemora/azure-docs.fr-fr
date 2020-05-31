@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
-ms.date: 05/25/2019
-ms.openlocfilehash: ab4bf802772c95d8c48a8cdba48def05e8a2761b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/25/2020
+ms.openlocfilehash: 3ec71a1ed8d24eb637afbb73b5949b69a1e3c041
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74786909"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83004600"
 ---
 # <a name="schedule-and-run-tasks-for-contiguous-data-by-using-the-sliding-window-trigger-in-azure-logic-apps"></a>Planifier et exécuter des tâches pour les données contiguës à l’aide du déclencheur Fenêtre glissante dans Azure Logic Apps
 
@@ -19,9 +19,9 @@ Pour exécuter régulièrement des tâches, processus ou travaux devant gérer d
 
 Voici quelques modèles que ce déclencheur prend en charge :
 
-* Exécuter immédiatement et répéter toutes les *n* secondes, minutes ou heures.
+* Exécuter immédiatement et répéter tou(te)s les *n* secondes, minutes, heures, jours, semaines ou mois.
 
-* Démarrer à une date et une heure spécifiques, exécuter immédiatement et répéter toutes les *n* secondes, minutes ou heures. Avec ce déclencheur, vous pouvez spécifier une heure de début dans le passé, qui exécute toutes les périodicités passées.
+* Démarrer à une date et une heure spécifiques, exécuter immédiatement et répéter tou(te)s les *n* secondes, minutes, heures, jours, semaines ou mois. Avec ce déclencheur, vous pouvez spécifier une heure de début dans le passé, qui exécute toutes les périodicités passées.
 
 * Retarder chaque périodicité pendant une durée spécifique avant de l’exécuter.
 
@@ -40,7 +40,7 @@ Pour connaître les différences entre ce déclencheur et le déclencheur Pério
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). Créez une application logique vide.
 
-1. Une fois que le concepteur Logic Apps s’affiche, entrez « fenêtre glissante » comme filtre dans la zone de recherche. Dans la liste des déclencheurs, sélectionnez ce déclencheur pour la première étape dans votre workflow d’application logique : **Fenêtre glissante**
+1. Une fois que le concepteur Logic Apps s’affiche, entrez `sliding window` comme filtre dans la zone de recherche. Dans la liste des déclencheurs, sélectionnez le déclencheur **Fenêtre glissante** pour la première étape dans votre workflow d’application logique.
 
    ![Sélectionner le déclencheur « Fenêtre glissante »](./media/connectors-native-sliding-window/add-sliding-window-trigger.png)
 
@@ -48,16 +48,15 @@ Pour connaître les différences entre ce déclencheur et le déclencheur Pério
 
    ![Définir l’intervalle et la fréquence](./media/connectors-native-sliding-window/sliding-window-trigger-details.png)
 
-   | Propriété | Obligatoire | Nom JSON | Type | Description |
+   | Propriété | Nom JSON | Obligatoire | Type | Description |
    |----------|----------|-----------|------|-------------|
-   | **Intervalle** | Oui | interval | Integer | Nombre entier positif qui décrit la fréquence à laquelle le flux de travail s’exécute en fonction de la fréquence. Les intervalles minimaux et maximaux sont les suivants : <p>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Heure », la périodicité est toutes les 6 heures. |
-   | **Fréquence** | Oui | frequency | String | Unité de temps à utiliser pour la récurrence : **Seconde**, **Minute** ou **Heure** |
+   | **Intervalle** | `interval` | Oui | Integer | Nombre entier positif qui décrit la fréquence à laquelle le flux de travail s’exécute en fonction de la fréquence. Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois <br>- Semaine : 1-71 semaines <br>Jour : 1-500 jours <br>- Heure : 1-12 000 heures <br>- Minute : 1-72 000 minutes <br>- Seconde : 1-9 999 999 secondes <p>Par exemple, si l’intervalle est de 6 et que la fréquence soit définie sur « Mois », la périodicité est alors tous les 6 mois. |
+   | **Fréquence** | `frequency` | Oui | String | Unité de temps à utiliser pour la récurrence : **Seconde**, **Minute**, **Heure**, **Jour**, **Semaine** ou **Mois** |
    ||||||
 
    ![Options de périodicité avancées](./media/connectors-native-sliding-window/sliding-window-trigger-more-options-details.png)
 
-   Pour plus d’options de périodicité, ouvrez la liste **Ajouter un nouveau paramètre**. 
-   Toutes les options que vous sélectionnez s’affichent sur le déclencheur.
+   Pour plus d’options de périodicité, ouvrez la liste **Ajouter un nouveau paramètre**. Toutes les options que vous sélectionnez s’affichent sur le déclencheur.
 
    | Propriété | Obligatoire | Nom JSON | Type | Description |
    |----------|----------|-----------|------|-------------|

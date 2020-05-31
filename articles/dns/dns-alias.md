@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 08/09/2019
 ms.author: rohink
-ms.openlocfilehash: 271770935cf4cb83d4abc6e82a4f4b13ffe865b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3378036c4800b274d879743abf937c7860e63ded
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295485"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926228"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Vue d’ensemble des enregistrements d’alias Azure DNS
 
@@ -66,7 +66,7 @@ Par exemple, contoso.com et www\.contoso.com peuvent pointer vers le même profi
 
 Tout comme un profil Traffic Manager, vous pouvez également utiliser des enregistrements d’alias pour pointer votre apex de zone DNS vers des points de terminaison Azure CDN. C’est utile quand vous créez des sites web statiques à l’aide du Stockage Azure et d’Azure CDN. Vous pouvez ensuite accéder au site web sans ajouter le préfixe « www » à votre nom DNS.
 
-Par exemple, si votre site web statique est nommé `www.contoso.com, your users can access your site using contoso.com` sans qu’il soit nécessaire d’ajouter www au nom DNS.
+Par exemple, si votre site web statique se nomme `www.contoso.com`, vos utilisateurs peuvent accéder à votre site à l’aide de `contoso.com` sans avoir besoin d’ajouter le préfixe « www » au nom DNS.
 
 Comme décrit précédemment, les enregistrements CNAME ne sont pas pris en charge à l’apex de zone. Par conséquent, vous ne pouvez pas utiliser un enregistrement CNAME pour pointer contoso.com vers votre point de terminaison CDN. À la place, vous pouvez utiliser un enregistrement d’alias pour pointer l’apex de zone directement sur un point de terminaison CDN.
 

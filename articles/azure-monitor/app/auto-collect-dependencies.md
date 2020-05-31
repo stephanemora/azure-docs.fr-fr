@@ -2,16 +2,15 @@
 title: Azure Application Insights - Collecte automatique de dépendance | Microsoft Docs
 description: Application Insights collecte et visualise automatiquement les dépendances
 ms.topic: reference
-author: nikmd23
-ms.author: nimolnar
-ms.date: 04/29/2019
-ms.reviewer: mbullwin
-ms.openlocfilehash: eaafe19f5112b433d50a34aa551aa84d196726a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+author: mrbullwinkle
+ms.author: mbullwin
+ms.date: 05/06/2020
+ms.openlocfilehash: 21e98ee9dc59e7520fb715f1146e492b9198f883
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77665814"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891610"
 ---
 # <a name="dependency-auto-collection"></a>Collecte automatique de dépendance
 
@@ -28,10 +27,15 @@ Voici la liste des appels de dépendance actuellement pris en charge qui sont au
 | <b> Bibliothèques de communication</b> |
 | [HttpClient](https://www.microsoft.com/net/) | 4.5+, .NET Core 1.1+ |
 | [SqlClient](https://www.nuget.org/packages/System.Data.SqlClient) | .NET Core 1.0+, NuGet 4.3.0 |
+| [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient/1.1.2)| 1.1.0 - dernière version stable. (Voir la remarque ci-dessous.)
 | [Kit de développement logiciel (SDK) client EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1.1.0 |
 | [Kit de développement logiciel (SDK) client ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | 3.0.0 |
 | <b>Clients de stockage</b>|  |
 | ADO.NET | 4.5+ |
+
+> [!NOTE]
+> Il existe un [problème connu](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1347) avec les versions antérieures de Microsoft.Data.SqlClient. Nous vous recommandons d’utiliser la version 1.1.0 ou ultérieure pour atténuer ce problème. Entity Framework Core n’est pas nécessairement fourni avec la dernière version stable de Microsoft.Data.SqlClient. Nous vous recommandons donc de confirmer que vous disposez d’au moins la version 1.1.0 pour éviter ce problème.   
+
 
 ## <a name="java"></a>Java
 | Serveurs d’applications | Versions |

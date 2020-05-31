@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f2fd8f4b7d03be8822c3ec12e2be589054942ce3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13c85dff40e266287d893d9e45b32a66a33f027e
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74270596"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006013"
 ---
 # <a name="anchor-relationships-and-way-finding-in-azure-spatial-anchors"></a>Relations entre les ancres et guidage dans Azure Spatial Anchors
 
@@ -73,7 +73,7 @@ Vous pouvez continuer cette procédure pour d’autres ancres et sessions au fil
 
 ### <a name="verify-anchor-connections"></a>Vérifier les connexions d’ancres
 
-L’application peut vérifier que deux ancres sont connectées en émettant une requête d’ancre à proximité. Lorsque le résultat de la requête contient l’ancre cible, la connexion d’ancre est vérifiée. Si les ancres ne sont pas connectées, l’application peut essayer de les reconnecter.
+L’application peut vérifier que deux ancres sont connectées en émettant une requête pour les ancres avoisinantes, ce que vous faites en définissant le `NearAnchorCriteria` sur un `CloudSpatialAnchorWatcher`. Lorsque le résultat de la requête contient l’ancre cible, la connexion d’ancre est vérifiée. Si les ancres ne sont pas connectées, l’application peut essayer de les reconnecter.
 
 Voici quelques raisons pour lesquelles la connexion d’ancres peut échouer :
 

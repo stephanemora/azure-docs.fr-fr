@@ -1,23 +1,21 @@
 ---
 title: Communication sécurisée avec le proxy inverse Azure Service Fabric
 description: Configurez le proxy inverse pour permettre la communication de bout en bout sécurisée dans une application Azure Service Fabric.
-author: kavyako
 ms.topic: conceptual
 ms.date: 08/10/2017
-ms.author: kavyako
-ms.openlocfilehash: 61a8d1e766ea576f7d2984add239b0da7e2e8183
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: e88a81108f38efefe413024fb2b41bbd82f297b2
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617110"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858532"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Se connecter à un service sécurisé avec le proxy inverse
 
 Cet article explique comment établir une connexion sécurisée entre le proxy inverse et les services, permettant ainsi un canal sécurisé de bout en bout. Pour plus d’informations sur le proxy inverse, consultez [Proxy inverse dans Azure Service Fabric](service-fabric-reverseproxy.md)
 
-La connexion à des services sécurisés est prise en charge uniquement quand le proxy inverse est configuré pour écouter sur le protocole HTTPS. Cet article suppose que c’est le cas.
-Pour configurer le proxy inverse dans Service Fabric, reportez-vous à [Configurer le proxy inverse dans Azure Service Fabric](service-fabric-reverseproxy-setup.md).
+> [!IMPORTANT]
+> La connexion à des services sécurisés est prise en charge uniquement quand le proxy inverse est configuré pour écouter sur le protocole HTTPS. Cet article suppose que c’est le cas. Pour configurer le proxy inverse dans Service Fabric, reportez-vous à [Configurer le proxy inverse dans Azure Service Fabric](service-fabric-reverseproxy-setup.md).
 
 ## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Établissement d’une connexion sécurisée entre le proxy inverse et les services 
 
@@ -183,7 +181,7 @@ Ensuite, il envoie les données du certificat client dans un en-tête HTTP perso
 Si le client ne présente pas un certificat, le proxy inverse transfère un en-tête vide et laisse le service gérer le cas.
 
 > [!NOTE]
-> Le proxy inverse est un simple redirecteur. Il n’effectue aucune validation du certificat du client.
+> Le proxy inverse agit uniquement comme un service de transfert. Il n’effectue aucune validation du certificat du client.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

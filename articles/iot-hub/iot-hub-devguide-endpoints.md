@@ -11,12 +11,12 @@ ms.date: 06/10/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 53660ad93ab2218d546ae6f363873c4d66872e2b
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 9554713e50e7a2ead2e25f274428ad0ecba4934d
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81730311"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996951"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Référence - Points de terminaison IoT Hub
 
@@ -54,9 +54,9 @@ La liste ci-dessous décrit les points de terminaison :
 
   * *Recevoir des requêtes de méthodes directes*. Un appareil utilise ce point de terminaison pour écouter les requêtes des [méthodes directes](iot-hub-devguide-direct-methods.md).
 
-    Ces points de terminaison sont exposés en utilisant les protocoles [MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1 et [AMQP 1.0](https://www.amqp.org/). Le protocole AMQP est également disponible sur [WebSockets](https://tools.ietf.org/html/rfc6455) sur le port 443.
+    Ces points de terminaison sont exposés en utilisant les protocoles [MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1 et [AMQP 1.0](https://www.amqp.org/). Les protocoles AMQP et MQTT sont également disponibles sur [WebSockets](https://tools.ietf.org/html/rfc6455) sur le port 443.
 
-* **Points de terminaison de service**. Chaque IoT Hub expose un ensemble de points de terminaison pour que votre système principal de solution puisse communiquer avec vos appareils. À une exception près, ces points de terminaison sont uniquement exposés avec le protocole [AMQP](https://www.amqp.org/). Le point de terminaison d’appel de méthode est exposé via le protocole HTTPS.
+* **Points de terminaison de service**. Chaque IoT Hub expose un ensemble de points de terminaison pour que votre système principal de solution puisse communiquer avec vos appareils. À une exception près, ces points de terminaison sont uniquement exposés au moyen des protocoles [AMQP](https://www.amqp.org/) et AMQP sur WebSockets. Le point de terminaison d’appel de méthode directe est exposé via le protocole HTTPS.
   
   * *Recevoir des messages Appareil vers cloud*. Ce point de terminaison est compatible avec [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Il peut être utilisé par un backend pour lire les [messages appareil-à-cloud](iot-hub-devguide-messages-d2c.md) envoyés par vos appareils. Vous pouvez créer des points de terminaison sur votre IoT Hub en plus de ce point de terminaison prédéfini.
   

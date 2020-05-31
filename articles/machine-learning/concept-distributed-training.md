@@ -9,18 +9,18 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: a0d5bf795e4759a105b9a235770f37aa10bd6751
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 52716e070437dd7a6b3b880a5a7f3a4afafe8738
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385342"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995012"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Formation distribuée avec Azure Machine Learning
 
 Dans cet article, vous allez découvrir la formation distribuée et la façon dont Azure Machine Learning la prend en charge pour les modèles de Deep Learning. 
 
-Dans la formation distribuée, la charge de travail visant à effectuer l’apprentissage d’un modèle est fractionnée et partagée entre plusieurs mini-processeurs, appelés nœuds Worker. Ces nœuds Worker fonctionnent en parallèle pour accélérer la formation du modèle. La formation distribuée peut être utilisée pour les modèles de ML traditionnels, mais elle est mieux adaptée aux tâches gourmandes en ressources de calcul et en temps, par exemple le [Deep Learning](concept-deep-learning-vs-machine-learning.md) pour la formation de réseaux neuronaux profonds.
+Dans la formation distribuée, la charge de travail visant à effectuer l’apprentissage d’un modèle est fractionnée et partagée entre plusieurs mini-processeurs, appelés nœuds Worker. Ces nœuds Worker fonctionnent en parallèle pour accélérer la formation du modèle. La formation distribuée peut être utilisée pour les modèles de ML traditionnels, mais elle est mieux adaptée aux tâches gourmandes en ressources de calcul et en temps, par exemple le [Deep Learning](concept-deep-learning-vs-machine-learning.md) pour la formation de réseaux neuronaux profonds. 
 
 ## <a name="deep-learning-and-distributed-training"></a>Deep Learning et formation distribuée 
 
@@ -36,7 +36,9 @@ Pour les modèles de ML qui ne nécessitent pas de formation distribuée, consul
 
 De ces deux approches de formation distribuée, le parallélisme des données est la plus facile à mettre en œuvre et suffit pour la plupart des cas d’usage.
 
-Dans cette approche, les données sont divisées en partitions, où le nombre de partitions est égal au nombre total de nœuds disponibles dans le cluster de calcul. Le modèle est copié dans chacun de ces nœuds Worker, et chaque Worker opère sur son propre sous-ensemble de données. Gardez à l’esprit que chaque nœud doit avoir la capacité de prendre en charge le modèle en cours de formation, c’est-à-dire que le modèle doit s’adapter entièrement à chaque nœud.
+Dans cette approche, les données sont divisées en partitions, où le nombre de partitions est égal au nombre total de nœuds disponibles dans le cluster de calcul. Le modèle est copié dans chacun de ces nœuds Worker, et chaque Worker opère sur son propre sous-ensemble de données. Gardez à l’esprit que chaque nœud doit avoir la capacité de prendre en charge le modèle en cours de formation, c’est-à-dire que le modèle doit s’adapter entièrement à chaque nœud. Le diagramme suivant fournit une démonstration visuelle de cette approche.
+
+![Data-parallelism-concept-diagram](./media/concept-distributed-training/distributed-training.svg)
 
 Chaque nœud calcule indépendamment les erreurs entre ses prédictions pour ses exemples de formation et les sorties étiquetées. À son tour, chaque nœud met à jour son modèle en fonction des erreurs et doit communiquer toutes ses modifications aux autres nœuds pour mettre à jour les modèles correspondants. Cela signifie que les nœuds Worker doivent synchroniser les paramètres de modèle, ou gradients, à la fin du calcul par lot pour s’assurer qu’ils effectuent l’apprentissage d’un modèle cohérent. 
 

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bd5fed45332c73c633db1137bdc23aea66fd3403
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 35497f978a1819f09411487e4bbc7eb1d05cc80d
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80332779"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900377"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Définir un profil technique de mot de passe à usage unique dans une stratégie personnalisée Azure AD B2C
 
@@ -137,13 +137,14 @@ Les paramètres suivants peuvent être utilisés pour le mode de vérification d
 
 ### <a name="ui-elements"></a>Éléments d’interface utilisateur
 
-Les métadonnées suivantes peuvent être utilisés pour configurer les messages d’erreur affichés en cas d’échec de la vérification du code. Les métadonnées doivent être configurées dans le profil technique [autodéclaré](self-asserted-technical-profile.md). Les messages d’erreur peuvent être [localisés](localization-string-ids.md#one-time-password-error-messages).
+Les métadonnées suivantes peuvent être utilisées pour configurer les messages d’erreur affichés en cas d’échec de la vérification du code. Les métadonnées doivent être configurées dans le profil technique [autodéclaré](self-asserted-technical-profile.md). Les messages d’erreur peuvent être [localisés](localization-string-ids.md#one-time-password-error-messages).
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | UserMessageIfSessionDoesNotExist | Non | Message à afficher à l'utilisateur si la session de vérification du code a expiré. Indique soit que le code a expiré, soit que le code n'a jamais été généré pour un identificateur donné. |
 | UserMessageIfMaxRetryAttempted | Non | Message à afficher à l'utilisateur s'il a dépassé les tentatives de vérification maximales autorisées. |
 | UserMessageIfInvalidCode | Non | Message à afficher à l'utilisateur s'il a fourni un code non valide. |
+| UserMessageIfVerificationFailedRetryAllowed | Non | Message à afficher à l’utilisateur s’il a fourni un code non valide et que l’utilisateur est autorisé à fournir le code correct.  |
 |UserMessageIfSessionConflict|Non| Message à afficher à l’utilisateur si le code ne peut pas être vérifié.|
 
 ### <a name="example"></a>Exemple
