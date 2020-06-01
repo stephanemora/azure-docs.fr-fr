@@ -60,8 +60,6 @@
       href: load-balancer-multivip-overview.md
     - name: Connexions sortantes
       href: load-balancer-outbound-connections.md
-    - name: Règles de trafic sortant
-      href: load-balancer-outbound-rules-overview.md
     - name: Réinitialisation du protocole TCP pendant le délai d’inactivité
       href: load-balancer-tcp-reset.md
     - name: Référence Standard de Load Balancer et zones de disponibilité
