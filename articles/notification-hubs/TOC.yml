@@ -14,6 +14,7 @@
     - name: "Créer un hub de notification\_- Azure\_CLI"
       href: create-notification-hub-azure-cli.md
     - name: Créer un hub de notification - Modèle ARM
+      displayName: Resource Manager
       href: create-notification-hub-template.md
     - name: Configurer un hub de notification
       href: configure-notification-hub-portal-pns-settings.md
@@ -23,21 +24,23 @@
       items:
         - name: Firebase Cloud Messaging
           items:
-            - name: Notifications Push pour toutes les inscriptions
+            - name: Envoyer des notifications Push à toutes les inscriptions (SDK version 1.0.0-preview1)
+              href: android-sdk.md
+            - name: "Envoyer des notifications Push à toutes les inscriptions (SDK version\_0.6)"
               href: notification-hubs-android-push-notification-google-fcm-get-started.md
-            - name: Notifications Push sur des appareils spécifiques
+            - name: Envoyer des notifications Push à des appareils spécifiques
               href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
-            - name: Notifications Push pour des utilisateurs spécifiques
+            - name: Envoyer des notifications Push à des utilisateurs spécifiques
               href: push-notifications-android-specific-users-firebase-cloud-messaging.md
-            - name: Notifications Push sur les applications Xamarin Android
+            - name: Envoyer des notifications Push à des applications Xamarin Android
               href: xamarin-notification-hubs-push-notifications-android-gcm.md
         - name: Google Cloud Message (déprécié)
           items:
-            - name: Notifications Push pour toutes les inscriptions
+            - name: Envoyer des notifications Push à toutes les inscriptions
               href: notification-hubs-android-push-notification-google-gcm-get-started.md
-            - name: Notifications Push sur des appareils spécifiques
+            - name: Envoyer des notifications Push à des appareils spécifiques
               href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-            - name: Notifications Push pour des utilisateurs spécifiques
+            - name: Envoyer des notifications Push à des utilisateurs spécifiques
               href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
     - name: iOS
       items:
@@ -139,7 +142,7 @@
     - name: S’inscrire auprès du principal d’application
       href: notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md
     - name: Utiliser l’authentification par jeton avec des appareils Apple
-      href: notification-hubs-push-notification-http2-token-authentification.md
+      href: notification-hubs-push-notification-http2-token-authentication.md
     - name: Résoudre les problèmes de notifications rejetées
       href: notification-hubs-push-notification-fixer.md
     - name: Notifications Push avec le push cloud Baidu
