@@ -67,15 +67,17 @@
         - name: Créer votre première expérience ML (R)
           href: tutorial-1st-r-experiment.md
     - name: Interface CLI de Machine Learning
-      href: tutorial-train-deploy-model-cli.md
+      items:
+        - name: Entraîner et déployer avec l’interface CLI
+          href: tutorial-train-deploy-model-cli.md
+        - name: Créer des espaces de travail avec des modèles Resource Manager
+          href: tutorial-resource-manager-workspace.md
     - name: Visual Studio Code
       items:
         - name: Configurer l’extension Azure Machine Learning
           href: tutorial-setup-vscode-extension.md
         - name: Entraîner et déployer un modèle de classification d’images TensorFlow
           href: tutorial-train-deploy-image-classification-model-vscode.md
-    - name: Créer un espace de travail à l’aide d’un modèle Resource Manager
-      href: tutorial-resource-manager-workspace.md
 - name: Exemples
   items:
     - name: Notebooks Jupyter

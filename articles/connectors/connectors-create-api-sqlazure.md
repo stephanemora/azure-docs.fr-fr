@@ -3,16 +3,16 @@ title: Se connecter à SQL Server ou Azure SQL Database
 description: Automatiser des tâches pour les bases de données SQL localement ou dans le cloud à l’aide d’Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam; logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 05/12/2020
 tags: connectors
-ms.openlocfilehash: 93b63d332f00c31a352c11e483fc3ce5cb45a922
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c32e17aaf83c233ad77bbbf607c30cc526253352
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74789191"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402595"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatiser les workflows pour SQL Server ou Azure SQL Database à l’aide d’Azure Logic Apps
 
@@ -129,6 +129,20 @@ Parfois, vous manipulez des jeux de résultats tellement volumineux que le conne
   * [Pagination de SQL pour le transfert de données en bloc avec Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
 
   * [SELECT - Clause ORDER BY](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql)
+
+### <a name="handle-dynamic-bulk-data"></a>Gérer les données en bloc dynamiques
+
+Parfois, lorsque vous effectuez un appel à une procédure stockée dans le connecteur SQL Server, la sortie retournée est dynamique. Dans ce scénario, procédez comme suit :
+
+1. Ouvrez **Concepteur Logic Apps**.
+1. Exécutez une série de tests de votre application logique pour afficher le format de sortie. Copiez votre exemple de sortie.
+1. Dans le concepteur, sous l’action où vous appelez la procédure stockée, sélectionnez **Nouvelle étape**.
+1. Sous **Choisir une action**, recherchez et sélectionnez l’action [**Analyser JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action).
+1. Dans l’option **Analyser JSON**, sélectionnez **Utiliser l’exemple de charge utile pour générer le schéma**.
+1. Dans la fenêtre **Entrer ou coller un exemple de charge utile JSON**, collez votre exemple de sortie, puis sélectionnez **Terminé**.
+1. Si vous recevez une erreur indiquant que Logic Apps ne peut pas générer de schéma, vérifiez que la syntaxe de votre exemple de sortie est correctement mise en forme. Si vous ne pouvez toujours pas générer le schéma, entrez-en un manuellement dans la zone **Schéma**.
+1. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
+1. Pour accéder aux propriétés du contenu JSON, utilisez les jetons de données qui s’affichent dans la liste de contenu dynamique sous l’[action **Analyser JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action).
 
 ## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
 

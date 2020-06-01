@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 27619a69a1f7fbded8ce6430afc2b8e9a8b4a00c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 45043718664eb1b3b6b865821b3f6b2a51199194
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79296725"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115028"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Vue d’ensemble des types de classes - Azure Lab Services
 
@@ -61,6 +61,10 @@ Vous pouvez configurer un labo dans Azure Lab Services pour enseigner un cours d
 
 Pour des informations détaillées sur la configuration de ce type de labo, consultez [Configurer un labo pour enseigner le développement d’applications mobiles avec Android Studio](class-type-mobile-dev-android-studio.md).
 
+## <a name="big-data-analytics"></a>Analytique du Big Data
+Vous pouvez configurer un labo pour enseigner une classe Analytique du Big Data. Grâce à ce type de classe, les étudiants apprennent à gérer de gros volumes de données et à appliquer des algorithmes d’apprentissage automatique et statistique pour obtenir des informations sur les données. L’un des principaux objectifs pour les étudiants est d’apprendre à utiliser les outils d’Analytique données, tels que le package logiciel open source d’Apache Hadoop qui fournit des outils pour le stockage, la gestion et le traitement du Big Data. 
+
+Pour plus d’informations sur la façon de configurer ce type de labo, consultez [Configurer un labo pour l’analytique du Big Data à l’aide du déploiement Docker de Hortonworks Data Platform](class-type-big-data-analytics.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

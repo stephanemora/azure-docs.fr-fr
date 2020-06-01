@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 2a6165cf2739482805d712ddffb5c6a9f5ebabf8
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 57a49f9e1473f33eceba14591815415338aeecf4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312045"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198794"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrer la passerelle Azure Application Gateway et le pare-feu d’applications web de v1 à v2
 
@@ -59,9 +59,9 @@ Pour déterminer si vous avez installé les modules Azure Az, exécutez `Get-In
 
 Pour pouvoir utiliser cette option, les modules Azure Az ne doivent pas être installés sur votre ordinateur. S’ils sont installés, la commande suivante affiche une erreur. Vous pouvez désinstaller les modules Azure Az ou utiliser l’autre option pour télécharger le script manuellement et l’exécuter.
   
-Exécutez le script avec la commande suivante :
+Exécutez le script avec la commande suivante pour récupérer la version la plus récente :
 
-`Install-Script -Name AzureAppGWMigration`
+`Install-Script -Name AzureAppGWMigration -Force`
 
 Cette commande installe également les modules Az requis.  
 
@@ -196,7 +196,7 @@ Non. Actuellement, le script ne prend pas en charge les certificats dans Key Vau
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>J’ai rencontré des problèmes en utilisant ce script. Comment obtenir de l’aide ?
   
-Vous pouvez envoyer un e-mail à appgwmigrationsup@microsoft.com, ouvrir un dossier de support auprès du support Azure ou les deux.
+Vous pouvez contacter le support Azure sous la rubrique « Configuration et installation/migration vers la référence SKU V2 ». En savoir plus sur le [support Azure ici](https://azure.microsoft.com/support/options/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

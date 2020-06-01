@@ -177,6 +177,8 @@
       items:
         - name: Superviser les déploiements IoT Edge
           href: how-to-monitor-iot-edge-deployments.md
+        - name: Superviser les jumeaux de module
+          href: how-to-monitor-module-twins.md
         - name: Méthodes directes EdgeAgent
           href: how-to-edgeagent-direct-method.md
     - name: Utiliser des appareils IoT Edge comme passerelles
@@ -275,5 +277,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-iot-edge'
     - name: Études de cas techniques
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-edge'

@@ -5,13 +5,13 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
-ms.date: 04/20/2020
-ms.openlocfilehash: 250fd242e76f64002a6e55e7caf616ac201b593b
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.date: 05/11/2020
+ms.openlocfilehash: 4d0d56dc4d6e7fa7765439e7387d67bb80a6ec9f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692256"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124633"
 ---
 # <a name="known-issues"></a>Problèmes connus #
 
@@ -41,6 +41,7 @@ La version actuelle présente les problèmes connus suivants :
 
 - Des problèmes d’insertion de publicités peuvent survenir (à la demande ou en direct) lorsqu’un bloqueur de publicités est installé sur le navigateur.
 - Les appareils mobiles peuvent avoir des difficultés à lire les publicités.
+- Les publicités MidRoll MP4 ne sont pas actuellement prises en charge par le Lecteur multimédia Azure.
 
 ## <a name="azurehtml5js"></a>AzureHtml5JS ##
 

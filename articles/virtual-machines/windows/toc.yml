@@ -449,6 +449,8 @@
                       href: ../image-version-another-gallery-cli.md
                 - name: Créer une machine virtuelle
                   items:
+                    - name: Spécialisée
+                      href: ../vm-specialized-image-version-cli.md
                     - name: Généralisée
                       href: ../vm-generalized-image-version-cli.md
                 - name: Mettre à jour les ressources d’image
@@ -664,7 +666,7 @@
                       items:
                         - name: Machine virtuelle
                           href: ../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-                        - name: Groupe de machines virtuelles identiques
+                        - name: Groupe identique
                           href: ../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vmss.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
                     - name: Envoyer à Event Hubs
                       href: ../../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json

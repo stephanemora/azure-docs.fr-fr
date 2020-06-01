@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 16587feaca65aa21836d9be1c44e00faa0f4f8d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a01ab91fe84aaa1fe55018754eddbf8b8f89643
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76722133"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890850"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Surveiller la remise des messages Event Grid 
 
@@ -27,18 +27,21 @@ Pour plus d’informations sur la remise d’événements et sur les nouvelles t
 
 Le portail affiche les métriques pour l’état de la remise des messages d’événement.
 
-Pour les rubriques, les métriques sont les suivantes :
+Voici quelques-unes des mesures disponibles pour les rubriques :
 
-* **Publication réussie** : événement correctement envoyé à la rubrique et traité avec une réponse 2xx.
-* **Échec de la publication** : événement envoyé à la rubrique mais rejeté avec un code d’erreur.
-* **Sans correspondance** : événement correctement publié dans la rubrique, mais sans correspondance avec un abonnement aux événements. L’événement a été supprimé.
+* **Publication réussie** : événement correctement envoyé à la rubrique et traité avec une réponse 2xx.
+* **Échec de la publication** : événement envoyé à la rubrique mais rejeté avec un code d’erreur.
+* **Sans correspondance** : événement correctement publié dans la rubrique, mais sans correspondance avec un abonnement aux événements. L’événement a été supprimé.
 
-Pour les abonnements, les métriques sont les suivantes :
+Pour les abonnements, voici quelques-unes des mesures :
 
-* **Remise réussie** : l’événement a été correctement remis au point de terminaison de l’abonnement et a reçu une réponse 2xx.
-* **Échec de la remise** : l’événement a été envoyé au point de terminaison de l’abonnement, mais a reçu une réponse 4xx ou 5xx.
-* **Événements expirés** : l’événement n’a pas été remis et toutes les nouvelles tentatives ont été envoyées. L’événement a été supprimé.
-* **Événements correspondants** : l’événement dans la rubrique a été mis en correspondance par l’abonnement aux événements.
+* **Remise réussie** : l’événement a été correctement remis au point de terminaison de l’abonnement et a reçu une réponse 2xx.
+* **Échec de la remise** : chaque fois que le service tente d’effectuer une remise et que le gestionnaire d’événements ne retourne pas de code 2xx de réussite, le compteur **Échec de la remise** est incrémenté. Si le service tente de remettre le même événement plusieurs fois et échoue, le compteur **Échec de la remise** est incrémenté à chaque nouvel échec.
+* **Événements expirés** : l’événement n’a pas été remis et toutes les nouvelles tentatives ont été envoyées. L’événement a été supprimé.
+* **Événements correspondants** : l’événement dans la rubrique a été mis en correspondance par l’abonnement aux événements.
+
+    > [!NOTE]
+    > Pour obtenir la liste complète des métriques, consultez [Métriques prises en charge par Azure Event Grid](metrics.md).
 
 ## <a name="event-subscription-status"></a>État de l’abonnement aux événements
 

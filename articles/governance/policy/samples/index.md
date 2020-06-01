@@ -1,14 +1,14 @@
 ---
 title: Index des exemples de stratégie
 description: Index des définitions intégrées pour Azure Policy. Étiquettes de catégories, conformité à la réglementation, Key Vault, Kubernetes, Guest configuration et plus encore.
-ms.date: 03/25/2020
+ms.date: 05/29/2020
 ms.topic: sample
-ms.openlocfilehash: 41a08a70df24f80ea324860d6d1db16c9ed99760
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 6e9c3b92942f24ae0a9972fa61340775262af761
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697186"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84203900"
 ---
 # <a name="azure-policy-samples"></a>Exemples Azure Policy
 
@@ -32,6 +32,14 @@ Voici quelques exemples de modèles différents utilisant le langage et les opé
 - [Opérateur count](./pattern-count-operator.md)
 - [Regroupement de définitions de stratégie dans une initiative](./pattern-group-with-initiative.md)
 - [Déploiement de ressources avec deployIfNotExists](./pattern-deploy-resources.md)
+
+## <a name="regulatory-compliance"></a>Conformité réglementaire
+
+Voici les éléments intégrés de la [conformité réglementaire](../concepts/regulatory-compliance.md) :
+
+- [Benchmark de sécurité Azure](./azure-security-benchmark.md)
+- [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md)
+- [NIST SP 800-53 R4](./nist-sp-800-53-r4.md)
 
 ## <a name="other-samples"></a>Autres exemples
 

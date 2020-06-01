@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 29d5213b8eecd94ed8c8ce565972c9f98872a362
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 9ae0aec6b87a746ed1f141dcf98f599acd20ab3a
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411427"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864247"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimiser les requêtes de journal dans Azure Monitor
 Journaux Azure Monitor utilise [Azure Data Explorer (ADX)](/azure/data-explorer/) pour stocker les données de journal et exécuter des requêtes afin d’analyser ces données. Elle crée et gère les clusters ADX, et les optimise pour votre charge de travail de l’analyse des journaux. Quand vous exécutez une requête, elle est optimisée et routée vers le cluster ADX approprié qui stocke les données de l’espace de travail. Journaux Azure Monitor et Azure Data Explorer utilisent de nombreux mécanismes d’optimisation automatique des requêtes. Bien que les optimisations automatiques apportent une amélioration significative, vous pouvez parfois dans certains cas améliorer considérablement les performances de vos requêtes. Cet article explique les considérations relatives aux performances et plusieurs techniques permettant de les corriger.
@@ -108,7 +108,7 @@ Heartbeat
 | summarize count() by Computer
 ```
 
-### <a name="use-effective-aggregation-commands-and-dimmentions-in-summarize-and-join"></a>Utilisez des commandes d’agrégation et des dimensions efficaces dans la synthèse et la jointure
+### <a name="use-effective-aggregation-commands-and-dimensions-in-summarize-and-join"></a>Utilisez des commandes d’agrégation et des dimensions efficaces dans la synthèse et la jointure
 
 Bien que certaines commandes d’agrégation telles que [max()](/azure/kusto/query/max-aggfunction), [sum()](/azure/kusto/query/sum-aggfunction), [count()](/azure/kusto/query/count-aggfunction) et [avg()](/azure/kusto/query/avg-aggfunction) aient un faible impact sur le processeur en raison de leur logique, d’autres sont plus complexes et incluent des heuristiques et des estimations qui leur permettent d’être exécutées efficacement. Par exemple, [dcount()](/azure/kusto/query/dcount-aggfunction) utilise l’algorithme HyperLogLog pour fournir une estimation proche du nombre distinct de grands jeux de données sans compter réellement chaque valeur ; les fonctions centile réalisent des approximations similaires à l’aide de l’algorithme de rang centile le plus proche. Plusieurs commandes incluent des paramètres facultatifs pour réduire leur impact. Par exemple, la fonction [makeset()](/azure/kusto/query/makeset-aggfunction) a un paramètre facultatif pour définir la taille maximale du jeu, ce qui affecte de manière significative le processeur et la mémoire.
 

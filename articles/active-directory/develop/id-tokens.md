@@ -1,5 +1,6 @@
 ---
-title: Référence pour les jetons d’ID de la plateforme d’identités Microsoft
+title: Jetons d’ID de la plateforme d’identités Microsoft | Azure
+titleSuffix: Microsoft identity platform
 description: Découvrez comment utiliser les id_tokens émis par Azure AD 1.0 et les points de terminaison de la plateforme d’identités Microsoft (v2.0).
 services: active-directory
 author: hpsin
@@ -8,21 +9,21 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 0d1a5ee3ae56e8b5c4886308624159853c52b52c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: e0e327d169c246d023be1aca27d6844b9b92f03e
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690182"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926712"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Jetons d’ID de la plateforme d’identités Microsoft
 
-Les jetons `id_tokens` sont envoyés à l’application cliente dans le cadre d’un flux [OpenID Connect](v2-protocols-oidc.md). Ils peuvent être envoyés avec ou à la place un jeton d’accès et sont utilisés par le client pour authentifier l’utilisateur.
+Les jetons `id_tokens` sont envoyés à l’application cliente dans le cadre d’un flux [OpenID Connect](v2-protocols-oidc.md) (OIDC). Ils peuvent être envoyés avec ou à la place un jeton d’accès et sont utilisés par le client pour authentifier l’utilisateur.
 
 ## <a name="using-the-id_token"></a>Utilisation du jeton id_token
 
@@ -30,7 +31,7 @@ Les jetons d’ID doivent servir à confirmer qu’un utilisateur est bien celui
 
 ## <a name="claims-in-an-id_token"></a>Revendications dans un jeton id_token
 
-Les jetons `id_tokens` d’une identité Microsoft sont des [JWT](https://tools.ietf.org/html/rfc7519), ce qui signifie qu’ils se composent d’une en-tête, d’une charge utile et d’une signature. Vous pouvez utiliser l’en-tête et la signature pour vérifier l’authenticité du jeton, tandis que la charge utile contient les informations concernant l’utilisateur qui sont demandées par votre client. Sauf indication contraire, toutes les revendications répertoriées ici apparaissent dans les jetons v1.0 et v2.0.
+Les jetons `id_tokens` d’une identité Microsoft sont des [JWT](https://tools.ietf.org/html/rfc7519) (JSON Web Tokens), ce qui signifie qu’ils se composent d’une en-tête, d’une charge utile et d’une signature. Vous pouvez utiliser l’en-tête et la signature pour vérifier l’authenticité du jeton, tandis que la charge utile contient les informations concernant l’utilisateur qui sont demandées par votre client. Sauf indication contraire, toutes les revendications JWT répertoriées ici apparaissent dans les jetons v1.0 et v2.0.
 
 ### <a name="v10"></a>v1.0
 
@@ -52,14 +53,14 @@ Afficher cet exemple de jeton v2.0 dans [jwt.ms](https://jwt.ms/#id_token=eyJ0eX
 
 |Revendication | Format | Description |
 |-----|--------|-------------|
-|`typ` | Chaîne : toujours « JWT » | Indique que le jeton est un JWT.|
+|`typ` | Chaîne : toujours « JWT » | Indique que le jeton est un jeton JWT.|
 |`alg` | String | Indique l’algorithme utilisé pour signer le jeton. Exemple : "RS256" |
 |`kid` | String | Empreinte de la clé publique utilisée pour signer ce jeton. Émise dans les jetons `id_tokens` v1.0 et v2.0. |
 |`x5t` | String | Identique (en utilisation et en valeur) à `kid`. Il s'agit toutefois d'une ancienne revendication émise uniquement dans les jetons `id_tokens` v1.0 à des fins de compatibilité. |
 
 ### <a name="payload-claims"></a>Revendications de la charge utile
 
-Cette liste affiche les revendications présentes par défaut dans la plupart des jetons id_token (sauf indication contraire).  Toutefois, votre application peut utiliser les [revendications facultatives](active-directory-optional-claims.md) pour demander des revendications supplémentaires dans le jeton id_token.  Cela peut concerner la revendication `groups` comme des informations sur le nom de l’utilisateur.
+Cette liste affiche les revendications JWT présentes par défaut dans la plupart des jetons id_token (sauf indication contraire).  Toutefois, votre application peut utiliser les [revendications facultatives](active-directory-optional-claims.md) pour demander des revendications JWT supplémentaires dans le jeton id_token.  Cela peut concerner la revendication `groups` comme des informations sur le nom de l’utilisateur.
 
 |Revendication | Format | Description |
 |-----|--------|-------------|
@@ -85,23 +86,23 @@ Cette liste affiche les revendications présentes par défaut dans la plupart de
 |`uti` | Chaîne opaque | Revendication interne utilisée par Azure pour revalider des jetons. Cette valeur doit être ignorée. |
 |`ver` | Chaîne, 1.0 ou 2.0 | Indique la version du jeton id_token. |
 
-
 > [!NOTE]
-> Les id_token v1 et v2 présentent des différences sur le plan de la quantité d’informations qu’ils contiennent, comme l’illustrent les exemples ci-dessus. La version spécifie essentiellement le point de terminaison de plateforme Azure AD à partir duquel elle a été émise. L’[implémentation d’Azure AD OAuth](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) a évolué au cours des années. Actuellement, nous avons deux points de terminaison OAuth différents pour les applications AzureAD. Vous pouvez utiliser l’un des nouveaux points de terminaison classés comme v2 ou l’ancien considéré comme v1. Les points de terminaison OAuth pour chacun d’eux sont différents. Le point de terminaison v2 est le plus récent vers lequel nous essayons de migrer toutes les fonctionnalités du point de terminaison v1, et dont nous recommandons l’utilisation aux nouveaux développeurs. 
+> Les id_token v1 et v2 présentent des différences sur le plan de la quantité d’informations qu’ils contiennent, comme l’illustrent les exemples ci-dessus. La version spécifie essentiellement le point de terminaison de plateforme Azure AD à partir duquel elle a été émise. L’[implémentation d’Azure AD OAuth](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) a évolué au cours des années. Actuellement, nous avons deux points de terminaison OAuth différents pour les applications AzureAD. Vous pouvez utiliser l’un des nouveaux points de terminaison classés comme v2 ou l’ancien considéré comme v1. Les points de terminaison OAuth pour chacun d’eux sont différents. Le point de terminaison v2 est le plus récent vers lequel nous essayons de migrer toutes les fonctionnalités du point de terminaison v1, et dont nous recommandons l’utilisation aux nouveaux développeurs.
+>
 > - V1 : points de terminaison Azure Active Directory : `https://login.microsoftonline.com/common/oauth2/authorize`
 > - V2 : points de terminaison de la plateforme d’identité Microsoft : `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
 
 ## <a name="validating-an-id_token"></a>Valider un jeton id_token
 
-Le processus de validation d’un `id_token` est similaire à la première étape de [validation d’un jeton d’accès](access-tokens.md#validating-tokens). Votre client doit confirmer que le bon émetteur a renvoyé le jeton et qu’il n’a pas été falsifié. Étant donné que les jetons `id_tokens` sont toujours au format JWT, de nombreuses bibliothèques servent à valider ces jetons. Nous vous recommandons d’en utiliser une plutôt que de le faire vous-même.
+Le processus de validation d’un `id_token` est similaire à la première étape de [validation d’un jeton d’accès](access-tokens.md#validating-tokens). Votre client doit confirmer que le bon émetteur a renvoyé le jeton et qu’il n’a pas été falsifié. Étant donné que les jetons `id_tokens` sont toujours des jetons JWT, de nombreuses bibliothèques servent à valider ces jetons. Nous vous recommandons d’en utiliser une plutôt que de le faire vous-même.
 
-Pour valider manuellement le jeton, consultez les étapes détaillées dans la section [Validation d’un jeton d’accès](access-tokens.md#validating-tokens). Après avoir validé la signature du jeton, les revendications suivantes doivent être validées dans le jeton id_token (cette opération peut également être effectuée par votre bibliothèque de validation de jetons) :
+Pour valider manuellement le jeton, consultez les étapes détaillées dans la section [Validation d’un jeton d’accès](access-tokens.md#validating-tokens). Après avoir validé la signature du jeton, les revendications JWT suivantes doivent être validées dans le jeton id_token (cette opération peut également être effectuée par votre bibliothèque de validation de jetons) :
 
-* Horodatages : les horodatages `iat`, `nbf` et `exp` doivent tous correspondre à un moment avant ou après l’heure actuelle, selon ce qui convient. 
+* Horodatages : les horodatages `iat`, `nbf` et `exp` doivent tous correspondre à un moment avant ou après l’heure actuelle, selon ce qui convient.
 * Audience : la revendication `aud` doit correspondre à l’ID de votre application.
 * Valeur à usage unique : la revendication `nonce` dans la charge utile doit correspondre au paramètre de valeur à usage unique transmis au point de terminaison /authorize lors de la demande initiale.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur les [jetons d’accès](access-tokens.md)
-* Personnalisez les revendications du jeton id_token à l’aide des [revendications facultatives](active-directory-optional-claims.md).
+* Personnalisez les revendications JWT du jeton id_token à l’aide des [revendications facultatives](active-directory-optional-claims.md).
