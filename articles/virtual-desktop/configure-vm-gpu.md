@@ -7,19 +7,19 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: aae3f8b1cfe224f0a948eb16bd6ee5120b19dde1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 99393ed518df590140f79933623a9f7ec96edc85
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612076"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402294"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurer l’accélération GPU pour Windows Virtual Desktop
 
 >[!IMPORTANT]
 >Ce contenu s’applique à la mise à jour Printemps 2020 avec des objets Azure Resource Manager Windows Virtual Desktop. Si vous utilisez la version Automne 2019 de Windows Virtual Desktop sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
 >
-> La mise à jour Printemps 2020 de Windows Virtual Desktop est en préversion publique. Cette préversion est fournie sans contrat de niveau de service et nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. 
+> La mise à jour Printemps 2020 de Windows Virtual Desktop est en préversion publique. Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. 
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Windows Virtual Desktop prend en charge le rendu et le codage avec accélération GPU pour des performances d’applications et une extensibilité améliorées. L’accélération GPU est particulièrement importante pour les applications graphiques.
@@ -96,5 +96,5 @@ Pour vérifier que le Bureau à distance utilise le codage avec accélération G
 
 Grâce à ces instructions, vous pouvez commencer à utiliser l’accélération GPU sur un hôte de session unique (une machine virtuelle). Considérations supplémentaires pour l’activation de l’accélération GPU sur un plus grand pool d’hôtes :
 
-* Envisagez d’utiliser une [extension de machine virtuelle](/azure/virtual-machines/extensions/overview) pour simplifier l’installation et les mises à jour des pilotes sur plusieurs machines virtuelles. Utilisez l’[extension du pilote GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) pour les machines virtuelles dotées de GPU NVIDIA et utilisez l’extension du pilote GPU AMD (bientôt disponible) pour les machines virtuelles dotées de GPU AMD.
+* Envisagez d’utiliser une [extension de machine virtuelle](/azure/virtual-machines/extensions/overview) pour simplifier l’installation et les mises à jour des pilotes sur plusieurs machines virtuelles. Utilisez l’[extension du pilote GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) pour les machines virtuelles dotées de GPU NVIDIA et utilisez l’[extension du pilote GPU](/azure/virtual-machines/extensions/hpccompute-amd-gpu-windows) AMD pour les machines virtuelles dotées de GPU AMD.
 * Envisagez d’utiliser la stratégie de groupe Active Directory pour simplifier la configuration de la stratégie de groupe sur plusieurs machines virtuelles. Pour plus d’informations sur le déploiement de la stratégie de groupe dans le domaine Active Directory, consultez [Utilisation d’objets stratégie de groupe](https://go.microsoft.com/fwlink/p/?LinkId=620889).

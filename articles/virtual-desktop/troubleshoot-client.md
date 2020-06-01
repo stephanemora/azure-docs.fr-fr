@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 595762e6e8f22dddff30f1cff8c4bb79e89624b1
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 76348a0aee48cc6d768e8233e376f266eca31917
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80473848"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006002"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Résoudre des problèmes du client Bureau à distance
 
@@ -60,6 +60,12 @@ Si votre navigateur commence à se comporter bizarrement ou cesse de fonctionner
 3. Videz le cache du navigateur. Consultez l’article [Clear browser cache for your browser](https://binged.it/2RKyfdU) (Vider le cache du navigateur).
 4. Ouvrez le navigateur en mode privé.
 
+## <a name="web-client-does-not-show-my-resources"></a>Le client Web n’affiche pas mes ressources
+
+Tout d’abord, vérifiez le compte Azure Active Directory que vous utilisez. Si vous vous êtes déjà connecté avec un compte Azure Active Directory différent de celui que vous voulez utiliser pour Windows Virtual Desktop, vous devez vous déconnecter ou utiliser une fenêtre de navigateur privée.
+
+Si vous utilisez la version 2019 de Windows Virtual Desktop, utilisez le lien client Web dans [cet article](./virtual-desktop-fall-2019/connect-web-2019.md) pour vous connecter à vos ressources.
+
 ## <a name="web-client-stops-responding-or-disconnects"></a>Le client web cesse de répondre ou se déconnecte
 
 Essayez de vous connecter à l’aide d’un autre navigateur ou client.
@@ -81,7 +87,7 @@ Si le client web ne cesse de demander les informations d’identification, suive
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour découvrir une vue d’ensemble de la résolution des problèmes Windows Virtual Desktop et des procédures d’escalade, consultez l’article [Vue d’ensemble du dépannage, commentaires et support](troubleshoot-set-up-overview.md).
-- Pour résoudre les problèmes de création d’un pool de locataires et d’hôtes dans un environnement Windows Virtual Desktop, consultez [Création d’un pool de locataires et d’hôtes](troubleshoot-set-up-issues.md).
+- Pour résoudre des problèmes lors de la création d’un environnement Windows Virtual Desktop et d’un pool d’hôtes dans un environnement Windows Virtual Desktop, consultez [Création d’un environnement et d’un pool d’hôtes](troubleshoot-set-up-issues.md).
 - Pour résoudre les problèmes de configuration d’une machine virtuelle dans Windows Virtual Desktop, consultez [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
 - Pour résoudre les problèmes d’utilisation de PowerShell avec Windows Virtual Desktop, consultez [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

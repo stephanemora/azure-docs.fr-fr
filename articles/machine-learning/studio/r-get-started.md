@@ -9,41 +9,37 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 1dcda3efe3872100100d6e85b68a36359b7eab84
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 665bb12c91c8d6a5a60fd8f60216f30131f34915
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209500"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982188"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Bien démarrer avec Azure Machine Learning Studio (classique) dans R
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 <!-- Stephen F Elston, Ph.D. -->
-Ce tutoriel vous aide à vous lancer dans l’extension d’Azure Machine Learning Studio (classique) à l’aide du langage de programmation R. Suivez ce tutoriel sur la programmation R pour créer, tester et exécuter du code R dans Studio (classique). Au cours de ce tutoriel de démarrage rapide, vous allez créer une solution de prévision complète à l’aide du langage R dans Studio (classique).  
+Dans ce didacticiel, vous allez apprendre à utiliser ML Studio (classique) pour créer, tester et exécuter du code R. À la fin, vous disposerez d’une solution de prévision complète.  
 
-Azure Machine Learning Studio (classique) intègre divers modules de machine learning et de manipulation de données très performants. le puissant langage R a été décrit comme la lingua franca de l'analyse. Fort heureusement, l’analytique et la manipulation de données dans Studio (classique) peuvent être étendues grâce au langage R, qui conjugue à la fois la grande facilité de déploiement de Studio (classique) et la souplesse et la capacité d’analytique approfondie du langage R.
+> [!div class="checklist"]
+> * Créez du code pour le nettoyage et la transformation des données.
+> * Analysez les corrélations entre plusieurs variables dans notre jeu de données.
+> * Créez un modèle de prévision chronologique saisonnier pour la production de lait.
 
-### <a name="forecasting-and-the-dataset"></a>Prévision et jeu de données
 
-La prévision est une méthode analytique largement répandue et très utile. Elle peut servir à établir des prévisions de ventes d'articles saisonniers, à déterminer les niveaux de stock optimaux ou encore à établir des prévisions sur des variables macroéconomiques. La prévision s'appuie généralement sur des modèles chronologiques.
+Azure Machine Learning Studio (classique) intègre divers modules de machine learning et de manipulation de données très performants. Et avec le langage de programmation R, cette combinaison conjugue à la fois la scalabilité et la facilité de déploiement de Studio (classique) et la souplesse et la capacité d’analytique approfondie du langage R.
 
-Les données chronologiques sont des données dont les valeurs ont un index chronologique. L'index chronologique peut être régulier, c'est-à-dire tous les mois ou toutes les minutes, ou irrégulier. Un modèle chronologique repose sur des données chronologiques. Le langage de programmation R offre une infrastructure souple et des analyses étendues pour les données de série chronologique.
+La prévision est une méthode analytique largement répandue et très utile. Elle peut servir à établir des prévisions de ventes d'articles saisonniers, à déterminer les niveaux de stock optimaux ou encore à établir des prévisions sur des variables macroéconomiques. La prévision s'appuie généralement sur des modèles chronologiques. Les données chronologiques sont des données dont les valeurs ont un index chronologique. L'index chronologique peut être régulier, c'est-à-dire tous les mois ou toutes les minutes, ou irrégulier. Un modèle chronologique repose sur des données chronologiques. Le langage de programmation R offre une infrastructure souple et des analyses étendues pour les données de série chronologique.
 
-Dans ce guide, nous allons utiliser les données de production et de tarification des produits laitiers en Californie. Ces données comportent des informations mensuelles sur la production de plusieurs produits laitiers, ainsi que le prix de la matière grasse du lait, produit de base de référence.
+## <a name="get-the-data"></a>Obtenir les données
+
+Dans ce didacticiel, vous utilisez les données de production et de tarification de produits laitiers en Californie, qui incluent des informations mensuelles sur la production de plusieurs produits laitiers et le prix des matières grasses lactiques, un produit de référence.
 
 Les données utilisées dans cet article, ainsi que les scripts R, peuvent être téléchargées depuis [MachineLearningSamples-Notebooks/studio-samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples). À l’origine, les données du fichier `cadairydata.csv` ont été synthétisées à partir des informations disponibles sur le site de l’Université du Wisconsin à l’adresse [https://dairymarkets.com](https://dairymarkets.com).
 
-### <a name="organization"></a>Organisation
 
-À travers plusieurs étapes successives, vous allez apprendre à créer, tester et exécuter du code R d’analytique et de manipulation de données dans l’environnement Azure Machine Learning Studio (classique).  
-
-* Dans un premier temps, nous explorerons les bases de l’utilisation du langage R dans l’environnement Azure Machine Learning Studio (classique).
-* Après quoi, nous examinerons différents aspects de l’E/S de données, du code R et des graphiques dans l’environnement Azure Machine Learning Studio (classique).
-* Nous œuvrerons ensuite à l'élaboration de la première partie de notre solution de prévision en créant du code destiné à nettoyer et transformer les données.
-* Après avoir préparé nos données, nous procéderons à l’analyse des corrélations entre plusieurs variables figurant dans notre jeu de données.
-* Enfin, nous créerons un modèle de prévision chronologique saisonnier pour la production de lait.
 
 ## <a name="interact-with-r-language-in-machine-learning-studio-classic"></a><a id="mlstudio"></a>Interaction avec le langage R dans Machine Learning Studio (classique)
 
@@ -143,7 +139,7 @@ Dans cette section, nous allons voir comment obtenir des données dans et hors d
 
 Le code complet pour cette section se trouve dans [MachineLearningSamples-Notebooks/studio-samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples).
 
-### <a name="load-and-check-data-in-machine-learning-studio-classic"></a>Chargement et vérification des données dans Machine Learning Studio (classique)
+### <a name="load-and-check-data"></a>Charger et vérifier des données 
 
 #### <a name="load-the-dataset"></a><a id="loading"></a>Chargement du jeu de données
 
