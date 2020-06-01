@@ -3,12 +3,12 @@ title: Référence des erreurs pour les contrôles d’intégrité
 description: Codes d’erreur et solutions possibles en lie avec des problèmes détectés en exécutant la commande de diagnostic az acr check-health dans Azure Container Registry
 ms.topic: article
 ms.date: 07/02/2019
-ms.openlocfilehash: 971b28b2bf8d9ac22cec0efe979837886762cf17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a23b95ea0eaffc053c47b70107c95d2b1cdc0645
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289139"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978312"
 ---
 # <a name="health-check-error-reference"></a>Référence d’erreur pour le contrôle d’intégrité
 
@@ -58,7 +58,7 @@ cette erreur signifie que le DNS pour le serveur de connexion du Registre donné
 
 ## <a name="connectivity_forbidden_error"></a>CONNECTIVITY_FORBIDDEN_ERROR
 
-Cette erreur signifie que le point de terminaison de test pour le Registre donné a répondu avec l’État HTTP 403 : Interdit. Cette erreur signifie que les utilisateurs n’ont accès au Registre, probablement en raison d’une configuration de réseau virtuel. Pour afficher les règles de pare-feu actuellement configurées, exécutez `az acr show --query networkRuleSet --name <registry>`.
+Cette erreur signifie que le point de terminaison de test pour le Registre donné a répondu avec l’État HTTP 403 : Interdit. Cette erreur signifie que les utilisateurs n’ont pas accès au registre, probablement en raison d’une configuration de réseau virtuel ou parce que l’accès au point de terminaison public du registre n’est pas autorisé. Pour afficher les règles de pare-feu actuellement configurées, exécutez `az acr show --query networkRuleSet --name <registry>`.
 
 *Solutions potentielles* : supprimer les règles de réseau virtuel, ou ajouter l’adresse IP du client en cours à la liste verte.
 

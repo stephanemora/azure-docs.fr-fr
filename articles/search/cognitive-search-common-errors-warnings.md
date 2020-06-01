@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ed10e998ea05b6687190b1f87095f8bc28265905
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: b5e18fcc5dc23bdbd9027de62a5bee0fb7d4ceff
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086607"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125092"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Résoudre les erreurs et les avertissements courants de l’indexeur dans la Recherche cognitive Azure
 
@@ -75,6 +75,11 @@ L’indexeur a lu le document à partir de la source de données, mais un probl�
 | La clé du document n’est pas valide | La clé du document ne peut pas contenir plus de 1024 caractères | Modifiez la clé du document pour répondre aux exigences de validation. |
 | Impossible d'appliquer le mappage de champs à un champ | Impossible d'appliquer la fonction de mappage `'functionName'` au champ `'fieldName'`. Le tableau ne peut pas être null. Nom du paramètre : octets | Vérifiez soigneusement les [mappages de champs](search-indexer-field-mappings.md) définis sur l'indexeur, puis comparez ces valeurs avec les données du champ spécifié du document en échec. Il peut être nécessaire de modifier les mappages de champs ou les données du document. |
 | Impossible de lire la valeur du champ | Impossible de lire la valeur de la colonne `'fieldName'` à l'index `'fieldIndex'`. Une erreur de niveau transport s’est produite lors de la réception des résultats à partir du serveur. (fournisseur : Fournisseur TCP, erreur : 0 - Une connexion existante a été fermée de force par l'hôte distant.) | Ces erreurs sont généralement dues à des problèmes de connectivité inattendus avec le service sous-jacent de la source de données. Essayez d'exécuter ultérieurement le document dans votre indexeur. |
+
+<a name="Could not map output field '`xyz`' to search index due to deserialization problem while applying mapping function '`abc`'"/>
+
+## <a name="error-could-not-map-output-field-xyz-to-search-index-due-to-deserialization-problem-while-applying-mapping-function-abc"></a>Erreur : Impossible de mapper le champ de sortie « `xyz` » avec l’index de recherche en raison d’un problème de désérialisation lors de l’application de la fonction de mappage « `abc` »
+Le mappage de sortie a peut-être échoué, car les données de sortie sont dans un format incorrect pour la fonction de mappage que vous utilisez. Par exemple, l’application de la fonction de mappage Base64Encode sur des données binaires génère cette erreur. Pour résoudre le problème, réexécutez l’indexeur sans spécifier la fonction de mappage ou assurez-vous que la fonction de mappage est compatible avec le type de données du champ de sortie. Pour plus d’informations, consultez [Mappage de champs de sortie](cognitive-search-output-field-mapping.md).
 
 <a name="could-not-execute-skill"/>
 
@@ -311,7 +316,12 @@ Pour plus d’informations, consultez [Limites des indexeurs](search-limits-quot
 <a name="could-not-map-output-field-x-to-search-index"/>
 
 ## <a name="warning-could-not-map-output-field-x-to-search-index"></a>Avertissement : Impossible de mapper le champ de sortie « X » à l’index de recherche
-Les mappages de champs de sortie qui font référence à des données inexistantes/null génèrent des avertissements pour chaque document et créent un champ d’index vide. Pour contourner ce problème, vérifiez que les chemins sources de mappage de champs de sortie sont corrects ou définissez une valeur par défaut à l’aide de la [compétence conditionnelle](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).
+Les mappages de champs de sortie qui font référence à des données inexistantes/null génèrent des avertissements pour chaque document et créent un champ d’index vide. Pour contourner ce problème, vérifiez que les chemins sources de mappage de champs de sortie sont corrects ou définissez une valeur par défaut à l’aide de la [compétence conditionnelle](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist). Pour plus d’informations, consultez [Mappage de champs de sortie](cognitive-search-output-field-mapping.md).
+
+| Motif | Détails/Exemple | Résolution |
+| --- | --- | --- |
+| Impossible d’effectuer une itération sur le non-tableau | « Impossible d’effectuer une itération sur le non-tableau `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` ». | Cette erreur se produit lorsque la sortie n’est pas un tableau. Si vous pensez que la sortie doit être un tableau, recherchez les erreurs dans le chemin d’accès du champ de source de sortie indiqué. Par exemple, vous pouvez avoir un `*` manquant ou supplémentaire dans le nom du champ source. Il est également possible que l’entrée de cette qualification soit Null, ce qui se traduit par un tableau vide. Trouvez des détails similaires dans la section [Entrée de compétence non valide](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid).    |
+| Impossible de sélectionner `0` dans le non-tableau | « Impossible de sélectionner `0` dans le non-tableau `/document/pages` ». | Cela peut se produire si la sortie des compétences ne produit pas de tableau et que le nom du champ de source de sortie a un index de tableau ou `*` dans son chemin d’accès. Vérifiez les chemins d’accès fournis dans les noms de champs de source de sortie et la valeur de champ pour le nom de champ indiqué. Trouvez des détails similaires dans la section [Entrée de compétence non valide](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid).  |
 
 <a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"/>
 
