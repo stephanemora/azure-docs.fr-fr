@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/13/2020
+ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a60b927f7239818b582ffcd85ddb4b7d69594482
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09f27c922df4a15858236b2635b962f4bc92811b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535959"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871542"
 ---
 # <a name="whats-new-for-authentication"></a>Quelles sont les nouveautés en matière d’authentification ?
 
@@ -37,13 +37,31 @@ Le système d’authentification modifie et ajoute des fonctionnalités en perma
 
 Aucun n’est planifié pour l’instant.  Pour connaître les changements qui sont en production ou qui vont y être, consultez les changements ci-dessous.
 
+## <a name="may-2020"></a>Mai 2020
+
+### <a name="azure-government-endpoints-are-changing"></a>Les points de terminaison Azure Government changent
+
+**Date d’effet** : 5 mai (fin juin 2020) 
+
+**Points de terminaison impactés** : Tous
+
+**Protocole impacté** : Tous les flux
+
+Le 1er juin 2018, l’adresse de l’autorité officielle Azure Active Directory (AAD) pour Azure Government a changée de `https://login-us.microsoftonline.com` en `https://login.microsoftonline.us`. Cette modification s’applique également à Microsoft 365 GCC High et DoD, également géré par Azure Government AAD. Si vous possédez une application au sein d’un locataire US Government, vous devez mettre à jour votre application pour qu’elle connecte les utilisateurs sur le point de terminaison `.us`.  
+
+À partir du 5 mai, Azure AD commencera à appliquer le changement de point de terminaison en empêchant les utilisateurs gouvernementaux de se connecter à des applications hébergées dans des locataires US Government à l’aide du point de terminaison public (`microsoftonline.com`).  Les applications impactées commenceront à afficher une erreur `AADSTS900439` - `USGClientNotSupportedOnPublicEndpoint`. Cette erreur indique que l’application tente de se connecter à un utilisateur US Government sur le point de terminaison du cloud public. Si votre application se trouve dans un locataire de cloud public et est destinée à prendre en charge les utilisateurs US Government, vous devrez [mettre à jour votre application pour les prendre en charge explicitement](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud). Cela peut nécessiter la création d’une nouvelle inscription d’application dans le cloud US Government. 
+
+L’application de cette modification sera effectuée à l’aide d’un déploiement progressif en fonction de la fréquence à laquelle les utilisateurs du cloud US Government se connectent à l’application : les applications connectant rarement des utilisateurs US Government verront la mise en œuvre d’abord, et les applications fréquemment utilisées par les utilisateurs US Government seront les dernières à voir l’application de la mise en œuvre. Nous nous attendons à ce que la mise en œuvre soit terminée sur toutes les applications en juin 2020. 
+
+Pour plus d’informations, consultez le [billet de blog Azure Government sur cette migration](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/). 
+
 ## <a name="march-2020"></a>Mars 2020
 
 ### <a name="user-passwords-will-be-restricted-to-256-characters"></a>Les mots de passe utilisateur sont limités à 256 caractères.
 
 **Date d’effet** : 13 mars 2020
 
-**Points de terminaison impactés** : V1.0 et v2.0
+**Points de terminaison impactés** : Tous
 
 **Protocole impacté** : Tous les flux d’utilisateur.
 
