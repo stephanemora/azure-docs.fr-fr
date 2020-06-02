@@ -3,34 +3,29 @@ title: Améliorer le classement de recherche avec des profils de score
 titleSuffix: Azure Cognitive Search
 description: Améliorer le classement par ordre de priorité des scores des résultats de Recherche cognitive Azure en ajoutant des profils de score.
 manager: nitinme
-author: Brjohnstmsft
-ms.author: brjohnst
+author: shmed
+ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/28/2019
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: c702ce72492201413d6c72af9dbf37347e49afdd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/06/2020
+ms.openlocfilehash: 56757d1c2810efe608601c231946b2242df82b19
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231099"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890176"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Ajouter des profils de score à un index Recherche cognitive Azure
 
 Un *scoring* détermine un score de recherche pour chaque élément dans un jeu de résultats classés par rang. Un score de recherche est attribué à chaque élément d'un jeu de résultats de recherche. Ils sont ensuite classés du rang le plus élevé au rang le plus bas.
 
  Le service Recherche cognitive Azure utilise un score par défaut pour calculer un score initial, mais vous pouvez personnaliser le calcul à l'aide d'un *profil de score*. Les profils de score vous permettent de mieux contrôler le classement d'éléments dans des résultats de recherche. Par exemple, vous pouvez privilégier des éléments en fonction de leur revenu potentiel, promouvoir des éléments plus récents, voire en favoriser d'autres restés trop longtemps en stock.  
+
+ Le segment vidéo suivant permet d’accéder rapidement au fonctionnement des profils de score dans Recherche cognitive Azure.
+ 
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
+
+## <a name="scoring-profile-definitions"></a>Définitions de profil de score
 
  Un profil de score fait partie de la définition d'index, composée de champs, fonctions et paramètres pondérés.  
 

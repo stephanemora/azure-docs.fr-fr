@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 1b3bdad0125b5bddbba20c8d807924fc3ea87e32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d201beb2ff4aba815749b12a506d2292779cb82
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299394"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857285"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Protection des données dans Azure Stream Analytics 
 
@@ -61,6 +61,9 @@ Toutes les données privées requises que Stream Analytics doit conserver son st
 Les détails de connexion de vos ressources, que votre tâche Stream Analytics utilise, sont également stockés. Chiffrez votre compte de stockage pour sécuriser toutes vos données. 
 
 Pour vous aider à répondre à vos obligations de conformité dans n’importe quel secteur ou environnement réglementé, apprenez-en davantage sur les [offres de conformité de Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+
+## <a name="known-issues"></a>Problèmes connus
+Il existe un problème connu où un travail qui utilise une clé gérée par le client connaît des échecs lors de l’utilisation d’une identité managée pour s’authentifier auprès de toutes les entrées ou sorties. Un correctif pour ce problème est en cours d’élaboration et sera bientôt disponible prochainement. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

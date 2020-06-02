@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d2981495a256ce5fb8f8f3584e68ac91541f9d62
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a5aaef50f12bfec89cf5e883ed6b1c85fa984ad6
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427145"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995975"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurer Azure Key Vault avec une rotation des clés et un audit
 
@@ -85,23 +85,35 @@ Tout d’abord, vous devez inscrire votre application auprès d’Azure Active D
 > [!NOTE]
 > Votre application doit être créée sur le même client Azure Active Directory que votre coffre de clés.
 
-1. Ouvrez **Azure Active Directory**.
-2. Sélectionnez **Inscriptions d’applications**. 
-3. Sélectionnez **Nouvelle inscription d’application** pour ajouter une application à Azure Active Directory.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Si votre compte vous permet d’accéder à plusieurs locataires, sélectionnez-le dans le coin supérieur droit. Définissez votre session de portail sur le locataire Azure AD de votre choix.
+1. Recherchez et sélectionnez **Azure Active Directory**. Sous **Gérer**, sélectionnez **Inscriptions des applications**.
+1. Sélectionnez **Nouvelle inscription**.
+1. Dans **Inscrire une application**, entrez un nom d’application explicite à afficher aux utilisateurs.
+1. Spécifiez qui peut utiliser l’application, comme suit :
 
-    ![Ouvrir des applications dans Azure Active Directory](../media/keyvault-keyrotation/azure-ad-application.png)
+    | Types de comptes pris en charge | Description |
+    |-------------------------|-------------|
+    | **Comptes dans cet annuaire organisationnel uniquement** | Sélectionnez cette option si vous générez une application métier. Cette option n’est pas disponible si vous n’inscrivez pas l’application dans un annuaire.<br><br>Cette option ne mappe qu’à un compte Azure AD à locataire unique.<br><br>Il s’agit de l’option par défaut, sauf si vous inscrivez l’application hors annuaire. Dans les cas où l’application est inscrite hors d’un répertoire, l’option par défaut est multi-locataire et comptes Microsoft personnels. |
+    | **Comptes dans un annuaire organisationnel** | Sélectionnez cette option si vous voulez cibler tous les clients professionnels ou du domaine éducatif.<br><br>Cette option ne mappe qu’à un compte Azure AD multi-locataire.<br><br>Si vous avez inscrit l’application comme compte Azure AD monolocataire seulement, vous pouvez le mettre à jour avec un compte Azure AD multilocataire et inversement par le biais de la page **Authentification**. |
+    | **Comptes dans un annuaire organisationnel et comptes personnels Microsoft** | Sélectionnez cette option pour cibler l’ensemble le plus large de clients.<br><br>Cette option mappe à des comptes Microsoft personnels et Azure AD multi-locataires.<br><br>Si vous avez inscrit l’application comme comptes Microsoft personnels et Azure AD multilocataires, vous ne pouvez pas modifier ce paramètre dans l’interface utilisateur. Vous devez utiliser l’éditeur de manifeste de l’application pour modifier les types de compte pris en charge. |
 
-4. Sous **Créer**, conservez le type d’application **Web app/API** et donnez un nom à votre application. Attribuez à votre application une **URL de connexion**. Vous pouvez utiliser n’importe quelle URL dans le cadre de cette démonstration.
+1. Sous **URI de redirection (facultatif)** , sélectionnez le type d’application que vous générez : **Web** ou **Client public (mobile bureau)** . Ensuite, entrez l’URI de redirection, ou URL de réponse, de votre application.
 
-    ![Créer une inscription d’application](../media/keyvault-keyrotation/create-app.png)
+    * Pour les applications web, indiquez l’URL de base de votre application. Par exemple, `https://localhost:31544` peut être l’URL pour une application web en cours d’exécution sur votre ordinateur local. Les utilisateurs peuvent utiliser cette URL pour se connecter à une application web cliente.
+    * Pour les applications de client public, indiquez l’URI utilisé par Azure AD pour retourner les réponses de jeton. Entrez une valeur spécifique de votre application, par exemple, `myapp://auth`.
 
-5. Une fois l’application ajoutée à Azure Active Directory, la page de l’application s’ouvre. Sélectionnez **Paramètres**, puis **Propriétés**. Copiez la valeur figurant dans **ID de l’application**. Vous en aurez besoin plus tard.
+1. Lorsque vous avez terminé, sélectionnez **Inscrire**.
 
-Ensuite, générez une clé pour votre application afin qu’elle puisse interagir avec Azure Active Directory. Pour créer une clé, sélectionnez **Clés** sous **Paramètres**. Notez la clé générée pour votre application Azure Active Directory. Vous en aurez besoin dans une étape ultérieure. La clé ne sera plus disponible lorsque vous aurez quitté cette section. 
+    ![Affiche l’écran d’inscription d’une nouvelle application dans le portail Azure](../media/new-app-registration.png)
 
-![Clés d’application Azure Active Directory](../media/keyvault-keyrotation/create-key.png)
+Azure AD affecte à votre application un ID d’application, ou client, unique. Le portail ouvre la page **Vue d’ensemble** de votre application. Notez la valeur **ID d’application (client)** .
 
-Avant d’appeler votre coffre de clés depuis votre application, vous devez fournir au coffre de clés des informations sur votre application et ses autorisations. La commande suivante utilise le nom du coffre et l’ID de votre application Azure Active Directory pour accorder à l’application un accès **Get** à votre coffre de clés.
+Pour ajouter des fonctionnalités à votre application, vous pouvez sélectionner d’autres options de configuration, dont la personnalisation, les certificats et les secrets, les autorisations API et plus encore.
+
+![Exemple de page de vue d’ensemble d’application nouvellement inscrite](../media//new-app-overview-page-expanded.png)
+
+Avant d’appeler votre coffre de clés depuis votre application, vous devez fournir au coffre de clés des informations sur votre application et ses autorisations. La commande suivante utilise le nom du coffre et l’**ID d’application (client)** de votre application Azure Active Directory pour accorder à l’application un accès **Get** à votre coffre de clés.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get

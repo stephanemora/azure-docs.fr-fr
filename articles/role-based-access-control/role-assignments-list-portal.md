@@ -1,6 +1,6 @@
 ---
-title: Lister les attributions de rôles à l’aide du RBAC Azure et du portail Azure
-description: Découvrez comment déterminer les ressources, utilisateurs, groupes, principaux de service ou identités managées qui ont accès au contrôle d’accès en fonction du rôle (RBAC) Azure et au portail Azure.
+title: Répertorier les attribution de rôle Azure à l’aide du portail Azure – Azure RBAC
+description: Découvrez comment déterminer les ressources, utilisateurs, groupes, principaux de service ou identités managées qui ont accès au portail Azure et au contrôle d’accès en fonction du rôle Azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 03a3d3c7d572d7ec5b8d3ac3d527d0d59e649bc2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 04a13b2b3b8cd6e696f0ac6601b5f23b9d6cb24d
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062242"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996641"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Lister les attributions de rôles à l’aide du RBAC Azure et du portail Azure
+# <a name="list-azure-role-assignments-using-the-azure-portal"></a>Répertorier les attributions de rôles Azure à l’aide du portail Azure
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] Cet article explique comment lister les attributions de rôles à l’aide du portail Azure.
 
@@ -32,7 +32,9 @@ ms.locfileid: "80062242"
 
 La façon la plus simple de voir les rôles attribués à un utilisateur ou à un groupe dans un abonnement consiste à utiliser le volet **Ressources Azure**.
 
-1. Dans le portail Azure, cliquez sur **Tous les services**, puis sélectionnez **Utilisateurs** ou **Groupes**.
+1. Dans le Portail Azure, sélectionnez **Tous les services** dans le menu Portail Azure.
+
+1. Sélectionnez **Azure Active Directory**, puis **Utilisateurs** ou **Groupes**.
 
 1. Cliquez sur l’utilisateur ou le groupe pour lequel vous voulez lister les attributions de rôles.
 
@@ -128,7 +130,7 @@ Pour lister l’accès pour un utilisateur, un groupe, un principal de service o
 
 ## <a name="list-number-of-role-assignments"></a>Répertorier le nombre d’attributions de rôles
 
-Vous pouvez avoir jusqu’à **2 000** attributions de rôles dans chaque abonnement. Pour vous aider à suivre cette limite, l’onglet **Attributions de rôles** comprend un graphe indiquant le nombre d’attributions de rôles de l’abonnement actif.
+Vous pouvez avoir jusqu’à **2 000** attributions de rôles dans chaque abonnement. Cette limite comprend les attributions de rôles au niveau de l’abonnement, du groupe de ressources et des étendues de ressources. Pour vous aider à suivre cette limite, l’onglet **Attributions de rôles** comprend un graphe indiquant le nombre d’attributions de rôles de l’abonnement actif.
 
 ![Contrôle d’accès : graphique du nombre d’attributions de rôles](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 
@@ -138,5 +140,5 @@ Si vous vous approchez du nombre maximal et que vous essayez d’ajouter d’aut
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Ajouter ou supprimer des attributions de rôles à l’aide du RBAC Azure et du portail Azure](role-assignments-portal.md)
-- [Résoudre des problèmes liés au contrôle d'accès en fonction du rôle pour les ressources Azure](troubleshooting.md)
+- [Ajouter ou supprimer des attributions de rôles Azure avec le portail Azure](role-assignments-portal.md)
+- [Résoudre les problèmes liés à Azure RBAC](troubleshooting.md)

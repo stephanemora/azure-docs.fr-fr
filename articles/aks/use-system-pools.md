@@ -4,12 +4,12 @@ description: Découvrez comment créer et gérer des pools de nœuds système da
 services: container-service
 ms.topic: article
 ms.date: 04/28/2020
-ms.openlocfilehash: 04322bdaa2e0e72c5fbdbadb07f2608ee360e1e3
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 85cc699d6ef8c632663775e91f2b5cad6ca7a7b6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790556"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125245"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gérer des pools de nœuds système dans Azure Kubernetes Service (AKS)
 
@@ -50,6 +50,7 @@ Vous pouvez effectuer les opérations suivantes avec des pools de nœuds :
 * Supprimez des pools de nœuds utilisateur.
 * Vous pouvez supprimer un pool de nœuds système à condition de disposer d’un autre pool de nœuds système pour prendre sa place dans le cluster AKS.
 * Un cluster AKS peut avoir plusieurs pools de nœuds système et nécessite au moins un pool de nœuds système.
+* Si vous souhaitez modifier différents paramètres immuables sur des pools de nœuds existants, vous pouvez créer de nouveaux pools de nœuds pour les remplacer. Un exemple consiste à ajouter un nouveau pool de nœuds avec un nouveau paramètre maxPods et à supprimer l’ancien pool de nœuds.
 
 ## <a name="create-a-new-aks-cluster-with-a-system-node-pool"></a>Créer un cluster AKS avec un pool de nœuds système
 

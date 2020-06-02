@@ -3,13 +3,13 @@ title: Limiter l’accès à kubeconfig dans Azure Kubernetes Service (AKS)
 description: Découvrir comment contrôler l’accès au fichier de configuration Kubernetes (kubeconfig) pour les administrateurs et utilisateurs de cluster
 services: container-service
 ms.topic: article
-ms.date: 01/28/2020
-ms.openlocfilehash: 25c710cce2855d6af985d3f46082f47573bbc101
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/06/2020
+ms.openlocfilehash: 87f4dc18fc595242117e10233d4fecd77e66373f
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229645"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890894"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Utiliser les contrôles d’accès en fonction du rôle Azure pour définir l’accès au fichier de configuration Kubernetes dans Azure Kubernetes Service (AKS)
 
@@ -40,7 +40,8 @@ Les deux rôles intégrés sont :
 
 Ces rôles RBAC peuvent être appliqués à un utilisateur ou groupe Azure Active Directory (AD).
 
-> ![REMARQUE] Sur les clusters qui utilisent Azure AD, les utilisateurs disposant du rôle *clusterUser* ont un fichier *kubeconfig* vide qui les invite à se connecter. Une fois connectés, les utilisateurs disposent d’un accès en fonction de leurs paramètres utilisateur ou de groupe Azure AD. Les utilisateurs disposant du rôle *clusterAdmin* ont un accès administrateur.
+> [!NOTE]
+> Sur les clusters qui utilisent Azure AD, les utilisateurs disposant du rôle *clusterUser* ont un fichier *kubeconfig* vide qui les invite à se connecter. Une fois connectés, les utilisateurs disposent d’un accès en fonction de leurs paramètres utilisateur ou de groupe Azure AD. Les utilisateurs disposant du rôle *clusterAdmin* ont un accès administrateur.
 >
 > Les clusters qui n’utilisent pas Azure AD utilisent uniquement le rôle *clusterAdmin*.
 

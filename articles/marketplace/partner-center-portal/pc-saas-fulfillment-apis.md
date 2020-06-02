@@ -1,26 +1,25 @@
 ---
-title: API de traitement SaaS | Place de marché Azure
-description: Présente les versions des API de traitement qui vous permettent d’intégrer vos offres SaaS avec la Place de marché Azure.
+title: API de traitement SaaS dans Place de marché commerciale Microsoft
+description: Présentation des API de traitement qui vous permettent d’intégrer vos offres SaaS dans Microsoft AppSource et Place de marché Azure.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 92b1c52457fa92709381124480c05a5f636167f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba1b158bc529b148a8e3138d122c13ead19e073e
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275728"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858093"
 ---
-# <a name="saas-fulfillment-apis"></a>API de traitement SaaS
+# <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>API de traitement SaaS dans Place de marché commerciale Microsoft
 
-Les API de traitement SaaS permettent aux éditeurs de logiciels indépendants (ISV) d’intégrer leurs applications SaaS avec la Place de marché Azure. Ces API permettent aux applications d’éditeurs de logiciels indépendants d’utiliser tous les canaux commerciaux : directs, gérés par des partenaires (revendeurs) et gérés par des acteurs de terrain.  Elles sont obligatoires pour répertorier les offres SaaS négociables sur la Place de marché Azure.
+Les API de traitement SaaS permettent aux éditeurs de logiciels indépendants (ISV) d’intégrer leurs applications SaaS dans Microsoft AppSource et Place de marché Azure. Ces API permettent aux applications d’éditeurs de logiciels indépendants d’utiliser tous les canaux commerciaux : directs, gérés par des partenaires (revendeurs) et gérés par des acteurs de terrain. Ils sont tenus de répertorier les offres SaaS prérequises dans Microsoft AppSource et Place de marché Azure.
 
 > [!WARNING]
 > La version actuelle de cette API (version 2) doit être utilisée pour toutes les nouvelles offres SaaS.  La version 1 de l’API est déconseillée. Elle est conservée pour prendre en charge des offres existantes.
-
 
 ## <a name="business-model-support"></a>Prise en charge du modèle commercial
 

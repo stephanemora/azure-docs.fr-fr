@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/03/2020
-ms.openlocfilehash: 3d55e37078d7bbbcd84684f43ef12810ef01e10e
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.date: 04/27/2020
+ms.openlocfilehash: 2503c26ac0348739bbf117c3538af797833ce8b8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82627753"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857649"
 ---
 # <a name="transformation-with-azure-databricks"></a>Transformation avec Azure Databricks
 
@@ -153,6 +153,9 @@ Dans le nouveau pipeline, la plupart des paramètres sont configurés automatiqu
 1. Vérifiez que les **paramètres du pipeline** correspondent à ce qui est illustré dans la capture d’écran suivante : ![Pipeline parameters](media/solution-template-Databricks-notebook/pipeline-parameters.png)
 
 1. Connectez-vous à vos jeux de données.
+
+    >[!NOTE]
+    >Dans les jeux de données ci-dessous, le chemin d’accès du fichier a été automatiquement spécifié dans le modèle. Si des modifications sont nécessaires, veillez à spécifier le chemin d’accès pour **conteneur** et **répertoire** en cas d’erreur de connexion.
 
    - **SourceAvailabilityDataset** : pour vérifier si les données sources sont disponibles.
 

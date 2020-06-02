@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: c9f10815f2fbc8a17b8b712b6e5f8391fc7d541e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 59541c568c1d5341375236f9f074b7f82e1a6f94
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75980297"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858751"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Protéger un serveur de fichiers avec Azure Site Recovery 
 
@@ -30,7 +30,7 @@ L’objectif d’un système de partage de fichiers distribués ouvert est de fo
 La DFSR utilise un algorithme de compression appelé Connexion Bureau à distance (RDC), qui peut être utilisé pour mettre à jour efficacement des fichiers sur un réseau à bande passante limitée. Elle détecte les insertions, suppressions et réorganisations de données dans les fichiers. La DFSR est activée pour répliquer uniquement les blocs de fichiers modifiés lorsque les fichiers sont mis à jour. Il existe également des environnements de serveurs de fichiers dans lesquels des sauvegardes quotidiennes sont effectuées pendant les heures creuses, destinés aux besoins d’urgence. La DFSR n’est pas implémentée.
 
 Le diagramme suivant illustre l’environnement de serveurs de fichiers avec la DFSR implémentée.
-                
+        
 ![Architecture DFSR](media/site-recovery-file-server/dfsr-architecture.JPG)
 
 Dans le diagramme précédent, plusieurs serveurs de fichiers, appelés membres, participent activement à la réplication des fichiers dans un groupe de réplication. Le contenu du dossier répliqué sera accessible à tous les clients qui enverront des requêtes à l’un des membres, même en cas de mise hors connexion de l’un d’eux.
@@ -57,19 +57,19 @@ Le diagramme suivant vous permet de déterminer la stratégie à utiliser pour v
 |Environnement  |Recommandation  |Éléments à prendre en considération |
 |---------|---------|---------|
 |Environnement de serveurs de fichiers avec ou sans DFSR|   [Utiliser Site Recovery pour la réplication](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery ne prend pas en charge les clusters de disque partagés ni le périphérique de stockage NAS. Si votre environnement utilise ces configurations, utilisez l’une des autres approches, le cas échéant. <br> Site Recovery ne prend pas en charge SMB 3.0. La machine virtuelle répliquée intègre les modifications uniquement lorsque celles qui sont apportées aux fichiers sont mises à jour dans l’emplacement d’origine des fichiers.<br>  Site Recovery offre un processus de réplication de données quasi synchrone. Par conséquent, en cas de basculement non planifié, une perte de données potentielle est susceptible de se produire et peut créer des problèmes de non-correspondance USN.
-|Environnement de serveurs de fichiers avec DFSR     |  [Étendre la DFSR à une machine virtuelle Azure IaaS](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      La DFSR fonctionne bien dans des environnements avec une bande passante extrêmement faible. Cette approche nécessite une machine virtuelle Azure opérationnelle en permanence. Vous devez prendre en compte le coût de la machine virtuelle dans votre planification.         |
+|Environnement de serveurs de fichiers avec DFSR     |  [Étendre la DFSR à une machine virtuelle Azure IaaS](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |    La DFSR fonctionne bien dans des environnements avec une bande passante extrêmement faible. Cette approche nécessite une machine virtuelle Azure opérationnelle en permanence. Vous devez prendre en compte le coût de la machine virtuelle dans votre planification.         |
 |Machine virtuelle Azure IaaS     |     File Sync    |     Si vous utilisez la synchronisation de fichiers dans un scénario de récupération d’urgence, pendant le basculement, vous devez prendre des mesures manuelles pour vous assurer que les partages de fichiers sont accessibles à la machine du client de manière transparente. La synchronisation de fichiers exige que le port 445 soit ouvert à partir de la machine du client.     |
 
 
 ### <a name="site-recovery-support"></a>Prise en charge de Site Recovery
 Étant donné que la réplication Site Recovery est indépendante des applications, ces recommandations sont censées être vraies pour les scénarios suivants.
 
-| Source    |Vers un site secondaire    |Vers Azure
+| Source  |Vers un site secondaire  |Vers Azure
 |---------|---------|---------|
-|Azure| -|Oui|
-|Hyper-V|   Oui |Oui
-|VMware |Oui|   Oui
-|Serveur physique|   Oui |Oui
+|Azure|  -|Oui|
+|Hyper-V|  Oui  |Oui
+|VMware  |Oui|  Oui
+|Serveur physique|  Oui  |Oui
  
 
 > [!IMPORTANT]
@@ -97,7 +97,7 @@ Azure Files peut être utilisé pour remplacer complètement ou compléter les 
 
 Les étapes suivantes décrivent brièvement comment utiliser la synchronisation de fichiers :
 
-1. [Créez un compte de stockage dans Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Si vous avez choisi le stockage géoredondant avec accès en lecture pour vos comptes de stockage, vous obtenez un accès en lecture à vos données à partir de la région secondaire, en cas d’urgence. Pour plus d’informations, consultez [Récupération d’urgence et basculement forcé (préversion) dans Stockage Azure](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
+1. [Créez un compte de stockage dans Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Si vous avez choisi le stockage géoredondant avec accès en lecture pour vos comptes de stockage, vous obtenez un accès en lecture à vos données à partir de la région secondaire, en cas d’urgence. Pour plus d’informations, consultez [Récupération d’urgence et basculement de compte de stockage](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Créer un partage de fichiers](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Démarrer la synchronisation de fichiers](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) sur votre serveur de fichiers Azure.
 4. Créez un groupe de synchronisation. Les points de terminaison dans un groupe de synchronisation sont synchronisés entre eux. Un groupe de synchronisation doit contenir au moins un point de terminaison cloud, qui représente un partage de fichiers Azure. Un groupe de synchronisation doit également contenir un point de terminaison de serveur, qui représente un chemin d’accès sur un serveur Windows.
@@ -146,7 +146,7 @@ Pour intégrer la synchronisation de fichiers avec Site Recovery :
 
 Procédez comme suit pour utiliser la synchronisation de fichiers :
 
-1. [Créez un compte de stockage dans Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Si vous avez choisi le stockage géoredondant avec accès en lecture (recommandé) pour vos comptes de stockage, vous bénéficiez d’un accès en lecture à vos données à partir de la région secondaire en cas d’urgence. Pour plus d’informations, consultez [Récupération d’urgence et basculement forcé (préversion) dans Stockage Azure](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
+1. [Créez un compte de stockage dans Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Si vous avez choisi le stockage géoredondant avec accès en lecture (recommandé) pour vos comptes de stockage, vous bénéficiez d’un accès en lecture à vos données à partir de la région secondaire en cas d’urgence. Pour plus d’informations, consultez [Récupération d’urgence et basculement de compte de stockage](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Créer un partage de fichiers](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Déployer la synchronisation de fichiers](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) dans votre serveur de fichiers local.
 4. Créez un groupe de synchronisation. Les points de terminaison dans un groupe de synchronisation sont synchronisés entre eux. Un groupe de synchronisation doit contenir au moins un point de terminaison cloud, qui représente un partage de fichiers Azure. Un groupe de synchronisation doit également contenir un point de terminaison de serveur, qui représente un chemin d’accès sur un serveur Windows local.

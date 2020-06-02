@@ -13,16 +13,16 @@ ms.date: 11/8/2019
 ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.openlocfilehash: 50c88dd1785bd9177219054fed3800ca725a5274
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3a954167dc0698389680a92511621fb6acf4b12b
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80154591"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889991"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>La nouvelle expérience d’inscription d’applications dans le Portail Azure
 
-La nouvelle expérience relative aux [inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908) dans le portail Azure a été considérablement améliorée. Si vous êtes plus à l’aise avec l’expérience liée au portail d’inscription d’applications (apps.dev.microsoft.com) pour l’inscription ou la gestion d’applications convergées, qu’on appelle l’ancienne expérience, ce guide de formation vous permet de commencer à utiliser la nouvelle expérience.
+La nouvelle expérience relative aux [inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908) dans le portail Azure a été considérablement améliorée. Si vous êtes plus à l’aise avec le portail d’inscription d’applications (apps.dev.microsoft.com) pour l’inscription ou la gestion d’applications, ce qu’on appelle ici « l’ancienne expérience », ce guide vous permet de commencer à utiliser la nouvelle expérience.
 
 ## <a name="whats-not-changing"></a>Ce qui ne change pas
 
@@ -37,7 +37,7 @@ La nouvelle expérience relative aux [inscriptions d’applications](https://go.
 
 ## <a name="key-changes"></a>Principales modifications
 
--   Dans l’ancienne expérience, les applications étaient enregistrées par défaut en tant qu’applications convergées prenant en charge tous les comptes organisationnels (multilocataire), ainsi que les comptes Microsoft personnels. Cela n’a pas pu être modifié par le biais de l’ancienne expérience, ce qui complique la création d’applications ne prenant en charge que les comptes organisationnels (multilocataire ou à locataire unique).
+-   Dans l’ancienne expérience, les applications étaient enregistrées par défaut en tant qu’applications *convergées*, à savoir des applications prenant en charge tous les comptes organisationnels (multilocataire), ainsi que les comptes Microsoft personnels. Cela n’a pas pu être modifié par le biais de l’ancienne expérience, ce qui complique la création d’applications ne prenant en charge que les comptes organisationnels (multilocataire ou à locataire unique).
     La nouvelle expérience vous permet d’inscrire des applications qui prennent en charge toutes ces options. [En savoir plus sur les types d’applications](active-directory-v2-registration-portal.md).
 
 -   Dans la nouvelle expérience, si votre compte Microsoft personnel est également dans un locataire Azure AD, vous verrez trois onglets : toutes les applications dans le locataire, les applications détenues dans le locataire et les applications de votre compte personnel. Par conséquent, si vous pensez que des applications inscrites avec votre compte Microsoft personnel sont manquantes, vérifiez l’onglet **Applications de votre compte personnel**.
@@ -52,28 +52,23 @@ La nouvelle expérience relative aux [inscriptions d’applications](https://go.
 
 ## <a name="new-app-registration"></a>Nouveau processus d’inscription d’application
 
-Dans l’ancienne expérience, pour inscrire une application convergée, il vous suffisait de fournir un nom. Les applications qui étaient créées étaient inscrites en tant qu’applications convergées prenant en charge tous les comptes organisationnels (multilocataire), ainsi que les comptes Microsoft personnels.  Cela n’a pas pu être modifié par le biais de l’ancienne expérience, ce qui complique la création d’applications ne prenant en charge que les comptes organisationnels (multilocataire ou à locataire unique). [En savoir plus sur les types de comptes pris en charge](v2-supported-account-types.md)
+Dans l’ancienne expérience, pour inscrire une application, il vous suffisait de fournir un nom. Les applications qui étaient créées étaient inscrites en tant qu’applications *convergées*, des applications prenant en charge tous les annuaires organisationnels (multilocataire), ainsi que les comptes Microsoft personnels.  Cela n’a pas pu être modifié par le biais de l’ancienne expérience, ce qui complique la création d’applications ne prenant en charge que les comptes organisationnels (à locataire unique ou à locataires multiples). [En savoir plus sur les types de comptes pris en charge](v2-supported-account-types.md)
 
 Dans la nouvelle expérience, vous devez fournir un nom pour l’application et choisir les types de comptes pris en charge. Si vous le souhaitez, vous pouvez également indiquer un URI de redirection.
 Si vous fournissez un URI de redirection, vous devez spécifier s’il s’agit d’un URI web/public (natif/mobile et de bureau). Pour plus d’informations sur l’inscription d’une application à l’aide de la nouvelle expérience d’inscription d’application, consultez [ce démarrage rapide](quickstart-register-app.md).
 
 ## <a name="app-management-page"></a>Page de gestion des applications
 
-L’ancienne expérience n’avait qu’une seule page de gestion des applications, pour les applications convergées, avec les sections suivantes : Propriétés, Secrets de l’application, Plateformes, Propriétaires, Autorisations Microsoft Graph, Profil et Options avancées.
+L’ancienne expérience ne proposait qu’une seule page de gestion des applications, pour les applications avec les sections suivantes : Propriétés, Secrets de l’application, Plateformes, Propriétaires, Autorisations Microsoft Graph, Profil et Options avancées.
 
-La nouvelle expérience dans le portail Azure représente ces fonctionnalités dans des pages distinctes. Voici où se trouvent les fonctionnalités équivalentes :
+La nouvelle expérience dans le Portail Azure représente ces fonctionnalités dans des pages distinctes. Voici où se trouvent les fonctionnalités équivalentes :
 
--   Propriétés - Le Nom et l’ID d’application se trouvent sur la page Vue d’ensemble.
-
--   La section Secrets de l’application se trouve sur la page Certificats et secrets.
-
--   La section Configuration des plateformes se trouve sur la page Authentification.
-
--   La section Autorisations Microsoft Graph se trouve sur la page Autorisations de l’API, avec d’autres autorisations.
-
--   La section Profil se trouve sur la page Personnalisation
-
--   Options avancées - La prise en charge du SDK Live se trouve sur la page Authentification.
+- Propriétés - Le Nom et l’ID d’application se trouvent sur la page Vue d’ensemble.
+- La section Secrets de l’application se trouve sur la page Certificats et secrets.
+- La section Configuration des plateformes se trouve sur la page Authentification.
+- La section Autorisations Microsoft Graph se trouve sur la page Autorisations de l’API, avec d’autres autorisations.
+- La section Profil se trouve sur la page Personnalisation
+- Options avancées - La prise en charge du SDK Live se trouve sur la page Authentification.
 
 ## <a name="application-secretscertificates--secrets"></a>Secrets de l’application/Certificats et secrets
 
@@ -125,3 +120,7 @@ La nouvelle expérience présente les limites suivantes :
 
    > [!NOTE]
    > Si vous êtes un utilisateur de compte Microsoft personnel dans un locataire Azure AD et que l’administrateur du locataire a restreint l’accès au portail Azure, votre accès risque d’être refusé. Toutefois, si vous y accédez via le raccourci en tapant Inscriptions d’applications dans la barre de recherche ou en l’épinglant, vous pourrez accéder à la nouvelle expérience utilisateur.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour commencer à utiliser la nouvelle expérience d’inscription d’application, consultez [Démarrage rapide : Inscrire une application avec la plateforme des identités Microsoft](quickstart-register-app.md).

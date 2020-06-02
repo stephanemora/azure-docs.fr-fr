@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bd7726d2bbf2830d18d78b5f0b0d7202b734124d
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: add2805d9a360d3d9cd45ab54f476a6852fb7bd5
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537676"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858582"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Activer et créer des partages de fichiers volumineux
 
@@ -26,8 +26,9 @@ Lorsque vous activez des partages de fichiers volumineux sur votre compte de sto
 
 ## <a name="restrictions"></a>Restrictions
 
-Pour le moment, vous ne pouvez utiliser qu’un stockage localement redondant (LRS) ou un stockage redondant interzone (ZRS) sur des comptes activés pour le partage de fichiers volumineux. Vous ne pouvez pas utiliser un stockage géoredondant interzone (GZRS), un stockage géoredondant (GRS) ou un stockage géoredondant avec accès en lecture (RA-GRS).
-L’activation de partages de fichiers volumineux sur un compte est un processus irréversible. Une fois que vous l’avez activé, vous ne pouvez plus convertir votre compte en GZRS, GRS ou RA-GRS.
+Pour le moment, vous ne pouvez utiliser qu’un stockage localement redondant (LRS) ou un stockage redondant interzone (ZRS) sur des comptes activés pour le partage de fichiers volumineux. Vous ne pouvez pas utiliser un stockage géoredondant interzone (GZRS), un stockage géoredondant (GRS), un stockage géoredondant avec accès en lecture (RA-GRS) ou un stockage géoredondant interzone avec accès en lecture (RA-GZRS).
+
+L’activation de partages de fichiers volumineux sur un compte est un processus irréversible. Une fois que vous l’avez activé, vous ne pouvez plus convertir votre compte en GZRS, GRS, RA-GRS ou RA-GZRS.
 
 ## <a name="create-a-new-storage-account"></a>Création d’un nouveau compte de stockage
 
@@ -68,7 +69,7 @@ Tout d’abord, [installez la dernière version d’Azure CLI](https://docs.micr
 Pour créer un compte de stockage avec des partages de fichiers volumineux activés, utilisez la commande suivante. Remplacez `<yourStorageAccountName>`, `<yourResourceGroup>` et `<yourDesiredRegion>` par vos informations.
 
 ```azurecli-interactive
-## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
+## This command creates a large file share–enabled account. It will not support GZRS, GRS, RA-GRS, or RA-GZRS.
 az storage account create --name <yourStorageAccountName> -g <yourResourceGroup> -l <yourDesiredRegion> --sku Standard_LRS --kind StorageV2 --enable-large-file-share
 ```
 
@@ -79,13 +80,13 @@ Tout d’abord, [installez la dernière version de PowerShell](https://docs.micr
 Pour créer un compte de stockage avec des partages de fichiers volumineux activés, utilisez la commande suivante. Remplacez `<yourStorageAccountName>`, `<yourResourceGroup>` et `<yourDesiredRegion>` par vos informations.
 
 ```powershell
-## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
+## This command creates a large file share–enabled account. It will not support GZRS, GRS, RA-GRS, or RA-GZRS.
 New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -Location <yourDesiredRegion> -SkuName Standard_LRS -EnableLargeFileShare;
 ```
 
 ## <a name="enable-large-files-shares-on-an-existing-account"></a>Activer les partages de fichiers volumineux sur un compte existant
 
-Vous pouvez aussi activer les partages de fichiers volumineux sur vos comptes existants. Si vous activez les partages de fichiers volumineux, vous ne pourrez plus convertir votre compte en GZRS, GRS ou RA-GRS. L’activation des partages de fichiers volumineux est irréversible sur ce compte de stockage.
+Vous pouvez aussi activer les partages de fichiers volumineux sur vos comptes existants. Si vous activez les partages de fichiers volumineux, vous ne pourrez plus convertir votre compte en GZRS, GRS, RA-GRS ou RA-GZRS. L’activation des partages de fichiers volumineux est irréversible sur ce compte de stockage.
 
 ### <a name="portal"></a>Portail
 

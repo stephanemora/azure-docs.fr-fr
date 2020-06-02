@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4abae94ded92aca075fcb41a7cd42491e92d41d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2ccaf662488203e346065cfee082018128f37d95
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77591538"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201663"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Préparation d’infrastructure Azure pour la haute disponibilité SAP à l’aide de cluster de basculement Windows et de partage de fichiers pour une instance SAP ASCS/SCS
 
@@ -348,7 +348,7 @@ Après avoir installé le cluster de serveurs de fichiers avec montée en puissa
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
-- RoutingHistoryLength = 30
+- RouteHistoryLength = 30
 
 Ces paramètres ont été testés auprès de clients et offrent un bon compromis. Ils sont suffisamment résilients, mais assurent également un basculement assez rapide dans des conditions d’erreur réelles ou en cas de problème sur une machine virtuelle.
 
