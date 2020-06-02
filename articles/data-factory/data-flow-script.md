@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/13/2020
-ms.openlocfilehash: e0042960c25d58b72bc0ab884de5a2db62e566d9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 05/06/2020
+ms.openlocfilehash: 0ac33a0912d52405cf3d2ae18d5102930a94f3ff
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81413441"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890873"
 ---
 # <a name="data-flow-script-dfs"></a>Script de flux de données (DFS)
 
@@ -177,6 +177,21 @@ Utilisez ce code dans votre script de flux de données pour créer une colonne d
 
 ```
 derive(DWhash = sha1(Name,ProductNumber,Color))
+```
+
+Vous pouvez également utiliser le script ci-dessous pour générer un hachage de ligne à l’aide de toutes les colonnes présentes dans votre flux, sans avoir à nommer chacune d’elles :
+
+```
+derive(DWhash = sha1(columns()))
+```
+
+### <a name="string_agg-equivalent"></a>Équivalent String_agg
+Ce code agit comme la fonction ```string_agg()``` T-SQL et regroupe les valeurs de chaîne dans un tableau. Vous pouvez ensuite caster ce tableau en chaîne à utiliser avec des destinations SQL.
+
+```
+source1 aggregate(groupBy(year),
+    string_agg = collect(title)) ~> Aggregate1
+Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

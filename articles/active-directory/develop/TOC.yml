@@ -410,6 +410,8 @@
               href: id-tokens.md
             - name: Jetons d’accès
               href: access-tokens.md
+            - name: Point de terminaison UserInfo
+              href: userinfo.md
             - name: Informations d’identification de certificat
               href: active-directory-certificate-credentials.md
         - name: "Protocole SAML\_2.0"

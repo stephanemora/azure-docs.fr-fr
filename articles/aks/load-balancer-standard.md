@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 3be60888d3d12d37650ad2cffc1911fb3b5e6682
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 14e80f6348772af77c5a53b1d5e9111c4ae8ba9b
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790675"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402071"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Utiliser un équilibreur de charge de référence (SKU) Standard dans Azure Kubernetes Service (AKS)
 
@@ -89,12 +89,17 @@ Lorsque vous utilisez un équilibreur de charge de référence (SKU) *Standard*,
 
 En plaçant plusieurs adresses IP ou préfixes, vous pouvez définir plusieurs services de soutien lors de la définition de l’adresse IP derrière un seul objet d’équilibreur de charge. Le point de terminaison de sortie de nœuds spécifiques dépend du service auquel ils sont associés.
 
-> [!IMPORTANT]
-> Vous devez utiliser des adresses IP publiques de référence (SKU) *Standard* pour la sortie avec votre référence (SKU) *Standard* pour votre équilibreur de charge. Vous pouvez vérifier la référence (SKU) de vos adresses IP publiques à l’aide de la commande [az network public-ip show][az-network-public-ip-show] :
->
-> ```azurecli-interactive
-> az network public-ip show --resource-group myResourceGroup --name myPublicIP --query sku.name -o tsv
-> ```
+### <a name="pre-requisites-to-bring-your-own-ip-addresses-or-ip-prefixes"></a>Conditions préalables à l'apport de vos propres adresses IP ou préfixes IP
+1. Vous devez utiliser des adresses IP publiques de référence (SKU) *Standard* pour la sortie avec votre référence (SKU) *Standard* pour votre équilibreur de charge. Vous pouvez vérifier la référence (SKU) de vos adresses IP publiques à l’aide de la commande [az network public-ip show][az-network-public-ip-show] :
+
+   ```azurecli-interactive
+   az network public-ip show --resource-group myResourceGroup --name myPublicIP --query sku.name -o tsv
+   ```
+ 1. Les adresses IP publiques et les préfixes IP doivent se trouver dans la même région et faire partie du même abonnement que votre cluster AKS.
+ 1. Les adresses IP publiques et les préfixes IP ne peuvent pas correspondre à des adresses IP créées par AKS en tant qu’adresses IP gérées. Vérifiez que toutes les adresses IP spécifiées en tant qu’adresses IP personnalisées ont été créées manuellement et ne correspondent pas au service AKS.
+ 1. Les adresses IP publiques et les préfixes IP ne peuvent pas être utilisés par une autre ressource ou un autre service.
+
+ ### <a name="define-your-own-public-ip-or-prefixes-on-an-existing-cluster"></a>Définir vos propres adresses IP publiques ou préfixes sur un cluster existant
 
 Utilisez la commande [az network public-ip show][az-network-public-ip-show] pour répertorier les ID de vos adresses IP publiques.
 
@@ -131,9 +136,6 @@ az aks update \
     --name myAKSCluster \
     --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
 ```
-
-> [!IMPORTANT]
-> Les adresses IP publiques et les préfixes IP doivent se trouver dans la même région et faire partie du même abonnement que votre cluster AKS. 
 
 ### <a name="define-your-own-public-ip-or-prefixes-at-cluster-create-time"></a>Définir vos propres adresses IP publiques ou préfixes au moment de la création du cluster
 

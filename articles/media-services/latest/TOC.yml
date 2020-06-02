@@ -1,5 +1,7 @@
 - name: Documentation Media Services
   href: ./index.yml
+- name: Basculer vers la documentation de Live Video Analytics sur IoT Edge
+  href: ../live-video-analytics-edge/overview.md
 - name: Vue d’ensemble
   items:
     - name: À propos de Media Services
@@ -369,7 +371,7 @@
         - name: Python
           href: 'https://aka.ms/ams-v3-python-ref'
         - name: Node.js
-          href: 'https://aka.ms/ams-v3-nodejs-ref'
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/mediaservices/management'
         - name: Go
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Modèle Resource Manager
@@ -383,7 +385,7 @@
       href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/media-services/'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=media-services'
     - name: Spécification OpenAPI (Swagger)
       href: 'https://aka.ms/ams-v3-rest-sdk'

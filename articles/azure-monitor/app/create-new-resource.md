@@ -3,12 +3,12 @@ title: Créer une ressource Azure Application Insights | Microsoft Docs
 description: Configurez manuellement la surveillance d’Application Insights pour une nouvelle application en direct.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 0c8b9ccaa70a2fd1bf46c6f4537f54d702ecc48f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d8979469ca83dfd6b81aab10191e8fbf36104ff
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537574"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200661"
 ---
 # <a name="create-an-application-insights-resource"></a>Création d’une ressource Application Insights dans Azure
 
@@ -26,9 +26,10 @@ Connectez-vous au [portail Azure](https://portal.azure.com) et créez une ressou
 
    | Paramètres        |  Valeur           | Description  |
    | ------------- |:-------------|:-----|
-   | **Nom**      | Valeur unique | Nom identifiant l’application que vous analysez. |
-   | **Groupe de ressources**     | myResourceGroup      | Nom du nouveau groupe de ressources ou existant pour héberger les données Application Insights. |
-   | **Lieu** | USA Est | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée. |
+   | **Nom**      | `Unique value` | Nom identifiant l’application que vous analysez. |
+   | **Groupe de ressources**     | `myResourceGroup`      | Nom du nouveau groupe de ressources ou existant pour héberger les données Application Insights. |
+   | **Région** | `East US` | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée. |
+   | **Mode de ressources** | `Classic` ou `Workspace-based` | Actuellement en préversion publique, les ressources basées sur l’espace de travail vous permettent d’envoyer vos données de télémétrie Application Insights à un espace de travail Log Analytics commun. Pour plus d’informations, consultez l'[article relatif aux ressources basées sur l'espace de travail](create-workspace-resource.md).
 
 > [!NOTE]
 > Bien que vous puissiez utiliser le même nom de ressource dans différents groupes de ressources, il est préférable d’utiliser un nom global unique. Ce dernier peut s’avérer utile si vous envisagez d’[exécuter des requêtes de ressources croisées](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application), car cela simplifie la syntaxe nécessaire.
@@ -96,13 +97,13 @@ Pour obtenir la documentation PowerShell complète de cette applet de commande e
 
 ### <a name="azure-cli-preview"></a>Azure CLI (préversion)
 
-Pour accéder à la préversion des commandes Azure CLI pour Application Insights, vous devez d’abord exécuter :
+Pour accéder à la préversion des commandes Azure CLI pour Application Insights, vous devez d’abord exécuter :
 
 ```azurecli
  az extension add -n application-insights
 ```
 
-Si vous n’exécutez pas la commande `az extension add`, vous verrez un message d’erreur qui indique : `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+Si vous n’exécutez pas la commande `az extension add`, vous verrez un message d’erreur indiquant : `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
 Vous pouvez maintenant exécuter la commande suivante pour créer votre ressource Application Insights :
 

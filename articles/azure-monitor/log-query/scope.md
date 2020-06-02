@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/25/2019
-ms.openlocfilehash: 897eff62fcbab5996b6b9493bd825ae412aa4c3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/01/2020
+ms.openlocfilehash: 2840e5b8ff16d44f76aaafcf68264c65e4401ff7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226581"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199028"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Étendue de requête de journal et intervalle de temps dans la fonctionnalité Log Analytics d’Azure Monitor
 Lorsque vous exécutez un [requête de journal](log-query-overview.md) à l’aide de la fonctionnalité [Log Analytics sur le portail Azure](get-started-portal.md), le jeu de données évalué par la requête dépend de l’étendue et de l’intervalle de temps que vous sélectionnez. Cet article décrit l’étendue et l’intervalle de temps, ainsi que la manière de les définir selon vos besoins. Il décrit également le comportement des différents types d’étendues.
@@ -26,12 +26,15 @@ L’étendue est toujours affichée en haut à gauche de la fenêtre de Log Anal
 
 L’étendue est déterminée par la méthode que vous utilisez pour démarrer Log Analytics et, dans certains cas, vous pouvez la modifier en cliquant dessus. Le tableau suivant répertorie les différents types d’étendues utilisés et différents détails pour chacun d’eux.
 
+> [!IMPORTANT]
+> Si vous utilisez APM 2.1, les applications Application Insights sont stockées dans un espace de travail Log Analytics avec toutes les autres données de journal et l'étendue Application Insights n'est pas disponible. Si vous sélectionnez **Journaux** dans le menu Application Insights, son fonctionnement est identique à l'étendue **Autres ressources Azure**, et seules les données issues de cette application sont disponibles dans les tables Application Insights.
+
 | Étendue de requête | Enregistrements dans l’étendue | Comment sélectionner | Modification de l’étendue |
 |:---|:---|:---|:---|
 | Espace de travail Log Analytics | Tous les enregistrements dans l’espace de travail Log Analytics. | Sélectionnez **Journaux** dans le menu **Azure Monitor** ou le menu **Espaces de travail Log Analytics**.  | Peut modifier l’étendue en la définissant sur tout autre type de ressource. |
 | Application Application Insights | Tous les enregistrements dans l’application Application Insights. | Sélectionnez **Analytics** dans la page **Vue d’ensemble** d’Application Insights. | Peut modifier uniquement l’étendue en la définissant sur toute autre application Application Insights. |
 | Resource group | Enregistrements créés par toutes les ressources du groupe de ressources. Peut inclure des données de plusieurs espaces de travail Log Analytics. | Sélectionnez **Journaux** dans le menu du groupe de ressources. | Ne peut pas modifier l’étendue.|
-| Subscription | Enregistrements créés par toutes les ressources dans l’abonnement. Peut inclure des données de plusieurs espaces de travail Log Analytics. | Sélectionnez **Journaux** dans le menu d’abonnement.   | Ne peut pas modifier l’étendue. |
+| Abonnement | Enregistrements créés par toutes les ressources dans l’abonnement. Peut inclure des données de plusieurs espaces de travail Log Analytics. | Sélectionnez **Journaux** dans le menu d’abonnement.   | Ne peut pas modifier l’étendue. |
 | Autres ressources Azure | Enregistrements créés par la ressource. Peut inclure des données de plusieurs espaces de travail Log Analytics.  | Sélectionnez **journaux** dans le menu de ressources.<br>OR<br>Sélectionnez **journaux** dans le menu **Azure Monitor** menu, puis sélectionnez une nouvelle étendue. | Ne peut modifier l’étendue qu’avec le même type de ressource. |
 
 ### <a name="limitations-when-scoped-to-a-resource"></a>Limitations en cas d’étendue à une ressource
@@ -65,7 +68,7 @@ L’exécution de votre requête sera bloquée si l’étendue comprend des espa
 ## <a name="time-range"></a>Plage temporelle
 L’intervalle de temps spécifie le jeu d’enregistrements évalués pour la requête en fonction du moment de création de l’enregistrement. Cela est défini par une propriété standard sur chaque enregistrement dans l’espace de travail ou l’application, comme spécifié dans le tableau suivant.
 
-| Location | Propriété |
+| Emplacement | Propriété |
 |:---|:---|
 | Espace de travail Log Analytics          | TimeGenerated |
 | Application Application Insights | timestamp     |

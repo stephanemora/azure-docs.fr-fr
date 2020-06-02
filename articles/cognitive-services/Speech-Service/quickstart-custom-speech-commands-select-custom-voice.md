@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: anhoang
-ms.openlocfilehash: b0ecbc4dc030fa8e7fbe362c1304c3c97278bdf5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c2b9b4d51e89975d988ed94bf85695bd8a1cc770
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75453332"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872473"
 ---
 # <a name="quickstart-use-custom-commands-with-custom-voice-preview"></a>Démarrage rapide : Utiliser des commandes personnalisées avec Custom Voice (préversion)
 
@@ -35,7 +35,8 @@ Dans cet article, nous allons sélectionner une voix de sortie personnalisée po
 > ![Exemples de phrases avec paramètres](media/custom-speech-commands/select-custom-voice.png)
 
 > [!NOTE]
-> Vous pouvez créer des voix personnalisées sur la page du projet Custom Voice. Sélectionnez le lien **Speech Studio**, puis **Custom Voice** pour commencer.
+> - Concernant les **Voix publiques**, les **Types neuronaux** ne sont disponibles que pour certaines régions. Pour connaître la disponibilité, consultez [Voix standard et neuronales par région/point de terminaison](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
+> - Les **voix personnalisées** peuvent être créées sur la page du projet Custom Voice. Consultez [Bien démarrer avec Custom Voice](./how-to-custom-voice.md).
 
 L’application répond à présent avec la voix sélectionnée, et non plus avec la voix par défaut.
 

@@ -11,6 +11,8 @@
       href: virtual-machines-availability-set-supportability.md
 - name: Conseils sur le déploiement de machines virtuelles
   items:
+    - name: "Mettre à niveau vers SLES\_15 SP1"
+      href: linux-upgrade-suse-15sp1.md
     - name: Nouveaux déploiements de machines virtuelles
       items:
         - name: Linux

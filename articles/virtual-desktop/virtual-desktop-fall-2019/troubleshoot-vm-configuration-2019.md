@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 03/30/2020
+ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7f3eaa54ecb39922a155e2ea65e15d38f2b138e4
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: eeccf0031e28bdcb719c0d534874d2c240ba46d3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614230"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117425"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuration d’une machine virtuelle hôte de session
 
@@ -338,6 +338,12 @@ Si votre numéro de version indique « 1809 », installez [la mise à jour KB4
 ### <a name="version-1903"></a>Version 1903
 
 Redéployez le système d’exploitation hôte avec la dernière version de l’image Windows 10 version 1903 à partir de la galerie Azure.
+
+## <a name="we-couldnt-connect-to-the-remote-pc-because-of-a-security-error"></a>Nous n’avons pas pu nous connecter à l’ordinateur distant en raison d’une erreur de sécurité
+
+Si vos utilisateurs reçoivent une erreur indiquant « Nous n’avons pas pu nous connecter à l’ordinateur distant en raison d’une erreur de sécurité. Si ce problème persiste, demandez de l’aide à votre administrateur ou support technique. », validez les éventuelles stratégies existantes qui modifient les autorisations RDP par défaut. L’une des stratégies pouvant provoquer l’apparition de cette erreur est « Autoriser l’ouverture de session par le biais d’une stratégie de sécurité des Services Bureau à distance ».
+
+Pour en savoir plus sur cette stratégie, consultez [Autoriser l’ouverture de session via les Services Bureau à distance](/windows/security/threat-protection/security-policy-settings/allow-log-on-through-remote-desktop-services).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

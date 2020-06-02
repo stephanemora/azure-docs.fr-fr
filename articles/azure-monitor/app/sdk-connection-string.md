@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 25eda0ae2b0d873fe9850e5b886489a5f2590e69
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 92c4ccf7246c4e763cbf92aee3c48398d79e0ecc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80410611"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125704"
 ---
 # <a name="connection-strings"></a>Chaînes de connexion
 
@@ -64,10 +64,10 @@ La chaîne de connexion se compose d’une liste de paramètres représentés so
 - `EndpointSuffix` (exemple : applicationinsights.azure.cn) La définition du suffixe du point de terminaison indique au SDK à quel cloud Azure se connecter. Le SDK assemble le reste du point de terminaison pour les services individuels.
 - Points de terminaison explicites.
   Tout service peut être substitué explicitement dans la chaîne de connexion.
-   - `IngestionEndpoint` (exemple : https://dc.applicationinsights.azure.com)
-   - `LiveEndpoint` (exemple : https://live.applicationinsights.azure.com)
-   - `ProfilerEndpoint` (exemple : https://profiler.applicationinsights.azure.com)
-   - `SnapshotEndpoint` (exemple : https://snapshot.applicationinsights.azure.com)
+   - `IngestionEndpoint` (exemple : `https://dc.applicationinsights.azure.com`)
+   - `LiveEndpoint` (exemple : `https://live.applicationinsights.azure.com`)
+   - `ProfilerEndpoint` (exemple : `https://profiler.applicationinsights.azure.com`)
+   - `SnapshotEndpoint` (exemple : `https://snapshot.applicationinsights.azure.com`)
 
 #### <a name="endpoint-schema"></a>Schéma de point de terminaison
 
@@ -106,10 +106,10 @@ Dans cet exemple, seule la clé d’instrumentation a été définie.
 - Le schéma d’autorisation est défini par défaut sur « ikey » 
 - Clé d’instrumentation : 00000000-0000-0000-0000-000000000000
 - Les URI de services régionaux se basent sur les [valeurs par défaut du SDK](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) et se connectent au service Azure global public :
-   - Ingestion : https://dc.services.visualstudio.com/
-   - Métriques temps réel : https://rt.services.visualstudio.com/
-   - Profiler : https://agent.azureserviceprofiler.net/
-   - Débogueur : https://agent.azureserviceprofiler.net/  
+   - Ingestion : `https://dc.services.visualstudio.com/`
+   - Métriques temps réel : `https://rt.services.visualstudio.com/`
+   - Profiler : `https://agent.azureserviceprofiler.net/`
+   - Débogueur : `https://agent.azureserviceprofiler.net/`
 
 
 
@@ -122,10 +122,10 @@ Dans cet exemple, cette chaîne de connexion spécifie le suffixe du point de te
 - Le schéma d’autorisation est défini par défaut sur « ikey » 
 - Clé d’instrumentation : 00000000-0000-0000-0000-000000000000
 - Les URI de services régionaux se basent sur le suffixe de point de terminaison fourni : 
-   - Ingestion : https://dc.ai.contoso.com
-   - Métriques temps réel : https://live.ai.contoso.com
-   - Profiler : https://profiler.ai.contoso.com 
-   - Débogueur : https://snapshot.ai.contoso.com   
+   - Ingestion : `https://dc.ai.contoso.com`
+   - Métriques temps réel : `https://live.ai.contoso.com`
+   - Profiler : `https://profiler.ai.contoso.com`
+   - Débogueur : `https://snapshot.ai.contoso.com`  
 
 
 
@@ -138,10 +138,10 @@ Dans cet exemple, cette chaîne de connexion spécifie des substitutions explici
 - Le schéma d’autorisation est défini par défaut sur « ikey » 
 - Clé d’instrumentation : 00000000-0000-0000-0000-000000000000
 - Les URI de services régionaux se basent sur les valeurs de remplacement explicites : 
-   - Ingestion : https:\//custom.com:111/
-   - Métriques en temps réel : https:\//custom.com:222/
-   - Profileur : https:\//custom.com:333/ 
-   - Débogueur : https:\//custom.com:444/   
+   - Ingestion : `https://custom.com:111/`
+   - Métriques temps réel : `https://custom.com:222/`
+   - Profiler : `https://custom.com:333/`
+   - Débogueur : `https://custom.com:444/`  
 
 
 ## <a name="how-to-set-a-connection-string"></a>Comment définir une chaîne de connexion

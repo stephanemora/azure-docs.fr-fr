@@ -11,23 +11,23 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 4488c174ba5ff35ec2709d7c1b9f3093b4ee90a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8fb39e8762d31f00029a0eeea33f1e630fb15a6
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81409070"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927392"
 ---
-# <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Mettre à jour des modèles Azure Machine Learning à l’aide de l’activité des ressources de mise à jour
+# <a name="update-ml-studio-classicv-models-by-using-update-resource-activity"></a>Mettre à jour des modèles ML Studio (classique) à l’aide de l’activité des ressources de mise à jour
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article vient s’ajouter à l’article principal sur l’intégration Azure Data Factory - Azure Machine Learning : [Création de pipelines prédictifs à l'aide d'Azure Data Factory et Azure Machine Learning](transform-data-using-machine-learning.md). Si vous ne l’avez pas encore fait, consultez l’article principal avant de lire cet article.
+Cet article vient compléter l’article principal sur l’intégration Azure Data Factory - ML Studio (classique) : [Créer des pipelines prédictifs à l’aide d’Azure Data Factory et Azure Machine Learning](transform-data-using-machine-learning.md). Si vous ne l’avez pas encore fait, consultez l’article principal avant de lire cet article.
 
 ## <a name="overview"></a>Vue d’ensemble
-Dans le cadre du processus de mise en place de modèles Azure Machine Learning, votre modèle est formé et enregistré. Vous l’utilisez ensuite pour créer un service web prédictif. Le service web peut ensuite être utilisé dans des sites web, des tableaux de bord et des applications mobiles.
+Dans le cadre du processus de mise en place de modèles ML Studio (classique), votre modèle est formé et enregistré. Vous l’utilisez ensuite pour créer un service web prédictif. Le service web peut ensuite être utilisé dans des sites web, des tableaux de bord et des applications mobiles.
 
-Les modèles que vous créez à l’aide de Machine Learning ne sont généralement pas statiques. Lorsque de nouvelles données sont disponibles ou lorsque le consommateur de l’API a ses propres données, il faut effectuer à nouveau l’apprentissage du modèle. Reportez-vous à [Reformer un modèle Machine Learning](../machine-learning/machine-learning-retrain-machine-learning-model.md) pour plus d’informations sur la façon dont vous pouvez reformer un modèle dans Azure Machine Learning.
+Les modèles que vous créez à l’aide de Machine Learning ne sont généralement pas statiques. Lorsque de nouvelles données sont disponibles ou lorsque le consommateur de l’API a ses propres données, il faut effectuer à nouveau l’apprentissage du modèle. 
 
 Il peut être très fréquent d’avoir à effectuer à nouveau l’apprentissage du modèle. Avec l’activité d’exécution par lot et l’activité des ressources de mise à jour, vous pouvez mettre en place le modèle Azure Machine Learning qui reforme et met à jour le service web prédictif à l’aide de Data Factory.
 
@@ -35,9 +35,9 @@ L’image suivante illustre la relation entre les services web d’apprentissage
 
 ![SERVICES WEB](./media/update-machine-learning-models/web-services.png)
 
-## <a name="azure-machine-learning-update-resource-activity"></a>Activité des ressources de mise à jour Azure Machine Learning
+## <a name="ml-studio-classic-update-resource-activity"></a>Activité des ressources de mise à jour ML Studio (classique)
 
-L’extrait de code JSON suivant définit une activité d’exécution par lot Azure Machine Learning.
+L’extrait de code JSON suivant définit une activité d’exécution par lot ML Studio (classique).
 
 ```json
 {
@@ -130,7 +130,7 @@ Voici un exemple de définition de service lié :
 Le scénario suivant fournit plus de détails. Il présente un exemple de réentraînement et de mise à jour de modèles Machine Learning Studio à partir d’un pipeline Azure Data Factory.
 
 
-## <a name="sample-retraining-and-updating-an-azure-machine-learning-model"></a>Exemple : Reformation et mise à jour d’un modèle Azure Machine Learning
+## <a name="sample-retraining-and-updating-an-azure-machine-learning-model"></a>Exemple : Réentraînement et mise à jour d’un modèle Azure Machine Learning
 
 Cette section fournit un exemple de pipeline qui utilise **l’activité d’exécution par lot Azure Machine Learning Studio** pour réentraîner un modèle. Le pipeline utilise également l’**activité des ressources de mise à jour Azure Machine Learning Studio** pour mettre à jour le modèle dans le service web de notation. La section fournit également des extraits de code JSON pour tous les services liés, jeux de données et éléments de pipeline dans l’exemple.
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/29/2019
-ms.openlocfilehash: 39ea8dda0fd823d3061b2cb29e1c548f99281c82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b417e7c4589f3a4214400a877812d196a63349b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418794"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82870037"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Créer une dépendance de déclencheur de fenêtre bascule
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -24,6 +24,10 @@ ms.locfileid: "81418794"
 Cet article explique étape par étape comment créer une dépendance envers un déclencheur de fenêtre bascule. Pour des informations générales sur les déclencheurs de fenêtre bascule, voir [Guide pratique pour créer un déclencheur de fenêtre bascule](how-to-create-tumbling-window-trigger.md).
 
 Pour créer une chaîne de dépendance et faire en sorte qu’un déclencheur ne soit exécuté qu’après l’exécution d’un autre déclencheur dans la fabrique de données, utilisez cette fonctionnalité avancée de création d’une dépendance envers une fenêtre bascule.
+
+Pour une démonstration de la création de pipelines dépendants dans votre fabrique de données Azure à l’aide d’un déclencheur de fenêtre bascule, regardez la vidéo suivante :
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
 ## <a name="create-a-dependency-in-the-data-factory-ui"></a>Créer une dépendance dans l’interface utilisateur de Data Factory
 
@@ -82,11 +86,14 @@ Le tableau suivant donne la liste des attributs nécessaires pour définir une d
 | taille | Taille de la fenêtre bascule de dépendance. Fournissez une valeur TimeSpan positive. Cette propriété est facultative. | Timespan<br/>(hh:mm:ss) | Non  |
 
 > [!NOTE]
-> Un déclencheur de fenêtre bascule peut dépendre d’un maximum de deux autres déclencheurs.
+> Un déclencheur de fenêtre bascule peut dépendre d’un maximum de cinq autres déclencheurs.
 
 ## <a name="tumbling-window-self-dependency-properties"></a>Propriétés d’autodépendance d’une fenêtre bascule
 
-Dans les scénarios où le déclencheur ne doit pas passer à la fenêtre suivante tant que la fenêtre précédente n’est pas terminée, créez une autodépendance. Un déclencheur d'autodépendance dépend de la réussite de ses exécutions antérieures, au cours de l’heure précédente, et présente les propriétés ci-dessous :
+Dans les scénarios où le déclencheur ne doit pas passer à la fenêtre suivante tant que la fenêtre précédente n’est pas terminée, créez une autodépendance. Un déclencheur d’autodépendance qui dépend de la réussite de ses exécutions antérieures au cours de l’heure précédente présente les propriétés indiquées dans le code suivant.
+
+> [!NOTE]
+> Si votre pipeline déclenché compte sur la sortie des pipelines dans les fenêtres déclenchées précédemment, nous vous recommandons d’utiliser uniquement l’autodépendance du déclencheur de la fenêtre bascule. Pour limiter les exécutions de déclencheurs parallèles, définissez le nombre maximal de déclencheurs simultanés.
 
 ```json
 {
@@ -147,10 +154,6 @@ Une tâche de traitement quotidien des données de télémétrie dépend d’une
 Voici une tâche quotidienne sans écart dans les flux de sortie :
 
 ![Exemple d’autodépendance](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "Exemple d’autodépendance")
-
-Pour une démonstration de la création de pipelines dépendants dans votre fabrique de données Azure à l’aide d’un déclencheur de fenêtre bascule, regardez la vidéo suivante :
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
 ## <a name="monitor-dependencies"></a>Effectuer le monitoring des dépendances
 

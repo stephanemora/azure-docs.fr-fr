@@ -7,18 +7,18 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 05/11/2020
 ms.author: dapine
-ms.openlocfilehash: c86d806c408c2e8226e632a0b15e1e8729c987f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa0ad8c7f75a977e1a39ff6ffd6fee08d977f57a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131535"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202006"
 ---
 # <a name="azure-cognitive-services-security"></a>Sécurité Azure Cognitive Services
 
-La sécurité doit être considérée comme une priorité absolue lors du développement de toute application. Avec l’arrivée d’applications prenant en charge l’intelligence artificielle, la sécurité devient encore plus importante. Cet article présente divers aspects de la sécurité Azure Cognitive Services, tels que l’utilisation du protocole TLS, l’authentification et la configuration sécurisée des données sensibles.
+La sécurité doit être considérée comme une priorité absolue lors du développement de toute application. Avec l’arrivée d’applications prenant en charge l’intelligence artificielle, la sécurité devient encore plus importante. Cet article présente divers aspects de la sécurité Azure Cognitive Services, tels que l'utilisation du protocole TLS, l'authentification, la configuration sécurisée des données sensibles et Customer Lockbox pour l'accès aux données client.
 
 ## <a name="transport-layer-security-tls"></a>TLS (Transport Layer Security)
 
@@ -193,6 +193,21 @@ NSString* value =
 ```
 
 ---
+
+## <a name="customer-lockbox"></a>Customer Lockbox
+
+[Customer Lockbox pour Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md) fournit une interface dans laquelle les clients peuvent vérifier et approuver/refuser les demandes d'accès aux données client. Il est utilisé lorsqu’un ingénieur Microsoft doit accéder aux données client dans le cadre d’une demande de support. Pour plus d'informations sur la façon dont les demandes Customer Lockbox sont initiées, suivies et stockées en vue d'audits et de révisions ultérieures, consultez [Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md). 
+
+Customer Lockbox est disponible pour le service cognitif suivant :
+
+* Convertisseur
+
+Concernant le service Language Understanding, les ingénieurs Microsoft n'auront pas accès aux données client de la référence SKU E0. Pour demander à utiliser la référence SKU E0, complétez et envoyez le  [formulaire de demande de service LUIS](https://aka.ms/cogsvc-cmk). Comptez environ 3 à 5 jours ouvrables pour obtenir des nouvelles sur le statut de votre demande. Selon la demande, vous pouvez être placé dans une file d’attente et approuvé lorsque de l’espace devient disponible. Une fois que votre demande d'utilisation de la référence SKU E0 avec LUIS aura été approuvée, vous devrez créer une ressource Language Understanding à partir du portail Azure et sélectionner le niveau tarifaire E0. Les utilisateurs n'auront pas la possibilité de procéder à la mise à niveau de la référence SKU F0 vers la nouvelle référence SKU E0.
+
+Le service Speech ne prend actuellement pas en charge Customer Lockbox. Cependant, les données client peuvent être stockées à l'aide de BYOS, ce qui vous permet d'effectuer des contrôles de données semblables à ceux de [Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md). N'oubliez pas que les données du service Speech restent et sont traitées dans la région où la ressource Speech a été créée. Cela s'applique à toutes les données au repos ainsi qu'aux données en transit. Lorsque vous utilisez des fonctionnalités de personnalisation, telles que Custom Speech et Custom Voice, toutes les données client sont transférées, stockées et traitées dans la région où résident votre BYOS (si utilisé) et la ressource du service Speech.
+
+> [!IMPORTANT]
+> Microsoft **n'utilise pas** les données client pour améliorer ses modèles vocaux. En outre, si la journalisation des points de terminaison est désactivée et qu'aucune personnalisation n'est utilisée, aucune donnée client n'est stockée. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

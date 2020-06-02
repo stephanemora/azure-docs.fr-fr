@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: a5d90106a85a61cbf499c4c08130392b922a45f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c4146dd4988be93475dc4d2d0dade06b8738ad83
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77593578"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402458"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Stratégies de support pour Azure Kubernetes Service
 
@@ -38,11 +38,6 @@ Microsoft gère et surveille les composants suivants via le panneau de contrôle
 AKS n’est pas une solution de cluster entièrement gérée. Certains composants, tels que des nœuds Worker ont *la responsabilité partagée*, où les utilisateurs doivent participer à la gestion du cluster AKS. L’entrée utilisateur est nécessaire, par exemple, pour appliquer un correctif de sécurité du système d’exploitation de nœud Worker.
 
 Les services sont *gérés* de façon que Microsoft et l’équipe AKS déploient, gèrent et soient responsables de l’opérationnalité et de la disponibilité du service. Les clients ne peuvent pas modifier ces composants gérés. Microsoft limite la personnalisation, afin de garantir une expérience utilisateur cohérente et évolutive. Pour une solution entièrement personnalisable, consultez [AKS Engine](https://github.com/Azure/aks-engine) (Moteur AKS).
-
-> [!NOTE]
-> Les nœuds Worker AKS sont affichés dans le portail Azure en tant que ressources Azure IaaS standard. Toutefois, ces machines virtuelles sont déployées dans un groupe de ressources Azure personnalisé (portant le préfixe MC\\\*). Il est possible de modifier des nœuds Worker AKS. Par exemple, vous pouvez utiliser Secure Shell (SSH) pour modifier les nœuds Worker AKS de la même façon que si vous apportiez des modifications à des machines virtuelles normales (néanmoins, vous ne pouvez pas changer l’image de système d’exploitation de base, et les modifications peuvent ne pas être conservées suite à une mise à jour ou un redémarrage). En outre, vous pouvez associer d’autres ressources Azure aux nœuds Worker AKS. Toutefois, lorsque vous apportez des modifications de *personnalisation et de gestion en dehors du réseau*, le cluster AKS peut ne plus être supporté. Évitez de modifier des nœuds Worker, sauf si le Support Microsoft vous demande d’apporter ces modifications.
-
-L’émission d’opérations non prises en charge telles que définies ci-dessus, comme la désallocation hors bande de tous les nœuds d’agent, entraîne la non prise en charge du cluster. AKS se réserve le droit d’archiver les plans de contrôle qui ont été configurés sans respecter les instructions de prise en charge pendant des périodes prolongées supérieures ou égales à 30 jours. AKS tient à jour les sauvegardes des métadonnées etcd du cluster et peut facilement réallouer le cluster. Cette réallocation peut être lancée par toute opération PUT qui permet au cluster de bénéficier à nouveau d’une prise en charge, par exemple une mise à niveau ou une mise à l’échelle vers des nœuds d’agent actifs.
 
 ## <a name="shared-responsibility"></a>Responsabilité partagée
 
@@ -104,8 +99,22 @@ Microsoft ne redémarre pas automatiquement les nœuds Worker pour appliquer des
 
 Les clients sont responsables de l’exécution des mises à niveau Kubernetes. Ils peuvent exécuter des mises à niveau via le Panneau de configuration Azure ou Azure CLI. Cela s’applique pour les mises à jour qui contiennent des améliorations en matière de sécurité ou de fonctionnalités pour Kubernetes.
 
+#### <a name="user-customization-of-worker-nodes"></a>Personnalisation de l'utilisateur des nœuds Worker
 > [!NOTE]
-> Étant donné qu’AKS est un *service géré*, ses objectifs finaux comprennent la suppression de responsabilité pour les correctifs, les mises à jour et la collecte des journaux afin d’étoffer la gestion du service et de proposer une solution automatique. À mesure de l’augmentation de la capacité du service pour la gestion de bout en bout, les versions futures peuvent omettre certaines fonctions (par exemple, le redémarrage de nœud et l’application de correctifs automatique).
+> Les nœuds Worker AKS sont affichés dans le portail Azure en tant que ressources Azure IaaS standard. Toutefois, ces machines virtuelles sont déployées dans un groupe de ressources Azure personnalisé (portant le préfixe MC\\\*). Il est possible d’augmenter les nœuds Worker AKS à partir de leurs configurations de base. Par exemple, vous pouvez utiliser Secure Shell (SSH) pour modifier les nœuds Worker AKS de la même manière que vous modifiez des machines virtuelles normales. Néanmoins, vous ne pouvez pas changer l’image de système d’exploitation de base. Toute modification personnalisée peut ne pas être conservée via une mise à niveau, une mise à l’échelle, une mise à jour ou un redémarrage. **Cela étant**, apporter des modifications *hors bande et en dehors de l’étendue de l’API AKS* ne permet la prise en charge du cluster AKS. Évitez de modifier des nœuds Worker, sauf si le Support Microsoft vous demande d’apporter ces modifications.
+
+L’émission d’opérations non prises en charge telles que définies ci-dessus, comme la désallocation hors bande de tous les nœuds d’agent, entraîne la non prise en charge du cluster. AKS se réserve le droit d’archiver les plans de contrôle qui ont été configurés sans respecter les instructions de prise en charge pendant des périodes prolongées supérieures ou égales à 30 jours. AKS tient à jour les sauvegardes des métadonnées etcd du cluster et peut facilement réallouer le cluster. Cette réallocation peut être lancée par toute opération PUT qui permet au cluster de bénéficier à nouveau d’une prise en charge, par exemple une mise à niveau ou une mise à l’échelle vers des nœuds d’agent actifs.
+
+AKS gère le cycle de vie et les opérations des nœuds Worker pour le compte des clients ; la modification des ressources IaaS associées aux nœuds Worker n'est **pas prise en charge**. À titre d'exemple, la personnalisation d’un jeu de mise à l’échelle de machines virtuelles de pools de nœuds en modifiant manuellement les configurations sur le VMSS via le portail VMSS ou l’API VMSS n'est pas prise en charge.
+ 
+Pour les configurations ou packages spécifiques à la charge de travail, AKS recommande l’utilisation de [ressources Kubernetes Daemonset](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/).
+
+L’utilisation de ressources Kubernetes Daemonset privilégiées et de conteneurs init permet aux clients de paramétrer/modifier ou d’installer des logiciels tiers sur des nœuds Worker de cluster. Parmi ces personnalisations, citons l’ajout d’un logiciel d’analyse de sécurité personnalisé ou la mise à jour des paramètres sysctl.
+
+Bien qu’il s’agisse d’un chemin d’accès recommandé si les exigences ci-dessus s’appliquent, l’ingénierie et la prise en charge AKS ne permettent pas de résoudre les problèmes ou de diagnostiquer des modifications incorrectes/non fonctionnelles ou celles qui rendent le nœud indisponible en raison du déploiement d'une ressource Daemonset par le client.
+
+> [!NOTE]
+> En tant que *service géré*, AKS présente pour objectifs finaux la suppression de responsabilité pour les correctifs, les mises à jour et la collecte des journaux afin d’étoffer la gestion du service et de proposer une solution automatique. À mesure de l’augmentation de la capacité du service pour la gestion de bout en bout, les versions futures peuvent omettre certaines fonctions (par exemple, le redémarrage de nœud et l’application de correctifs automatique).
 
 ### <a name="security-issues-and-patching"></a>Problèmes de sécurité et application de correctifs
 

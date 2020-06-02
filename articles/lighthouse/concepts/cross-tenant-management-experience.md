@@ -1,14 +1,14 @@
 ---
 title: Expériences de la gestion multilocataire
 description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
-ms.date: 04/24/2020
+ms.date: 05/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 51cd464da417bfd1d6d4ff52e2a2595a7ce77fe6
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: ad8fc7452a704a4a030e7a6eb45a5ba397912ef1
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201701"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402373"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
@@ -113,6 +113,7 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 
 - Gérer les ressources Azure Sentinel [dans les locataires clients](../../sentinel/multiple-tenants-service-providers.md)
 - [Suivre les attaques et afficher les alertes de sécurité sur plusieurs locataires clients](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
+- [Afficher les incidents](../../sentinel/multiple-workspace-view.md) dans plusieurs espaces de travail Sentinel répartis entre les locataires clients
 
 [Azure Service Health](../../service-health/index.yml) :
 

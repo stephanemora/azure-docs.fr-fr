@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 363dc4d469d912c14f5f89ef6ff433a2243587e8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: d6a0a84050cb8f1b3ad0c04aa66c5b3797282f2e
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426729"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983225"
 ---
 # <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>Créer un point de terminaison privé managé pour votre source de données (version préliminaire)
 
@@ -30,17 +30,17 @@ Dans Azure Synapse Studio, dans le volet de navigation gauche, sélectionnez l�
 
 ## <a name="step-3-select-the-data-source-type"></a>Étape 3 : Sélectionner le type de source de données
 
-Sélectionnez le type de source de données. Dans ce cas, la source de données cible est un compte ADLS gen2. Sélectionnez **Continuer**.
+Sélectionnez le type de source de données. Dans ce cas, la source de données cible est un compte ADLS Gen2. Sélectionnez **Continuer**.
 ![Sélectionner un type de source de données cible](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-3.png)
 
 ## <a name="step-4-enter-information-about-the-data-source"></a>Étape 4 : Entrer des informations sur la source de données
 
-Dans la fenêtre suivante, entrez les informations relatives à la source de données. Dans cet exemple, nous créons un point de terminaison privé managé pour un compte ADLS gen2. Entrez un **Nom** pour le point de terminaison privé managé. Fournissez un **Abonnement Azure** et un **Nom de compte de stockage**. Sélectionnez **Create** (Créer).
+Dans la fenêtre suivante, entrez les informations relatives à la source de données. Dans cet exemple, nous créons un point de terminaison privé managé pour un compte ADLS Gen2. Entrez un **Nom** pour le point de terminaison privé managé. Fournissez un **Abonnement Azure** et un **Nom de compte de stockage**. Sélectionnez **Create** (Créer).
 ![Entrer les détails de la source de données cible](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-4.png)
 
 ## <a name="step-5-verify-that-your-managed-private-endpoint-was-successfully-created"></a>Étape 5 : Vérifier que votre point de terminaison privé managé a été correctement créé
 
-Une fois la demande envoyée, son état s’affiche. Pour vérifier que la création de votre point de terminaison privé managé a été correctement créée, vérifiez son *État d’approvisionnement*. Il se peut que vous deviez attendre 1 minute et sélectionner **Actualiser** pour mettre à jour l’état d’approvisionnement. Vous pouvez voir que le point de terminaison privé managé pour le compte ADLS gen2 a été correctement créé.
+Une fois la demande envoyée, son état s’affiche. Pour vérifier que la création de votre point de terminaison privé managé a été correctement créée, vérifiez son *État d’approvisionnement*. Il se peut que vous deviez attendre 1 minute et sélectionner **Actualiser** pour mettre à jour l’état d’approvisionnement. Vous pouvez voir que le point de terminaison privé managé pour le compte ADLS Gen2 a été correctement créé.
 
 Vous pouvez également voir que l’*État d’approbation* est *En attente*. Le propriétaire de la ressource cible peut approuver ou refuser la demande de connexion du point de terminaison privé. Si le propriétaire approuve la demande de connexion du point de terminaison privé, un lien privé est établi. En cas de refus, aucun lien privé n’est établi.
 ![État de la demande de création de point de terminaison privé managé](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-5.png)

@@ -56,6 +56,10 @@
           href: howto-legacy-exchange-portal.md
         - name: Azure PowerShell
           href: howto-legacy-exchange-powershell.md
+    - name: Créer ou modifier un peering Exchange avec un serveur de routage
+      items:
+        - name: Portail
+          href: how-to-exchange-route-server-portal.md
 - name: Informations de référence
   items:
     - name: Azure CLI

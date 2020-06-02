@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 03/31/2020
 ms.author: juliako
-ms.openlocfilehash: 99aeb5384b317d1b4d291c769b5402e829247b30
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: d6ff823951e6474a35a514036f02c0aabb17bf01
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656209"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82997692"
 ---
 > [!NOTE]
 > Pour les ressources qui ne sont pas corrigées, ouvrez un ticket de support pour demander une augmentation des quotas. Ne créez pas d’autres comptes Azure Media Services pour obtenir des limites supérieures.
@@ -66,7 +66,7 @@ Les enregistrements de travaux de votre compte qui ont plus de 90 jours sont aut
 | --- | --- | 
 | Événements en direct <sup>(4)</sup> par compte Media Services |5|
 | Sorties en direct par événement en direct |3 <sup>(5)</sup> |
-| Durée maximale de la sortie en direct | 25 heures |
+| Durée maximale de la sortie en direct | [Taille de la fenêtre DVR](../articles/media-services/latest/live-event-cloud-dvr.md) |
 
 <sup>4</sup> Pour plus d’informations sur les limites relatives aux événements en direct, consultez [Comparaison et limites des types d’événements en direct](../articles/media-services/latest/live-event-types-comparison.md).
 

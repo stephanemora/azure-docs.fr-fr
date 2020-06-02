@@ -2,7 +2,7 @@
 title: Personnaliser les tâches Microsoft Security Code Analysis
 titleSuffix: Azure
 description: Cet article décrit la personnalisation des tâches dans l’extension Microsoft Security Code Analysis
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/31/2019
@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6cdf892651407defc21f359a8e3b326b4af63b62
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d074c12f28abdc61f4d70356c2a7aa264deb44c
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77499989"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871893"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurer et personnaliser les tâches de build
 
@@ -91,7 +91,8 @@ Les détails de configuration des tâches sont affichés dans la capture d’éc
 ![Configuration de la tâche de build Credential Scanner](./media/security-tools/3-taskdetails.png)
 
 Les options disponibles sont les suivantes :
-
+  - **Nom d’affichage** : Nom de la tâche Azure DevOps. La valeur par défaut est Exécuter Credential Scanner
+  - **Version principale de l'outil** : Les valeurs disponibles sont **CredScan v2**, **CredScan v1**. Nous recommandons aux clients d’utiliser la version **CredScan v2**.
   - **Format de sortie** : Les valeurs disponibles incluent **TSV**, **CSV**, **SARIF** et **PREfast**.
   - **Version de l'outil** : Nous vous recommandons de sélectionner **La plus récente**.
   - **Dossier d'analyse** : Dossier de référentiel à analyser.

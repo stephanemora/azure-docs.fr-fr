@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 5414a70180a82be8253dace7d800c90c1ae6a9bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 50ce0d57ec7395c69bf65e41b67f0cb005a43cb8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79234729"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854968"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 
@@ -76,7 +76,7 @@ Par défaut, le kit SDK JavaScript Application Insights recueille un certain nom
     - ID (le cas échéant) de l’utilisateur qui effectue la demande
     - Contexte de corrélation (le cas échéant) dans lequel la demande est effectuée
 - **Informations utilisateur** (par exemple, emplacement, réseau, adresse IP)
-- **Informations sur l’appareil** (par exemple, navigateur, système d’exploitation, version, langue, résolution, modèle)
+- **Informations sur l’appareil** (par exemple, navigateur, système d’exploitation, version, langue, modèle)
 - **Informations de session**
 
 ### <a name="telemetry-initializers"></a>Initialiseurs de télémétrie
@@ -145,7 +145,14 @@ La plupart des champs de configuration sont nommés de façon à pouvoir avoir l
 
 Par défaut, ce kit SDK **ne gère pas** les modifications de route basées sur l’état qui se produisent dans les applications monopages. Pour activer le suivi automatique des modifications de route pour votre application monopage, vous pouvez ajouter `enableAutoRouteTracking: true` à la configuration de votre installation.
 
-Actuellement, nous proposons un [plug-in React](#react-extensions) distinct que vous pouvez initialiser avec ce kit SDK. Il effectue également le suivi des modifications de route pour vous, ainsi que la collecte [d’autres données de télémétrie spécifiques à React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
+Actuellement, nous proposons un [plug-in React](#react-extensions) distinct que vous pouvez initialiser avec ce SDK. Il effectue également le suivi des modifications de route pour vous, ainsi que la collecte [d’autres données de télémétrie spécifiques à React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
+
+> [!NOTE]
+> Utilisez `enableAutoRouteTracking: true` uniquement si vous n’utilisez **pas** le plug-in REACT. Tous deux peuvent envoyer de nouveaux PageViews lorsque la route change. Si les deux sont activés, il est possible que des PageViews en double soient envoyés.
+
+## <a name="configuration-autotrackpagevisittime"></a>Configuration : autoTrackPageVisitTime
+
+En définissant `autoTrackPageVisitTime: true`, le temps que passe chaque utilisateur sur chaque page est suivi. Pour chaque nouveau PageView, le temps passé par l’utilisateur sur la page *précédente* est envoyée en tant que [métrique personnalisée](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview) appelée `PageVisitTime`. Cette métrique personnalisée est affichable dans [Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) en tant que « métrique basée sur le journal ».
 
 ## <a name="react-extensions"></a>Extensions React
 

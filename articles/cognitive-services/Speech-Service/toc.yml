@@ -390,7 +390,7 @@
           href: voice-assistants.md
     - name: Commandes personnalisées (préversion)
       items:
-        - name: Présentation de l’application de commandes personnalisées
+        - name: Présentation des commandes personnalisées
           href: custom-commands.md
         - name: Démarrages rapides
           items:
@@ -454,6 +454,18 @@
           href: speech-devices-sdk-kws-guidelines.md
         - name: Reconnaissance des mots clés personnalisés
           href: speech-devices-sdk-create-kws.md
+- name: Reconnaissance de l’orateur
+  items:
+    - name: Vue d’ensemble
+      items:
+        - name: "Qu’est-ce que la reconnaissance de l’orateur\_?"
+          href: speaker-recognition-overview.md
+    - name: Informations de référence
+      items:
+        - name: API REST
+          items:
+            - name: API REST de reconnaissance vocale
+              href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
 - name: Hébergement
   items:
     - name: Documentation sur l’hébergement

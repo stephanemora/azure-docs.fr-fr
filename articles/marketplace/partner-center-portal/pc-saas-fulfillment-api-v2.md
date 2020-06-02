@@ -1,22 +1,22 @@
 ---
-title: API de traitement SaaS v2 | Place de marché Azure
-description: Cet article explique comment créer et gérer une offre SaaS sur AppSource et la Place de marché Azure à l’aide des API de traitement v2 associées.
+title: API de traitement SaaS v2 dans la Place de marché commerciale Microsoft
+description: Découvrez comment créer et gérer une offre SaaS sur Microsoft AppSource et la Place de marché Azure à l’aide des API de traitement version 2.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: dsindona
-ms.openlocfilehash: ca49418013357ecaae62ea5e91374eaa1cbde59d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f452349c0d636bc74a3722e2526623c955093f7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275762"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854196"
 ---
-# <a name="saas-fulfillment-apis-version-2"></a>API de traitement SaaS, version 2 
+# <a name="saas-fulfillment-apis-version-2-in-microsoft-commercial-marketplace"></a>API de traitement SaaS version 2 dans la Place de marché commerciale Microsoft
 
-Cet article décrit les API qui permettent aux partenaires de vendre leurs applications SaaS dans la Place de marché AppSource et la Place de marché Azure. Ces API sont obligatoires pour les offres SaaS avec transaction sur AppSource et la Place de marché Azure.
+Cet article décrit les API de traitement qui permettent aux partenaires de vendre leurs applications SaaS dans la Microsoft AppSource et la Place de marché Azure. Ces API sont requises pour les offres SaaS qui peuvent être proposées.
 
 ## <a name="managing-the-saas-subscription-life-cycle"></a>Gestion du cycle de vie des abonnements SaaS
 

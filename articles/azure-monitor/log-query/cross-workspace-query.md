@@ -5,15 +5,18 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/05/2019
-ms.openlocfilehash: 4740034bd970f42833125fa43bfdf72f710ac147
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/01/2020
+ms.openlocfilehash: 83c33e6935de7c9ed9f1b2c9f97aa18dd6b10f01
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226585"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199907"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Effectuer des requêtes de journal inter-ressources dans Azure Monitor  
+
+> [!IMPORTANT]
+> Si vous utilisez une [ressource Application Insights basée sur un espace de travail](../app/create-workspace-resource.md), la télémétrie est stockée dans un espace de travail Log Analytics avec toutes les autres données de journal. Utilisez l’expression log () pour écrire une requête incluant une application dans plusieurs espaces de travail. En présence de plusieurs applications dans le même espace de travail, vous n’avez pas besoin de requête entre espaces de travail.
 
 Auparavant, Azure Monitor vous permettait d’analyser les données uniquement dans l’espace de travail actif, ce qui limitait votre capacité à interroger plusieurs espaces de travail définis dans votre abonnement.  De plus, vos recherches ne pouvaient porter que sur les éléments de télémétrie recueillis par votre application web avec Application Insights directement dans Application Insights ou à partir de Visual Studio. Cela compliquait aussi l’analyse simultanée des données opérationnelles et d’application en mode natif.
 

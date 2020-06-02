@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
-ms.openlocfilehash: 3aeb0369ee4a04dbbe89a4d0684b2a6c97378d13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 033ec0f4011cae657fc464849aac5c5d9a850907
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77123196"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83343318"
 ---
 Le Calcul Azure propose des tailles de machines virtuelles qui sont isolées pour un type de matériel spécifique et dédiées à un seul et même client.  Ces tailles de machines virtuelles conviennent mieux aux charges de travail qui nécessitent un niveau élevé d’isolation par rapport aux autres clients pour les charges de travail qui impliquent des éléments tels que les exigences réglementaires et de conformité.  Les clients peuvent également choisir de subdiviser les ressources de ces machines virtuelles isolées à l’aide de la [prise en charge d’Azure pour les machines virtuelles imbriquées](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
@@ -23,11 +23,11 @@ L’utilisation d’une taille isolée garantit que votre machine virtuelle sera
 * Standard_M128ms
 * Standard_GS5
 * Standard_G5
-* Standard_DS15_v2
-* Standard_D15_v2
+* Standard_DS15_v2 <sup>*</sup>
+* Standard_D15_v2 <sup>*</sup>
 * Standard_F72s_v2
 
-Pour plus d’informations sur chaque taille isolée disponible, [cliquez ici](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
+<sup>*</sup>La garantie d’isolation sera mise hors service le 15 mai 2020
 
 ## <a name="retiring-d15_v2ds15_v2-isolation-on-may-15-2020"></a>Retrait de l’isolation D15_v2/DS15_v2 le 15 mai 2020
 **Mise à jour du 10 février 2020 : La chronologie de retrait de l’« isolation » a été étendue au 15 mai 2020**

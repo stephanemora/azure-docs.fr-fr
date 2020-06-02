@@ -46,6 +46,8 @@
           href: test-createuidefinition.md
         - name: Demander l’accès juste-à-temps
           href: request-just-in-time-access.md
+        - name: Utiliser un réseau virtuel existant
+          href: existing-vnet-integration.md
         - name: Mettre à jour les ressources managées
           href: update-managed-resources.md
         - name: Utiliser le portail pour publier la définition d’application
