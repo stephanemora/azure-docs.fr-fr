@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 32bc90cc069ac82641c3aa7692c900c60db7ba87
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 915df5d6356e2246c8937cb167c8068b00e0917b
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81733097"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854626"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Envoyer en streaming des données de supervision Azure vers un hub d’événements
 Azure Monitor fournit une solution de supervision de pile complète pour les applications et services dans Azure, dans d’autres clouds et en local. En plus d’utiliser Azure Monitor pour analyser ces données et en tirer parti dans différents scénarios de supervision, vous aurez peut-être besoin de les envoyer à d’autres outils de supervision de votre environnement. Dans la plupart des cas, la méthode la plus efficace de streaming des données de supervision vers des outils externes consiste à utiliser [Azure Event Hubs](/azure/event-hubs/). Cet article fournit une brève description de la façon dont vous pouvez envoyer en streaming des données de supervision à partir de différentes sources vers un hub d’événements, ainsi que des liens vers des instructions détaillées.

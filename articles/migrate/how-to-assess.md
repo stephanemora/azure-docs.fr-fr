@@ -1,31 +1,21 @@
 ---
 title: Ajouter des outils d’évaluation dans Azure Migrate
 description: Découvrez comment ajouter des outils d’évaluation dans Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
-ms.manager: carmonm
-ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: 64af78abd8f82b41d4a03fbb56c96e3038cef5a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: how-to
+ms.date: 04/26/2020
+ms.openlocfilehash: 7e7d7cf26cab30cd7449e4643fdfb59faece47f2
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74185910"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901058"
 ---
 # <a name="add-assessment-tools"></a>Ajouter des outils d’évaluation
 
-Cet article explique comment ajouter des outils d’évaluation dans [Azure Migrate](migrate-overview.md).
+Cet article explique comment ajouter des outils d’évaluation dans [Azure Migrate](migrate-overview.md). 
 
-Azure Migrate fournit un hub d’outils pour l’évaluation et la migration vers Azure. Celui-ci comprend des outils Azure Migrate ainsi que d’autres outils et des offres d’ISV (fournisseurs de logiciels indépendants).
-
-Si vous souhaitez ajouter un outil d’évaluation et que vous n’avez pas encore de projet Azure Migrate, suivez cet [article](how-to-add-tool-first-time.md).
-
-## <a name="select-a-tool"></a>Sélectionner un outil
-
-Si vous choisissez un outil non-Azure Migrate pour l’évaluation, commencez par obtenir une licence ou inscrivez-vous à un essai gratuit, conformément à la stratégie de l’outil. Les outils disposent d’une option permettant de se connecter à Azure Migrate. Suivez les instructions et la documentation pour connecter l’outil à Azure Migrate. [En savoir plus ](migrate-services-overview.md)sur les outils.
-
+- Si vous souhaitez ajouter un outil d’évaluation et que vous n’avez pas encore de projet Azure Migrate, suivez cet [article](how-to-add-tool-first-time.md).
+- Si vous avez ajouté un outil ISV ou Movere, pour l’évaluation, [suivez les étapes](prepare-isv-movere.md) de préparation à l’utilisation de l’outil.
 
 ## <a name="select-an-assessment-scenario"></a>Sélectionnez un scénario d’évaluation
 

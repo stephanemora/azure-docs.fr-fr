@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 10a061163447a60f1c25b386ef28028436284650
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b78e227159065d2ae85d9b1dc989e8ea192ae26a
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75453070"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982800"
 ---
 # <a name="microsoft-global-network"></a>Réseau Microsoft mondial
 
@@ -32,7 +32,7 @@ Le [réseau mondial Microsoft](https://azure.microsoft.com/global-infrastructure
  
 ## <a name="get-the-premium-cloud-network"></a>Obtenir le réseau cloud Premium
  
-Il est facile de choisir la [meilleure expérience possible](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) quand vous utilisez le cloud Microsoft. À partir du moment où le trafic client entre sur notre réseau mondial par le biais de nos nœuds de périphérie disposés de façon stratégique, vos données transitent via des routes optimisées presque à la vitesse de la lumière. Cela garantit une latence optimale pour de meilleures performances. Ces nœuds de périphérie, tous interconnectés à plus de 3 500 partenaires Internet uniques (pairs) par le biais des milliers de connexions dans plus de 145 endroits, servent de base à notre stratégie d’interconnexion. 
+Il est facile de choisir la [meilleure expérience possible](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) quand vous utilisez le cloud Microsoft. À partir du moment où le trafic client entre sur notre réseau mondial par le biais de nos nœuds de périphérie disposés de façon stratégique, vos données transitent via des routes optimisées presque à la vitesse de la lumière. Cela garantit une latence optimale pour de meilleures performances. Ces nœuds de périphérie, tous interconnectés à plus de 3 500 partenaires Internet uniques (pairs) par le biais des milliers de connexions dans plus de 165 endroits, servent de base à notre stratégie d’interconnexion. 
  
 Si vous vous connectez de Londres à Tokyo, ou de Washington DC à Los Angeles, les performances réseau sont quantifiées et affectées par des éléments tels que la latence, l’instabilité, la perte de paquets et le débit.  Chez Microsoft, nous préférons utiliser des interconnexions directes plutôt que des liaisons de transit. Cela maintient le trafic des réponses symétrique et permet de garder les tronçons, les parties d’un appairage (peering) et les chemins aussi courts et aussi simples possible. 
 

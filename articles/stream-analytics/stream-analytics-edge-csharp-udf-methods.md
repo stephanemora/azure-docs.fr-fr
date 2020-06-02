@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: f07c02df1b8e0032c9e1b4ef9a24c345fee20a40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 53ebf8adb99362b5aaf27676bbd50fb8b525f526
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75426313"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994485"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Développer des fonctions .NET Standard définies par l’utilisateur pour des travaux Azure Stream Analytics (préversion)
 
@@ -42,17 +42,29 @@ Il existe trois façons d’implémenter des fonctions définies par l’utilisa
 Le format d’un package de fonction définie par l’utilisateur a le chemin `/UserCustomCode/CLR/*`. Les bibliothèques de liens dynamiques (DLL) et les ressources sont copiées sous le dossier `/UserCustomCode/CLR/*`, qui permet d’isoler les DLL utilisateur du système et les DLL Azure Stream Analytics. Ce chemin du package est utilisé pour toutes les fonctions, quelle que soit la méthode d’utilisation choisie.
 
 ## <a name="supported-types-and-mapping"></a>Types pris en charge et mappage
+Pour que les valeurs Azure Stream Analytics puissent être utilisées en C#, elles doivent être marshalées d’un environnement à l’autre. Le marshaling se produit pour tous les paramètres en entrée d’une fonction définie par l’utilisateur. Chaque type Azure Stream Analytics a un type correspondant en C#, indiqué dans le tableau ci-dessous :
 
-|**Type de fonction définie par l’utilisateur (C#)**  |**Type Azure Stream Analytics**  |
+|**Type Azure Stream Analytics** |**Type C#** |
+|---------|---------|
+|bigint | long |
+|float | double |
+|nvarchar(max) | string |
+|DATETIME | DateTime |
+|Enregistrement | Dictionary\<string, object> |
+|Array | Object[] |
+
+Il en va de même lorsque les données doivent être marshalées de C# vers Azure Stream Analytics, ce qui se produit sur la valeur de sortie d’une fonction définie par l’utilisateur. Le tableau ci-dessous montre les types pris en charge :
+
+|**Type C#**  |**Type Azure Stream Analytics**  |
 |---------|---------|
 |long  |  bigint   |
-|double  |  double   |
+|double  |  float   |
 |string  |  nvarchar(max)   |
-|dateTime  |  dateTime   |
-|struct  |  IRecord   |
-|object  |  IRecord   |
-|Tableau\<objet>  |  IArray   |
-|dictionary<string, object>  |  IRecord   |
+|DateTime  |  dateTime   |
+|struct  |  Enregistrement   |
+|object  |  Enregistrement   |
+|Object[]  |  Array   |
+|Dictionary\<string, object>  |  Enregistrement   |
 
 ## <a name="codebehind"></a>CodeBehind
 Vous pouvez écrire des fonctions définies par l’utilisateur dans le fichier code-behind **Script.asql**. Les outils Visual Studio compilent automatiquement le fichier code-behind dans un fichier d’assembly. Les assemblys sont packagés dans un fichier zip et chargés dans votre compte de stockage quand vous envoyez votre travail à Azure. Vous pouvez apprendre à écrire une fonction C# définie par l’utilisateur à l’aide de d’un fichier code-behind en suivant le tutoriel [Fonction C# définie par l’utilisateur pour les travaux de périphérie Stream Analytics](stream-analytics-edge-csharp-udf.md). 
@@ -128,6 +140,43 @@ Développez la section **Configuration du code défini par l’utilisateur** et 
    |Conteneur des paramètres de stockage de code personnalisé|< votre conteneur de stockage >|
    |Source de l’assembly de code personnalisé|Packages d’assembly existants du cloud|
    |Source de l’assembly de code personnalisé|UserCustomCode.zip|
+
+## <a name="user-logging"></a>Journalisation utilisateur
+Le mécanisme de journalisation vous permet de capturer des informations personnalisées pendant l’exécution d’un travail. Vous pouvez utiliser les données de journal pour déboguer ou évaluer l’exactitude du code personnalisé en temps réel.
+
+La classe `StreamingContext` vous permet de publier des informations de diagnostic à l’aide de la fonction `StreamingDiagnostics.WriteError`. Le code ci-dessous montre l’interface exposée par Azure Stream Analytics.
+
+```csharp
+public abstract class StreamingContext
+{
+    public abstract StreamingDiagnostics Diagnostics { get; }
+}
+
+public abstract class StreamingDiagnostics
+{
+    public abstract void WriteError(string briefMessage, string detailedMessage);
+}
+```
+
+`StreamingContext` est transmis à la méthode UDF en tant que paramètre d’entrée et peut être utilisé dans l’UDF pour publier des informations de journal personnalisées. Dans l’exemple ci-dessous, `MyUdfMethod` définit une entrée de **données**, fournie par la requête, et un **contexte** d’entrée en tant que `StreamingContext`, fourni par le moteur d’exécution. 
+
+```csharp
+public static long MyUdfMethod(long data, StreamingContext context)
+{
+    // write log
+    context.Diagnostics.WriteError("User Log", "This is a log message");
+    
+    return data;
+}
+```
+
+La valeur `StreamingContext` n’a pas besoin d’être transmise par la requête SQL. Azure Stream Analytics fournit automatiquement un objet de contexte si un paramètre d’entrée est présent. L’utilisation de `MyUdfMethod` ne change pas, comme illustré dans la requête suivante :
+
+```sql
+SELECT udf.MyUdfMethod(input.value) as udfValue FROM input
+```
+
+Vous pouvez accéder aux messages du journal par le biais des [journaux de diagnostic](data-errors.md).
 
 ## <a name="limitations"></a>Limites
 La préversion des fonctions définies par l’utilisateur a les limitations suivantes :

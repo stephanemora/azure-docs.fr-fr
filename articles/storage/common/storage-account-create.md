@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c2d1e8b4975be0657983192df00cc434da00a6f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ff7db383a74ce01f7f1a7bf49a33e41f91decf8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228369"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853502"
 ---
 # <a name="create-an-azure-storage-account"></a>Création d'un compte Azure Storage
 
@@ -24,7 +24,7 @@ Dans cet article sur les procédures, vous apprenez à créer un compte de stock
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -152,8 +152,8 @@ Pour créer un compte de stockage universel v2 avec une option de réplication d
 |Stockage redondant interzone (ZRS)     |Standard_ZRS         |
 |Stockage géo-redondant (GRS)     |Standard_GRS         |
 |Stockage géo-redondant avec accès en lecture (RA-GRS)     |Standard_RAGRS         |
-|Stockage géoredondant interzone (GZRS) (préversion)    |Standard_GZRS         |
-|Stockage géo-redondant interzone avec accès en lecture (RA-GRS) (préversion)    |Standard_RAGZRS         |
+|Stockage géoredondant interzone (GZRS)    |Standard_GZRS         |
+|Stockage géo-redondant interzone avec accès en lecture (RA-GRS)    |Standard_RAGZRS         |
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -195,12 +195,12 @@ Pour créer un compte de stockage universel v2 avec une option de réplication d
 |Stockage redondant interzone (ZRS)     |Standard_ZRS         |
 |Stockage géo-redondant (GRS)     |Standard_GRS         |
 |Stockage géo-redondant avec accès en lecture (RA-GRS)     |Standard_RAGRS         |
-|Stockage géoredondant interzone (GZRS) (préversion)    |Standard_GZRS         |
-|Stockage géo-redondant interzone avec accès en lecture (RA-GRS) (préversion)    |Standard_RAGZRS         |
+|Stockage géoredondant interzone (GZRS)    |Standard_GZRS         |
+|Stockage géo-redondant interzone avec accès en lecture (RA-GRS)    |Standard_RAGZRS         |
 
 # <a name="template"></a>[Modèle](#tab/template)
 
-Vous pouvez utiliser Azure PowerShell ou Azure CLI pour déployer un modèle Resource Manager afin de créer un compte de stockage. Le modèle utilisé dans cet article de procédure est issu des [Modèles de démarrage rapide Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Pour exécuter les scripts, sélectionnez **Essayer** pour ouvrir Azure Cloud shell. Pour coller le script, cliquez avec le bouton droit dans l’interpréteur de commandes, puis sélectionnez **Coller**.
+Vous pouvez utiliser Azure PowerShell ou Azure CLI pour déployer un modèle Resource Manager afin de créer un compte de stockage. Le modèle utilisé dans cet article de procédure est issu des [Modèles de démarrage rapide Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Pour exécuter les scripts, sélectionnez **Essayer** pour ouvrir Azure Cloud Shell. Pour coller le script, cliquez avec le bouton droit dans l’interpréteur de commandes, puis sélectionnez **Coller**.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"

@@ -4,12 +4,12 @@ description: Obtenez un aperçu des actions possibles avec les alertes de métri
 ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: a6860cad077b597df923274f8971f5652d4ba9e3
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 310d484fa1c88b2c54918fff84020a3438db9ae0
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397974"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855043"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendre le fonctionnement des alertes de métrique dans Azure Monitor
 
@@ -26,7 +26,7 @@ Supposons que vous avez créé une règle d’alerte de métrique de seuil stati
 - Ressource cible (ressource Azure à surveiller) : myVM
 - Mesure : Percentage CPU
 - Type de condition : statique
-- Agrégation du temps (statistique exécutée sur des valeurs de mesures brutes ; les agrégations de temps prises en charge sont Min, Max, Moy, Total, Nombre) : Average
+- Agrégation du temps (statistique exécutée sur des valeurs de mesures brutes ; Les [agrégations de temps prises en charge](metrics-charts.md#changing-aggregation) sont Min, Max, Moy, Total, Nombre) : Average
 - Période (fenêtre de vérification des valeurs de métrique) : Au cours des 5 dernières minutes
 - Fréquence (fréquence à laquelle l’alerte de métrique vérifie si les conditions sont remplies) : 1 minute
 - Opérateur : Supérieur à
@@ -43,7 +43,7 @@ Supposons que vous avez créé une règle d’alerte de métrique de seuil dynam
 - Ressource cible (ressource Azure à surveiller) : myVM
 - Mesure : Percentage CPU
 - Type de condition : Dynamique
-- Agrégation du temps (statistique exécutée sur des valeurs de mesures brutes ; les agrégations de temps prises en charge sont Min, Max, Moy, Total, Nombre) : Average
+- Agrégation du temps (statistique exécutée sur des valeurs de mesures brutes ; Les [agrégations de temps prises en charge](metrics-charts.md#changing-aggregation) sont Min, Max, Moy, Total, Nombre) : Average
 - Période (fenêtre de vérification des valeurs de métrique) : Au cours des 5 dernières minutes
 - Fréquence (fréquence à laquelle l’alerte de métrique vérifie si les conditions sont remplies) : 1 minute
 - Opérateur : Supérieur à

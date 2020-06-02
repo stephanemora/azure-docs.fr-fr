@@ -4,12 +4,12 @@ description: Découvrez comment configurer un réseau (avancé) Azure CNI dans A
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 17778c367eb731a7e41f5017c3ae630dc152454e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 592376c1ff1686429d71496099f55c5009e07f20
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207494"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120927"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurer un réseau Azure CNI dans AKS (Azure Kubernetes Service)
 
@@ -63,11 +63,13 @@ Le nombre maximal de pods par nœud dans un cluster AKS est de 250. Le nombre ma
 | -- | :--: | :--: | -- |
 | Azure CLI | 110 | 30 | Oui (jusqu’à 250) |
 | Modèle Resource Manager | 110 | 30 | Oui (jusqu’à 250) |
-| Portail | 110 | 30 | Non  |
+| Portail | 110 | 30 | Non |
 
 ### <a name="configure-maximum---new-clusters"></a>Configurer un maximum : nouveaux clusters
 
-Vous pouvez configurer le nombre maximal de pods par nœud *uniquement au moment du déploiement cluster*. Si vous procédez au déploiement avec Azure CLI ou avec un modèle Resource Manager, vous pouvez définir la valeur du nombre maximal de pods par nœud avec un maximum de 250.
+Vous pouvez configurer le nombre maximal de pods par nœud au moment du déploiement du cluster ou lorsque vous ajoutez de nouveaux pools de nœuds. Si vous procédez au déploiement avec Azure CLI ou avec un modèle Resource Manager, vous pouvez définir la valeur du nombre maximal de pods par nœud avec un maximum de 250.
+
+Si vous ne spécifiez pas le paramètre maxPods lors de la création de pools de nœuds, vous recevez une valeur par défaut de 30 pour Azure CNI.
 
 Une valeur minimale pour le nombre maximal de pods par nœud est appliquée afin de garantir l’espace des blocs système critiques pour l’intégrité du cluster. La valeur minimale qui peut être définie pour le nombre maximal de pods par nœud est égale à 10 si, et seulement si, la configuration de chaque pool de nœuds a un espace pour un minimum de 30 pods. Par exemple, la définition du nombre maximal de pods par nœud sur la valeur minimale de 10 nécessite que chaque pool de nœuds inclue un minimum de 3 nœuds. Cette exigence s’applique également à chaque pool de nœuds créé, de sorte que, si la valeur 10 est définie comme le nombre maximal de pods par nœud, chaque pool de nœuds ajouté doit inclure au moins 3 nœuds.
 
@@ -85,7 +87,7 @@ Une valeur minimale pour le nombre maximal de pods par nœud est appliquée afin
 
 ### <a name="configure-maximum---existing-clusters"></a>Configurer un maximum : clusters existants
 
-Vous ne pouvez pas modifier le nombre maximal de pods par nœud sur un cluster AKS existant. Vous pouvez ajuster le nombre uniquement lors du déploiement initial du cluster.
+Le paramètre maxPod par nœud peut être défini lorsque vous créez un pool de nœuds. Si vous devez augmenter le paramètre maxPod par nœud sur un cluster existant, ajoutez un nouveau pool de nœuds avec le nouveau nombre de maxPod souhaité. Après la migration de vos pods vers le nouveau pool, supprimez le pool plus ancien. Pour supprimer un pool plus ancien dans un cluster, assurez-vous de définir les modes de pool de nœuds comme défini dans le [document de pool du nœud système[system-node-pools].
 
 ## <a name="deployment-parameters"></a>Paramètres de déploiement
 
@@ -212,3 +214,4 @@ Les clusters Kubernetes créés avec le moteur AKS prennent en charge les plug-i
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models
+[system-node-pools]: use-system-pools.md

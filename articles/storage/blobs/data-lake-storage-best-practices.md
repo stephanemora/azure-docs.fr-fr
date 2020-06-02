@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: ac4e126c7ecbd1fc781db74e5b19635b273bbb34
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79c4f051318113ebe0c7e0085539d2f24405b4f9
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72299661"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857880"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Bonnes pratiques d’utilisation d’Azure Data Lake Storage Gen2
 
@@ -49,7 +49,7 @@ Lors de la conception de l’architecture d’un système avec Data Lake Storage
 
 ### <a name="high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence
 
-La haute disponibilité et la récupération d’urgence peuvent parfois être combinées, bien qu’elles aient chacune une stratégie légèrement différente, surtout lorsqu’il s’agit de données. Data Lake Storage Gen2 gère déjà trois réplications en arrière-plan pour se protéger contre des défaillances matérielles localisées. De plus, d’autres options de réplication, comme ZRS ou GZRS (préversion), améliorent la haute disponibilité, tandis que GRS & RA-GRS améliorent la récupération d'urgence. Lorsque vous élaborez un plan pour la haute disponibilité, en cas d’interruption du service, la charge de travail doit accéder aux dernières données aussi vite que possible en passant à une instance répliquée séparément en local ou dans une nouvelle région.
+La haute disponibilité et la récupération d’urgence peuvent parfois être combinées, bien qu’elles aient chacune une stratégie légèrement différente, surtout lorsqu’il s’agit de données. Data Lake Storage Gen2 gère déjà trois réplications en arrière-plan pour se protéger contre des défaillances matérielles localisées. De plus, d’autres options de réplication, comme le stockage ZRS ou GZRS, améliorent la haute disponibilité, tandis que GRS & RA-GRS améliorent la reprise d’activité. Lorsque vous élaborez un plan pour la haute disponibilité, en cas d’interruption du service, la charge de travail doit accéder aux dernières données aussi vite que possible en passant à une instance répliquée séparément en local ou dans une nouvelle région.
 
 Dans une stratégie de reprise d’activité, pour se préparer à une improbable défaillance catastrophique d’une région, il est aussi important de disposer de données répliquées dans une autre région à l’aide de la réplication GRS ou RA-GRS. Vous devez aussi tenir compte de vos exigences pour des cas extrêmes comme l’altération des données, où vous voudrez peut-être créer régulièrement des instantanés sur lesquels vous replier. En fonction de l’importance et de la taille des données, pensez à prendre des instantanés delta à intervalles de 1, 6 et 24 heures, en fonction des tolérances au risque.
 

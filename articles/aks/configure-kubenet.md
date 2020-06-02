@@ -5,18 +5,18 @@ services: container-service
 ms.topic: article
 ms.date: 06/26/2019
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 09fd5326c2532e115dbab0752af31a809488f04c
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 060e98f2617da503068911ec1e687241d909dabc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559691"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120910"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utiliser la mise en réseau kubenet avec vos propres plages d’adresses IP dans Azure Kubernetes Service (AKS)
 
 Par défaut, les clusters AKS utilisent [kubenet][kubenet]. Par ailleurs, un réseau et un sous-réseau virtuels Azure sont automatiquement créés. Avec *kubenet*, les nœuds obtiennent une adresse IP du sous-réseau du réseau virtuel Azure. Les pods reçoivent une adresse IP du sous-réseau de réseau virtuel Azure des nœuds à partir d’un espace d’adressage logiquement différent. La traduction d’adresses réseau (NAT) est ensuite configurée afin que les pods puissent accéder aux ressources sur le réseau virtuel Azure. L’adresse IP source du trafic fait l’objet d’une opération NAT sur l’adresse IP principale du nœud. Cette approche réduit considérablement le nombre d’adresses IP que vous devez réserver dans votre espace réseau pour que les pods les utilisent.
 
-Avec l’interface [Azure Container Networking Interface (CNI)][cni-networking], chaque pod reçoit une adresse IP du sous-réseau et est accessible directement. Ces adresses IP doivent être uniques dans votre espace réseau et doivent être planifiées à l’avance. Chaque nœud possède un paramètre de configuration pour le nombre maximal de pods qu’il prend en charge. Le nombre équivalent d’adresses IP par nœud est alors réservé à l’avance pour ce nœud. Cette approche nécessite davantage de planification. De plus, elle conduit souvent à l’épuisement des adresses IP ou à la nécessité de regénérer les clusters dans un sous-réseau plus vaste à mesure que vos demandes d’applications augmentent.
+Avec l’interface [Azure Container Networking Interface (CNI)][cni-networking], chaque pod reçoit une adresse IP du sous-réseau et est accessible directement. Ces adresses IP doivent être uniques dans votre espace réseau et doivent être planifiées à l’avance. Chaque nœud possède un paramètre de configuration pour le nombre maximal de pods qu’il prend en charge. Le nombre équivalent d’adresses IP par nœud est alors réservé à l’avance pour ce nœud. Cette approche nécessite davantage de planification. De plus, elle conduit souvent à l’épuisement des adresses IP ou à la nécessité de regénérer les clusters dans un sous-réseau plus vaste à mesure que vos demandes d’applications augmentent. Vous pouvez configurer le nombre maximal de modules pouvant être déployés sur un nœud au moment de la création du cluster ou lors de la création de pools de nœuds. Si vous ne spécifiez pas maxPods lors de la création de pools de nœuds, vous recevez la valeur par défaut de 110 pour kubenet.
 
 Cet article vous montre comment utiliser la mise en réseau *kubenet* pour créer et utiliser un sous-réseau de réseau virtuel pour un cluster AKS. Pour plus d’informations sur les options et considérations relatives aux réseaux, consultez [Concepts de réseau pour Kubernetes et AKS][aks-network-concepts].
 

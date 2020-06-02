@@ -8,23 +8,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/28/2020
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f2887ab23dd89f1a3e1e3112ce3713ef1139de8e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4aa9f4839c8bfc04cee4bb03ea0eac98cb8b25c0
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229678"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926117"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gestion de session d’authentification unique dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-La gestion de [session d’authentification unique (SSO)](session-overview.md) dans Azure Active Directory B2C (Azure AD B2C) permet à un administrateur de contrôler l’interaction avec un utilisateur une fois celui-ci authentifié. Par exemple, l’administrateur peut contrôler si la sélection des fournisseurs d’identité s’affiche ou si des détails de compte doivent être entrés à nouveau. Cet article décrit comment configurer les paramètres d’authentification unique pour Azure AD B2C.
-
-La gestion de session d’authentification unique utilise la même sémantique que tout autre profil technique dans des stratégies personnalisées. Quand une étape d’orchestration est exécutée, le profil technique associé à l’étape est interrogé pour obtenir une référence `UseTechnicalProfileForSessionManagement`. S’il en existe une, le fournisseur de la session de l’authentification unique référencé est vérifié pour voir si l’utilisateur est un participant de la session. Dans l’affirmative, le fournisseur de session d’authentification unique est utilisé pour remplir à nouveau la session. De même, lors de l’exécution d’une étape d’orchestration est terminée, le fournisseur est utilisé pour stocker les informations de la session si un fournisseur de session d’authentification unique a été spécifié.
+La gestion de [session d’authentification unique](session-overview.md) utilise la même sémantique que tout autre profil technique dans des stratégies personnalisées. Quand une étape d’orchestration est exécutée, le profil technique associé à l’étape est interrogé pour obtenir une référence `UseTechnicalProfileForSessionManagement`. S’il en existe une, le fournisseur de la session de l’authentification unique référencé est vérifié pour voir si l’utilisateur est un participant de la session. Dans l’affirmative, le fournisseur de session d’authentification unique est utilisé pour remplir à nouveau la session. De même, lors de l’exécution d’une étape d’orchestration est terminée, le fournisseur est utilisé pour stocker les informations de la session si un fournisseur de session d’authentification unique a été spécifié.
 
 Azure AD B2C a défini un certain nombre de fournisseurs de session d’authentification unique qui peuvent être utilisés :
 
@@ -125,7 +123,7 @@ Ce fournisseur est utilisé pour supprimer l’écran « Choisir un fournisseur
 
 | Attribut | Obligatoire | Description|
 | --- | --- | --- |
-| AlwaysFetchClaimsFromProvider | Non  | Non utilisé actuellement, peut être ignoré. |
+| AlwaysFetchClaimsFromProvider | Non | Non utilisé actuellement, peut être ignoré. |
 
 ### <a name="oauthssosessionprovider"></a>OAuthSSOSessionProvider
 
@@ -167,10 +165,11 @@ Le profil technique `SM-Saml-issuer` suivant est utilisé par le [profil techniq
 
 | Attribut | Obligatoire | Description|
 | --- | --- | --- |
-| IncludeSessionIndex | Non  | Non utilisé actuellement, peut être ignoré.|
-| RegisterServiceProviders | Non  | Indique que le fournisseur doit inscrire tous les fournisseurs de services SAML auxquels une assertion a été envoyée. Valeurs possibles : `true` (par défaut) ou `false`.|
+| IncludeSessionIndex | Non | Non utilisé actuellement, peut être ignoré.|
+| RegisterServiceProviders | Non | Indique que le fournisseur doit inscrire tous les fournisseurs de services SAML auxquels une assertion a été envoyée. Valeurs possibles : `true` (par défaut) ou `false`.|
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur une [session Azure AD B2C](session-overview.md).
+- Découvrez comment [configurer un comportement de session dans des stratégies personnalisées](session-behavior-custom-policy.md).

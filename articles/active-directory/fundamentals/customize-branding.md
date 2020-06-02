@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 05/07/2020
 ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 441fdd14cc2c734b6ce532f3ad1d30663b2f56c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e0fc3cb450c253882ed34a2c4f5748efe55d0ec
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80049792"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982035"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Personnaliser la page de connexion Azure Active Directory de votre organisation
 Utilisez le logo et la palette de couleurs personnalisée de votre organisation pour offrir une apparence cohérente à vos pages de connexion Azure Active Directory (Azure AD). Vos pages de connexion s’affichent quand les utilisateurs se connectent aux applications web de votre organisation, comme Office 365, qui utilise Azure AD comme fournisseur d’identité.
@@ -52,9 +52,9 @@ Votre personnalisation ne s’affiche pas immédiatement quand vos utilisateurs 
 
         - **Langue.** La langue est définie automatiquement par défaut et ne peut pas être modifiée.
         
-        - **Image d’arrière-plan de la page de connexion.** Sélectionnez un fichier image .png ou .jpg qui apparaîtra sous la forme d’un arrière-plan sur vos pages de connexion. 
+        - **Image d’arrière-plan de la page de connexion.** Sélectionnez un fichier image .png ou .jpg qui apparaîtra sous la forme d’un arrière-plan sur vos pages de connexion. L’image est ancrée au centre du navigateur et s’adapte à la taille de l’espace affichable. Vous ne pouvez pas sélectionner une image dont la taille est supérieure à 1920 x 1080 pixels ou dont la taille de fichier est supérieure à 300 Ko.
         
-            L’image ne peut pas être supérieure à 1920 x 1080 pixels et doit faire moins de 300 Ko.
+            Il est recommandé d’utiliser des images qui n’attireront pas l’attention. Par exemple, si une zone blanche opaque apparaît au centre de l’écran, elle peut couvrir n’importe quelle partie de l’image en fonction des dimensions de l’espace affichable.
 
         - **Logo de bannière.** Sélectionnez une version .png ou .jpg de votre logo, qui apparaît sur la page de connexion une fois que l’utilisateur a entré un nom d’utilisateur et sur la page du portail **Mes applications**.
             
@@ -62,7 +62,7 @@ Votre personnalisation ne s’affiche pas immédiatement quand vos utilisateurs 
 
         - **Indication sur le nom d’utilisateur.** Entrez le texte d’indication qui s’affiche pour les utilisateurs ayant oublié leur nom d’utilisateur. Ce texte doit être au format Unicode, ne comporter aucun lien ni code, et ne pas dépasser 64 caractères. Si des invités se connectent à votre application, nous vous suggérons de ne pas ajouter cet indicateur.
 
-        - **Texte de la page de connexion.** Entrez le texte qui apparaît au bas de la page de connexion. Vous pouvez utiliser ce texte pour communiquer des informations supplémentaires telles que le numéro de téléphone à votre support technique ou une mention légale. Ce texte doit être au format Unicode et ne doit pas dépasser 256 caractères. Nous vous suggérons également de ne pas inclure de liens ni de balises HTML.
+        - **Texte de la page de connexion.** Entrez le texte qui apparaît au bas de la page de connexion. Vous pouvez utiliser ce texte pour communiquer des informations supplémentaires telles que le numéro de téléphone à votre support technique ou une mention légale. Ce texte doit être au format Unicode et ne doit pas dépasser 256 caractères.
 
     - **Paramètres avancés**
             

@@ -5,17 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: c7779d82ddd6e5fd1bf7fcd983937ea6c10dab1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 5/12/2020
+ms.openlocfilehash: cba07b84a1ddc2b9362c818ae2d3747b98379f2e
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79537072"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402644"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Recommandations sur les performances dans Azure Database pour MySQL
 
-**S’applique à :** Azure Database pour MySQL 5.7
+**S’applique à :** Azure Database pour MySQL 5.7, 8.0
 
 La fonctionnalité Recommandations sur les performances analyse vos bases de données pour créer des suggestions personnalisées afin d’améliorer les performances. Pour produire les recommandations, l’analyse examine les différentes caractéristiques de la base de données, y compris le schéma. Activez le [Magasin des requêtes](concepts-query-store.md) sur votre serveur pour utiliser pleinement la fonctionnalité Recommandations sur les performances. Si le schéma de performances est désactivé, l’activation du magasin de données des requêtes activera performance_schema et un sous-ensemble d’instruments de schéma de performances requis pour la fonctionnalité. Après avoir implémenté une recommandation sur les performances, vous devez tester les performances pour évaluer l’impact des changements.
 

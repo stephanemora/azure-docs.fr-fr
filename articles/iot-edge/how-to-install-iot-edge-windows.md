@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: kgremban
-ms.openlocfilehash: 61b382f1c286209a12d0be39a81e6817806d3251
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: e95f68610f8469a829255d6a16115dcf728ef612
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113455"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856738"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installer le runtime Azure IoT Edge sur Windows
 
@@ -193,17 +193,21 @@ Examinez les journaux d’activité du service des 5 dernières minutes. Si vou
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-Exécutez une vérification automatisée des erreurs de configuration et de mise en réseau les plus courantes.
+Lancez l’[outil de résolution des problèmes](troubleshoot.md#run-the-check-command) pour vérifier les erreurs de configuration et de mise en réseau les plus courantes.
 
 ```powershell
 iotedge check
 ```
 
-Répertoriez les modules en cours d’exécution. Après une nouvelle installation, le seul module que vous devez voir en cours d’exécution est **edgeAgent**. Une fois que vous avez [déployé les modules IoT Edge](how-to-deploy-modules-portal.md) pour la première fois, l’autre module système, **edgeHub**, démarre également sur l’appareil.
+Tant que vous n’avez pas déployé votre premier module sur IoT Edge sur votre appareil, le module système **$edgeHub** n’est pas déployé sur l’appareil. Par conséquent, la vérification automatisée renverra une erreur pour la vérification de la connectivité `Edge Hub can bind to ports on host`. Vous pouvez ignorer cette erreur, sauf si elle se produit après le déploiement d’un module sur l’appareil.
+
+Enfin, listez les modules en cours d’exécution :
 
 ```powershell
 iotedge list
 ```
+
+Après une nouvelle installation, le seul module que vous devez voir en cours d’exécution est **edgeAgent**. Une fois que vous avez [déployé les modules IoT Edge](how-to-deploy-modules-portal.md) pour la première fois, l’autre module système, **edgeHub**, démarre également sur l’appareil.
 
 ## <a name="manage-module-containers"></a>Gérer les conteneurs de module
 
