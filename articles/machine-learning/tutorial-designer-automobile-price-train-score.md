@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Prédire le prix de voitures avec le concepteur'
+title: 'Tutoriel : Prédire les prix des voitures avec le concepteur'
 titleSuffix: Azure Machine Learning
 description: Découvrez comment entraîner, scorer et déployer un modèle Machine Learning via une interface de type glisser-déposer. Ce tutoriel constitue la première partie d’une série en deux volets sur la prédiction des prix des véhicules automobiles à l’aide d’une régression linéaire.
 author: peterclu
@@ -8,13 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 03/12/2020
-ms.openlocfilehash: 0488002352d222abb0166737f9a042060b1a1bb1
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.date: 05/12/2020
+ms.custom: designer
+ms.openlocfilehash: 16f281cce70fb8d2a943b62c796c3037649c3c72
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389424"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656583"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutoriel : Prédire le prix de voitures avec le concepteur (version préliminaire)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -76,7 +77,7 @@ Vous pouvez définir une **cible de calcul par défaut** pour le pipeline entier
     Si vous avez déjà une cible de calcul, vous pouvez la sélectionner pour exécuter ce pipeline.
 
     > [!NOTE]
-    > Le concepteur ne peut exécuter des expériences que sur des cibles Capacité de calcul Azure Machine Learning. Les autres cibles de calcul ne sont pas affichées.
+    > Le concepteur peut uniquement exécuter des expérimentations d’entraînement sur des cibles d’instance de calcul Azure Machine Learning et Capacité de calcul Azure Machine Learning. Les autres cibles de calcul ne sont pas affichées.
 
 1. Entrez un nom pour la ressource de calcul.
 

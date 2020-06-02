@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Déployer une application avec le portail LUIS'
 description: Ce guide de démarrage rapide montre comment déployer une application en créant une ressource de point de terminaison de prédiction, en affectant la ressource à l’application, puis en entraînant et en publiant l’application.
 ms.topic: quickstart
 ms.date: 05/06/2020
-ms.openlocfilehash: 9b22f1eda822b5354f0b434a04c2ea03e4c0ff2a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 743c2fe311eeeabad5a3e957319be3a6e372e74f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585064"
+ms.locfileid: "83653233"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Démarrage rapide : Déployer une application dans le portail LUIS
 
@@ -40,7 +40,8 @@ Chaque fois que vous créez une ressource de création ou de prédiction de requ
 
 1. Sélectionnez vos locataire, abonnement et nom de ressource. Sélectionnez **Assign resource** (Affecter une ressource).
 
-   ![Affecter une ressource à votre application](./media/get-started-portal-deploy-app/assign-resource.png)
+   > [!div class="mx-imgBorder"]
+   > ![Affecter une ressource à votre application](./media/get-started-portal-deploy-app/assign-resource.png)
 
 1. Effectuez les mêmes étapes pour ajouter la clé de création à votre application.
 
@@ -51,11 +52,11 @@ Chaque fois que vous créez une ressource de création ou de prédiction de requ
 
 ## <a name="train-the-app"></a>Effectuer l’apprentissage de l’application
 
-[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
+Si vous avez changé l’application depuis que vous l’avez entraînée pour la dernière fois, [entraînez-la](get-started-portal-build-app.md).
 
 ## <a name="publish-the-app-to-the-prediction-endpoint"></a>Publier l’application LUIS sur le point de terminaison de prédiction
 
-[!INCLUDE [LUIS How to Train steps](includes/howto-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
 ## <a name="prediction-endpoint-request"></a>Demande de point de terminaison de prédiction
 

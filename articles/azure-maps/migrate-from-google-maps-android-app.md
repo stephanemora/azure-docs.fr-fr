@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 9514398ec6a84becd1283e4b0975804101b64086
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5e344eb37af4fc1fae35a1f0c036ed1582054ea5
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77209730"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747433"
 ---
 # <a name="migrate-an-android-app-from-google-maps"></a>Migrer une application Android à partir de Google Maps
 
@@ -314,7 +314,7 @@ Notez que le contrôle Azure Maps prend davantage en charge le zoom arrière et 
 
 ## <a name="localizing-the-map"></a>Localisation de la carte
 
-La localisation est importante si votre audience est répartie dans plusieurs pays ou parle différentes langues.
+La localisation est importante si votre audience est répartie dans plusieurs pays/régions ou parle différentes langues.
 
 **Avant : Google Maps**
 

@@ -1,17 +1,16 @@
 ---
 title: Créer un runbook de workflow PowerShell dans Azure Automation
-description: Tutoriel montrant comment créer, tester et publier un runbook de workflow PowerShell simple
-keywords: powershell workflow, exemples de workflows powershell, workflows powershell
+description: Cet article vous apprend à créer, tester et publier un runbook de workflow PowerShell simple.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: cdf43bb82baf28ba21e00d0f58dc8bafe84fbe42
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 80c84693f466ea30c4a65a8960472a55e98d1efe
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725333"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714455"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook"></a>Tutoriel : Créer un runbook de workflow PowerShell
 
@@ -22,9 +21,6 @@ Ce didacticiel décrit la création d’un [Runbook PowerShell Workflow](../auto
 > * Tester et publier le runbook
 > * Exécuter le travail du runbook et en suivre l’état
 > * Mettre à jour le runbook pour démarrer une machine virtuelle Azure avec des paramètres de runbook
-
->[!NOTE]
->Cet article a été mis à jour pour tenir compte de l’utilisation du nouveau module Az d’Azure PowerShell. Vous pouvez toujours utiliser le module AzureRM, qui continue à recevoir des correctifs de bogues jusqu’à au moins décembre 2020. Pour en savoir plus sur le nouveau module Az et la compatibilité avec AzureRM, consultez [Présentation du nouveau module Az d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Pour obtenir des instructions relatives à l’installation du module Az sur votre Runbook Worker hybride, voir [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Pour votre compte Automation, vous pouvez mettre à jour vos modules vers la dernière version en suivant les instructions du [Guide de mise à jour des modules Azure PowerShell dans Azure Automation](../automation-update-azure-modules.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -231,10 +227,9 @@ Votre runbook démarre actuellement la machine virtuelle que vous avez codée en
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur PowerShell, notamment le langage de référence et les modules d’apprentissage, consultez la [Documentation PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
-* Pour obtenir des informations de référence sur les cmdlets PowerShell, consultez [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
-* Pour démarrer avec les runbooks graphiques, consultez [Créer un runbook graphique](automation-tutorial-runbook-graphical.md).
-* Pour démarrer avec les runbooks PowerShell, consultez [Créer un runbook PowerShell](automation-tutorial-runbook-textual-powershell.md).
-* Pour plus d’informations sur les types de runbooks, sur leurs avantages et sur leurs limites, voir [Types de runbooks Azure Automation](../automation-runbook-types.md).
-* Pour plus d’informations sur les fonctionnalités de prise en charge de script PowerShell, voir [Prise en charge de script PowerShell natif dans Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
+* [Documents PowerShell](https://docs.microsoft.com/powershell/scripting/overview)
+* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* [Créer un runbook graphique](automation-tutorial-runbook-graphical.md)
+* [Créer un runbook PowerShell](automation-tutorial-runbook-textual-powershell.md)
+* [Types de runbooks Azure Automation](../automation-runbook-types.md)
+* [Prise en charge des scripts PowerShell natifs dans Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a875cee7e6796a2c865bde4a62f2f0463eb12130
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f66a5ba491a5afed4007f73b88a38719ec71fb63
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78967729"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849159"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Salesforce
 
@@ -93,8 +93,14 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     Compte d’entreprise : `https://<subdomain>.my.salesforce.com`
 
     Compte de développeur : `https://<subdomain>-dev-ed.my.salesforce.com`
+    
+    b. Dans la zone de texte **URL de réponse**, tapez la valeur au format suivant :
 
-    b. Dans la zone de texte **Identificateur**, entrez la valeur au format suivant :
+    Compte d’entreprise : `https://<subdomain>.my.salesforce.com`
+
+    Compte de développeur : `https://<subdomain>-dev-ed.my.salesforce.com`
+
+    c. Dans la zone de texte **Identificateur**, entrez la valeur au format suivant :
 
     Compte d’entreprise : `https://<subdomain>.my.salesforce.com`
 

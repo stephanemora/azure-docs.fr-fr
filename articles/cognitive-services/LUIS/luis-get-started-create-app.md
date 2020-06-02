@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Créer une application - LUIS'
 description: Ce guide de démarrage rapide montre comment créer une application LUIS qui utilise le domaine prédéfini `HomeAutomation` pour allumer et éteindre des lumières et des appareils électriques. Ce domaine prédéfini vous fournit les intentions, les entités et des exemples d’énoncés. À la fin du processus, vous disposerez d’un point de terminaison LUIS exécuté dans le cloud.
 ms.topic: quickstart
 ms.date: 05/05/2020
-ms.openlocfilehash: 186a60a7fd8315d68718ceedd3b5cadb4d3645e8
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: cefa9d5995f876ef3f07cc32324e747125e9cbf7
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589130"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701293"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Démarrage rapide : Utiliser une application domotique prédéfinie
 
@@ -42,7 +42,8 @@ Vous pouvez créer et gérer vos applications sur la page **Mes applications**.
 1. Recherchez **HomeAutomation**.
 1. Sélectionnez **Ajouter un domaine** sur la carte HomeAutomation.
 
-    ![Sélectionnez « Domaines prédéfinis », puis recherchez « HomeAutomation ». Sélectionnez « Ajouter un domaine » sur la carte « HomeAutomation ».](media/luis-quickstart-new-app/home-automation.png)
+    > [!div class="mx-imgBorder"]
+    > ![Sélectionnez « Domaines prédéfinis », puis recherchez « HomeAutomation ». Sélectionnez « Ajouter un domaine » sur la carte « HomeAutomation ».](media/luis-quickstart-new-app/home-automation.png)
 
     Une fois le domaine ajouté, la zone de domaine prédéfini affiche un bouton **Supprimer le domaine**.
 
@@ -50,7 +51,8 @@ Vous pouvez créer et gérer vos applications sur la page **Mes applications**.
 
 1. Sélectionnez **Intentions** pour passer en revue les intentions du domaine HomeAutomation. Les intentions de domaine prédéfini comportent des exemples d’énoncés.
 
-    ![Capture d’écran de la liste des intentions de HomeAutomation](media/luis-quickstart-new-app/home-automation-intents.png "Capture d’écran de la liste des intentions de HomeAutomation")
+    > [!div class="mx-imgBorder"]
+    > ![Capture d’écran de la liste des intentions de HomeAutomation](media/luis-quickstart-new-app/home-automation-intents.png "Capture d’écran de la liste des intentions de HomeAutomation")
 
     > [!NOTE]
     > **Aucun** est une intention fournie par toutes les applications LUIS. Elle vous permet de gérer les énoncés qui ne correspondent pas aux fonctionnalités fournies par votre application.
@@ -114,25 +116,25 @@ Une fois que vous avez formé votre application, vous pouvez la tester.
             "topIntent": "HomeAutomation.TurnOff",
             "intents": {
                 "HomeAutomation.TurnOff": {
-                    "score": 0.984315455
+                    "score": 0.969448864
                 },
                 "HomeAutomation.QueryState": {
-                    "score": 0.009912962
-                },
-                "HomeAutomation.TurnDown": {
-                    "score": 0.00626645749
+                    "score": 0.0122336326
                 },
                 "HomeAutomation.TurnUp": {
-                    "score": 0.00572059769
+                    "score": 0.006547436
+                },
+                "HomeAutomation.TurnDown": {
+                    "score": 0.0050634006
                 },
                 "HomeAutomation.SetDevice": {
-                    "score": 0.00379381469
+                    "score": 0.004951761
                 },
                 "HomeAutomation.TurnOn": {
-                    "score": 0.00366983772
+                    "score": 0.00312553928
                 },
                 "None": {
-                    "score": 0.000623856
+                    "score": 0.000552945654
                 }
             },
             "entities": {
@@ -156,7 +158,7 @@ Une fois que vous avez formé votre application, vous pouvez la tester.
                             "text": "living room",
                             "startIndex": 13,
                             "length": 11,
-                            "score": 0.907323956,
+                            "score": 0.902181149,
                             "modelTypeId": 1,
                             "modelType": "Entity Extractor",
                             "recognitionSources": [

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 46dd89694857138d28255d5b1a86a8c947680520
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: bc21ba73ef7e8f5879af2b15787449315f36a3f8
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81398668"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745317"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutoriel : Commander Azure Data Box
 
@@ -22,6 +22,7 @@ Azure Data Box est une solution hybride qui vous permet d’importer vos donnée
 Ce tutoriel explique comment commander une Azure Data Box. Ce tutoriel vous fournira des informations sur :
 
 > [!div class="checklist"]
+>
 > * Conditions préalables au déploiement de la Data Box
 > * Commander une Data Box
 > * Suivre la commande
@@ -38,8 +39,9 @@ Effectuez les prérequis de configuration suivants pour l’appareil et le servi
 ### <a name="for-device"></a>Pour l’appareil
 
 Avant de commencer, assurez-vous que :
-- Vous disposez d’un ordinateur hôte connecté au réseau du centre de données. La Data Box va copier les données de cet ordinateur. Votre ordinateur hôte doit exécuter un système d’exploitation pris en charge comme décrit dans [Conditions requises pour le système Azure Data Box](data-box-system-requirements.md).
-- Votre centre de données doit avoir un réseau haut débit. Nous vous recommandons vivement d’utiliser au minimum une connexion 10 GbE. Si vous ne disposez pas d’une connexion 10 GbE, vous pouvez utiliser une liaison de données 1 GbE. Cependant, cela a une incidence sur les vitesses de copie.
+
+* Vous disposez d’un ordinateur hôte connecté au réseau du centre de données. La Data Box va copier les données de cet ordinateur. Votre ordinateur hôte doit exécuter un système d’exploitation pris en charge comme décrit dans [Conditions requises pour le système Azure Data Box](data-box-system-requirements.md).
+* Votre centre de données doit avoir un réseau haut débit. Nous vous recommandons vivement d’utiliser au minimum une connexion 10 GbE. Si vous ne disposez pas d’une connexion 10 GbE, vous pouvez utiliser une liaison de données 1 GbE. Cependant, cela a une incidence sur les vitesses de copie.
 
 ## <a name="order-data-box"></a>Commander une Data Box
 
@@ -47,18 +49,18 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
 
 1. Utilisez vos informations d’identification Microsoft Azure pour vous connecter à cette URL : [https://portal.azure.com](https://portal.azure.com).
 2. Cliquez sur **+ Créer une ressource** et recherchez *Azure Data Box*. Cliquez sur **Azure Data Box**.
-    
+
    [![Rechercher Azure Data Box 1](media/data-box-deploy-ordered/search-azure-data-box1.png)](media/data-box-deploy-ordered/search-azure-data-box1.png#lightbox)
 
 3. Cliquez sur **Créer**.
 
-4. Vérifiez si le service Data Box est disponible dans votre région. Saisissez ou sélectionnez les informations suivantes, puis sélectionnez **Appliquer**. 
+4. Vérifiez si le service Data Box est disponible dans votre région. Saisissez ou sélectionnez les informations suivantes, puis sélectionnez **Appliquer**.
 
     |Paramètre  |Valeur  |
     |---------|---------|
     |Abonnement     | Sélectionnez un abonnement EA, CSP ou Azure pour le service Data Box. <br> L’abonnement est lié à votre compte de facturation.       |
     |Type de transfert     | Sélectionnez **Importer vers Azure**.        |
-    |Pays source     |   Sélectionnez le pays ou la région où vos données se trouvent actuellement.         |
+    |Pays/région source    |    Sélectionnez le pays ou la région où vos données se trouvent actuellement.         |
     |Région Azure de destination     |     Sélectionnez la région Azure où vous souhaitez transférer des données.        |
 
 5. Sélectionnez **Data Box**. La capacité maximale utilisable pour une commande unique est de 80 To. Vous pouvez créer plusieurs commandes pour des tailles de données supérieures.
@@ -66,11 +68,11 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
       [![Sélectionner Data Box, option 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 
 6. Dans **Commande**, indiquez les **Détails de la commande**. Saisissez ou sélectionnez les informations suivantes, puis cliquez sur **Suivant**.
-    
+
     |Paramètre  |Valeur  |
     |---------|---------|
     |Nom     |  Indiquez un nom convivial pour suivre la commande. <br> Le nom peut comporter entre 3 et 24 caractères qui peuvent être des lettres, des chiffres et des traits d’union. <br> Il doit commencer et se terminer par une lettre ou un chiffre.      |
-    |Resource group     |   Créez-en un nouveau ou utilisez un groupe existant. <br> Un groupe de ressources est un conteneur logique pour les ressources qui peuvent être gérées ou déployées ensemble.         |
+    |Resource group     |    Créez-en un nouveau ou utilisez un groupe existant. <br> Un groupe de ressources est un conteneur logique pour les ressources qui peuvent être gérées ou déployées ensemble.         |
     |Région Azure de destination     | Sélectionnez une région pour votre compte de stockage. <br> Pour plus d’informations, consultez la [disponibilité des régions](data-box-overview.md#region-availability).        |
     |Destination de stockage     | Choisissez un compte de stockage, des disques managés ou les deux. <br> Selon la région Azure spécifiée, sélectionnez un ou plusieurs comptes de stockage dans la liste filtrée d’un compte de stockage existant. La Data Box peut être liée à 10 comptes de stockage maximum. <br> Vous pouvez également créer un **compte de stockage blob**, **Usage général v1** ou **Usage général v2**. <br>Les comptes de stockage avec des réseaux virtuels sont pris en charge. Pour autoriser le service Data Box à travailler avec des comptes de stockage sécurisés, activez les services approuvés dans les paramètres de pare-feu réseau du compte de stockage. Pour plus d’informations, découvrez comment [Ajouter Azure Data Box en tant que service approuvé](../storage/common/storage-network-security.md#exceptions).|
 
@@ -88,16 +90,19 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
 
     Le compte de stockage spécifié pour les disques managés est utilisé comme compte de stockage intermédiaire. Le service Data Box charge les disques durs virtuels en tant qu’objets blob de pages sur le compte de stockage intermédiaire avant de convertir celui-ci en disques managés et de le déplacer vers les groupes de ressources. Pour plus d’informations, voir [Vérifier le chargement des données dans Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
 
-7. Dans la zone **Adresse d’expédition**, indiquez vos nom et prénom, le nom et l’adresse postale de la société, et un numéro de téléphone valide. Cliquez sur **Valider l’adresse**. Le service valide l’adresse d’expédition de disponibilité du service. Si le service est disponible pour l’adresse de livraison indiquée, vous recevez une notification à cet effet. Cliquez sur **Suivant**.
+7. Dans la zone **Adresse d’expédition**, indiquez vos nom et prénom, le nom et l’adresse postale de la société, et un numéro de téléphone valide. Cliquez sur **Valider l’adresse**. Le service valide l’adresse d’expédition de disponibilité du service. Si le service est disponible pour l’adresse de livraison indiquée, vous recevez une notification à cet effet.
 
-8. Dans **Détails de la notification**, indiquez les adresses de messagerie. Le service envoie des notifications par courrier électronique concernant les mises à jour de l’état de la commande aux adresses de messagerie spécifiées.
+   Une fois la commande passée, si l’expédition gérée par vous-même a été sélectionnée, vous recevez une notification par e-mail. Pour plus d’informations sur l’expédition gérée par vous-même, consultez [Utiliser l’expédition autogérée](data-box-portal-customer-managed-shipping.md).
+
+8. Cliquez sur **Suivant** une fois que les détails de l’expédition ont été correctement validés.
+
+9. Dans **Détails de la notification**, indiquez les adresses de messagerie. Le service envoie des notifications par courrier électronique concernant les mises à jour de l’état de la commande aux adresses de messagerie spécifiées.
 
     Nous vous recommandons d’utiliser un e-mail de groupe afin de continuer à recevoir des notifications si un administrateur du groupe quitte l’entreprise.
 
-9. Consultez le **Résumé** des informations liées à la commande, au contact, à la notification et aux conditions de confidentialité. Cochez la case correspondant à l’acceptation des conditions de confidentialité.
+10. Consultez le **Résumé** des informations liées à la commande, au contact, à la notification et aux conditions de confidentialité. Cochez la case correspondant à l’acceptation des conditions de confidentialité.
 
-10. Cliquez sur **Commande**. La création d’une commande peut prendre quelques minutes.
-
+11. Cliquez sur **Commande**. La création d’une commande peut prendre quelques minutes.
 
 ## <a name="track-the-order"></a>Suivre la commande
 
@@ -105,10 +110,10 @@ Une fois la commande passée, vous pouvez suivre son état à partir du portail 
 
 Si l’appareil n’est pas disponible, vous recevez une notification. Si l’appareil est disponible, Microsoft identifie l’appareil à expédier et le prépare. Pendant la préparation de l’appareil, les actions suivantes se produisent :
 
-- Des partages SMB sont créés pour chaque compte de stockage associé à l’appareil.
-- Pour chaque partage, des informations d’identification d’accès (nom d’utilisateur et mot de passe) sont générées.
-- Un mot de passe qui permet de déverrouiller l’appareil est également généré.
-- La Data Box est verrouillée pour empêcher tout accès non autorisé à l’appareil à tout moment.
+* Des partages SMB sont créés pour chaque compte de stockage associé à l’appareil.
+* Pour chaque partage, des informations d’identification d’accès (nom d’utilisateur et mot de passe) sont générées.
+* Un mot de passe qui permet de déverrouiller l’appareil est également généré.
+* La Data Box est verrouillée pour empêcher tout accès non autorisé à l’appareil à tout moment.
 
 Une fois l’appareil préparé, le portail affiche la commande avec l’état **Traité**.
 
@@ -123,7 +128,7 @@ Ensuite, Microsoft prépare et achemine l’appareil via un transporteur région
 Pour annuler cette commande, dans le portail Azure, accédez à **Vue d’ensemble** et cliquez sur **Annuler** dans la barre de commandes.
 
 Après avoir passé commande, vous pouvez l’annuler à tout moment tant qu’elle n’a pas été traitée.
- 
+
 Pour supprimer une commande annulée, accédez à **Vue d’ensemble** et cliquez sur **Supprimer** à partir de la barre de commandes.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -131,6 +136,7 @@ Pour supprimer une commande annulée, accédez à **Vue d’ensemble** et clique
 Ce tutoriel vous a apporté des connaissances concernant Azure Data Box, notamment concernant les points suivants :
 
 > [!div class="checklist"]
+>
 > * Conditions préalables au déploiement de la Data Box
 > * Commander une Data Box
 > * Suivre la commande
@@ -140,5 +146,3 @@ Passez au tutoriel suivant pour apprendre à configurer votre Data Box.
 
 > [!div class="nextstepaction"]
 > [Configurer votre Azure Data Box](./data-box-deploy-set-up.md)
-
-

@@ -1,17 +1,17 @@
 ---
 title: Créer un runbook Python dans Azure Automation
-description: Tutoriel montrant comment créer, tester et publier un runbook Python simple
+description: Cet article vous apprend à créer, tester et publier un runbook Python simple.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2b20796fdcf71ccfb60c519d081b42fba982f0b6
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 4e3edc9819fc3a282cc707db636c8bb213b13776
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608692"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714472"
 ---
 # <a name="tutorial-create-a-python-runbook"></a>Tutoriel : Créer un runbook Python
 
@@ -79,13 +79,11 @@ Avant de publier le runbook pour le rendre disponible en production, vous voulez
 
 ## <a name="publish-and-start-the-runbook"></a>Publier et démarrer le Runbook
 
-Le runbook que vous avez créé est toujours en mode brouillon. Il faut le publier pour pouvoir l’exécuter en production.
-Lorsque vous publiez un Runbook, vous écrasez la version publiée existante par la version brouillon.
-Dans ce cas, vous n’avez pas encore de version publiée car vous venez de créer le runbook.
+Le runbook que vous avez créé est toujours en mode brouillon. Il faut le publier pour pouvoir l’exécuter en production. Lorsque vous publiez un Runbook, vous écrasez la version publiée existante par la version brouillon. Dans ce cas, vous n’avez pas encore de version publiée car vous venez de créer le runbook.
 
 1. Cliquez sur **Publier** pour publier le Runbook, puis sur **Oui** quand vous y êtes invité.
 
-2. Si vous faites défiler la page vers la gauche pour visualiser la page **Runbooks**, vous devriez voir l’**État de création** **Publié**.
+2. Si vous faites défiler vers la gauche pour visualiser la page Runbooks, vous devriez voir l’**État de création** **Publié**.
 
 3. Faites défiler la page vers la droite pour visualiser le volet **MyFirstRunbook-Python**.
 
@@ -246,9 +244,9 @@ except Exception as detail:
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour démarrer avec les runbooks PowerShell, consultez [Créer un runbook PowerShell](automation-tutorial-runbook-textual-powershell.md).
-- Pour démarrer avec les runbooks graphiques, consultez [Créer un runbook graphique](automation-tutorial-runbook-graphical.md).
-- Pour démarrer avec les runbooks de workflow PowerShell, consultez [Créer un runbook de workflow PowerShell](automation-tutorial-runbook-textual.md).
-- Pour en savoir plus sur les types de runbooks, leurs avantages et leurs limites, consultez [Types de runbooks Azure Automation](../automation-runbook-types.md)
-- Pour en savoir plus sur le développement pour Azure avec Python, consultez [Azure pour les développeurs Python](/azure/python/).
-- Pour afficher des exemples de runbooks Python 2, consultez [GitHub Azure Automation](https://github.com/azureautomation/runbooks/tree/master/Utility/Python).
+- [Créer un runbook PowerShell](automation-tutorial-runbook-textual-powershell.md)
+- [Créer un runbook graphique](automation-tutorial-runbook-graphical.md)
+- [Créer un runbook PowerShell Workflow](automation-tutorial-runbook-textual.md)
+- [Types de runbooks Azure Automation](../automation-runbook-types.md)
+- [Azure for Python developers](/azure/python/) (Azure pour les développeurs Python)
+- [GitHub Azure Automation](https://github.com/azureautomation/runbooks/tree/master/Utility/Python)

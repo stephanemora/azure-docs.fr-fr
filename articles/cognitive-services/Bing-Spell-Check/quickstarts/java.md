@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 491481156f026e9887244064297d0790a965158e
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: f318a500bd4ce256690ff59f68d99af5d7a25d9e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735111"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869801"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Démarrage rapide : Vérifier l’orthographe avec l’API REST Vérification orthographique Bing et Java
 
-Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API REST Vérification orthographique Bing. Cette simple application Java envoie une demande à l’API et retourne une liste de suggestions de corrections. Bien que cette application soit écrite en Java, l’API est un service web RESTful compatible avec la plupart des langages de programmation. Le code source de cette application est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheck.java).
+Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API REST Vérification orthographique Bing. Cette simple application Java envoie une demande à l’API et retourne une liste de suggestions de corrections. 
+
+Bien que cette application soit écrite en Java, l’API est un service web RESTful compatible avec la plupart des langages de programmation. Le code source de cette application est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheck.java).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -31,7 +33,7 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
 
 ## <a name="create-and-initialize-an-application"></a>Créer et lancer une application
 
-1. Créez un projet Java dans votre éditeur ou IDE favori avec un nom de classe de votre choix, puis importez les packages suivants.
+1. Créez un projet Java dans votre éditeur ou IDE favori avec un nom de classe de votre choix, puis importez les packages suivants :
 
     ```java
     import java.io.*;
@@ -40,7 +42,7 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
     import javax.net.ssl.HttpsURLConnection;
     ```
 
-2. Créez des variables pour l’hôte du point de terminaison d’API, le chemin et votre clé d’abonnement. Créez ensuite des variables pour votre marché, le texte dont vous souhaitez vérifier l’orthographe et une chaîne pour le mode de vérification orthographique. Vous pouvez utiliser le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource.
+2. Créez des variables pour l’hôte du point de terminaison d’API, le chemin et votre clé d’abonnement. Créez ensuite des variables pour votre marché, le texte dont vous souhaitez vérifier l’orthographe et une chaîne pour le mode de vérification orthographique. Vous pouvez utiliser le point de terminaison global dans le code suivant, ou le point de terminaison de [sous-domaine personnalisé](../../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource.
 
     ```java
     static String host = "https://api.cognitive.microsoft.com";
@@ -55,7 +57,11 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
 
 ## <a name="create-and-send-an-api-request"></a>Créer et envoyer une requête d’API
 
-1. Créez une fonction appelée `check()` pour créer et envoyer la demande API. Dans celle-ci, effectuez les opérations suivantes. Créez une chaîne pour les paramètres de demande. Ajoutez le paramètre `?mkt=` à votre chaîne de marché et le paramètre `&mode=` à votre mode de vérification orthographique.  
+1. Créez une fonction appelée `check()` pour créer et envoyer la demande API. Dans cette fonction, ajoutez le code spécifié dans les étapes suivantes. Créez une chaîne pour les paramètres de demande :
+
+   a. Attribuez le code de votre marché au paramètre `mkt` à l’aide de l’opérateur `=`. 
+
+   b. Ajoutez le paramètre `mode` avec l’opérateur `&`, puis attribuez le mode de vérification orthographique. 
 
    ```java
    public static void check () throws Exception {
@@ -71,7 +77,7 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
     HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
     ```
 
-3. Ouvrez une connexion à l’URL. Définissez la méthode de demande sur `POST`. Ajoutez vos paramètres de demande. Veillez à ajouter votre clé d’abonnement à l’en-tête `Ocp-Apim-Subscription-Key`.
+3. Ouvrez une connexion à l’URL. Définissez la méthode de demande sur `POST` et ajoutez vos paramètres de demande. Veillez à ajouter votre clé d’abonnement à l’en-tête `Ocp-Apim-Subscription-Key`.
 
     ```java
     connection.setRequestMethod("POST");
@@ -91,7 +97,7 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
 
 ## <a name="format-and-read-the-api-response"></a>Mettre en forme et lire la réponse de l’API
 
-1. Ajoutez cette méthode à votre classe. Elle met en forme le code JSON pour obtenir une sortie plus lisible.
+1. Ajoutez à votre classe la méthode `prettify()`, qui améliore la lisibilité de la sortie JSON.
 
     ``` java
     // This function prettifies the json response.
@@ -117,7 +123,7 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
 
 ## <a name="call-the-api"></a>Appeler l’API
 
-Dans la fonction main de votre application, appelez la méthode check() créée ci-dessus.
+Dans la fonction main de votre application, appelez la méthode `check()` créée précédemment.
 ```java
         public static void main(String[] args) {
             try {
@@ -131,19 +137,19 @@ Dans la fonction main de votre application, appelez la méthode check() créée 
 
 ## <a name="run-the-application"></a>Exécution de l'application
 
-Créez et exécutez votre projet.
+Créez et exécutez votre projet. Si vous utilisez la ligne de commande, utilisez les commandes suivantes pour générer et exécuter l’application :
 
-Si vous utilisez la ligne de commande, utilisez les commandes suivantes pour générer et exécuter l’application.
+1. Générez l’application :
 
-**Générez :**
-```bash
-javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
-```
+   ```bash
+   javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
+   ```
 
-**Exécutez :**
-```bash
-java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
-```
+2. Exécutez l'application :
+
+   ```bash
+   java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
+   ```
 
 ## <a name="example-json-response"></a>Exemple de réponse JSON
 

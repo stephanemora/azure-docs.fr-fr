@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 45dd4e8dcfd74cdb5d96b935e239b9f4b5094a7c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3de73156618b0f5234cc8049c4ea70385b790388
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73720932"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743590"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Tutoriel : Créer un notebook dans Azure Cosmos DB pour analyser et visualiser les données
 
@@ -34,7 +34,7 @@ Dans cette section, vous allez créer la base de données Azure Cosmos et le con
 
 1. Une fois que vous avez créé un notebook, vous pouvez le renommer par exemple **VisualizeRetailData.ipynb**.
 
-1. Ensuite, vous allez créer une base de données nommée « RetailDemo » et un conteneur nommé « WebsiteData » pour stocker les données de vente. Vous pouvez utiliser/CardID comme clé de partition. Copiez et collez le code suivant dans une nouvelle cellule de votre notebook, puis exécutez-le :
+1. Ensuite, vous allez créer une base de données nommée « RetailDemo » et un conteneur nommé « WebsiteData » pour stocker les données de vente. Vous pouvez utiliser /CartID comme clé de partition. Copiez et collez le code suivant dans une nouvelle cellule de votre notebook, puis exécutez-le :
 
    ```python
    import azure.cosmos
@@ -121,7 +121,7 @@ Avant d’exécuter des requêtes pour analyser les données, vous pouvez lire l
 {Query text}
 ```
 
-Pour plus d’informations, consultez l’article [Utiliser les fonctionnalités et commandes de notebook intégrées dans Azure Cosmos DB](use-notebook-features-and-commands.md). Vous allez exécuter la requête `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`. Les résultats seront enregistrés dans un DataFrame Pandas nommé df_cosmos. Collez la commande suivante dans une nouvelle cellule de notebook et exécutez-la :
+Pour plus d’informations, consultez l’article [Utiliser les fonctionnalités et commandes de notebook intégrées dans Azure Cosmos DB](use-python-notebook-features-and-commands.md). Vous allez exécuter la requête `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`. Les résultats seront enregistrés dans un DataFrame Pandas nommé df_cosmos. Collez la commande suivante dans une nouvelle cellule de notebook et exécutez-la :
 
 ```python
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos
@@ -141,7 +141,7 @@ df_cosmos.head(10)
 
 Dans cette section, vous allez exécuter des requêtes sur les données récupérées.
 
-* **Requête 1** : exécutez une requête Group by sur le DataFrame pour obtenir la somme des chiffres d’affaires pour chaque pays et afficher cinq éléments des résultats. Dans une nouvelle cellule de notebook, exécutez le code suivant :
+* **Requête 1** : exécutez une requête Group by sur le DataFrame pour obtenir la somme des chiffres d’affaires pour chaque pays/région et afficher cinq éléments des résultats. Dans une nouvelle cellule de notebook, exécutez le code suivant :
 
    ```python
    df_revenue = df_cosmos.groupby("Country").sum().reset_index()
@@ -170,16 +170,16 @@ Dans cette section, vous allez exécuter des requêtes sur les données récupé
    !{sys.executable} -m pip install bokeh --user
    ```
 
-1. Ensuite, préparez le tracé des données sur une carte. Joignez les données dans Azure Cosmos DB aux informations sur les pays qui se trouvent dans Stockage Blob Azure et convertissez le résultat au format GeoJSON. Copiez le code suivant dans une nouvelle cellule de notebook et exécutez-le.
+1. Ensuite, préparez le tracé des données sur une carte. Joignez les données dans Azure Cosmos DB aux informations sur les pays/régions qui se trouvent dans Stockage Blob Azure, et convertissez le résultat au format GeoJSON. Copiez le code suivant dans une nouvelle cellule de notebook et exécutez-le.
 
    ```python
    import urllib.request, json
    import geopandas as gpd
 
-   # Load country information for mapping
+   # Load country/region information for mapping
    countries = gpd.read_file("https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/countries.json")
 
-   # Merge the countries dataframe with our data in Azure Cosmos DB, joining on country code
+   # Merge the countries/regions dataframe with our data in Azure Cosmos DB, joining on country/region code
    df_merged = countries.merge(df_revenue, left_on = 'admin', right_on = 'Country', how='left')
 
    # Convert to GeoJSON so bokeh can plot it
@@ -187,7 +187,7 @@ Dans cette section, vous allez exécuter des requêtes sur les données récupé
    json_data = json.dumps(merged_json)
    ```
 
-1. Visualisez les chiffres d’affaires des différents pays sur une carte du monde en exécutant le code suivant dans une nouvelle cellule de notebook :
+1. Visualisez les chiffres d’affaires des différents pays/régions sur une carte du monde en exécutant le code suivant dans une nouvelle cellule de notebook :
 
    ```python
    from bokeh.io import output_notebook, show
@@ -233,9 +233,9 @@ Dans cette section, vous allez exécuter des requêtes sur les données récupé
    show(p)
    ```
 
-   La sortie affiche la carte du monde avec différentes couleurs. Les couleurs plus sombres représentent les pays dont le chiffre d’affaires est le plus élevé.
+   La sortie affiche la carte du monde avec différentes couleurs. Les couleurs plus sombres représentent les pays/régions dont le chiffre d’affaires est le plus élevé, et les couleurs plus claires le chiffre d’affaires le plus bas.
 
-   ![Visualisation de la carte des chiffres d’affaires par pays](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
+   ![Visualisation de la carte des chiffres d’affaires par pays/région](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
 
 1. Examinons un autre cas de visualisation des données. Le conteneur WebsiteData contient des enregistrements d’utilisateurs qui ont visualisé un article, l’ont ajouté à leur panier et l’ont acheté. Nous allons tracer le taux de conversion des articles achetés. Exécutez le code suivant dans une nouvelle cellule afin de visualiser le taux de conversion pour chaque article :
 
@@ -290,4 +290,4 @@ Dans cette section, vous allez exécuter des requêtes sur les données récupé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur les commandes de notebook, consultez l’article [Utiliser les fonctionnalités et commandes de notebook intégrées dans Azure Cosmos DB](use-notebook-features-and-commands.md).
+* Pour en savoir plus sur les commandes de notebook Python, consultez l’article [Guide pratique pour utiliser les fonctionnalités et commandes de notebook intégrées dans Azure Cosmos DB](use-python-notebook-features-and-commands.md).

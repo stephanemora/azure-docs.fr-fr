@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: d2f25f2b786686b8af9bad4ea8ce3c8aea9b589f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 934a7546464cf552c355ee6b4e278b79a0f9ff90
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371456"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747501"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Migrer un service web à partir de Google Maps
 
@@ -56,7 +56,7 @@ Le géocodage est le processus de conversion d’une adresse en coordonnée. Par
 Azure Maps propose plusieurs méthodes pour le géocodage des adresses :
 
 - [**Géocodage d’adresses en forme libre**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) : Spécifiez une seule chaîne d’adresse et traitez immédiatement la requête. « 1 Microsoft Way, Redmond, WA » est un exemple de chaîne d’adresse unique. Cette API est recommandée si vous avez besoin de géocoder rapidement des adresses individuelles.
-- [**Géocodage d’adresses structurées**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressstructured) : Précisez les parties d’une même adresse, par exemple le nom de la rue, la ville, le pays et le code postal, et traitez aussitôt la requête. Cette API est recommandée si vous avez besoin de géocoder rapidement des adresses individuelles, et que les données sont déjà analysées dans leurs parties d’adresse individuelles.
+- [**Géocodage d’adresses structurées**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressstructured) : Précisez les parties d’une même adresse, par exemple le nom de la rue, la ville, le pays/la région et le code postal, et traitez aussitôt la requête. Cette API est recommandée si vous avez besoin de géocoder rapidement des adresses individuelles, et que les données sont déjà analysées dans leurs parties d’adresse individuelles.
 - [**Géocodage des adresses par lots**](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatchpreview) : Créez une requête contenant jusqu'à 10 000 adresses, puis traitez-les sur une certaine période. Toutes les adresses seront géocodées en parallèle sur le serveur et, une fois l’opération terminée, l’ensemble complet des résultats pourra être téléchargé. Ceci est recommandé pour le géocodage de grands groupes de données.
 - [**Recherche approximative**](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) : Cette API combine le géocodage des adresses et la recherche de points d’intérêt. Cette API prend une chaîne de forme libre. Cette chaîne peut être une adresse, un lieu, un repère, un point d’intérêt ou une catégorie de point d’intérêt. Cette API traite la requête en quasi temps réel. Cette API est recommandée pour les applications où les utilisateurs recherchent des adresses ou des points d’intérêt dans la même zone de texte.
 - [**Recherche approximative par lot** ](https://docs.microsoft.com/rest/api/maps/search/postsearchfuzzybatchpreview) : Créez une requête contenant jusqu'à 10 000 adresses, lieux, points de repère ou centres d'intérêt, puis traitez-les sur une certaine période. Toutes les données seront traitées en parallèle sur le serveur et, une fois l’opération terminée, l’ensemble complet des résultats pourra être téléchargé.
@@ -67,7 +67,7 @@ Le tableau suivant référence de manière croisée les paramètres de l’API G
 |---------------------------|--------------------------------------|
 | `address`                   | `query`                            |
 | `bounds`                    | `topLeft` et `btmRight`           |
-| `components`                | `streetNumber`<br/>`streetName`<br/>`crossStreet`<br/>`postalCode`<br/>`municipality` - ville<br/>`municipalitySubdivision` – voisinage, petite / grande ville<br/>`countrySubdivision` - état ou province<br/>`countrySecondarySubdivision` - comté<br/>`countryTertiarySubdivision` - district<br/>`countryCode` - indicatif de pays à deux lettres |
+| `components`                | `streetNumber`<br/>`streetName`<br/>`crossStreet`<br/>`postalCode`<br/>`municipality` - ville<br/>`municipalitySubdivision` – voisinage, petite / grande ville<br/>`countrySubdivision` - état ou province<br/>`countrySecondarySubdivision` - comté<br/>`countryTertiarySubdivision` - district<br/>`countryCode` - code de pays/région à deux lettres |
 | `key`                       | `subscription-key` : voir également la documentation [Authentification avec Azure Maps](azure-maps-authentication.md). |
 | `language`                  | `language` : voir la documentation [Langues prises en charge](supported-languages.md).  |
 | `region`                    | `countrySet`                       |
@@ -179,7 +179,7 @@ Calculez des itinéraires et des directions à l’aide d’Azure Maps. Azure Ma
 
 Le service de routage Azure Maps fournit les API suivantes pour le calcul des itinéraires :
 
-- [**Calculer l’itinéraire**](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) : Calculez un itinéraire et traitez aussitôt la requête. Cette API prend en charge les requêtes GET et POST. Les requêtes POST sont recommandées lors de la spécification d'un grand nombre de points de cheminement ou lors de l'utilisation de nombreuses options de routage pour s'assurer que la requête URL ne devienne pas trop longue et n’entraîne des problèmes. L’opération POST Route Direction dans Azure Maps permet d’utiliser des milliers de [points de référence](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints) et de recréer un itinéraire logique entre eux (« alignement sur la route »). 
+- [**Calculer l’itinéraire**](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) : Calculez un itinéraire et traitez aussitôt la requête. Cette API prend en charge les requêtes GET et POST. Les requêtes POST sont recommandées lors de la spécification d’un grand nombre de points de cheminement ou lors de l’utilisation de nombreuses options de routage pour s’assurer que la requête URL ne devienne pas trop longue et n’entraîne des problèmes. L’opération POST Route Direction dans Azure Maps permet d’utiliser des milliers de [points de référence](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints) et de recréer un itinéraire logique entre eux (« alignement sur la route »). 
 - [**Itinéraire par lots**](https://docs.microsoft.com/rest/api/maps/route/postroutedirectionsbatchpreview) : Créez une requête contenant jusqu'à 1 000 requêtes d’itinéraire, puis traitez-les sur une certaine période. Toutes les données seront traitées en parallèle sur le serveur et, une fois l’opération terminée, l’ensemble complet des résultats pourra être téléchargé.
 - [**Services de mobilité**](https://docs.microsoft.com/rest/api/maps/mobility) : Calculez des itinéraires et des directions en utilisant les transports en commun.
 

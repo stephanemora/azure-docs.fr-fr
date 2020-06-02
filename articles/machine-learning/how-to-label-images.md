@@ -7,14 +7,14 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 2c21a8770209871be4d871a08e6355e4ca7ed169
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 22b77b79ea3f8c6744c2eba064c52e6d9e29c2b9
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82204319"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758909"
 ---
-# <a name="tag-images-in-a-labeling-project"></a>Étiqueter des images dans un projet d’étiquetage
+# <a name="tag-images-in-a-labeling-project-preview"></a>Étiqueter des images dans un projet d’étiquetage (préversion)
 
 Une fois que votre administrateur de projet a [créé un projet d’étiquetage](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) dans Azure Machine Learning, vous pouvez utiliser l’outil d’étiquetage (préversion publique) pour préparer rapidement les données d’un projet Machine Learning. Cet article aborde les points suivants :
 
@@ -65,11 +65,13 @@ Une fois que vous avez envoyé les étiquettes relatives aux données disponible
 
 ### <a name="assisted-machine-learning"></a>Machine Learning assisté 
 
-Des algorithmes de Machine Learning peuvent être déclenchés au cours d’une tâche de classification multiclasse ou multi-étiquette. Si ces algorithmes sont activés dans votre projet, vous pouvez constater ce qui suit :
+Des algorithmes Machine Learning peuvent être déclenchés. Si ces algorithmes sont activés dans votre projet, vous pouvez constater ce qui suit :
 
 * Une fois que certaines de ces images ont été étiquetées,**Tasks clustered** (Tâches regroupées) peut s’afficher en haut de l’écran, en regard du nom du projet.  Cela signifie que les images similaires sont regroupées sur une même page.  Si c’est le cas, basculez vers l’une des vues d’images regroupées pour tirer parti de leur regroupement.  
 
 * Plus tard, **Tasks prelabeled** (Tâches préétiquetées) peut s’afficher en regard du nom du projet.  Les images s’affichent alors avec une suggestion d’étiquette qui provient d’un modèle de classification Machine Learning. Aucun modèle Machine Learning n’est fiable à 100 %. Même si nous utilisons uniquement des images pour lesquelles le modèle est fiable, celles-ci peuvent malgré tout être préétiquetées de façon incorrecte.  Si c’est le cas, corrigez le nom de ces étiquettes avant d’envoyer la page.  
+
+* Pour les modèles de détection d’objets, vous pouvez voir des étiquettes et des cadres englobants déjà présents.  Corrigez ceux qui sont incorrects avant d’envoyer la page.
 
 Au tout début d’un projet d’étiquetage, en particulier, un modèle Machine Learning peut n’être capable de préétiqueter correctement qu’un petit sous-ensemble d’images. Une fois ces images étiquetées, le projet d’étiquetage retourne à l’étiquetage manuel afin de collecter plus de données pour le prochain cycle d’entraînement du modèle. Au fil du temps, le modèle sera davantage fiable pour un plus grand nombre d’images, ce qui augmentera le nombre de tâches de préétiquettage plus tard dans le projet.
 

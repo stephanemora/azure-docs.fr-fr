@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 008058e42dfeb84cb2812ac4e8378cb5a8b5913a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0d2666e2b56e73b809a0480d45fa3a4a63f06490
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81425378"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652206"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Fournir une authentification Key Vault avec une stratégie de contrôle d’accès
 
@@ -60,10 +60,10 @@ L’objectId d’une application correspond à son principal de service associé
 
 Il existe deux façons d’obtenir un objectId pour une application.  La première consiste à inscrire votre application auprès d’Azure Active Directory. Pour ce faire, suivez les étapes du guide de démarrage rapide [Inscrire une application à l’aide de la plateforme d’identités Microsoft](../../active-directory/develop/quickstart-register-app.md). Une fois l’inscription effectuée, l’objectID est listé en tant qu’« ID d’application (client) ».
 
-La seconde consiste à créer un principal de service dans une fenêtre de terminal. Avec Azure CLI, utilisez la commande [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac).
+La seconde consiste à créer un principal de service dans une fenêtre de terminal. Avec l’interface Azure CLI, utilisez la commande [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) et fournissez un nom principal de service unique à l’indicateur -n au format « http://&lt;mon-nom-principal-de-service-unique&gt;».
 
 ```azurecli-interactive
-az ad sp create-for-rbac -n "http://mySP"
+az ad sp create-for-rbac -n "http://<my-unique-service-principle-name"
 ```
 
 L’objectId est listé dans la sortie en tant que `clientID`.
@@ -72,7 +72,7 @@ Avec Azure PowerShell, utilisez l’applet de commande [New-AzADServicePrincipal
 
 
 ```azurepowershell-interactive
-New-AzADServicePrincipal -DisplayName mySP
+New-AzADServicePrincipal -DisplayName <my-unique-service-principle-name>
 ```
 
 L’objectId est listé dans la sortie en tant que `Id` (et non `ApplicationId`).
@@ -222,6 +222,9 @@ Add-AzADGroupMember -TargetGroupObjectId <groupId> -MemberObjectId <objectId>
 Enfin, accordez les autorisations de groupe AD à votre coffre de clés à l’aide de la commande Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) ou de l’applet de commande Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0). Pour obtenir des exemples, consultez la section qui explique comment [permettre à une application, à un groupe Azure AD ou à un utilisateur d’accéder à votre coffre de clés](#give-the-principal-access-to-your-key-vault), ci-dessus.
 
 L’application nécessite également l’affectation d’au moins un rôle IAM (gestion des identités et des accès) au coffre de clés. Sinon, elle ne pourra pas se connecter en raison de droits insuffisants pour accéder à l’abonnement.
+
+> [!WARNING]
+> Les groupes Azure AD avec des identités managées peuvent nécessiter jusqu’à 8 heures pour actualiser le jeton et devenir effectifs.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

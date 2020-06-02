@@ -8,29 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: aaeb905c9cdc1e7b74e21d3c191f6a24a94fcd7d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e18605b75e4fcfcd8f2793e06801c309f9f23965
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80053811"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869271"
 ---
 # <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Démarrage rapide : Obtenir des résultats de nouvelles à l’aide des API REST Recherche d'actualités Bing et Go
 
 Ce démarrage rapide utilise le langage Go pour appeler l’API Recherche d’actualités Bing. Les résultats incluent les noms et les URL des sources d’actualités identifiés par la chaîne de requête.
 
 ## <a name="prerequisites"></a>Prérequis
-* Installer les [fichiers binaires Go](https://golang.org/dl/)
-* Installez la bibliothèque go-spew pour que cette imprimante affiche les résultats
-    * Installez cette bibliothèque : `$ go get -u https://github.com/davecgh/go-spew`
+* Installez les [fichiers binaires Go](https://golang.org/dl/).
+* Installez la bibliothèque go-spew pour afficher élégamment les résultats. Utilisez cette commande pour installer la bibliothèque : `$ go get -u https://github.com/davecgh/go-spew`.
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## <a name="create-a-project-and-import-libraries"></a>Créer un projet et importer les bibliothèques
 
-Créez un projet Go dans votre éditeur ou IDE. Puis importez `net/http` pour les requêtes, `ioutil` pour lire la réponse et `encoding/json` pour gérer le texte JSON des résultats. La bibliothèque go-spew est nécessaire pour analyser le JSON. 
+Créez un projet Go dans votre éditeur ou IDE. Ensuite, importez `net/http` pour les demandes, `ioutil` pour lire la réponse, `encoding/json` pour gérer le texte JSON des résultats et la bibliothèque `go-spew` pour analyser les résultats JSON. 
 
 ```go
 package main
@@ -45,9 +44,9 @@ import (
 
 ```
 
-## <a name="create-a-struct-to-format-the-news-search-results"></a>Créer une structure pour mettre en forme les résultats de la recherche d’actualités
+## <a name="create-a-struct-to-format-the-news-search-results"></a>Créer un struct pour mettre en forme les résultats de la recherche d’actualités
 
-La structure `NewsAnswer` met en forme les données fournies dans la réponse. La réponse JSON est assez complexe et comporte plusieurs niveaux.  L’implémentation suivante couvre les points essentiels.
+Le struct `NewsAnswer` met en forme les données fournies dans la réponse JSON, qui est multiniveau et complexe. L’implémentation suivante couvre les points essentiels :
 
 ```go
 // This struct formats the answer provided by the Bing News Search API.
@@ -87,7 +86,7 @@ type NewsAnswer struct {
 
 ## <a name="declare-the-main-function-and-define-variables"></a>Déclarer la fonction principale et définir des variables  
 
-Le code suivant déclare la fonction principale et affecte les variables obligatoires. Vérifiez que le point de terminaison est correct et remplacez la valeur `token` par une clé d’abonnement valide à partir de votre compte Azure. Vous pouvez utiliser le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource.
+Le code suivant déclare la fonction principale et attribue les variables obligatoires. Vérifiez que le point de terminaison est correct, puis remplacez la valeur `token` par une clé d’abonnement valide à partir de votre compte Azure. Vous pouvez utiliser le point de terminaison global dans le code suivant, ou le point de terminaison de [sous-domaine personnalisé](../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource.
 
 ```go
 func main() {
@@ -108,7 +107,7 @@ func main() {
 
 ## <a name="query-and-header"></a>Requête et en-tête
 
-Ajoutez l’en-tête de requête et l’en-tête de la chaîne de clé
+Ajoutez l’en-tête de requête et l’en-tête de la chaîne de clé.
 
 ```go
 // Add the query to the request.  
@@ -123,7 +122,7 @@ req.Header.Add("Ocp-Apim-Subscription-Key", token)
 
 ## <a name="get-request"></a>Requête GET
 
-Créer le client et envoyez la requête GET. 
+Créez le client et envoyez la demande GET. 
 
 ```go
 // Instantiate a client.  
@@ -139,7 +138,7 @@ if err != nil {
 
 ## <a name="send-the-request"></a>Envoyer la demande
 
-Envoyez la requête et lisez la réponse avec `ioutil`.
+Envoyez la demande et lisez la réponse à l’aide de `ioutil`.
 
 ```go
 resp, err := client.Do(req)
@@ -160,7 +159,7 @@ if err != nil {
 
 ## <a name="handle-the-response"></a>Gérer la réponse
 
-La fonction `Unmarshall` extrait des informations du texte JSON retourné par l’API recherche d’actualités.  Vous pouvez afficher les nœuds des résultats à l’aide de l’imprimante `go-spew`.
+La fonction `Unmarshall` extrait des informations du texte JSON retourné par l’API Recherche d’actualités Bing. Ensuite, affichez les nœuds des résultats avec l’imprimante `go-spew`.
 
 ```go
 // Create a new answer object 
@@ -181,7 +180,7 @@ spew.Dump(result.Name, result.URL)
 
 ## <a name="results"></a>Résultats
 
-Les résultats contiennent le nom et l’URL de chaque résultat.
+La sortie suivante contient le nom et l’URL de chaque résultat :
 
 ```
 (string) (len=91) "Cognitive Services Market: Global Industry Analysis and Opportunity Assessment, 2019 - 2025"

@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd4815187e829cff56893988874e4dcac3b8985e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d0ea181b0e6ac18a559614c5bce0707775acdcec
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143758"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83640184"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutoriel : Activer la réécriture de la réinitialisation du mot de passe en libre-service Azure Active Directory dans un environnement local
 
@@ -58,6 +58,10 @@ Pour fonctionner correctement avec la réécriture SSPR, le compte spécifié da
    * Les unités d’organisation utilisateur (UO) que vous souhaitez utiliser pour rester dans le cadre de la réinitialisation des mots de passe en libre-service
 
 Si vous n’attribuez pas ces autorisations, la réécriture semble configurée correctement, mais les utilisateurs rencontrent des erreurs lorsqu’ils gèrent leurs mots de passe locaux à partir du cloud. Les autorisations doivent être appliquées à **Cet objet et tous ceux descendants** pour que l’option « Ne pas faire expirer le mot de passe » soit proposée.  
+
+> [!TIP]
+>
+> Si les mots de passe de certains comptes d’utilisateur ne sont pas réécrits dans l’annuaire local, vérifiez que l’héritage n’est pas désactivé pour le compte dans l’environnement local AD DS. Les autorisations d’écriture pour les mots de passe doivent être appliquées aux objets descendants pour que la fonctionnalité fonctionne correctement.
 
 Afin de configurer les autorisations appropriées pour l’écriture différée de mot de passe, procédez comme suit :
 

@@ -12,12 +12,12 @@ ms.date: 08/30/2019
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1251049add8c9d3c71b6ba13aff24e086613e84b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1dd0bc589b8290172d18482b36baf30c24d099b4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450953"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83640576"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Connecter des utilisateurs et appeler Microsoft Graph à partir d’une application iOS ou macOS
 
@@ -150,6 +150,12 @@ var currentAccount: MSALAccount?
 ```
 
 La seule valeur que vous devez modifier ci-dessus est la valeur attribuée à `kClientID` comme [ID d’application](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#application-id-client-id). Cette valeur fait partie des données de configuration MSAL que vous avez enregistrées au début de ce tutoriel pour inscrire l’application dans le portail Azure.
+
+## <a name="configure-xcode-project-settings"></a>Configurer les paramètres d’un projet Xcode
+
+Ajoutez un nouveau groupe de trousseaux à **Signature et fonctionnalités** pour votre projet. Le groupe de trousseaux doit être `com.microsoft.adalcache` sur iOS et `com.microsoft.identity.universalstorage` sur macOS.
+
+![Interface utilisateur Xcode montrant comment le groupe de trousseaux doit être configuré](../../../includes/media/active-directory-develop-guidedsetup-ios-introduction/iosintro-keychainShare.png)
 
 ## <a name="for-ios-only-configure-url-schemes"></a>Pour iOS uniquement, configurer des schémas d’URL
 

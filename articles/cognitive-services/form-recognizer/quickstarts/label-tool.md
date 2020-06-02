@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: ac4cacd8233935362ed155dab22a66459ed9126d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 3c42d520e5e30e57906245b9405b0d445be8ee16
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691336"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871372"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’outil d’étiquetage des exemples
 
@@ -143,6 +143,7 @@ Vous allez ensuite créer des balises (étiquettes) et les appliquer aux éléme
     > * Étiquetez les valeurs telles qu’elles apparaissent sur le formulaire ; n’essayez pas de fractionner une valeur en deux parties avec deux étiquettes différentes. Par exemple, un champ d’adresse doit être étiqueté avec une étiquette unique, même s’il s’étend sur plusieurs lignes.
     > * N’incluez pas de clés dans vos champs étiquetés&mdash;uniquement les valeurs.
     > * Les données de la table doivent être détectées automatiquement et seront disponibles dans le fichier JSON de sortie final. Toutefois, si le modèle ne parvient pas à détecter toutes les données de votre table, vous pouvez aussi étiqueter manuellement ces champs. Étiquetez chaque cellule de la table avec une étiquette différente. Si vos formulaires comportent des tables avec un nombre variable de lignes, veillez à étiqueter au moins un formulaire avec la table la plus grande possible.
+    > * Pour supprimer une étiquette appliquée, sélectionnez le rectangle dans la vue de document et appuyez sur la touche Suppr.
 
 ![Fenêtre principale de l’éditeur de l’outil d’étiquetage des exemples](../media/label-tool/main-editor.png)
 
@@ -164,6 +165,27 @@ Les types et variantes de valeurs suivants sont actuellement pris en charge :
     * default, `dmy`, `mdy`, `ymd`
 * `time`
 * `integer`
+
+> [!NOTE]
+> Consultez les règles suivantes pour la mise en forme des dates :
+> 
+> Les caractères suivants peuvent être utilisés comme délimiteurs de date JMA : `, - / . \`. L’espace blanc ne peut pas être utilisé comme délimiteur. Par exemple :
+> * 01,01,2020
+> * 01-01-2020
+> * 01/01/2020
+>
+> Le jour et le mois peuvent chacun être écrits sous la forme d’un ou de deux chiffres, et l’année sous la forme de deux ou quatre chiffres :
+> * 1-1-2020
+> * 1-01-20
+>
+> Si une chaîne de date JMA contient huit chiffres, le délimiteur est facultatif :
+> * 01012020
+> * 01 01 2020
+>
+> Le mois peut également être écrit sous sa forme complète ou abrégée. Si le nom est utilisé, les caractères de délimitation sont facultatifs :
+> * 01/Jan/2020
+> * 01Jan2020
+> * 01 Jan 2020
 
 ## <a name="train-a-custom-model"></a>Entraîner un modèle personnalisé
 

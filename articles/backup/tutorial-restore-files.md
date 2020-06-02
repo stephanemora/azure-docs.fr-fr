@@ -4,12 +4,12 @@ description: Découvrez comment effectuer des restaurations au niveau du fichier
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 338c6b642076835132b75aa4259381791378577a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 439ffeed7f0e37f04eda39380ddcabe1fa4e06c3
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74171734"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653265"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Restaurer des fichiers vers une machine virtuelle dans Azure
 
@@ -25,7 +25,7 @@ Azure Backup crée des points de récupération stockés dans des coffres de ré
 
 Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.18 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Ce didacticiel nécessite une machine virtuelle Linux qui a été protégée avec Sauvegarde Azure. Pour simuler une suppression accidentelle de fichiers et le processus de récupération, vous supprimez une page d’un serveur web. Si vous avez besoin d’une machine virtuelle Linux qui exécute un serveur Web et qui a été protégée avec Sauvegarde Azure, consultez [Sauvegarder une machine virtuelle dans Azure avec l’interface CLI](quick-backup-vm-cli.md).
 
@@ -117,6 +117,9 @@ Pour restaurer vos fichiers, Sauvegarde Azure fournit un script à exécuter sur
 ## <a name="restore-file-to-your-vm"></a>Restaurer un fichier sur votre machine virtuelle
 
 Une fois le script de récupération copié sur votre machine virtuelle, vous pouvez maintenant connecter au point de récupération et restaurer des fichiers.
+
+>[!NOTE]
+> Consultez les informations [ici](backup-azure-restore-files-from-vm.md#selecting-the-right-machine-to-run-the-script) pour savoir si vous pouvez exécuter le script sur votre machine virtuelle avant de continuer.
 
 1. Connectez-vous à votre machine virtuelle avec SSH. Remplacez *publicIpAddress* par l’adresse IP publique de votre machine virtuelle, comme suit :
 

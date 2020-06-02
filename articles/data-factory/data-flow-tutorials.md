@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 04/17/2020
-ms.openlocfilehash: 3abec9b0c37e0475e369ce3cd2f91e40a1040b75
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.date: 05/25/2020
+ms.openlocfilehash: 87bfd505edcb394bafd70a975b5b3d6bde341cb9
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628961"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848870"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriels vidéo sur le flux de données de mappage
 
@@ -51,6 +51,8 @@ Des mises à jour étant apportées en permanence au produit, certaines fonction
 
 [Transformation de recherche](https://www.youtube.com/watch?v=9U-0VPU2ZPU)
 
+[Mises à jour et conseils relatifs à la transformation de recherche](https://youtu.be/MBskWoeuTLw)
+
 [Transformation de tableau croisé dynamique](https://www.youtube.com/watch?v=Tua14ZQA3F8&t=34s)
 
 [Transformation de tableau croisé dynamique : mappage de colonnes dérivées](https://youtu.be/5MygzCX0wnM)
@@ -58,6 +60,8 @@ Des mises à jour étant apportées en permanence au produit, certaines fonction
 [Transformation de sélection](http://youtu.be/F9VjQ_YyRyU?hd=1)
 
 [Transformation de sélection : mappage basé sur les règles](https://youtu.be/5lf1lh1qMwU)
+
+[Transformation de sélection : Jeux de données volumineux](https://www.youtube.com/watch?v=R5ea2_R0ouc)
 
 [Transformation de clé de substitution](https://www.youtube.com/watch?v=ISpegL9CbTM)
 
@@ -148,6 +152,8 @@ Des mises à jour étant apportées en permanence au produit, certaines fonction
 [Modèles logiques et modèles physiques](http://youtu.be/K5tgzLjEE9Q)
 
 [Détecter les modifications des données sources](http://youtu.be/CaxIlI7oXfI?hd=1)
+
+[Dimension à variation lente de type générique 2](http://youtu.be/tc283k8CWh8)
 
 ## <a name="data-flow-expressions"></a>Expressions de flux de données
 

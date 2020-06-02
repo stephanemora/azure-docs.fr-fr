@@ -8,12 +8,12 @@ ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: fc7551c081d14a871c8ee96610ca7190f629901d
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 4d1fafa131a39ab72f6fc09663c7eb5b06107539
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790964"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644853"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-spark-pools-preview"></a>Tutoriel : Utiliser Azure Toolkit for IntelliJ afin de créer des applications Apache Spark pour les pools Spark (préversion)
 
@@ -62,6 +62,7 @@ Dans ce tutoriel, vous allez apprendre à :
     |Project&nbsp;location (Emplacement du projet)| Entrez l’emplacement où vous souhaitez enregistrer votre projet.|
     |Project SDK (SDK du projet)| Ce champ peut être vide si vous utilisez IDEA pour la première fois. Sélectionnez **New...** (Nouveau) et accédez à votre JDK.|
     |Version de Spark|L’Assistant de création intègre la version correcte des SDK Spark et Scala. Synapse prend uniquement en charge **Spark 2.4.0**.|
+    |||
 
     ![Sélection du kit de développement logiciel (SDK) Apache Spark](./media/intellij-tool-synapse/create-synapse-application02.png)
 
@@ -141,9 +142,9 @@ Après avoir créé une application Scala, vous pouvez l’exécuter à distance
     |Spark pools|Sélectionnez les pools Spark sur lesquels vous souhaitez exécuter votre application.|
     |Sélectionner un artefact à envoyer|Conservez le paramètre par défaut.|
     |Main class name|La valeur par défaut est la classe principale du fichier sélectionné. Vous pouvez changer la classe en sélectionnant les points de suspension ( **...** ), puis en choisissant une autre classe.|
-    |Configurations du travail|Vous pouvez changer la clé et les valeurs par défaut. Pour plus d’informations, consultez [API REST Apache Livy](https://livy.incubator.apache.org./docs/latest/rest-api.html).|
+    |Configurations du travail|Vous pouvez changer la clé et les valeurs par défaut. Pour plus d’informations, consultez [API REST Apache Livy](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Arguments de ligne de commande|Vous pouvez entrer des arguments séparés par un espace pour la classe main, si nécessaire.|
-    |JAR référencés et fichiers référencés|vous pouvez entrer les chemins des fichiers jar et des fichiers référencés, si vous en avez. Vous pouvez également parcourir les fichiers dans le système de fichiers virtuel Azure, qui ne prend en charge que le cluster ADLS Gen 2. Pour plus d'informations : [Configuration Apache Spark](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) et [Guide pratique pour charger des ressources sur un cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
+    |JAR référencés et fichiers référencés|vous pouvez entrer les chemins des fichiers jar et des fichiers référencés, si vous en avez. Vous pouvez également parcourir les fichiers dans le système de fichiers virtuel Azure, qui ne prend en charge que le cluster ADLS Gen2. Pour plus d'informations : [Configuration Apache Spark](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) et [Guide pratique pour charger des ressources sur un cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
     |Stockage des chargements de travaux|Développez pour afficher des options supplémentaires.|
     |Type de stockage|Sélectionnez **Utiliser l’objet blob Azure pour charger** dans la liste déroulante.|
     |Compte de stockage|Entrez votre compte de stockage.|
@@ -176,7 +177,7 @@ Vous pouvez suivre les instructions ci-dessous pour configurer l’exécution et
 
     ![Intellij - Exécution locale des configuration de débogage](./media/intellij-tool-synapse/local-run-synapse01.png)
 
-3. Une fois l’exécution locale terminée, si le script contient une sortie, vous pouvez vérifier le fichier de sortie à partir de **data** >  **__default__** .
+3. Une fois l’exécution locale terminée, si le script contient une sortie, vous pouvez vérifier le fichier de sortie à partir de **data** > **__default__**.
 
     ![Intellij - Résultat d'exécution locale du projet](./media/intellij-tool-synapse/spark-local-run-result.png)
 
@@ -270,4 +271,4 @@ Il est pratique pour vous de prévoir le résultat du script en envoyant du code
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [Créer un pool Apache Spark pour un espace de travail Azure Synapse Analytics](../../synapse-analytics/quickstart-create-apache-spark-pool.md)
+- [Créer un pool Apache Spark pour un espace de travail Azure Synapse Analytics](../../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)

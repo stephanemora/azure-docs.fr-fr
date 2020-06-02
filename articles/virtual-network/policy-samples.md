@@ -1,33 +1,26 @@
 ---
-title: Exemples de modèles de stratégie | Microsoft Docs
-description: Exemples de modèles Azure Policy pour un réseau virtuel.
-services: virtual-network
-documentationcenter: ''
-author: KumudD
-manager: twooley
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: virtual-network
-ms.devlang: na
+title: Définitions de stratégie intégrées pour Réseau virtuel Azure
+description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Virtual Network. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
+ms.date: 05/13/2020
 ms.topic: sample
-ms.tgt_pltfrm: ''
-ms.workload: ''
-ms.date: 05/05/2020
+author: KumudD
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 93d0138f336ffc7055daf9988658a6284af53188
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.service: virtual-network
+ms.custom: subject-policy-samples
+ms.openlocfilehash: bae8d7b6e102cb5fdc4938ee4951f8a89a50753e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839128"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659899"
 ---
-# <a name="azure-policy-sample-built-ins-for-virtual-network"></a>Exemples Azure Policy intégrés pour un réseau virtuel
+# <a name="azure-policy-built-in-policy-definitions-for-azure-virtual-network"></a>Définitions de stratégie intégrées d’Azure Policy pour Azure Virtual Network
 
-Le tableau suivant inclut des liens vers des exemples d’[Azure Policy](../governance/policy/overview.md). Ces exemples se trouvent dans le [référentiel d’exemples d’Azure Policy](https://github.com/Azure/azure-policy).
+Cette page est un index des définitions de stratégie intégrées d’[Azure Policy](../governance/policy/overview.md) pour Azure Virtual Network. Pour obtenir des éléments intégrés supplémentaires d’Azure Policy pour d’autres services, consultez [Définitions intégrées d’Azure Policy](../governance/policy/samples/built-in-policies.md).
 
-## <a name="network"></a>Réseau
+Le nom de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien de la colonne **GitHub** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).
+
+## <a name="azure-virtual-network"></a>Réseau virtuel Azure
 
 [!INCLUDE [azure-policy-samples-policies-network](../../includes/policy/samples/bycat/policies-network.md)]
 
@@ -38,3 +31,9 @@ Le tableau suivant inclut des liens vers des exemples d’[Azure Policy](../gove
 ## <a name="general"></a>Général
 
 [!INCLUDE [azure-policy-samples-policies-general](../../includes/policy/samples/bycat/policies-general.md)]
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- Consultez les définitions intégrées dans le [dépôt Azure Policy de GitHub](https://github.com/Azure/azure-policy).
+- Consultez la [Structure de définition Azure Policy](../governance/policy/concepts/definition-structure.md).
+- Consultez la page [Compréhension des effets de Policy](../governance/policy/concepts/effects.md).

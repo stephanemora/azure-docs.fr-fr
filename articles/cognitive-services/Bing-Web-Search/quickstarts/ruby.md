@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 5f3e05752967be8872c0e6fd9008bfae05d950fa
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9400558f8ea26199a2f7ac406fd6d94647243e11
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76169535"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873799"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Démarrage rapide : Utiliser Ruby pour appeler l’API Recherche Web Bing  
 
-Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche Web Bing et recevoir la réponse JSON. Cette application Ruby envoie une requête de recherche à l’API et affiche la réponse. Alors que cette application est écrite en Ruby, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
+Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche Web Bing. Cette application Ruby envoie une requête de recherche à l’API et affiche la réponse JSON. Bien que cette application soit écrite en Ruby, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -33,7 +33,7 @@ Voici quelques points dont vous aurez besoin avant d’exécuter ce démarrage r
 
 ## <a name="create-a-project-and-declare-required-modules"></a>Créer un projet et déclarer les modules requis
 
-Créez un projet Ruby dans l’éditeur ou l’IDE de votre choix. Exigez ensuite `net/https` pour les requêtes, `uri` pour le traitement des URI, et `json` à l’analyse de la réponse.
+Créez un projet Ruby dans l’éditeur ou l’IDE de votre choix. Exigez ensuite `net/https` pour les requêtes, `uri` pour le traitement des URI et `json` pour l’analyse de la réponse.
 
 ```ruby
 require 'net/https'
@@ -43,7 +43,13 @@ require 'json'
 
 ## <a name="define-variables"></a>Définir des variables
 
-Quelques variables doivent être définies avant de continuer. `uri` peut être le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource. Vérifiez que `uri` et `path` sont valides et remplacez la valeur `accessKey` par une clé d’abonnement valide à partir de votre compte Azure. N’hésitez pas à personnaliser la requête de recherche en remplaçant la valeur de `term`.
+Quelques variables doivent être définies avant de continuer :
+
+1. Pour la valeur `uri`, vous pouvez utiliser le point de terminaison global dans le code suivant, ou le point de terminaison de [sous-domaine personnalisé](../../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource. 
+
+2. Vérifiez que les valeurs `uri` et `path` sont valides et remplacez la valeur `accessKey` par une clé d’abonnement à partir de votre compte Azure. 
+
+3. Si vous le souhaitez, vous pouvez personnaliser la requête de recherche en remplaçant la valeur de `term`.
 
 ```ruby
 accessKey = "YOUR_SUBSCRIPTION_KEY"
@@ -60,7 +66,7 @@ end
 
 ## <a name="make-a-request"></a>Exécuter une requête
 
-Utilisez ce code pour effectuer une requête et gérer la réponse.
+Utilisez ce code pour effectuer une requête et gérer la réponse :
 
 ```ruby
 # Construct the endpoint uri.
@@ -96,7 +102,7 @@ puts JSON::pretty_generate(JSON(response.body))
 
 ## <a name="put-it-all-together"></a>Assemblage
 
-La dernière étape consiste à valider votre code et à l’exécuter ! Si vous souhaitez comparer votre code avec le nôtre, voici le programme complet :
+La dernière étape consiste à valider votre code et à l’exécuter. Si vous souhaitez comparer votre code avec le nôtre, voici le programme complet :
 
 ```ruby
 require 'net/https'
@@ -135,7 +141,7 @@ puts "\nJSON Response:\n\n"
 puts JSON::pretty_generate(JSON(response.body))
 ```
 
-## <a name="sample-response"></a>Exemple de réponse
+## <a name="example-json-response"></a>Exemple de réponse JSON
 
 Les réponses à partir de l’API Recherche Web Bing sont retournées au format JSON. Cet exemple de réponse a été tronqué pour afficher un résultat unique.
 
@@ -264,6 +270,6 @@ Les réponses à partir de l’API Recherche Web Bing sont retournées au format
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Didacticiel sur l’application à page unique Recherche Web Bing](../tutorial-bing-web-search-single-page-app.md)
+> [Tutoriel sur l’application d’API Recherche Web Bing monopage](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

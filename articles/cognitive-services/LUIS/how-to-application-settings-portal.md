@@ -2,13 +2,13 @@
 title: Paramètres de l’application
 description: Configurez vos paramètres d’application et de version dans le portail LUIS, tels que la normalisation d’énoncé et la confidentialité de l’application.
 ms.topic: quickstart
-ms.date: 05/04/2020
-ms.openlocfilehash: 4f0703973a4ef15f1d9b6582bd4789cd825dfe9f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/17/2020
+ms.openlocfilehash: c1d5572c3eeb71ec0631a03444d08da46d0a0106
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599271"
+ms.locfileid: "83653159"
 ---
 # <a name="application-and-version-settings"></a>Paramètres d’application et de version
 
@@ -21,21 +21,25 @@ Vous pouvez modifier le nom et la description de votre application. Vous pouvez 
 1. Connectez-vous au [portail LUIS](https://www.luis.ai).
 1. Sélectionnez une application dans la liste **My apps** (Mes applications).
 .
-1. Sélectionnez **Manage** (Gérer) dans la barre de navigation supérieure, puis **Application Settings** (Paramètres de l’application) dans la barre de navigation de gauche.
+1. Sélectionnez **Manage** (Gérer) dans la barre de navigation supérieure, puis **Settings** (Paramètres) dans la barre de navigation de gauche.
 
 > [!div class="mx-imgBorder"]
 > ![Capture d’écran du portail LUIS, section Gérer, page Paramètres de l’application](media/app-settings/luis-portal-manage-section-application-settings.png)
 
 
-## <a name="change-training-and-endpoint-settings"></a>Modifier les paramètres d’apprentissage et de point de terminaison
+## <a name="change-application-settings"></a>Changer les paramètres d’application
 
 Pour modifier un paramètre, sélectionnez le bouton bascule sur la page.
 
-[!INCLUDE [App and version settings](includes/app-version-settings.md)]
+[!INCLUDE [App settings](includes/app-settings.md)]
 
+## <a name="change-version-settings"></a>Changer les paramètres de version
 
-Utilisez le [guide de référence des paramètres](luis-reference-application-settings.md) pour l’application et la version afin de comprendre quels formats de texte sont ignorés.
+Pour modifier un paramètre, sélectionnez le bouton bascule sur la page.
+
+[!INCLUDE [Version settings](includes/app-version-settings.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Comment [collaborer](luis-how-to-collaborate.md) avec d’autres auteurs
+* [Paramètres de publication](luis-how-to-publish-app.md#configuring-publish-settings)

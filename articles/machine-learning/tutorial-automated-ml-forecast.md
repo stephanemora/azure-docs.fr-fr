@@ -1,5 +1,5 @@
 ---
-title: Prévoir la demande de vélos en libre-service avec une expérience de ML automatisé
+title: 'Tutoriel : Prévision de la demande et AutoML'
 titleSuffix: Azure Machine Learning
 description: Découvrez comment entraîner et déployer un modèle de prévision de la demande avec le Machine Learning automatisé dans Azure Machine Learning Studio.
 services: machine-learning
@@ -9,24 +9,27 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 01/27/2020
-ms.openlocfilehash: 11e0a8a0076fb2e68c379b279f471ff74846df2e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 05/19/2020
+ms.openlocfilehash: 07450f0c1ea85f22d19e59aaa27898cbf34a7978
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77088323"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656569"
 ---
-# <a name="tutorial-forecast-bike-sharing-demand-with-automated-machine-learning"></a>Tutoriel : Prévoir la demande de vélos en libre-service avec le Machine Learning automatisé
+# <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutoriel : Prévoir la demande avec le Machine Learning automatisé
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Dans ce tutoriel, vous allez utiliser le Machine Learning automatisé, ou ML automatisé, dans Azure Machine Learning Studio afin de créer un modèle de prévision de série chronologique qui prédit la demande de location pour un service de vélos en libre-service.
+
+Pour obtenir un exemple de modèle de classification, consultez [Tutoriel : Créer un modèle de classification avec le ML automatisé dans Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
 
 Dans ce tutoriel, vous allez apprendre à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer et charger un jeu de données
 > * Configurer et exécuter une expérience de ML automatisé
+> * Indiquez les paramètres de prévision.
 > * Explorer les résultats de l’expérience
 > * Déployer le meilleur modèle
 
@@ -129,7 +132,7 @@ Terminez la configuration de votre expérience de ML automatisé en spécifiant 
 
 1. Sélectionnez **date** comme **Colonne d’heure** et laissez **Regrouper par colonne(s)** vide. 
 
-    1. Sélectionnez **Afficher des paramètres de configuration supplémentaires** et renseignez les champs comme suit. Ces paramètres permettent de mieux contrôler le travail d’entraînement. Sinon, les valeurs par défaut sont appliquées en fonction de la sélection de l’expérience et des données.
+    1. Sélectionnez **Afficher des paramètres de configuration supplémentaires** et renseignez les champs comme suit. Ces paramètres permettent de mieux contrôler le travail d’entraînement, et de spécifier les paramètres de votre prévision. Sinon, les valeurs par défaut sont appliquées en fonction de la sélection de l’expérience et des données.
 
   
         Configurations&nbsp;supplémentaires|Description|Valeur&nbsp;pour&nbsp;le tutoriel
@@ -224,6 +227,10 @@ Pour savoir comment créer un schéma pris en charge par Power BI pour faciliter
 > [!div class="nextstepaction"]
 > [Utiliser un service web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
++ En savoir plus sur le [Machine Learning automatisé](concept-automated-ml.md).
++ Pour plus d’informations sur les métriques et les graphiques de classification, consultez l’article [Comprendre les résultats du Machine Learning automatisé](how-to-understand-automated-ml.md#classification).
++ Découvrez-en plus sur la [caractérisation](how-to-use-automated-ml-for-ml-models.md#featurization).
++ En savoir plus sur le [profilage des données](how-to-use-automated-ml-for-ml-models.md#profile).
 
 >[!NOTE]
 > Ce jeu de données de vélos en libre-service a été modifié pour les besoins de ce tutoriel. Ce jeu de données, mis à disposition dans le cadre d’un [concours Kaggle](https://www.kaggle.com/c/bike-sharing-demand/data), a été initialement proposé par [Capital Bikeshare](https://www.capitalbikeshare.com/system-data). Il est également accessible dans la [base de données de Machine Learning de l’UCI](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset).<br><br>

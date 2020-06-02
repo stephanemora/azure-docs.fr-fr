@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 05/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c80963976783321d05fc6f32bb24daed36fa105
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 395aa82d47f4f84070af557c2c3b741776fb51ba
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76985532"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834405"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Slack
 
@@ -39,6 +39,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Abonnement Slack pour lequel l’authentification unique est activée
 
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
+
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
@@ -47,9 +50,6 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 * Slack prend en charge l’attribution d’utilisateurs **Juste-à-temps**
 * Slack prend en charge [l’attribution d’utilisateurs **automatique**](https://docs.microsoft.com/azure/active-directory/saas-apps/slack-provisioning-tutorial)
 * Après avoir configuré Slack, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
-
-> [!NOTE]
-> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
 ## <a name="adding-slack-from-the-gallery"></a>Ajout de Slack à partir de la galerie
 
@@ -87,12 +87,12 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.slack.com`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://< DOMAIN NAME>.slack.com/sso/saml/start`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL : `https://slack.com`
 
     > [!NOTE]
-    > La valeur d’URL de connexion n’est pas réelle. Remplacez cette valeur par l’URL de connexion réelle. Pour obtenir la valeur, contactez l’[équipe de support client Allbound SSO](https://slack.com/help/contact). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > La valeur d’URL de connexion n’est pas réelle. Remplacez cette valeur par l’URL de connexion réelle. Pour obtenir la valeur, contactez l’[équipe de support client de Slack](https://slack.com/help/contact). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. L’application Slack attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
@@ -104,6 +104,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | -----|---------|
     | emailaddress | user.userprincipalname |
     | | |
+
+> [!NOTE]
+    > Pour définir la configuration du fournisseur de services, vous devez cliquer sur **Développer** en regard d’**Options avancées** dans la page Configuration SAML. Dans la zone **Émetteur du fournisseur de services**, entrez l’URL de l’espace de travail. La valeur par défaut est slack.com. 
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -149,15 +152,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. Accédez à **Microsoft Azure AD**, puis à **Team Settings**.
 
-     ![Configurer l’authentification unique côté application](./media/slack-tutorial/tutorial_slack_001.png)
+     ![Configurer l’authentification unique côté application](./media/slack-tutorial/tutorial-slack-001.png)
 
 3. Dans la section **Team Settings**, cliquez sur l’onglet **Authentication** puis sur **Change Settings**.
 
-    ![Configurer l’authentification unique côté application](./media/slack-tutorial/tutorial_slack_002.png)
+    ![Configurer l’authentification unique côté application](./media/slack-tutorial/tutorial-slack-002.png)
 
 4. Dans la boîte de dialogue **SAML Authentication Settings** , procédez comme suit :
 
-    ![Configurer l’authentification unique côté application](./media/slack-tutorial/tutorial_slack_003.png)
+    ![Configurer l’authentification unique côté application](./media/slack-tutorial/tutorial-slack-003.png)
 
     a.  Dans la zone de texte **Point de terminaison SAML 2.0 (HTTP)** , collez la valeur de **l’URL de connexion** que vous avez copiée à partir du portail Azure.
 
@@ -167,7 +170,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     d. Configurez les trois paramètres ci-dessus comme nécessaire pour votre équipe Slack. Pour plus d’informations sur les paramètres, vous trouverez le **guide de configuration de l’authentification unique sur Slack**. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
-    e.  Cliquez sur **Enregistrer la configuration**.
+    ![Configurer l’authentification unique côté application](./media/slack-tutorial/tutorial-slack-004.png)
+
+    e. Cliquez sur **Développer** et entrez `https://slack.com` dans la zone de texte **Émetteur du fournisseur de services**.
+
+    f.  Cliquez sur **Enregistrer la configuration**.
 
 ### <a name="create-slack-test-user"></a>Créer un utilisateur de test Slack
 

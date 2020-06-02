@@ -3,12 +3,12 @@ title: Tutoriel - Sauvegarde de base de données SAP HANA sur Azure à l’aide 
 description: Dans ce tutoriel, vous allez découvrir comment sauvegarder des bases de données SAP HANA s’exécutant sur une machine virtuelle Azure dans un coffre Recovery Services de Sauvegarde Azure à l’aide de l’interface CLI.
 ms.topic: tutorial
 ms.date: 12/4/2019
-ms.openlocfilehash: cdc8a8fb09a086a2b9212c21d071f267991fa275
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7d1c52a846b837d47aa40c8f6a68010a8e7f1137
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78206620"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747292"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutoriel : Sauvegarder des bases de données SAP HANA sur une machine virtuelle Azure à l’aide de l’interface CLI
 
@@ -141,6 +141,11 @@ e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2
 ```
 
 L’applet de commande [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) liste tous les travaux de sauvegarde (planifiés ou à la demande) qui ont été exécutés ou qui sont en cours d’exécution sur la base de données protégée, en plus d’autres opérations telles que l’inscription, la configuration de sauvegarde, la suppression des données de sauvegarde, et ainsi de suite.
+
+>[!NOTE]
+>La sauvegarde Azure ne s’ajuste pas automatiquement au changement d’heure lorsque vous sauvegardez une base de données SAP HANA qui s’exécute dans une machine virtuelle Azure.
+>
+>Modifiez la stratégie manuellement en fonction des besoins.
 
 ## <a name="trigger-an-on-demand-backup"></a>Déclencher une sauvegarde à la demande
 

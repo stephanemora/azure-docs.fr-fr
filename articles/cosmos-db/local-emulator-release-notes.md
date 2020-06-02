@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: milismsft
 ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: 4dffe169908d0dd3effa4e46140b5f6696805a3e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6dad625bbbcb8279e83ac42e1492c251d5b0299c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77168641"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747000"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Émulateur Azure Cosmos - Notes de publication et informations sur le téléchargement
 
@@ -25,6 +25,15 @@ Cet article présente les notes de publication de l’émulateur Azure Cosmos av
 |**Prise en main**|[Développer localement avec l’émulateur Azure Cosmos](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="2110"></a>2.11.0
+
+- Cette version introduit la prise en charge du débit provisionné par la mise à l’échelle automatique. Ces nouvelles fonctionnalités comprennent la possibilité de définir un niveau personnalisé du débit maximal provisionné dans les unités de requête (RU/s), d’activer la mise à l’échelle automatique sur les bases de données et conteneurs existants ainsi que la prise en charge programmatique au moyen des kits SDK Azure Cosmos DB.
+- Correction d’un problème lors de l’interrogation d’un grand nombre de documents (plus de 1 Go) quand l’émulateur échoue avec le code d’état d’erreur interne 500.
+
+### <a name="292"></a>2.9.2
+
+- Cette version corrige un bogue pendant l’activation de la prise en charge du point de terminaison MongoDb version 3.2. Elle ajoute également la prise en charge de la génération de traces ETL à des fins de dépannage à l’aide de WPR au lieu de LOGMAN.
 
 ### <a name="291"></a>2.9.1
 

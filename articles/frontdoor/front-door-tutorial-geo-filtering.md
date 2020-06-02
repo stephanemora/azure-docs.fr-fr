@@ -1,6 +1,6 @@
 ---
 title: 'Tutoriel : Configurer une stratégie WAF de géofiltrage - Azure Front Door'
-description: Dans ce didacticiel, vous allez apprendre à créer une stratégie de géofiltrage et à l’associer à votre hôte frontend Front Door existant
+description: Dans ce didacticiel, vous allez apprendre à créer une stratégie de filtrage géographique et à l’associer à votre hôte frontend Front Door existant
 services: frontdoor
 documentationcenter: ''
 author: teresayao
@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: tyao
-ms.openlocfilehash: e3119745e35140d0344d25f34f54b63939d2542d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 10f8bd3682b442dd55e195c6dc1855fae07a155c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79471453"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744102"
 ---
-# <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Guide pratique pour configurer une stratégie WAF de géofiltrage pour votre porte d’entrée
-Dans ce didacticiel, vous allez apprendre à utiliser Azure PowerShell pour créer un exemple de stratégie de géofiltrage et à l’associer à votre hôte frontend Front Door existant. Cet exemple de stratégie de géofiltrage bloquera les demandes de tous les autres pays/régions, à l’exception des États-Unis.
+# <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Guide pratique pour configurer une stratégie WAF de filtrage géographique pour votre porte d’entrée
+Dans ce didacticiel, vous allez apprendre à utiliser Azure PowerShell pour créer un exemple de stratégie de filtrage géographique et à l’associer à votre hôte frontend Front Door existant. Cet exemple de stratégie de filtrage géographique bloquera les demandes de tous les autres pays/régions, à l’exception des États-Unis.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) maintenant.
 
 ## <a name="prerequisites"></a>Prérequis
-Avant de définir une stratégie de géofiltrage, configurez votre environnement PowerShell et créez un profil Front Door.
+Avant de définir une stratégie de filtrage géographique, configurez votre environnement PowerShell et créez un profil Front Door.
 ### <a name="set-up-your-powershell-environment"></a>Configurer votre environnement PowerShell
 Azure PowerShell fournit un ensemble d’applets de commande qui utilisent le modèle [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) pour gérer vos ressources Azure. 
 
@@ -49,9 +49,9 @@ Install-Module -Name Az.FrontDoor
 ### <a name="create-a-front-door-profile"></a>Créer un profil Front Door
 Créez un profil Front Door en suivant les instructions décrites dans [Démarrage rapide : créer un profil Front Door](quickstart-create-front-door.md).
 
-## <a name="define-geo-filtering-match-condition"></a>Définir la condition de correspondance du géofiltrage
+## <a name="define-geo-filtering-match-condition"></a>Définir la condition de correspondance du filtrage géographique
 
-Créez un exemple de condition de correspondance qui sélectionne les demandes ne provenant pas de « US » en utilisant [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) sur les paramètres lors de la création d’une condition de correspondance. Les indicatifs pays à deux lettres pour effectuer un mappage pays sont fournis [ici](front-door-geo-filtering.md).
+Créez un exemple de condition de correspondance qui sélectionne les demandes ne provenant pas de « US » en utilisant [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) sur les paramètres lors de la création d’une condition de correspondance. Les code de pays/région à deux lettres pour effectuer un mappage pays/région sont fournis [ici](front-door-geo-filtering.md).
 
 ```azurepowershell-interactive
 $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
@@ -61,7 +61,7 @@ $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchValue "US"
 ```
  
-## <a name="add-geo-filtering-match-condition-to-a-rule-with-action-and-priority"></a>Ajouter une condition de correspondance du géofiltrage à une règle à l’aide d’une action et d’une priorité
+## <a name="add-geo-filtering-match-condition-to-a-rule-with-action-and-priority"></a>Ajouter une condition de correspondance du filtrage géographique à une règle à l’aide d’une action et d’une priorité
 
 Créez un objet CustomRule `nonUSBlockRule` basé sur la condition de correspondance, sur une action et sur une priorité à l’aide de [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject).  Un CustomRule peut avoir plusieurs MatchCondition.  Dans cet exemple, une action est définie pour bloquer et une priorité est définie comme 1, il s’agit de la priorité la plus élevée.
 

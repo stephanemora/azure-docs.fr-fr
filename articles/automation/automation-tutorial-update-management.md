@@ -1,38 +1,28 @@
 ---
-title: Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure
-description: Cet article fournit une vue d’ensemble de l’utilisation d’Azure Automation Update Management afin de gérer les mises à jour et les correctifs pour vos machines virtuelles Azure et non-Azure.
+title: Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure dans Azure Automation
+description: Cet article explique comment utiliser Update Management pour gérer les mises à jour et les correctifs pour vos machines virtuelles Azure.
 services: automation
 ms.subservice: update-management
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 62c661f75aef77117a61be7e802562e6dde17ba5
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 5b5172df6ed6993742a08d5ac08cf700681dfc6a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604675"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829152"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure
 
-Vous pouvez utiliser la solution de gestion des mises à jour pour gérer les mises à jour et les correctifs pour vos machines virtuelles. Dans ce tutoriel, vous allez découvrir comment évaluer rapidement l’état des mises à jour disponibles, planifier l’installation des mises à jour nécessaires, passer en revue les résultats des déploiements et créer une alerte pour vérifier que les mises à jour sont appliquées correctement.
+Cet article explique comment utiliser la fonctionnalité [Update Management](automation-update-management.md) d’Azure Automation pour gérer les mises à jour et les correctifs pour vos machines virtuelles Azure. 
 
 Pour plus d’informations sur les prix, consultez [Tarification d’Automation pour la gestion des mises à jour](https://azure.microsoft.com/pricing/details/automation/)
 
-Dans ce tutoriel, vous allez apprendre à :
-
-> [!div class="checklist"]
-> * Afficher une évaluation des mises à jour
-> * Configurer les alertes
-> * Planifier un déploiement de mises à jour
-> * Afficher les résultats d’un déploiement
-
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
-
-* La solution [Update Management](automation-update-management.md), activée pour une ou plusieurs de vos machines virtuelles.
-* Une [machine virtuelle](../virtual-machines/windows/quick-create-portal.md) à intégrer.
+* La fonctionnalité [Update Management](automation-update-management.md), activée pour une ou plusieurs de vos machines virtuelles 
+* Une [machine virtuelle](../virtual-machines/windows/quick-create-portal.md) activée pour Update Management
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -95,7 +85,7 @@ Pour personnaliser l’objet de l’e-mail d’alerte, sous **Créer une règle*
 
 ## <a name="schedule-an-update-deployment"></a>Planifier un déploiement de mises à jour
 
-Ensuite, planifiez un déploiement qui suit votre fenêtre de planification et de maintenance des versions pour installer les mises à jour. Vous pouvez choisir les types de mises à jour à inclure dans le déploiement. Par exemple, vous pouvez inclure des mises à jour critiques ou de sécurité et exclure des correctifs cumulatifs.
+Planifiez un déploiement qui suit votre fenêtre de planification et de maintenance des versions pour installer les mises à jour. Vous pouvez choisir les types de mises à jour à inclure dans le déploiement. Par exemple, vous pouvez inclure des mises à jour critiques ou de sécurité et exclure des correctifs cumulatifs.
 
 >[!NOTE]
 >La planification d’un déploiement de mises à jour entraîne la création d’une ressource de [planification](shared-resources/schedules.md) liée au runbook **Patch-MicrosoftOMSComputers**, qui gère le déploiement des mises à jour sur les machines cibles. Si vous supprimez la ressource de planification dans le Portail Azure ou si vous utilisez PowerShell après la création du déploiement, l’opération de suppression arrête le déploiement de mises à jour planifié. De plus, une erreur est générée quand vous essayez de reconfigurer la ressource de planification à partir du Portail. Vous ne pouvez supprimer la ressource de planification qu’en supprimant la planification de déploiement correspondante.  
@@ -112,16 +102,7 @@ Sous **Nouveau déploiement de mises à jour**, spécifiez les informations suiv
 
 * **Machines à mettre à jour** : Sélectionnez une recherche enregistrée, un groupe importé ou choisissez **Machines** dans la liste déroulante et sélectionnez des machines individuelles. Si vous choisissez **Machines**, l’état de préparation de chaque machine est indiqué dans la colonne **Préparation de la mise à jour de l’agent**. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../azure-monitor/platform/computer-groups.md).
 
-* **Classification des mises à jour** : Pour chaque produit, désélectionnez toutes les classifications de mises à jour prises en charge, à l’exception de celles que vous souhaitez inclure dans votre déploiement de mises à jour. Pour ce tutoriel, laissez tous les types sélectionnés pour tous les produits.
-
-  Les types de classification sont les suivants :
-
-   |Système d''exploitation  |Type  |
-   |---------|---------|
-   |Windows     | Mises à jour critiques</br>Mises à jour de sécurité</br>Correctifs cumulatifs</br>Packs de fonctionnalités</br>Service Packs</br>Mises à jour de définitions</br>Outils</br>Mises à jour<br>Pilote        |
-   |Linux     | Mises à jour critiques et de sécurité</br>Autres mises à jour       |
-
-   Pour les descriptions des types de classifications, consultez [Classifications des mises à jour](automation-view-update-assessments.md#update-classifications).
+* **Classification des mises à jour** : Pour chaque produit, désélectionnez toutes les classifications de mises à jour prises en charge, à l’exception de celles que vous souhaitez inclure dans votre déploiement de mises à jour. Pour les descriptions des types de classifications, consultez [Classifications des mises à jour](automation-view-update-assessments.md#work-with-update-classifications).
 
 * **Mises à jour à inclure/exclure** : ouvre la page Inclure/Exclure. Les mises à jour à inclure ou à exclure sont présentées dans des onglets séparés en fonction des numéros d’identification des articles de la Base de connaissances que vous spécifiez. Quand vous indiquez un ou plusieurs numéros d’identification, vous devez supprimer ou décocher toutes les classifications pour le déploiement de mises à jour. Cela garantit qu’aucune autre mise à jour n’est incluse dans votre package de mises à jour lors de la spécification des ID de mises à jour.
 
@@ -131,7 +112,6 @@ Sous **Nouveau déploiement de mises à jour**, spécifiez les informations suiv
 > [!NOTE]
 > Vous ne pouvez pas spécifier des mises à jour qui ont été remplacées pour être incluses dans le déploiement des mises à jour.
 >
-
 * **Paramètres de planification** : le volet Paramètres de planification s’affiche. L’heure de début par défaut est dans 30 minutes. Vous pouvez définir l’heure de début à tout moment à partir de 10 minutes à l’avenir.
 
    Vous pouvez également spécifier si le déploiement se produit une seule fois ou configurer une planification périodique. Sous **Récurrence**, sélectionnez **Une fois**. Conservez la valeur par défaut de 1 jour et cliquez sur **OK**. Ces entrées configurent une planification périodique.
@@ -196,16 +176,4 @@ Une fois que vous avez effectué le déploiement des mises à jour, vous recevez
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
-
-> [!div class="checklist"]
-> * Intégrer une machine virtuelle pour la gestion des mises à jour
-> * Afficher une évaluation des mises à jour
-> * Configurer les alertes
-> * Planifier un déploiement de mises à jour
-> * Afficher les résultats d’un déploiement
-
-Passez à la vue d’ensemble de la solution de gestion des mises à jour.
-
-> [!div class="nextstepaction"]
-> [Solution de gestion des mises à jour](automation-update-management.md)
+* Pour plus d’informations sur Update Management, consultez [Vue d’ensemble de Update Management](automation-update-management.md).

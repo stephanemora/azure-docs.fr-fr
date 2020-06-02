@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec PolicyStat | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory avec PolicyStat | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et PolicyStat.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 327e470d60235e6bf400293e80e3aec5f6144ff4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4f467e061ad52fdcc6d1e8706bb902088b237c24
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68943441"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848751"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Didacticiel : Intégration d’Azure Active Directory avec PolicyStat
+# <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutoriel : Intégration d’Azure Active Directory avec PolicyStat
 
 Dans ce didacticiel, vous allez apprendre à intégrer PolicyStat avec Azure Active Directory (Azure AD).
 L’intégration de PolicyStat avec Azure AD vous offre les avantages suivants :
@@ -34,7 +34,7 @@ L’intégration de PolicyStat avec Azure AD vous offre les avantages suivants 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD avec PolicyStat, vous avez besoin des éléments suivants :
 
@@ -80,10 +80,9 @@ Pour configurer et tester l’authentification unique Azure AD avec PolicyStat, 
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Configurer l’authentification unique PolicyStat](#configure-policystat-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test PolicyStat](#create-policystat-test-user)** pour obtenir un équivalent de Britta Simon dans PolicyStat lié à la représentation Azure AD associée.
-6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+3. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Créer un utilisateur de test PolicyStat](#create-policystat-test-user)** pour obtenir un équivalent de Britta Simon dans PolicyStat lié à la représentation Azure AD associée.
+5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -124,7 +123,7 @@ Pour configurer l’authentification unique Azure AD avec PolicyStat, effectuez 
 
 6. En plus de ce qui précède, l’application PolicyStat s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous :
 
-    | Name | Attribut source |
+    | Nom | Attribut source |
     |------------------- | -------------------- |
     | uid | ExtractMailPrefix([mail]) |
 
@@ -164,25 +163,7 @@ Pour configurer l’authentification unique Azure AD avec PolicyStat, effectuez 
    
     ![Menu Administrateur](./media/policystat-tutorial/ic808633.png "Menu Administrateur")
 
-3. Dans la section **Setup**, sélectionnez **Enable Single Sign-on Integration**.
-   
-    ![Configuration de l’authentification unique](./media/policystat-tutorial/ic808634.png "Single Sign-On Configuration")
-
-4. Cliquez sur **Configure Attributes**, puis, dans la section **Configure Attributes**, procédez comme suit :
-   
-    ![Configuration de l’authentification unique](./media/policystat-tutorial/ic808635.png "Single Sign-On Configuration")
-   
-    a. Dans la zone de texte **Username Attribute**, entrez **uid**.
-
-    b. Dans la zone de texte **First Name Attribute**, entrez la valeur **firstname** de l’utilisateur **Britta**.
-
-    c. Dans la zone de texte **Last Name Attribute**, entrez la valeur **lastname** de l’utilisateur **Simon**.
-
-    d. Dans la zone de texte **Email Attribute**, entrez la valeur **emailaddress** de l’utilisateur `BrittaSimon@contoso.com`.
-
-    e. Cliquez sur **Enregistrer les modifications**.
-
-5. Cliquez sur **Your IDP Metadata**, puis, dans la section **Your IDP Metadata**, procédez comme suit :
+3. Cliquez sur **Your IDP Metadata**, puis, dans la section **Your IDP Metadata**, procédez comme suit :
    
     ![Configuration de l’authentification unique](./media/policystat-tutorial/ic808636.png "Single Sign-On Configuration")
    
@@ -190,33 +171,26 @@ Pour configurer l’authentification unique Azure AD avec PolicyStat, effectuez 
 
     b. Cliquez sur **Enregistrer les modifications**.
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
+4. Cliquez sur **Configure Attributes**, puis, dans la section **Configure Attributes**, procédez comme suit :
+   
+    a. Dans la zone de texte **Username Attribute**, entrez **uid**.
 
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+    b. Dans la zone de texte **First Name Attribute**, tapez votre revendication d’attribut de prénom obtenue à partir d’Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname** .
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
+    c. Dans la zone de texte **Last Name Attribute**, tapez votre revendication d’attribut de nom obtenue à partir d’Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname** .
 
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
+    d. Dans la zone de texte **Email Attribute**, tapez votre revendication d’attribut d’e-mail obtenue à partir d’Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
 
-2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
+    e. Cliquez sur **Enregistrer les modifications**.
 
-    ![Bouton Nouvel utilisateur](common/new-user.png)
+5. Dans la section **Setup**, sélectionnez **Enable Single Sign-on Integration**.
+   
+    ![Configuration de l’authentification unique](./media/policystat-tutorial/ic808634.png "Single Sign-On Configuration")
 
-3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
-
-    ![Boîte de dialogue Utilisateur](common/user-properties.png)
-
-    a. Dans le champ **Nom**, entrez **BrittaSimon**.
-  
-    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple : BrittaSimon@contoso.com
-
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
-
-    d. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à PolicyStat.
+Dans cette section, vous allez autoriser votre propre compte à utiliser l’authentification unique Azure en lui accordant l’accès à PolicyStat.
 
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **PolicyStat**.
 
@@ -234,7 +208,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Volet Ajouter une attribution](common/add-assign-user.png)
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez votre compte dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 
 6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
@@ -260,4 +234,3 @@ Quand vous cliquez sur la vignette PolicyStat dans le volet d’accès, vous dev
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

@@ -2,13 +2,13 @@
 title: 'Nouveauté : service Language Understanding (LUIS)'
 description: Cet article est régulièrement mis à jour avec des informations nouvelles sur l’API Language Understanding Azure Cognitive Services.
 ms.topic: overview
-ms.date: 05/08/2020
-ms.openlocfilehash: d7ef989d04132dedc79d2408b7083b57d8c926b0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: b4d287c8d1ddbeeee63390fb397718de1234c93e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592795"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83675960"
 ---
 # <a name="whats-new-in-language-understanding"></a>Nouveauté du service Language Understanding
 
@@ -21,12 +21,18 @@ Découvrir les nouveautés du service. Ces éléments incluent des notes de publ
 * Publié en tant que **version en disposition générale** :
     * [Conteneur Language Understanding](luis-container-howto.md)
     * La préversion du portail est promue en [version actuelle du portail](https://www.luis.ai), la version [précédente](https://previous.luis.ai) du portail reste toujours disponible
-    * Nouvelle expérience de création d’entités issues du Machine Learning
-    * [Processus de mise à niveau](migrate-from-composite-entity.md) des entités composites et simples aux entités issues du Machine Learning
+    * Nouvelle expérience de création d’entités issues du machine learning
+    * [Processus de mise à niveau](migrate-from-composite-entity.md) des entités composites et simples aux entités issues du machine learning
     * Prise en charge du [paramètre de normalisation des variantes de mot](how-to-application-settings-portal.md)
 * Modifications apportées aux API de création
-    * Schéma d’application 7.x pour les entités issues du Machine Learning imbriquées
+    * Schéma d’application 7.x pour les entités issues du machine learning imbriquées
     * [Migration vers la fonctionnalité requise](luis-migration-authoring-entities.md#api-change-constraint-replaced-with-required-feature)
+* Nouvelles ressources pour les développeurs
+    * [Outils d’intégration continue](developer-reference-resource.md#continuous-integration-tools)
+    * Atelier : découvrir les bonnes pratiques pour la [_compréhension du langage naturel_ à l’aide de LUIS](developer-reference-resource.md#workshops)
+* [Clés gérées par le client](luis-encryption-of-data-at-rest.md) : chiffrez toutes les données que vous utilisez dans LUIS à l’aide de votre propre clé
+* [Présentation de l’IA](https://channel9.msdn.com/Shows/AI-Show/New-Features-in-Language-Understanding) (vidéo) : découvrez les nouvelles fonctionnalités de LUIS
+
 
 
 ### <a name="march-2020"></a>Mars 2020
@@ -48,13 +54,13 @@ Découvrir les nouveautés du service. Ces éléments incluent des notes de publ
     * Les [entités prédéfinies](luis-reference-prebuilt-entities.md#italian-entity-support) italiennes (âge, devise, dimension, nombre et résolution de pourcentage) ont changé depuis la version V2.
 * Amélioration de l’expérience utilisateur dans le [portail preview.luis.ai](https://preview.luis.ai) (expérience d’étiquetage remaniée pour permettre la génération et le débogage de modèles complexes). Essayez les tutoriels du portail en préversion :
     * [Intentions uniquement](tutorial-intents-only.md)
-    * [Entité issue du Machine Learning décomposable](tutorial-machine-learned-entity.md)
+    * [Entité issue du machine learning décomposable](tutorial-machine-learned-entity.md)
 * Fonctionnalités avancées de compréhension de la langue ([génération de modèles linguistiques sophistiqués](luis-concept-entity-types.md) avec moins d’efforts).
 * Définition de fonctionnalités de machine learning au niveau du modèle et activation de modèles à utiliser en tant que signaux pour d’autres modèles, comme l’utilisation d’entités en tant que fonctionnalités pour des intentions et d’autres entités.
 * Nouvelles [limites](luis-limits.md) étendues (maximum plus élevé pour les listes d’expressions et le nombre total d’expressions, ainsi que nouveau modèle en tant que limites de fonctionnalité)
 * Extraction d’informations à partir de texte au format de structure hiérarchique profonde, qui rend les applications de conversation plus puissantes.
 
-    ![image d’entité issue de l’apprentissage automatique](./media/whats-new/deep-entity-extraction-example.png)
+    ![Image d’entité issue du machine learning](./media/whats-new/deep-entity-extraction-example.png)
 
 ### <a name="september-3-2019"></a>3 septembre 2019
 

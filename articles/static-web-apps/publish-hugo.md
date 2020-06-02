@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: a0d1ba696b39b9331c4a85c9cf37d13d545ffad5
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6debf422d0c16a6a2bfe180e6febb4973846e0f0
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593696"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870692"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutoriel : Publier un site Hugo dans Azure Static Web Apps Preview
 
@@ -97,11 +97,11 @@ Les étapes suivantes vous montrent comment créer une application Static Web Ap
 
 ### <a name="create-the-application"></a>Création de l'application
 
-1. Accédez au [portail Azure](https://portal.azure.com).
+1. Accéder au [portail Azure](https://portal.azure.com)
 1. Cliquez sur **Create a Resource** (Créer une ressource).
 1. Recherchez **Static Web Apps**.
 1. Cliquez sur **Static Web Apps (Preview)** (Static Web Apps (préversion))
-1. Cliquez sur **Create** (Créer).
+1. Cliquez sur **Créer**
 
    :::image type="content" source="./media/publish-hugo/create-in-portal.png" alt-text="Création d’une ressource Azure Static Web Apps dans le portail":::
 
@@ -133,13 +133,11 @@ Vous ajoutez ensuite les paramètres de configuration utilisés par le processus
 
 1. Cliquez sur le bouton **Next: Build >** (Suivant : générer >) pour modifier la configuration de la génération.
 
-1. Définissez _App location_ (Emplacement de l’application) sur **/** .
+1. Définissez _App location_ (Emplacement de l’application) sur **public**.
 
-1. Définissez _App artifact location_ (Emplacement de l’artefact de l’application) sur **public**.
+1. Laissez l’_emplacement de l’artefact d’application_ vide.
 
    Il n’est pas nécessaire de fournir une valeur pour _API location_ (Emplacement de l’API), puisque vous ne déployez pas d’API pour le moment.
-
-   :::image type="content" source="./media/publish-hugo/build-details.png" alt-text="Paramètres de génération":::
 
 ### <a name="review-and-create"></a>Examiner et créer
 
@@ -155,12 +153,12 @@ Vous ajoutez ensuite les paramètres de configuration utilisés par le processus
 
 1. Ouvrez l’application Hugo dans un éditeur de texte et ouvrez le fichier _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml_.
 
-1. Remplacez la ligne `- uses: actions/checkout@v1` (ligne 18) par le code suivant pour générer l’application Hugo.
+1. Remplacez la ligne `- uses: actions/checkout@v2` (ligne 18) par le code suivant pour générer l’application Hugo.
 
    ```yml
    - uses: actions/checkout@v2
-        with:
-          submodules: true
+     with:
+       submodules: true
 
    - name: Setup Hugo
      uses: peaceiris/actions-hugo@v2.4.8

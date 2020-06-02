@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 12/13/2018
 ms.author: crtreasu
-ms.openlocfilehash: 32f4545a45eda8acddd7c93cc4917dbadca9ad4d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b2b3ca886359a0b4c906b89ed76f57486fc2c368
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67135019"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638986"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Créer une ressource Spatial Anchors
 
@@ -41,6 +41,10 @@ Une fois la ressource créée, le portail Azure indique que votre déploiement e
 Ensuite, vous pouvez afficher les propriétés de la ressource. Copiez l’**ID de compte** de la ressource dans un éditeur de texte, car vous en aurez besoin par la suite.
 
    ![Propriétés de la ressource](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
+
+Copiez également le **Domaine du compte** de la ressource dans un éditeur de texte, car vous en aurez besoin par la suite.
+
+   ![Domaine du compte](./media/spatial-anchors-get-started-create-resource/view-resource-domain.png)
 
 Sous **Paramètres**, sélectionnez **Clé**. Copiez la valeur de la **Clé primaire** dans un éditeur de texte. Cette valeur est la `Account Key`. Vous en aurez besoin ultérieurement.
 

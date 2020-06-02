@@ -1,17 +1,16 @@
 ---
 title: Exemples Azure CLI - Azure Functions
 description: Exemples Azure CLI - Azure Functions
-author: syntaxc4
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
 ms.topic: sample
 ms.date: 01/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 365275d291244d3c08f856d2d919c7ee7d79161a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 61ac1b95055b8ec9e65c3009d76f79581721f594
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223746"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779538"
 ---
 # <a name="azure-cli-samples"></a>Exemples d’interface de ligne de commande Azure
 
@@ -21,9 +20,9 @@ Le tableau suivant contient des liens vers des scripts Bash pour Azure Functions
 
 | Créer une application | Description |
 |---|---|
-| [Créer une Function App pour une exécution sans serveur](scripts/functions-cli-create-serverless.md) | Crée une application de fonction dans un plan Consommation.  |
-| [Créer une application de fonction Python serverless](scripts/functions-cli-create-serverless-python.md) | Crée une application de fonction dans un plan App Service dédié. |
-| [Créer une application de fonction dans un plan Premium scalable](scripts/functions-cli-create-premium-plan.md) | Crée une application de fonction dans un plan App Service dédié. |
+| [Créer une Function App pour une exécution sans serveur](scripts/functions-cli-create-serverless.md) | Création d’une application de fonction dans un plan Consommation.  |
+| [Créer une application de fonction Python serverless](scripts/functions-cli-create-serverless-python.md) | Création d’une application de fonction Python dans un plan Consommation. |
+| [Créer une application de fonction dans un plan Premium scalable](scripts/functions-cli-create-premium-plan.md) | Création d’une application de fonction dans un plan Premium. |
 | [Créer une application de fonction dans un plan (App Service) dédié](scripts/functions-cli-create-app-service-plan.md) | Crée une application de fonction dans un plan App Service dédié. |
 
 | Integrate | Description|

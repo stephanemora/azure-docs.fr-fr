@@ -8,21 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 357cc85991ac88aef4fd0958e2bc776373f56dc8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: c43abc6c87b88e9fc4a15d4ca5d5506389a8a81a
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448359"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849618"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Démarrage rapide : Rechercher des vidéos à l’aide de l’API REST Recherche de vidéos Bing et PHP
 
-Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche de vidéos Bing et consulter un résultat de recherche dans la réponse JSON. Cette application JavaScript simple envoie une requête de recherche de vidéos HTTP à l’API, puis affiche la réponse. Alors que cette application est écrite en JavaScript et utilise Node.js, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
-L’exemple de code a été écrit pour fonctionner sous PHP 5.6.
+Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche de vidéos Bing. Cette application PHP simple envoie une requête de recherche de vidéos HTTP à l’API, puis affiche la réponse JSON. L’exemple de code est écrit pour fonctionner sous PHP 5.6.
 
-Reportez-vous aux [informations de référence sur l’API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) pour obtenir des détails techniques sur les API.
+Bien que cette application soit écrite en PHP, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -34,10 +33,10 @@ Reportez-vous aux [informations de référence sur l’API](https://docs.microso
 
 L’[API Recherche de vidéos Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) retourne des résultats vidéo à partir du moteur de recherche Bing.
 
-1. Vérifiez que la prise en charge HTTP sécurisée est activée dans `php.ini` comme décrit dans le commentaire de code.
+1. Activez la prise en charge HTTP sécurisée dans votre fichier `php.ini` en supprimant les marques de commentaire de la ligne `;extension=php_openssl.dll`, comme décrit dans le code suivant.
 2. Créez un projet PHP dans votre éditeur ou IDE favori.
 3. Ajoutez le code ci-dessous.
-4. Remplacez la valeur `$accessKey` par une clé d’accès valide pour votre abonnement. `$endpoint` peut être le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource.
+4. Remplacez la valeur `$accessKey` par une clé d’accès valide pour votre abonnement. Pour la valeur `$endpoint`, vous pouvez utiliser le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource.
 5. Exécutez le programme.
 
 ```php
