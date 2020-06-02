@@ -170,7 +170,7 @@
     - name: Python (gestion des comptes)
       href: 'https://docs.microsoft.com/python/api/azure-mgmt-datalake-store/azure.mgmt.datalake.store?view=azure-python'
     - name: Python (gestion du système de fichiers)
-      href: 'https://azure-datalake-store.readthedocs.io/en/latest'
+      href: /python/api/azure-mgmt-datalake-store/azure.mgmt.datalake.store
     - name: REST
       href: /rest/api/datalakestore
     - name: Modèle Resource Manager
@@ -193,5 +193,5 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Forum Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-data-lake'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store'

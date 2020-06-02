@@ -136,13 +136,13 @@
       items:
         - name: Applications web et mobiles
           href: 'https://docs.microsoft.com/azure/app-service/configure-ssl-bindings'
-    - name: Backup
+    - name: Sauvegarde
       items:
         - name: Applications web et mobiles
           href: 'https://docs.microsoft.com/azure/app-service/manage-backup'
         - name: Machines virtuelles
           href: 'https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction'
-    - name: Moniteur
+    - name: Superviser
       items:
         - name: Applications web et mobiles
           href: 'https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs'
@@ -175,7 +175,7 @@
         - name: PHP
           href: 'https://github.com/Azure/azure-sdk-for-php/blob/master/README.md'
         - name: Python
-          href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/'
+          href: 'https://github.com/Azure/azure-sdk-for-python/blob/master/README.md'
         - name: Ruby
           href: 'https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md'
     - name: Interfaces de ligne de commande
@@ -198,5 +198,5 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Exemples
       href: 'https://azure.microsoft.com/resources/samples/'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/resources/videos/home/'

@@ -199,8 +199,6 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Études de cas
       href: data-factory-customer-case-studies.md
-    - name: Parcours d’apprentissage
-      href: 'https://azure.microsoft.com/documentation/learning-paths/data-factory'
     - name: Page de questions Microsoft Q&A
       href: 'https://docs.microsoft.com/answers/topics/azure-data-factory.html'
     - name: Tarifs
@@ -215,7 +213,7 @@
       href: 'https://azure.microsoft.com/updates/?product=data-factory'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=data-factory'
     - name: Traiter des jeux de données volumineux à l’aide de Data Factory et Batch
       href: data-factory-data-processing-using-batch.md

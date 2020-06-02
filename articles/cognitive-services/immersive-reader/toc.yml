@@ -7,12 +7,8 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: 'Utilisation de C#'
-      href: Quickstart.md
-    - name: Utilisation de Node.js
-      href: quickstart-nodejs.md
-    - name: Utilisation de Swift (iOS)
-      href: ios-quickstart.md
+    - name: Utilisation de la bibliothèque de client
+      href: ./quickstarts/client-libraries.md
 - name: Tutoriels
   items:
     - name: Lancer le lecteur immersif (Python)

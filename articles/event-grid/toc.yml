@@ -92,6 +92,8 @@
       href: template-samples.md
     - name: Exemples de code
       href: 'https://docs.microsoft.com/samples/browse/?term=Event%20Grid'
+    - name: Éléments intégrés Azure Policy
+      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Terminologie Event Grid
@@ -151,7 +153,7 @@
     - name: Gestionnaires d’événements
       href: event-handlers.md
       items:
-        - name: webhooks
+        - name: Webhooks
           displayName: 'Azure Automation, Webhooks, Logic Apps'
           href: handler-webhooks.md
         - name: Azure Functions

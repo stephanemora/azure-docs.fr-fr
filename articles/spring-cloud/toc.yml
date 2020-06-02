@@ -90,7 +90,7 @@
 - name: Informations de référence
   items:
     - name: Plug-in Azure CLI
-      href: spring-cloud-cli-reference.md
+      href: 'https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud'
     - name: Ressources
       href: spring-cloud-resources.md
     - name: Forum Aux Questions (FAQ)
