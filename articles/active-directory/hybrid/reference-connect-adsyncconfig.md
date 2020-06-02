@@ -10,12 +10,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 554bb99121190198982f64deb6ee0674aa8831ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8159ef45dee8a2f9ace69c2a5b66a29e4948d82c
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60381193"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982001"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect :  Référence PowerShell ADSyncConfig
 La documentation suivante fournit des informations de référence sur le module ADSyncConfig.psm1 PowerShell inclus avec Azure AD Connect.
@@ -59,25 +59,24 @@ Effectue une recherche dans AD à partir du paramètre SearchBase, et retourne t
 ### <a name="examples"></a>EXEMPLES
 
 #### <a name="example-1"></a>EXEMPLE 1
+Rechercher les objets avec l’héritage désactivé dans le domaine « contoso » (par défaut, retourne uniquement les objets « organizationalUnit »)
 ```
-Find objects with disabled inheritance in 'Contoso' domain (by default returns 'organizationalUnit' objects only)
-```
-
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso'
+```
 
 #### <a name="example-2"></a>EXEMPLE 2
+Rechercher les objets « utilisateur » avec l’héritage désactivé dans le domaine « contoso »
 ```
-Find 'user' objects with disabled inheritance in 'Contoso' domain
-```
-
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso' -ObjectClass 'user'
+```
 
 #### <a name="example-3"></a>EXEMPLE 3
+Rechercher tous les types d’objets avec l’héritage désactivé dans une unité d’organisation
 ```
-Find all types of objects with disabled inheritance in a OU
+Get-ADSyncObjectsWithInheritanceDisabled -SearchBase OU=AzureAD,DC=Contoso,DC=com -ObjectClass '*'
 ```
 
-Get-ADSyncObjectsWithInheritanceDisabled -SearchBase OU=AzureAD,DC=Contoso,DC=com -ObjectClass '*'
+
 
 ### <a name="parameters"></a>PARAMETERS
 

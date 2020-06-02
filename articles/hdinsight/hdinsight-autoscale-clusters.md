@@ -7,43 +7,35 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/07/2020
-ms.openlocfilehash: 7d741e2fc787c057ebfcdeceeab2ea096df3f9ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: 8354be28203f1d466df6a22159fef87c9ae6f803
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195211"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199740"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Mettre à l’échelle automatiquement les clusters Azure HDInsight
 
-> [!Important]
-> La fonctionnalité de mise à l’échelle automatique d’Azure HDInsight a été mise à la disposition générale le 7 novembre 2019 pour les clusters Spark et Hadoop. Elle incluait des améliorations non disponibles dans la préversion de la fonctionnalité. Si vous avez créé un cluster Spark avant le 7 novembre 2019 et que vous souhaitez utiliser la fonctionnalité de mise à l’échelle automatique dessus, l’approche recommandée consiste à créer un nouveau cluster et à activer la mise à l’échelle automatique sur le nouveau cluster.
->
-> La mise à l’échelle automatique pour les clusters Interactive Query (LLAP) et HBase est toujours en préversion. La mise à l’échelle automatique est disponible uniquement sur les clusters Spark, Hadoop, Interactive Query et HBase.
-
-La fonctionnalité de mise à l’échelle automatique de cluster d’Azure HDInsight met automatiquement à l’échelle le nombre de nœuds Worker dans un cluster. Les autres types de nœuds du cluster ne peuvent pas être mis à l’échelle actuellement.  Lors de la création d’un cluster HDInsight, il est possible de définir un nombre minimum et un nombre maximum de nœuds Worker. La mise à l’échelle automatique surveille ensuite les besoins en ressources de la charge analytique et augmente ou diminue le nombre de nœuds Worker. L’utilisation de cette fonctionnalité n’entraîne aucun coût supplémentaire.
-
-## <a name="cluster-compatibility"></a>Compatibilité du cluster
-
-Le tableau suivant décrit les types de cluster et les versions qui sont compatibles avec la fonctionnalité de mise à l’échelle automatique.
-
-| Version | Spark | Hive | LLAP | hbase | Kafka | Storm | ML |
-|---|---|---|---|---|---|---|---|
-| HDInsight 3.6 sans ESP | Oui | Oui | Oui | Oui* | Non  | Non  | Non  |
-| HDInsight 4.0 sans ESP | Oui | Oui | Oui | Oui* | Non  | Non  | Non  |
-| HDInsight 3.6 avec ESP | Oui | Oui | Oui | Oui* | Non  | Non  | Non  |
-| HDInsight 4.0 avec ESP | Oui | Oui | Oui | Oui* | Non  | Non  | Non  |
-
-\* Les clusters HBase peuvent uniquement être configurés pour une mise à l’échelle basée sur la planification, et non basée sur la charge.
+La fonctionnalité de mise à l’échelle automatique gratuite d’Azure HDInsight augmente ou diminue automatiquement le nombre de nœuds Worker dans votre cluster en fonction de critères définis au préalable. Vous définissez un nombre minimal et maximal de nœuds au moment de la création du cluster, vous établissez les critères de mise à l’échelle selon une planification quotidienne ou des métriques de performances spécifiques, et la plateforme HDInsight fait le reste.
 
 ## <a name="how-it-works"></a>Fonctionnement
 
-Vous pouvez choisir entre une mise à l’échelle de votre cluster HDInsight basée sur la charge ou sur la planification. Une mise à l’échelle basée sur la charge modifie le nombre de nœuds dans votre cluster, selon une plage que vous définissez, pour assurer une utilisation optimale de l’UC et réduire les coûts d’exécution.
+La fonctionnalité de mise à l’échelle automatique utilise deux types de conditions pour déclencher des événements de mise à l’échelle : des seuils pour diverses métriques de performances de cluster (*mise à l’échelle basée sur la charge*) et des déclencheurs temporels (*mise à l’échelle basée sur la planification*). Une mise à l’échelle basée sur la charge modifie le nombre de nœuds dans votre cluster, selon une plage que vous définissez, pour assurer une utilisation optimale de l’UC et réduire les coûts d’exécution. La mise à l’échelle basée sur la planification change le nombre de nœuds dans votre cluster en fonction des opérations que vous associez à des dates et heures spécifiques.
 
-Une mise à l’échelle basée sur la planification modifie le nombre de nœuds de votre cluster selon des conditions prenant effet à des moments donnés. Ces conditions permettent de mettre le cluster à l’échelle en fonction d’un nombre déterminé de nœuds.
+La vidéo suivante fournit une vue d’ensemble des défis que la mise à l’échelle automatique permet de résoudre et comment elle peut vous aider à contrôler les coûts avec HDInsight.
 
-### <a name="metrics-monitoring"></a>Supervision des métriques
+
+> [!VIDEO https://www.youtube.com/embed/UlZcDGGFlZ0?WT.mc_id=dataexposed-c9-niner]
+
+### <a name="choosing-load-based-or-schedule-based-scaling"></a>Choix de la mise à l’échelle basée sur la planification ou la charge
+
+Choisissez un type de mise à l’échelle en tenant compte des facteurs suivants :
+
+* Variance de la charge : la charge du cluster suit-elle un modèle cohérent à des moments spécifiques, des jours spécifiques ? Si ce n’est pas le cas, nous vous recommandons d’opter pour une mise à l’échelle basée sur la charge.
+* Exigences du Contrat de niveau de service : La mise à l’échelle automatique est réactive, et non pas prédictive. Le délai entre le début de l’augmentation de la charge et le moment où le cluster doit atteindre sa taille prévue est-il suffisant ? S’il existe des exigences de contrat SLA strictes et que la charge est un modèle connu fixe, nous vous recommandons d’opter pour une mise à l’échelle basée sur la planification.
+
+### <a name="cluster-metrics"></a>Métriques de cluster
 
 La mise à l’échelle automatique supervise en permanence le cluster et collecte les métriques suivantes :
 
@@ -56,7 +48,7 @@ La mise à l’échelle automatique supervise en permanence le cluster et collec
 |Used Memory per Node|Charge sur un nœud Worker. Un nœud Worker sur lequel 10 Go de mémoire sont utilisés est considéré comme étant plus sollicité qu’un nœud avec 2 Go de mémoire utilisés.|
 |Number of Application Masters per Node|Nombre de conteneurs Application Master (AM) en cours d’exécution sur un nœud Worker. Un nœud Worker hébergeant 2 conteneurs AM est considéré comme plus important qu’un nœud Worker hébergeant 0 conteneur AM.|
 
-Les métriques ci-dessus sont contrôlées toutes les 60 secondes. La fonction de mise à l’échelle automatique prend des décisions en fonction de ces métriques.
+Les métriques ci-dessus sont contrôlées toutes les 60 secondes. Vous pouvez configurer les opérations de mise à l’échelle de votre cluster en employant l’une de ces métriques.
 
 ### <a name="load-based-scale-conditions"></a>Conditions de mise à l’échelle basée sur la charge
 
@@ -70,6 +62,24 @@ Lorsque les conditions suivantes sont détectées, la mise à l’échelle autom
 Pour la montée en puissance, la mise à l’échelle automatique émet une demande de montée en puissance pour ajouter le nombre de nœuds requis. La montée en puissance est basée sur le nombre de nœuds Worker nécessaires pour répondre aux besoins actuels en matière d’UC et de mémoire.
 
 Pour la descente en puissance, la mise à l’échelle automatique émet une demande de suppression d’un certain nombre de nœuds. La descente en puissance est basée sur le nombre de conteneurs AM par nœud. Et la configuration requise en matière d’UC et de mémoire. Le service détecte également les nœuds à supprimer en fonction de l’exécution des travaux en cours. L’opération de descente en puissance désactive tout d’abord les nœuds, puis les supprime du cluster.
+
+### <a name="cluster-compatibility"></a>Compatibilité du cluster
+
+> [!Important]
+> La fonctionnalité de mise à l’échelle automatique d’Azure HDInsight a été mise à la disposition générale le 7 novembre 2019 pour les clusters Spark et Hadoop. Elle incluait des améliorations non disponibles dans la préversion de la fonctionnalité. Si vous avez créé un cluster Spark avant le 7 novembre 2019 et que vous souhaitez utiliser la fonctionnalité de mise à l’échelle automatique dessus, l’approche recommandée consiste à créer un nouveau cluster et à activer la mise à l’échelle automatique sur le nouveau cluster.
+>
+> La mise à l’échelle automatique pour les clusters Interactive Query (LLAP) et HBase est toujours en préversion. La mise à l’échelle automatique est disponible uniquement sur les clusters Spark, Hadoop, Interactive Query et HBase.
+
+Le tableau suivant décrit les types de cluster et les versions qui sont compatibles avec la fonctionnalité de mise à l’échelle automatique.
+
+| Version | Spark | Hive | LLAP | hbase | Kafka | Storm | ML |
+|---|---|---|---|---|---|---|---|
+| HDInsight 3.6 sans ESP | Oui | Oui | Oui | Oui* | Non | Non | Non |
+| HDInsight 4.0 sans ESP | Oui | Oui | Oui | Oui* | Non | Non | Non |
+| HDInsight 3.6 avec ESP | Oui | Oui | Oui | Oui* | Non | Non | Non |
+| HDInsight 4.0 avec ESP | Oui | Oui | Oui | Oui* | Non | Non | Non |
+
+\* Les clusters HBase peuvent uniquement être configurés pour une mise à l’échelle basée sur la planification, et non basée sur la charge.
 
 ## <a name="get-started"></a>Bien démarrer
 
@@ -205,32 +215,7 @@ Utilisez les paramètres appropriés dans la charge utile de la requête. La cha
 
 Consultez la section précédente sur l’[activation de la mise à l’échelle automatique basée sur la charge](#load-based-autoscaling) pour obtenir une description complète de tous les paramètres de charge utile.
 
-## <a name="guidelines"></a>Consignes
-
-### <a name="choosing-load-based-or-schedule-based-scaling"></a>Choix de la mise à l’échelle basée sur la planification ou la charge
-
-Avant de prendre une décision sur le mode à choisir, tenez compte des facteurs suivants :
-
-* Activez la mise à l’échelle automatique lors de la création du cluster.
-* Le nombre minimal de nœuds doit être au moins égal à trois.
-* Variance de la charge : la charge du cluster suit un modèle cohérent à des moments spécifiques, des jours spécifiques. Si ce n’est pas le cas, nous vous recommandons d’opter pour une mise à l’échelle basée sur la charge.
-* Exigences du Contrat de niveau de service : La mise à l’échelle automatique est réactive, et non pas prédictive. Le délai entre le début de l’augmentation de la charge et le moment où le cluster doit atteindre sa taille prévue est-il suffisant ? S’il existe des exigences de contrat SLA strictes et que la charge est un modèle connu fixe, nous vous recommandons d’opter pour une mise à l’échelle basée sur la planification.
-
-### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Prendre en compte la latence de la montée ou de la descente en puissance
-
-Une opération de mise à l’échelle peut prendre entre 10 et 20 minutes. Intégrez ce délai lorsque vous configurez une planification personnalisée. Par exemple, si vous avez besoin que la taille du cluster soit de 20 à 09h00, définissez le déclencheur de planification sur une heure antérieure, comme 08h30, pour que l’opération de mise à l’échelle se termine à 09h00.
-
-### <a name="preparation-for-scaling-down"></a>Préparation pour la descente en puissance
-
-Au cours de descente en puissance du cluster, la mise à l’échelle automatique désactivera les nœuds pour atteindre à la taille cible. Si des tâches sont en cours d’exécution sur ces nœuds, la mise à l’échelle automatique attendra qu’elles soient terminées. Dans la mesure où chaque nœud Worker joue également un rôle dans HDFS, les données temporaires seront décalées vers les nœuds restants. Par conséquent, nous vous conseillons de vérifier que les nœuds restants disposent d’assez d’espace de stockage pour héberger toutes les données temporaires.
-
-Les travaux en cours d’exécution se poursuivront. Les travaux en attente attendrons d’être planifiés avec moins de nœuds Worker disponibles.
-
-### <a name="minimum-cluster-size"></a>Taille minimale du cluster
-
-Ne mettez pas à l’échelle votre cluster à moins de trois nœuds. La mise à l’échelle de votre cluster à moins de trois nœuds peut entraîner le blocage en mode sans échec en raison d’une réplication de fichiers insuffisante.  Pour plus d’informations, consultez [Blocage en mode sans échec](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
-
-## <a name="monitoring"></a>Surveillance
+## <a name="monitoring-autoscale-activities"></a>Supervision des activités de mise à l’échelle automatique
 
 ### <a name="cluster-status"></a>État du cluster
 
@@ -257,6 +242,22 @@ Vous pouvez afficher l’historique de Scale up/Scale down du cluster dans le ca
 Sous **Supervision**, **Métriques**. Ensuite, sélectionnez **Ajouter une métrique** et **Nombre de Workers actifs** dans la zone de liste déroulante **Métrique**. Sélectionnez le bouton en haut à droite pour modifier l’intervalle de temps.
 
 ![Activation de l’option de mise à l’échelle d’un nœud worker basée sur la planification - Métrique](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
+
+## <a name="other-considerations"></a>Autres considérations
+
+### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Prendre en compte la latence de la montée ou de la descente en puissance
+
+Une opération de mise à l’échelle peut prendre entre 10 et 20 minutes. Intégrez ce délai lorsque vous configurez une planification personnalisée. Par exemple, si vous avez besoin que la taille du cluster soit de 20 à 09h00, définissez le déclencheur de planification sur une heure antérieure, comme 08h30, pour que l’opération de mise à l’échelle se termine à 09h00.
+
+### <a name="preparation-for-scaling-down"></a>Préparation pour la descente en puissance
+
+Au cours de descente en puissance du cluster, la mise à l’échelle automatique désactivera les nœuds pour atteindre à la taille cible. Si des tâches sont en cours d’exécution sur ces nœuds, la mise à l’échelle automatique attendra qu’elles soient terminées. Dans la mesure où chaque nœud Worker joue également un rôle dans HDFS, les données temporaires seront décalées vers les nœuds restants. Par conséquent, nous vous conseillons de vérifier que les nœuds restants disposent d’assez d’espace de stockage pour héberger toutes les données temporaires.
+
+Les travaux en cours d’exécution se poursuivront. Les travaux en attente attendrons d’être planifiés avec moins de nœuds Worker disponibles.
+
+### <a name="minimum-cluster-size"></a>Taille minimale du cluster
+
+Ne mettez pas à l’échelle votre cluster à moins de trois nœuds. La mise à l’échelle de votre cluster à moins de trois nœuds peut entraîner le blocage en mode sans échec en raison d’une réplication de fichiers insuffisante.  Pour plus d’informations, consultez [Blocage en mode sans échec](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

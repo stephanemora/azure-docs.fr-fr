@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/10/2020
-ms.openlocfilehash: 79dc1b188e91028a98f43dc24972228f2d2101be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/27/2020
+ms.openlocfilehash: 9b2114672db755efba1818505c8f399ac01aea71
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684730"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983599"
 ---
 # <a name="execute-python-script-module"></a>Module Exécuter un script Python
 
@@ -150,6 +150,8 @@ Les packages préinstallés sont les suivants :
 import os
 os.system(f"pip install scikit-misc")
 ```
+> [!NOTE]
+> Si votre pipeline contient plusieurs modules Execute Python Script et que vous avez besoin de packages qui ne figurent pas dans la liste préinstallée, installez les packages dans chaque module, respectivement. 
 
 ## <a name="upload-files"></a>Charger des fichiers
 Le module **Exécuter un script Python** prend en charge le chargement de fichiers à l’aide du [Kit de développement logiciel (SDK) Python Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-).
@@ -218,7 +220,7 @@ Le module **Exécuter un script Python** contient un exemple de code Python que 
 5. Dans la zone de texte **Script Python**, saisissez ou collez un script Python valide.
 
     > [!NOTE]
-    > Soyez très prudent lorsque vous écrivez votre script et assurez-vous qu’il n’existe pas d’erreur de syntaxe, telle que l’utilisation d’un objet non déclaré ou d’un module non importé. Portez également une attention particulière à la liste des modules préinstallés. Pour importer des modules qui ne sont pas répertoriés, installez les packages correspondants dans votre script, par exemple :
+    > Soyez très prudent lorsque vous écrivez votre script et assurez-vous qu’il n’existe pas d’erreur de syntaxe, telle que l’utilisation d’objets non déclarés ou de modules non importés. Portez également une attention particulière à la liste des modules préinstallés. Pour importer des modules qui ne sont pas répertoriés, installez les packages correspondants dans votre script, par exemple :
     >  ``` Python
     > import os
     > os.system(f"pip install scikit-misc")

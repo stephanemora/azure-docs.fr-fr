@@ -11,13 +11,13 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 11/20/2019
-ms.openlocfilehash: c891cb4eca2c286b3ac636e5995714accd591772
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 255c39eac2285a23403da2db893d9de8835f7d2c
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417356"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891543"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copier des données à partir et vers Dynamics 365 (Common Data Service) ou Dynamics CRM à l’aide d’Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -60,6 +60,10 @@ Ce connecteur Dynamics se base sur les [outils Dynamics XRM](https://docs.micros
 
 >[!TIP]
 >Pour copier des données issues de **Dynamics 365 for Finance and Operations**, vous pouvez utiliser le [connecteur Dynamics AX](connector-dynamics-ax.md).
+
+## <a name="prerequisites"></a>Prérequis
+
+Pour utiliser ce connecteur avec l’authentification du principal du service AAD, vous devez configurer l’authentification S2S (Server-to-Server) dans Common Data Service ou Dynamics. Pour obtenir des instructions détaillées, consultez [cet article](https://docs.microsoft.com/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication).
 
 ## <a name="get-started"></a>Bien démarrer
 

@@ -1,6 +1,6 @@
 ---
-title: Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure ? | Microsoft Docs
-description: Consultez une vue d’ensemble du contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure. Utilisez les attributions de rôles pour contrôler l’accès aux ressources Azure.
+title: Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?
+description: Découvrez une vue d’ensemble du contrôle d’accès en fonction du rôle Azure (RBAC Azure). Utilisez les attributions de rôles pour contrôler l’accès aux ressources Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,31 +14,31 @@ ms.workload: identity
 ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4a1db200b88d0eabde967961d956cdd2854e828d
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 3846a4669cc2a77862e73dbb8e7743b19740e8a4
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686483"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996492"
 ---
-# <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure ?
+# <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?
 
-Il est vital pour toute organisation qui utilise le cloud de pouvoir gérer les accès aux ressources situées dans cloud. Le contrôle d’accès basé sur un rôle (RBAC) permet de gérer les utilisateurs ayant accès aux ressources Azure, les modes d’utilisation des ressources par ces derniers et les zones auxquelles ils ont accès.
+Il est vital pour toute organisation qui utilise le cloud de pouvoir gérer les accès aux ressources situées dans cloud. Le contrôle d’accès basé sur un rôle Azure (RBAC Azure) permet de gérer les utilisateurs ayant accès aux ressources Azure, les modes d’utilisation des ressources par ces derniers et les zones auxquelles ils ont accès.
 
-Le RBAC est un système d’autorisation basé sur [Azure Resource Manager](../azure-resource-manager/management/overview.md) qui propose une gestion affinée des accès des ressources Azure.
+Le contrôle RBAC Azure est un système d’autorisation basé sur [Azure Resource Manager](../azure-resource-manager/management/overview.md) qui propose une gestion affinée des accès des ressources Azure.
 
-## <a name="what-can-i-do-with-rbac"></a>Que puis-je faire avec le contrôle d’accès en fonction du rôle (RBAC) ?
+## <a name="what-can-i-do-with-azure-rbac"></a>Comment utiliser le contrôle RBAC Azure ?
 
-Voici quelques exemples de ce que vous pouvez faire avec le contrôle d’accès en fonction du rôle (RBAC) :
+Voici quelques exemples de ce que vous pouvez faire avec le contrôle RBAC Azure :
 
 - Autoriser un utilisateur à gérer des machines virtuelles dans un abonnement et un autre utilisateur à gérer des réseaux virtuels
 - Permettre à un groupe d’administrateurs de base de données de gérer des bases de données SQL dans un abonnement
 - Permettre à un utilisateur à gérer toutes les ressources dans un groupe de ressources, telles que des machines virtuelles, des sites Web et des sous-réseaux
 - Permettre à une application d’accéder à toutes les ressources d’un groupe de ressources
 
-## <a name="how-rbac-works"></a>Fonctionnement du le contrôle d’accès en fonction du rôle (RBAC)
+## <a name="how-azure-rbac-works"></a>Fonctionnement du contrôle RBAC Azure
 
-Les attributions de rôles vous permettent de contrôler l’accès aux ressources à l’aide du contrôle d’accès en fonction du rôle (RBAC). Il s’agit d’un concept clé dont la compréhension est essentielle, à savoir la façon dont les autorisations sont appliquées. Une attribution de rôle se compose de trois éléments : un principal de sécurité, une définition de rôle et une étendue.
+Les attributions de rôles vous permettent de contrôler l’accès aux ressources à l’aide du contrôle RBAC Azure. Il s’agit d’un concept clé dont la compréhension est essentielle, à savoir la façon dont les autorisations sont appliquées. Une attribution de rôle se compose de trois éléments : un principal de sécurité, une définition de rôle et une étendue.
 
 ### <a name="security-principal"></a>Principal de sécurité
 
@@ -64,9 +64,9 @@ Azure inclut plusieurs [rôles intégrés](built-in-roles.md) que vous pouvez ut
 - [Lecteur](built-in-roles.md#reader) : peut consulter les ressources Azure existantes.
 - [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) : vous permet de gérer l’accès des utilisateurs aux ressources Azure.
 
-Les autres rôles intégrés permettent de gérer des ressources Azure spécifiques. Par exemple, le rôle de [contributeur de machine virtuelle](built-in-roles.md#virtual-machine-contributor) permet à l’utilisateur de créer et gérer des machines virtuelles. Si les rôles intégrés ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres [rôles personnalisés pour les ressources Azure](custom-roles.md).
+Les autres rôles intégrés permettent de gérer des ressources Azure spécifiques. Par exemple, le rôle de [contributeur de machine virtuelle](built-in-roles.md#virtual-machine-contributor) permet à l’utilisateur de créer et gérer des machines virtuelles. Si les rôles intégrés ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres [rôles personnalisés Azure](custom-roles.md).
 
-Azure propose des opérations de données qui vous permettent d’accorder l’accès aux données au sein d’un objet. Par exemple, si un utilisateur dispose d’un accès en lecture aux données d’un compte de stockage, il peut lire les objets blob ou les messages de ce compte de stockage. Pour plus d’informations, consultez [Comprendre les définitions de rôle pour les ressources Azure](role-definitions.md).
+Azure propose des opérations de données qui vous permettent d’accorder l’accès aux données au sein d’un objet. Par exemple, si un utilisateur dispose d’un accès en lecture aux données d’un compte de stockage, il peut lire les objets blob ou les messages de ce compte de stockage. Pour plus d’informations, consultez [Comprendre les définitions de rôle Azure](role-definitions.md).
 
 ### <a name="scope"></a>Étendue
 
@@ -90,21 +90,21 @@ Le diagramme suivant montre un exemple d’attribution de rôle. Dans cet exempl
 
 ![Attribution de rôle pour contrôler les accès](./media/overview/rbac-overview.png)
 
-Vous pouvez créer des attributions de rôles à l’aide du Portail Azure, d’Azure CLI, d’Azure PowerShell, des kits de développement logiciel (SDK) Azure ou d’API REST. Vous pouvez avoir jusqu’à **2 000** attributions de rôle dans chaque abonnement et **500** attributions de rôle dans chaque groupe d’administration. Pour créer et supprimer des attributions de rôles, les utilisateurs doivent disposer de l’autorisation `Microsoft.Authorization/roleAssignments/*`. Cette autorisation est accordée par le biais des rôles [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator).
+Vous pouvez créer des attributions de rôles à l’aide du Portail Azure, d’Azure CLI, d’Azure PowerShell, des kits de développement logiciel (SDK) Azure ou d’API REST. Vous pouvez avoir jusqu’à **2 000** attributions de rôles dans chaque abonnement. Cette limite comprend les attributions de rôles au niveau de l’abonnement, du groupe de ressources et des étendues de ressources. Vous pouvez avoir jusqu’à **500** attributions de rôles dans chaque groupe d'administration. Pour créer et supprimer des attributions de rôles, les utilisateurs doivent disposer de l’autorisation `Microsoft.Authorization/roleAssignments/*`. Cette autorisation est accordée par le biais des rôles [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator).
 
 ## <a name="multiple-role-assignments"></a>Attributions de rôles multiples
 
-Que se passe-t-il si plusieurs attributions de rôles se chevauchent ? RBAC étant un modèle additif, vos autorisations effectives correspondent à la somme de vos attributions de rôles. Prenons l’exemple suivant où un utilisateur reçoit le rôle Contributeur pour l’étendue de l’abonnement et le rôle Lecteur pour un groupe de ressources. La somme des autorisations du rôle Contributeur et des autorisations du rôle Lecteur correspond effectivement au rôle Contributeur pour le groupe de ressources. Ainsi, dans ce cas, l’attribution du rôle Lecteur n’a aucun impact.
+Que se passe-t-il si plusieurs attributions de rôles se chevauchent ? Le contrôle RBAC Azure étant un modèle additif, vos autorisations effectives correspondent à la somme de vos attributions de rôles. Prenons l’exemple suivant où un utilisateur reçoit le rôle Contributeur pour l’étendue de l’abonnement et le rôle Lecteur pour un groupe de ressources. La somme des autorisations du rôle Contributeur et des autorisations du rôle Lecteur correspond effectivement au rôle Contributeur pour le groupe de ressources. Ainsi, dans ce cas, l’attribution du rôle Lecteur n’a aucun impact.
 
 ![Attributions de rôles multiples](./media/overview/rbac-multiple-roles.png)
 
 ## <a name="deny-assignments"></a>Affectations de refus
 
-Jusqu’à maintenant, RBAC était exclusivement un modèle d’autorisation sans possibilité de refus, il prend désormais en charge des affectations de refus dans une certaine mesure. À l’instar d’une attribution de rôle, une *affectation de refus* attache un ensemble d’actions de refus à un utilisateur, un groupe, un principal de service ou une identité managée, sur une étendue spécifique, afin de refuser l’accès. Une attribution de rôle définit un ensemble d’actions *autorisées*, tandis qu’une affectation de refus définit un ensemble d’actions *non autorisées*. En d’autres termes, les affectations de refus empêchent les utilisateurs d’effectuer des actions spécifiées, même si une attribution de rôle leur accorde l’accès. Les affectations de refus ont priorité sur les attributions de rôles. Pour plus d’informations, consultez [Comprendre les affectations de refus pour les ressources Azure](deny-assignments.md).
+Le contrôle RBAC Azure, qui était jusqu’à maintenant exclusivement un modèle d’autorisation sans possibilité de refus, prend désormais en charge des affectations de refus dans une certaine mesure. À l’instar d’une attribution de rôle, une *affectation de refus* attache un ensemble d’actions de refus à un utilisateur, un groupe, un principal de service ou une identité managée, sur une étendue spécifique, afin de refuser l’accès. Une attribution de rôle définit un ensemble d’actions *autorisées*, tandis qu’une affectation de refus définit un ensemble d’actions *non autorisées*. En d’autres termes, les affectations de refus empêchent les utilisateurs d’effectuer des actions spécifiées, même si une attribution de rôle leur accorde l’accès. Les affectations de refus ont priorité sur les attributions de rôles. Pour plus d’informations, consultez [Comprendre les affectations de refus Azure](deny-assignments.md).
 
-## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>Comment RBAC détermine si un utilisateur a accès à une ressource
+## <a name="how-azure-rbac-determines-if-a-user-has-access-to-a-resource"></a>Comment le contrôle RBAC Azure détermine si un utilisateur a accès à une ressource
 
-Voici les principales étapes suivies par RBAC pour déterminer si vous avez accès à une ressource sur le plan de gestion. Cela s’avère utile pour comprendre si vous tentez de résoudre un problème d’accès.
+Voici les principales étapes suivies par le contrôle RBAC Azure pour déterminer si vous avez accès à une ressource sur le plan de gestion. Cela s’avère utile pour comprendre si vous tentez de résoudre un problème d’accès.
 
 1. Un utilisateur (ou principal de service) se procure un jeton pour Azure Resource Manager.
 
@@ -128,7 +128,7 @@ Voici les principales étapes suivies par RBAC pour déterminer si vous avez acc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Démarrage rapide : Afficher l’accès dont dispose un utilisateur aux ressources Azure avec le portail Azure](check-access.md)
-- [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et du portail Azure](role-assignments-portal.md)
-- [Comprendre les différents rôles dans Azure](rbac-and-directory-admin-roles.md)
+- [Démarrage rapide : Afficher l’accès dont dispose un utilisateur aux ressources Azure](check-access.md)
+- [Ajouter ou supprimer des attributions de rôles Azure avec le portail Azure](role-assignments-portal.md)
+- [Comprendre les différents rôles](rbac-and-directory-admin-roles.md)
 - [Framework d’adoption du cloud : Gestion de l’accès aux ressources dans Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5d2d33dc2ef135fde0955336a40f851d6ed4e0e7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 827a2d6dc8a3622c17cdbcdfb179a3ea0f434f6f
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82204430"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006416"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>L’utilisateur doit-il disposer d’une architecture hub-and-spoke avec des appareils SD-WAN/VPN pour utiliser Azure Virtual WAN ?
 
@@ -49,7 +49,7 @@ Il existe deux options pour ajouter des serveurs DNS pour les clients P2S.
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>Pour un VPN utilisateur (point à site), combien de clients sont pris en charge ?
 
-Chaque passerelle P2S VPN utilisateur compte deux instances, chacune d’elles prenant en charge un certain nombre d’utilisateurs à mesure que l’unité d’échelle change. L’unité d’échelle 1-3 prend en charge 500 connexions, l’unité d’échelle 4-6 1 000 connexions, l’unité d’échelle 7-12 5 000 connexions et l’unité d’échelle 13-20 jusqu’à 10 000 connexions. Supposons que l’utilisateur choisisse l’unité d’échelle 1. Chaque unité d’échelle implique le déploiement d’une passerelle active-active. Dans ce cas, chacune des 2 instances prend en charge jusqu’à 500 connexions. Étant donné que vous pouvez obtenir 500 connexions * 2 par passerelle, cela ne signifie pas que vous devez planifier 1 000 connexions au lieu des 500 pour cette unité d’échelle. En effet, il peut être nécessaire de réparer les instances, ce qui peut entraîner l’interruption de la connectivité pour les 500 connexions supplémentaires si vous dépassez le nombre recommandé.
+Chaque passerelle P2S VPN utilisateur compte deux instances, chacune d’elles prenant en charge un certain nombre d’utilisateurs à mesure que l’unité d’échelle change. L’unité d’échelle 1-3 prend en charge 500 connexions, l’unité d’échelle 4-6 1 000 connexions, l’unité d’échelle 7-12 5 000 connexions et l’unité d’échelle 13-20 jusqu’à 10 000 connexions. Supposons que l’utilisateur choisisse l’unité d’échelle 1. Chaque unité d’échelle implique le déploiement d’une passerelle active-active. Dans ce cas, chacune des 2 instances prend en charge jusqu’à 500 connexions. Étant donné que vous pouvez obtenir 500 connexions * 2 par passerelle, cela ne signifie pas que vous devez planifier 1 000 connexions au lieu des 500 pour cette unité d’échelle. En effet, il peut être nécessaire de réparer les instances, ce qui peut entraîner l’interruption de la connectivité pour les 500 connexions supplémentaires si vous dépassez le nombre recommandé. Veillez également à planifier les temps d’arrêt au cas où vous décideriez de monter ou de baisser en puissance sur l’unité d’échelle ou de modifier la configuration de point à site sur la passerelle VPN.
 
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Quelle est la différence entre une passerelle de réseau virtuel Azure (passerelle VPN) et une passerelle VPN Azure Virtual WAN ?
 
@@ -190,8 +190,8 @@ Le débit VPN total maximal d’un concentrateur est de 20 Gbit/s, en fonction 
 Accédez à la passerelle VPN à l’intérieur d’un hub sur le portail, puis cliquez sur l’unité d’échelle pour la remplacer par le paramètre approprié.
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>Virtual WAN autorise-t-il l’appareil en local à utiliser plusieurs ISP en parallèle, ou faut-il toujours un tunnel VPN unique ?
+Les solutions d’appareils locaux peuvent appliquer des stratégies de trafic pour diriger le trafic entre plusieurs tunnels dans Azure.
 
-Une connexion entrante dans un VPN Virtual WAN est toujours un tunnel actif-actif (pour assurer la résilience dans la même région ou le même hub) utilisant un lien disponible au niveau de la branche. Ce lien peut être un lien de fournisseur de services Internet (ISP) au niveau de la branche locale. Le « VPNSite » de Virtual WAN offre la possibilité d’ajouter des informations de lien au site. Si vous avez plusieurs ISP au niveau de la branche et que chacun des ISP a fourni un lien, ces informations peuvent être configurées dans les informations du site VPN dans Azure. Toutefois, la gestion du basculement entre les ISP au niveau de la branche est une opération de routage entièrement centrée sur les branches.
 
 ### <a name="what-is-global-transit-architecture"></a>Qu’est-ce que l’architecture de transit global ?
 

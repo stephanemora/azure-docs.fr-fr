@@ -11,12 +11,12 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b66f5a7d85eb91970d5f551b010dd512b216b9c6
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: ddbb1c6fd705e658867c0d594981e87bc8cd6afe
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509514"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930486"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Se connecter à Azure IoT Central
 
@@ -95,6 +95,14 @@ Pour connecter des appareils en bloc avec des certificats X.509, inscrivez d’a
 
 Générez des certificats feuilles X.509 pour vos appareils à l’aide du certificat racine ou intermédiaire chargé. Utilisez l’**ID d’appareil** en tant que valeur `CNAME` dans les certificats feuilles. Le code de votre appareil requiert la valeur **Étendue d’ID** pour votre application, l’**ID d’appareil** et le certificat d’appareil correspondant.
 
+#### <a name="sample-device-code"></a>Exemple de code d’appareil
+
+L’exemple suivant du [kit de développement logiciel (SDK) Node.JS d’Azure IoT](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/device/samples/register_x509.js) montre comment un client de périphérique Node.js utilise un certificat leaf X.509 et une installation Microsoft System Center Data Protection Manager pour s’inscrire auprès d’une application IoT Central :
+
+:::code language="nodejs" source="~/azure-iot-sdk-node/provisioning/device/samples/register_x509.js":::
+
+Pour obtenir un exemple C équivalent, consultez [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c) dans le [SDK Azure IoT C Provisioning Device Client](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md).
+
 ### <a name="for-testing-purposes-only"></a>Uniquement à des fins de test
 
 À des fins de test uniquement, vous pouvez vous servir des utilitaires suivants pour générer des certificats racines, intermédiaires et d’appareils :
@@ -106,11 +114,6 @@ Générez des certificats feuilles X.509 pour vos appareils à l’aide du certi
   - Enregistrez les certificats en tant que fichiers .cer à télécharger vers votre application IoT Central.
   - Le code de vérification de l’application IoT Central permet de générer le certificat de vérification.
   - Créez des certificats de nœud terminal pour vos appareils à l’aide de vos ID d’appareils en tant que paramètre de l’outil.
-
-### <a name="further-reference"></a>Référence supplémentaire
-
-- [Exemple d’implémentation pour RaspberryPi](https://aka.ms/iotcentral-docs-Raspi-releases)
-- [Exemple de client d’appareil dans C](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
 
 ## <a name="connect-without-registering-devices"></a>Se connecter sans inscrire les appareils
 
@@ -143,11 +146,11 @@ Le flux est légèrement différent selon que les appareils utilisent des jetons
 
 ### <a name="connect-devices-that-use-x509-certificates-without-registering"></a>Connecter des appareils qui utilisent des certificats X.509 sans inscription
 
-1. [Ajoutez et vérifiez un certificat X.509 racine ou intermédiaire](#connect-devices-using-x509-certificates) dans votre application IoT Central. (#connect-devices-using-x509-certificates)
+1. [Ajoutez et vérifiez un certificat X.509 racine ou intermédiaire](#connect-devices-using-x509-certificates) dans votre application IoT Central.
 
 1. générez les certificats de nœud terminal pour vos appareils avec le certificat intermédiaire ou racine que vous avez ajouté à votre application IoT Central. Utilisez des ID d’appareils en minuscules comme `CNAME` dans les certificats feuilles.
 
-1. L’OEM dote chaque périphérique d’un ID d’appareil, d’un certificat X.509 généré et de la valeur d'**étendue de l’ID** de l’application.
+1. L’OEM dote chaque périphérique d’un ID d’appareil, d’un certificat X.509 leaf généré et de la valeur d'**étendue de l’ID** de l’application.
 
 1. Lorsque vous basculez sur un appareil, il se connecte d’abord à DPS pour récupérer ses informations d’inscription à IoT Central.
 

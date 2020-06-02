@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 6c553580bc3f2c9cb1aac321bea3c86b04b2ba56
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6a2dd84ec091a2e862dd788a740585827b5cbde1
+ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231218"
+ms.lasthandoff: 05/11/2020
+ms.locfileid: "83007547"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Créer un projet d’étiquetage des données et exporter des étiquettes 
 
@@ -138,8 +138,6 @@ Pour les cadres englobants, les questions importantes sont les suivantes :
 
 La page **ML assisted labeling** (Étiquetage assisté par ML) vous permet de déclencher des modèles Machine Learning automatiques pour accélérer la tâche d’étiquetage. Au début de votre projet d’étiquetage, les images sont mélangées dans un ordre aléatoire pour réduire le biais potentiel. Cependant, le biais éventuellement présent dans le jeu de données se reflète dans le modèle entraîné. Par exemple, si 80 % de vos images appartiennent à une même classe, environ 80 % des données utilisées pour l’entraînement du modèle feront partie de cette classe. Cet entraînement n’inclut pas l’apprentissage actif.
 
-Cette fonctionnalité est disponible pour les tâches (multiclasses ou multiétiquettes) de classification d’images.  
-
 Sélectionnez *Enable ML assisted labeling* (Activer l’étiquetage assisté par ML) et spécifiez un GPU pour activer l’étiquetage assisté, qui se compose de deux phases :
 * Clustering
 * Préétiquetage
@@ -150,13 +148,15 @@ Sachant que les étiquettes finales dépendent encore de l’entrée de l’éti
 
 ### <a name="clustering"></a>Clustering
 
-Après l’envoi d’un certain nombre d’étiquettes, le modèle Machine Learning commence à regrouper les images similaires.  Ces images similaires sont présentées aux étiqueteurs dans le même écran pour accélérer le balisage manuel. Le clustering est particulièrement utile quand l’étiqueteur affiche une grille de 4, 6 ou 9 images. 
+Après l’envoi d’un certain nombre d’étiquettes, le modèle Machine Learning pour la classification d’images commence à regrouper les images similaires.  Ces images similaires sont présentées aux étiqueteurs dans le même écran pour accélérer le balisage manuel. Le clustering est particulièrement utile quand l’étiqueteur affiche une grille de 4, 6 ou 9 images. 
 
 Une fois qu’un modèle Machine Learning a été entraîné sur vos données étiquetées manuellement, le modèle est tronqué à sa dernière couche entièrement connectée. Les images non étiquetées transitent ensuite par le modèle tronqué dans un processus appelé « incorporation » ou « featurization ». Chaque image est ainsi incorporée dans un espace hautement dimensionnel défini par cette couche de modèle. Les images qui correspondent aux voisins les plus proches dans l’espace sont utilisées pour les tâches de clustering. 
 
+La phase de clustering n’apparaît pas pour les modèles de détection d’objets.
+
 ### <a name="prelabeling"></a>Préétiquetage
 
-Une fois qu’un nombre plus important d’étiquettes d’images a été envoyé, un modèle de classification est utilisé pour prédire les balises d’images.  L’étiqueteur voit dès lors les pages qui contiennent les étiquettes prédites déjà présentes dans chaque image.  La tâche doit ensuite examiner ces étiquettes et corriger les images mal étiquetées avant d’envoyer la page.  
+Une fois qu’un nombre suffisant d’étiquettes d’images a été envoyé, un modèle de classification est utilisé pour prédire les balises d’images. Ou un modèle de détection d’objets est utilisé pour prédire les cadres englobants. L’étiqueteur voit dès lors les pages qui contiennent les étiquettes prédites déjà présentes dans chaque image. Pour la détection d’objets, des zones prédites sont également affichées. La tâche doit ensuite examiner ces prédictions et corriger les images mal étiquetées avant d’envoyer la page.  
 
 Une fois qu’un modèle Machine Learning a été entraîné sur vos données étiquetées manuellement, le modèle est évalué sur un ensemble d’images de test étiquetées manuellement pour déterminer sa précision à plusieurs seuils de confiance. Ce processus d’évaluation sert à déterminer le seuil de confiance au-dessus duquel le modèle est suffisamment précis pour afficher des préétiquettes. Le modèle est ensuite évalué par rapport aux données non étiquetées. Les images dont les prédictions ont un niveau de confiance supérieur à ce seuil sont utilisées pour le préétiquetage.
 

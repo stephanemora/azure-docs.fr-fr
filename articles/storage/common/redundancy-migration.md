@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 5c37dbdc34138faab8adae6ad18252c18a75cad4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5d047aa3c5c937e3b84b8fa672101bc801221067
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80337077"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871367"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Modifier la manière dont un compte de stockage est répliqué
 
@@ -26,7 +26,7 @@ Stockage Azure propose les types de réplication suivants :
 - Stockage localement redondant (LRS)
 - Stockage redondant interzone (ZRS)
 - Stockage géoredondant (GRS) ou stockage géographiquement redondant avec accès en lecture (RA-GRS)
-- Stockage géoredondant interzone (GZRS) ou stockage géoredondant interzone avec accès en lecture (RA-GZRS) [préversion]
+- Stockage géoredondant interzone (GZRS) ou stockage géoredondant interzone avec accès en lecture (RA-GZRS)
 
 Pour obtenir une vue d’ensemble de chacune de ces options, consultez la rubrique [Redondance de Stockage Azure](storage-redundancy.md).
 
@@ -40,13 +40,14 @@ Le tableau suivant fournit une vue d’ensemble de la façon de passer de chaque
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
 | <b>… depuis LRS</b> | N/A | Utiliser le Portail Azure, PowerShell ou l’interface CLI pour modifier le paramètre de réplication<sup>1</sup> | Effectuer une migration manuelle <br /><br />Demander une migration dynamique | Effectuer une migration manuelle <br /><br /> OR <br /><br /> Basculer d’abord sur GRS/RA-GRS, puis demander une migration dynamique<sup>1</sup> |
 | <b>… depuis GRS/RA-GRS</b> | Utiliser le Portail Azure, PowerShell ou l’interface CLI pour modifier le paramètre de réplication | N/A | Effectuer une migration manuelle <br /><br /> OR <br /><br /> Basculer d’abord sur LRS, puis demander une migration dynamique | Effectuer une migration manuelle <br /><br /> Demander une migration dynamique |
-| <b>… depuis ZRS</b> | Effectuer une migration manuelle | Effectuer une migration manuelle | N/A | Utiliser le Portail Azure, PowerShell ou l’interface CLI pour modifier le paramètre de réplication<sup>1</sup> |
+| <b>… depuis ZRS</b> | Effectuer une migration manuelle | Effectuer une migration manuelle | N/A | Utiliser le Portail Azure, PowerShell ou l’interface CLI pour modifier le paramètre de réplication<sup>1,2</sup> |
 | <b>… depuis GZRS/RA-GZRS</b> | Effectuer une migration manuelle | Effectuer une migration manuelle | Utiliser le Portail Azure, PowerShell ou l’interface CLI pour modifier le paramètre de réplication | N/A |
 
-<sup>1</sup> Implique des frais de sortie ponctuels.
+<sup>1</sup> Implique des frais de sortie ponctuels.<br />
+<sup>2</sup> La conversion de ZRS en GZRS/RA-GZRS ou inversement n’est pas prise en charge dans les régions suivantes : USA Est 2, USA Est, Europe Ouest.
 
 > [!CAUTION]
-> Si vous avez opéré un [basculement de compte](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance) pour votre compte (RA-)GRS ou (RA-)GZRS, il est configuré pour être localement redondant dans la nouvelle région primaire. La migration en direct vers ZRS ou GZRS pour de tels comptes LRS n’est pas prise en charge. Vous devrez opérer une [migration manuelle](https://docs.microsoft.com/azure/storage/common/redundancy-migration#perform-a-manual-migration-to-zrs).
+> Si vous avez opéré un [basculement de compte](storage-disaster-recovery-guidance.md) pour votre compte (RA-)GRS ou (RA-)GZRS, le compte est localement redondant dans la nouvelle région primaire après le basculement. La migration en direct vers ZRS ou GZRS pour un compte LRS résultant d’un basculement n’est pas prise en charge. Vous devrez opérer une [migration manuelle](#perform-a-manual-migration-to-zrs) vers ZRS ou GZRS.
 
 ## <a name="change-the-replication-setting"></a>Modifier le paramètre de réplication
 
@@ -195,4 +196,4 @@ Si vous migrez votre compte de stockage géoredondant en compte de stockage loca
 
 - [Redondance de Stockage Azure](storage-redundancy.md)
 - [Vérifier la propriété Heure de la dernière synchronisation pour un compte de stockage](last-sync-time-get.md)
-- [Conception d’applications à haute disponibilité à l’aide du stockage géographiquement redondant avec accès en lecture](storage-designing-ha-apps-with-ragrs.md)
+- [Utilisez la géo-redondance pour concevoir des applications hautement disponibles](geo-redundant-design.md)

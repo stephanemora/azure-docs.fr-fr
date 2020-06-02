@@ -4,15 +4,15 @@ description: Cet article explique comment sauvegarder et restaurer les métadonn
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 05/05/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 83da2024ab74b705b45a5891f6b40251020dad31
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: aa98a13b84e89c90e29525fb6743ac33faf1d917
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408658"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871299"
 ---
 # <a name="backup-and-restore"></a>Sauvegarde et restauration
 
@@ -22,6 +22,9 @@ La sauvegarde de bases de données de modèles tabulaires dans Azure Analysis Se
 > La création d’un compte de stockage peut entraîner un nouveau service facturable. Pour en savoir plus, consultez [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 > 
 > 
+
+> [!NOTE]
+> Si le compte de stockage se trouve dans une autre région, les paramètres du pare-feu du compte de stockage doivent être configurés de façon à autoriser l’accès à partir des **Réseaux sélectionnés**. Dans la **plage d’adresses** du pare-feu, spécifiez la plage d’adresses IP pour la région dans laquelle se trouve le serveur Analysis Services. La configuration des paramètres de pare-feu de compte de stockage pour autoriser l’accès à partir de tous les réseaux est prise en charge, mais il est préférable de choisir des réseaux sélectionnés et de spécifier une plage d’adresses IP. Pour en savoir plus, consultez [FAQ sur la connectivité réseau](analysis-services-network-faq.md#backup-and-restore).
 
 Les sauvegardes sont enregistrées avec l’extension .abf. Pour les modèles tabulaires en mémoire, les données et les métadonnées de modèle sont enregistrées. Pour les modèles tabulaires DirectQuery, seules les métadonnées de modèle sont stockées. Les sauvegardes peuvent être compressées et chiffrées, en fonction des options que vous avez choisies.
 
@@ -104,5 +107,5 @@ Utilisez l’applet de commande [Restore-ASDatabase](https://docs.microsoft.com/
 ## <a name="related-information"></a>Informations connexes
 
 [Des comptes de stockage Azure](../storage/common/storage-create-storage-account.md)  
-[Haute disponibilité](analysis-services-bcdr.md)     
-[Gérer Azure Analysis Services](analysis-services-manage.md)
+[Haute disponibilité](analysis-services-bcdr.md)      
+[FAQ sur la connectivité réseau d’Analysis Services](analysis-services-network-faq.md)

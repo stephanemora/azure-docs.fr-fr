@@ -10,22 +10,18 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 03/09/2020
-ms.openlocfilehash: 401383f2d483836bf725051810d78167869f7b22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/20/2020
+ms.openlocfilehash: cd72ce9fed7f821807b8604f68068c64a38293e3
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79237013"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996658"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Entraîner avec des jeux de données dans Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Cet article décrit les deux façons de consommer des [jeux de données Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) dans le cadre d’exécutions de formation expérimentale à distance sans vous soucier des chaînes de connexion ou des chemins de données.
-
-- Option 1 : Si vous disposez de données structurées, créez un TabularDataset et utilisez-le directement dans votre script d’entraînement.
-
-- Option n°2 : Si vous disposez de données non structurées, créez un FileDataset et montez ou téléchargez des fichiers sur un ordinateur distant pour l’entraînement.
+Cet article va vous permettre d’apprendre à utiliser des jeux de données [Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) dans vos expériences de formation.  Vous pouvez utiliser des jeux de données dans votre cible de calcul locale ou distante sans vous soucier des chaînes de connexion ou des chemins de données.
 
 Les jeux de données Azure Machine Learning fournissent une intégration transparente avec les produits de formation Azure Machine Learning tels que [ScriptRun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py), [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py) et les [pipelines Azure Machine Learning](how-to-create-your-first-pipeline.md).
 
@@ -42,26 +38,14 @@ Pour créer des jeux de données et effectuer un entraînement avec eux, vous av
 > [!Note]
 > Certaines classes de jeu de données ont des dépendances avec le package [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py). Pour les utilisateurs Linux, ces classes sont uniquement prises en charge dans les distributions suivantes :  Red Hat Enterprise Linux, Ubuntu, Fedora et CentOS.
 
-## <a name="option-1-use-datasets-directly-in-training-scripts"></a>Option 1 : Utiliser des jeux de données directement dans les script d’entraînement
+## <a name="access-and-explore-input-datasets"></a>Accéder aux jeux de données d’entrée et les explorer
 
-Dans cet exemple, vous créez un [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) et vous en servez d’entrée directe dans votre objet `estimator` pour l’entraînement. 
+Vous pouvez accéder à un TabularDataset existant à partir du script de formation d’une expérience sur votre espace de travail et charger ce jeu de données dans un dataframe pandas pour approfondir l’exploration de votre environnement local.
 
-### <a name="create-a-tabulardataset"></a>Créer un TabularDataset
+Le code suivant utilise la méthode [`get_context()`]() dans la classe [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) pour accéder au TabularDataset d’entrée existant, `titanic`, dans le script de formation. Il utilise ensuite la méthode [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) pour charger ce jeu de données dans un dataframe pandas afin d’approfondir l’exploration et la préparation des données avant la formation.
 
-Le code suivant crée un TabularDataset non inscrit à partir d’une URL web. Vous pouvez également créer des jeux de données à partir de chemins ou de fichiers locaux dans des magasins de données. Pour en savoir plus sur la création des jeux de données, consultez [cette page](https://aka.ms/azureml/howto/createdatasets).
-
-```Python
-from azureml.core.dataset import Dataset
-
-web_path ='https://dprepdata.blob.core.windows.net/demo/Titanic.csv'
-titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path)
-```
-
-### <a name="access-the-input-dataset-in-your-training-script"></a>Accéder au jeu de données d’entrée dans votre script d’entraînement
-
-Les objets TabularDataset permettent de charger les données dans un DataFrame pandas ou spark afin que vous puissiez travailler avec des bibliothèques d’entraînement et de préparation des données familières. Pour tirer parti de cette fonctionnalité, vous pouvez transmettre un TabularDataset en tant qu’entrée dans votre configuration d’entraînement, puis le récupérer dans votre script.
-
-Pour ce faire, accédez au jeu de données d’entrée par le biais de l’objet [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) dans votre script d’entraînement et utilisez la méthode [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--). 
+> [!Note]
+> Si votre source de données originale contient NaN, des chaînes vides ou des valeurs vides, lorsque vous utilisez la fonction to_pandas_dataframe(), ces valeurs sont remplacées par une valeur *Null*. 
 
 ```Python
 %%writefile $script_folder/train_titanic.py
@@ -71,9 +55,31 @@ from azureml.core import Dataset, Run
 run = Run.get_context()
 # get the input dataset by name
 dataset = run.input_datasets['titanic']
+
 # load the TabularDataset to pandas DataFrame
 df = dataset.to_pandas_dataframe()
 ```
+
+Si vous avez besoin de charger les données préparées dans un nouveau jeu de données à partir d’un dataframe pandas en mémoire, écrivez les données dans un fichier local (par exemple un fichier parquet), puis créez un jeu de données à partir de ce fichier. Vous pouvez également créer des jeux de données à partir de chemins ou de fichiers locaux dans des magasins de données. Pour en savoir plus sur la création des jeux de données, consultez [cette page](how-to-create-register-datasets.md).
+
+## <a name="use-datasets-directly-in-training-scripts"></a>Utiliser des jeux de données directement dans les script d’entraînement
+
+Si vous disposez de données structurées qui ne sont pas encore inscrites en tant que jeu de données, créez un TabularDataset et utilisez-le directement dans votre script de formation pour votre expérience locale ou distante.
+
+Dans cet exemple, vous créez un [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) non enregistré et vous en servez d’entrée directe dans votre objet `estimator` pour la formation. Si vous souhaitez réutiliser ce TabularDataset avec d’autres expériences dans votre espace de travail, consultez [Comment inscrire des jeux de données dans votre espace de travail](how-to-create-register-datasets.md#register-datasets).
+
+### <a name="create-a-tabulardataset"></a>Créer un TabularDataset
+
+Le code suivant crée un TabularDataset non inscrit à partir d’une URL web.  
+
+```Python
+from azureml.core.dataset import Dataset
+
+web_path ='https://dprepdata.blob.core.windows.net/demo/Titanic.csv'
+titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path)
+```
+
+Les objets TabularDataset permettent de charger les données de votre TabularDataset dans un DataFrame pandas ou spark afin que vous puissiez travailler avec des bibliothèques de formation et de préparation des données familières sans avoir à quitter votre notebook. Pour tirer parti de cette fonctionnalité, consultez [Accéder aux jeux de données d’entrée et les explorer](#access-and-explore-input-datasets).
 
 ### <a name="configure-the-estimator"></a>Configurer l’estimateur
 
@@ -83,7 +89,7 @@ Ce code crée un objet estimateur générique, `est`, qui spécifie
 
 * Un répertoire de script pour vos scripts. Tous les fichiers dans ce répertoire sont chargés dans les nœuds de cluster pour l’exécution.
 * Le script d’entraînement, *train_titanic.py*.
-* Le jeu de données d’entrée pour l’entraînement, `titanic`. `as_named_input()` est requis pour que le jeu de données d’entrée puisse être référencé par le nom attribué dans votre script de formation. 
+* Le jeu de données d’entrée pour l’entraînement, `titanic_ds`. `as_named_input()` est requis pour que le jeu de données d’entrée puisse être référencé par le nom attribué `titanic` dans votre script de formation. 
 * La cible de calcul pour l’expérience.
 * La définition de l’environnement pour l’expérience.
 
@@ -100,34 +106,11 @@ experiment_run = experiment.submit(est)
 experiment_run.wait_for_completion(show_output=True)
 ```
 
+## <a name="mount-files-to-remote-compute-targets"></a>Monter des fichiers sur des cibles de calcul distantes
 
-## <a name="option-2--mount-files-to-a-remote-compute-target"></a>Option n°2 :  Monter des fichiers sur une cible de calcul distante
+Si vous avez des données non structurées, créez un [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py) et montez ou téléchargez vos fichiers de données pour les mettre à la disposition de votre cible de calcul à distance pour la formation. Découvrez quand utiliser [le montage ou le téléchargement](#mount-vs-download) pour vos expériences de formation à distance. 
 
-Si vous souhaitez que vos fichiers de données soient disponibles sur la cible de calcul pour l’entraînement, utilisez [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) pour monter ou télécharger des fichiers référencés par celui-ci.
-
-### <a name="mount-vs-download"></a>Montage/ Téléchargement
-
-Le montage ou le téléchargement de fichiers de tout format sont pris en charge pour des jeux de données créés à partir des stockages suivants : Stockage Blob Azure, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database et Azure Database pour PostgreSQL. 
-
-Quand vous montez un jeu de données, vous attachez les fichiers référencés par le jeu de données à un répertoire (point de montage) et le rendez disponible sur la cible de calcul. Le montage est pris en charge pour les calculs basés sur Linux, y compris la capacité de calcul Azure Machine Learning, les machines virtuelles et HDInsight. Lorsque vous téléchargez un jeu de données, tous les fichiers référencés par le jeu de données sont téléchargés sur la cible de calcul. Le téléchargement est pris en charge pour tous les types de calcul. 
-
-Si votre script traite tous les fichiers référencés par le jeu de données et que votre disque de calcul peut contenir le jeu de données complet, le téléchargement est recommandé pour éviter la charge de traitement inhérente à la diffusion en continu des données à partir des services de stockage. Si la taille de vos données dépasse la taille du disque de calcul, le téléchargement n’est pas possible. Pour ce scénario, nous recommandons un montage, car seuls les fichiers de données utilisés par votre script sont chargés au moment du traitement.
-
-Le code suivant monte `dataset` dans le répertoire Temp dans le chemin `mounted_path`
-
-```python
-import tempfile
-mounted_path = tempfile.mkdtemp()
-
-# mount dataset onto the mounted_path of a Linux-based compute
-mount_context = dataset.mount(mounted_path)
-
-mount_context.start()
-
-import os
-print(os.listdir(mounted_path))
-print (mounted_path)
-```
+L’exemple suivant crée un FileDataset et monte l’ensemble de données sur la cible de calcul en le passant comme argument dans l’estimateur de formation. 
 
 ### <a name="create-a-filedataset"></a>Créer un FileDataset
 
@@ -147,9 +130,9 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 ### <a name="configure-the-estimator"></a>Configurer l’estimateur
 
-En plus de transmettre le jeu de données via le paramètre `inputs` dans l’estimateur, vous pouvez le transmettre via `script_params` et obtenir le chemin d’accès aux données (point de montage) dans votre script de formation via des arguments. De cette façon, vous pouvez conserver votre script de formation indépendant d’azureml-sdk. Autrement dit, vous serez en mesure d’utiliser le même script de formation pour le débogage local et la formation à distance sur tout plateforme cloud.
+Nous vous recommandons de passer le DataSet comme argument lors du montage. En plus de transmettre le jeu de données via le paramètre `inputs` dans l’estimateur, vous pouvez le transmettre via `script_params` et obtenir le chemin d’accès aux données (point de montage) dans votre script de formation via des arguments. Ainsi, vous serez en mesure d’utiliser le même script de formation pour le débogage local et la formation à distance sur toute plateforme cloud.
 
-Un objet estimateur [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) est utilisé afin de soumettre l’exécution pour les expériences scikit-learn. Apprenez-en davantage sur l’entraînement avec l’[estimateur SKlearn](how-to-train-scikit-learn.md).
+Un objet estimateur [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) est utilisé afin de soumettre l’exécution pour les expériences scikit-learn. Une fois que vous avez envoyé l’exécution, les fichiers de données référencés par le jeu de données `mnist` sont montés sur la cible de calcul. Apprenez-en davantage sur l’entraînement avec l’[estimateur SKlearn](how-to-train-scikit-learn.md).
 
 ```Python
 from azureml.train.sklearn import SKLearn
@@ -173,7 +156,7 @@ run.wait_for_completion(show_output=True)
 
 ### <a name="retrieve-the-data-in-your-training-script"></a>Récupérer les données dans votre script d’entraînement
 
-Une fois que vous avez envoyé l’exécution, les fichiers de données référencés par le jeu de données `mnist` sont montés sur la cible de calcul. Le code suivant montre comment récupérer les données dans votre script.
+Le code suivant montre comment récupérer les données dans votre script.
 
 ```Python
 %%writefile $script_folder/train_mnist.py
@@ -207,14 +190,41 @@ y_train = load_data(y_train_path, True).reshape(-1)
 y_test = load_data(y_test, True).reshape(-1)
 ```
 
+
+## <a name="mount-vs-download"></a>Différences entre montage et téléchargement
+
+Le montage ou le téléchargement de fichiers de tout format sont pris en charge pour des jeux de données créés à partir des stockages suivants : Stockage Blob Azure, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database et Azure Database pour PostgreSQL. 
+
+Quand vous montez un jeu de données, vous attachez les fichiers référencés par le jeu de données à un répertoire (point de montage) et le rendez disponible sur la cible de calcul. Le montage est pris en charge pour les calculs basés sur Linux, y compris la capacité de calcul Azure Machine Learning, les machines virtuelles et HDInsight. 
+
+Lorsque vous téléchargez un jeu de données, tous les fichiers référencés par le jeu de données sont téléchargés sur la cible de calcul. Le téléchargement est pris en charge pour tous les types de calcul. 
+
+Si votre script traite tous les fichiers référencés par le jeu de données et que votre disque de calcul peut contenir le jeu de données complet, le téléchargement est recommandé pour éviter la charge de traitement inhérente à la diffusion en continu des données à partir des services de stockage. Si la taille de vos données dépasse la taille du disque de calcul, le téléchargement n’est pas possible. Pour ce scénario, nous recommandons un montage, car seuls les fichiers de données utilisés par votre script sont chargés au moment du traitement.
+
+Le code suivant monte `dataset` dans le répertoire Temp dans le chemin `mounted_path`
+
+```python
+import tempfile
+mounted_path = tempfile.mkdtemp()
+
+# mount dataset onto the mounted_path of a Linux-based compute
+mount_context = dataset.mount(mounted_path)
+
+mount_context.start()
+
+import os
+print(os.listdir(mounted_path))
+print (mounted_path)
+```
+
 ## <a name="notebook-examples"></a>Exemples de notebooks
 
 Les [notebooks de jeux de données](https://aka.ms/dataset-tutorial) illustrent et développent les concepts abordés dans cet article.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Entraîner automatiquement des modèles Machine Learning](how-to-auto-train-remote.md) avec des TabularDatasets
+* [Entraîner automatiquement des modèles Machine Learning](how-to-auto-train-remote.md) avec des TabularDatasets.
 
-* [Entraîner des modèles de classification d’image](https://aka.ms/filedataset-samplenotebook) avec des FileDatasets
+* [Entraîner des modèles de classification d’image](https://aka.ms/filedataset-samplenotebook) avec des FileDatasets.
 
-* [Effectuer l'apprentissage des jeux de données à l'aide de pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb)
+* [Effectuez l’apprentissage des jeux de données à l'aide de pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: vkukke
-ms.openlocfilehash: ed3b70ad267252981110e7970bc5c5fad6cf4b4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6d6d8df8f3c5da762ac672b304ec072a723e7d7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79300596"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857048"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Sécurité du réseau pour les ressources Azure Event Grid
 Cet article explique comment utiliser les fonctionnalités de sécurité suivantes avec Azure Event Grid : 
@@ -29,7 +29,7 @@ Vous pouvez utiliser des étiquettes de service pour définir des contrôles d�
 
 | Balise du service | Objectif | Peut-elle utiliser le trafic entrant ou sortant ? | Peut-elle être étendue à une zone régionale ? | Peut-elle être utilisée avec le Pare-feu Azure ? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| AzureEventGrid | Azure Event Grid. <br/><br/>*Remarque :* Cette balise couvre les points de terminaison Azure Event Grid dans les régions USA Centre Sud, USA Est, Usa Est 2, USA Ouest 2 et USA Centre uniquement. | Les deux | Non  | Non  |
+| AzureEventGrid | Azure Event Grid. <br/><br/>*Remarque :* Cette balise couvre les points de terminaison Azure Event Grid dans les régions USA Centre Sud, USA Est, Usa Est 2, USA Ouest 2 et USA Centre uniquement. | Les deux | Non | Non |
 
 
 ## <a name="ip-firewall"></a>Pare-feu IP 
@@ -61,7 +61,7 @@ Lorsque vous résolvez l’URL du point de terminaison de la rubrique ou du doma
 | Nom                                          | Type      | Valeur                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<profil azure traffic manager\>
+| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Profil Azure Traffic Manager\>
 
 Vous pouvez refuser ou contrôler l’accès pour un client en dehors du réseau virtuel via le point de terminaison public à l’aide du [pare-feu ID](#ip-firewall). 
 
@@ -85,17 +85,16 @@ Le tableau suivant décrit les différents états de connexion au point de termi
 | État de la connexion   |  Publication réussie (oui/non) |
 | ------------------ | -------------------------------|
 | Approved           | Oui                            |
-| Rejeté           | Non                              |
-| Pending            | Non                              |
-| Déconnecté       | Non                              |
+| Rejeté           | Non                             |
+| Pending            | Non                             |
+| Déconnecté       | Non                             |
 
 Pour réussir une publication, l’état de la connexion au point de terminaison privé doit être **approuvé**. Si une connexion est rejetée, elle ne peut pas être approuvée à l’aide du portail Azure. La seule possibilité consiste à supprimer la connexion et à en créer une nouvelle à la place.
 
 ## <a name="pricing-and-quotas"></a>Tarifs et quotas
-Les **points de terminaison privés** sont disponibles uniquement avec les rubriques et les domaines de niveau Premium. Event Grid permet de créer jusqu’à 64 connexions de points de terminaison privés par rubrique ou domaine. Pour passer du niveau De base au niveau Premium, consultez l’article [Mettre à jour le niveau tarifaire](update-tier.md).
+La fonctionnalité **Points de terminaison privés** est disponible dans les niveaux De base et Premium d’Event Grid. Event Grid permet de créer jusqu’à 64 connexions de points de terminaison privés par rubrique ou domaine. 
 
 La fonctionnalité **Pare-feu IP** est disponible dans les niveaux De base et Premium d’Event Grid. Nous autorisons la création d’un maximum de 16 règles de pare-feu IP par rubrique ou domaine.
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez configurer le pare-feu IP de votre ressource Event Grid pour limiter l’accès au réseau Internet public à un ensemble spécifique d’adresses IP ou de plages d’adresses IP. Pour obtenir des instructions pas à pas, consultez [Configurer le pare-feu IP](configure-firewall.md).

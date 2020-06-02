@@ -5,16 +5,19 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/18/2019
-ms.openlocfilehash: 252ddeb372744986df0b8ba9b742d0462a4e8202
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/01/2020
+ms.openlocfilehash: b0ec666f2cfadc3a1571f3ed1d26c92bcbbca3a2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234237"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196234"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Propriétés standard dans les journaux Azure Monitor
 Les données dans les journaux Azure Monitor sont [stockées sous la forme d’un jeu d’enregistrements dans un espace de travail Log Analytics ou dans une application Application Insights](../log-query/logs-structure.md), chacun ayant un type de données particulier associé à un ensemble unique de propriétés. De nombreux types de données comportent des propriétés standard qui sont communes à plusieurs types. Cet article décrit ces propriétés et fournit des exemples sur la façon dont vous pouvez les utiliser dans des requêtes.
+
+> [!IMPORTANT]
+> Si vous utilisez APM 2.1, les applications Application Insights sont stockées dans un espace de travail Log Analytics avec toutes les autres données de journal. Les tables ont été renommées et restructurées, mais elles contiennent les mêmes informations que les tables de l’application Application Insights. Ces nouvelles tables ont les mêmes propriétés standards que les autres tables de l’espace de travail Log Analytics.
 
 > [!NOTE]
 > Certaines des propriétés standard n’apparaîtront pas dans l’affichage de schéma ou IntelliSense dans Log Analytics, et n’apparaîtront pas dans les résultats des requêtes, à moins de spécifier explicitement la propriété dans la sortie.
@@ -48,7 +51,7 @@ exceptions
 ## <a name="_timereceived"></a>\_TimeReceived
 La propriété **\_TimeReceived** contient la date et l'heure auxquelles l'enregistrement a été reçu par le point d'ingestion Azure Monitor dans le cloud Azure. Cela peut être utile pour identifier les problèmes de latence entre la source de données et le cloud. Par exemple, un problème de mise en réseau entraîne un retard dans l’envoi des données par un agent. Pour plus d’informations, consultez [Durée d’ingestion de données de journal dans Azure Monitor](data-ingestion-time.md).
 
-La requête suivante fournit la latence moyenne par heure pour les enregistrements d'événements d'un agent. Cela comprend le temps entre l'agent et le cloud et le temps total pendant lequel l'enregistrement doit être disponible pour les requêtes du journal.
+La requête suivante fournit la latence moyenne par heure pour les enregistrements d'événements d'un agent. Cela comprend le temps entre l’agent et le cloud et le temps total pendant lequel l'enregistrement doit être disponible pour les requêtes du journal.
 
 ```Kusto
 Event
@@ -122,7 +125,7 @@ union withsource = tt *
 L’exécution d’analyses sur différents types de données étant coûteuse, utilisez ces requêtes `union withsource = tt *` avec parcimonie.
 
 ## <a name="_isbillable"></a>\_IsBillable
-La propriété **\_IsBillable** spécifie si les données ingérées sont facturables. Les données dont la propriété **\_IsBillable** est égale à _false_ sont collectées gratuitement et ne sont pas facturées sur votre compte Azure.
+La propriété **\_IsBillable** spécifie si les données ingérées sont facturables. Les données dont la propriété **\_IsBillable** est égale à `false` sont collectées gratuitement et ne sont pas facturées sur votre compte Azure.
 
 ### <a name="examples"></a>Exemples
 Pour obtenir la liste des ordinateurs qui envoient des types de données facturés, utilisez la requête suivante :

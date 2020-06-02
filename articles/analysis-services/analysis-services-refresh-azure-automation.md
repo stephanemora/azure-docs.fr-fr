@@ -4,14 +4,14 @@ description: Cet article explique comment coder l’actualisation du modèle pou
 author: chrislound
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: a79123d57f80474e1871ef68f9a92ea9417089ac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bbbc2863e06b4602a4175d46bbe21414041583ba
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73572351"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926559"
 ---
 # <a name="refresh-with-azure-automation"></a>Actualiser avec Azure Automation
 
@@ -60,7 +60,7 @@ Le principal du service que vous créez doit disposer d’autorisations d’admi
 
     ![Créer des informations d’identification](./media/analysis-services-refresh-azure-automation/6.png)
 
-2. Entrez les détails des informations d’identification.  Pour **Nom d’utilisateur**, entrez l’**ID de client du SPN**, pour **Mot de passe**, entrez le **Secret du SPN**.
+2. Entrez les détails des informations d’identification. Dans **Nom d’utilisateur**, entrez l’ID d’application du principal du service (appid), puis, dans **Mot de passe**, entrez le secret du principal du service.
 
     ![Créer des informations d’identification](./media/analysis-services-refresh-azure-automation/7.png)
 
@@ -68,7 +68,7 @@ Le principal du service que vous créez doit disposer d’autorisations d’admi
 
     ![Importer un Runbook](./media/analysis-services-refresh-azure-automation/8.png)
 
-4. Recherchez le fichier **Refresh-Model.ps1**, fournissez un **nom** et un **description**, puis cliquez sur **Créer**.
+4. Recherchez le fichier **Refresh-Model.ps1**, fournissez un **nom** et une **description**, puis cliquez sur **Créer**.
 
     ![Importer un Runbook](./media/analysis-services-refresh-azure-automation/9.png)
 
@@ -173,7 +173,7 @@ Une machine virtuelle Azure avec une adresse IP publique statique peut être uti
 > [!IMPORTANT]
 > Vérifiez que l’adresse IP publique de machine virtuelle est configurée comme statique.
 >
->Pour en savoir plus sur la configuration des Workers hybrides Azure Automation, voir [Automatiser les ressources de votre centre de données ou de votre cloud à l’aide d’un Runbook Worker hybride](../automation/automation-hybrid-runbook-worker.md#install-a-hybrid-runbook-worker).
+>Pour en savoir plus sur la configuration d’Azure Automation Hybrid Worker, consultez [Installation d’un Runbook Worker hybride](../automation/automation-hybrid-runbook-worker.md#hybrid-runbook-worker-installation).
 
 Une fois un Worker hybride configuré, créez un Webhook comme décrit dans la section [Consommer avec Data Factory](#consume-with-data-factory).  La seule différence ici consiste à sélectionner l’option **Exécuter sur** > **Worker hybride** lors de la configuration du Webhook.
 

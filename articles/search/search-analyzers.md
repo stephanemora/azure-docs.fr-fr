@@ -8,16 +8,21 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 2e4a6ab8825982969ffa4654c2418f7a9d168d2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7be56fa48887e2ee500f1b253c078bde16d91e6
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75460719"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891228"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analyseurs pour le traitement de texte dans la Recherche cognitive Azure
 
 Un *analyseur* est un composant du [moteur de recherche en texte intégral](search-lucene-query-architecture.md) chargé de traiter le texte dans les chaînes de requête et les documents indexés. La façon dont les différents analyseurs manipulent le texte varie en fonction du scénario. Les analyseurs linguistiques traitent le texte en utilisant des règles linguistiques afin d’améliorer la qualité de la recherche, alors que d’autres analyseurs effectuent des tâches plus simples comme la conversion de caractères en minuscules, par exemple. 
+
+Le segment vidéo suivant avance rapidement vers une explication du fonctionnement du traitement de texte dans Recherche cognitive Azure.
+
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=132&end=189]
+
 
 Les analyseurs linguistiques sont les plus fréquemment utilisés. D’ailleurs, un analyseur linguistique par défaut est affecté à chaque champ pouvant faire l’objet d’une recherche figurant dans un index de Recherche cognitive Azure. Les transformations linguistiques suivantes sont courantes au cours d’une analyse de texte :
 

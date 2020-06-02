@@ -8,18 +8,21 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f0537af684632a08a39e3e681900d62238365073
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc1f1b5f7015efc604d461a5e292184398cba44f
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74280979"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005491"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Guide pratique pour mapper des champs enrichis par IA sur un index pouvant faire l’objet d’une recherche
 
 Dans cet article, vous allez apprendre à mapper des champs d’entrée enrichis sur des champs de sortie dans un index pouvant faire l’objet d’une recherche. Une fois que vous avez [défini un ensemble de compétences](cognitive-search-defining-skillset.md), vous devez mapper les champs de sortie de n’importe quelle compétence qui fournit directement des valeurs sur un champ donné dans votre index de recherche. 
 
 Les mappages de champs de sortie sont nécessaires au déplacement de contenu de documents enrichis vers l’index.  Le document enrichi est en fait une arborescence d’informations, et même si l’index prend en charge les types complexes, vous pouvez parfois souhaiter transformer les informations de l’arborescence enrichie en un type plus simple (par exemple, un tableau de chaînes). Les mappages de champs de sortie vous permettent d’effectuer des transformations de formes de données en aplatissant les informations.
+
+> [!NOTE]
+> Nous avons récemment activé la fonctionnalité de mappage des fonctions sur les mappages de champs de sortie. Pour plus d’informations sur les fonctions de mappage, consultez [Fonctions de mappage de champs](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#field-mapping-functions).
 
 ## <a name="use-outputfieldmappings"></a>Utiliser outputFieldMappings
 Pour mapper les champs, ajoutez `outputFieldMappings` à la définition de l’indexeur comme indiqué ci-dessous :
@@ -50,7 +53,10 @@ Le corps de la demande est structuré comme suit :
     "outputFieldMappings": [
         {
             "sourceFieldName": "/document/content/organizations/*/description",
-            "targetFieldName": "descriptions"
+            "targetFieldName": "descriptions",
+            "mappingFunction": {
+                "name": "base64Decode"
+            }
         },
         {
             "sourceFieldName": "/document/content/organizations",

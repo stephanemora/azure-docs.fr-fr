@@ -6,15 +6,15 @@ author: normesta
 ms.service: storage
 ms.subservice: common
 ms.topic: article
-ms.date: 09/27/2019
+ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: c8578c518ac45bea147790028c2904c7ce36fffb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34f1c96d8336447b6ca2a4f55fefa9a061c38fa2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459030"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198504"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Déplacer un compte Stockage Azure vers une autre région
 
@@ -232,25 +232,10 @@ Le tableau suivant liste ces fonctionnalités ainsi que des conseils pour les aj
 
 ### <a name="move-data-to-the-new-storage-account"></a>Déplacer des données vers le nouveau compte de stockage
 
-Vous trouverez ci-après quelques méthodes pour déplacer vos données.
+AzCopy est l’outil recommandé pour déplacer vos données. Elle est optimisée pour les performances.  Cette méthode est plus rapide car les données sont copiées directement entre les serveurs de stockage. AzCopy n’utilise donc pas la bande passante réseau de votre ordinateur. Utilisez AzCopy à la ligne de commande ou dans le cadre d’un script personnalisé. Consultez [Bien démarrer avec AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-:heavy_check_mark: **Azure Storage Explorer**
+Vous pouvez également utiliser Azure Data Factory pour déplacer vos données. Il propose une interface utilisateur intuitive. Pour utiliser Azure Data Factory, consultez l’un des liens suivants : 
 
-  Cette méthode facile à utiliser convient aux petits jeux de données. Vous pouvez copier des conteneurs et des partages de fichiers, puis les coller dans le compte cible.
-
-  Consultez l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/).
-
-:heavy_check_mark: **AZCopy**
-
-  Il s’agit de l’approche privilégiée. Elle est optimisée pour les performances.  Cette méthode est plus rapide car les données sont copiées directement entre les serveurs de stockage. AzCopy n’utilise donc pas la bande passante réseau de votre ordinateur. Utilisez AzCopy à la ligne de commande ou dans le cadre d’un script personnalisé.
-
-  Consultez [Bien démarrer avec AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
-:heavy_check_mark: **Azure Data Factory**. 
-
-  Utilisez cet outil uniquement si vous avez besoin de fonctionnalités qui ne sont pas prises en charge dans la version actuelle d’AzCopy. Par exemple, dans la version actuelle d’AzCopy, vous ne pouvez pas copier d’objets blob entre des comptes qui ont un espace de noms hiérarchique. De plus, AzCopy ne conserve ni les listes de contrôle d’accès aux fichiers ni les horodateurs des fichiers (qui indiquent par exemple l’heure de création ou de modification d’un fichier). 
-
-  Consultez les liens suivants :
   - [Copier des données vers ou depuis le stockage Blob Azure à l’aide d’Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
   - [Copier des données vers ou depuis Azure Data Lake Storage Gen2 à l’aide d’Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
   - [Copier des données depuis ou vers Stockage Fichier Azure à l’aide d’Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)

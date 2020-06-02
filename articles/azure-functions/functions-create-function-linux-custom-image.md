@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: fee4e16bd77664e541eeb36cb807a77d13191899
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dbd42668a0a1821e0ab7a6edc8ad05c79bfebe7d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82165720"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123535"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Créer une fonction sur Linux avec un conteneur personnalisé
 
@@ -295,17 +295,24 @@ Avec l’image déployée sur l’application de fonction sur Azure, vous pouvez
 
     # <a name="portal"></a>[Portail](#tab/portal)
 
-    1. Connectez-vous au portail Azure, puis recherchez votre application de fonction en entrant son nom dans la zone **Rechercher** en haut de la page. Dans les résultats, sélectionnez la ressource **App Service**.
+    1. Connectez-vous au portail Azure, puis recherchez et sélectionnez **Application de fonction**.
 
-    1. Dans le volet de navigation gauche, sous **Fonctions (lecture seule)** , sélectionnez le nom de votre fonction.
+    1. Sélectionnez la fonction que vous souhaitez vérifier.
 
-    1. Dans le volet d’informations, sélectionnez **</> Obtenir l’URL de la fonction** :
+    1. Dans le volet de navigation gauche, sélectionnez **Fonctions**, puis sélectionnez la fonction que vous souhaitez vérifier.
+
+        ![La commande Obtenir l’URL de la fonction sur le portail Azure](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
+
     
-        ![La commande Obtenir l’URL de la fonction sur le portail Azure](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key.png)   
+    1. Sélectionnez **Obtenir l’URL de la fonction**.
 
-    1. Dans la fenêtre contextuelle, sélectionnez **Par défaut (clé de fonction)** puis **Copier**. La clé est la chaîne de caractères qui suit `?code=`.
+        ![La commande Obtenir l’URL de la fonction sur le portail Azure](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
 
-        ![Copie de l’URL de la fonction à partir du portail Azure](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key-popup.png)   
+    
+    1. Dans la fenêtre contextuelle, sélectionnez **Par défaut (clé de fonction)** , puis copiez l’URL dans le presse-papiers. La clé est la chaîne de caractères qui suit `?code=`.
+
+        ![La commande Obtenir l’URL de la fonction sur le portail Azure](./media/functions-create-function-linux-custom-image/functions-portal-copy-url.png)   
+
 
     > [!NOTE]  
     > Dans la mesure où votre application de fonction est déployée en tant que conteneur, vous ne pouvez pas apporter de modifications à votre code de fonction dans le portail. Vous devez à la place mettre à jour le projet dans l’image locale, envoyer à nouveau l’image vers le registre, puis redéployer sur Azure. Vous pouvez configurer le déploiement continu dans une section ultérieure.
@@ -340,11 +347,11 @@ Avec l’image déployée sur l’application de fonction sur Azure, vous pouvez
 
     ---
 
-1. Collez l’URL de la fonction dans la barre d’adresse de votre navigateur, en ajoutant le paramètre `&name=Azure` à la fin de cette URL. Un texte similaire à « Hello Azure » doit apparaître dans le navigateur.
+1. Collez l’URL de la fonction dans la barre d’adresse de votre navigateur, en ajoutant le paramètre `&name=Azure` à la fin de cette URL. Un texte similaire à « Hello, Azure » doit apparaître dans le navigateur.
 
     ![Réponse de la fonction dans le navigateur.](./media/functions-create-function-linux-custom-image/function-app-browser-testing.png)
 
-1. Pour tester l’autorisation, supprimez le paramètre code= de l’URL et vérifiez que vous ne recevez pas de réponse de la fonction.
+1. Pour tester l’autorisation, supprimez le paramètre `code=` de l’URL et vérifiez que vous ne recevez pas de réponse de la fonction.
 
 
 ## <a name="enable-continuous-deployment-to-azure"></a>Activer le déploiement continu sur Azure

@@ -1,14 +1,14 @@
 ---
 title: Déployer un exemple de blueprint CIS Microsoft Azure Foundations Benchmark
 description: Étapes de déploiement de l’exemple de blueprint CIS Microsoft Azure Foundations Benchmark incluant les détails du paramètre Artefact de blueprint.
-ms.date: 10/14/2019
+ms.date: 05/06/2020
 ms.topic: sample
-ms.openlocfilehash: 7476addee3d31ec355c793ab7fbe1fbb732b8013
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9f132ee47784eedf8d1ced7e0b67f957877d12ef
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74544519"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864468"
 ---
 # <a name="deploy-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Déployer l’exemple de blueprint CIS Microsoft Azure Foundations Benchmark
 
@@ -93,8 +93,8 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 
 |Nom de l’artefact|Type d’artefact|Nom du paramètre|Description|
 |-|-|-|-|
-|\[Préversion\] : Auditer les recommandations de CIS Microsoft Azure Foundations Benchmark 1.1.0 et déployer des extensions de machine virtuelle de prise en charge spécifiques|Affectation de rôle|Liste des régions où Network Watcher doit être activé|Liste des régions séparées par des points-virgules. Pour consulter la liste complète des régions, utilisez Get-AzLocation. Ex : eastus; eastus2|
-|\[Préversion\] : Auditer les recommandations de CIS Microsoft Azure Foundations Benchmark 1.1.0 et déployer des extensions de machine virtuelle de prise en charge spécifiques|Affectation de rôle|Liste des extensions de machine virtuelle approuvées pour utilisation|Une liste des extensions séparées par des points-virgules. Pour consulter la liste complète des extensions de machine virtuelle, utilisez Get-AzVMExtensionImage. Exemple : AzureDiskEncryption; IaaSAntimalware|
+|Auditer les recommandations de CIS Microsoft Azure Foundations Benchmark 1.1.0 et déployer des extensions de machine virtuelle de prise en charge spécifiques|Affectation de rôle|Liste des régions où Network Watcher doit être activé|Liste des régions séparées par des points-virgules. Pour consulter la liste complète des régions, utilisez Get-AzLocation. Ex : eastus; eastus2|
+|Auditer les recommandations de CIS Microsoft Azure Foundations Benchmark 1.1.0 et déployer des extensions de machine virtuelle de prise en charge spécifiques|Affectation de rôle|Liste des extensions de machine virtuelle approuvées pour utilisation|Liste des extensions séparées par des points-virgules. Pour voir la liste complète des extensions de machine virtuelle, utilisez Get-AzVMExtensionImage. Exemple : AzureDiskEncryption; IaaSAntimalware|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

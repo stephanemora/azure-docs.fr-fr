@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 03/31/2020
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 6d9ceac5a63a7a644989430b0349a16369c7133a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 8018fa3935e780f8c4002483c5eebdade82b5f1c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478628"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119022"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Démarrage rapide : Rechercher des images à l’aide de l’API REST Recherche d’images Bing et de C#
 
-Utilisez ce guide de démarrage rapide pour commencer à envoyer des demandes de recherche à l’API Recherche d’images Bing. Cette application C# envoie une requête de recherche à l’API et affiche l’URL de la première image dans les résultats. Bien que cette application soit écrite en C#, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
+Utilisez ce guide de démarrage rapide pour découvrir comment envoyer des demandes de recherche à l’API Recherche d’images Bing. Cette application C# envoie une requête de recherche à l’API et affiche l’URL de la première image dans les résultats. Bien que cette application soit écrite en C#, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
 
 Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) avec une gestion des erreurs supplémentaire et des annotations.
 
@@ -32,7 +32,7 @@ Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azu
 
 ## <a name="create-and-initialize-a-project"></a>Créer et initialiser un projet
 
-1. Créez une solution Console nommée `BingSearchApisQuickStart` dans Visual Studio. Ajoutez ensuite les espaces de noms suivants dans le fichier de code principal.
+1. Créez une solution de console nommée `BingSearchApisQuickStart` dans Visual Studio. Ensuite, ajoutez les espaces de noms suivants dans le fichier de code principal :
 
     ```csharp
     using System;
@@ -42,7 +42,7 @@ Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azu
     using Newtonsoft.Json.Linq;
     ```
 
-2. Créez des variables pour le point de terminaison d’API, votre clé d’abonnement et le terme de recherche. `uriBase` peut être le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource.
+2. Créez des variables pour le point de terminaison d’API, votre clé d’abonnement et le terme de recherche. Pour `uriBase`, vous pouvez utiliser le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource.
 
     ```csharp
     //...
@@ -95,9 +95,9 @@ namespace BingSearchApisQuickstart
 
 ## <a name="create-and-handle-an-image-search-request"></a>Créer et gérer une requête de recherche d’image
 
-Dans la méthode `BingImageSearch`, effectuez les étapes suivantes.
+Dans la méthode `BingImageSearch`, effectuez les étapes suivantes :
 
-1. Construisez l’URI de la requête de recherche. Notez que le terme de recherche `SearchTerm` doit être mis en forme avant d’être ajouté à la chaîne.
+1. Construisez l’URI de la requête de recherche. Formatez le terme de recherche `SearchTerm` avant de l’ajouter à la chaîne.
 
     ```csharp
     static SearchResult BingImageSearch(string SearchTerm){
@@ -208,9 +208,9 @@ Les réponses de l’API Recherche d’images Bing sont retournées au format JS
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Qu’est-ce que la Recherche d’images Bing ?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Essayez une démonstration interactive en ligne](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
+* [Qu’est-ce que l’API Recherche d’images Bing ?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Essayez une démonstration interactive en ligne](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/).
 * [Détail des prix](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) des API Recherche Bing. 
-* [Obtenir une clé d’accès Cognitive Services gratuite](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Documentation Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Informations de référence sur l’API Recherche d’images Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Obtenir une clé d’accès Cognitive Services gratuite](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).
+* [Documentation Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services).
+* [Informations de référence sur l’API Recherche d’images Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).

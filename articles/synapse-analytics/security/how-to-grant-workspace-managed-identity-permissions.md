@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9f519022fffe98c565c3b2d30f6578b9ebb70c57
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1f0644c25d0047f774fe8f99efa34a33e10d7b2b
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426457"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983293"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Octroyer des autorisations pour l'identité managée dans l'espace de travail (préversion)
 
-Cet article vous explique comment octroyer des autorisations pour l’identité managée dans l’espace de travail Azure Synapse. Les autorisations permettent, à leur tour, d'accéder aux pools SQL de l’espace de travail et au compte de stockage ADLS Gen2 via le portail Azure.
+Cet article vous explique comment octroyer des autorisations pour l’identité managée dans l’espace de travail Azure Synapse. Les autorisations permettent, à leur tour, d'accéder aux pools SQL de l’espace de travail et au compte de stockage ADLS Gen2 via le Portail Microsoft Azure.
 
 >[!NOTE]
 >Cette identité managée de l’espace de travail sera appelée « identité managée » dans le reste de ce document.
@@ -57,9 +57,9 @@ Comme l’indique le message, vous ne pouvez pas créer de pools Spark tant que 
 
 Lors de la création de l’espace de travail, si vous n’affectez pas le rôle *Contributeur aux données Blob du stockage* à l’identité managée, le **propriétaire** du compte de stockage ADLS Gen2 s'en charge manuellement. Les étapes suivantes vous aideront à procéder à cette affectation manuellement.
 
-#### <a name="step-1-navigate-to-the-adls-gen2-storage-account-in-azure-portal"></a>Étape 1 : Accéder au compte de stockage ADLS Gen2 dans le portail Azure
+#### <a name="step-1-navigate-to-the-adls-gen2-storage-account-in-azure-portal"></a>Étape 1 : Accéder au compte de stockage ADLS Gen2 dans le Portail Azure
 
-Dans le portail Azure, ouvrez le compte de stockage ADLS Gen2 et sélectionnez **Vue d’ensemble** dans le volet de navigation gauche. Vous devez affecter le rôle *Contributeur aux données Blob du stockage* au niveau du conteneur ou du système de fichiers. Sélectionnez **Conteneurs**.  
+Dans le Portail Microsoft Azure, ouvrez le compte de stockage ADLS Gen2 et sélectionnez **Vue d’ensemble** dans le volet de navigation gauche. Vous devez affecter le rôle *Contributeur aux données Blob du stockage* au niveau du conteneur ou du système de fichiers. Sélectionnez **Conteneurs**.  
 ![Vue d'ensemble du compte de stockage ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-5.png)
 
 #### <a name="step-2-select-the-container"></a>Étape 2 : Sélection du conteneur

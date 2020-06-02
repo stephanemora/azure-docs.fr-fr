@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/05/2018
+ms.date: 05/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2de891ee109677f92ff603759701f7732f5951ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 059c43b24ddc9f319eac4f2783cfc203bed8c7f1
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188509"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900436"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte Amazon à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -24,22 +24,21 @@ ms.locfileid: "78188509"
 
 Cet article explique comment activer la connexion d’utilisateurs à partir d’un compte Amazon à l’aide de [stratégies personnalisées](custom-policy-overview.md) dans Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C](custom-policy-get-started.md).
 - Si vous n’avez pas de compte Amazon, créez-en un à l’adresse [https://www.amazon.com/](https://www.amazon.com/).
 
-## <a name="register-the-application"></a>Enregistrement de l’application
+## <a name="create-an-app-in-the-amazon-developer-console"></a>Créer une application dans la console de développement Amazon
 
-Pour autoriser la connexion d’utilisateurs à partir d’un compte Amazon, vous devez créer une application Amazon.
+Pour utiliser un compte Amazon en tant que fournisseur d’identité fédérée dans Azure Active Directory B2C (Azure AD B2C), vous devez créer une application dans vos [technologies et services de développement Amazon](https://developer.amazon.com). Si vous ne disposez pas encore d’un compte Amazon, vous pouvez en créer un à l’adresse [https://www.amazon.com/](https://www.amazon.com/).
 
-1. Connectez-vous au [Centre de développement Amazon](https://login.amazon.com/) avec les informations d’identification de votre compte Amazon.
-2. Si ce n’est déjà fait, cliquez sur **Sign Up**, suivez la procédure d’inscription pour développeur et acceptez la politique d’utilisation.
-3. Cliquez sur **Enregistrer une nouvelle application**.
-4. Entrez un **Nom**, une **Description** et une **URL d’avis de confidentialité**, puis cliquez sur **Enregistrer**. La déclaration de confidentialité est une page que vous gérez et qui fournit des informations de confidentialité aux utilisateurs.
-5. Dans la section **Paramètres web**, copiez les valeurs **ID client**. Sélectionnez **Montrer le secret** pour obtenir la clé secrète client et copiez-la. Vous aurez besoin de ces deux valeurs pour configurer un compte Amazon en tant que fournisseur d’identité dans votre locataire. **Client Secret** est une information d’identification de sécurité importante.
-6. Dans la section **Paramètres web**, sélectionnez **Modifier**, puis entrez `https://your-tenant-name.b2clogin.com` dans **Origines JavaScript autorisées** et `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` dans **URL de retour autorisées**. Remplacez `your-tenant-name` par le nom de votre locataire. Utilisez uniquement des minuscules quand vous entrez le nom de votre locataire, même si le locataire est défini à l’aide de majuscules dans Azure AD B2C.
-7. Cliquez sur **Enregistrer**.
+> [!NOTE]  
+> Utilisez les URL suivantes à l’**étape 8** ci-dessous, en remplaçant `your-tenant-name` par le nom de votre locataire. Quand vous entrez le nom de votre locataire, utilisez uniquement des minuscules même si le locataire est défini à l’aide de majuscules dans Azure AD B2C.
+> - Dans **Origines autorisées**, entrez `https://your-tenant-name.b2clogin.com`. 
+> - Dans **URL de retour autorisées**, entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`.
+
+[!INCLUDE [identity-provider-amazon-idp-register.md](../../includes/identity-provider-amazon-idp-register.md)]
 
 ## <a name="create-a-policy-key"></a>Création d’une clé de stratégie
 

@@ -10,12 +10,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: enewman
-ms.openlocfilehash: c1aaf588f61b329fa3b838b8a92f3e287897315b
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 7ed2a506fc4446f78685c6cd6ae9dec2b65e1743
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521187"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119295"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guide de configuration d’un modèle d’ordinateur Windows dans Azure Lab Services
 
@@ -211,7 +211,7 @@ Si vous avez besoin d’installer des langues supplémentaires sur la machine vi
 2. Recherchez « module linguistique »
 3. Choisissez la langue à installer
 
-Si vous êtes déjà connecté au modèle de machine virtuelle, utilisez le [raccourci « Installer un module linguistique »](ms-settings:regionlanguage?activationSource=SMC-IA-4027670) pour accéder directement à la page appropriée des paramètres.
+Si vous êtes déjà connecté au modèle de machine virtuelle, utilisez le raccourci « Installer un module linguistique » (`ms-settings:regionlanguage?activationSource=SMC-IA-4027670`) pour accéder directement à la page appropriée des paramètres.
 
 ## <a name="remove-unneeded-built-in-apps"></a>Supprimer les applications intégrées inutiles
 

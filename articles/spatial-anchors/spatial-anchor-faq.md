@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 563e2da8eba228636b05db2112739fdead4a4aa3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 046e438304991c4af7ea4a208e51b7a695a5bf23
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76844885"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83004473"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Questions fréquentes (FAQ) sur Azure Spatial Anchors
 
@@ -49,6 +49,10 @@ Pour plus d’informations, consultez [Vue d’ensemble d’Azure Spatial Anchor
 
 **R :** Les ancres sont isolées par le compte Azure. Seules les applications qui ont accès à votre compte peuvent accéder aux ancres qui en dépendent.
 
+**Q : Comment le service Azure Spatial Anchors stocke-t-il les données ?**
+
+**R :** Toutes les données stockées sont chiffrées à l’aide d’une clé de chiffrement de données gérée par Microsoft.
+
 **Q : Quelles informations d’environnement sont transmises et stockées dans le service quand Azure Spatial Anchors est utilisé ? Les images de l’environnement sont-elles transmises et stockées ?**
 
 **R** : Quand des ancres sont créées ou localisées, les images de l’environnement sont traitées sur l’appareil dans un format dérivé. Ce format dérivé est transmis et stocké dans le service.
@@ -59,7 +63,6 @@ Azure Spatial Anchors respecte les [conditions du contrat de service Azure](http
 
 ![Un environnement et son nuage de points disséminés qui en est dérivé](./media/sparse-point-cloud.png)
 *Figure 1 : Un environnement et son nuage de points disséminés qui en est dérivé*
-
 
 **Q : Est-il possible d’envoyer des informations de diagnostic à Microsoft ?**
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 2f67079938ddcf4a65e01ef50ab7e5cdf7078b73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0d122a56035e58bd5065da8fde56246da6478d54
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260936"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871261"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Comment enregistrer des événements sur Azure Event Hubs dans Gestion des API Azure
 Les concentrateurs d'événements Azure sont un service d'entrée de données hautement évolutif qui peut traiter des millions d'événements par seconde afin que vous puissiez traiter et analyser les grandes quantités de données générées par vos périphériques connectés et vos applications. Les concentrateurs d'événements fonctionnent comme la « porte d'entrée » d’un pipeline d’événements, et une fois que les données sont collectées dans un concentrateur d'événements, elles peuvent être transformées et stockées à l'aide de n'importe quel fournisseur d'analyse en temps réel ou d’adaptateurs de traitement par lot ou de stockage. Les concentrateurs d'événements dissocient la production d'un flux d'événements de la consommation de ces événements, de manière à ce que les consommateurs d'événements puissent accéder aux événements selon leur propre planification.
@@ -34,9 +34,9 @@ Maintenant que vous disposez d’un hub d’événements, l’étape suivante co
 
 Les enregistreurs d’événements de gestion des API peuvent être configurés à l’aide de l’ [API REST Gestion des API](https://aka.ms/apimapi). Pour obtenir des exemples détaillés de requêtes, consultez [Créer des enregistreurs d'événements](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate).
 
-## <a name="configure-log-to-eventhubs-policies"></a>Configurer des stratégies Enregistrer sur event hub
+## <a name="configure-log-to-eventhub-policies"></a>Configurer des stratégies Enregistrer sur event hub
 
-Une fois que votre journal est configuré dans Gestion des API, vous pouvez configurer vos stratégies Enregistrer sur event hubs pour enregistrer les événements de votre choix. La stratégie Enregistrer sur event hubs peut être utilisée dans la section de la stratégie entrante ou dans la section de la stratégie sortante.
+Une fois que votre journal est configuré dans Gestion des API, vous pouvez configurer votre stratégie Enregistrer sur event hub pour enregistrer les événements de votre choix. La stratégie Enregistrer sur event hub peut être utilisée dans la section de la stratégie entrante ou dans la section de la stratégie sortante.
 
 1. Accédez à votre instance APIM.
 2. Sélectionnez l’onglet API.
@@ -49,15 +49,32 @@ Une fois que votre journal est configuré dans Gestion des API, vous pouvez conf
 9. Dans la fenêtre de droite, sélectionnez **Stratégies avancées** > **Consigner sur Event Hub**. Cela permet d’insérer le modèle d’instruction de stratégie `log-to-eventhub`.
 
 ```xml
-<log-to-eventhub logger-id ='logger-id'>
-  @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
+<log-to-eventhub logger-id="logger-id">
+    @{
+        return new JObject(
+            new JProperty("EventTime", DateTime.UtcNow.ToString()),
+            new JProperty("ServiceName", context.Deployment.ServiceName),
+            new JProperty("RequestId", context.RequestId),
+            new JProperty("RequestIp", context.Request.IpAddress),
+            new JProperty("OperationName", context.Operation.Name)
+        ).ToString();
+    }
 </log-to-eventhub>
 ```
-Remplacez `logger-id` par la valeur que vous avez utilisée pour `{new logger name}` dans l’URL pour créer l’enregistreur d’événements à l’étape précédente.
+Remplacez `logger-id` par la valeur que vous avez utilisée pour `{loggerId}` dans l’URL de la requête pour créer l’enregistreur d’événements à l’étape précédente.
 
-Vous pouvez utiliser toute expression qui renvoie une chaîne en tant que valeur pour l’élément `log-to-eventhub` . Dans cet exemple, une chaîne contenant la date et l’heure, le nom du service, l’ID de la requête, son adresse IP et le nom de l’opération est consignée.
+Vous pouvez utiliser toute expression qui renvoie une chaîne en tant que valeur pour l’élément `log-to-eventhub` . Dans cet exemple, une chaîne dans le format JSON contenant la date et l’heure, le nom du service, l’ID de la requête, son adresse IP et le nom de l’opération est consignée.
 
 Cliquez sur **Enregistrer** pour enregistrer la configuration de la stratégie mise à jour. Dès qu’elle est enregistrée, la stratégie est active et les événements sont enregistrés dans l’Event Hub désigné.
+
+## <a name="preview-the-log-in-event-hubs-by-using-azure-stream-analytics"></a>Afficher un aperçu du journal dans Event Hubs à l’aide d’Azure Stream Analytics
+
+Vous pouvez afficher un aperçu du journal dans Event Hubs à l’aide de [requêtes Azure Stream Analytics](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics). 
+
+1. Dans le Portail Azure, accédez au Event Hub auquel le journal envoie des événements. 
+2. Sous **Fonctionnalités**, sélectionnez l’onglet **Traiter les données**.
+3. Sur la vignette **Activer des insights en temps réel à partir d’événements**, sélectionnez **Explorer**.
+4. Vous devez être en mesure d’afficher un aperçu du journal dans l’onglet **Aperçu de l’entrée**. Si les données qui apparaissent ne sont pas à jour, sélectionnez **Actualiser** pour afficher les événements les plus récents.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur Azure Event Hubs

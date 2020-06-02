@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: a3eedb5440711c7a45a13dcd53dd489c490588fc
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 3ee84c0c868f47dca1aee0401865563a326df3db
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677409"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864400"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
@@ -44,6 +44,8 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Sauv
 **Cause 3 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
 
 **Cause 4 : [Les options de configuration de l’agent de machine virtuelle ne sont pas définies (pour les machines virtuelles Linux)](#vm-agent-configuration-options-are-not-set-for-linux-vms)**
+
+**Cause 5 : [La solution de contrôle d’application bloque IaaSBcdrExtension.exe](#application-control-solution-is-blocking-iaasbcdrextensionexe)**
 
 ## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed : Échec de l’approvisionnement de la machine virtuelle
 
@@ -200,8 +202,16 @@ Si vous exigez une journalisation détaillée pour waagent, procédez comme suit
 
 ### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>Les options de configuration de l’agent de machine virtuelle ne sont pas définies (pour les machines virtuelles Linux)
 
-Un fichier de configuration (/etc/waagent.conf) contrôle les actions de waagent. Options du fichier config : **Extensions.Enable** et **Provisioning.Agent** doivent être définies sur **y** pour que la sauvegarde fonctionne.
+Un fichier de configuration (/etc/waagent.conf) contrôle les actions de waagent. Les options du fichier de configuration **Extensions.Enable** doivent être définies sur **y** et **Provisioning.Agent** doivent être définies sur **auto** pour que Sauvegarde Microsoft Azure fonctionne.
 Pour obtenir la liste complète des options du fichier config de l’agent de machine virtuelle, consultez <https://github.com/Azure/WALinuxAgent#configuration-file-options>.
+
+### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>La solution de contrôle d’application bloque IaaSBcdrExtension.exe
+
+Si vous exécutez [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (ou une autre solution de contrôle d’application) et que les règles sont basées sur un serveur de publication ou sur un chemin d’accès, elles peuvent bloquer l’exécution de l’exécutable **IaaSBcdrExtension.exe**.
+
+#### <a name="solution"></a>Solution
+
+Excluez le chemin d’accès `/var/lib` ou l’exécutable **IaaSBcdrExtension.exe** d’AppLocker (ou d’un autre logiciel de contrôle d’application).
 
 ### <a name="the-snapshot-status-cant-be-retrieved-or-a-snapshot-cant-be-taken"></a><a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Impossible de récupérer l’état de l’instantané ou de capturer un instantané
 

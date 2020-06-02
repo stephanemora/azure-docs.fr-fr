@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 94da1639b5398a03b36fba3ff88877468a97ec36
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a9468f437a89a85f28b6ce869b948ca2a4aff7bf
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294113"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983327"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architecture pour la récupération d’urgence d’Azure vers Azure
 
@@ -55,8 +55,7 @@ Lorsque vous activez la réplication pour une machine virtuelle, Site Recovery v
 Vous pouvez gérer les ressources cibles de la façon suivante :
 
 - Vous pouvez modifier les paramètres de la cible lorsque vous activez la réplication.
-- Vous pouvez modifier les paramètres de la cible lorsque la réplication est active. Le type de disponibilité (instance unique, groupe ou zone) constitue cependant une exception. Pour modifier ce paramètre, vous devez désactiver la réplication, modifier le paramètre, puis la réactiver.
-
+- Vous pouvez modifier les paramètres de la cible lorsque la réplication est active. Notez que la référence SKU par défaut pour la machine virtuelle de la région cible est la même que la référence SKU de la machine virtuelle source (ou la meilleure référence SKU suivante par rapport à la référence SKU de la machine virtuelle source). Comme pour d’autres ressources comme le groupe de ressources cible, le nom cible, etc., la référence de machine virtuelle de la région cible peut également être mise à jour une fois la réplication en cours. Le type de disponibilité (instance unique, groupe ou zone) ne peut cependant pas être mis à jour. Pour modifier ce paramètre, vous devez désactiver la réplication, modifier le paramètre, puis la réactiver. 
 
 
 ## <a name="replication-policy"></a>Stratégie de réplication 

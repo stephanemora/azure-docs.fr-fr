@@ -3,14 +3,14 @@ title: Utiliser GitHub Actions pour effectuer des mises à jour de code dans Azu
 description: Découvrez comment utiliser GitHub Actions pour définir un workflow afin de générer et déployer des projets Azure Functions dans GitHub.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 04/16/2020
 ms.author: cshoe
-ms.openlocfilehash: 54010269e5b61ebf28a29dd3165c4310f3472817
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dedca6912fd9d9e7b6f5089d02de9e4020e4e0ef
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878202"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122327"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Livraison continue à l’aide de GitHub Actions
 
@@ -46,17 +46,19 @@ Dans cet exemple, remplacez les espaces réservés dans la ressource par votre I
 
 ## <a name="download-the-publishing-profile"></a>Télécharger le profil de publication
 
-Vous pouvez télécharger le profil de publication de votre application de fonction en accédant à la page **Vue d’ensemble** de votre application, puis en cliquant sur **Obtenir le profil de publication**.
+Pour télécharger le profil de publication de votre application de fonction :
 
-   ![Télécharger le profil de publication](media/functions-how-to-github-actions/get-publish-profile.png)
+1. Sélectionnez la page **Vue d’ensemble** de l’application de fonction, puis sélectionnez **Obtenir le profil de publication**.
 
-Copiez le contenu du fichier.
+   :::image type="content" source="media/functions-how-to-github-actions/get-publish-profile.png" alt-text="Télécharger le profil de publication":::
+
+1. Enregistrez et copiez le contenu du fichier de paramètres de publication.
 
 ## <a name="configure-the-github-secret"></a>Configurer le secret GitHub
 
 1. Dans [GitHub](https://github.com), accédez à votre dépôt, sélectionnez **Paramètres** > **Secrets** > **Ajouter un nouveau secret**.
 
-   ![Ajouter un secret](media/functions-how-to-github-actions/add-secret.png)
+   :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="Ajouter un secret":::
 
 1. Ajoutez un nouveau secret.
 

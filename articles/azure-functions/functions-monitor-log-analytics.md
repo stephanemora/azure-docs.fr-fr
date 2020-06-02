@@ -3,14 +3,14 @@ title: Monitorage d’Azure Functions avec Azure Monitor Logs
 description: Découvrez comment utiliser Azure Monitor Logs avec Azure Functions pour surveiller les exécutions de fonctions.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 13c72a1cf8a0dd4a1124e51b9ceee04ae04bf261
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b21912de95ccba1d97d187922bfada4d9dc2c56
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77649872"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121625"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Monitorage d’Azure Functions avec Azure Monitor Logs
 
@@ -25,17 +25,23 @@ Azure Monitor utilise une version du [langage de requête Kusto](/azure/kusto/qu
 
 ## <a name="setting-up"></a>Configuration
 
-Dans la section **Supervision**, sélectionnez **Paramètres de diagnostic**, puis cliquez sur **Ajouter un paramètre de diagnostic**.
+1. Dans la section de **surveillance** de votre application de fonction dans le [Portail Azure](https://portal.azure.com), sélectionnez **Paramètres de diagnostic**, puis sélectionnez **Ajouter un paramètre de diagnostic**.
 
-![Ajouter un paramètre de diagnostic](media/functions-monitor-log-analytics/diagnostic-settings-add.png)
+   :::image type="content" source="media/functions-monitor-log-analytics/diagnostic-settings-add.png" alt-text="Sélectionner Paramètres de diagnostic":::
 
-Dans la page **Paramètres de diagnostic**, choisissez **Envoyer à Log Analytics**, puis sélectionnez votre espace de travail Log Analytics. Sous **journal**, choisissez **FunctionAppLogs** ; cette table contient les journaux souhaités.
+1. Dans la page des **paramètres de diagnostic**, sous **Détails de la catégorie** et **Journal**, choisissez **FunctionAppLogs**.
 
-![Ajouter un paramètre de diagnostic](media/functions-monitor-log-analytics/choose-table.png)
+   Le tableau **FunctionAppLogs** contient les journaux souhaités.
+
+1. Sous **Détails de la destination**, choisissez **Envoyer à Log Analytics**, puis sélectionnez votre **espace de travail Log Analytics**. 
+
+1. Entrez un **nom de paramètres de diagnostic**, puis sélectionnez **Enregistrer**.
+
+   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Ajouter un paramètre de diagnostic":::
 
 ## <a name="user-generated-logs"></a>Journaux générés par l’utilisateur
 
-Pour générer des journaux personnalisés, vous pouvez utiliser l’instruction de journalisation propre à votre langage. Voici des exemples d’extraits de code :
+Pour générer des journaux personnalisés, utilisez l’instruction de journalisation propre à votre langage. Voici des exemples d’extraits de code :
 
 
 # <a name="c"></a>[C#](#tab/csharp)
@@ -72,11 +78,19 @@ logging.info('My app logs here.')
 
 ## <a name="querying-the-logs"></a>Interroger les journaux
 
-Pour interroger les journaux générés, accédez à l’espace de travail Log Analytics que vous avez configuré pour envoyer les journaux de fonction, puis cliquez sur **Journaux**.
+Pour interroger les journaux générés :
+ 
+1. Dans votre application de fonction, **Paramètres de diagnostic**. 
 
-![Fenêtre Requête dans l’espace de travail LA](media/functions-monitor-log-analytics/querying.png)
+1. Dans la liste **Paramètres de diagnostic**, sélectionnez l’espace de travail Log Analytics que vous avez configuré pour lui envoyer les journaux de fonction. 
 
-Azure Functions écrit tous les journaux dans la table **FunctionAppLogs**. Voici quelques exemples de requêtes.
+1. Sur la page **Espaces de travail Log Analytics**, sélectionnez **Journaux**.
+
+   Azure Functions écrit tous les journaux dans la table **FunctionAppLogs** sous **LogManagement**. 
+
+   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Fenêtre de requête dans l’espace de travail Log Analytics":::
+
+Voici quelques exemples de requêtes :
 
 ### <a name="all-logs"></a>Tous les journaux d’activité
 
@@ -87,7 +101,7 @@ FunctionAppLogs
 
 ```
 
-### <a name="a-specific-function-logs"></a>Journaux d’une fonction spécifique
+### <a name="specific-function-logs"></a>Journaux d’une fonction spécifique
 
 ```
 
@@ -108,6 +122,6 @@ FunctionAppLogs
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consulter la [Vue d’ensemble d’Azure Functions](functions-overview.md)
-- En savoir plus sur [Azure Monitor Logs](../azure-monitor/platform/data-platform-logs.md)
+- Consultez la [vue d’ensemble d’Azure Functions](functions-overview.md)
+- En savoir plus sur les [Journaux Azure Monitor](../azure-monitor/platform/data-platform-logs.md).
 - Découvrez plus en détails le [langage de requête](../azure-monitor/log-query/get-started-queries.md).

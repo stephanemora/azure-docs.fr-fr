@@ -1,7 +1,7 @@
 ---
-title: Utiliser Azure Machine Learning derrière un pare-feu
+title: Utiliser un pare-feu
 titleSuffix: Azure Machine Learning
-description: Utilisez Azure Machine Learning de façon sécurisée derrière le pare-feu Azure. Apprenez-en davantage sur les hôtes que vous devez autoriser à traverser le pare-feu pour qu’Azure Machine Learning fonctionne correctement.
+description: Contrôler l’accès aux espaces de travail Azure Machine Learning avec les pare-feu Azure. Apprenez-en davantage sur les hôtes que vous devez autoriser à traverser le pare-feu pour qu’Azure Machine Learning fonctionne correctement.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/27/2020
-ms.openlocfilehash: 2c5fe9d46ef408775cc4b99d4820a652a91683c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40c25dda3fefa9c54df832e16149a68a4aa5a33b
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195756"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981963"
 ---
-# <a name="use-azure-machine-learning-workspace-behind-azure-firewall"></a>Utiliser l’espace de travail Azure Machine Learning derrière le pare-feu Azure
+# <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Utiliser l’espace de travail derrière le Pare-feu Azure pour Azure Machine Learning
 
-Cet article contient des informations sur la configuration du pare-feu Azure pour l’utiliser avec Azure Machine Learning.
+Dans cet article, découvrez comment configurer le Pare-feu Azure pour l’utiliser avec un espace de travail Azure Machine Learning.
 
 Le pare-feu Azure peut être utilisé pour contrôler l’accès à votre espace de travail Azure Machine Learning et à l’Internet public. S’il n’est pas configuré correctement, le pare-feu peut causer des problèmes lors de l’utilisation de votre espace de travail.
 

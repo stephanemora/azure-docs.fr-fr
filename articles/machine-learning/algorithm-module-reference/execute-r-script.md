@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/10/2020
-ms.openlocfilehash: eb778c8d24639320b60927438de76a29de724ac2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/27/2020
+ms.openlocfilehash: 7b72d83740e0e2b02ef9d2ea3cd1cbf04a4c99cc
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684709"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983565"
 ---
 # <a name="execute-r-script"></a>Exécuter un script R
 
@@ -42,6 +42,8 @@ azureml_main <- function(dataframe1, dataframe2){
   return(list(dataset1=dataframe1, dataset2=dataframe2))
 }
 ```
+> [!NOTE]
+> Si votre pipeline contient plusieurs modules Execute R Script et que vous avez besoin de packages qui ne figurent pas dans la liste préinstallée, installez les packages dans chaque module, respectivement. 
 
 ## <a name="installing-r-packages"></a>Installation des packages R
 Pour installer des packages R supplémentaires, utilisez la méthode `install.packages()`. Les packages sont installés pour chaque module **Exécuter un script R** et ne sont pas partagés entre d’autres modules **Exécuter un script R** .
@@ -140,7 +142,7 @@ Les jeux de données stockés dans le concepteur sont automatiquement convertis 
 1. Dans la zone de texte **Script R**, tapez ou collez un script R valide.
 
     > [!NOTE]
-    > Soyez très prudent lorsque vous écrivez votre script et assurez-vous qu’il n’existe pas d’erreur de syntaxe, telle que l’utilisation d’une variable non déclarée ou d’une fonction ou d’un module non importé. Faites également attention à la liste des packages préinstallés à la fin de ce document. Pour utiliser des packages qui ne sont pas répertoriés, installez-les dans votre script, par exemple : `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
+    > Soyez très prudent lorsque vous écrivez votre script et assurez-vous qu’il n’existe pas d’erreur de syntaxe, telle que l’utilisation de variables non déclarées ou de fonctions ou de modules non importés. Faites également attention à la liste des packages préinstallés à la fin de ce document. Pour utiliser des packages qui ne sont pas répertoriés, installez-les dans votre script, par exemple : `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
     
     > [!NOTE]
     > Les fonctions dépendantes de la bibliothèque X11 comme « Affichage » ne sont pas prises en charge, car la bibliothèque X11 n’est pas préinstallée.

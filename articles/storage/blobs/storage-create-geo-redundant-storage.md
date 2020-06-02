@@ -1,30 +1,30 @@
 ---
 title: Tutoriel - Générer une application hautement disponible avec le stockage Blob
 titleSuffix: Azure Storage
-description: Utilisez le stockage géoredondant avec accès en lecture pour rendre vos données d’application hautement disponibles.
+description: Utilisez le stockage géoredondant interzone (RA-GZRS) avec accès en lecture pour rendre vos données d’application hautement disponibles.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 27f90edf84fd51e5c13bc082cfaba50e26c54780
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 19812ad8e8b81984bb7a314345d5fd53f917d239
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81606024"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856132"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutoriel : Générer une application hautement disponible avec le stockage Blob
 
 Ce tutoriel est la première partie d’une série d’étapes. Il vous apprend à rendre vos données d’application hautement disponibles dans Azure.
 
-À l’issue de ce tutoriel, vous disposez d’une application console qui charge et récupère un objet blob à partir d’un compte de stockage [géographiquement redondant avec accès en lecture](../common/storage-redundancy.md) (RA-GRS).
+À l’issue de ce tutoriel, vous disposez d’une application console qui charge et récupère un objet blob à partir d’un compte de stockage [géoredondant interzone avec accès en lecture](../common/storage-redundancy.md) (RA-GZRS).
 
-Le stockage géographiquement redondant avec accès en lecture (RA-GRS) réplique des transactions d’une région primaire vers une région secondaire. Ce processus de réplication garantit que les données de la région secondaire sont cohérentes. L’application utilise le modèle [Disjoncteur](/azure/architecture/patterns/circuit-breaker) pour déterminer à quel point de terminaison se connecter, en basculant automatiquement d’un point de terminaison à l’autre au fur et à mesure des simulations d’échecs et de récupérations.
+La géo-redondance dans le stockage Azure réplique les transactions de manière asynchrone d’une région primaire vers une région secondaire se trouvant à des centaines de kilomètres. Ce processus de réplication garantit que les données de la région secondaire sont cohérentes. L’application de console utilise le modèle [Disjoncteur](/azure/architecture/patterns/circuit-breaker) pour déterminer à quel point de terminaison se connecter, en basculant automatiquement d’un point de terminaison à l’autre au fur et à mesure des simulations d’échecs et de récupérations.
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -64,25 +64,24 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 Un compte de stockage fournit un espace de noms unique pour stocker les objets de données de Stockage Azure et y accéder.
 
-Suivez ces étapes pour créer un compte de stockage géographiquement redondant avec accès en lecture :
+Suivez ces étapes pour créer un compte de stockage géoredondant interzone (RA-GZRS) avec accès en lecture :
 
-1. Sélectionnez le bouton **Créer une ressource** dans le coin supérieur gauche du portail Azure.
-2. Sélectionnez **Stockage** dans la page **Nouveau**.
-3. Sélectionnez **Compte de stockage - blob, fichier, table, file d’attente** sous **Recommandés**.
+1. Sélectionnez le bouton **Créer une ressource** dans le portail Azure.
+2. Sélectionnez **Compte de stockage - blob, fichier, table, file d’attente** sur la page **Nouveau**.
 4. Remplissez le formulaire de compte de stockage avec les informations suivantes, comme indiqué dans l’image ci-après et sélectionnez **Créer** :
 
-   | Paramètre       | Valeur suggérée | Description |
+   | Paramètre       | Exemple de valeur | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Nom** | mystorageaccount | Valeur unique pour votre compte de stockage |
-   | **Modèle de déploiement** | Gestionnaire de ressources  | Le Gestionnaire des ressources contient les fonctionnalités les plus récentes.|
-   | **Type de compte** | StorageV2 | Pour plus d’informations sur les types de compte, consultez [Types de compte de stockage](../common/storage-introduction.md#types-of-storage-accounts) |
-   | **Performances** | standard | Le type Standard est suffisant pour l’exemple de scénario. |
-   | **Réplication**| Stockage géo-redondant avec accès en lecture (RA-GRS) | Ce paramètre est nécessaire pour que l’exemple fonctionne. |
-   |**Abonnement** | Votre abonnement |Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.azure.com/Subscriptions). |
-   |**ResourceGroup** | myResourceGroup |Pour les noms de groupe de ressources valides, consultez [Naming conventions](/azure/architecture/best-practices/resource-naming) (Conventions d’affectation de nom). |
-   |**Lieu** | USA Est | Choisissez un emplacement. |
+   | **Abonnement** | *Mon abonnement* | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.azure.com/Subscriptions). |
+   | **ResourceGroup** | *myResourceGroup* | Pour les noms de groupe de ressources valides, consultez [Naming conventions](/azure/architecture/best-practices/resource-naming) (Conventions d’affectation de nom). |
+   | **Nom** | *mystorageaccount* | Un nom unique pour votre compte de stockage. |
+   | **Lieu** | *USA Est* | Choisissez un emplacement. |
+   | **Performances** | *Standard* | Les performances Standard sont une bonne option pour l’exemple de scénario. |
+   | **Type de compte** | *StorageV2* | Il est recommandé d’utiliser un compte de stockage v2 à usage général. Pour plus d’informations sur les types de comptes de stockage Azure, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md). |
+   | **Réplication**| *Stockage géo-redondant interzone avec accès en lecture (RA-GRS)* | La région primaire est redondante dans une zone et est répliquée vers une région secondaire, avec accès en lecture à la région secondaire activée. |
+   | **Niveau d’accès**| *Chaud* | Utilisez le niveau de stockage chaud pour les données fréquemment consultées. |
 
-![créer un compte de stockage](media/storage-create-geo-redundant-storage/createragrsstracct.png)
+    ![créer un compte de stockage](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>Télécharger l’exemple
 
@@ -173,7 +172,7 @@ Installez les dépendances nécessaires. Pour cela, ouvrez une invite de command
 
 Dans Visual Studio, appuyez sur **F5** ou sélectionnez **Démarrer** pour commencer le débogage de l’application. Visual Studio restaure automatiquement les packages NuGet manquants si cette option est configurée. Pour en savoir plus, consultez [Installation et réinstallation de packages avec la restauration de packages](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview).
 
-Une fenêtre de console apparaît et l’application commence à s’exécuter. L’application charge l’image **HelloWorld.png** de la solution dans le compte de stockage. L’application vérifie que l’image s’est répliquée sur le point de terminaison RA-GRS secondaire. Elle commence ensuite à télécharger l’image jusqu’à 999 fois. Chaque lecture est représentée par un **P** ou un **S**. **P** représente le point de terminaison principal et **S** le point de terminaison secondaire.
+Une fenêtre de console apparaît et l’application commence à s’exécuter. L’application charge l’image **HelloWorld.png** de la solution dans le compte de stockage. L’application vérifie que l’image s’est répliquée sur le point de terminaison RA-GZRS secondaire. Elle commence ensuite à télécharger l’image jusqu’à 999 fois. Chaque lecture est représentée par un **P** ou un **S**. **P** représente le point de terminaison principal et **S** le point de terminaison secondaire.
 
 ![Exécution de l’application console](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -181,7 +180,7 @@ Dans l’exemple de code, la tâche `RunCircuitBreakerAsync` dans le fichier `Pr
 
 # <a name="python"></a>[Python](#tab/python)
 
-Pour exécuter l’application sur un terminal ou une invite de commandes, accédez au répertoire **circuitbreaker.py**, puis entrez `python circuitbreaker.py`. L’application charge l’image **HelloWorld.png** de la solution dans le compte de stockage. L’application vérifie que l’image s’est répliquée sur le point de terminaison RA-GRS secondaire. Elle commence ensuite à télécharger l’image jusqu’à 999 fois. Chaque lecture est représentée par un **P** ou un **S**. **P** représente le point de terminaison principal et **S** le point de terminaison secondaire.
+Pour exécuter l’application sur un terminal ou une invite de commandes, accédez au répertoire **circuitbreaker.py**, puis entrez `python circuitbreaker.py`. L’application charge l’image **HelloWorld.png** de la solution dans le compte de stockage. L’application vérifie que l’image s’est répliquée sur le point de terminaison RA-GZRS secondaire. Elle commence ensuite à télécharger l’image jusqu’à 999 fois. Chaque lecture est représentée par un **P** ou un **S**. **P** représente le point de terminaison principal et **S** le point de terminaison secondaire.
 
 ![Exécution de l’application console](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -343,9 +342,9 @@ const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans la première partie de la série, vous avez appris à rendre une application hautement disponible avec des comptes de stockage RA-GRS.
+Dans la première partie de la série, vous avez appris à rendre une application hautement disponible avec des comptes de stockage RA-GZRS.
 
-Passez à la deuxième partie de la série pour apprendre à simuler un échec et à forcer votre application à utiliser le point de terminaison RA-GRS secondaire.
+Passez à la deuxième partie de la série pour apprendre à simuler un échec et à forcer votre application à utiliser le point de terminaison RA-GZRS secondaire.
 
 > [!div class="nextstepaction"]
-> [Simuler une défaillance lors de la lecture de données à partir de la région primaire](storage-simulate-failure-ragrs-account-app.md)
+> [Simuler une défaillance lors de la lecture de données à partir de la région primaire](simulate-primary-region-failure.md)

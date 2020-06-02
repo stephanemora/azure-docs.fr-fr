@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: fbd8e03b1f8af7802133c35ae4860116aaea0c3c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ab25b2e300f9fe9b0b1d077a42538c69fa543af2
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427241"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982698"
 ---
 # <a name="ingesting-data-into-a-sql-pool"></a>Ingérer des données dans un pool SQL
 
@@ -34,20 +34,20 @@ Dans Azure Synapse Analytics, un service lié vous permet de définir vos inform
 1. Sous **Connexions externes**, sélectionnez **Services liés**.
 1. Pour ajouter un service lié, cliquez sur **Nouveau**.
 1. Sélectionnez la vignette Azure Data Lake Storage Gen2 dans la liste, puis cliquez sur **Continuer**.
-1. Entrez vos informations d’authentification. Les types d’authentification actuellement pris en charge sont les suivants : clé de compte, principal de service et identité managée. Cliquez sur Tester la connexion pour vérifier que vos informations sont correctes. Une fois que vous avez fini, cliquez sur **Créer**.
+1. Entrez vos informations d’identification d’authentification. Les types d’authentification actuellement pris en charge sont les suivants : clé de compte, principal de service et identité managée. Cliquez sur Tester la connexion pour vérifier que vos informations sont correctes. Une fois que vous avez fini, cliquez sur **Créer**.
 1. Répétez les étapes 3 à 5, mais au lieu d'Azure Data Lake Storage Gen2, sélectionnez la vignette Azure Synapse Analytics et entrez les informations d’identification de connexion correspondantes. Pour Azure Synapse Analytics, l’authentification SQL, l’identité managée et le principal de service sont actuellement pris en charge.
 
 ## <a name="create-pipeline"></a>Création d’un pipeline
 
-Un pipeline contient le flux logique pour l’exécution d’un ensemble d’activités. Dans cette section, vous allez créer un pipeline contenant une activité de copie qui ingère des données d'ADLS Gen 2 dans un pool SQL.
+Un pipeline contient le flux logique pour l’exécution d’un ensemble d’activités. Dans cette section, vous allez créer un pipeline contenant une activité de copie qui ingère des données d'ADLS Gen2 dans un pool SQL.
 
 1. Accédez à l’onglet **Orchestrer**. Cliquez sur l’icône + en regard de l’en-tête Pipelines, puis sélectionnez **Pipeline**.
 1. Dans le volet des activités, sous **Déplacer et transformer**, faites glisser **Copier les données** sur le canevas du pipeline.
-1. Cliquez sur l'activité de copie et accédez à l'onglet **Source**. Cliquez sur **Nouveau** pour créer un jeu de données source.
+1. Cliquez sur l’activité de copie, puis accédez à l’onglet **Source**. Cliquez sur **Nouveau** pour créer un jeu de données source.
 1. Sélectionnez Azure Data Lake Storage Gen2 en tant que magasin de données, puis cliquez sur Continuer.
 1. Sélectionnez DelimitedText comme format, puis cliquez sur Continuer.
 1. Dans le volet Définir les propriétés, sélectionnez le service lié ADLS que vous avez créé. Spécifiez le chemin d’accès du fichier de vos données sources, puis spécifiez si la première ligne contient un en-tête. Vous pouvez importer le schéma à partir du magasin de fichiers ou d’un exemple de fichier. Une fois que vous avez fini, cliquez sur OK.
-1. Accédez à l'onglet **Récepteur**. Cliquez sur **Nouveau** pour créer un jeu de données récepteur.
+1. Accédez à l’onglet **Récepteur**. Cliquez sur **Nouveau** pour créer un jeu de données récepteur.
 1. Sélectionnez Azure Synapse Analytics en tant que magasin de données, puis cliquez sur Continuer.
 1. Dans le volet Définir les propriétés, sélectionnez le service lié Azure Synapse Analytics que vous avez créé. Si vous écrivez dans une table existante, sélectionnez-la dans la liste déroulante. Sinon, cochez **Modifier** et entrez le nom de la nouvelle table. Une fois que vous avez fini, cliquez sur OK
 1. Si vous créez une table, activez **Créer automatiquement une table** dans le champ d'option.

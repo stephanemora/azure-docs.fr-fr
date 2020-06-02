@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
-ms.openlocfilehash: 8cba02d3c7d1e649853570b199b646b1c4dcce2d
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 3c7d4f0a6d33a52fd972815923e60b33ce8a7448
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80667412"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901352"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Résoudre les problèmes de réplication dans le cadre de la reprise d’activité d’une machine virtuelle Azure
 
@@ -41,7 +41,7 @@ Si vous sélectionnez l’événement, vous pouvez consulter les informations re
 
 Le tableau suivant présente les limites d’Azure Site Recovery. Ces limites sont basées sur nos tests, mais ne peuvent pas couvrir toutes les combinaisons possibles d’entrée/sortie (E/S) d’application. Les résultats réels varient en fonction de la combinaison d’E/S de votre application.
 
-Deux limites sont à prendre en compte : le taux d’évolution des données par disque et le taux d’évolution des données par machine virtuelle. Par exemple, examinons le disque P20 Premium dans le tableau suivant. Pour une machine virtuelle unique, Site Recovery peut gérer 5 Mo/s d’évolution par disque, avec un maximum de 5 disques de ce type. Site Recovery a une limite de 25 Mo/s de l’évolution totale par machine virtuelle.
+Deux limites sont à prendre en compte : le taux d’évolution des données par disque et le taux d’évolution des données par machine virtuelle. Par exemple, examinons le disque P20 Premium dans le tableau suivant. Pour une machine virtuelle unique, Site Recovery peut gérer 5 Mo/s d’évolution par disque, avec un maximum de 5 disques de ce type. Site Recovery a une limite de 54 Mo/s de l’évolution totale par machine virtuelle.
 
 **Stockage de réplication cible** | **Taille moyenne des E/S du disque source** |**Activité moyenne des données du disque source** | **Activité totale des données par jour du disque de données source**
 ---|---|---|---

@@ -1,5 +1,5 @@
 ---
-title: Ingérer des données dans Azure Data Lake Storage Gen2 dans Azure Synapse Analytics
+title: Ingérer des données dans Azure Data Lake Storage Gen2
 description: Découvrez comment ingérer des données dans Azure Data Lake Storage Gen2 dans Azure Synapse Analytics
 services: synapse-analytics
 author: djpmsft
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4d7d7be523749797e5dbce0e50c307fc682974f2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7b844bcf45417fefc7dd78a26d5dae0b2ce03249
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427245"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982902"
 ---
 # <a name="ingesting-data-into-azure-data-lake-storage-gen2"></a>Ingestion de données dans Azure Data Lake Storage Gen2 
 
@@ -65,7 +65,7 @@ Une fois la configuration de votre pipeline terminée, avant de publier vos arte
 Au cours de cette étape, vous déclenchez manuellement le pipeline publié à l’étape précédente. 
 
 1. Sélectionnez **Ajouter déclencheur** dans la barre d’outils, puis **Déclencher maintenant**. Dans la page **Exécution du pipeline**, sélectionnez **Terminer**.  
-1. Accédez à l’onglet **Monitor** dans la barre latérale gauche. Vous voyez un pipeline qui est déclenché par un déclencheur manuel. Vous pouvez utiliser les liens dans la colonne **Actions** pour afficher les détails de l’activité et réexécuter le pipeline.
+1. Accédez à l’onglet **Surveiller** dans la barre latérale gauche. Vous voyez un pipeline qui est déclenché par un déclencheur manuel. Vous pouvez utiliser les liens dans la colonne **Actions** pour afficher les détails de l’activité et réexécuter le pipeline.
 1. Pour afficher les exécutions d’activités associées à l’exécution du pipeline, sélectionnez le lien **Afficher les exécutions d’activités** dans la colonne **Actions**. Dans cet exemple, il n’y a qu’une seule activité, vous ne voyez donc qu’une seule entrée dans la liste. Pour plus de détails sur l’opération de copie, sélectionnez le lien **Détails** (icône en forme de lunettes) dans la colonne **Actions**. Sélectionnez **Exécutions de pipeline** au sommet de la page pour revenir à la vue des exécutions du pipeline. Sélectionnez **Actualiser** pour actualiser l’affichage.
 1. Vérifiez que vos données sont correctement écrites dans le pool SQL.
 

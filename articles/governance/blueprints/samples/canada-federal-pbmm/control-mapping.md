@@ -1,14 +1,14 @@
 ---
 title: Exemples de contrôles de blueprint Canada Federal PBMM
 description: Correspondance des contrôles des exemples de blueprint Canada Federal PBMM. Chaque contrôle est mis en correspondance avec une ou plusieurs stratégies Azure qui simplifient l’évaluation.
-ms.date: 09/04/2019
+ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 943ca6849f9a55ce45b609a06cfcbb9b96b691c2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8fc5b2f369dbe174fb4d5ea8160d592e9aaef3af
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74545254"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005710"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint Canada Federal PBMM
 
@@ -57,8 +57,8 @@ Le fait d’avoir un seul propriétaire d’abonnement Azure ne permet pas d’a
 
 - Trois propriétaires au plus doivent être désignés pour votre abonnement
 - Plusieurs propriétaires doivent être affectés à votre abonnement
-- Auditer les machines virtuelles Windows dans lesquelles le groupe Administrateurs contient un membre spécifié
-- Auditer les machines virtuelles Windows dans lesquelles le groupe Administrateurs ne contient pas tous les membres spécifiés
+- Afficher les résultats de l’audit des machines virtuelles Windows dans lesquelles le groupe Administrateurs contient l’un des membres spécifiés
+- Afficher les résultats d’audit des machines virtuelles Windows dans lesquelles le groupe Administrateurs ne contient pas tous les membres spécifiés
 - Déployer des exigences pour auditer les machines virtuelles Windows dans lesquelles le groupe Administrateurs contient un membre spécifié
 - Déployer des exigences pour auditer les machines virtuelles Windows dans lesquelles le groupe Administrateurs ne contient pas tous les membres spécifiés
 
@@ -68,8 +68,8 @@ Azure implémente le [contrôle d’accès en fonction du rôle](../../../../rol
 
 - Trois propriétaires au plus doivent être désignés pour votre abonnement
 - Plusieurs propriétaires doivent être affectés à votre abonnement
-- Auditer les machines virtuelles Windows dans lesquelles le groupe Administrateurs contient un membre spécifié
-- Auditer les machines virtuelles Windows dans lesquelles le groupe Administrateurs ne contient pas tous les membres spécifiés
+- Afficher les résultats de l’audit des machines virtuelles Windows dans lesquelles le groupe Administrateurs contient l’un des membres spécifiés
+- Afficher les résultats d’audit des machines virtuelles Windows dans lesquelles le groupe Administrateurs ne contient pas tous les membres spécifiés
 - Déployer des exigences pour auditer les machines virtuelles Windows dans lesquelles le groupe Administrateurs contient un membre spécifié
 - Déployer des exigences pour auditer les machines virtuelles Windows dans lesquelles le groupe Administrateurs ne contient pas tous les membres spécifiés
 
@@ -85,7 +85,7 @@ La fonctionnalité Découverte et classification des données, qui est fournie d
 
 Ce blueprint vous aide à superviser et à contrôler l’accès à distance en affectant des définitions [Azure Policy](../../../policy/overview.md) afin de vérifier que le débogage à distance pour l’application Azure App Service est désactivé. Ce blueprint affecte aussi des définitions de stratégie qui auditent les machines virtuelles Linux autorisant les connexions à distance à partir de comptes sans mot de passe. De plus, ce blueprint affecte une définition Azure Policy qui aide à superviser les accès non restreints aux comptes de stockage. En supervisant ces indicateurs, vous pouvez vérifier que les méthodes d’accès à distance sont conformes à votre stratégie de sécurité.
 
-- \[Préversion\] : Auditer les machines virtuelles Linux qui autorisent les connexions à distance des comptes sans mot de passe
+- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Linux qui autorisent les connexions à distance à partir des comptes sans mot de passe
 - \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Linux qui autorisent les connexions à distance des comptes sans mot de passe
 - Auditer l'accès réseau non restreint aux comptes de stockage
 - Le débogage à distance doit être désactivé pour l’application API
@@ -107,7 +107,7 @@ Les données de journal collectées par Azure Monitor sont stockées dans un esp
 Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui supervisent les configurations d’audit et de journalisation des événements. En supervisant ces configurations, vous pouvez obtenir une indication de la défaillance ou d’une mauvaise configuration du système d’audit et prendre des actions correctives.
 
 - Auditer le paramètre de diagnostic
-- Auditer les paramètres d'audit au niveau du serveur SQL
+- L’audit sur SQL Server doit être activé
 - Advanced Data Security doit être activé sur vos instances managées
 - Advanced Data Security doit être activé sur vos serveurs SQL
 
@@ -131,7 +131,7 @@ Ce blueprint vous permet de garantir que les événements système sont journali
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows
 - Auditer le paramètre de diagnostic
-- Auditer les paramètres d'audit au niveau du serveur SQL
+- L’audit sur SQL Server doit être activé
 - Advanced Data Security doit être activé sur vos instances managées
 - Advanced Data Security doit être activé sur vos serveurs SQL
 - Déployer Advanced Data Security sur des serveurs SQL
@@ -167,8 +167,8 @@ Ce blueprint permet de limiter et de contrôler les accès privilégiés en affe
 
 Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui auditent les machines virtuelles Linux autorisant les connexions à distance à partir de comptes sans mot de passe et/ou associés à des autorisations incorrectes définies dans le fichier passwd. Ce blueprint affecte également des définitions de stratégie qui auditent la configuration du type de chiffrement de mot de passe pour les machines virtuelles Windows. En supervisant ces indicateurs, vous pouvez vérifier que les authentificateurs de système sont conformes à la stratégie d’identification et d’authentification de votre organisation.
 
-- \[Préversion\] : Auditer les machines virtuelles Linux qui n’ont pas les autorisations de fichier passwd définies sur 0644
-- \[Préversion\] : Auditer les machines virtuelles Linux qui ont des comptes sans mot de passe
+- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Linux qui n’ont pas les autorisations de fichier passwd définies sur 0644
+- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Linux qui ont des comptes sans mot de passe
 - \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Linux qui n’ont pas les autorisations de fichier passwd définies sur 0644
 - \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Linux qui ont des comptes sans mot de passe
 
@@ -176,11 +176,11 @@ Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md
 
 Ce blueprint permet d’appliquer des mots de passe forts en affectant des définitions [Azure Policy](../../../policy/overview.md) qui auditent les machines virtuelles Windows n’exigeant pas de niveau de sécurité minimal pour les mots de passe. En identifiant les machines virtuelles qui enfreignent la stratégie de force des mots de passe, vous pouvez prendre des mesures correctives visant à rendre les mots de passe de tous les comptes d’utilisateurs de machine virtuelle conformes à la stratégie de mot de passe de votre organisation.
 
-- \[Préversion\] : Auditer les machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
-- \[Préversion\] : Auditer les machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
-- \[Préversion\] : Auditer les machines virtuelles Windows qui n’ont pas l’antériorité minimale du mot de passe définie sur 1 jour
-- \[Préversion\] : Auditer les machines virtuelles Windows qui n’ont pas le paramètre de complexité de mot de passe activé
-- \[Préversion\] : Auditer les machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
+- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
+- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
+- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas l’antériorité minimale du mot de passe définie sur 1 jour
+- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas le paramètre de complexité de mot de passe activé
+- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
 - \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
 - \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
 - \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Windows qui n’ont pas l’antériorité minimale du mot de passe définie sur 1 jour
@@ -217,10 +217,9 @@ Le niveau Standard de déni de service distribué (DDoS) d’Azure offre des fon
 Ce blueprint permet de gérer et de contrôler la limite système en affectant une définition [Azure Policy](../../../policy/overview.md) qui supervise les recommandations de sécurisation renforcée des groupes de sécurité réseau dans Azure Security Center. Azure Security Center analyse les modèles de trafic des machines virtuelles accessibles sur Internet et fournit des recommandations en matière de règle de groupe de sécurité réseau afin de réduire la surface d’attaque potentielle.
 Ce blueprint affecte également des définitions de stratégie qui supervisent les points de terminaison, les applications et les comptes de stockage non protégés. Les points de terminaison et les applications qui ne sont pas protégés par un pare-feu, de même que les comptes de stockage avec un accès illimité, peuvent permettre un accès involontaire aux informations contenues dans le système d’information.
 
-- Les règles de groupe de sécurité réseau pour les machines virtuelles accessibles sur Internet doivent être renforcées
+- Les recommandations de renforcement de réseau adaptatif doivent être appliquées sur les machines virtuelles accessibles à partir d’Internet
 - L'accès via un point de terminaison accessible sur Internet doit être limité
 - Auditer l'accès réseau non restreint aux comptes de stockage
-- Les règles de groupe de sécurité réseau pour les applications web IaaS doivent être renforcées
 
 ## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) Protection de la limite | Points d’accès
 
@@ -239,7 +238,7 @@ L’accès juste-à-temps (JIT) à la machine virtuelle verrouille le trafic ent
 Ce blueprint permet de protéger la confidentialité et l’intégrité des informations transmises en affectant des définitions [Azure Policy](../../../policy/overview.md) permettant de superviser le mécanisme de chiffrement implémenté pour les protocoles de communication. Vérifiez que les communications sont correctement chiffrées pour mieux répondre aux besoins de votre organisation et pour protéger vos informations contre toute divulgation ou modification non autorisées.
 
 - L'application API doit uniquement être accessible via HTTPS
-- Auditer les serveurs web Windows qui n’utilisent pas de protocole de communication sécurisé
+- Afficher les résultats d’audit des serveurs web Windows qui n’utilisent pas de protocole de communication sécurisé
 - Déployer des exigences pour auditer les serveurs web Windows qui n’utilisent pas de protocole de communication sécurisé
 - Function App ne doit pas être accessible via HTTPS
 - Seules les connexions sécurisées à votre cache Redis doivent être activées

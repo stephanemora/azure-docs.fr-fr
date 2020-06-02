@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: aahi
-ms.openlocfilehash: 0d4d32a413dd22c55f1b2f01dce3a3df81f5f729
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 039a52c9ab0bfc460116e48086c854f4d7e8efb4
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77919666"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996963"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-for-ruby"></a>Démarrage rapide : Utiliser la bibliothèque de client Analyse de texte pour Ruby
 
@@ -31,7 +31,7 @@ Utilisez la bibliothèque de client Analyse de texte dans le cadre des opératio
 > [!NOTE]
 > Ce guide de démarrage rapide s’applique uniquement à la version 2.1 de l’Analyse de texte. Actuellement, une bibliothèque de client v3 pour Ruby n’est pas disponible.
 
-[Documentation de référence](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics) | [Package (RubyGems)](https://rubygems.org/gems/azure_cognitiveservices_textanalytics) | [Exemples](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
+[Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics) | [Package (RubyGems)](https://rubygems.org/gems/azure_cognitiveservices_textanalytics) | [Exemples](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
 
 <a name="HOLTop"></a>
 
@@ -83,7 +83,7 @@ L’objet Response est une liste contenant les informations d’analyse de chaqu
 
 ## <a name="code-examples"></a>Exemples de code
 
-Ces extraits de code montrent comment effectuer les opérations suivantes avec la bibliothèque de client Analyse de texte pour Python :
+Ces extraits de code montrent comment effectuer les opérations suivantes avec la bibliothèque de client Analyse de texte pour Ruby :
 
 * [Authentifier le client](#authenticate-the-client)
 * [Analyse des sentiments](#sentiment-analysis)

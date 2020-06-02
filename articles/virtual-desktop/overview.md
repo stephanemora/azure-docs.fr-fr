@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 04/10/2020
+ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 927696d029bf1b8742dc0001e03799322f368191
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: ab1d0318464f6b44e1f46bd30dc76272584fde64
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261718"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929823"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Qu’est-ce que Windows Virtual Desktop ? 
 
@@ -67,8 +67,8 @@ Nous prévoyons d’ajouter la prise en charge des systèmes d’exploitation su
 
 |Système d''exploitation|Licence obligatoire|
 |---|---|
-|Windows 10 Entreprise multisession ou Windows 10 Entreprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
-|Windows 7 Entreprise |Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Windows 10 Entreprise multisession ou Windows 10 Entreprise|Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
+|Windows 7 Entreprise |Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
 |Windows Server 2012 R2, 2016, 2019|Licence d’Accès Client (CAL) des services Bureau à distance avec Software Assurance|
 
 Votre infrastructure doit contenir les éléments suivants pour prendre en charge Windows Virtual Desktop :
@@ -98,9 +98,12 @@ Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doive
 |prod.warmpath.msftcloudes.com|443|Trafic de l’agent|AzureCloud|
 |catalogartifact.azureedge.net|443|Place de marché Azure|AzureCloud|
 |kms.core.windows.net|1688|Activation de Windows|Internet|
+|wvdportalstorageblob.blob.core.windows.net|443|Prise en charge du portail Azure|AzureCloud|
 
 >[!IMPORTANT]
->Dans la plupart des cas, nous vous recommandons d’utiliser les étiquettes de service à la place des URL pour éviter tout problème lié aux services. Il est essentiel de débloquer ces URL pour un déploiement Windows Virtual Desktop fiable. Il n’est pas possible de bloquer l’accès à ces URL, car cela affecterait le fonctionnement du service. Ces URL correspondent seulement aux sites et aux ressources Windows Virtual Desktop, et n’incluent pas les URL d’autres services comme Azure Active Directory.
+>Windows Virtual Desktop prend désormais en charge l’étiquette FQDN. Pour plus d’informations, consultez [Utiliser le pare-feu Azure pour protéger les déploiements de Windows Virtual Desktop](../firewall/protect-windows-virtual-desktop.md).
+>
+>Nous vous recommandons d’utiliser des étiquettes de nom de domaine complet ou de service à la place des URL pour éviter tout problème lié aux services. Les étiquettes et URL répertoriées correspondent uniquement aux sites et ressources Windows Virtual Desktop. Elles n’incluent pas les URL d’autres services comme Azure Active Directory.
 
 Le tableau suivant liste les URL facultatives auxquelles vos machines virtuelles Azure peuvent accéder :
 
@@ -180,20 +183,22 @@ Windows Virtual Desktop ne prend pas en charge les images de système d’exploi
 
 Les options d’automatisation et de déploiement qui sont disponibles dépendent du système d’exploitation et de la version que vous choisissez, comme indiqué dans le tableau suivant : 
 
-|Système d’exploitation|Galerie d’images Azure|Déploiement manuel d’une machine virtuelle|Intégration du modèle Azure Resource Manager|Provisionner des pools d’hôtes sur la Place de marché Azure|Mises à jour de l’agent Windows Virtual Desktop|
-|--------------------------------------|:------:|:------:|:------:|:------:|:------:|
-|Windows 10 multisession, version 1903|Oui|Oui|Oui|Oui|Automatique|
-|Windows 10 multisession, version 1809|Oui|Oui|Non|Non|Automatique|
-|Windows 10 Entreprise, version 1903|Oui|Oui|Oui|Oui|Automatique|
-|Windows 10 Entreprise, version 1809|Oui|Oui|Non|Non|Automatique|
-|Windows 7 Entreprise|Oui|Oui|Non|Non|Manuel|
-|Windows Server 2019|Oui|Oui|Non|Non|Automatique|
-|Windows Server 2016|Oui|Oui|Oui|Oui|Automatique|
-|Windows Server 2012 R2|Oui|Oui|Non|Non|Automatique|
+|Système d’exploitation|Galerie d’images Azure|Déploiement manuel d’une machine virtuelle|Intégration du modèle Azure Resource Manager|Provisionner des pools d’hôtes sur la Place de marché Azure|
+|--------------------------------------|:------:|:------:|:------:|:------:|
+|Windows 10 multisession, version 1903|Oui|Oui|Oui|Oui|
+|Windows 10 multisession, version 1809|Oui|Oui|Non|Non|
+|Windows 10 Entreprise, version 1903|Oui|Oui|Oui|Oui|
+|Windows 10 Entreprise, version 1809|Oui|Oui|Non|Non|
+|Windows 7 Entreprise|Oui|Oui|Non|Non|
+|Windows Server 2019|Oui|Oui|Non|Non|
+|Windows Server 2016|Oui|Oui|Oui|Oui|
+|Windows Server 2012 R2|Oui|Oui|Non|Non|
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour commencer, vous devez créer un locataire. Pour en savoir plus sur la façon de créer un locataire, passez au tutoriel de création de locataire.
+Si vous utilisez la version Automne 2019 de Windows Virtual Desktop, vous pouvez consulter l’article [Créer un locataire dans Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) pour vous familiariser avec notre tutoriel.
+
+Si vous utilisez la version Printemps 2020 de Windows Virtual Desktop, vous devez créer un pool d’hôtes. Pour commencer, consultez le tutoriel suivant.
 
 > [!div class="nextstepaction"]
-> [Créer un locataire dans Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
+> [Créer un pool d’hôtes avec le portail Azure](create-host-pools-azure-marketplace.md)

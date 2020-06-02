@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.reviewer: cgronlun
-ms.date: 03/05/2020
-ms.openlocfilehash: e0482bac9569a834adf3e1cdef2b3f702980eac0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/07/2020
+ms.openlocfilehash: ad384896301e809940f6e99df2f5562cfdb6a6fe
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78328661"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927579"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Sélectionner des algorithmes Azure Machine Learning
 
@@ -40,7 +40,35 @@ Le concepteur Machine Learning fournit une gamme complète d'algorithmes, tels q
 
 Outre les conseils fournis par l'Aide-mémoire sur les algorithmes Azure Machine Learning, vous devez tenir compte d'autres exigences lors du choix d'un algorithme d'apprentissage automatique pour votre solution. Vous trouverez ci-dessous d'autres facteurs à prendre en compte, comme la précision, la durée d'apprentissage, la linéarité, le nombre de paramètres et le nombre de fonctionnalités.
 
-## <a name="additional-requirements-for-a-data-science-scenario"></a>Exigences supplémentaires d'un scénario de science des données
+## <a name="comparison-of-machine-learning-algorithms"></a>Comparaison des algorithmes d’apprentissage automatique
+
+Certains algorithmes d'apprentissage effectuent des hypothèses particulières sur la structure des données ou les résultats souhaités. Si vous pouvez en trouver un qui répond à vos besoins, il peut vous donner des résultats plus pertinents, des prévisions plus précises ou des durées d'apprentissage plus courtes.
+
+Le tableau suivant résume certaines des caractéristiques les plus importantes des algorithmes des familles de classification, régression et clustering :
+
+| **Algorithme** | **Précision** | **Durée d’apprentissage** | **Linéarité** | **Paramètres** | **Remarques** |
+| --- |:---:|:---:|:---:|:---:| --- |
+| **Famille de classification** | | | | | |
+| [Régression logistique à deux classes](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-logistic-regression?WT.mc_id=docs-article-lazzeri) |Bonne  |Rapide |Oui |4 | |
+| [Forêt d’arbres décisionnels à deux classes](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-decision-forest?WT.mc_id=docs-article-lazzeri) |Excellent |Modéré |Non |5 |Affiche des temps de scoring plus lents. Suggestion de ne pas travailler avec One-vs-All Multiclass, en raison des temps de scoring plus lents causé par le verrouillage des threads lors de l’accumulation des prédictions d’arborescence |
+| [Arbre de décision optimisé à deux classes](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |Excellent |Modéré |Non |6 |Encombrement de mémoire important |
+| [Réseau neuronal à deux classes](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-neural-network?WT.mc_id=docs-article-lazzeri) |Bonne |Modéré |Non |8 | |
+| [Perceptron moyenné à deux classes](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-averaged-perceptron?WT.mc_id=docs-article-lazzeri) |Bonne |Modéré |Oui |4 | |
+| [Machine à vecteurs de support à deux classes](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri) |Bonne |Rapide |Oui |5 |Idéal pour les ensembles de fonctionnalités de grande taille |
+| [Régression logistique multiclasse](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-logistic-regression?WT.mc_id=docs-article-lazzeri) |Bonne |Rapide |Oui |4 | |
+| [Forêt d’arbres de décision multiclasse](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-decision-forest?WT.mc_id=docs-article-lazzeri) |Excellent |Modéré |Non |5 |Affiche des temps de scoring plus lents. |
+| [Arbre de décision multiclasse optimisé](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |Excellent |Modéré |Non |6 | A tendance à améliorer la précision avec un léger risque de diminution de la couverture |
+| [Réseau neuronal multiclasse](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri) |Bonne |Modéré |Non |8 | |
+| [One-vs-all multiclass](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/one-vs-all-multiclass?WT.mc_id=docs-article-lazzeri) | - | - | - | - |Consultez les propriétés de la méthode à deux classes sélectionnée |
+| **Famille de régression** | | | | | |
+| [Régression linéaire](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/linear-regression?WT.mc_id=docs-article-lazzeri) |Bonne |Rapide |Oui |4 | |
+| [Régression de forêt d’arbres de décision](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/decision-forest-regression?WT.mc_id=docs-article-lazzeri)|Excellent |Modéré |Non |5 | |
+| [Régression d’arbre de décision boosté](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/boosted-decision-tree-regression?WT.mc_id=docs-article-lazzeri) |Excellent |Modéré |Non |6 |Encombrement de mémoire important |
+| [Régression de réseau neuronal](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/neural-network-regression?WT.mc_id=docs-article-lazzeri) |Bonne |Modéré |Non |8 | |
+| **Famille de clustering** | | | | | |
+| [Clustering k-moyennes](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/k-means-clustering?WT.mc_id=docs-article-lazzeri) |Excellent |Modéré |Oui |8 |Un algorithme de clustering |
+
+## <a name="requirements-for-a-data-science-scenario"></a>Exigences d’un scénario de science des données
 
 Après avoir déterminé ce que vous voulez faire avec vos données, vous devez tenir compte d'autres exigences pour votre solution. 
 
@@ -118,9 +146,8 @@ Le terme « sélection de fonctionnalités » fait référence au processus d'
 
 Vous pouvez également utiliser le [module Importance de la fonctionnalité de permutation](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/permutation-feature-importance?WT.mc_id=docs-article-lazzeri) pour calculer un ensemble de scores d'importance des fonctionnalités pour votre jeu de données. Vous pouvez ensuite vous aider de ces scores pour déterminer les meilleures fonctionnalités à utiliser dans un modèle.
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
- - [En savoir plus sur le concepteur Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/concept-designer?WT.mc_id=docs-article-lazzeri)
+ - [En savoir plus sur le concepteur Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-designer?WT.mc_id=docs-article-lazzeri)
  - Un descriptif de tous les algorithmes d'apprentissage automatique disponibles dans le concepteur Azure Machine Learning est fourni dans [Informations de référence sur les algorithmes et les modules du concepteur Machine Learning](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri)
- - Pour en savoir plus sur la relation entre le Deep Learning, le Machine Learning et l'IA, consultez [Deep Learning et Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/concept-deep-learning-vs-machine-learning?WT.mc_id=docs-article-lazzeri)
+ - Pour en savoir plus sur la relation entre le Deep Learning, le Machine Learning et l'IA, consultez [Deep Learning et Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-deep-learning-vs-machine-learning?WT.mc_id=docs-article-lazzeri)

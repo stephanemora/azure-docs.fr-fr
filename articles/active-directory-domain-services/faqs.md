@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 86b68b794928900717bea25623e7eb833c23e86c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92b3fd2453a4fb121c97f8f25f1d3ca129826092
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655347"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926967"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Forum Aux Questions (FAQ)
 
@@ -91,6 +91,7 @@ Oui. Chaque domaine managé Azure Active Directory Domain Services comprend deux
 * [Puis-je modifier ou ajouter des enregistrements DNS dans mon domaine géré ?](#can-i-modify-or-add-dns-records-in-my-managed-domain)
 * [Quelle est la stratégie de durée de vie des mots de passe dans un domaine managé ?](#what-is-the-password-lifetime-policy-on-a-managed-domain)
 * [Le service Azure AD Domain Services assure-t-il une protection par verrouillage du compte AD ?](#does-azure-ad-domain-services-provide-ad-account-lockout-protection)
+* [Puis-je configurer le système de fichiers DFS (DFS) et la réplication dans Azure AD Domain Services ?](#can-i-configure-distributed-file-system-and-replication-within-azure-ad-domain-services)
 
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>Puis-je me connecter au contrôleur de domaine de mon domaine géré à l’aide du Bureau à distance ?
 Non. Vous n’êtes pas autorisé à vous connecter aux contrôleurs de domaine pour le domaine géré, via le Bureau à distance. Les membres du groupe *AAD DC Administrators* peuvent administrer le domaine géré à l’aide des outils d’administration AD, tels que le centre d’administration d’Active Directory (ADAC) ou AD PowerShell. Ces outils sont installés à l’aide de la fonctionnalité *Outils d’administration de serveur distant* sur un serveur Windows joint au domaine géré. Pour plus d’informations, consultez [Créer une machine virtuelle de gestion pour configurer et administrer un domaine managé Azure AD Domain Services](tutorial-create-management-vm.md).
@@ -118,6 +119,9 @@ Par défaut, la durée de vie des mots de passe dans un domaine managé Azure AD
 
 ### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>Le service Azure AD Domain Services assure-t-il une protection par verrouillage du compte AD ?
 Oui. Cinq tentatives de saisie de mot de passe non valide en 2 minutes dans le domaine managé entraînent le verrouillage d’un compte d’utilisateur pendant 30 minutes. Après ces 30 minutes, le compte d’utilisateur est automatiquement déverrouillé. Les tentatives de saisie de mot de passe non valide dans le domaine managé ne verrouillent pas le compte d’utilisateur dans Azure AD. Le compte d’utilisateur est verrouillé uniquement dans votre domaine managé Azure AD Domain Services. Pour plus d'informations, consultez [Stratégies de mot de passe et de verrouillage de compte sur les domaines managés](password-policy.md).
+
+### <a name="can-i-configure-distributed-file-system-and-replication-within-azure-ad-domain-services"></a>Puis-je configurer le système de fichiers DFS et la réplication dans Azure AD Domain Services ?
+Non. Le système de fichiers DFS (Distributed File System) et la réplication ne sont pas disponibles lors de l’utilisation d’Azure AD Domain Services.
 
 ## <a name="billing-and-availability"></a>Facturation et disponibilité
 

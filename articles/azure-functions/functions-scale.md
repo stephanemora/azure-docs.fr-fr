@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b000776c04550e1deb883039d94deeb735061ce
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 40d6768b528d132b3d238227098d4340fce37cca
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985879"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125789"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
@@ -109,7 +109,7 @@ Même lorsque le paramètre Always On est activé, le délai d’exécution des 
 
 ## <a name="determine-the-hosting-plan-of-an-existing-application"></a>Déterminer le plan d’hébergement d’une application existante
 
-Pour identifier le plan d’hébergement utilisé par votre application de fonction, consultez la section **Plan App Service / niveau tarifaire** dans l’onglet **Vue d’ensemble** correspondant à l’application de fonction dans le [portail Azure](https://portal.azure.com). Pour les plans App Service, la section affiche également le niveau tarifaire.
+Pour identifier le plan d’hébergement utilisé par votre application de fonction, consultez la section **Plan App Service** dans l’onglet **Vue d’ensemble** correspondant à l’application de fonction dans le [portail Azure](https://portal.azure.com). Pour afficher le niveau tarifaire, sélectionnez le nom **Plan App Service**, puis sélectionnez **Propriétés** dans le volet de gauche.
 
 ![Afficher le plan de mise à l’échelle dans le portail](./media/functions-scale/function-app-overview-portal.png)
 
@@ -162,7 +162,7 @@ La mise à l’échelle peut varier en fonction de certains facteurs et selon le
 
 Nombreux sont les aspects d’une application de fonction qui impactent sa bonne mise à l’échelle, notamment la configuration de l’hôte, l’encombrement du runtime et l’efficacité des ressources.  Pour plus d’informations, consultez la [section sur l’extensibilité dans l’article Considérations relatives aux performances](functions-best-practices.md#scalability-best-practices). Vous devez également savoir ce qu’il se passe au niveau des connexions lors de la mise à l’échelle de votre application de fonction. Pour plus d’informations, consultez [How to manage connections in Azure Functions](manage-connections.md) (Comment gérer des connexions dans Azure Functions).
 
-Pour plus d'informations sur la mise à l'échelle en Python et Node.js, consultez le [Guide des développeurs Python sur Azure Functions - Mise à l'échelle et concurrence](functions-reference-python.md#scaling-and-concurrency) et le [Guide des développeurs Node.js sur Azure Functions - Mise à l'échelle et concurrence](functions-reference-node.md#scaling-and-concurrency).
+Pour plus d’informations sur la mise à l’échelle en Python et Node.js, consultez le [Guide des développeurs Python sur Azure Functions - Mise à l’échelle et concurrence](functions-reference-python.md#scaling-and-concurrency) et le [Guide des développeurs Node.js sur Azure Functions - Mise à l’échelle et concurrence](functions-reference-node.md#scaling-and-concurrency).
 
 ### <a name="billing-model"></a>Modèle de facturation
 

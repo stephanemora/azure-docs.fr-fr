@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/15/2020
 ms.author: nicolela
-ms.openlocfilehash: c499b7a0f1cd16bf57fef21742b01bda71249916
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3035b9debdd46c1a8ba246882312e28d1a2087e4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538678"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118428"
 ---
 # <a name="set-up-a-lab-to-big-data-analytics-using-docker-deployment-of-hortonworks-data-platform"></a>Configurer un labo pour l’analytique du Big Data à l’aide du déploiement Docker de Hortonworks Data Platform
 
@@ -102,7 +102,7 @@ Dans cette section, vous allez déployer HDP Sandbox, puis y accéder à l’aid
 1. Une fois que les conteneurs Docker pour HDP Sandbox sont déployés et fonctionnent, vous pouvez accéder à l’environnement en lançant votre navigateur et en suivant les instructions de Cloudera pour ouvrir la [page d’accueil de Sandbox](https://www.cloudera.com/tutorials/learning-the-ropes-of-the-hdp-sandbox.html#welcome-page) et lancer le tableau de bord HDP.
 
     > [!NOTE] 
-    > Ces instructions supposent que vous avez d’abord mappé l’adresse IP locale de l’environnement du bac à sable à l’adresse sandbox-hdp.hortonworks.com dans le fichier hôte sur votre modèle de machine virtuelle.  Si vous **n’avez pas** effectué ce mappage, vous pouvez accéder à la page d’accueil de Sandbox en accédant à l’adresse [http://localhost:8080](http://localhost:8080).
+    > Ces instructions supposent que vous avez d’abord mappé l’adresse IP locale de l’environnement du bac à sable à l’adresse sandbox-hdp.hortonworks.com dans le fichier hôte sur votre modèle de machine virtuelle.  Si vous **n’avez pas** effectué ce mappage, vous pouvez accéder à la page d’accueil de Sandbox en accédant à l’adresse `http://localhost:8080`.
 
 ### <a name="automatically-start-docker-containers-when-students-log-in"></a>Démarrer automatiquement les conteneurs Docker lorsque les étudiants se connectent
 

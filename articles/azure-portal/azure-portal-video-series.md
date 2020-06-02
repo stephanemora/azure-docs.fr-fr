@@ -5,16 +5,16 @@ services: azure-portal
 keywords: ''
 author: mgblythe
 ms.author: mblythe
-ms.date: 04/06/2020
+ms.date: 05/11/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 5aa1a677836be3f05269539d52abf7bd8704833d
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 74d43f8c200fad5caf152d24df6c8544074916ea
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80757080"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120026"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Série de vidéos de procédures sur le portail Azure
 
@@ -22,18 +22,18 @@ La série de vidéos de procédures du portail Azure explique comment utiliser l
 
 ## <a name="featured-video"></a>Vidéo recommandée
 
-Dans cette vidéo, nous vous montrons comment réaliser des économies dans Azure en suivant les recommandations de coûts Azure Advisor.
+Dans cette vidéo, nous vous montrons comment vous connecter à un compte de stockage à l’aide d’un lien privé Azure.
 
-> [!VIDEO https://www.youtube.com/embed/ky2WS3KWuYs]
+> [!VIDEO https://www.youtube.com/embed/vM7yDwHSc_o]
 
-[Comment utiliser les recommandations de coût sur Azure Advisor](https://www.youtube.com/watch?v=ky2WS3KWuYs)
+[Comment se connecter à un compte de stockage à l’aide d’Azure Private Link](https://www.youtube.com/watch?v=vM7yDwHSc_o)
 
 Visionnez ces vidéos récentes que vous avez peut-être manquées :
 
 |   |   |   |
 | ------| ------ | ------ |
-| [![Image de la vidéo YouTube sur l’utilisation des classeurs Azure Monitor](https://i.ytimg.com/vi/Z5xRyy3HB8U/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=Z5xRyy3HB8U) | [![Image de la vidéo YouTube sur le filtrage de votre affichage de liste de ressources dans le portail Azure](https://i.ytimg.com/vi/L3I-xOZKWcg/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=L3I-xOZKWcg) | [![Image de la vidéo YouTube sur l’utilisation de l’actualisation automatique des tableaux de bord](https://i.ytimg.com/vi/tVoDXygZzWM/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=tVoDXygZzWM) |
-| [Utilisation des classeurs Azure Monitor](https://www.youtube.com/watch?v=Z5xRyy3HB8U) | [Filtrage de votre affichage de liste de ressources dans le portail Azure](https://www.youtube.com/watch?v=L3I-xOZKWcg) | [Utilisation de l’actualisation automatique des tableaux de bord](https://www.youtube.com/watch?v=tVoDXygZzWM) |
+| [![Image de la vidéo YouTube sur la nouvelle expérience Azure Functions](https://i.ytimg.com/vi/0bdT_9uOqkg/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=0bdT_9uOqkg) | [![Image de la vidéo YouTube de déploiement de votre application Web à l’aide de GitHub Actions](https://i.ytimg.com/vi/b2oyxbSbLPA/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=b2oyxbSbLPA) | [![Image de la vidéo YouTube sur l’utilisation des cartes d’informations de service](https://i.ytimg.com/vi/u00TU531qsQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=u00TU531qsQ) |
+| [Nouvelle expérience Azure Functions](https://www.youtube.com/watch?v=0bdT_9uOqkg) | [Déploiement de votre application Web à l’aide de GitHub Actions](https://www.youtube.com/watch?v=b2oyxbSbLPA) | [Utilisation des cartes d’informations de service](https://www.youtube.com/watch?v=u00TU531qsQ) |
 
 ## <a name="video-playlist"></a>Sélection vidéo
 

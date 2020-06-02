@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/11/2019
+ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 56975cebbfe4f6dd6452c850c338d431faea27bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c7c26780cdba37a2bddc201928dbcbd5f86e0170
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80050493"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115895"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Meilleures pratiques et recommandations relatives à la plateforme d’identité Microsoft
 
@@ -26,6 +26,9 @@ Cet article présente les bonnes pratiques, recommandations et les oublis couran
 Si vous venez tout juste de commencer, consultez la [documentation de la plateforme d’identité Microsoft](index.yml) pour en savoir plus sur les principes fondamentaux de l’authentification, les scénarios d’application dans la plateforme d’identités Microsoft, et bien plus encore.
 
 Utilisez la check-list suivante pour vous assurer que votre application est intégrée convenablement à la [plateforme d’identités Microsoft](https://docs.microsoft.com/azure/active-directory/develop/).
+
+> [!TIP]
+> L’*Assistant Intégration* dans le Portail Azure peut vous aider à appliquer un grand nombre de ces meilleures pratiques et suggestions. Sélectionnez l’une des [inscriptions d’applications](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) dans le Portail Azure, puis sélectionnez l’élément de menu **Assistant Intégration (préversion)** pour commencer à utiliser l’Assistant.
 
 ## <a name="basics"></a>Concepts de base
 

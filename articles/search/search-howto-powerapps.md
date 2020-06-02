@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 04/25/2020
-ms.openlocfilehash: e4afa3c122fa6e21b29b6ad52a386096b20aa055
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2a2e292390b2f060bf31d739605d7506203a5619
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184409"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901398"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Tutoriel : Interroger un index Recherche cognitive à partir de Power Apps
 
@@ -23,7 +23,7 @@ Tirez parti de l’environnement de développement rapide d’applications Power
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Vous connecter à la Recherche cognitive Azure
+> * Se connecter à la Recherche cognitive Azure
 > * Configurer une demande de requête
 > * Visualiser les résultats dans une application canevas
 
@@ -82,7 +82,7 @@ Dans Power Apps, un connecteur est une connexion de source de données. Dans cet
 
        :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Importer à partir de l’exemple" border="true":::
 
-1. Cliquez sur **Importer** pour compléter automatiquement la demande. Terminez la configuration des métadonnées de paramètre en cliquant sur le symbole **…** à côté de chacun des paramètres. Cliquez sur **Retour** pour retourner à la page Demande après chaque mise à jour de paramètre.
+1. Cliquez sur **Importer** pour compléter automatiquement la demande. Terminez la définition des métadonnées de paramètre en cliquant sur le symbole **...** en regard de chacun des paramètres. Cliquez sur **Retour** pour retourner à la page Demande après chaque mise à jour de paramètre.
 
    :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Boîte de dialogue Importer à partir de l’exemple" border="true":::
 

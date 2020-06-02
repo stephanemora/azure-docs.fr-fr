@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: 89d894a5125a16f95e6ef8a15c2503d48f3a8e55
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 046946bb9d3ce1ae86d49409d024c862d2edb982
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632191"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856059"
 ---
 # <a name="application-gateway-configuration-overview"></a>Présentation de la configuration d’Application Gateway
 
@@ -101,18 +101,18 @@ Pour ce scénario, utilisez des groupes de sécurité réseau sur le sous-résea
 
    Vous pouvez créer un UDR pour envoyer le trafic de 0.0.0.0/0 directement vers Internet. 
 
-  **Scénario 3** : UDR pour Azure Kubernetes Service et kubenet
+  **Scénario 3** : UDR pour Azure Kubernetes Service avec kubenet
 
-  Si vous utilisez kubenet avec Azure Kubernetes Service (AKS) et Application Gateway Ingress Controller (AGIC), vous devez configurer une table de routage pour permettre au trafic envoyé aux pods d’être acheminé vers le bon nœud. Cela n’est pas nécessaire si vous utilisez Azure CNI. 
+  Si vous utilisez kubenet avec Azure Kubernetes Service (AKS) et Application Gateway Ingress Controller (AGIC), vous avez besoin d’une table de route pour permettre au trafic envoyé aux pods d’Application Gateway d’être acheminé vers le bon nœud. Cela n’est pas nécessaire si vous utilisez Azure CNI. 
 
-   Pour configurer la table de routage pour permettre à kubenet de fonctionner, procédez comme suit :
+  Pour configurer la table de route afin de permettre à kubenet de fonctionner, procédez comme suit :
 
-  1. Créez une ressource de table de routage dans Azure. 
-  2. Une fois que vous l’avez créée, accédez à la page **Itinéraires**. 
-  3. Ajoutez un nouvel itinéraire :
+  1. Accédez au groupe de ressources créé par AKS (le nom du groupe de ressources doit commencer par « MC_ »)
+  2. Recherchez la table de route créée par AKS dans ce groupe de ressources. La table de route doit être remplie avec les informations suivantes :
      - Le préfixe d’adresse doit être la plage d’adresses IP des pods que vous souhaitez atteindre dans AKS. 
-     - Le type de tronçon suivant doit être **Appliance virtuelle**. 
-     - L’adresse du tronçon suivant doit être l’adresse IP du nœud qui héberge les pods dans la plage d’adresses IP définie dans le champ de préfixe d’adresse. 
+     - Le type de tronçon suivant doit être Appliance virtuelle. 
+     - L’adresse du tronçon suivant doit être l’adresse IP du nœud qui héberge les pods.
+  3. Associez cette table de route au sous-réseau Application Gateway. 
     
   **Scénarios non pris en charge par la v2**
 

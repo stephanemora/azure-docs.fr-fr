@@ -7,18 +7,20 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
-ms.openlocfilehash: 9cfb44fbf84ad85f3e2684dfec21cc83d4aaa666
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6fa959b1c9ed021a97031ba03822ae89fbbb7bbb
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131251"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983072"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Résoudre les problèmes liés au pare-feu d’applications web (WAF) pour Azure Application Gateway
 
 Vous pouvez prendre plusieurs mesures si les demandes censées transiter par votre pare-feu d’applications web (WAF) sont bloquées.
 
 Tout d’abord, veillez à lire les documents de [présentation du WAF](ag-overview.md) et de [configuration du WAF](application-gateway-waf-configuration.md). De même, vérifiez que vous avez activé la [supervision du WAF](../../application-gateway/application-gateway-diagnostics.md). Ces articles expliquent comment fonctionne le WAF et ses ensembles de règles et comment accéder aux journaux du WAF.
+
+Les ensembles de règles OWASP sont conçues de manière à être très strictes et adaptées aux besoins spécifiques de l’application ou de l’organisation qui utilise WAF. Il est tout à fait normal, et même attendu dans de nombreux cas, de créer des exclusions, des règles personnalisées, et même de désactiver des règles qui peuvent causer des problèmes ou des faux positifs. Les stratégies par site et par URI permettent que ces changements n’affectent que des sites/URI spécifiques de sorte que tout changement ne devrait pas affecter d’autres sites qui pourraient ne pas être confrontés aux mêmes problèmes. 
 
 ## <a name="understanding-waf-logs"></a>Compréhension des journaux du WAF
 

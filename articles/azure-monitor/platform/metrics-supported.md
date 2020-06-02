@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 04/06/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: f2e3c03ba599128cc4552f64637ebd63efcb4578
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d7ab9d4e7a7c560fa05bdc06c7d1c357a2c2767
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128447"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196631"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 
@@ -21,18 +21,24 @@ ms.locfileid: "82128447"
 
 Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compris en créant des graphiques dans le portail, en y accédant via l’API REST ou en envoyant des requêtes avec PowerShell ou l’interface CLI. 
 
-Cet article est une liste complète de toutes les métriques de plateforme (c’est-à-dire collectées automatiquement) actuellement disponibles avec le pipeline de métriques consolidées d’Azure Monitor. La liste a été mise à jour pour la dernière fois le 27 mars 2020. Les métriques modifiées ou ajoutées après cette date peuvent ne pas apparaître ci-dessous. Pour interroger cette liste de métriques et y accéder programmatiquement, veuillez utiliser [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
+Cet article est une liste complète de toutes les métriques de plateforme (c’est-à-dire collectées automatiquement) actuellement disponibles avec le pipeline de métriques consolidées d’Azure Monitor. La liste a été mise à jour pour la dernière fois le 27 mars 2020. Les métriques modifiées ou ajoutées après cette date peuvent ne pas apparaître ci-dessous. Pour interroger cette liste de métriques et y accéder programmatiquement, veuillez utiliser [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions). D’autres métriques ne figurant pas dans cette liste peuvent être disponibles dans le portail ou via les API héritées.
 
-D’autres métriques peuvent être disponibles dans le portail ou via les API héritées. Les métriques du système d’exploitation invité (système d’exploitation invité) qui s’exécutent sur des machines virtuelles Azure, dans Service Fabric et dans Cloud Services ne sont **PAS** répertoriées ici. Celles-ci doivent être collectées par le biais d’un ou de plusieurs agents qui s’exécutent sur le système d’exploitation ou en tant que composant de ce dernier. Vous pouvez envoyer les métriques de l’agent dans la base de données de métriques de la plateforme avec l’API [ métriques personnalisées](metrics-custom-overview.md), qui est actuellement en version préliminaire publique. Vous pouvez ensuite créer un graphique, une alerte, ou utiliser les métriques du système d’exploitation invité, comme les métriques de plateforme. Pour plus d'informations, consultez [Présentation des agents de surveillance](agents-overview.md).    
+Les métriques sont organisées par fournisseurs de ressources et par type de ressource. Pour obtenir la liste des services et des fournisseurs de ressources qui leur appartiennent, consultez [Fournisseurs de ressources pour les services Azure](../../azure-resource-manager/management/azure-services-resource-providers.md). 
 
-Les métriques sont organisées par espace de noms. Pour obtenir la liste des services et des espaces de noms qui leur appartiennent, consultez [Fournisseurs de ressources pour les services Azure](../../azure-resource-manager/management/azure-services-resource-providers.md). 
 
-> [!NOTE]
-> L’envoi de métriques multidimensionnelles via les paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques à plusieurs dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, puis agrégées dans les valeurs de la dimension.
->
-> *Par exemple* : La métrique « Messages entrants » sur un Event Hub peut être examinée et représentée sur un niveau par file d’attente. Toutefois, lors de l’exportation via les paramètres de diagnostic, la métrique est représentée sous la forme de tous les messages entrants, dans toutes les files d’attente de l’Event Hub.
->
-> Pour obtenir la liste des métriques de plateforme exportables par le biais des paramètres de diagnostic, consultez [cet article](metrics-supported-export-diagnostic-settings.md).
+## <a name="guest-os-metrics"></a>Métriques du système d’exploitation invité
+
+Les métriques du système d’exploitation invité (système d’exploitation invité) qui s’exécutent sur des machines virtuelles Azure, dans Service Fabric et dans Cloud Services ne sont **PAS** répertoriées ici. Au lieu de cela, les métriques de performance du système d’exploitation invité doivent être collectées via un ou plusieurs agents qui s’exécutent sur ou dans le cadre du système d’exploitation invité.  Les métriques du système d’exploitation invité incluent des compteurs de performances qui effectuent le suivi du pourcentage de processeur invité ou de l’utilisation de la mémoire, fréquemment utilisés pour la mise à l’échelle automatique ou la génération d’alertes.  À l’aide de l’[extension Diagnostics Azure](diagnostics-extension-overview.md), vous pouvez envoyer les métriques de performance du système d’exploitation invité dans la même base de données que celle où sont stockées les métriques de la plateforme. Elle achemine les métriques du système d’exploitation invité via l’API de [métriques personnalisées](metrics-custom-overview.md). Vous pouvez ensuite créer un graphique, une alerte, ou utiliser les métriques du système d’exploitation invité, comme les métriques de plateforme. Pour plus d'informations, consultez [Présentation des agents de surveillance](agents-overview.md).    
+
+## <a name="routing-platform-metrics-to-other-locations"></a>Routage des métriques de plateforme vers d’autres emplacements
+
+Vous pouvez utiliser les [paramètres de diagnostic](diagnostic-settings.md) pour acheminer les métriques de plateforme vers le stockage Azure, les journaux Azure Monitor (et Log Analytics) et les Event Hubs.  
+
+Il existe certaines limitations dans les informations pouvant être routées et le format dans lequel elles sont stockées. 
+- Toutes les métriques ne sont pas exportables vers d’autres emplacements. Pour obtenir la liste des métriques de plateforme exportables par le biais des paramètres de diagnostic, consultez [cet article](metrics-supported-export-diagnostic-settings.md).
+
+- L’envoi de métriques multidimensionnels à d’autres emplacements au moyen des paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques à plusieurs dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, puis agrégées dans les valeurs de la dimension.
+*Par exemple* : La métrique « Messages entrants » sur un Event Hub peut être examinée et représentée sur un niveau par file d’attente. Toutefois, lors de l’exportation via les paramètres de diagnostic, la métrique est représentée sous la forme de tous les messages entrants, dans toutes les files d’attente de l’Event Hub.
 
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers

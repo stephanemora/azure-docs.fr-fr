@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 05/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 5ce1b85394a7bb604841f7fb941bdebf12c0bca2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a1527195296237eb8c9c309f8ac4a5911136cf77
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414148"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891749"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Conserver les métadonnées et les listes de contrôle d'accès à l'aide de l'outil Copier l'activité d'Azure Data Factory
 
@@ -32,6 +32,8 @@ L'outil Copier l'activité prend en charge la conservation des attributs suivant
 
 - **Toutes les métadonnées spécifiées par le client** 
 - Et les **cinq propriétés système intégrées au magasin de données** suivantes : `contentType`, `contentLanguage` (sauf pour Amazon S3), `contentEncoding`, `contentDisposition`, `cacheControl`.
+
+**Gérer les différences dans les métadonnées :** Amazon S3 et Stockage Microsoft Azure autorisent des jeux de caractères différents dans les clés des métadonnées spécifiées par le client. Quand vous choisissez de conserver les métadonnées en utilisant la copie d’activité, ADF remplace automatiquement les caractères non valides par « _ ».
 
 Si vous copiez des fichiers en l'état d'Amazon S3/Azure Data Lake Storage Gen2/Azure Blob vers Azure Data Lake Storage Gen2/Azure Blob au format binaire, vous trouverez l'option **Conserver** sous **Copier l'activité** > **onglet Paramètres** pour la création de l'activité ou sur la page **Paramètres** de l'outil Copier des données.
 

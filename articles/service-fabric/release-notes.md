@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 3e0f6c78b6e5dd066cbfbac6805bb3c42068e66a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28870a197af07e964a50a06ffeef08f3b71451f4
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729595"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891723"
 ---
 # <a name="service-fabric-releases"></a>Versions de Azure Service Fabric
 
@@ -27,17 +27,17 @@ Cet article fournit des informations sur les version et mises à jour les plus r
 ### <a name="service-fabric-71"></a>Service Fabric 7.1
 En raison de la crise actuelle liée au COVID-19, et en prenant en compte les défis auxquels nos clients font face, nous rendons la version 7.1 disponible, mais nous ne mettrons pas automatiquement à niveau les clusters définis pour recevoir des mises à niveau automatiques. Nous suspendons les mises à niveau automatiques jusqu’à nouvel ordre, pour nous assurer que les clients peuvent appliquer les mises à niveau lorsque cela leur convient, afin d’éviter des interruptions inattendues.
 
-Vous pouvez effectuer la mise à jour vers 7.1 via le [portail Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-version-azure#upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal) ou via un [déploiement d’Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-version-azure#set-the-upgrade-mode-using-a-resource-manager-template).
+Vous pouvez effectuer la mise à jour vers la version 7.1 via le [Portail Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-version-azure#upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal) ou via un [déploiement Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-version-azure#set-the-upgrade-mode-using-a-resource-manager-template).
 
 Les clusters Service Fabric avec des mises à niveau automatiques activées commenceront à recevoir automatiquement la mise à jour 7.1 une fois la procédure de déploiement standard relancée. Nous ferons une autre annonce avant le lancement du déploiement standard sur le [site Service Fabric Tech Community](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
-Nous avons également publié des mises à jour jusqu’à la date de fin de support des versions principales allant de 6.5 à 7.1, [ici](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-versions). 
+Nous avons également publié des mises à jour jusqu’à la date de fin de support des versions principales allant de la version 6.5 à la version 7.1, [ici](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-versions). 
 
 ## <a name="what-is-new-in-service-fabric-71"></a>Nouveautés de Service Fabric 7.1
 Nous sommes ravis d’annoncer la prochaine version de Service Fabric. Cette version regorge de fonctionnalités et d’améliorations clés. Certaines des fonctionnalités clés sont mises en avant ci-dessous :
 ## <a name="key-announcements"></a>Principales annonces
 - **Disponibilité générale** des [**identités managées de Service Fabric pour les applications Service Fabric**](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity)
-- [**Prise en charge d’Ubuntu 1804**](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-create-vnet-and-linux-cluster)
- - [**Préversion : Prise en charge du disque de système d’exploitation éphémère VMSS**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-azure-deployment-preparation#use-ephemeral-os-disks-for-virtual-machine-scale-sets)** : Les disques de système d’exploitation éphémères sont des dispositifs de stockage créés sur la machine virtuelle locale, qui ne sont pas enregistrés sur le Stockage Azure à distance. Ils sont recommandés pour tous les types de nœuds Service Fabric (principaux et secondaires) car, par rapport aux disques de système d’exploitation permanents traditionnels, les disques de système d’exploitation éphémères :
+- [**Prise en charge d’Ubuntu 18.04.** ](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-create-vnet-and-linux-cluster)
+ - [**Préversion : Prise en charge de disques Ephemeral OS de groupe de machines virtuelles identiques**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-azure-deployment-preparation#use-ephemeral-os-disks-for-virtual-machine-scale-sets)** : Les disques de système d’exploitation éphémères sont des dispositifs de stockage créés sur la machine virtuelle locale, qui ne sont pas enregistrés sur le Stockage Azure à distance. Ils sont recommandés pour tous les types de nœuds Service Fabric (principaux et secondaires) car, par rapport aux disques de système d’exploitation permanents traditionnels, les disques de système d’exploitation éphémères :
       -  réduisent la latence de lecture/écriture sur le disque du système d’exploitation ;
       -  permettent des opérations plus rapides de gestion de réinitialisation/réimagerie de nœuds ;
       -  réduisent les coûts globaux (les disques sont gratuits et n’impliquent aucun coût de stockage supplémentaire).
@@ -61,7 +61,7 @@ Nous sommes ravis d’annoncer la prochaine version de Service Fabric. Cette ver
        
  ### <a name="reliable-collections-improvements"></a>Améliorations des collections fiables
 
-- [**Prise en charge du stockage en mémoire uniquement pour les services avec état utilisant des collections fiables**](https://docs.microsoft.com/azure/service-fabric/service-fabric-work-with-reliable-collections#volatile-reliable-collections) : Les collections fiables volatiles permettent la persistance des données sur le disque à des fins de durabilité contre les pannes à grande échelle, peuvent être utilisées pour les charges de travail comme le cache répliqué, par exemple lorsque la perte de données occasionnelle peut être tolérée. En fonction des [limitations et des restrictions des collections fiables volatiles](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections-guidelines#volatile-reliable-collections), nous vous recommandons cette fonctionnalité pour les charges de travail qui n’ont pas besoin de persistance, pour les services qui gèrent les rares pertes de quorum.
+- [**Prise en charge du stockage en mémoire uniquement pour les services avec état utilisant des collections fiables**](https://docs.microsoft.com/azure/service-fabric/service-fabric-work-with-reliable-collections#volatile-reliable-collections) : La fonctionnalité de collections fiables volatiles permet de stocker les données de façon persistante sur disque pour les protéger contre les pannes à grande échelle, peut être utilisé pour les charges de travail comme le cache répliqué, par exemple, où une perte occasionnelle de données peut être tolérée. Sur la base des [limites et restrictions de Volatile Reliable Collections](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections-guidelines#volatile-reliable-collections), nous le recommandons pour les charges de travail qui n’ont pas besoin de persistance, pour les services qui traitent les rares cas de perte de quorum.
 - [**Préversion : Explorateur de sauvegarde Service Fabric**](https://github.com/microsoft/service-fabric-backup-explorer) : Pour faciliter la gestion des sauvegardes de collections fiables pour les applications avec état Service Fabric, l’Explorateur de sauvegarde Service Fabric permet aux utilisateurs de faire ce qui suit :
     - Auditer et examiner le contenu des collections fiables
     - Mettre à jour l’état actuel vers une vue cohérente
@@ -89,7 +89,7 @@ Il s’agit de la dernière version de Service Fabric qui est chargée avec des 
   
 - [**Limites des ressources des services utilisateur**](https://docs.microsoft.com/azure/service-fabric/service-fabric-resource-governance#enforcing-the-resource-limits-for-user-services) : Les utilisateurs peuvent configurer des limites de ressources pour les services utilisateur sur un nœud afin d’éviter des scénarios tels que l’épuisement des ressources des services système Service Fabric. 
   
-- [**Coût de déplacement de service très élevé**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-movement-cost) pour un type de réplica. Les réplicas avec un coût de déplacement « très élevé » sont déplacés uniquement si une violation de contrainte existant dans le cluster ne peut pas être résolue d’une autre façon. Consultez les documents pour plus d’informations sur l’utilisation raisonnable du coût de déplacement « très élevé » et sur les considérations supplémentaires.
+- [**Coût de déplacement de service très élevé**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-movement-cost) pour un type de réplica. Les réplicas avec un coût de déplacement « très élevé » sont déplacés uniquement si une violation de contrainte existant dans le cluster ne peut pas être résolue d’une autre façon. Reportez-vous au document lié pour plus d’informations sur l’utilisation raisonnable du coût de déplacement « très élevé » et sur les considérations supplémentaires.
   
 -  **Vérifications supplémentaires de la sécurité des clusters** : Dans cette version, nous avons introduit une vérification de la sécurité du quorum de nœuds initiaux configurables. Cela vous permet de personnaliser le nombre de nœuds initiaux qui doivent être disponibles pendant les scénarios de gestion et de cycle de vie du cluster. Les opérations qui prennent le cluster en dessous de la valeur configurée sont bloquées. Aujourd’hui la valeur par défaut est toujours un quorum de nœuds initiaux. Par exemple, si vous avez 7 nœuds initiaux, une opération qui nécessiterait en dessous de 5 nœuds initiaux serait bloquée par défaut. Avec cette modification, vous pourriez définir la valeur de sécurité minimale sur 6, ce qui permettrait d’autoriser seulement un nœud initial d’être en panne à la fois.
    

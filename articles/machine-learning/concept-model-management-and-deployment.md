@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7857d11c625911cd1b49dfcf0e0d612fc6a3871e
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 12d86f9415f7f5b813d2dce8eb3ad4bb63dec30c
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314305"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929755"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps : Gestion, déploiement et surveillance des modèles avec Azure Machine Learning
 
@@ -153,7 +153,7 @@ Azure ML vous donne la possibilité d’effectuer le suivi de la piste d’audi
 - [L’interprétabilité](how-to-machine-learning-interpretability.md) vous permet d’expliquer vos modèles, de respecter la conformité réglementaire, et de comprendre comment les modèles arrivent à un résultat pour une entrée donnée.
 - L’historique des exécutions Azure ML stocke une capture instantanée du code, des données et des calculs utilisés pour effectuer l’apprentissage d’un modèle.
 - Le registre de modèles Azure ML capture toutes les métadonnées associées à votre modèle (l’expérience qui l’a entraîné, où il est déployé, si ses déploiements sont sains).
-- [L’intégration à Azure Event Grid](concept-event-grid-integration.md) vous permet d’agir sur les événements du cycle de vie ML. Par exemple, l’inscription du modèle, le déploiement, la dérive des données et les événements d’apprentissage (exécution).
+- [L’intégration à Azure](how-to-use-event-grid.md) vous permet d’agir sur les événements du cycle de vie ML. Par exemple, l’inscription du modèle, le déploiement, la dérive des données et les événements d’apprentissage (exécution).
 
 > [!TIP]
 > Bien que certaines informations sur les modèles et les jeux de données soient capturées automatiquement, vous pouvez ajouter des informations supplémentaires à l’aide de __balises__. Lorsque vous recherchez des modèles inscrits et des jeux de données dans votre espace de travail, vous pouvez utiliser des balises comme filtre.
