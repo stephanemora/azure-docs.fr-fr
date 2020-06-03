@@ -1,5 +1,5 @@
 ---
-title: Utilisation de SQL à la demande (préversion)
+title: Utiliser SQL à la demande (préversion)
 description: Dans ce guide de démarrage rapide, vous allez voir et découvrir à quel point il est facile d’interroger différents types de fichiers en utilisant SQL à la demande (préversion).
 services: synapse-analytics
 author: azaricstefan
@@ -9,18 +9,18 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43f361fbaf4ab0462af0a720d7711f219134a165
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 6d107dcbdc31a0049c7685e6dd8223bda694a526
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692168"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836802"
 ---
-# <a name="quickstart-using-sql-on-demand"></a>Démarrage rapide : Utilisation de SQL à la demande
+# <a name="quickstart-use-sql-on-demand"></a>Démarrage rapide : Utiliser SQL à la demande
 
-SQL Synapse à la demande (préversion) est un service de requête serverless qui vous permet d’exécuter des requêtes SQL sur des fichiers placés dans le Stockage Azure. Dans ce guide de démarrage rapide, vous allez apprendre à interroger différents types de fichiers en utilisant SQL à la demande.
+SQL Synapse à la demande (préversion) est un service de requête serverless qui vous permet d’exécuter des requêtes SQL sur des fichiers placés dans le Stockage Azure. Dans ce guide de démarrage rapide, vous allez apprendre à interroger différents types de fichiers en utilisant SQL à la demande. Les formats pris en charge sont répertoriés dans [OPENROWSET](sql/develop-openrowset.md).
 
-Les types de fichiers suivants sont pris en charge : JSON, CSV, Apache Parquet
+Ce démarrage rapide montre comment interroger : Fichiers CSV, Apache Parquet et JSON.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -30,7 +30,7 @@ Choisissez le client SQL avec lequel vous souhaitez émettre les requêtes :
 - [Azure Data Studio](sql/get-started-azure-data-studio.md) est un outil client qui vous permet d’exécuter des requêtes SQL et des notebooks sur votre base de données à la demande.
 - [SQL Server Management Studio](sql/get-started-ssms.md) est un outil client qui vous permet d’exécuter des requêtes SQL sur votre base de données à la demande.
 
-Paramètres pour le guide de démarrage rapide :
+Paramètres pour ce guide de démarrage rapide :
 
 | Paramètre                                 | Description                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
@@ -60,36 +60,24 @@ Utilisez la requête suivante, en remplaçant `mydbname` par le nom de votre cho
 CREATE DATABASE mydbname
 ```
 
-### <a name="create-credentials"></a>Créer des informations d’identification
+### <a name="create-data-source"></a>Créer une source de données
 
-Pour exécuter des requêtes à l’aide de SQL à la demande, créez les informations d’identification dont devra se servir SQL à la demande pour accéder aux fichiers dans le stockage.
-
-> [!NOTE]
-> Pour pouvoir exécuter correctement les exemples de cette section, vous devez utiliser un jeton SAS.
->
-> Pour commencer à utiliser des jetons SAS, vous devez supprimer UserIdentity, ce qui est expliqué dans l’article [suivant](sql/develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
->
-> Par défaut, SQL à la demande utilise toujours le transfert AAD.
-
-Pour plus d’informations sur la gestion du contrôle d’accès au stockage, consultez l’article [Contrôler l’accès au compte de stockage pour SQL à la demande](sql/develop-storage-files-storage-access-control.md).
-
-Exécutez l’extrait de code suivant pour créer les informations d’identification utilisées dans les exemples de cette section :
+Pour exécuter des requêtes à l’aide de SQL à la demande, créez une source de données que SQL à la demande peut utiliser pour accéder aux fichiers dans le stockage.
+Exécutez l’extrait de code suivant pour créer une source de données utilisée dans les exemples de cette section :
 
 ```sql
 -- create credentials for containers in our demo storage account
-IF EXISTS
-   (SELECT * FROM sys.credentials
-   WHERE name = 'https://sqlondemandstorage.blob.core.windows.net')
-   DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net]
-GO
-
-CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net]
+CREATE DATABASE SCOPED CREDENTIAL sqlondemand
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  
 SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
 GO
+CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
+    LOCATION = 'https://sqlondemandstorage.blob.core.windows.net',
+    CREDENTIAL = sqlondemand
+);
 ```
 
-## <a name="querying-csv-files"></a>Interrogation des fichiers CSV
+## <a name="query-csv-files"></a>Interroger des fichiers CSV
 
 L’image suivante est un aperçu du fichier à interroger :
 
@@ -101,8 +89,9 @@ La requête suivante montre comment lire un fichier CSV qui ne contient pas de l
 SELECT TOP 10 *
 FROM OPENROWSET
   (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/*.csv'
-    , FORMAT = 'CSV'
+      BULK 'csv/population/*.csv',
+      DATA_SOURCE = 'SqlOnDemandDemo',
+      FORMAT = 'CSV', PARSER_VERSION = '2.0'
   )
 WITH
   (
@@ -118,7 +107,7 @@ WHERE
 Vous pouvez spécifier le schéma au moment de la compilation de la requête.
 Pour plus d’exemples, consultez la procédure indiquant comment [interroger des fichiers CSV](sql/query-single-csv-file.md).
 
-## <a name="querying-parquet-files"></a>Interrogation des fichiers Parquet
+## <a name="query-parquet-files"></a>Interroger des fichiers Parquet
 
 L’exemple suivant montre les fonctionnalités d’inférence automatique du schéma pour l’interrogation des fichiers Parquet. Il retourne le nombre de lignes en septembre 2017 sans spécifier de schéma.
 
@@ -129,14 +118,15 @@ L’exemple suivant montre les fonctionnalités d’inférence automatique du sc
 SELECT COUNT_BIG(*)
 FROM OPENROWSET
   (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet'
-    , FORMAT='PARQUET'
+      BULK 'parquet/taxi/year=2017/month=9/*.parquet',
+      DATA_SOURCE = 'SqlOnDemandDemo',
+      FORMAT='PARQUET'
   ) AS nyc
 ```
 
 Pour plus d’informations sur l’interrogation des fichiers Parquet, cliquez [ici](sql/query-parquet-files.md).
 
-## <a name="querying-json-files"></a>Interrogation des fichiers JSON
+## <a name="query-json-files"></a>Interroger des fichiers JSON
 
 ### <a name="json-sample-file"></a>Exemple de fichier JSON
 
@@ -158,7 +148,7 @@ Les fichiers sont stockés dans un dossier *books* au sein d’un conteneur *jso
 }
 ```
 
-### <a name="querying-json-files"></a>Interrogation des fichiers JSON
+### <a name="query-json-files"></a>Interroger des fichiers JSON
 
 La requête suivante montre comment utiliser [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) pour récupérer des valeurs scalaires (titre, éditeur) à partir d’un livre intitulé *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles* :
 
@@ -169,7 +159,8 @@ SELECT
   , jsonContent
 FROM OPENROWSET
   (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/json/books/*.json'
+      BULK 'json/books/*.json',
+      DATA_SOURCE = 'SqlOnDemandDemo'
     , FORMAT='CSV'
     , FIELDTERMINATOR ='0x0b'
     , FIELDQUOTE = '0x0b'

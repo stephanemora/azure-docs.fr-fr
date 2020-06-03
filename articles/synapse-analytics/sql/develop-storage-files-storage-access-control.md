@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2d5d508afe81975cbeda448b497a098e8a3bbcf3
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7d9157993e8cdbb6f7976ee2d4ce67b9039e7b52
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589276"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835833"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Contrôler l’accès au compte de stockage pour SQL à la demande (préversion)
 
@@ -26,11 +26,7 @@ Cet article décrit les types d’informations d’identification que vous pouve
 
 ## <a name="supported-storage-authorization-types"></a>Types d’autorisations de stockage pris en charge
 
-Un utilisateur qui s’est connecté à une ressource SQL à la demande doit être autorisé à accéder aux fichiers présents dans le stockage Azure, ainsi qu’à les interroger si les fichiers ne sont pas publiquement disponibles. Trois types d’autorisations sont pris en charge :
-
-- [Signature d’accès partagé](?tabs=shared-access-signature)
-- [Identité de l’utilisateur](?tabs=user-identity)
-- [Identité gérée](?tabs=managed-identity)
+Un utilisateur qui s’est connecté à une ressource SQL à la demande doit être autorisé à accéder aux fichiers présents dans le stockage Azure, ainsi qu’à les interroger si les fichiers ne sont pas publiquement disponibles. Vous pouvez utiliser trois types d’autorisation pour accéder au stockage non public : [Identité de l’utilisateur](?tabs=user-identity), [Signature d’accès partagé](?tabs=shared-access-signature) et [Identité managée](?tabs=managed-identity).
 
 > [!NOTE]
 > Le [pass-through Azure AD](#force-azure-ad-pass-through) est le comportement qui est utilisé par défaut quand vous créez un espace de travail. Si vous l’utilisez, vous n’avez pas besoin de créer des informations d’identification pour chaque compte de stockage accessible à l’aide d’informations de connexion Azure AD. Vous pouvez [désactiver ce comportement](#disable-forcing-azure-ad-pass-through).
@@ -99,7 +95,7 @@ Avant d’accéder aux données, l’administrateur du stockage Azure doit accor
 
 ### <a name="anonymous-access"></a>[Accès anonyme](#tab/public-access)
 
-Vous pouvez accéder aux fichiers publiquement disponibles placés sur des comptes de stockage Azure qui [autorisent l’accès anonyme](/azure/storage/blobs/storage-manage-access-to-resources.md).
+Vous pouvez accéder aux fichiers publiquement disponibles placés sur des comptes de stockage Azure qui [autorisent l’accès anonyme](/azure/storage/blobs/storage-manage-access-to-resources).
 
 ---
 

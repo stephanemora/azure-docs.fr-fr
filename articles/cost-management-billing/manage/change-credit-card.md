@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 0cf0911193cd379da60edb3064d3c6f195cf0190
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 99b6d86a65ec05a1299abfffae779113e573310c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199855"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834966"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Ajouter, mettre à jour ou supprimer une carte de crédit pour Azure
 
@@ -29,9 +29,9 @@ Si vous avez un Contrat client Microsoft, vos modes de paiement sont associés �
 
 ## <a name="manage-credit-cards-for-an-azure-subscription"></a>Gérer les cartes de crédit pour un abonnement Azure
 
-Les sections suivantes s’appliquent aux clients qui disposent d’un compte de facturation du Programme Microsoft Online Services. Découvrez comment [vérifier votre type de compte de facturation](#check-the-type-of-your-account). Si votre type de compte de facturation est Programme Microsoft Online Services, les modes de paiement sont associés à des abonnements Azure individuels.
+Les sections suivantes s’appliquent aux clients qui disposent d’un compte de facturation du Programme Microsoft Online Services. Découvrez comment [vérifier votre type de compte de facturation](#check-the-type-of-your-account). Si votre type de compte de facturation est Programme Microsoft Online Services, les modes de paiement sont associés à des abonnements Azure individuels. Si vous obtenez une erreur après avoir ajouté la carte bancaire, consultez [Carte bancaire est refusée lors de l’inscription à Azure](../../billing/billing-credit-card-fails-during-azure-sign-up.md).
 
-### <a name="change-credit-card-for-a-subscription"></a>Changer la carte de crédit associée à un abonnement
+### <a name="change-credit-card-for-a-subscription-by-adding-a-new-credit-card"></a>Modifier la carte de crédit d’un abonnement en ajoutant une nouvelle carte de crédit
 
 Vous pouvez remplacer la carte de crédit par défaut de votre abonnement Azure par une nouvelle carte de crédit ou une carte de crédit déjà enregistrée dans le portail Azure. Vous devez être l’administrateur du compte pour changer de carte de crédit. Si plusieurs de vos abonnements ont le même mode de paiement actif, le changement de mode de paiement actif sur un de ces abonnements met également à jour le mode de paiement actif sur les autres.
 
@@ -57,7 +57,7 @@ Vous pouvez remplacer la carte de crédit par défaut de votre abonnement par un
 
 1. Sélectionnez **Suivant**.
 
-Si vous obtenez une erreur après avoir ajouté la carte bancaire, consultez [Carte bancaire est refusée lors de l’inscription à Azure](../../billing/billing-credit-card-fails-during-azure-sign-up.md).
+### <a name="change-credit-card-for-a-subscription-to-a-previously-saved-credit-card"></a>Modifier la carte de crédit d’un abonnement en choisissant une carte de crédit précédemment enregistrée
 
 Vous pouvez aussi changer la carte de crédit par défaut de votre abonnement pour la remplacer par une autre carte déjà enregistrée sur votre compte en effectuant les étapes suivantes :
 
@@ -116,6 +116,7 @@ Si votre carte de crédit est le mode de paiement actif pour un de vos abonnemen
 Les sections suivantes s’appliquent aux clients qui disposent d’un Contrat client Microsoft et qui sont inscrits à Azure Online avec une carte de crédit. [Découvrez comment vérifier si vous avez un Contrat client Microsoft](#check-the-type-of-your-account).
 
 ### <a name="change-default-credit-card"></a>Changer la carte de crédit par défaut
+
 Si vous avez un Contrat client Microsoft, votre carte de crédit est associée à un profil de facturation. Pour changer le mode de paiement d’un profil de facturation, vous devez être la personne qui s’est inscrite à Azure et qui a créé le compte de facturation.
 
 Si vous voulez changer le mode de paiement par défaut de votre profil de facturation en chèque/virement, consultez [Payer pour les abonnements Azure par facture](pay-by-invoice.md).
@@ -159,9 +160,11 @@ Pour modifier ou supprimer une carte de crédit, effectuez les étapes suivantes
 1. Pour supprimer votre carte de crédit, sélectionnez **Supprimer** dans le menu contextuel.
 
 ## <a name="troubleshooting"></a>Dépannage
+
 Les cartes virtuelles ou prépayées ne sont pas prises en charge. Si vous obtenez des erreurs lors de l’ajout ou de la mise à jour d’une carte de crédit valide, essayez d’ouvrir votre navigateur en mode privé.
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
+
 Les sections suivantes répondent à des questions fréquemment posées sur la modification des informations de votre carte de crédit.
 
 ### <a name="my-subscription-is-disabled-why-cant-i-remove-my-credit-card-now"></a>Mon abonnement est désactivé. Pourquoi je ne peux pas supprimer ma carte de crédit ?
@@ -189,6 +192,7 @@ Si vous [payez par facture](pay-by-invoice.md), envoyez votre paiement à l’en
 Pour ajouter ou mettre à jour le numéro d’identification du contribuable, mettez à jour votre profil dans le [Centre des comptes Azure](https://account.azure.com/Profile), puis sélectionnez **Enregistrement de taxe**. Cet ID de taxe est utilisé pour les calculs d’exemption de taxe et figure sur votre facture.
 
 ## <a name="check-the-type-of-your-account"></a>Vérifier le type de votre compte
+
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
@@ -196,4 +200,5 @@ Pour ajouter ou mettre à jour le numéro d’identification du contribuable, me
 Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 - En savoir plus sur les [réservations Azure](../reservations/save-compute-costs-reservations.md) pour déterminer si elles peuvent vous permettre de réaliser des économies.

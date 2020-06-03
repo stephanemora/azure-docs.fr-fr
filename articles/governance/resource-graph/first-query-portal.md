@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Votre première requête dans le portail'
 description: Dans ce guide de démarrage rapide, vous suivez les étapes pour exécuter votre première requête à partir du portail Azure en utilisant l’Explorateur Azure Resource Graph.
-ms.date: 11/21/2019
+ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 5cf355e78ad51e06d7ba27d48dd352f35b4c0740
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 69fb1262de706185d8968e9381bb34dd0d84a3b7
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74406791"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872087"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de l’Explorateur Azure Resource Graph
 
@@ -36,11 +36,11 @@ Ouvrez le [portail Azure](https://portal.azure.com) pour rechercher et utiliser 
 1. Mettez à jour la requête pour la trier (`order by`) en fonction de la propriété **name** : `Resources | project name, type | limit 5 | order by name asc`. Sélectionnez ensuite **Exécuter la requête**.
 
    > [!NOTE]
-   > Comme précédemment, l’exécution répétée de cette requête peut produire un ensemble différent de ressources. L’ordre des commandes de requête est important. Dans cet exemple, `order by` vient après `limit`. Cela signifie que les résultats de la requête sont d’abord limités avant d’être triés.
+   > Comme précédemment, l’exécution répétée de cette requête peut produire un ensemble différent de ressources. L’ordre des commandes de requête est important. Dans cet exemple, `order by` vient après `limit`. Cet ordre de commande limite d’abord les résultats de la requête, puis les classe.
 
 1. Mettez à jour la requête pour la trier (`order by`) d’abord en fonction de la propriété **name**, puis limitez `limit` les résultats aux cinq premiers : `Resources | project name, type | order by name asc | limit 5`. Sélectionnez ensuite **Exécuter la requête**.
 
-Si votre environnement ne change pas et si vous exécutez plusieurs fois la requête finale, les résultats retournés sont cohérents et conformes aux attentes. En effet, ils sont classés en fonction de la propriété **name** et limités aux cinq premiers.
+Si votre environnement ne change pas et si vous exécutez plusieurs fois la requête finale, les résultats retournés sont cohérents et classés en fonction de la propriété **Name**, mais toujours limités aux cinq premiers.
 
 ### <a name="schema-browser"></a>Navigateur de schémas
 

@@ -1,17 +1,17 @@
 ---
 title: Démarrage rapide Azure - Créer un runbook Azure Automation | Microsoft Docs
-description: Apprendre à créer un runbook Azure Automation
+description: Cet article vous aide à créer un runbook Azure Automation.
 services: automation
 ms.date: 02/05/2019
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 250f51c9f028dd55d8327259e35b82b0c392c1f6
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 0717a7ac3cc663ff68ba96864aa5d37732337ca5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536996"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836734"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Créer un runbook Azure Automation
 
@@ -98,4 +98,4 @@ Lorsqu’il n’est plus nécessaire, supprimez le runbook. Pour le faire, séle
 Dans ce démarrage rapide, vous avez créé, modifié, testé et publié un runbook et vous avez démarré un travail de runbook. Pour en savoir plus sur les runbooks Automation, consultez l’article traitant des différents types de runbooks que vous pouvez créer et utiliser dans Automation.
 
 > [!div class="nextstepaction"]
-> [Procédures Automation - Types de runbooks](./automation-runbook-types.md)
+> [Types de Runbooks Azure Automation](./automation-runbook-types.md)

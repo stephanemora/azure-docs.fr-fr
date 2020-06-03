@@ -4,12 +4,12 @@ description: Gestion des performances et suivi de l’utilisation de votre appli
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: 0ffa9e38d0ffbca41e4f4a8f3d27015ebe4b8bae
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 6630de971dd9cc7ece2e0f87821db5fd62c39af0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891738"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828727"
 ---
 # <a name="what-is-application-insights"></a>Présentation d’Application Insights
 Application Insights, fonctionnalité d’[Azure Monitor](../overview.md), est un service extensible de gestion des performances des applications (APM) destiné aux développeurs et aux professionnels de DevOps. Utilisez-le pour superviser vos applications en temps réel. Ce service détecte automatiquement les anomalies de performances et intègre de puissants outils analytiques conçus pour vous aider à diagnostiquer les problèmes et à comprendre l’usage que les utilisateurs font de votre application.  Il a été conçu pour vous permettre d’améliorer continuellement les performances et la convivialité. Il fonctionne avec des applications sur un large éventail de plateformes, notamment .NET, Node.js, Java et Python, qu’elles soient hébergées localement, de manière hybride ou dans n’importe quel cloud public. Il s’intègre à votre processus DevOps et offre des points de connexion à un large éventail d’outils de développement. Il peut surveiller et analyser les données de télémétrie des applications mobiles en s’intégrant à Visual Studio App Center.
@@ -49,7 +49,7 @@ Il existe de nombreuses manières d’explorer vos données. Consultez les artic
 
 |  |  |
 | --- | --- |
-| [**Détection intelligente et alertes manuelles**](../../azure-monitor/app/proactive-diagnostics.md)<br/>Configurez des alertes automatiques qui s’adaptent aux modèles télémétriques habituels de votre application et se déclenchent quand un comportement inhabituel est détecté. Vous pouvez également [définir des alertes](../../azure-monitor/app/alerts.md) sur des niveaux particuliers de mesures personnalisées ou standard. |![Exemple d’alerte](./media/app-insights-overview/alerts-tn.png) |
+| [**Détection intelligente et alertes manuelles**](../../azure-monitor/app/proactive-diagnostics.md)<br/>Configurez des alertes automatiques qui s’adaptent aux modèles télémétriques habituels de votre application et se déclenchent quand un comportement inhabituel est détecté. Vous pouvez également [définir des alertes](../../azure-monitor/platform/alerts-log.md) sur des niveaux particuliers de mesures personnalisées ou standard. |![Exemple d’alerte](./media/app-insights-overview/alerts-tn.png) |
 | [**Mise en correspondance d’applications**](../../azure-monitor/app/app-map.md)<br/>Explorez les composants de votre application, avec des alertes et des métriques clés. |![Mise en correspondance d’applications](./media/app-insights-overview/appmap-tn.png)  |
 | [**Profileur**](../../azure-monitor/app/profiler.md)<br/>Examinez les profils d’exécution des requêtes échantillonnées. |![Profileur](./media/app-insights-overview/profiler.png) |
 | [**Analyse de l’utilisation**](../../azure-monitor/app/usage-overview.md)<br/>Analysez la rétention et la segmentation ds utilisateurs.|![Outil de rétention](./media/app-insights-overview/retention.png) |
@@ -92,7 +92,7 @@ Application Insights est un des nombreux services hébergés dans Microsoft Azur
 
 Il existe plusieurs façons de démarrer avec Application Insights. Commencez par la méthode qui vous convient le mieux. Vous pourrez ajouter les autres par la suite.
 
-* **Au moment de l’exécution : instrumentez votre application web sur le serveur.** Idéal pour les applications déjà déployées.  Permet d’éviter toute mise à jour du code.
+* **Au moment de l’exécution : instrumentez votre application web sur le serveur.** Idéal pour les applications déjà déployées. Permet d’éviter toute mise à jour du code.
   * [**Applications ASP.NET ou ASP.NET Core hébergées sur Azure Web Apps**](../../azure-monitor/app/azure-web-apps.md)
   * [**Applications ASP.NET hébergées dans IIS sur une machine virtuelle Azure ou un groupe de machines virtuelles identiques Azure**](../../azure-monitor/app/azure-vm-vmss-apps.md)
   * [**Applications ASP.NET hébergées par IIS sur une machine virtuelle locale**](../../azure-monitor/app/monitor-performance-live-website-now.md)
@@ -127,7 +127,7 @@ Prise en main pendant le développement avec :
 ## <a name="support-and-feedback"></a>Support et commentaires
 * Questions et problèmes :
   * [Dépannage][qna]
-  * [Forum MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
+  * [Page de questions Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-monitor.html)
   * [Stackoverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * Vos suggestions :
   * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)

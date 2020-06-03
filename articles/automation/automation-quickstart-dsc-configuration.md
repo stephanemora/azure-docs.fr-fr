@@ -1,22 +1,22 @@
 ---
-title: 'Démarrage rapide d’Azure : Configurer une machine virtuelle avec DSC | Microsoft Docs'
-description: Configurer une pile LAMP sur une machine virtuelle Linux avec le service de configuration d’état souhaité
+title: Démarrage rapide Azure - Configurer une machine virtuelle avec DSC | Microsoft Docs
+description: Cet article vous aide à configurer une machine virtuelle avec DSC (Desired State Configuration.).
 services: automation
 ms.subservice: dsc
 keywords: dsc, configuration, automatisation
 ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 1a146ab7c05d200b71a33a72fa6362c3cf62629a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 28e8f921fa7620d1fec7dec1788ed769026624d7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457516"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836717"
 ---
-# <a name="configure-a-virtual-machine-with-desired-state-configuration"></a>Configurer une machine virtuelle avec le service Desired State Configuration
+# <a name="configure-a-vm-with-desired-state-configuration"></a>Configurer une machine virtuelle avec DSC (Desired State Configuration)
 
-En activant Azure Automation State Configuration, vous pouvez gérer et superviser les configurations de vos serveurs Windows et Linux avec la configuration DSC (Desired State Configuration). Les configurations dérivant d’une configuration souhaitée peuvent être identifiées ou corrigées automatiquement. Cette procédure de démarrage rapide vous permettra d’intégrer une machine virtuelle Linux et de déployer une pile LAMP avec DSC.
+En activant Azure Automation State Configuration, vous pouvez gérer et superviser les configurations de vos serveurs Windows et Linux avec la configuration DSC (Desired State Configuration). Les configurations dérivant d’une configuration souhaitée peuvent être identifiées ou corrigées automatiquement. Ce guide de démarrage rapide vous guide dans l’activation d’une machine virtuelle Linux et le déploiement d’une pile LAMP à l’aide d’Azure Automation - State Configuration.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -29,9 +29,9 @@ Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 Connectez-vous à Azure sur https://portal.azure.com.
 
-## <a name="onboard-a-virtual-machine"></a>Intégrer une machine virtuelle
+## <a name="enable-a-virtual-machine"></a>Activer une machine virtuelle
 
-Il existe de nombreuses méthodes pour intégrer un ordinateur et activer DSC. Ce démarrage rapide aborde l’intégration via un compte Automation. Pour en savoir plus sur les différentes méthodes d’intégration de vos ordinateurs à State Configuration, lisez l’article sur l’[intégration](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding).
+Il existe plusieurs méthodes pour activer une machine et la fonctionnalité State Configuration. Ce guide de démarrage rapide indique comment activer la fonctionnalité pour une machine virtuelle à l’aide d’un compte Automation. Pour plus d’informations sur les différentes méthodes d’activation de vos machines pour State Configuration, consultez [Activer la gestion des machines par Azure Automation - State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding).
 
 1. Dans le volet de gauche du portail Azure, sélectionnez **Comptes Automation**. Si cette option n’est pas visible dans le volet de gauche, cliquez sur **Tous les services**, puis recherchez-la dans la vue obtenue.
 1. Dans la liste, sélectionnez un compte Automation.
@@ -42,7 +42,7 @@ Il existe de nombreuses méthodes pour intégrer un ordinateur et activer DSC. C
 5. Sélectionnez les paramètres DSC adaptés à la machine virtuelle. Si vous avez déjà préparé une configuration, vous pouvez la spécifier en tant que `Node Configuration Name`. Vous pouvez définir le [mode de configuration](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaConfig) pour contrôler le comportement de la configuration de la machine.
 6. Cliquez sur **OK**. Lors du déploiement de l’extension DSC sur la machine virtuelle, l’état indique `Connecting`.
 
-![Intégrer une machine virtuelle Azure à DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
+![Activation d’une machine virtuelle Azure pour DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
 
 ## <a name="import-modules"></a>Modules d’importation
 
@@ -128,11 +128,7 @@ Vous pouvez voir l’état de tous les nœuds gérés par State Configuration da
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez intégré une machine virtuelle Linux à State Configuration, créé une configuration pour une pile LAMP et déployé la configuration sur la machine virtuelle. Pour savoir comment utiliser Azure Automation State Configuration afin d’activer un déploiement continu, lisez l’article suivant :
+Dans ce guide de démarrage rapide, vous avez activé une machine virtuelle Linux pour State Configuration, créé une configuration pour une pile LAMP et déployé la configuration sur la machine virtuelle. Pour savoir comment utiliser Azure Automation State Configuration afin d’activer un déploiement continu, lisez l’article suivant :
 
 > [!div class="nextstepaction"]
-> [Déploiement continu à une machine virtuelle à l’aide de DSC et Chocolatey](./automation-dsc-cd-chocolatey.md)
-
-* Pour en savoir plus sur DSC PowerShell, consultez [Vue d’ensemble de la fonctionnalité Desired State Configuration de Windows PowerShell](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview).
-* Pour en savoir plus sur la gestion de State Configuration à partir de PowerShell, consultez [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/).
-* Pour apprendre à transférer des rapports DSC à des journaux Azure Monitor à des fins de création de rapports et d’alertes, consultez [Transfert de rapports DSC à des journaux Azure Monitor](automation-dsc-diagnostics.md).
+> [Configurer un déploiement continu avec Chocolatey](./automation-dsc-cd-chocolatey.md)

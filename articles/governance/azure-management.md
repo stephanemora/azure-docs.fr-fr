@@ -1,14 +1,14 @@
 ---
 title: Vue d’ensemble de la gestion Azure - Gouvernance Azure
 description: Vue d’ensemble des domaines de gestion des applications et ressources Azure avec des liens vers du contenu sur les outils de gestion Azure.
-ms.date: 12/06/2018
+ms.date: 05/22/2020
 ms.topic: overview
-ms.openlocfilehash: 644f4fc3a04f86426c2eb04b02c29882fa39fb88
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e293ab743b7c3b49a13cab97200c136a9bd044f5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75980900"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828145"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Vue d’ensemble des services de gestion dans Azure
 
@@ -18,13 +18,13 @@ La gestion fait référence aux tâches et processus nécessaires pour maintenir
 
 Le schéma ci-dessous illustre les différents domaines de gestion requis pour maintenir toute application ou ressource. Ces différents domaines peuvent être considérés comme un cycle de vie. Chaque domaine est obligatoire successivement sur la durée de vie d’une ressource. Le cycle de vie d’une ressource commence par son déploiement initial, puis son exploitation dans la durée, et se termine par sa mise hors service.
 
-![Disciplines de la gestion dans Azure](../monitoring/media/management-overview/management-capabilities.png)
+:::image type="content" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Disciplines de la gestion dans Azure" border="false":::
 
 Aucun service Azure ne répond complètement aux exigences d’un domaine de gestion en particulier. Au lieu de cela, chacune est réalisée par plusieurs services fonctionnant ensemble. Certains services, comme Application Insights, fournissent une fonctionnalité de supervision ciblée pour les applications web. D’autres, comme les journaux d’activité Azure Monitor, stockent les données de gestion pour d’autres services. Cette fonctionnalité vous permet d’analyser des données de différents types collectées par différents services.
 
 Les sections suivantes décrivent en bref les différents domaines de gestion et contiennent des liens vers du contenu détaillé sur les principaux services Azure destinés à répondre à ces besoins.
 
-## <a name="monitor"></a>Moniteur
+## <a name="monitor"></a>Superviser
 
 La supervision consiste à collecter et analyser des données afin de déterminer les performances, l’intégrité et la disponibilité de vos ressources. Une stratégie de supervision efficace vous permet de comprendre le fonctionnement des composants et d’augmenter la durée de fonctionnement avec des notifications. Lisez une vue d’ensemble de la supervision qui décrit les différents services utilisés dans la [Supervision des applications et des ressources Azure](../monitoring/monitoring-overview.md).
 
@@ -36,7 +36,9 @@ L’automatisation de ces tâches vous permet d’éviter la redondance, en réd
 ## <a name="govern"></a>Gouvernance
 
 La gouvernance propose des mécanismes et des processus pour garder le contrôle sur vos applications et ressources dans Azure. Elle implique la planification de vos initiatives et la définition de priorités stratégiques.
-La gouvernance dans Azure est principalement mise en œuvre à l’aide de deux services. [Azure Policy](./policy/overview.md) vous permet de créer, d’attribuer et de gérer des définitions de stratégie afin d’appliquer des règles pour vos ressources. Cette fonctionnalité maintient ces ressources conformes aux standards de votre entreprise. [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) vous permet de suivre l’utilisation du Cloud et les dépenses liées à vos ressources Azure et à d’autres fournisseurs de Cloud.
+La gouvernance dans Azure est principalement mise en œuvre à l’aide de deux services. [Azure Policy](./policy/overview.md) vous permet de créer, d’attribuer et de gérer des définitions de stratégie afin d’appliquer des règles pour vos ressources.
+Cette fonctionnalité maintient ces ressources conformes aux standards de votre entreprise.
+[Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) vous permet de suivre l’utilisation du Cloud et les dépenses liées à vos ressources Azure et à d’autres fournisseurs de Cloud.
 
 ## <a name="secure"></a>Sécuriser
 

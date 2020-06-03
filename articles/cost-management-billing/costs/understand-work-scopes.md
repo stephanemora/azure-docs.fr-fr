@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: ebae9d1c66a721926ca07b21059ec57b05b99a0f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 2f61345cd55fc9541f9e1b707389d0b9d06685b0
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80877930"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873432"
 ---
 # <a name="understand-and-work-with-scopes"></a>Comprendre et utiliser des étendues
 
@@ -67,9 +67,12 @@ Cost Management prend en charge les rôles intégrés indiqués ci-dessous pour 
 
 Le rôle recommandé avec le niveau de privilège minimum est celui de Contributeur Cost Management. Il permet aux utilisateurs de créer et de gérer les budgets et les exportations pour une surveillance et une création de rapports plus efficaces sur les coûts. Les Contributeurs Cost Management pourraient également avoir besoin de rôles supplémentaires pour prendre en charge les scénarios de gestion des coûts de bout en bout. Examinez les scénarios suivants :
 
+- **Création de rapports sur l’utilisation des ressources** : Azure Cost Management affiche le coût dans le portail Azure et inclut aussi l’utilisation en ce qui concerne le coût dans l’API complète sur l’utilisation et les frais, et le téléchargement, mais vous pouvez également explorer les métriques d’utilisation détaillées dans Azure Monitor pour obtenir une compréhension plus poussée. Envisagez d’accorder l’autorisation [Lecteur de surveillance](../../role-based-access-control/built-in-roles.md#monitoring-reader) à toute étendue pour laquelle vous avez besoin d’un rapport sur les métriques d’utilisation détaillées.
 - **Agir de cas de dépassement des budgets** : les Contributeurs Cost Management ont également besoin d’un accès pour créer et/ou gérer des groupes d’actions permettant de réagir automatiquement aux dépassements. Envisagez d’accorder le rôle [Contributeur de surveillance](../../role-based-access-control/built-in-roles.md#monitoring-contributor) à un groupe de ressources contenant le groupe d’actions à utiliser en cas de dépassement des seuils budgétaires. L’automatisation d’actions données nécessite des rôles supplémentaires pour les services spécifiques utilisés, comme Automation et Azure Functions.
 - **Planifier l’exportation des données de coût** : les Contributeurs Cost Management ont également besoin d’un accès à la gestion des comptes de stockage afin de planifier une exportation pour copier les données dans un compte de stockage. Envisagez d’accorder le rôle [Collaborateur de compte de stockage](../../role-based-access-control/built-in-roles.md#storage-account-contributor) à un groupe de ressources contenant le compte de stockage vers lequel les données de coût de coûts seront exportées.
 - **Affichage des recommandations pour réaliser des économies** : les Lecteurs Cost Management et les Contributeurs Cost Management peuvent *afficher* les recommandations en matière de coûts par défaut. Toutefois, la possibilité de suivre ces recommandations requiert l’accès aux ressources individuelles. Envisagez d’accorder un [rôle propre au service](../../role-based-access-control/built-in-roles.md#all) si vous souhaitez suivre une recommandation en matière de coûts.
+
+Les groupes d’administration sont pris en charge uniquement s’ils contiennent des abonnements Accord Entreprise (EA), Paiement à l’utilisation (PAYG) ou un abonnement interne Microsoft. Les groupes d’administration avec d’autres types d’abonnements, comme le Contrat client Microsoft ou les abonnements Azure Active Directory, ne peuvent pas afficher les coûts. Si vous disposez d’un mélange d’abonnements, déplacez les abonnements non pris en charge vers une autre branche de la hiérarchie du groupe d’administration pour activer Cost Management sur les abonnements pris en charge. Par exemple, créez deux groupes d’administration sous le groupe d’administration racine : **Azure AD** et **Mon organisation**. Déplacez votre abonnement Azure AD vers le groupe d’administration **Azure AD**, puis affichez et gérez les coûts à l’aide du groupe d’administration **Mon organisation**.
 
 ## <a name="enterprise-agreement-scopes"></a>Étendues Contrat Entreprise
 
