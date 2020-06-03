@@ -4,21 +4,22 @@ description: Connexion privée à une application web à l’aide d’un point d
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 05/25/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4d139cfa50afa94621066995314737fac70bbafe
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 4c48a2fad927812cc45543243b48a2df81acf73b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756283"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846951"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Utilisation de points de terminaison privés pour application web Azure (préversion)
 
 > [!Note]
+> Avec l’actualisation de la préversion, nous avons publié la fonctionnalité de protection contre l’exfiltration de données.
 > La préversion est disponible dans les régions USA Est et USA Ouest 2 pour toutes les applications web PremiumV2 Windows et Linux, ainsi que toutes les fonctions Premium élastiques. 
 
 Vous pouvez utiliser un point de terminaison privé pour votre application web Azure afin de permettre aux clients situés dans votre réseau privé d’accéder de façon sécurisée à l’application via une liaison privée. Le point de terminaison privé utilise une adresse IP de l’espace d’adressage de votre réseau virtuel Azure. Le trafic entre un client de votre réseau privé et l’application web traverse le réseau virtuel et une liaison privée sur le réseau principal de Microsoft, ce qui élimine son exposition à l’Internet public.
@@ -26,7 +27,8 @@ Vous pouvez utiliser un point de terminaison privé pour votre application web A
 L’utilisation d’un point de terminaison privé pour votre application web vous permet d’effectuer les opérations suivantes :
 
 - Sécuriser votre application web en configurant le point de terminaison privé, ce qui évite l’exposition publique.
-- Vous connecter de manière sécurisée à l’application web à partir de réseaux locaux qui se connectent au réseau virtuel à l’aide d’un VPN ou d’un peering privé ExpressRoute.
+- Vous connecter de manière sécurisée à l’application web à partir de réseaux locaux qui se connectent au réseau virtuel à l’aide d’un VPN ou d’un peering privé ExpressRoute
+- Évitez tout exfiltration de données à partir de votre réseau virtuel. 
 
 Si vous avez simplement besoin d’une connexion sécurisée entre votre réseau virtuel et votre application web, un point de terminaison de service est la solution la plus simple. Si vous devez également accéder à l’application web à partir d’un emplacement local via une passerelle Azure, un réseau virtuel appairé au niveau régional ou un réseau virtuel appairé à l’échelle mondiale, le point de terminaison privé est la solution qu’il vous faut.  
 
@@ -52,7 +54,7 @@ Du point de vue de la sécurité :
 - L’interface réseau du point de terminaison privé ne peut pas être associée à un groupe de sécurité réseau.
 - Le sous-réseau qui héberge le point de terminaison privé peut être associé à un groupe de sécurité réseau. Toutefois, vous devez désactiver l’application des stratégies réseau pour le point de terminaison privé, comme décrit dans [Désactiver les stratégies réseau pour les points de terminaison privés][disablesecuritype]. Par conséquent, vous ne pouvez pas filtrer par groupe de sécurité réseau l’accès à votre point de terminaison privé.
 - Lorsque vous activez un point de terminaison privé sur votre application web, la configuration des [restrictions d’accès][accessrestrictions] de l’application web n’est pas évaluée.
-- Vous pouvez réduire le risque d’exfiltration de données à partir du réseau virtuel en supprimant toutes les règles de groupe de sécurité réseau dans lesquelles la destination est étiquetée Internet ou services Azure. Toutefois, l’ajout d’un point de terminaison privé Web App dans votre sous-réseau vous permet d’atteindre n’importe quelle application web qui est hébergée dans le même déploiement et qui est exposée à Internet.
+- Vous pouvez éliminer le risque d’exfiltration de données à partir du réseau virtuel en supprimant toutes les règles de groupe de sécurité réseau dans lesquelles la destination est étiquetée Internet ou Services Azure. Lorsque vous déployez un point de terminaison privé pour une application web, vous pouvez uniquement atteindre cette application web spécifique via le point de terminaison privé. Si vous avez une autre application web, vous devez déployer un autre point de terminaison privé dédié pour celle-ci.
 
 Les journaux HTTP web de votre application web contiennent l’adresse IP source du client. Ceci est implémenté à l’aide du protocole de proxy TCP, en transférant la propriété IP du client à l’application web. Pour plus d’informations, consultez [Obtention d’informations de connexion à l’aide du proxy TCP v2][tcpproxy].
 
@@ -63,13 +65,21 @@ Les journaux HTTP web de votre application web contiennent l’adresse IP sourc
 ## <a name="dns"></a>DNS
 
 Cette fonctionnalité étant en préversion, nous ne modifions pas l’entrée DNS pendant la période de préversion. Vous devez gérer vous-même l’entrée DNS sur votre serveur DNS privé ou dans la zone privée d’Azure DNS.
-Si vous devez utiliser un nom DNS personnalisé, vous devez ajouter celui-ci dans votre application web. Pendant la période de préversion, le nom personnalisé doit être validé comme n’importe quel nom personnalisé, à l’aide de la résolution DNS publique. Pour plus d’informations, consultez [Validation DNS personnalisée][dnsvalidation].
+Si vous devez utiliser un nom DNS personnalisé, vous devez ajouter celui-ci dans votre application web. Pendant la période de préversion, le nom personnalisé doit être validé comme n’importe quel nom personnalisé, à l’aide de la résolution DNS publique. Pour plus d’informations, consultez la rubrique relative à la [validation DNS personnalisée][dnsvalidation].
+
+Si vous devez utiliser la console Kudu ou l’API REST Kudu (déploiement avec les agents autohébergés Azure DevOps, par exemple), vous devez créer deux enregistrements dans votre zone privée Azure DNS ou votre serveur DNS personnalisé. 
+- PrivateEndpointIP yourwebappname.azurewebsites.net 
+- PrivateEndpointIP yourwebappname.scm.azurewebsites.net 
 
 ## <a name="pricing"></a>Tarifs
 
 Pour plus d’informations sur les tarifs, consultez [Tarification Liaison privée Azure][pricing].
 
 ## <a name="limitations"></a>Limites
+
+Lorsque vous utilisez Azure Functions dans le cadre d’un plan Elastic Premium avec un point de terminaison privé, pour exploiter ou exécuter la fonction dans le portail web d’Azure, vous devez disposer d’un accès direct au réseau. Sinon, vous recevrez une erreur HTTP 403. En d’autres termes, votre navigateur doit être en mesure d’atteindre le point de terminaison privé pour exécuter la fonction à partir du portail web d’Azure. 
+
+Pendant la préversion, seul l’emplacement de production est exposé derrière le point de terminaison privé, les autres emplacements doivent être atteints par un point de terminaison public.
 
 Nous améliorons régulièrement la fonctionnalité de liaison privée et le point de terminaison privé. Pour obtenir des informations à jour sur les limitations, voir [cet article][pllimitations].
 

@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 012d27b44ecfbdd460adf241742df397880f78c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: abbf5d79da033a696890566d85bd24bb54577d2c
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450349"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715696"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Modèles de conception des flux de modification dans Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Le flux de modification Azure Cosmos DB vous permet de créer des solutions effi
 
 ## <a name="event-computing-and-notifications"></a>Calcul d’événements et notifications
 
-Le flux de modification Azure Cosmos DB peut simplifier les scénarios qui doivent déclencher une notification ou un appel à une API en fonction d’un certain événement. Vous pouvez utiliser la [bibliothèque de processeur de flux de modification](change-feed-processor.md) pour interroger automatiquement votre conteneur afin de connaître les modifications apportées, et appeler une API externe lors de chaque opération d’écriture ou de mise à jour.
+Le flux de modification Azure Cosmos DB peut simplifier les scénarios qui doivent déclencher l’envoi d’une notification ou un appel à une API en fonction d’un certain événement. Vous pouvez utiliser la [bibliothèque de processeur de flux de modification](change-feed-processor.md) pour interroger automatiquement votre conteneur afin de connaître les modifications apportées, et appeler une API externe lors de chaque opération d’écriture ou de mise à jour.
 
 Vous pouvez également déclencher de manière sélective une notification ou envoyer un appel à une API en fonction de critères spécifiques. Par exemple, si vous lisez à partir du flux de modification à l’aide d’[Azure Functions](change-feed-functions.md), vous pouvez placer une logique dans la fonction afin d’envoyer une notification uniquement si un critère spécifique a été satisfait. Le code Azure Functions s’exécutera pendant chaque écriture et mise à jour, mais la notification sera envoyée uniquement si des critères spécifiques ont été satisfaits.
 

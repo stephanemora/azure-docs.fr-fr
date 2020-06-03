@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: a046791b8c50577c1921764b06bac5d88780194d
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: e4a7ae00edd8ff86e27037df1a26828c400f6ccf
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734992"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774235"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Comment utiliser le Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
@@ -748,6 +748,9 @@ Certains déclencheurs intègrent la prise en charge de la gestion de l’accès
 * **FileTrigger**. Définissez `FileProcessor.MaxDegreeOfParallelism` sur `1`.
 
 Vous pouvez utiliser ces paramètres pour vous assurer que votre fonction s’exécute en tant que singleton sur une instance unique. Pour vérifier qu’une seule instance de la fonction s’exécute quand l’application web est étendue à plusieurs instances, appliquez un verrou singleton au niveau de l’écouteur sur la fonction (`[Singleton(Mode = SingletonMode.Listener)]`). Les verrous d’écouteurs sont acquis au démarrage du JobHost. Si trois instances scale-out démarrent en même temps, une seule de ces instances acquiert le verrou et un seul écouteur démarre.
+
+> [!NOTE]
+> Pour en savoir plus sur le fonctionnement de SingletonMode.Function, consultez cet [référentiel GitHub](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonMode.cs).
 
 ### <a name="scope-values"></a>Valeurs d’étendue
 

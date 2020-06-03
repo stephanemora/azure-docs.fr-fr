@@ -1,41 +1,41 @@
 ---
 title: Gérer Suivi des modifications et inventaire dans Azure Automation
-description: Cet article explique comment utiliser Suivi des modifications et inventaire pour effectuer le suivi des modifications apportées aux logiciels et aux services Microsoft dans votre environnement.
+description: Cet article explique comment utiliser le Change Tracking and Inventory pour suivre les modifications apportées aux logiciels et aux services Microsoft dans votre environnement.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8ca1bd7a724d3256bc2e171ce39fd6a06e2e5935
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 4b8bf6a3f583e4c17f61e0a46911990ac5cc827c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779295"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830478"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gérer Change Tracking et Inventory
 
-Quand vous ajoutez un nouveau fichier ou une nouvelle clé de Registre à suivre, Azure Automation l’active pour la fonctionnalité [Suivi des modifications et inventaire](change-tracking.md). Cet article comprend des procédures pour l’utilisation de cette fonctionnalité.
+Azure Automation active la fonctionnalité [Change Tracking and Inventory](change-tracking.md) pour les ordinateurs de votre environnement. La fonctionnalité effectue le suivi et apporte les modifications nécessaires dans les clés de Registre, les fichiers, le contenu et autres. Cet article comprend des procédures pour l’utilisation de cette fonctionnalité.
 
 ## <a name="enable-the-full-change-tracking-and-inventory-feature"></a>Activer la fonctionnalité complète Suivi des modifications et inventaire
 
-Si vous avez activé [Monitoring d’intégrité de fichier dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring), vous pouvez utiliser la fonctionnalité complète Suivi des modifications et inventaire comme décrit ci-dessous. Vos paramètres ne sont pas supprimés par ce processus.
+Si vous avez activé [la supervision d’intégrité de fichier dans Azure Security Center (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring), vous pouvez utiliser la fonctionnalité complète Change Tracking and Inventory comme décrit ci-dessous. Vos paramètres ne sont pas supprimés par ce processus.
 
 > [!NOTE]
 > L’activation de la fonctionnalité complète Suivi des modifications et inventaire peut entraîner des frais supplémentaires. Consultez [Tarification Automation](https://azure.microsoft.com/pricing/details/automation/).
 
 1. Supprimez la solution de supervision en accédant à l’espace de travail et en la recherchant dans la [liste des solutions de supervision installées](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
 2. Cliquez sur le nom de la solution pour ouvrir la page de résumé correspondante, puis cliquez sur **Supprimer**, comme indiqué dans [Supprimer une solution de supervision](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
-3. Pour réactiver Suivi des modifications et inventaire, accédez au compte Automation et sélectionnez **Suivi des modifications** sous **Gestion de la configuration**.
+3. Pour réactiver Change Tracking and Inventory, accédez au compte Automation et sélectionnez **Change Tracking** and **Inventory** sous **Gestion de la configuration**.
 4. Choisissez l’espace de travail Log Analytics et le compte Automation, confirmez les paramètres de votre espace de travail, puis cliquez sur **Activer**.
 
-## <a name="onboard-machines-to-change-tracking-and-inventory"></a><a name="onboard"></a>Intégrer des machines à Suivi des modifications et inventaire
+## <a name="enable-machines-for-change-tracking-and-inventory"></a><a name="onboard"></a>Activer des ordinateurs pour le Change Tracking and Inventory
 
-Pour commencer le suivi des modifications, vous devez activer Suivi des modifications et inventaire dans Azure Automation. Voici les méthodes recommandées et prises en charge pour intégrer vos machines à cette fonctionnalité : 
+Pour commencer le suivi des modifications, vous devez activer Suivi des modifications et inventaire dans Azure Automation. Voici les méthodes recommandées et prises en charge pour activer vos ordinateurs pour cette fonctionnalité : 
 
-* [Intégrer à partir d’une machine virtuelle](automation-onboard-solutions-from-vm.md)
-* [Intégrer à partir de l’exploration de plusieurs machines](automation-onboard-solutions-from-browse.md)
-* [Intégrer à partir de votre compte Automation](automation-onboard-solutions-from-automation-account.md)
-* [Intégrer dans un runbook Azure Automation](automation-onboard-solutions.md)
+* [Activer depuis une machine virtuelle](automation-onboard-solutions-from-vm.md)
+* [Activer à partir de l’exploration de plusieurs machines](automation-onboard-solutions-from-browse.md)
+* [Activer à partir de votre compte Automation](automation-onboard-solutions-from-automation-account.md)
+* [Activer dans un runbook Azure Automation](automation-onboard-solutions.md)
 
 ## <a name="track-files"></a>Suivre des fichiers
 
@@ -178,6 +178,5 @@ Utilisons cet exemple pour aborder les étapes de création d’alertes en cas d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour connaître les principes de base de Suivi des modifications et inventaire, consultez [Vue d’ensemble de Suivi des modifications et inventaire](change-tracking.md).
-* Pour résoudre les problèmes liés aux modifications apportées à une machine virtuelle Azure, consultez [Résoudre les problèmes liés à Suivi des modifications et inventaire](troubleshoot/change-tracking.md).
-* Effectuez des [recherches dans les journaux Azure Monitor](../log-analytics/log-analytics-log-searches.md) pour afficher les données détaillées du suivi des modifications.
+* Si vous avez besoin de rechercher dans les journaux d’activité stockés dans votre espace de travail Log Analytics, consultez [Recherches dans les journaux d’Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+* Pour détecter un problème lié aux modifications apportées à une machine virtuelle Azure, consultez [Résoudre les problèmes liés à Change Tracking and Inventory](troubleshoot/change-tracking.md).

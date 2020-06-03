@@ -11,12 +11,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 18212726f0ab921a05a3b640a32754c62958d047
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 2d67ad70ccdf4ce1f88401806700f38bd1d3c11d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393142"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655887"
 ---
 # <a name="configure-ip-firewall-rules-for-an-azure-event-hubs-namespace"></a>Configuration des règles de pare-feu IP pour un espace de noms Azure Event Hubs
 Par défaut, les espaces de noms Event Hubs sont accessibles sur Internet tant que la demande s’accompagne d’une authentification et d’une autorisation valides. Avec le pare-feu IP, vous pouvez les limiter à un ensemble d’adresses IPv4 ou de plages d’adresses IPv4 dans la notation [CIDR (Classless InterDomain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -55,7 +55,10 @@ Cette section montre comment utiliser le Portail Azure afin de créer des règle
     2. Dans **Plage d’adresses**, entrez une adresse IPv4 ou une plage d’adresses IPv4 spécifique en notation CIDR. 
     3. Spécifiez si vous voulez **Autoriser les services Microsoft approuvés à contourner ce pare-feu**. 
 
-        ![Pare-feu – Option Tous les réseaux sélectionnée](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
+        > [!WARNING]
+        > Si vous choisissez l’option **Réseaux sélectionnés** et que vous ne spécifiez pas d’adresse IP ni de plage d’adresses, le service autorisera le trafic provenant de tous les réseaux. 
+
+        ![Option Pare-feu – Tous les réseaux sélectionnée](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
 3. Sélectionnez **Enregistrer** dans la barre d’outils pour enregistrer les paramètres. Patientez quelques minutes jusqu’à ce que la confirmation s’affiche dans les notifications du portail.
 
 

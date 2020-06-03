@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: f318a500bd4ce256690ff59f68d99af5d7a25d9e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 70ed795032c3d6d46aa57afaf5b5ece94bc74ea9
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869801"
+ms.locfileid: "83995971"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Démarrage rapide : Vérifier l’orthographe avec l’API REST Vérification orthographique Bing et Java
 
@@ -59,9 +59,9 @@ Bien que cette application soit écrite en Java, l’API est un service web REST
 
 1. Créez une fonction appelée `check()` pour créer et envoyer la demande API. Dans cette fonction, ajoutez le code spécifié dans les étapes suivantes. Créez une chaîne pour les paramètres de demande :
 
-   a. Attribuez le code de votre marché au paramètre `mkt` à l’aide de l’opérateur `=`. 
+   1. Attribuez le code de votre marché au paramètre `mkt` à l’aide de l’opérateur `=`. 
 
-   b. Ajoutez le paramètre `mode` avec l’opérateur `&`, puis attribuez le mode de vérification orthographique. 
+   1. Ajoutez le paramètre `mode` avec l’opérateur `&`, puis attribuez le mode de vérification orthographique. 
 
    ```java
    public static void check () throws Exception {

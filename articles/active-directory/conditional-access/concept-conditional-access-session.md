@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e99b9b87f939d614679fdecf24c9d36d99bf2938
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1140b65cf56125b23ef3c616e597aafba989b197
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78671918"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993850"
 ---
 # <a name="conditional-access-session"></a>Accès conditionnel : session
 
@@ -48,7 +48,7 @@ Le contrôle d’application par accès conditionnel permet de superviser et de 
 
 Pour plus d’informations, consultez l’article [Déployer le contrôle d’application par accès conditionnel pour les applications proposées](/cloud-app-security/proxy-deployment-aad).
 
-## <a name="sign-in-frequency-preview"></a>Fréquence de connexion (préversion)
+## <a name="sign-in-frequency"></a>Fréquence de connexion
 
 La fréquence de connexion définit la durée à l’issue de laquelle un utilisateur est invité à se reconnecter lorsqu’il tente d’accéder à une ressource.
 
@@ -66,7 +66,7 @@ Le paramètre de fréquence de connexion fonctionne avec les applications qui on
 
 Pour plus d’informations, consultez l’article [Configurer la gestion de session d’authentification avec l’accès conditionnel](howto-conditional-access-session-lifetime.md#user-sign-in-frequency).
 
-## <a name="persistent-browser-session-preview"></a>Session de navigateur persistante (préversion)
+## <a name="persistent-browser-session"></a>Session de navigateur persistante
 
 Une session de navigateur persistante permet aux utilisateurs de rester connectés après la fermeture et la réouverture de la fenêtre du navigateur.
 

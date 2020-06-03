@@ -1,21 +1,24 @@
 ---
 title: Exécuter des travaux de bout en bout à l’aide de modèles
 description: En utilisant juste des commandes CLI, vous pouvez créer un pool, charger des données d’entrée, créer des travaux et des tâches associées, et télécharger les données de sortie produites.
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 634a0b66379d8c94988d5f974baffe475af94c2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1029d2e156d219c88100a035f2ed4a51afa6ba36
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117350"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83815993"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Utiliser des modèles d’interface de ligne de commande Azure Batch et le transfert de fichiers
 
-Vous pouvez utiliser une extension Azure Batch de l’interface Azure CLI pour exécuter des travaux Batch sans écrire de code.
+Vous pouvez utiliser une extension Batch de l’interface Azure CLI pour exécuter des travaux Batch sans écrire de code.
 
 Créez et utilisez des modèles de fichier JSON avec Azure CLI pour créer des pools, travaux et tâches Batch. Utilisez des commandes d’extension LCI pour charger facilement les fichiers d’entrée des travaux dans le compte de stockage associé au compte Batch, et télécharger les fichiers de sortie de travaux.
+
+> [!NOTE]
+> Les fichiers JSON ne prennent pas en charge les mêmes fonctionnalités que [les modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Ils sont conçus pour être mis en forme comme le corps de la demande REST brute. L’extension CLI ne modifie pas les commandes existantes, mais elle possède une option de modèle similaire qui ajoute une fonctionnalité partielle de modèle Azure Resource Manager. Voir [Extensions CLI d’Azure Batch pour Windows, Mac et Linux](https://github.com/Azure/azure-batch-cli-extensions).
 
 ## <a name="overview"></a>Vue d’ensemble
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4a94b0b84290bbf796e951dfee8b3f35b80036ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89d760e28025f64b8cd8940fc08f06d23c969e12
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183158"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655742"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Base de référence de sécurité Azure pour Azure Database pour PostgreSQL Single Server
 
@@ -816,7 +816,7 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3 : Gérer les configurations de ressources Azure sécurisées
 
-**Aide** : Utilisez les stratégies Azure Policy [refuser] et [déployer s’il n’existe pas] pour appliquer des paramètres sécurisés à vos ressources Azure.
+**Aide** : Utilisez les commandes Azure Policy [refuser] et [déployer s’il n’existe pas] pour appliquer des paramètres sécurisés à vos ressources Azure.
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -906,7 +906,7 @@ Fournir une authentification Key Vault avec une identité managée : https://do
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12 : Gérer les identités de façon sécurisée et automatique
 
-**Aide** : Le serveur Azure Database pour PostgreSQL prend en charge l’authentification Azure Active Directory (en préversion) pour accéder aux bases de données.  Quand vous créez un serveur Azure Database pour PostgreSQL, vous fournissez les informations d’identification pour un utilisateur administrateur. Cet administrateur peut être utilisé pour créer des utilisateurs de base de données supplémentaires.  
+**Aide** : Le serveur Azure Database pour PostgreSQL prend en charge l’authentification Azure Active Directory pour accéder aux bases de données.  Quand vous créez un serveur Azure Database pour PostgreSQL, vous fournissez les informations d’identification pour un utilisateur administrateur. Cet administrateur peut être utilisé pour créer des utilisateurs de base de données supplémentaires.  
 
 Pour les machines virtuelles Azure ou les applications web s’exécutant sur Azure App Service utilisées pour accéder à votre serveur Azure Database pour PostgreSQL, utilisez Managed Service Identity conjointement avec Azure Key Vault pour stocker et récupérer des informations d’identification pour Azure Database pour PostgreSQL. Vérifiez que la suppression réversible est activée dans Key Vault.
 

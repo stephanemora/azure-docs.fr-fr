@@ -1,21 +1,21 @@
 ---
 title: Créer un compte dans le portail Azure
 description: Apprenez à créer un compte Azure Batch dans le portail Azure pour exécuter des charges de travail parallèles à grande échelle dans le cloud
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9349ed74111565f68a088cda95c8defcd79f7e69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6cccef176e3e5ba0f4774a5897f082c4847a4005
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113219"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800251"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Créer un compte Batch avec le portail Azure
 
 Apprenez à créer un compte Azure Batch dans le [portail Azure][azure_portal] et choisissez les propriétés du compte qui correspondent à votre scénario de calcul. Découvrez où se trouvent les propriétés du compte importantes, telles que les clés d’accès et les URL du compte.
 
-Pour plus d’informations sur les comptes et les scénarios Batch, consultez la [présentation des fonctionnalités](batch-api-basics.md).
+Pour plus d’informations sur les comptes et les scénarios Batch, consultez [Workflow et ressources du service Batch](batch-service-workflow-features.md).
 
 ## <a name="create-a-batch-account"></a>Création d’un compte Batch
 
@@ -39,7 +39,7 @@ Pour plus d’informations sur les comptes et les scénarios Batch, consultez la
 
     d. **Emplacement** : Région Azure où créer le compte Batch. Seules les régions prises en charge par votre abonnement et votre groupe de ressources sont affichées.
 
-    e. **Compte de stockage** : Compte de Stockage Azure facultatif à associer à votre compte Batch. Un compte de stockage v2 universel est recommandé pour obtenir des performances optimales. Pour connaître les options de compte de stockage de Batch, consultez la [vue d’ensemble des fonctionnalités d’Azure Batch](batch-api-basics.md#azure-storage-account). Dans le portail, sélectionnez un compte de stockage existant ou créez-en un nouveau.
+    e. **Compte de stockage** : Compte de Stockage Azure facultatif à associer à votre compte Batch. Un compte de stockage v2 universel est recommandé pour obtenir des performances optimales. Pour connaître les options de compte de stockage de Batch, consultez la [vue d’ensemble des fonctionnalités d’Azure Batch](accounts.md#azure-storage-accounts). Dans le portail, sélectionnez un compte de stockage existant ou créez-en un nouveau.
 
       ![Créez un compte de stockage.][storage_account]
 
@@ -52,6 +52,9 @@ Pour plus d’informations sur les comptes et les scénarios Batch, consultez la
 ## <a name="view-batch-account-properties"></a>Afficher les propriétés du compte Batch
 
 Une fois le compte créé, cliquez dessus pour accéder à ses propriétés et paramètres. Vous avez accès à tous les paramètres et propriétés du compte dans le menu de gauche.
+
+> [!NOTE]
+> Le nom du compte Batch correspond à son ID et ne peut pas être modifié. Si vous avez besoin de modifier le nom d’un compte Batch, vous devez supprimer le compte et en créer un nouveau avec le nom souhaité.
 
 ![Page du compte Batch dans le portail Azure][account_blade]
 
@@ -136,7 +139,7 @@ Vous pouvez créer et gérer des comptes Batch à l’aide du portail Azure, mai
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur les concepts et fonctionnalités du service Batch, consultez [Présentation des fonctionnalités du service Batch pour les développeurs](batch-api-basics.md). L’article traite des principales ressources Batch, notamment des pools, des nœuds de calcul, des travaux et des tâches et fournit une vue d’ensemble des fonctionnalités du service pour l’exécution de charges de travail de calcul à grande échelle.
+* En savoir plus sur le [workflow et les ressources principales du service Batch](batch-service-workflow-features.md) telles que les pools, les nœuds, les travaux et les tâches.
 * Découvrez les bases du développement d’une application Batch à l’aide de la [bibliothèque Azure Batch pour .NET](quick-run-dotnet.md) ou [Python](quick-run-python.md). Ces démarrages rapides décrivent la création d’un exemple d’application qui utilise le service Batch pour exécuter une charge de travail sur plusieurs nœuds de calcul, et inclut l’utilisation d’Azure Storage pour la mise en attente et la récupération de fichiers de la charge de travail.
 
 [azure_portal]: https://portal.azure.com

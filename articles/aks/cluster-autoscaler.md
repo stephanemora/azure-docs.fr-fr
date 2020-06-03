@@ -4,12 +4,12 @@ description: Découvrez comment utiliser le programme de mise à l’échelle au
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 3ebbeab82031ddc037c7885e7453e603a8f440a1
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: f40d13b6b9a37f4c5efcc73e52b631bd2eec659a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509242"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683559"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Mise à l’échelle automatique d’un cluster pour répondre aux demandes applicatives d’Azure Kubernetes Service (AKS)
 
@@ -99,7 +99,7 @@ az aks update \
 L’exemple ci-dessus met à jour le programme de mise à l’échelle automatique du cluster sur le pool de nœuds dans *myAKSCluster* en définissant un minimum de *1* et un maximum de *5* nœuds.
 
 > [!NOTE]
-> Vous ne pouvez pas définir un nombre de nœuds minimal supérieur au nombre actuellement défini pour le pool de nœuds. Par exemple, si le nombre minimal est actuellement défini sur *1* pour le cluster, vous ne pouvez pas modifier le nombre minimal pour le définir sur *3*.
+Le programme de mise à l’échelle automatique de cluster prend les décisions de mise à l’échelle en fonction des nombres minimum et maximum définis sur chaque pool de nœuds, mais il ne les applique pas. Par exemple, définir un paramètre min-count sur 5 lorsque le nombre actuel de nœuds est 3 ne met pas immédiatement le pool à l’échelle à 5. Si vous modifiez le nombre minimum sur le pool de nœuds en lui attribuant une valeur supérieure au nombre actuel de nœuds, cette nouvelle limite sera respectée lorsqu’il y aura suffisamment de pods non planifiables qui nécessiteraient deux nouveaux nœuds supplémentaires et déclencheraient un événement du programme de mise à l’échelle automatique. Après cela, la nouvelle limite de nombre minimum sera respectée pour le programme de mise à l’échelle automatique de cluster.
 
 Surveillez les performances de vos applications et services, puis ajustez les nombres de nœuds du programme de mise à l’échelle automatique de cluster pour les faire correspondre aux performances requises.
 

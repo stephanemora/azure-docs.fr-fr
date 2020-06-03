@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: rezas
-ms.openlocfilehash: 7ab3b48d22f116a707f68cbf6284928c7d2557e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b9f6b993b0d0f527d041b4ee055bf51fefa1253
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409494"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848243"
 ---
 # <a name="tls-support-in-iot-hub"></a>Prise en charge du protocole TLS dans IoT Hub
 
@@ -54,7 +54,7 @@ La ressource IoT Hub créée à l’aide de cette configuration refusera les cli
 > [!NOTE]
 > La propriété `minTlsVersion` est en lecture seule et ne peut pas être modifiée une fois votre ressource IoT Hub créée. C’est pourquoi il est essentiel de tester et de valider correctement que *tous* vos appareils et services IoT sont compatibles avec le protocole TLS 1.2 et les [chiffrements recommandés](#recommended-ciphers) au préalable.
 
-### <a name="supported-regions"></a>Régions prises en charge
+## <a name="supported-regions"></a>Régions prises en charge
 
 Les hubs IoT qui requièrent l’utilisation de TLS 1.2 peuvent être créés dans les régions suivantes :
 
@@ -67,7 +67,7 @@ Les hubs IoT qui requièrent l’utilisation de TLS 1.2 peuvent être créés d
 > [!NOTE]
 > Lors des basculements, la propriété `minTlsVersion` de votre IoT Hub reste effective dans la région jumelée géographiquement après le basculement.
 
-### <a name="recommended-ciphers"></a>Chiffrements recommandés
+## <a name="recommended-ciphers"></a>Chiffrements recommandés
 
 Les hubs IoT configurés pour accepter uniquement TLS 1.2 appliquent également l’utilisation des chiffrements recommandés suivants :
 
@@ -76,7 +76,22 @@ Les hubs IoT configurés pour accepter uniquement TLS 1.2 appliquent également
 * `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
 * `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`
 
-### <a name="use-tls-12-in-your-iot-hub-sdks"></a>Utiliser TLS 1.2 dans vos Kits de développement logiciel (SDK) IoT Hub
+Pour les IoT Hub non configurés pour l’application de TLS 1.2, ce dernier fonctionne quand même avec les types de chiffrement suivants :
+
+* `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
+* `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`
+* `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`
+* `TLS_RSA_WITH_AES_256_GCM_SHA384`
+* `TLS_RSA_WITH_AES_128_GCM_SHA256`
+* `TLS_RSA_WITH_AES_256_CBC_SHA256`
+* `TLS_RSA_WITH_AES_128_CBC_SHA256`
+* `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`
+* `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
+* `TLS_RSA_WITH_AES_256_CBC_SHA`
+* `TLS_RSA_WITH_AES_128_CBC_SHA`
+* `TLS_RSA_WITH_3DES_EDE_CBC_SHA`
+
+## <a name="use-tls-12-in-your-iot-hub-sdks"></a>Utiliser TLS 1.2 dans vos Kits de développement logiciel (SDK) IoT Hub
 
 Utilisez les liens ci-dessous pour configurer TLS 1.2 et les chiffrements autorisés dans les Kits de développement logiciel (SDK) clients IoT Hub.
 
@@ -89,6 +104,6 @@ Utilisez les liens ci-dessous pour configurer TLS 1.2 et les chiffrements autor
 | NodeJS   | Version 1.12.2 ou ultérieure            | [Lien](https://aka.ms/Tls_Node_SDK_IoT) |
 
 
-### <a name="use-tls-12-in-your-iot-edge-setup"></a>Utiliser TLS 1.2 dans votre configuration IoT Edge
+## <a name="use-tls-12-in-your-iot-edge-setup"></a>Utiliser TLS 1.2 dans votre configuration IoT Edge
 
 Les appareils IoT Edge peuvent être configurés pour utiliser TLS 1.2 lors des communications avec IoT Hub. À cet effet, consultez la [page de documentation d’IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).

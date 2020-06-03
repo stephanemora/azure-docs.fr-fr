@@ -3,12 +3,12 @@ title: Installer le serveur de sauvegarde Azure sur Azure Stack
 description: Dans cet article, vous allez découvrir comment utiliser un serveur de sauvegarde Azure pour protéger ou sauvegarder les charges de travail dans Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: b78e5a662bdcf23ad38cb33292658d4d2455e579
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a1f48c0987ed0eaea70d887709e52b9a1f1fe1d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77583433"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747448"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installer le serveur de sauvegarde Azure sur Azure Stack
 
@@ -89,9 +89,9 @@ Vous devez associer l’ordinateur virtuel du serveur de sauvegarde Azure à un 
 
 ## <a name="using-an-iaas-vm-in-azure-stack"></a>Utiliser un ordinateur virtuel IaaS dans Azure Stack
 
-Lorsque vous choisissez un serveur et décidez d’en faire un serveur de sauvegarde Azure, mieux vaut commencer par une image de la galerie de Windows Server 2012 R2 Datacenter ou de Windows Server 2016 Datacenter. L’article [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) propose un didacticiel de prise en main avec la machine virtuelle recommandée. La configuration minimale recommandée pour la machine virtuelle serveur doit être A2 Standard avec deux cœurs et 3,5 Go de RAM.
+Lorsque vous choisissez un serveur et décidez d’en faire un serveur de sauvegarde Azure, mieux vaut commencer par une image de la galerie de Windows Server 2012 R2 Datacenter ou de Windows Server 2016 Datacenter. L’article [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) propose un didacticiel de prise en main avec la machine virtuelle recommandée. Configuration minimale recommandée pour la machine virtuelle serveur : A2 Standard avec deux cœurs et 3,5 Go de RAM.
 
-La protection des charges de travail à l’aide d’Azure Backup Server peut prendre plusieurs formes. L’article [Installation de DPM en tant que machine virtuelle Azure](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj852163(v=sc.12)), permet d’expliquer ces différentes formes. Avant de déployer la machine, lisez cet entièrement cet article.
+La protection des charges de travail à l’aide d’Azure Backup Server peut prendre plusieurs formes. La [matrice de protection pour MABS](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix) permet d’expliquer ces nuances. Avant de déployer la machine, lisez cet entièrement cet article.
 
 > [!NOTE]
 > Le serveur de sauvegarde Azure est conçu pour s’exécuter sur une machine virtuelle dédiée et spécialisée. Vous ne pouvez pas installer le serveur de sauvegarde Azure sur :
@@ -243,7 +243,7 @@ Le serveur de sauvegarde Azure et Data Protection Manager partagent des lignes d
 
     ![Microsoft Azure Backup PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    Un emplacement temporaire est requis pour la sauvegarde sur Azure. Vérifiez que l’emplacement temporaire occupe au moins 5 % du volume des données qu’il est prévu de sauvegarder dans le cloud. Pour la protection de disque, des disques séparés doivent être séparés une fois l’installation terminée. Pour plus d’informations sur les pools de stockage, consultez [Configurer des pools de stockage et de stockage sur disque](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)).
+    Un emplacement temporaire est requis pour la sauvegarde sur Azure. Vérifiez que l’emplacement temporaire occupe au moins 5 % du volume des données qu’il est prévu de sauvegarder dans le cloud. Pour la protection de disque, des disques séparés doivent être séparés une fois l’installation terminée. Pour plus d’informations sur les pools de stockage, consultez [Préparer le stockage des données](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
 
 6. Dans l’écran **Paramètres de sécurité**, fournissez un mot de passe fort pour les comptes utilisateur locaux restreints et cliquez sur **Suivant**.
 

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/13/2020
-ms.openlocfilehash: d5edfab0963ec3fca24969d7a54038066ba08765
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/19/2020
+ms.openlocfilehash: 36012801a2d36b75a0683db6f029a4560150ac2b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188393"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683056"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sécurité de l’entreprise pour Azure Machine Learning
 
@@ -105,29 +105,9 @@ Azure Machine Learning crée une application supplémentaire (dont le nom commen
 
 Azure Machine Learning s’appuie sur d’autres services Azure pour les ressources de calcul. Les ressources de calcul (cibles de calcul) sont utilisées pour entraîner et déployer des modèles. Vous pouvez créer ces cibles de calcul dans un réseau virtuel. Par exemple, vous pouvez utiliser Data Science Virtual Machine pour entraîner un modèle, puis le déployer sur AKS.  
 
-Pour plus d’informations, consultez le [Guide pratique pour exécuter des expériences et une inférence dans un réseau virtuel](how-to-enable-virtual-network.md).
+Pour plus d’informations, consultez le [Guide pratique pour exécuter en toute sécurité des expériences et une inférence dans un réseau virtuel isolé](how-to-enable-virtual-network.md).
 
 Vous pouvez également activer le service Liaison privée Azure pour votre espace de travail. Ce service vous permet de restreindre les communications vers votre espace de travail en provenance d’un réseau virtuel Azure. Pour plus d’informations, consultez [Comment configurer le service Liaison privée Azure](how-to-configure-private-link.md).
-
-> [!TIP]
-> Vous pouvez combiner un réseau virtuel et le service Liaison privée pour protéger la communication entre votre espace de travail et d’autres ressources Azure. Toutefois, certaines combinaisons nécessitent un espace de travail Enterprise Edition. Utilisez le tableau suivant pour comprendre les scénarios qui nécessitent Enterprise Edition :
->
-> | Scénario | Entreprise</br>edition | De base</br>edition |
-> | ----- |:-----:|:-----:| 
-> | Ni réseau virtuel ni Liaison privée | ✔ | ✔ |
-> | Espace de travail sans Liaison privée. Autres ressources (sauf Azure Container Registry) dans un réseau virtuel | ✔ | ✔ |
-> | Espace de travail sans Liaison privée. Autres ressources avec Liaison privée | ✔ | |
-> | Espace de travail avec Liaison privée. Autres ressources (sauf Azure Container Registry) dans un réseau virtuel | ✔ | ✔ |
-> | Espace de travail et toute autre ressource avec Liaison privée | ✔ | |
-> | Espace de travail avec Liaison privée. Autres ressources sans Liaison privée ou réseau virtuel | ✔ | ✔ |
-> | Azure Container Registry dans un réseau virtuel | ✔ | |
-> | Clés gérées par le client pour l’espace de travail | ✔ | |
-> 
-
-> [!WARNING]
-> La préversion des instances de calcul Azure Machine Learning n’est pas prise en charge dans un espace de travail où le service Liaison privée est activé.
-> 
-> Azure Machine Learning ne prend pas en charge l’utilisation d’un Azure Kubernetes Service avec une liaison privée activée. Au lieu de cela, vous pouvez utiliser Azure Kubernetes Service dans un réseau virtuel. Pour plus d’informations, consultez [Sécuriser l’expérimentation Azure Machine Learning et les travaux d’inférence au sein d’un réseau virtuel Azure](how-to-enable-virtual-network.md).
 
 ## <a name="data-encryption"></a>Chiffrement des données
 
@@ -165,8 +145,6 @@ Azure Machine Learning stocke les métriques et les métadonnées dans une insta
 Pour utiliser vos propres clés (gérées par le client) afin de chiffrer l’instance d’Azure Cosmos DB, vous pouvez créer une instance de Cosmos DB dédiée à utiliser avec votre espace de travail. Nous vous recommandons cette approche si vous souhaitez stocker vos données, telles que des informations sur l’historique des exécutions, en dehors de l’instance de Cosmos DB mutualisée hébergée dans notre abonnement Microsoft. 
 
 Pour activer l’approvisionnement d’une instance de Cosmos DB dans votre abonnement avec des clés gérées par le client, effectuez les actions suivantes :
-
-* Activez les fonctionnalités clés gérées par le client pour Cosmos DB. À ce stade, vous devez demander l’accès pour utiliser cette fonctionnalité. Pour ce faire, veuillez contacter [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com).
 
 * Inscrivez les fournisseurs de ressources Azure Machine Learning et Azure Cosmos DB dans votre abonnement, si ce n’est pas déjà fait.
 
@@ -265,7 +243,7 @@ Chaque espace de travail est associé à une identité managée attribuée par l
 
 Microsoft peut collecter des informations ne permettant pas d’identifier les utilisateurs telles que des noms de ressource (par exemple le nom du jeu de données ou le nom de l’essai d’apprentissage automatique), ou des variable d'environnement de tâche à des fins de diagnostic. De telles données sont stockées à l’aide des clés gérées par Microsoft dans un stockage hébergé dans des abonnements appartenant à Microsoft, conformément aux [normes de gestion des données et à la politique de confidentialité standard de Microsoft](https://privacy.microsoft.com/privacystatement).
 
-Microsoft recommande également de ne pas stocker d’informations sensibles (comme les secrets de clé de compte) dans les variables d'environnement. Les variable d'environnement sont enregistrées, chiffrées et stockées par nous. De même, lorsque vous nommez [RunId](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py), évitez d’inclure des informations sensibles telles que des noms d’utilisateurs ou des noms de projets secrets. Ces informations peuvent apparaître dans les journaux de télémétrie accessibles aux ingénieurs du Support Microsoft.
+Microsoft recommande également de ne pas stocker d’informations sensibles (comme les secrets de clé de compte) dans les variables d'environnement. Les variable d'environnement sont enregistrées, chiffrées et stockées par nous. De même, lorsque vous nommez [run_id](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py), évitez d’inclure des informations sensibles telles que des noms d’utilisateurs ou des noms de projets secrets. Ces informations peuvent apparaître dans les journaux de télémétrie accessibles aux ingénieurs du Support Microsoft.
 
 Vous pouvez refuser la collecte des données de diagnostic en définissant le paramètre `hbi_workspace` sur `TRUE` pendant la configuration de l’espace de travail. Cette fonctionnalité est prise en charge lorsque le kit de développement logiciel (SDK) AzureML Python, l’interface CLI, les API REST ou les modèles Azure Resource Manager sont utilisés.
 

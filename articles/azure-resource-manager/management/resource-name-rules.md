@@ -2,13 +2,13 @@
 title: Restrictions concernant le nommage des ressources
 description: Affiche les règles et restrictions concernant le nommage des ressources Azure.
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.openlocfilehash: fab1ab2bb779b3826c852e49da7970030d34594d
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.date: 05/21/2020
+ms.openlocfilehash: 553d0e33c4b9bc1aa238cf582f37be1e148eea5e
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086383"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758892"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Règles de nommage et restrictions pour les ressources Azure
 
@@ -346,7 +346,7 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > [!div class="mx-tableFixed"]
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
-> | databaseAccounts | globale | 3-31 | Lettres minuscules, chiffres et traits d’union.<br><br>Doit commencer par une lettre minuscule ou un chiffre. |
+> | databaseAccounts | globale | 3-44 | Lettres minuscules, chiffres et traits d’union.<br><br>Doit commencer par une lettre minuscule ou un chiffre. |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
@@ -696,6 +696,9 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | serverfarms | resource group | 1-40 | Caractères alphanumériques et traits d’union. |
 > | sites | globale | 2-60 | Contient des caractères alphanumériques et des traits d’union.<br><br>Ne peut pas commencer ou se terminer par un trait d’union. |
 > | sites / slots | site | 2-59 | Caractères alphanumériques et traits d’union. |
+
+> [!NOTE]
+> Azure Functions a les mêmes règles d’affectation de noms et restrictions que Microsoft.Web/sites.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 220e73536a892e798139ca54913e09e097c22432
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c08adca17948aceb54b937526dacebbaa13a0530
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191938"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655186"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utiliser le stockage Azure avec des clusters Azure HDInsight
 
@@ -28,9 +28,9 @@ Dans cet article, vous découvrez le fonctionnement du stockage Azure avec des c
 
 | Type de compte de stockage | Services pris en charge | Niveaux de performances pris en charge |Niveaux de performances non pris en charge| Niveaux d’accès pris en charge |
 |----------------------|--------------------|-----------------------------|---|------------------------|
-| StorageV2 (usage général v2)  | Objet blob     | standard                    |Premium| Chaud, froid, archive\*   |
-| Stockage (v1 universel)   | Objet blob     | standard                    |Premium| N/A                    |
-| BlobStorage                    | Objet blob     | standard                    |Premium| Chaud, froid, archive\*   |
+| StorageV2 (usage général v2)  | Objet blob     | Standard                    |Premium| Chaud, froid, archive\*   |
+| Stockage (v1 universel)   | Objet blob     | Standard                    |Premium| N/A                    |
+| BlobStorage                    | Objet blob     | Standard                    |Premium| Chaud, froid, archive\*   |
 
 Nous vous déconseillons d’utiliser le conteneur d’objets blob par défaut pour stocker des données d’entreprise. Nous vous recommandons de supprimer le conteneur d’objets blob par défaut après chaque utilisation pour réduire les coûts de stockage. Le conteneur par défaut contient les journaux des applications et du système. Assurez-vous de récupérer les journaux d’activité avant de supprimer le conteneur.
 
@@ -127,7 +127,7 @@ LOCATION '/example/data/';
 
 Microsoft fournit les outils suivants pour utiliser Stockage Azure :
 
-| Outil | Linux | OS X |  Windows |
+| Outil | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
@@ -158,7 +158,7 @@ Le conteneur d’objets blob par défaut stocke les informations spécifiques de
 
 ## <a name="use-additional-storage-accounts"></a>Utiliser des comptes de stockage supplémentaires
 
-Lorsque vous créez un cluster HDInsight, vous spécifiez le compte de stockage Azure que vous souhaitez lui associer. En outre, vous pouvez ajouter des comptes de stockage supplémentaires à partir du même abonnement Azure ou à partir d’autres abonnements Azure pendant le processus de création. Vous pouvez également le faire après la création d’un cluster. Pour en savoir plus sur l'ajout de comptes de stockage supplémentaires, consultez la rubrique [Création de clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+Lorsque vous créez un cluster HDInsight, vous spécifiez le compte de stockage Azure que vous souhaitez lui associer. Vous pouvez également ajouter d’autres comptes de stockage à partir du même abonnement Azure ou à partir d’autres abonnements Azure pendant le processus de création ou à l’issue de la création d’un cluster. Pour en savoir plus sur l'ajout de comptes de stockage supplémentaires, consultez la rubrique [Création de clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 > [!WARNING]  
 > L’utilisation d’un compte de stockage supplémentaire dans un autre emplacement que le cluster HDInsight n’est pas prise en charge.

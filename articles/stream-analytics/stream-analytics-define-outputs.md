@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/8/2020
-ms.openlocfilehash: d1eda3671b52a1e4bbae9af2d97010657880c383
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c4790585d089ab287260f74001a8aa3f1cb7e5f7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585400"
+ms.locfileid: "83647500"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Comprendre les sorties d’Azure Stream Analytics
 
@@ -80,7 +80,7 @@ Les tâches Azure Stream Analytics peuvent définir une sortie vers une table de
 
 La table de pool SQL doit être présente pour vous permettre de l'ajouter en tant qu'entrée à votre tâche Stream Analytics. Le schéma de table doit correspondre aux champs et aux types dans la sortie de votre travail. 
 
-Pour utiliser Azure Synapse en tant que sortie, assurez-vous que le compte de stockage est configuré. Accédez aux paramètres du compte de stockage pour configurer le compte de stockage. Seuls les types de compte de stockage prenant en charge les tables sont autorisés : Usage général V2 et Usage général V1   
+Pour utiliser Azure Synapse en tant que sortie, assurez-vous que le compte de stockage est configuré. Accédez aux paramètres du compte de stockage pour configurer le compte de stockage. Seuls les types de compte de stockage prenant en charge les tables sont autorisés : Usage général V2 et Usage général V1 Sélectionnez le niveau Standard uniquement. Le niveau Premium n’est pas pris en charge.   
 
 Le tableau suivant répertorie les noms de propriétés et leur description pour la création d’une sortie Azure Synapse Analytics.
 

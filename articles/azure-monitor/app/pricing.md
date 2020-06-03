@@ -4,14 +4,14 @@ description: Gérer les volumes de données de télémétrie et surveiller les c
 ms.topic: conceptual
 author: DaleKoetke
 ms.author: dalek
-ms.date: 11/27/2019
+ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0225484de06ae4e595f1dcbcdd520f4e0e4d53f5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 82ea6a27d5bd75c180928f6a8b5c9742c54ea5a1
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405385"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834422"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gérer l’utilisation et les coûts pour Application Insights
 
@@ -20,7 +20,7 @@ ms.locfileid: "81405385"
 
 Application Insights est conçu pour vous fournir tout ce dont vous avez besoin pour surveiller la disponibilité, les performances et l’utilisation de vos applications web, qu’elles soit hébergées dans Azure ou localement. Application Insights prend en charge les langages et les infrastructures courants, tels que .NET, Java et Node.js, et s’intègre aux processus et outils DevOps tels qu’Azure DevOps, Jira et PagerDuty. Il est important de comprendre ce qui détermine les coûts de surveillance de vos applications. Dans cet article, nous allons examiner les coûts de surveillance des applications et la façon dont vous pouvez les surveiller et les contrôler de manière proactive.
 
-Si vous avez des questions sur les tarifs d’Application Insights, vous pouvez poster une question dans notre [forum](https://social.msdn.microsoft.com/Forums/home?forum=ApplicationInsights&filter=alltypes&sort=lastpostdesc).
+Si vous avez des questions sur le fonctionnement de la tarification d’Application Insights, vous pouvez publier une question dans notre [page Q&A Microsoft](https://docs.microsoft.com/answers/topics/azure-monitor.html).
 
 ## <a name="pricing-model"></a>Modèle de tarification
 
@@ -29,6 +29,10 @@ Les tarifs d’[Azure Application Insights][start] suivent un modèle de **paiem
 Les [tests web à plusieurs étapes](../../azure-monitor/app/availability-multistep.md) donnent lieu à des frais supplémentaires. Il s’agit de tests web qui exécutent une séquence d’actions. Aucun frais supplémentaire n’est facturé pour les *tests Ping* sur une seule page. Les données de télémétrie des tests Ping et des tests à plusieurs étapes sont facturées comme les autres données de télémétrie de votre application.
 
 L’option Application Insights [Activation des alertes sur les dimensions de métrique personnalisées](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) peut également engendrer des coûts supplémentaires, car elle est susceptible d’entraîner la création de métriques pré-agrégation supplémentaires. [Cliquez ici pour en savoir plus](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics) sur les métriques basées sur les journaux et pré-agrégées dans Application Insights et sur les [tarifs](https://azure.microsoft.com/pricing/details/monitor/) des métriques personnalisées Azure Monitor.
+
+### <a name="workspace-based-application-insights"></a>Application Insights basé sur l’espace de travail
+
+Pour les ressources Application Insights qui envoient leurs données à un espace de travail Log Analytics, appelé [ressources Application Insights basées sur l’espace de travail](create-workspace-resource.md), la facturation de l’ingestion et de la conservation des données est effectuée par l’espace de travail où se trouvent les données d’ Application Insights. Cela permet aux clients de tirer parti de toutes les options du [modèle de tarification](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#pricing-model) Log Analytics qui incluent des réservations de capacité en plus du paiement à l’utilisation. Log Analytics dispose également de plus d’options pour la conservation des données, notamment la [rétention par type de données](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#retention-by-data-type). Les types de données Application Insights dans l’espace de travail reçoivent 90 jours de rétention sans frais. L’utilisation des tests Web et l’activation des alertes sur les dimensions métriques personnalisées sont toujours signalées par le biais d’Application Insights. Découvrez comment suivre les coûts d’ingestion et de conservation des données dans Log Analytics à l’aide [des coûts d’utilisation et des coûts estimés](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs), [Azure Cost Management + facturation](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#viewing-log-analytics-usage-on-your-azure-bill) et [les requêtes log Analytics](#data-volume-for-workspace-based-application-insights-resources). 
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>Estimation des coûts de gestion de votre application
 
@@ -62,7 +66,7 @@ E. Définissez la limite quotidienne de volume de données.
 
 Pour étudier votre utilisation d’Application Insights de façon plus approfondie, ouvrez la page **Métriques**, ajoutez la métrique nommée « Volume de point de données », puis sélectionnez l’option *Appliquer la division* pour répartir les données selon le « type de l’élément de télémétrie ».
 
-Les frais liés à Application Insights sont ajoutés à votre facture Azure. Les informations relatives à votre facture Azure s’affichent dans la section **Facturation** du portail Azure ou sur le [portail de facturation Azure](https://account.windowsazure.com/Subscriptions).
+Les frais liés à Application Insights sont ajoutés à votre facture Azure. Les informations relatives à votre facture Azure s’affichent dans la section Azure **Cost Management + Facturation** du portail Azure ou sur le [portail de facturation Azure](https://account.windowsazure.com/Subscriptions).  [Pour plus d’informations sur l’utilisation d’Application Insights, voir ci-dessous](https://docs.microsoft.com/azure/azure-monitor/app/pricing#viewing-application-insights-usage-on-your-azure-bill). 
 
 ![Dans le menu de gauche, sélectionnez Facturation.](./media/pricing/02-billing.png)
 
@@ -75,7 +79,7 @@ Pour en savoir plus sur vos volumes de données, sélectionnez **Métriques** po
 
 ### <a name="queries-to-understand-data-volume-details"></a>Requêtes pour comprendre les détails du volume de données
 
-Il existe deux approches pour examiner les volumes de données dans Application Insights. La première utilise des informations agrégées dans la table `systemEvents` et la deuxième utilise la propriété `_BilledSize`, qui est disponible sur chaque événement ingéré.
+Il existe deux approches pour examiner les volumes de données dans Application Insights. La première utilise des informations agrégées dans la table `systemEvents` et la deuxième utilise la propriété `_BilledSize`, qui est disponible sur chaque événement ingéré. `systemEvents` n’aura pas d’informations sur la taille des données pour [L’application Insights basée sur l’espace de travail](#data-volume-for-workspace-based-application-insights-resources).
 
 #### <a name="using-aggregated-data-volume-information"></a>Utilisation des informations agrégées de volume de données
 
@@ -127,9 +131,50 @@ dependencies
 | render barchart  
 ```
 
+#### <a name="data-volume-for-workspace-based-application-insights-resources"></a>Volume de données pour les ressources d’Application Insights basées sur l’espace de travail
+
+Pour examiner les tendances du volume de données de toutes les ressources [d’Application Insights basées sur l’espace de travail](create-workspace-resource.md) dans un espace de travail pour la semaine passée, accédez à l’espace de travail Log Analytics et exécutez la requête :
+
+```kusto
+union (AppAvailabilityResults),
+      (AppBrowserTimings),
+      (AppDependencies),
+      (AppExceptions),
+      (AppEvents),
+      (AppMetrics),
+      (AppPageViews),
+      (AppPerformanceCounters),
+      (AppRequests),
+      (AppSystemEvents),
+      (AppTraces)
+| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| summarize sum(_BilledSize) by _ResourceId, bin(TimeGenerated, 1d)
+| render areachart
+```
+
+Pour interroger les tendances du volume de données par type pour une ressource Application Insights basée sur un espace de travail spécifique, dans l’espace de travail Log Analytics, utilisez :
+
+```kusto
+union (AppAvailabilityResults),
+      (AppBrowserTimings),
+      (AppDependencies),
+      (AppExceptions),
+      (AppEvents),
+      (AppMetrics),
+      (AppPageViews),
+      (AppPerformanceCounters),
+      (AppRequests),
+      (AppSystemEvents),
+      (AppTraces)
+| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| where _ResourceId contains "<myAppInsightsResourceName>"
+| summarize sum(_BilledSize) by Type, bin(TimeGenerated, 1d)
+| render areachart
+```
+
 ## <a name="viewing-application-insights-usage-on-your-azure-bill"></a>Visualisation de l’utilisation d’Application Insights sur votre facture Azure
 
-Azure fournit de nombreuses fonctionnalités utiles dans le hub [Azure Cost Management + facturation](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json). Par exemple, la fonctionnalité « Analyse des coûts » vous permet de voir vos dépenses en ressources Azure. L’ajout d’un filtre par type de ressource (dans microsoft.insights/components for Application Insights) vous permettra de suivre vos dépenses.
+Azure fournit de nombreuses fonctionnalités utiles dans le hub [Azure Cost Management + facturation](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json). Par exemple, la fonctionnalité « Analyse des coûts » vous permet de voir vos dépenses en ressources Azure. L’ajout d’un filtre par type de ressource (dans microsoft.insights/components for Application Insights) vous permettra de suivre vos dépenses. Ensuite, pour « Regrouper par », sélectionnez « Catégorie du compteur » ou « Compteur ».  Pour les ressources d’Application Insights sur les plans de tarification actuels, la majorité de l’utilisation s’affichera comme Log Analytics pour la Catégorie du compteur puisqu’il existe un seul serveur principal des journaux d’activité pour tous les composants Azure Monitor. 
 
 Vous pouvez mieux comprendre votre utilisation en [téléchargeant votre utilisation à partir du portail Azure](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal).
 Dans la feuille de calcul téléchargée, vous pouvez voir l’utilisation par ressource Azure par jour. Dans cette feuille de calcul Excel, vous pouvez trouver l’utilisation de vos ressources Application Insights en filtrant d’abord la colonne « Catégorie du compteur » pour afficher « Application Insights » et « Log Analytics », puis en ajoutant le filtre « contient microsoft.insights/components » sur la colonne « ID d’instance ».  La plus grande part de l’utilisation d’Application Insights est signalée sur des compteurs avec la catégorie du compteur de Log Analytics, car il existe un seul backend de journaux pour tous les composants Azure Monitor.  Seules les ressources Application Insights sur les niveaux tarifaires hérités et les tests web à plusieurs étapes sont signalées avec une catégorie de compteur d’Application Insights.  L’utilisation est indiquée dans la colonne « Quantité consommée » et l’unité pour chaque entrée est affichée dans la colonne « Unité de mesure ».  Plus de détails sont disponibles pour vous aider à [comprendre votre facture Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
@@ -178,7 +223,7 @@ Pour [modifier la limite quotidienne via Azure Resource Manager](../../azure-mon
 
 ### <a name="create-alerts-for-the-daily-cap"></a>Créer des alertes pour la limite quotidienne
 
-La limite quotidienne Application Insights crée un événement dans le journal d’activité Azure quand les volumes de données ingérées atteignent le niveau d’avertissement ou le plafond quotidien.  Vous pouvez [créer une alerte en fonction de ces événements du journal d’activité](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal). Les noms de signal de ces événements sont :
+La limite quotidienne d’Application Insights crée un événement dans le journal d’activité Azure quand les volumes de données ingérées atteignent le niveau d’avertissement ou le plafond quotidien.  Vous pouvez [créer une alerte en fonction de ces événements du journal d’activité](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal). Les noms de signal de ces événements sont :
 
 * Seuil d’avertissement de la limite quotidienne du composant Application Insights atteint
 
@@ -212,7 +257,7 @@ Pour chaque enregistrement conservé, `itemCount` indique le nombre d’enregist
 
 ## <a name="change-the-data-retention-period"></a>Changer la période de rétention des données
 
-La rétention par défaut pour les ressources Application Insights est de 90 jours. Différentes périodes de rétention peuvent être sélectionnées pour chaque ressource Application Insights. L’ensemble complet de périodes de conservation disponibles est 30, 60, 90, 120, 180, 270, 365, 550 et 730 jours.
+La rétention par défaut pour les ressources Application Insights est de 90 jours. Différentes périodes de rétention peuvent être sélectionnées pour chaque ressource Application Insights. L’ensemble complet de périodes de conservation disponibles est 30, 60, 90, 120, 180, 270, 365, 550 et 730 jours. [En savoir plus](https://azure.microsoft.com/pricing/details/monitor/) sur la tarification pour une conservation des données plus longue. 
 
 Pour changer le délai de conservation, dans votre ressource Application Insights, accédez à la page **Utilisation et coûts estimés**, puis sélectionnez l’option **Conservation des données** :
 

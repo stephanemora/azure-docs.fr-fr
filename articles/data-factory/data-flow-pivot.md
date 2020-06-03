@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
-ms.openlocfilehash: a58444f81f60b48f9c2c76f13257a6a2431158a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a0084c3e8185f615e7ac2a2b8c212f1ebf022c08
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686421"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683302"
 ---
 # <a name="pivot-transformation-in-mapping-data-flow"></a>Transformation de tableau croisé dynamique dans le flux de données de mappage
 
@@ -27,7 +27,7 @@ La transformation de tableau croisé dynamique requiert trois entrées différen
 
 ### <a name="group-by"></a>Regrouper par
 
-![Options de regroupement](media/data-flow/pivot2.png "[Options Regrouper par")
+![Options de regroupement](media/data-flow/pivot2.png "Options de regroupement")
 
 Sélectionnez les colonnes sur lesquelles agréger les colonnes ayant fait l’objet d’un ajout de tableau croisé dynamique. Les données de sortie regroupent en une seule ligne toutes les lignes ayant les mêmes valeurs Regrouper par. L’agrégation effectuée dans la colonne ayant fait l’objet d’un ajout de tableau croisé dynamique est effectuée sur chaque groupe.
 
@@ -63,7 +63,7 @@ Le graphique d’aide ci-dessous montre comment les différents composants de ta
 
 Si aucune valeur n’est spécifiée dans la configuration de la clé de tableau croisé dynamique, les colonnes ayant fait l’objet d’un ajout de tableau croisé dynamique sont générées dynamiquement au moment de l’exécution. Le nombre de colonnes ayant fait l’objet d’un ajout de tableau croisé dynamique est égal au nombre de valeurs de clés de tableau croisé dynamique, multiplié par le nombre de colonnes du tableau croisé dynamique. Comme il peut s’agir d’un nombre variable, l’expérience utilisateur n’affiche pas les métadonnées de colonne dans l’onglet **Inspecter** et il n’y a pas de propagation de colonne. Pour transformer ces colonnes, utilisez les fonctionnalités du [modèle de colonne](concepts-data-flow-column-pattern.md) du flux de données de mappage. 
 
-Si des valeurs de clés de tableau croisé dynamique spécifiques sont définies, les colonnes ayant fait l’objet d’un ajout de tableau croisé dynamique s’affichent dans les métadonnées. Les noms de colonnes sont disponibles dans le mappage Inspecter et Récepteur.
+Si des valeurs spécifiques de clés de tableau croisé dynamique sont définies, les colonnes ayant fait l’objet d’un ajout de tableau croisé dynamique s’affichent dans les métadonnées. Les noms de colonnes sont disponibles dans le mappage Inspecter et Récepteur.
 
 ### <a name="generate-metadata-from-drifted-columns"></a>Générer des métadonnées à partir de colonnes dérivées
 
@@ -92,7 +92,7 @@ La transformation de tableau croisé dynamique projette uniquement les colonnes 
         lateral: { 'true' | 'false'}
     ) ~> <pivotTransformationName
 ```
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 Les écrans affichés dans la section de configuration comportent le script de transmission de données suivant :
 

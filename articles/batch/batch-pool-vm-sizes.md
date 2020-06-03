@@ -1,16 +1,15 @@
 ---
 title: Choisir des tailles de machines virtuelles pour les pools
 description: Quelle taille de machine virtuelle choisir parmi celles disponibles pour les nœuds de calcul dans des pools Azure Batch
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/12/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: d33b97790d2ce9a276a552fd02fe28c796234b15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2e0d403f405d58c0d7488ac6d0c306be2f2d79ea
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115854"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779148"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Choisir une taille de machine virtuelle pour des nœuds de calcul dans un pool Azure Batch
 
@@ -87,5 +86,5 @@ Les pools Batch dans la configuration de service cloud prennent en charge toutes
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une présentation détaillée de Batch, consultez [Développer des solutions de calcul parallèles à grande échelle avec Batch](batch-api-basics.md).
+* Apprenez-en davantage sur le [workflow et les ressources principales du service Batch](batch-service-workflow-features.md) telles que les pools, les nœuds, les travaux et les tâches.
 * Pour plus d’informations sur l’utilisation de tailles de machine virtuelle nécessitant beaucoup de ressources système, consultez [Utiliser des instances compatibles RDMA ou GPU dans les pools Batch](batch-pool-compute-intensive-sizes.md).

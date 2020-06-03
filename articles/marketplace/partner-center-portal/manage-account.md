@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 54b45825f2322dc127d5db818b7abe52e4a98967
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 76eb0638d2b67e7859b25cdda8a6f4cbda285920
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208395"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800219"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gérer votre compte Place de marché commerciale dans l’Espace partenaires
 
@@ -64,7 +64,7 @@ Dans la section Informations de contact, vous pouvez voir le **nom d’affichage
 
 #### <a name="payout-account"></a>Compte de paiement
 
-Un compte de paiement est le compte bancaire auquel les recettes sont envoyées en fonction de vos ventes. Ce compte doit se trouver dans le même pays que celui dans lequel vous avez enregistré votre compte Espace partenaires.
+Un compte de paiement est le compte bancaire auquel les recettes sont envoyées en fonction de vos ventes. Ce compte bancaire doit se trouver dans le même pays/la même région que celui/celle où vous avez enregistré votre compte Espace partenaires.
 
 Pour configurer votre compte de paiement :
 
@@ -80,21 +80,21 @@ Pour configurer votre compte de paiement :
 
 Examinez l’état actuel de votre profil de taxe, et confirmez si le **type d’entité** et les **informations du certificat de taxe** qui s’affichent sont corrects. Sélectionnez **Modifier** pour mettre à jour ou complétez les formulaires requis.
 
-Afin d’établir votre statut fiscal, vous devez spécifier votre pays de résidence et votre nationalité, et compléter les formulaires fiscaux appropriés associés à votre pays/région.
+Afin d’établir votre statut fiscal, vous devez spécifier votre pays/région de résidence et votre nationalité et remplir les formulaires fiscaux appropriés associés à votre pays/région.
 
-Quel que soit votre pays de résidence ou votre nationalité, vous devez remplir les formulaires fiscaux américains pour vendre des offres via Microsoft. Les partenaires qui répondent à certaines exigences en matière de résidence aux États-Unis doivent remplir un formulaire IRS W-9. Les autres partenaires en dehors des États-Unis doivent remplir un formulaire IRS W-8. Vous pouvez remplir ces formulaires en ligne lorsque vous complétez votre profil fiscal.
+Quel que soit votre pays/région de résidence ou votre nationalité, vous devez remplir les formulaires fiscaux américains pour vendre des offres via Microsoft. Les partenaires qui répondent à certaines exigences en matière de résidence aux États-Unis doivent remplir un formulaire IRS W-9. Les autres partenaires en dehors des États-Unis doivent remplir un formulaire IRS W-8. Vous pouvez remplir ces formulaires en ligne lorsque vous complétez votre profil fiscal.
 
 Aucun numéro individuel de contribuable (ITIN) n’est nécessaire pour recevoir des paiements de la part de Microsoft ou pour bénéficier des avantages découlant des conventions fiscales.
 
 Vous pouvez compléter et soumettre vos formulaires fiscaux par voie électronique dans l’Espace partenaires. En général, vous n’avez pas besoin d’imprimer ou d’envoyer de formulaires par courrier.
 
-Les différents pays et régions ont des exigences fiscales différentes. La quantité exacte d’impôts que vous devez payer varie selon les pays et les régions dans lesquels vous vendez vos offres. Microsoft vous verse les recettes des ventes et les taxes d’utilisation en votre nom dans certains pays. Ces pays seront listés durant le processus d’intégration de votre offre. Dans d’autres pays, en fonction de l’endroit où vous êtes inscrit, vous devrez peut-être directement reverser les ventes et les taxes d’utilisation de vos ventes à l’autorité fiscale locale. En outre, les recettes de vente que vous recevez peuvent être considérées comme du revenu imposable. Nous vous encourageons vivement à contacter l’autorité compétente de votre pays ou région qui vous aidera à déterminer les informations fiscales appropriées pour les transactions commerciales de Microsoft.
+Les différents pays et régions ont des exigences fiscales différentes. La quantité exacte d’impôts que vous devez payer varie selon les pays et les régions dans lesquels vous vendez vos offres. Microsoft vous verse les recettes des ventes et les taxes d’utilisation en votre nom dans certains pays ou certaines régions. Ces pays/régions seront listés durant le processus de référencement de votre offre. Dans d’autres pays/régions, en fonction de l’endroit où vous êtes inscrit, vous devrez peut-être directement reverser les ventes et les taxes d’utilisation de vos ventes à l’autorité fiscale locale. En outre, les recettes de vente que vous recevez peuvent être considérées comme du revenu imposable. Nous vous encourageons vivement à contacter l’autorité compétente de votre pays ou région qui vous aidera à déterminer les informations fiscales appropriées pour les transactions commerciales de Microsoft.
 
 ##### <a name="withholding-rates"></a>Taux de retenue d’impôt
-Les informations que vous envoyez dans vos formulaires fiscaux déterminent le taux de retenue d’impôt approprié. Le taux de retenue d’impôt s’applique uniquement aux ventes que vous réalisez aux États-Unis. Les ventes réalisées dans des régions en dehors des États-Unis ne sont pas soumises à la retenue d’impôt. Le taux de retenue d’impôt peut varier, mais pour la plupart des développeurs inscrits en dehors des États-Unis, le taux par défaut est de 30 %. Vous pouvez réduire ce taux si votre pays a signé une convention fiscale avec les États-Unis.
+Les informations que vous envoyez dans vos formulaires fiscaux déterminent le taux de retenue d’impôt approprié. Le taux de retenue d’impôt s’applique uniquement aux ventes que vous réalisez aux États-Unis. Les ventes réalisées dans des régions en dehors des États-Unis ne sont pas soumises à la retenue d’impôt. Le taux de retenue d’impôt peut varier, mais pour la plupart des développeurs inscrits en dehors des États-Unis, le taux par défaut est de 30 %. Vous pouvez réduire ce taux si votre pays/région a signé une convention fiscale avec les États-Unis.
 
 ##### <a name="tax-treaty-benefits"></a>Avantages issus des conventions fiscales
-Si vous êtes situé en dehors des États-Unis, vous pourrez peut-être tirer parti des avantages liés aux conventions fiscales. Ces avantages varient d’un pays à l’autre et peuvent vous aider à réduire le taux d’imposition retenu par Microsoft. Vous pouvez demander des avantages issus des conventions fiscales en complétant la partie II du formulaire W-8BEN. Nous vous conseillons de communiquer avec les ressources appropriées dans votre pays ou région pour déterminer si ces avantages peuvent s’appliquer à vous.
+Si vous êtes situé en dehors des États-Unis, vous pourrez peut-être tirer parti des avantages liés aux conventions fiscales. Ces avantages varient d’un pays/d’une région à l’autre et peuvent vous aider à réduire le taux d’imposition retenu par Microsoft. Vous pouvez demander des avantages issus des conventions fiscales en complétant la partie II du formulaire W-8BEN. Nous vous conseillons de communiquer avec les ressources appropriées dans votre pays ou région pour déterminer si ces avantages peuvent s’appliquer à vous.
 
 [En savoir plus sur les informations fiscales pour les développeurs d’applications/jeux Windows et les éditeurs de la Place de marché Azure](https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps).
 
@@ -117,7 +117,7 @@ Les paramètres de gestion des périphériques s’appliquent uniquement aux pub
 
 Les identificateurs globaux uniques (GUID) sont des nombres de référence uniques (avec 32 chiffres hexadécimaux) qui peuvent être utilisés pour surveiller votre utilisation d’Azure. 
 
-Pour créer un GUID et effectuer son suivi, vous devez utiliser un générateur GUID. L’équipe de stockage Azure a créé un [formulaire générateur de GUID](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUMVRVVFFLTDFLS0E2QzNYSkFZR1U3WVJCTSQlQCN0PWcu) qui vous enverra par e-mail un GUID au format approprié et pourra être réutilisé dans les différents systèmes de suivi.
+Pour créer un GUID et effectuer son suivi, vous devez utiliser un générateur GUID. L’équipe de stockage Azure a créé un [formulaire générateur de GUID](https://aka.ms/StoragePartners) qui vous enverra par e-mail un GUID au format approprié et pourra être réutilisé dans les différents systèmes de suivi.
 
 Nous vous recommandons de créer un GUID unique pour chaque offre et canal de distribution de chaque produit. Si vous ne souhaitez pas que les rapports soient scindés, vous pouvez choisir d'utiliser un GUID unique pour les différents canaux de distribution du produit.
 
@@ -134,7 +134,7 @@ Pour plus d’informations, consultez le [FAQ Suivi de l’utilisation d’Azure
 
 Si vous publiez une offre [Dynamics 365 for Customer Engagement & Power Apps](./create-new-customer-engagement-offer.md) ou [Dynamics 365 for Operations](./create-new-operations-offer.md), vous devez compléter votre **profil de facturation**.
 
-L’adresse de facturation est préremplie avec votre entité légale et vous pouvez la mettre à jour ultérieurement. Les champs Taxe et N° de T.V.A. sont facultatifs.  Le nom du pays et le nom de la société ne peuvent pas être modifiés.
+L’adresse de facturation est préremplie avec votre entité légale et vous pouvez la mettre à jour ultérieurement. Les champs Taxe et N° de T.V.A. sont facultatifs.  Le nom du pays/de la région et le nom de la société ne peuvent pas être modifiés.
 
 ## <a name="multi-user-account-management"></a>Gestion des comptes multi-utilisateurs
 

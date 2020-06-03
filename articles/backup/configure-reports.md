@@ -3,12 +3,12 @@ title: Configurer les rapports de la Sauvegarde Azure
 description: Configurez et affichez les rapports de la Sauvegarde Azure à l’aide de Log Analytics et des classeurs Azure.
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: c1af9a532b390b428e74957c455988dfd4df3967
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0c7418d7141a3b12f367f1b12ee740eaac64703
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82184943"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797526"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 
@@ -18,15 +18,16 @@ Les administrateurs de sauvegarde ont souvent besoin d’insights sur les sauveg
 - audit des sauvegardes et restaurations ;
 - identification des tendances clés à différents niveaux de granularité.
 
-Aujourd’hui, la Sauvegarde Azure fournit une solution de reporting qui utilise les [journaux Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) et les [classeurs Azure](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks). Ces ressources vous permettent d’obtenir de riches insights sur vos sauvegardes dans l’ensemble de votre espace de sauvegarde. Cet article explique comment configurer et afficher des rapports Sauvegarde Azure.
+Aujourd’hui, la Sauvegarde Azure fournit une solution de reporting qui utilise les [journaux Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) et les [classeurs Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). Ces ressources vous permettent d’obtenir de riches insights sur vos sauvegardes dans l’ensemble de votre espace de sauvegarde. Cet article explique comment configurer et afficher des rapports Sauvegarde Azure.
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
-- Les rapports de sauvegarde sont pris en charge pour les machines virtuelles Azure, SQL dans les machines virtuelles Azure, SAP HANA/ASE dans les machines virtuelles Azure, l’agent Microsoft Azure Recovery Services (MARS), le serveur de sauvegarde Microsoft Azure (MABS) et System Center Data Protection Manager (DPM). Les données pour la sauvegarde du partage de fichiers Azure ne sont actuellement pas visibles dans les Rapports de sauvegarde.
+- Les rapports de sauvegarde sont pris en charge pour les machines virtuelles Azure, SQL dans les machines virtuelles Azure, SAP HANA dans les machines virtuelles Azure, l’agent Microsoft Azure Recovery Services (MARS), le serveur de sauvegarde Microsoft Azure (MABS) et System Center Data Protection Manager (DPM). Les données pour la sauvegarde du partage de fichiers Azure ne sont actuellement pas visibles dans les Rapports de sauvegarde.
 - Concernant les charges de travail DPM, les rapports de sauvegarde sont pris en charge pour la version 5.1.363.0 et les versions ultérieures de DPM et la version 2.0.9127.0 et les versions ultérieures de l’agent.
 - Concernant les charges de travail MABS, les rapports de sauvegarde sont pris en charge pour la version 13.0.415.0 et les versions ultérieures de MABS ainsi que pour la version 2.0.9170.0 et les versions ultérieures de l’agent.
 - Les rapports de sauvegarde peuvent être affichés sur l’ensemble des éléments de sauvegarde, des coffres, des abonnements et des régions, à condition que leurs données soient envoyées à un espace de travail Log Analytics auquel l’utilisateur a accès. Pour visualiser les rapports d’un ensemble de coffres, il suffit d’un accès lecteur à l’espace de travail Log Analytics auquel les coffres envoient leurs données. Il n’est pas nécessaire d’avoir accès aux différents coffres.
 - Si vous utilisez [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) avec un accès délégué aux abonnements de vos clients, vous pouvez utiliser ces rapports avec Azure Lighthouse afin de les consulter pour tous vos locataires.
+- Actuellement, les données peuvent être affichées dans Rapports de sauvegarde sur un maximum de 100 espaces de travail Log Analytics (sur tous les locataires).
 - Les données des travaux de sauvegarde de fichier journal ne sont pas affichées dans les rapports.
 
 ## <a name="get-started"></a>Bien démarrer
@@ -81,6 +82,9 @@ Le rapport contient différents onglets :
 
    ![Onglet Utilisation](./media/backup-azure-configure-backup-reports/usage.png)
 
+> [!NOTE]
+> Pour les charges de travail DPM, les utilisateurs peuvent voir une légère différence (de l’ordre de 20 Mo par serveur DPM) entre les valeurs d’utilisation présentées dans les rapports par rapport à la valeur d’utilisation de l’agrégat, comme indiqué dans l’onglet de présentation du coffre Recovery Services. Cette différence s’explique par le fait que chaque serveur DPM inscrit pour la sauvegarde a une source de données « métadonnées » associée qui n’est pas exposée en tant qu’artefact pour la création de rapports.
+
 - **Travaux** : cet onglet indique les tendances durables sur les travaux, par exemple le nombre de travaux ayant échoué par jour et les principales causes d’échec des travaux. Vous pouvez voir ces informations à la fois au niveau agrégé et au niveau d’un élément de sauvegarde. Sélectionnez un élément de sauvegarde en particulier dans une grille pour afficher des informations détaillées sur chacun des travaux qui se sont déclenchés sur cet élément dans l’intervalle de temps sélectionné.
 
    ![Onglet Travaux](./media/backup-azure-configure-backup-reports/jobs.png)
@@ -127,7 +131,7 @@ Les widgets du rapport de sauvegarde reposent sur des requêtes Kusto, qui s’e
 
 - L’ancienne application modèle Power BI pour la création de rapports, dont les données provenaient d’un compte de stockage Azure, est en voie de dépréciation. Nous vous recommandons de commencer à envoyer les données de diagnostic des coffres à Log Analytics pour afficher des rapports.
 
-- * En outre, le [schéma v1](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#v1-schema-vs-v2-schema) d’envoi de données de diagnostic à un compte de stockage ou à un espace de travail LA est également en voie de désapprobation. Cela signifie que si vous avez écrit des automatisations ou des requêtes personnalisées basées sur le schéma v1, nous vous recommandons de les mettre à jour afin qu’elles utilisent le schéma v2 pris en charge.
+- En outre, le [schéma v1](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#v1-schema-vs-v2-schema) d’envoi de données de diagnostic à un compte de stockage ou à un espace de travail LA est également en voie de désapprobation. Cela signifie que si vous avez écrit des automatisations ou des requêtes personnalisées basées sur le schéma v1, nous vous recommandons de les mettre à jour afin qu’elles utilisent le schéma v2 pris en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

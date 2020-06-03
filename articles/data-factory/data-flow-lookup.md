@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/23/2020
-ms.openlocfilehash: 672fecc7487a73909efa5b4247f4889bb47b7b7e
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.date: 05/15/2020
+ms.openlocfilehash: 59c7a34e975a53226b032827feae436202c8fa30
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594319"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683327"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformation de recherche dans le flux de données de mappage
 
@@ -40,6 +40,12 @@ Une transformation de recherche est similaire à une jointure externe gauche. To
 La transformation de recherche prend uniquement en charge les correspondances d’égalité. Pour personnaliser l’expression de recherche afin d’inclure d’autres opérateurs tels que supérieur à, il est recommandé d’utiliser une [jointure croisée dans la transformation de jointure](data-flow-join.md#custom-cross-join). Avec une jointure croisée, vous éviterez ainsi les erreurs de produit cartésien lors de l’exécution.
 
 Toutes les colonnes des deux flux sont incluses dans les données de sortie. Pour supprimer les colonnes en double ou indésirables, ajoutez une [transformation de sélection](data-flow-select.md) après votre transformation de recherche. Les colonnes peuvent également être supprimées ou renommées dans une transformation de récepteur.
+
+### <a name="non-equi-joins"></a>Jointures différentes
+
+Pour utiliser un opérateur conditionnel tel que « différent de » (!=) ou « supérieur à » (>) dans vos conditions de recherche, modifiez la liste déroulante des opérateurs entre les deux colonnes. Des jointures différentes nécessitent qu’au moins l’un des deux flux soit diffusés en utilisant la diffusion **fixe** dans l’onglet **Optimiser**.
+
+![Non-equi lookup](media/data-flow/non-equi-lookup.png "Recherche de différence")
 
 ## <a name="analyzing-matched-rows"></a>Analyse des lignes correspondantes
 
@@ -75,7 +81,7 @@ Il n’est pas recommandé de désactiver la diffusion à l’aide de l’option
         broadcast: { 'auto' | 'left' | 'right' | 'both' | 'off' }
     ) ~> <lookupTransformationName>
 ```
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 ![Transformation de recherche](media/data-flow/lookup-dsl-example.png "Recherche")
 

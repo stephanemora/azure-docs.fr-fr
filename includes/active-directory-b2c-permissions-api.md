@@ -5,21 +5,13 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: mimart
-ms.openlocfilehash: ee63c1c0913baf3700d77e6fba1582fe7027ead7
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: e37419b5d568b0f60e4c6a0c8fed26eb418f501e
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80875669"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84297482"
 ---
-#### <a name="applications"></a>[Applications](#tab/applications/)
-
-1. Sélectionnez **Applications**, puis sélectionnez l’application web qui doit avoir accès à l’API. Par exemple, *webapp1*.
-1. Sélectionnez **Accès aux API**, puis **Ajouter**.
-1. Dans la liste déroulante **Sélectionner une API**, sélectionnez l’API à laquelle l’application web doit être autorisée à accéder. Par exemple, *webapi1*.
-1. Dans la liste déroulante **Sélectionner des étendues**, sélectionnez les étendues que vous avez définies précédemment. Par exemple, *demo.read* et *demo.write*.
-1. Sélectionnez **OK**.
-
 #### <a name="app-registrations-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
 
 1. Sélectionnez **Inscriptions d’applications (préversion)** , puis sélectionnez l’application web qui doit avoir accès à l’API. Par exemple, *webapp1*.
@@ -33,3 +25,11 @@ ms.locfileid: "80875669"
 1. Si vous êtes invité à sélectionner un compte, sélectionnez le compte administrateur actuellement connecté ou connectez-vous avec un compte de votre locataire Azure AD B2C ayant au minimum le rôle *Administrateur d’application cloud*.
 1. Sélectionnez **Oui**.
 1. Sélectionnez **Actualiser**, puis vérifiez que la mention « Accordé pour ... » apparaît dans **État** pour les deux étendues.
+
+#### <a name="applications"></a>[Applications](#tab/applications/)
+
+1. Sélectionnez **Applications**, puis sélectionnez l’application web qui doit avoir accès à l’API. Par exemple, *webapp1*.
+1. Sélectionnez **Accès aux API**, puis **Ajouter**.
+1. Dans la liste déroulante **Sélectionner une API**, sélectionnez l’API à laquelle l’application web doit être autorisée à accéder. Par exemple, *webapi1*.
+1. Dans la liste déroulante **Sélectionner des étendues**, sélectionnez les étendues que vous avez définies précédemment. Par exemple, *demo.read* et *demo.write*.
+1. Sélectionnez **OK**.

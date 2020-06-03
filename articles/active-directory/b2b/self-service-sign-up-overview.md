@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e0325b43b6726f04d5994b60404f218ac58122d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 98456f26fbc7ca3955883eb283b54084bd86d503
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594828"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737756"
 ---
 # <a name="self-service-sign-up-preview"></a>Inscription en libre-service (préversion)
 |     |
@@ -24,17 +24,20 @@ ms.locfileid: "83594828"
 | L’inscription en libre-service est une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-Lorsque vous partagez des applications avec des utilisateurs externes, vous ne savez pas toujours à l’avance qui aura besoin d’y accéder. Au lieu d’envoyer des invitations directement à des personnes, vous pouvez autoriser les utilisateurs externes à s’inscrire pour accéder à des applications spécifiques en activant l’inscription en libre-service. Vous pouvez créez une expérience d’inscription sur mesure en personnalisant le flux utilisateur d’inscription en libre-service. Par exemple, vous pouvez fournir des options pour Azure AD ou des fournisseurs d’identité sociale, et collecter des informations sur l’utilisateur.
+Lorsque vous partagez une application avec des utilisateurs externes, vous ne savez pas toujours à l’avance qui aura besoin d’y accéder. Au lieu d’envoyer des invitations directement à des personnes, vous pouvez autoriser les utilisateurs externes à s’inscrire pour accéder à des applications spécifiques en activant l’inscription en libre-service. Vous pouvez créez une expérience d’inscription sur mesure en personnalisant le flux utilisateur d’inscription en libre-service. Par exemple, vous pouvez fournir des options d’inscription auprès d’Azure AD ou de fournisseurs d’identité sociale, et collecter des informations sur l’utilisateur durant l’inscription.
+
+> [!NOTE]
+> Vous pouvez associer des flux d’utilisateurs à des applications générées par votre organisation. Les flux d’utilisateurs ne peuvent pas être utilisés pour les applications Microsoft telles que SharePoint ou Teams.
 
 ## <a name="user-flow-for-self-service-sign-up"></a>Flux utilisateur pour l’inscription en libre-service
 
-Un flux utilisateur d’inscription en libre-service crée une expérience d’inscription pour vos utilisateurs externes par le biais de l’application que vous souhaitez partager. Le flux utilisateur peut être associé à une ou plusieurs de vos applications. Tout d’abord, vous allez activer l’inscription en libre-service pour votre locataire et fédérer avec tous les fournisseurs d’identité que vous souhaitez autoriser les utilisateurs externes à utiliser pour la connexion. Ensuite, vous allez créer et personnaliser le flux utilisateur d’inscription et lui affecter vos applications.
+Un flux utilisateur d’inscription en libre-service crée une expérience d’inscription pour vos utilisateurs externes par le biais de l’application que vous souhaitez partager. Le flux utilisateur peut être associé à une ou plusieurs de vos applications. Tout d’abord, vous allez activer l’inscription en libre-service pour votre locataire, et fédérer avec les fournisseurs d’identité que les utilisateurs externes seront autorisés à utiliser pour la connexion. Ensuite, vous allez créer et personnaliser le flux utilisateur d’inscription et lui affecter vos applications.
 Vous pouvez configurer des paramètres de flux utilisateur pour contrôler la façon dont l’utilisateur s’inscrit pour accéder à l’application :
 
 - Types de compte utilisés pour la connexion, comme des comptes de réseaux sociaux de type Facebook ou des comptes Azure AD
-- Attributs à collecter auprès de l’utilisateur, tels que le prénom, le code postal ou le pays de résidence
+- Attributs à collecter lors de l’inscription de l’utilisateur, tels que le prénom, le code postal ou le pays/la région de résidence
 
-Quand un utilisateur veut se connecter à votre application, qu’il s’agisse d’une application web, mobile, de bureau ou monopage (SPA), cette application envoie une demande d’autorisation au point de terminaison fourni par un flux utilisateur. Le flux utilisateur définit et contrôle l’expérience de l’utilisateur. Quand un flux utilisateur d’inscription se termine, Azure AD génère un jeton, puis redirige l’utilisateur vers votre application. Plusieurs applications peuvent utiliser les mêmes flux utilisateur.
+Quand un utilisateur veut se connecter à votre application, qu’il s’agisse d’une application web, mobile, de bureau ou monopage (SPA), cette application envoie une demande d’autorisation au point de terminaison fourni par un flux utilisateur. Le flux utilisateur définit et contrôle l’expérience de l’utilisateur. Quand l’utilisateur termine le flux d’inscription, Azure AD génère un jeton, puis redirige l’utilisateur vers votre application. Une fois l’inscription terminée, un compte invité est approvisionné pour l’utilisateur dans le répertoire. Plusieurs applications peuvent utiliser les mêmes flux utilisateur.
 
 ## <a name="example-of-self-service-sign-up"></a>Exemple d’inscription en libre-service
 
@@ -47,7 +50,7 @@ Il utilise l’e-mail de son choix pour s’inscrire.
 
 ![Exemple illustrant la sélection de Facebook pour la connexion](media/self-service-sign-up-overview/example-sign-in-with-facebook.png)
 
-Azure AD crée une relation avec Woodgrove en utilisant le compte Facebook du partenaire, et crée un compte.
+Azure AD crée une relation avec Woodgrove en utilisant le compte Facebook du partenaire, et crée un compte invité pour l’utilisateur une fois celui-ci inscrit.
 
 Woodgrove souhaite en savoir plus sur l’utilisateur, par exemple, son nom, son nom d’entreprise, son numéro d’immatriculation d’entreprise et son numéro de téléphone.
 

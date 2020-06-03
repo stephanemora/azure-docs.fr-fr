@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 779bb88d15ea6c52f4399f17223b89916e22653d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2b901c0d77b5bd550e7e98434cf1cba2a61e6bdb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231941"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656487"
 ---
 # <a name="azure-serial-console"></a>Console série Azure
 
@@ -28,7 +28,7 @@ La console série du portail Azure permet aux machines virtuelles et aux instanc
 La console série fonctionne de la même manière pour les machines virtuelles et les instances de groupe de machines virtuelles identiques. Dans ce document, toutes les mentions aux machines virtuelles incluent implicitement les instances de groupe de machines virtuelles identiques, sauf indication contraire.
 
 > [!NOTE]
-> La console série est généralement disponible dans les régions Azure mondiales et en préversion publique dans Azure Government. Elle n’est pas encore disponible dans le cloud Azure Chine.
+> La console série est en disponibilité générale dans les régions Azure mondiales et en préversion publique dans Azure Government. Elle n’est pas encore disponible dans le cloud Azure Chine.
 
 ## <a name="prerequisites-to-access-the-azure-serial-console"></a>Prérequis pour l’accès à la console série Azure
 Pour accéder à la console série sur votre machine virtuelle ou instance de groupe de machines virtuelles identiques, vous devez disposer des éléments suivants :
@@ -66,6 +66,10 @@ La console série est disponible pour les groupes de machines virtuelles identiq
   1. Dans la section **Support + dépannage**, sélectionnez **Console série**. Un nouveau volet s’ouvre avec la console série, puis démarre la connexion.
 
      ![Console série de groupe de machines virtuelles identiques Linux](./media/virtual-machines-serial-console/vmss-start-console.gif)
+
+
+### <a name="tls-12-in-serial-console"></a>TLS 1.2 dans la console série
+La console série utilise le protocole TLS 1.2 de bout en bout pour sécuriser toutes les communications au sein du service. La console série dépend d’un compte de stockage des diagnostics de démarrage géré par l’utilisateur, et le protocole TLS 1.2 doit être configuré séparément pour le compte de stockage. Les instructions pour ce faire sont accessibles [ici](https://docs.microsoft.com/azure/storage/common/storage-security-tls).
 
 ## <a name="advanced-uses-for-serial-console"></a>Utilisations avancées de la console série
 Outre l’accès de la console à votre machine virtuelle, vous pouvez également utiliser la console série Azure pour ce qui suit :

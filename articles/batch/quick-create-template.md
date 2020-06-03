@@ -4,18 +4,16 @@ description: Apprenez rapidement à exécuter un travail Batch avec l’interfac
 ms.topic: quickstart
 ms.date: 05/19/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 535c8c34ea7af8e6bc56c3ecfe564de4c1b2bc54
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: a4d2e791d810a55b765669c8e909cf448a68fc99
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83694122"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266897"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-azure-resource-manager-template"></a>Démarrage rapide : Création d’un compte Batch à l’aide d’un modèle Azure Resource Manager
 
-Un compte Batch est nécessaire pour créer des ressources de calcul (pools de nœuds de calcul) et des travaux Batch. Vous pouvez lier un compte de stockage Azure avec votre compte Batch, ce qui est utile pour déployer des applications et stocker des données d’entrée et de sortie pour la plupart des charges de travail réelles.
-
-Ce guide de démarrage rapide montre comment utiliser un modèle Azure Resource Manager pour créer un compte Batch, stockage compris. À l’issue de ce démarrage rapide, vous maîtriserez les concepts clés du service Batch et serez prêt à essayer Azure Batch avec des charges de travail plus réalistes à plus grande échelle.
+Un compte Batch est nécessaire pour créer des ressources de calcul (pools de nœuds de calcul) et des travaux Batch. Vous pouvez lier un compte de stockage Azure avec votre compte Batch, ce qui est utile pour déployer des applications et stocker des données d’entrée et de sortie pour la plupart des charges de travail réelles. Ce guide de démarrage rapide montre comment utiliser un modèle Azure Resource Manager pour créer un compte Batch, stockage compris. À l’issue de ce démarrage rapide, vous maîtriserez les concepts clés du service Batch et serez prêt à essayer Azure Batch avec des charges de travail plus réalistes à plus grande échelle.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -29,9 +27,9 @@ Vous devez avoir un abonnement Azure actif.
 
 ### <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-batchaccount-with-storage).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-batchaccount-with-storage/).
 
-:::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json" range="1-80" highlight="36-69":::
 
 Deux ressources Azure sont définies dans le modèle :
 

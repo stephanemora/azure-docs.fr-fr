@@ -1,19 +1,19 @@
 ---
 title: API du processeur de flux de modification .NET Azure Cosmos DB
 description: Découvrez l’API et le kit SDK du processeur de flux de modification, notamment les dates de lancement, les dates de suppression et les modifications apportées entre chaque version du kit SDK du processeur de flux de modification .NET.
-author: ealsur
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 01/30/2019
-ms.author: maquaran
-ms.openlocfilehash: 5820778d46f5701b82bb289192350a9e13739d37
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: e39cef33d8d402b6e04c6b9952cae21848e02424
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619445"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660430"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Kit de développement logiciel (SDK) du processeur de flux de modification .NET Téléchargement et notes de publication
 
@@ -23,8 +23,9 @@ ms.locfileid: "80619445"
 > * [Flux de modification .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.JS](sql-api-sdk-node.md)
-> * [Java asynchrone](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
+> * [Kit SDK Java v4](sql-api-sdk-java-v4.md)
+> * [Kit SDK Java asynchrone v2](sql-api-sdk-async-java.md)
+> * [Kit SDK Java synchrone v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)

@@ -4,12 +4,12 @@ description: Créer des alertes de journal d’activité à l’aide du portail 
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: bfbe2bc3ae3edf9285d3ec006ab0451f070cabd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 45345d06e64194224df48a33fab1e74433a1eaac
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132404"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744261"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal d’activité à l’aide d’Azure Monitor  
 
@@ -67,6 +67,11 @@ Procédez comme suit.
      **Écran Ajouter des critères**
 
      ![Ajouter des critères](media/alerts-activity-log/add-criteria.png)
+     
+     > [!NOTE]
+     > 
+     >  Pour obtenir des règles de haute qualité et efficaces, nous demandons d’ajouter au moins une condition supplémentaire aux règles avec le signal « All administrative ». 
+     > Dans le cadre de la définition de l’alerte, vous devez remplir l’une des listes déroulantes : « Niveau de l’événement », « État » ou « Initié par » et par, la règle sera plus spécifique.
 
      - **Échelle de l’historique** : les événements disponibles pour l’opération sélectionnée peuvent s’être déroulés au cours des 6, 12 ou 24 dernières heures ou la dernière semaine.
 

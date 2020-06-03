@@ -1,15 +1,15 @@
 ---
-title: Créer des dépendances de tâches pour exécuter des tâches - Azure Batch
+title: Créer des dépendances de tâches pour exécuter des tâches
 description: Créez des tâches qui dépendent de l’achèvement d’autres tâches pour le traitement de charges de travail de type MapReduce ou Big Data dans Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/22/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b3bc37a3d004f077e2e780d096b7bb2a8e5f773
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42cf24758c64f107723ae0907db08bd4b757a15a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116483"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726381"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Créer des dépendances de tâches pour exécuter des tâches qui dépendent d’autres tâches
 
@@ -68,7 +68,7 @@ Vous pouvez utiliser trois scénarios de dépendance de tâches de base dans Azu
 |:---:| --- | --- |
 |  [Un-à-un](#one-to-one) |*taskB* dépend de *taskA* <p/> *taskB* n’est pas planifié pour s’exécuter tant que l’exécution de *taskA* n’est pas terminée |![Schéma : dépendance de tâches un-à-un][1] |
 |  [Un-à-plusieurs](#one-to-many) |*taskC* dépend de *taskA* et de *taskB* <p/> *taskC* n’est pas planifié pour s’exécuter tant que l’exécution de *taskA* et *taskB* n’est pas terminée |![Schéma : dépendance de tâches un-à-plusieurs][2] |
-|  [Plage d’ID de tâche](#task-id-range) |*taskD* dépend d’une plage de tâches <p/> *taskD* n’est pas planifié pour s’exécuter tant que l’exécution des tâches associées aux ID *1* à *10* n’est pas terminée |![Schéma : dépendance de plage d’ID de tâche][3] |
+|  [Plage d’ID de tâche](#task-id-range) |*taskD* dépend d’une plage de tâches <p/> *taskD* n’est pas planifié pour s’exécuter tant que l’exécution des tâches associées aux ID *1* à *10* n’est pas terminée |![Schéma : Dépendance de plage d'ID de tâche][3] |
 
 > [!TIP]
 > Vous pouvez créer des relations **plusieurs-à-plusieurs** où, par exemple, les tâches C, D, E et F dépendent toutes des tâches A et B. Cela est utile, par exemple, dans les scénarios de prétraitement parallélisés où vos tâches en aval dépendent de la sortie de plusieurs tâches en amont.

@@ -1,18 +1,18 @@
 ---
-title: API de service de mesure de la Place de marché | Place de marché Azure
-description: Événement d’utilisation pour les offres SaaS dans la place de marché Azure.
+title: API de service de mesure – Place de marché commerciale de Microsoft
+description: L’API d’événement d’utilisation vous permet d’émettre des événements d’utilisation pour les offres SaaS dans Microsoft AppSource et la Place de marché Azure.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/11/2019
-ms.openlocfilehash: 315f36e5aed9dee0a89e1f9f504b18a6bed806e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/18/2020
+ms.openlocfilehash: 95eba648219413923ce27d433a5236877c4953f3
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275745"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725463"
 ---
 # <a name="marketplace-metering-service-apis"></a>API de service de mesure de la Place de marché
 
@@ -35,6 +35,9 @@ L’API d’événement d’utilisation vous permet d’émettre des événement
 | `x-ms-requestid`     | Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
 | `x-ms-correlationid` | Valeur de chaîne unique pour l’opération sur le client. Ce paramètre sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
 | `authorization`   | [Obtenir le jeton du porteur web JSON (JWT).](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Remarque : Lors de la création de la requête HTTP, ajoutez le préfixe `Bearer` au jeton obtenu à partir du lien référencé. |
+
+>[!Note]
+>Pour les plans des applications managées Azure Application, le paramètre `resourceId` correspond à l’élément `resourceUsageId` disponible sous le paramètre `billingDetails` de l’objet de métadonnées de l’application managée.  Un exemple de script permettant de l’extraire est disponible dans [Utilisation du jeton d’identités managées par Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token).  Pour les offres SaaS, le paramètre `resourceId` est l’ID d’abonnement SaaS.  Pour plus d’informations sur les abonnements SaaS, voir [Lister les abonnements](./pc-saas-fulfillment-api-v2.md#list-subscriptions).
 
 *Requête :*
 

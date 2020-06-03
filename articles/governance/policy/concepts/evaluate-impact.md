@@ -1,14 +1,14 @@
 ---
 title: Évaluer l’impact d’une nouvelle définition Azure Policy
 description: Découvrez le processus à suivre quand vous introduisez une nouvelle définition de stratégie dans votre environnement Azure.
-ms.date: 09/23/2019
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 394f87c0328bce46d4c7177a336a7861991ad0e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d9844e8435452b388c934c5969898fe01d23fb47
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187747"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684304"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Évaluer l’impact d’une nouvelle définition Azure Policy
 
@@ -33,8 +33,7 @@ Pour cette raison, vos définitions de stratégie doivent être rigoureusement d
 
 ## <a name="audit-existing-resources"></a>Auditer les ressources existantes
 
-Avant de chercher à gérer les ressources nouvelles ou mises à jour avec votre nouvelle définition de stratégie, il est préférable de voir comment elle évalue un sous-ensemble limité de ressources existantes, comme un groupe de ressources de test. Utilisez le [mode d’application](./assignment-structure.md#enforcement-mode)
-_Désactivé_ (DoNotEnforce) dans votre attribution de stratégie afin d’empêcher le déclenchement de l’[effet](./effects.md) ou la création d’entrées dans le journal d’activité.
+Avant de chercher à gérer les ressources nouvelles ou mises à jour avec votre nouvelle définition de stratégie, il est préférable de voir comment elle évalue un sous-ensemble limité de ressources existantes, comme un groupe de ressources de test. Utilisez le [mode d’application](./assignment-structure.md#enforcement-mode) _Désactivé_ (DoNotEnforce) dans votre attribution de stratégie afin d’empêcher le déclenchement de l’[effet](./effects.md) ou la création d’entrées dans le journal d’activité.
 
 Cette étape vous permet d’évaluer les résultats de conformité de la nouvelle stratégie sur les ressources existantes, sans impacter le workflow. Vérifiez qu’aucune ressource conforme n’est marquée comme non conforme (_faux positif_) et que toutes les ressources dont il est prévu qu’elles soient non conformes sont marquées correctement.
 Une fois que le sous-ensemble de ressources d’origine est validé, étendez progressivement l’évaluation à toutes les ressources existantes.

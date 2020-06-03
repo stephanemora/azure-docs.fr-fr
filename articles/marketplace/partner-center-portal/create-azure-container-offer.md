@@ -1,23 +1,20 @@
 ---
 title: Créer une offre de conteneur Azure – Place de marché Azure
-description: Cet article explique comment créer et publier une offre de conteneur sur la Place de marché Azure.
+description: Découvrez comment créer et publier une offre de conteneur sur la Place de marché Azure.
 author: mingshen
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/07/2020
-ms.openlocfilehash: f2a3b6355fdaa8cd90525fac9d29324270dfad02
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.date: 05/19/2020
+ms.openlocfilehash: 1a027eb4cb3351934738319f342afac8d8407e6f
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791933"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848802"
 ---
 # <a name="create-an-azure-container-offer"></a>Créer une offre de conteneur Azure
-
-> [!IMPORTANT]
-> Nous déplaçons la gestion de vos offres de conteneur Azure du portail Cloud Partner vers l’Espace partenaires. Tant que vous n’avez pas effectué la migration de vos offres, suivez les instructions de [Conteneurs](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) dans le portail Cloud Partner pour la gestion de vos offres.
 
 Cet article explique comment créer et publier une offre de conteneur sur la Place de marché Azure. Avant de commencer, si ce n’est déjà fait, [créez un compte de la Place de marché commerciale dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account). Vérifiez que votre compte est inscrit dans le programme du marketplace commercial.
 
@@ -62,18 +59,18 @@ Cette page montre des liens différents en fonction de l’état actuel de l’o
 
 Effectuez les étapes suivantes pour configurer votre offre.
 
-### <a name="connect-lead-management--optional"></a>Connecter la gestion des prospects - Facultatif
+### <a name="customer-leads--optional"></a>Prospects (en option)
 
 Lors de la publication de votre offre sur la Place de marché commerciale avec l’Espace partenaires, vous pouvez la connecter à votre système de Gestion des relations avec la clientèle (CRM). Cela vous permet de recevoir les coordonnées des clients dès qu’une personne exprime son intérêt ou utilise votre produit.
 
 1. **Sélectionnez une destination de prospect afin de diriger les prospects vers le système de votre choix**. L’Espace partenaires prend en charge les systèmes CRM suivants :
 
-- [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for Customer Engagement
-- [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+   - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for Customer Engagement
+   - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
+   - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
-> [!NOTE]
-> Si votre système de CRM n’est pas listé ci-dessus, utilisez une [table Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) ou un [point de terminaison HTTPS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) pour stocker les données des prospects, puis exportez les données vers votre système CRM.
+   > [!NOTE]
+   > Si votre système de CRM n’est pas listé ci-dessus, utilisez une [table Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) ou un [point de terminaison HTTPS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) pour stocker les données des prospects, puis exportez les données vers votre système CRM.
 
 2. Connectez votre offre à la destination de prospect tout en la publiant dans l’Espace partenaires.
 3. Vérifiez que la connexion à la destination de prospect est correctement configurée. Une fois que vous avez effectué la publication dans l’Espace partenaires, nous validons la connexion et nous vous envoyons un prospect de test. Quand vous visualisez l’offre avant son lancement, vous pouvez également tester votre connexion de prospect en essayant d’acheter vous-même l’offre dans l’environnement en version préliminaire.
@@ -149,40 +146,11 @@ Description plus détaillée de votre offre. Ce champ peut comporter jusqu’à 
 
 ### <a name="description"></a>Description
 
-Fournissez une description plus longue de votre offre, jusqu’à 3 000 caractères. S’affichera pour les clients dans la vue d’ensemble de la Place de marché.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Incluez un ou plusieurs des éléments suivants dans votre description :
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- La valeur et les avantages principaux de votre offre
-- Catégorie ou associations de secteurs, ou les deux
-- Opportunités d’achats dans l’application
-- Toutes les informations requises
-
-Voici quelques conseils pour rédiger votre description :
-
-- Décrivez clairement la valeur de votre offre dans les premières phrases de votre description. Incorporez les éléments suivants :
-  - Description de l’offre.
-  - Le type d’utilisateur qui tire parti de l’offre
-  - Les besoins ou problèmes auxquels l’offre répond.
-- Gardez à l’esprit que les premières phrases peuvent être affichées dans les résultats de recherche.
-- Ne comptez pas sur les fonctionnalités de votre produit pour convaincre. Concentrez-vous plutôt sur ce que votre application offre.
-- Essayez d’utiliser le vocabulaire propre au secteur visé, ainsi que des termes décrivant les avantages proposés.
-
-Pour que la **description** de votre offre soit plus accrocheuse, utilisez l’éditeur de texte enrichi pour mettre en forme votre description à l’aide d’une numérotation, de puces, de caractères gras ou italiques, ainsi que de mises en retrait.
-
-:::image type="content" source="media/text-editor2.png" alt-text="Illustre l’éditeur de texte enrichi." border="false" :::
-
-- Utilisez cette liste déroulante pour appliquer un style de paragraphe au texte.
-
-    :::image type="content" source="media/text-editor3.png" alt-text="Illustre le contrôle de style de texte dans l’éditeur de texte enrichi." border="false":::
-
-- Utilisez ces icônes pour appliquer une numérotation ou des puces au texte.
-
-     :::image type="content" source="media/text-editor4.png" alt-text="Illustre les contrôles de liste à puces et de liste numérotée dans l’éditeur de texte enrichi." border="false":::
-
-- Utilisez ces icônes pour ajouter ou supprimer une mise en retrait dans le texte.
-
-    :::image type="content" source="media/text-editor5.png" alt-text="Illustre les contrôles de mise en retrait du texte dans l’éditeur de texte enrichi." border="false":::
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 #### <a name="privacy-policy-link"></a>Lien de la politique de confidentialité
 

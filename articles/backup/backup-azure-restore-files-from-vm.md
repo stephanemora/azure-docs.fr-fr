@@ -3,12 +3,12 @@ title: Récupérer des fichiers et des dossiers à partir d’une sauvegarde de 
 description: Dans cet article, découvrez comment récupérer des fichiers et des dossiers à partir d’un point de récupération de machine virtuelle Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 0e3061ea8fc26adcf39fe415cd9a662de739543a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c72794999abbbf5d29b376615015fb5778b7d9fe
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233877"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757974"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -53,7 +53,7 @@ Pour restaurer des fichiers ou dossiers à partir du point de récupération, ac
 
     ![Mot de passe généré](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
 
-7. À partir de l’emplacement de téléchargement (généralement le dossier Téléchargements), cliquez avec le bouton droit sur le fichier exécutable ou le script et exécutez-le en tant qu’administrateur. Lorsque vous y êtes invité, saisissez le mot de passe ou collez le mot de passe en mémoire et appuyez sur **Entrée**. Une fois le mot de passe valide entré, le script se connecte au point de récupération.
+7. Vérifiez que [vous avez la machine appropriée](#selecting-the-right-machine-to-run-the-script) pour exécuter le script. Si la machine appropriée est la même que celle sur laquelle vous avez téléchargé le script, vous pouvez passer à la section de téléchargement. À partir de l’emplacement de téléchargement (généralement le dossier *Téléchargements*), cliquez avec le bouton droit sur le fichier exécutable ou le script et exécutez-le en tant qu’administrateur. Lorsque vous y êtes invité, saisissez le mot de passe ou collez le mot de passe en mémoire et appuyez sur **Entrée**. Une fois le mot de passe valide entré, le script se connecte au point de récupération.
 
     ![Menu de récupération de fichiers](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
@@ -84,6 +84,23 @@ Après avoir identifié les fichiers et les avoir copiés dans un emplacement de
 Une fois les disques démontés, vous recevez un message. L’actualisation de la connexion de sorte que vous pouvez supprimer les disques peut prendre quelques minutes.
 
 Sous Linux, une fois la connexion au point de récupération interrompue, le système d’exploitation ne supprime pas les chemins d’accès de montage correspondants automatiquement. Les chemins d’accès de montage existent en tant que volumes « orphelins » et ils sont visibles, mais génèrent une erreur lorsque vous accédez aux fichiers ou écrivez dessus. Ils peuvent être supprimés manuellement. Le script, lorsqu’il est exécuté, identifie de tels volumes existants à partir des points de récupération précédents et les nettoie après accord.
+
+## <a name="selecting-the-right-machine-to-run-the-script"></a>Sélection de la machine appropriée pour exécuter le script
+
+Si le script a bien été téléchargé, l’étape suivante consiste à vérifier si la machine sur laquelle vous envisagez d’exécuter le script est la machine appropriée. Voici les conditions requises sur la machine :
+
+### <a name="original-backed-up-machine-versus-another-machine"></a>Machine de sauvegarde d’origine par rapport à une autre machine
+
+1. Si la machine sauvegardée est une machine virtuelle de disque volumineuse, c’est-à-dire que le nombre de disques est supérieur à 16 disques ou que chaque disque est supérieur à 4 To, le script **doit être exécuté sur une autre machine** et [ces conditions](#file-recovery-from-virtual-machine-backups-having-large-disks) doivent être remplies.
+1. Même si la machine sauvegardée n’est pas une machine virtuelle de disque volumineuse, dans [ces scénarios](#special-configurations), le script ne peut pas être exécuté sur la même machine virtuelle sauvegardée.
+
+### <a name="os-requirements-on-the-machine"></a>Configuration requise pour le système d’exploitation sur la machine
+
+La machine sur laquelle le script doit être exécuté doit respecter [ces exigences de système d’exploitation](#system-requirements).
+
+### <a name="access-requirements-for-the-machine"></a>Configuration requise pour l’accès sur la machine
+
+La machine sur laquelle le script doit être exécuté doit respecter [ces exigences d’accès](#access-requirements).
 
 ## <a name="special-configurations"></a>Configurations spéciales
 
@@ -125,14 +142,23 @@ Pour répertorier tous les volumes logiques, les noms et les chemins d’accès 
 
 ```bash
 #!/bin/bash
-lvdisplay <volume-group-name from the pvs command's results>
+lvdisplay <volume-group-name from the pvs commands results>
 ```
+
+La commande ```lvdisplay``` indique également si les groupes de volumes sont actifs ou non. Si le groupe de volumes est marqué comme inactif, il doit être réactivé pour être monté. Si volume-group est indiqué comme inactif, utilisez la commande suivante pour l’activer.
+
+```bash
+#!/bin/bash
+vgchange –a y  <volume-group-name from the pvs commands results>
+```
+
+Une fois que le nom du groupe de volumes est actif, exécutez la commande ```lvdisplay``` une fois de plus pour afficher tous les attributs pertinents.
 
 Pour monter les volumes logiques sur le chemin d’accès de votre choix :
 
 ```bash
 #!/bin/bash
-mount <LV path> </mountpath>
+mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
 
 #### <a name="for-raid-arrays"></a>Pour les tableaux RAID
@@ -218,8 +244,6 @@ Pour Linux, le script requiert les composants « open-iscsi » et « lshw »
 
 L’accès à `download.microsoft.com` est requis pour télécharger les composants utilisés pour créer un canal sécurisé entre l’ordinateur sur lequel le script est exécuté et les données du point de récupération.
 
-Vous pouvez exécuter le script sur n’importe quelle machine dotée du même système d’exploitation (ou d’un système d’exploitation compatible) que la machine virtuelle sauvegardée. Consultez le [tableau de compatibilité des systèmes d’exploitation](backup-azure-restore-files-from-vm.md#system-requirements) pour connaître les systèmes d’exploitation compatibles. Si la machine virtuelle Azure protégée utilise des espaces de stockage Windows (pour les machines virtuelles Azure Windows) ou le LVM/des baies RAID (pour les machines virtuelles Linux), vous ne pouvez pas exécuter le script exécutable sur cette machine virtuelle. Au lieu de cela, exécutez le fichier exécutable ou le script sur n’importe quelle autre machine avec un système d’exploitation compatible.
-
 ## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>Récupération de fichiers à partir de sauvegardes de machines virtuelles avec des disques de grande taille
 
 Cette section explique comment effectuer une récupération de fichiers à partir de sauvegardes de machines virtuelles Azure avec plus de seize disques et que la taille de chaque disque est supérieure à 32 To.
@@ -246,7 +270,7 @@ Cette section explique comment effectuer une récupération de fichiers à parti
   - Dans le fichier /etc/iSCSI/iSCSId.conf, modifiez le paramètre à partir de :
     - node.conn[0].timeo.noop_out_timeout = 5 à node.conn[0].timeo.noop_out_timeout = 30
 - Après avoir apporté les modifications ci-dessus, réexécutez le script. Avec ces modifications, il est très probable que la récupération de fichiers aboutisse.
-- Chaque fois que l’utilisateur télécharge un script, Sauvegarde Azure lance le processus de préparation du point de récupération pour le téléchargement. Avec les disques de grande taille, cette opération prend beaucoup de temps. S’il y a des rafales successives de requêtes, la préparation cible passera en spirale de téléchargement. Par conséquent, il est recommandé de télécharger un script à partir du portail/PowerShell/CLI, d’attendre 20 à 30 minutes (une heuristique), puis de l’exécuter. À ce stade, la cible est supposée être prête pour la connexion à partir du script.
+- Chaque fois que l’utilisateur télécharge un script, Sauvegarde Azure lance le processus de préparation du point de récupération pour le téléchargement. Avec les disques de grande taille, cette opération prend beaucoup de temps. S’il y a des rafales successives de requêtes, la préparation cible passera en spirale de téléchargement. Par conséquent, il est recommandé de télécharger un script à partir du portail/PowerShell/CLI, d’attendre 20 à 30 minutes (durée d’une heuristique), puis de l’exécuter. À ce stade, la cible est supposée être prête pour la connexion à partir du script.
 - Après la récupération des fichiers, assurez-vous de revenir au portail et de cliquer sur **Démonter les disques** pour les points de récupération où vous n’avez pas pu monter des volumes. Pour l’essentiel, cette étape nettoie les processus et les sessions existantes et augmente les chances de récupération.
 
 ## <a name="troubleshooting"></a>Dépannage

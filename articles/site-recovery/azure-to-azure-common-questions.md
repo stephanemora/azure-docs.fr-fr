@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: b6f665c5b0f2fbd291d20ef21d0a447d20f7c2da
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.openlocfilehash: 1ac42a5451da0347779475e96ce557633a02c59f
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82738046"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834575"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Questions courantes : Récupération d'urgence d'Azure vers Azure
 
@@ -100,6 +100,10 @@ Non. Site Recovery ne nécessite pas de connexion Internet. En revanche, il requ
 Oui, vous pouvez répliquer l’application et conserver la configuration de récupération d’urgence dans un groupe de ressources distinct.
 
 Par exemple, si votre application conserve l’application, la base de données et le web de chaque niveau dans un groupe de ressources distinct, vous devez sélectionner l’[Assistant Réplication](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) à trois reprises pour protéger tous les niveaux. Site Recovery réplique ces trois niveaux dans trois groupes de ressources différents.
+
+### <a name="can-i-move-storage-accounts-across-resource-groups"></a>Puis-je déplacer les comptes de stockage entre les groupes de ressources ?
+
+Non, ce scénario n’est pas pris en charge. Toutefois, si vous déplacez accidentellement des comptes de stockage vers un autre groupe de ressources et que vous supprimez le groupe de ressources d’origine, vous pouvez créer un nouveau groupe de ressources portant le même nom que l’ancien groupe de ressources, puis déplacer le compte de stockage vers celui-ci.
 
 ## <a name="replication-policy"></a>Stratégie de réplication
 
@@ -311,4 +315,4 @@ Oui, le chiffrement en transit et le [chiffrement au repos dans Azure](https://d
 
 - [Consultez les conditions requises pour la prise en charge d’Azure vers Azure](azure-to-azure-support-matrix.md).
 - [Configurer la réplication d’Azure vers Azure](azure-to-azure-tutorial-enable-replication.md).
-- Si, après avoir lu cet article, vous avez des questions, posez-les sur le [forum Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+- Si, après avoir lu cet article, vous avez des questions, posez-les sur la [page de questions Microsoft Q&A pour Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: a6ea53e098a002e902d6ee6632f08dd7f2b63ca5
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: f48a54f2f220d83720d4a3233e2fb97a9efa64ff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811659"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654670"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recommandations de sécurité - Guide de référence
 
@@ -40,7 +40,7 @@ Votre niveau de sécurité est basé sur le nombre de recommandations Security C
 |**Function App ne doit pas être accessible via HTTPS**|Activez l'accès « HTTPS uniquement » pour les applications Function App. L'utilisation de HTTPS garantit l'authentification du serveur/service, et protège les données en transit contre les attaques par écoute clandestine de la couche réseau.<br>(Stratégie associée : Function App ne doit pas être accessible via HTTPS)|Moyenne|**O**|Conteneur de fonctions|
 |**Les machines virtuelles accessibles à partir d’Internet doivent être protégées avec des groupes de sécurité réseau**|Activez des groupes de sécurité réseau pour contrôler l’accès réseau de vos machines virtuelles.<br>(Stratégie associée : les machines virtuelles accessibles à partir d’Internet doivent être protégées avec des groupes de sécurité réseau)|Élevé / Moyen|N|Machine virtuelle|
 |**Le transfert IP doit être désactivé sur votre machine virtuelle**|Désactivez le transfert IP. Lorsque le transfert IP est activé sur la carte réseau d’une machine virtuelle, cette dernière peut recevoir du trafic adressé à d’autres destinations. Le transfert IP n’est que rarement nécessaire (par exemple, lors de l’utilisation de la machine virtuelle en tant qu’appliance virtuelle réseau). Par conséquent, un examen par l’équipe de sécurité réseau est requis.<br>(Stratégie associée : [Préversion] : Le transfert IP doit être désactivé sur votre machine virtuelle)|Moyenne|N|Machine virtuelle|
-|**Le contrôle d’accès réseau juste-à-temps doit être appliqué sur les machines virtuelles**|Appliquez un contrôle d’accès de machine virtuelle juste-à-temps (JAT) pour bloquer définitivement l’accès aux ports sélectionnés, et permettez aux utilisateurs autorisés de les ouvrir, via JAT, pour une durée limitée.<br>(Stratégie associée : Le contrôle d’accès réseau juste-à-temps doit être appliqué sur les machines virtuelles)|Élevé|N|Machine virtuelle|
+|**Les ports de gestion des machines virtuelles doivent être protégés par un contrôle d’accès réseau juste-à-temps**|Appliquez un contrôle d’accès de machine virtuelle juste-à-temps (JAT) pour bloquer définitivement l’accès aux ports sélectionnés, et permettez aux utilisateurs autorisés de les ouvrir, via JAT, pour une durée limitée.<br>(Stratégie associée : Les ports de gestion des machines virtuelles doivent être protégés par un contrôle d’accès réseau juste-à-temps)|Élevé|N|Machine virtuelle|
 |**Les ports de gestion doivent être fermés sur vos machines virtuelles**|Renforcez le groupe de sécurité réseau de vos machines virtuelles de manière à limiter l'accès aux ports de gestion.<br>(Stratégie associée : Les ports de gestion doivent être fermés sur vos machines virtuelles)|Élevé|N|Machine virtuelle|
 |**La sécurisation du transfert vers des comptes de stockage doit être activée**|Activez le transfert sécurisé vers des comptes de stockage. L’option de sécurisation du transfert oblige votre compte de stockage à accepter uniquement des requêtes provenant de connexions sécurisées (HTTPS). L'utilisation de HTTPS garantit l'authentification entre le serveur et le service et protège les données en transit contre les attaques de la couche réseau (attaque de l'intercepteur ou « man-in-the-middle », écoute clandestine, détournement de session).<br>(Stratégie associée : La sécurisation du transfert vers des comptes de stockage doit être activée)|Élevé|**O**|Compte de stockage|
 |**les sous-réseaux doivent être associés à un groupe de sécurité réseau**|Activez des groupes de sécurité réseau pour contrôler l'accès réseau des ressources déployées sur vos sous-réseaux.<br>(Stratégie associée : les sous-réseaux doivent être associés à un groupe de sécurité réseau.<br>Cette stratégie est désactivée par défaut.)|Élevé / Moyen|N|Subnet|
@@ -64,9 +64,9 @@ Votre niveau de sécurité est basé sur le nombre de recommandations Security C
 
 |Recommandation|Description et stratégie associée|severity|Correction rapide activée ? ([en savoir plus](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Type de ressource|
 |----|----|----|----|----|
-|**L’application web ne doit pas être accessible via HTTPS**|Limitez l’accès des applications web via le protocole HTTPS uniquement.<br>(Stratégie associée :)|Moyenne|N|App Service|
-|**Function App ne doit pas être accessible via HTTPS**|Limitez l’accès d’applications de fonction via HTTPS uniquement.<br>(Stratégie associée :)|Moyenne|N|App Service|
-|**L’application API doit uniquement être accessible via HTTPS**|Limitez l’accès d’API Apps via HTTPS uniquement.<br>(Stratégie associée :)|Moyenne|N|App Service|
+|**L’application web ne doit pas être accessible via HTTPS**|Activez l'accès « HTTPS uniquement » pour les applications web. L'utilisation de HTTPS garantit l'authentification du serveur/service, et protège les données en transit contre les attaques par écoute clandestine de la couche réseau.<br>(Stratégie associée : L’application web ne doit pas être accessible via HTTPS)|Moyenne|**O**|App Service|
+|**Function App ne doit pas être accessible via HTTPS**|Activez l'accès « HTTPS uniquement » pour les applications Function App. L'utilisation de HTTPS garantit l'authentification du serveur/service, et protège les données en transit contre les attaques par écoute clandestine de la couche réseau.<br>(Stratégie associée : Function App ne doit pas être accessible via HTTPS)|Moyenne|**O**|App Service|
+|**L’application API doit uniquement être accessible via HTTPS**|Limitez l’accès d’API Apps via HTTPS uniquement.<br>(Stratégie associée : L’application API doit uniquement être accessible via HTTPS)|Moyenne|N|App Service|
 |**Le débogage à distance doit être désactivé pour les applications web**|Désactivez le débogage pour les applications web si vous n’en avez plus besoin. Le débogage distant requiert que des ports d’entrée soient ouverts sur une application web.<br>(Stratégie associée : Le débogage à distance doit être désactivé pour les applications web)|Faible|**O**|App Service|
 |**Le débogage à distance doit être désactivé pour Function App**|Désactivez le débogage pour Function App si vous n’en avez plus besoin. Le débogage distant requiert que des ports d’entrée soient ouverts sur une Function App.<br>(Stratégie associée : Le débogage à distance doit être désactivé pour Function App)|Faible|**O**|App Service|
 |**Le débogage à distance doit être désactivé pour l’application API**|Désactivez le débogage pour l’application API si vous n’en avez plus besoin. Le débogage distant requiert que des ports d’entrée soient ouverts sur une application API.<br>(Stratégie associée : Le débogage à distance doit être désactivé pour l’application API)|Faible|**O**|App Service|

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 05/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a44e32efa3e38cf9c4df7dc00e3189c129db418
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7587ed6d414a69cff67aca9446aebf6260c99fcd
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72886840"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736498"
 ---
 # <a name="identity-protection-policies"></a>Stratégies Identity Protection
 
@@ -41,7 +41,7 @@ Si un risque est détecté, les utilisateurs peuvent effectuer l’authentificat
 
 ### <a name="custom-conditional-access-policy"></a>Stratégie d’accès conditionnel personnalisé
 
-Les administrateurs peuvent également choisir de créer une stratégie d’accès conditionnel personnalisée, y compris le risque de connexion en tant que condition d’affectation. Pour plus d’informations sur l’accès conditionnel, consultez l’article [Qu’est-ce que l’accès conditionnel ?](../conditional-access/overview.md)
+Les administrateurs peuvent également choisir de créer une stratégie d’accès conditionnel personnalisée, y compris le risque de connexion en tant que condition d’affectation. Pour plus d’informations sur le risque en tant que condition dans une politique d’accès conditionnel, consultez l’article [Accès conditionnel : Conditions](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk)
 
 ![Stratégie de risque de connexion d’accès conditionnel personnalisé](./media/concept-identity-protection-policies/identity-protection-custom-sign-in-policy.png)
 

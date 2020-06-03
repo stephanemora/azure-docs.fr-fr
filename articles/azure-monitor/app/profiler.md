@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4d41ece86240a20afea06bff3469b5c02c6e46ff
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f0702c09d2803507f07f74d97767c781825bf34f
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121195"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83778558"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profiler des applications Azure App Service en production avec Application Insights
 
@@ -63,9 +63,9 @@ Si vous souhaitez activer Profiler pour d’autres clouds, utilisez les paramèt
 
 ## <a name="disable-profiler"></a>Désactiver Profiler
 
-Pour arrêter ou redémarrer Profiler pour une instance d’application individuelle, accédez à la ressource d’application sous **Travaux web**. Pour supprimer Profiler, accédez à **Extensions**.
+Pour arrêter ou redémarrer Profiler pour l’instance d’une application individuelle, sous **WebJobs**, arrêtez ou redémarrez la tâche web nommée ApplicationInsightsProfiler3. Même si le profileur est désactivé à l’aide du commutateur sur la page Application Insights comme décrit ci-dessus, le processus du profileur s’exécutera toujours. Le profileur vérifiera s’il est activé. S’il est désactivé, il passe en mode veille pendant un certain temps avant de vérifier à nouveau. Il n’effectue aucun profilage s’il est désactivé. Si vous désactivez cette tâche web, le processus du profileur ne s’exécutera pas du tout, même pour vérifier s’il est activé.
 
-![Désactiver Profiler pour une tâche web][disable-profiler-webjob]
+  ![Désactiver Profiler pour une tâche web][disable-profiler-webjob]
 
 Nous vous recommandons d’activer dès que possible Profiler sur toutes vos applications afin de découvrir d’éventuels problèmes de performance.
 

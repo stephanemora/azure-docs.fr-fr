@@ -1,18 +1,18 @@
 ---
-title: Disponibilité géographique et prise en charge des devises pour la place de marché commerciale | Place de marché Azure
-description: Disponibilité géographique dans la place de marché commerciale
+title: Disponibilité géographique et prise en charge des devises pour la place de marché commerciale de Microsoft
+description: Disponibilité géographique et prise en charge des devises pour les transactions dans la place de marché commerciale
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.author: dsindona
-ms.openlocfilehash: 83906e6270ed41c2ea8f489c5a5312d32a565a29
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 16d41879321c7cbaa4f38bcba83d83d39f30ee13
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687585"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657872"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilité géographique et prise en charge des devises pour la place de marché commerciale
 

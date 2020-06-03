@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
-ms.date: 05/24/2018
-ms.openlocfilehash: 0773492c3042a6f8c906aa6ba1bc3c76ea8c0d8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/12/2020
+ms.openlocfilehash: c09d8d9fd2ef22aeaf791ae44d877a87033318cc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81870588"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655919"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connecter des produits/services ITSM à IT Service Management Connector
 Cet article fournit des informations vous indiquant comment configurer la connexion entre votre produit/service ITSM au connecteur de gestion des services informatiques (ITSMC) dans Log Analytics pour gérer de manière centralisée vos éléments de travail. Pour plus d’informations sur le connecteur ITSM, consultez [Présentation](../../azure-monitor/platform/itsmc-overview.md).
@@ -201,8 +201,10 @@ Vérifiez que les prérequis suivants sont remplis :
 > À la fin, cliquez sur Mettre à jour.
 > 2) **Nous vous recommandons d’établir une procédure interne pour garantir le maintien de la connexion :** en fonction de la durée de vie du jeton d’actualisation pour actualiser le jeton. Assurez-vous d’effectuer les opérations suivantes avant l’expiration prévue du jeton d’actualisation (nous recommandons de le faire quelques jours avant l’expiration de la durée de vie du jeton d’actualisation) :
 >
->>  1) [Effectuez une synchronisation manuelle pour la configuration du connecteur ITSM](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow)
- >> 2) Révoquez l’ancien jeton d’actualisation, car il n’est pas recommandé, pour des raisons de sécurité, de conserver les anciennes clés. Dans le panneau ServiceNow, recherchez « Système OAuth », puis sélectionnez « Gérer les jetons ». Choisissez l’ancien jeton dans la liste en fonction du nom OAuth et de la date d’expiration. Cliquez sur Révoquer l’accès, puis sur Révoquer.
+> 1. [Effectuez une synchronisation manuelle pour la configuration du connecteur ITSM](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow)
+> 2. Révoquez l’ancien jeton d’actualisation, car il n’est pas recommandé, pour des raisons de sécurité, de conserver les anciennes clés. Dans le panneau ServiceNow, recherchez « Système OAuth », puis sélectionnez « Gérer les jetons ». Choisissez l’ancien jeton dans la liste en fonction du nom OAuth et de la date d’expiration.
+> ![SNOW system OAuth definition](media/itsmc-connections/snow-system-oauth.png)
+> 3. Cliquez sur Révoquer l’accès, puis sur Révoquer.
 
 - Installez l’application utilisateur pour l’intégration de Microsoft Log Analytics (application ServiceNow). [Plus d’informations](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 )
 - Créer un rôle utilisateur de l’intégration pour l’application utilisateur installée. Pour plus d’informations sur la création du rôle d’utilisateur de l’intégration, cliquez [ici](#create-integration-user-role-in-servicenow-app).

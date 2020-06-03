@@ -1,15 +1,15 @@
 ---
-title: Exécuter des tâches sous des comptes d’utilisateur - Azure Batch
-description: Il est utile de pouvoir configurer le compte d’utilisateur sous lequel vous voulez exécuter une tâche. Découvrez les types de comptes d’utilisateur et comment les configurer.
-ms.topic: article
+title: Exécuter des tâches sous des comptes d’utilisateur
+description: Découvrez les types de comptes d’utilisateur et comment les configurer.
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1aeb96075e95d7bc0d1e4527fb50b2d5238dbab5
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 14ee675b80e0d9dd24993d7e3ecd255b5568e9cc
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980284"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779494"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Exécuter des tâches sous des comptes d’utilisateur dans Azure Batch
 
@@ -40,7 +40,7 @@ Les comptes d’utilisateur automatique et nommé disposent tous deux d’un acc
 
 Si une tâche s’exécute sous le même compte que celui utilisé pour exécuter une tâche de démarrage, la tâche dispose d’un accès en lecture-écriture au répertoire de la tâche de démarrage. De la même manière, si une tâche s’exécute sous le même compte que celui utilisé pour exécuter une tâche de préparation d’un travail, la tâche dispose d’un accès en lecture-écriture au répertoire de la tâche de préparation. Si une tâche s’exécute sous un compte différent de celui utilisé pour la tâche de démarrage ou la tâche de préparation, la tâche dispose uniquement d’un accès en lecture au répertoire correspondant.
 
-Pour plus d’informations sur l’accès aux fichiers et répertoires à partir d’une tâche, consultez [Développer des solutions de calcul parallèles à grande échelle avec Batch](batch-api-basics.md#files-and-directories).
+Pour plus d’informations sur l’accès aux fichiers et aux répertoires à partir d’une tâche, consultez la rubrique [Fichiers et répertoires](files-and-directories.md).
 
 ## <a name="elevated-access-for-tasks"></a>Accès aux tâches avec élévation de privilèges 
 
@@ -322,4 +322,5 @@ La version du service Batch 2017-01-01.4.0 introduit une modification qui rempl
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une présentation détaillée de Batch, consultez [Développer des solutions de calcul parallèles à grande échelle avec Batch](batch-api-basics.md).
+* En savoir plus sur le [workflow et les ressources principales du service Batch](batch-service-workflow-features.md) telles que les pools, les nœuds, les travaux et les tâches.
+* En savoir plus sur les [fichiers et répertoires](files-and-directories.md) dans Azure Batch.

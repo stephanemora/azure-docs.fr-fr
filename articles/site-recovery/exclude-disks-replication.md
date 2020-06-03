@@ -3,12 +3,12 @@ title: Exclure des disques de la réplication avec Azure Site Recovery
 description: Comme exclure des disques de la réplication vers Azure avec Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 57bf06f0fde85714530c06cbd008db08de7460d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aa2e3ef3906a03be649a1978c1d662056c4d0f25
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236505"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83740516"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Exclure des disques de la reprise d’activité
 
@@ -24,9 +24,9 @@ Cet article explique comment exclure des disques de la réplication lors de la r
 
 Vous pouvez exclure des disques de la réplication comme décrit dans le tableau.
 
-**Azure vers Azure** | **VMware vers Azure** | **Hyper-V vers Azure** 
---- | --- | ---
-Oui (en utilisant PowerShell) | Oui | Oui 
+**Azure vers Azure** | **VMware vers Azure** | **Hyper-V vers Azure** | **Serveur physique vers Azure**
+--- | --- | --- | ---
+Oui | Oui | Oui | Oui
 
 ## <a name="exclude-limitations"></a>Limites d’exclusion
 
@@ -35,7 +35,7 @@ Oui (en utilisant PowerShell) | Oui | Oui
 **Types de disques** | Les disques de base peuvent être exclus de la réplication.<br/><br/> Vous ne pouvez pas exclure de disque de système d’exploitation ni de disque dynamique. Les disques temporaires sont exclus par défaut. | Les disques de base peuvent être exclus de la réplication.<br/><br/> Vous ne pouvez pas exclure de disque de système d’exploitation ni de disque dynamique. | Les disques de base peuvent être exclus de la réplication.<br/><br/> Vous ne pouvez pas exclure les disques de système d’exploitation. Nous vous recommandons de ne pas exclure de disques dynamiques. Site Recovery ne peut pas identifier le disque VHS qui est de type de base ou dynamique dans la machine virtuelle invitée. Si tous les disques de volume dynamique dépendants ne sont pas exclus, le disque dynamique protégé devient un disque défectueux sur la machine virtuelle de basculement, et les données de ce disque ne sont pas accessibles.
 **Disque en cours de réplication** | Vous ne pouvez pas exclure un disque en cours de réplication.<br/><br/> Désactivez et réactivez la réplication pour la machine virtuelle. |  Vous ne pouvez pas exclure un disque en cours de réplication. |  Vous ne pouvez pas exclure un disque en cours de réplication.
 **Service Mobility (VMware)** | Non pertinent | Vous pouvez exclure les disques uniquement sur les machines virtuelles sur lesquelles le service Mobility est installé.<br/><br/> Cela signifie que vous devez installer manuellement le service Mobility sur les machines virtuelles pour lesquelles vous souhaitez exclure des disques. Vous ne pouvez pas utiliser le mécanisme d’installation Push parce qu’il installe le service Mobility uniquement après l’activation de la réplication. | Non pertinent.
-**Ajouter/Supprimer** | Vous pouvez ajouter et supprimer des disques sur des machines virtuelles Azure avec des disques managés. | Vous ne pouvez pas ajouter ni supprimer de disques après l’activation de la réplication. Désactivez, puis réactivez la réplication pour ajouter un disque. | Vous ne pouvez pas ajouter ni supprimer de disques après l’activation de la réplication. Désactivez, puis réactivez la réplication.
+**Ajouter/Supprimer** | Vous pouvez ajouter des disques managés sur des machines virtuelles Azure compatibles avec la réplication et dotées de disques managés. Vous ne pouvez pas supprimer des disques sur des machines virtuelles Azure dont la réplication est activée. | Vous ne pouvez pas ajouter ni supprimer de disques après l’activation de la réplication. Désactivez, puis réactivez la réplication pour ajouter un disque. | Vous ne pouvez pas ajouter ni supprimer de disques après l’activation de la réplication. Désactivez, puis réactivez la réplication.
 **Type de basculement** | Si une application a besoin d’un disque que vous avez exclu, vous devez créer le disque manuellement après le basculement pour que l’application répliquée puisse s’exécuter.<br/><br/> Vous pouvez également créer le disque lors du basculement de la machine virtuelle en intégrant Azure Automation dans un plan de récupération. | Si vous excluez un disque dont une application a besoin, créez-le manuellement dans Azure après le basculement. | Si vous excluez un disque dont une application a besoin, créez-le manuellement dans Azure après le basculement.
 **Restauration automatique sur site local, disques créés manuellement** | Non pertinent | **Machines virtuelles Windows** : Les disques créés manuellement dans Azure ne sont pas restaurés automatiquement. Par exemple, si vous basculez trois disques et que vous en créez deux directement sur une machine virtuelle Azure, seuls les trois disques qui ont été basculés sont restaurés automatiquement.<br/><br/> **Machines virtuelles Linux** : Les disques créés manuellement dans Azure sont restaurés automatiquement. Par exemple, si vous basculez trois disques et que vous en créez deux sur une machine virtuelle Azure, les cinq disques sont restaurés automatiquement. Vous ne pouvez pas exclure de disques créés manuellement de la restauration automatique. | Les disques créés manuellement dans Azure ne sont pas restaurés automatiquement. Par exemple, si vous basculez trois disques et que vous en créez deux directement sur une machine virtuelle Azure, seuls les trois disques qui ont été basculés sont restaurés automatiquement.
 **Restauration automatique sur site local, disques exclus** | Non pertinent | Si vous effectuez une restauration automatique vers l’ordinateur d’origine, la configuration de disque de machine virtuelle de restauration automatique n’inclut pas les disques exclus. Les disques qui étaient exclus de la réplication VMware vers Azure ne sont pas disponibles sur la machine virtuelle de restauration automatique. | Lorsque la restauration automatique est effectuée à l’emplacement Hyper-V d’origine, la configuration de disque de machine virtuelle de restauration automatique reste la même que celle du disque de machine virtuelle source d’origine. Les disques qui étaient exclus de la réplication de site Hyper-V vers Azure sont disponibles sur la machine virtuelle de restauration automatique.

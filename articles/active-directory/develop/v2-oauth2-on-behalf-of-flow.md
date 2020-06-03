@@ -1,5 +1,6 @@
 ---
 title: Plateforme d’identités Microsoft et flux On-Behalf-Of OAuth 2.0 | Azure
+titleSuffix: Microsoft identity platform
 description: Cet article explique comment utiliser des messages HTTP pour implémenter l’authentification de service à service en utilisant le flux Pour le compte de OAuth 2.0.
 services: active-directory
 author: hpsin
@@ -8,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 1/3/2020
+ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 57497c7bd8cd1d0b46c40b6977079f4a6a2d876f
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: bcf971b56aa0dc343fdfaf34b329e49a82bba9a8
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82689552"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771518"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plateforme d’identités Microsoft et flux On-Behalf-Of OAuth 2.0
 
@@ -31,7 +32,7 @@ Cet article explique comment programmer directement par rapport au protocole dan
 
 ## <a name="protocol-diagram"></a>Schéma de protocole
 
-Supposons que l’utilisateur ait été authentifié dans une application à l’aide du [flux d’octroi de code d’autorisation OAuth 2.0](v2-oauth2-auth-code-flow.md) ou d’un autre flux de connexion. À ce stade, l’application a un jeton d’accès *pour l’API A* (jeton A) avec les revendications et le consentement de l’utilisateur pour accéder à l’API web de niveau intermédiaire (API A). L’API A doit maintenant faire une demande authentifiée à l’API web en aval (API B).
+Supposons que l’utilisateur ait été authentifié dans une application à l’aide du [flux d’octroi de code d’autorisation OAuth 2.0](v2-oauth2-auth-code-flow.md) ou d’un autre flux de connexion. À ce stade, l’application a un jeton d’accès *pour l’API A* (jeton A) avec les revendications et le consentement de l’utilisateur pour accéder à l’API web de niveau intermédiaire (API A). L’API A doit maintenant faire une demande authentifiée à l’API web en aval (API B).
 
 Les étapes qui suivent constituent le flux OBO et sont décrites à l’aide du diagramme suivant.
 
@@ -69,7 +70,7 @@ Lorsque l’application utilise un secret partagé, la demande de jeton d’acc�
 | `scope` | Obligatoire | Liste des étendues (séparées par des espaces) pour la demande de jeton. Pour plus d’informations, consultez [Étendues](v2-permissions-and-consent.md). |
 | `requested_token_use` | Obligatoire | Spécifie comment la demande doit être traitée. Dans le flux OBO, la valeur doit être définie sur `on_behalf_of`. |
 
-#### <a name="example"></a> Exemple
+#### <a name="example"></a>Exemple
 
 La requête HTTP POST suivante demande un jeton d’accès et un jeton d’actualisation avec l’étendue `user.read` pour l’API web https://graph.microsoft.com.
 
@@ -104,7 +105,7 @@ Une demande de jeton d’accès de service à service avec un certificat contien
 
 Notez que les paramètres sont presque les mêmes que dans le cas de la demande par secret partagé, sauf que le paramètre `client_secret` est remplacé par deux paramètres : `client_assertion_type` et `client_assertion`.
 
-#### <a name="example"></a> Exemple
+#### <a name="example"></a>Exemple
 
 La requête HTTP POST suivante demande un jeton d’accès avec l’étendue `user.read` pour l’API web https://graph.microsoft.com avec un certificat.
 
@@ -156,7 +157,7 @@ L’exemple suivant illustre une réponse affirmative à une demande de jeton d�
 
 ### <a name="error-response-example"></a>Exemple de réponse d’erreur
 
-Une réponse d’erreur est retournée par le point de terminaison du jeton lors de la tentative d’acquisition d’un jeton d’accès pour l’API en aval si une stratégie d’accès conditionnel comme l’authentification multifacteur est définie sur cette API. Le service de niveau intermédiaire doit faire apparaître cette erreur à l’application cliente afin que celle-ci puisse fournir une interaction utilisateur pour satisfaire la stratégie d’accès conditionnel.
+Une réponse d’erreur est retournée par le point de terminaison du jeton lors de la tentative d’acquisition d’un jeton d’accès pour l’API en aval si une stratégie d’accès conditionnel comme l’[authentification multifacteur](../authentication/concept-mfa-howitworks.md) est définie sur cette API. Le service de niveau intermédiaire doit faire apparaître cette erreur à l’application cliente afin que celle-ci puisse fournir une interaction utilisateur pour satisfaire la stratégie d’accès conditionnel.
 
 ```json
 {
@@ -174,12 +175,12 @@ Une réponse d’erreur est retournée par le point de terminaison du jeton lors
 
 Le service de niveau intermédiaire peut maintenant utiliser le jeton obtenu ci-dessus pour faire des demandes authentifiées à l’API web en aval, en définissant le jeton dans l’en-tête `Authorization`.
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 ```HTTP
 GET /v1.0/me HTTP/1.1
 Host: graph.microsoft.com
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVGFlN0NkV1c3UWZkSzdNN0RyNXlvUUdLNmFEc19vdDF3cEQyZjNqRkxiNlVrcm9PcXA2cXBJclAxZVV0QktzMHEza29HN3RzXzJpSkYtQjY1UV8zVGgzSnktUHZsMjkxaFNBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIiwia2lkIjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaWF0IjoxNDkzOTMwMDE2LCJuYmYiOjE0OTM5MzAwMTYsImV4cCI6MTQ5MzkzMzg3NSwiYWNyIjoiMCIsImFpbyI6IkFTUUEyLzhEQUFBQUlzQjN5ZUljNkZ1aEhkd1YxckoxS1dlbzJPckZOUUQwN2FENTVjUVRtems9IiwiYW1yIjpbInB3ZCJdLCJhcHBfZGlzcGxheW5hbWUiOiJUb2RvRG90bmV0T2JvIiwiYXBwaWQiOiIyODQ2ZjcxYi1hN2E0LTQ5ODctYmFiMy03NjAwMzViMmYzODkiLCJhcHBpZGFjciI6IjEiLCJmYW1pbHlfbmFtZSI6IkNhbnVtYWxsYSIsImdpdmVuX25hbWUiOiJOYXZ5YSIsImlwYWRkciI6IjE2Ny4yMjAuMC4xOTkiLCJuYW1lIjoiTmF2eWEgQ2FudW1hbGxhIiwib2lkIjoiZDVlOTc5YzctM2QyZC00MmFmLThmMzAtNzI3ZGQ0YzJkMzgzIiwib25wcmVtX3NpZCI6IlMtMS01LTIxLTIxMjc1MjExODQtMTYwNDAxMjkyMC0xODg3OTI3NTI3LTI2MTE4NDg0IiwicGxhdGYiOiIxNCIsInB1aWQiOiIxMDAzM0ZGRkEwNkQxN0M5Iiwic2NwIjoiVXNlci5SZWFkIiwic3ViIjoibWtMMHBiLXlpMXQ1ckRGd2JTZ1JvTWxrZE52b3UzSjNWNm84UFE3alVCRSIsInRpZCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsInVuaXF1ZV9uYW1lIjoibmFjYW51bWFAbWljcm9zb2Z0LmNvbSIsInVwbiI6Im5hY2FudW1hQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJzUVlVekYxdUVVS0NQS0dRTVFVRkFBIiwidmVyIjoiMS4wIn0.Hrn__RGi-HMAzYRyCqX3kBGb6OS7z7y49XPVPpwK_7rJ6nik9E4s6PNY4XkIamJYn7tphpmsHdfM9lQ1gqeeFvFGhweIACsNBWhJ9Nx4dvQnGRkqZ17KnF_wf_QLcyOrOWpUxdSD_oPKcPS-Qr5AFkjw0t7GOKLY-Xw3QLJhzeKmYuuOkmMDJDAl0eNDbH0HiCh3g189a176BfyaR0MgK8wrXI_6MTnFSVfBePqklQeLhcr50YTBfWg3Svgl6MuK_g1hOuaO-XpjUxpdv5dZ0SvI47fAuVDdpCE48igCX5VMj4KUVytDIf6T78aIXMkYHGgW3-xAmuSyYH_Fr0yVAQ
+Authorization: Bearer eyJ0eXAiO ... 0X2tnSQLEANnSPHY0gKcgw
 ```
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Obtention du consentement pour l’application de niveau intermédiaire

@@ -1,14 +1,14 @@
 ---
 title: Déterminer les causes de non-conformité
 description: De nombreuses raisons peuvent expliquer une ressource non conforme. Découvrez comment identifier l'origine d'une non-conformité.
-ms.date: 04/26/2019
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 395c70309ceca6e38f9f62522d80fb588821b886
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b26357e9957259470049209913501cc024caeaa
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182580"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684227"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Déterminer les causes de non-conformité
 
@@ -115,11 +115,11 @@ Vous ne serez peut-être pas autorisé à vous connecter directement à la machi
 
 Commencez par suivre les étapes de la section ci-dessus pour afficher les détails de conformité à la stratégie.
 
-Dans le volet **Détails de conformité**, cliquez sur le lien **Dernière ressource évaluée**.
+Dans le volet Détails de conformité, cliquez sur le lien **Dernière ressource évaluée**.
 
 :::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Afficher les détails de la définition auditIfNotExists" border="false":::
 
-La page **Affectation d'invité** affiche les détails de conformité disponibles. Chaque ligne de la vue représente une évaluation effectuée au sein de la machine. Dans la colonne **Raison**, une phrase décrivant pourquoi l'attribution d'invité est _Non conforme_ s’affiche. Par exemple, si vous auditez les stratégies de mot de passe, la colonne **Raison** affiche du texte, dont la valeur actuelle de chaque paramètre.
+La page **Affectation d'invité** affiche les détails de conformité disponibles. Chaque ligne de la vue représente une évaluation effectuée au sein de la machine. Dans la colonne **Raison**, une phrase s’affiche pour décrire la raison pour laquelle l’attribution d’invité est _Non conforme_. Par exemple, si vous auditez les stratégies de mot de passe, la colonne **Raison** affiche du texte, dont la valeur actuelle de chaque paramètre.
 
 :::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Afficher les détails de conformité" border="false":::
 

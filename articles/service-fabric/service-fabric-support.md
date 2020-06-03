@@ -5,12 +5,12 @@ author: pkcsf
 ms.topic: troubleshooting
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: 7494f0072f27f2c9b00db7070f19dfc05627eacf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee602b3aa6c701eb10730f4c5c387175bb070ef3
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236581"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834592"
 ---
 # <a name="azure-service-fabric-support-options"></a>Options de support d’Azure Service Fabric
 
@@ -51,7 +51,7 @@ Signaler des problèmes avec Azure Service Fabric sur le [Référentiel Git des 
 
 ### <a name="stackoverflow-and-msdn-forums"></a>Forums StackOverflow et MSDN
 
-La Balise [Service Fabric sur StackOverflow][stackoverflow] et le [Forum Service Fabric sur MSDN][msdn-forum] sont recommandés pour poser des questions sur le fonctionnement de la plateforme et la réalisation de certaines tâches par son intermédiaire.
+La balise [Service Fabric sur StackOverflow][stackoverflow] et le [Service Fabric forum on MSDN][msdn-forum] sont recommandés pour poser des questions sur le fonctionnement de la plateforme et la réalisation de certaines tâches par son intermédiaire.
 
 ### <a name="azure-feedback-forum"></a>Forum de commentaires Azure
 
@@ -67,7 +67,7 @@ Il n’existe aucune option de support technique payant pour ces versions préli
 [Versions de Service Fabric prises en charge](service-fabric-versions.md)
 
 <!--references-->
-[msdn-forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric
+[Microsoft Q&A question page]: https://docs.microsoft.com/answers/topics/azure-service-fabric.html
 [stackoverflow]: https://stackoverflow.com/questions/tagged/azure-service-fabric
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
 [acom-docs]: https://aka.ms/servicefabricdocs

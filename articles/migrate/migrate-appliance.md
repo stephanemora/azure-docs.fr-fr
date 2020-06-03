@@ -3,12 +3,12 @@ title: Appliance Azure Migrate
 description: Présente une vue d’ensemble de l’utilisation de l’appliance Azure Migrate pour l’évaluation et la migration de serveurs.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 439f6d9c80a0b93f071d30d580facc4604cabbac
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 98398510acb1eec29ea603d869f1e9ec383cb210
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780332"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758943"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -105,7 +105,7 @@ L’appliance Azure Migrate a besoin d’une connectivité Internet.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Créez des applications Azure Active Directory (AD) pour que l’appliance communique avec Azure Migrate.
 management.azure.com | Créez des applications Azure AD pour que l’appliance communique avec le service Azure Migrate.
 *.services.visualstudio.com | Chargez les journaux d’applications utilisés pour la supervision interne.
-*.vault.azure.net | Gérez les secrets dans Azure Key Vault.
+*.vault.azure.net | Gérez les secrets dans Azure Key Vault. Remarque : Vérifiez que les machines à répliquer y ont accès.
 aka.ms/* | Autorisez l’accès à des liens aka. Utilisé pour les mises à jour de l’appliance Azure Migrate.
 download.microsoft.com/download | Autoriser les téléchargements à partir du téléchargement Microsoft.
 *.servicebus.windows.net | Communication entre l’appliance et le service Azure Migrate.
@@ -222,7 +222,7 @@ Port distant | netstat
 Adresse IP distante | netstat
 État de la connexion TCP | netstat
 ID du processus | netstat
-Non. de connexions actives | netstat
+Nombre de connexions actives | netstat
 
 #### <a name="process-data"></a>Traitement des données
 Voici les données de processus que l’appliance collecte auprès de chaque machine virtuelle activée pour l’analyse des dépendances sans agent. Ces données sont envoyées à Azure.
@@ -244,7 +244,7 @@ Adresse IP locale | netstat
 Port distant | netstat 
 Adresse IP distante | netstat 
 État de la connexion TCP | netstat 
-Non. de connexions actives | netstat
+Nombre de connexions actives | netstat
 ID du processus  | netstat 
 Nom du processus | ps
 Arguments de processus | ps
@@ -340,7 +340,7 @@ Voici la liste complète des métadonnées des serveurs Linux que l’appliance 
 FQDN | cat /proc/sys/kernel/hostname, hostname -f
 Nombre de cœurs de processeur |  /proc/cpuinfo \| awk '/^processor/{print $3}' \| wc -l
 Mémoire allouée | cat /proc/meminfo \| grep MemTotal \| awk '{printf "%.0f", $2/1024}'
-Numéro de série du BIOS | lshw \| grep "serial:" \| head -n1 \| awk '{print $2}' <br/> /usr/sbin/dmidecode -t 1 \| grep 'Serial' \| awk '{ $1="" ; $2=""; print}’
+Numéro de série du BIOS | lshw \| grep "serial:" \| head -n1 \| awk '{print $2}' <br/> /usr/sbin/dmidecode -t 1 \| grep 'Serial' \| awk '{ $1="" ; $2=""; print}'
 GUID du BIOS | cat /sys/class/dmi/id/product_uuid
 Type de démarrage | [ -d /sys/firmware/efi ] && echo EFI \|\| echo BIOS
 Nom/version du système d’exploitation | Nous accédons à ces fichiers pour déterminer la version et le nom du système d’exploitation :<br/><br/> /etc/os-release<br/> /usr/lib/os-release <br/> /etc/enterprise-release <br/> /etc/redhat-release<br/> /etc/oracle-release<br/>  /etc/SuSE-release<br/>  /etc/lsb-release  <br/> /etc/debian_version
@@ -440,12 +440,12 @@ Pour vérifier dans le Panneau de configuration :
 Si vous utilisez une ancienne version pour l'un des composants, vous devez désinstaller le service puis effectuer une mise à jour manuelle avec la dernière version.
 
 1. Pour vérifier les dernières versions d’un service d’appliance, [téléchargez](https://aka.ms/latestapplianceservices) le fichier LatestComponents.json.
-2.  Après le téléchargement, ouvrez le fichier LatestComponents.json dans le Bloc-notes.
+2.    Après le téléchargement, ouvrez le fichier LatestComponents.json dans le Bloc-notes.
 3. Vous trouverez dans ce fichier la dernière version du service ainsi que le lien de téléchargement correspondant. Par exemple :
 
     "Name": "ASRMigrationWebApp", "DownloadLink": "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
 
-4.  Téléchargez la dernière version d'un service obsolète en utilisant le lien de téléchargement figurant dans le fichier.
+4.    Téléchargez la dernière version d'un service obsolète en utilisant le lien de téléchargement figurant dans le fichier.
 5. Après le téléchargement, exécutez la commande suivante dans une fenêtre de commande d'administrateur pour vérifier l'intégrité du fichier msi téléchargé.
 
     ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ``` Par exemple :  C:\>CertUtil -HashFile C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5

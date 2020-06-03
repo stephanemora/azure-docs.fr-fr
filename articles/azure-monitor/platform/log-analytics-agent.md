@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: d52d8e6d0f6e3325b5c5cdc9a2e21654e6a2b621
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: cbefe2e2b25db7ce16a7a1bde423f60fda412590
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520720"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773353"
 ---
 # <a name="log-analytics-agent-overview"></a>Présentation de l’agent Log Analytics
 L’agent Azure Log Analytics a été développé pour une gestion complète des machines virtuelles dans tous les clouds, des machines locales et de celles surveillées par [Operations Manager](https://docs.microsoft.com/system-center/scom/). Les agents Windows et Linux envoient des données collectées à partir de différentes sources à votre espace de travail Log Analytics dans Azure Monitor, ainsi que des journaux d’activité ou mesures uniques tels que définis dans une solution de supervision. L’agent Log Analytics prend également en charge des analyses et d’autres services dans Azure Monitor comme [Azure Monitor pour machines virtuelles](../insights/vminsights-enable-overview.md), [Azure Security Center](/azure/security-center/) et [Azure Automation](../../automation/automation-intro.md).
@@ -88,8 +88,12 @@ En fonction de vos besoins, il existe plusieurs méthodes pour installer l’age
 Les versions suivantes du système d’exploitation Windows sont officiellement prises en charge pour l’agent Windows :
 
 * Windows Server 2019
-* Windows Server 2008 SP2 (x64), 2008 R2, 2012, 2012 R2, 2016, version 1709 et 1803
-* Windows 7 SP1, Windows 8 Enterprise et Pro, et Windows 10 Enterprise et Pro
+* Windows Server 2016, versions 1709 et 1803
+* Windows Server 2012, 2012 R2
+* Windows Server 2008 SP2 (x64), 2008 R2
+* Windows 10 entreprise (y compris multi-sessions) et Pro
+* Windows 8 Entreprise et Professionnel 
+* Windows 7 SP1
 
 >[!NOTE]
 >Tandis que l’agent Log Analytics pour Windows a été conçu pour prendre en charge les scénarios d’analyse de serveur, nous savons que vous pouvez exécuter le client Windows pour prendre en charge les charges de travail configurées et optimisées pour le système d’exploitation serveur. L’agent ne prend pas en charge le client Windows, mais nos solutions de surveillance ne concernent pas les scénarios d’analyse du client, sauf mention explicite.
@@ -111,11 +115,11 @@ Cette section fournit des détails sur les distributions Linux prises en charge.
 >Si vous utilisez une distribution ou une version qui n’est pas prise en charge actuellement et qui ne s’aligne pas sur notre modèle de prise en charge, nous vous recommandons de dupliquer ce dépôt, en sachant que le support de Microsoft ne fournira aucune assistance sur les versions d’agent dupliqué.
 
 * Amazon Linux 2017.09 (x64)
-* CentOS Linux 6 (x86/x64) et 7 (x64)  
-* Oracle Linux 6 et 7 (x86/x64) 
-* Red Hat Enterprise Linux Server 6 (x86/x64) et 7 (x64)
-* Debian GNU/Linux 8 et 9 (x86/x64)
-* Ubuntu 14.04 LTS (x86/x64), 16.04 LTS (x86/x64) et 18.04 LTS (x64)
+* CentOS Linux 6 (x64) et 7 (x64)  
+* Oracle Linux 6 et 7 (x64) 
+* Red Hat Enterprise Linux Server 6 (x64/x64), 7 et 8 (x64)
+* Debian GNU/Linux 8 et 9 (x64)
+* Ubuntu 14.04 LTS (x86/x64), 16.04 LTS (x64) et 18.04 LTS (x64)
 * SUSE Linux Enterprise Server 12 (x64) et 15 (x64)
 
 >[!NOTE]
@@ -143,7 +147,7 @@ Pour garantir la sécurité des données en transit vers les journaux d’activi
 
 
 ## <a name="sha-2-code-signing-support-requirement-for-windows"></a>Conditions de prise en charge de la signature de code SHA-2 pour Windows
-À compter du 18 mai 2020, l’agent Windows utilisera exclusivement la signature SHA-2. Ce changement aura un impact sur les clients qui utilisent l’agent Log Analytics sur un système d’exploitation hérité dans le cadre d’un service Azure (Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Azure Security Center, Azure Sentinel, Windows Defender ATP). Le client n’aura rien à faire à moins que l’agent s’exécute sur une version héritée du système d’exploitation (Windows 7, Windows Server 2008 R2 et Windows Server 2008). Les clients utilisant une version héritée du système d’exploitation sont tenus d’effectuer les actions suivantes sur leurs ordinateurs avant le 18 mai 2020. À défaut, leurs agents cesseront d’envoyer les données à leurs espaces de travail Log Analytics :
+À compter du 17 août 2020, l’agent Windows utilisera exclusivement la signature SHA-2. Ce changement aura un impact sur les clients qui utilisent l’agent Log Analytics sur un système d’exploitation hérité dans le cadre d’un service Azure (Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Azure Security Center, Azure Sentinel, Windows Defender ATP). Le client n’aura rien à faire à moins que l’agent s’exécute sur une version héritée du système d’exploitation (Windows 7, Windows Server 2008 R2 et Windows Server 2008). Les clients utilisant une version héritée du système d’exploitation sont tenus d’effectuer les actions suivantes sur leurs ordinateurs avant le 17 août 2020. À défaut, leurs agents cesseront d’envoyer les données à leurs espaces de travail Log Analytics :
 
 1. Installer le dernier Service Pack du système d’exploitation. Les versions de Service Pack nécessaires sont les suivantes :
     - Windows 7 SP1
@@ -166,11 +170,10 @@ Le tableau suivant répertorie les informations de configuration du proxy et du 
 
 |Ressource de l'agent|Ports |Sens |Ignorer l’inspection HTTPS|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Port 443 |Communications entrantes et sortantes|Oui |  
-|*.oms.opinsights.azure.com |Port 443 |Communications entrantes et sortantes|Oui |  
-|*.blob.core.windows.net |Port 443 |Communications entrantes et sortantes|Oui |
-|\* .azure-automation.net |Port 443 |Communications entrantes et sortantes|Oui |
-|*.azure.com |Port 443|Communications entrantes et sortantes|Oui |
+|*.ods.opinsights.azure.com |Port 443 |Règle de trafic sortant|Oui |  
+|*.oms.opinsights.azure.com |Port 443 |Règle de trafic sortant|Oui |  
+|*.blob.core.windows.net |Port 443 |Règle de trafic sortant|Oui |
+|\* .azure-automation.net |Port 443 |Règle de trafic sortant|Oui |
 
 Pour obtenir les informations relatives au pare-feu nécessaires pour Azure Government, consultez [Azure Government Monitoring + Management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 

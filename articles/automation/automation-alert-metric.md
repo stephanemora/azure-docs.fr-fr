@@ -1,17 +1,17 @@
 ---
 title: Surveiller les runbooks Azure Automation avec des alertes de métriques
-description: Cet article vous guide tout au long de la procédure de surveillance des runbooks Azure Automation à l’aide de métriques.
+description: Cet article décrit comment surveiller des runbooks à partir métriques.
 services: automation
 ms.date: 11/01/2018
 ms.topic: article
-ms.openlocfilehash: f288029bb35fe4e3c71db37a1de265edbcd913b1
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 20aaee5b699e9721bf9083030604df1385da1915
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310553"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828744"
 ---
-# <a name="monitoring-runbooks-with-metric-alerts"></a>Surveillance de runbooks avec des alertes de métriques
+# <a name="monitor-runbooks-with-metric-alerts"></a>Surveiller des runbooks avec des alertes de métrique
 
 Dans le cadre de cet article, vous allez apprendre à créer des alertes reposant sur l’état d’achèvement des runbooks.
 
@@ -67,7 +67,7 @@ Sur le Portail Azure, accédez à votre compte Automation. Sous **Supervision**,
 > [!NOTE]
 > Lorsque vous ajoutez une adresse e-mail à un groupe d’actions, le système envoie un e-mail de notification indiquant que l’adresse a été ajoutée à un groupe d’actions.
 
-## <a name="notification"></a>Notification
+## <a name="receive-notification"></a>Recevoir une notification
 
 Lorsque les critères d’alerte sont satisfaits, le groupe d’actions exécute l’action définie. Selon l’exemple fourni dans cet article, un e-mail est envoyé. L’image ci-après illustre un exemple d’e-mail que vous recevez après le déclenchement de l’alerte :
 
@@ -77,7 +77,4 @@ Une fois que la métrique ne dépasse plus le seuil défini, l’alerte est dés
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Passez à l’article suivant pour découvrir d’autres méthodes d’intégration d’alertes dans votre compte Automation.
-
-> [!div class="nextstepaction"]
-> [Utiliser une alerte pour déclencher un runbook Azure Automation](automation-create-alert-triggered-runbook.md)
+* Pour plus d’informations, consultez [Utiliser une alerte pour déclencher un runbook Azure Automation](automation-create-alert-triggered-runbook.md).

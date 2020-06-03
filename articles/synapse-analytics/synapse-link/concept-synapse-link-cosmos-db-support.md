@@ -1,5 +1,5 @@
 ---
-title: Fonctionnalités prises en charge par Azure Synapse Link pour Azure Cosmos DB
+title: Fonctionnalités prises en charge par Azure Synapse Link (préversion) pour Azure Cosmos DB
 description: Présentation de la liste des actions prises en charge par Azure Synapse Link pour Azure Cosmos DB
 services: synapse-analytics
 author: ArnoMicrosoft
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1b94d7677026f3695d07be4d83a5059373078c2e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 2e0b1ee5584420ab38fda8897ef610794b09c29a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599031"
+ms.locfileid: "83658841"
 ---
-# <a name="azure-synapse-link-for-azure-cosmos-db-supported-features"></a>Fonctionnalités prises en charge par Azure Synapse Link pour Azure Cosmos DB
+# <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Fonctionnalités prises en charge par Azure Synapse Link (préversion) pour Azure Cosmos DB
 
 Cet article décrit les fonctionnalités actuellement prises en charge par Azure Synapse Link pour Azure Cosmos DB. 
 
@@ -28,11 +28,11 @@ Il existe deux types de conteneurs dans Azure Cosmos DB :
 
 Vous pouvez vous connecter à un conteneur Azure Cosmos DB sans activer Synapse Link, auquel cas vous pouvez uniquement lire/écrire dans le magasin transactionnel. La liste ci-dessous répertorie les fonctionnalités actuellement prises en charge dans Synapse Link pour Azure Cosmos DB. 
 
-| Catégorie              | Description |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL serverless](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
+| Category              | Description |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL serverless](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
 | **Prise en charge à l’exécution** |Prise en charge de la lecture ou de l’écriture à l’exécution d’Azure Synapse| ✓ | [Nous contacter](mailto:AskSynapse@microsoft.com?subject=[Enable%20Preview%20Feature]%20SQL%20serverless%20for%20Cosmos%20DB)|
 | **Prise en charge de l’API Azure Cosmos DB** : |Prise en charge de l’API en tant que Synapse Link| SQL / MongoDB | SQL / MongoDB |
-| **Objet**  |Possibilité de créer des objets (tels qu’une table), qui pointent directement vers le conteneur Azure Cosmos DB| Affichage, Table | Affichage |
+| **Object**  |Possibilité de créer des objets (tels qu’une table), qui pointent directement vers le conteneur Azure Cosmos DB| Affichage, Table | Affichage |
 | **Lire**    |Lecture des données d’un conteneur Azure Cosmos DB| OLTP / HTAP | HTAP  |
 | **Écrire**   |Écriture des données dans un conteneur Azure Cosmos DB au démarrage| OLTP | n/a |
 

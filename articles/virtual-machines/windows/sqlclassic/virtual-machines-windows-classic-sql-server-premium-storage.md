@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 479f9abc667e20a136da5f6231e78a1e4052f087
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ca11fce252192cbf8e5f0bc2cfb5fcd38f5d4443
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75965665"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020878"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Utilisation du stockage Premium Azure avec SQL Server sur des machines virtuelles
 
@@ -41,7 +41,7 @@ Il est important de comprendre le processus complet d'utilisation du stockage Pr
 * Approches de migration possibles.
 * Exemple complet présentant les étapes Azure, Windows et SQL Server pour la migration d’une implémentation Always On existante.
 
-Pour plus de détails sur l’utilisation de SQL Server dans les machines virtuelles Azure, consultez la rubrique [SQL Server dans les machines virtuelles Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Pour plus de détails sur l’utilisation de SQL Server dans les machines virtuelles Azure, consultez la rubrique [SQL Server dans les machines virtuelles Azure](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
 
 **Auteur :** Daniel Sol **Réviseurs techniques :** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz.
 
@@ -64,7 +64,7 @@ Vous pouvez uniquement utiliser des machines virtuelles DS* avec un stockage Pre
 
 ### <a name="regional-vnets"></a>Réseaux virtuels régionaux
 
-Pour les machines virtuelles DS*, le réseau virtuel (VNET) qui héberge vos machines virtuelles doit être régional. Cela « étend » le réseau virtuel pour permettre de configurer des machines virtuelles plus importantes dans d'autres clusters et établir la communication entre elles. Dans la capture d'écran suivante, l'emplacement mis en surbrillance montre les réseaux virtuels régionaux, tandis que le premier résultat montre un réseau virtuel « étroit ».
+Pour les machines virtuelles DS*, le réseau virtuel (VNET) qui héberge vos machines virtuelles doit être régional. Cela « étend » le réseau virtuel pour permettre de configurer des machines virtuelles plus importantes dans d’autres clusters et établir la communication entre elles. Dans la capture d’écran suivante, l’emplacement mis en surbrillance montre les réseaux virtuels régionaux, tandis que le premier résultat montre un réseau virtuel « étroit ».
 
 ![RegionalVNET][1]
 
@@ -97,7 +97,7 @@ Pour convertir cette configuration en un réseau virtuel régional en Europe Oue
 
 ### <a name="storage-accounts"></a>Comptes de stockage
 
-Vous devez créer un nouveau compte de stockage configuré pour le stockage Premium. Notez que l'utilisation du stockage Premium est définie au niveau du compte de stockage et non des disques durs virtuels individuels ; mais lorsque vous utilisez une machine virtuelle de série DS*, vous pouvez connecter des disques durs virtuels à partir de comptes de stockage Premium et Standard. Cette méthode est recommandée si vous ne souhaitez pas placer le disque dur virtuel du système d'exploitation sur le compte de stockage Premium.
+Vous devez créer un nouveau compte de stockage configuré pour le stockage Premium. Notez que l’utilisation de Stockage Premium est définie au niveau du compte de stockage et non des disques durs virtuels individuels. Néanmoins, lorsque vous utilisez une machine virtuelle de série DS*, vous pouvez connecter des disques durs virtuels à partir de comptes Stockage Premium et Stockage Standard. Cette méthode est recommandée si vous ne souhaitez pas placer le disque dur virtuel du système d'exploitation sur le compte de stockage Premium.
 
 La commande **New-AzureStorageAccountPowerShell** suivante avec le **Type** « Premium_LRS » crée un compte de stockage Premium :
 
@@ -108,7 +108,7 @@ New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "We
 
 ### <a name="vhds-cache-settings"></a>Paramètres de cache des disques durs virtuels
 
-La principale différence avec la création de disques faisant partie d'un compte de stockage Premium est le paramètre de cache des disques. Pour les disques de volume de données SQL Server, il est recommandé d’utiliser le paramètre de cache de lecture**Read Caching**. Pour les volumes de journaux de transactions, le paramètre de cache des disques doit être défini sur**None**. Il s'agit d'une différence par rapport aux recommandations pour les comptes de stockage Standard.
+La principale différence avec la création de disques faisant partie d'un compte de stockage Premium est le paramètre de cache des disques. Pour les disques volume de données SQL Server, il est recommandé d’utiliser le paramètre de cache de lecture « **Read Caching** ». Pour les volumes de journaux de transactions, le paramètre de cache des disques doit être défini sur « **None** ». Il s'agit d'une différence par rapport aux recommandations pour les comptes de stockage Standard.
 
 Une fois les disques durs virtuels connectés, le paramètre de cache ne peut pas être modifié. Vous devez déconnecter puis reconnecter le disque dur virtuel avec un paramètre de cache mis à jour.
 
@@ -142,7 +142,7 @@ Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 1. Notez le nom du disque et le LUN.
 
     ![DisknameAndLUN][2]
-1. Bureau à distance dans la machine virtuelle. Accédez ensuite à **Gestion de l’ordinateur** | **Gestionnaire de périphériques** | **Lecteurs de disque**. Examinez les propriétés de chacun  des « disques virtuels Microsoft ».
+1. Bureau à distance dans la machine virtuelle. Accédez ensuite à **Gestion de l’ordinateur** | **Gestionnaire de périphériques** | **Lecteurs de disque**. Examinez les propriétés de chacun des « disques virtuels Microsoft »
 
     ![VirtualDiskProperties][3]
 1. Ici, le numéro LUN désigne le numéro LUN que vous spécifiez lors de la connexion du disque dur virtuel à la machine virtuelle.
@@ -271,7 +271,7 @@ $pass = "mycomplexpwd4*"
 $vmConfigsl = New-AzureVMConfig -Name $vmName -InstanceSize $newInstanceSize -ImageName $image  -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` -AdminUserName $userName -Password $pass | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
 
 #Add Data and Log Disks to VM Config
-#Note the size specified ‘-DiskSizeInGB 1023’, this attaches 2 x P30 Premium Storage Disk Type
+#Note the size specified '-DiskSizeInGB 1023', this attaches 2 x P30 Premium Storage Disk Type
 #Utilising the Premium Storage enabled Storage account
 
 $vmConfigsl | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 0 -HostCaching "ReadOnly"  -DiskLabel "DataDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vmName-data1.vhd"
@@ -405,7 +405,7 @@ $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet
 
 Il existe différents points à prendre en compte concernant les déploiements SQL Server qui utilisent ou non des groupes de disponibilité Always On. Si vous n’utilisez pas Always On et que vous disposez d’un serveur SQL Server autonome, vous pouvez effectuer une mise à niveau vers Premium Storage à l’aide d’un nouveau service cloud et d’un compte de stockage. Considérez les options suivantes :
 
-* **Créez une nouvelle machine virtuelle SQL Server**. Vous pouvez créer une nouvelle machine virtuelle SQL qui utilise un compte de stockage Premium comme décrit dans les nouveaux déploiements. Ensuite, sauvegardez et restaurez votre configuration SQL Server et vos bases de données utilisateur. L'application doit être mise à jour pour référencer la nouvelle configuration SQL Server si elle accessible de façon interne ou externe. Vous devez copier tous les objets 'out of db' comme si vous effectuiez une migration SQL Server de type Side by Side (SxS). Cela inclut des objets tels que les connexions, les certificats et les serveurs liés.
+* **Créez une nouvelle machine virtuelle SQL Server**. Vous pouvez créer une nouvelle machine virtuelle SQL qui utilise un compte de stockage Premium comme décrit dans les nouveaux déploiements. Ensuite, sauvegardez et restaurez votre configuration SQL Server et vos bases de données utilisateur. L'application doit être mise à jour pour référencer la nouvelle configuration SQL Server si elle accessible de façon interne ou externe. Vous devez copier tous les objets « out of db » comme si vous effectuiez une migration SQL Server de type Side by Side (SxS). Cela inclut des objets tels que les connexions, les certificats et les serveurs liés.
 * **Migrez une machine virtuelle SQL Server existante**. Cette opération exige la déconnexion de la machine virtuelle SQL Server, puis son transfert vers un nouveau service cloud, y compris la copie de tous ses disques durs virtuels connectés au compte de stockage Premium. Lorsque la machine virtuelle est mise en ligne, l'application référence le nom d'hôte du serveur comme avant. N'oubliez pas que la taille du disque existant affecte les performances. Par exemple, un disque de 400 Go correspond à un disque P20. Si vous savez que vous n'avez pas besoin de telles performances, vous pouvez recréer la machine virtuelle comme une machine virtuelle de série DS et connecter des disques durs virtuels de stockage Premium offrant la taille ou les performances requises. Vous pouvez ensuite déconnecter puis reconnecter les fichiers de la base de données SQL.
 
 > [!NOTE]
@@ -461,7 +461,7 @@ Vous devez prévoir suffisamment de temps pour effectuer un basculement manuel e
 
 1. Créez deux serveurs SQL dans le nouveau service cloud avec une connexion au stockage Premium.
 2. Copiez les sauvegardes complètes et effectuez une restauration avec **NORECOVERY**.
-3. Copiez les objets dépendants 'out of user DB', notamment que les connexions.
+3. Copiez les objets dépendants « out of user DB », y compris les connexions.
 4. Créez un nouvel équilibreur de charge interne (ILB) ou utilisez un équilibreur de charge externe (ELB), puis configurez ensuite les points de terminaison d'équilibrage de charge sur les deux nouveaux nœuds.
 
    > [!NOTE]
@@ -474,7 +474,7 @@ Vous devez prévoir suffisamment de temps pour effectuer un basculement manuel e
 8. Une fois la validation réussie, démarrez tous les services SQL Server.
 9. Sauvegardez les journaux d’activité des transactions et restaurez les bases de données utilisateur.
 10. Ajoutez de nouveaux nœuds au groupe de disponibilité Always On et définissez la réplication sur **Synchrone**.
-11. Ajoutez la ressource d’adresse IP de l’ILB/ELB du nouveau service cloud par le biais de PowerShell pour Always On en fonction de l’exemple multisite de [l’annexe](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage). Dans le clustering Windows, définissez les **propriétaires possibles** de la ressource d’**adresse IP** sur les nouveaux nœuds. Consultez la section « Ajout d'une ressource d'adresse IP sur le même sous-réseau » de [l'annexe](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
+11. Ajoutez la ressource d’adresse IP de l’ILB/ELB du nouveau service cloud par le biais de PowerShell pour Always On en fonction de l’exemple multisite de [l’annexe](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage). Dans le clustering Windows, définissez les **propriétaires possibles** de la ressource d’**adresse IP** sur les nouveaux nœuds. Consultez la section « Ajout de ressource d’adresse IP sur le même sous-réseau » de [l’annexe](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
 12. Basculement vers un des nouveaux nœuds.
 13. Configurez les nouveaux nœuds en tant que partenaires de basculement automatique puis testez les basculements.
 14. Supprimez les nœuds d'origine du groupe de disponibilité.
@@ -531,7 +531,7 @@ Une stratégie limitant les temps d'arrêt consiste à prendre un service cloud 
 
 * Un temps d’arrêt se produit lorsque vous mettez à jour le nœud final avec le point de terminaison d’équilibrage de charge.
 * La reconnexion de votre client peut être retardée en fonction de votre configuration client/DNS.
-* Un temps d’arrêt supplémentaire survient si vous choisissez de mettre hors ligne le groupe Cluster Always On afin de permuter les adresses IP. Vous pouvez éviter cela en utilisant une dépendance OR et en choisissant les propriétaires possibles pour la ressource d’adresse IP ajoutée. Consultez la section « Ajout d'une ressource d'adresse IP sur le même sous-réseau » de [l'annexe](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
+* Un temps d’arrêt supplémentaire survient si vous choisissez de mettre hors ligne le groupe Cluster Always On afin de permuter les adresses IP. Vous pouvez éviter cela en utilisant une dépendance OR et en choisissant les propriétaires possibles pour la ressource d’adresse IP ajoutée. Consultez la section « Ajout de ressource d’adresse IP sur le même sous-réseau » de [l’annexe](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
 
 > [!NOTE]
 > Lorsque vous souhaitez que le nœud ajouté joue le rôle de partenaire de basculement Always On, vous devez ajouter un point de terminaison Azure avec une référence au jeu d’équilibrage de la charge. Lorsque vous exécutez la commande **Add-AzureEndpoint** pour cette opération, les connexions actuelles restent ouvertes, mais les nouvelles connexions à l'écouteur ne peuvent être établies qu’une fois que l'équilibreur de charge a été mis à jour. Dans ce test, l'opération dure de 90 à 120 secondes (à vérifier).
@@ -564,7 +564,7 @@ Ce document ne présente pas un exemple complet de bout en bout, toutefois, [l'a
 * Configurez l'ILB/ELB et ajoutez des points de terminaison.
 * Mettez à jour l'écouteur en procédant comme suit :
   * Mettez hors ligne le groupe Always On et mettez à jour l’écouteur Always On avec la nouvelle adresse IP de l’ILB/ELB.
-  * Ou ajoutez la ressource d’adresse IP de l’ILB/ELB du nouveau service cloud via PowerShell dans le clustering Windows. Puis affectez les propriétaires possibles de la ressource d'adresse IP au nœud migré, SQL2, définissez ce paramètre comme dépendance OR dans le nom de réseau. Consultez la section « Ajout d'une ressource d'adresse IP sur le même sous-réseau » de [l'annexe](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
+  * Ou ajoutez la ressource d’adresse IP de l’ILB/ELB du nouveau service cloud via PowerShell dans le clustering Windows. Puis affectez les propriétaires possibles de la ressource d'adresse IP au nœud migré, SQL2, définissez ce paramètre comme dépendance OR dans le nom de réseau. Consultez la section « Ajout de ressource d’adresse IP sur le même sous-réseau » de [l’annexe](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
 * Vérifiez la configuration/propagation DNS vers les clients.
 * Migrez la machine virtuelle SQL1 et suivez les étapes 2 à 4.
 * Si vous utilisez les étapes 5ii, ajoutez SQL1 comme propriétaire possible pour la ressource d'adresse IP ajoutée
@@ -681,9 +681,9 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Étape 2 : Augmenter le niveau des échecs autorisés sur les ressources \<Facultatif>
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Étape 2 : Augmenter le niveau des échecs autorisés sur les ressources \<Optional>
 
-Sur certaines ressources appartenant à votre groupe de disponibilité Always On, il existe des limites concernant le nombre d’erreurs qui peuvent se produire dans une période où le service de cluster tente de redémarrer le groupe de ressources. Il est recommandé d'augmenter cette valeur au cours de cette procédure car si vous n'effectuez pas manuellement les basculements en arrêtant les machines, vous risquez de vous rapprocher de cette limite.
+Sur certaines ressources appartenant à votre groupe de disponibilité Always On, il existe des limites concernant le nombre d’erreurs qui peuvent se produire dans une période où le service de cluster tente de redémarrer le groupe de ressources. Il est recommandé d’augmenter cette valeur au cours de cette procédure car si vous n’effectuez pas manuellement les basculements en arrêtant les machines, vous risquez de vous rapprocher de cette limite.
 
 Il est prudent de doubler la tolérance de défaillance ; pour cela, ouvrez le Gestionnaire du cluster de basculement, puis accédez aux propriétés du groupe de ressources Always On :
 
@@ -691,7 +691,7 @@ Il est prudent de doubler la tolérance de défaillance ; pour cela, ouvrez le 
 
 Modifiez le nombre maximal d'échecs à 6.
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Étape 3 : Ajouter une ressource d’adresse IP au groupe de clusters \<Facultatif>
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Étape 3 : Ajouter une ressource d’adresse IP au groupe de clusters \<Optional>
 
 Si vous n'avez qu'une seule adresse IP pour le groupe de clusters et qu'elle est alignée sur le sous-réseau cloud, prenez garde car si vous mettez hors ligne accidentellement tous les nœuds de cluster du cloud sur ce réseau, la ressource IP du cluster et le nom du réseau cluster ne pourront pas être mis en ligne. Dans ce cas, cela empêche les mises à jour des autres ressources de cluster.
 
@@ -705,15 +705,15 @@ Lorsque la fonctionnalité Always On est installée, elle crée un groupe de res
 
 Lors de la connexion à SQL Server, le pilote du client SQL Server extrait les enregistrements DNS associés à l’écouteur, et tente de vous connecter à chaque adresse IP Always On associée. Nous abordons ci-dessous certains facteurs pouvant influencer cette opération.
 
-Le nombre d’enregistrements DNS simultanés associés au nom de l’écouteur dépend non seulement du nombre d’adresses IP associées, mais également du paramètre « RegisterAllIpProviders » de clustering de basculement pour la ressource VNN Always On.
+Le nombre d’enregistrements DNS simultanés associés au nom de l’écouteur dépend non seulement du nombre d’adresses IP associées, mais également du paramètre « RegisterAllIpProviders » de clustering de basculement pour la ressource VNN Always-On.
 
 Lorsque vous déployez Always On dans Azure, différentes étapes permettent de créer l’écouteur et les adresses IP, et vous devez définir manuellement le paramètre « RegisterAllIpProviders » sur 1, contrairement à un déploiement Always On local, où il est déjà défini sur 1.
 
-Si 'RegisterAllIpProviders' est défini sur 0, vous ne voyez qu'un seul enregistrement DNS dans le DNS associé à l'écouteur :
+Si « RegisterAllIpProviders » est défini sur 0, vous ne voyez qu’un seul enregistrement DNS dans le DNS associé à l’écouteur :
 
 ![Appendix4][14]
 
-Si 'RegisterAllIpProviders' est 1 :
+Si « RegisterAllIpProviders » est 1 :
 
 ![Appendix5][15]
 
@@ -745,11 +745,11 @@ Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 12
 ```
 
 > [!NOTE]
-> La diminution de la valeur 'HostRecordTTL' augmente le trafic DNS.
+> La diminution de la valeur « HostRecordTTL » augmente le trafic DNS.
 
 ##### <a name="client-application-settings"></a>Paramètres de l’application cliente
 
-Si votre application cliente SQL prend en charge .NET 4.5 SQLClient, vous pouvez utiliser le mot clé 'MULTISUBNETFAILOVER = TRUE'. Il est recommandé de l'appliquer car il accélère la connexion au groupe de disponibilité AlwaysOn SQL pendant le basculement. Il énumère toutes les adresses IP associées à l’écouteur Always On en parallèle et effectue une tentative de reconnexion TCP plus rapide lors d’un basculement.
+Si votre application cliente SQL prend en charge .NET 4.5 SQLClient, vous pouvez utiliser le mot clé « MULTISUBNETFAILOVER = TRUE ». Il est recommandé de l'appliquer car il accélère la connexion au groupe de disponibilité AlwaysOn SQL pendant le basculement. Il énumère toutes les adresses IP associées à l’écouteur Always On en parallèle et effectue une tentative de reconnexion TCP plus rapide lors d’un basculement.
 
 Pour plus d'informations sur les paramètres précédents, consultez la rubrique [Mot clé MultiSubnetFailover et fonctionnalités associées](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Consultez également [Prise en charge SqlClient pour la haute disponibilité et récupération d’urgence](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
 
@@ -776,7 +776,7 @@ Enregistrez ce texte dans un fichier.
 
 #### <a name="step-7-change-failover-partners-and-replication-modes"></a>Étape 7 : Modifier les partenaires de basculement et les modes de réplication
 
-Si vous avez plus de deux serveurs SQL, vous devez définir sur 'Synchrone' le basculement d’un autre serveur secondaire d’un centre de données ou en local et le configurer comme partenaire de basculement automatique (AFP) ; cela garantit une haute disponibilité lorsque vous apportez des modifications. Vous pouvez le faire via TSQL ou via SSMS :
+Si vous avez plus de deux serveurs SQL, vous devez définir sur « Synchrone » le basculement d’un autre serveur secondaire d’un centre de données ou en local et le configurer comme partenaire de basculement automatique (AFP) ; cela garantit une haute disponibilité lorsque vous apportez des modifications. Vous pouvez le faire via TSQL ou via SSMS :
 
 ![Appendix6][16]
 
@@ -1236,10 +1236,10 @@ Une fois que vous avez sélectionné le serveur secondaire migré et ajouté la 
 
 Pour ajouter l’adresse IP, consultez l’étape 14 de l’annexe.
 
-1. Pour la ressource d’adresse IP actuelle, changez le propriétaire possible en « Serveur SQL principal existant », « dansqlams4 » dans l’exemple :
+1. Pour la ressource d’adresse IP actuelle, changez le propriétaire possible en « Serveur SQL principal existant », dans l’exemple « dansqlams4 » :
 
     ![Appendix13][23]
-2. Pour la nouvelle ressource d’adresse IP, changez le propriétaire possible en « Serveur SQL secondaire migré », « dansqlams5 » dans l’exemple :
+2. Pour la nouvelle ressource d’adresse IP, changez le propriétaire possible en « Serveur SQL secondaire migré », dans l’exemple « dansqlams5 » :
 
     ![Appendix14][24]
 3. Une fois ces opérations terminées, vous pouvez effectuer le basculement, et lorsque le dernier nœud est migré, les propriétaires possibles doivent être modifiés pour ajouter ce nœud comme propriétaire possible :
@@ -1250,7 +1250,7 @@ Pour ajouter l’adresse IP, consultez l’étape 14 de l’annexe.
 
 * [Stockage Premium Azure](../disks-types.md)
 * [Machines virtuelles](https://azure.microsoft.com/services/virtual-machines/)
-* [SQL Server dans des machines virtuelles Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
+* [SQL Server dans des machines virtuelles Azure](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 
 <!-- IMAGES -->
 [1]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/1_VNET_Portal.png

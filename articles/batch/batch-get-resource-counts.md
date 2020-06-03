@@ -2,14 +2,14 @@
 title: Compter les états des tâches et des nœuds
 description: Comptez l’état des tâches et des nœuds de calcul Azure Batch pour faciliter la gestion et la surveillance des solutions Batch.
 ms.date: 09/07/2018
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
-ms.openlocfilehash: 1abff4c1a07ba0c5375228995330646204d33cd7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d75ff1806f61b54bd058926f95c7c53b66aaf243
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116092"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780153"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Surveiller les solutions Batch en comptant les tâches et les nœuds par état
 
@@ -111,12 +111,12 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODA
     Console.WriteLine("Low-priority node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
 }
 ```
+
 Pour obtenir le nombre de nœuds pour des pools, vous pouvez utiliser un modèle similaire pour REST et pour les autres langages pris en charge.
  
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur les concepts et fonctionnalités du service Batch, consultez [Présentation des fonctionnalités du service Batch pour les développeurs](batch-api-basics.md). L’article traite des principales ressources Batch, notamment des pools, des nœuds de calcul, des travaux et des tâches et fournit une vue d’ensemble des fonctionnalités du service.
-
+* Apprenez-en davantage sur le [workflow et les ressources principales du service Batch](batch-service-workflow-features.md) telles que les pools, les nœuds, les travaux et les tâches.
 * Pour plus d’informations sur l’application de filtres aux requêtes qui répertorient les ressources du service Batch, consultez [Créer des requêtes pour répertorier les ressources Batch efficacement](batch-efficient-list-queries.md).
 
 

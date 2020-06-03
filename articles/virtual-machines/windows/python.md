@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.openlocfilehash: b2172d44b4136b51c0ea459868ebd5b0572bb004
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81b8f83115a8bcb953fc4445899f7ea9afc1007c
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82098066"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233347"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Créer et gérer des machines virtuelles Windows dans Azure à l’aide de Python
 
@@ -164,7 +164,7 @@ Les [groupes à haute disponibilité](tutorial-availability-sets.md) facilitent 
     input('Availability set created. Press enter to continue...')
     ```
 
-Une [adresse IP publique](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) est nécessaire pour communiquer avec la machine virtuelle.
+Une [adresse IP publique](../../virtual-network/public-ip-addresses.md) est nécessaire pour communiquer avec la machine virtuelle.
 
 1. Pour créer une adresse IP publique pour la machine virtuelle, ajoutez la fonction suivante après les variables dans le fichier .py :
 

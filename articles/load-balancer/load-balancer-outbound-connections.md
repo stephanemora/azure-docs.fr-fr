@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: acf49c4247c8084a3afd3c2046003ee1b20d2f67
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 37a458aea659cb6215cf29e6abcbc3341c7e0b7b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393102"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83643255"
 ---
 # <a name="outbound-connections-in-azure"></a>Connexions sortantes dans Azure
 
@@ -119,7 +119,7 @@ Lorsque vous utilisez [Équilibreur de charge standard avec zones de disponibili
 
 ### <a name="port-masquerading-snat-pat"></a><a name="pat"></a>Masquage de la traduction d’adresses réseau sources du port (traduction d’adresse de port)
 
-Lorsqu’une ressource Load Balancer publique est associée à des instances de machine virtuelle, la source de chaque connexion sortante est réécrite. La source est réécrite depuis l’espace d’adressage IP privé du réseau virtuel dans l’adresse IP publique frontend de l’équilibreur de charge. Dans l’espace d’adressage IP public, le 5-tuple du flux (adresse IP source, port source, protocole de transport IP, adresse IP de destination, port de destination) doit être unique.  L’usurpation de ports SNAT est utilisable avec les protocoles TCP et UDP IP.
+Lorsqu’une ressource Load Balancer publique est associée à des instances de machine virtuelle qui n’ont pas d’adresse IP publique dédiée, la source de chaque connexion sortante est réécrite. La source est réécrite depuis l’espace d’adressage IP privé du réseau virtuel dans l’adresse IP publique frontend de l’équilibreur de charge. Dans l’espace d’adressage IP public, le 5-tuple du flux (adresse IP source, port source, protocole de transport IP, adresse IP de destination, port de destination) doit être unique. L’usurpation de ports SNAT est utilisable avec les protocoles TCP et UDP IP.
 
 Des ports éphémères (ports SNAT) sont utilisés à cette fin après réécriture de l’adresse IP privée source, car plusieurs flux proviennent d’une même adresse IP publique. L’algorithme SNAT de masquage de port alloue des ports SNAT différemment pour UDP et TCP.
 
@@ -147,7 +147,7 @@ Pour découvrir des modèles permettant d’atténuer les conditions qui aboutis
 
 ### <a name="ephemeral-port-preallocation-for-port-masquerading-snat-pat"></a><a name="preallocatedports"></a>Préaffectation de port éphémère pour la traduction d’adresses réseau sources (traduction d’adresse de port) pour le masquage de port
 
-Azure utilise un algorithme pour déterminer le nombre de ports de traduction d’adresses réseau sources préaffectés disponibles en fonction de la taille du pool principal lorsque vous utilisez une traduction d’adresses réseau sources ([traduction d’adresse de port](#pat)) pour le masquage de port. Les ports SNAT sont des ports éphémères disponibles pour une adresse IP publique source donnée.
+Azure utilise un algorithme pour déterminer le nombre de ports de traduction d’adresses réseau sources préaffectés disponibles en fonction de la taille du pool principal lorsque vous utilisez une traduction d’adresses réseau sources ([traduction d’adresse de port](#pat)) pour le masquage de port. Les ports SNAT sont des ports éphémères disponibles pour une adresse IP publique source donnée. Pour chaque adresse IP publique associée à un équilibreur de charge, 64 000 ports sont disponibles en tant que ports SNAT pour chacun des protocoles de transport IP.
 
 Un nombre identique de ports SNAT est préalloué pour UDP et TCP respectivement ; il est consommé indépendamment en suivant un protocole de transport IP.  Toutefois, l’utilisation de ports SNAT est différente selon que le flux est TCP ou UDP.
 
@@ -193,11 +193,14 @@ Les allocations de ports SNAT sont spécifiques au protocole de transport IP (TC
 Cette section vise à pallier l’insuffisance de SNAT et d’autres problèmes pouvant se produire avec des connexions sortantes dans Azure.
 
 ### <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a>Gestion de l’insuffisance de ports (PAT) SNAT
-Les [ports éphémères](#preallocatedports) utilisés pour [PAT](#pat) sont une ressource épuisable, comme décrit dans [Machine virtuelle autonome sans adresse IP publique](#defaultsnat) et [Machine virtuelle à charge équilibrée sans adresse IP publique](#lb). Vous pouvez surveiller l’utilisation des ports éphémères et les comparer à votre allocation actuelle pour déterminer le risque ou confirmer l’insuffisance de ports SNAT à l’aide de [ce guide](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation).
+Les [ports éphémères](#preallocatedports) utilisés pour [PAT](#pat) sont une ressource épuisable, comme cela est décrit dans [Machine virtuelle autonome sans adresse IP publique](#defaultsnat) et [Machine virtuelle à charge équilibrée sans adresse IP publique](#lb). Vous pouvez surveiller l’utilisation des ports éphémères et les comparer à votre répartition actuelle pour déterminer le risque ou confirmer l’insuffisance de ports SNAT à l’aide de [ce guide](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation).
 
 Si vous savez que vous lancez de nombreuses connexions TCP ou UDP sortantes vers les mêmes adresse IP et port de destination et constatez que des connexions sortantes échouent, ou si l’équipe de support vous signale que les ports SNAT ([ports éphémères](#preallocatedports) préaffectés) utilisés par la [PAT](#pat) arrivent à épuisement, plusieurs options d’atténuation générales s’offrent à vous. Passez en revue ces options et choisissez l’option disponible la plus appropriée pour votre scénario. Plusieurs options peuvent être adaptées à votre scénario.
 
 Si vous avez des difficultés à comprendre le comportement des connexions sortantes, vous pouvez utiliser les statistiques de pile IP (netstat). Il peut aussi être utile d’observer les comportements de connexion à travers les captures de paquets. Vous pouvez effectuer ces captures de paquets dans le SE invité de votre instance, ou utiliser le [Network Watcher pour la capture des paquets](../network-watcher/network-watcher-packet-capture-manage-portal.md). 
+
+#### <a name="manually-allocate-snat-ports-to-maximize-snat-ports-per-vm"></a><a name ="manualsnat"></a>Allouer manuellement les ports SNAT pour augmenter le nombre de ports SNAT par machine virtuelle
+Comme défini dans [ports préaffectés](#preallocatedports), l’équilibreur de charge alloue automatiquement les ports en fonction du nombre de machines virtuelles dans le serveur principal. Par défaut, cette opération est effectuée de manière restrictive pour garantir l’extensibilité. Si vous connaissez le nombre maximal de machines virtuelles que vous aurez dans le serveur principal, vous pouvez allouer manuellement les ports SNAT en le configurant dans chaque règle de trafic sortant. Par exemple, si vous savez qu’il y a un maximum de 10 machines virtuelles, vous pouvez allouer 6 400 ports SNAT par machine virtuelle plutôt que les 1 024 par défaut. 
 
 #### <a name="modify-the-application-to-reuse-connections"></a><a name="connectionreuse"></a>Modifier l’application pour réutiliser des connexions 
 Vous pouvez réduire la demande pour les ports éphémères utilisés pour la traduction d’adresses réseau sources en réutilisant des connexions dans votre application. Cette méthode s’applique tout particulièrement aux protocoles comme HTTP/1.1, où la réutilisation des connexions est la règle par défaut. D’autres protocoles qui utilisent HTTP comme transport (par exemple REST) peuvent aussi en bénéficier. 
@@ -254,6 +257,10 @@ Dans certains cas, il est préférable de ne pas autoriser une machine virtuelle
 Quand vous appliquez un groupe de sécurité réseau à une machine virtuelle à charge équilibrée, vérifiez les [balises de service](../virtual-network/security-overview.md#service-tags) et les [règles de sécurité par défaut](../virtual-network/security-overview.md#default-security-rules). Vous devez vous assurer que la machine virtuelle peut recevoir des demandes d’analyse d’intégrité d’Azure Load Balancer. 
 
 Si un groupe de sécurité réseau bloque les demandes d’analyse d’intégrité depuis la balise par défaut AZURE_LOADBALANCER, votre analyse de l’intégrité de la machine virtuelle échoue et la machine virtuelle est marquée comme défaillante. L’équilibrage de charge arrête l’envoi de nouveaux flux vers cette machine virtuelle.
+
+## <a name="connections-to-azure-storage-in-the-same-region"></a>Connexions au Stockage Azure dans la même région
+
+Il n’est pas nécessaire de disposer d’une connectivité sortante via les scénarios ci-dessus pour vous connecter au Stockage Azure dans la même région que la machine virtuelle. Si vous n’en souhaitez pas, utilisez les groupes de sécurité réseau (NSG), comme expliqué ci-dessus. Pour la connectivité vers le Stockage Azure dans d’autres régions, une connectivité sortante est requise. Lorsque vous vous connectez au Stockage Azure à partir d’une machine virtuelle dans la même région, l’adresse IP source dans les journaux de diagnostic de stockage est une adresse de fournisseur interne, et non l’adresse IP publique de votre machine virtuelle. Si vous souhaitez restreindre l’accès à votre compte de stockage aux machines virtuelles dans un ou plusieurs sous-réseaux du réseau virtuel dans la même région, utilisez des [points de terminaison de service du réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md) et non votre adresse IP publique lors de la configuration de votre pare-feu de compte de stockage. Une fois les points de terminaison de service configurés, l’adresse IP privée de votre réseau virtuel apparaît dans vos journaux de diagnostic de stockage, mais pas l’adresse interne du fournisseur.
 
 ## <a name="limitations"></a>Limites
 - Les rôles de travail web sans réseau virtuel et d’autres services de plateforme Microsoft peuvent être accessibles alors que seul un équilibreur de charge Standard interne est utilisé, en raison d’un effet secondaire du fonctionnement des services pré-réseau virtuel et des autres services de plateforme. Ne comptez pas sur cet effet secondaire, car le service lui-même ou la plateforme sous-jacente peuvent changer sans préavis. Vous devez toujours supposer que vous devez créer explicitement des connectivités sortantes si cela est souhaitable lors de l’utilisation d’un équilibreur de charge interne standard uniquement. Le scénario [SNAT par défaut](#defaultsnat) 3 décrit dans cet article n’est pas disponible.

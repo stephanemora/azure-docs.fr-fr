@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
-ms.openlocfilehash: 7070cb3bcd1b519828a750cf4ba6caf7ecb34bbb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3fd308ede17f510b3e9188f2bebc93a08a61181
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76169875"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263176"
 ---
 # <a name="get-face-detection-data"></a>Obtenir des données de détection des visages
 
@@ -145,7 +145,6 @@ Pour en savoir plus sur les différents attributs, consultez le guide conceptuel
 Dans ce guide, vous avez appris à utiliser les différentes fonctionnalités de détection des visages. Ensuite, intégrez ces fonctionnalités dans votre application en suivant un tutoriel approfondi.
 
 - [Tutoriel : Créer une application WPF pour afficher les données des visages dans une image](../Tutorials/FaceAPIinCSharpTutorial.md)
-- [Tutoriel : Créer une application Android pour détecter et encadrer les visages dans une image](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
 
 ## <a name="related-topics"></a>Rubriques connexes
 

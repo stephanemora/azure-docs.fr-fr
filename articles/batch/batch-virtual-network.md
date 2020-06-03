@@ -1,15 +1,15 @@
 ---
-title: Configurer un pool dans un réseau virtuel - Azure Batch | Microsoft Docs
+title: Approvisionner un pool dans un réseau virtuel
 description: Découvrez comment créer un pool Batch dans un réseau virtuel Azure afin que les nœuds de calcul puissent communiquer en toute sécurité avec d’autres machines virtuelles du réseau, comme un serveur de fichiers.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 616118d5f75f9bfa6d97d89baac9d7ea9186cd5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 559cf3bc145deeed78b91def9d36211f885005d6
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82111893"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797522"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Créer un pool Azure Batch dans un réseau virtuel
 
@@ -49,13 +49,13 @@ Lorsque vous avez créé votre réseau virtuel et lui avez attribué un sous-ré
 
 Votre organisation vous oblige peut-être à rediriger (forcer) le trafic Internet provenant du sous-réseau vers votre emplacement local à des fins d’inspection et de journalisation. Vous avez peut-être activé le tunneling forcé pour les sous-réseaux de votre réseau virtuel.
 
-Pour vérifier que les nœuds de calcul de votre pool Azure Batch fonctionnent dans un réseau virtuel pour lequel le tunneling forcé est activé, vous devez ajouter les [routages définis par l’utilisateur](../virtual-network/virtual-networks-udr-overview.md) suivants pour ce sous-réseau :
+Pour vérifier que les nœuds de calcul de votre pool Azure Batch fonctionnent dans un réseau virtuel pour lequel le tunneling forcé est activé, vous devez ajouter les [routages définis par l’utilisateur](../virtual-network/virtual-networks-udr-overview.md) (UDR) suivants pour ce sous-réseau :
 
-* Le service Batch doit communiquer avec les nœuds de calcul du pool pour la planification des tâches. Pour activer cette communication, ajoutez un routage défini par l’utilisateur pour chaque adresse IP utilisée par le service Batch dans la région où se trouve votre compte Batch. Pour savoir comment obtenir la liste des adresses IP du service Batch, consultez [Balises de service locales](../virtual-network/service-tags-overview.md). Les adresses IP du service Batch sont associées à la balise de service `BatchNodeManagement` (ou à la variante régionale correspondant à la région de votre compte Batch).
+* Le service Batch doit communiquer avec les nœuds de calcul du pool pour la planification des tâches. Pour activer cette communication, ajoutez un UDR pour chaque adresse IP utilisée par le service Batch dans la région où se trouve votre compte Batch. Pour savoir comment obtenir la liste des adresses IP du service Batch, consultez [Balises de service locales](../virtual-network/service-tags-overview.md).
 
 * Vérifiez que le trafic sortant vers le stockage Azure (plus précisément, les URL sous la forme `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` et `<account>.blob.core.windows.net`) n’est pas bloqué par votre appliance de réseau local.
 
-Lorsque vous ajoutez un itinéraire défini par l’utilisateur, définissez l’itinéraire pour chaque préfixe d’adresse IP Batch connexe et définissez **Type de tronçon suivant** sur **Internet**. Voir l’exemple suivant :
+Lorsque vous ajoutez un UDR, définissez l’itinéraire pour chaque préfixe d’adresse IP Batch associé et définissez **Type de tronçon suivant** sur **Internet**. Voir l’exemple suivant :
 
 ![Itinéraire défini par l’utilisateur](./media/batch-virtual-network/user-defined-route.png)
 
@@ -64,5 +64,5 @@ Lorsque vous ajoutez un itinéraire défini par l’utilisateur, définissez l�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour obtenir une présentation détaillée de Batch, consultez [Développer des solutions de calcul parallèles à grande échelle avec Batch](batch-api-basics.md).
-- Pour plus d’informations sur la création d’un itinéraire défini par l’utilisateur, consultez [Créer un itinéraire défini par l’utilisateur - portail Azure](../virtual-network/tutorial-create-route-table-portal.md).
+- Apprenez-en davantage sur le [workflow et les ressources principales du service Batch](batch-service-workflow-features.md) telles que les pools, les nœuds, les travaux et les tâches.
+- Pour plus d’informations sur la création d’un routage défini par l’utilisateur, consultez [Créer un routage défini par l’utilisateur – Portail Azure](../virtual-network/tutorial-create-route-table-portal.md).

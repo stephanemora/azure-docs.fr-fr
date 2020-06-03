@@ -5,16 +5,16 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.author: banders
-ms.openlocfilehash: b8c523acabd02dc30e9b13f7f83a4a44554cbd4d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 79d0a648645743751eed3b50edb628a20023546e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690920"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660358"
 ---
-# <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Comprendre les rôles d’administrateur Contrat Entreprise Azure dans Azure
+# <a name="managing-azure-enterprise-roles"></a>Gestion des rôles Azure Enterprise
 
 Pour faciliter la gestion de l’utilisation et des dépenses d’une organisation, les clients Azure disposant d’un Contrat Entreprise peuvent attribuer cinq rôles d’administrateur distincts :
 
@@ -62,6 +62,19 @@ Les sections suivantes décrivent les limitations et les capacités de chaque r�
 - <sup>4</sup> Les contacts de notification reçoivent des communications par e-mail à propos du Contrat Entreprise Azure.
 - <sup>5</sup> La tâche est limitée aux comptes de votre service.
 
+## <a name="add-a-new-enterprise-administrator"></a>Ajouter un nouvel administrateur d’entreprise
+
+Les administrateurs d’entreprise disposent de la majorité des privilèges lors de la gestion d’une inscription Azure EA. L’administrateur Azure EA initial a été créé lors de la configuration du Contrat Entreprise. Toutefois, vous pouvez ajouter ou supprimer de nouveaux administrateurs à tout moment. Les nouveaux administrateurs peuvent être ajoutés uniquement par des administrateurs existants. Pour plus d’informations sur l’ajout d’administrateurs d'entreprise supplémentaires, consultez [Créer un autre administrateur d’entreprise](ea-portal-get-started.md#create-another-enterprise-administrator). Pour plus d’informations sur les rôles et les tâches d’un profil de facturation, consultez [Tâches et rôles du profil de facturation](understand-mca-roles.md#billing-profile-roles-and-tasks).
+
+## <a name="update-account-owner-state-from-pending-to-active"></a>Mettre à jour l’état propriétaire du compte de En attente à Actif
+
+Lorsque de nouveaux propriétaires de compte sont ajoutés pour la première fois à une inscription Azure EA, leur état est _En attente_. Quand un nouveau propriétaire de compte reçoit l’e-mail de bienvenue et d’activation, il peut se connecter pour activer son compte. Une fois qu’il active son compte, l’état du compte est mis à jour de _En attente_ à _Actif_. Le propriétaire du compte doit lire le message « Avertissement », puis sélectionner **Continuer**. Un nouvel utilisateur peut être invité à entrer son prénom et son nom pour créer un compte de commerce. Dans ce cas, il doit ajouter les informations nécessaires pour continuer. Le compte est alors activé.
+
+## <a name="add-a-department-admin"></a>Ajouter un administrateur de service
+
+Une fois qu’un administrateur Azure EA a créé un service, l’administrateur d’entreprise Azure peut ajouter des administrateurs de service et associer chacun d’eux à un service. Un administrateur de service peut créer des comptes. Ces comptes sont nécessaires pour créer des abonnements Azure EA.
+
+Pour plus d’informations sur l’ajout d’un administrateur de service, consultez [Créer un administrateur de service Azure EA](ea-portal-get-started.md#add-a-department-administrator).
 
 ## <a name="usage-and-costs-access-by-role"></a>Accès à l’utilisation et aux coûts par rôle
 
@@ -77,8 +90,7 @@ Les sections suivantes décrivent les limitations et les capacités de chaque r�
 - <sup>6</sup> L’administrateur d’entreprise doit activer la stratégie d’**affichage des frais pour l’administrateur de service** dans Enterprise Portal. L’administrateur de service peut ensuite consulter le détail des coûts pour le service.
 - <sup>7</sup> L’administrateur d’entreprise doit activer la stratégie d’**affichage des frais pour le propriétaire du compte** dans Enterprise Portal. Le propriétaire du compte peut ensuite consulter le détail des coûts pour le compte.
 
-
-## <a name="pricing-in-azure-portal"></a>Tarifs dans le portail Azure
+## <a name="see-pricing-for-different-user-roles"></a>Voir les tarifs des différents rôles d’utilisateur
 
 Vous pouvez voir différents tarifs dans le portail Azure en fonction de votre rôle d’administrateur et de la manière dont les stratégies d’affichage des frais sont définies par l’administrateur d’entreprise. Les deux stratégies d’Enterprise Portal qui affectent les tarifs que vous voyez dans le portail Azure sont les suivantes :
 
@@ -98,6 +110,8 @@ Le tableau suivant montre la relation entre les rôles d’administrateur Contra
 |None|Non applicable |Propriétaire|Tarifs au détail|
 
 Vous définissez le rôle d’administrateur Contrat Entreprise et les stratégies d’affichage des frais dans Enterprise Portal. Vous pouvez mettre à jour le rôle RBAC dans le portail Azure. Pour plus d’informations, consultez [Gérer l’accès à l’aide de RBAC et du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

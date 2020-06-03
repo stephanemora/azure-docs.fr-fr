@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: ffd9919092cdf2481767e58f10ba6525d56ca4a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: baa0ad790491351a17b638ba9d8eb75ed1f355b0
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548455"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758620"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure
 
@@ -126,10 +126,10 @@ Les utilisateurs peuvent accéder aux ressources de votre organisation en utilis
 Afin d’équilibrer la sécurité et la productivité, vous devez aussi tenir compte des moyens d’accéder à une ressource avant de pouvoir prendre une décision relative au contrôle d’accès. L’accès conditionnel Azure AD vous permet de satisfaire cette exigence. Avec l’accès conditionnel, vous pouvez prendre des décisions de contrôle d’accès automatisées basées sur les conditions d’accès à vos applications cloud.
 
 **Bonne pratique** : Gérez et contrôlez l’accès aux ressources de l’entreprise.  
-**Détail** : Configurez [l’accès conditionnel](/azure/active-directory/active-directory-conditional-access-azure-portal) Azure AD en fonction du groupe, de l’emplacement et du niveau de confidentialité des applications SaaS et des applications connectées à Azure AD.
+**Détail** : Configurez des [stratégies courantes d’accès conditionnel](../../active-directory/conditional-access/concept-conditional-access-policy-common.md) Azure AD en fonction du groupe, de l’emplacement et du niveau de confidentialité des applications SaaS et de celles connectées à Azure AD.
 
 **Bonne pratique** : Bloquez les protocoles d’authentification hérités.
-**Détail** : Les attaquants exploitent chaque jour les failles de protocoles plus anciens, en concernant les attaques par pulvérisations de mots de passe. Configurez l’accès conditionnel pour bloquer les protocoles hérités. Regardez la vidéo [Azure AD : Choses à faire et à ne pas faire](https://www.youtube.com/watch?v=wGk0J4z90GI) pour plus d’informations.
+**Détail** : Les attaquants exploitent chaque jour les failles de protocoles plus anciens, en concernant les attaques par pulvérisations de mots de passe. Configurez l’accès conditionnel pour [bloquer les protocoles hérités](../../active-directory/conditional-access/howto-conditional-access-policy-block-legacy.md).
 
 ## <a name="plan-for-routine-security-improvements"></a>Planifier les améliorations de la sécurité de routine
 
@@ -175,11 +175,11 @@ Cette méthode est disponible pour tous les niveaux de licence, mais elle ne peu
 Pour déterminer où Multi-Factor Authentication doit être activé, consultez [Quelle version d’Azure MFA est adaptée à mon organisation ?](/azure/active-directory/authentication/concept-mfa-whichversion).
 
 **Option 3** : [Activez Multi-Factor Authentication avec stratégie d’accès conditionnel](/azure/active-directory/authentication/howto-mfa-getstarted).
-**Avantage** : Cette option permet de demander une vérification en deux étapes sous certaines conditions à l’aide de [l’accès conditionnel](/azure/active-directory/active-directory-conditional-access-azure-portal). Les conditions spécifiques peuvent être une connexion de l’utilisateur à partir d’emplacements différents, d’appareils non approuvés ou d’applications que vous considérez comme risquées. Le fait de définir des conditions spécifiques pour une vérification en deux étapes vous permet d’éviter de la demander continuellement à vos utilisateurs, ce qui peut être désagréable.
+**Avantage** : Cette option permet de demander une vérification en deux étapes sous certaines conditions à l’aide de [l’accès conditionnel](../../active-directory/conditional-access/concept-conditional-access-policy-common.md). Les conditions spécifiques peuvent être une connexion de l’utilisateur à partir d’emplacements différents, d’appareils non approuvés ou d’applications que vous considérez comme risquées. Le fait de définir des conditions spécifiques pour une vérification en deux étapes vous permet d’éviter de la demander continuellement à vos utilisateurs, ce qui peut être désagréable.
 
 Il s’agit de la méthode la plus souple pour activer la vérification en deux étapes pour vos utilisateurs. Activer une stratégie d’accès conditionnel fonctionne uniquement pour l’authentification multifacteur Azure dans le cloud, et c’est une fonctionnalité payante d’Azure AD. Vous pouvez trouver plus d’informations sur cette méthode dans [Déployer une authentification multifacteur Azure basée sur le cloud](/azure/active-directory/authentication/howto-mfa-getstarted).
 
-**Option 4** : Activez Multi-Factor Authentication avec des stratégies d’accès conditionnel en évaluant les risques de l’utilisateur et de la connexion [d’Azure AD Identity Protection](/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa).   
+**Option 4** : Activez Multi-Factor Authentication avec des stratégies d’accès conditionnel en évaluant des [stratégies d’accès conditionnel en fonction des risques](../../active-directory/conditional-access/howto-conditional-access-policy-risk.md).   
 **Avantage** : Cette option permet de :
 
 * Détecter des vulnérabilités potentielles qui affectent les identités de votre organisation.

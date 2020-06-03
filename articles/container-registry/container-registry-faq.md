@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 39b543c5f886b22d488198873b75cf76555692fa
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 005c035468a4225f96e8ef69b2ef31a82bf7eedb
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731642"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682817"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Forum aux questions sur Azure Container Registry
 
@@ -119,7 +119,7 @@ Si vous êtes sur bash :
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv  | xargs -I% az acr repository delete -n myRegistry -t myRepository@%
 ```
 
-Pour PowerShell :
+Pour PowerShell :
 
 ```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
@@ -435,7 +435,7 @@ Contactez votre administrateur réseau ou vérifiez la configuration et la conne
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>Pourquoi ma requête tirer (pull) ou envoyer (push) échoue-t-elle avec une opération non autorisée ?
 
 Voici quelques scénarios dans lesquels les opérations peuvent ne pas être autorisées :
-* Les registres classiques ne sont plus pris en charge. Effectuez une mise à niveau vers des [références SKU](https://aka.ms/acr/skus) à l’aide de [az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) ou du portail Azure.
+* Les registres classiques ne sont plus pris en charge. Effectuez une mise à niveau vers un [niveau de service](https://aka.ms/acr/skus) pris en charge à l’aide de la commande [az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) ou du portail Azure.
 * L’image ou le référentiel peuvent être verrouillés afin qu’il ne soit pas possible de les supprimer ou de les mettre à jour. Vous pouvez utiliser la commande [az acr show repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) pour afficher les attributs actuels.
 * Certaines opérations ne sont pas autorisées si l’image est en contrôle. En savoir plus sur le [contrôle](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 

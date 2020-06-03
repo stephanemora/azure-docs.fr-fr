@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: add2d515e4f8e8c56a98a7292e137e601332d10c
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: e653adfd7a148cea7bfb1ecfdbbf386eff0c3e86
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80410866"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723321"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Key Vault pour Linux
 
@@ -194,7 +194,7 @@ L’interface de ligne de commande Azure permet de déployer l’extension de ma
 Tenez compte des restrictions et conditions suivantes :
 - Restrictions de Key Vault :
   - Doit exister au moment du déploiement 
-  - La stratégie d’accès Key Vault est définie pour l’identité de machine virtuelle/VMSS à l’aide de MSI
+  - La stratégie d’accès Key Vault doit être définie pour l’identité de machine virtuelle/VMSS à l’aide d’une identité managée. Voir [Fournir une authentification Key Vault avec une identité managée](../../key-vault/managed-identity.md).
 
 
 ## <a name="troubleshoot-and-support"></a>Dépannage et support technique

@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 3e4ad74a55504367de18a3dc9f0a7d33c462b329
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 309016821eb13ef6332ba248a11593fec8da9f75
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199838"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267560"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Ajout ou modification des administrateurs d’abonnements Azure
 
@@ -71,7 +71,7 @@ Si vous ne savez pas qui est l’administrateur de compte d’un abonnement, pro
 
 * [Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) ?](../../role-based-access-control/overview.md)
 * [Comprendre les différents rôles dans Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Procédure : Associer ou ajouter un abonnement Azure à Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+* [Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Autorisations des rôles d'administrateur dans Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique

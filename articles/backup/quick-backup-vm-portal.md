@@ -1,17 +1,16 @@
 ---
 title: Guide de démarrage rapide - Sauvegarder une machine virtuelle avec le portail Azure
 description: Dans ce démarrage rapide, découvrez comment créer un coffre Recovery Services, activer la protection sur une machine virtuelle Azure et sauvegarder la machine virtuelle avec le Portail Azure.
-ms.reviewer: saurse
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 02/06/2020
+ms.date: 05/12/2020
 ms.custom: mvc
-ms.openlocfilehash: 4bff53516447408486a6e40f2f7059ebc811aaa4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 80944d99c51ae4880a40df8700a73d08a95efe77
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215327"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656948"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Sauvegarder une machine virtuelle dans Azure
 
@@ -70,7 +69,7 @@ Si vous vous apprêtez à passer à un didacticiel de sauvegarde expliquant comm
 
 1. Sélectionnez l’option **Sauvegarde** pour votre machine virtuelle.
 
-2. Sélectionnez **... Plus** pour afficher des options supplémentaires, puis choisissez **Arrêter la sauvegarde**.
+2. Choisissez **Arrêter la sauvegarde**.
 
     ![Arrêter la sauvegarde de machine virtuelle à partir du portail Azure](./media/quick-backup-vm-portal/stop-backup.png)
 

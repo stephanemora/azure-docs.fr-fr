@@ -6,16 +6,16 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,seodec18
-ms.date: 12/09/2019
-ms.openlocfilehash: 9ef54707f7fac3dd1328e29f6d05f62c1dee2561
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive,seodec18,seoapr2020
+ms.date: 05/14/2020
+ms.openlocfilehash: 36c04480c46cea904b072c659c5c2642a28e1f27
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78194901"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647579"
 ---
-# <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Exécuter Apache Oozie dans des clusters HDInsight Hadoop avec le Pack Sécurité Entreprise
+# <a name="run-apache-oozie-in-azure-hdinsight-clusters-with-enterprise-security-package"></a>Exécuter Apache Oozie dans des clusters Azure HDInsight avec le Pack Sécurité Entreprise
 
 Apache Oozie est un workflow et un système de coordination qui gère les tâches Apache Hadoop. Oozie est intégré dans la pile Hadoop et prend en charge les travaux suivants :
 

@@ -2,19 +2,19 @@
 title: Aide autonome relative à la préversion de SQL à la demande
 description: Cette section contient des informations qui peuvent vous aider à résoudre les problèmes liés à SQL à la demande (préversion).
 services: synapse analytics
-author: vvasic-msft
+author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
-ms.author: vvasic
+ms.date: 05/15/2020
+ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: e2c262915c928cf487cb84aeb3423d67e7a96e97
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8b2a9b6c5324240d71a80cde904057757d6ef421
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421193"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658879"
 ---
 # <a name="self-help-for-sql-on-demand-preview"></a>Aide autonome relative à SQL à la demande (préversion)
 
@@ -33,13 +33,43 @@ Si votre requête échoue avec une erreur indiquant que le fichier ne peut pas �
 
 ## <a name="query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints"></a>La requête échoue, car elle ne peut pas être exécutée en raison de contraintes de ressources 
 
-Si votre requête échoue avec le message d’erreur « This query cannot be executed due to current resource constraints » (Cette requête ne peut pas être exécutée en raison de contraintes de ressources), cela signifie que SQL OD ne peut pas l’exécuter pour le moment en raison de contraintes de ressources : 
+Si votre requête échoue avec le message d’erreur « Cette requête ne peut pas être exécutée en raison de contraintes de ressources », cela signifie que SQL à la demande ne peut pas l’exécuter pour le moment en raison de contraintes de ressources : 
 
 - Veillez à utiliser des types de données de taille raisonnable. Spécifiez également un schéma pour les colonnes de type chaîne des fichiers Parquet, car elles auront la valeur VARCHAR(8000) par défaut. 
 
 - Si votre requête cible des fichiers CSV, envisagez de [créer des statistiques](develop-tables-statistics.md#statistics-in-sql-on-demand-preview). 
 
 - Pour optimiser les requêtes, consultez les [bonnes pratiques concernant les performances de SQL à la demande](best-practices-sql-on-demand.md).  
+
+## <a name="create-statement-is-not-supported-in-master-database"></a>L’instruction CREATE 'STATEMENT' n'est pas prise en charge dans la base de données master
+
+Si votre requête échoue avec le message d’erreur :
+
+> L'exécution de la requête a échoué. Erreur : CREATE EXTERNAL TABLE/DATA SOURCE/DATABASE SCOPED CREDENTIAL/FILE FORMAT is not supported in master database.' (Instruction CREATE EXTERNAL TABLE/DATA SOURCE/DATABASE SCOPED CREDENTIAL/FILE FORMAT non prise en charge dans la base de données master). 
+
+Cela signifie que la base de données master dans SQL à la demande ne prend pas en charge la création des éléments suivants :
+  - Tables externes
+  - Sources de données externes
+  - Informations d'identification limitées à la base de données
+  - Formats de fichier externe
+
+Solution :
+
+  1. Créer une base de données utilisateur :
+
+```sql
+CREATE DATABASE <DATABASE_NAME>
+```
+
+  2. Exécutez l’instruction CREATE dans le contexte de <DATABASE_NAME> qui a échoué précédemment pour la base de données master. 
+  
+  Exemple pour la création d’un format de fichier externe :
+    
+```sql
+USE <DATABASE_NAME>
+CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] 
+WITH ( FORMAT_TYPE = PARQUET)
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

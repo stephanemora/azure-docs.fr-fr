@@ -2,17 +2,20 @@
 title: Déployer des ressources sur un abonnement
 description: Décrit comment créer un groupe de ressources dans un modèle Azure Resource Manager. Est également expliqué le déploiement des ressources sur l’étendue de l’abonnement Azure.
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.openlocfilehash: 6bec29a07653ff5ad7d1e2f8317246049e127c8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/18/2020
+ms.openlocfilehash: 4f8bcbfc6467969c9d8ca8b1511e6e8ffff94b14
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605002"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653346"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Créer des groupes de ressources et des ressources au niveau de l’abonnement
 
-Pour simplifier la gestion des ressources dans votre abonnement Azure, vous pouvez définir et affecter des [stratégies](../../governance/policy/overview.md) ou des [contrôles d’accès basés sur les rôles](../../role-based-access-control/overview.md) à travers l’abonnement. Avec les modèles au niveau de l’abonnement, vous appliquez de manière déclarative des stratégies et attribuez des rôles au niveau de l’abonnement. Vous pouvez également créer des groupes de ressources et déployer des ressources.
+Pour simplifier la gestion des ressources, vous pouvez déployer des ressources au niveau de votre abonnement Azure. Par exemple, vous pouvez déployer des [stratégies](../../governance/policy/overview.md) et des [contrôles d’accès en fonction du rôle](../../role-based-access-control/overview.md) sur votre abonnement, et ces ressources sont appliquées à l’ensemble de votre abonnement. Vous pouvez également créer des groupes de ressources et y déployer des ressources.
+
+> [!NOTE]
+> Vous pouvez déployer sur 800 différents groupes de ressources dans un déploiement de niveau abonnement.
 
 Pour déployer des modèles au niveau de l’abonnement, utilisez l’interface de ligne de commande Azure, PowerShell ou l’API REST. Le portail Azure ne prend pas en charge le déploiement dans le niveau de l’abonnement.
 
@@ -20,6 +23,7 @@ Pour déployer des modèles au niveau de l’abonnement, utilisez l’interface 
 
 Vous pouvez déployer les types de ressources suivants au niveau de l’abonnement :
 
+* [blueprints](/azure/templates/microsoft.blueprint/blueprints)
 * [budgets](/azure/templates/microsoft.consumption/budgets)
 * [déploiements](/azure/templates/microsoft.resources/deployments) : pour les modèles imbriqués qui sont déployés sur des groupes de ressources.
 * [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
@@ -34,6 +38,7 @@ Vous pouvez déployer les types de ressources suivants au niveau de l’abonneme
 * [scopeAssignments](/azure/templates/microsoft.managednetwork/scopeassignments)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [balises](/azure/templates/microsoft.resources/tags)
+* [workspacesettings](/azure/templates/microsoft.security/workspacesettings)
 
 ### <a name="schema"></a>schéma
 
@@ -95,11 +100,11 @@ Pour les déploiements au niveau de l’abonnement, il existe quelques considér
 * Ou utilisez la fonction [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) pour récupérer l’ID des ressources déployées au niveau abonnement.
 
   Par exemple, pour obtenir l’ID de ressource d’une définition de stratégie, utilisez :
-  
+
   ```json
   subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
   ```
-  
+
   L’ID de ressource retourné possède le format suivant :
 
   ```json
@@ -128,7 +133,7 @@ Le modèle suivant crée un groupe de ressources vide.
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
@@ -159,7 +164,7 @@ Pour créer plus d’un groupe de ressources, utilisez l’[élément copy](copy
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "location": "[parameters('rgLocation')]",
       "name": "[concat(parameters('rgNamePrefix'), copyIndex())]",
       "copy": {
@@ -177,7 +182,7 @@ Pour plus d’informations sur l’itération de ressource, consultez [Déployer
 
 ## <a name="resource-group-and-resources"></a>Groupe de ressources et ressources
 
-Pour créer le groupe de ressources et déployer des ressources sur celui-ci, utilisez un modèle imbriqué. Le modèle imbriqué définit les ressources à déployer sur le groupe de ressources. Définissez le modèle imbriqué comme dépendant du groupe de ressources pour vous assurer que le groupe de ressources existe avant de déployer les ressources.
+Pour créer le groupe de ressources et déployer des ressources sur celui-ci, utilisez un modèle imbriqué. Le modèle imbriqué définit les ressources à déployer sur le groupe de ressources. Définissez le modèle imbriqué comme dépendant du groupe de ressources pour vous assurer que le groupe de ressources existe avant de déployer les ressources. Vous pouvez effectuer le déploiement sur jusqu’à 800 groupes de ressources.
 
 L’exemple suivant crée un groupe de ressources, et déploie un compte de stockage sur le groupe de ressources.
 
@@ -203,14 +208,14 @@ L’exemple suivant crée un groupe de ressources, et déploie un compte de stoc
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "location": "[parameters('rgLocation')]",
       "name": "[parameters('rgName')]",
       "properties": {}
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "storageDeployment",
       "resourceGroup": "[parameters('rgName')]",
       "dependsOn": [
@@ -226,7 +231,7 @@ L’exemple suivant crée un groupe de ressources, et déploie un compte de stoc
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2017-10-01",
+              "apiVersion": "2019-06-01",
               "name": "[variables('storageName')]",
               "location": "[parameters('rgLocation')]",
               "sku": {
@@ -244,11 +249,11 @@ L’exemple suivant crée un groupe de ressources, et déploie un compte de stoc
 }
 ```
 
-## <a name="create-policies"></a>Création des stratégies
+## <a name="azure-policy"></a>Azure Policy
 
-### <a name="assign-policy"></a>Attribuer la stratégie
+### <a name="assign-policy-definition"></a>Affecter une définition de stratégie
 
-L’exemple suivant assigne une définition de stratégie existante à l’abonnement. Si la stratégie utilise des paramètres, fournissez-les en tant qu’objet. Si la stratégie n’utilise pas de paramètres, utilisez l’objet vide par défaut.
+L’exemple suivant assigne une définition de stratégie existante à l’abonnement. Si la définition de stratégie utilise des paramètres, fournissez-les en tant qu’objet. Si la définition de stratégie n’accepte pas de paramètres, utilisez l’objet vide par défaut.
 
 ```json
 {
@@ -285,7 +290,7 @@ L’exemple suivant assigne une définition de stratégie existante à l’abonn
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez la commande suivante :
 
 ```azurecli-interactive
-# Built-in policy that accepts parameters
+# Built-in policy definition that accepts parameters
 definition=$(az policy definition list --query "[?displayName=='Allowed locations'].id" --output tsv)
 
 az deployment sub create \
@@ -312,9 +317,9 @@ New-AzSubscriptionDeployment `
   -policyParameters $policyParams
 ```
 
-### <a name="define-and-assign-policy"></a>Définir et assigner une stratégie
+### <a name="create-and-assign-policy-definitions"></a>Créer et attribuer des définitions de stratégie
 
-Vous pouvez [définir](../../governance/policy/concepts/definition-structure.md) et assigner une stratégie dans le même modèle.
+Vous pouvez [définir](../../governance/policy/concepts/definition-structure.md) et attribuer une définition de stratégie dans le même modèle.
 
 ```json
 {
@@ -357,7 +362,7 @@ Vous pouvez [définir](../../governance/policy/concepts/definition-structure.md)
 }
 ```
 
-Pour créer la définition de stratégie dans votre abonnement et l’appliquer à l’abonnement, utilisez la commande CLI suivante :
+Pour créer la définition de stratégie dans votre abonnement et l’attribuer à l’abonnement, utilisez la commande CLI suivante :
 
 ```azurecli
 az deployment sub create \
@@ -373,6 +378,32 @@ New-AzSubscriptionDeployment `
   -Name definePolicy `
   -Location centralus `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json"
+```
+
+## <a name="azure-blueprints"></a>Azure Blueprints
+
+### <a name="create-blueprint-definition"></a>Créer une définition de blueprint
+
+Vous pouvez [créer](../../governance/blueprints/tutorials/create-from-sample.md) une définition de blueprint à partir d’un modèle.
+
+:::code language="json" source="~/quickstart-templates/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json":::
+
+Pour créer la définition de blueprint dans votre abonnement, utilisez la commande CLI suivante :
+
+```azurecli
+az deployment sub create \
+  --name demoDeployment \
+  --location centralus \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json"
+```
+
+Pour déployer ce modèle avec PowerShell, utilisez :
+
+```azurepowershell
+New-AzSubscriptionDeployment `
+  -Name demoDeployment `
+  -Location centralus `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json"
 ```
 
 ## <a name="template-samples"></a>Exemples de modèles

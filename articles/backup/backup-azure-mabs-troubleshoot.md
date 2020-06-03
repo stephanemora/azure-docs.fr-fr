@@ -4,12 +4,12 @@ description: Résolvez les problèmes d’installation et d’enregistrement du 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 7a1cac63ba6497b8580c83fe2b666b020701283a
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 3d27b6d96dfd6c815cedc6194e6bb6e8a101dec2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81688049"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83735912"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Résoudre les problèmes d’un serveur de sauvegarde Azure
 
@@ -38,7 +38,7 @@ Nous vous recommandons d’effectuer les validations ci-dessous avant de résoud
 
 | Opération | Détails de l’erreur | Solution de contournement |
 | --- | --- | --- |
-| Backup | Le réplica est incohérent. | Vérifiez que l’option de vérification automatique de la cohérence est activée dans l’Assistant Groupe de protection. Pour en savoir plus sur les causes d’incohérence du réplica et consulter des suggestions pertinentes, consultez l’article [Le réplica est incohérent](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2006/cc161593(v=technet.10)).<br> <ol><li> En cas de sauvegarde de l’état système/sauvegarde à des fins de récupération complète, vérifiez que la sauvegarde de Windows Server est installée sur le serveur protégé.</li><li> Recherchez d’éventuels problèmes liés au manque d’espace dans le pool de stockage DPM sur le serveur DPM/de sauvegarde Azure, et allouez le stockage selon les besoins.</li><li> Vérifiez l’état du service VVS (Volume Shadow Copy) sur le serveur protégé. S’il est désactivé, définissez la propriété pour démarrer manuellement. Démarrez le service sur le serveur. Ensuite, revenez à la console DPM/du serveur de sauvegarde Azure et démarrez la tâche de synchronisation avec vérification de la cohérence.</li></ol>|
+| Backup | Le réplica est incohérent. | Vérifiez que l’option de vérification automatique de la cohérence est activée dans l’Assistant Groupe de protection. Pour plus d’informations sur les options de réplication et les vérifications de cohérence, consultez [cet article](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019).<br> <ol><li> En cas de sauvegarde de l’état système/sauvegarde à des fins de récupération complète, vérifiez que la sauvegarde de Windows Server est installée sur le serveur protégé.</li><li> Recherchez d’éventuels problèmes liés au manque d’espace dans le pool de stockage DPM sur le serveur DPM/de sauvegarde Azure, et allouez le stockage selon les besoins.</li><li> Vérifiez l’état du service VVS (Volume Shadow Copy) sur le serveur protégé. S’il est désactivé, définissez la propriété pour démarrer manuellement. Démarrez le service sur le serveur. Ensuite, revenez à la console DPM/du serveur de sauvegarde Azure et démarrez la tâche de synchronisation avec vérification de la cohérence.</li></ol>|
 
 ## <a name="online-recovery-point-creation-failed"></a>Échec de la création de points de récupération en ligne.
 
@@ -84,8 +84,8 @@ Nous vous recommandons d’effectuer les validations ci-dessous avant de résoud
 | Opération | Détails de l’erreur | Solution de contournement |
 | --- | --- | --- |
 | Configuration des groupes de protection | DPM n’a pas pu énumérer le composant d’application sur l’ordinateur protégé (nom de l’ordinateur protégé). | Cliquez sur l’option **Actualiser** figurant sur l’écran de configuration du groupe de protection, au niveau du composant/de la source de données pertinents. |
-| Configuration des groupes de protection | Configuration de la protection impossible. | Si le serveur protégé est de type SQL Server, vérifiez si les autorisations du rôle sysadmin ont été fournies au compte système (NTAuthority\System) sur l’ordinateur protégé, comme indiqué dans [cet article](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757977(v=sc.12)).
-| Configuration des groupes de protection | Le pool de stockage présente un espace disponible insuffisant pour ce groupe de protection. | Les disques ajoutés au pool de stockage [ne doivent pas contenir de partitions](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)). Supprimez les volumes existants sur les disques. Puis ajoutez-les au pool de stockage.|
+| Configuration des groupes de protection | Configuration de la protection impossible. | Si le serveur protégé est de type SQL Server, vérifiez si les autorisations du rôle sysadmin ont été fournies au compte système (NTAuthority\System) sur l’ordinateur protégé, comme indiqué dans [cet article](https://docs.microsoft.com/system-center/dpm/back-up-sql-server?view=sc-dpm-2019).
+| Configuration des groupes de protection | Le pool de stockage présente un espace disponible insuffisant pour ce groupe de protection. | Les disques ajoutés au pool de stockage [ne doivent pas contenir de partitions](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019). Supprimez les volumes existants sur les disques. Puis ajoutez-les au pool de stockage.|
 | Modification de la stratégie |Impossible de modifier la stratégie de sauvegarde. Erreur : L'opération en cours a échoué en raison d'une erreur de service interne [0x29834]. Veuillez réessayer l’opération après un certain temps. Si le problème persiste, contactez le support technique Microsoft. | **Cause :**<br/>Cette erreur se produit dans certaines conditions : lorsque les paramètres de sécurité sont activés, que vous essayez de réduire la durée de rétention sur une valeur inférieure aux valeurs minimales spécifiées précédemment et que vous utilisez une version non prise en charge (antérieure à la version Microsoft Azure Backup Server 2.0.9052 et update 1). <br/>**Action recommandée :**<br/> Pour effectuer les mises à jour liées aux stratégies, définissez la période de conservation sur une valeur supérieure à la période de conservation minimale spécifiée. (la période de conservation minimale quotidienne est de sept jours, hebdomadaire de quatre semaines, mensuelle de trois semaines et annuelle d’une année). <br><br>Sinon, vous pouvez mettre à jour l’agent de sauvegarde et le serveur de sauvegarde Azure pour tirer parti de toutes les mises à jour de sécurité. |
 
 ## <a name="backup"></a>Backup

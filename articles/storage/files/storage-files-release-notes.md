@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 3/16/2020
+ms.date: 5/19/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 4cb5a3d471aa3131d3233841cd6450f0a968dfe7
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 8e62d00deed2310437b231bf68ccd9f0cca2fe57
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82800972"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758926"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notes de publication de l’agent Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Il transforme vos installations Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement (notamment SMB, NFS et FTPS). Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -25,17 +25,15 @@ Les versions suivantes de l’agent Azure File Sync sont prises en charge :
 
 | Jalon | Numéro de version de l’agent | Date de publication | Statut |
 |----|----------------------|--------------|------------------|
-| Version V10 – [4522409](https://support.microsoft.com/en-us/help/4522409)| 10.0.0.0 | 9 avril 2020 | En mode Flighting |
+| Correctif cumulatif de mai 2020 : [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | 19 mai 2020 | Prise en charge |
+| Version V10 : [KB4522409](https://support.microsoft.com/en-us/help/4522409)| 10.0.0.0 | 9 avril 2020 | Prise en charge |
 | Correctif cumulatif de décembre 2019 – [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | 12 décembre 2019 | Prise en charge |
 | Version V9 - [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2 décembre 2019 | Prise en charge |
 | Version V8 - [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 8 octobre 2019 | Prise en charge |
-| Correctif cumulatif de juillet 2019 : [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 juillet 2019 | Prise en charge |
-| Correctif cumulatif de juillet 2019 : [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 12 juillet 2019 | Prise en charge |
-| Publication V7 – [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 juin 2019 | Prise en charge |
-| Correctif cumulatif de juin 2019 – [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 27 juin 2019 | Prise en charge – La version de l’agent expire le 21 avril 2020 |
-| Correctif cumulatif de juin 2019 – [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 juin 2019 | Prise en charge – La version de l’agent expire le 21 avril 2020 |
-| Correctif cumulatif de juin 2019 – [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 mai 2019 | Prise en charge – La version de l’agent expire le 21 avril 2020 |
-| Publication V6 – [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 avril 2019 | Prise en charge – La version de l’agent expire le 21 avril 2020 |
+| Correctif cumulatif de juillet 2019 : [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 juillet 2019 | Pris en charge : les versions de l’agent expirent le 1er septembre 2020 |
+| Correctif cumulatif de juillet 2019 : [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 12 juillet 2019 | Pris en charge : les versions de l’agent expirent le 1er septembre 2020 |
+| Publication V7 – [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 juin 2019 | Pris en charge : les versions de l’agent expirent le 1er septembre 2020 |
+| Version V6 | 6.0.0.0 - 6.3.0.0 | N/A | Non pris en charge : les versions de l’agent ont expiré le 21 avril 2020 |
 | Version V5 | 5.0.2.0 à 5.2.0.0 | N/A | Non pris en charge : les versions de l’agent ont expiré le 18 mars 2020 |
 | Version V4 | 4.0.1.0 - 4.3.0.0 | N/A | Non pris en charge : les versions de l’agent ont expiré le 6 novembre 2019 |
 | mise en production V3 | 3.1.0.0 - 3.4.0.0 | N/A | Non pris en charge : les versions de l’agent ont expiré le 19 août 2019 |
@@ -43,6 +41,15 @@ Les versions suivantes de l’agent Azure File Sync sont prises en charge :
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Stratégie de mise à jour de l’agent Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-10020"></a>Version de l’agent 10.0.2.0
+Les notes de publication suivantes concernent la version 10.0.2.0 de l’agent Azure File Sync publiée le 19 mai 2020. Ces notes s’ajoutent aux notes de publication de la version 10.0.0.0.
+
+Problème résolu dans cette version :  
+- L’agent de synchronisation de stockage (FileSyncSvc) se bloque fréquemment après l’installation de l’agent Azure File Sync v10.
+
+> [!Note]  
+>Cette version n’a pas été transmise aux serveurs qui sont configurés pour être mis à jour automatiquement lorsqu’une nouvelle version est disponible. Pour installer cette mise à jour, utilisez Microsoft Update ou le Catalogue Microsoft Update (consultez [KB4522412](https://support.microsoft.com/help/4522412) pour obtenir des instructions d’installation).
 
 ## <a name="agent-version-10000"></a>Version de l’agent 10.0.0.0
 Les notes de publication suivantes concernent la version 10.0.0.0 de l’agent Azure File Sync (publiée le 9 avril 2020).

@@ -1,14 +1,14 @@
 ---
 title: Obtenir les données de conformité de la stratégie
 description: Les évaluations et les effets d’Azure Policy déterminent la conformité. Découvrez comment obtenir des détails sur la conformité de vos ressources Azure.
-ms.date: 02/01/2019
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: d4d9c530a7f9c4683f522a08a30e23437d1774cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 55f0b471eff15140de0a586fd5d326d9cd913b1a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194004"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747083"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtenir les données de conformité des ressources Azure
 
@@ -30,7 +30,7 @@ Les résultats d’un cycle d’évaluation terminé sont disponibles dans le fo
 
 Différents événements permettent d’évaluer les stratégies et initiatives assignées :
 
-- Affectation d’une nouvelle stratégie ou initiative à une étendue. Il faut environ 30 minutes pour que l’affectation soit appliquée à l’étendue définie. Une fois celle-ci appliquée, le cycle d’évaluation commence pour les ressources de cette étendue compte tenu de la nouvelle stratégie ou initiative ; de plus, selon les effets utilisés par la stratégie ou l’initiative, les ressources sont marquées comme conformes ou non conformes. Une stratégie ou une initiative volumineuse évaluée par rapport à une grande étendue de ressources peut prendre du temps. Par conséquent, il n’existe aucun moment prédéfini pour la fin du cycle d’évaluation. Une fois le cycle terminé, les résultats de conformité à jour sont disponibles dans le portail et dans les kits de développement logiciel.
+- Affectation d’une nouvelle stratégie ou initiative à une étendue. Il faut environ 30 minutes pour que l’affectation soit appliquée à l’étendue définie. Une fois celle-ci appliquée, le cycle d’évaluation commence pour les ressources de cette étendue compte tenu de la nouvelle stratégie ou initiative ; de plus, selon les effets utilisés par la stratégie ou l’initiative, les ressources sont marquées comme conformes ou non conformes. Une stratégie ou une initiative volumineuse évaluée par rapport à une grande étendue de ressources peut prendre du temps. Par conséquent, il est impossible de déterminer à l’avance à quel moment s’achèvera le cycle d’évaluation. Une fois le cycle terminé, les résultats de conformité à jour sont disponibles dans le portail et dans les kits de développement logiciel.
 
 - Mise à jour d’une stratégie ou initiative déjà assignée à une étendue. Dans ce scénario, le cycle et le temps d’évaluation sont les mêmes que pour le cas d’une nouvelle affectation à une étendue.
 
@@ -44,7 +44,41 @@ Différents événements permettent d’évaluer les stratégies et initiatives 
 
 ### <a name="on-demand-evaluation-scan"></a>Analyse d’évaluation à la demande
 
-Une analyse d’évaluation d’un abonnement ou d’un groupe de ressources peut être démarrée avec un appel à l’API REST. Il s’agit d’un processus asynchrone. Par conséquent, le point de terminaison REST pour démarrer l’analyse n’attend pas la fin de l’analyse pour répondre. Au lieu de cela, il fournit un URI pour interroger l’état de l’évaluation demandée.
+Une analyse d’évaluation d’un abonnement ou d’un groupe de ressources peut être démarrée avec Azure PowerShell ou un appel à l’API REST. Il s’agit d’un processus asynchrone.
+
+#### <a name="on-demand-evaluation-scan---azure-powershell"></a>Analyse d’évaluation à la demande – Azure PowerShell
+
+L’analyse de conformité est lancée à l’aide de la cmdlet [Start-AzPolicyComplianceScan](/powershell/module/az.policyinsights/start-azpolicycompliancescan).
+
+Par défaut, `Start-AzPolicyComplianceScan` démarre une évaluation pour toutes les ressources de l’abonnement actuel. Pour démarrer une évaluation sur un groupe de ressources spécifique, utilisez le paramètre **ResourceGroupName**. L’exemple suivant démarre une analyse de conformité dans l’abonnement actuel pour le groupe de ressources _MyRG_ :
+
+```azurepowershell-interactive
+Start-AzPolicyComplianceScan -ResourceGroupName MyRG
+```
+
+Vous pouvez faire en sorte que PowerShell attende la fin de l’appel asynchrone avant de fournir la sortie des résultats ou exécuter l’analyse en arrière-plan sous la forme d’un [travail](/powershell/module/microsoft.powershell.core/about/about_jobs). Afin d’utiliser un travail PowerShell pour exécuter l’analyse de conformité en arrière-plan, utilisez le paramètre **AsJob** et définissez la valeur sur un objet, comme `$job` dans cet exemple :
+
+```azurepowershell-interactive
+$job = Start-AzPolicyComplianceScan -AsJob
+```
+
+Vous pouvez vérifier l’état du travail en vérifiant l’objet `$job`. Le travail est du type `Microsoft.Azure.Commands.Common.AzureLongRunningJob`. Utilisez `Get-Member` sur l’objet `$job` pour afficher les propriétés et les méthodes disponibles.
+
+Pendant l’exécution de l’analyse de conformité, la vérification de l’objet `$job` génère des résultats tels que les suivants :
+
+```azurepowershell-interactive
+$job
+
+Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+--     ----            -------------   -----         -----------     --------             -------
+2      Long Running O… AzureLongRunni… Running       True            localhost            Start-AzPolicyCompliance…
+```
+
+Lorsque l’analyse de conformité est terminée, la propriété **État** prend la valeur _Terminé_.
+
+#### <a name="on-demand-evaluation-scan---rest"></a>Analyse d’évaluation à la demande – REST
+
+En tant que processus asynchrone, le point de terminaison REST pour démarrer l’analyse n’attend pas la fin de l’analyse pour répondre. Au lieu de cela, il fournit un URI pour interroger l’état de l’évaluation demandée.
 
 Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par vos propres valeurs :
 
@@ -56,19 +90,19 @@ L’analyse prend en charge l’évaluation des ressources dans un abonnement ou
 - Abonnement
 
   ```http
-  POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2019-10-01
   ```
 
 - Resource group
 
   ```http
-  POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2019-10-01
   ```
 
 L’appel retourne un état **202 Accepté**. Une propriété **Emplacement** est incluse dans l’en-tête de la réponse avec le format suivant :
 
 ```http
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2019-10-01
 ```
 
 `{ResourceContainerGUID}` est généré de manière statique pour l’étendue demandée. Si une étendue exécute déjà une analyse à la demande, aucune nouvelle analyse n’est démarrée. Au lieu de cela, le même URI `{ResourceContainerGUID}` **d’emplacement** pour l’état est fourni à la nouvelle requête. Une commande **GET** d’API REST à l’URI **d’emplacement** retourne un **202 Accepté** tandis que l’évaluation est en cours. Une fois l’analyse de l’évaluation terminée, elle retourne un état **200 OK**. Le corps d’une analyse terminée est une réponse JSON avec l’état :
@@ -157,7 +191,7 @@ Utilisez ARMClient ou un outil similaire pour gérer l’authentification auprè
 Avec l’API REST, la synthèse peut être effectuée par conteneur, par définition ou par affectation. Voici un exemple de synthèse obtenu au niveau de l’abonnement à l’aide de la fonction de [résumé de l’abonnement](/rest/api/policy-insights/policystates/summarizeforsubscription) de Azure Policy Insights :
 
 ```http
-POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04
+POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2019-10-01
 ```
 
 La sortie offre une synthèse de l’abonnement. Dans l’exemple de sortie ci-dessous, la conformité est synthétisée sous **value.results.nonCompliantResources** et **value.results.nonCompliantPolicies**. Cette requête fournit des détails supplémentaires, notamment sur chaque affectation concernée par la non-conformité, fournit des informations sur la définition de chaque affectation. Chaque objet de stratégie dans la hiérarchie fournit un **queryResultsUri** qui peut être utilisé pour obtenir des détails supplémentaires à ce niveau.
@@ -170,7 +204,7 @@ La sortie offre une synthèse de l’abonnement. Dans l’exemple de sortie ci-d
         "@odata.id": null,
         "@odata.context": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/$metadata#summary/$entity",
         "results": {
-            "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2018-04-04&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false",
+            "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false",
             "nonCompliantResources": 15,
             "nonCompliantPolicies": 1
         },
@@ -178,7 +212,7 @@ La sortie offre une synthèse de l’abonnement. Dans l’exemple de sortie ci-d
             "policyAssignmentId": "/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77",
             "policySetDefinitionId": "",
             "results": {
-                "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2018-04-04&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77'",
+                "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77'",
                 "nonCompliantResources": 15,
                 "nonCompliantPolicies": 1
             },
@@ -187,7 +221,7 @@ La sortie offre une synthèse de l’abonnement. Dans l’exemple de sortie ci-d
                 "policyDefinitionId": "/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
                 "effect": "deny",
                 "results": {
-                    "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2018-04-04&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'",
+                    "queryResultsUri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'",
                     "nonCompliantResources": 15
                 }
             }]
@@ -201,7 +235,7 @@ La sortie offre une synthèse de l’abonnement. Dans l’exemple de sortie ci-d
 En reprenant l’exemple ci-dessus, **value.policyAssignments.policyDefinitions.results.queryResultsUri** nous donne un exemple d’URI pour toutes les ressources non conformes pour une définition de stratégie spécifique. Si l’on observe la valeur **$filter**on remarque que IsCompliant est défini sur false, que PolicyAssignmentId est spécifié pour la définition de stratégie, suivi de PolicyDefinitionId. Le PolicyAssignmentId est inclus dans le filtre car le PolicyDefinitionId peut figurer dans plusieurs stratégies ou affectations initiatives avec une diversité d’étendues. En spécifiant à la fois le PolicyAssignmentId et le PolicyDefinitionId, nous pouvons être explicites dans les résultats que nous recherchons. Auparavant, nous utilisions la valeur **latest (dernières)** pour PolicyStates : celle-ci définit automatiquement les paramètres **from (depuis)** et **to (jusqu’à)** d’une plage de temps dans les dernières 24 heures.
 
 ```http
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2018-04-04&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=IsCompliant eq false and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'
 ```
 
 L’exemple de réponse ci-dessous a été ramené à une seule ressource non conforme par souci de concision. La réponse détaillée fournit plusieurs éléments de données sur la ressource, la stratégie ou initiative, et l’affectation. Notez que vous pouvez également voir quels paramètres d’affectation ont été transmis à la définition de la stratégie.
@@ -247,7 +281,7 @@ L’exemple de réponse ci-dessous a été ramené à une seule ressource non co
 Lorsqu’une ressource est créée ou mise à jour, un résultat d’évaluation de stratégie est généré. Ces résultats sont appelés _événements de stratégie_. L’URI suivant permet d’afficher les événements de stratégie récents associés à l’abonnement.
 
 ```http
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyEvents/default/queryResults?api-version=2018-04-04
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyEvents/default/queryResults?api-version=2019-10-01
 ```
 
 Vos résultats doivent ressembler à l’exemple suivant :

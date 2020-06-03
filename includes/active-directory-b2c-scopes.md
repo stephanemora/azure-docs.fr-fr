@@ -5,22 +5,13 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-ms.openlocfilehash: 9d394b07ff17ab24305b2580efc8bedfc5e7d384
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bbbc606497b53a0790d667a63b45101a3c18bbc4
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78183373"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84297483"
 ---
-#### <a name="applications"></a>[Applications](#tab/applications/)
-
-1. Sélectionnez **Applications**.
-1. Sélectionnez l’application *webapi1* pour ouvrir sa page **Propriétés**.
-1. Sélectionnez **Étendues publiées**. Les étendues publiées peuvent être utilisées pour accorder à une application cliente certaines autorisations d’accès à l’API web.
-1. Pour **ÉTENDUE**, entrez `demo.read` puis, pour **DESCRIPTION**, entrez `Read access to the web API`.
-1. Pour **ÉTENDUE**, entrez `demo.write` puis, pour **DESCRIPTION**, entrez `Write access to the web API`.
-1. Sélectionnez **Enregistrer**.
-
 #### <a name="app-registrations-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
 
 1. Sélectionnez **Inscriptions d’applications (préversion)** .
@@ -37,3 +28,12 @@ ms.locfileid: "78183373"
     1. **Nom de l’étendue** : `demo.write`
     1. **Nom d’affichage du consentement administrateur** : `Write access to demo API`
     1. **Description du consentement de l’administrateur** : `Allows write access to the demo API`
+
+#### <a name="applications"></a>[Applications](#tab/applications/)
+
+1. Sélectionnez **Applications**.
+1. Sélectionnez l’application *webapi1* pour ouvrir sa page **Propriétés**.
+1. Sélectionnez **Étendues publiées**. Les étendues publiées peuvent être utilisées pour accorder à une application cliente certaines autorisations d’accès à l’API web.
+1. Pour **ÉTENDUE**, entrez `demo.read` puis, pour **DESCRIPTION**, entrez `Read access to the web API`.
+1. Pour **ÉTENDUE**, entrez `demo.write` puis, pour **DESCRIPTION**, entrez `Write access to the web API`.
+1. Sélectionnez **Enregistrer**.

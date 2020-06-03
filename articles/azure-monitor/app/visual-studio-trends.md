@@ -7,12 +7,12 @@ ms.author: daviste
 ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
-ms.openlocfilehash: bb94d3596fde541f16edd1b7012f57b89ebf52eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 151248f7cd6fe763643da42fc8edbe7c01a69cc7
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670863"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744127"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analyse des tendances dans Visual Studio
 L’outil Tendances Application Insights visualise l’évolution des événements de télémétrie importants de votre application web au fil du temps, ce qui vous permet d’identifier rapidement les problèmes et les anomalies. En vous fournissant des informations de diagnostic plus détaillées, l’outil Tendances peut vous aider à améliorer les performances de votre application, à repérer les causes des exceptions et à découvrir les perspectives de vos événements personnalisés.
@@ -48,7 +48,7 @@ Commencez par choisir l’une des cinq analyses de tendances courantes, chacune 
 Ces analyses prédéfinies sont disponibles à partir du bouton **Afficher les types courants d’analyse de la télémétrie** situé dans le coin supérieur gauche de la fenêtre Tendances.
 
 ## <a name="visualize-trends-in-your-application"></a>Visualiser les tendances de votre application
-L’outil Tendances Application Insights crée une visualisation de série chronologique à partir des données de télémétrie de votre application. Chaque visualisation de série chronologique affiche un type de données de télémétrie regroupées par propriété sur un intervalle de temps donné. Exemple : vous souhaitez afficher les requêtes serveur, regroupées en fonction du pays dont elles proviennent, au cours des dernières 24 heures. Dans cet exemple, chaque bulle sur la visualisation représente un nombre de requêtes serveur d’un pays/d’une région pendant une heure.
+L’outil Tendances Application Insights crée une visualisation de série chronologique à partir des données de télémétrie de votre application. Chaque visualisation de série chronologique affiche un type de données de télémétrie regroupées par propriété sur un intervalle de temps donné. Exemple : vous souhaitez afficher les requêtes serveur, regroupées en fonction du pays/de la région dont elles proviennent, au cours des dernières 24 heures. Dans cet exemple, chaque bulle sur la visualisation représente un nombre de requêtes serveur d’un pays/d’une région pendant une heure.
 
 Utilisez les contrôles en haut de la fenêtre pour ajuster les types de données de télémétrie que vous affichez. Commencez par choisir les types de données de télémétrie souhaités :
 

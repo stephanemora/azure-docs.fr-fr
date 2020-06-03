@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 481cbda1d35f7d630dabca00fd01677f542447c2
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 57f2ce1fb8bf6415387eac5c760dadeb04e65648
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312500"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648421"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Configurer le protocole TLS de bout en bout avec Application Gateway en utilisant PowerShell
 
@@ -168,6 +168,8 @@ Tous les éléments de configuration sont définis avant la création de la pass
    > La sonde par défaut obtient la clé publique de la liaison TLS *par défaut* sur l’adresse IP du serveur principal et compare la valeur de clé publique reçue à celle que vous fournissez ici. 
    > 
    > Si vous utilisez des en-têtes d’hôte et une indication du nom du serveur (SNI) sur le serveur principal, la clé publique récupérée n’est pas nécessairement le site vers lequel vous souhaitez que le trafic soit dirigé. En cas de doute, visitez https://127.0.0.1/ sur les serveurs principaux pour confirmer le certificat utilisé pour la liaison TLS *par défaut*. Utilisez la clé publique de cette demande dans cette section. Si vous utilisez des en-têtes d’hôte et une indication du nom du serveur (SNI) sur les liaisons HTTPS et que vous ne recevez pas une réponse et un certificat à partir d’une demande de navigateur manuelle vers https://127.0.0.1/ sur les serveurs principaux, vous devez configurer une liaison TLS par défaut sur ceux-ci. Si vous ne le faites pas, les sondes échouent et le serveur principal ne figure pas dans la liste approuvée.
+   
+   Pour plus d’informations sur SNI dans Application Gateway, consultez [Présentation de la terminaison TLS et du chiffrement TLS de bout en bout avec Application Gateway](ssl-overview.md).
 
    ```powershell
    $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer

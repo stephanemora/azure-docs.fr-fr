@@ -3,12 +3,12 @@ title: Exploration des journaux d’activité .NET dans Application Insights
 description: Effectuer une recherche dans les journaux d’activité générés par Trace, NLog ou Log4Net.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: 273d5a2f4e1155541e159332312bdaa68aa175d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcd21286a547e0b0a6b5b93e8b05921e8e8cc1e2
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234789"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647904"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Découvrir les journaux des traces .NET/.NET Core et Python dans Application Insights
 
@@ -182,7 +182,9 @@ Vous pouvez par exemple :
 
 ## <a name="troubleshooting"></a>Dépannage
 ### <a name="how-do-i-do-this-for-java"></a>Comment faire pour Java ?
-Utilisez les [adaptateurs de journaux Java](../../azure-monitor/app/java-trace-logs.md).
+Dans l’instrumentation sans code Java (recommandé), les journaux sont collectés directement, à l’aide de l’[agent Java 3.0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+
+Si vous utilisez le Kit de développement logiciel (SDK) Java, utilisez les [adaptateurs de journaux Java](../../azure-monitor/app/java-trace-logs.md).
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>Le menu contextuel du projet ne contient aucune option Application Insights
 * Assurez-vous que Developer Analytics Tools est installé sur l’ordinateur de développement. Dans Visual Studio, sélectionnez **Outils** > **Extensions et mises à jour**, puis recherchez **Developer Analytics Tools**. S’il n’est pas dans l’onglet **Installé**, ouvrez l’onglet **En ligne** et installez-le.

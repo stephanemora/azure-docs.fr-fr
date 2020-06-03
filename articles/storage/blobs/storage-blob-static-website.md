@@ -6,14 +6,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: dineshm
-ms.date: 05/29/2019
+ms.date: 05/14/2020
 ms.subservice: blobs
-ms.openlocfilehash: 57ba59288cbf65c1ef588302965d480ee357ea4d
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 6a007525f8402bb163195b623173d665f9721bff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779975"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648510"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hébergement de sites web statiques dans le service Stockage Azure
 
@@ -50,13 +50,14 @@ Vous pouvez utiliser un de ces outils pour charger du contenu sur le conteneur *
 
 ## <a name="viewing-content"></a>Affichage du contenu
 
-Les utilisateurs peuvent afficher le contenu du site dans un navigateur en utilisant l’URL publique du site web. Vous trouvez cette URL à l’aide du portail Azure, de PowerShell ou d’Azure CLI. Utilisez ce tableau comme guide.
+Les utilisateurs peuvent afficher le contenu du site dans un navigateur en utilisant l’URL publique du site web. Vous trouvez cette URL à l’aide du portail Azure, de PowerShell ou d’Azure CLI. Voir [Trouver l’URL du site web](storage-blob-static-website-how-to.md#portal-find-url).
 
-|Outil| Assistance |
-|----|----|
-|**Azure portal** | [Trouver l’URL du site web avec le portail Azure](storage-blob-static-website-how-to.md#portal-find-url) |
-|**Azure CLI** | [Trouver l’URL du site web avec Azure CLI](storage-blob-static-website-how-to.md#cli-find-url) |
-|**Module Azure PowerShell** | [Trouver l’URL du site web avec PowerShell](storage-blob-static-website-how-to.md#powershell-find-url) |
+Si le serveur retourne une erreur 404, et que vous n’avez spécifié aucun document d’erreur lorsque vous avez activé le site web, une page 404 par défaut est retournée à l’utilisateur.
+
+> [!NOTE]
+> [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) n’est pas pris en charge avec un site web statique.
+
+### <a name="regional-codes"></a>Codes régionaux
 
 L’URL de votre site contient un code régional. Par exemple, l’URL `https://contosoblobaccount.z22.web.core.windows.net/` contient le code de région `z22`.
 
@@ -64,10 +65,9 @@ Même si ce code doit demeurer dans l’URL, il n’est destiné qu’à un usag
 
 Le document d’index, que vous spécifiez lorsque vous activez l’hébergement de site web statique, s’affiche lorsque les utilisateurs ouvrent le site et ne spécifient aucun fichier en particulier (par exemple : `https://contosoblobaccount.z22.web.core.windows.net`).  
 
-Si le serveur retourne une erreur 404, et que vous n’avez spécifié aucun document d’erreur lorsque vous avez activé le site web, une page 404 par défaut est retournée à l’utilisateur.
+### <a name="secondary-endpoints"></a>Points de terminaison secondaires
 
-> [!NOTE]
-> [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) n’est pas pris en charge avec un site web statique.
+Si vous configurez [la redondance dans une région secondaire](../common/storage-redundancy.md#redundancy-in-a-secondary-region), vous pouvez également accéder au contenu du site web à l’aide d’un point de terminaison secondaire. Dans la mesure où les données sont répliquées de façon asynchrone dans des régions secondaires, les fichiers disponibles au niveau du point de terminaison secondaire ne sont pas toujours synchronisés avec ceux qui sont disponibles sur le point de terminaison principal. 
 
 ## <a name="impact-of-the-setting-the-public-access-level-of-the-web-container"></a>Impact de la définition du niveau d’accès public du conteneur web
 
@@ -117,4 +117,4 @@ Pour activer les métriques sur les pages de votre site web statique, consultez 
 * [Azure Functions](/azure/azure-functions/functions-overview)
 * [Azure App Service](/azure/app-service/overview)
 * [Générer votre première application web sans serveur](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Didacticiel : héberger votre domaine dans Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)
+* [Tutoriel : Héberger votre domaine dans Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

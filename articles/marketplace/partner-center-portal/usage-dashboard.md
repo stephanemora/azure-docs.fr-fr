@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 89a0a782b4a18b71f7be8bcdd3728fd008c24d5a
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: b60475c56b18e81b082e7552fec789b06adeff27
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793004"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746663"
 ---
 # <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Tableau de bord Utilisation de l’analytique de la Place de marché commerciale Microsoft
 
@@ -54,7 +54,7 @@ Le tableau Résumé de l’utilisation affiche les heures d’utilisation par le
 
 ### <a name="usage-by-geography"></a>Utilisation par zone géographique
 
-La carte thermique de l’**utilisation normalisée par zone géographique** affiche les heures d’utilisation mappées selon le pays du client. La variation de la couleur du pays représente une concentration d’utilisation normalisée. Pour revenir à la vue initiale, appuyez sur le bouton d’**accueil** de la carte.
+La carte thermique de l’**utilisation normalisée par zone géographique** affiche les heures d’utilisation mappées selon le pays/la région du client. La variation de la couleur du pays/de la région représente une concentration d’utilisation normalisée. Pour revenir à la vue initiale, appuyez sur le bouton d’**accueil** de la carte.
 
 ### <a name="usage-by-offers"></a>Utilisation par offres
 
@@ -92,7 +92,7 @@ Le **tableau des détails de l’utilisation** affiche une liste numérotée des
 - Chaque colonne de la grille peut être triée.
 - Les données peuvent être extraites dans un fichier CSV si le nombre d’enregistrements est inférieur à 1 000.
 - Si le nombre d’enregistrements dépasse 1 000, les données sont exportées de manière asynchrone dans une page de téléchargements qui restera disponible pendant une période de 30 jours.
-- Vous pouvez appliquer des filtres aux **données d’utilisation détaillées** pour afficher uniquement les données qui vous intéressent. Les données peuvent être filtrées par pays, canal de vente, type de licence Place de marché, type d’utilisation, nom d’offre, type d’offre, essais gratuits, ID d’abonnement Place de marché, ID client et nom de société.
+- Vous pouvez appliquer des filtres aux **données d’utilisation détaillées** pour afficher uniquement les données qui vous intéressent. Les données peuvent être filtrées par pays/région, canal de vente, type de licence Place de marché, type d’utilisation, nom d’offre, type d’offre, essais gratuits, ID d’abonnement Place de marché, ID client et nom de société.
 
 > [!NOTE]
 > Sélectionnez le **type d’utilisation** dans le filtre de page pour afficher les graphiques en « vue normalisée » ou en « vue brute ». La « vue normalisée » est la vue utilisée par défaut pour ces graphiques.

@@ -1,15 +1,15 @@
 ---
-title: Conserver les données de sortie dans Stockage Azure avec la bibliothèque File Conventions .NET - Azure Batch
+title: Conserver les données de sortie dans Stockage Azure avec la bibliothèque File Conventions .NET
 description: Apprenez à utiliser la bibliothèque File Conventions d’Azure Batch pour conserver les sorties de travaux et de tâches dans Stockage Azure et les afficher dans le portail Azure.
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d7988ef4339280bd729cc1acaa1b7fb2c33b6b9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d8dea7f503536a4eb2b0c36db7b3d35b70eb8a67
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232698"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726330"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Conserver le résultat d’un travail et d’une tâche dans Azure Storage avec la bibliothèque File Conventions Batch pour .NET
 

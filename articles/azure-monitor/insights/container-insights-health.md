@@ -2,20 +2,20 @@
 title: Surveiller l’intégrité du cluster Kubernetes avec Azure Monitor pour les conteneurs | Microsoft Docs
 description: Cet article décrit comment afficher et analyser l’intégrité de vos clusters AKS et non AKS avec Azure Monitor pour les conteneurs.
 ms.topic: conceptual
-ms.date: 12/01/2019
-ms.openlocfilehash: f50ef13efca78bbb5285b99759b8111dc1915ad0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/18/2020
+ms.openlocfilehash: 94fdb6388134eae326ed5a8e46fbd3d13f8da2d5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76843988"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649577"
 ---
 # <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Comprendre l’intégrité des clusters Kubernetes avec Azure Monitor pour les conteneurs
 
 Azure Monitor pour les conteneurs permet de surveiller et signaler l’état d’intégrité des composants de l’infrastructure managée et de tous les nœuds exécutés sur n’importe quel cluster Kubernetes pris en charge par Azure Monitor pour les conteneurs. Cette expérience fournit davantage d’informations par rapport à l’état d’intégrité du cluster calculé et signalé sur l’[affichage multi-cluster](container-insights-analyze.md#multi-cluster-view-from-azure-monitor). À présent, vous pouvez déterminer si des nœuds du cluster présentent des contraintes de ressources, ou si un nœud ou un pod non disponible peut affecter une application en cours d’exécution dans le cluster grâce à des mesures organisées.
 
 >[!NOTE]
->La fonctionnalité Intégrité est actuellement une fonctionnalité d’évaluation publique.
+>La fonctionnalité d’intégrité deviendra une préversion privée fin juin 2020. Pour plus d’informations, consultez l’[annonce des mises à jour Azure](https://azure.microsoft.com/updates/ci-health-limited-preview/) suivante.
 >
 
 Pour plus d’informations sur la procédure d’activation d’Azure Monitor pour les conteneurs, consultez [Onboard Azure Monitor for containers](container-insights-onboard.md) (Intégrer Azure Monitor pour les conteneurs).
@@ -23,7 +23,7 @@ Pour plus d’informations sur la procédure d’activation d’Azure Monitor po
 >[!NOTE]
 >Pour prendre en charge les clusters du moteur AKS, vérifiez qu’elle répond aux critères suivants :
 >- Elle utilise la version la plus récente du [client HELM](https://helm.sh/docs/using_helm/).
->- La version de l’agent en conteneur est *microsoft/oms:ciprod11012019*. Pour mettre à niveau l’agent, consultez [Mise à niveau de l’agent sur le cluster Kubernetes](container-insights-manage-agent.md#upgrade-agent-on-monitored-kubernetes-cluster).
+>- La version de l’agent en conteneur est *microsoft/oms:ciprod11012019*. Pour mettre à niveau l’agent, consultez [Mise à niveau de l’agent sur le cluster Kubernetes](container-insights-manage-agent.md#how-to-upgrade-the-azure-monitor-for-containers-agent).
 >
 
 ## <a name="overview"></a>Vue d’ensemble

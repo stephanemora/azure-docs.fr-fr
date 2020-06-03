@@ -1,15 +1,15 @@
 ---
-title: Exécuter Linux sur des nœuds de calcul de machine virtuelle - Azure Batch | Microsoft Docs
+title: Exécuter Linux sur des nœuds de calcul de machine virtuelle
 description: Découvrez comment traiter vos charges de travail de calcul parallèles sur des pools de machines virtuelles Linux dans Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/01/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 31e7a9558590ee3c6943e7a50c67c93f713908c7
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: cd8a39556fb0aec0ddbf6c8e639281d7329228a4
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993820"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726602"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Configurer des nœuds de calcul Linux dans des pools Batch
 
@@ -21,7 +21,7 @@ Vous pouvez utiliser Azure Batch pour exécuter des charges de travail de calcul
 >
 
 ## <a name="virtual-machine-configuration"></a>Configuration de la machine virtuelle
-Lorsque vous créez un pool de nœuds de calcul dans Azure Batch, vous avez deux options pour sélectionner la taille du nœud et le système d’exploitation : configuration des services cloud et configuration de la machine virtuelle.
+Lorsque vous créez un pool de nœuds de calcul dans Batch, vous avez deux options pour sélectionner la taille du nœud et le système d’exploitation : Configuration des services cloud et Configuration de la machine virtuelle.
 
 **configuration des services cloud** fournit *uniquement*des nœuds de calcul Windows. Les tailles de nœud de calcul disponibles sont répertoriées dans [Tailles de services cloud](../cloud-services/cloud-services-sizes-specs.md), et les systèmes d’exploitation disponibles sont répertoriés dans [Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure](../cloud-services/cloud-services-guestos-update-matrix.md). Lorsque vous créez un pool contenant des nœuds Services cloud Azure, vous spécifiez la taille du nœud et la famille de systèmes d’exploitation, décrites dans les articles mentionnés ci-dessus. Pour les pools de nœuds de calcul Windows, les services Cloud Services sont le plus couramment utilisés.
 
@@ -57,7 +57,7 @@ L’agent de nœud de Batch est un programme qui s’exécute sur chaque nœud d
 >
 >
 
-## <a name="create-a-linux-pool-batch-python"></a>Créer un pool Linux : Batch Python
+## <a name="create-a-linux-pool-batch-python"></a>Création d’un pool Linux : Python Batch
 L’extrait de code suivant offre un exemple d’utilisation de la [bibliothèque cliente Microsoft Azure Batch pour Python][py_batch_package] pour créer un pool de nœuds de calcul de serveur Ubuntu. Vous trouverez la documentation de référence pour le module Batch Python à la page [azure.batch package][py_batch_docs] (package azure.batch) dans Lire la documentation.
 
 Cet extrait de code crée explicitement un paramètre [ImageReference][py_imagereference] et spécifie chacune de ses propriétés (éditeur, offre, référence SKU, version). Toutefois, dans un code de production, nous vous recommandons toutefois d’utiliser la méthode [list_supported_images][py_list_supported_images] pour déterminer et opérer une sélection parmi les combinaisons disponibles de références SKU d’image et de nœud d’agent au moment du runtime.
@@ -141,7 +141,7 @@ vmc = batchmodels.VirtualMachineConfiguration(
     node_agent_sku_id=image.node_agent_sku_id)
 ```
 
-## <a name="create-a-linux-pool-batch-net"></a>Créer un pool Linux : Batch .NET
+## <a name="create-a-linux-pool-batch-net"></a>Création d’un pool Linux : .NET Batch
 L’extrait de code suivant offre un exemple d’utilisation de la bibliothèque cliente [Batch .NET][nuget_batch_net] pour créer un pool de nœuds de calcul de serveur Ubuntu. Vous trouverez la [documentation de référence sur Batch .NET][api_net] sur docs.microsoft.com.
 
 L’extrait de code suivant utilise la méthode [PoolOperations][net_pool_ops].[ListSupportedImages][net_list_supported_images] pour opérer une sélection dans la liste des combinaisons d’image de la Place de marché et de référence SKU d’agent de nœud actuellement prises en charge. Cette technique est souhaitable car la liste des combinaisons prises en charge peut changer de temps à autre. En règle générale, les combinaisons prises en charge sont ajoutées.

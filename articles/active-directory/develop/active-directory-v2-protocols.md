@@ -1,5 +1,6 @@
 ---
-title: Protocoles OAuth 2.0 et OpenID Connect - Plateforme Microsoft Identity | Azure
+title: Protocoles OAuth 2.0 et OpenID Connect sur la plateforme d’identité Microsoft | Azure
+titleSuffix: Microsoft identity platform
 description: Un guide relatif aux protocoles OAuth 2.0 et OpenID Connect pris en charge par le point de terminaison de la plateforme d’identités Microsoft.
 services: active-directory
 author: hpsin
@@ -8,20 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 80b93efb58d225c53a64fa044f51145b392460d7
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 0bb7812d75fa3276b52a182f9184e28a21a910ae
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690264"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737484"
 ---
-# <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>Protocoles OAuth 2.0 et OpenID Connect sur la plateforme Microsoft Identity
+# <a name="oauth-20-and-openid-connect-protocols-on-microsoft-identity-platform"></a>Protocoles OAuth 2.0 et OpenID Connect sur la plateforme d’identité Microsoft
 
-Le point de terminaison de la plateforme d’identités Microsoft pour l’identité en tant que service avec les protocoles standard, OpenID Connect et OAuth 2.0. Bien que ce service soit conforme aux normes, vous pouvez constater de subtiles différences entre deux implémentations différentes de ces protocoles. Les informations fournies ici vous seront utiles si vous choisissez d’écrire votre code en envoyant et en traitant directement des requêtes HTTP ou si vous utilisez une bibliothèque open source tierce, plutôt qu’en utilisant l’une de nos [bibliothèques open source](reference-v2-libraries.md).
+Le point de terminaison de la plateforme d’identités Microsoft pour l’identité en tant que service implémente l’authentification et les autorisations avec les protocoles standard OpenID Connect et OAuth 2.0, respectivement. Bien que ce service soit conforme aux normes, vous pouvez constater de subtiles différences entre deux implémentations différentes de ces protocoles. Les informations fournies ici vous seront utiles si vous choisissez d’écrire votre code en envoyant et en traitant directement des requêtes HTTP ou si vous utilisez une bibliothèque open source tierce, plutôt qu’en utilisant l’une de nos [bibliothèques open source](reference-v2-libraries.md).
 
 ## <a name="the-basics"></a>Concepts de base
 
@@ -69,13 +70,13 @@ Pour savoir comment interagir avec ces points de terminaison, choisissez un type
 
 ## <a name="tokens"></a>Jetons
 
-L’implémentation d’OAuth 2.0 et d’OpenID Connect par la plateforme d’identités Microsoft utilise massivement les jetons du porteur, y compris ceux représentés sous forme de JWT. Un jeton porteur est un jeton de sécurité léger qui octroie l’accès à une ressource protégée au « porteur ». En ce sens, le « porteur » désigne toute partie qui peut présenter le jeton. Bien qu’une partie doive d’abord s’authentifier auprès de la plateforme d’identités Microsoft pour recevoir le jeton porteur, si les mécanismes nécessaires à la sécurité du jeton lors de la transmission et du stockage ne sont pas en place, il peut être intercepté et utilisé par une partie non autorisée. Bien que certains jetons de sécurité intègrent un mécanisme de protection contre l’utilisation par des parties non autorisées, les jetons porteurs n’en sont pas dotés et doivent donc être acheminés sur un canal sécurisé, par exemple à l’aide du protocole TLS (HTTPS). Si un jeton porteur est transmis en clair, une partie malveillante peut utiliser une attaque d’intercepteur pour s’approprier le jeton et l’utiliser afin d’accéder sans autorisation à une ressource protégée. Les mêmes principes de sécurité s’appliquent au stockage ou à la mise en cache des jetons porteurs pour une utilisation ultérieure. Veillez systématiquement à ce que votre application transmette et stocke les jetons porteurs de manière sécurisée. Pour en savoir plus sur les aspects de sécurité des jetons porteurs, consultez [RFC 6750 Section 5](https://tools.ietf.org/html/rfc6750).
+L’implémentation d’OAuth 2.0 et d’OpenID Connect par la plateforme d’identités Microsoft utilise massivement les jetons du porteur, y compris ceux représentés sous forme de JWT (JSON Web Token). Un jeton porteur est un jeton de sécurité léger qui octroie l’accès à une ressource protégée au « porteur ». En ce sens, le « porteur » désigne toute partie qui peut présenter le jeton. Bien qu’une partie doive d’abord s’authentifier auprès de la plateforme d’identités Microsoft pour recevoir le jeton porteur, si les mécanismes nécessaires à la sécurité du jeton lors de la transmission et du stockage ne sont pas en place, il peut être intercepté et utilisé par une partie non autorisée. Bien que certains jetons de sécurité intègrent un mécanisme de protection contre l’utilisation par des parties non autorisées, les jetons porteurs n’en sont pas dotés et doivent donc être acheminés sur un canal sécurisé, par exemple à l’aide du protocole TLS (HTTPS). Si un jeton porteur est transmis en clair, une partie malveillante peut utiliser une attaque d’intercepteur pour s’approprier le jeton et l’utiliser afin d’accéder sans autorisation à une ressource protégée. Les mêmes principes de sécurité s’appliquent au stockage ou à la mise en cache des jetons porteurs pour une utilisation ultérieure. Veillez systématiquement à ce que votre application transmette et stocke les jetons porteurs de manière sécurisée. Pour en savoir plus sur les aspects de sécurité des jetons porteurs, consultez [RFC 6750 Section 5](https://tools.ietf.org/html/rfc6750).
 
 Vous trouverez plus d’informations sur les différents types de jetons utilisés dans la plateforme d’identités Microsoft dans [la référence sur les jetons de point de terminaison de la plateforme d’identités Microsoft](v2-id-and-access-tokens.md).
 
 ## <a name="protocols"></a>Protocoles
 
-Si vous êtes prêt à voir des exemples de demandes, entamez l’un des didacticiels ci-dessous. Chacun d’eux correspond à un scénario d’authentification particulier. Si vous avez besoin d’aide pour déterminer le flux qui vous convient, consultez les [types d’applications que vous pouvez créer avec le point de terminaison de la plateforme d’identités Microsoft](v2-app-types.md).
+Si vous êtes prêt à voir des exemples de demandes, entamez l’un des didacticiels ci-dessous. Chacun d’eux correspond à un scénario d’authentification particulier. Si vous avez besoin d’aide pour déterminer le flux qui vous convient, consultez les [types d’applications que vous pouvez créer avec le point de terminaison de la plateforme d’identité Microsoft](v2-app-types.md).
 
 * [Générer une application mobile et native avec OAuth 2.0](v2-oauth2-auth-code-flow.md)
 * [Générer des applications web avec OpenID Connect](v2-protocols-oidc.md)

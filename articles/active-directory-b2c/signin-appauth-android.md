@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 31ad373b1544fc601a9c37e05e324a9c1dfb3f73
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3a38b9a02894eafd3ef6df657680d2e2a58a7e7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78183775"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638392"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Se connecter à l'aide d'une application Android dans Azure Active Directory B2C
 
@@ -72,10 +72,10 @@ Vous pouvez configurer la communication avec Azure AD B2C en spécifiant l’URI
 * ID client (par ex., contoso.onmicrosoft.com)
 * Nom du flux utilisateur (par ex., B2C\_1\_SignUpIn)
 
-Si vous choisissez de détecter automatiquement les URI du point de terminaison d’autorisation et de jeton URI, vous devrez extraire des informations de l’URI de détection. L’URI de détection peut être généré en remplaçant l’\_ID client et le nom de la stratégie\_ dans l’URL suivante :
+Si vous choisissez de détecter automatiquement les URI du point de terminaison d’autorisation et de jeton URI, vous devrez extraire des informations de l’URI de détection. L’URI de détection peut être généré en remplaçant le`<tenant-id>` et le `<policy-name>` dans l’URL suivante :
 
 ```java
-String mDiscoveryURI = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/v2.0/.well-known/openid-configuration?p=<Policy_Name>";
+String mDiscoveryURI = "https://<tenant-name>.b2clogin.com/<tenant-id>/<policy-name>/v2.0/.well-known/openid-configuration";
 ```
 
 Vous pouvez alors obtenir les URI des points de terminaison d’autorisation et de jeton et créer un objet AuthorizationServiceConfiguration en exécutant la commande suivante :
@@ -99,12 +99,12 @@ AuthorizationServiceConfiguration.fetchFromIssuer(
   });
 ```
 
-Plutôt que d’utiliser la détection pour obtenir les URI des points de terminaison d’autorisation et de jeton, vous pouvez également les spécifier explicitement en remplaçant l’\_ID client et le nom de la\_stratégie dans l’URL ci-dessous :
+Plutôt que d’utiliser la détection pour obtenir les URI des points de terminaison d’autorisation et de jeton, vous pouvez également les spécifier explicitement en remplaçant le `<tenant-id>` et le `<policy-name>`dans l’URL ci-dessous :
 
 ```java
-String mAuthEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/authorize?p=<Policy_Name>";
+String mAuthEndpoint = "https://<tenant-name>.b2clogin.com/<tenant-id>/<policy-name>/oauth2/v2.0/authorize";
 
-String mTokenEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/token?p=<Policy_Name>";
+String mTokenEndpoint = "https://<tenant-name>.b2clogin.com/<tenant-id>/<policy-name>/oauth2/v2.0/token";
 ```
 
 Exécutez le code suivant pour créer votre objet AuthorizationServiceConfiguration :

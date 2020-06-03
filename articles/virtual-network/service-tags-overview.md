@@ -4,21 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Découvrez les balises de service. Les balises de service permettent de réduire la complexité de la création des règles de sécurité.
 services: virtual-network
 documentationcenter: na
-author: jispar
+author: allegradomel
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
-ms.author: jispar
+ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: bfeded391f582ab0ac6f3c15d2086789228f1494
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ea756b965a2539886e695585c9b5f5034eac7684
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660590"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263188"
 ---
 # <a name="virtual-network-service-tags"></a>Balises de service du réseau virtuel
 <a name="network-service-tags"></a>
@@ -62,7 +62,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **AzureDataExplorerManagement** | Gestion d’Azure Data Explorer. | Trafic entrant | Non | Non |
 | **AzureDataLake** | Azure Data Lake Storage Gen1. | Règle de trafic sortant | Non | Oui |
 | **AzureDevSpaces** | Azure Dev Spaces. | Règle de trafic sortant | Non | Non |
-| **AzureEventGrid** | Azure Event Grid. <br/><br/>*Remarque :* Cette balise couvre les points de terminaison Azure Event Grid dans les régions USA Centre Sud, USA Est, Usa Est 2, USA Ouest 2 et USA Centre uniquement. | Les deux | Non | Non |
+| **AzureEventGrid** | Azure Event Grid. | Les deux | Non | Non |
 | **AzureFrontDoor.Frontend** <br/> **AzureFrontDoor.Backend** <br/> **AzureFrontDoor.FirstParty**  | Azure Front Door. | Les deux | Non | Non |
 | **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Remarque :* Cette balise est dotée d’une dépendance par rapport aux balises **AzureActiveDirectory**, **AzureFrontDoor.Frontend** et **AzureFrontDoor.FirstParty**. | Règle de trafic sortant | Non | Non |
 | **AzureIoTHub** | Azure IoT Hub. | Règle de trafic sortant | Non | Non |

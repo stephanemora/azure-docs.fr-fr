@@ -1,24 +1,23 @@
 ---
-title: Solutions intégrées – Place de marché Azure
-description: Solutions préférées dans la Place de marché Azure et AppSource
+title: Solutions intégrées – Place de marché commerciale Microsoft
+description: Découvrez les avantages, les ressources et les étapes suivantes pour offrir des solutions intégrées dans la Place de marché Microsoft.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 4c32fe80b681e6d82d40b0f5c94d5e9288f72cd6
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: bf20473b407db1804a4275fdc6dd3d528de1f189
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81684403"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657990"
 ---
-# <a name="integrated-solutions-in-microsoft-appsource-and-azure-marketplace"></a>Solutions intégrées dans Microsoft AppSource et la Place de marché Azure
-
+# <a name="integrated-solutions-in-the-commercial-marketplace"></a>Solutions intégrées dans la Place de marché commerciale Microsoft
 Une solution intégrée rassemble les meilleures technologies de partenaires Microsoft, ainsi que des services de consultation, de déploiement et de support fournis par des partenaires de services experts.
 
-Au moins deux partenaires Microsoft intègrent leurs technologies et services pour créer une expérience de déploiement unifiée, transparente et reproductible, afin de permettre aux clients d’être rapidement opérationnels.  Le partenaire principal de la solution (généralement le partenaire des services) fournit un point de contact unique pour le client, offrant une personnalisation, un conseil et un support adaptés à la solution.
+Au moins deux partenaires Microsoft intègrent leurs technologies et services pour créer une expérience de déploiement unifiée, transparente et reproductible, ce qui permet aux clients d’être rapidement opérationnels.  Le partenaire principal de la solution (généralement le partenaire des services) fournit un point de contact unique pour le client, offrant une personnalisation, un conseil et un support adaptés à la solution.
 
 Dans d’autres scénarios, les partenaires vendent ou commercialisent ensemble leur solution, tandis qu’une solution intégrée est une nouvelle solution conçue conjointement qui intègre la technologie et les services des partenaires.
 
@@ -30,7 +29,7 @@ Les avantages d’une approche intégrée sont les suivants :
 * *Temps de valorisation* : approche de déploiement intégré pour vous aider à réaliser des bénéfices immédiats.
 * *Solutions de pointe* : découvrez la facilité d’une expérience d’achat et d’implémentation intégrée.
 
-Pour plus d’informations, consultez [Publier une solution intégrée](https://docs.microsoft.com/azure/marketplace/integrated-solutions-for-publishers).
+Pour plus d’informations, voir [Publier une solution intégrée](./integrated-solutions-for-publishers.md).
 
 ## <a name="submit-a-nomination"></a>Soumettre une nomination
 
@@ -38,7 +37,7 @@ Les partenaires qui souhaitent participer au programme doivent identifier les au
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez découvrir des solutions intégrées et communiquer avec ces précieux partenaires en consultant leurs référencements ici :
+Vous pouvez découvrir des solutions intégrées et communiquer avec ces précieux partenaires en consultant leurs référencements ici :
 
 * [Customer 360 Powered by Zero2Hero](https://azuremarketplace.microsoft.com/marketplace/consulting-services/bardess.customer-360-powered-by-zero2hero)
 * [Rapid Commerce](https://azuremarketplace.microsoft.com/marketplace/consulting-services/publicis-sapient.rapid_commerce)

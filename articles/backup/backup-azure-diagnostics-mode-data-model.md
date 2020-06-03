@@ -3,12 +3,12 @@ title: Modèles de données des journaux Azure Monitor
 description: Dans cet article, découvrez les détails du modèle de données Azure Monitor Log Analytics pour les données de Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 72484923bc94e197cd195c0192b53feb3ef457ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78d43e4c65f31b47f4b6070f071c932692cee883
+ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183685"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83707987"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modèle de données Log Analytics pour les données de sauvegarde Azure
 
@@ -463,7 +463,9 @@ Voici quelques exemples pour vous aider à écrire des requêtes sur des donnée
 ## <a name="v1-schema-vs-v2-schema"></a>Schéma v1 et schéma v2
 Précédemment, les données de diagnostic pour l’agent de sauvegarde Azure et la sauvegarde de machine virtuelle Azure étaient envoyées dans la table Azure Diagnostics dans un schéma appelé ***schéma v1***. Par la suite, de nouvelles colonnes ont été ajoutées pour prendre en charge d’autres scénarios et charges de travail, et les données de diagnostic ont été déplacées dans un nouveau schéma appelé ***schéma v2***. 
 
-Pour des raisons de compatibilité descendante, les données de diagnostic pour l’agent de sauvegarde Azure et la sauvegarde de machine virtuelle Azure sont actuellement envoyées à la table Azure Diagnostics à la fois dans les schémas v1 et v2 (le schéma v1 se dirigeant vers la dépréciation). Vous pouvez identifier les enregistrements Log Analytics du schéma v1 en filtrant les enregistrements pour SchemaVersion_s=="V1" dans vos requêtes de journal.
+Pour des raisons de compatibilité descendante, les données de diagnostic pour l’agent de sauvegarde Azure et la sauvegarde de machine virtuelle Azure sont actuellement envoyées à la table Azure Diagnostics à la fois dans les schémas v1 et v2 (le schéma v1 se dirigeant vers la dépréciation). Vous pouvez identifier les enregistrements Log Analytics du schéma v1 en filtrant les enregistrements pour SchemaVersion_s=="V1" dans vos requêtes de journal. 
+
+Reportez-vous à la troisième colonne « Description » dans le [modèle de données](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#using-azure-backup-data-model) décrit ci-dessus pour identifier les colonnes qui appartiennent au schéma v1 uniquement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

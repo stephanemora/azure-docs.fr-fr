@@ -4,12 +4,12 @@ description: Supervisez les charges de travail de Sauvegarde Azure et créez des
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 54a98cebc2887f7508543a4dc752b2145c3bbda2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81e4f9f63df19ed57f26be8eb246c6dab1bf512c
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183651"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714829"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Superviser à grande échelle avec Azure Monitor
 
@@ -45,6 +45,9 @@ La caractéristique définissant une alerte est sa condition de déclenchement. 
 
 Si nécessaire, vous pouvez modifier la requête Kusto. Choisissez un seuil, une période et une fréquence. Le seuil détermine à quel moment l’alerte sera déclenchée. La période correspond à la fenêtre de temps pendant laquelle la requête est exécutée. Par exemple, si le seuil est supérieur à 0, la période est de 5 minutes et la fréquence est de 5 minutes, la règle exécute la requête toutes les 5 minutes, en examinant les 5 minutes précédentes. Si le nombre de résultats est supérieur à 0, vous êtes averti via le groupe d’actions sélectionné.
 
+> [!NOTE]
+> Pour exécuter la règle d’alerte une fois par jour, sur tous les événements/journaux qui ont été créés le jour donné, modifiez la valeur de « Période » et « Fréquence » en 1440, soit 24 heures.
+
 #### <a name="alert-action-groups"></a>Groupes d’actions d’alerte
 
 Utilisez un groupe d’actions pour spécifier un canal de notification. Pour voir les mécanismes de notification disponibles, sous **Groupes d’actions**, sélectionnez **Créer**.
@@ -64,6 +67,7 @@ Les graphiques par défaut vous fournissent des requêtes Kusto pour les scénar
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Completed"
     ````
 
@@ -72,6 +76,7 @@ Les graphiques par défaut vous fournissent des requêtes Kusto pour les scénar
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Failed"
     ````
 
@@ -80,6 +85,7 @@ Les graphiques par défaut vous fournissent des requêtes Kusto pour les scénar
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Completed"
     | join kind=inner
     (
@@ -96,6 +102,7 @@ Les graphiques par défaut vous fournissent des requêtes Kusto pour les scénar
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup" and JobOperationSubType=="Log"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Completed"
     | join kind=inner
     (
@@ -112,6 +119,7 @@ Les graphiques par défaut vous fournissent des requêtes Kusto pour les scénar
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Completed"
     | join kind=inner
     (
@@ -161,8 +169,8 @@ Les données de diagnostic provenant du coffre sont injectées dans l’espace d
 Vous pouvez aussi utiliser des journaux d’activité pour obtenir des notifications pour des événements comme la réussite des sauvegardes. Pour commencer, suivez ces étapes :
 
 1. Connectez-vous au portail Azure.
-1. Ouvrez le coffre Recovery Services approprié.
-1. Dans les propriétés du coffre, ouvrez la section **Journal d’activité**.
+2. Ouvrez le coffre Recovery Services approprié.
+3. Dans les propriétés du coffre, ouvrez la section **Journal d’activité**.
 
 Pour identifier le journal approprié et créer une alerte :
 
@@ -170,9 +178,9 @@ Pour identifier le journal approprié et créer une alerte :
 
    ![Filtrage pour rechercher des journaux d’activité pour les sauvegardes de machines virtuelles Azure](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
-1. Sélectionnez le nom de l’opération pour voir les détails correspondants.
-1. Sélectionnez **Nouvelle règle d’alerte** pour ouvrir la page **Créer une règle**.
-1. Créez une alerte en suivant les étapes de [Créer, afficher et gérer des alertes de journal d’activité avec Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
+2. Sélectionnez le nom de l’opération pour voir les détails correspondants.
+3. Sélectionnez **Nouvelle règle d’alerte** pour ouvrir la page **Créer une règle**.
+4. Créez une alerte en suivant les étapes de [Créer, afficher et gérer des alertes de journal d’activité avec Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
    ![Nouvelle règle d’alerte](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 

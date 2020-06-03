@@ -11,19 +11,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2020
+ms.date: 05/19/2020
 ms.author: spelluru
-ms.openlocfilehash: fcf31fcc266358911612c25e0b73a0a9de696b1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57005bc18d1eda42043236086ebbac69e54cc505
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77539016"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655784"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Créer et gérer un modèle de laboratoire de classe dans Azure Lab Services
 Le modèle de laboratoire est une image de machine virtuelle de base, à partir de laquelle toutes les machines virtuelles des utilisateurs sont créées. Configurez la machine virtuelle du modèle de façon qu’elle propose exactement ce que vous souhaitez fournir aux utilisateurs du laboratoire. Vous pouvez indiquer le nom et la description du modèle que voient les utilisateurs du laboratoire. Ensuite, publiez le modèle pour rendre les instances du modèle de machine virtuelle accessibles aux utilisateurs de votre laboratoire. Quand vous publiez un modèle, Azure Lab Services crée les machines virtuelles dans le laboratoire à l’aide du modèle. Le nombre de machines virtuelles créées dans ce processus est identique au nombre maximal d’utilisateurs autorisés dans le laboratoire, que vous pouvez définir dans la politique d’utilisation du laboratoire. Toutes les machines virtuelles ont la même configuration que le modèle.
 
 Cet article explique comment créer et gérer un modèle de machine virtuelle dans un laboratoire de classe Azure Lab Services. 
+
+> [!NOTE]
+> Lorsque vous créez un laboratoire, le modèle de machine virtuelle est créé, mais il n’est pas démarré. Vous pouvez le démarrer, vous y connecter et installer les logiciels requis pour le laboratoire, puis le publier. Lorsque vous publiez le modèle de machine virtuelle, celui-ci s’arrête automatiquement si vous ne l’avez pas arrêté vous-même. 
+> 
+> Étant donné que les modèles de machines virtuelles engendrent des **coûts** lors de leur exécution, prenez soin de vérifier que le modèle de machine virtuelle est arrêté lorsque vous n’avez pas besoin de l’exécuter. 
+
 
 ## <a name="set-or-update-template-title-and-description"></a>Définir ou mettre à jour un titre et une description pour le modèle
 Effectuez les étapes suivantes pour définir un titre et une description pour la première fois, et pour les mettre à jour par la suite. 

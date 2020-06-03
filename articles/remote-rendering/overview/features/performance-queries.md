@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 9a28dee2d1e6d1355b729a56e8eeb8447e4ed8c8
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 2e843216bf973033868e75c027b11d27ddfe2e93
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679455"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757464"
 ---
 # <a name="server-side-performance-queries"></a>Requêtes de performances côté serveur
 
@@ -37,7 +37,7 @@ L’illustration montre comment :
 
 Les statistiques d’images offrent quelques informations générales pour la dernière image, telles que la latence. Les données fournies dans la structure `FrameStatistics` sont mesurées côté client, l’API est donc un appel synchrone :
 
-````c#
+```cs
 void QueryFrameData(AzureSession session)
 {
     FrameStatistics frameStatistics;
@@ -46,7 +46,18 @@ void QueryFrameData(AzureSession session)
         // do something with the result
     }
 }
-````
+```
+
+```cpp
+void QueryFrameData(ApiHandle<AzureSession> session)
+{
+    FrameStatistics frameStatistics;
+    if (*session->GetGraphicsBinding()->GetLastFrameStatistics(&frameStatistics) == Result::Success)
+    {
+        // do something with the result
+    }
+}
+```
 
 L’objet `FrameStatistics` récupéré contient les membres suivants :
 
@@ -75,7 +86,7 @@ Aucune des valeurs ci-dessus ne donne une indication claire de la latence pure d
 
 *Les requêtes d’évaluation des performances* fournissent des informations plus approfondies sur la charge de travail du processeur et du GPU sur le serveur. Du fait que les données sont demandées à partir du serveur, l’interrogation d’un instantané de performances suit le modèle asynchrone habituel :
 
-``` cs
+```cs
 PerformanceAssessmentAsync _assessmentQuery = null;
 
 void QueryPerformanceAssessment(AzureSession session)
@@ -89,6 +100,20 @@ void QueryPerformanceAssessment(AzureSession session)
 
         _assessmentQuery = null;
     };
+}
+```
+
+```cpp
+void QueryPerformanceAssessment(ApiHandle<AzureSession> session)
+{
+    ApiHandle<PerformanceAssessmentAsync> assessmentQuery = *session->Actions()->QueryServerPerformanceAssessmentAsync();
+    assessmentQuery->Completed([] (ApiHandle<PerformanceAssessmentAsync> res)
+    {
+        // do something with the result:
+        PerformanceAssessment result = *res->Result();
+        // ...
+
+    });
 }
 ```
 
@@ -110,9 +135,9 @@ Cette mesure d’évaluation fournit une indication approximative de l’état d
 
 ## <a name="statistics-debug-output"></a>Sortie de débogage des statistiques
 
-La classe `ARRServiceStats` wrappe les statistiques des images et les requêtes d’évaluation des performances ; elle fournit des fonctionnalités pratiques pour retourner des statistiques sous forme de valeurs agrégées, ou comme chaîne prédéfinie. Le code suivant est le moyen le plus simple pour afficher des statistiques côté serveur dans votre application cliente.
+La classe `ARRServiceStats` est une classe C# qui inclut dans un wrapper les statistiques des images et les requêtes d’évaluation des performances ; elle fournit des fonctionnalités pratiques pour retourner des statistiques sous forme de valeurs agrégées ou comme chaîne prédéfinie. Le code suivant est le moyen le plus simple pour afficher des statistiques côté serveur dans votre application cliente.
 
-``` cs
+```cs
 ARRServiceStats _stats = null;
 
 void OnConnect()

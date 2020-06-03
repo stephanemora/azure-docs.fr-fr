@@ -1,31 +1,28 @@
 ---
-title: Chiffrement au repos avec des clés gérées par le client
+title: Chiffrement au repos avec une clé gérée par le client
 description: Apprenez-en davantage sur le chiffrement au repos de votre registre de conteneurs Azure et sur la façon de chiffrer votre registre avec une clé gérée par le client, stockée dans Azure Key Vault
 ms.topic: article
-ms.date: 03/10/2020
+ms.date: 05/01/2020
 ms.custom: ''
-ms.openlocfilehash: 2d5561998cf0b19698c8059a861a4014a171a7e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a81305be13fd824e7674346aadcaddb83787322d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461750"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683491"
 ---
-# <a name="encryption-using-customer-managed-keys"></a>Chiffrement à l’aide de clés gérées par le client
+# <a name="encrypt-registry-using-a-customer-managed-key"></a>Chiffrer un registre à l’aide d’une clé gérée par le client
 
 Lorsque vous stockez des images et d’autres artefacts dans un registre de conteneurs Azure, Azure chiffre automatiquement le contenu du registre au repos avec des [clés gérées par le service](../security/fundamentals/encryption-atrest.md#data-encryption-models). Vous pouvez compléter le chiffrement par défaut avec une couche de chiffrement supplémentaire à l’aide d’une clé que vous créez et gérez dans Azure Key Vault. Cet article vous guide tout au long des étapes utilisant Azure CLI et le portail Azure.
 
-Le chiffrement côté serveur avec des clés gérées par le client est pris en charge via l’intégration à [Azure Key Vault](../key-vault/general/overview.md). Vous pouvez créer vos propres clés de chiffrement et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés de chiffrement. Avec Azure Key Vault, vous pouvez également auditer l’utilisation des clés.
+Le chiffrement côté serveur avec des clés gérées par le client est pris en charge via l’intégration à [Azure Key Vault](../key-vault/general/overview.md). Vous pouvez créer vos propres clés de chiffrement et les stocker dans un coffre de clés ou utiliser les API d’Azure Key Vault pour générer des clés. Avec Azure Key Vault, vous pouvez également auditer l’utilisation des clés.
 
-Cette fonctionnalité est disponible uniquement au niveau de service **Premium** de registre de conteneurs. Pour plus d’informations sur les niveaux de service et les limites de registre, consultez [Références SKU Azure Container Registry](container-registry-skus.md).
+Cette fonctionnalité est disponible uniquement au niveau de service **Premium** de registre de conteneurs. Pour plus d’informations sur les niveaux de service et les limites de registre, consultez [Niveaux de service d’Azure Container Registry](container-registry-skus.md).
 
-> [!IMPORTANT]
-> Cette fonctionnalité est actuellement en préversion et certaines [limitations s’appliquent](#preview-limitations). Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
->
    
-## <a name="preview-limitations"></a>Limitations de la version préliminaire 
+## <a name="things-to-know"></a>À savoir
 
-* Vous pouvez actuellement activer cette fonctionnalité uniquement lorsque vous créez un registre.
+* Vous pouvez actuellement activer une clé gérée par le client uniquement lorsque vous créez un registre.
 * Après avoir activé une clé gérée par le client sur un registre, vous ne pouvez pas la désactiver.
 * L’[approbation de contenu](container-registry-content-trust.md) n’est actuellement pas prise en charge dans un registre chiffré avec une clé gérée par le client.
 * Dans un registre chiffré avec une clé gérée par le client, les journaux d’exécution pour les [tâches ACR](container-registry-tasks-overview.md) sont actuellement conservés pendant 24 heures uniquement. Si vous devez conserver les journaux plus longtemps, consultez les instructions pour [exporter et stocker les journaux d’exécution des tâches](container-registry-tasks-logs.md#alternative-log-storage).
@@ -140,12 +137,15 @@ Dans la sortie de la commande, prenez note de l’ID de la clé, `kid`. Vous uti
 Pour plus de commodité, stockez cette valeur dans une variable d’environnement :
 
 ```azurecli
-keyID=$(az keyvault key show --name <keyname> --vault-name <key-vault-name> --query 'key.kid' --output tsv)
+keyID=$(az keyvault key show \
+  --name <keyname> \
+  --vault-name <key-vault-name> \
+  --query 'key.kid' --output tsv)
 ```
 
 ### <a name="create-a-registry-with-customer-managed-key"></a>Créer un registre avec une clé gérée par le client
 
-Exécutez la commande [az acr create][az-acr-create] pour créer un registre et activer la clé gérée par le client. Transmettez l’ID du principal de l’identité managée et l’ID de clé, précédemment stockés dans des variables d’environnement :
+Exécutez la commande [az acr create][az-acr-create] pour créer un registre dans le niveau de service Premium et activer la clé gérée par le client. Transmettez l’ID du principal de l’identité managée et l’ID de clé, précédemment stockés dans des variables d’environnement :
 
 ```azurecli
 az acr create \
@@ -164,13 +164,26 @@ Pour indiquer si le chiffrement du registre avec une clé gérée par le client 
 az acr encryption show --name <registry-name> 
 ```
 
+Le résultat se présente ainsi :
+
+```console
+{
+  "keyVaultProperties": {
+    "identity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "keyIdentifier": "https://myvault.vault.azure.net/keys/myresourcegroup/abcdefg123456789...",
+    "versionedKeyIdentifier": "https://myvault.vault.azure.net/keys/myresourcegroup/abcdefg123456789..."
+  },
+  "status": "enabled"
+}
+```
+
 ## <a name="enable-customer-managed-key---portal"></a>Activer une clé gérée par le client – portail
 
 ### <a name="create-a-managed-identity"></a>Créer une identité managée
 
 Créez une [identité managée attribuée par l’utilisateur pour des ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) dans le portail Azure. Pour connaître les étapes, consultez [Créer une identité managée attribuée par l’utilisateur](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
-Notez le **nom de ressource** de l’identité managée. Vous aurez besoin de ce nom dans des étapes ultérieures.
+Vous utilisez le nom de l’identité dans des étapes ultérieures.
 
 ![Créer une identité managée attribuée par l’utilisateur dans le portail Azure](./media/container-registry-customer-managed-keys/create-managed-identity.png)
 
@@ -178,7 +191,7 @@ Notez le **nom de ressource** de l’identité managée. Vous aurez besoin de ce
 
 Pour connaître la procédure de création d’un coffre de clés, consultez [Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide du portail Azure](../key-vault/secrets/quick-create-portal.md).
 
-Lorsque vous créez un coffre de clés pour une clé gérée par le client, sous l’onglet **Informations de base**, vous devez activer les paramètres de protection suivants : **Suppression réversible** et **Protection de purge**. Ces paramètres permettent d’éviter toute perte de données provoquée par la suppression accidentelle d’une clé ou d’un coffre de clés.
+Lorsque vous créez un coffre de clés pour une clé gérée par le client, sous l’onglet **Informations de base**, activez les paramètres de protection suivants : **Suppression réversible** et **Protection de purge**. Ces paramètres permettent d’éviter toute perte de données provoquée par la suppression accidentelle d’une clé ou d’un coffre de clés.
 
 ![Créer un coffre de clés dans le portail Azure](./media/container-registry-customer-managed-keys/create-key-vault.png)
 
@@ -208,14 +221,14 @@ Configurez une stratégie pour le coffre de clés afin que l’identité puisse 
 1. Sous l’onglet **Informations de base**, sélectionnez ou créez un groupe de ressources, puis entrez un nom de registre. Dans **Référence (SKU)** , sélectionnez **Premium**.
 1. Sous l’onglet **Chiffrement**, dans **Clé gérée par le client**, sélectionnez **Activée**.
 1. Dans **Identité**, sélectionnez l’identité managée que vous avez créée.
-1. Dans **Clé de chiffrement**, sélectionnez **Sélectionner dans le coffre de clés**.
+1. Dans **Chiffrement**, sélectionnez **Sélectionner dans le coffre de clés**.
 1. Dans la fenêtre **Sélectionner une clé à partir d’Azure Key Vault**, sélectionnez le coffre de clés, la clé et la version que vous avez créés dans la section précédente.
 1. Sous l’onglet **Chiffrement**, sélectionnez **Vérifier + créer**.
 1. Sélectionnez **Créer** pour déployer l’instance du registre.
 
 ![Créer un registre de conteneurs dans le portail Azure](./media/container-registry-customer-managed-keys/create-encrypted-registry.png)
 
-Pour visualiser l’état de chiffrement de votre registre dans le portail, accédez à votre registre. Sous **Paramètres**, sélectionnez **Chiffrement (préversion)** .
+Pour visualiser l’état de chiffrement de votre registre dans le portail, accédez à votre registre. Sous **Paramètres**, sélectionnez **Chiffrement**.
 
 ## <a name="enable-customer-managed-key---template"></a>Activer une clé gérée par le client – modèle
 
@@ -347,38 +360,75 @@ az group deployment create \
 
 ### <a name="show-encryption-status"></a>Afficher l’état de chiffrement
 
-Pour afficher l’état du chiffrement du registre, exécutez la commande [az acr encryption show-status][az-acr-encryption-show-status] :
+Pour afficher l’état du chiffrement du registre, exécutez la commande[az acr encryption show][az-acr-encryption-show] :
 
 ```azurecli
-az acr encryption show-status --name <registry-name> 
+az acr encryption show --name <registry-name> 
 ```
 
 ## <a name="use-the-registry"></a>Utiliser le registre
 
-Une fois que vous avez activé un registre pour chiffrer les données à l’aide d’une clé gérée par le client, vous pouvez effectuer les mêmes opérations de registre que celles que vous effectuez dans un registre qui n’est pas chiffré avec une clé gérée par le client. Par exemple, vous pouvez vous authentifier à l’aide du registre et envoyer (push) des images Docker. Consultez les exemples de commandes dans [Envoyer (push) et extraire (pull) une image](container-registry-get-started-docker-cli.md).
+Après avoir activé une clé gérée par le client dans un registre, vous pouvez effectuer les mêmes opérations de registre que celles que vous effectuez dans un registre qui n’est pas chiffré avec une clé gérée par le client. Par exemple, vous pouvez vous authentifier à l’aide du registre et envoyer (push) des images Docker. Consultez les exemples de commandes dans [Envoyer (push) et extraire (pull) une image](container-registry-get-started-docker-cli.md).
 
 ## <a name="rotate-key"></a>Rotation de clé
 
-Vous pouvez permuter une clé gérée par le client dans Azure Key Vault en fonction de vos stratégies de conformité. Créez une clé, puis mettez à jour le registre pour chiffrer les données à l’aide de la nouvelle clé. Vous pouvez également effectuer ces étapes à l’aide d’Azure CLI ou dans le portail Azure.
+Faites pivoter une clé gérée par le client utilisée pour le chiffrement du registre dans vos stratégies de conformité. Créez une clé ou mettez à jour la version d’une clé, puis mettez à jour le registre pour chiffrer les données à l’aide de la clé. Vous pouvez également effectuer ces étapes à l’aide d’Azure CLI ou dans le portail Azure.
 
-Par exemple, exécutez la commande [az keyvault key create][az-keyvault-key-create] pour créer une clé :
+Lorsque vous faites pivoter une clé, vous spécifiez généralement la même identité que celle utilisée lors de la création du registre. Si vous le souhaitez, configurez une nouvelle identité affectée par l’utilisateur pour l’accès à la clé, ou activez et spécifiez l’identité affectée par le système du registre.
+
+> [!NOTE]
+> Vérifiez que la [stratégie d’accès au coffre de clés](#add-key-vault-access-policy) requise est définie pour l’identité que vous configurez pour l’accès à la clé. 
+
+### <a name="azure-cli"></a>Azure CLI
+
+Pour créer ou gérer vos clés de coffre de clés, utilisez des commandes [az keyvault key][az-keyvault-key]. Par exemple, pour créer une nouvelle clé ou version de clé, exécutez la commande [az keyvault key create][az-keyvault-key-create] :
 
 ```azurecli
-az keyvault key create –-name <new-key-name> --vault-name <key-vault-name> 
+# Create new version of existing key
+az keyvault key create \
+  –-name <key-name> \
+  --vault-name <key-vault-name> 
+
+# Create new key
+az keyvault key create \
+  –-name <new-key-name> \
+  --vault-name <key-vault-name> 
 ```
 
-Ensuite, exécutez la commande [az acr encryption rotate-key][az-acr-encryption-rotate-key], en transmettant le nouvel ID de clé et l’ID du principal de l’identité managée que vous avez configurée précédemment :
+Ensuite, exécutez la commande [az acr encryption rotate-key][az-acr-encryption-rotate-key], en transmettant l’ID de la nouvelle clé et l’identité que vous souhaitez configurer :
 
 ```azurecli
-az acr encryption rotatekey \
+# Rotate key and use user-assigned identity
+az acr encryption rotate-key \
   --name <registry-name> \
   --key-encryption-key <new-key-id> \
-  --identity $identityPrincipalID
+  --identity <principal-id-user-assigned-identity>
+
+# Rotate key and use system-assigned identity
+az acr encryption rotate-key \
+  --name <registry-name> \
+  --key-encryption-key <new-key-id> \
+  --identity [system]
 ```
+
+### <a name="portal"></a>Portail
+
+Utilisez les paramètres **Chiffrement** du registre pour mettre à jour la version de clé, la clé, le coffre de clés ou les paramètres d’identité utilisés pour la clé gérée par le client. 
+
+Par exemple, pour générer et configurer une nouvelle version de clé :
+
+1. Dans le portail, accédez à votre registre. 
+1. Sous **Paramètres**, sélectionnez **Chiffrement** > **Modifier la clé**.
+1. Sélectionner **Sélectionner une clé**.
+    
+    ![Faites pivoter la clé dans le portail Azure.](./media/container-registry-customer-managed-keys/rotate-key.png)
+1. Dans la fenêtre **Sélectionner une clé dans Azure Key Vault**, sélectionnez le coffre de clés et la clé que vous avez configurés précédemment, et dans **Version**, sélectionnez **Créer nouveau**.
+1. Dans la fenêtre **Créer une clé**, sélectionnez **Générer**, puis **Créer**.
+1. Terminez la sélection de la clé et sélectionnez **Enregistrer**.
 
 ## <a name="revoke-key"></a>Révoquer la clé
 
-Révoquez la clé de chiffrement gérée par le client en modifiant la stratégie d’accès sur le coffre de clés ou en supprimant la clé. Par exemple, utilisez la commande [az keyvault delete-policy][az-keyvault-delete-policy] pour modifier la stratégie d’accès de l’identité managée utilisée par votre registre. Par exemple :
+Révoquez la clé de chiffrement gérée par le client en modifiant la stratégie d’accès sur le coffre de clés ou en supprimant la clé. Par exemple, utilisez la commande [az keyvault delete-policy][az-keyvault-delete-policy] pour modifier la stratégie d’accès de l’identité managée utilisée par votre registre :
 
 ```azurecli
 az keyvault delete-policy \
@@ -389,15 +439,49 @@ az keyvault delete-policy \
 
 La révocation de la clé bloque efficacement l’accès à toutes les données du registre, car le registre ne peut pas accéder à la clé de chiffrement. Si l’accès à la clé est activé ou si la clé supprimée est restaurée, votre registre choisira la clé afin de vous permettre d’accéder de nouveau aux données de registre chiffrées.
 
+## <a name="advanced-scenarios"></a>Scénarios avancés
+
+### <a name="system-assigned-identity"></a>Identité attribuée par le système
+
+Vous pouvez configurer l’identité managée affectée par le système d’un registre pour accéder au coffre de clés des clés de chiffrement. Si vous n’êtes pas familiarisé avec les différentes identités managées pour les ressources Azure, consultez la [présentation](../active-directory/managed-identities-azure-resources/overview.md).
+
+Pour activer l’identité affectée par le système du registre dans le portail :
+
+1. Dans le portail, accédez à votre registre. 
+1. Sélectionnez **Paramètres** >  **Identité**.
+1. Sous **Affecté par le système**, définissez **État** sur **Activé**. Sélectionnez **Enregistrer**.
+1. Copiez l’**ID d’objet** de l’identité.
+
+Pour autoriser l’identité à accéder à un coffre de clés :
+
+1. Accédez à votre coffre de clés.
+1. Sélectionnez **Paramètres** > **Stratégies d’accès > +Ajouter une stratégie d’accès**.
+1. Sélectionnez **Autorisations de clé**, puis **Obtenir**, **Ne pas inclure la clé** et **Inclure la clé**.
+1. Sélectionnez **Sélectionner le principal** et recherchez l’ID d’objet de votre identité managée affectée par le système ou le nom de votre registre.  
+1. Sélectionnez **Ajouter**, puis **Enregistrer**.
+
+Pour mettre à jour les paramètres de chiffrement du registre afin d’utiliser l’identité :
+
+1. Dans le portail, accédez à votre registre. 
+1. Sous **Paramètres**, sélectionnez **Chiffrement** > **Modifier la clé**.
+1. Dans **Identité**, sélectionnez **Affecté par le système**, puis **Enregistrer**.
+
+### <a name="key-vault-firewall"></a>Pare-feu Key Vault
+
+Si votre coffre de clés Azure est déployé dans un réseau virtuel avec un pare-feu Key Vault, procédez comme suit :
+
+1. Configurez le chiffrement du registre pour utiliser l’identité affectée par le système du registre. Voir la section précédente.
+2. Configurez le coffre de clés pour autoriser l’accès par n’importe quel [service approuvé](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). 
+
+Pour obtenir des instructions plus détaillées, consultez [Configurer les pare-feu et réseaux virtuels d’Azure Key Vault](../key-vault/general/network-security.md). 
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Apprenez-en davantage sur le [chiffrement au repos dans Azure](../security/fundamentals/encryption-atrest.md).
 * Apprenez-en davantage sur les stratégies d’accès et sur la façon de [sécuriser l’accès à un coffre de clés](../key-vault/general/secure-your-key-vault.md).
-* Pour fournir des commentaires sur les clés gérées par le client pour Azure Container Registry, visitez le [site GitHub ACR](https://aka.ms/acr/issues).
 
 
 <!-- LINKS - external -->
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms
 
 <!-- LINKS - internal -->
 
@@ -409,6 +493,7 @@ La révocation de la clé bloque efficacement l’accès à toutes les données 
 [az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
 [az-keyvault-create]: /cli/azure/keyvault#az-keyvault-create
 [az-keyvault-key-create]: /cli/azure/keyvault/key#az-keyvault-key-create
+[az-keyvault-key]: /cli/azure/keyvault/key
 [az-keyvault-set-policy]: /cli/azure/keyvault#az-keyvault-set-policy
 [az-keyvault-delete-policy]: /cli/azure/keyvault#az-keyvault-delete-policy
 [az-resource-show]: /cli/azure/resource#az-resource-show

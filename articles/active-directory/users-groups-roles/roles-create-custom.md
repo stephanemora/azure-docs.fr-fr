@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2cb19c82f8c19bf87eeef755adb5756b2452512
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2682a85f88a537630fbca86dd55541a152d8f37e
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74025283"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758637"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Créer et attribuer un rôle personnalisé dans Azure Active Directory
 
@@ -141,6 +141,9 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
    }
     ```
 
+  > [!Note]
+  > Le "templateId": "GUID" est un paramètre facultatif qui est envoyé dans le corps en fonction des besoins. Si vous avez besoin de créer plusieurs rôles personnalisés différents avec des paramètres communs, il est préférable de créer un modèle et de définir un templateId. Vous pouvez générer un templateId au préalable à l’aide de la cmdlet PowerShell (New-Guid).Guid. 
+
 1. Créez l’attribution de rôle.
 
     Requête HTTP pour créer une définition de rôle personnalisée.
@@ -160,6 +163,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
        "resourceScope":"/<GUID OF APPLICATION REGISTRATION>"
    }
     ```
+
 
 ## <a name="assign-a-custom-role-scoped-to-a-resource"></a>Affecter un rôle personnalisé étendu à une ressource
 

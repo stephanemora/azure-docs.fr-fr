@@ -3,12 +3,12 @@ title: Autorisations pour des référentiels dans Azure Container Registry
 description: Créer un jeton avec des autorisations étendues à des référentiels spécifiques dans un registre pour tirer (pull) ou envoyer (push) des images ou effectuer d’autres actions
 ms.topic: article
 ms.date: 02/13/2020
-ms.openlocfilehash: 9004c45401833d3070266055dd7eb99a2bb43bde
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: eeb2155e035dd4a3a7aa09f634c229676cd87db3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618823"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683473"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Créer un jeton avec des autorisations délimitées par le référentiel
 
@@ -25,7 +25,7 @@ Les scénarios de création d’un jeton sont les suivants :
 
 ## <a name="preview-limitations"></a>Limitations de la version préliminaire
 
-* Cette fonctionnalité est disponible uniquement dans un registre de conteneurs **Premium**. Pour plus d’informations sur les niveaux de service et les limites de registre, consultez [Références SKU Azure Container Registry](container-registry-skus.md).
+* Cette fonctionnalité est disponible dans les registres de conteneurs **Premium**. Pour plus d’informations sur les niveaux de service et les limites de registre, consultez [Niveaux de service d’Azure Container Registry](container-registry-skus.md).
 * Vous ne pouvez pas actuellement attribuer des autorisations délimites par le référentiel à une identité Azure Active Directory telle qu’un principal de service ou une identité managée.
 * Vous ne pouvez pas créer de mappage d’étendue dans un registre activé pour l’[accès en extraction anonyme](container-registry-faq.md#how-do-i-enable-anonymous-pull-access).
 

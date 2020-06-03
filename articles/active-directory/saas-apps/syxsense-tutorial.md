@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 684b8c31524c55ad3335c02ec1268f1afea78a93
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 33574871ede636c3ff349ca960e7df8a33b77463
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77086587"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266999"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-syxsense"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Syxsense
 
@@ -86,10 +86,6 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<SUBDOMAIN>.cloudmanagementsuite.com/Saml2`
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<SUBDOMAIN>.cloudmanagementsuite.com/Saml2/Acs`
-
-1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
-
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<SUBDOMAIN>.cloudmanagementsuite.com/samlautologin`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique Syxsense](mailto:DevTeam@syxsense.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

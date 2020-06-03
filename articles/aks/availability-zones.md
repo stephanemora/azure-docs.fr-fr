@@ -4,19 +4,19 @@ description: Découvrez comment créer un cluster qui distribue les nœuds entre
 services: container-service
 ms.custom: fasttrack-edit
 ms.topic: article
-ms.date: 06/24/2019
-ms.openlocfilehash: 5693d9e90de9ba68e7b76e0f2bd5b75141dbda71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 02/27/2020
+ms.openlocfilehash: 35aaad31728f4a0cd73913ecf397d8123b3f909a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596808"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725094"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Créer un cluster Azure Kubernetes Service (AKS) qui utilise des zones de disponibilité
 
-Un cluster AKS (Azure Kubernetes Service) répartit les ressources telles que les nœuds et le stockage entre les sections logiques de l'infrastructure de calcul Azure sous-jacente. Ce modèle de déploiement permet de s'assurer que les nœuds s'exécutent sur des domaines de mise à jour et d’erreur distincts d’un même centre de données Azure. Les clusters AKS déployés avec ce comportement par défaut offrent un niveau élevé de disponibilité pour se protéger contre une panne matérielle ou un événement de maintenance planifiée.
+Un cluster AKS (Azure Kubernetes Service) répartit des ressources telles que des nœuds et le stockage entre des sections logiques de l’infrastructure Azure sous-jacente. Ce modèle de déploiement, lors de l’utilisation de zones de disponibilité, garantit que les nœuds d’une zone de disponibilité donnée sont physiquement séparés de ceux définis dans une autre zone de disponibilité. Les clusters AKS déployés avec plusieurs zones de disponibilité configurées sur un cluster offrent un niveau plus élevé de disponibilité pour se protéger contre une défaillance matérielle ou un événement de maintenance planifiée.
 
-Pour offrir un niveau de disponibilité plus élevé à vos applications, les clusters AKS peuvent être répartis sur plusieurs zones de disponibilité. Ces zones représentent des centres de données physiquement séparés au sein d’une région donnée. Lorsque les composants du cluster sont répartis sur plusieurs zones, votre cluster AKS est capable de tolérer une défaillance dans l'une de ces zones. Vos applications et vos opérations de gestion restent disponibles même si un centre de données complet rencontre un problème.
+En définissant des pools de nœuds dans un cluster de façon à ce qu’ils s’étendent sur plusieurs zones, les nœuds d’un pool de nœuds donné peuvent continuer à fonctionner même si une zone tombe en panne. Vos applications peuvent continuer à être disponibles même en cas de défaillance physique dans un centre de donnée si elles sont orchestrées de manière à tolérer la défaillance d’un sous-ensemble de nœuds.
 
 Cet article vous explique comment créer un cluster AKS et répartir les composants de nœud entre des zones de disponibilité.
 
@@ -41,24 +41,20 @@ Les clusters AKS peuvent actuellement être créés en utilisant des zones de di
 
 Les limitations suivantes s'appliquent lorsque vous créez un cluster AKS à l'aide de zones de disponibilité :
 
-* Vous ne pouvez activer les zones de disponibilité que lorsque le cluster est créé.
+* Vous ne pouvez définir des zones de disponibilité que lorsque le cluster ou le pool de nœuds est créé.
 * Les paramètres de la zone de disponibilité ne peuvent pas être mis à jour une fois le cluster créé. Vous ne pouvez pas non plus mettre à jour un cluster de zones de non-disponibilité existant pour utiliser des zones de disponibilité.
-* Vous ne pouvez pas désactiver les zones de disponibilité d’un cluster AKS une fois qu'il a été créé.
-* La taille de nœud (référence SKU de la machine virtuelle) sélectionnée doit être disponible dans toutes les zones de disponibilité.
-* Les clusters avec des zones de disponibilité activées nécessitent l'utilisation d'équilibreurs de charge Standard Azure pour la distribution entre les zones.
-* Vous devez utiliser Kubernetes version 1.13.5 ou supérieure pour déployer des équilibreurs de charge Standard.
-
-Les clusters AKS qui emploient des zones de disponibilité doivent utiliser la référence SKU *Standard* de l’équilibreur de charge Azure, qui est la valeur par défaut pour le type équilibreur de charge. Ce type d’équilibreur de charge ne peut être défini qu’au moment de la création du cluster. Pour plus d'informations et connaître les limites de l’équilibreur de charge Standard, consultez [Limites de la référence SKU Standard de l’équilibreur de charge Azure][standard-lb-limitations].
+* La taille de nœud (référence SKU de la machine virtuelle) choisie doit être disponible dans toutes les zones de disponibilité sélectionnées.
+* Les clusters avec des zones de disponibilité activées nécessitent l'utilisation d'équilibreurs de charge Standard Azure pour la distribution entre les zones. Ce type d’équilibreur de charge ne peut être défini qu’au moment de la création du cluster. Pour plus d'informations et connaître les limites de l’équilibreur de charge Standard, consultez [Limites de la référence SKU Standard de l’équilibreur de charge Azure][standard-lb-limitations].
 
 ### <a name="azure-disks-limitations"></a>Limitations des disques Azure
 
-Les volumes qui utilisent des disques managés Azure ne constituent pas actuellement des ressources zonales. Les pods replanifiés dans une zone différente de leur zone d'origine ne peuvent pas reconnecter leur(s) disque(s) précédent(s). Il est recommandé d'exécuter des charges de travail sans état qui ne nécessitent pas de stockage persistant pouvant présenter des problèmes zonaux.
+Les volumes qui utilisent des disques managés Azure ne constituent pas actuellement des ressources redondantes interzones. Les volumes ne peuvent pas être attachés entre les zones et doivent être colocalisés dans la même zone qu’un nœud donné hébergeant un pod cible.
 
-Si vous devez exécuter des charges de travail sans état, utilisez les teintes et les tolérances des spécifications de vos pods pour indiquer au planificateur Kubernetes de créer des pods dans la même zone que vos disques. Vous pouvez également utiliser un stockage en réseau, par exemple Azure Files, pour vous connecter aux pods à mesure qu'ils sont planifiés entre les zones.
+Si vous devez exécuter des charges de travail avec état, utilisez les teintes et tolérances des pools de nœuds dans les spécifications des pods pour regrouper la planification des pods dans la même zone que vos disques. Vous pouvez également utiliser un stockage en réseau, par exemple Azure Files, pour vous connecter aux pods à mesure qu'ils sont planifiés entre les zones.
 
 ## <a name="overview-of-availability-zones-for-aks-clusters"></a>Vue d’ensemble des zones de disponibilité pour les clusters AKS
 
-Les zones de disponibilité sont une offre à haute disponibilité qui protège vos applications et vos données contre les défaillances des centres de données. Les zones sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. Pour garantir la résilience, il existe un minimum de trois zones distinctes dans toutes les régions activées. La séparation physique des zones de disponibilité dans une région protège les applications et les données des défaillances dans le centre de données. Les services redondants interzone répliquent vos applications et vos données entre des zones de disponibilité pour les protéger contre des points de défaillance uniques.
+Les zones de disponibilité constituent une offre à haute disponibilité qui protège vos applications et données des pannes des centres de données. Les zones sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. Pour garantir la résilience, il existe un minimum de trois zones distinctes dans toutes les régions activées pour la zone. La séparation physique des zones de disponibilité dans une région protège les applications et les données des défaillances dans le centre de données.
 
 Pour plus d’informations, consultez [Que sont les zones de disponibilité dans Azure ?][az-overview].
 
@@ -66,15 +62,15 @@ Les clusters AKS déployés à l'aide de zones de disponibilité peuvent répart
 
 ![Distribution des nœuds AKS entre les zones de disponibilité](media/availability-zones/aks-availability-zones.png)
 
-En cas de défaillance d’une zone, les nœuds peuvent être rééquilibrés manuellement ou à l'aide de l'autochargeur de cluster. Si une seule zone devient indisponible, vos applications continuent de s'exécuter.
+Si une zone devient indisponible, vos applications continuent à s’exécuter si le cluster est réparti sur plusieurs zones.
 
 ## <a name="create-an-aks-cluster-across-availability-zones"></a>Créer un cluster AKS sur plusieurs zones de disponibilité
 
-Lorsque vous créez un cluster à l'aide de la commande [az aks create][az-aks-create], le paramètre `--zones` définit dans quelles zones les nœuds d'agent sont déployés. Les composants du plan de contrôle AKS de votre cluster sont également répartis entre les zones, dans la configuration la plus disponible qui soit lorsque vous définissez le paramètre `--zones` au moment de la création du cluster.
+Lorsque vous créez un cluster à l'aide de la commande [az aks create][az-aks-create], le paramètre `--zones` définit dans quelles zones les nœuds d'agent sont déployés. Les composants du plan de contrôle, tels que etcd, sont répartis sur trois zones si vous définissez le paramètre `--zones` au moment de la création du cluster. Les zones spécifiques sur lesquelles sont répartis les composants du plan de contrôle sont indépendantes des zones explicites sélectionnées pour le pool de nœuds initial.
 
-Si vous ne définissez aucune zone pour le pool d'agents par défaut lorsque vous créez un cluster AKS, les composants du plan de contrôle AKS de votre cluster n'utiliseront aucune zone de disponibilité. Vous pouvez ajouter des pools de nœuds supplémentaires en utilisant la commande [az aks nodepool add][az-aks-nodepool-add], puis spécifier `--zones` pour ces nouveaux nœuds, mais les composants du plan de contrôle ne tiendront pas compte des zones de disponibilité. Vous ne pouvez ni modifier la prise en compte des zones d’un pool de nœuds ni les composants du plan de contrôle AKS une fois ces éléments déployés.
+Si vous ne définissez aucune zone pour le pool d’agents par défaut lorsque vous créez un cluster AKS, la répartition des composants du plan de contrôle entre les zones de disponibilité n’est pas garantie. Vous pouvez ajouter des pools de nœuds supplémentaires à l’aide de la commande [az aks nodepool add][az-aks-nodepool-add] et spécifier `--zones` pour les nouveaux nœuds, mais cela ne changera pas la manière dont le plan de contrôle a été réparti entre les zones. Les paramètres de la zone de disponibilité peuvent être définis uniquement au moment de la création du cluster ou du pool de nœuds.
 
-L’exemple suivant crée un cluster AKS nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup*. Un total de *3* nœuds sont créés : un agent dans la zone *1*, un dans la zone *2*, puis un dans la zone *3*. Les composants du plan de contrôle AKS sont également répartis entre les zones dans la configuration la plus élevée possible puisqu'ils sont définis dans le cadre du processus de création du cluster.
+L’exemple suivant crée un cluster AKS nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup*. Un total de *3* nœuds sont créés : un agent dans la zone *1*, un dans la zone *2*, puis un dans la zone *3*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2
@@ -90,6 +86,8 @@ az aks create \
 ```
 
 La création du cluster AKS ne prend que quelques minutes.
+
+Lorsque vous décidez de la zone à laquelle un nouveau nœud doit appartenir, un pool de nœuds AKS donné utilise le [meilleur équilibrage des zones possible proposé par les groupes de machines virtuelles identiques sous-jacents][vmss-zone-balancing]. Un pool de nœuds AKS donné est considéré « équilibré » si le nombre de machines virtuelles de chaque zone est égal à celui de toutes les autres zones du groupe identique, à +\- 1 machine virtuelle près.
 
 ## <a name="verify-node-distribution-across-zones"></a>Vérifier la distribution des nœuds entre les zones
 
@@ -148,13 +146,13 @@ Name:       aks-nodepool1-28993262-vmss000004
             failure-domain.beta.kubernetes.io/zone=eastus2-2
 ```
 
-Comme vous pouvez le voir, nous avons maintenant deux nœuds supplémentaires dans les zones 1 et 2. Vous pouvez déployer une application composée de trois réplicas. Nous allons utiliser NGINX comme exemple :
+Nous avons maintenant deux nœuds supplémentaires dans les zones 1 et 2. Vous pouvez déployer une application composée de trois réplicas. Nous allons utiliser NGINX comme exemple :
 
 ```console
 kubectl run nginx --image=nginx --replicas=3
 ```
 
-Si vous vérifiez que les nœuds où se trouvent vos pods sont en cours d’exécution, vous voyez que les pods s’exécutent sur les pods correspondant aux trois zones de disponibilité différentes. Par exemple, avec la commande `kubectl describe pod | grep -e "^Name:" -e "^Node:"` vous obtenez une sortie similaire à celle-ci :
+En affichant les nœuds où s’exécutent vos pods, vous voyez que les pods s’exécutent sur les nœuds correspondant aux trois différentes zones de disponibilité. Par exemple, avec la commande `kubectl describe pod | grep -e "^Name:" -e "^Node:"`, vous obtenez une sortie similaire à celle-ci :
 
 ```console
 Name:         nginx-6db489d4b7-ktdwg
@@ -186,6 +184,7 @@ Cet article explique comment créer un cluster AKS qui utilise des zones de disp
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-aks-nodepool-add]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-add
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[vmss-zone-balancing]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing
 
 <!-- LINKS - external -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe

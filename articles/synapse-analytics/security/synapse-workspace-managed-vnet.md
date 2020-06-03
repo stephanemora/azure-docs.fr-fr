@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 162d96244b01f8c5e1acf224475aadb9508f0aa5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 623b6325b88f42f0076c84a221864762cd3918f9
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419483"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83645229"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network-preview"></a>Réseau virtuel managé Azure Synapse Analytics (préversion)
 
@@ -40,6 +40,8 @@ Le pool SQL et SQL à la demande sont des fonctionnalités multi-locataires ; p
 
 ## <a name="create-an-azure-synapse-workspace-with-a-managed-workspace-vnet"></a>Créer un espace de travail Azure Synapse avec un réseau virtuel d’espace de travail managé
 
+Si vous ne l’avez pas encore fait, inscrivez le fournisseur de ressources réseau. L’inscription d’un fournisseur de ressources configure votre abonnement pour travailler avec le fournisseur de ressources. Choisissez *Microsoft.Network* dans la liste des fournisseurs de ressources lors de votre [inscription](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+
 Pour créer un espace de travail Azure Synapse associé à un réseau virtuel d’espace de travail managé, sélectionnez l’onglet **Sécurité + réseau** dans le portail Azure et cochez la case **Activer le réseau virtuel managé**.
 
 Si vous ne cochez pas cette case, aucun réseau virtuel ne sera associé à votre espace de travail.
@@ -50,7 +52,7 @@ Si vous ne cochez pas cette case, aucun réseau virtuel ne sera associé à votr
 ![Activer le réseau virtuel d’espace de travail managé](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
 >[!NOTE]
->Tout le trafic sortant en provenance du réseau virtuel d’espace de travail managé sera bloqué à l’avenir. Nous vous recommandons de vous connecter à toutes vos sources de données à l’aide de points de terminaison privés managés.
+>Tout le trafic sortant en provenance du réseau virtuel d’espace de travail managé via des points de terminaison privés sera bloqué à l’avenir. Nous vous recommandons de créer des points de terminaison privés managés pour vous connecter à toutes vos sources de données Azure externes à l’espace de travail. 
 
 Vous pouvez vérifier si votre espace de travail Azure Synapse est associé à un réseau virtuel d’espace de travail managé en sélectionnant **Vue d’ensemble** dans le portail Azure.
 

@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.openlocfilehash: aa8bd6e89dd47c4e972a860691d1bc3779ba5bc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 78dde3f6706ecbc54daca162ac718911752fa0ca
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75982314"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832960"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Modèles de requête courants dans Azure Stream Analytics
 
@@ -930,7 +930,7 @@ Pour plus d’informations, reportez-vous à l’article [Scénarios de geofenci
 
 ## <a name="get-help"></a>Obtenir de l’aide
 
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
+Pour obtenir de l’aide supplémentaire, essayez notre [page de questions Microsoft Q&A pour Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)

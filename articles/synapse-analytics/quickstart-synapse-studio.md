@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 64895e5f48168305aea3e83596cdbcae982a6cb9
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 182c6a20af51508c357079b9542b2bda695fdae4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692425"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658512"
 ---
-# <a name="quickstart-using-synapse-studio-preview"></a>Démarrage rapide : Utilisation de Synapse Studio (préversion)
+# <a name="quickstart-use-synapse-studio-preview"></a>Démarrage rapide : Utiliser Synapse Studio (préversion)
 
 Dans ce guide de démarrage rapide, vous allez apprendre à interroger des fichiers à l’aide de Synapse Studio.
 
@@ -52,7 +52,7 @@ Vous pouvez créer des dossiers et charger des fichiers à l’aide des liens de
 > Vous devez être membre du rôle `Storage Blob Reader` sur le stockage sous-jacent afin de pouvoir interroger les fichiers. Découvrez comment [affecter des autorisations RBAC **Lecteur des données Blob du stockage** ou **Contributeur aux données Blob du stockage** sur Stockage Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role).
 
 1. Chargez certains fichiers `PARQUET`.
-2. Sélectionnez un ou plusieurs fichiers, puis créez un script SQL ou un notebook Spark pour voir le contenu des fichiers. Si vous souhaitez créer un notebook, vous devez créer un [pool Apache Spark dans l’espace de travail](quickstart-create-apache-spark-pool.md).
+2. Sélectionnez un ou plusieurs fichiers, puis créez un script SQL ou un notebook Spark pour voir le contenu des fichiers. Si vous souhaitez créer un notebook, vous devez créer un [pool Apache Spark dans les espaces de travail Synapse](quickstart-create-apache-spark-pool-studio.md).
 
    ![Interroger des fichiers sur le stockage](./media/quickstart-synapse-studio/query-files-on-storage.png)
 
@@ -64,7 +64,7 @@ Vous pouvez créer des dossiers et charger des fichiers à l’aide des liens de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Autoriser les utilisateurs Azure AD à interroger des fichiers en affectant des autorisations RBAC [**Lecteur des données Blob du stockage** ou **Contributeur aux données Blob du stockage** sur Stockage Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
+- Autoriser les utilisateurs Azure AD à interroger des fichiers en [affectant des autorisations RBAC **Lecteur des données Blob du stockage** ou **Contributeur aux données Blob du stockage** sur Stockage Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
 - [Interroger des fichiers sur le Stockage Azure à l’aide de SQL à la demande](sql/on-demand-workspace-overview.md)
-- [Créer un pool Apache Spark à l’aide du portail Azure](quickstart-create-apache-spark-pool.md)
+- [Créer un pool Apache Spark à partir du portail Azure](quickstart-create-apache-spark-pool-portal.md)
 - [Créer un rapport Power BI sur les fichiers stockés sur le Stockage Azure](sql/tutorial-connect-power-bi-desktop.md)

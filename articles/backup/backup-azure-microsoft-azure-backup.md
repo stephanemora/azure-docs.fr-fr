@@ -3,12 +3,12 @@ title: Utiliser un serveur de sauvegarde Azure pour sauvegarder des charges de t
 description: Dans cet article, découvrez comment préparer votre environnement à la protection et à la sauvegarde des charges de travail avec le serveur de sauvegarde Microsoft Azure (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: dd506668f9d75523ff7494bccb2979bf0785990d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bbe3e21840f094fbd3f34d94e7af64ca98d884df
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233909"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83735869"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installer et mettre à niveau Azure Backup Server
 
@@ -41,11 +41,14 @@ Azure Backup Server hérite d’une grand partie des fonctionnalités de sauvega
 
 La première étape de la mise en service d’Azure Backup Server consiste à configurer un serveur Windows Server. Il peut s’agir d’un serveur local ou d’un serveur dans Azure.
 
+* Pour protéger les charges de travail locales, le serveur MABS doit être local.
+* Pour protéger les charges de travail qui s’exécutent sur des machines virtuelles Azure, le serveur MABS doit se trouver dans Azure et être exécuté en tant que machine virtuelle Azure.
+
 ### <a name="using-a-server-in-azure"></a>Utilisation d’un serveur dans Azure
 
 Lorsque vous choisissez un serveur pour exécuter le serveur de sauvegarde Azure, nous vous recommandons de commencer par une image de la galerie de Windows Server 2016 Datacenter ou de Windows Server 2019 Datacenter. L’article [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)propose un didacticiel de prise en main de la machine virtuelle recommandée dans Azure, même si vous n’avez jamais utilisé Azure. Configuration minimale recommandée pour la machine virtuelle serveur : Standard_A4_v2 avec quatre cœurs et 8 Go de RAM.
 
-La protection des charges de travail à l’aide d’Azure Backup Server peut prendre plusieurs formes. L’article [Installation de DPM en tant que machine virtuelle Azure](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj852163(v=sc.12)), permet d’expliquer ces différentes formes. Avant de déployer la machine, lisez cet entièrement cet article.
+La protection des charges de travail à l’aide d’Azure Backup Server peut prendre plusieurs formes. La [matrice de protection pour MABS](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix) permet d’expliquer ces nuances. Avant de déployer la machine, lisez cet entièrement cet article.
 
 ### <a name="using-an-on-premises-server"></a>Utilisation d’un serveur local
 
@@ -196,7 +199,7 @@ Une fois le processus d’extraction terminé, cochez la case pour exécuter le 
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
-    Un emplacement temporaire est requis pour la sauvegarde sur Azure. Vérifiez que l’emplacement temporaire correspond à au moins 5 % du volume qu’il est prévu de sauvegarder dans le cloud. Pour la protection de disque, des disques séparés doivent être séparés une fois l’installation terminée. Pour plus d’informations sur les pools de stockage, consultez [Configurer des pools de stockage et de stockage sur disque](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)).
+    Un emplacement temporaire est requis pour la sauvegarde sur Azure. Vérifiez que l’emplacement temporaire correspond à au moins 5 % du volume qu’il est prévu de sauvegarder dans le cloud. Pour la protection de disque, des disques séparés doivent être séparés une fois l’installation terminée. Pour plus d’informations sur les pools de stockage, consultez [Préparer le stockage des données](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
 5. Fournissez un mot de passe fort pour les comptes utilisateur locaux restreints et cliquez sur **Suivant**.
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/security-screen.png)

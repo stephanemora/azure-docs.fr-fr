@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/4/2020
-ms.openlocfilehash: cb82b3223d50c66b4d6c176a274d5ccf8d510911
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: d9d600b4ac34e4608b7747bee0e0a704ad2ab3be
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792103"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846050"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas en lecture dans Azure Database pour MySQL
 
@@ -61,7 +61,7 @@ Il existe toutefois quelques limitations à prendre en compte :
 
 Si un serveur maître ne dispose d’aucun serveur réplica, le serveur maître redémarre tout d’abord afin de se préparer pour la réplication.
 
-Quand vous démarrez le workflow de création de réplica, un serveur Azure Database pour MySQL vide est créé. Le nouveau serveur est rempli avec les données qui se trouvaient sur le serveur maître. Le temps de création dépend de la quantité de données présentes sur le serveur maître et du temps écoulé depuis la dernière sauvegarde complète hebdomadaire. Le temps nécessaire peut aller de quelques minutes à plusieurs heures.
+Quand vous démarrez le workflow de création de réplica, un serveur Azure Database pour MySQL vide est créé. Le nouveau serveur est rempli avec les données qui se trouvaient sur le serveur maître. Le temps de création dépend de la quantité de données présentes sur le serveur maître et du temps écoulé depuis la dernière sauvegarde complète hebdomadaire. Ce temps peut varier de quelques minutes à plusieurs heures. Le serveur réplica est toujours créé dans le même groupe de ressources et dans le même abonnement que le serveur maître. Si vous souhaitez créer un serveur réplica dans un autre groupe de ressources ou un autre abonnement, vous pouvez [déplacer le serveur réplica](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) après sa création.
 
 Chaque réplica est activé pour la [croissance automatique](concepts-pricing-tiers.md#storage-auto-grow) du stockage. La fonctionnalité de croissance automatique permet au réplica de s’adapter aux données qui sont répliquées sur celui-ci et d’empêcher une interruption de la réplication à cause d’erreurs liées à la saturation de l’espace de stockage.
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 11/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: bf4c156d2bf9c205bd7545a96b5314dd43b2d02c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: c440862f1379983d4644fe99f33207456f747d23
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690770"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830937"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>Utiliser des groupes dynamiques avec Update Management
 
@@ -49,4 +49,4 @@ Un groupe dynamique pour les machines non-Azure utilise des recherches enregistr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir créé un groupe dynamique, vous pouvez [Créer un déploiement de mise à jour](automation-tutorial-update-management.md).
+Pour utiliser Update Management, consultez [Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure](automation-tutorial-update-management.md).

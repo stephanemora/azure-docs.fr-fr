@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: c7618bd4408f07b70e2f9fffe23e38ba968e7210
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 04de89624dd0e6857e96327bb408cf8700a1f6a2
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792392"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848878"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Créer une offre Dynamics 365 Business Central
 
@@ -67,11 +67,11 @@ Répertoriez votre offre en tant qu’essai gratuit pour les clients en fourniss
 
 #### <a name="contact-me"></a>Me contacter
 
-Collectez des informations de contact client en connectant votre système de gestion de la relation client (CRM). Le client devra autoriser le partage de ses informations. Ces informations client, ainsi que le nom de l’offre, son ID et la place de marché sur laquelle il a trouvé votre offre, seront envoyées au système CRM que vous avez configuré. Pour plus d’informations sur la configuration de votre CRM, consultez [Connecter la gestion des prospects](#connect-lead-management). 
+Collectez des informations de contact client en connectant votre système de gestion de la relation client (CRM). Le client devra autoriser le partage de ses informations. Ces informations client, ainsi que le nom de l’offre, son ID et la place de marché sur laquelle il a trouvé votre offre, seront envoyées au système CRM que vous avez configuré. Pour plus d’informations sur la configuration de votre CRM, consultez [Prospects](#customer-leads).
 
 ### <a name="test-drive"></a>Test drive
 
-Une version d’évaluation est un bon moyen de présenter votre offre à vos clients potentiels en leur donnant la possibilité de l’« essayer avant de l’acheter », ce qui se traduit par une hausse du taux de conversion et par la génération de prospects de qualité. [Découvrez-en plus sur les versions d’évaluation](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
+Une version d’évaluation constitue un excellent moyen de présenter votre offre à vos clients potentiels en leur offrant la possibilité de l’essayer avant d’acheter, ce qui se traduit par une hausse du taux de conversion et par la génération de prospects de qualité. [Découvrez-en plus sur les versions d’évaluation](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
 
 Pour activer une version d’évaluation pour une durée déterminée, cochez la case **Activer une version d’évaluation**. Pour supprimer une version d'évaluation de votre offre, désactivez cette case à cocher. Configurez l’environnement de la version d’évaluation dans la section [Configuration technique de la version d’évaluation](#test-drive-technical-configuration) plus loin dans cette rubrique.
 
@@ -82,9 +82,9 @@ Pour plus d’informations, consultez [Proposer une version d’évaluation de v
 Choisissez parmi les options suivantes :
 
 - **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)**  : modèle de déploiement qui contient toutes les ressources Azure qui constituent votre solution. Les produits adaptés à ce scénario utilisent uniquement des ressources Azure.
-- **[Dynamics 365 Business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)**  : Microsoft héberge et gère le service de version d’évaluation (dont l’approvisionnement et le déploiement) pour un système de planification des ressources d’entreprise Business Central (finances, opérations, chaîne d’approvisionnement, CRM, etc.).  
-- **[Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)**  : Microsoft héberge et gère le service de version d’évaluation (dont l’approvisionnement et le déploiement) pour un système Customer Engagement (ventes, service, service de projet, service après-vente, etc.).  
-- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)**  : Microsoft héberge et gère le service de version d’évaluation (dont l’approvisionnement et le déploiement) pour un système de planification des ressources d’entreprise Finances et opérations (finances, opérations, fabrication, chaîne d’approvisionnement, etc.). 
+- **[Dynamics 365 Business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** – Microsoft héberge et gère le service de version d’évaluation (dont le provisionnement et le déploiement) pour un système de planification des ressources d’entreprise Business Central (finances, opérations, chaîne d’approvisionnement, CRM, etc.).  
+- **[Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** – Microsoft héberge et gère le service de version d’évaluation (dont le provisionnement et le déploiement) pour un système Customer Engagement (ventes, service, service de projet, service après-vente, etc.).  
+- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** – Microsoft héberge et gère le service de version d’évaluation (dont le provisionnement et le déploiement) pour un système de planification des ressources d’entreprise Finances et opérations (finances, opérations, fabrication, chaîne d’approvisionnement, etc.). 
 - **[Application logique](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)**  : modèle de déploiement englobant toutes les architectures de solution complexes. Tous les produits personnalisés doivent tous utiliser ce type de version d’évaluation.
 - **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)**  : lien hypertexte vers un tableau de bord personnalisé. Les produits dotés d’un visuel Power BI interactif doivent utiliser ce type de version d’évaluation. Il vous suffit de charger votre URL Power BI incorporée.
 
@@ -92,9 +92,9 @@ Choisissez parmi les options suivantes :
 
 - [Meilleures pratiques techniques pour version d’évaluation](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Meilleures pratiques marketing pour version d’évaluation](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
-- Document PDF de [présentation des versions d’évaluation](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (assurez-vous que votre bloqueur de fenêtres publicitaires est désactivé.)
+- [Vue d’ensemble des versions d’évaluation](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF ; veillez à désactiver votre bloqueur de fenêtres publicitaires)
 
-## <a name="connect-lead-management"></a>Connecter la gestion des prospects
+### <a name="customer-leads"></a>Prospects
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
@@ -104,7 +104,7 @@ Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
 ## <a name="properties"></a>Propriétés
 
-Cette page vous permet de définir les catégories et les secteurs d’activité auxquels votre offre est destinée sur le marketplace, la version de votre application et les contrats juridiques accompagnant votre offre.
+Cette page vous permet de définir les catégories et les secteurs d’activité auxquels votre offre est destinée sur la Place de marché, la version de votre application et les contrats juridiques accompagnant votre offre.
 
 ### <a name="category"></a>Category
 
@@ -137,30 +137,15 @@ Le nom que vous entrez ici s’affichera auprès des clients comme titre de votr
 
 ### <a name="short-description"></a>Description courte
 
-Renseignez une courte description de votre offre (100 caractères maximum) à utiliser dans les résultats de recherche dans une place de marché.
+Fournissez une brève description de votre offre, jusqu’à 100 caractères. Cette description pourra être utilisée dans les résultats de recherche de la place de marché.
 
 ### <a name="description"></a>Description
 
-Fournissez une description plus longue de votre offre (jusqu’à 3 000 caractères). Cette description s’affichera pour les clients dans la vue d’ensemble de la place de marché. Incluez la proposition de valeur de votre offre, les principaux avantages, les associations de catégorie et/ou de secteur d’activité, les opportunités d’achat dans l’application et toutes les informations requises. 
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Quelques conseils pour rédiger votre description :
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- Décrivez clairement la proposition de valeur de votre offre dès les premières phrases de votre description. Incluez les éléments suivants dans votre proposition de valeur :
-  - Description du produit
-  - Type d’utilisateur qui tire parti du produit
-  - Les clients ont des besoins ou des problèmes auxquels le produit répond
-- Gardez à l’esprit que les premières phrases peuvent être affichées dans les résultats de recherche.  
-- Ne comptez pas sur les fonctionnalités de votre produit pour convaincre. Concentrez-vous plutôt sur ce que votre application peut apporter aux clients.  
-- Autant que possible, utilisez le vocabulaire propre au secteur visé, ainsi que des termes décrivant les avantages proposés.
-- Envisagez d’utiliser des balises HTML pour mettre en forme votre description et la rendre plus attrayante.
-
-Pour que la description de votre offre soit plus accrocheuse, utilisez l’éditeur de texte enrichi pour appliquer la mise en forme.
-
-![Utilisation de l’éditeur de texte enrichi](./media/rich-text-editor.png)
-
-| <center>Changer la mise en forme du texte | <center>Ajouter des puces ou une numérotation | <center>Ajouter ou supprimer une mise en retrait de texte |
-| --- | --- | --- |
-| <center>![Using the rich text editor to change text format](./media/text-editor3.png) |  <center>![Using the rich text editor to add lists](./media/text-editor4.png) |  <center>![Using the rich text editor to indent](./media/text-editor5.png) |
+[!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
 ### <a name="search-keywords"></a>Mots clés de recherche
 
@@ -194,7 +179,7 @@ Fournissez au moins un (et au plus trois) documents marketing associés ici, com
 
 ### <a name="marketplace-images"></a>Images de la Place de marché
 
-Ajoutez des logos et des images pour votre offre. Toutes les images doivent être au format .png. Chargez le logo de votre offre en deux tailles :
+Fournissez des logos et des images pour votre offre. Toutes les images doivent être au format .png. Chargez le logo de votre offre en deux tailles :
 
 * **Petite** (48 x 48 pixels)
 * **Grande** (216 x 216 pixels)
@@ -305,7 +290,7 @@ Un modèle de déploiement qui contient toutes les ressources Azure comprenant v
 
     **Froid** : ce type d’instance représente le nombre total d’instances pouvant éventuellement être déployées par région. Les instances à froid nécessitent le modèle Resource Manager entier de la version d’évaluation pour être déployées lorsqu’un client demande la version d’évaluation, les instances *à froid* sont donc plus lentes à charger que les instances *à chaud*. L’inconvénient est que vous avez uniquement à payer pour la durée de la version d’évaluation, elle n’est *pas* toujours en cours d’exécution sur votre abonnement Azure comme c’est le cas avec une instance *à chaud*.
 
-- **Version d’évaluation du modèle Azure Resource Manager** : chargez le fichier .zip contenant votre modèle Azure Resource Manager.  Apprenez-en plus sur la création d’un modèle Azure Resource Manager dans l’article de démarrage rapide [Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+- **Version d’évaluation du modèle Azure Resource Manager** – Chargez le fichier .zip contenant votre modèle Azure Resource Manager.  Apprenez-en plus sur la création d’un modèle Azure Resource Manager dans l’article de démarrage rapide [Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 - **Durée de la version d’évaluation** (obligatoire) : entrez la durée d’activité de la version d’évaluation, en nombre d’heures. La version d’évaluation se termine automatiquement à la fin de cette période. Utilisez uniquement des nombres entiers (par exemple, « 2 » heures est valide, « 1,5 » ne l’est pas).
 
@@ -366,11 +351,11 @@ L’option **Référencement sur le marketplace** sous l’onglet **Version d’
 
 - **Description** (obligatoire) : décrivez votre version d’évaluation, ce qu’elle montre, des objectifs d’expérimentation pour l’utilisateur, des fonctionnalités à explorer et fournissez toute autre information pouvant aider l’utilisateur dans sa décision d’achat. Jusqu’à 3 000 caractères peuvent être entrés dans ce champ. 
 
-- **Informations d’accès** (obligatoire pour les versions d’évaluation Azure Resource Manager et Logic Apps) : expliquez ce qu’un client doit savoir pour pouvoir accéder à cette version d’évaluation et l’utiliser. Détaillez un scénario d’utilisation de votre offre ainsi que tout ce que le client doit savoir pour accéder aux fonctionnalités disponibles dans la version d’évaluation. Jusqu’à 10 000 caractères peuvent être entrés dans ce champ.
+- **Informations d’accès** (obligatoire pour les versions d’évaluation Azure Resource Manager et logiques) – Expliquez ce qu’un client doit savoir pour accéder et utiliser la version d’évaluation en question. Détaillez un scénario d’utilisation de votre offre ainsi que tout ce que le client doit savoir pour accéder aux fonctionnalités disponibles dans la version d’évaluation. Jusqu’à 10 000 caractères peuvent être entrés dans ce champ.
 
 - **Manuel de l’utilisateur** (obligatoire) : présentation approfondie de l’expérience de votre version d’évaluation. Le manuel de l’utilisateur doit couvrir exactement ce que vous souhaitez que le client accomplisse dans la version d’évaluation et sert de référence pour toutes les questions qu’ils peuvent avoir. Le fichier doit être au format PDF et être nommé (255 caractères maximum) après le chargement.
 
-- **Vidéos** (facultatif) : vous pouvez charger des vidéos sur YouTube ou Vimeo et les référencer ici via un lien et une image miniature (533 x 324 pixels) pour fournir au client des informations complètes qui l’aideront à mieux comprendre la version d’évaluation, notamment la façon d’exploiter les fonctionnalités de l’offre et de comprendre les scénarios qui mettent en avant ses avantages.
+- **Vidéos** (facultatif) – Vous pouvez charger des vidéos sur YouTube ou Vimeo et les référencer ici via un lien et une image miniature (533 x 324 pixels) pour fournir au client des informations complètes qui l’aideront à mieux comprendre la version d’évaluation, notamment la façon d’exploiter les fonctionnalités de l’offre et de comprendre les scénarios qui font ressortir ses avantages.
   - **Nom** (obligatoire)
   - **URL (YouTube ou Vimeo uniquement)** (obligatoire)
   - **Image miniature** (ce fichier doit être au format PNG et d’une taille de 533 x 324 pixels)

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 05/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 89efa8dc9989f693964415741299042c63f93780
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 69eef6d8457b183f61bae98c0bc80feb0ff2e263
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418114"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83635461"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copier des données de Netezza avec Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -64,7 +64,7 @@ Voici un exemple de chaîne de connexion typique : `Server=<server>;Port=<port>;
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| SecurityLevel | Le niveau de sécurité (SSL/TLS) que le pilote utilise pour la connexion au magasin de données. Exemple : `SecurityLevel=preferredSecured`. Les valeurs prises en charge sont les suivantes :<br/>- **Non sécurisé uniquement** (**onlyUnSecured**) : le pilote n'utilise pas TLS.<br/>- **Non sécurisé préféré (preferredUnSecured) (valeur par défaut)**  : si le serveur offre un choix, le pilote n'utilise pas TLS. <br/>- **Sécurisé préféré (preferredSecured)**  : si le serveur offre un choix, le pilote utilise le protocole TLS. <br/>- **Sécurisé uniquement (onlySecured)**  : le pilote ne se connecte pas si aucune connexion TLS n'est disponible. | Non |
+| SecurityLevel | Le niveau de sécurité (SSL/TLS) que le pilote utilise pour la connexion au magasin de données. Le pilote prend en charge les connexions SSL avec authentification unidirectionnelle à l’aide de SSL version 3. <br>Exemple : `SecurityLevel=preferredSecured`. Les valeurs prises en charge sont les suivantes :<br/>- **Non sécurisé uniquement** (**onlyUnSecured**) : le pilote n'utilise pas TLS.<br/>- **Non sécurisé préféré (preferredUnSecured) (valeur par défaut)**  : si le serveur offre un choix, le pilote n'utilise pas TLS. <br/>- **Sécurisé préféré (preferredSecured)**  : si le serveur offre un choix, le pilote utilise le protocole TLS. <br/>- **Sécurisé uniquement (onlySecured)**  : le pilote ne se connecte pas si aucune connexion TLS n'est disponible. | Non |
 | CaCertFile | Chemin complet du certificat TLS/SSL utilisé par le serveur. Exemple : `CaCertFile=<cert path>;`| Oui, si TLS est activé |
 
 **Exemple**

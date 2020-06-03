@@ -1,16 +1,16 @@
 ---
-title: Copie d’applications et de données dans des nœuds de pool
+title: Copier des applications et des données dans des nœuds de pool
 description: Découvrez comment copier des applications et des données dans des nœuds de pool.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/17/2020
-ms.openlocfilehash: 700e9b80f8420266c0300b47bdd30bc271f8421c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dad52a69ee468872c10b3a9e66b967a1c7bd101d
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115582"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726823"
 ---
-# <a name="copying-applications-and-data-to-pool-nodes"></a>Copie d’applications et de données dans des nœuds de pool
+# <a name="copy-applications-and-data-to-pool-nodes"></a>Copier des applications et des données dans des nœuds de pool
 
 Azure Batch prend en charge plusieurs façons d’obtenir des données et des applications sur des nœuds de calcul afin que les tâches puissent y accéder et les utiliser. Les données et les applications peuvent être nécessaires pour exécuter l’intégralité du travail et doivent donc être installées sur chaque nœud. Certaines peuvent être requises uniquement pour une tâche spécifique ou doivent être installées pour le travail, mais n’ont pas besoin d’être présentes sur chaque nœud. Batch dispose d’outils pour chacun de ces scénarios.
 

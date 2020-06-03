@@ -1,15 +1,15 @@
 ---
-title: Conserver les données de sortie dans le Stockage Azure avec l’API de service Batch - Azure Batch
+title: Conserver les données de sortie dans Stockage Azure avec l’API de service Batch
 description: Découvrez comment utiliser l’API de service Batch pour conserver les données de sortie d’un travail et d’une tâche Batch dans le Stockage Azure.
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: d9c6465a553e5652ecab5dcd167bb4058ff5cc08
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8020fbd184e200504d0fb0a9ab7ef5de64bd76c9
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234279"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726313"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Conserver les données de tâche dans le stockage Azure avec l’API de service Batch
 

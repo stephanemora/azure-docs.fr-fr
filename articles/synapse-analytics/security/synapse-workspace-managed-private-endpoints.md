@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 08c6610541d987cddd7cf2aeb71c526cb2359598
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: dc748260c6e71eaaa469defb227d5cc2748a1345
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419553"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83645319"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Points de terminaison privés managés Synapse (préversion)
 
@@ -30,8 +30,9 @@ Un point de terminaison privé utilise une adresse IP privée de votre réseau v
 
 >[!IMPORTANT]
 >Les points de terminaison privés managés sont uniquement pris en charge dans les espaces de travail Azure Synapse avec un réseau virtuel d’espace de travail managé.
+
 >[!NOTE]
->Nous vous recommandons de créer des points de terminaison privés managés pour vous connecter à toutes vos sources de données Azure. Tout le trafic sortant en provenance du réseau virtuel d’espace de travail managé sera bloqué à l’avenir.
+>Tout le trafic sortant en provenance du réseau virtuel d’espace de travail managé via des points de terminaison privés sera bloqué à l’avenir. Nous vous recommandons de créer des points de terminaison privés managés pour vous connecter à toutes vos sources de données Azure externes à l’espace de travail. 
 
 Une connexion de point de terminaison privé est créée dans un état « en attente » quand vous créez un point de terminaison privé managé dans Azure Synapse. Un workflow d’approbation est lancé. Le propriétaire de la ressource de liaison privée est responsable de l’approbation ou du refus de la connexion.
 

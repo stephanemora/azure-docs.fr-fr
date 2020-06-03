@@ -3,12 +3,12 @@ title: Détails de la structure des définitions de stratégies
 description: Décrit comment les définitions de stratégie permettent d’établir des conventions pour les ressources Azure dans votre organisation.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: f396f46fa77f75452ac8ac3cd98bccd58fe0dfe4
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: d4c1c10dfbf384815c34af8436acdbb45cb8e242
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82613300"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746979"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -80,15 +80,14 @@ Par exemple, la ressource `Microsoft.Network/routeTables` prend en charge les é
 
 Nous vous recommandons de définir **mode** sur `all` dans tous les cas. Toutes les définitions de stratégie créées via le portail utilisent le mode `all`. Si vous utilisez PowerShell ou Azure CLI, vous pouvez spécifier le paramètre **mode** manuellement. Si la définition de stratégie ne comporte pas de valeur **mode**, elle prend la valeur par défaut `all` dans Azure PowerShell et `null` dans Azure CLI. Le mode `null` a le même effet que `indexed`, à savoir assurer une compatibilité descendante.
 
-Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer des stratégies qui appliquent des balises ou des emplacements, car cela empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme non conformes dans les résultats de conformité. Les **groupes de ressources** et les **abonnements** font figure d’exception. Les stratégies qui appliquent des emplacements ou des balises à un groupe de ressources ou un abonnement doivent définir le **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroups` ou `Microsoft.Resources/subscriptions`. Pour exemple, consultez [Appliquer des balises au groupe de ressources](../samples/enforce-tag-rg.md). Pour obtenir la liste des ressources qui prennent en charge les étiquettes, consultez [Prise en charge des étiquettes pour les ressources Azure](../../../azure-resource-manager/management/tag-support.md).
+Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer des stratégies qui appliquent des balises ou des emplacements, car cela empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme non conformes dans les résultats de conformité. Les **groupes de ressources** et les **abonnements** font figure d’exception. Les définitions de stratégie qui appliquent des emplacements ou des balises à un groupe de ressources ou un abonnement doivent définir le **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroups` ou `Microsoft.Resources/subscriptions`. Pour obtenir un exemple, consultez [Modèle : Balises – Exemple 1](../samples/pattern-tags.md). Pour obtenir la liste des ressources qui prennent en charge les étiquettes, consultez [Prise en charge des étiquettes pour les ressources Azure](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes" />Modes Fournisseur de ressources (préversion)
 
 Les modes Fournisseur de ressources suivants sont actuellement pris en charge pendant la préversion :
 
-- `Microsoft.ContainerService.Data` pour la gestion des règles d’admission de contrôleur sur [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Les stratégies utilisant ce mode Fournisseur de ressources **doivent** utiliser l’effet [EnforceRegoPolicy](./effects.md#enforceregopolicy).
-- `Microsoft.Kubernetes.Data` pour la gestion des clusters Kubernetes du moteur AKS auto-managés sur Azure.
-  Les stratégies utilisant ce mode Fournisseur de ressources **doivent** utiliser l’effet [EnforceOPAConstraint](./effects.md#enforceopaconstraint).
+- `Microsoft.ContainerService.Data` pour la gestion des règles d’admission de contrôleur sur [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Les stratégies utilisant ce mode Fournisseur de ressources **doivent** utiliser l’effet [EnforceRegoPolicy](./effects.md#enforceregopolicy). Ce mode est _déconseillé_.
+- `Microsoft.Kubernetes.Data` pour la gestion de vos clusters Kubernetes sur ou hors Azure. Les stratégies utilisant ce mode Fournisseur de ressources **doivent** utiliser l’effet [EnforceOPAConstraint](./effects.md#enforceopaconstraint).
 - `Microsoft.KeyVault.Data` pour la gestion des coffres et des certificats dans [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
@@ -677,7 +676,7 @@ La liste des alias augmente toujours. Pour trouver les alias actuellement pris e
 - API REST/ARMClient
 
   ```http
-  GET https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases
+  GET https://management.azure.com/providers/?api-version=2019-10-01&$expand=resourceTypes/aliases
   ```
 
 ### <a name="understanding-the--alias"></a>Comprendre l’alias [*]

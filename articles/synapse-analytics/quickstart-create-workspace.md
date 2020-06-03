@@ -2,19 +2,19 @@
 title: Démarrage rapide - Créer un espace de travail
 description: Créez un espace de travail Azure Synapse Analytics en suivant les étapes décrites dans ce guide.
 services: synapse-analytics
-author: malvenko
+author: pimorano
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: josels
+ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 49bd251b7f76a844a0d3fd1b1a09f7e15c5e7ddb
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 4d3044ec04a3306efdc3b57c1e5a3149b70fab05
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792205"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112860"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Démarrage rapide : Créer un espace de travail Azure Synapse Analytics (préversion)
 
@@ -33,9 +33,9 @@ Connectez-vous au [portail Azure](https://portal.azure.com/)
 ## <a name="create-an-azure-synapse-workspace-using-the-azure-portal"></a>Créer un espace de travail Azure Synapse à l’aide du portail Azure
 
 1. Dans le volet de recherche Microsoft Azure, entrez **espace de travail Synapse**, puis sélectionnez ce service.
-![Barre de recherche du portail Azure contenant le texte « espaces de travail Azure Synapse ».](media/quickstart-create-synapse-workspace/workspace-search.png).
+![Barre de recherche du portail Azure contenant le texte « espaces de travail Azure Synapse ».](media/quickstart-create-synapse-workspace/workspace-search.png)
 2. Dans la page **Espaces de travail Synapse**, cliquez sur **+ Ajouter**.
-![Commande permettant de créer un espace de travail Azure Synapse mise en évidence.](media/quickstart-create-synapse-workspace/create-workspace-02.png).
+![Commande permettant de créer un espace de travail Azure Synapse mise en évidence.](media/quickstart-create-synapse-workspace/create-workspace-02.png)
 3. Renseignez le formulaire **Espace de travail Azure Synapse** avec les informations suivantes :
 
     | Paramètre | Valeur suggérée | Description |
@@ -47,7 +47,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/)
     | **Data Lake Storage Gen2** | Compte : `storage account name` </br> Système de fichiers : `root file system to use` | Spécifie le nom du compte de stockage ADLS Gen2 à utiliser comme stockage principal et le système de fichiers à utiliser.|
     ||||
 
-    ![Flux de provisionnement de l’espace de travail - Onglet Informations de base.](media/quickstart-create-synapse-workspace/create-workspace-03.png).
+    ![Flux de provisionnement de l’espace de travail - Onglet Informations de base.](media/quickstart-create-synapse-workspace/create-workspace-03.png)
 
     Pour sélectionner le compte de stockage, vous pouvez :
     - Soit le choisir dans une liste de comptes ADLS Gen2 disponibles dans votre abonnement
@@ -61,7 +61,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/)
 4. (Facultatif) Modifiez un ou plusieurs des paramètres par défaut de l’onglet **Sécurité + réseau** :
 5. (Facultatif) Ajoutez une ou plusieurs étiquettes sous l’onglet **Étiquettes**.
 6. L’onglet **Résumé** exécute les validations nécessaires pour vérifier que l’espace de travail peut être créé correctement. Une fois la validation effectuée, appuyez sur **Créer**. ![Flux de provisionnement de l’espace de travail - Onglet Confirmation.](media/quickstart-create-synapse-workspace/create-workspace-05.png)
-7. Une fois le processus de provisionnement des ressources terminé, une entrée correspondant à l’espace de travail créé apparaît dans la liste des espaces de travail Synapse. ![Liste des espaces de travail Synapse montrant l’espace de travail nouvellement provisionné.](media/quickstart-create-synapse-workspace/create-workspace-07.png).
+7. Une fois le processus de provisionnement des ressources terminé, une entrée correspondant à l’espace de travail créé apparaît dans la liste des espaces de travail Synapse. ![Liste des espaces de travail Synapse montrant l’espace de travail nouvellement provisionné.](media/quickstart-create-synapse-workspace/create-workspace-07.png)
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -82,4 +82,4 @@ Pour supprimer l’espace de travail Azure Synapse, effectuez les étapes suivan
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez ensuite [créer des pools SQL](quickstart-create-sql-pool.md) ou [créer des pools Apache Spark](quickstart-create-apache-spark-pool.md) pour commencer à analyser et à explorer vos données.
+Vous pouvez ensuite [créer des pools SQL](quickstart-create-sql-pool-studio.md) ou [créer des pools Apache Spark](quickstart-create-apache-spark-pool-studio.md) pour commencer à analyser et à explorer vos données.

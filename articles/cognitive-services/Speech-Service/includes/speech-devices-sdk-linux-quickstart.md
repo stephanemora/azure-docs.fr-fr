@@ -5,16 +5,16 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: d45986dcd8b846015abfef9cb3719d0107c6b8d6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d62917b7c3b2029df21ed29ccfd7f64269196362
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400098"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673150"
 ---
 Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser le SDK Speech Devices pour Linux pour créer un produit avec reconnaissance vocale ou pour l’utiliser comme appareil de [transcription de conversation](../conversation-transcription-service.md). Actuellement, seul [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) est pris en charge.
 
-L’application est générée avec le package du SDK Speech et l’IDE Eclipse Java (v4) sur Linux 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8). Elle s’exécute sur un environnement d’exécution Java 8 (JRE) 64 bits.
+L’application est générée avec le package du SDK Speech et l’IDE Eclipse Java (v4) sur Linux 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8). Elle s’exécute sur un environnement d’exécution Java 8 (JRE) 64 bits.
 
 Ce guide nécessite un compte [Azure Cognitive Services](../get-started.md) avec une ressource de service Speech. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/) pour obtenir une clé d’abonnement.
 
@@ -24,7 +24,7 @@ Le code source de l’[exemple d’application](https://aka.ms/sdsdk-download-JR
 
 Ce démarrage rapide nécessite :
 
-* Système d’exploitation : Linux 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8)
+* Système d’exploitation : Linux 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8)
 * [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
 * [IDE Eclipse Java](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) uniquement.
@@ -49,15 +49,16 @@ Vérifiez que ces dépendances sont installées avant de démarrer Eclipse.
   sudo apt-get install libssl1.0.2 libasound2
   ```
 
-Sur RHEL/CentOS 8 :
-
+* Sur RHEL/CentOS :
+  
   ```sh
   sudo yum update
   sudo yum install alsa-lib openssl
   ```
 
-> [!NOTE]
-> Sur RHEL/CentOS 8, suivez les instructions du [Guide pratique pour configurer OpenSSL pour Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+  > [!NOTE]
+  > - Sur RHEL/CentOS 7, suivez les instructions décrivant [comment configurer RHEL/CentOS 7 pour le Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - Sur RHEL/CentOS 8, suivez les instructions du [Guide pratique pour configurer OpenSSL pour Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 Transcription de conversation est actuellement disponible seulement pour « en-US » et « zh-CN » dans les régions « USA Centre » et « Asie Est ». Vous devez disposer d’une clé Speech dans une de ces régions pour utiliser la transcription de conversation.
 
@@ -99,7 +100,7 @@ Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonneme
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.11.0</version>
+             <version>1.12.0</version>
         </dependency>
     </dependencies>
    ```

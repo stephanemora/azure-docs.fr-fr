@@ -6,17 +6,17 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/03/2020
-ms.openlocfilehash: 22d6c37b59488633394d7f3ed5ca5b0c78371e7d
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.date: 05/19/2020
+ms.openlocfilehash: ace85727680ecf6d62860ac2239a8c0b68ae6e0e
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790685"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848785"
 ---
 # <a name="create-an-azure-application-offer"></a>Créer une offre d’application Azure
 
-Cet article explique les étapes et considérations relatives à la création d’une offre d’application Azure sur la Place de marché commerciale. Vous devez connaître ces concepts avant de créer une offre d’application Azure. 
+Cet article explique les étapes et considérations relatives à la création d’une offre d’application Azure sur la Place de marché commerciale. Vous devez connaître ces concepts avant de créer une offre d’application Azure.
 
 Avant de publier une nouvelle offre d’application Azure, vous devez [créer un compte sur la Place de marché commerciale dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), et vérifiez que votre compte est inscrit dans le programme de la Place de marché commerciale.
 
@@ -122,26 +122,26 @@ Pour en savoir plus sur la publication des conditions requises pour chaque plan 
 1. Entrez un **Alias d’offre**. Il s’agit du nom attribué à l’offre dans l’Espace partenaires.
 
      * Ce nom n’est pas utilisé dans la Place de marché et est différent du nom de l’offre et des autres informations présentées aux clients.
-     * Vous ne pouvez pas modifier l’Alias de l’offre après avoir sélectionné **Créer**.
+     * L’alias d’offre ne peut pas être modifié une fois que vous avez sélectionné **Créer**.
 
 1. Sélectionnez **Créer** pour générer l’offre et continuer.
 
 ## <a name="offer-setup"></a>Configuration de l’offre
 
-La page **Configuration de l’offre** vous permet de configurer une version d’évaluation et une gestion des prospects pour votre offre. 
+La page **Configuration de l’offre** vous permet de configurer une version d’évaluation et une gestion des prospects pour votre offre.
 
 ### <a name="test-drive"></a>Test drive
 
 Une version d’évaluation constitue un excellent moyen de présenter votre offre à vos clients potentiels en leur offrant la possibilité de l’essayer avant d’acheter, ce qui se traduit par une hausse du taux de conversion et par la génération de prospects de qualité. [Découvrez-en plus sur les versions d’évaluation](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
 
-Pour activer une version d’évaluation pour une durée déterminée, cochez la case **Activer un test drive**. Pour supprimer une version d'évaluation de votre offre, désactivez cette case à cocher. Configurez l’environnement de test drive dans la section [Configuration technique](#test-drive-technical-configuration) de la version d’évaluation plus loin dans cette rubrique.
+Pour activer une version d’évaluation pour une durée déterminée, cochez la case **Activer une version d’évaluation**. Pour supprimer une version d'évaluation de votre offre, désactivez cette case à cocher. Configurez l’environnement de la version d’évaluation dans la section [Configuration technique de la version d’évaluation](#test-drive-technical-configuration) plus loin dans cette rubrique.
 
 Pour plus d’informations, consultez [Proposer une version d’évaluation de votre offre sur la Place de marché commerciale](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive). Vous pouvez également découvrir les [meilleures pratiques en matière de version d’évaluation](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) et télécharger le [PDF de présentation des versions d’évaluation](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (assurez-vous que le bloqueur de fenêtres publicitaires est désactivé).
 
 >[!Note]
 >Du fait que toutes les applications Azure sont implémentées à l’aide d’un modèle Azure Resource Manager, le seul type de version d’évaluation disponible pour une application Azure est une [version d’évaluation d’Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
 
-## <a name="lead-management"></a>Gestion des prospects
+### <a name="customer-leads"></a>Prospects
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
@@ -174,26 +174,19 @@ Le nom que vous entrez ici s’affichera auprès des clients comme titre de votr
 
 #### <a name="search-results-summary"></a>Résumé des résultats de recherche
 
-Entrez une courte description de votre offre (100 caractères maximum) utilisable dans les résultats de recherche.
+Fournissez une brève description de votre offre, jusqu’à 100 caractères. Cette description apparaîtra peut-être dans les résultats de recherche.
 
 #### <a name="long-summary"></a>Résumé long
 
-Fournissez une description plus longue de votre offre (jusqu’à 256 caractères). Cette description apparaîtra peut-être dans les résultats de recherche.
+Fournissez une description plus longue de votre offre, jusqu’à 256 caractères. Cette description apparaîtra peut-être dans les résultats de recherche.
 
 #### <a name="description"></a>Description
 
-Fournissez une description plus longue de votre offre (jusqu’à 3 000 caractères). Cette description s’affichera pour les clients dans la vue d’ensemble. Incluez la proposition de valeur de votre offre, les principaux avantages, les associations de catégorie et/ou de secteur d’activité, les opportunités d’achat dans l’application et toutes les informations requises.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Voici quelques conseils pour rédiger votre description :
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-* Décrivez clairement la proposition de valeur de votre offre dans les premières phrases de votre description. Incorporez les éléments suivants :
-  * Description de votre offre.
-  * Le type d’utilisateur qui tire parti de votre offre.
-  * Les besoins ou problèmes auxquels l’offre répond.
-* Gardez à l’esprit que les premières phrases peuvent être affichées dans les résultats du moteur de recherche.
-* Ne comptez pas sur les fonctionnalités de votre offre pour convaincre. Concentrez-vous plutôt sur ce que votre application offre.
-* Utilisez le vocabulaire propre au secteur ou des termes décrivant les avantages proposés.
-* Envisagez d’utiliser des balises HTML pour mettre en forme votre description afin de la rendre plus attrayante.
+[!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
 #### <a name="search-keywords"></a>Mots clés de recherche
 
@@ -316,7 +309,7 @@ Si vous avez plusieurs plans du même type et que les packages qu’ils utilisen
 
 Votre plan doit être rendu disponible dans au moins une région Azure.
 
-Sélectionnez l’option **Azure Global** pour mettre votre plan à la disposition des clients dans toutes les régions Azure intégrées dans la Place de marché commerciale. Pour plus d’informations, consultez [Prise en charge de la disponibilité géographique et des devises](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
+Sélectionnez l’option **Azure Global** pour mettre votre plan à la disposition des clients de toutes les régions Azure qui disposent d’une intégration de la Place de marché commerciale. Pour plus d’informations, consultez [Prise en charge de la disponibilité géographique et des devises](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
 Sélectionnez l’option **Azure Government** pour proposer votre plan dans la région [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). Cette région fournit un accès contrôlé aux clients d’entités gouvernementales fédérales, étatiques, locales ou tribales des États-Unis, ainsi qu’aux partenaires éligibles pour les servir. En tant qu’éditeur, il vous incombe de mettre en place l’ensemble des contrôles de conformité, des mesures de sécurité et des bonnes pratiques nécessaires. Azure Government utilise des réseaux et des centres de données qui sont physiquement isolés (situés aux États-Unis uniquement).
 
@@ -327,7 +320,7 @@ Avant de le publier dans [Azure Government](https://docs.microsoft.com/azure/azu
 
 #### <a name="azure-government-certifications"></a>Certifications Azure Government
 
-Cette option n’est que si vous avez sélectionné **Azure Government**.
+Cette option n’est visible que si vous avez sélectionné **Azure Government**.
 
 Les services Azure Government gèrent des données soumises à certaines réglementations et exigences gouvernementales. Par exemple, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 et CJIS. Afin de renseigner les clients sur vos certifications pour ces programmes, vous pouvez fournir jusqu’à 100 liens décrivant ces certifications. Ces liens peuvent être des liens vers votre liste de plans directement sur le programme, ou des liens vers des descriptions de votre conformité avec ces certifications sur vos propres sites web. Ces liens sont visibles uniquement par les clients Azure Government.
 
@@ -380,7 +373,7 @@ Sélectionnez **Enregistrer le brouillon** avant de continuer.
 
 #### <a name="markets"></a>Marchés
 
-Chaque plan doit être disponible sur au moins un marché. Cochez la case des emplacements dans lesquels vous souhaitez que ce plan soit disponible. Une zone de recherche et un bouton pour sélectionner les pays « reversant les taxes », pour lesquels Microsoft reverse les ventes et utilise les taxes en votre nom, sont inclus pour vous aider.
+Chaque plan doit être disponible sur au moins un marché. Cochez la case des emplacements dans lesquels vous souhaitez que ce plan soit disponible. Une zone de recherche et un bouton pour sélectionner les pays/régions « reversant les taxes », pour lesquels Microsoft reverse les ventes et utilise les taxes en votre nom, sont inclus pour vous aider.
 
 Si vous avez déjà fixé des prix pour votre plan en dollar américain (USD) et ajouté un autre emplacement de marché, le prix de ce nouveau marché sera calculé selon le taux de change en vigueur. Vérifiez toujours le prix de chaque place de marché avant toute publication. La tarification peut être vérifiée à l’aide du lien « Exporter les prix (xlsx) », après avoir enregistré vos changements.
 
@@ -533,7 +526,7 @@ Décrivez la version d’évaluation.
 <!-- The **Test Drive listings** option found under the **Test drive** tab displays the languages (and markets) where your test drive is available (currently English (United States) is the only location available). Additionally, this page displays the status of the language-specific listing and the date/time that it was added. You will need to define the test drive details (description, user manual, videos, etc.) for each language/market. -->
 
 * **Description** (obligatoire) : décrivez votre version d’évaluation, ce qu’elle montre, des objectifs d’expérimentation pour l’utilisateur, des fonctionnalités à explorer et fournissez toute autre information pouvant aider l’utilisateur dans sa décision d’achat. Jusqu’à 3 000 caractères peuvent être entrés dans ce champ. 
-* **Informations d’accès** (obligatoire pour les versions d’évaluation Azure Resource Manager et Logic Apps) : expliquez ce qu’un client doit savoir pour pouvoir accéder à cette version d’évaluation et l’utiliser. Détaillez un scénario d’utilisation de votre offre ainsi que tout ce que le client doit savoir pour accéder aux fonctionnalités disponibles dans la version d’évaluation. Jusqu’à 10 000 caractères peuvent être entrés dans ce champ.
+* **Informations d’accès** (obligatoire pour les versions d’évaluation Azure Resource Manager et logiques) – Expliquez ce qu’un client doit savoir pour accéder et utiliser la version d’évaluation en question. Détaillez un scénario d’utilisation de votre offre ainsi que tout ce que le client doit savoir pour accéder aux fonctionnalités disponibles dans la version d’évaluation. Jusqu’à 10 000 caractères peuvent être entrés dans ce champ.
 * **Manuel de l’utilisateur** (obligatoire) : présentation approfondie de l’expérience de votre version d’évaluation. Le manuel de l’utilisateur doit couvrir exactement ce que vous souhaitez que le client accomplisse dans la version d’évaluation et sert de référence pour toutes les questions qu’ils peuvent avoir. Le fichier doit être au format PDF et être nommé (255 caractères maximum) après le chargement.
 * **Vidéos : Ajouter des vidéos** (facultatif) : vous pouvez charger des vidéos sur YouTube ou Vimeo et les référencer ici via un lien et une image miniature (533 x 324 pixels) pour présenter au client des informations qui l’aideront à mieux comprendre la version d’évaluation, notamment la façon d’exploiter les fonctionnalités de l’offre, ainsi que des scénarios qui mettent en avant ses avantages.
   * **Nom** (obligatoire)

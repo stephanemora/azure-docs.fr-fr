@@ -8,12 +8,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, 
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 1aa2545f3bd4e7558c99a31dca43f65510bab59e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 909e4638b3b0919919320a09cbfa0e8d9ac92f2e
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872134"
+ms.locfileid: "83995936"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Démarrage rapide : Déboguer et itérer dans Kubernetes : Visual Studio et .NET Core - Azure Dev Spaces
 
@@ -32,25 +32,43 @@ Azure Dev Spaces vous permet également de déboguer et d’itérer à l’aide 
 
 - Un abonnement Azure. Si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free).
 - Visual Studio 2019 sur Windows avec la charge de travail de développement Azure installée. Si vous n’avez pas installé Visual Studio, vous pouvez le télécharger [ici](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Créer un cluster Azure Kubernetes Service
 
-Vous devez créer un cluster AKS dans une [région prise en charge][supported-regions]. Pour créer un cluster :
+Vous devez créer un cluster AKS dans une [région prise en charge][supported-regions]. Les commandes ci-dessous créent un groupe de ressources nommé *MyResourceGroup* et un cluster AKS nommé *MyAKS*.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com)
-1. Sélectionnez *+ Créer une ressource > Service Kubernetes*. 
-1. Entrez les informations pour _Abonnement_, _Groupe de ressources_, _Nom du cluster Kubernetes_, _Région_, _Version de Kubernetes_ et _Préfixe du nom DNS_.
-
-    ![Créer AKS dans le portail Azure](media/get-started-netcore-visualstudio/create-aks-portal.png)
-
-1. Cliquez sur *Vérifier + créer*.
-1. Cliquez sur *Créer*.
+```azurecli
+az group create --name MyResourceGroup --location eastus
+az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
+```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Activer Azure Dev Spaces sur votre cluster AKS
 
-Accédez à votre cluster AKS dans le portail Azure et cliquez sur *Dev Spaces*. Remplacez *use-dev-spaces* par *Yes*, puis cliquez sur *Enregistrer*.
+Utilisez la commande `use-dev-spaces` pour activer Dev Spaces sur votre cluster AKS et suivez les invites. La commande ci-dessous active Dev Spaces sur le cluster *MyAKS* dans le groupe *MyResourceGroup* et crée un espace de développement *par défaut*.
 
-![Activer Dev Spaces via le portail Azure](media/get-started-netcore-visualstudio/enable-dev-spaces-portal.png)
+> [!NOTE]
+> La commande `use-dev-spaces` installe également l’interface CLI Azure Dev Spaces si celle-ci n’est pas déjà installée. Vous ne pouvez pas installer l’interface CLI d’Azure Dev Spaces dans Azure Cloud Shell.
+
+```azurecli
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```
+
+```output
+'An Azure Dev Spaces Controller' will be created that targets resource 'MyAKS' in resource group 'MyResourceGroup'. Continue? (y/N): y
+
+Creating and selecting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAKS' in resource group 'MyResourceGroup'...2m 24s
+
+Select a dev space or Kubernetes namespace to use as a dev space.
+ [1] default
+Type a number or a new name: 1
+
+Kubernetes namespace 'default' will be configured as a dev space. This will enable Azure Dev Spaces instrumentation for new workloads in the namespace. Continue? (Y/n): Y
+
+Configuring and selecting dev space 'default'...3s
+
+Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready for development in dev space 'default'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
+```
 
 ## <a name="create-a-new-aspnet-web-app"></a>Créer une application web ASP.NET
 

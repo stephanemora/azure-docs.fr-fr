@@ -4,12 +4,12 @@ description: Découvrez comment utiliser Azure Application Insights avec Azure F
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 9997a44d14f5b4ca4de4e5b135efc453b12bff01
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 2aaf52a528f929f183c9bf4565d9f0da4918f146
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82202411"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757753"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -21,7 +21,10 @@ L’instrumentation Application Insights requise étant intégrée à Azure Func
 
 ## <a name="application-insights-pricing-and-limits"></a>Tarification et limites d’Application Insights
 
-Vous pouvez essayer gratuitement l’intégration d’Application Insights avec les applications de fonctions. La quantité de données pouvant être traitée quotidiennement à titre gratuit est limitée. Il est possible que cette limite soit atteinte lors du test. Azure envoie des notifications sur le portail et par e-mail lorsque la limite quotidienne est proche. Si vous manquez ces alertes et atteignez la limite fixée, les nouveaux journaux d’activité n’apparaîtront pas dans les requêtes Application Insights. N’oubliez pas ces limites pour éviter de passer du temps à résoudre des problèmes superflus. Pour plus d’informations, consultez l’article [Gérer la tarification et le volume de données dans Application Insights](../azure-monitor/app/pricing.md).
+Vous pouvez essayer gratuitement l’intégration d’Application Insights à Azure Functions. La quantité de données pouvant être traitée quotidiennement à titre gratuit est limitée. Il est possible que cette limite soit atteinte lors du test. Azure envoie des notifications sur le portail et par e-mail lorsque la limite quotidienne est proche. Si vous manquez ces alertes et atteignez la limite fixée, les nouveaux journaux d’activité n’apparaîtront pas dans les requêtes Application Insights. N’oubliez pas ces limites pour éviter de passer du temps à résoudre des problèmes superflus. Pour plus d’informations, consultez l’article [Gérer la tarification et le volume de données dans Application Insights](../azure-monitor/app/pricing.md).
+
+> [!IMPORTANT]
+> Application Insights présente une fonctionnalité [d’échantillonnage](../azure-monitor/app/sampling.md) qui peut vous éviter de produire une quantité excessive de données de télémétrie portant sur les exécutions terminées aux heures de forte activité. L’échantillonnage est activé par défaut. Si vous pensez qu’il vous manque des données, il vous faut peut-être simplement adapter les paramètres d’échantillonnage à votre scénario de surveillance. Pour plus d’informations, consultez [Configurer l’échantillonnage](#configure-sampling).
 
 La liste complète des fonctionnalités Application Insights disponibles pour votre application de fonction est détaillée dans [Fonctionnalités Application Insights prises en charge pour Azure Functions](../azure-monitor/app/azure-functions-supported-features.md).
 
@@ -29,7 +32,7 @@ La liste complète des fonctionnalités Application Insights disponibles pour vo
 
 Une fois l'[intégration d’Application Insights activée](#enable-application-insights-integration), vous pouvez afficher des données de télémétrie dans l'onglet **Surveiller**.
 
-1. Dans la page d’application de fonction, sélectionnez une fonction exécutée au moins une fois après la configuration d’Application Insights. Sélectionnez ensuite l'onglet **Surveiller**. Sélectionnez **Actualiser** régulièrement jusqu’à ce que la liste d’appels de fonction s’affiche.
+1. Dans la page d’application de fonction, sélectionnez une fonction exécutée au moins une fois après la configuration d’Application Insights. Ensuite, sélectionnez **Surveiller** dans le volet gauche. Sélectionnez **Actualiser** régulièrement jusqu’à ce que la liste d’appels de fonction s’affiche.
 
    ![Liste d’appels](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
@@ -40,9 +43,9 @@ Une fois l'[intégration d’Application Insights activée](#enable-application-
 
    ![Détails des appels](media/functions-monitoring/invocation-details-ai.png)
 
-1. Sélectionnez le lien **Exécuter dans Application Insights** pour afficher la source de la requête qui récupère les données de journal Azure Monitor dans le journal Azure. Si c’est la première fois que vous utilisez Azure Log Analytics dans votre abonnement, vous êtes invité à l’activer.
+1. Choisissez **Exécuter dans Application Insights** pour afficher la source de la requête qui récupère les données de journal Azure Monitor dans Azure Log Analytics. Si c’est la première fois que vous utilisez Azure Log Analytics dans votre abonnement, vous êtes invité à l’activer.
 
-1. Lorsque vous choisissez ce lien et que vous choisissez d’activer l’analyse des journaux, la requête suivante s’affiche. Vous pouvez voir que les résultats de la requête sont limités aux 30 derniers jours (`where timestamp > ago(30d)`). De plus, les résultats ne montrent pas plus de 20 lignes (`take 20`). Par contre, la liste des détails des appels pour votre fonction porte sur les 30 derniers jours, sans limite.
+1. Une fois que vous avez activé Log Analytics, la requête suivante s’affiche. Vous pouvez voir que les résultats de la requête sont limités aux 30 derniers jours (`where timestamp > ago(30d)`). De plus, les résultats ne montrent pas plus de 20 lignes (`take 20`). Par contre, la liste des détails des appels pour votre fonction porte sur les 30 derniers jours, sans limite.
 
    ![Liste d’appels Application Insights Analytics](media/functions-monitoring/ai-analytics-invocation-list.png)
 
@@ -50,7 +53,7 @@ Pour plus d’informations, consultez la section [Interroger les données de té
 
 ## <a name="view-telemetry-in-application-insights"></a>Afficher les données de télémétrie dans Application Insights
 
-Pour ouvrir Application Insights à partir d’une application de fonction dans le portail Azure, accédez à la page **Vue d’ensemble** de l'application de fonction. Sous **Fonctionnalités configurées**, sélectionnez **Application Insights**.
+Pour ouvrir Application Insights à partir d’une application de fonction dans le portail Azure, sélectionnez **Application Insights** sous **Paramètres** dans la page de gauche. Si c’est la première fois que vous utilisez Application Insights avec votre abonnement, vous êtes invité à l’activer : sélectionnez **Activer Application Insights**, puis **Appliquer** sur la page suivante.
 
 ![Ouvrir Application Insights à partir de la page Vue d'ensemble de l'application de fonction](media/functions-monitoring/ai-link.png)
 
@@ -271,9 +274,6 @@ Application Insights présente une fonctionnalité [d’échantillonnage](../azu
   }
 }
 ```
-
-> [!NOTE]
-> [L’échantillonnage](../azure-monitor/app/sampling.md) est activé par défaut. Si vous pensez qu’il vous manque des données, il vous faut peut-être simplement adapter les paramètres d’échantillonnage à votre scénario de surveillance.
 
 ## <a name="write-logs-in-c-functions"></a>Écrire des journaux d’activité dans des fonctions C#
 
@@ -610,7 +610,7 @@ Lorsque vous sélectionnez **Créer**, une ressource Application Insights est cr
 <a id="manually-connect-an-app-insights-resource"></a>
 ### <a name="add-to-an-existing-function-app"></a>Ajouter à une application de fonction existante 
 
-Lorsque vous créez une application de fonction avec [Visual Studio](functions-create-your-first-function-visual-studio.md), vous devez créer la ressource Application Insights. Vous pouvez ensuite ajouter la clé d’instrumentation de cette ressource en tant que paramètre d’application dans votre application de fonction.
+Lorsque vous créez une application de fonction avec [Visual Studio](functions-create-your-first-function-visual-studio.md), vous devez créer la ressource Application Insights. Vous pouvez ensuite ajouter la clé d’instrumentation de cette ressource en tant que [paramètre d’application](functions-how-to-use-azure-function-app-settings.md#settings) dans votre application de fonction.
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 

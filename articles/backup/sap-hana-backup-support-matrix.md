@@ -3,12 +3,12 @@ title: Tableau de prise en charge de sauvegarde SAP HANA
 description: Dans cet article,découvrez les scénarios et limitations pris en charge lorsque vous utilisez Sauvegarde Azure pour sauvegarder des bases de données SAP HANA sur des machines virtuelles Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 8496dc4996cac68535bfe9be30e4b5f72e2d5721
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5dcbfa67ce69a3dad1c263427ea3a0e34e8cef18
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227457"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747339"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matrice de prise en charge pour la sauvegarde des bases de données SAP HANA sur des machines virtuelles Azure
 
@@ -36,8 +36,14 @@ Le service Sauvegarde Azure prend en charge la sauvegarde des bases de données 
 
 ------
 
+>[!NOTE]
+>Sauvegarde Azure ne s’ajuste pas automatiquement au changement d’heure lorsque vous sauvegardez une base de données SAP HANA qui s’exécute dans une machine virtuelle Azure.
+>
+>Modifiez la stratégie manuellement en fonction des besoins.
+
+
 > [!NOTE]
-> Les opérations de sauvegarde et de restauration à partir de clients natifs SAP HANA (SAP HANA Studio/Cockpit/DBA Cockpit) ne sont pas prises en charge actuellement.
+> Vous pouvez maintenant [surveiller la sauvegarde et restaurer](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) (sur la même machine) les travaux déclenchés à partir de clients natifs HANA (SAP HANA Studio/Cockpit/DBA Cockpit) dans le portail Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

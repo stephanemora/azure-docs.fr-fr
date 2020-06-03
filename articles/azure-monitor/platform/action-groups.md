@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 4/17/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 5c8808450f8baa6d395ee9c24dbc59dfa919b66d
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 8075574556375b7c07de2abd6c5aff792880b497
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801006"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738816"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
 Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Les alertes Azure Monitor et Service Health utilisent des groupes d’actions pour avertir les utilisateurs qu’une alerte a été déclenchée. Plusieurs alertes peuvent utiliser le même groupe d’actions ou des groupes d’actions différents selon les besoins de l’utilisateur. Vous pouvez configurer jusqu'à 2 000 groupes d'actions au sein d'un abonnement.
@@ -201,9 +201,9 @@ Pour obtenir d’autres informations importantes, consultez [Informations de lim
 Vous pouvez avoir un nombre limité d’actions SMS par groupe d’actions.
 
 > [!NOTE]
-> Si l’interface utilisateur du groupe d’actions sur le Portail Azure ne vous permet pas de sélectionner votre indicatif de pays, cela signifie que les SMS ne sont pas pris en charge pour votre pays.  Si votre indicatif de pays n’est pas disponible, vous pouvez voter pour que votre pays soit ajouté à [UserVoice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice). En attendant, une solution consiste à demander à votre groupe d’actions d’appeler un webhook auprès d’un fournisseur SMS tiers avec prise en charge dans votre pays.  
+> Si l’interface utilisateur du groupe d’actions sur le portail Azure ne vous permet pas de sélectionner votre indicatif de pays/région, cela signifie que les SMS ne sont pas pris en charge pour votre pays/région.  Si votre indicatif de pays/région n’est pas disponible, vous pouvez voter pour que votre pays/région soit ajouté sur la page d’[UserVoice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice). En attendant, une solution consiste à demander à votre groupe d’actions d’appeler un webhook auprès d’un fournisseur SMS tiers prenant en charge votre pays/région.  
 
-La tarification pour les pays pris en charge est indiquée dans la [page de tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+La tarification pour les pays/régions pris en charge est indiquée dans la [page de tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
   
 
 ### <a name="voice"></a>Voix
@@ -212,9 +212,9 @@ Pour obtenir un comportement supplémentaire important, consultez l’article [I
 Vous pouvez avoir un nombre limité d’actions de voix par groupe d’actions.
 
 > [!NOTE]
-> Si l’interface utilisateur du groupe d’actions sur le Portail Azure ne vous permet pas de sélectionner votre indicatif de pays, cela signifie que les appels vocaux ne sont pas pris en charge pour votre pays. Si votre indicatif de pays n’est pas disponible, vous pouvez voter pour que votre pays soit ajouté à [UserVoice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  En attendant, une solution consiste à demander à votre groupe d’actions d’appeler un webhook auprès d’un fournisseur d’appels vocaux tiers avec prise en charge dans votre pays.  
+> Si l’interface utilisateur du groupe d’actions sur le portail Azure ne vous permet pas de sélectionner votre indicatif de pays/région, cela signifie que les appels vocaux ne sont pas pris en charge pour votre pays/région. Si votre indicatif de pays/région n’est pas disponible, vous pouvez voter pour que votre pays/région soit ajouté sur la page d’[UserVoice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  En attendant, une solution consiste à demander à votre groupe d’actions d’appeler un webhook auprès d’un fournisseur d’appels vocaux tiers prenant en charge votre pays/région.  
 
-La tarification pour les pays pris en charge est indiquée dans la [page de tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+La tarification pour les pays/régions pris en charge est indiquée dans la [page de tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="webhook"></a>webhook
 Les Webhooks sont retentés au travers des règles suivantes. L’appel de webhook est retenté 2 fois au maximum lorsque les codes d’état HTTP suivants sont retournés : 408, 429, 503, 504 ou que le point de terminaison HTTP ne répond pas. La première nouvelle tentative se produit après 10 secondes. La deuxième nouvelle tentative se produit après 100 secondes. Après deux échecs, aucun groupe d’actions n’appellera le point de terminaison pendant 30 minutes. 

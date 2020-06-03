@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 74a4c13197863d0d41e183826cafd64976b44431
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 7c2dfa6e7c8cbc96f76c9b9fe89b1fdaa8a1045e
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792579"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724443"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scénarios Azure Disk Encryption sur les machines virtuelles Linux
 
@@ -133,7 +133,7 @@ La syntaxe de la valeur du paramètre key-encryption-key est l’URI complet de 
 - **Désactiver le chiffrement :** pour désactiver le chiffrement, utilisez la commande [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable). La désactivation du chiffrement est autorisée seulement sur les volumes de données pour les machines virtuelles Linux.
 
      ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type DATA
+     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "data"
      ```
 
 ### <a name="enable-encryption-on-an-existing-or-running-linux-vm-using-powershell"></a>Activer le chiffrement sur une machine virtuelle Linux existante ou en cours d’exécution avec PowerShell
@@ -218,7 +218,7 @@ Le paramètre **EncryptFormatAll** réduit le temps de chiffrement des disques d
  >Si ce paramètre est défini durant la mise à jour des paramètres de chiffrement, un redémarrage peut se produire avant le chiffrement proprement dit. Dans ce cas, il peut être utile de supprimer du fichier fstab le disque que vous ne voulez pas formater. De même, vous devez ajouter la partition que vous voulez chiffrer-formater au fichier fstab avant de lancer l’opération de chiffrement. 
 
 ### <a name="encryptformatall-criteria"></a>Critères pour EncryptFormatAll
-Ce paramètre fait que la commande parcourt toutes les partitions et les chiffre, à condition qu’elles répondent à **tous** les critères ci-dessous : 
+Ce paramètre fait que la commande parcourt toutes les partitions et les chiffre, à condition qu’elles répondent à **tous** les critères ci-dessous :
 - Elle n’est pas une partition root/de système d’exploitation/de démarrage
 - Elle n’est pas déjà chiffrée
 - Elle n’est pas un volume BEK
@@ -234,7 +234,7 @@ Utilisez la commande [az vm encryption enable](/cli/azure/vm/encryption#az-vm-en
 -  **Chiffrer une machine virtuelle en cours d’exécution avec EncryptFormatAll :**
 
      ```azurecli-interactive
-     az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --encrypt-format-all
+     az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type "data" --encrypt-format-all
      ```
 
 ### <a name="use-the-encryptformatall-parameter-with-a-powershell-cmdlet"></a>Utiliser le paramètre EncryptFormatAll avec une applet de commande PowerShell
@@ -251,43 +251,57 @@ $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname
 $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
 $KeyVaultResourceId = $KeyVault.ResourceId;
 
-Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -EncryptFormatAll
+Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType "data" -EncryptFormatAll
 ```
 
 
 ### <a name="use-the-encryptformatall-parameter-with-logical-volume-manager-lvm"></a>Utiliser le paramètre EncryptFormatAll avec Logical Volume Manager (LVM) 
 Nous recommandons une installation LVM-on-crypt. Pour les exemples suivants, remplacez le chemin de périphérique et les points de montage par ce qui correspond à votre cas d’utilisation. Cette installation peut se faire comme suit :
 
-- Ajoutez les disques de données qui constitueront la machine virtuelle.
-- Formatez, montez et ajoutez ces disques au fichier fstab.
+1.  Ajoutez les disques de données qui constitueront la machine virtuelle.
 
-    1. Choisissez un standard de partition, créez une partition qui couvre la totalité du lecteur, puis formatez-la. Nous utilisons ici des liens symboliques générés par Azure. L’utilisation de liens symboliques évite les problèmes liés à la modification des noms des périphériques. Pour plus d’informations, consultez [Résoudre les problèmes relatifs aux noms des périphériques](troubleshoot-device-names-problems.md).
-    
-         ```azurepowershell-interactive
-         parted /dev/disk/azure/scsi1/lun0 mklabel gpt
-         parted -a opt /dev/disk/azure/scsi1/lun0 mkpart primary ext4 0% 100%
-         
-         mkfs -t ext4 /dev/disk/azure/scsi1/lun0-part1
-         ```
-    
-    1. Montez les disques.
-         
-         `mount /dev/disk/azure/scsi1/lun0-part1 /mnt/mountpoint`
-    
-    1. Ajoutez-les à fstab.
-         
-        `echo "/dev/disk/azure/scsi1/lun0-part1 /mnt/mountpoint ext4 defaults,nofail 0 2" >> /etc/fstab`
-    
-    1. Exécutez l’applet de commande PowerShell Set-AzVMDiskEncryptionExtension avec -EncryptFormatAll pour chiffrer ces disques.
+1. Formatez, montez et ajoutez ces disques au fichier fstab.
 
-       ```azurepowershell-interactive
-       $KeyVault = Get-AzKeyVault -VaultName "MySecureVault" -ResourceGroupName "MySecureGroup"
-           
-       Set-AzVMDiskEncryptionExtension -ResourceGroupName "MySecureGroup" -VMName "MySecureVM" -DiskEncryptionKeyVaultUrl $KeyVault.VaultUri  -DiskEncryptionKeyVaultId $KeyVault.ResourceId -EncryptFormatAll -SkipVmBackup -VolumeType Data
-       ```
+1. Choisissez un standard de partition, créez une partition qui couvre la totalité du lecteur, puis formatez-la. Nous utilisons ici des liens symboliques générés par Azure. L’utilisation de liens symboliques évite les problèmes liés à la modification des noms des périphériques. Pour plus d’informations, consultez [Résoudre les problèmes relatifs aux noms des périphériques](troubleshoot-device-names-problems.md).
+    
+    ```bash
+    parted /dev/disk/azure/scsi1/lun0 mklabel gpt
+    parted -a opt /dev/disk/azure/scsi1/lun0 mkpart primary ext4 0% 100%
+    
+    mkfs -t ext4 /dev/disk/azure/scsi1/lun0-part1
+    ```
 
-    1. Configurez le gestionnaire de volumes logiques sur ces nouveaux disques. Notez que les lecteurs chiffrés sont déverrouillés une fois que la machine virtuelle a fini de démarrer. Ainsi, le montage du gestionnaire de volumes logiques devra également être retardé.
+1. Montez les disques :
 
+    ```bash
+    mount /dev/disk/azure/scsi1/lun0-part1 /mnt/mountpoint
+    ````
+    
+    Ajoutez-les au fichier fstab :
+
+    ```bash
+    echo "/dev/disk/azure/scsi1/lun0-part1 /mnt/mountpoint ext4 defaults,nofail 0 2" >> /etc/fstab
+    ```
+    
+1. Exécutez la cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-3.8.0) d’Azure PowerShell avec -EncryptFormatAll pour chiffrer ces disques.
+
+    ```azurepowershell-interactive
+    $KeyVault = Get-AzKeyVault -VaultName "MySecureVault" -ResourceGroupName "MySecureGroup"
+    
+    Set-AzVMDiskEncryptionExtension -ResourceGroupName "MySecureGroup" -VMName "MySecureVM" -DiskEncryptionKeyVaultUrl $KeyVault.VaultUri -DiskEncryptionKeyVaultId $KeyVault.ResourceId -EncryptFormatAll -SkipVmBackup -VolumeType Data
+    ```
+
+    Si vous souhaitez utiliser une clé de chiffrement à clé (KEK), transmettez l’URI de votre KEK et le ResourceID de votre coffre de clés aux paramètres -KeyEncryptionKeyUrl et -KeyEncryptionKeyVaultId, respectivement :
+
+    ```azurepowershell-interactive
+    $KeyVault = Get-AzKeyVault -VaultName "MySecureVault" -ResourceGroupName "MySecureGroup"
+    $KEKKeyVault = Get-AzKeyVault -VaultName "MyKEKVault" -ResourceGroupName "MySecureGroup"
+    $KEK = Get-AzKeyVaultKey -VaultName "myKEKVault" -KeyName "myKEKName"
+    
+    Set-AzVMDiskEncryptionExtension -ResourceGroupName "MySecureGroup" -VMName "MySecureVM" -DiskEncryptionKeyVaultUrl $KeyVault.VaultUri -DiskEncryptionKeyVaultId $KeyVault.ResourceId -EncryptFormatAll -SkipVmBackup -VolumeType Data -KeyEncryptionKeyUrl $$KEK.id -KeyEncryptionKeyVaultId $KEKKeyVault.ResourceId
+    ```
+
+1. Configurez le gestionnaire de volumes logiques sur ces nouveaux disques. Notez que les lecteurs chiffrés sont déverrouillés une fois que la machine virtuelle a fini de démarrer. Ainsi, le montage du gestionnaire de volumes logiques devra également être retardé.
 
 ## <a name="new-vms-created-from-customer-encrypted-vhd-and-encryption-keys"></a>Nouvelles machines virtuelles créées à partir de disques durs virtuels et de clés de chiffrement chiffrés par le client
 Dans ce scénario, vous pouvez activer le chiffrement avec des applets de commande PowerShell ou avec des commandes CLI. 

@@ -1,23 +1,20 @@
 ---
-title: Obtenir l’URI de la signature d’accès partagé pour vos images de machine virtuelle | Place de marché Azure
-description: Cet article explique comment obtenir l’URI de signature d’accès partagé (SAS) pour chaque disque dur virtuel (VHD).
+title: URI de la signature d’accès partagé pour les images de machine virtuelle – Place de marché Azure
+description: Générez un URI de signature d’accès partagé (SAP) pour vos disques durs virtuels (VHD) dans Place de marché Azure.
 author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mingshen
-ms.openlocfilehash: c226d35647e4a5a2b1d583dd6328bfb73dae2a1c
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 42e2419301b282685b2afe13782c2deb4f52823c
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81732635"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725871"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Obtenir l’URI de la signature d’accès partagé pour vos images de machine virtuelle
-
-> [!IMPORTANT]
-> Nous allons déplacer la gestion de vos offres de machines virtuelles Azure du portail Cloud Partner vers l’Espace partenaires. Tant que vos offres ne sont pas migrées, suivez les instructions fournies dans [Obtenir l’URI de la signature d’accès partagé pour vos images de machine virtuelle](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri) pour le portail Cloud Partner afin de gérer vos offres.
 
 Cet article explique comment générer un URI (Uniform Resource Identifier) de signature d’accès partagé (SAS) pour chaque disque dur virtuel (VHD).
 

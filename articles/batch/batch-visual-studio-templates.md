@@ -1,24 +1,22 @@
 ---
-title: Générer des solutions avec les modèles Visual Studio - Azure Batch | Microsoft Docs
+title: Générer des solutions avec les modèles Visual Studio
 description: Découvrez comment des modèles de projet Visual Studio peuvent vous aider à implémenter et à exécuter vos charges de travail nécessitant beaucoup de ressources sur Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: 8e8d5be4a9f0fb5482ba6c86a8766a25e5713c09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9332684008b45aea39e07d8225bae6450ba57de5
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117520"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779512"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Utiliser des modèles de projet Visual Studio pour lancer rapidement des solutions Batch
 
 Les **modèles Visual Studio du gestionnaire de travaux** et du **processeur de tâches** pour Batch fournissent le code vous permettant d’implémenter et d’exécuter sans effort vos charges de travail nécessitant beaucoup de ressources sur Batch. Ce document décrit ces modèles et fournit des conseils pour leur utilisation.
 
 > [!IMPORTANT]
-> Cet article traite uniquement les informations relatives à ces deux modèles et suppose que vous maîtrisez le service Batch ainsi que les concepts clés qui y sont liés : pools, nœuds de calcul, travaux et tâches, tâches du gestionnaire de travaux, variables d’environnement et autres informations pertinentes. Pour plus d’informations, consultez [Notions de base d’Azure Batch](batch-technical-overview.md) et [Présentation des fonctionnalités du service Batch pour les développeurs](batch-api-basics.md).
-> 
-> 
+> Cet article traite uniquement les informations relatives à ces deux modèles et suppose que vous maîtrisez le service Batch ainsi que les concepts clés qui y sont liés : pools, nœuds de calcul, travaux et tâches, tâches du gestionnaire de travaux, variables d’environnement et autres informations pertinentes. Pour plus d’informations, consultez [Notions de base d’Azure Batch](batch-technical-overview.md) et [Flux de travail et ressources du service Batch](batch-service-workflow-features.md). 
 
 ## <a name="high-level-overview"></a>Vue d’ensemble globale
 Les modèles du gestionnaire de travaux et du processeur de tâches peuvent être utilisés pour créer deux composants utiles :
@@ -69,7 +67,7 @@ Le modèle du gestionnaire de travaux vous permet d’implémenter une tâche du
 * Soumettre ces tâches pour les exécuter dans Batch.
 
 > [!NOTE]
-> Pour plus d’informations sur le gestionnaire de travaux, consultez [Présentation des fonctionnalités du service Batch pour les développeurs](batch-api-basics.md#job-manager-task).
+> Pour plus d’informations sur les tâches du gestionnaire de travaux, consultez [Travaux et tâches](jobs-and-tasks.md#job-manager-task).
 > 
 > 
 
@@ -188,7 +186,7 @@ Une tâche du gestionnaire de travaux implémentée avec le modèle du gestionna
 
 En cas d’échec de la tâche du gestionnaire de travaux, il est possible que certaines tâches aient tout de même été ajoutées au service avant que l’erreur ne se soit produite. Ces tâches s’exécutent normalement. Pour plus d’informations sur ce chemin de code, consultez la rubrique « Échec du fractionnement du travail » ci-dessus.
 
-Toutes les informations retournées par des exceptions sont écrites dans des fichiers stdout.txt et stderr.txt. Pour plus d’informations, consultez [Gestion des erreurs](batch-api-basics.md#error-handling).
+Toutes les informations retournées par des exceptions sont écrites dans des fichiers stdout.txt et stderr.txt. Pour plus d’informations, consultez [Gestion des erreurs](error-handling.md).
 
 ### <a name="client-considerations"></a>Considérations du client
 Cette section présente certaines exigences d’implémentation du client lors de l’appel d’un gestionnaire de travaux basé sur ce modèle. Pour plus d’informations, consultez la section expliquant [comment transmettre des paramètres et des paramètres d’environnement à partir du code client](#pass-environment-settings) .

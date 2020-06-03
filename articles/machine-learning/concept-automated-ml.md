@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: ce51a1b25453a5bbacbd268b37f2bd21cfe37fea
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: f328b86d07a997ea761b4381f1d6a2f8a1dae269
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983463"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683081"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Qu’est-ce que le Machine Learning automatisé (AutoML) ?
 
@@ -46,7 +46,7 @@ Pour obtenir des exemples de classification et de Machine Learning automatisé, 
 
 À la différence d’une classification dans laquelle les valeurs de sortie prédites sont catégoriques, les modèles de régression prédisent des valeurs de sortie numériques en fonction de prédictions indépendantes. Dans une régression, l’objectif est d’aider à établir la relation entre ces variables de prédiction indépendantes en estimant l’impact d’une variable sur les autres. Par exemple, le coût de l’automobile basé sur des caractéristiques telles que la consommation de carburant, la cote de sécurité, etc. Apprenez-en davantage et découvrez un exemple de [Régression avec Machine Learning automatisé](tutorial-auto-train-models.md).
 
-Pour obtenir des exemples de régression et de Machine Learning automatisé pour les prédictions, consultez les notebooks Python suivants : [Prédiction des performances du processeur](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb) 
+Pour obtenir des exemples de régression et de Machine Learning automatisé pour les prédictions, consultez les notebooks Python suivants : [Prédiction des performances du processeur](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-explanation-featurization/auto-ml-regression-explanation-featurization.ipynb) 
 
 ### <a name="time-series-forecasting"></a>Prévision de série chronologique
 
@@ -110,7 +110,7 @@ Dans chaque expérience de Machine Learning automatisé, vos données sont prét
 
 ### <a name="automatic-preprocessing-standard"></a>Prétraitement automatique (standard)
 
-Dans chaque expérience de Machine Learning automatisé, vos données sont automatiquement mises à l’échelle et normalisées pour faciliter la bonne exécution des algorithmes.  Pendant l’apprentissage du modèle, l’une des techniques suivantes de mise à l’échelle ou de normalisation est appliquée à chaque modèle.
+Dans chaque expérience de Machine Learning automatisé, vos données sont automatiquement mises à l’échelle et normalisées pour faciliter la bonne exécution des algorithmes.  Pendant l’apprentissage du modèle, l’une des techniques suivantes de mise à l’échelle ou de normalisation est appliquée à chaque modèle. Découvrez comment AutoML permet [d’empêcher le surajustement et le déséquilibre des données](concept-manage-ml-pitfalls.md) dans vos modèles.
 
 |Mise à l’échelle&nbsp;et&&nbsp;normalisation| Description |
 | ------------- | ------------- |
@@ -186,8 +186,19 @@ Tenez compte des avantages et des inconvénients suivants lorsque au moment de c
 | Inscrire et visualiser les informations et les métriques de l’expérience dans l’interface utilisateur | ✓      | ✓     |                               |
 | Garde-fous des données                                            | ✓      | ✓     |                               |
 
+## <a name="many-models"></a>Nombreux modèles 
 
-## <a name="automated-ml-in-azure-machine-learning"></a>Machine learning automatisé dans Azure Machine Learning
+L’[accélérateur de solution de nombreux modèles](https://aka.ms/many-models) (préversion) s’appuie sur Azure Machine Learning et vous permet d’utiliser le Machine Learning automatisé pour effectuer la formation, l’utilisation et la gestion de centaines, voire de milliers de modèles Machine Learning.
+
+Par exemple, la création d’un modèle __pour chaque instance ou chaque individu__ dans les scénarios suivants peut mener à des résultats améliorés :
+
+* Prédiction des ventes pour chaque magasin individuel
+* Maintenance prédictive pour des centaines de puits de pétrole
+* Personnalisation d’une expérience pour des utilisateurs individuels
+
+Pour plus d’informations, consultez la section sur l’[Accélérateur de solution de nombreux modèles](https://aka.ms/many-models) sur GitHub.
+
+## <a name="automl-in-azure-machine-learning"></a>AutoML dans Azure Machine Learning
 
 Azure Machine Learning offre deux expériences pour utiliser le machine learning automatisé
 

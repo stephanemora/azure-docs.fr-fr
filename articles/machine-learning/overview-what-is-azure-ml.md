@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: b97bae252b25c9ae2891506f08fc4955f84c1eb6
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 59bf2f3cc66391bc25ac56d8a1bf228b7c2b3765
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593016"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680523"
 ---
 # <a name="what-is-azure-machine-learning"></a>Qu'est-ce que Azure Machine Learning ?
 
@@ -45,6 +45,8 @@ Azure Machine Learning fournit tous les outils dont les développeurs et les sci
 + Notebooks Jupyter : utilisez nos [exemples de notebooks](https://aka.ms/aml-notebooks) ou créez vos propres notebooks pour tirer parti de nos exemples de <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Kits de développement logiciel (SDK) Python</a> pour votre Machine Learning. 
 
 + Utilisez des scripts R ou des notebooks dans lesquels vous utilisez le <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">Kit de développement logiciel (SDK) pour R</a> pour écrire votre propre code, ou utilisez les modules R dans le concepteur.
+
++ + L’[accélérateur de solution de nombreux modèles](https://aka.ms/many-models) (préversion) s’appuie sur Azure Machine Learning et vous permet d’effectuer l’apprentissage, l’utilisation et la gestion de centaines, voire de milliers de modèles Machine Learning.
 
 + [Extension Visual Studio Code](tutorial-setup-vscode-extension.md)
 

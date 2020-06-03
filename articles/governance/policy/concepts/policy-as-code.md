@@ -1,14 +1,14 @@
 ---
 title: Concevoir des workflows de type Policy as Code
 description: Apprenez à concevoir des workflows pour déployer vos définitions Azure Policy grâce à du code et valider automatiquement les ressources.
-ms.date: 11/04/2019
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: fd77fdd4011c3e1e83f8dfa9f30045bb72881c25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 972ec40609c340b159d21dde2bf18ab3330bf8cd
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187730"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684274"
 ---
 # <a name="design-policy-as-code-workflows"></a>Concevoir des workflows de type Policy as Code
 
@@ -17,7 +17,7 @@ Au fil de votre progression dans la gouvernance cloud, vous allez chercher à pa
 - Infrastructure as Code : pratique consistant à traiter en tant que code source tout le contenu qui définit les environnements, des modèles Resource Manager aux définitions Azure Policy en passant par Azure Blueprints.
 - DevOps : rassemblement des personnes, des processus et des produits qui permettent une livraison continue de valeur ajoutée aux clients finaux.
 
-Le Policy as Code (« stratégie sous forme de code ») est la combinaison de ces idées. Pour l’essentiel, vous conservez vos définitions de stratégies dans le contrôle de code source, et testez et validez chaque modification effectuée. Toutefois, l’implication des stratégies avec l’Infrastructure as Code ou le DevOps ne devrait pas s’arrêter là.
+Le Policy as Code (« stratégie sous forme de code ») est la combinaison de ces idées. Pour l’essentiel, vous conservez vos définitions de stratégies dans le contrôle de code source, puis testez et validez chaque modification effectuée. Toutefois, l’implication des stratégies avec l’Infrastructure as Code ou le DevOps ne devrait pas s’arrêter là.
 
 L’étape de validation devrait également être un composant d’autres workflows d’intégration continue ou de déploiement continu. Citons notamment le déploiement d’un environnement d’application ou d’une infrastructure virtuelle. En faisant de la validation Azure Policy l’un des premiers composants du processus de build et de déploiement, les équipes chargées des applications et des opérations détectent si leurs modifications ne sont pas conformes bien avant qu’il ne soit trop tard et qu’il faille les déployer en production.
 
@@ -99,7 +99,7 @@ Une fois l’affectation déployée, utilisez le kit SDK Policy pour [récupére
 Si la validation de l’affectation répond aux attentes, il s’agit ensuite de valider la correction.
 Les stratégies qui utilisent [deployIfNotExists](./effects.md#deployifnotexists) ou [modify](./effects.md#modify) peuvent être transformées en une tâche de correction des ressources non conformes.
 
-La première étape consiste à accorder à l’affectation de stratégie l’attribution de rôle définie dans la définition de stratégie. Cette attribution de rôle accorde à l’identité managée de l’affectation de stratégie des droits suffisants pour apporter les modifications permettant de rendre la ressource conforme.
+La première étape de la correction des ressources consiste à accorder à l’affectation de stratégie l’attribution de rôle définie dans la définition de stratégie. Cette attribution de rôle accorde à l’identité managée de l’affectation de stratégie des droits suffisants pour apporter les modifications permettant de rendre la ressource conforme.
 
 Dès que l’affectation de stratégie dispose des autorisations nécessaires, utilisez le kit SDK Policy pour déclencher une tâche de correction sur un ensemble de ressources connues pour être non conformes. Avant de continuer, trois tests doivent être effectués sur ces tâches corrigées :
 
@@ -111,7 +111,7 @@ Le fait de tester à la fois les résultats de l’évaluation de la stratégie 
 
 ### <a name="update-to-enforced-assignments"></a>Mettre à jour pour appliquer les affectations
 
-Une fois toutes les épreuves de validation effectuées, mettez à jour l’affectation pour utiliser **enforcementMode**_enabled_. Cette modification doit de préférence être effectuée au départ dans le même environnement éloigné de la production. Après vérification que cet environnement fonctionne comme prévu, la modification doit être étendue de façon à inclure l’environnement suivant, et ainsi de suite jusqu’à ce que la stratégie soit déployée sur les ressources de production.
+Une fois toutes les épreuves de validation effectuées, mettez à jour l’affectation pour utiliser **enforcementMode**_enabled_. Il est recommandé d’effectuer cette modification au départ dans le même environnement éloigné de la production. Après la vérification que cet environnement fonctionne comme prévu, la modification doit être étendue de façon à inclure l’environnement suivant, et ainsi de suite, jusqu’à ce que la stratégie soit déployée sur les ressources de production.
 
 ## <a name="process-integrated-evaluations"></a>Traiter les évaluations intégrées
 

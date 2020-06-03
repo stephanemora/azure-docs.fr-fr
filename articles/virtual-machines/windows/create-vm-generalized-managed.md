@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: b0c6689b66037067a4c5174738945b7c6fabd5b5
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: a028d597c3eb2a1c66df0e40266c2822e5cd7aab
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086315"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726959"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Créer une machine virtuelle à partir d’une image gérée
 
@@ -20,6 +20,7 @@ Vous pouvez créer plusieurs machines virtuelles à partir d’une image de mach
 
 Avant de créer une machine virtuelle, vous devez [créer une image de machine virtuelle managée](capture-image-resource.md) à utiliser comme image source et accorder un accès en lecture sur l’image aux utilisateurs qui doivent avoir accès à l’image. 
 
+Une image managée prend en charge jusqu’à 20 déploiements simultanés. Une tentative de création simultanée de plus de 20 machines virtuelles à partir de la même image managée peut entraîner l’expiration des délais d’approvisionnement en raison des limites de performances de stockage d’un disque dur virtuel unique. Pour créer plus de 20 machines virtuelles simultanément, utilisez une [galerie d’images partagées](shared-image-galleries.md) configurée avec 1 réplica tous les 20 déploiements simultanés de machines virtuelles.
 
 ## <a name="use-the-portal"></a>Utiliser le portail
 

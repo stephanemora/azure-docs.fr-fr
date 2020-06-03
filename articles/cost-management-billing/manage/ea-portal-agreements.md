@@ -3,34 +3,26 @@ title: Contrats et avenants Azure EA
 description: Cet article explique dans quelle mesure les contrats et avenants Azure EA affectent votre utilisation du portail Azure EA.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/01/2020
+ms.date: 06/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 570a7b3bef702d0e42e23bc4b7af41cc431b9cc8
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 4904390ce0642d0331e82610e8aef4b735b56f1f
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690988"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298140"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contrats et avenants Azure EA
 
 L’article décrit dans quelle mesure les contrats et avenants Azure EA peuvent affecter votre accès, votre utilisation et vos paiements pour les services Azure.
 
-## <a name="amendment-status"></a>État des avenants
-
-Tout avenant concernant les clients Azure doit passer par l’équipe partenaire ou des comptes Microsoft correspondante et être traité par le biais du centre d’opérations régional. Si vous pensez qu’un avenant n’a pas été traité, contactez votre partenaire, conseiller logiciel ou équipe des comptes Microsoft.
-
 ## <a name="enrollment-provisioning-status"></a>État du provisionnement de l’inscription
 
 La date de début d’un nouvel engagement financier est définie par la date à laquelle le centre régional des opérations l’a traité. Étant donné que les commandes d’engagement financier via le portail Azure EA sont traitées dans le fuseau horaire UTC, vous pouvez constater un certain délai si votre bon de commande d’engagement financier a été traité dans une autre région. La date de début de couverture sur le bon de commande sur https://www.explore.ms indique le début de l’engagement financier. La date de début de couverture est le moment où l’engagement financier apparaît dans le portail Azure EA.
 
-## <a name="support-offer-not-provisioned"></a>Offre de support non provisionnée
-
-Vous pouvez commander un support Standard ou Pro Direct en achetant des références SKU spécifiques au support. La commande est similaire à un bon de commande de référence SKU financier Azure EA. Par exemple, 6QK-00001. Les numéros de référence SKU de support sont W6T-00002 (Pro-Direct) et W6T-00003 (Standard). Consultez les offres de support actuelles avant d’acheter des références SKU de support.
-
-L’inscription doit avoir au moins un compte actif pour que l’offre de support soit provisionnée.
+## <a name="support-for-enterprise-customers"></a>Prise en charge des clients Entreprise
 
  L’[Offre de support Contrat Entreprise](https://azure.microsoft.com/offers/enterprise-agreement-support/) d’Azure est disponible pour certains clients.
 
@@ -51,7 +43,7 @@ Une inscription a l’une des valeurs d’état suivantes. Chaque valeur déterm
 
 **Expiré** : l’inscription EA expire lorsqu’elle atteint la date de fin du contrat entreprise. Le client EA est exclu de la durée prolongée et tous ses services sont désactivés.
 
-À partir du 1er août 2019, les nouveaux formulaires d’annulation ne sont pas acceptés pour les clients commerciaux Azure. Au lieu de cela, toutes les inscriptions rentrent dans l’état de durée prolongée indéterminée. Si vous souhaitez cesser d’utiliser des services Azure, fermez votre abonnement dans le [portail Azure EA](https://portal.azure.com). Ou bien, votre partenaire peut envoyer une demande de cessation sur https://www.explore.ms. Rien ne change pour les clients ayant des types de contrat public.
+À partir du 1er août 2019, les nouveaux formulaires d’annulation ne sont pas acceptés pour les clients commerciaux Azure. Au lieu de cela, toutes les inscriptions rentrent dans l’état de durée prolongée indéterminée. Si vous souhaitez cesser d’utiliser des services Azure, fermez votre abonnement dans le [portail Azure](https://portal.azure.com). Ou bien, votre partenaire peut envoyer une demande de cessation sur https://www.explore.ms. Rien ne change pour les clients ayant des types de contrat public.
 
 **Transféré** : l’état transféré est appliqué aux inscriptions dont les comptes et services associés sont transférés vers une nouvelle inscription. Les inscriptions ne sont pas automatiquement transférées si un nouveau numéro d’inscription est généré lors du renouvellement. Le numéro d’inscription précédent doit être inclus dans la demande de renouvellement du client pour qu’un transfert automatique puisse avoir lieu.
 
@@ -158,24 +150,6 @@ Vous pouvez demander une augmentation de quota à tout moment en soumettant un [
 - ID d’abonnement du portail des développeurs Azure associé à votre service.
   - Pour plus d’informations sur l’obtention de votre ID d’abonnement, veuillez [contacter le support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
-## <a name="azure-compute-pre-purchase-plan-cpp"></a>Offre de préachat (CPP) Azure Compute
-
-L’offre préachat Azure Compute (CPP, précédemment connu sous le nom de promotion Azure Compute) est une offre qui propose aux clients un état stable, des charges de travail prévisibles, l’opportunité d’obtenir un calcul à une remise significative en préachetant Azure Compute pour une période de 12 mois. Elle est disponible pour EA et visible dans le portail EA.
-
-Si vous avez commandé une référence SKU CPP, elle s’applique à un type d’ordinateur spécifique dans un centre de données spécifique. Comme nous l’avons vu aujourd’hui, nous ne fournissons pas de liste de tous les achats CPP effectués par un client, ce qui signifie qu’il n’y a aucune liste de crédits en attente. Toutefois, lorsque vous configurez les types d’ordinateurs achetés dans le centre de données dans lequel ils ont été achetés, vous verrez l’allocation mensuelle dans le rapport Résumé de l’utilisation sur le portail EA.
-
-Le montant préalablement acheté s’affiche comme un crédit dans la colonne « Unités incluses » et l’utilisation sur ce montant n’entraîne aucun frais d’utilisation tant que les « Unités incluses » ne sont pas consommées. Une fois qu’elles sont consommées, l’utilisation supplémentaire sera facturée au tarif négocié dans la grille tarifaire normale du client EA.
-
-La façon dont les crédits sont achetés est basée sur le nombre d’ordinateurs d’une classe par mois. Par exemple : si vous avez acheté 70 machines virtuelles A2 par an dans la région USA Est 2, vous ne le verrez pas vraiment dans le portail EA comment vous l’avez acheté.
-
-Les machines mensuelles sont calculées comme s’exécutant 744 heures par mois. La conversion en heures serait de 70 fois 744 ou 52 080 heures achetées de machines virtuelles A2 par mois. Dans le récapitulatif de l’utilisation de EA Portal, les machines virtuelles A2 sont signalées par incréments de 100 heures. Vous pouvez donc voir un crédit de 520,8 (52 080/100) « Unités incluses » par mois et voir les unités consommées jusqu’à présent au cours du mois. Les frais d’utilisation doivent être de zéro jusqu’à ce que les unités consommées mensuellement dépassent les unités incluses mensuellement.
-
-Différents types d’ordinateurs utilisent des unités de mesure différentes. Ainsi, par exemple, les machines virtuelles D3 et D4 utilisent une unité de mesure de 10 heures dans notre rapport de résumé de l’utilisation. Ainsi, un achat de 70 de celles-ci peut afficher jusqu’à 5 208 unités incluses par mois (52 080/10).
-
-En général, la formule ci-dessous vous fournira le nombre de machines virtuelles achetées en fonction de leurs unités de mesure :
-
-<center><b> (« Quantité incluse » * « Unités de mesure ») / 744 </b></center>
-
 ## <a name="plan-skus"></a>Références SKU de plan
 
 Les références SKU de plan vous permettent d’acheter une suite de services intégrés à tarif réduit. Les références SKU de plan sont conçues pour se compléter via d’autres offres intégrées et suites pour réaliser des économies supplémentaires.
@@ -191,35 +165,6 @@ Les administrateurs d’entreprise peuvent attribuer des propriétaires de compt
 1. Cliquez sur l’onglet **Grille tarifaire**.
 1. Cliquez sur l’icône « Télécharger » dans le coin supérieur droit.
 1. Recherchez les numéros de références SKU de plan correspondants avec un filtre sur la colonne « Quantité incluse », puis sélectionnez des valeurs supérieures à « 0 ».
-
-### <a name="provision-the-plan-skus"></a>Approvisionner les références SKU de plan
-
-Les administrateurs d’entreprise peuvent ajouter de nouveaux propriétaires de comptes, associer un propriétaire de compte existant ou demander aux propriétaires de comptes existants de se connecter au portail Azure EA afin d’approvisionner des références SKU de plan précédemment achetées dans le portail Azure EA en effectuant les étapes ci-dessous.  
-
-**Ajout d’un nouveau propriétaire de compte (effectué par l’administrateur EA) :**
-
-1. Dans le portail Azure EA, sélectionnez **Gérer** dans le volet de navigation de gauche.
-1. Cliquez sur l’onglet **Compte**.
-1. Dans la page du compte, cliquez sur **+ Ajouter un compte**.
-1. Sélectionnez un service ou laissez comme non affecté.
-1. Sélectionnez le type d’authentification voulu.
-1. Spécifiez un nom convivial à utiliser pour identifier ce compte dans les rapports.
-1. Entrez l’adresse e-mail du propriétaire du compte que vous souhaitez associer au nouveau compte.
-1. Confirmez l’adresse e-mail que vous souhaitez associer au nouveau compte.
-1. Cliquez sur **Add**.
-1. Vous pouvez ajouter un autre compte en cliquant sur **Add Another Account** (Ajouter un autre compte), ou en cliquant sur le bouton **Ajouter** en bas à droite dans la barre d’outils de gauche.
-1. Le propriétaire du compte peut maintenant se connecter pour ajouter les abonnements appropriés afin d’approvisionner les références SKU de plan
-
-**Associer un propriétaire de compte existant :**
-
-1. Dans le Enterprise Portal, cliquez sur **Gérer**.
-1. Cliquez sur l’onglet **Compte**.
-1. Cliquez sur **+ Ajouter un compte**. Entrez le compte Microsoft ou un compte professionnel ou scolaire associé au compte existant.
-1. Confirmez le compte Microsoft ou un compte professionnel ou scolaire associé au compte existant.
-1. Spécifiez le nom à utiliser pour identifier ce compte dans les rapports.
-1. Cliquez sur **Add**.
-1. Vous pouvez ajouter un compte supplémentaire en sélectionnant à nouveau l’option **+ Ajouter un compte**, ou bien revenir à la page d’accueil en sélectionnant le bouton **Admin**.  
-1. Si vous cliquez pour afficher la page Compte, le compte que vous venez d’ajouter s’affiche avec l’état « En attente ». Il passe à l’état « Actif » quand le propriétaire du compte se connecte pour la première fois au portail EA.
 
 ### <a name="existingnew-account-owners-to-create-new-subscriptions"></a>Propriétaires de comptes existants/nouveaux pour créer de nouveaux abonnements
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: 9ddac229fc38a91a8b97b24dc2807080b2295758
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 34dbde25106dbb82fb9548ad53f368230f2c728c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226877"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654400"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Log Analytics pour Linux
 
@@ -32,7 +32,7 @@ Les journaux Azure Monitor fournissent des fonctionnalités de supervision, d’
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="operating-system"></a>Système d’exploitation
 
@@ -43,6 +43,7 @@ Le tableau ci-après mappe la version de l’extension de machine virtuelle Log 
 
 | Version d’extension de machine virtuelle Linux Log Analytics | Version du bundle de l’Agent Log Analytics | 
 |--------------------------------|--------------------------|
+| 1.13.9 | 1.13.3-3 |
 | 1.12.25 | [1.12.15-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.12.15-0) |
 | 1.11.15 | [1.11.0-9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
 | 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
@@ -86,7 +87,7 @@ Le JSON suivant illustre le schéma pour l’extension d’agent Log Analytics. 
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.7",
+    "typeHandlerVersion": "1.13",
     "autoUpgradeMinorVersion": true,
     "settings": {
       "workspaceId": "myWorkspaceId"
@@ -103,7 +104,7 @@ Le JSON suivant illustre le schéma pour l’extension d’agent Log Analytics. 
 
 ### <a name="property-values"></a>Valeurs de propriétés
 
-| Name | Valeur/Exemple |
+| Nom | Valeur/Exemple |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |

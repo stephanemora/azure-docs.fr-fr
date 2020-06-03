@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/17/2020
-ms.openlocfilehash: 2cb53d0c88d8c29da2bd8bf52d6536555d56c76e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/05/2020
+ms.openlocfilehash: 1121b5324368f8b8c6c062868f5072f4a0e7ac86
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283937"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654391"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Supervision de machines virtuelles Azure avec Azure Monitor
 Cet article explique comment utiliser Azure Monitor pour collecter et analyser des données de supervision sur des machines virtuelles Azure pour maintenir leur intégrité. Les machines virtuelles peuvent être supervisées pour vérifier leur disponibilité et leurs performances avec Azure Monitor comme n’importe quelle [autre ressource Azure](monitor-azure-resource.md), mais elles se distinguent des autres ressources, car vous devez également superviser le système d’exploitation invité et les charges de travail qui y sont exécutées. 
@@ -24,7 +24,7 @@ Cet article explique comment utiliser Azure Monitor pour collecter et analyser d
 ## <a name="differences-from-other-azure-resources"></a>Différences par rapport aux autres ressources Azure
 [Supervision des ressources Azure avec Azure Monitor](monitor-azure-resource.md) décrit les données de supervision générées par les ressources Azure et comment utiliser les fonctionnalités d’Azure Monitor pour analyser ces données et créer des alertes. Vous pouvez collecter et utiliser les mêmes données de supervision sur des machines virtuelles Azure avec les différences suivantes :
 
-- Les [métriques de plateforme](../platform/data-platform-metrics.md) sont collectées automatiquement pour les machines virtuelles, mais uniquement pour l’[hôte de machine virtuelle](#monitoring-data). Vous avez besoin d’un agent pour collecter les données de performances du système d’exploitation invité. 
+-  Les [métriques de plateforme](../platform/data-platform-metrics.md) sont collectées automatiquement pour les machines virtuelles, mais uniquement pour l’[hôte de machine virtuelle](#monitoring-data). Vous avez besoin d’un agent pour collecter les données de performances du système d’exploitation invité. 
 - Les machines virtuelles ne génèrent pas de [journaux de ressources](../platform/platform-logs-overview.md) qui fournissent des insights sur les opérations qui ont été effectuées au sein d’une ressource Azure. Vous utilisez un agent pour collecter les données de journal du système d’exploitation invité.
 - Vous pouvez créer des [paramètres de diagnostic](../platform/diagnostic-settings.md) pour qu’une machine virtuelle envoie des métriques de plateforme à d’autres destinations comme le stockage et les hubs d’événements, mais vous ne pouvez pas configurer ces paramètres de diagnostic dans le portail Azure. 
 
@@ -121,7 +121,6 @@ az monitor diagnostic-settings create \
 --resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm \
 --metrics '[{"category": "AllMetrics","enabled": true}]' \
 --workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace
-
 ```
 
 ## <a name="monitoring-in-the-azure-portal"></a>Surveillance dans le portail Azure 
@@ -149,12 +148,13 @@ Une fois que vous avez configuré la collecte des données de supervision pour u
 ## <a name="analyzing-metric-data"></a>Analyse des données de métrique
 Vous pouvez analyser les métriques des machines virtuelles à l’aide de Metrics Explorer en ouvrant **Métriques** à partir du menu de la machine virtuelle. Pour plus d’informations sur l’utilisation de cet outil, consultez [Prise en main d’Azure Metrics Explorer](../platform/metrics-getting-started.md). 
 
-Deux espaces de noms sont utilisés par les machines virtuelles pour les métriques :
+Deux espaces de noms sont utilisés par les machines virtuelles pour les métriques :
 
-| Espace de noms | Description |
-|:---|:---|
-| Hôte de machine virtuelle | Les métriques d’hôte sont automatiquement collectées pour toutes les machines virtuelles Azure. Liste détaillée des métriques sur [Microsoft.Compute/virtualMachines](../platform/metrics-supported.md#microsoftcomputevirtualmachines). |
-| Invité de machine virtuelle | Métriques de système d’exploitation invité collectées sur les machines virtuelles où l’extension de diagnostic est installée et configurée pour l’envoi au récepteur Azure Monitor. |
+| Espace de noms | Description | Condition requise |
+|:---|:---|:---|
+| Hôte de machine virtuelle | Les métriques d’hôte sont automatiquement collectées pour toutes les machines virtuelles Azure. Liste détaillée des métriques sur [Microsoft.Compute/virtualMachines](../platform/metrics-supported.md#microsoftcomputevirtualmachines). | Informations collectées automatiquement sans configuration requise. |
+| Invité (classique) | Ensemble limité de données sur les performances du système d’exploitation invité et les applications. Disponible dans Metrics Explorer, mais non avec d’autres fonctionnalités de Microsoft Azure Monitor telles que les alertes de mesures.  | [Extension de diagnostic](../platform/diagnostics-extension-overview.md) installée. Les données sont lues à partir du stockage Azure.  |
+| Invité de machine virtuelle | Les données sur les performances des applications et du système d’exploitation invité sont disponibles pour toutes les fonctionnalités de Microsoft Azure Monitor, via des mesures. | Pour Windows : [extension de diagnostic installée](../platform/diagnostics-extension-overview.md) avec récepteur Azure Monitor activé. Pour Linux : [agent Telegraf installé](../platform/collect-custom-metrics-linux-telegraf.md). |
 
 ![Mesures](media/monitor-vm-azure/metrics.png)
 

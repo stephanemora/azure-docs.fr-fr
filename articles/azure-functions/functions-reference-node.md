@@ -4,12 +4,12 @@ description: Découvrez comment développer des fonctions à l’aide de JavaScr
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
 ms.date: 12/17/2019
-ms.openlocfilehash: 345df8e1ea88caa6f8dbe941245c1f989c3e81c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 51d8c951958dc5fb4b26e92337f96e7a5c758999
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234961"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996599"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 
@@ -128,7 +128,7 @@ Les entrées sont réparties en deux catégories dans Azure Functions : l’une 
    };
    ```
 
-### <a name="outputs"></a>Outputs
+### <a name="outputs"></a>Sorties
 Une fonction peut écrire des données dans les sorties (liaisons de `direction === "out"`) de plusieurs façons. Dans tous les cas, la propriété `name` de la liaison, comme définie dans *function.json* correspond au nom du membre d’objet faisant l’objet d’une écriture dans votre fonction. 
 
 Vous pouvez assigner des données aux liaisons de sortie de l’une des manières suivantes (ne combinez pas ces méthodes) :
@@ -572,9 +572,6 @@ Lorsque vous ciblez la version 2.x du runtime Functions, [Azure Functions pour V
 Un fichier `.funcignore` généré est utilisé pour indiquer les fichiers exclus lorsqu’un projet est publié dans Azure.  
 
 Les fichiers TypeScript (.ts) sont transpilés en fichiers JavaScript (.js) dans le répertoire de sortie `dist`. Les modèles TypeScript utilisent le [`scriptFile`paramètre](#using-scriptfile) dans `function.json` pour indiquer l’emplacement du fichier .js correspondant dans le dossier `dist`. L’emplacement de sortie est défini par le modèle à l’aide du paramètre `outDir` dans le fichier `tsconfig.json`. Si vous modifiez ce paramètre ou le nom du dossier, le runtime n’est pas en mesure de trouver le code à exécuter.
-
-> [!NOTE]
-> Il existe une prise en charge expérimentale de TypeScript version 1.x du runtime Functions. La version expérimentale transpile les fichiers TypeScript en fichiers JavaScript lorsque la fonction est appelée. Dans la version 2.x, cette prise en charge expérimentale a été remplacée par la méthode contrôlée par l’outil qui effectue la transpilation avant l’initialisation de l’hôte et pendant le processus de déploiement.
 
 La façon dont vous développez localement et déployez à partir d’un projet TypeScript dépend de votre outil de développement.
 

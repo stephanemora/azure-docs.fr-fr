@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 9b78c0d93b57a3e3f4963088d0b93f121f57483c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eeeb60cc41f96edbf8733468ca0cfd18d2939af7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78945104"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652543"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Comment utiliser le filtre de paquets de FreeBSD pour créer un pare-feu sécurisé dans Azure
 Cet article explique comment déployer un pare-feu NAT à l’aide du filtre de paquets FreeBSD via le modèle Azure Resource Manager pour un scénario de serveur web courant.
@@ -34,7 +34,7 @@ Vous devez avoir la dernière version [d’Azure CLI](/cli/azure/install-az-cli2
 az group create --name myResourceGroup --location westus
 ```
 
-Ensuite, déployez le modèle MongoDB [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) avec [az group deployment create](/cli/azure/group/deployment). Téléchargez [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) sous le même chemin d’accès et définissez vos propres valeurs de ressource, comme `adminPassword`, `networkPrefix` et `domainNamePrefix`. 
+Ensuite, déployez le modèle pf-freebsd-setup avec la commande [az group deployment create](/cli/azure/group/deployment). Téléchargez azuredeploy.parameters.json sous le même chemin d’accès et définissez vos propres valeurs de ressource, comme `adminPassword`, `networkPrefix` et `domainNamePrefix`. 
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeploymentName \
@@ -49,7 +49,7 @@ az network public-ip list --resource-group myResourceGroup
 ```
     
 ## <a name="next-steps"></a>Étapes suivantes
-Voulez-vous configurer votre propre NAT dans Azure ? L’Open Source, gratuit mais puissant ? Alors PF est un bon choix. En utilisant le modèle [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup), il vous suffit de cinq minutes pour configurer un pare-feu NAT avec équilibrage de charge de tourniquet à l’aide de PF de FreeBSD dans Azure pour un scénario de serveur web courant. 
+Voulez-vous configurer votre propre NAT dans Azure ? L’Open Source, gratuit mais puissant ? Alors PF est un bon choix. En utilisant le modèle pf-freebsd-setup, il vous suffit de cinq minutes pour configurer un pare-feu NAT avec équilibrage de charge de tourniquet à l’aide de PF de FreeBSD dans Azure pour un scénario de serveur web courant. 
 
 Si vous souhaitez en savoir plus sur l’offre de FreeBSD dans Azure, reportez-vous à [Présentation de FreeBSD sur Azure](freebsd-intro-on-azure.md).
 

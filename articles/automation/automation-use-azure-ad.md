@@ -1,24 +1,21 @@
 ---
 title: Utiliser Azure AD dans Azure Automation pour l’authentification auprès d’Azure
-description: Découvrez comment utiliser Azure AD dans Azure Automation en tant que fournisseur pour l’authentification auprès d’Azure.
+description: Cet article montre comment utiliser Azure AD dans Azure Automation en tant que fournisseur pour l’authentification auprès d’Azure.
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 90338a1ffa79e6c2347832cb2e74633db02ec72d
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 017341fd72329d0538a3cf2a6ec20d03ee6152cc
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548335"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830563"
 ---
-# <a name="use-azure-ad-in-azure-automation-to-authenticate-to-azure"></a>Utiliser Azure AD dans Azure Automation pour l’authentification auprès d’Azure
+# <a name="use-azure-ad-to-authenticate-to-azure"></a>Utiliser Azure AD pour s’authentifier sur Azure
 
 Le service [Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) active un certain nombre de tâches administratives, telles que la gestion des utilisateurs, la gestion des domaines et la configuration de l’authentification unique. Cet article explique comment utiliser Azure AD dans Azure Automation en tant que fournisseur pour l’authentification auprès d’Azure. 
 
->[!NOTE]
->Cet article a été mis à jour pour tenir compte de l’utilisation du nouveau module Az d’Azure PowerShell. Vous pouvez toujours utiliser le module AzureRM, qui continue à recevoir des correctifs de bogues jusqu’à au moins décembre 2020. Pour en savoir plus sur le nouveau module Az et la compatibilité avec AzureRM, consultez [Présentation du nouveau module Az d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Pour obtenir des instructions relatives à l’installation du module Az sur votre Runbook Worker hybride, voir [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Pour votre compte Automation, vous pouvez mettre à jour vos modules vers la dernière version en suivant les instructions du [Guide de mise à jour des modules Azure PowerShell dans Azure Automation](automation-update-azure-modules.md).
-
-## <a name="installing-azure-ad-modules"></a>Installation des modules Azure AD
+## <a name="install-azure-ad-modules"></a>Installer des modules Azure AD
 
 Vous pouvez activer Azure AD par le biais des modules PowerShell suivants :
 
@@ -67,11 +64,11 @@ Avant d’installer les modules Azure AD sur votre ordinateur :
 
 Azure Automation utilise la classe [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) pour représenter une ressource d’informations d’identification. Vos scripts récupèrent des objets `PSCredential` à l’aide de la cmdlet `Get-AutomationPSCredential`. Pour plus d’informations, consultez [Ressources d’informations d’identification dans Azure Automation](shared-resources/credentials.md).
 
-## <a name="assigning-a-subscription-administrator"></a>Attribution d’un administrateur d’abonnement
+## <a name="assign-a-subscription-administrator"></a>Attribuer un administrateur d’abonnement
 
 Vous devez désigner un administrateur pour l’abonnement Azure. Cette personne a le rôle Propriétaire pour l’étendue de l’abonnement. Voir [Contrôle d’accès en fonction du rôle dans Azure Automation](automation-role-based-access-control.md). 
 
-## <a name="changing-the-azure-ad-users-password"></a>Modification du mot de passe de l’utilisateur Azure AD
+## <a name="change-the-azure-ad-users-password"></a>Modifier le mot de passe de l’utilisateur Azure AD
 
 Pour modifier le mot de passe de l’utilisateur Azure AD :
 
@@ -81,11 +78,11 @@ Pour modifier le mot de passe de l’utilisateur Azure AD :
 
 3. Demandez à l’administrateur de modifier le mot de passe lorsqu’il y est invité.
 
-## <a name="configuring-azure-automation-to-use-the-azure-ad-user-to-manage-the-azure-subscription"></a>Configuration d’Azure Automation pour gérer l’abonnement Azure à l’aide de l’utilisateur Azure AD
+## <a name="configure-azure-automation-to-manage-the-azure-subscription"></a>Configurer Azure Automation pour la gestion de l’abonnement Azure
 
 Pour qu’Azure Automation communique avec Azure AD, vous devez récupérer les informations d’identification associées à la connexion Azure à Azure AD. Il s’agit par exemple de l’ID de locataire, de l’ID d’abonnement, etc. Pour plus d’informations sur la connexion entre Azure et Azure AD, consultez [Connecter votre organisation à Azure Active Directory](https://docs.microsoft.com/azure/devops/organizations/accounts/connect-organization-to-azure-ad?view=azure-devops).
 
-## <a name="creating-a-credential-asset"></a>Création d’une ressource d’informations d’identification
+## <a name="create-a-credential-asset"></a>Créer une ressource d’informations d’identification
 
 À présent que les informations d’identification Azure pour Azure AD sont disponibles, il est temps de créer une ressource d’informations d’identification Azure Automation pour stocker en toute sécurité les informations d’identification d’Azure AD afin que les runbooks et les scripts Desire State Configuration (DSC) puissent y accéder. Vous pouvez effectuer cette opération dans le Portail Azure ou à l’aide de cmdlets PowerShell.
 
@@ -97,7 +94,7 @@ Vous pouvez utiliser le Portail Azure pour créer la ressource d’informations 
 
 Pour préparer une nouvelle ressource d’informations d’identification dans Windows PowerShell, votre script crée d’abord un objet `PSCredential` à l’aide du nom d’utilisateur et du mot de passe attribués. Le script utilise ensuite cet objet pour créer la ressource par le biais d’un appel à la cmdlet [New-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0). Le script peut également appeler la cmdlet [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) pour inviter l’utilisateur à saisir un nom et un mot de passe. Voir [Ressources d’informations d’identification dans Azure Automation](shared-resources/credentials.md). 
 
-## <a name="managing-azure-resources-from-an-azure-automation-runbook"></a>Gestion des ressources Azure à partir d’un runbook Azure Automation
+## <a name="manage-azure-resources-from-an-azure-automation-runbook"></a>Gérer des ressources Azure à partir d’un runbook Azure Automation
 
 Vous pouvez gérer les ressources Azure à partir de runbooks Azure Automation en utilisant la ressource d’informations d’identification. Vous trouverez ci-dessous un exemple de runbook PowerShell qui collecte la ressource d’informations d’identification à utiliser pour l’arrêt et le démarrage des machines virtuelles dans un abonnement Azure. Ce runbook utilise tout d’abord `Get-AutomationPSCredential` pour récupérer les informations d’identification à utiliser pour l’authentification auprès d’Azure. Il appelle ensuite la cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.6.1) pour se connecter à Azure à l’aide des informations d’identification. Le script utilise la cmdlet [Select-AzureSubscription](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0) pour choisir l’abonnement à utiliser. 
 
@@ -162,7 +159,7 @@ Workflow Stop-Start-AzureVM
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Vous trouverez des informations sur les ressources d’informations d’identification Automation dans [Ressources d’informations d’identification dans Azure Automation](shared-resources/credentials.md).
-* Consultez [Gérer les modules dans Azure Automation](shared-resources/modules.md) pour savoir comment utiliser les modules Automation.
-* Pour en savoir plus sur les méthodes qui peuvent être utilisées pour démarrer un runbook dans Azure Automation, consultez [Démarrage d’un runbook dans Azure Automation](automation-starting-a-runbook.md).
-* Pour plus d’informations sur PowerShell, notamment des informations de référence sur le langage et des modules de formation, consultez la [documentation PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+* Pour plus d’informations sur l’utilisation des informations d’identification, voir [Gérer les informations d’identification dans Azure Automation](shared-resources/credentials.md).
+* Pour en savoir plus sur les modules, voir [Gestion des modules dans Azure Automation](shared-resources/modules.md).
+* Si vous devez démarrer un runbook, voir [Démarrer un runbook dans Azure Automation](start-runbooks.md).
+* Pour plus d’informations sur PowerShell, consultez la [documentation PowerShell](https://docs.microsoft.com/powershell/scripting/overview).

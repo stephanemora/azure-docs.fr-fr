@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 70cd4f2ca3a4ac37bdf1d1e465d1f1a7d06ef9e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1989f65f73ac4f9dc8dd328fa9d7ed267eec1aa
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78189699"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636412"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurer le flux des informations d’identification par mot de passe du propriétaire de ressource dans Azure AD B2C
 
@@ -40,7 +40,7 @@ Le flux des informations d’identification par mot de passe du propriétaire de
 
    Vous voyez ensuite un point de terminaison comme cet exemple :
 
-   `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
+   `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/v2.0/.well-known/openid-configuration`
 
 
 ## <a name="register-an-application"></a>Inscrire une application
@@ -50,17 +50,17 @@ Le flux des informations d’identification par mot de passe du propriétaire de
 ## <a name="test-the-user-flow"></a>Tester le flux utilisateur
 
 Utilisez votre application de développement d’API favorite pour générer un appel d’API et examinez la réponse pour déboguer votre flux d’utilisateur. Construisez un appel comme celui-ci, avec les informations contenues dans le tableau suivant en tant que corps de la requête POST :
-- Remplacez *\<yourtenant.onmicrosoft.com>* par le nom de votre locataire B2C.
+- Remplacez *\<tenant-name>.onmicrosoft.com* par le nom de votre locataire B2C.
 - Remplacez *\<B2C_1A_ROPC_Auth>* par le nom complet de votre stratégie d’informations d’identification de mot de passe du propriétaire de ressource.
 - Remplacez *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* par l’ID d’application issu de votre inscription.
 
-`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
 | Clé | Valeur |
 | --- | ----- |
 | username | leadiocl@outlook.com |
-| password | Passxword1 |
-| grant_type | password |
+| mot de passe | Passxword1 |
+| grant_type | mot de passe |
 | scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | jeton id_token |
@@ -70,8 +70,8 @@ Utilisez votre application de développement d’API favorite pour générer un 
 La requête POST réelle ressemble à la suivante :
 
 ```
-POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth HTTP/1.1
-Host: yourtenant.b2clogin.com
+POST /<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token HTTP/1.1
+Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
@@ -94,7 +94,7 @@ Une réponse correcte avec accès hors connexion ressemble à l’exemple suivan
 
 Construisez un appel POST comme celui figurant ici, avec les informations contenues dans le tableau suivant en tant que corps de la requête :
 
-`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
 | Clé | Valeur |
 | --- | ----- |

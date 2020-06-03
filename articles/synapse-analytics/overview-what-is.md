@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c458b1c04a7f3be1a43d725591426e619286b7d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0f34b853728c91d9e3c6e32396c0f7eb427af101
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587871"
+ms.locfileid: "83656207"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Présentation d’Azure Synapse Analytics (espaces de travail, préversion)
 
@@ -63,7 +63,7 @@ Azure Synapse supprime les barrières technologiques traditionnelles qui empêch
 
 Azure Synapse fournit par défaut le même moteur d’intégration de données et les mêmes expériences qu’Azure Data Factory, ce qui vous permet de créer des pipelines de données avancés sans recourir à un moteur d’orchestration distinct.
 
-* Déplacer des données entre Synapse et 85+ sources de données locales
+* Déplacer des données entre Azure Synapse et plus de 90 sources de données locales
 * Orchestrer des notebooks, des pipelines, des travaux Spark, des scripts SQL, des procédures stockées
 * ETL sans code avec les activités de flux de données
 
@@ -87,6 +87,6 @@ Azure Synapse offre aux entreprises une méthode unique pour gérer les ressourc
 
 * [Créer un espace de travail](quickstart-create-workspace.md)
 * [Utiliser Synapse Studio](quickstart-synapse-studio.md)
-* [Créer un pool SQL](quickstart-create-sql-pool.md)
+* [Créer un pool SQL](quickstart-create-sql-pool-portal.md)
 * [Utiliser SQL à la demande](quickstart-sql-on-demand.md)
-* [Créer un pool Apache Spark](quickstart-create-apache-spark-pool.md)
+* [Créer un pool Apache Spark](quickstart-create-apache-spark-pool-portal.md)

@@ -12,12 +12,12 @@ ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad27ad5e34d9f44fe7d7be80e05e33dd6fb5e7b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d97cef332b24700920693bab55dcbd396015dc7
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79224925"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758365"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Configurer l’authentification unique SAML pour des applications non issues de la galerie
 
@@ -26,7 +26,7 @@ Lorsque vous [ajoutez une application galerie](add-gallery-app.md) ou une [appli
 > [!NOTE]
 > Vous ajoutez application de la galerie ? Découvrez des instructions de configuration pas à pas dans la [liste des tutoriels sur les applications SaaS](../saas-apps/tutorial-list.md)
 
-Si vous voulez configurer l’authentification unique SAML pour une application non issue de la galerie sans écrire de code, vous devez disposer d’un abonnement et d’une licence Azure AD Premium. De plus, l’application doit prendre en charge SAML 2.0. Pour plus d’informations sur les versions d’Azure AD, consultez [Tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Si vous voulez configurer l’authentification unique SAML pour une application non issue de la galerie sans écrire de code, vous devez disposer d’un abonnement Azure AD et l’application doit prendre en charge SAML 2.0. Pour plus d’informations sur les versions d’Azure AD, consultez [Tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

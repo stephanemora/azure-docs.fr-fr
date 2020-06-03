@@ -1,21 +1,21 @@
 ---
 title: Authentifier avec des identités gérées
-description: Accéder aux ressources d’autres locataires Azure Active Directory informations d’identification ou secrets en utilisant une identité managée
+description: Accédez à des ressources protégées par Azure Active Directory sans informations d’identification ni secrets en utilisant une identité managée.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 82710a66cdf7874c745070e49b2c7aff7bc8816d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73f3e7561b97574c4603e480b972eaf2a9a1ed48
+ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77117405"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83708038"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Authentifier l’accès aux ressources Azure avec des identités managées dans Azure Logic Apps
 
-Pour accéder aux ressources d’autres locataires Azure AD (Azure Active Directory) et authentifier votre identité sans vous connecter, votre application logique peut utiliser une [identité managée](../active-directory/managed-identities-azure-resources/overview.md) (anciennement appelée MSI ou Managed Service Identity) à la place d’informations d’identification ou de secrets. Azure gère cette identité pour vous et vous aide à sécuriser vos informations d’identification, car vous n’êtes pas obligé de fournir ni de faire pivoter des secrets.
+Pour accéder facilement à d’autres ressources protégées par Azure Active Directory (Azure AD) et authentifier votre identité sans vous connecter, votre application logique peut utiliser une [identité managée](../active-directory/managed-identities-azure-resources/overview.md) (anciennement appelée MSI ou Managed Service Identity) à la place d’informations d’identification ou de secrets. Azure gère cette identité pour vous et vous aide à sécuriser vos informations d’identification, car vous n’êtes pas obligé de fournir ni de faire pivoter des secrets.
 
 Azure Logic Apps prend en charge les identités managées [*affectées par le système*](../active-directory/managed-identities-azure-resources/overview.md) et [*affectées par l’utilisateur*](../active-directory/managed-identities-azure-resources/overview.md). Votre application logique peut utiliser soit l’identité affectée par le système, soit une *seule* identité affectée par l’utilisateur, que vous pouvez partager dans un groupe d’applications logiques. Seuls des [déclencheurs et actions intégrés spécifiques](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound) prennent en charge les identités managées, et non les connecteurs ou connexions managés, par exemple :
 

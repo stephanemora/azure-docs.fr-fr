@@ -4,19 +4,19 @@ description: Créez des entités pour extraire les données clés des énoncés 
 ms.topic: reference
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: 1665f1ef8a868b011e9e4de8562aeda9edef5ce2
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a0139cf5ef424288c41c436fb63313494404f841
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585570"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684536"
 ---
 # <a name="pattern-syntax"></a>Syntaxe du modèle
 
 La syntaxe du modèle est un modèle d’énoncé. Le modèle doit contenir les mots et entités que vous souhaitez faire correspondre, ainsi que les mots et la [ponctuation](luis-reference-application-settings.md#punctuation-normalization) que vous souhaitez ignorer. Ce n’est **pas** une expression régulière.
 
 > [!CAUTION]
-> Les modèles incluent uniquement les parents d’entité issues du Machine Learning, pas les sous-entités.
+> Les modèles incluent uniquement les parents d’entité de Machine Learning, pas les sous-entités.
 
 Les entités des modèles sont placées entre accolades, `{}`. Les modèles peuvent inclure des entités et des entités avec rôles. [Pattern.any](luis-concept-entity-types.md#patternany-entity) est une entité qui n’est utilisée que dans les modèles.
 

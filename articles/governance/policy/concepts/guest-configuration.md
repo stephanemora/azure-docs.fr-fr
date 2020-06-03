@@ -1,14 +1,14 @@
 ---
 title: Découvrez comment auditer le contenu des machines virtuelles
 description: Découvrez comment Azure Policy utilise l’agent Configuration d’invité pour auditer les paramètres à l’intérieur des machines virtuelles.
-ms.date: 11/04/2019
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 89f7cc3931971d70b441490f77b67ace89434c2b
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.openlocfilehash: 6ff24f14281712497798f2c5231a8d98d7d89055
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82025218"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684279"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -18,7 +18,8 @@ En plus de l’audit et de la [correction](../how-to/remediate-resources.md) des
 - La configuration ou la présence de l’application
 - Paramètres d'environnement
 
-À ce stade, la plupart des stratégies de configuration d’invité Azure Policy effectue uniquement un audit des paramètres à l’intérieur de la machine. Elles n’appliquent pas de configurations. L’exception est une stratégie intégrée [référencée ci-dessous](#applying-configurations-using-guest-configuration).
+À ce stade, la plupart des stratégies de configuration d’invité Azure Policy effectue uniquement un audit des paramètres à l’intérieur de la machine.
+Elles n’appliquent pas de configurations. L’exception est une stratégie intégrée [référencée ci-dessous](#applying-configurations-using-guest-configuration).
 
 ## <a name="resource-provider"></a>Fournisseur de ressources
 
@@ -28,11 +29,10 @@ Avant de pouvoir utiliser la configuration d’invité, vous devez inscrire le f
 
 Pour auditer les paramètres à l’intérieur d’une machine, une [extension de machine virtuelle](../../../virtual-machines/extensions/overview.md) est activée. L’extension télécharge l’attribution de stratégie applicable et la définition de configuration correspondante.
 
-> [!Important]
-> L’extension Guest Configuration est requise pour effectuer des audits sur des machines virtuelles Azure.
-> Pour déployer l’extension à grande échelle, attribuez les définitions de stratégie suivantes :
->   - [Déployer les prérequis pour activer la stratégie de configuration d’invité sur les machines virtuelles Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
->   - [Déployer les prérequis pour activer la stratégie de configuration d’invité sur les machines virtuelles Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
+> [!IMPORTANT]
+> L’extension Guest Configuration est requise pour effectuer des audits sur des machines virtuelles Azure. Pour déployer l’extension à grande échelle, attribuez les définitions de stratégie suivantes : 
+>  - [Déployer les prérequis pour activer la stratégie de configuration d’invité sur les machines virtuelles Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+>  - [Déployer les prérequis pour activer la stratégie de configuration d’invité sur les machines virtuelles Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ### <a name="limits-set-on-the-extension"></a>Limites définies sur l’extension
 
@@ -47,16 +47,16 @@ Le tableau suivant affiche une liste des outils locaux utilisés sur chaque syst
 |Système d’exploitation|Outil de validation|Notes|
 |-|-|-|
 |Windows|[Configuration d’état souhaité Windows PowerShell](/powershell/scripting/dsc/overview/overview) v2| |
-|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Si Ruby et Python ne sont pas présents sur l’ordinateur, ils sont installés par l’extension de configuration d’invité. |
+|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Si Ruby et Python ne sont pas présents sur la machine, ils sont installés par l’extension de configuration d’invité. |
 
 ### <a name="validation-frequency"></a>Fréquence de validation
 
-Le client de configuration d'invité vérifie le nouveau contenu toutes les 5 minutes. Une fois l’affectation d’invité reçue, les paramètres de cette configuration sont revérifiés à intervalle de 15 minutes.
-Les résultats sont envoyés au fournisseur de ressources de configuration d’invité dès la fin de l’audit. Lorsqu'un [déclencheur d’évaluation](../how-to/get-compliance-data.md#evaluation-triggers) de stratégie intervient, l'état de la machine est consigné dans le fournisseur de ressources de configuration d'invité. Avec cette mise à jour, Azure Policy évalue alors les propriétés Azure Resource Manager. Une évaluation Azure Policy à la demande récupère la valeur la plus récente du fournisseur de ressources de configuration d'invité. Cela étant, elle ne déclenche pas de nouvel audit de la configuration de la machine.
+Le client de configuration d'invité vérifie le nouveau contenu toutes les 5 minutes. Une fois l’affectation d’invité reçue, les paramètres de cette configuration sont revérifiés à intervalle de 15 minutes. Les résultats sont envoyés au fournisseur de ressources de configuration d’invité dès la fin de l’audit. Lorsqu'un [déclencheur d’évaluation](../how-to/get-compliance-data.md#evaluation-triggers) de stratégie intervient, l'état de la machine est consigné dans le fournisseur de ressources de configuration d'invité. Avec cette mise à jour, Azure Policy évalue alors les propriétés Azure Resource Manager. Une évaluation Azure Policy à la demande récupère la valeur la plus récente du fournisseur de ressources de configuration d'invité. Cela étant, elle ne déclenche pas de nouvel audit de la configuration de la machine.
 
 ## <a name="supported-client-types"></a>Types de clients pris en charge
 
-Les stratégies de configuration d’invité sont incluses dans les nouvelles versions. Les versions antérieures des systèmes d’exploitation disponibles dans la Place de marché Azure sont exclues si l’agent de configuration d'invité n’est pas compatible. Le tableau suivant affiche une liste des systèmes d’exploitation pris en charge sur des images Azure :
+Les stratégies de configuration d’invité sont incluses dans les nouvelles versions. Les versions antérieures des systèmes d’exploitation disponibles dans la Place de marché Azure sont exclues si l’agent de configuration d’invité n’est pas compatible.
+Le tableau suivant affiche une liste des systèmes d’exploitation pris en charge sur des images Azure :
 
 |Serveur de publication|Nom|Versions|
 |-|-|-|
@@ -68,7 +68,7 @@ Les stratégies de configuration d’invité sont incluses dans les nouvelles ve
 |Red Hat|Red Hat Enterprise Linux|7.4 ou version ultérieure|
 |SUSE|SLES|12 SP3 ou version ultérieure|
 
-Les images de machine virtuelle personnalisées sont prises en charge par les stratégies de configuration d'invité, dans la mesure où il s’agit d'un des systèmes d’exploitation répertoriés dans le tableau ci-dessus.
+Les images de machine virtuelle personnalisées sont prises en charge par les stratégies de configuration d’invité, dans la mesure où il s’agit d’un des systèmes d’exploitation répertoriés dans le tableau ci-dessus.
 
 ### <a name="unsupported-client-types"></a>Types de clients non pris en charge
 
@@ -76,19 +76,18 @@ Windows Server Nano Server n’est pris en charge dans aucune version.
 
 ## <a name="guest-configuration-extension-network-requirements"></a>Configuration réseau requise pour l’extension de configuration d’invité
 
-Pour communiquer avec le fournisseur de ressources de configuration d’invité dans Azure, les machines nécessitent un accès sortant vers des centres de données Azure sur le port **443**. Si un réseau dans Azure n’autorise pas le trafic sortant, configurez des exceptions à l’aide de règles du [Groupe de sécurité réseau](../../../virtual-network/manage-network-security-group.md#create-a-security-rule).
-L’[étiquette de service](../../../virtual-network/service-tags-overview.md) « GuestAndHybridManagement » peut être utilisée pour référencer le service Guest Configuration.
+Pour communiquer avec le fournisseur de ressources de configuration d’invité dans Azure, les machines nécessitent un accès sortant vers des centres de données Azure sur le port **443**. Si un réseau dans Azure n’autorise pas le trafic sortant, configurez des exceptions à l’aide de règles du [Groupe de sécurité réseau](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). L’[étiquette de service](../../../virtual-network/service-tags-overview.md) « GuestAndHybridManagement » peut être utilisée pour référencer le service Guest Configuration.
 
-## <a name="azure-managed-identity-requirements"></a>Exigences relatives à l’identité managée Azure
+## <a name="managed-identity-requirements"></a>Exigences relatives à l’identité managée
 
 Les stratégies **DeployIfNotExists** qui ajoutent l’extension à des machines virtuelles activent également une identité managée affectée par le système, s’il n’en existe pas.
 
 > [!WARNING]
-> Évitez d’activer l’identité managée affectée par l’utilisateur à des machines virtuelles situées dans l’étendue pour des stratégies qui autorisent une identité managée affectée par le système. L’identité affectée par l’utilisateur sera remplacée et la machine pourrait cesser de répondre.
+> Évitez d’activer l’identité managée affectée par l’utilisateur à des machines virtuelles situées dans l’étendue pour des stratégies qui autorisent une identité managée affectée par le système. L’identité affectée par l’utilisateur est remplacée et la machine peut alors cesser de répondre.
 
 ## <a name="guest-configuration-definition-requirements"></a>Exigences de définition de la configuration d’invité
 
-Chaque audit exécuté par la configuration d’invité nécessite deux définitions de stratégies : une définition **DeployIfNotExists** et une définition **AuditIfNotExists**. 
+Chaque audit exécuté par la configuration d’invité nécessite deux définitions de stratégies : une définition **DeployIfNotExists** et une définition **AuditIfNotExists**.
 
 La définition de stratégie **DeployIfNotExists** valide et corrige les éléments suivants :
 
@@ -112,7 +111,8 @@ Toutes les stratégies intégrées pour la configuration d’invité sont inclus
 
 Une initiative dans Azure Policy permet d’auditer les paramètres de système d’exploitation en suivant un « planning de référence ». La définition, _\[Préversion\] : Auditer les machines virtuelles Windows qui ne correspondent pas aux paramètres de la base de référence de sécurité Azure_ comprend un ensemble de règles basées sur une stratégie de groupe Active Directory.
 
-La plupart des paramètres sont disponibles en tant que tels. Les paramètres vous permettent de personnaliser ce qui est audité. Alignez la stratégie sur vos besoins ou mappez la stratégie à des informations tierces, telles que les normes réglementaires sectorielles.
+La plupart des paramètres sont disponibles en tant que tels. Les paramètres vous permettent de personnaliser ce qui est audité.
+Alignez la stratégie sur vos besoins ou mappez la stratégie à des informations tierces, telles que les normes réglementaires sectorielles.
 
 Certains paramètres prennent en charge une plage de valeurs entières. Par exemple, le paramètre Antériorité maximale du mot de passe peut auditer le paramètre Stratégie de groupe effectif. Une plage de « 1,70 » confirme que les utilisateurs doivent modifier leur mot de passe au moins tous les 70 jours, mais pas plus d’une fois par jour.
 
@@ -126,7 +126,7 @@ Lorsque vous attribuez des définitions qui commencent par _Configurer_, vous de
 
 #### <a name="assigning-policies-to-machines-outside-of-azure"></a>Attribution de stratégies à des machines en dehors d’Azure
 
-Les stratégies d’audit disponibles pour Guest Configuration incluent le type de ressource **Microsoft.HybridCompute/machines**. Toutes les machines intégrées à [Azure Arc pour les serveurs](../../../azure-arc/servers/overview.md) qui se trouvent dans l’étendue de l’attribution de stratégie sont automatiquement incluses.
+Les stratégies d’audit disponibles pour Guest Configuration incluent le type de ressource **Microsoft.HybridCompute/machines**. Toutes les machines intégrées à [Azure Arc pour serveurs](../../../azure-arc/servers/overview.md) qui relèvent du champ d’application de l’attribution de stratégies sont automatiquement incluses.
 
 ### <a name="multiple-assignments"></a>Affectations multiples
 

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f35658a75adb4d4c6c279e45087e741b8117e65
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fda84a68921500e8ba40aa6d04bfb5939f79a1ef
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481379"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736481"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configurer des domaines personnalisés dans avec le Proxy d’application Azure AD
 
@@ -143,6 +143,6 @@ Vous pouvez utiliser le même certificat pour plusieurs applications. Si un cert
 Quand un certificat expire, vous recevez un message d’avertissement vous demandant de charger un autre certificat. Si le certificat est révoqué, il se peut que vos utilisateurs reçoivent un avertissement de sécurité lors de l’accès à l’application. Pour mettre à jour le certificat d’une application, accédez à la page **Proxy d’application** de l’application, sélectionnez **Certificat**, puis chargez un nouveau certificat. Si l’ancien certificat n’est pas utilisé par d’autres applications, il est automatiquement supprimé. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Activer l’authentification unique](application-proxy-configure-single-sign-on-with-kcd.md) pour vos applications publiées avec l’authentification Azure AD.
-* [Activer l’accès conditionnel](../conditional-access/overview.md) à vos applications publiées.
 
+* [Activer l’authentification unique](application-proxy-configure-single-sign-on-with-kcd.md) pour vos applications publiées avec l’authentification Azure AD.
+* [Accès conditionnel](../conditional-access/concept-conditional-access-cloud-apps.md) pour vos applications cloud publiées.

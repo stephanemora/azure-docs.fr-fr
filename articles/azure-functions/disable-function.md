@@ -2,13 +2,13 @@
 title: Guide pratique pour désactiver des fonctions dans Azure Functions
 description: Découvrez comment désactiver et activer des fonctions dans Azure Functions.
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.openlocfilehash: 11585e92e7d239731b02d06c5093f979cd65cfba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/08/2020
+ms.openlocfilehash: ee701e8df8faddef9bbdb16e7a1048c4dc2e40a5
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686884"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848737"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Guide pratique pour désactiver des fonctions dans Azure Functions
 
@@ -39,7 +39,7 @@ az functionapp config appsettings set --name <myFunctionApp> \
 
 ## <a name="use-the-portal"></a>Utiliser le portail
 
-Vous pouvez également utiliser le commutateur **État de la fonction** sous l’onglet **Gérer** de la fonction. Le commutateur crée et supprime le paramètre d’application `AzureWebJobs.<FUNCTION_NAME>.Disabled`.
+Vous pouvez également utiliser les boutons **Activer** et **Désactiver** sur la page **Vue d’ensemble** de la fonction. Ces boutons créent et suppriment le paramètre d’application `AzureWebJobs.<FUNCTION_NAME>.Disabled`.
 
 ![Commutateur d’état de la fonction](media/disable-function/function-state-switch.png)
 
@@ -122,9 +122,9 @@ or
 
 Dans le deuxième exemple, la fonction est désactivée quand un paramètre d’application nommé IS_DISABLED existe et a la valeur `true` ou 1.
 
-Vous pouvez modifier le fichier dans le portail Azure ou utiliser le commutateur **État de la fonction** sous l’onglet **Gérer** de la fonction. Le commutateur du portail change le fichier *function.json*.
+>[!IMPORTANT]  
+>Le portail utilise désormais les paramètres d’application pour désactiver les fonctions v1.x. Lorsqu’un paramètre d’application est en conflit avec le fichier function.json, une erreur peut se produire. Vous devez supprimer la propriété `disabled` du fichier function.json pour éviter les erreurs. 
 
-![Commutateur d’état de la fonction](media/disable-function/function-state-switch.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

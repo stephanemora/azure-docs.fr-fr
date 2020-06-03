@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff4f1b81f476159c13d3725cd3cb1766aec7dc87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 770c16abeaeee3ad7a7e9baa973e23fde2d34509
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70305114"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771109"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Utiliser un fournisseur d’identité (IdP) SAML 2.0 pour l’authentification unique
 
@@ -90,14 +90,23 @@ Cette table présente les exigences des attributs spécifiques dans le message S
 Une paire de messages de requête et de réponse est affichée pour l’échange de messages d’authentification.
 Vous trouverez ci-dessous un exemple de message de requête envoyé à partir d’Azure AD à un exemple de fournisseur d’identité SAML 2.0. L’exemple de fournisseur d’identité SAML 2.0 est Active Directory Federation Services (AD FS) configuré pour utiliser le protocole SAML-P. Les tests d’interopérabilité ont également été effectués avec d’autres fournisseurs d’identité SAML 2.0.
 
-    `<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="_7171b0b2-19f2-4ba2-8f94-24b5e56b7f1e" IssueInstant="2014-01-30T16:18:35Z" Version="2.0" AssertionConsumerServiceIndex="0" >
-    <saml:Issuer>urn:federation:MicrosoftOnline</saml:Issuer>
-    <samlp:NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
-    </samlp:AuthnRequest>`
+```xml
+    <samlp:AuthnRequest 
+        xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" 
+        xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" 
+        ID="_7171b0b2-19f2-4ba2-8f94-24b5e56b7f1e" 
+        IssueInstant="2014-01-30T16:18:35Z" 
+        Version="2.0" 
+        AssertionConsumerServiceIndex="0" >
+            <saml:Issuer>urn:federation:MicrosoftOnline</saml:Issuer>
+            <samlp:NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
+    </samlp:AuthnRequest>
+```
 
 Vous trouverez ci-dessous un exemple de message de réponse envoyé depuis l’exemple de fournisseur d’identité SAML 2.0 vers Azure AD / Office 365.
 
-    `<samlp:Response ID="_592c022f-e85e-4d23-b55b-9141c95cd2a5" Version="2.0" IssueInstant="2014-01-31T15:36:31.357Z" Destination="https://login.microsoftonline.com/login.srf" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified" InResponseTo="_049917a6-1183-42fd-a190-1d2cbaf9b144" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+```xml
+    <samlp:Response ID="_592c022f-e85e-4d23-b55b-9141c95cd2a5" Version="2.0" IssueInstant="2014-01-31T15:36:31.357Z" Destination="https://login.microsoftonline.com/login.srf" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified" InResponseTo="_049917a6-1183-42fd-a190-1d2cbaf9b144" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
     <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">http://WS2012R2-0.contoso.com/adfs/services/trust</Issuer>
     <samlp:Status>
     <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success" />
@@ -146,7 +155,8 @@ Vous trouverez ci-dessous un exemple de message de réponse envoyé depuis l’e
       </AuthnContext>
     </AuthnStatement>
     </Assertion>
-    </samlp:Response>`
+    </samlp:Response>
+```
 
 ## <a name="configure-your-saml-20-compliant-identity-provider"></a>Configurer votre fournisseur d’identité compatible SAML 2.0
 Cette section contient des instructions sur comment configurer votre fournisseur d’identité SAML 2.0 pour établir la fédération avec Azure AD et permettre l’accès d’authentification unique à un ou plusieurs services cloud Microsoft (par exemple, Office 365) à l’aide du protocole SAML 2.0. La partie utilisatrice de SAML 2.0 pour un service de cloud Microsoft utilisée dans ce scénario est Azure AD.
@@ -184,17 +194,54 @@ La procédure suivante vous guide tout au long de la conversion d’un domaine s
 ## <a name="configuring-a-domain-in-your-azure-ad-directory-for-federation"></a>Configuration d’un domaine dans votre répertoire Azure AD pour la fédération
 
 
-1. Connectez-vous à votre répertoire Azure AD en tant qu'administrateur client : Connect-MsolService.
-2.  Configurez votre domaine Office 365 souhaité pour utiliser la fédération avec SAML 2.0 :`$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $BrandName -Authentication Federated -PassiveLogOnUri $LogOnUrl -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $MyURI -LogOffUri $LogOffUrl -PreferredAuthenticationProtocol $Protocol` 
+1. Connectez-vous à votre répertoire Azure AD en tant qu'administrateur client :
+
+    ```powershell
+    Connect-MsolService
+    ```
+    
+2. Configurez le domaine Office 365 de votre choix pour utiliser la fédération avec SAML 2.0 :
+
+    ```powershell
+    $dom = "contoso.com" 
+    $BrandName - "Sample SAML 2.0 IDP" 
+    $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" 
+    $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" 
+    $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" 
+    $MyURI = "urn:uri:MySamlp2IDP" 
+    $MySigningCert = "MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" 
+    $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" 
+    $Protocol = "SAMLP" 
+    Set-MsolDomainAuthentication `
+        -DomainName $dom `
+        -FederationBrandName $BrandName `
+        -Authentication Federated `
+        -PassiveLogOnUri $LogOnUrl `
+        -ActiveLogOnUri $ecpUrl `
+        -SigningCertificate $MySigningCert `
+        -IssuerUri $MyURI `
+        -LogOffUri $LogOffUrl `
+        -PreferredAuthenticationProtocol $Protocol
+    ``` 
 
 3.  Vous pouvez obtenir la chaîne codée en base 64 du certificat de signature à partir de votre fichier de métadonnées IDP. Un exemple de cet emplacement a été spécifié mais peut varier légèrement en fonction de votre mise en œuvre.
 
-    `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
+    ```xml
+    <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <KeyDescriptor use="signing">
+          <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#">
+             <X509Data>
+                 <X509Certificate> MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate>
+              </X509Data>
+            </KeyInfo>
+        </KeyDescriptor>
+    </IDPSSODescriptor>
+    ``` 
 
 Pour plus d’informations sur « Set-MsolDomainAuthentication », consultez : [https://technet.microsoft.com/library/dn194112.aspx](https://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
->Vous devez exécuter à l’aide de `$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"` uniquement si vous définissez une extension ECP pour votre fournisseur d’identité. Les clients Exchange Online, à l’exception d’Outlook Web Application (OWA), s’appuient sur un point de terminaison actif basé sur POST. Si votre STS SAML 2.0 met en œuvre un point de terminaison actif similaire à la mise en œuvre d’ECP de Shibboleth, il est possible pour ces clients riches d’interagir avec le service Exchange Online.
+>Vous devez utiliser `$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"` uniquement si vous définissez une extension ECP pour votre fournisseur d’identité. Les clients Exchange Online, à l’exception d’Outlook Web Application (OWA), s’appuient sur un point de terminaison actif basé sur POST. Si votre STS SAML 2.0 met en œuvre un point de terminaison actif similaire à la mise en œuvre d’ECP de Shibboleth, il est possible pour ces clients riches d’interagir avec le service Exchange Online.
 
 Une fois la fédération configurée, vous pouvez basculer vers « non fédéré » (ou « géré »), toutefois ce changement peut prendre jusqu'à deux heures et nécessite l’attribution de nouveaux mots de passe aléatoires pour l’authentification basée sur le cloud pour chaque utilisateur. Basculer vers « géré » peut être nécessaire dans certains scénarios pour réinitialiser une erreur dans vos paramètres. Pour plus d’informations sur la conversion de domaine, consultez : [https://msdn.microsoft.com/library/windowsazure/dn194122.aspx](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 
@@ -209,16 +256,17 @@ Cette procédure indique comment ajouter un utilisateur unique à Azure AD.
 
 
 1. Connectez-vous à votre répertoire Azure AD en tant qu'administrateur client : Connect-MsolService.
-2.  Créer un principal d’utilisateur :
+2. Créer un principal d’utilisateur :
+
     ```powershell
-    New-MsolUser
-      -UserPrincipalName elwoodf1@contoso.com
-      -ImmutableId ABCDEFG1234567890
-      -DisplayName "Elwood Folk"
-      -FirstName Elwood 
-      -LastName Folk 
-      -AlternateEmailAddresses "Elwood.Folk@contoso.com" 
-      -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
+    New-MsolUser `
+      -UserPrincipalName elwoodf1@contoso.com `
+      -ImmutableId ABCDEFG1234567890 `
+      -DisplayName "Elwood Folk" `
+      -FirstName Elwood `
+      -LastName Folk `
+      -AlternateEmailAddresses "Elwood.Folk@contoso.com" `
+      -LicenseAssignment "samlp2test:ENTERPRISEPACK" `
       -UsageLocation "US" 
     ```
 

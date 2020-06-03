@@ -4,12 +4,12 @@ description: Cet article explique comment utiliser l'Explorateur de sauvegarde p
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: 87780124d531212a141520df65ff7408cc120e55
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: e891ee1ccfbe929aaa8ac35518b40f5514da714f
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160987"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715203"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Superviser vos sauvegardes avec l’Explorateur de sauvegarde
 
@@ -30,6 +30,7 @@ Ces fonctionnalités sont fournies prêtes à l'emploi par une intégration nati
 > * L’Explorateur de sauvegarde n’est actuellement pas pris en charge sur les clouds nationaux.
 > * Il est actuellement impossible de personnaliser le modèle de l'Explorateur de sauvegarde.
 > * Nous vous déconseillons de créer des automatisations personnalisées sur les données Azure Resource Graph.
+> * Actuellement, l’Explorateur de sauvegarde vous permet de surveiller les sauvegardes sur un maximum de 1 000 abonnements (sur tous les locataires).
 
 ## <a name="get-started"></a>Bien démarrer
 

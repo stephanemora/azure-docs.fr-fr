@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: mjbrown
-ms.openlocfilehash: e416501cb3c532b3ba0a262442b35b236875a463
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0e7a2e9e5feb848971c4858415510f98a7bdaf78
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273293"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655335"
 ---
-# <a name="provision-throughput-on-an-azure-cosmos-container"></a>Provisionner du débit sur un conteneur Azure Cosmos
+# <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container"></a>Approvisionner le débit standard (manuel) sur un conteneur Azure Cosmos
 
-Cet article explique comment provisionner le débit sur un conteneur (collection, graphe ou table) dans Azure Cosmos DB. Vous pouvez provisionner le débit sur un seul conteneur, ou [provisionner le débit sur une base de données](how-to-provision-database-throughput.md) et le partager entre les conteneurs de la base de données. Vous pouvez provisionner le débit sur un conteneur à l’aide du portail Azure, d’Azure CLI ou des SDK Azure Cosmos DB.
+Cet article explique comment approvisionner le débit standard (manuel) sur un conteneur (collection, graphique ou table) dans Azure Cosmos DB. Vous pouvez provisionner le débit sur un seul conteneur, ou [provisionner le débit sur une base de données](how-to-provision-database-throughput.md) et le partager entre les conteneurs de la base de données. Vous pouvez provisionner le débit sur un conteneur à l’aide du portail Azure, d’Azure CLI ou des SDK Azure Cosmos DB.
 
 ## <a name="azure-portal"></a>Portail Azure
 
@@ -49,7 +49,8 @@ Pour créer un conteneur avec un débit dédié, voir
 > Utilisez les SDK Cosmos pour l’API SQL afin de provisionner le débit de toutes les API Cosmos DB, à l’exception de l’API Cassandra.
 
 ### <a name="sql-mongodb-gremlin-and-table-apis"></a><a id="dotnet-most"></a>API SQL, MongoDB, Gremlin et Table
-### <a name="net-v2-sdk"></a>SDK .Net v2
+
+# <a name="net-sdk-v2"></a>[Kit de développement logiciel (SDK) .NET V2](#tab/dotnetv2)
 
 ```csharp
 // Create a container with a partition key and provision throughput of 400 RU/s
@@ -63,9 +64,11 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 400 });
 ```
 
-### <a name="net-v3-sdk"></a>SDK .Net v3
+# <a name="net-sdk-v3"></a>[Kit de développement logiciel (SDK) .NET V3](#tab/dotnetv3)
 
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/ContainerDocsSampleCode.cs?name=ContainerCreateWithThroughput)]
+
+---
 
 ## <a name="javascript-sdk"></a>Kit de développement logiciel (SDK) JavaScript
 
@@ -120,5 +123,6 @@ session.Execute("ALTER TABLE myKeySpace.myTable WITH cosmosdb_provisioned_throug
 
 Consultez les articles suivants pour en savoir plus sur le provisionnement du débit dans Azure Cosmos DB :
 
-* [Guide pratique pour provisionner le débit sur une base de données](how-to-provision-database-throughput.md)
+* [Comment approvisionner le débit standard (manuel) sur une base de données](how-to-provision-database-throughput.md)
+* [Comment approvisionner le débit avec mise à l’échelle automatique sur une base de données](how-to-provision-autoscale-throughput.md)
 * [Unités de requête et débit dans Azure Cosmos DB](request-units.md)

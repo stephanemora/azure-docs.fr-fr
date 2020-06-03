@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: 7147f0d13c88c1d2e17e81a360a5aee55ee760ed
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 94946b4b6d0f0fc9c94cac7aca1e971b3f6262f9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78924967"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673218"
 ---
 Ce guide explique comment installer le [Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) pour le Java Runtime Environment (JRE) Java 8 64 bits. Si vous voulez simplement le nom du package pour commencer seul, le SDK Java n’est pas disponible dans le référentiel central Maven. Que vous utilisiez Gradle ou un fichier de dépendances `pom.xml`, vous devez ajouter un référentiel personnalisé pointant vers `https://csspeechstorage.blob.core.windows.net/maven/` (voir ci-dessous pour connaître le nom du package).
 
@@ -29,7 +29,7 @@ Ce guide explique comment installer le [Kit de développement logiciel (SDK) Spe
 - Le package Java du Kit de développement logiciel (SDK) Speech est disponible pour les systèmes d’exploitation suivants :
   - Windows : 64 bits uniquement
   - Mac : macOS X version 10.13 ou ultérieure
-  - Linux : 64 bits uniquement sur Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8
+  - Linux : 64 bits uniquement sur Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -52,7 +52,7 @@ Ce guide explique comment installer le [Kit de développement logiciel (SDK) Spe
         sudo apt-get install build-essential libssl1.0.2 libasound2
         ```
 
-  - Sur RHEL/CentOS 8, exécutez les commandes suivantes pour installer les packages nécessaires :
+  - Sur RHEL/CentOS, exécutez les commandes suivantes pour installer les packages nécessaires :
 
         ```sh
         sudo yum update
@@ -60,7 +60,8 @@ Ce guide explique comment installer le [Kit de développement logiciel (SDK) Spe
         ```
 
 > [!NOTE]
-> Sur RHEL/CentOS 8, suivez les instructions du [Guide pratique pour configurer OpenSSL pour Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> - Sur RHEL/CentOS 7, suivez les instructions décrivant [comment configurer RHEL/CentOS 7 pour le Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - Sur RHEL/CentOS 8, suivez les instructions du [Guide pratique pour configurer OpenSSL pour Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 - Sur Windows, vous avez besoin de [Microsoft Redistributable Visual C++ pour Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) pour votre plateforme. Notez que la première installation peut nécessiter le redémarrage de Windows avant de continuer à suivre ce guide.
 

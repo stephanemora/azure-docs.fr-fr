@@ -2,13 +2,13 @@
 title: Planifier votre application - LUIS
 description: Structurez les entités et les intentions d’applications pertinentes, puis créez vos plans d’applications dans Language Understanding Intelligent Services (LUIS).
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: dfed27a05973a2ea2e9a97eaa1c233b847b33d87
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.date: 05/14/2020
+ms.openlocfilehash: 3463078309978ae34918f27a9d75c1dabd59ae66
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382304"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654109"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planifier votre schéma d’application LUIS avec le domaine de l’objet et l’extraction de données
 
@@ -48,6 +48,30 @@ Lorsque vous déterminez les entités à utiliser dans votre application, gardez
 
 > [!TIP]
 > LUIS offre des [entités prédéfinies](luis-prebuilt-entities.md) pour les scénarios courants d’utilisateur conversationnel. Envisagez d’utiliser des entités prédéfinies comme point de départ pour le développement de votre application.
+
+## <a name="resolution-with-intent-or-entity"></a>La résolution avec l’intention ou l’entité ?
+
+Dans de nombreux cas, en particulier lors d’une conversation naturelle, les utilisateurs fournissent un énoncé qui peut contenir plusieurs fonctions ou intentions. Dans ce cas, il est important de comprendre que la représentation de la sortie peut être effectuée à la fois par les intentions et les entités. Cette représentation doit pouvoir être mappée à vos actions d’application cliente et n’a pas besoin d’être limitée aux intentions.
+
+**Int-ent-ties** est le concept selon lequel les actions (généralement assimilées à des intentions) peuvent également être capturées et considérées comme des entités sous cette forme dans le JSON de sortie, où vous pouvez les mapper à une action spécifique. _La négation_ est souvent utilisée pour tirer parti de cette dépendance à la fois de l’intention et de l’entité dans le cadre d’une extraction complète.
+
+Considérez les deux énoncés suivants, qui sont très proches si l’on tient compte du choix de mots, mais mènent à des résultats différents :
+
+|Énoncé|
+|--|
+|`Please schedule my flight from Cairo to Seattle`|
+|`Cancel my flight from Cairo to Seattle`|
+
+Au lieu d’avoir deux intentions distinctes, créez une seule intention avec une entité `FlightAction` Machine Learning. L’entité Machine Learning doit extraire les détails de l’action pour une requête de planification et d’annulation, ainsi qu’un emplacement d’origine ou de destination.
+
+L’entité `FlightAction` est structurée dans le pseudo-schéma suivant de l’entité et des sous-entités Machine Learning :
+
+* FlightAction
+    * Action
+    * Origine
+    * Destination
+
+Pour aider l’extraction, ajoutez des caractéristiques aux sous-entités. Vous allez choisir vos fonctionnalités en fonction du vocabulaire que vous souhaitez voir dans les énoncés de l’utilisateur et les valeurs que vous souhaitez renvoyer dans la réponse de prédiction.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

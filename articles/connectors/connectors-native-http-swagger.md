@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: b34fdc36bd0b1ce294a92b2ae8fa5da01568e5a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5c00dc64dd39ba2fdbb734f4e9749fbe42e246e
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74787367"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831923"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Appeler des points de terminaison REST à l'aide d'Azure Logic Apps
 
@@ -137,9 +137,9 @@ Pour référencer un fichier Swagger non hébergé ou ne répondant pas aux exig
 
 1. [Téléchargez le fichier Swagger dans le conteneur d’objets blob](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), via le [portail Azure](https://portal.azure.com) ou [Explorateur Stockage Azure](https://storageexplorer.com/).
 
-1. Pour référencer le fichier dans le conteneur d’objets blob, utilisez un lien HTTPS qui suit ce format et respecte la casse :
+1. Pour référencer le fichier dans le conteneur d’objets blob, utilisez une URL HTTPS qui suit ce format et respecte la casse, depuis l’Explorateur Stockage Azure :
 
-   `https://<storage-account-name>.blob.core.windows.net/<blob-container-name>/<swagger-file-name>`
+   `https://<storage-account-name>.blob.core.windows.net/<blob-container-name>/<complete-swagger-file-name>?<query-parameters>`
 
 ## <a name="connector-reference"></a>Référence de connecteur
 

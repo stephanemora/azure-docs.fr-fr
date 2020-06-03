@@ -3,12 +3,12 @@ title: Prendre en charge la matrice de récupération d’urgence VMware/physiqu
 description: Résume la prise en charge de la récupération d’urgence des machines virtuelles et des serveurs physiques VMware sur Azure en utilisant Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 2/24/2020
-ms.openlocfilehash: d8e7b2f8f6483d462f781d95011ef7b972e83b87
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 52c5b20a4411d865f88a5010ed1b0b3b309345ac
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801788"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84190629"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice de prise en charge de la reprise d’activité des machines virtuelles VMware et serveurs physiques sur Azure
 
@@ -215,7 +215,7 @@ Invité/serveur - Exclure le disque | Oui
 Multipath invité/serveur (MPIO) | Non
 Partitions GPT invité/serveur | Cinq partitions sont prises en charge à partir du [Correctif cumulatif 37](https://support.microsoft.com/help/4508614/) (version 9.25 de Mobility Service). Auparavant, elles étaient au nombre de quatre.
 ReFS | Resilient File System est pris en charge avec le service Mobility version 9.23 ou ultérieure
-Démarrage EFI/UEFI invité/serveur | - Pris en charge pour Windows Server 2012 ou une version ultérieure, SLES 12 SP4 et RHEL 8.0 avec l’agent de mobilité à compter de la version 9.30<br/> - Le type de démarrage UEFI sécurisé n’est pas pris en charge.
+Démarrage EFI/UEFI invité/serveur | - Pris en charge pour Windows Server 2012 ou une version ultérieure, SLES 12 SP4 et RHEL 8.0 avec l’agent de mobilité à compter de la version 9.30<br/> - Le type de démarrage UEFI sécurisé n’est pas pris en charge. [En savoir plus.](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>Canaux de réplication
 

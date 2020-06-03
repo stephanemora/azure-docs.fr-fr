@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7704a758f53b6ba26b1c9cf9e9e2811f533601f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe9c9f44c42ef1e8dd6ff3401ad7201b174aa952
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112199"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725293"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -48,6 +48,18 @@ La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD
 >
 >Veuillez consulter [cet article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) pour en savoir plus sur la mise à niveau d'Azure AD Connect vers la version la plus récente.
 
+## <a name="15300"></a>1.5.30.0
+
+### <a name="release-status"></a>État de la version
+07/05/2020 : publiée pour téléchargement
+
+### <a name="fixed-issues"></a>Problèmes résolus
+Ce correctif corrige un problème où des domaines non sélectionnés étaient incorrectement sélectionnés à partir de l’interface utilisateur de l’Assistant si seuls des conteneurs petits-enfants étaient sélectionnés.
+
+
+>[!NOTE]
+>Cette version comprend la nouvelle API de point de terminaison v2 pour la synchronisation d’Azure AD Connect.  Ce nouveau point de terminaison v2 est actuellement en préversion publique.  Cette version ou une version ultérieure est requise pour utiliser la nouvelle API de point de terminaison v2.  Toutefois, l’installation seule de cette version n’active pas le point de terminaison v2. Vous continuerez d’utiliser le point de terminaison v1, sauf si vous activez le point de terminaison v2.  Vous devez suivre les étapes décrites dans [API de point de terminaison v2 pour la synchronisation d’Azure AD Connect (préversion publique)](how-to-connect-sync-endpoint-api-v2.md) pour l’activer et vous abonner à la préversion publique.  
+
 ## <a name="15290"></a>1.5.29.0
 
 ### <a name="release-status"></a>État de la version
@@ -70,7 +82,10 @@ Ce correctif logiciel résout un problème dans la build 1.5.20.0 si vous avez c
 04/09/2020 : publiée pour téléchargement
 
 ### <a name="fixed-issues"></a>Problèmes résolus
-Cette build de correctif logiciel résout un problème lié au build 1.5.18.0 si la fonctionnalité de filtrage de groupe est activée et utilise mS-DS-ConsistencyGuid comme point d’ancrage source.
+- Cette build de correctif logiciel résout un problème lié au build 1.5.18.0 si la fonctionnalité de filtrage de groupe est activée et utilise mS-DS-ConsistencyGuid comme point d’ancrage source.
+- Correction d’un problème dans le module PowerShell ADSyncConfig, où l’appel de la commande DSACLS utilisée dans toutes les cmdlets Set-ADSync* provoquait l’une des erreurs suivantes :
+     - `GrantAclsNoInheritance : The parameter is incorrect.   The command failed to complete successfully.`
+     - `GrantAcls : No GUID Found for computer …`
 
 > [!IMPORTANT]
 > Si vous avez cloné la règle de synchronisation **In from AD - Group Join**, que vous n’avez pas cloné la règle de synchronisation **In from AD - Group Common** et que vous envisagez une mise à niveau, effectuez les étapes suivantes dans le cadre de la mise à niveau :
@@ -1324,7 +1339,6 @@ Changement de nom d’Azure AD Sync en Azure AD Connect.
 **Nouvelles fonctionnalités préliminaires :**
 
 * [Écriture différée de l’utilisateur](how-to-connect-preview.md#user-writeback)
-* [Écriture différée de groupe](how-to-connect-preview.md#group-writeback)
 * [Écriture différée des appareils](how-to-connect-device-writeback.md)
 * [Extensions d’annuaire](how-to-connect-preview.md)
 

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 05/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 8467bbe1512e45342b86ff62d51a3f66b3096f03
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9fbf4062304dda7112e89ecd4abd5288533f28ff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418131"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83635777"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copier des données de MySQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -38,7 +38,7 @@ Ce connecteur MySQL est pris en charge pour les activités suivantes :
 
 Vous pouvez copier des données d’une base de données MySQL vers toute banque de données réceptrice prise en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Plus précisément, ce connecteur MySQL prend en charge MySQL **versions 5.6 et 5.7**.
+Plus précisément, ce connecteur MySQL prend en charge MySQL **versions 5.6, 5.7 et 8.0**.
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -2,16 +2,14 @@
 title: Résoudre les problèmes courants liés à Azure Kubernetes Service
 description: Découvrir comment résoudre les problèmes courants liés à l’utilisation d’AKS (Azure Kubernetes Service)
 services: container-service
-author: sauryadas
 ms.topic: troubleshooting
-ms.date: 12/13/2019
-ms.author: saudas
-ms.openlocfilehash: 8460f4f2a66a1f545bea767cccf3aa77c9d3bff3
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 05/16/2020
+ms.openlocfilehash: f9831077d1f2850d39e4ef5e5ba35245f16cd683
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82778955"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724992"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -24,16 +22,16 @@ Il existe également un [guide de résolution des problèmes](https://github.com
 
 ## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>J’obtiens une erreur de dépassement de quota pendant une opération de création ou de mise à niveau. Que dois-je faire ? 
 
-Vous devez [demander des cœurs](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+ [Demandez plus de cœurs](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
 
 ## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>Quel est le nombre maximal de pods par nœud pour AKS ?
 
 Le nombre maximal de pods par nœud est défini 30 par défaut si vous déployez un cluster AKS dans le portail Microsoft Azure.
-Le nombre maximal de pods par nœud est 110 par défaut si vous déployez un cluster AKS dans Azure CLI. (assurez-vous que vous disposez de la version la plus récente d’Azure CLI). Ce paramètre par défaut peut être modifié à l’aide de l’indicateur `–-max-pods` dans la commande `az aks create`.
+Le nombre maximal de pods par nœud est 110 par défaut si vous déployez un cluster AKS dans Azure CLI. (assurez-vous que vous disposez de la version la plus récente d’Azure CLI). Ce paramètre peut être modifié à l’aide de l’indicateur `–-max-pods` dans la commande `az aks create`.
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>J’obtiens un erreur insufficientSubnetSize quand je déploie un cluster AKS avec des fonctionnalités réseau avancées. Que dois-je faire ?
 
-En cas d’utilisation d’Azure CNI (mise en réseau avancée), AKS alloue les adresses IP en fonction des « max-pods » par nœud configuré. Sur la base du nombre maximal de pods configurés, la taille de sous-réseau doit être supérieure au produit du nombre de nœuds et au paramètre du nombre maximal de pods par nœud. L’équation suivante en donne un aperçu :
+Lorsque vous utilisez le plug-in réseau Azure CNI, AKS alloue des adresses IP en fonction du paramètre « --max-pods » par nœud. La taille du sous-réseau doit être supérieure au nombre de nœuds multiplié par le paramètre Pods maximum par nœud. L’équation suivante en donne un aperçu :
 
 Taille du sous-réseau > nombre de nœuds dans le cluster (en tenant compte des besoins futurs de mise à l’échelle) * nombre maximum de pods par ensemble de nœuds.
 
@@ -48,13 +46,13 @@ Il peut y avoir diverses raisons pour que le pod soit bloqué dans ce mode. Vous
 
 Pour plus d’informations sur la façon de résoudre les problèmes de pod, voir [Déboguer des applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 
-## <a name="im-trying-to-enable-rbac-on-an-existing-cluster-how-can-i-do-that"></a>J’essaie d’activer le contrôle d’accès en fonction du rôle (RBAC) sur un cluster existant. Comment procéder ?
+## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>J’essaie d’activer le contrôle d’accès en fonction du rôle (RBAC) sur un cluster existant. Comment procéder ?
 
-Malheureusement, l’activation du contrôle d’accès en fonction du rôle (RBAC) sur des clusters existants n’est pas prise en charge actuellement. Vous devez créer explicitement de nouveaux clusters. Si vous utilisez l’interface CLI, le contrôle d’accès en fonction du rôle (RBAC) est activé par défaut. Si vous utilisez le portail AKS, un bouton bascule pour activer le contrôle d’accès en fonction du rôle (RBAC) est disponible dans le flux de travail de création.
+L’activation du contrôle d’accès en fonction du rôle (RBAC) sur des clusters existants n’est pas prise en charge actuellement, la fonctionnalité doit être définie au moment de la création de clusters. RBAC est activé par défaut lors de l’utilisation de l’interface CLI, du portail ou d’une version d’API ultérieure à `2020-03-01`.
 
-## <a name="i-created-a-cluster-with-rbac-enabled-by-using-either-the-azure-cli-with-defaults-or-the-azure-portal-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>J’ai créé un cluster avec le contrôle d’accès en fonction du rôle (RBAC) activé à l’aide d’Azure CLI avec les valeurs par défaut ou du portail Microsoft Azure, et je vois maintenant de nombreux avertissements sur le tableau de bord Kubernetes. Le tableau de bord n’affichait généralement aucun avertissement. Que dois-je faire ?
+## <a name="i-created-a-cluster-with-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>J’ai créé un cluster avec RBAC activé et je vois maintenant de nombreux avertissements sur le tableau de bord Kubernetes. Le tableau de bord n’affichait généralement aucun avertissement. Que dois-je faire ?
 
-Les avertissements sur le tableau de bord s’expliquent par le fait que le cluster est désormais activé avec le contrôle d’accès en fonction du rôle (RBAC) et que son accès a été désactivé par défaut. En règle générale, cette approche est une bonne pratique parce que l’exposition par défaut du tableau de bord à tous les utilisateurs du cluster peut entraîner des menaces de sécurité. Si vous souhaitez quand même activer le tableau de bord, procédez de la manière décrite dans ce [billet de blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
+La raison de ces avertissements est que RBAC est activé sur le cluster et que l’accès au tableau de bord est maintenant limité par défaut. En règle générale, cette approche est une bonne pratique parce que l’exposition par défaut du tableau de bord à tous les utilisateurs du cluster peut entraîner des menaces de sécurité. Si vous souhaitez quand même activer le tableau de bord, procédez de la manière décrite dans ce [billet de blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
 ## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Je ne parviens pas à me connecter au tableau de bord. Que dois-je faire ?
 
@@ -64,11 +62,11 @@ Si vous ne voyez pas le tableau de bord Kubernetes, vérifiez si le pod `kube-pr
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Je ne parviens pas à obtenir les journaux d’activité à l’aide des journaux d’activité de kubectl, ou à me connecter au serveur API. J’obtiens le message « Error from server: error dialing backend: dial tcp… ». Que dois-je faire ?
 
-Vérifiez que le groupe de sécurité réseau par défaut n’est pas modifié, et que les ports 22 et 9000 sont ouverts pour la connexion au serveur d’API. Vérifiez que le pod `tunnelfront` s’exécute dans l’espace de noms *kube-system* à l’aide de la commande `kubectl get pods --namespace kube-system`. Si ce n’est pas le cas, forcez la suppression du pod pour qu’il redémarre.
+Vérifiez que les ports 22, 9000 et 1194 sont ouverts pour la connexion au serveur d’API. Vérifiez que le pod `tunnelfront` ou `aks-link` s’exécute dans l’espace de noms *kube-system* à l’aide de la commande `kubectl get pods --namespace kube-system`. Si ce n’est pas le cas, forcez la suppression du pod pour qu’il redémarre.
 
-## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>J’essaie d’effectuer une mise à niveau ou une mise à l’échelle et j’obtiens l’erreur suivante : « Changing property 'imageReference' is not allowed » (La modification de la propriété 'imageReference' n’est pas autorisée). Comment résoudre ce problème ?
+## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>J’essaie d’effectuer une mise à niveau ou une mise à l’échelle et j’obtiens l’erreur `"Changing property 'imageReference' is not allowed"`. Comment résoudre ce problème ?
 
-Cette erreur s’affiche peut-être parce que vous avez modifié les balises dans les nœuds d’agent à l’intérieur du cluster AKS. La modification et la suppression de balises et d’autres propriétés de ressources dans le groupe de ressources MC_ peuvent entraîner des résultats inattendus. La modification des ressources du groupe MC_ * dans le cluster AKS empêche d’atteindre l’objectif de niveau de service (SLO).
+Cette erreur s’affiche peut-être parce que vous avez modifié les balises dans les nœuds d’agent à l’intérieur du cluster AKS. La modification ou la suppression de balises et d’autres propriétés de ressources dans le groupe de ressources MC_* peuvent entraîner des résultats inattendus. La modification des ressources du groupe MC_* dans le cluster AKS empêche d’atteindre l’objectif de niveau de service (SLO).
 
 ## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Je reçois des erreurs qui indiquent que mon cluster est en état d’échec et que la mise à niveau ou la mise à l’échelle n’aboutira pas tant que ce problème n’aura pas été résolu
 
@@ -81,11 +79,11 @@ Cette erreur se produit quand des clusters basculent dans un état d’échec po
     * Mise à jour d’un cluster avec des fonctionnalités réseau avancées et des **ressources (réseau) de sous-réseau insuffisantes**. Pour résoudre ce problème, remettez votre cluster dans un état stable dans les limites du quota. Suivez ensuite ces [étapes pour demander une augmentation du quota de ressources](../azure-resource-manager/templates/error-resource-quota.md#solution) avant de tenter à nouveau un scale-up au-delà des limites du quota initial.
 2. Une fois que la cause sous-jacente de l’échec de mise à niveau est résolue, votre cluster doit être dans un état de réussite. Une fois que l’état de réussite a été vérifié, tentez à nouveau l’opération d’origine.
 
-## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Je reçois des erreurs lors de la mise à niveau ou de la mise à l’échelle qui indiquent que mon cluster fait actuellement l’objet d’une mise à niveau ou que l’opération a échoué
+## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-upgraded-or-has-failed-upgrade"></a>Je reçois des erreurs lors de la mise à niveau ou de la mise à l’échelle qui indiquent que mon cluster fait actuellement l’objet d’une mise à niveau ou que l’opération a échoué.
 
 *Cette assistance de dépannage est redirigée depuis https://aka.ms/aks-pending-upgrade*
 
-Les opérations de mise à niveau et de mise à l’échelle sur un cluster doté d’un seul pool de nœuds ou un cluster doté de [plusieurs pools de nœuds](use-multiple-node-pools.md) s’excluent mutuellement. Il ne peut pas y avoir de mise à niveau et de mise à l’échelle simultanées d’un cluster ou d’un pool de nœuds. En effet, chaque opération doit être terminée sur la ressource cible avant l’exécution de la demande suivante sur cette même ressource. De ce fait, les opérations sont limitées quand des opérations de mise à niveau ou de mise à l’échelle actives se produisent ou sont entreprises et qu’elles échouent par la suite. 
+ Il ne peut pas y avoir de mise à niveau et de mise à l’échelle simultanées d’un cluster ou d’un pool de nœuds. En effet, chaque opération doit être terminée sur la ressource cible avant l’exécution de la demande suivante sur cette même ressource. De ce fait, les opérations sont limitées quand des opérations actives de mise à niveau ou de mise à l’échelle se produisent ou sont entreprises. 
 
 Pour faciliter le diagnostic du problème, exécutez `az aks show -g myResourceGroup -n myAKSCluster -o table` pour récupérer l’état détaillé de votre cluster. Selon le résultat :
 
@@ -94,7 +92,7 @@ Pour faciliter le diagnostic du problème, exécutez `az aks show -g myResourceG
 
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>Puis-je déplacer mon cluster vers un autre abonnement ou mon abonnement et mon cluster vers un nouveau locataire ?
 
-Si vous avez déplacé votre cluster AKS vers un autre abonnement ou l’abonnement propriétaire du cluster vers un nouveau locataire, le cluster perdra sa fonctionnalité en raison de la perte des attributions de rôles et des droits de principaux du service. **AKS ne prend pas en charge le déplacement de clusters entre abonnements ou locataires** du fait de cette contrainte.
+Si vous avez déplacé votre cluster AKS vers un autre abonnement ou l’abonnement du cluster vers un nouveau locataire, le cluster ne fonctionnera pas en raison de l’absence d’autorisations d’identité de cluster. **AKS ne prend pas en charge le déplacement de clusters entre abonnements ou locataires** à cause de cette contrainte.
 
 ## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>Je reçois des erreurs quand j’essaie d’utiliser des fonctionnalités qui nécessitent des groupes de machines virtuelles identiques
 
@@ -102,9 +100,9 @@ Si vous avez déplacé votre cluster AKS vers un autre abonnement ou l’abonnem
 
 Vous pouvez recevoir des erreurs qui indiquent que votre cluster AKS n’appartient pas à un groupe de machines virtuelles identiques, comme dans l’exemple suivant :
 
-**AgentPool 'agentpool' has set auto scaling as enabled but is not on Virtual Machine Scale Sets**
+**La mise à l’échelle automatique de l’AgentPool `<agentpoolname>` est activée, mais elle ne l’est pas sur Virtual Machine Scale Sets**
 
-Pour utiliser des fonctionnalités telles que le composant Cluster Autoscaler ou plusieurs pools de nœuds, il est nécessaire de créer des clusters AKS qui utilisent des groupes de machines virtuelles identiques. Des erreurs sont retournées si vous tentez d’utiliser des fonctionnalités qui dépendent de groupes de machines virtuelles identiques et que vous ciblez un cluster AKS normal composé d’un groupe de machines identiques non virtuelles.
+Les fonctionnalités telles que le programme de mise à l’échelle automatique de cluster ou plusieurs pools de nœuds nécessitent des groupes de machines virtuelles identiques en tant que `vm-set-type`.
 
 Suivez les étapes *Avant de commencer* dans le document approprié pour créer correctement un cluster AKS :
 
@@ -117,9 +115,10 @@ Suivez les étapes *Avant de commencer* dans le document approprié pour créer 
 
 Les restrictions d’affectation de noms sont implémentées par la plateforme Azure et AKS. Si un nom ou paramètre de ressource enfreint une de ces restrictions, une erreur est retournée qui vous invite à fournir une entrée différente. Voici quelques-unes des recommandations qui s’appliquent en matière d’affectation de noms :
 
-* Les noms de cluster doivent comporter entre 1 et 63 caractères. Les seuls caractères autorisés sont les lettres, les chiffres, les tirets et les traits de soulignement. Le premier et le dernier caractères doivent être une lettre ou un chiffre.
-* Le nom de groupe de ressources AKS *MC_* combine le nom de groupe de ressources et le nom de la ressource. La syntaxe générée automatiquement de `MC_resourceGroupName_resourceName_AzureRegion` ne doit pas dépasser 80 caractères. Si nécessaire, réduisez la longueur du nom de groupe de ressources ou du nom de cluster AKS.
+* Les noms de cluster doivent comporter entre 1 et 63 caractères. Les seuls caractères autorisés sont les lettres, les chiffres, les tirets et le trait de soulignement. Le premier et le dernier caractères doivent être une lettre ou un chiffre.
+* Le nom de groupe de ressources Nœud AKS/*MC_* combine le nom du groupe de ressources et le nom de la ressource. La syntaxe générée automatiquement de `MC_resourceGroupName_resourceName_AzureRegion` ne doit pas dépasser 80 caractères. Si nécessaire, réduisez la longueur du nom de groupe de ressources ou du nom de cluster AKS. Vous pouvez également [personnaliser le nom de votre groupe de ressources de nœud](cluster-configuration.md#custom-resource-group-name).
 * L'élément *dnsPrefix* doit commencer et se terminer par des valeurs alphanumériques et doit comporter 1 à 54 caractères. Parmi les caractères autorisés figurent les valeurs alphanumériques et les traits d’union (-). L’élément *dnsPrefix* ne peut pas inclure de caractères spéciaux comme un point (.).
+* Les noms de pools de nœuds AKS doivent être en minuscules et comprendre 1 à 11 caractères pour les pools de nœuds Linux et 1 à 6 caractères pour les pools de nœuds Windows. Le nom doit commencer par une lettre et les seuls caractères autorisés sont les lettres et les chiffres.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Je reçois une erreur quand j’essaie de créer, mettre à jour, mettre à l’échelle, supprimer ou mettre à niveau un cluster, m’informant que cette opération n’est pas autorisée quand une autre opération est en cours.
 
@@ -129,22 +128,26 @@ Les opérations de cluster sont limitées quand une opération précédente est 
 
 Selon la sortie de l’état du cluster :
 
-* Si le cluster est dans un autre état de provisionnement que *Opération réussie* ou *En échec*, attendez que l’opération (*mise à niveau/mise à jour/création/mise à l’échelle/suppression/migration*) se termine. Une fois que l’opération précédente a abouti, tentez à nouveau votre dernière opération de cluster.
+* Si le cluster est dans un état d’approvisionnement autre que *Opération réussie* ou *En échec*, attendez que l’opération (*mise à niveau/mise à jour/création/mise à l’échelle/suppression/migration*) se termine. Une fois que l’opération précédente a abouti, tentez à nouveau votre dernière opération de cluster.
 
 * Si la mise à niveau du cluster a échoué, suivez les étapes décrites dans [Je reçois des erreurs qui indiquent que mon cluster est en état d’échec et que la mise à niveau ou la mise à l’échelle n’aboutira pas tant que ce problème n’aura pas été résolu](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
 
-## <a name="im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one"></a>Je reçois des erreurs indiquant que mon principal de service est introuvable quand j’essaie de créer un cluster sans passer un principal de service existant.
+## <a name="received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster"></a>Je reçois une erreur indiquant que mon principal de service est introuvable ou n’est pas valide lorsque j’essaie de créer un nouveau cluster.
 
-Lors de la création d’un cluster AKS, un principal de service doit créer des ressources en votre nom. AKS offre la possibilité de créer un nouveau principal de service au moment de la création du cluster, mais cela nécessite qu’Azure Active Directory propage entièrement le nouveau principal de service dans un délai raisonnable afin que le cluster puisse être créé. Si ce processus de propagation prend trop de temps, la validation de la création du cluster échoue, car il ne trouve pas de principal de service disponible. 
+Lors de la création d’un cluster AKS, un principal de service ou une identité managée doit créer des ressources en votre nom. AKS peut créer automatiquement un principal de service au moment de la création du cluster ou en recevoir un existant. Lors de l’utilisation d’un principal de service créé automatiquement, Azure Active Directory doit le propager dans chaque région pour que la création aboutisse. Si le processus de propagation prend trop de temps, la validation de la création du cluster échoue, car il ne trouve pas de principal de service disponible. 
 
-Essayez les solutions de contournement suivantes :
-1. Utilisez un principal de service existant qui a déjà été propagé dans les régions et qui puisse être passé dans AKS au moment de la création du cluster.
-2. Si vous utilisez des scripts d’automatisation, augmentez les délais entre la création du principal de service et la création du cluster AKS.
-3. Si vous utilisez le portail Azure, revenez aux paramètres du cluster au moment de la création, puis recommencez la page de validation après quelques minutes.
+Essayez les solutions de contournement suivantes pour résoudre le problème :
+* Utilisez un principal de service existant qui a déjà été propagé dans les régions et qui peut être passé dans AKS au moment de la création du cluster.
+* Si vous utilisez des scripts d’automatisation, augmentez les délais entre la création du principal de service et la création du cluster AKS.
+* Si vous utilisez le portail Azure, revenez aux paramètres du cluster au moment de la création, puis recommencez la page de validation après quelques minutes.
 
-## <a name="im-receiving-errors-after-restricting-my-egress-traffic"></a>Je reçois des erreurs après avoir restreint mon trafic sortant
 
-Lors de la restriction du trafic sortant d’un cluster AKS, il existe des règles de ports de sortie/réseau ainsi que des règles de nom de domaine complet (FQDN)/application [obligatoires et facultatives recommandées](limit-egress-traffic.md) pour AKS. Si vos paramètres sont en conflit avec l’une de ces règles, vous risquez de ne pas pouvoir exécuter certaines commandes `kubectl`. Vous pouvez également voir des erreurs lors de la création d’un cluster AKS.
+
+
+
+## <a name="im-receiving-errors-after-restricting-egress-traffic"></a>Je reçois des erreurs après avoir restreint mon trafic de sortie.
+
+Lors de la restriction du trafic sortant d’un cluster AKS, il existe des règles de ports de sortie/réseau ainsi que des règles de nom de domaine complet (FQDN)/application [obligatoires et facultatives recommandées](limit-egress-traffic.md) pour AKS. Si vos paramètres sont en conflit avec l’une de ces règles, certaines commandes `kubectl` ne fonctionneront pas correctement. Vous pouvez également voir des erreurs lors de la création d’un cluster AKS.
 
 Vérifiez que vos paramètres ne sont pas en conflit avec l’une règles de ports de sortie/réseau ainsi que des règles de nom de domaine complet (FQDN)/application obligatoires ou facultatives recommandées.
 
@@ -153,19 +156,10 @@ Vérifiez que vos paramètres ne sont pas en conflit avec l’une règles de por
 ### <a name="what-are-the-recommended-stable-versions-of-kubernetes-for-azure-disk"></a>Quelles sont les versions stables recommandées de Kubernetes pour le disque Azure ? 
 
 | Version de Kubernetes | Version recommandée |
-| -- | :--: |
+|--|:--:|
 | 1.12 | 1.12.9 ou version ultérieure |
 | 1.13 | 1.13.6 ou version ultérieure |
 | 1.14 | 1.14.2 ou version ultérieure |
-
-
-### <a name="what-versions-of-kubernetes-have-azure-disk-support-on-the-sovereign-cloud"></a>Quelles sont les versions de Kubernetes disposant d’une prise en charge des disques Azure sur le cloud souverain ?
-
-| Version de Kubernetes | Version recommandée |
-| -- | :--: |
-| 1.12 | 1.12.0 ou version ultérieure |
-| 1.13 | 1.13.0 ou version ultérieure |
-| 1.14 | 1.14.0 ou version ultérieure |
 
 
 ### <a name="waitforattach-failed-for-azure-disk-parsing-devdiskazurescsi1lun1-invalid-syntax"></a>Échec de WaitForAttach pour le disque Azure : analyse de « /dev/disk/azure/scsi1/lun1 » : syntaxe non valide
@@ -189,10 +183,11 @@ Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.Wait
 Ce problème a été résolu dans les versions suivantes de Kubernetes :
 
 | Version de Kubernetes | Version corrigée |
-| -- | :--: |
+|--|:--:|
 | 1,10 | 1.10.2 ou version ultérieure |
 | 1.11 | 1.11.0 ou version ultérieure |
 | 1.12 et ultérieure | N/A |
+
 
 ### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Échec lors de la définition de l’UID et du GID dans mountOptions pour le disque Azure
 
@@ -237,100 +232,24 @@ initContainers:
     mountPath: /data
 ```
 
-### <a name="error-when-deleting-azure-disk-persistentvolumeclaim-in-use-by-a-pod"></a>Erreur lors de la suppression du disque Azure PersistentVolumeClaim utilisé par un pod
-
-Si vous essayez de supprimer un disque Azure PersistentVolumeClaim utilisé par un pod, une erreur peut s’afficher. Par exemple :
-
-```console
-$ kubectl describe pv pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06
-...
-Message:         disk.DisksClient#Delete: Failure responding to request: StatusCode=409 -- Original Error: autorest/azure: Service returned an error. Status=409 Code="OperationNotAllowed" Message="Disk kubernetes-dynamic-pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06 is attached to VM /subscriptions/{subs-id}/resourceGroups/MC_markito-aks-pvc_markito-aks-pvc_westus/providers/Microsoft.Compute/virtualMachines/aks-agentpool-25259074-0."
-```
-
-Dans Kubernetes version 1.10 et versions ultérieures, une caractéristique de protection de PersistentVolumeClaim est activée par défaut pour éviter cette erreur. Si vous utilisez une version de Kubernetes qui ne présente pas le correctif pour ce problème, vous pouvez atténuer ce problème en supprimant le pod à l’aide du PersistentVolumeClaim avant de supprimer le PersistentVolumeClaim.
-
-
-### <a name="error-cannot-find-lun-for-disk-when-attaching-a-disk-to-a-node"></a>Erreur « Impossible de trouver le numéro d’unité logique pour le disque » lors de l’attachement d’un disque à un nœud
-
-Lorsque vous attachez un disque à un nœud, vous pouvez voir l’erreur suivante :
-
-```console
-MountVolume.WaitForAttach failed for volume "pvc-12b458f4-c23f-11e8-8d27-46799c22b7c6" : Cannot find Lun for disk kubernetes-dynamic-pvc-12b458f4-c23f-11e8-8d27-46799c22b7c6
-```
-
-Ce problème a été résolu dans les versions suivantes de Kubernetes :
-
-| Version de Kubernetes | Version corrigée |
-| -- | :--: |
-| 1,10 | 1.10.10 ou version ultérieure |
-| 1.11 | 1.11.5 ou version ultérieure |
-| 1.12 | 1.12.3 ou version ultérieure |
-| 1.13 | 1.13.0 ou version ultérieure |
-| 1.14 et versions ultérieures | N/A |
-
-Si vous utilisez une version de Kubernetes qui ne présente pas le correctif pour ce problème, vous pouvez atténuer le problème en attendant quelques minutes et en réessayant.
-
-### <a name="azure-disk-attachdetach-failure-mount-issues-or-io-errors-during-multiple-attachdetach-operations"></a>Échec d’attachement/détachement de disque Azure, problèmes de montage ou erreurs d’E/S pendant plusieurs opérations d’attachement/détachement
-
-À compter de Kubernetes version 1.9.2, lors de l’exécution simultanée de plusieurs opérations d’attachement/détachement, vous pouvez voir les problèmes de disque suivants en raison d’un cache de machines virtuelles erroné :
-
-* Échecs d’attachement/détachement de disque
-* Erreurs d’E/S disque
-* Détachement inattendu du disque de la machine virtuelle
-* La machine virtuelle s’exécute en état d’échec en raison de l’attachement d’un disque inexistant
-
-Ce problème a été résolu dans les versions suivantes de Kubernetes :
-
-| Version de Kubernetes | Version corrigée |
-| -- | :--: |
-| 1,10 | 1.10.12 ou version ultérieure |
-| 1.11 | 1.11.6 ou version ultérieure |
-| 1.12 | 1.12.4 ou version ultérieure |
-| 1.13 | 1.13.0 ou version ultérieure |
-| 1.14 et versions ultérieures | N/A |
-
-Si vous utilisez une version de Kubernetes qui ne présente pas le correctif pour ce problème, vous pouvez atténuer le problème en essayant ce qui suit :
-
-* Si un disque attend de se détacher pendant une longue période de temps, essayez de détacher le disque manuellement
-
-### <a name="azure-disk-waiting-to-detach-indefinitely"></a>Disque Azure en attente de détachement indéfiniment
-
-Dans certains cas, si une opération de détachement de disque Azure échoue à la première tentative, elle ne retente pas l’opération de détachement et reste attachée à la machine virtuelle du nœud d’origine. Cette erreur peut se produire lors du déplacement d’un disque d’un nœud à un autre. Par exemple :
-
-```console
-[Warning] AttachVolume.Attach failed for volume "pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" : Attach volume "kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance "/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0" failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code="ConflictingUserInput" Message="Disk '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9' cannot be attached as the disk is already owned by VM '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1'."
-```
-
-Ce problème a été résolu dans les versions suivantes de Kubernetes :
-
-| Version de Kubernetes | Version corrigée |
-| -- | :--: |
-| 1.11 | 1.11.9 ou version ultérieure |
-| 1.12 | 1.12.7 ou version ultérieure |
-| 1.13 | 1.13.4 ou version ultérieure |
-| 1.14 et versions ultérieures | N/A |
-
-Si vous utilisez une version de Kubernetes qui ne présente pas le correctif pour ce problème, vous pouvez atténuer le problème en détachant manuellement le disque.
-
 ### <a name="azure-disk-detach-failure-leading-to-potential-race-condition-issue-and-invalid-data-disk-list"></a>Échec du détachement de disque Azure menant à un problème potentiel de condition de concurrence et à une liste de disques de données non valides
 
-En cas d’échec de détachement d’un disque Azure, une nouvelle tentative de détachement de disque est effectuée jusqu’à six fois à l’aide de l’interruption exponentielle. Un verrou est également maintenu au niveau du nœud sur la liste des disques de données pendant environ 3 minutes. Si la liste des disques est mise à jour manuellement pendant cette période, par exemple lors d’une opération manuelle d’attachement ou de détachement, la liste des disques détenues par le verrou au niveau du nœud est obsolète et entraîne une instabilité sur la machine virtuelle du nœud.
+En cas d’échec de détachement d’un disque Azure, une nouvelle tentative de détachement de disque est effectuée jusqu’à six fois à l’aide de l’interruption exponentielle. Un verrou est également maintenu au niveau du nœud sur la liste des disques de données pendant environ 3 minutes. Si la liste de disques est mise à jour manuellement pendant cette période, la liste de disques détenue par le verrou au niveau du nœud devient obsolète et entraîne une instabilité sur le nœud.
 
 Ce problème a été résolu dans les versions suivantes de Kubernetes :
 
 | Version de Kubernetes | Version corrigée |
-| -- | :--: |
+|--|:--:|
 | 1.12 | 1.12.9 ou version ultérieure |
 | 1.13 | 1.13.6 ou version ultérieure |
 | 1.14 | 1.14.2 ou version ultérieure |
 | 1.15 et versions ultérieures | N/A |
 
-Si vous utilisez une version de Kubernetes qui ne présente pas le correctif pour ce problème et que votre machine virtuelle de nœud présente une liste de disques obsolète, vous pouvez atténuer le problème en détachant tous les disques non existants de la machine virtuelle en tant qu’opération en bloc unique. **Le détachement individuel de disques non existants peut échouer.**
-
+Si vous utilisez une version de Kubernetes qui ne présente pas le correctif pour ce problème et que votre nœud présente une liste de disques obsolète, vous pouvez atténuer le problème en détachant tous les disques non existants de la machine virtuelle à l’aide d’une opération en bloc. **Le détachement individuel de disques non existants peut échouer.**
 
 ### <a name="large-number-of-azure-disks-causes-slow-attachdetach"></a>Un nombre élevé de disques Azure ralentit la procédure d’attachement/détachement
 
-Lorsque le nombre de disques Azure attachés à une machine virtuelle de nœuds est supérieur à 10, les opérations d’attachement et de détachement peuvent être lentes. Ce problème est connu et il n’existe aucune solution de contournement pour l’instant.
+Lorsque le nombre d’opérations d’attachement ou de détachement de disques Azure ciblant une machine virtuelle à nœud unique est supérieur à 10, ou supérieur à 3 lorsqu’elles ciblent un pool de groupes de machines virtuelles identiques, elles peuvent être plus lentes que prévu, car elles sont effectuées de façon séquentielle. Ce problème est une limitation connue et il n’existe aucune solution de contournement pour l’instant. [Sondage UserVoice pour la prise en charge l’attachement ou le détachement parallèle au-delà du nombre.](https://feedback.azure.com/forums/216843-virtual-machines/suggestions/40444528-vmss-support-for-parallel-disk-attach-detach-for).
 
 ### <a name="azure-disk-detach-failure-leading-to-potential-node-vm-in-failed-state"></a>Échec du détachement de disque Azure menant à un état d’échec potentiel pour la machine virtuelle de nœud
 
@@ -339,13 +258,13 @@ Dans certains cas, le détachement d’un disque Azure peut échouer partielleme
 Ce problème a été résolu dans les versions suivantes de Kubernetes :
 
 | Version de Kubernetes | Version corrigée |
-| -- | :--: |
+|--|:--:|
 | 1.12 | 1.12.10 ou version ultérieure |
 | 1.13 | 1.13.8 ou version ultérieure |
 | 1.14 | 1.14.4 ou version ultérieure |
 | 1.15 et versions ultérieures | N/A |
 
-Si vous utilisez une version de Kubernetes qui ne présente pas le correctif pour ce problème et si votre machine virtuelle de nœud est dans un état d’échec, vous pouvez atténuer le problème en mettant à jour manuellement l’état de la machine virtuelle à l’aide de l’une des opérations ci-dessous :
+Si vous utilisez une version de Kubernetes qui ne présente pas le correctif pour ce problème et que votre nœud est en échec, vous pouvez l’atténuer en mettant à jour manuellement l’état de la machine virtuelle à l’aide de l’une des opérations ci-dessous :
 
 * Pour un cluster à base de groupes à haute disponibilité :
     ```azurecli
@@ -362,17 +281,9 @@ Si vous utilisez une version de Kubernetes qui ne présente pas le correctif pou
 ### <a name="what-are-the-recommended-stable-versions-of-kubernetes-for-azure-files"></a>Quelles sont les versions stables recommandées de Kubernetes pour les fichiers Azure ?
  
 | Version de Kubernetes | Version recommandée |
-| -- | :--: |
+|--|:--:|
 | 1.12 | 1.12.6 ou version ultérieure |
 | 1.13 | 1.13.4 ou version ultérieure |
-| 1.14 | 1.14.0 ou version ultérieure |
-
-### <a name="what-versions-of-kubernetes-have-azure-files-support-on-the-sovereign-cloud"></a>Quelles sont les versions de Kubernetes disposant d’une prise en charge d’Azure Files sur le cloud souverain ?
-
-| Version de Kubernetes | Version recommandée |
-| -- | :--: |
-| 1.12 | 1.12.0 ou version ultérieure |
-| 1.13 | 1.13.0 ou version ultérieure |
 | 1.14 | 1.14.0 ou version ultérieure |
 
 ### <a name="what-are-the-default-mountoptions-when-using-azure-files"></a>Quelles sont les mountOptions par défaut lors de l’utilisation d’Azure Files ?
@@ -380,11 +291,11 @@ Si vous utilisez une version de Kubernetes qui ne présente pas le correctif pou
 Paramètres recommandés :
 
 | Version de Kubernetes | Valeur de fileMode et dirMode|
-| -- | :--: |
+|--|:--:|
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 et versions ultérieures | 0777 |
 
-Si vous utilisez un cluster avec Kubernetes 1.8.5 ou ultérieur et que vous créez le volume persistant de manière dynamique avec une classe de stockage, les options de montage peuvent être spécifiées sur l’objet de classe de stockage. L’exemple suivant définit *0777* :
+Les options de montage peuvent être spécifiées sur l’objet de classe de stockage. L’exemple suivant définit *0777* :
 
 ```yaml
 kind: StorageClass
@@ -457,16 +368,16 @@ E0118 08:15:52.041014    2112 nestedpendingoperations.go:267] Operation for "\"k
 Ce problème a été résolu dans les versions suivantes de Kubernetes :
 
 | Version de Kubernetes | Version corrigée |
-| -- | :--: |
+|--|:--:|
 | 1.12 | 1.12.6 ou version ultérieure |
 | 1.13 | 1.13.4 ou version ultérieure |
 | 1.14 et versions ultérieures | N/A |
 
-### <a name="azure-files-mount-fails-due-to-storage-account-key-changed"></a>Échec du montage d’Azure Files en raison de la modification de la clé du compte de stockage
+### <a name="azure-files-mount-fails-because-of-storage-account-key-changed"></a>Échec du montage d’Azure Files en raison de la modification de la clé du compte de stockage
 
 Si votre clé de compte de stockage a changé, vous pouvez voir des échecs de montage d’Azure Files.
 
-Vous pouvez atténuer le problème en mettant manuellement à jour le champ *azurestorageaccountkey*  dans le secret du fichier Azure avec votre clé de compte de stockage codée en base64.
+Vous pouvez atténuer le problème en mettant manuellement à jour le champ `azurestorageaccountkey` dans un secret du fichier Azure avec votre clé de compte de stockage codée en base64.
 
 Pour encoder votre clé de compte de stockage en base64, vous pouvez utiliser `base64`. Par exemple :
 
@@ -480,17 +391,18 @@ Pour mettre à jour votre fichier de secret Azure, utilisez `kubectl edit secret
 kubectl edit secret azure-storage-account-{storage-account-name}-secret
 ```
 
-Après quelques minutes, le nœud de l’agent réessaie le montage du fichier Azure avec la clé de stockage mise à jour.
+Après quelques minutes, le nœud de l’agent réessaie le montage d’Azure Files avec la clé de stockage mise à jour.
+
 
 ### <a name="cluster-autoscaler-fails-to-scale-with-error-failed-to-fix-node-group-sizes"></a>Échec de la mise à l’échelle automatique du cluster en cas d’échec de la résolution des tailles des groupes de nœuds
 
-Si votre dispositif de mise à l’échelle automatique ne monte pas/ne descend pas en puissance et que vous voyez une erreur comme celle ci-dessous sur les [journaux d'activité du dispositif de mise à l’échelle automatique du cluster][view-master-logs].
+Si votre programme de mise à l’échelle automatique de cluster n’effectue pas de scale-up/scale-down et que vous voyez une erreur comme celle ci-dessous sur les [journaux du programme de mise à l’échelle automatique de cluster][view-master-logs].
 
 ```console
 E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes: failed to decrease aks-default-35246781-vmss: attempt to delete existing nodes
 ```
 
-Cette erreur est due à une condition de concurrence du dispositif de mise à l’échelle automatique du cluster en amont, où le dispositif de mise à l’échelle automatique du cluster se termine par une valeur différente de la valeur effective du cluster. Pour sortir de cet état, il vous suffit de désactiver et de réactiver le [dispositif de mise à l’échelle automatique du cluster][cluster-autoscaler].
+Cette erreur est due à une condition de concurrence du programme de mise à l’échelle automatique de cluster en amont. Dans ce cas, le programme de mise à l’échelle automatique de cluster se termine par une valeur différente de celle qui est réellement dans le cluster. Pour sortir de cet état, désactivez et réactivez le [programme de mise à l’échelle automatique de cluster][cluster-autoscaler].
 
 ### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Attachement du disque lent : GetAzureDiskLun prend de 10 à 15 minutes et une erreur s’affiche
 

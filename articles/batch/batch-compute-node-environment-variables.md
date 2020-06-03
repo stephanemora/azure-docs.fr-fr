@@ -1,15 +1,14 @@
 ---
 title: Variables d’environnement d’exécution des tâches
 description: Référence et conseils pour les variables d’environnement runtime des tâches pour Azure Batch Analytics.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/12/2019
-ms.author: labrenne
-ms.openlocfilehash: dd30444585cb1adaaf2b42cebdfa04683b12ecfc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0b3f00bcae50b0913432b122c85a3725a489679a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117333"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745328"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variables d’environnement runtime Azure Batch
 
@@ -37,7 +36,7 @@ Les lignes de commande exécutées par des tâches sur des nœuds de calcul ne s
 
 ## <a name="environment-variables"></a>Variables d'environnement
 
-| Nom de la variable                     | Description                                                              | Disponibilité |  Exemple |
+| Nom de la variable                     | Description                                                              | Disponibilité | Exemple |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | Nom du compte Batch auquel la tâche appartient.                  | Toutes les tâches.   | mybatchaccount |
 | AZ_BATCH_ACCOUNT_URL            | URL du compte Batch. | Toutes les tâches. | `https://myaccount.westus.batch.azure.com` |
@@ -49,7 +48,7 @@ Les lignes de commande exécutées par des tâches sur des nœuds de calcul ne s
 | AZ_BATCH_JOB_ID                 | ID du travail auquel la tâche appartient. | Toutes les tâches, sauf la tâche de démarrage. | batchjob001 |
 | AZ_BATCH_JOB_PREP_DIR           | Chemin d’accès complet du [répertoire de la tâche][files_dirs] de préparation du travail sur le nœud. | Toutes les tâches, sauf la tâche de démarrage et la tâche de préparation du travail. Disponible uniquement si la tâche est configurée avec une tâche de préparation du travail. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation |
 | AZ_BATCH_JOB_PREP_DIR   | Chemin d’accès complet du [répertoire de travail de la tâche][files_dirs] de préparation du travail sur le nœud. | Toutes les tâches, sauf la tâche de démarrage et la tâche de préparation du travail. Disponible uniquement si la tâche est configurée avec une tâche de préparation du travail. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd |
-| AZ_BATCH_MASTER_NODE            | Adresse IP et port du nœud de calcul sur lequel s’exécute la tâche principale d’une [tâche multi-instance][multi_instance]. | Tâche principale multi-instance et tâches subordonnées. | `10.0.0.4:6000` |
+| AZ_BATCH_MASTER_NODE            | Adresse IP et port du nœud de calcul sur lequel s’exécute la tâche principale d’une [tâche multi-instance][multi_instance]. N’utilisez pas le port spécifié ici pour la communication MPI ou NCCL. Il est réservé au service Azure Batch. Utilisez plutôt la variable MASTER_PORT, soit en la définissant avec une valeur transmise via l’argument de ligne de commande (le port 6105 est un bon choix par défaut), soit en utilisant la valeur définie par AML, le cas échéant. | Tâche principale multi-instance et tâches subordonnées. | `10.0.0.4:6000` |
 | AZ_BATCH_NODE_ID                | ID du nœud auquel la tâche est affectée. | Toutes les tâches. | tvm-1219235766_3-20160919t172711z |
 | AZ_BATCH_NODE_IS_DEDICATED      | Si `true`, le nœud actuel est un nœud dédié. Si `false`, c’est un [nœud basse priorité](batch-low-pri-vms.md). | Toutes les tâches. | `true` |
 | AZ_BATCH_NODE_LIST              | Liste des nœuds affectés à une [tâche multi-instance][multi_instance] au format `nodeIP;nodeIP`. | Tâche principale multi-instance et tâches subordonnées. | `10.0.0.4;10.0.0.5` |

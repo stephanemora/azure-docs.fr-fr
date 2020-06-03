@@ -2,13 +2,13 @@
 title: Erreurs de modèle non valide
 description: Décrit comment résoudre les erreurs de modèle non valide quand vous déployez des modèles Azure Resource Manager.
 ms.topic: troubleshooting
-ms.date: 03/08/2018
-ms.openlocfilehash: 65cd69d67933d117b51f37b587b276aec2bd635a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/22/2020
+ms.openlocfilehash: bb053f59c417827a7c07ca193ccea0b8509244d6
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76154055"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832519"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Résoudre les erreurs de modèle non valide
 
@@ -25,7 +25,7 @@ Message=<varies>
 
 Le message d’erreur varie selon le type d’erreur.
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Cette erreur peut résulter de différents types d’erreurs. Elles impliquent généralement une erreur de syntaxe ou de structure dans le modèle.
 
@@ -115,7 +115,7 @@ Obtenir des segments valides peut être difficile si des types Resource Manager 
 
 ## <a name="solution-3---parameter-is-not-valid"></a>Solution 3 - le paramètre n’est pas valide
 
-Si vous fournissez une valeur de paramètre qui ne fait pas partie des valeurs autorisées, vous recevez un message similaire à celui de l’erreur suivante :
+Si vous fournissez une valeur de paramètre qui ne fait pas partie des valeurs autorisées, vous recevrez un message similaire à celui de l’erreur suivante :
 
 ```
 Code=InvalidTemplate;
@@ -130,7 +130,7 @@ Vérifiez les valeurs autorisées dans le modèle et fournissez-en une pendant l
 
 ## <a name="solution-4---too-many-target-resource-groups"></a>Solution 4 : trop de groupes de ressources cibles
 
-Si vous spécifiez plus de cinq groupes de ressources cibles dans un déploiement unique, vous recevez cette erreur. Songez à consolider le nombre de groupes de ressources dans votre déploiement, ou à déployer certains modèles en tant que déploiements distincts. Pour plus d’informations, voir [Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements](cross-resource-group-deployment.md).
+Vous pouvez voir cette erreur dans les déploiements antérieurs, car vous étiez limité à cinq groupes de ressources cibles dans un déploiement unique. En mai 2020, cette limite a été augmentée à 800 groupes de ressources. Pour plus d’informations, voir [Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements](cross-resource-group-deployment.md).
 
 <a id="circular-dependency" />
 

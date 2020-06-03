@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 10d3e3674aef901ad35dfb6d0b9fd13715aace55
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8425c2c1f653d874d24053a12d511c64a3b9ee9d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594938"
+ms.locfileid: "83655237"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Configurer un domaine personnalisé dans Azure Static Web Apps en préversion
 
@@ -80,7 +80,7 @@ Un enregistrement CNAME mappe un domaine à un autre. Vous pouvez utiliser un en
 
 1. Cliquez sur le bouton **Valider**.
 
-À présent que le domaine personnalisé est configuré, le fournisseur DNS peut prendre plusieurs heures pour se propager les modifications dans le monde entier. Vous pouvez vérifier l’état de la propagation en accédant à [dnspropagation.net](https://dnspropagation.net). Entrez votre domaine personnalisé de domaine, y compris `www`, sélectionnez CNAME dans la liste déroulante, puis sélectionnez **Démarrer**.
+À présent que le domaine personnalisé est configuré, le fournisseur DNS peut prendre plusieurs heures pour se propager les modifications dans le monde entier. Vous pouvez vérifier l’état de la propagation en accédant à [dnspropagation.net](https://dnspropagation.net). Entrez votre domaine personnalisé, y compris la partie `www`, sélectionnez CNAME dans la liste déroulante, puis sélectionnez **Démarrer**.
 
 Si vos modifications DNS sont indiquées, le site web renvoie l’URL générée automatiquement de votre application Static Web App (par exemple, _random-name-123456789c.azurestaticapps.net_).
 
@@ -92,7 +92,7 @@ Alors que la prise en charge du domaine racine n’est pas disponible pendant la
 
 ## <a name="map-a-wildcard-domain"></a>Mapper un domaine générique
 
-Parfois, vous souhaitez que tout le trafic envoyé à un sous-domaine soit acheminé vers un autre domaine. Un exemple courant consiste à mapper tout le trafic de sous-domaines vers `www.example.com`. De cette façon, même si quelqu’un tape `ww.example.com` au lieu de `www.example.com`, la requête est envoyée à `www.example.com`.
+Parfois, vous souhaitez que tout le trafic envoyé à un sous-domaine soit acheminé vers un autre domaine. Un exemple courant consiste à mapper tout le trafic de sous-domaines vers `www.example.com`. De cette façon, même si quelqu’un tape `w.example.com` au lieu de `www.example.com`, la requête est envoyée à `www.example.com`.
 
 ### <a name="configure-dns-provider"></a>Configurer un fournisseur DNS
 

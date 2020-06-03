@@ -1,22 +1,22 @@
 ---
-title: Guide de publication sur la place de marché commerciale
-description: Vue d’ensemble de la place de marché commerciale pour les éditeurs d’applications et de services.
+title: Guide de publication sur le marketplace commercial Microsoft
+description: Présentation du marketplace commercial pour les partenaires Microsoft qui souhaitent publier des offres sur Microsoft AppSource et Place de marché Azure.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/12/2020
 ms.author: dsindona
-ms.openlocfilehash: c41a24ecb3e12618ac8cfcdfb756a33114f0f8a2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 03921a5bf5635ee001f78ca67e4ac24839bd03c5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261990"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657857"
 ---
 # <a name="commercial-marketplace-publishing-guide"></a>Guide de publication sur la place de marché commerciale
 
-Le guide de publication de la Place de marché a été conçu pour aider les nouveaux éditeurs et ceux qui le sont déjà à utiliser les vitrines de la [Place de marché Azure](https://azuremarketplace.microsoft.com) et [Microsoft AppSource](https://appsource.microsoft.com) afin de développer leur partenariat commercial avec Microsoft en proposant des applications et des services.
+Ce guide de publication a été conçu pour aider les nouveaux éditeurs et ceux qui le sont déjà à répertorier les applications et les services dans les vitrines du marketplace commercial, [Place de marché Azure](https://azuremarketplace.microsoft.com) et [Microsoft AppSource](https://appsource.microsoft.com), afin de développer leur activité en partenariat avec Microsoft.
 
 >[!Note]
 >La Place de marché fait ici référence à la fois à la Place de marché Azure et à AppSource.  Pour plus d’informations, consultez [Une Place de marché, deux vitrines](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).

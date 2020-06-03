@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 78a6e7fa8d030185f537136a3a2124d8bc59d808
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: designer
+ms.openlocfilehash: 7a756a09e135f664074e64a611755845d8dfb8b7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79037623"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654929"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Qu’est-ce que le concepteur Azure Machine Learning (préversion) ? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -82,7 +83,7 @@ Un module peut comporter un ensemble de paramètres utilisables pour configurer 
 
 ![Propriétés du module](./media/concept-designer/properties.png)
 
-Pour obtenir de l’aide relative à la navigation dans la bibliothèque d’algorithmes d’apprentissage automatique disponibles, consultez [Vue d’ensemble des informations de référence relatives aux algorithmes et aux modules](algorithm-module-reference/module-reference.md)
+Pour obtenir de l’aide sur la navigation dans la bibliothèque des algorithmes d’apprentissage automatique disponibles, consultez [Vue d’ensemble des informations de référence relatives aux algorithmes et aux modules](algorithm-module-reference/module-reference.md). Pour obtenir de l’aide sur le choix d’un algorithme, consultez [Aide-mémoire de l’algorithme Machine Learning](algorithm-cheat-sheet.md).
 
 ## <a name="compute-resources"></a><a name="compute"></a> Ressources de calcul
 
@@ -91,9 +92,10 @@ Utilisez les ressources de calcul de votre espace de travail pour exécuter votr
 | Cible de calcul | Entrainement | Déploiement |
 | ---- |:----:|:----:|
 | Capacité de calcul Azure Machine Learning | ✓ | |
+| Instance de calcul Azure Machine Learning | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-Les cibles de calcul sont associées à votre [espace de travail Azure Machine Learning](concept-workspace.md). Vous gérez vos cibles de calcul dans votre espace de travail [Azure Machine Learning Studio (classique)](https://ml.azure.com).
+Les cibles de calcul sont associées à votre [espace de travail Azure Machine Learning](concept-workspace.md). Vous gérez vos cibles de calcul dans votre espace de travail dans le [studio Azure Machine Learning](https://ml.azure.com).
 
 ## <a name="deploy"></a>Déployer
 

@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 04/14/2020
+ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: b825ed513f530733d7552e32206c12422a956b14
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 70f90026e4a67fe1f8b1d5f790aed87652975045
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81766926"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798616"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements de peering
 
@@ -43,7 +43,7 @@ Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements
 | **Région géopolitique** | **Régions Azure** | **Emplacements ExpressRoute** |
 | --- | --- | --- |
 | **Secteur public australien** |Australie Centre, Australie Centre 2 |Canberra, Canberra2 |
-| **Europe** | France Centre, France Sud, Allemagne Nord, Allemagne Centre-Ouest, Europe Nord, Norvège Est, Norvège Ouest, Suisse Nord, Suisse Ouest, Royaume-Uni Ouest, Royaume-Uni Sud, Europe Ouest |Amsterdam, Amsterdam2, Copenhague, Dublin, Francfort, Genève, Londres, Londres2, Marseille, Milan, Munich, Newport(Pays de Galles), Oslo, Paris, Stavanger, Stockholm, Zurich |
+| **Europe** | France Centre, France Sud, Allemagne Nord, Allemagne Centre-Ouest, Europe Nord, Norvège Est, Norvège Ouest, Suisse Nord, Suisse Ouest, Royaume-Uni Ouest, Royaume-Uni Sud, Europe Ouest |Amsterdam, Amsterdam2, Berlin, Copenhague, Dublin, Francfort, Genève, Londres, Londres2, Marseille, Milan, Newport(Pays de Galles), Oslo, Paris, Stavanger, Stockholm, Zurich |
 | **Amérique du Nord** |USA Est, USA Ouest, USA Est 2, USA Ouest 2, USA Centre, USA Centre Sud, USA Centre Nord, USA Centre-Ouest, Canada Centre, Canada Est |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montréal, Québec, Toronto, Vancouver |
 | **Asie** | Asie Est, Asie Sud-Est | Bangkok, Hong Kong, Hong Kong2, Jakarta, Kuala Lumpur, Singapour, Singapour2, Taipei |
 | **Inde** | Inde Ouest, Inde Centre, Inde Sud |Chennai, Chennai2, Mumbai, Mumbai2 |
@@ -92,8 +92,10 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Prise en charge |Prise en charge |Amsterdam2, Chicago, Francfort, Hong Kong, Las Vegas, Londres2, New York, Paris, San Antonio, Silicon Valley, Tokyo, Toronto, Washington DC, Washington DC2 |
 | **[Chief Telecom](https://www.chief.com.tw/dispPageBox/ct.aspx?ddsPageID=ENCLOUDSERVICE&dbid=4852937342)** |Prise en charge |Prise en charge |Hong Kong (R.A.S.), Taipei |
 | **China Mobile International** |Prise en charge |Prise en charge | Singapour |
-| **China Telecom Global** |Prise en charge |Prise en charge |Hong Kong (R.A.S.) |
+| **China Telecom Global** |Prise en charge |Prise en charge |Hong Kong, Hong Kong2 |
 | **China Unicom Global** |Prise en charge |Prise en charge | Singapore2 |
+| **[Chunghwa Telecom](https://www.cht.com.tw/en/home/cht/about-cht/products-and-services/International/Cloud-Service)** |Prise en charge |Prise en charge |Taipei |
+| **[Claro](https://www.usclaro.com/enterprise-mnc/connectivity/mpls/)** | Prise en charge | Prise en charge | Miami |
 | **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Prise en charge |Prise en charge |Chicago, Dallas, Montréal, Toronto, Vancouver, Washington DC |
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Prise en charge |Prise en charge |Amsterdam, Amsterdam2, Chicago, Dublin, Francfort, Londres, Londres2, Newport, New York, Osaka, Paris, Silicon Valley, Silicon Valley2, Singapour2, Tokyo, Washington DC |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Prise en charge |Prise en charge |Chicago, Silicon Valley, Washington DC |
@@ -132,13 +134,14 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** |Prise en charge |Prise en charge |Melbourne, Perth, Sydney, Sydney2 |
 | **[NTT Communications](https://www.ntt.com/en/services/network/virtual-private-network.html)** |Prise en charge |Prise en charge |Amsterdam, Hong Kong (R.A.S.), Londres, Los Angeles, Osaka, Singapour, Sydney, Tokyo, Washington DC |
 | **[NTT EAST](https://flets.com/cloudgateway/crossconnect/)** |Prise en charge |Prise en charge |Tokyo |
+| **[NTT Global DataCenters EMEA](https://www.ntt.com/en/services/data-center.html)** |Prise en charge |Prise en charge |Berlin |
 | **[NTT SmartConnect](https://cloud.nttsmc.com/cxc/azure.html)** |Prise en charge |Prise en charge |Osaka |
 | **[Ooredoo Cloud Connect](https://www.ooredoo.qa/portal/OoredooQatar/cloud-connect-expressroute)** |Prise en charge |Prise en charge |Marseille |
 | **[Optus](https://www.optus.com.au/enterprise/)** |Prise en charge |Prise en charge |Melbourne, Sydney |
 | **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |Prise en charge |Prise en charge |Amsterdam, Amsterdam2, Dubai2, Francfort, Hong Kong (R.A.S), Johannesbourg, Londres, Paris, São Paulo, Silicon Valley, Singapour, Sydney, Tokyo, Washington DC |
 | **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | Prise en charge | Prise en charge | Dubaï2 |
 | **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |Prise en charge |Prise en charge |Chicago, Silicon Valley, Washington DC |
-| **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Prise en charge |Prise en charge |Chicago, Hong Kong (R.A.S.), Londres, Singapour2 |
+| **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Prise en charge |Prise en charge |Chicago, Hong Kong, Hong Kong2, Londres, Singapour2 |
 | **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Prise en charge |Prise en charge |Séoul |
 | **[SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | Prise en charge |Prise en charge | Washington DC |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Prise en charge |Prise en charge |Chennai, Mumbai2 |
@@ -156,7 +159,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[Telstra Corporation](https://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Prise en charge |Prise en charge |Melbourne, Singapour, Sydney |
 | **[Telus](https://www.telus.com)** |Prise en charge |Prise en charge |Montréal, Seattle, Toronto |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Prise en charge |Prise en charge |Le Cap, Johannesburg |
-| **[TIME dotCom](https://www.time.com.my/enterprise/connectivity/cloud-interconnect)** | Prise en charge | Prise en charge | Kuala Lumpur |
+| **[TIME dotCom](https://www.time.com.my/enterprise/connectivity/direct-cloud)** | Prise en charge | Prise en charge | Kuala Lumpur |
 | **[Transtelco](https://transtelco.net/enterprise-services/)** |Prise en charge |Prise en charge |Dallas, Los Angeles|
 | **[UOLDIVEO](https://www.uoldiveo.com.br/)** |Prise en charge |Prise en charge |Sao Paulo |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Prise en charge |Prise en charge |Amsterdam, Chicago, Dallas, Hong Kong (R.A.S), Londres, Mumbaï, Silicon Valley, Singapour, Sydney, Tokyo, Toronto, Washington DC |
@@ -188,7 +191,7 @@ Les clouds nationaux Azure sont isolés les uns des autres et des productions Az
 | **Fournisseur de services** | **Microsoft Azure** | **Office 365** | **Emplacements** |
 | --- | --- | --- | --- |
 | **China Telecom** |Prise en charge |Non pris en charge |Beijing, Beijing2, Shanghai, Shanghai2 |
-| **China Unicom** | Prise en charge | Non pris en charge | Beijing2 |
+| **China Unicom** | Prise en charge | Non pris en charge | Beijing2, Shanghai2 |
 | **[GDS](http://www.gds-services.com/en/about_2.html)** |Prise en charge |Non pris en charge |Beijing2, Shanghai2 |
 
 Pour plus d’informations, consultez [ExpressRoute en Chine](http://www.windowsazure.cn/home/features/expressroute/).
@@ -211,6 +214,7 @@ Si votre fournisseur de connectivité ne se trouve pas dans la liste des section
 * Vérifiez auprès de votre fournisseur de connectivité s’il est connecté à l’un des échanges dans le tableau ci-dessous. Vous pouvez consulter les liens ci-dessous pour recueillir des informations supplémentaires sur les services proposés par les fournisseurs d’échange. Plusieurs fournisseurs de connectivité sont déjà connectés à des échanges Ethernet.
   * [Cologix](https://www.cologix.com/)
   * [CoreSite](https://www.coresite.com/)
+  * [DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange)
   * [Equinix Cloud Exchange](https://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
   * [Interxion](https://www.interxion.com/products/interconnection/cloud-connect/)
   * [IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)

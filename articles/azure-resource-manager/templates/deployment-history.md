@@ -3,13 +3,13 @@ title: Historique de déploiement
 description: Décrit comment afficher les opérations de déploiement d’Azure Resource Manager avec le portail, PowerShell, la CLI Azure et l’API REST.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 11/26/2019
-ms.openlocfilehash: b0f196f86bed05094b04bfc20c7cef2248a91c65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/22/2020
+ms.openlocfilehash: 1f22bdfac5eb12688a5b5778d4da1505e36ef6bf
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79460294"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816282"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Afficher l’historique des déploiements avec Azure Resource Manager
 
@@ -145,22 +145,22 @@ Pour obtenir le message d’état d’opérations ayant échoué, utilisez la co
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour voir les opérations relatives à un déploiement dans un groupe de ressources, utilisez la commande [az deployment group operation list](/cli/azure/group/deployment/operation?view=azure-cli-latest#az-deployment-group-operation-list).
+Pour afficher les opérations de déploiement relatives au déploiement vers un groupe de ressources, utilisez la commande [az deployment operation group list](/cli/azure/deployment/operation/group#az-deployment-operation-group-list). Vous devez disposer d’Azure CLI 2.6.0 ou version ultérieure.
 
 ```azurecli-interactive
-az deployment group operation list --resource-group ExampleGroup --name ExampleDeployment
+az deployment operation group list --resource-group ExampleGroup --name ExampleDeployment
 ```
 
 Pour afficher les opérations ayant échoué, filtrez les opérations à l’aide de l’état **Échec**.
 
 ```azurecli-interactive
-az deployment group operation list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed']"
+az deployment operation group list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed']"
 ```
 
 Pour obtenir le message d’état d’opérations ayant échoué, utilisez la commande suivante :
 
 ```azurecli-interactive
-az deployment group operation list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed'].properties.statusMessage.error"
+az deployment operation group list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed'].properties.statusMessage.error"
 ```
 
 # <a name="http"></a>[HTTP](#tab/http)

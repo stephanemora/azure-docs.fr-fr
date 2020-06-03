@@ -2,118 +2,34 @@
 title: Déployer des ressources inter-abonnements et groupes de ressources
 description: Montre comment cibler plusieurs groupes de ressources et des abonnements Azure pendant le déploiement.
 ms.topic: conceptual
-ms.date: 12/09/2019
-ms.openlocfilehash: 70868f5a3598c26ffff81f0ad3536a6c5c0a7e53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/18/2020
+ms.openlocfilehash: 2ef68dcb933075833c323d973b023cdaee61bd2f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460345"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650627"
 ---
-# <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements
+# <a name="deploy-azure-resources-across-subscriptions-or-resource-groups"></a>Déployer des ressources Azure entre des abonnements ou groupes de ressources
 
-En général, vous déployez toutes les ressources dans votre modèle sur un seul [groupe de ressources](../management/overview.md). Toutefois, il existe des scénarios dans lesquels vous pouvez souhaitez déployer un ensemble de ressources, tout en les plaçant dans différents groupes de ressources ou abonnements. Par exemple, vous voudrez peut-être déployer la machine virtuelle de sauvegarde destinée à Azure Site Recovery sur un groupe de ressources et un emplacement distincts. Resource Manager vous permet d’utiliser des modèles imbriqués pour cibler plusieurs abonnements et groupes de ressources.
+Resource Manager vous permet de déployer sur plusieurs groupes de ressources dans le cadre d’un seul déploiement. Vous utilisez des modèles imbriqués pour spécifier des groupes de ressources différents de celui dans l’opération de déploiement. Les groupes de ressources peuvent exister dans différents abonnements.
 
 > [!NOTE]
-> Vous ne pouvez pas déployer sur plus de cinq groupes de ressources dans un déploiement. En règle générale, cette limitation signifie que vous pouvez déployer sur un groupe de ressources spécifié pour le modèle parent et jusqu'à quatre groupes de ressources dans les déploiements imbriqués ou liés. Toutefois, si votre modèle parent contient uniquement des modèles imbriqués ou liés et ne déploie lui-même aucune ressource, vous pouvez inclure jusqu'à cinq groupes de ressources dans les déploiements imbriqués ou liés.
+> Vous pouvez déployer sur **800 groupes de ressources** en un seul déploiement. En règle générale, cette limitation signifie que vous pouvez déployer sur 1 groupe de ressources spécifié pour le modèle parent et jusqu’à 799 groupes de ressources dans les déploiements imbriqués ou liés. Toutefois, si votre modèle parent contient uniquement des modèles imbriqués ou liés et ne déploie lui-même aucune ressource, vous pouvez inclure jusqu’à 800 groupes de ressources dans les déploiements imbriqués ou liés.
 
 ## <a name="specify-subscription-and-resource-group"></a>Spécifier l’abonnement et le groupe de ressources
 
-Pour cibler un autre groupe de ressources ou un autre abonnement, utilisez un [modèle imbriqué ou lié](linked-templates.md). Le type de ressource `Microsoft.Resources/deployments` fournit des paramètres pour `subscriptionId` et `resourceGroup`, qui vous permettent de spécifier l’abonnement et le groupe de ressources pour le déploiement imbriqué. Si vous ne spécifiez pas l’ID d’abonnement ou le groupe de ressources, ce sont l’abonnement et le groupe de ressources depuis le modèle parent qui sont utilisés. Tous les groupes de ressources doivent exister avant l’exécution du déploiement.
+Pour cibler un groupe de ressources différent de celui du modèle parent, utilisez un modèle [imbriqué ou lié](linked-templates.md). Dans le type de ressource du déploiement, spécifiez des valeurs pour l’ID d’abonnement et le groupe de ressources sur lequel vous souhaitez déployer le modèle imbriqué.
 
-Le compte que vous utilisez pour déployer le modèle doit avoir les autorisations requises pour déployer vers l’ID d’abonnement spécifié. Si l’abonnement spécifié existe dans un autre abonné Azure Active Directory, vous devez [ajouter les utilisateurs invités à partir d’un autre répertoire](../../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/crosssubscription.json" range="38-43" highlight="5-6":::
 
-Pour spécifier un autre groupe de ressources et un abonnement, utilisez :
+Si vous ne spécifiez pas l’ID d’abonnement ni le groupe de ressources, ce sont l’abonnement et le groupe de ressources du modèle parent qui sont utilisés. Tous les groupes de ressources doivent exister avant l’exécution du déploiement.
 
-```json
-"resources": [
-  {
-    "apiVersion": "2017-05-10",
-    "name": "nestedTemplate",
-    "type": "Microsoft.Resources/deployments",
-    "resourceGroup": "[parameters('secondResourceGroup')]",
-    "subscriptionId": "[parameters('secondSubscriptionID')]",
-    ...
-  }
-]
-```
+Le compte qui déploie le modèle doit avoir l’autorisation de déployer vers l’ID d’abonnement spécifié. Si l’abonnement spécifié existe dans un autre abonné Azure Active Directory, vous devez [ajouter les utilisateurs invités à partir d’un autre répertoire](../../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
 
-Si vos groupes de ressources se trouvent dans le même abonnement, vous pouvez supprimer la valeur **subscriptionId**.
+L’exemple suivant déploie deux comptes de stockage. Le premier compte de stockage est déployé sur le groupe de ressources spécifié lors de l’opération de déploiement. Le second compte de stockage est déployé sur le groupe de ressources spécifié dans les paramètres `secondResourceGroup` et `secondSubscriptionID` :
 
-L’exemple suivant déploie deux comptes de stockage. Le premier compte de stockage est déployé sur le groupe de ressources spécifié pendant le déploiement. Le second compte de stockage est déployé sur le groupe de ressources spécifié dans les paramètres `secondResourceGroup` et `secondSubscriptionID` :
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storagePrefix": {
-      "type": "string",
-      "maxLength": 11
-    },
-    "secondResourceGroup": {
-      "type": "string"
-    },
-    "secondSubscriptionID": {
-      "type": "string",
-      "defaultValue": ""
-    },
-    "secondStorageLocation": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]"
-    }
-  },
-  "variables": {
-    "firstStorageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]",
-    "secondStorageName": "[concat(parameters('storagePrefix'), uniqueString(parameters('secondSubscriptionID'), parameters('secondResourceGroup')))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2017-06-01",
-      "name": "[variables('firstStorageName')]",
-      "location": "[resourceGroup().location]",
-      "sku":{
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
-      "name": "nestedTemplate",
-      "resourceGroup": "[parameters('secondResourceGroup')]",
-      "subscriptionId": "[parameters('secondSubscriptionID')]",
-      "properties": {
-      "mode": "Incremental",
-      "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
-          "resources": [
-          {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2017-06-01",
-            "name": "[variables('secondStorageName')]",
-            "location": "[parameters('secondStorageLocation')]",
-            "sku":{
-              "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {
-            }
-          }
-          ]
-      },
-      "parameters": {}
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/crosssubscription.json":::
 
 Si vous définissez `resourceGroup`sur le nom d’un groupe de ressources qui n’existe pas, le déploiement échoue.
 
@@ -221,99 +137,7 @@ L’[exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/m
 * Un modèle imbriqué avec l’étendue interne
 * Un modèle lié
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
-      "name": "defaultScopeTemplate",
-      "resourceGroup": "inlineGroup",
-      "properties": {
-      "mode": "Incremental",
-      "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
-          "resources": [
-          ],
-          "outputs": {
-          "resourceGroupOutput": {
-            "type": "string",
-            "value": "[resourceGroup().name]"
-          }
-          }
-      },
-      "parameters": {}
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
-      "name": "innerScopeTemplate",
-      "resourceGroup": "inlineGroup",
-      "properties": {
-      "expressionEvaluationOptions": {
-          "scope": "inner"
-      },
-      "mode": "Incremental",
-      "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
-          "resources": [
-          ],
-          "outputs": {
-          "resourceGroupOutput": {
-            "type": "string",
-            "value": "[resourceGroup().name]"
-          }
-          }
-      },
-      "parameters": {}
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
-      "name": "linkedTemplate",
-      "resourceGroup": "linkedGroup",
-      "properties": {
-      "mode": "Incremental",
-      "templateLink": {
-          "contentVersion": "1.0.0.0",
-          "uri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/resourceGroupName.json"
-      },
-      "parameters": {}
-      }
-    }
-  ],
-  "outputs": {
-    "parentRG": {
-      "type": "string",
-      "value": "[concat('Parent resource group is ', resourceGroup().name)]"
-    },
-    "defaultScopeRG": {
-      "type": "string",
-      "value": "[concat('Default scope resource group is ', reference('defaultScopeTemplate').outputs.resourceGroupOutput.value)]"
-    },
-    "innerScopeRG": {
-      "type": "string",
-      "value": "[concat('Inner scope resource group is ', reference('innerScopeTemplate').outputs.resourceGroupOutput.value)]"
-    },
-    "linkedRG": {
-      "type": "string",
-      "value": "[concat('Linked resource group is ', reference('linkedTemplate').outputs.resourceGroupOutput.value)]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/crossresourcegroupproperties.json":::
 
 Pour tester le modèle précédent et voir les résultats, utilisez PowerShell ou Azure CLI.
 

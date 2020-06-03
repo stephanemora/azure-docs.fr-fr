@@ -3,12 +3,12 @@ title: Vue d’ensemble des fonctionnalités de sécurité
 description: Découvrez les fonctionnalités de sécurité de Sauvegarde Azure qui vous aident à protéger vos données de sauvegarde et à répondre aux besoins de votre entreprise en matière de sécurité.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 688573b571c6ce4473f06d4c194795a38a33244b
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 178518f9f04a789f3cb634797cab650e24864337
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82743657"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653790"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Vue d’ensemble des fonctionnalités de sécurité de Sauvegarde Azure
 
@@ -40,8 +40,7 @@ La sauvegarde de machines virtuelles Azure nécessite un déplacement de donnée
 
 Vous pouvez désormais utiliser des [points de terminaison privés](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) pour sauvegarder en toute sécurité les données des serveurs de votre réseau virtuel vers votre coffre Recovery Services. Le point de terminaison privé utilise une adresse IP de l’espace d’adressage du réseau virtuel pour votre coffre. Vous n’avez donc pas besoin d’exposer vos réseaux virtuels à des adresses IP publiques. Les points de terminaison privés permettent de sauvegarder et de restaurer vos bases de données SQL et SAP HANA actives à l’intérieur de vos machines virtuelles Azure. Ils sont également utilisables pour vos serveurs locaux à l’aide de l’agent MARS.
 
->[!NOTE]
-> La disponibilité de cette fonctionnalité est actuellement limitée. Répondez à [cette enquête](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUQk5EQ1QxRzVOWDNDS1Y1Q0xLTkdLQ0U0RC4u) et [envoyez-nous un e-mail](mailto:azbackupnetsec@microsoft.com) si vous souhaitez utiliser des points de terminaison privés pour le service Sauvegarde Azure. La possibilité d’utiliser cette fonctionnalité est soumise à l’approbation du service Sauvegarde Azure.
+Pour en savoir plus sur les points de terminaison privés pour Sauvegarde Azure, cliquez [ici](https://docs.microsoft.com/azure/backup/private-endpoints).
 
 ## <a name="encryption-of-data-in-transit-and-at-rest"></a>Chiffrement des données en transit et au repos
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b7d8fbddc86c0d05d7b0d4ce46cb06c5fc92a2cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56c25ce417a17024843de1b9b16f57740de1e9fc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188115"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636980"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte Microsoft à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "78188115"
 
 Cet article explique comment activer la connexion d’utilisateurs à partir d’un compte Microsoft à l’aide de [stratégies personnalisées](custom-policy-overview.md) dans Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Suivez les étapes de l’article [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](custom-policy-get-started.md).
 - Si vous n’avez pas de compte Microsoft, créez-en un sur [https://www.live.com/](https://www.live.com/).
@@ -38,8 +38,8 @@ Pour autoriser la connexion des utilisateurs avec un compte Microsoft, vous deve
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
 1. Sélectionnez **Nouvelle inscription**.
 1. Entrez un **nom** pour votre application. Par exemple, *MSAapp1*.
-1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com)** .
-1. Sous **URI de redirection (facultatif)** , sélectionnez **Web**, puis entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` dans la zone de texte. Remplacez `your-tenant-name` par le nom de votre locataire Azure AD B2C.
+1. Sous **Types de comptes pris en charge**, sélectionnez **Compte dans n’importe quel répertoire organisationnel (n’importe quel répertoire Azure AD – Multilocataire) et compte Microsoft personnel (p. ex. Skype, Xbox)** .
+1. Sous **URI de redirection (facultatif)** , sélectionnez **Web**, puis entrez `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/authresp` dans la zone de texte. Remplacez `<tenant-name>` par le nom de votre locataire Azure AD B2C.
 1. Sélectionnez **Inscrire**.
 1. Enregistrez l’**ID d’application (client)** indiqué dans la page Vue d’ensemble de l’application. Vous en aurez besoin au moment de la configuration du fournisseur de revendications dans l’une des sections suivantes.
 1. Sélectionnez **Certificats et secrets**.
@@ -58,7 +58,7 @@ Si vous souhaitez obtenir les revendications `family_name` et `given_name` à pa
 1. Sélectionnez **Ajouter une revendication facultative**.
 1. Sélectionnez le type de jeton que vous souhaitez configurer.
 1. Sélectionnez les revendications facultatives à ajouter.
-1. Cliquez sur **Ajouter**.
+1. Cliquez sur **Add**.
 
 ## <a name="create-a-policy-key"></a>Création d’une clé de stratégie
 
@@ -208,7 +208,7 @@ Mettez à jour le fichier de partie de confiance qui lance le parcours utilisate
       "exp": 1562365200,
       "nbf": 1562361600,
       "ver": "1.0",
-      "iss": "https://your-b2c-tenant.b2clogin.com/10000000-0000-0000-0000-000000000000/v2.0/",
+      "iss": "https://<tenant-name>.b2clogin.com/10000000-0000-0000-0000-000000000000/v2.0/",
       "sub": "20000000-0000-0000-0000-000000000000",
       "aud": "30000000-0000-0000-0000-000000000000",
       "acr": "b2c_1a_signupsigninmsa",

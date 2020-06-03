@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 148b80a6843168b11e4feb3558f6bf08eaeb3ace
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 3b4159d81ce1d202dd1a302e863e5392f51a9868
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261259"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747807"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Commandes dans l’analytique de la place de marché commerciale
 
@@ -58,7 +58,7 @@ Le pourcentage situé à côté de Nombre total de commandes représente la prog
 
 ### <a name="orders-by-geography"></a>Commandes par zone géographique
 
-La carte thermique **Commandes par zone géographique** présente le nombre de commandes sur une carte du monde et indique les sièges en fonction du pays du client. Elle fonctionne de la même façon que la **[carte thermique Client par zone géographique](./customer-dashboard.md#customer-by-geography)** .
+La carte thermique **Commandes par zone géographique** présente le nombre de commandes sur une carte du monde et indique les sièges en fonction du pays ou de la région du client. Elle fonctionne de la même façon que la **[carte thermique Client par zone géographique](./customer-dashboard.md#customer-by-geography)** .
 
 ![Menu Analyser de l’Espace partenaires – Commandes par zone géographique](./media/orders-by-geography.png)
 
@@ -103,7 +103,8 @@ Le tableau Détails des commandes présente la liste numérotée des 1 000 premi
 - Chaque colonne de la grille peut être triée.
 - Les données peuvent être extraites dans un fichier TSV en présence d'un nombre d’enregistrements inférieur à 1 000.
 - En présence d'un nombre d'enregistrements supérieur à 1 000, les données exportées sont placées, de manière asynchrone, dans une page de téléchargements pour une durée de 30 jours.
-- Vous pouvez appliquer des filtres au **tableau Détails des commandes** pour afficher uniquement les données qui vous intéressent. Les données peuvent être filtrées par pays, type de licence Azure, type de licence de Place de marché, type d’offre, état de la commande, évaluations gratuites, ID d'abonnement de Place de marché, ID de client et nom de société.
+- Vous pouvez appliquer des filtres au **tableau Détails des commandes** pour afficher uniquement les données qui vous intéressent. Les données peuvent être filtrées par pays/région, type de licence Azure, type de licence de Place de marché, type d’offre, état de la commande, évaluations gratuites, ID d’abonnement de Place de marché, ID de client et nom de société.
+- Étant donné que les offres SaaS achetées par le biais de Place de marché Azure ou d’AppSource ne nécessitent pas d’abonnement Azure, l’ID d’abonnement de Place de marché affiche 00000000-0000-0000-0000-000000000000 dans la section **Données de commandes détaillées**.
 
 #### <a name="orders-page-filters"></a>Filtres de page des commandes
 
@@ -130,4 +131,4 @@ Vous pouvez sélectionner plusieurs filtres afin d’afficher le graphe pour les
 - Pour des informations détaillées sur vos clients, y compris des tendances de croissance, voir [Tableau de bord client dans l’analytique de la place de marché commerciale](./customer-dashboard.md).
 - Pour obtenir la liste de vos demandes de téléchargement des 30 derniers jours, voir [Tableau de bord des téléchargements dans l’analytique de la place de marché commerciale](./downloads-dashboard.md).
 - Pour une vue consolidée des commentaires des clients pour les offres sur la Place de marché Azure et AppSource, voir [Tableau de bord Évaluations et avis dans l’analytique de la place de marché commerciale](./ratings-reviews.md).
-- Pour obtenir des réponses aux questions fréquentes sur l’analytique de la place de marché commerciale et un dictionnaire complet des termes liés aux données, voir [Questions fréquentes et terminologie pour l’analytique de la place de marché commerciale](./faq-terminology.md).
+- Pour voir les questions fréquentes sur l’analytique de la place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Questions fréquentes et terminologie pour l’analytique de la place de marché commerciale](./faq-terminology.md).
