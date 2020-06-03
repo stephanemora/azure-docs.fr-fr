@@ -4,12 +4,12 @@ description: Découvrez comment configurer un conteneur PHP prédéfini pour vot
 ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 9e87466f810dc4ebf767c36ad74c358cbf6069e5
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 9933205095587d9e8e0d8a5641d213f159512450
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758877"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234951"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configurer une application PHP Linux pour Azure App Service
 
@@ -85,7 +85,7 @@ L’image par défaut PHP pour App Service utilise Apache, et ne vous permet pas
 ```
 <IfModule mod_rewrite.c>
     RewriteEngine on
-
+    RewriteCond %{REQUEST_URI} ^/$
     RewriteRule ^(.*)$ /public/$1 [NC,L,QSA]
 </IfModule>
 ```
@@ -109,7 +109,7 @@ Les frameworks web populaires vous permettent d’accéder aux informations `X-F
 S'il vous faut apporter des modifications à votre installation PHP, vous pouvez modifier les [directives php.ini](https://www.php.net/manual/ini.list.php) en suivant ces étapes.
 
 > [!NOTE]
-> La meilleure façon de consulter la version de PHP et la configuration actuelle de *php.ini* consiste à appeler [phpinfo()](https://php.net/manual/function.phpinfo.php) dans votre application.
+> La meilleure façon de consulter la version de PHP et la configuration actuelle de *php.ini* consiste à appeler [phpinfo()](https://www.php.net/manual/function.phpinfo.php) dans votre application.
 >
 
 ### <a name="customize-non-php_ini_system-directives"></a><a name="Customize-non-PHP_INI_SYSTEM directives"></a>Directives Customize-non-PHP_INI_SYSTEM

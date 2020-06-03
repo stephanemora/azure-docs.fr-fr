@@ -2,19 +2,19 @@
 title: Configurer des ressources pour déployer un modèle Machine Learning dans Azure SQL Edge
 description: Dans la première partie de ce tutoriel Azure SQL Edge en trois parties consacré à la prédiction des impuretés contenues dans le minerai de fer, vous allez installer les logiciels requis et configurer les ressources Azure nécessaires au déploiement d'un modèle Machine Learning dans Azure SQL Edge.
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: tutorial
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: c74e402fa1faa883b1e456f11a8d9d7b1e750d27
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 30c024aafc1cf8f479de77107b7f0aaaa262d47c
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772826"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235076"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>Installer les logiciels et configurer les ressources pour le tutoriel
 
