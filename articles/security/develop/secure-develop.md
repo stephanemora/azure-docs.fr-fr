@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 58f5d2e641cfe4913d6a06621b663d8a61cd00bb
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: f9ed611ae530e49ad8e776c47450bc9b7ece3190
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800284"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266761"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Développer des applications sécurisées sur Azure
 Cet article présente les activités et contrôles de sécurité à prendre en compte lorsque vous développez des applications pour le cloud. Les questions et concepts de sécurité à prendre en compte pendant les phases d’implémentation et de vérification du [Microsoft Security Development Lifecycle](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) y sont abordées. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser pour développer une application plus sécurisée.
@@ -129,7 +129,7 @@ Le test de sécurité des applications dynamique (DAST) est un processus de test
 
 Les tests DAST sont différents des tests de sécurité d’application statiques (SAST). Les outils SAST analysent le code source ou les versions compilées de code lorsque le code n’est pas exécuté afin de détecter des failles de sécurité.
 
-Effectuez les tests DAST de préférence avec l’aide d’un professionnel de la sécurité (un [testeur d’intrusion](../fundamentals/pen-testing.md) ou un évaluateur des vulnérabilités). Si aucun professionnel de la sécurité n’est disponible, vous pouvez effectuer vous-même les tests DAST avec un scanneur de proxy web et une formation préalable. Connectez un scanneur DAST suffisamment tôt afin de vous assurer de ne pas introduire de problèmes de sécurité évidents dans votre code. Consultez le site [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) pour obtenir la liste des scanneurs de vulnérabilité d’application web.
+Effectuez les tests DAST de préférence avec l’aide d’un professionnel de la sécurité (un [testeur d’intrusion](../fundamentals/pen-testing.md) ou un évaluateur des vulnérabilités). Si aucun professionnel de la sécurité n’est disponible, vous pouvez effectuer vous-même les tests DAST avec un scanneur de proxy web et une formation préalable. Connectez un scanneur DAST suffisamment tôt afin de vous assurer de ne pas introduire de problèmes de sécurité évidents dans votre code. Consultez le site [OWASP](https://owasp.org/www-community/Vulnerability_Scanning_Tools) pour obtenir la liste des scanneurs de vulnérabilité d’application web.
 
 ### <a name="perform-fuzz-testing"></a>Effectuer un test à données aléatoires (fuzzing)
 

@@ -9,12 +9,12 @@ ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.custom: storage-accounts
-ms.openlocfilehash: e2ecdb6f436806f93610325b4d5adf28cb3253e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc2e2ff0edc09e613b1da0a503eff9d53ebcf7a9
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82099629"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234620"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Charger un disque dur virtuel généralisé sur Azure pour créer une machine virtuelle
 
@@ -175,7 +175,7 @@ Créez le réseau virtuel et le sous-réseau du [réseau virtuel](../../virtual-
     ```    
 
 ### <a name="create-a-public-ip-address-and-network-interface"></a>Création d'une adresse IP publique et une interface réseau
-Pour établir la communication avec la machine virtuelle dans le réseau virtuel, vous avez besoin d’une [adresse IP publique](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) et d’une interface réseau.
+Pour établir la communication avec la machine virtuelle dans le réseau virtuel, vous avez besoin d’une [adresse IP publique](../../virtual-network/public-ip-addresses.md) et d’une interface réseau.
 
 1. Créez une adresse IP publique. Cet exemple crée une adresse IP publique nommée **myPip**. 
    
