@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: aa7ddb75017a532b436b9a5cfc71d1a7c2832cb6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6981b6acaf0281c1643e2d8ac3933e0fa892e3c2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77179123"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84124285"
 ---
 Cet article explique comment planifier la sauvegarde et la récupération d’urgence (DR) de machines virtuelles (VM) IaaS et de disques dans Azure. Ce document couvre les disques managés et non managés.
 
@@ -231,7 +231,7 @@ Pour les machines virtuelles contenant plusieurs disques, vous devez copier tout
 
 ### <a name="sql-server"></a>SQL Server
 
-SQL Server exécuté dans une machine virtuelle a ses propres fonctionnalités intégrées permettant de sauvegarder votre base de données SQL Server vers Stockage Blob Azure ou un partage de fichiers. Si le compte de stockage est un stockage géoredondant ou un stockage géoredondant avec accès en lecture, vous pouvez accéder à ces sauvegardes dans le centre de données secondaire du compte de stockage en cas de sinistre, avec les mêmes restrictions indiquées précédemment. Pour plus d’informations, voir [Sauvegarde et restauration de SQL Server dans les machines virtuelles Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md). En plus de la sauvegarde et de la restauration, [les groupes de disponibilité SQL Server AlwaysOn](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md) peuvent gérer les réplicas secondaires de bases de données. Cela réduit considérablement le délai de reprise d’activité après sinistre.
+SQL Server exécuté dans une machine virtuelle a ses propres fonctionnalités intégrées permettant de sauvegarder votre base de données SQL Server vers Stockage Blob Azure ou un partage de fichiers. Si le compte de stockage est un stockage géoredondant ou un stockage géoredondant avec accès en lecture, vous pouvez accéder à ces sauvegardes dans le centre de données secondaire du compte de stockage en cas de sinistre, avec les mêmes restrictions indiquées précédemment. Pour plus d’informations, voir [Sauvegarde et restauration de SQL Server dans les machines virtuelles Azure](../articles/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md). En plus de la sauvegarde et de la restauration, [les groupes de disponibilité SQL Server AlwaysOn](../articles/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md) peuvent gérer les réplicas secondaires de bases de données. Cela réduit considérablement le délai de reprise d’activité après sinistre.
 
 ## <a name="other-considerations"></a>Autres considérations
 

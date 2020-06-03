@@ -11,16 +11,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 06/15/2017
-ms.openlocfilehash: dc4a2f83f59ab94d1bff8a005b37124f2822c72b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 45acac646fece808065d12081bdc28eff92a1b79
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209415"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119330"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Activer la journalisation pour les services web Azure Machine Learning Studio (classique)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Ce document fournit des informations sur la capacité de journalisation des services web Machine Learning Studio (classique). La journalisation fournit des informations supplémentaires, au-delà d’un numéro et d’un message d’erreur, qui peuvent vous aider à résoudre des problèmes liés à vos appels aux API Machine Learning Studio (classique).  
 

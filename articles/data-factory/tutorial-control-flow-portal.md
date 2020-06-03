@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: ff9e5ff099bba7af9cac9862103ef63aa0169545
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0694d6f093864231206ec2282b6d358c57ed1dc4
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418744"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022127"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activités de création de branches et chaînage dans un pipeline Azure Data Factory
 
@@ -44,7 +44,7 @@ Ce tutoriel utilise le portail Azure. Vous pouvez utiliser d’autres mécanisme
 
 * **Abonnement Azure**. Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * **Compte Stockage Azure**. Vous utilisez le stockage blob comme magasins de données **source**. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/common/storage-account-create.md) pour découvrir comment en créer un.
-* **Azure SQL Database**. Vous utilisez la base de données en tant que magasin de données **récepteur**. Si vous n’avez pas de base de données Azure SQL Database, consultez l’article [Création d’une base de données Azure SQL](../sql-database/sql-database-get-started-portal.md) pour savoir comme en créer une.
+* **Azure SQL Database**. Vous utilisez la base de données en tant que magasin de données **récepteur**. Si vous n’avez pas de base de données Azure SQL Database, consultez l’article [Création d’une base de données Azure SQL](../azure-sql/database/single-database-create-quickstart.md) pour savoir comme en créer une.
 
 ### <a name="create-blob-table"></a>Créer la table d’objets blob
 

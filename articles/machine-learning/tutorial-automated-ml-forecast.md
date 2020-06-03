@@ -10,12 +10,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 05/19/2020
-ms.openlocfilehash: 07450f0c1ea85f22d19e59aaa27898cbf34a7978
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 46c11ef3b3a1fa1a1861f9e944c93ffdf94f7c5a
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656569"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118890"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutoriel : Prévoir la demande avec le Machine Learning automatisé
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -229,7 +229,7 @@ Pour savoir comment créer un schéma pris en charge par Power BI pour faciliter
 
 + En savoir plus sur le [Machine Learning automatisé](concept-automated-ml.md).
 + Pour plus d’informations sur les métriques et les graphiques de classification, consultez l’article [Comprendre les résultats du Machine Learning automatisé](how-to-understand-automated-ml.md#classification).
-+ Découvrez-en plus sur la [caractérisation](how-to-use-automated-ml-for-ml-models.md#featurization).
++ Découvrez-en plus sur la [caractérisation](how-to-configure-auto-features.md#featurization).
 + En savoir plus sur le [profilage des données](how-to-use-automated-ml-for-ml-models.md#profile).
 
 >[!NOTE]
