@@ -7,16 +7,17 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 28a909c3b4011b55fb3fb67d9d64ab57a310cb86
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 18bcd57c804746da5cff2efe8713616174fc794d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207258"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739479"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Application Gateway v2 avec mise à l’échelle automatique et redondance interzone 
 
-Application Gateway et le pare-feu d'applications web (WAF) sont également disponibles sous une référence SKU Standard_v2 et WAF_v2. La référence SKU v2 offre des performances améliorées et prend en charge de nouvelles fonctionnalités critiques telles que la mise à l’échelle automatique, la redondance de zone et la prise en charge d'adresses IP virtuelles statiques. Les fonctionnalités existantes sous la référence SKU Standard et WAF continuent à être prises en charge dans la nouvelle référence SKU v2, à quelques exceptions près que vous trouverez dans la section relative aux [comparaisons](#differences-with-v1-sku).
+Application Gateway et le pare-feu d'applications web (WAF) sont également disponibles sous une référence SKU Standard_v2 et WAF_v2. La référence SKU v2 offre des performances améliorées et prend en charge de nouvelles fonctionnalités critiques telles que la mise à l’échelle automatique, la redondance de zone et la prise en charge d'adresses IP virtuelles statiques. Les fonctionnalités existantes sous la référence SKU Standard et WAF continuent à être prises en charge dans la nouvelle référence SKU v2, à quelques exceptions près que vous trouverez dans la section relative aux [comparaisons](#differences-from-v1-sku).
 
 La nouvelle référence SKU v2 inclut les améliorations suivantes :
 
@@ -132,8 +133,16 @@ Prix total = 267,84 $ + 85,71 $ = 353,55 $
 
 Application Gateway et WAF peuvent être configurés pour être mis à l'échelle dans deux modes :
 
-- **Mise à l’échelle automatique** - Lorsque la mise à l’échelle automatique est activée, les références SKU Application Gateway et WAF v2 sont mis à l'échelle (augmentation ou réduction) en fonction des besoins de trafic de l'application. Ce mode offre une meilleure élasticité à votre application et vous évite de devoir estimer la taille d'Application Gateway ou le nombre d'instances. En outre, ce mode vous évite de devoir exécuter des passerelles à la capacité maximale approvisionnée pour une charge de trafic maximale anticipée. Vous devez spécifier un nombre minimal d’instances et éventuellement un nombre maximal d'instances. Moyennant une capacité minimale, Application Gateway et WAF v2 ne descendent pas en dessous du nombre minimal d'instances spécifié, même en l’absence de trafic. Chaque instance compte pour 10 unités de capacité réservées supplémentaires. Zéro signifie aucune capacité réservée, avec une mise à l’échelle purement automatique par nature. Notez que l’option zéro instance minimale supplémentaire garantit quand même une haute disponibilité du service, ce qui est toujours inclus avec le prix fixe. Vous pouvez également spécifier un nombre maximal d’instances pour vous assurer qu'Application Gateway n'effectue pas de mise à l'échelle au-delà du nombre d'instances spécifié. Vous continuez d'être facturé pour la quantité de trafic traité par Application Gateway. Le nombre d’instances peut varier de 0 à 125. Si elle n'est pas spécifiée, la valeur par défaut correspondant au nombre maximal d'instances est de 20.
+- **Mise à l’échelle automatique** - Lorsque la mise à l’échelle automatique est activée, les références SKU Application Gateway et WAF v2 sont mis à l'échelle (augmentation ou réduction) en fonction des besoins de trafic de l'application. Ce mode offre une meilleure élasticité à votre application et vous évite de devoir estimer la taille d'Application Gateway ou le nombre d'instances. En outre, ce mode vous évite de devoir exécuter des passerelles à la capacité maximale approvisionnée pour une charge de trafic maximale anticipée. Vous devez spécifier un nombre minimal d’instances et éventuellement un nombre maximal d'instances. Moyennant une capacité minimale, Application Gateway et WAF v2 ne descendent pas en dessous du nombre minimal d'instances spécifié, même en l’absence de trafic. Chaque instance est à peu près équivalente à 10 unités de capacité de réserve supplémentaires. Zéro signifie aucune capacité réservée, avec une mise à l’échelle purement automatique par nature. Vous pouvez également spécifier un nombre maximal d’instances pour vous assurer qu'Application Gateway n'effectue pas de mise à l'échelle au-delà du nombre d'instances spécifié. Vous ne serez facturé que pour la quantité de trafic desservie par l passerelle. Le nombre d’instances peut varier de 0 à 125. Si elle n'est pas spécifiée, la valeur par défaut correspondant au nombre maximal d'instances est de 20.
 - **Manuel** - Vous pouvez aussi choisir le mode Manuel, sans mise à l’échelle automatique de la passerelle. Dans ce mode, un trafic supérieur à ce que Application Gateway ou WAF peut gérer est susceptible d'entraîner une perte de trafic. En mode Manuel, vous êtes tenu de spécifier un nombre d'instances. Le nombre d’instances peut varier de 1 à 125.
+
+## <a name="autoscaling-and-high-availability"></a>Mise à l’échelle automatique et haute disponibilité
+
+Les passerelles Azure Application sont toujours déployées de façon hautement disponible. Le service est constitué de plusieurs instances créées conformément à la configuration (si la mise à l’échelle automatique est désactivée) ou requises par la charge de l’application (si la mise à l’échelle automatique est activée). Notez que, du point de vue de l’utilisateur, vous n’avez pas nécessairement de visibilité des instances individuelles, mais uniquement du service Application Gateway dans son ensemble. Si une instance présente un problème et cesse d’être fonctionnelle, Azure Application Gateway crée sans difficulté une nouvelle instance.
+
+Notez que, même si vous configurez la mise à l’échelle automatique sans minimum d’instances, le service offrira toujours une haute disponibilité qui est toujours incluse dans le prix fixe.
+
+Cependant, la création d’une instance peut prendre un certain temps (six ou sept minutes). Par conséquent, si vous ne souhaitez pas composer avec ce temps d’arrêt, vous pouvez configurer un nombre minimal d’instances égal à 2, idéalement avec prise en charge de zone de disponibilité. De cette façon, dans des conditions normales, vous avez au moins deux instances à l’intérieur de votre Application Gateway, de sorte que, si l’une d’elles rencontre un problème, l’autre tente de s’accommoder du trafic le temps de créer une nouvelle instance. Notez qu’une instance Azure Application Gateway peut prendre en charge environ 10 unités de capacité. Par conséquent, selon le volume du trafic en général, vous pouvez configurer le paramètre de mise à l’échelle automatique minimale d’instance sur une valeur supérieure à 2.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Comparaison des fonctionnalités des références SKU v1 et v2
 
@@ -163,7 +172,9 @@ Le tableau suivant répertorie les fonctionnalités disponibles avec chaque réf
 > [!NOTE]
 > La référence SKU v2 avec mise à l’échelle automatique prend désormais en charge les [sondes d’intégrité par défaut](application-gateway-probe-overview.md#default-health-probe) afin de superviser automatiquement l’intégrité de toutes les ressources dans son pool principal et de mettre en évidence les membres principaux considérés comme non sains. La sonde d’intégrité par défaut est automatiquement configurée pour les serveurs principaux ne disposant d'aucune configuration de sonde personnalisée. Pour plus d’informations, consultez [Sondes d’intégrité dans Application Gateway](application-gateway-probe-overview.md).
 
-## <a name="differences-with-v1-sku"></a>Différences par rapport à la référence SKU v1
+## <a name="differences-from-v1-sku"></a>Différences par rapport à la référence (SKU) v1
+
+Cette section décrit les fonctionnalités et les limitations de la référence (SKU) v2 qui diffèrent de celles de la référence (SKU) v1.
 
 |Différence|Détails|
 |--|--|

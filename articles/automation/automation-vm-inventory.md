@@ -1,51 +1,51 @@
 ---
-title: Gérer une machine virtuelle Azure avec la collection d’inventaire | Microsoft Docs
-description: Gérer une machine virtuelle avec la collection d’inventaire
+title: Gérer le regroupement d’inventaire Azure Automation à partir de machines virtuelles | Microsoft Docs
+description: Cet article explique comment gérer le regroupement d'inventaire à partir de machines virtuelles.
 services: automation
 ms.subservice: change-inventory-management
 keywords: inventaire, automatisation, suivi des modifications
 ms.date: 01/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0627d2daa70c276535dc43b722e22e1d73b0c8d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d237b016b8f3430ed0b28becd2712bd0c41d17b4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617371"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830614"
 ---
-# <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gérer une machine virtuelle Azure avec la collecte d’inventaire
+# <a name="manage-inventory-collection-from-vms"></a>Gérer une collecte de données d’inventaire à partir de machines virtuelles
 
-Vous pouvez activer le suivi d’inventaire pour une machine virtuelle Azure à partir de la page de ressources de cette machine. Vous pouvez collecter et afficher les informations d’inventaire suivantes sur vos ordinateurs :
+Vous pouvez activer le suivi d’inventaire pour une machine virtuelle Azure à partir de la page des ressources de celle-ci. Vous pouvez collecter et afficher les informations d’inventaire suivantes sur vos ordinateurs :
 
-- Logiciels (applications Windows et mises à jour Windows), services, fichiers et clés de Registre Windows
-- Logiciels (packages), démons et fichiers Linux
+- mises à jour Windows, applications Windows, services, fichiers et clés de Registre ;
+- logiciels (packages), démons et fichiers Linux.
 
-Cette méthode fournit une interface utilisateur basée sur un navigateur pour la configuration de la collecte d’inventaire.
+La fonctionnalité Suivi des modifications et inventaire d’Azure Automation fournit une interface utilisateur basée sur le navigateur pour configurer le regroupement d'inventaire.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://azure.microsoft.com/free/).
 
-Cet article suppose que vous avez une machine virtuelle pour configurer la solution sur. Si vous n’avez pas de machine virtuelle Azure, [créez-en une](../virtual-machines/windows/quick-create-portal.md).
+Cet article suppose que vous disposez d’une machine virtuelle pour laquelle activer la fonctionnalité Suivi des modifications et inventaire. Si vous n’avez pas de machine virtuelle Azure, vous pouvez [Créer une machine virtuelle](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>Activer la collecte d’inventaire à partir de la page de ressources de la machine virtuelle
+## <a name="enable-inventory-collection-from-the-vm-resource-page"></a>Activer le regroupement d'inventaire à partir de la page de ressources de la machine virtuelle
 
 1. Dans le volet de gauche du portail Azure, sélectionnez **Machines virtuelles**.
-2. Dans la liste des machines virtuelles, sélectionnez-en une.
+2. Dans la liste des machines virtuelles, sélectionnez une machine.
 3. Dans le menu **Ressource**, sous **Opérations**, sélectionnez **Inventaire**.
 4. Sélectionnez un espace de travail Log Analytics pour stocker vos journaux de données.
     Si aucun espace de travail n’est disponible pour cette région, vous êtes invité à créer un compte Automation et un espace de travail par défaut.
-5. Cliquez sur **Activer** pour démarrer l’intégration de votre ordinateur.
+5. Pour commencer l’activation de votre ordinateur, sélectionnez **Activer**.
 
    ![Afficher les options d’intégration](./media/automation-vm-inventory/inventory-onboarding-options.png)
 
-    Une barre d’état vous informe que la solution est en cours d’activation. Ce processus peut prendre jusqu’à 15 minutes. Pendant ce temps, vous pouvez fermer la fenêtre ou la laisser ouverte, afin qu’elle vous tienne informé de l’activation de la solution. Vous pouvez surveiller l’état du déploiement dans le volet des notifications.
+    Une barre d’état vous informe que la fonctionnalité Suivi des modifications et inventaire est en cours d’activation. Ce processus peut prendre jusqu’à 15 minutes. Pendant ce temps, vous pouvez fermer la fenêtre ou la laisser ouverte afin qu’elle vous tienne informé de l’activation de la fonctionnalité. Vous pouvez surveiller l’état du déploiement dans le volet des notifications.
 
-   ![Afficher la solution d’inventaire immédiatement après l’intégration](./media/automation-vm-inventory/inventory-onboarded.png)
+   ![Afficher l’inventaire](./media/automation-vm-inventory/inventory-onboarded.png)
 
 Une fois le déploiement terminé, la barre d’état disparaît. Le système est toujours en cours de collection des données d’inventaire ; ces données peuvent ne pas être encore visibles. Une collecte complète des données peut prendre 24 heures.
 
@@ -57,7 +57,7 @@ Par défaut, les logiciels, les services Windows et les démons Linux sont con
 2. Pour ajouter un nouveau paramètre de collection, accédez à la catégorie de paramètres concernée en sélectionnant l’onglet **Registre Windows**, **Fichiers Windows** ou **Fichiers Linux**.
 3. Sélectionnez la catégorie appropriée et cliquez sur **Ajouter** en haut de la page.
 
-Les tables suivantes fournissent des informations sur chaque propriété qui peut être configurée pour les différentes catégories.
+Les sections suivantes fournissent des informations sur chaque propriété qui peut être configurée pour les différentes catégories.
 
 ### <a name="windows-registry"></a>Registre Windows
 
@@ -110,14 +110,14 @@ Si vous souhaitez créer un autre groupe de machines, cliquez sur **+ Créer un 
 
 ![Création d’un groupe de machines](./media/automation-vm-inventory/create-new-group.png)
 
-## <a name="disconnect-your-virtual-machine-from-management"></a>Déconnecter la machine virtuelle de la fonction de gestion
+## <a name="disconnect-your-vm-from-management"></a>Déconnecter votre machine virtuelle de la gestion
 
-Pour supprimer votre machine virtuelle de la gestion de l’inventaire, procédez comme suit :
+Pour supprimer votre machine virtuelle de la gestion de la fonctionnalité Suivi des modifications et inventaire :
 
-1. Dans le volet de gauche du portail Azure, cliquez sur **Log Analytics**, puis sélectionnez l’espace de travail que vous avez utilisé lors de l’intégration de votre machine virtuelle.
+1. Dans le volet gauche du portail Azure, sélectionnez **Log Analytics**, puis sélectionnez l’espace de travail que vous avez utilisé lors de l’activation de votre machine virtuelle pour la fonctionnalité Suivi des modifications et inventaire.
 2. Sur la page Log Analytics, ouvrez le menu **Ressource**.
 3. Sélectionnez **Machines virtuelles** sous **Sources de données de l’espace de travail**.
-4. Dans la liste, sélectionnez la machine virtuelle que vous souhaitez déconnecter. Une coche verte s’affiche en regard du texte indiquant **Cet espace de travail** dans la colonne **Connexion OMS**, sur la machine virtuelle.
+4. Dans la liste, sélectionnez la machine virtuelle à déconnecter. Une coche verte s’affiche en regard du texte indiquant **Cet espace de travail** dans la colonne **Connexion OMS**, sur la machine.
 
    >[!NOTE]
    >Pour faire référence à Operations Management Suite (OMS), nous parlons maintenant de journaux Azure Monitor.
@@ -127,5 +127,6 @@ Pour supprimer votre machine virtuelle de la gestion de l’inventaire, procéde
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur la gestion des modifications dans les paramètres de registre et les fichiers sur vos machines virtuelles, consultez l’article relatif au [suivi des modifications apportées à votre environnement logiciel avec la solution Change Tracking](../log-analytics/log-analytics-change-tracking.md).
-* Pour en savoir plus sur la gestion des mises à jour Windows et de packages sur des machines virtuelles, consultez [La solution Update Management dans Azure](../operations-management-suite/oms-solution-update-management.md).
+* Pour plus d’informations sur l’utilisation de la fonctionnalité, consultez [Gérer Suivi des modifications et inventaire](change-tracking-file-contents.md).
+* Pour en savoir plus sur le suivi des modifications logicielles, consultez [Suivre les modifications logicielles dans votre environnement avec la fonctionnalité Suivi des modifications](../log-analytics/log-analytics-change-tracking.md).
+* Pour résoudre des problèmes généraux liés à la fonctionnalité, consultez [Résoudre les problèmes rencontrés avec la fonctionnalité Suivi des modifications et inventaire](troubleshoot/change-tracking.md).

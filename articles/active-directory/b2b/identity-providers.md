@@ -11,27 +11,41 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 395473e70137ead2b7185d54d165f82e9b3f1f04
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 2284d015b451872753dd0855cac42e6f1926545c
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595708"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712160"
 ---
 # <a name="identity-providers-for-external-identities"></a>Fournisseurs d’identité pour les identités externes
 
 Un *fournisseur d’identité* crée, entretient et gère les informations d’identité tout en fournissant des services d’authentification pour les applications. Lors du partage de vos applications et ressources avec des utilisateurs externes, Azure AD est le fournisseur d’identité par défaut. Cela signifie que, quand vous invitez des utilisateurs externes qui disposent déjà d’un compte Azure AD ou Microsoft, ceux-ci peuvent se connecter automatiquement sans configuration supplémentaire de votre part.
 
-Cependant, vous pouvez leur permettre de se connecter avec différents fournisseurs d’identité. Par exemple, vous pouvez configurer une fédération avec des fournisseurs d’identité sociale pris en charge par Azure AD, dont Google et Facebook. Vous pouvez également créer une fédération avec n’importe quel fournisseur d’identité externe prenant en charge les protocoles SAML ou WS-Fed. Avec une fédération de fournisseur d’identité externe, vous pouvez offrir à des utilisateurs externes la possibilité de se connecter à vos applications avec leurs comptes de réseaux social ou d’entreprise existants.
+Cependant, vous pouvez leur permettre de se connecter avec différents fournisseurs d’identité.
+
+- **Google** : la fédération des services Google permet à des utilisateurs externes de donner suite à des invitations que vous leur avez envoyées en se connectant à vos applications avec leurs propres comptes Gmail. Vous pouvez également utiliser la fédération des services Google dans vos flux d’utilisateurs d’inscription en libre-service.
+   > [!NOTE]
+   > Dans la préversion actuelle de l’inscription en libre-service, si un flux d’utilisateurs est associé à une application et que vous envoyez à une utilisateur une invitation à cette application, l’utilisateur ne peut pas utiliser un compte Gmail pour donner suite à l’invitation. Une solution de contournement pour l’utilisateur consiste à suivre le processus d’inscription en libre-service. Il peut également donner suite à l’invitation en accédant à une autre application ou en utilisant son portail Mes applications à l’adresse https://myapps.microsoft.com.
+
+- **Facebook** : lors de la création d’une application, vous pouvez configurer l’inscription en libre-service et activer un fédération Facebook afin que les utilisateurs puissent s’inscrire à votre application en utilisant leurs propres comptes Facebook. Facebook ne peut être utilisé que pour des flux d’utilisateurs d’inscription en libre-service, et n’est pas disponible en tant qu’option de connexion lorsque des utilisateurs donnent suite à des invitations de votre part.
+
+- **Fédération directe** : vous pouvez également configurer une fédération avec n’importe quel fournisseur d’identité externe prenant en charge les protocoles SAML ou WS-Fed. Une fédération directe permet à des utilisateurs externes de donner suite à des invitations que vous leur avez envoyées en se connectant à vos applications avec leurs comptes professionnels ou de réseaux sociaux existants. 
+   > [!NOTE]
+   > Vous ne pouvez pas utiliser des fournisseurs d’identité de fédération directe dans vos flux d’utilisateurs d’inscription en libre-service.
+
 
 ## <a name="how-it-works"></a>Fonctionnement
 
-Les identités externes Azure AD sont préconfigurées pour une fédération avec Google et Facebook. Pour configurer ces fournisseurs d’identité dans votre locataire Azure AD, vous devez créer une application chez chaque fournisseur d’identité et configurer des informations d’identification. Vous recevez un ID de client ou d’application et une clé secrète de client ou d’application que vous pouvez ensuite ajouter à votre locataire Azure AD.
+La fonctionnalité d’inscription en libre-service avec des identités externes Azure AD permet aux utilisateurs de s’inscrire avec leur compte Azure AD, Google ou Facebook. Pour configurer des fournisseurs d’identité sociale dans votre locataire Azure AD, vous devez créer une application chez chaque fournisseur d’identité et configurer des informations d’identification. Vous recevez un ID de client ou d’application et une clé secrète de client ou d’application que vous pouvez ensuite ajouter à votre locataire Azure AD.
 
 Une fois que vous avez ajouté un fournisseur d’identité à votre locataire Azure AD :
 
 - Lorsque vous invitez un utilisateur externe à des applications ou ressources se trouvant dans votre organisation, l’utilisateur externe peut se connecter avec son propre compte auprès de ce fournisseur d’identité.
-- Lorsque vous activez l’[inscription en libre-service](self-service-sign-up-overview.md) pour vos applications, des utilisateurs externes peuvent s’inscrire pour accéder à vos applications à l’aide de leurs propres comptes auprès des fournisseurs d’identité que vous avez ajoutés. 
+- Lorsque vous activez l’[inscription en libre-service](self-service-sign-up-overview.md) pour vos applications, des utilisateurs externes peuvent s’inscrire pour accéder à vos applications à l’aide de leurs propres comptes auprès des fournisseurs d’identité que vous avez ajoutés.
+
+> [!NOTE]
+> Azure AD étant activé par défaut pour l’inscription en libre-service, les utilisateurs ont toujours la possibilité de s’inscrire à l’aide d’un compte Azure AD.
 
 Quand vous échangez votre invitation ou vous inscrivez pour votre application, l’utilisateur externe a la possibilité de se connecter et de s’authentifier auprès du fournisseur d’identité sociale :
 

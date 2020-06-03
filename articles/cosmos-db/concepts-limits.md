@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: e4d578596471153e4fc0e37d3ca093685326ecc7
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 7ef7a55c81441077d2217ccfc41a2a9c9578eefe
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791763"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697570"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -30,17 +30,18 @@ Une fois que vous avez créé un compte Azure Cosmos dans votre abonnement, vous
 | Nombre maximal de clés de partition (logiques) distinctes | Illimité |
 | Volume de stockage maximal par conteneur | Illimité |
 | Volume de stockage maximal par base de données | Illimité |
-| Taille maximale des pièces jointes par compte (la fonctionnalité de pièce jointe est dépréciée) | 2 Go |
+| Taille maximale des pièces jointes par compte (la fonctionnalité de pièce jointe est dépréciée) | 2 Go |
 | Unités de requête minimales requises par 1 Go | 10 RU/s |
 
 > [!NOTE]
 > Pour découvrir les meilleures pratiques en matière de gestion des charges de travail qui ont des clés de partition nécessitant des limites plus élevées de stockage ou de débit, voir [Créer une clé de partition synthétique](synthetic-partition-keys.md).
 >
 
-Un conteneur Cosmos (ou une base de données de débit partagé) doit avoir un débit minimum de 400 unités de requête. À mesure que le conteneur croît, le débit minimal pris en charge dépend également des facteurs suivants :
+Un conteneur Cosmos (ou une base de données à débit partagé) doit avoir un débit minimum de 400 RU/s. À mesure que le conteneur croît, le débit minimal pris en charge dépend également des facteurs suivants :
 
-* Le débit minimal que vous pouvez définir sur un conteneur dépend du débit maximal déjà approvisionné sur le conteneur. Par exemple, si votre débit a été porté à 10 000 RU, le plus petit débit provisionné possible serait de 1000 unités de requête.
-* Le débit minimal sur une base de données de débit partagé dépend également du nombre total de conteneurs que vous avez créés dans une base de données de débit partagé, mesuré à 100 unités de requête par conteneur. Par exemple, si vous avez créé cinq conteneurs au sein d’une base de données de débit partagé, le débit doit être au moins de 500 unités de requête.
+* Le débit maximal provisionné jusqu’ici sur le conteneur. Par exemple, si votre débit a été porté à 50 000 RU/s, le plus petit débit approvisionné possible serait de 500 RU/s.
+* Stockage actuel en Go dans le conteneur. Par exemple, si votre conteneur a 100 Go de stockage, le plus petit débit approvisionné possible est de 1 000 RU/s.
+* Le débit minimal sur une base de données de débit partagé dépend également du nombre total de conteneurs que vous avez créés dans une base de données de débit partagé, mesuré à 100 RU/s par conteneur. Par exemple, si vous avez créé cinq conteneurs au sein d’une base de données de débit partagé, le débit doit être au moins de 500 RU/s.
 
 Les débits actuel et minimal d’un conteneur ou d’une base de données peuvent être récupérés à partir du portail Azure ou des SDK. Pour plus d’informations, consultez [Provisionner le débit sur les conteneurs et les bases de données](set-throughput.md). 
 
@@ -140,7 +141,16 @@ Cosmos DB prend en charge l’exécution de déclencheurs pendant les écritures
 
 ## <a name="limits-for-autoscale-provisioned-throughput"></a>Limites du débit approvisionné en mode de mise à l’échelle automatique
 
-Reportez-vous à l’article [Mise à l’échelle automatique](provision-throughput-autoscale.md#autoscale-limits) pour connaître les limites de débit et de stockage avec la mise à l’échelle automatique.
+Pour plus de détails sur le débit et les limites de stockage avec mise à l’échelle automatique, consultez l’article [Mise à l’échelle automatique](provision-throughput-autoscale.md#autoscale-limits) et le [FAQ](autoscale-faq.md#lowering-the-max-rus).
+
+| Ressource | Limite par défaut |
+| --- | --- |
+| Nombre maximal de RU/s auquel le système peut s’adapter |  `Tmax`, nombre maximal de RU/s de mise à l’échelle automatique défini par l’utilisateur|
+| Nombre minimal de RU/s auxquelles le système peut adapter son échelle | `0.1 * Tmax`|
+| Nombre actuel de RU/s auxquelles l’échelle du système est adaptée  |  `0.1*Tmax <= T <= Tmax`, selon l’utilisation|
+| Nombre minimal de RU/s facturables par heure| `0.1 * Tmax` <br></br>La facturation est effectuée sur une base horaire, où vous êtes facturé pour le nombre maximal de RU/s auxquelles l’échelle du système est adaptée dans l’heure, ou bien `0.1*Tmax`, la valeur plus élevée étant retenue. |
+| Nombre maximal de RU/s de mise à l’échelle automatique minimale pour un conteneur  |  `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)` arrondi au millier de RU/s le plus proche |
+| Nombre maximal de RU/s de mise à l’échelle automatique minimale pour une base de données  |  `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))` arrondi au millier de RU/s le plus proche <br></br>Notez que, si votre base de données comporte plus de 25 conteneurs, le système incrémente le nombre minimal de RU/S de mise à l’échelle automatique de 1000 RU/s par conteneur supplémentaire. Par exemple, si vous avez 30 conteneurs, le nombre maximal de RU/s de mise à l’échelle automatique la plus basse que vous pouvez définir est de 9000 RU/s (échelles comprises entre 900 et 9000 RU/s).
 
 ## <a name="sql-query-limits"></a>Limites de requête SQL
 
@@ -178,7 +188,7 @@ Le tableau suivant liste les limites liées à l’[essai gratuit d’Azure Cosm
 
 | Ressource | Limite par défaut |
 | --- | --- |
-| Durée de l’essai | 30 jours (peut être renouvelé indéfiniment) |
+| Durée de l’essai | 30 jours (une nouvelle évaluation peut être demandée après expiration) <br> Après expiration, les informations stockées sont supprimées. |
 | Nombre maximal de conteneurs par abonnement (SQL, API Table, Gremlin) | 1 |
 | Nombre maximal de conteneurs par abonnement (API MongoDB) | 3 |
 | Débit maximal par conteneur | 5 000 |
