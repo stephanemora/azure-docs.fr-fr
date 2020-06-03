@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1ab2b7860e8a75da5f8acef2fc4fa54d4b73a30d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf25c74f0190bc67e7da703e242d5d4bb3e299f5
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80256961"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020640"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurer une connexion d’un indexeur de Recherche cognitive Azure à SQL Server sur une machine virtuelle Azure
 
@@ -52,7 +52,7 @@ Le service Recherche cognitive Azure requiert un canal chiffré pour toutes les 
 ## <a name="configure-sql-server-connectivity-in-the-vm"></a>Configurer la connectivité SQL Server dans la machine virtuelle
 Après avoir configuré la connexion chiffrée requise par la Recherche cognitive Azure, vous devez réaliser des étapes de configuration supplémentaires intrinsèques à SQL Server sur les machines virtuelles Azure. Si vous ne l’avez pas déjà fait, l’étape suivante consiste à terminer la configuration en utilisant l’un de ces articles :
 
-* Pour une machine virtuelle **Resource Manager** , consultez l’article [Connect to a SQL Server Virtual Machine on Azure using Resource Manager](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md)(Se connecter à une machine virtuelle SQL Server sur Azure à l’aide de Resource Manager). 
+* Pour une machine virtuelle **Resource Manager** , consultez l’article [Connect to a SQL Server Virtual Machine on Azure using Resource Manager](../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md)(Se connecter à une machine virtuelle SQL Server sur Azure à l’aide de Resource Manager). 
 * Pour une machine virtuelle **classique** , consultez [Connexion à une machine virtuelle sur Azure Classic](../virtual-machines/windows/classic/sql-connect.md).
 
 En particulier, examinez la section de chaque article pour la « connexion via internet ».

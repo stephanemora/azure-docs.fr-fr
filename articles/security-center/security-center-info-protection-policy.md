@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: memildin
-ms.openlocfilehash: 9c776a32b4a35c72fc40a16afb87db9896a763cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5120e7ca3a29f12066343e5c4a81d6e51278f9ef
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75611064"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020402"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personnaliser la stratégie de protection des informations SQL dans Azure Security Center (préversion)
  
@@ -29,7 +29,7 @@ La protection des informations est une fonctionnalité de sécurité avancée po
 - Des scénarios de sécurité comme la supervision (audit) et la génération d’alertes en cas d’accès anormaux aux données sensibles
 - Contrôler l’accès et renforcer la sécurité des bases des magasins de données contenant des données sensibles
  
-La [protection des informations SQL](../sql-database/sql-database-data-discovery-and-classification.md) implémente ce paradigme pour vos magasins de données SQL, actuellement pris en charge pour Azure SQL Database. La protection des informations SQL détecte et classe automatiquement les données potentiellement sensibles, fournit un mécanisme permettant d’étiqueter de manière permanente les données sensibles avec des attributs de classification, et elle fournit un tableau de bord détaillé montrant l’état de classification de la base de données. En outre, il calcule la sensibilité du jeu de résultats des requêtes SQL, pour permettre un audit explicite des requêtes extrayant des données sensibles, et protéger les données. Pour plus d’informations sur la protection des informations SQL, consultez [Découverte et classification des données d’Azure SQL Database](../sql-database/sql-database-data-discovery-and-classification.md).
+La [protection des informations SQL](../azure-sql/database/data-discovery-and-classification-overview.md) implémente ce paradigme pour vos magasins de données SQL, actuellement pris en charge pour Azure SQL Database. La protection des informations SQL détecte et classe automatiquement les données potentiellement sensibles, fournit un mécanisme permettant d’étiqueter de manière permanente les données sensibles avec des attributs de classification, et elle fournit un tableau de bord détaillé montrant l’état de classification de la base de données. En outre, il calcule la sensibilité du jeu de résultats des requêtes SQL, pour permettre un audit explicite des requêtes extrayant des données sensibles, et protéger les données. Pour plus d’informations sur la protection des informations SQL, consultez [Découverte et classification des données d’Azure SQL Database](../azure-sql/database/data-discovery-and-classification-overview.md).
  
 Le mécanisme de classification est basé sur deux constructions principales qui composent la taxonomie de classification : les **étiquettes** et les **types d’informations**.
 - **Étiquettes** : principaux attributs de classification, utilisés pour définir le niveau de confidentialité des données stockées dans la colonne. 
@@ -79,7 +79,7 @@ Une fois que votre stratégie de protection des informations est entièrement d�
  
 ## <a name="next-steps"></a>Étapes suivantes
  
-Dans cet article, vous avez appris à définir une stratégie de protection des informations SQL dans Azure Security Center. Pour en savoir plus sur l’utilisation de la protection des informations SQL pour classifier et protéger des données sensibles dans vos bases de données SQL, consultez [Découverte et classification des données de base de données Azure SQL](../sql-database/sql-database-data-discovery-and-classification.md). 
+Dans cet article, vous avez appris à définir une stratégie de protection des informations SQL dans Azure Security Center. Pour en savoir plus sur l’utilisation de la protection des informations SQL pour classifier et protéger des données sensibles dans vos bases de données SQL, consultez [Découverte et classification des données de base de données Azure SQL](../azure-sql/database/data-discovery-and-classification-overview.md). 
 
 Pour plus d’informations sur les stratégies de sécurité et la sécurité des données dans Azure Security Center, consultez les articles suivants :
  

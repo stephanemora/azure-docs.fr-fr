@@ -7,14 +7,14 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 05/26/2020
 ms.author: egeaney
-ms.openlocfilehash: 82b294cbda6e9d4b4cfa5ec560d802c8e5c6c51c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bc328efd648eb3dd522f5233e2a5c440911ac58c
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590891"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310833"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>Chiffrement des données au repos par le traducteur
 
@@ -22,7 +22,7 @@ Le Traducteur chiffre automatiquement vos données, que vous chargez pour créer
 
 ## <a name="about-cognitive-services-encryption"></a>À propos du chiffrement Cognitive Services
 
-Les données sont chiffrées et déchiffrées à l'aide du chiffrement [AES 256 bits](https://en.wikipedia.org/wiki/FIPS_140-2) certifié [FIPS 140-2](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). Le chiffrement et le déchiffrement sont transparents, ce qui signifie que le chiffrement et l’accès sont gérés automatiquement. Comme vos données sont sécurisées par défaut, vous n’avez pas besoin de modifier votre code ou vos applications pour tirer parti du chiffrement.
+Les données sont chiffrées et déchiffrées à l'aide du chiffrement [AES 256 bits](https://en.wikipedia.org/wiki/FIPS_140-2) certifié [FIPS 140-2](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). Le chiffrement et le déchiffrement sont transparents, ce qui signifie que le chiffrement et l’accès sont gérés automatiquement. Vos données étant sécurisées par défaut, vous n’avez pas besoin de modifier votre code ou vos applications pour tirer parti du chiffrement.
 
 ## <a name="about-encryption-key-management"></a>À propos de la gestion des clés de chiffrement
 
@@ -45,7 +45,7 @@ Afin d'activer les clés gérées par le client pour le Traducteur, procédez co
 2. Activez l'identité managée sur le portail Azure et ajoutez les informations relatives à vos clés gérées par le client.
 3. Créez un nouvel espace de travail dans Custom Translator et associez ces informations d'abonnement.
 
-[!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk-regions.md)]
+[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
 ### <a name="enable-customer-managed-keys"></a>Activer des clés gérées par le client
 

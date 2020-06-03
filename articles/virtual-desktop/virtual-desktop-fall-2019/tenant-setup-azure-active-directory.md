@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8b08e8e4d6623277d1935fc85e302e8ce3c88eea
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: da5211206c12f2fe3259fcbbf196a7728c026b26
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124395"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234117"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Tutoriel : Créer un locataire dans Windows Virtual Desktop
 
@@ -152,9 +152,6 @@ New-RdsRoleAssignment -TenantName <TenantName> -SignInName <Upn> -RoleDefinition
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-Pour obtenir une procédure pas à pas détaillée, consultez notre [Parcours d'apprentissage Windows Virtual Desktop](https://docs.microsoft.com/learn/paths/m365-wvd/).
-
 Après avoir créé votre locataire, il vous faudra créer un principal de service dans Azure Active Directory et lui attribuer un rôle dans Windows Virtual Desktop. Le principal de service vous permettra de déployer l’offre Place de marché Azure Windows Virtual Desktop pour créer un pool d’hôtes. Pour en savoir plus sur les pools d’hôtes, passez au tutoriel concernant la création d’un pool d’hôtes dans Windows Virtual Desktop.
 
 > [!div class="nextstepaction"]

@@ -5,12 +5,12 @@ ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.topic: article
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: dfd9297e80836978b8a185df3fc4659676383802
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b8545c4f8c0dc86d83e0711147a1bda608c2897f
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75659897"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020164"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>Montez une application en puissance dans Azure App Service
 
@@ -62,7 +62,7 @@ Si votre application dépend d’autres services, comme Azure SQL Database ou St
    
     ![Accéder à la page du groupe de ressources pour activer la montée en puissance de votre application Azure](./media/web-sites-scale/ResourceGroup.png)
 
-    Pour monter en puissance la ressource associée, consultez la documentation relative à ce type de ressource précise. Par exemple, pour monter en puissance un SQL Database unique, consultez la page [Mettre à l'échelle des ressources de base de données uniques dans Azure SQL Database](../sql-database/sql-database-single-database-scale.md). Pour monter en puissance une ressource Azure Database pour MySQL, consultez la page [Mettre à l'échelle mes ressources MySQL](../mysql/concepts-pricing-tiers.md#scale-resources).
+    Pour monter en puissance la ressource associée, consultez la documentation relative à ce type de ressource précise. Par exemple, pour monter en puissance un SQL Database unique, consultez la page [Mettre à l'échelle des ressources de base de données uniques dans Azure SQL Database](../azure-sql/database/single-database-scale.md). Pour monter en puissance une ressource Azure Database pour MySQL, consultez la page [Mettre à l'échelle mes ressources MySQL](../mysql/concepts-pricing-tiers.md#scale-resources).
 
 <a name="OtherFeatures"></a>
 <a name="devfeatures"></a>

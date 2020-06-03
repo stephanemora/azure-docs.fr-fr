@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 91e7b1c0be9a38c3d79440f07d944d182980dc10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 038d9ff39f388d1ef7b09b951c09dbe3420858b7
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80159232"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298225"
 ---
 # <a name="use-visual-studio-and-visual-studio-code-to-build-iot-plug-and-play-devices"></a>Utiliser Visual Studio et Visual Studio Code pour générer des appareils IoT Plug-and-Play
 
@@ -193,7 +193,7 @@ Les étapes suivantes vous montrent comment compiler le code d’appareil avec l
 
 1. Ouvrez une application de terminal.
 
-1. Utilisez [Homebrew](https://homebrew.sh) pour installer toutes les dépendances :
+1. Utilisez [Homebrew](https://brew.sh) pour installer toutes les dépendances :
 
     ```bash
     brew update

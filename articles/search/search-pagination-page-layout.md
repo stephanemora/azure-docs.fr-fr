@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: da01d0f7d2313b9700c5aae08edbda9e355b3774
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 93f1da7db3962994611f70fc145d0e9b62cd4f26
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801771"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167857"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Guide pratique pour utiliser les résultats de recherche dans Recherche cognitive Azure
 
@@ -126,8 +126,6 @@ Avec le nouveau comportement :
     '<em>super bowl</em> is super awesome with a bowl of chips'
     ```
   Notez que le terme *bowl of chips* n’est pas mis en surbrillance, car il ne correspond pas à l’expression complète.
-  
-* Il est possible de spécifier la taille de fragment retournée pour la mise en surbrillance. La taille du fragment est spécifiée sous la forme d’un nombre de caractères (la valeur maximale est de 1000 caractères).
 
 Lorsque vous écrivez du code client qui implémente la mise en surbrillance des correspondances, tenez compte de cette modification. Notez que cela n’aura aucun impact sauf si vous créez un service de recherche entièrement nouveau.
 

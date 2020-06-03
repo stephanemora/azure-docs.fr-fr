@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 383ad5e5063a0a207320a517c34f3b41cc57804a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7d95cc08595296d697618cbb3ff0025c7c212a1f
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80067151"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84296525"
 ---
 # <a name="azure-files-networking-considerations"></a>Considérations relatives à la mise en réseau Azure Files 
 Vous pouvez vous connecter à un partage de fichiers Azure de deux manières :
@@ -51,7 +51,7 @@ Azure Files prend en charge les mécanismes suivants pour tunneliser le trafic e
 
 - [Passerelle VPN Azure](../../vpn-gateway/vpn-gateway-about-vpngateways.md) : une passerelle VPN est un type spécifique de passerelle de réseau virtuel utilisé pour envoyer du trafic chiffré d’un réseau virtuel Azure vers un autre emplacement (par exemple local) via Internet. Une passerelle VPN Azure est une ressource Azure qui peut être déployée dans un groupe de ressources aux côtés d’un compte de stockage ou d’autres ressources Azure. Les passerelles VPN exposent deux types de connexion :
     - Des connexions de passerelle [VPN point à site (P2S)](../../vpn-gateway/point-to-site-about.md) , qui sont des connexions VPN entre Azure et un client individuel. Cette solution est principalement utile pour des appareils ne faisant pas partie du réseau local de votre organisation. C’est le cas, par exemple, quand des télétravailleurs souhaitent pouvoir monter leur partage de fichiers Azure à partir de chez eux, d’un café ou d’un hôtel quand ils sont en déplacement. Pour utiliser une connexion VPN P2S avec Azure Files, une connexion VPN P2S doit être configurée pour chaque client qui souhaite se connecter. Pour simplifier le déploiement d’une connexion VPN P2S, consultez [Configurer un VPN point à site (P2S) sur Windows pour une utilisation avec Azure Files](storage-files-configure-p2s-vpn-windows.md) et [Configurer un VPN point à site (P2S) sur Linux pour une utilisation avec Azure Files](storage-files-configure-p2s-vpn-linux.md).
-    - Des connexions [VPN site à site (S2S) ](../../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti) entre Azure et le réseau de votre organisation. Une connexion VPN S2S vous permet de configurer une connexion VPN une seule fois pour un serveur VPN ou un appareil hébergé sur le réseau de votre entreprise, au lieu de le faire que pour chaque appareil client devant accéder à votre partage de fichiers Azure. Pour simplifier le déploiement d’une connexion VPN S2S, consultez [Configurer un VPN site à site (S2S) pour une utilisation avec Azure Files](storage-files-configure-s2s-vpn.md).
+    - Des connexions [VPN site à site (S2S) ](../../vpn-gateway/design.md#s2smulti) entre Azure et le réseau de votre organisation. Une connexion VPN S2S vous permet de configurer une connexion VPN une seule fois pour un serveur VPN ou un appareil hébergé sur le réseau de votre entreprise, au lieu de le faire que pour chaque appareil client devant accéder à votre partage de fichiers Azure. Pour simplifier le déploiement d’une connexion VPN S2S, consultez [Configurer un VPN site à site (S2S) pour une utilisation avec Azure Files](storage-files-configure-s2s-vpn.md).
 - [ExpressRoute](../../expressroute/expressroute-introduction.md), qui vous permet de créer un itinéraire défini entre Azure et votre réseau local qui ne traverse pas Internet. ExpressRoute peut être utile quand les performances du réseau doivent être prises en compte, car il fournit un chemin dédié entre votre centre de données local et Azure. ExpressRoute est également une bonne option quand une stratégie ou des exigences réglementaires de votre organisation exigent un chemin d’accès déterministe à vos ressources dans le cloud.
 
 Quelle que soit la méthode de tunneling que vous utilisez pour accéder à vos partages de fichiers Azure, vous avez besoin d’un mécanisme qui fasse en sorte que le trafic à destination de votre compte de stockage emprunte le tunnel et non votre connexion Internet normale. Il est techniquement possible de router le trafic vers le point de terminaison public du compte de stockage, mais cela nécessite de coder en dur toutes les adresses IP pour les clusters de stockage Azure d’une région, car les comptes de stockage peuvent à tout moment être déplacés entre les clusters de stockage. Cela nécessite aussi une mise à jour permanente des mappages d’adresses IP, car de nouveaux clusters sont ajoutés en permanence.
