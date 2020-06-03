@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: fa7750a6e7888b6ca13c1ec32cabee9bcf803e65
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: d97fae777b06625488234eb6d48a74a60a83f4d6
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382740"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018716"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutoriel : Extraire, transformer et charger des données à l’aide d’Azure Databricks
 
@@ -370,7 +370,7 @@ Comme mentionné précédemment, le connecteur Azure Synapse utilise le Stockage
    > [!NOTE]
    > Cet exemple utilise l’indicateur `forward_spark_azure_storage_credentials`, qui fait en sorte qu’Azure Synapse accède aux données à partir du stockage d’objets blob à l’aide d’une clé d’accès. Il s’agit de la seule méthode d’authentification prise en charge.
    >
-   > Si votre Stockage Blob Azure est limité à certains réseaux virtuels, Azure Synapse nécessite [Managed Service Identity plutôt que des clés d’accès](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Cela génère l’erreur « Cette requête n’est pas autorisée à effectuer cette opération ».
+   > Si votre Stockage Blob Azure est limité à certains réseaux virtuels, Azure Synapse nécessite [Managed Service Identity plutôt que des clés d’accès](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Cela génère l’erreur « Cette requête n’est pas autorisée à effectuer cette opération ».
 
 6. Connectez-vous à la base de données SQL et vérifiez que vous y voyez une base de données nommée **SampleTable**.
 

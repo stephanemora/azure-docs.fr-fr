@@ -9,12 +9,12 @@ ms.date: 01/21/2020
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: b6a3f38e0b83dc927a225c630b8178be1dc539ce
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 321417813346e7d5c92876c22516c627aff5ab12
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76310116"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300747"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutoriel : mise à jour de l’inventaire à l’aide du portail Azure et des rubriques/abonnements
 
@@ -55,7 +55,7 @@ Chaque [abonnement à une rubrique](service-bus-messaging-overview.md#topics) pe
 
 Une fois que l’espace de noms et les rubriques/abonnements sont configurés, et que vous disposez des informations d’identification nécessaires, vous êtes prêt à créer des règles de filtre sur les abonnements, puis à envoyer et recevoir des messages. Vous pouvez consulter le code dans [ce dossier d’exemples GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
-### <a name="send-and-receive-messages"></a>Envoyer et recevoir des messages
+## <a name="send-and-receive-messages"></a>Envoyer et recevoir des messages
 
 Pour exécuter le code, procédez comme suit :
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: mbaldwin
-ms.openlocfilehash: ce78ade4df3c5bcea9e4e44750c430065cbfc5b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c45839d622f4bad5097006a364a36db05ce5dacc
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81454643"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84012974"
 ---
 # <a name="azure-encryption-overview"></a>Vue d’ensemble du chiffrement Azure
 
@@ -28,7 +28,7 @@ Cet article fournit une vue d’ensemble de l’utilisation du chiffrement dans 
 
 ## <a name="encryption-of-data-at-rest"></a>Chiffrement des données au repos
 
-Les données au repos incluent des informations qui se trouvent dans un stockage persistant sur un support physique, sous n’importe quel format numérique. Il peut s’agir de fichiers sur un support magnétique ou optique, de données archivées et de sauvegardes de données. Microsoft Azure offre une variété de solutions de stockage de données en fonction des besoins, y compris le stockage sur fichier, disque, objet blob et table. Microsoft fournit également le chiffrement pour protéger [Azure SQL Database](../../sql-database/sql-database-technical-overview.md), [Azure Cosmos DB](../../data-factory/introduction.md) et Azure Data Lake.
+Les données au repos incluent des informations qui se trouvent dans un stockage persistant sur un support physique, sous n’importe quel format numérique. Il peut s’agir de fichiers sur un support magnétique ou optique, de données archivées et de sauvegardes de données. Microsoft Azure offre une variété de solutions de stockage de données en fonction des besoins, y compris le stockage sur fichier, disque, objet blob et table. Microsoft fournit également le chiffrement pour protéger [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md), [Azure Cosmos DB](../../data-factory/introduction.md) et Azure Data Lake.
 
 Le chiffrement des données au repos est disponible pour les modèles de cloud SaaS (Software-as-a-Service), PaaS (Platform-as-a-Service) et IaaS (Infrastructure-as-a-Service). Cet article résume et fournit des ressources pour vous aider à utiliser les options de chiffrement Azure.
 
@@ -85,11 +85,11 @@ Pour finir, vous pouvez également utiliser la bibliothèque cliente de stockage
 
 ### <a name="encryption-of-data-at-rest-with-azure-sql-database"></a>Chiffrement des données au repos avec Azure SQL Database
 
-[Azure SQL Database](../../sql-database/sql-database-technical-overview.md) est une base de données relationnelle à usage général dans Azure qui prend en charge des structures telles que les données relationnelles, JSON, les données spatiales et XML. SQL Database prend en charge le chiffrement côté serveur grâce à la fonctionnalité de chiffrement transparent des données (TDE) et le chiffrement côté client grâce à la fonction Always Encrypted.
+[Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) est une base de données relationnelle à usage général dans Azure qui prend en charge des structures telles que les données relationnelles, JSON, les données spatiales et XML. SQL Database prend en charge le chiffrement côté serveur grâce à la fonctionnalité de chiffrement transparent des données (TDE) et le chiffrement côté client grâce à la fonction Always Encrypted.
 
 #### <a name="transparent-data-encryption"></a>chiffrement transparent des données
 
-[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) est utilisé pour chiffrer les fichiers de données [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../sql-database/sql-database-technical-overview.md) et [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) en temps réel à l’aide d’une clé de chiffrement de base de données (DEK) stockée dans l’enregistrement de démarrage de la base de données pour une disponibilité lors de la récupération.
+[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) est utilisé pour chiffrer les fichiers de données [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) et [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) en temps réel à l’aide d’une clé de chiffrement de base de données (DEK) stockée dans l’enregistrement de démarrage de la base de données pour une disponibilité lors de la récupération.
 
 TDE protège les données et les fichiers journaux, à l’aide d’algorithmes de chiffrement AES et 3DES (Triple Data Encryption Standard). Le chiffrement du fichier de base de données est effectué au niveau de la page. Les pages dans une base de données chiffrée sont chiffrées avant d’être écrites sur le disque, et sont déchiffrées quand elles sont lues en mémoire. TDE est désormais activé par défaut sur les nouvelles bases de données Azure SQL.
 

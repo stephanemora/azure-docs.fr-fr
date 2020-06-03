@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 044930c9df7b54515b9b66426a6b05aa9517a3a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 06cd02177d7d5c478f3378eb05517f1a37297e92
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70881291"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300730"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Mise en réseau du module Azure HSM dédié
 
@@ -78,7 +78,7 @@ Les appareils HSM ont la possibilité, par le biais de bibliothèques logicielle
 
 ### <a name="cross-region-ha-using-vpn-gateway"></a>Haute disponibilité inter-région à l’aide d’une passerelle VPN
 
-Pour les applications distribuées globalement ou les scénarios de basculement régional à haute disponibilité, il est nécessaire de connecter des réseaux virtuels dans différentes régions. Un module Azure HSM dédié assure une haute disponibilité en utilisant une passerelle VPN qui fournit un tunnel sécurisé entre les deux réseaux virtuels. Pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel à l’aide d’une passerelle VPN, consultez l’article [Présentation d’une passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md#V2V).
+Pour les applications distribuées globalement ou les scénarios de basculement régional à haute disponibilité, il est nécessaire de connecter des réseaux virtuels dans différentes régions. Un module Azure HSM dédié assure une haute disponibilité en utilisant une passerelle VPN qui fournit un tunnel sécurisé entre les deux réseaux virtuels. Pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel à l’aide d’une passerelle VPN, consultez l’article [Présentation d’une passerelle VPN](../vpn-gateway/design.md#V2V).
 
 > [!NOTE]
 > Pour le moment, le peering de réseaux virtuels global n’est pas disponible dans des scénarios de connectivité inter-région incluant des modules HSM dédiés et vous devez utiliser à la place une passerelle VPN. 

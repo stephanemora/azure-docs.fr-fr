@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: d9283a36d5f7ccb82b2cc211485487d5a3dcce7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc79d7204ba360696b8d9411cd56efd09d1678dc
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79201023"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021838"
 ---
 # <a name="azure-database-security-checklist"></a>Liste de contrôle de la sécurité des bases de données Azure
 
@@ -28,7 +28,7 @@ Pour aider à améliorer la sécurité, les bases de données Azure incluent un 
 
 notamment :
 
--    Pare-feu qui vous permet de créer des [règles de pare-feu](../../sql-database/sql-database-firewall-configure.md) limitant la connectivité par adresse IP
+-    Pare-feu qui vous permet de créer des [règles de pare-feu](../../azure-sql/database/firewall-configure.md) limitant la connectivité par adresse IP
 -    Pare-feu au niveau du serveur accessible depuis le portail Azure
 -    Règles de pare-feu au niveau de la base de données accessibles à partir de SSMS
 -    Connectivité sécurisée à votre base de données avec des chaînes de connexion sécurisées
@@ -50,10 +50,10 @@ Nous vous recommandons de lire l’article [Azure Database Security Best Practic
 | <br> Chiffrement en mouvement/transit| <ul><li>[Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), pour le chiffrement des données lorsqu’elles se déplacent vers les réseaux.</li><li>Les bases de données requièrent une communication sécurisée depuis les clients, avec l’utilisation du protocole [TDS (Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) sur le protocole TLS (Transport Layer Security).</li></ul> |
 |<br>Chiffrement au repos| <ul><li>[Transparent Data Encryption](https://go.microsoft.com/fwlink/?LinkId=526242), lorsque les données inactives sont stockées physiquement dans un format numérique.</li></ul>|
 |**Contrôle des accès**||  
-|<br> Accès à la base de données | <ul><li>[Authentification](../../sql-database/sql-database-manage-logins.md) AD (Azure Active Directory), qui utilise des identités gérées par Azure Active Directory.</li><li>[Autorisation](../../sql-database/sql-database-manage-logins.md), pour accorder aux utilisateurs les privilèges minimum nécessaires.</li></ul> |
-|<br>Accès aux applications| <ul><li>[Sécurité au niveau des lignes](https://msdn.microsoft.com/library/dn765131) (avec une stratégie de sécurité, tout en limitant l’accès au niveau des lignes selon l’identité des utilisateurs, leur rôle ou le contexte d’exécution).</li><li>[Masquage des données dynamiques](../../sql-database/sql-database-dynamic-data-masking-get-started.md) (avec autorisation et stratégie, limite l’exposition des données sensibles en les masquant pour les utilisateurs sans privilège).</li></ul>|
+|<br> Accès à la base de données | <ul><li>[Authentification](../../azure-sql/database/logins-create-manage.md) AD (Azure Active Directory), qui utilise des identités gérées par Azure Active Directory.</li><li>[Autorisation](../../azure-sql/database/logins-create-manage.md), pour accorder aux utilisateurs les privilèges minimum nécessaires.</li></ul> |
+|<br>Accès aux applications| <ul><li>[Sécurité au niveau des lignes](https://msdn.microsoft.com/library/dn765131) (avec une stratégie de sécurité, tout en limitant l’accès au niveau des lignes selon l’identité des utilisateurs, leur rôle ou le contexte d’exécution).</li><li>[Masquage des données dynamiques](../../azure-sql/database/dynamic-data-masking-overview.md) (avec autorisation et stratégie, limite l’exposition des données sensibles en les masquant pour les utilisateurs sans privilège).</li></ul>|
 |**Surveillance proactive**||  
-| <br>Suivi et détection| <ul><li>L’[audit](../../sql-database/sql-database-auditing.md) suit les événements de base de données et les écrit dans un journal d’audit ou d’activité dans votre [compte de stockage Azure](../../storage/common/storage-create-storage-account.md).</li><li>Suivi de l’intégrité des bases de données Azure à l’aide des [journaux d’activité Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md).</li><li>La [détection des menaces](../../sql-database/sql-database-threat-detection.md) permet de détecter les activités base de données anormales indiquant la présence potentielle de menaces de sécurité pour la base de données. </li></ul> |
+| <br>Suivi et détection| <ul><li>L’[audit](../../sql-database/sql-database-auditing.md) suit les événements de base de données et les écrit dans un journal d’audit ou d’activité dans votre [compte de stockage Azure](../../storage/common/storage-create-storage-account.md).</li><li>Suivi de l’intégrité des bases de données Azure à l’aide des [journaux d’activité Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md).</li><li>La [détection des menaces](../../azure-sql/database/threat-detection-configure.md) permet de détecter les activités base de données anormales indiquant la présence potentielle de menaces de sécurité pour la base de données. </li></ul> |
 |<br>Azure Security Center| <ul><li>[Supervision des données](../../security-center/security-center-enable-auditing-on-sql-databases.md), avec Azure Security Center comme solution de supervision de la sécurité centralisée pour SQL et d’autres services Azure.</li></ul>|        
 
 ## <a name="conclusion"></a>Conclusion
@@ -62,7 +62,7 @@ Azure Database est une plateforme robuste de base de données, avec un éventail
 ## <a name="next-steps"></a>Étapes suivantes
 Quelques étapes simples suffisent pour améliorer la protection d’une base de données contre les utilisateurs malveillants ou tout accès non autorisé. Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
-- Définissez des [règles de pare-feu](../../sql-database/sql-database-firewall-configure.md) pour votre serveur ou base de données.
+- Définissez des [règles de pare-feu](../../azure-sql/database/firewall-configure.md) pour votre serveur ou base de données.
 - Protéger vos données à l’aide du [chiffrement](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-encryption).
 - Activer l’[audit Azure SQL Database](../../sql-database/sql-database-auditing.md).
 

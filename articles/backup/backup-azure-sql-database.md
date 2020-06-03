@@ -3,12 +3,12 @@ title: Sauvegarder des bases de données SQL Server sur Azure
 description: Cet article explique comment sauvegarder SQL Server avec Azure, ainsi que la récupération de SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 537257733d7693598fd8007da6ce12c28fbeb02a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e0a555125e50a974ae51a08d7870cdc3ec12fd39
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79408758"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021090"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>À propos de la sauvegarde SQL Server sur des machines virtuelles Azure
 
@@ -39,7 +39,7 @@ Cette solution exploite les API natives de SQL pour effectuer des sauvegardes de
 
 Avant de commencer, contrôlez les points suivants :
 
-1. Vérifier qu’une instance SQL Server s’exécute dans Azure. Vous pouvez [rapidement créer une instance SQL Server](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md) dans la Place de marché.
+1. Vérifier qu’une instance SQL Server s’exécute dans Azure. Vous pouvez [rapidement créer une instance SQL Server](../azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart.md) dans la Place de marché.
 2. Consultez les sections [Considérations relatives aux fonctionnalités](sql-support-matrix.md#feature-consideration-and-limitations) et [Prise en charge de scénarios](sql-support-matrix.md#scenario-support).
 3. [Consulter les questions les plus fréquentes](faq-backup-sql-server.md) sur ce scénario.
 

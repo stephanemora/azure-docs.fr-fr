@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 12/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 48ecfcc0d6241e7926892a3ca1c9925b0dc07241
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc5740fef87497d881f689f888e446dbf4d100e1
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75436837"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019449"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Déplacer un peering public vers le peering Microsoft
 
@@ -33,7 +33,7 @@ Pour vous connecter au peering Microsoft, vous devez configurer et gérer un pro
 
 Reportez-vous à [Routage asymétrique avec chemins d’accès réseau multiples](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing) pour bien comprendre le routage asymétrique avant de configurer le peering Microsoft.
 
-* Si vous utilisez le peering public et disposez actuellement de règles de réseau IP pour les adresses IP publiques qui sont utilisées pour accéder au [Stockage Azure](../storage/common/storage-network-security.md) ou à [Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md), vérifiez que le pool d’adresses IP NAT configuré avec l’appairage Microsoft se trouve bien dans la liste des adresses IP publiques du compte de stockage Azure ou du compte Azure SQL.<br>
+* Si vous utilisez le peering public et disposez actuellement de règles de réseau IP pour les adresses IP publiques qui sont utilisées pour accéder au [Stockage Azure](../storage/common/storage-network-security.md) ou à [Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md), vérifiez que le pool d’adresses IP NAT configuré avec l’appairage Microsoft se trouve bien dans la liste des adresses IP publiques du compte de stockage Azure ou du compte Azure SQL.<br>
 * Pour passer au peering Microsoft sans temps d’arrêt, suivez les étapes fournies dans cet article, dans l’ordre indiqué.
 
 ## <a name="1-create-microsoft-peering"></a><a name="create"></a>1. Créer un peering Microsoft

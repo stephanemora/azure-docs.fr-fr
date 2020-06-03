@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 4bd2b7093100ff24b21b67ea84613ac9b2ec8299
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1c3987e4f2f31dd0c2395f9b40cc40780c40a518
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68950249"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021600"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Tutoriel : Enregistrer des éléments de données dans Azure Data Catalog
 
@@ -39,7 +39,7 @@ Pour configurer Data Catalog, vous devez être le propriétaire ou le coproprié
 
 ### <a name="register-a-data-source"></a>Référencer une source de données
 
-Vous inscrivez des ressources de données (tables) d’un [exemple de base de données Azure SQL](../sql-database/sql-database-single-database-get-started.md). Vous pouvez cependant utiliser n’importe quelle source de données prise en charge si vous préférez travailler avec des données plus familières et mieux adaptées à votre rôle. Pour obtenir la liste des sources de données prises en charge, consultez l’article [Sources de données prises en charge](data-catalog-dsr.md).
+Vous inscrivez des ressources de données (tables) d’un [exemple de base de données Azure SQL](../azure-sql/database/single-database-create-quickstart.md). Vous pouvez cependant utiliser n’importe quelle source de données prise en charge si vous préférez travailler avec des données plus familières et mieux adaptées à votre rôle. Pour obtenir la liste des sources de données prises en charge, consultez l’article [Sources de données prises en charge](data-catalog-dsr.md).
 
 Le nom de base de données Azure SQL que nous utilisons dans ce tutoriel est *RLSTest*.
 
