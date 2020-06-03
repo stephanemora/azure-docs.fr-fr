@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/13/2020
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 208f4f7b4c2d8562d5237a40f52e4774ea5c5606
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 0605249ea0602b33e144fce8d0a77439c2077a2f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272472"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170747"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Configurer PHP dans Azure App Service
 
@@ -132,7 +132,7 @@ Au lieu du runtime PHP par défaut, App Service peut utiliser un runtime PHP que
 10. Cliquez sur **Mettre à jour** situé en bas pour terminer d’ajouter du mappage de gestionnaire.
 11. Cliquez sur **Enregistrer** pour enregistrer les modifications.
 
-<a name="composer" />
+<a name="composer"></a>
 
 ## <a name="how-to-enable-composer-automation-in-azure"></a>Procédure : Activer l’automatisation du Compositeur dans Azure
 
