@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 600f19a6fc0b44fa8cb4b3ba6d37fcc601605dc5
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3abd93e1699a701140e8b3558dcdf0161110ff6f
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82206729"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758127"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory
 
@@ -92,7 +92,7 @@ Détails relatifs aux questions de décision :
 
 * **Scénarios avancés**. Les organisations peuvent choisir d’utiliser les insights des identités avec les rapports Azure AD Identity Protection avec Azure AD Premium P2, par exemple le rapport sur les informations d’identification divulguées. Windows Hello Entreprise a des [exigences spécifiques quand vous utilisez la synchronisation de hachage du mot de passe](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) nécessite la synchronisation de hachage de mot de passe pour fournir aux utilisateurs leurs informations d’identification dans le domaine managé.
 
-    Les organisations qui requièrent une authentification multifacteur avec synchronisation de hachage de mot de passe doivent utiliser l’authentification multifacteur Azure AD ou les [contrôles personnalisés d’accès conditionnel](../../active-directory/conditional-access/controls.md#custom-controls-preview). Elles ne peuvent pas utiliser des méthodes d’authentification multifacteur tierces ou locales qui reposent sur la fédération.
+    Les organisations qui requièrent une authentification multifacteur avec synchronisation de hachage de mot de passe doivent utiliser l’authentification multifacteur Azure ou les [contrôles personnalisés d’accès conditionnel](../../active-directory/conditional-access/controls.md#custom-controls-preview). Elles ne peuvent pas utiliser des méthodes d’authentification multifacteur tierces ou locales qui reposent sur la fédération.
 
 > [!NOTE]
 > L’accès conditionnel Azure AD requiert des licences [Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -177,7 +177,7 @@ Les diagrammes suivants présentent les composants architecturaux de haut niveau
 |Où l’authentification se produit-elle ?|Dans le cloud|Dans le cloud, après un échange de vérification de mot de passe sécurisé avec l’agent d’authentification local|Local|
 |Quelles sont les exigences pour le serveur local au-delà du système de provisionnement : Azure AD Connect ?|None|Un serveur par agent d’authentification supplémentaire|Deux ou plusieurs serveurs AD FS<br><br>Deux ou plusieurs serveurs WAP dans le réseau de périmètre/DMZ|
 |Quelles sont les exigences Internet et réseau locales au-delà du système de provisionnement ?|None|[Accès Internet sortant](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) à partir des serveurs exécutant des agents d’authentification|[Accès Internet entrant](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) pour les serveurs WAP dans le périmètre<br><br>Accès réseau entrant aux serveurs AD FS à partir des serveurs WAP dans le périmètre<br><br>Équilibrage de charge réseau|
-|Y a-t-il une exigence de certificat TLS/SSL ?|Non |Non |Oui|
+|Y a-t-il une exigence de certificat TLS/SSL ?|Non|Non|Oui|
 |Existe-t-il une solution de supervision de l’intégrité ?|Non requis|État de l’agent fourni par le [Centre d’administration Azure Active Directory](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
 |Les utilisateurs obtiennent-ils une authentification unique auprès des ressources cloud à partir d’appareils joints au domaine au sein du réseau d’entreprise ?|Oui avec [authentification unique fluide](../../active-directory/hybrid/how-to-connect-sso.md)|Oui avec [authentification unique fluide](../../active-directory/hybrid/how-to-connect-sso.md)|Oui|
 |Quels types de connexion sont pris en charge ?|UserPrincipalName + mot de passe<br><br>Authentification Windows intégrée avec [authentification unique transparente](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[ID de connexion de substitution](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + mot de passe<br><br>Authentification Windows intégrée avec [authentification unique transparente](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[ID de connexion de substitution](../../active-directory/hybrid/how-to-connect-pta-faq.md)|UserPrincipalName + mot de passe<br><br>sAMAccountName + mot de passe<br><br>Authentification Windows intégrée<br><br>[Authentification par certificat et carte à puce](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[ID de connexion de substitution](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|

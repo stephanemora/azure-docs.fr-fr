@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/13/2020
-ms.openlocfilehash: 909f044fd18ce98577e16d877f174dfa00bc1f3c
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.date: 05/19/2020
+ms.openlocfilehash: 95d57e34694190b4ab997229f005ebeef7924e57
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270398"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724817"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Vue d’ensemble du portail de la Place de marché commerciale dans l’Espace partenaires
 
@@ -26,31 +26,15 @@ Les entreprises, les gouvernements et les organisations de toutes tailles recher
 
 L’Espace partenaires concentre l’expérience des partenaires Microsoft. Pour les organisations qui effectuent la commercialisation avec Microsoft et tirent parti de la place de marché commerciale, l’Espace partenaires est le portail que les éditeurs utilisent pour créer et gérer les offres, fournir des démonstrations de versions d’évaluation et afficher les analyses relatives aux performances de l’offre.
 
-## <a name="migration-from-cloud-partner-portal"></a>Migration à partir du Portail Cloud Partner
+## <a name="migration-from-the-cloud-partner-portal"></a>Migrer à partir du Portail Cloud Partner
 
-L’Espace partenaires évolue pour mieux intégrer tous les aspects de notre relation avec les éditeurs de logiciels. Dans le cadre de cette évolution, nous migrons le [portail Cloud Partner](https://cloudpartner.azure.com/) vers l’Espace partenaires.
+L’Espace partenaires évolue pour mieux intégrer tous les aspects de notre relation avec les éditeurs de logiciels. Dans le cadre de cette évolution, nous avons migré l’intégralité de la gestion des offres de la place de marché commerciale du [Portail Cloud Partner](https://cloudpartner.azure.com/) vers l’Espace partenaires.
 
-Les éditeurs existants de la Place de marché commerciale observeront une expérience utilisateur familière mais améliorée avec une interface intuitive. Des notifications sur le portail et des e-mails informeront les éditeurs de la migration. Les utilisateurs seront dirigés en toute transparence vers l’emplacement approprié. Les clients ne seront pas affectés par cette mise à niveau d’expérience partenaire.
-
->[!NOTE]
->Actuellement, l’Espace partenaires prend en charge la création et la gestion de certains types d’offres, comme indiqué dans le tableau ci-dessous. D’autres types d’offres seront pris en charge dès que nous migrerons toute la gestion des offres vers l’Espace partenaires.
-
-|Type d’offre  |Gestion des offres migrées de Portail Cloud Partner à l’espace partenaires  |
-|---------|---------|
-|SaaS (software as a service)     | Déjà disponible       |
-|Dynamics 365 for Customer Engagement et PowerApps     | Déjà disponible         |
-|Dynamics 365 for Operations     | Déjà disponible        |
-|Dynamics 365 for business central     | Déjà disponible        |
-|Azure Application     | Déjà disponible        |
-|Machine virtuelle Azure     | Disponibilité générale - Avril-Mai 2020        |
-|Conteneur Azure     | Disponibilité générale - Avril-Mai 2020        |
-|Service de conseil     | Disponibilité générale - Avril-Mai 2020        |
-|Module IoT Edge     | Disponibilité générale - Avril-Mai 2020        |
-|Application Power BI    | Disponibilité générale - Avril-Mai 2020        |
+Les éditeurs existants qui utilisaient précédemment le Portail Cloud Partner découvriront une expérience utilisateur familière mais améliorée et intuitive dans l’Espace partenaires. Les utilisateurs seront dirigés en toute transparence vers l’emplacement approprié. Les clients ne seront pas affectés par cette mise à niveau d’expérience partenaire.
 
 ### <a name="improvements-on-publishing-and-offer-management-user-experience"></a>Améliorations de l’expérience utilisateur de la publication et de la gestion des offres
 
-Avec cette transition vers l’Espace partenaires, de nouvelles fonctionnalités sont disponibles pour les éditeurs, en plus des améliorations sur l’expérience utilisateur.  Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur la migration du portail Cloud Partner vers l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-migration-faq).
+Avec cette transition vers l’Espace partenaires, de nouvelles fonctionnalités sont disponibles pour les éditeurs, en plus des améliorations sur l’expérience utilisateur.  Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur la migration du portail Cloud Partner vers l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-migration-faq).
 
 ### <a name="account-and-user-management-updates"></a>Mises à jour de gestion des comptes et des utilisateurs
 

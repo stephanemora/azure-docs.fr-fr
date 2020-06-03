@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/02/2020
-ms.openlocfilehash: 9b720470ac406ed0730e6243262dcf33d2df169a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/15/2020
+ms.openlocfilehash: f95f35fe0d17afdeec864674d3360fc3b172cad1
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233417"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683375"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Transformation de jointure dans le flux de données de mappage
 
@@ -62,6 +62,12 @@ Si vous souhaitez générer explicitement un produit cartésien complet, utilise
 1. Choisissez les colonnes clés pour lesquelles vous souhaitez faire correspondre la condition de jointure. Par défaut, le flux de données recherche l’équivalence entre une colonne d’un flux et une colonne de l’autre flux. Pour effectuer une comparaison à l’aide d’une valeur calculée, pointez sur la liste déroulante de la colonne, puis sélectionnez **Colonne calculée**.
 
 ![Transformation de jointure (Join)](media/data-flow/join.png "Join")
+
+### <a name="non-equi-joins"></a>Jointures différentes
+
+Pour utiliser un opérateur conditionnel tel que « différent de » ( !=) ou « supérieur à » (>) dans vos conditions de jointure, modifiez la liste déroulante de l’opérateur entre les deux colonnes. Des jointures différentes nécessitent qu’au moins l’un des deux flux soit diffusé en utilisant la diffusion **fixe** dans l’onglet **Optimiser**.
+
+![Jointure différente](media/data-flow/non-equi-join.png "Jointure différente")
 
 ## <a name="optimizing-join-performance"></a>Optimisation des performances de jointure
 

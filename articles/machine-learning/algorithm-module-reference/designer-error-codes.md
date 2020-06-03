@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: 38e728de22d49de760e998ddc97c5067beb3ecd1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bfb70aaa092cc62fbff87e9e3e327ee7364f8701
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684695"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833811"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceptions et codes d’erreur du concepteur (préversion)
 
@@ -712,7 +712,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 **Résolution :** Cette erreur est due à de nombreuses conditions différentes : c’est pourquoi il n’existe pas une seule solution au problème.  
  Le tableau suivant contient des messages génériques pour cette erreur, qui sont suivis d’une description spécifique de la condition. 
 
- Si aucun détail n’est disponible, [envoyez des commentaires](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) dans lesquelles vous fournirez des informations sur les modules qui ont généré l’erreur et sur les conditions associées.
+ Si aucun détail n’est disponible, [référez-vous à la Page de questions Microsoft Q&A pour envoyer des commentaires](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html) dans lesquels vous fournirez des informations sur les modules qui ont généré l’erreur et sur les conditions associées.
 
 |Messages d’exception|
 |------------------------|
@@ -1163,7 +1163,7 @@ Cette erreur se produit dans Azure Machine Learning lorsque vous essayez de lier
 
 La gestion des erreurs pour cet événement a été introduite dans une version antérieure d’Azure Machine Learning qui permettait une plus grande personnalisation des méthodes de compartimentage. Actuellement, toutes les méthodes de compartimentage sont basées sur une sélection dans une liste déroulante, donc techniquement cette erreur ne devrait plus se produire.
 
- <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Azure Machine Learning forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=MachineLearning), providing the data types, parameter settings, and the exact error message.  -->
+ <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
 
 |Messages d’exception|
 |------------------------|

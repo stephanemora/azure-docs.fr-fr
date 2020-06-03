@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: d8be2c8cc70db963252054a39cad558c4c1b5bd2
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 7c462f25703b581c0882582d57fa8e5d2902dc4f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871207"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737501"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procédure : Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)
 
@@ -275,7 +275,7 @@ Définissez l’élément Source sur l’une des valeurs suivantes :
 - « application » : Les données de la revendication sont une propriété définie sur le principal du service de l’application (client). 
 - « resource » : Les données de la revendication sont une propriété définie sur le principal du service de la ressource.
 - « audience » : Les données de la revendication sont une propriété définie sur le principal du service qui est l’audience du jeton (principal du service du client ou de la ressource ).
-- « company » : Les données de la revendication sont une propriété définie sur l’objet Company du client de la ressource.
+- « société » : Les données de la revendication sont une propriété définie sur l’objet Company du locataire de la ressource.
 - « transformation » : Les données de la revendication proviennent d’une transformation de revendications (voir la section « Transformation de revendications » plus loin dans cet article).
 
 Si la source est une transformation, l’élément **TransformationID** doit également être inclus dans cette définition de revendication.
@@ -319,7 +319,7 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 | Utilisateur | extensionattribute14 | Attribut d’extension 14 |
 | Utilisateur | extensionattribute15 | Attribut d’extension 15 |
 | Utilisateur | othermail | Autre adresse e-mail |
-| Utilisateur | country | Country |
+| Utilisateur | country | Pays/région |
 | Utilisateur | city | City |
 | Utilisateur | state | State |
 | Utilisateur | jobtitle | Poste |
@@ -328,9 +328,9 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 | application, ressource, audience | displayname | Nom d’affichage |
 | application, ressource, audience | objected | ObjectID |
 | application, ressource, audience | tags | Balise de principal du service |
-| Company | tenantcountry | Pays du locataire |
+| Company | tenantcountry | Pays/région du locataire |
 
-**TransformationID :** L’élément TransformationID doit être fourni uniquement si l’élément Source est défini sur « transformation ».
+**TransformationID :** L’élément TransformationID doit être fourni uniquement si l’élément Source est défini sur « transformation ».
 
 - Cet élément doit correspondre à l’élément d’ID de l’entrée de transformation dans la propriété **ClaimsTransformation** qui définit la façon dont les données de cette revendication sont générées.
 
@@ -478,7 +478,7 @@ Dans cet exemple, vous créez une stratégie qui supprime l’ensemble de revend
 
 #### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Exemple : Créer et attribuer une stratégie pour inclure EmployeeID et TenantCountry en tant que revendications dans des jetons émis pour un principal du service
 
-Dans cet exemple, vous créez une stratégie qui ajoute EmployeeID et TenantCountry à des jetons émis pour des principaux du service liés. EmployeeID est émis en tant que type de revendication de nom dans les jetons SAML et JWT. TenantCountry est émis en tant que type de revendication de pays dans les jetons SAML et JWT. Dans cet exemple, nous continuons à inclure les ensembles de revendications de base dans les jetons.
+Dans cet exemple, vous créez une stratégie qui ajoute EmployeeID et TenantCountry à des jetons émis pour des principaux du service liés. EmployeeID est émis en tant que type de revendication de nom dans les jetons SAML et JWT. TenantCountry est émis en tant que type de revendication de pays/région dans les jetons SAML et JWT. Dans cet exemple, nous continuons à inclure les ensembles de revendications de base dans les jetons.
 
 1. Créez une stratégie de mappage de revendications. Cette stratégie liée à des principaux du service spécifiques ajoute les revendications EmployeeID et TenantCountry aux jetons.
    1. Pour créer la stratégie, exécutez la commande suivante :  
@@ -502,7 +502,7 @@ Dans cet exemple, vous créez une stratégie qui ajoute EmployeeID et TenantCoun
 
 #### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Exemple : Créer et attribuer une stratégie qui utilise une transformation de revendications dans des jetons émis pour un principal du service
 
-Dans cet exemple, vous créez une stratégie qui émet une revendication personnalisée « JoinedData » pour des jetons JWT émis pour des principaux du service liés. Cette revendication contient une valeur créée en joignant les données stockées dans l’attribut extensionattribute1 sur l’objet utilisateur avec « .sandbox ». Dans cet exemple, nous excluons l’ensemble de revendications de base des jetons.
+Dans cet exemple, vous créez une stratégie qui émet une revendication personnalisée « JoinedData » pour des jetons JWT émis pour des principaux du service liés. Cette revendication contient une valeur créée en joignant les données stockées dans l’attribut extensionattribute1 sur l’objet utilisateur avec « .sandbox ». Dans cet exemple, nous excluons l’ensemble de revendications de base des jetons.
 
 1. Créez une stratégie de mappage de revendications. Cette stratégie liée à des principaux du service spécifiques ajoute les revendications EmployeeID et TenantCountry aux jetons.
    1. Pour créer la stratégie, exécutez la commande suivante :

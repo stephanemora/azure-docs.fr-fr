@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: d34f3a03e1bcd35c270d13c4dda57d0394a36e4b
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 58f2dc39c185e158a2b4b1b5e73b6b7d589c8c03
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70387785"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745567"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Exemple : Détecter la langue avec Analyse de texte
 
@@ -155,9 +155,9 @@ Un score positif de 1,0 exprime le niveau de confiance possible le plus haut de
 
 ### <a name="ambiguous-content"></a>Contenu ambigu
 
-Dans certains cas, il peut être difficile de lever toute ambiguïté sur les langues en fonction de l’entrée. Vous pouvez utiliser le paramètre `countryHint` pour spécifier un code de pays à 2 lettres. L’API utilise « US » comme countryHint par défaut. Pour modifier ce comportement, vous pouvez réinitialiser ce paramètre en définissant cette valeur sur une chaîne vide `countryHint = ""`.
+Dans certains cas, il peut être difficile de lever toute ambiguïté sur les langues en fonction de l’entrée. Vous pouvez utiliser le paramètre `countryHint` pour spécifier un code de pays/région à deux lettres. L’API utilise « US » comme countryHint par défaut. Pour modifier ce comportement, vous pouvez réinitialiser ce paramètre en définissant cette valeur sur une chaîne vide `countryHint = ""`.
 
-Par exemple, « impossible » est commun à l’anglais et au français et le contexte dans lequel il est utilisé est limité, la réponse sera basée sur l’indicateur de pays « US ». Si l’origine du texte est connue et qu’il provient de France, cette information peut être fournie par l’indicateur.
+Par exemple, « impossible » est commun à l’anglais et au français ; si le contexte dans lequel il est utilisé est limité, la réponse sera basée sur l’indicateur de pays/région « US ». Si l’origine du texte est connue et qu’il provient de France, cette information peut être fournie par l’indicateur.
 
 **Input**
 

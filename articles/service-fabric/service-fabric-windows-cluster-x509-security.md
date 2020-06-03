@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: cf7d418d8bca8f690acf29ba701fdc54ced1ca6c
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 1277af2e8f9de575fbe51ea0f43bbcfd2812e610
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561996"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653644"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Sécuriser un cluster autonome sur Windows à l’aide de certificats X.509
 Cet article vous explique comment sécuriser la communication entre les différents nœuds de votre cluster Windows autonome. Il décrit également comment authentifier les clients qui se connectent à ce cluster à l’aide de certificats X.509. L’authentification garantit que seuls les utilisateurs autorisés peuvent accéder au cluster et aux applications déployées, et effectuer des tâches de gestion. La sécurité par certificat doit être activée sur le cluster lors de sa création.  
@@ -248,9 +248,21 @@ Si vous utilisez des magasins d’émetteur, la substitution du certificat d’�
 ## <a name="acquire-the-x509-certificates"></a>Acquérir des certificats X.509
 Pour sécuriser les communications à l’intérieur du cluster, vous devez d’abord obtenir des certificats X.509 pour vos nœuds de cluster. En outre, pour limiter les connexions à ce cluster aux ordinateurs/utilisateurs autorisés, vous devez obtenir et installer des certificats pour les ordinateurs clients.
 
-Utilisez un certificat X.509 signé par une [autorité de certification](https://en.wikipedia.org/wiki/Certificate_authority) pour sécuriser les clusters exécutant des charges de travail de production. Pour plus d’informations sur la façon d’obtenir ces certificats, consultez [How to obtain a certificate](https://msdn.microsoft.com/library/aa702761.aspx) (Comment obtenir un certificat).
+Utilisez un certificat X.509 signé par une [autorité de certification](https://en.wikipedia.org/wiki/Certificate_authority) pour sécuriser les clusters exécutant des charges de travail de production. Pour plus d’informations sur la façon d’obtenir ces certificats, consultez [How to obtain a certificate](https://msdn.microsoft.com/library/aa702761.aspx) (Comment obtenir un certificat). 
+
+Le certificat doit posséder un certain nombre de propriétés pour fonctionner correctement :
+
+* Le fournisseur de certificat doit être **Microsoft Enhanced RSA and AES Cryptographic Provider**
+
+* Lorsque vous créez une clé RSA, assurez-vous que la clé est de **2 048 bits**.
+
+* La valeur de l’extension d’utilisation de la clé est **signature numérique, chiffrement de la clé (a0)**
+
+* Les valeurs d’extension d’utilisation avancée de la clé sont **l’authentification du serveur** (OID : 1.3.6.1.5.5.7.3.1) et **l’authentification du client** (OID : 1.3.6.1.5.5.7.3.2)
 
 Pour les clusters que vous utilisez à des fins de test, vous pouvez choisir d’utiliser un certificat auto-signé.
+
+Si vous avez d’autres questions, consultez les [questions fréquemment posées sur les certificats](https://docs.microsoft.com/azure/service-fabric/cluster-security-certificate-management#troubleshooting-and-frequently-asked-questions).
 
 ## <a name="optional-create-a-self-signed-certificate"></a>Facultatif : Créer un certificat auto-signé
 Pour créer un certificat auto-signé qui peut être sécurisé correctement, l’une des solutions consiste à utiliser le script CertSetup.ps1 contenu dans le dossier du Kit de développement logiciel (SDK) Service Fabric dans le répertoire C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Modifiez ce fichier pour changer le nom par défaut du certificat. (Recherchez la valeur CN = ServiceFabricDevClusterCert.) Exécutez ce script en tant que `.\CertSetup.ps1 -Install`.

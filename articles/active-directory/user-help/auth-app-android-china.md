@@ -8,15 +8,15 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: overview
-ms.date: 05/06/2020
+ms.topic: end-user-help
+ms.date: 05/20/2020
 ms.author: curtand
-ms.openlocfilehash: 3ba1b41859a543ab5e0393c5715dc49d452ea73c
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 6d6d32a7a340ef4b07138d5ec12c561e958cf739
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82892235"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739496"
 ---
 # <a name="microsoft-authenticator-for-android-in-the-public-cloud-in-china"></a>Microsoft Authenticator pour Android dans le cloud public en Chine
 
@@ -32,7 +32,7 @@ La build la plus récente de l’application se trouve dans le Google Play Store
 - La boutique à partir de laquelle elle a été téléchargée
 - Le Google Play Store si l’utilisateur change de région
 
-## <a name="limitations"></a>Limitations
+## <a name="limitations"></a>Limites
 
 L’application Microsoft Authenticator pour Android utilise le système Firebase Cloud Messaging de Google et Google Play Services pour recevoir des notifications Push. Aucun de ces services n’étant disponible en Chine, les fonctionnalités de l’application présentent certaines limitations :
 
@@ -50,12 +50,12 @@ Au lieu d’utiliser des notifications Push pour l’authentification multifacte
 
 Fonctionnalité de Microsoft Authenticator | Disponibilité en Chine
 ------------------------------- | ---------------------
-Inscription MFA à l’aide de notifications Push | Non 
-Compte MFA préexistant vérifiant l’identité à l’aide de notifications Push | Non 
+Inscription MFA à l’aide de notifications Push | Non
+Compte MFA préexistant vérifiant l’identité à l’aide de notifications Push | Non
 Compte MFA préexistant effectuant une vérification manuelle pour les notifications | Oui
 Inscription/authentification MFA à l’aide de codes de vérification/TOTP uniquement | Oui
-Inscription par connexion par téléphone | Non 
-Connexion par téléphone existante à l’aide de notifications Push | Non 
+Inscription par connexion par téléphone | Non
+Connexion par téléphone existante à l’aide de notifications Push | Non
 Vérification de connexion par téléphone existante en effectuant une vérification manuelle pour les demandes d’authentification | Oui
 
 ## <a name="next-steps"></a>Étapes suivantes

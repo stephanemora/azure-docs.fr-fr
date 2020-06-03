@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c580a39db97e1ce50c3d244db3023bf422bca08
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 16c87eabec8f09f082c258a439a17b9f3aa79336
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837190"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759028"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 
@@ -60,7 +60,7 @@ Ce cadre de feuille de route est conçu pour optimiser l’utilisation de techno
 
 ## <a name="stage-1-critical-items-to-do-right-now"></a>Étape 1 : Tâches critiques à accomplir sans délai
 
-![Étape 1 Tâches critiques à accomplir en premier](./media/directory-admin-roles-secure/stage-one.png)
+![Étape 1 Éléments critiques à traiter en premier](./media/directory-admin-roles-secure/stage-one.png)
 
 L’étape 1 de la feuille de route cible les tâches critiques rapides et faciles à implémenter. Nous vous recommandons de les traiter immédiatement au cours des premières 24 à 48 heures pour garantir un niveau de base d’accès privilégié sécurisé. Cette étape de la feuille de route d’accès privilégié sécurisé comprend les actions suivantes :
 
@@ -82,7 +82,7 @@ Après avoir activé Azure AD Privileged Identity Management :
 
 4. Ouvrez Privileged Identity Management à partir de la liste **Tous les services** et épinglez-le à votre tableau de bord.
 
-La première personne à utiliser PIM au sein votre organisation est affectée aux rôles **Administrateur de la sécurité** et **Administrateur de rôle privilégié**. Seuls les administrateurs de rôle privilégié peuvent gérer les attributions de rôles d’annuaire Azure AD d’utilisateurs. L’Assistant Sécurité de PIM vous guide tout au long du processus de découverte initiale et d’attribution. Vous pouvez quitter l’Assistant sans apporter de modifications supplémentaires pour l’instant.
+Assurez-vous que la première personne à utiliser PIM au sein votre organisation est affectée aux rôles **Administrateur de la sécurité** et **Administrateur de rôle privilégié**. Seuls les administrateurs de rôle privilégié peuvent gérer les attributions de rôles d’annuaire Azure AD d’utilisateurs. L’Assistant Sécurité de PIM vous guide tout au long du processus de découverte initiale et d’attribution. Vous pouvez quitter l’Assistant sans apporter de modifications supplémentaires pour l’instant.
 
 #### <a name="identify-and-categorize-accounts-that-are-in-highly-privileged-roles"></a>Identifier et classer les comptes dans des rôles à privilèges élevés
 
@@ -155,7 +155,7 @@ Les comptes de courrier personnels étant régulièrement hameçonnés par des p
 
 Assurez-vous que tous les utilisateurs se sont connectés à leur compte administrateur et ont modifié leur mot de passe au moins une fois au cours des 90 derniers jours. Vérifiez également que les mots de passe de tous les comptes partagés ont été modifiés récemment.
 
-#### <a name="turn-on-password-hash-synchronization"></a>Activer la synchronisation de hachage du mot de passe
+#### <a name="turn-on-password-hash-synchronization"></a>Activer la synchronisation de hachage de mot de passe
 
 Azure AD Connect synchronise le hachage du mot de passe d’un utilisateur entre un Active Directory local et une organisation Azure AD basée dans le cloud. Vous pouvez utiliser une synchronisation de hachage du mot de passe en tant que sauvegarde si vous utilisez les services de fédération Active Directory (AD FS). Cette sauvegarde peut être utile si vos serveurs Active Directory ou AD FS locaux sont temporairement indisponibles.
 
@@ -263,7 +263,7 @@ Le National Institute of Standards and Technology (NIST) fournit des instruction
 
 #### <a name="implement-privileged-identity-management-pim-for-jit-to-additional-administrative-roles"></a>Implémenter Privileged Identity Management (PIM) pour JIT sur des rôles administratifs supplémentaires
 
-Pour Azure Active Directory, utilisez la fonctionnalité [Gestion des identités privilégiées Azure Active Directory](../privileged-identity-management/pim-configure.md). L’activation à durée limitée de rôles privilégiés vous offre les possibilités suivantes :
+Pour Azure Active Directory, utilisez la fonctionnalité [Gestion des identités privilégiées Azure Active Directory](../privileged-identity-management/pim-configure.md). L’activation à durée limitée de rôles privilégiés vous permet de :
 
 * Activer des privilèges administratifs pour effectuer une tâche spécifique
 * Appliquer MFA pendant le processus d’activation
@@ -291,7 +291,7 @@ Vous pouvez télécharger ce rapport depuis [Security Incident Management in Mic
 
 #### <a name="continue-to-secure-on-premises-privileged-administrative-accounts"></a>Continuer à sécuriser les comptes d’administration privilégiés locaux
 
-Si votre Azure Active Directory est connecté à Active Directory en local, suivez les conseils de la [Feuille de route de l’accès privilégié sécurisé](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access) : Étape 2. Dans le cadre de cette étape, vous allez effectuer les opérations suivantes :
+Si votre Azure Active Directory est connecté à Active Directory en local, suivez les conseils de la [Feuille de route de l’accès privilégié sécurisé](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access) : étape 2. Dans le cadre de cette étape, vous allez effectuer les opérations suivantes :
 
 * Déployer des stations de travail à accès privilégié pour tous les administrateurs
 * Exiger une authentification multifacteur
@@ -321,7 +321,7 @@ Utilisez Privileged Identity Management avec des rôles d’administrateur Azure
 L’intégration des journaux d’activité Azure permet d’intégrer des journaux d’activité bruts de vos ressources Azure dans les systèmes SIEM (Security Information and Event Management) existants de votre organisation. [Azure log Integration](../../security/fundamentals/azure-log-integration-overview.md) collecte des événements Windows à partir de journaux de l’observateur d’événements Windows et de événements Azure à partir des ressources suivantes :
 
 * Journaux d’activité Azure
-* Alertes d’Azure Security Center
+* Alertes Azure Security Center
 * Journaux de ressources Azure
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Étapes supplémentaires pour les organisations gérant l’accès à d’autres applications cloud via Azure AD
@@ -394,7 +394,7 @@ Ignorez cette étape si vous n’utilisez pas Office 365.
 
 Pour améliorer votre plan, Microsoft vous recommande de vérifier régulièrement que votre plan fonctionne comme prévu :
 
-* Parcourez votre feuille de route pour voir ce qui n’a pas fonctionné.
+* Parcourir votre feuille de route pour voir ce qui n’a pas fonctionné
 * Sur la base de l’analyse post-mortem, révisez les pratiques actuelles ou définissez-en de nouvelles.
 * Assurez-vous que votre plan de réponse aux incidents mis à jour et les pratiques sont distribués dans l’ensemble de votre organisation.
 

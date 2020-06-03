@@ -7,16 +7,16 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: lbosq
-ms.openlocfilehash: 89cd1de3658c16fccdb70567641a68f5c1575507
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 8156c1c3601b0cd6f518f6a70bc4e0769c570e7f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791746"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647275"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Étapes de prémigration pour les migrations de données de MongoDB vers l’API Azure Cosmos DB pour MongoDB
 
-Avant de migrer vos données depuis MongoDB (localement ou dans le cloud) vers l’API Azure Cosmos DB pour MongoDB, vous devez :
+Avant de migrer vos données depuis MongoDB (localement ou dans le cloud) vers l’API Azure Cosmos DB pour MongoDB, vous devez :
 
 1. [Lire les considérations clés relatives à l’utilisation de l’API Azure Cosmos DB pour MongoDB](#considerations)
 2. [Choisir une option pour migrer vos données](#options)

@@ -9,12 +9,12 @@ ms.service: azure-supportability
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: kfollis
-ms.openlocfilehash: 2b68b6ddf19d6b07475e7009b47e162bfb2d0d2f
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 0bd1191c0b92203b100b1713971119ec828352ea
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478991"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835544"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Création d’une demande de support Azure
 
@@ -128,5 +128,5 @@ Pour en savoir plus sur les options de support en libre-service dans Azure, rega
 
 * [Nous envoyer vos commentaires et suggestions](https://feedback.azure.com/forums/266794-support-feedback)
 * Nous contacter sur [Twitter](https://twitter.com/azuresupport)
-* Obtenir de l’aide auprès de vos pairs sur les [forums MSDN](https://social.msdn.microsoft.com/Forums/azure)
+* Obtenez l’aide de vos pairs sur la [page de questions Microsoft Q&A](https://docs.microsoft.com/answers/products/azure)
 * En découvrir plus dans le [Forum aux questions du support Azure](https://azure.microsoft.com/support/faq)

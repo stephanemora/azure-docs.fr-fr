@@ -2,13 +2,13 @@
 title: Verrouiller les ressources pour empêcher des modifications
 description: Empêchez les utilisateurs de mettre à jour ou de supprimer des ressources Azure critiques en appliquant un verrou à tous les utilisateurs et rôles.
 ms.topic: conceptual
-ms.date: 02/07/2020
-ms.openlocfilehash: 70fb189adb634b7ac24afe7cc8b94738117da5ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/19/2020
+ms.openlocfilehash: 2060a7ed2de4956eb15bc85fb1a905705e21f813
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234093"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847665"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Verrouiller les ressources pour empêcher les modifications inattendues
 
@@ -25,13 +25,19 @@ Contrairement au contrôle d'accès basé sur les rôles, vous utilisez des verr
 
 Les verrous Resource Manager s'appliquent uniquement aux opérations qui se produisent dans le plan de gestion, c'est-à-dire les opérations envoyées à `https://management.azure.com`. Les verrous ne limitent pas la manière dont les ressources exécutent leurs propres fonctions. Les modifications des ressources sont limitées, mais pas les opérations sur les ressources. Par exemple, un verrou ReadOnly une base de données SQL empêche la suppression ou la modification de la base de données. Il ne vous empêche pas de créer, de mettre à jour ou de supprimer des données dans la base de données. Les transactions de données sont autorisées, car ces opérations ne sont pas envoyées à `https://management.azure.com`.
 
-Si vous appliquez le paramètre **ReadOnly**, il se peut que vous obteniez des résultats inattendus, car certaines opérations qui, en apparence, ne modifient pas la ressource nécessitent en réalité des actions qui sont bloquées par ce verrou. Le verrou **ReadOnly** peut être appliqué à la ressource ou au groupe de ressources qui la contient. Voici quelques exemples courants d’opérations bloquées par un verrou **ReadOnly** :
+## <a name="considerations-before-applying-locks"></a>Considérations avant l’application de verrous
 
-* Un verrou **ReadOnly** appliqué à un compte de stockage empêche tous les utilisateurs de répertorier les clés. L’opération de listage de clés est gérée via une demande POST, car les clés retournées sont disponibles pour les opérations d’écriture.
+Si vous appliquez des verrous, il se peut que vous obteniez des résultats inattendus, car certaines opérations qui, en apparence, ne modifient pas la ressource nécessitent en réalité des actions qui sont bloquées par ce verrou. Voici quelques exemples courants d’opérations bloquées par un verrou :
 
-* Un verrou **ReadOnly** sur une ressource App Service empêche l’Explorateur de serveurs Visual Studio d’afficher les fichiers de la ressource, car cette interaction requiert un accès en écriture.
+* Un verrou en lecture seule appliqué à un **compte de stockage** empêche tous les utilisateurs de répertorier les clés. L’opération de listage de clés est gérée via une demande POST, car les clés retournées sont disponibles pour les opérations d’écriture.
 
-* Un verrou **ReadOnly** appliqué à un groupe de ressources contenant une machine virtuelle empêche tous les utilisateurs de démarrer ou de redémarrer cette dernière. Ces opérations nécessitent une demande POST.
+* Un verrou en lecture seule sur une ressource **App Service** empêche l’Explorateur de serveurs Visual Studio d’afficher les fichiers de la ressource, car cette interaction requiert un accès en écriture.
+
+* Un verrou en lecture seule appliqué à un **groupe de ressources** contenant une **machine virtuelle** empêche tous les utilisateurs de démarrer ou de redémarrer cette dernière. Ces opérations nécessitent une demande POST.
+
+* Un verrou en lecture seule sur un **abonnement** empêche **Azure Advisor** de fonctionner correctement. Advisor ne peut pas stocker les résultats de ses requêtes.
+
+* Un verrou cannot-delete (suppression impossible) sur un **groupe de ressources** créé par le **service Sauvegarde Azure**, fera échouer les sauvegardes. Le service prend en charge un maximum de 18 points de restauration. Lorsqu’il est verrouillé, le service de sauvegarde ne peut pas nettoyer les points de restauration. Pour plus d’informations, consultez le [Forum aux questions – Sauvegarde de machines virtuelles Azure](../../backup/backup-azure-vm-backup-faq.md).
 
 ## <a name="who-can-create-or-delete-locks"></a>Utilisateurs autorisés à créer ou à supprimer des verrous
 
@@ -56,10 +62,6 @@ Notez que le service inclut un lien vers un **groupe de ressources managé**. Ce
 Pour supprimer tous les éléments associés au service, y compris le groupe de ressources contenant l’infrastructure (qui est donc verrouillé), sélectionnez l’option **Supprimer** relative au service.
 
 ![Suppression du service](./media/lock-resources/delete-service.png)
-
-## <a name="azure-backups-and-locks"></a>Sauvegarde Azure et verrous
-
-Si vous verrouillez le groupe de ressources créé par le service Sauvegarde Azure, les sauvegardes échoueront. Le service prend en charge un maximum de 18 points de restauration. Avec un verrou **CanNotDelete**, le service de sauvegarde ne peut pas nettoyer les points de restauration. Pour plus d’informations, consultez le [Forum aux questions – Sauvegarde de machines virtuelles Azure](../../backup/backup-azure-vm-backup-faq.md).
 
 ## <a name="portal"></a>Portail
 
@@ -238,7 +240,7 @@ Dans la demande, incluez un objet JSON spécifiant les propriétés du verrou.
     } 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus sur l’organisation logique de vos ressources, consultez [Organisation des ressources à l’aide de balises](tag-resources.md)
+* Pour en savoir plus sur l’organisation logique de vos ressources, consultez [Organisation des ressources à l’aide de balises](tag-resources.md).
 * Vous pouvez appliquer des restrictions et des conventions sur votre abonnement avec des stratégies personnalisées. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Policy ?](../../governance/policy/overview.md).
 * Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

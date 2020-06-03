@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.openlocfilehash: 23a5d2c0e52a22872a8b9a64503d61493018b611
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 020c25dfb17f733359e596100cfd24cfa3f68036
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839162"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648565"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Héberger un site web statique dans Stockage Azure
 
@@ -195,21 +195,19 @@ set-AzStorageblobcontent -File "<path-to-file>" `
 
 ---
 
-## <a name="find-the-website-url-by-using-the-azure-portal"></a>Trouver l’URL du site web à l’aide du portail Azure
+<a id="portal-find-url" />
+
+## <a name="find-the-website-url"></a>Trouver l’URL du site web
 
 Vous pouvez afficher les pages de votre site dans un navigateur en utilisant l’URL publique du site web.
 
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
-
-<a id="portal-find-url" />
 
 Dans le volet qui s’affiche en regard de la page de Vue d’ensemble du compte de votre compte de stockage, sélectionnez **Site web statique**. L’URL de votre site s’affiche dans le champ **Point de terminaison principal**.
 
 ![Métrique des métriques de sites web statiques dans Stockage Azure](./media/storage-blob-static-website/storage-blob-static-website-url.png)
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-<a id="cli-find-url" />
 
 Recherchez l’URL publique de votre site web statique à l’aide de la commande suivante :
 
@@ -222,8 +220,6 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 * Remplacez la valeur d’espace réservé `<resource-group-name>` par le nom de votre groupe de ressources.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-
-<a id="powershell-find-url" />
 
 Recherchez l’URL publique de votre site web statique à l’aide de la commande suivante :
 

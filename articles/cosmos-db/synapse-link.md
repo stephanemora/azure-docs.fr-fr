@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 714d587cc047887685f7f7c7f4f5a2bbc2310aa2
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 709b442fde94d88adc7fe4cce16ee1a50bf06c6b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596388"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674337"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Qu’est-ce qu’Azure Synapse Link pour Azure Cosmos DB (préversion) ?
 
@@ -35,11 +35,11 @@ Par rapport aux solutions ETL traditionnelles, Azure Synapse Link pour Azure Cos
 
 ### <a name="reduced-complexity-with-no-etl-jobs-to-manage"></a>Complexité réduite sans tâches ETL à gérer
 
-Azure Synapse Link vous permet d’accéder directement au magasin analytique Azure Cosmos DB à l’aide d’Azure Synapse Analytics sans déplacement de données complexe. Toutes les mises à jour apportées aux données opérationnelles sont visibles dans le magasin analytique quasiment en temps réel, sans ETL ni flux de modification. Vous pouvez exécuter des traitements analytiques à grande échelle sur le magasin analytique depuis Synapse Analytics sans transformation de données supplémentaire.
+Azure Synapse Link vous permet d’accéder directement au magasin analytique Azure Cosmos DB à l’aide d’Azure Synapse Analytics sans déplacement de données complexe. Toutes les mises à jour apportées aux données opérationnelles sont visibles dans le magasin analytique quasiment en temps réel, sans ETL ni travaux de flux de modification. Vous pouvez exécuter des traitements analytiques à grande échelle sur le magasin analytique depuis Synapse Analytics sans transformation de données supplémentaire.
 
 ### <a name="near-real-time-insights-into-your-operational-data"></a>Insights en temps quasi réel dans vos données opérationnelles
 
-Vous pouvez désormais bénéficier d’insights détaillés sur vos données opérationnelles quasiment en temps réel à l’aide d’Azure Synapse Link. Les systèmes basés sur ETL ont tendance à avoir une latence plus élevée pour l’analyse de vos données opérationnelles, en raison des nombreuses couches d’extraction, de transformation et de chargement des données opérationnelles. Avec l’intégration native du magasin analytique Azure Cosmos DB à l’aide d’Azure Synapse Analytics, vous pouvez analyser les données opérationnelles en temps quasi-réel en activant de nouveaux scénarios d’entreprise. 
+Vous pouvez désormais bénéficier d’insights détaillés sur vos données opérationnelles quasiment en temps réel à l’aide d’Azure Synapse Link. Les systèmes basés sur ETL ont tendance à avoir une latence plus élevée pour l’analyse de vos données opérationnelles, en raison des nombreuses couches nécessaires pour l’extraction, la transformation et le chargement des données opérationnelles. Avec l’intégration native du magasin analytique Azure Cosmos DB à l’aide d’Azure Synapse Analytics, vous pouvez analyser les données opérationnelles en temps quasi-réel en activant de nouveaux scénarios d’entreprise. 
 
 
 ### <a name="no-impact-on-operational-workloads"></a>Aucun impact sur les charges de travail opérationnelles
@@ -99,7 +99,7 @@ Cette intégration active les scénarios HTAP suivants pour des utilisateurs dif
 
 * Ingénieur de données qui souhaite rendre les données accessibles aux consommateurs en créant des tables SQL ou Spark sur des conteneurs Azure Cosmos DB sans processus ETL manuels.
 
-Pour plus d’informations sur la prise en charge du runtime Azure Synapse Analytics pour Azure Cosmos DB, consultez [Prise en charge d’Azure Synapse Analytics pour Cosmos DB]().
+Pour plus d’informations sur la prise en charge du runtime Azure Synapse Analytics pour Azure Cosmos DB, consultez [Prise en charge d’Azure Synapse Analytics pour Cosmos DB](../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md).
 
 ## <a name="when-to-use-azure-synapse-link-for-azure-cosmos-db"></a>Quand utiliser Azure Synapse Link pour Azure Cosmos DB ?
 
@@ -124,11 +124,11 @@ L’utilisation de Synapse Link est déconseillée si vos exigences en matière 
 
 * L’accès au magasin analytique Azure Cosmos DB avec Synapse SQL serverless est actuellement en préversion contrôlée. Pour demander l’accès, envoyez un e-mail à [l’équipe Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
-* L’accès au magasin Azure Cosmos DB Analytics avec Synapse SQL approvisionné n’est pas disponible actuellement. 
+* L’accès au magasin Azure Cosmos DB Analytics avec Synapse SQL approvisionné n’est pas disponible actuellement.
 
 ## <a name="pricing"></a>Tarifs
 
-Le modèle de facturation d’Azure Synapse Link se traduit par les coûts engendrés par l’utilisation du magasin analytique Azure Cosmos DB et du runtime Synapse. Pour plus d’informations, consultez la [tarification du magasin analytique Azure Cosmos DB](analytical-store-introduction.md#analytical-store-pricing) et les articles sur la [tarification d’Azure Synapse Analytics]().
+Le modèle de facturation d’Azure Synapse Link comprend les coûts engendrés par l’utilisation du magasin analytique Azure Cosmos DB et du runtime Synapse. Pour plus d’informations, consultez la [tarification du magasin analytique Azure Cosmos DB](analytical-store-introduction.md#analytical-store-pricing) et les articles sur la [tarification d’Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -136,9 +136,9 @@ Pour en savoir plus, consultez les documents suivants :
 
 * [Vue d’ensemble du magasin analytique Azure Cosmos DB](analytical-store-introduction.md)
 
-* [Prise en main d’Azure Synapse Link pour Azure Cosmos DB](configure-synapse-link.md) 
+* [Prise en main d’Azure Synapse Link pour Azure Cosmos DB](configure-synapse-link.md)
  
-* [Éléments pris en charge durant le temps d’exécution d’Azure Synapse Analytics]()
+* [Éléments pris en charge durant le temps d’exécution d’Azure Synapse Analytics](../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md)
 
 * [Forum aux questions sur Azure Synapse Link pour Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: b0af45ba4a6b1ca7f9e751af082ff0db80776ec0
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: be5bc8ec4e8f363d9b6079d22f3bba1af2d4d5fb
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677684"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682572"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Démarrage rapide : Afficher un modèle avec Unity
 
@@ -32,11 +32,11 @@ Pour pouvoir accéder au service Azure Remote Rendering, vous devez d’abord [c
 Les logiciels suivants doivent être installés :
 
 * SDK Windows 10.0.18362.0 [(télécharger)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* Dernière version de Visual Studio 2019 [(télécharger)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* GIT [(télécharger)](https://git-scm.com/downloads)
-* Unity 2019.3.1 [(télécharger)](https://unity3d.com/get-unity/download)
-  * Installez ces modules dans Unity :
-    * **UWP** - Prise en charge de la génération avec la plateforme Windows universelle
+* Installez la dernière version de Visual Studio 2019 [(télécharger)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* Git [(télécharger)](https://git-scm.com/downloads)
+* Unity 2019.3.1 [(télécharger)](https://unity3d.com/get-unity/download)
+  * Installez les modules ci-dessous dans Unity :
+    * **UWP** : prise en charge de la build de la plateforme Windows universelle
     * **IL2CPP** - Prise en charge de la génération dans Windows (IL2CPP)
 
 ## <a name="clone-the-sample-app"></a>Clonage de l’exemple d’application
@@ -66,7 +66,7 @@ Le modèle par défaut dont nous effectuons le rendu est un [exemple de modèle 
 
 1. Dans le navigateur d’éléments Unity, accédez au dossier *Scenes*, puis ouvrez la scène **Quickstart**.
 1. Sous *Hierarchy*, sélectionnez l’objet de jeu **RemoteRendering**.
-1. Dans le panneau *Inspector*, saisissez vos [informations d’identification de compte](../how-tos/create-an-account.md).
+1. Dans le panneau *Inspector*, saisissez vos [informations d’identification de compte](../how-tos/create-an-account.md). Si vous n’avez pas encore de compte, [créez-en un](../how-tos/create-an-account.md).
 
 ![Informations de compte ARR](./media/arr-sample-account-info.png)
 

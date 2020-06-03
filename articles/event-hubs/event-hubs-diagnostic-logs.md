@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 04/28/2020
 ms.author: shvija
-ms.openlocfilehash: 0fb5da965a9b13667b8a128e83a5a4cd2c2b28d7
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: b9dcf35b3ea178894a0387e650b6814c0f920926
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691839"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649800"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurer les journaux de diagnostic pour un Event Hub Azure.
 
@@ -148,6 +148,16 @@ Le code JSON des journaux de mise à l’échelle automatique inclut les éléme
 | ResourceId | ID de ressource Azure Resource Manager. |
 | Message | Message d’information, qui fournit des détails sur l’action d’augmentation automatique. Le message contient les valeurs précédente et actuelle de l’unité de débit pour un espace de noms donné et indique ce qui a déclenché l’augmentation de l’unité de débit. |
 
+Voici un exemple d’événement de mise à l’échelle automatique : 
+
+```json
+{
+    "TrackingId": "fb1b3676-bb2d-4b17-85b7-be1c7aa1967e",
+    "Message": "Scaled-up EventHub TUs (UpdateStartTimeUTC: 5/13/2020 7:48:36 AM, PreviousValue: 1, UpdatedThroughputUnitValue: 2, AutoScaleReason: 'IncomingMessagesPerSecond reached 2170')",
+    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name"
+}
+```
+
 ## <a name="kafka-coordinator-logs-schema"></a>Schéma des journaux du coordinateur Kafka
 Le code JSON des journaux du coordinateur Kafka inclut les éléments listés dans le tableau suivant :
 
@@ -161,7 +171,7 @@ Le code JSON des journaux du coordinateur Kafka inclut les éléments listés da
 | SubscriptionId | ID d’abonnement Azure |
 | Message | Message d’information ou d’avertissement, qui fournit des détails sur les actions effectuées pendant la coordination du groupe |
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 ```json
 {
@@ -204,7 +214,7 @@ Le code JSON de l’événement de connexion de réseau virtuel Event Hubs compr
 | Count | Nombre d’occurrences de l’action donnée |
 | ResourceId | ID de ressource Azure Resource Manager. |
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 ```json
 {

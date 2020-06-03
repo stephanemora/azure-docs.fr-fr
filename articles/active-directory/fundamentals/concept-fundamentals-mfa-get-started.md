@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: febdb708c637ac322c0ca884eae627da9bd5904c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cf05532f81d70d4d7b09de2ccbf9807273a85330
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530391"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799594"
 ---
 # <a name="overview-of-azure-multi-factor-authentication-for-your-organization"></a>Présentation d’Azure Multi-Factor Authentication pour votre organisation
 
@@ -32,7 +32,7 @@ Comment votre organisation peut-elle activer l’authentification multifacteur m
 
 Les clients qui utilisent les avantages gratuits d’Azure AD peuvent utiliser les [paramètres de sécurité par défaut](../fundamentals/concept-fundamentals-security-defaults.md) pour activer l’authentification multifacteur dans leur environnement.
 
-## <a name="office-365-business-premium-e3-or-e5"></a>Office 365 Business Premium, E3 ou E5
+## <a name="microsoft-365-business-e3-or-e5"></a>Microsoft 365 Business, E3 ou E5
 
 Les clients disposant d’Office 365 ont deux options :
 
@@ -43,7 +43,7 @@ Les clients disposant d’Office 365 ont deux options :
 
 Pour les clients disposant d’Azure AD Premium P1 ou de licences similaires incluant cette fonctionnalité, comme Enterprise Mobility + Security E3, Microsoft 365 F1 ou Microsoft 365 E3 : 
 
-Utilisez l’[accès conditionnel Azure AD](../conditional-access/overview.md) pour inviter les utilisateurs à opter pour une authentification multifacteur dans le cadre de certains scénarios ou événements en fonction des besoins de votre entreprise.
+Utilisez l’[accès conditionnel Azure AD](../authentication/tutorial-enable-azure-mfa.md) pour inviter les utilisateurs à opter pour une authentification multifacteur dans le cadre de certains scénarios ou événements en fonction des besoins de votre entreprise.
 
 ## <a name="azure-ad-premium-p2"></a>Azure AD Premium P2
 

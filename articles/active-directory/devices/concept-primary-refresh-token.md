@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a237ad35d9d5d8abee784926563d972d0ee95f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ccd51bd69c982aeae25dbf52d1e5d076542cf35
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78672650"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771194"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Qu’est-ce qu’un jeton d’actualisation principal ?
 
@@ -76,7 +76,7 @@ Une fois émis, un PRT est valide pendant 14 jours et il est renouvelé en conti
 Un PRT est utilisé par deux composants clés dans Windows :
 
 * **Plug-in Azure AD CloudAP** : Pendant la connexion à Windows, le plug-in Azure AD CloudAP fait une demande de PRT depuis Azure AD en utilisant les informations d’identification fournies par l’utilisateur. Il met également en cache le PRT pour permettre la connexion avec des informations mises en cache lorsque l’utilisateur n’a pas accès à une connexion internet.
-* **Plug-in Azure AD WAM** : Lorsque les utilisateurs tentent d’accéder aux applications, le plug-in Azure AD WAM utilise le PRT pour activer l’authentification unique sur Windows 10. Le plug-in Azure AD WAM utilise le PRT pour demander des jetons d’actualisation et d’accès pour les applications qui s’appuient sur WAM pour les demandes de jeton. Il active également l’authentification unique sur les navigateurs en injectant le PRT dans les demandes de navigateur. L’authentification unique de navigateur dans Windows 10 est prise en charge sur Microsoft Edge (en natif) et Chrome (via l’extension Windows 10 Accounts ou Office Online).
+* **Plug-in Azure AD WAM** : Lorsque les utilisateurs tentent d’accéder aux applications, le plug-in Azure AD WAM utilise le PRT pour activer l’authentification unique sur Windows 10. Le plug-in Azure AD WAM utilise le PRT pour demander des jetons d’actualisation et d’accès pour les applications qui s’appuient sur WAM pour les demandes de jeton. Il active également l’authentification unique sur les navigateurs en injectant le PRT dans les demandes de navigateur. L’authentification unique de navigateur dans Windows 10 est prise en charge sur Microsoft Edge (en natif) et Chrome (via les extensions [Windows 10 Accounts](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) ou [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en)).
 
 ## <a name="how-is-a-prt-renewed"></a>Comment un PRT est-il renouvelé ?
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/24/2020
-ms.openlocfilehash: cf9597f4a722ff9cda68e87b31db77c989afcb0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e522291bdf1982ff65a62f028107b15b3249898c
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129845"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847410"
 ---
 # <a name="evaluate-model-module"></a>Module Évaluer le modèle
 
@@ -34,9 +34,13 @@ Utilisez ce module pour mesurer la précision d’un modèle formé. Vous fourni
 
 
 ## <a name="how-to-use-evaluate-model"></a>Comment utiliser le modèle Evaluate
-1. Connectez la sortie du **jeu de données noté** du module [Noter le modèle](./score-model.md) au port d’entrée gauche du module **Évaluer le modèle**. 
+1. Connectez la sortie du **Jeu de données noté** du module [Noter un modèle](./score-model.md) ou la sortie du Jeu de données de résultats du module [Attribuer des données à des clusters](./assign-data-to-clusters.md) au port d’entrée de gauche du module **Évaluer le modèle**. 
+  > [!NOTE] 
+  > Si vous utilisez des modules tels que « Sélectionner des colonnes dans le jeu de données » pour sélectionner une partie du jeu de données d’entrée, vérifiez que la colonne « Étiquette réelle » (utilisée dans l’apprentissage), la colonne « Probabilités notées » et la colonne « Étiquettes notées » existent pour calculer les métriques telles que l’AUC, la précision pour la classification binaire et la détection des anomalies.
+  > Les colonnes « Étiquette réelle » et « Étiquettes notées » existent pour calculer les métriques pour la classification/régression multiclasse.
+  > Les colonnes « Attributions », « DistancesToClusterCenter no.X » (X est l’index des centroïdes, qui est compris entre 0, ..., le nombre de centroïdes-1) existent pour calculer les métriques de clustering.
 
-2. [Facultatif] Connectez la sortie **Jeu de données noté** du module [Noter le modèle](./score-model.md) du second modèle à l’entrée **droite** du module **Évaluer le modèle**. Vous pouvez facilement comparer les résultats de deux modèles différents sur les mêmes données. Les deux algorithmes d'entrée doivent être du même type. Vous pouvez également comparer les scores de deux exécutions différentes sur les mêmes données avec des paramètres différents.
+2. [Facultatif] Connectez la sortie du **Jeu de données noté** du module [Noter un modèle](./score-model.md) ou la sortie du Jeu de données de résultats du module Attribuer des données à des clusters au port d’entrée du second modèle de **droite** du module **Évaluer le modèle**. Vous pouvez facilement comparer les résultats de deux modèles différents sur les mêmes données. Les deux algorithmes d'entrée doivent être du même type. Vous pouvez également comparer les scores de deux exécutions différentes sur les mêmes données avec des paramètres différents.
 
     > [!NOTE]
     > Le type d’algorithme fait référence à 'Classification double classe', 'Classification multiclasse', 'Régression', 'Clustering' sous 'Algorithmes de Machine Learning'. 
@@ -45,7 +49,7 @@ Utilisez ce module pour mesurer la précision d’un modèle formé. Vous fourni
 
 ## <a name="results"></a>Résultats
 
-Après avoir exécuté **Évaluer le modèle**, cliquez avec le bouton droit sur le module, puis sélectionnez **Visualiser les résultats de l’évaluation** pour afficher les résultats.
+Après avoir exécuté **Évaluer le modèle**, sélectionnez le module pour ouvrir le volet de navigation **Évaluer le modèle** à droite.  Ensuite, choisissez l’onglet **Sorties + journaux**, puis, sous cet onglet, la section **Sorties de données** comporte plusieurs icônes.   L’icône **Visualiser** contient une icône de graphique à barres et est une première façon de voir les résultats.
 
 Si vous connectez des jeux de données aux deux entrées du module **Évaluer le modèle**, les résultats contiennent des métriques pour les deux jeux de données ou les deux modèles.
 Le modèle ou les données associés au port de gauche apparaissent en premier dans le rapport, suivis des métriques pour le jeu de données ou le modèle associé au port de droite.  

@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/18/2020
+ms.date: 05/20/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2231d70e6c4368a7c896f9063b58cc97ee292f53
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 738a5bd76cc15b9356275707aed0d0a695aa6367
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81682589"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770922"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Que sont les identités managées pour les ressources Azure ?
 
@@ -47,16 +47,13 @@ Les termes suivants sont utilisés dans l'ensemble de la documentation sur les i
 
 Il existe deux types d’identités administrées :
 
-- Une **identité managée attribué par le système** est activée directement sur une instance de service Azure. Lorsque l’identité est activée, Azure crée une identité pour l’instance dans le locataire Azure AD approuvé par l’abonnement de l’instance. Une fois l’identité créée, ses informations d’identification sont provisionnées sur l’instance. Le cycle de vie d’une identité attribuée par le système est directement lié à l’instance de service Azure sur laquelle elle est activée. Si l’instance est supprimée, Azure efface automatiquement les informations d’identification et l’identité dans Azure AD.
-- Une **identité managée attribuée par l’utilisateur** est créée en tant que ressource Azure autonome. Via un processus de création, Azure crée une identité dans le locataire Azure AD approuvé par l’abonnement en cours d’utilisation. Une fois l’identité créée, elle peut être affectée à une ou plusieurs instances de service Azure. Le cycle de vie d’une identité attribuée par l’utilisateur est géré séparément du cycle de vie des instances de service Azure auxquelles elle est affectée.
+- Une **identité managée attribué par le système** est activée directement sur une instance de service Azure. Lorsque l’identité est activée, Azure crée une identité pour l’instance dans le locataire Azure AD approuvé par l’abonnement de l’instance. Une fois l’identité créée, ses informations d’identification sont provisionnées sur l’instance. Le cycle de vie d’une identité affectée par le système est directement lié à l’instance de service Azure sur laquelle elle est activée. Si l’instance est supprimée, Azure efface automatiquement les informations d’identification et l’identité dans Azure AD.
+- Une **identité managée attribuée par l’utilisateur** est créée en tant que ressource Azure autonome. Via un processus de création, Azure crée une identité dans le locataire Azure AD approuvé par l’abonnement en cours d’utilisation. Une fois l’identité créée, elle peut être affectée à une ou plusieurs instances de service Azure. Le cycle de vie d’une identité affectée par l’utilisateur est géré séparément de celui des instances de service Azure auxquelles elle est affectée.
 
 En interne, des identités managées sont des principaux de service d’un type spécial, qui sont verrouillés pour être utilisés uniquement avec les ressources Azure. Lorsqu’une identité managée est supprimée, le principal de service correspondant est automatiquement supprimé.
 Par ailleurs, quand une identité affectée par l’utilisateur ou par le système est créée, le fournisseur de ressources d’identités managées émet un certificat en interne pour cette identité. 
 
 Votre code peut utiliser une identité managée pour faire une demande de jetons d’accès pour les services qui prennent en charge l’authentification Azure AD. Azure prend en charge la restauration des informations d’identification utilisées par l’instance de service. 
-
-## <a name="credential-rotation"></a>Rotation des informations d’identification
-La rotation des informations d’identification est contrôlée par le fournisseur de ressources qui héberge la ressource Azure. La rotation par défaut des informations d’identification se produit tous les 46 jours. Il revient au fournisseur de ressources de demander de nouvelles informations d’identification afin qu’il puisse attendre plus de 46 jours.
 
 Le diagramme suivant illustre le fonctionnement des identités de service administré avec les machines virtuelles (VM) Azure :
 
@@ -107,6 +104,9 @@ Le diagramme suivant illustre le fonctionnement des identités de service admini
 
 6. Un appel est passé à Azure AD pour demander un jeton d’accès (comme indiqué à l’étape 5), à l’aide de l’ID client et du certificat configurés à l’étape 3. Azure AD renvoie un jeton d’accès JSON Web Token (JWT).
 7. Votre code envoie le jeton d’accès sur un appel à un service qui prend en charge l’authentification Azure AD.
+
+## <a name="credential-rotation"></a>Rotation des informations d’identification
+La rotation des informations d’identification est contrôlée par le fournisseur de ressources qui héberge la ressource Azure. La rotation par défaut des informations d’identification se produit tous les 46 jours. Il revient au fournisseur de ressources de demander de nouvelles informations d’identification afin qu’il puisse attendre plus de 46 jours.
 
 ## <a name="how-can-i-use-managed-identities-for-azure-resources"></a>Comment puis-je utiliser des identités managées pour les ressources Azure ?
 

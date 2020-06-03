@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: d0bb73b58aa23e5f7eb784772acf37b05df463ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 09d15877088fb6356419a9d31f8bef3164e76029
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79456826"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780597"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Configuration des paramètres de délai d’inactivité et d’expiration TCP pour Azure Load Balancer
 
@@ -42,6 +42,10 @@ TCP keep-alive convient aux scénarios où l’autonomie de la batterie n’est 
 ![Délai d’expiration TCP](./media/load-balancer-tcp-idle-timeout/image1.png)
 
 Les sections suivantes décrivent comment modifier les paramètres de délai d’inactivité pour les ressources d’adresses IP publiques et d’équilibreur de charge.
+
+>[!NOTE]
+> Le délai d’inactivité TCP n’affecte pas les règles d’équilibrage de charge sur le protocole UDP.
+
 
 ## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>Configurer le délai d’expiration TCP pour votre adresse IP publique de niveau instance à 15 minutes
 

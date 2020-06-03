@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 03/04/2020
+ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aba42e6bd9b11e47d793219c0ff06b9177d609f5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f149678bd65ff47b8582e56cf376d88284c8fa8b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78298817"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681332"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Provisionnement cloud pilote pour une forêt AD synchronisée existante 
 
@@ -199,7 +199,9 @@ La synchronisation Azure AD Connect synchronise les modifications intervenant da
 3.  Exécutez `Start-ADSyncSyncCycle`.  Appuyez sur Entrée.  
 
 >[!NOTE] 
->Si vous exécutez votre propre planificateur personnalisé pour la synchronisation AAD Connect, activez le planificateur. 
+>Si vous exécutez votre propre planificateur personnalisé pour la synchronisation Azure AD Connect, activez le planificateur. 
+
+Une fois le planificateur activé, Azure AD Connect arrêtera d’exporter les modifications apportées aux objets avec `cloudNoFlow=true` dans le métaverse, à moins qu’un attribut de référence (par exemple, un gestionnaire) ne soit en cours de mise à jour. En cas de mise à jour d’un attribut de référence sur l’objet, Azure AD Connect ignorera le signal `cloudNoFlow` et exportera toutes les mises à jour sur l’objet.
 
 ## <a name="something-went-wrong"></a>Survenue d’un problème
 Si le pilote ne fonctionne pas comme prévu, vous pouvez revenir à la configuration de la synchronisation Azure AD Connect en suivant les étapes ci-dessous :

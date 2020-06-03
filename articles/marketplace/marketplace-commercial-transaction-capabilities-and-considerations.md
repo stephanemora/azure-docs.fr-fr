@@ -1,5 +1,5 @@
 ---
-title: Fonctionnalités de transaction de la place de marché commerciale
+title: Fonctionnalités de transaction de la place de marché commerciale de Microsoft
 description: Cet article décrit les considérations sur les prix, la facturation et le paiement pour l’option de transaction de la place de marché commerciale.
 author: dsindona
 ms.service: marketplace
@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 4aeae69dd50e8c233a1903f6f2c7bd7795b8d7b9
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 6cac7218c8f1fc48734b426c9e041831bf0b1f71
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857219"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800052"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Fonctionnalités de transaction de la place de marché commerciale
 
@@ -165,7 +165,7 @@ Les clients achètent généralement avec un Contrat Entreprise, ou par carte de
 
 Pour obtenir plus d’informations et connaître les règles juridiques, consultez le [Contrat d’éditeur](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) (disponible dans l’Espace partenaires).
 
-Pour obtenir de l’aide sur les questions de facturation, contactez le [support de l’éditeur de la place de marché commerciale](https://partner.microsoft.com/support/v2/?stage=1).
+Pour obtenir de l’aide sur les questions de facturation, contactez le [support de l’éditeur de la place de marché commerciale](https://aka.ms/marketplacepublishersupport).
 
 ## <a name="transact-requirements"></a>Exigences relatives aux offres Transaction
 

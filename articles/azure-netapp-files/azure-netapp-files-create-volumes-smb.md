@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/19/2020
 ms.author: b-juche
-ms.openlocfilehash: 7dfc17825fab6c9a5f0d832318cb1d57271c56da
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 6cb3fa56e679bc911f12e99379152fc8e1fb7526
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82625525"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832817"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Créer un volume SMB pour Azure NetApp Files
 
@@ -58,7 +58,7 @@ Un sous-réseau doit être délégué à Azure NetApp Files.
     |    SAM/LSA            |    445       |    UDP           |
     |    w32time            |    123       |    UDP           |
 
-* La topologie de site pour les services de domaine Active Directory ciblés doit respecter les meilleures pratiques, en particulier le réseau virtuel Azure où Azure NetApp Files est déployé.  
+* La topologie de site pour les services Active Directory Domain Services ciblés doit respecter les instructions, en particulier le réseau virtuel Azure où Azure NetApp Files est déployé.  
 
     L’espace d’adressage du réseau virtuel où Azure NetApp Files est déployé doit être ajouté à un site Active Directory nouveau ou existant (où se trouve un contrôleur de domaine accessible par Azure NetApp Files). 
 
@@ -79,7 +79,7 @@ Un sous-réseau doit être délégué à Azure NetApp Files.
 
     For example, if your Active Directory has only the AES-128 capability, you must enable the AES-128 account option for the user credentials. If your Active Directory has the AES-256 capability, you must enable the AES-256 account option (which also supports AES-128). If your Active Directory does not have any Kerberos encryption capability, Azure NetApp Files uses DES by default.  
 
-    You can enable the account options in the properties of the Active Directory Users and Computers MMC console:   
+    You can enable the account options in the properties of the Active Directory Users and Computers Microsoft Management Console (MMC):   
 
     ![Active Directory Users and Computers MMC](../media/azure-netapp-files/ad-users-computers-mmc.png)
 -->
@@ -98,7 +98,7 @@ Vous pouvez utiliser l’étendue [Sites et services Active Directory](https://d
 
 Si vous utilisez ADDS, vous pouvez obtenir le nom de votre site auprès du groupe d’administration de votre organisation qui est en charge d’Active Directory Domain Services. L’exemple ci-dessous illustre le plug-in Sites et services Active Directory dans lequel figure le nom du site : 
 
-![Sites et services Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-sites-and-services.png)
+![Sites et services Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-sites-services.png)
 
 Quand vous configurez une connexion AD pour Azure NetApp Files, vous devez spécifier le nom du site compris dans l’étendue dans le champ **Nom du site AD**.
 
@@ -152,11 +152,20 @@ Ce paramètre est configuré dans **Active Directory Connections** (Connexions A
 
         Le service crée des comptes d’ordinateurs supplémentaires dans Active Directory en fonction des besoins.
 
+        > [!IMPORTANT] 
+        > Le fait de renommer le préfixe de serveur SMB après la création de la connexion Active Directory entraîne une interruption. Vous devrez remonter les partages SMB existants après avoir renommé le préfixe de serveur SMB.
+
     * **Chemin d’accès de l’unité d’organisation**  
         Chemin d’accès de l’unité d’organisation (UO) où les comptes de machine du serveur SMB sont créés. Autrement dit, OU=second level, OU=first level. 
 
         Si vous utilisez Azure NetApp Files avec Azure Active Directory Domain Services, le chemin d’accès de l’unité d’organisation est `OU=AADDC Computers` lorsque vous configurez Active Directory pour votre compte NetApp.
-        
+
+     * **Utilisateurs de stratégie de sauvegarde**  
+        Vous pouvez inclure des comptes supplémentaires qui requièrent des privilèges élevés sur le compte d’ordinateur créé pour une utilisation avec Azure NetApp Files. Les comptes spécifiés seront autorisés à modifier les autorisations NTFS au niveau du fichier ou du dossier. Par exemple, vous pouvez spécifier un compte de service non privilégié utilisé pour la migration des données vers un partage de fichiers SMB dans Azure NetApp Files.  
+
+        > [!IMPORTANT] 
+        > La liste verte est requise pour utiliser la fonctionnalité utilisateur de stratégie de sauvegarde. Envoyez un e-mail anffeedback@microsoft.com avec votre ID d’abonnement pour demander cette fonctionnalité. 
+
     * Informations d’identification, y compris votre **nom d’utilisateur** et **mot de passe**
 
     ![Rejoindre Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)

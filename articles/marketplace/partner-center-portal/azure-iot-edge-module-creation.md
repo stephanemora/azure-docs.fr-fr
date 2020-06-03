@@ -6,13 +6,13 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/03/2020
-ms.openlocfilehash: d69090eb07159c2c188c54499a167f127269df24
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 05/19/2020
+ms.openlocfilehash: 5798e3c9c2a345c5cf9d8fd254130b4252a696d8
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857656"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847971"
 ---
 # <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Créer, configurer et publier une offre de module IoT Edge dans la Place de marché Azure
 
@@ -59,7 +59,7 @@ Cette page contient des liens permettant d’effectuer des opérations sur cette
 
 Effectuez les étapes suivantes pour configurer votre offre.
 
-### <a name="connect-lead-management"></a>Connecter la gestion des prospects
+### <a name="customer-leads"></a>Prospects
 
 Lors de la publication de votre offre sur la Place de marché avec l’Espace partenaires, vous pouvez la connecter à votre système de gestion des relations avec la clientèle (CRM). Cela vous permet de recevoir les coordonnées des clients dès qu’une personne exprime son intérêt ou utilise votre produit.
 
@@ -146,44 +146,15 @@ Fournissez une description plus détaillée de votre offre. Ce champ peut compor
 
 ### <a name="description"></a>Description
 
-Fournissez une description plus longue de votre offre, jusqu’à 3 000 caractères. S’affichera pour les clients dans la vue d’ensemble de la Place de marché.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Incluez un ou plusieurs des éléments suivants dans votre description :
+La partie inférieure de la description des offres de module IoT Edge doit inclure un paragraphe sur les conditions matérielles minimales requises, tel que :
 
-- La valeur et les avantages principaux de votre offre
-- Catégorie ou associations de secteurs, ou les deux
-- Opportunités d’achats dans l’application
-- Toutes les informations requises
+- Conditions matérielles minimales requises : système d’exploitation Linux x64 et arm32, 1 Go de RAM, 500 Mo de stockage
 
-La partie inférieure de la description des offres de module IoT Edge doit inclure un paragraphe sur les conditions matérielles minimales requises. Par exemple :
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-*Conditions matérielles minimales requises : Système d’exploitation Linux x64 et arm32, 1 Go de RAM, 500 Mo de stockage*
-
-Voici quelques conseils pour rédiger votre description :
-
-- Décrivez clairement la valeur de votre offre dans les premières phrases de votre description. Incorporez les éléments suivants :
-    - Description de l’offre.
-    - Le type d’utilisateur qui tire parti de l’offre.
-    - Les besoins ou problèmes auxquels l’offre répond.
-- Gardez à l’esprit que les premières phrases peuvent être affichées dans les résultats de recherche.
-- Ne comptez pas sur les fonctionnalités de votre produit pour convaincre. Concentrez-vous plutôt sur ce que votre application offre.
-- Essayez d’utiliser le vocabulaire propre au secteur visé, ainsi que des termes décrivant les avantages proposés.
-
-Pour que la **Description** de votre offre soit plus attrayante, utilisez l’éditeur de texte enrichi pour mettre en forme votre description. L’éditeur de texte enrichi vous permet d’ajouter des chiffres, des puces, des caractères gras/en italique et des mises en retrait pour rendre votre description plus lisible.
-
-:::image type="content" source="media/text-editor2.png" alt-text="Illustre l’éditeur de texte enrichi." border="false":::
-
-- Pour changer la mise en forme de votre contenu, mettez en surbrillance le texte que vous souhaitez mettre en forme, puis sélectionnez un style de texte, comme indiqué dans la capture d’écran suivante :
-
-     :::image type="content" source="media/text-editor3.png" alt-text="Illustre le contrôle de style de texte dans l’éditeur de texte enrichi." border="false":::
-
-- Pour ajouter une liste à puces ou une liste numérotée au texte, utilisez les options illustrées dans la capture d’écran suivante :
-  
-    :::image type="content" source="media/text-editor4.png" alt-text="Illustre les contrôles de liste à puces et de liste numérotée dans l’éditeur de texte enrichi." border="false":::
-
-- Pour ajouter ou supprimer une mise en retrait du texte, utilisez les options illustrées dans la capture d’écran suivante :
-
-    :::image type="content" source="media/text-editor5.png" alt-text="Illustre les contrôles de mise en retrait du texte dans l’éditeur de texte enrichi." border="false":::
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 #### <a name="privacy-policy-url"></a>URL de la politique de confidentialité
 

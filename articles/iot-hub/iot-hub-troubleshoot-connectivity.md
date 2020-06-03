@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: mqtt
-ms.openlocfilehash: 82139eef9708ff8d76e1087c71aa5445ba898385
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: abce9387d4c23cd6cb5ecf73e3d5c8428d83d459
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81759608"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833657"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Analyser et résoudre les problèmes de déconnexion avec Azure IoT Hub
 
@@ -105,7 +105,7 @@ Si les étapes ci-dessus n’ont pas permis de résoudre le problème, essayez c
 
 * Si votre appareil utilise le protocole MQTT, vérifiez que le port 8883 est ouvert. Pour plus d’informations, consultez [Connexion à IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-* Obtenez de l’aide auprès du [forum Azure IoT Hub](https://social.msdn.microsoft.com/Forums/azure/home?forum=azureiothub), du forum [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub) ou du [support Azure](https://azure.microsoft.com/support/options/).
+* Obtenez de l’aide sur [Page de questions Microsoft Q&A sur Azure IoT Hub](https://docs.microsoft.com/answers/topics/azure-iot-hub.html), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub)ou [support Azure](https://azure.microsoft.com/support/options/).
 
 Pour contribuer à améliorer la documentation à l’intention de tous les utilisateurs, laissez un commentaire dans la section des commentaires ci-après si ce guide ne vous a pas aidé.
 

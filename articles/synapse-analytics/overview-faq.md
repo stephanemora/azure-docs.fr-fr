@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 00a98fdeb4b8febbcb9d1183fabffc7298cc9e4c
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 007fe7cb90c651c346bc7fbea46d74aa41605d2d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770726"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744078"
 ---
 # <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Questions fréquentes sur Azure Synapse Analytics (espace de travail, préversion)
 
@@ -35,9 +35,7 @@ A : Azure Synapse est une plateforme de données intégrée pour le décisionne
 
 ### <a name="q-how-do-i-get-started-with-azure-synapse-analytics"></a>Q : Comment démarrer avec Azure Synapse Analytics ?
 
-A : Pour commencer à utiliser Azure Synapse Analytics, créez un [espace de travail Synapse](https://portal.azure.com) (c’est gratuit !) et créez les ressources souhaitées sous cet espace de travail. Vous pouvez suivre l’un de nos tutoriels de démarrage rapide, par exemple [Créer un pool SQL Synapse](quickstart-create-sql-pool.md) ou [Créer un espace de travail](quickstart-create-workspace.md), qui vous guident tout au long d’un cas d’usage simple. 
-
-Vous trouverez également des exemples de notebooks et des scripts SQL dans notre [dépôt](https://github.com/Azure/azure-synapse-analytics/tree/master/samples). Si vous devez vous connecter à un jeu de données public, créez un service lié avec les attributs suivants :
+A : Pour commencer à utiliser Azure Synapse Analytics, [inscrivez le fournisseur de ressources Azure Synapse](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types) en sélectionnant *Microsoft.Synapse* dans la liste des fournisseurs de ressources. Ensuite, créez un [espace de travail Synapse](https://portal.azure.com) (c’est gratuit !) et les ressources souhaitées sous cet espace de travail. Vous pouvez suivre l’un de nos tutoriels de démarrage rapide, par exemple [Créer un pool SQL Synapse](quickstart-create-sql-pool-portal.md) ou [Créer un espace de travail](quickstart-create-workspace.md), qui vous guident tout au long d’un cas d’usage simple. Vous trouverez également des exemples de notebooks et des scripts SQL dans notre [dépôt](https://github.com/Azure-Samples/Synapse). Si vous devez vous connecter à un jeu de données public, créez un service lié avec les attributs suivants :
 
 - azure_storage_account_name = "azureopendatastorage"
 - azure_storage_sas_token = "" (write **""** )
@@ -94,9 +92,9 @@ A : Un flux de données permet aux ingénieurs de données de développer une l
 
 A : L’expérience de l’authentification unique de bout en bout est un processus d’authentification important dans Synapse Analytics. La gestion et le passage de l’identité via une intégration AAD complète sont indispensables.
 
-### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adlsg2"></a>Q : Comment accéder aux fichiers et aux dossiers dans ADLSg2 ?
+### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adls-gen2"></a>Q : Comment accéder aux fichiers et aux dossiers dans ADLS Gen2 ?
 
-A : L’accès aux fichiers et aux dossiers est géré par le biais d’ADLSg2. Pour plus d’informations, consultez [Contrôle d’accès au stockage dans Data Lake](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+A : L’accès aux fichiers et aux dossiers est géré par le biais d’ADLS Gen2. Pour plus d’informations, consultez [Contrôle d’accès au stockage dans Data Lake](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### <a name="q-can-i-use-third-party-business-intelligence-tools-to-access-azure-synapse-analytics"></a>Q : Puis-je utiliser des outils décisionnels tiers pour accéder à Azure Synapse Analytics ?
 
@@ -106,6 +104,6 @@ A : Oui, vous pouvez utiliser vos applications métier tierces, telles que Tabl
 
 - [Créer un espace de travail](quickstart-create-workspace.md)
 - [Utiliser Synapse Studio](quickstart-synapse-studio.md)
-- [Créer un pool SQL](quickstart-create-sql-pool.md)
+- [Créer un pool SQL](quickstart-create-sql-pool-portal.md)
 - [Utiliser SQL à la demande](quickstart-sql-on-demand.md)
-- [Créer un pool Apache Spark](quickstart-create-apache-spark-pool.md) 
+- [Créer un pool Apache Spark](quickstart-create-apache-spark-pool-portal.md) 

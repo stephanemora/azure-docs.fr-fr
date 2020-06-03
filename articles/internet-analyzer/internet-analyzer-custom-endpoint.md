@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: quickstart
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 6a781e767393f35a1ec22f195ba787e3018d8d1e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0b5647dd2e43c8a73bb999af559a579c14bb86a1
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76713087"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683983"
 ---
 # <a name="measure-custom-endpoints-to-evaluate-in-your-internet-analyzer-tests"></a>Mesurer les points de terminaison personnalisés à évaluer dans vos tests Internet Analyzer 
 
@@ -31,7 +31,7 @@ Veillez à configurer une ressource Internet Analyzer et sélectionnez l’optio
 
 1. Téléchargez une image de test transparente d’un pixel [ici](https://fpc.msedge.net/apc/trans.gif). Cette image d’un pixel est la ressource que le code JavaScript du client va extraire pour mesurer les performances.
 2. Dans votre application web personnalisée, déployez l’image de test dans un chemin accessible publiquement. Le chemin d’accès doit fonctionner sur HTTPS. 
-3. Copiez l’intégralité de l’URL du point de terminaison personnalisé (par exemple, https://contoso.com/test/trans.gif) ) dans le champ de point de terminaison personnalisé lors de la création de votre test.
+3. Copiez l’intégralité de l’URL du point de terminaison personnalisé (par exemple, `https://contoso.com/test/trans.gif`) dans le champ de point de terminaison personnalisé lors de la création de votre test.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

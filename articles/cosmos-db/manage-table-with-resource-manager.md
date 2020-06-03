@@ -4,14 +4,14 @@ description: Utilisez des modèles Azure Resource Manager pour créer et configu
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: d1675e6827f3684785d11ef6b081f166267a8283
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 5e4e514a8d39679e5a1d07b0ea7100cf4837072e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791185"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684761"
 ---
 # <a name="manage-azure-cosmos-db-table-api-resources-using-azure-resource-manager-templates"></a>Gérer les ressources de l’API Table Azure Cosmos DB à l’aide de modèles Azure Resource Manager
 
@@ -42,7 +42,7 @@ Ce modèle crée un compte Azure Cosmos pour l’API Table avec une table à un 
 
 <a id="create-manual"></a>
 
-## <a name="azure-cosmos-account-for-table-with-standard-manual-throughput"></a>Compte Azure Cosmos pour Table avec débit standard (manuel)
+## <a name="azure-cosmos-account-for-table-with-standard-provisioned-throughput"></a>Compte Azure Cosmos pour Table avec débit approvisionné en mode standard
 
 Ce modèle crée un compte Azure Cosmos pour l’API Table avec une table à un débit standard. Ce modèle est également disponible pour un déploiement en un clic à partir de la galerie de modèles de démarrage rapide Azure.
 

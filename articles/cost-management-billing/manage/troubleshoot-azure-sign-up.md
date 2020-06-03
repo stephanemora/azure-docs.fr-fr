@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: 7bcf3197ae218c469983200814cecf551dc42a6b
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: 2ccb2b7fca8a5615d56c25b9ea09a26caf295a2b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82133180"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745543"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Résoudre les problèmes liés à l’inscription pour obtenir un nouveau compte dans le portail Azure ou le centre des comptes Azure
 
@@ -63,7 +63,7 @@ Effectuez la procédure suivante pour mettre à jour les paramètres de cookies 
 
 ### <a name="credit-card-form-doesnt-support-my-billing-address"></a>Le formulaire relatif à la carte de crédit ne prend pas en charge mon adresse de facturation
 
-Votre adresse de facturation doit se trouver dans le pays que vous avez sélectionné dans la section **About you** (À propos de vous). Veillez à sélectionner le bon pays.
+Votre adresse de facturation doit se trouver dans le pays/la région sélectionné dans la section **À propos de vous**. Veillez à sélectionner le bon pays/la bonne région.
 
 ### <a name="no-text-messages-or-calls-during-sign-up-account-verification"></a>Aucun message texte ni appel lors de la vérification du compte à l’inscription
 
@@ -72,7 +72,7 @@ Bien que le processus soit généralement rapide, l’envoi du code de vérifica
 Voici quelques conseils supplémentaires :
 
 - Vous ne pouvez pas utiliser un numéro de téléphone VoIP pour le processus de vérification par téléphone.
-- Vérifiez par deux fois le numéro de téléphone saisi, y compris l’indicatif du pays que vous sélectionnez dans le menu déroulant.
+- Vérifiez bien le numéro de téléphone entré, y compris le code du pays/de la région sélectionné dans le menu déroulant.
 - Si votre téléphone ne reçoit pas les messages texte (SMS), essayez l’option **M’appeler**.
 - Vérifiez que votre téléphone peut recevoir des appels ou des SMS provenant d’un numéro de téléphone basé aux États-Unis.
 

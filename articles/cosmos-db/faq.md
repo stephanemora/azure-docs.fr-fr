@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 976ff4d3be194bf33d2c01f06c66782caf8dad50
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: a5ef03689a6374dc1cf945a787f9f82b9979a1e0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608045"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834904"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Questions fréquentes sur les différentes API dans Azure Cosmos DB
 
@@ -70,7 +70,7 @@ Vous pouvez également utiliser l’[émulateur Azure Cosmos DB](local-emulator.
 
 Pour poser une question technique, connectez-vous à l’un de ces forums de questions-réponses :
 
-* [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
+* [Page de questions Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Consultez Stack Overflow pour les questions sur la programmation. Par souci de clarté et afin d’obtenir une réponse, vérifiez que votre question est [appropriée](https://stackoverflow.com/help/on-topic) et [ fournit un maximum de détails](https://stackoverflow.com/help/how-to-ask).
 
 Pour demander de nouvelles fonctionnalités, faites une nouvelle demande sur [User voice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
@@ -93,7 +93,7 @@ Les souscriptions à l’offre Essayez gratuitement Azure Cosmos DB obéissent 
 * La réplication globale est disponible dans les [régions Azure](https://azure.microsoft.com/regions/) suivantes : USA Centre, Europe Nord et Asie Sud-Est
 * Débit maximal de 5 000 RU/s lors de l’approvisionnement au niveau du conteneur.
 * Débit maximal de 20 000 RU/s lors de l’approvisionnement au niveau de la base de données.
-* Les abonnements expirent dans un délai de 30 jours et peuvent être prolongés pour une durée totale maximale de 31 jours.
+* Les abonnements expirent dans un délai de 30 jours et peuvent être prolongés pour une durée totale maximale de 31 jours. Une fois ce délai expiré, les informations contenues sont supprimées.
 * Il n’est pas possible de créer des tickets de support Azure pour les comptes d’évaluation d’Azure Cosmos DB ; cependant, les abonnés titulaires de plans de support actifs peuvent bénéficier du support.
 
 ## <a name="set-up-azure-cosmos-db"></a>Configurer Azure Cosmos DB

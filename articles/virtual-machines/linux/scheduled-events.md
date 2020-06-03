@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: mimckitt
-ms.openlocfilehash: ee600d7524af27a0e9e2ce0176e7bd4d1f60bc3b
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 7c33f29ab00605f68d41358b79284bf49188fece
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758561"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715866"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Service de métadonnées Azure : événements planifiés pour les machines virtuelles Linux
 
@@ -52,7 +52,7 @@ Les événements planifiés sont remis à :
 
 - Machines virtuelles autonomes.
 - Toutes les machines virtuelles d’un service cloud
-- Toutes les machines virtuelles d’un groupe à haute disponibilité
+- Toutes les machines virtuelles d’un groupe à haute disponibilité ou d’une zone de disponibilité. 
 - Toutes les machines virtuelles d’un groupe de placement de groupe identique 
 
 Par conséquent, vérifiez le champ `Resources` de l’événement pour identifier les machines virtuelles concernées.

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/08/2019
-ms.author: b-juche
-ms.openlocfilehash: 12be766f36a0901079a5a26f20ea7dacc75268de
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.date: 05/21/2020
+ms.author: ramakk
+ms.openlocfilehash: d81ae835fa62c5188c8d71a5ae0563259ab027f3
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80667878"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797433"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Consignes pour planifier un réseau Azure NetApp Files
 
@@ -36,10 +36,12 @@ Vous devez comprendre quelques considérations lorsque vous prévoyez d’utilis
 Les fonctionnalités ci-dessous ne sont actuellement pas prises en charge pour Azure NetApp Files : 
 
 * Groupes de sécurité réseau (NSG) appliqués au sous-réseau délégué
-* Routes définies par l’utilisateur avec un préfixe d’adresse comme sous-réseau Azure NetApp Files
+* Itinéraires définis par l’utilisateur (UDR) appliqués au sous-réseau délégué
 * Stratégies Azure (par exemple, des stratégies d’affectation de noms personnalisés) sur l’interface Azure NetApp Files
 * Équilibreurs de charge pour le trafic d’Azure NetApp Files
-* Azure NetApp Files n’est pas pris en charge avec Azure Virtual WAN
+* WAN virtuel Azure 
+* Passerelles de réseau virtuel redondantes dans une zone (références SKU de passerelle avec AZ) 
+* Actives/Passerelles de réseau virtuel actives 
 
 Les restrictions suivantes s’appliquent à Azure NetApp Files :
 
@@ -82,9 +84,10 @@ Si le réseau virtuel est appairé à un autre réseau virtuel, vous ne pouvez p
 
 ### <a name="udrs-and-nsgs"></a>Itinéraires définis par l’utilisateur et groupes de sécurité réseau
 
-Les groupes de sécurité réseau (NSG) et les itinéraires définis par l’utilisateur (UDR) ne sont pas pris en charge sur les sous-réseaux délégués pour Azure NetApp Files.
+Les groupes de sécurité réseau (NSG) et les itinéraires définis par l’utilisateur (UDR) ne sont pas pris en charge sur les sous-réseaux délégués pour Azure NetApp Files. Toutefois, vous pouvez appliquer des itinéraires définis par l’utilisateur et des groupes de sécurité réseau à d’autres sous-réseaux, même au sein du même réseau virtuel que le sous-réseau délégué à Azure NetApp Files.
 
-Pour résoudre ce problème, vous pouvez appliquer des groupes de sécurité réseau à d’autres sous-réseaux qui autorisent ou refusent le trafic vers et depuis le sous-réseau délégué Azure NetApp Files.  
+* Les itinéraires définis par l’utilisateur définissent ensuite les flux de trafic des autres sous-réseaux vers le sous-réseau délégué Azure NetApp Files. Cela permet de s’assurer qu’il est aligné sur le flux de trafic de Azure NetApp Files vers les autres sous-réseaux à l’aide des itinéraires système.  
+* Les groupes de sécurité réseau autorisent ou refusent le trafic vers et depuis le sous-réseau délégué Azure NetApp Files. 
 
 ## <a name="azure-native-environments"></a>Environnements natifs Azure
 

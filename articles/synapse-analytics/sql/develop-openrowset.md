@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4ec6e18aa4fa741ba784e68ccf9b5f87ad654eba
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3861b981a1083b44e9cc522a01c50cf24f281e91
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591418"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702036"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Guide pratique pour utiliser OPENROWSET avec SQL à la demande (préversion)
 
@@ -45,10 +45,12 @@ Il s’agit d’un moyen simple et rapide de lire le contenu des fichiers sans c
                     TYPE = 'PARQUET') AS file
     ```
 
+
     Cette option vous permet de configurer l’emplacement du compte de stockage dans la source de données et de spécifier la méthode d’authentification à utiliser pour accéder au stockage. 
     
     > [!IMPORTANT]
     > La fonction `OPENROWSET` sans le paramètre `DATA_SOURCE` fournit un moyen simple et rapide d’accéder aux fichiers de stockage, mais offre des options d’authentification limitées. Par exemple, un principal Azure AD peut accéder à des fichiers uniquement en utilisant leur [identité Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through), et ne peut pas accéder à des fichiers publiquement disponibles. Si vous avez besoin d’options d’authentification plus puissantes, utilisez l’option `DATA_SOURCE` et définissez les informations d’identification que vous souhaitez utiliser pour accéder au stockage.
+
 
 ## <a name="security"></a>Sécurité
 
@@ -57,10 +59,10 @@ Un utilisateur de base de données doit disposer de l’autorisation `ADMINISTER
 L’administrateur de stockage doit également permettre à un utilisateur d’accéder aux fichiers en fournissant un jeton SAP valide ou en permettant au principal Azure AD d’accéder aux fichiers de stockage. Pour en savoir plus sur le contrôle d’accès au stockage, consultez [cet article](develop-storage-files-storage-access-control.md).
 
 La fonction `OPENROWSET` utilise les règles suivantes pour déterminer comment s’authentifier auprès du stockage :
-- Dans la fonction `OPENROWSET` avec le paramètre `DATA_SOURCE`, le mécanisme d’authentification dépend du type d’appelant.
-  - Les connexions AAD ne peuvent accéder aux fichiers qu’en utilisant leur propre [identité Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) si le stockage Azure permet à l’utilisateur Azure AD d’accéder aux fichiers sous-jacents (par exemple, si l’appelant dispose de l’autorisation Lecteur de stockage sur le stockage) et si vous [activez l’authentification directe Azure AD](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) sur le service Synapse SQL.
-  - Des connexions SQL peuvent également utiliser la fonction `OPENROWSET` sans le paramètre `DATA_SOURCE` pour accéder à des fichiers publiquement disponibles, ou à des fichiers protégés à l’aide d’un jeton SAP ou d’une identité managée de l’espace de travail Synapse. Vous devez [créer des informations d’identification incluses dans l’étendue du serveur](develop-storage-files-storage-access-control.md#examples) pour autoriser l’accès aux fichiers de stockage. 
-- Dans la fonction `OPENROWSET` avec le paramètre `DATA_SOURCE`, le mécanisme d’authentification est défini dans les informations d’identification incluses dans l’étendue de la base de données assignées à la source de données référencée. Cette option vous permet d’accéder au stockage publiquement disponible, ou d’accéder au stockage à l’aide du jeton SAP, de l’identité managée de l’espace de travail ou de l’[identité Azure AD de l’appelant](develop-storage-files-storage-access-control.md?tabs=user-identity#) (si celui-ci est un principal Azure AD). Si le paramètre `DATA_SOURCE` fait référence à un stockage Azure qui n’est pas public, vous devez [créer des informations d’identification incluses dans l’étendue de la base de données`DATA SOURCE` et les référencer dans ](develop-storage-files-storage-access-control.md#examples) pour autoriser l’accès aux fichiers de stockage.
+- Dans `OPENROWSET` sans `DATA_SOURCE`, le mécanisme d’authentification dépend du type d’appelant.
+  - Les connexions Azure AD ne peuvent accéder aux fichiers qu’en utilisant leur propre [identité Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) si le stockage Azure permet à l’utilisateur Azure AD d’accéder aux fichiers sous-jacents (par exemple, si l’appelant dispose de l’autorisation Lecteur de stockage sur le stockage) et si vous [activez l’authentification directe Azure AD](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) sur le service Synapse SQL.
+  - Des connexions SQL peuvent également recourir à `OPENROWSET` sans `DATA_SOURCE` pour accéder à des fichiers en disponibilité publique, à des fichiers protégés par jeton SAP ou à l’identité managée d’un espace de travail Synapse. Vous devez [créer des informations d’identification incluses dans l’étendue du serveur](develop-storage-files-storage-access-control.md#examples) pour autoriser l’accès aux fichiers de stockage. 
+- Dans `OPENROWSET` avec `DATA_SOURCE`, le mécanisme d’authentification est défini dans les informations d’identification étendues à la base de données affectées à la source de données référencée. Cette option vous permet d’accéder au stockage publiquement disponible, ou d’accéder au stockage à l’aide du jeton SAP, de l’identité managée de l’espace de travail ou de l’[identité Azure AD de l’appelant](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) (si celui-ci est un principal Azure AD). Si `DATA_SOURCE` fait référence à un stockage Azure qui n’est pas public, vous devez [créer des informations d’identification étendues à la base de données](develop-storage-files-storage-access-control.md#examples) et y faire référence dans `DATA SOURCE` pour autoriser l’accès aux fichiers de stockage.
 
 L’appelant doit disposer de l’autorisation `REFERENCES` sur les informations d’identification afin de pouvoir les utiliser pour l’authentification auprès du stockage.
 
@@ -169,7 +171,7 @@ Spécifie la marque de fin de champ à utiliser. La marque de fin de champ par d
 
 ROWTERMINATOR ='row_terminator'`
 
-Spécifie l’indicateur de fin de ligne à utiliser. Si l’indicateur de fin de ligne n’est pas spécifié, l’un des indicateurs de fin par défaut sera utilisé. Les indicateurs de fin par défaut pour PARSER_VERSION = ’1.0’ sont \r\n, \n et \r. Les indicateurs de fin par défaut pour PARSER_VERSION = ’2.0’ sont \r\n et \n.
+Spécifie l’indicateur de fin de ligne à utiliser. Si la marque de fin de ligne n’est pas spécifiée, l’une des marques par défaut sera utilisée. Les indicateurs de fin par défaut pour PARSER_VERSION = ’1.0’ sont \r\n, \n et \r. Les indicateurs de fin par défaut pour PARSER_VERSION = ’2.0’ sont \r\n et \n.
 
 ESCAPE_CHAR = 'char'
 
@@ -193,18 +195,18 @@ Spécifie la méthode de compression. La méthode de compression suivante est pr
 
 PARSER_VERSION = ’parser_version’
 
-Spécifie la version d’analyseur à utiliser lors de la lecture de fichiers. Les versions d’analyseur CSV actuellement prises en charge sont 1.0 et 2.0
+Spécifie la version d’analyseur à utiliser lors de la lecture de fichiers. Sont actuellement prises en charge les versions 1.0 et 2.0 de l’analyseur CSV :
 
 - PARSER_VERSION = ’1.0’
 - PARSER_VERSION = ’2.0’
 
-La version 1.0 de l’analyseur CSV est la version par défaut riche en fonctionnalités, tandis que la version 2.0 est conçue pour les performances et ne prend pas en charge l’ensemble des options et des encodages. 
+La version 1.0 de l’analyseur CSV (version par défaut) est riche en fonctionnalités, tandis que la version 2.0, conçue pour les performances, ne prend pas en charge l’ensemble des options et des encodages. 
 
 Caractéristiques la version 2.0 de l’analyseur CSV :
 
 - Certains types de données ne sont pas pris en charge.
-- La limite de taille de ligne maximale est de 8 Mo.
-- Les options suivantes ne sont pas prises en charge : DATA_COMPRESSION.
+- La limite maximale de taille de ligne est de 8 Mo.
+- Les options suivantes ne sont pas prises en charge : DATA_COMPRESSION.
 - La chaîne vide entre guillemets ("") est interprétée comme une chaîne vide.
 
 ## <a name="examples"></a>Exemples
@@ -236,9 +238,9 @@ FROM
     ) AS [r]
 ```
 
-Si vous obtenez une erreur indiquant que les fichiers ne peuvent pas être répertoriés, vous devez activer l’accès au stockage public dans Synapse SQL à la demande :
-- Si vous utilisez une connexion SQL, vous devez [créer des informations d’identification incluses dans l’étendue du serveur qui autorisent l’accès au stockage public](develop-storage-files-storage-access-control.md#examples).
-- Si vous utilisez un principal de Azure AD pour accéder au stockage public, vous devez [créer des informations d’identification incluses dans l’étendue du serveur qui autorisent l’accès au stockage public](develop-storage-files-storage-access-control.md#examples) et désactiver l’[authentification directe Azure AD](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
+Si vous obtenez une erreur indiquant qu’il est impossible de lister les fichiers, vous devez activer l’accès au stockage public dans Synapse SQL à la demande :
+- Si vous utilisez une connexion SQL, vous devez [créer des informations d’identification étendues au serveur qui autorisent l’accès au stockage public](develop-storage-files-storage-access-control.md#examples).
+- Si vous utilisez un principal Azure AD pour accéder au stockage public, vous devez [créer des informations d’identification étendues au serveur qui autorisent l’accès au stockage public](develop-storage-files-storage-access-control.md#examples) et désactiver [l’authentification directe Azure AD](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

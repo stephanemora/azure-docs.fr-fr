@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 15f8a3ac8c2777b3a878de92db495e559f64ad20
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: a1a55ceec2679034125ddd202402cabcbf71e17e
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81727596"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698310"
 ---
 # <a name="changelog"></a>Journal des modifications #
 
@@ -577,8 +577,8 @@ ms.locfileid: "81727596"
 - [Correctif de bogue][AzureHtml5JS] La lecture en direct se fige sur les mises à jour MPD lorsqu’il existe de petites imprécisions dans l’horodatage
 - [Correctif de bogue][AzureHtml5JS] Atténuation de plusieurs problèmes de lecture en direct
 - [Correctif de bogue][AzureHtml5JS] Vidage des mémoires tampons lorsque l’heuristique de la taille des fenêtres est activée et accède à un écran de résolution supérieure
-- [Correctif de bogue][AzureHtml5JS] Chrome affiche désormais correctement l’événement terminé. Est lié au problème antérieur connu que *Chrome n’envoie pas correctement l’événement â&euro;œterminéâ&euro; lors de l’utilisation d’AzureHtml5JS. Il y a un problème dans le navigateur sous-jacent.*
-- [Correctif de bogue][AzureHtml5JS] Désactivation de Safari pour cette technologie afin de résoudre le *Problème de lecture avec OSX Yosemite et la technologie AzureHtml5JS. Il existe des problèmes d’implémentation de MSE. Atténuation temporaire : forcer â&euro;œFlashSSâ&euro;, â&euro;œSilverlightSSâ&euro; en tant qu’ordre des technologies pour ces agents utilisateurs*
+- [Correctif de bogue][AzureHtml5JS] Chrome affiche désormais correctement l’événement terminé. Est lié au problème connu antérieur selon lequel *Chrome n’envoie pas correctement l’événement terminé lorsque AzureHtml5JS est utilisé. Il y a un problème dans le navigateur sous-jacent.*
+- [Correctif de bogue][AzureHtml5JS] Désactivation de Safari pour cette technologie afin de résoudre le *Problème de lecture avec OSX Yosemite et la technologie AzureHtml5JS. Il existe des problèmes d’implémentation de MSE. Atténuation temporaire : forcer flashSS, silverlightSS comme ordre des technologies pour ces agents utilisateurs*
 - [Correctif de bogue][FlashSS] Déclenchement de loadstart après la survenue d’une erreur
 
 ## <a name="020-beta"></a>0.2.0 (Bêta) ##

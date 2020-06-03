@@ -1,24 +1,24 @@
 ---
-title: Fournisseurs de solutions cloud | Place de marché Azure
-description: Les éditeurs peuvent maintenant proposer leurs offres via le canal partenaire Fournisseur de solutions cloud (CSP) Microsoft.
+title: Fournisseur de solutions Cloud - Place de marché commerciale Microsoft
+description: Découvrez comment vendre vos offres via le réseau de partenaires du programme des fournisseurs de solutions Microsoft Cloud (CSP) de la place de marché commerciale.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: b962610c585df288a9cb3297ed8e09c8abc5ac0a
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 58bfe5cdc58c41c2ead82ac2d280629e4fec9bcd
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160645"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798150"
 ---
-# <a name="cloud-solution-providers"></a>Fournisseurs de solutions cloud
+# <a name="cloud-solution-provider-program"></a>Programme des fournisseurs de solution Cloud
 
-Les offres de logiciels peuvent atteindre des millions de clients Microsoft éligibles, aidés par les partenaires du programme Fournisseur de solutions cloud (CSP), en plus de la disponibilité publique des offres sur les [vitrines web de Microsoft](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
+Cet article explique comment configurer votre offre pour qu’elle soit disponible au sein du programme des fournisseurs de solutions Cloud (CSP). Outre la publication de vos offres via les [vitrines web de la place de la place de marché commerciale](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace), vous pouvez également vendre par le biais du programme CSP pour atteindre les millions de clients Microsoft qualifiés faisant partie du programme.
 
-Les éditeurs configurent des offres nouvelles et existantes pour les rendre disponibles aux clients donnant leur consentement dans le programme CSP. Cela permet aux partenaires de vendre vos produits et de créer des solutions groupées pour les clients.
+Vous pouvez configurer des offres nouvelles ou existantes pour les rendre disponibles aux clients donnant leur consentement dans le programme CSP. Cela permet aux partenaires de vendre vos produits et de créer des solutions groupées pour les clients.
 
 Les éditeurs sont chargés de fournir le support de garantie de réparation pour les clients finaux et pour fournir un mécanisme pour les partenaires du programme CSP et/ou les clients de vous contacter pour la prise en charge. Il est recommandé de fournir aux partenaires du programme CSP la documentation utilisateur, des formations et les notifications d’état ou de défaillance du service (le cas échéant), afin que les partenaires du programme CSP soient en mesure de traiter les demandes de support de niveau 1 des clients.  
 
@@ -66,7 +66,7 @@ Pour choisir les partenaires, cliquez sur **Sélectionner des partenaires CSP** 
 
 Vous pouvez appliquer des filtres de recherche, comme **Pays**, **Compétence** ou **Qualification**.
 
-![Filtres Pays, Compétence et Qualification pour la recherche de partenaires](media/marketplace-publishers-guide/csp-add-resellers.png)
+![Filtres Pays/région, Compétence et Qualification pour la recherche de partenaires](media/marketplace-publishers-guide/csp-add-resellers.png)
 
 Une fois que vous avez choisi la liste des partenaires, sélectionnez **Ajouter**.
 
@@ -105,7 +105,7 @@ Si vous avez autorisé un partenaire dans le programme CSP et que ce partenaire 
 
 Si un partenaire du programme CSP n’a pas vendu votre produit à ses clients et que vous souhaitez supprimer le CSP après la publication de votre offre, suivez les instructions ci-dessous :
 
-1. Accédez à la [page de demande de support](https://partner.microsoft.com/support/v2/?stage=1). Les premiers menus déroulants sont automatiquement remplis pour vous.
+1. Accédez à la [page de demande de support](https://aka.ms/marketplacepublishersupport). Les premiers menus déroulants sont automatiquement remplis pour vous.
 
    > [!NOTE]
    > Ne changez pas les sélections préremplies des menus déroulants.
@@ -127,7 +127,7 @@ Utilisez cette section pour naviguer entre les trois options pour le revendeur C
 
 Si votre offre est actuellement **Option 1 : Tous les partenaires du programme CSP** et que vous souhaitez accéder à l’une des deux autres options, suivez les instructions ci-dessous pour créer une demande :
 
-1. Accédez à la [page de demande de support](https://partner.microsoft.com/support/v2/?stage=1). Les premiers menus déroulants sont automatiquement remplis pour vous.
+1. Accédez à la [page de demande de support](https://aka.ms/marketplacepublishersupport). Les premiers menus déroulants sont automatiquement remplis pour vous.
 
    > [!NOTE]
    > Ne changez pas les sélections préremplies des menus déroulants.
@@ -145,7 +145,7 @@ Si votre offre est actuellement **Option 1 : Tous les partenaires du programme 
 
 Si votre offre est actuellement **Option 2 : Partenaires spécifiques du programme CSP que je sélectionne** et que vous souhaitez accéder à **Option 1 : Tous les partenaires du programme CSP**, suivez les instructions ci-dessous pour créer une demande :
 
-1. Accédez à la [page de demande de support](https://partner.microsoft.com/support/v2/?stage=1). Les premiers menus déroulants sont automatiquement remplis pour vous.
+1. Accédez à la [page de demande de support](https://aka.ms/marketplacepublishersupport). Les premiers menus déroulants sont automatiquement remplis pour vous.
 
    > [!NOTE]
    > Ne changez pas les sélections préremplies des menus déroulants.
@@ -158,7 +158,7 @@ Si votre offre est actuellement **Option 2 : Partenaires spécifiques du progra
 
  Si votre offre est actuellement **Option 2 : Partenaires spécifiques du programme CSP que je sélectionne** et que vous souhaitez accéder à **Option 3 : Aucun partenaire du programme CSP**, vous ne pouvez accéder à cette option que si les partenaires du programme CSP que vous aviez précédemment autorisés n’ont pas revendu votre offre aux clients finaux. Utilisez les instructions suivantes pour créer une demande :
 
-1. Accédez à la [page de demande de support](https://partner.microsoft.com/support/v2/?stage=1). Les premiers menus déroulants sont automatiquement remplis pour vous.
+1. Accédez à la [page de demande de support](https://aka.ms/marketplacepublishersupport). Les premiers menus déroulants sont automatiquement remplis pour vous.
 
    > [!NOTE]
    > Ne changez pas les sélections préremplies des menus déroulants.

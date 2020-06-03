@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 95993a54d321c9581d35f12b56d60e4ea052e505
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 59b235a32ae9363cc5fc804385867e140be502e2
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415722"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758994"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Démarrage rapide : Déployer l’exemple Unity sur un Bureau
 
@@ -46,7 +46,7 @@ Seules les applications de bureau plates sont actuellement prises en charge sur 
 ## <a name="build-the-sample-project"></a>Générer l’exemple de projet
 
 1. Sélectionnez *File > Build Settings*.
-1. Sélectionnez **Universal Windows Platform** sous *Platform*.
+1. Remplacez *Plateforme* par **Plateforme Windows universelle** (**PC indépendant** est également pris en charge, mais non utilisé ici).
 1. Définissez *Target Device* sur **PC**.
 1. Définissez *Architecture* sur **x86**.
 1. Définissez *Build Type* sur **D3D Project**.

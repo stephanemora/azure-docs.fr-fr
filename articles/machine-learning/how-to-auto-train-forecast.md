@@ -10,17 +10,19 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 05d658c052c5bc12f49d957bb29ad085c269c57b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4bb32418a9f6f556c3bcdfbdf8a70a10c4588218
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137356"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83646146"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entraîner automatiquement un modèle de prévision de série chronologique
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Dans cet article, vous allez apprendre à configurer et à entraîner un modèle de régression de prévisions de séries chronologiques à l’aide du Machine Learning dans Azure Machine Learning. 
+Dans cet article, vous allez apprendre à configurer et à former un modèle de régression de prévisions de séries chronologiques à l’aide du Machine Learning dans le [Kit de développement logiciel (SDK) Python Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py). 
+
+Pour une expérience avec peu de code, consultez le [tutoriel : Prévoir la demande à l’aide du Machine Learning automatisé](tutorial-automated-ml-forecast.md) pour un exemple de prévision de série chronologique utilisant le Machine Learning automatisé dans [Azure Machine Learning Studio](https://ml.azure.com/).
 
 La configuration d’un modèle de prévision est semblable à celle d’un modèle de régression standard utilisant le machine learning automatisé, mais il existe certaines options de configuration et étapes de prétraitement pour l’utilisation des données de série chronologique. 
 
@@ -40,7 +42,6 @@ Les fonctionnalités extraites les données d’apprentissage jouent un rôle ca
 
 ## <a name="time-series-and-deep-learning-models"></a>Modèles de série chronologique et de Deep Learning
 
-
 Le Deep Learning du ML automatisé permet de prévoir des données de série chronologique univariées et multivariées.
 
 Les modèles Deep Learning ont trois capacités intrinsèques :
@@ -51,7 +52,6 @@ Les modèles Deep Learning ont trois capacités intrinsèques :
 Avec des données plus volumineuses, les modèles de Deep Learning tels que ForecastTCN de Microsoft peuvent améliorer les scores du modèle qui en résulte. Découvrez comment [configurer votre expérience pour le Deep Learning](#configure-a-dnn-enable-forecasting-experiment).
 
 Le ML automatisé fournit aux utilisateurs des modèles natifs de série chronologique et de Deep Learning dans le cadre du système de recommandation. 
-
 
 Modèles| Description | Avantages
 ----|----|---
@@ -112,7 +112,7 @@ La validation croisée à origine dynamique (ROCV) permet de fractionner les sé
 
 ![texte de remplacement](./media/how-to-auto-train-forecast/ROCV.svg)
 
-Cette stratégie permet de préserver l’intégrité des données des séries chronologiques et d’éliminer le risque de fuite de données. La validation ROCV est utilisée automatiquement pour les tâches de prévision en transmettant conjointement les données d’apprentissage et de validation et en définissant le nombre d’échantillons de validation croisée à l’aide de `n_cross_validations`. 
+Cette stratégie permet de préserver l’intégrité des données des séries chronologiques et d’éliminer le risque de fuite de données. La validation ROCV est utilisée automatiquement pour les tâches de prévision en transmettant conjointement les données d’apprentissage et de validation et en définissant le nombre d’échantillons de validation croisée à l’aide de `n_cross_validations`. En savoir plus sur comment la fonction ML automatisé applique la validation croisée afin [d’empêcher les modèles de surajustement](concept-manage-ml-pitfalls.md#prevent-over-fitting).
 
 ```python
 automl_config = AutoMLConfig(task='forecasting',

@@ -3,12 +3,12 @@ title: Créer des stratégies Guest Configuration pour Linux
 description: Découvrez comment créer une stratégie Guest Configuration pour des machines virtuelles Linux.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 219b38bd81cae8d16241d1ee16cfdd2f400ae91e
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.openlocfilehash: a636b63c80799f8bfe3dfd3a0eb37d1367cdcf0d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82024980"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654861"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Créer des stratégies Guest Configuration pour Linux
 
@@ -31,7 +31,14 @@ Utilisez les actions suivantes pour créer votre propre configuration pour la va
 
 ## <a name="install-the-powershell-module"></a>Installer le module PowerShell
 
-La création d’un artefact de Guest Configuration, le test automatisé de l’artefact, la création d’une définition de stratégie et la publication de cette stratégie sont entièrement automatisables à l’aide du module Guest Configuration dans PowerShell. Ce module peut être installé sur un ordinateur exécutant Windows, macOS ou Linux avec PowerShell 6.2 ou une version ultérieure exécutée localement, ou avec [Azure Cloud Shell](https://shell.azure.com), ou avec l’[image Azure PowerShell Core Docker](https://hub.docker.com/r/azuresdk/azure-powershell-core).
+Le module Guest Configuration automatise le processus de création de contenu personnalisé, notamment :
+
+- La création d’un artefact de contenu Guest Configuration (.zip)
+- Le test automatisé de l’artefact
+- La création d’une définition de stratégie
+- La publication de la stratégie
+
+Ce module peut être installé sur un ordinateur exécutant Windows, macOS ou Linux avec PowerShell 6.2 ou une version ultérieure exécutée localement, ou avec [Azure Cloud Shell](https://shell.azure.com), ou avec l’[image Azure PowerShell Core Docker](https://hub.docker.com/r/azuresdk/azure-powershell-core).
 
 > [!NOTE]
 > La compilation des configurations n’est pas prise en charge sur Linux.
@@ -275,6 +282,14 @@ Les fichiers suivants sont créés par `New-GuestConfigurationPolicy` :
 
 La sortie de la cmdlet retourne un objet contenant le nom complet de l’initiative et le chemin d’accès aux fichiers de stratégie.
 
+> [!Note]
+> Le dernier module Guest Configuration comprend de nouveaux paramètres :
+> - **Tag** ajoute un ou plusieurs filtres de balise à la définition de stratégie
+>   - Consultez la section [Filtrage des stratégies Guest Configuration à l’aide de balises](#filtering-guest-configuration-policies-using-tags).
+> - **Category** définit le champ de métadonnées catégorie dans la définition de stratégie
+>   - Si le paramètre n’est pas inclus, la catégorie sera définie par défaut par Guest Configuration.
+> Ces fonctionnalités sont actuellement en version préliminaire et nécessitent le module Guest Configuration version 1.20.1, qui peut être installé à l’aide de `Install-Module GuestConfiguration -AllowPrerelease`.
+
 Enfin, publiez les définitions de stratégie à l’aide de la cmdlet `Publish-GuestConfigurationPolicy`.
 La cmdlet ne dispose que du paramètre **Path** qui pointe vers l’emplacement des trois fichiers JSON créés par `New-GuestConfigurationPolicy`.
 
@@ -386,6 +401,38 @@ Pour publier une mise à jour de la définition de stratégie, deux champs sont 
 - **contentHash** : Cette propriété est automatiquement mise à jour par l’applet de commande `New-GuestConfigurationPolicy`. Il s’agit d’une valeur de hachage du package créé par `New-GuestConfigurationPackage`. Cette propriété doit être correcte pour le fichier `.zip` que vous publiez. Si seule la propriété **contentUri** est mise à jour, l’extension n’accepte pas le package de contenu.
 
 Le moyen le plus simple de publier un package mis à jour consiste à répéter le processus décrit dans cet article et à fournir un numéro de version mis à jour. Ce processus garantit que toutes les propriétés ont été correctement mises à jour.
+
+
+### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrage des stratégies Guest Configuration à l’aide de balises
+
+> [!Note]
+> Cette fonctionnalité est actuellement en version préliminaire et nécessite le module Guest Configuration version 1.20.1, qui peut être installé à l’aide de `Install-Module GuestConfiguration -AllowPrerelease`.
+
+Les stratégies créées par les cmdlet dans le module Guest Configuration peuvent éventuellement inclure un filtre pour les balises. Le paramètre **-Tag** de `New-GuestConfigurationPolicy` prend en charge un groupe de tables de hachage contenant des balises individuelles. Les balises sont ajoutées à la section `If` de la définition de stratégie et ne peuvent pas être modifiées par une attribution de stratégie.
+
+Vous trouverez ci-dessous un exemple d’extrait de définition de stratégie qui permettra de filtrer les balises.
+
+```json
+"if": {
+  "allOf" : [
+    {
+      "allOf": [
+        {
+          "field": "tags.Owner",
+          "equals": "BusinessUnit"
+        },
+        {
+          "field": "tags.Role",
+          "equals": "Web"
+        }
+      ]
+    },
+    {
+      // Original Guest Configuration content will follow
+    }
+  ]
+}
+```
 
 ## <a name="optional-signing-guest-configuration-packages"></a>Facultatif : Signature des packages Guest Configuration
 

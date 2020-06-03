@@ -6,16 +6,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 05/12/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80b7536704d68e96429d715705a0518410db399a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9fbe76fb18e33efaa161d2e2b488b48fa5c8580d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112318"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644168"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrer vers l’authentification cloud à l’aide du lancement intermédiaire (préversion)
 
@@ -51,6 +51,7 @@ Pour obtenir une vue d’ensemble de ces fonctionnalités, consultez « Azure 
 
 -   Pour activer *l’authentification unique transparente* sur une forêt Active Directory particulière, vous devez être l’administrateur de domaine.
 
+
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
 Les scénarios suivants sont pris en charge pour le lancement intermédiaire. Cette fonction convient uniquement aux :
@@ -58,6 +59,7 @@ Les scénarios suivants sont pris en charge pour le lancement intermédiaire. Ce
 - utilisateurs configurés pour Azure AD à l’aide de Azure AD Connect. Elle ne s’applique pas aux utilisateurs cloud uniquement.
 
 - Trafic de connexion utilisateur sur les navigateurs et les clients *d’authentification modernes*. Les applications ou les services cloud utilisant l’authentification héritée sont redirigés vers des flux d’authentification fédérés. Par exemple, Exchange Online avec l’authentification moderne désactivée ou Outlook 2010, qui ne prend pas en charge l’authentification moderne.
+- La taille du groupe est actuellement limitée à 50 000 utilisateurs.  Si vos groupes dépassent 50 000 utilisateurs, nous vous recommandons de les fractionner en plusieurs groupes pour le lancement intermédiaire.
 
 ## <a name="unsupported-scenarios"></a>Scénarios non pris en charge
 
@@ -77,6 +79,9 @@ Les scénarios suivants ne sont pas pris en charge pour le lancement intermédia
 - Vous devez encore effectuer le basculement final de l’authentification fédérée à l’authentification cloud à l’aide d’Azure AD Connect ou de PowerShell. Le lancement intermédiaire ne fait pas basculer les domaines d’un état fédéré à managé.
 
 - Lorsque vous ajoutez pour la première fois un groupe de sécurité au lancement intermédiaire, vous êtes limité à 200 utilisateurs pour éviter que l’expérience utilisateur n’expire. Une fois que vous avez ajouté le groupe, vous pouvez y ajouter directement d’autres utilisateurs, selon les besoins.
+
+>[!NOTE]
+> Étant donné que les points de terminaison avec locataire n’envoient pas d’indicateurs de connexion, ils ne sont pas pris en charge lors du lancement intermédiaire.  Les applications SAML utilisent les points de terminaison avec locataire et ne sont pas non plus prises en charge lors du lancement intermédiaire.
 
 ## <a name="get-started-with-staged-rollout"></a>Prise en main du lancement intermédiaire
 

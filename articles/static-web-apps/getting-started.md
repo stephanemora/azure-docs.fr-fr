@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 14fd237b6437c15ede2da7c0694004f6c22736cc
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8de6e9cff8149423f4b00b07e3113be6606181b5
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599130"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714234"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>Démarrage rapide : Création de votre première application web statique
 
@@ -67,9 +67,9 @@ Cliquez sur le bouton **Créer un référentiel à partir du modèle**.
 Maintenant que le référentiel est créé, vous pouvez créer une application web statique à partir du Portail Azure.
 
 - Accéder au [portail Azure](https://portal.azure.com)
-- Cliquer sur **Créer une ressource**
-- Rechercher **Static Web Apps**
-- Cliquer sur **Static Web Apps (préversion)**
+- Cliquez sur **Create a Resource** (Créer une ressource).
+- Recherchez **Static Web Apps**.
+- Cliquez sur **Static Web Apps (Preview)** (Static Web Apps (préversion))
 - Cliquez sur **Créer**
 
 ### <a name="basics"></a>Concepts de base
@@ -81,7 +81,7 @@ Commencez par configurer votre nouvelle application et liez-la à un référenti
 - Sélectionnez votre _abonnement Azure_.
 - Sélectionnez ou créez un _groupe de ressources_.
 - Nommez l’application **my-first-static-web-app**.
-  - Les caractères valides sont `a-z` (insensible à la casse), `0-9`et `_`.
+  - Les caractères valides sont `a-z` (insensible à la casse), `0-9`et `-`.
 - Sélectionnez la _région_ la plus proche de vous.
 - Sélectionnez **SKU** _gratuite_.
 - Cliquez sur le bouton **Se connecter à GitHub** et authentifiez-vous auprès de GitHub.
@@ -130,6 +130,8 @@ Ensuite, ajoutez les détails de configuration spécifiques à votre framework f
 Cliquez sur le bouton **Vérifier + créer**.
 
 :::image type="content" source="media/getting-started/review-create.png" alt-text="Bouton Vérifier + créer":::
+
+Pour modifier ces valeurs après avoir créé l’application, vous pouvez modifier le [fichier de flux de travail](github-actions-workflow.md).
 
 ### <a name="review--create"></a>Vérifier + créer
 

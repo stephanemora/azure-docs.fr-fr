@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d3d6b33211f6f247d9f30c0f162b388085faabe6
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: d57bf7fa6d56c1704a78219f8a0af1182ce8a955
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80332546"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739097"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Vue d’ensemble technique et fonctionnelle d’Azure Active Directory B2C
 
@@ -63,7 +63,7 @@ Un utilisateur disposant d’un compte consommateur peut se connecter avec plusi
 
 ![Identités d’un compte consommateur](media/technical-overview/identities.png)<br/>*Figure : Compte consommateur unique doté de plusieurs identités dans Azure AD B2C*
 
-Azure AD B2C vous permet de gérer les attributs courants des profils de comptes consommateur, tels que le nom d’affichage, le nom, le prénom, la ville, etc. Vous pouvez également étendre le schéma Azure AD pour stocker des informations supplémentaires sur vos utilisateurs, comme leur pays ou lieu de résidence, leur langue par défaut et leurs préférences, par exemple s’ils souhaitent s’abonner à un bulletin d’informations ou activer une authentification multifacteur.
+Azure AD B2C vous permet de gérer les attributs courants des profils de comptes consommateur, tels que le nom d’affichage, le nom, le prénom, la ville, etc. Vous pouvez également étendre le schéma Azure AD pour stocker des informations supplémentaires sur vos utilisateurs, comme leur pays/région ou lieu de résidence, leur langue par défaut et leurs préférences (par exemple, s’ils souhaitent s’abonner à un bulletin d’informations ou activer l’authentification multifacteur).
 
 Apprenez-en davantage sur les types de comptes utilisateur dans Azure AD B2C avec [Vue d’ensemble des comptes d’utilisateur dans Azure Active Directory B2C](user-overview.md).
 
@@ -100,7 +100,7 @@ Pour vous aider à rapidement configurer les tâches d’identité les plus cour
 Vous pouvez configurer des paramètres de flux utilisateur comme ceux mentionnés ici, pour contrôler les comportements d’expérience d’identité dans vos applications :
 
 * Types de compte utilisés pour la connexion, comme les comptes de réseaux sociaux de type Facebook, ou les comptes locaux qui utilisent une adresse e-mail et un mot de passe pour cette connexion
-* Attributs à collecter auprès du consommateur, tels que le prénom, le code postal ou le pays de résidence
+* Attributs à collecter auprès du consommateur, comme le prénom, le code postal ou le pays/la région de résidence
 * Azure Multi-Factor Authentication (MFA)
 * Personnalisation de l’interface utilisateur
 * Ensemble de revendications dans un jeton que votre application reçoit dès que l’utilisateur a terminé le flux utilisateur

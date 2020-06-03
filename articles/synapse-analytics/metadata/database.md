@@ -6,39 +6,33 @@ author: MikeRys
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: e3651467de86d3b026ab348675249f93ebf3a86a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: da1bd9c812c20f60264d1a5ee1f8821128900618
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420213"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698849"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Base de données partagée Azure Synapse Analytics
 
-Azure Synapse Analytics permet aux différents moteurs d’espace de travail de calcul de partager des bases de données et des tables entre leurs pools Spark (préversion), le moteur SQL à la demande (préversion) et les pools SQL.
+Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de travail de partager des bases de données et des tables entre leurs pools Spark (préversion) et le moteur SQL à la demande (préversion).
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
 Une base de données créée avec un travail Spark devient visible avec le même nom pour tous les pools Spark actuels et futurs (préversion) dans l’espace de travail ainsi que le moteur SQL à la demande.
 
-Si l’espace de travail contient des pools SQL pour lesquels la synchronisation des métadonnées est activée, ou si vous créez un pool SQL avec la synchronisation des métadonnées activée, ces bases de données créées avec Spark sont mappées automatiquement à des schémas spéciaux dans la base de données du pool SQL. 
+La base de données Spark par défaut, nommée `default`, est également visible dans le contexte SQL à la demande sous le nom `default`.
 
-Chaque schéma est nommé d’après le nom de la base de données Spark avec un préfixe `$` supplémentaire. Les tables externes et gérées dans la base de données générée par Spark sont exposées en tant que tables externes dans le schéma spécial correspondant.
-
-La base de données Spark par défaut, appelée `default`, est également visible dans le contexte SQL à la demande en tant que base de données appelée `default`, et dans toutes les bases de données du pool SQL pour lesquelles la synchronisation des métadonnées est activée en tant que schéma `$default`.
-
-Étant donné que les bases de données sont synchronisées avec SQL à la demande et les pools SQL de manière asynchrone, il y aura un délai avant leur apparition.
+Comme elles sont synchronisées avec SQL à la demande de manière asynchrone, les bases de données apparaissent au bout d’un certain délai.
 
 ## <a name="manage-a-spark-created-database"></a>Gérer une base de données créée avec Spark
 
 Utilisez Spark pour gérer les bases de données créées avec Spark. Par exemple, supprimez-les par le biais d’un travail de pool Spark et créez-y des tables à partir de Spark.
 
 Si vous créez des objets dans une base de données créée avec Spark à l’aide de SQL à la demande, ou si vous essayez de supprimer la base de données, l’opération réussit, mais la base de données Spark d’origine ne sera pas modifiée.
-
-Si vous tentez de supprimer le schéma synchronisé dans un pool SQL, ou tentez d’y créer une table, Azure retourne une erreur.
 
 ## <a name="handling-of-name-conflicts"></a>Gestion des conflits de noms
 
@@ -51,7 +45,7 @@ Par exemple, si une base de données Spark nommée `mydb` est créée dans l’e
 
 ## <a name="security-model"></a>Modèle de sécurité
 
-Les bases de données et les tables Spark, ainsi que leurs représentations synchronisées dans les moteurs SQL, sont sécurisées au niveau du stockage sous-jacent.
+Les bases de données et les tables Spark, ainsi que leurs représentations synchronisées dans le moteur SQL, sont sécurisées au niveau du stockage sous-jacent.
 
 Le principal de sécurité qui crée une base de données est considéré comme le propriétaire de cette base de données, et dispose de tous les droits sur la base de données et ses objets.
 
@@ -79,22 +73,7 @@ SELECT * FROM sys.databases;
 
 Vérifiez que `mytestdb` est inclus dans les résultats.
 
-### <a name="exposing-a-spark-database-in-a-sql-pool"></a>Exposition d’une base de données Spark dans un pool SQL
-
-Avec la base de données créée dans l’exemple précédent, créez maintenant un pool SQL dans votre espace de travail nommé `mysqlpool` qui active la synchronisation des métadonnées.
-
-Exécutez l’instruction suivante sur le pool SQL `mysqlpool` :
-
-```sql
-SELECT * FROM sys.schema;
-```
-
-Vérifiez le schéma de la base de données que vous venez de créer dans les résultats.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Apprenez-en davantage sur les métadonnées partagées Azure Synapse Analytics](overview.md)
 - [Apprenez-en davantage sur les tables de métadonnées partagées Azure Synapse Analytics](table.md)
-
-<!-- - [Learn more about the Synchronization with SQL Analytics on-demand](overview.md)
-- [Learn more about the Synchronization with SQL Analytics pools](overview.md)-->

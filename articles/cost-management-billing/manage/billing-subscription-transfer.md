@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 84b36c1357bedfc120cec72af84fdd79f52a2f57
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8f259ba9c7da3d7c37ed3eb63c63d17b74f7fbdd
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238157"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745851"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transfert de la propriété de facturation d’un abonnement Azure à un autre compte
 
@@ -106,8 +106,8 @@ Le transfert d’abonnement dans le portail Azure est disponible pour les types 
 - [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)  
 - [Abonnés Visual Studio Enterprise (MPN)](https://azure.microsoft.com/offers/ms-azr-0029p/)
 - [Plateformes MSDN](https://azure.microsoft.com/offers/ms-azr-0062p/)  
-- [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/)
-- [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
+- [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/)
+- [Dev/Test – Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0023p/)
 - [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)
 - [Visual Studio Enterprise : BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/)
 - [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)
@@ -144,8 +144,8 @@ Si vous ne savez pas qui est l’administrateur de compte d’un abonnement, pro
 
 Toutes les ressources telles que les machines virtuelles, les disques et les sites web sont transférées au nouveau compte. Cependant, si vous transférez un abonnement à un compte dans un autre locataire Azure AD, les affectations des [rôles Administrateur](add-change-subscription-administrator.md) et de [RBAC (contrôle d’accès en fonction du rôle)](../../role-based-access-control/role-assignments-portal.md) sur l’abonnement [ne sont pas transférées](#transfer-a-subscription-to-another-azure-ad-tenant-account). Les [inscriptions des applications](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) et autres services spécifiques du locataire ne sont pas non plus transférés avec l’abonnement.
 
-### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>Puis-je transférer la propriété à un compte dans un autre pays ?
-Malheureusement, les transferts entre pays ne peuvent pas être effectués dans le portail Azure. Pour transférer votre abonnement d’un pays à un autre, [contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+### <a name="can-i-transfer-ownership-to-an-account-in-another-countryregion"></a>Puis-je transférer la propriété à un compte d’un autre pays/d’une autre région ?
+Malheureusement, les transferts entre pays/régions ne peuvent pas être effectués sur le Portail Azure. Pour transférer votre abonnement d’un pays/d’une région à un autre, [contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="i-am-an-administrator-on-two-accounts-can-i-transfer-a-subscription-from-one-of-my-accounts-to-another"></a>Je suis administrateur de deux comptes. Puis-je transférer un abonnement depuis un de mes comptes à l’autre ?
 Oui, vous pouvez transférer l’abonnement entre vos comptes. Vos comptes étant conceptuellement considérés comme les comptes de deux utilisateurs différents, vous pouvez effectuer les étapes ci-dessus pour transférer des abonnements entre ces comptes.

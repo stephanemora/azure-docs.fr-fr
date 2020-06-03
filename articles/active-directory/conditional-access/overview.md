@@ -5,18 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 09/17/2019
+ms.date: 05/21/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b044a4fd4e29bfe35abff7a4b36e5bae783328b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: contperfq4
+ms.openlocfilehash: 0e13fcba4b961efb6a839f95ad0e8100382619c0
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79215987"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798241"
 ---
 # <a name="what-is-conditional-access"></a>Qu’est-ce que l’accès conditionnel ?
 
@@ -33,7 +34,7 @@ Les administrateurs sont confrontés à deux objectifs principaux :
 - Permettre aux utilisateurs d’être productifs où et quand ils le veulent
 - Protéger les ressources de l’entreprise
 
-En utilisant des stratégies d’accès conditionnel, vous pouvez appliquer les contrôles d’accès appropriés quand cela est nécessaire pour garantir la sécurité de votre organisation et ne pas freiner votre utilisateur dans le cas contraire.
+En utilisant des stratégies d’accès conditionnel, vous pouvez appliquer les contrôles d’accès nécessaires pour garantir la sécurité de votre organisation sans pour autant freiner inutilement votre utilisateur.
 
 ![Workflow du processus d’accès conditionnel conceptuel](./media/overview/conditional-access-overview-how-it-works.png)
 
@@ -47,7 +48,7 @@ Les signaux courants que l’accès conditionnel peut prendre en compte lors d�
    - Les stratégies peuvent ciblées des utilisateurs et des groupes spécifiques, ce qui donne aux administrateurs un contrôle plus précis sur l’accès.
 - Informations d’emplacement IP
    - Les organisations peuvent créer des plages d’adresses IP approuvées qui peuvent être utilisées pour prendre des décisions en matière de stratégie. 
-   - Les administrateurs peuvent spécifier des plages d’adresses IP de pays entiers pour bloquer ou autoriser le trafic en provenance de ceux-ci.
+   - Les administrateurs peuvent spécifier des plages d’adresses IP de pays/régions entiers pour bloquer ou autoriser le trafic en provenance de ceux-ci.
 - Appareil
    - Les utilisateurs disposant d’appareils de plateformes spécifiques ou marqués avec un état spécifique peuvent être utilisés lors de l’application de stratégies d’accès conditionnel.
 - Application
@@ -71,7 +72,7 @@ Les signaux courants que l’accès conditionnel peut prendre en compte lors d�
 
 ## <a name="commonly-applied-policies"></a>Stratégies couramment appliquées
 
-De nombreuses organisations rencontrent des problèmes d’accès courants que les stratégies d’accès conditionnel peuvent vous aider à résoudre :
+De nombreuses organisations rencontrent des [problèmes d’accès courants que les stratégies d’accès conditionnel peuvent contribuer à résoudre](concept-conditional-access-policy-common.md) :
 
 - Demande d’authentification multifacteur pour les utilisateurs disposant de rôles d’administration
 - Demande d’authentification multifacteur pour les tâches de gestion Azure
@@ -96,12 +97,8 @@ Les clients avec [des licences Microsoft 365 Business](/office365/servicedescrip
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Génération d’une stratégie d’accès conditionnel élément par élément](concept-conditional-access-policies.md)
-
-Pour apprendre à implémenter l’accès conditionnel dans votre environnement, consultez [Planifier votre déploiement d’accès conditionnel dans Azure Active Directory](plan-conditional-access.md).
-
-[En savoir plus sur Identity Protection](../identity-protection/overview-v2.md)
-
-[En savoir plus sur Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
-
-[En savoir plus sur Microsoft Intune](/intune/index)
+- [Génération d’une stratégie d’accès conditionnel élément par élément](concept-conditional-access-policies.md)
+- [Planification d’un déploiement d’accès conditionnel](plan-conditional-access.md)
+- [En savoir plus sur Identity Protection](../identity-protection/overview-v2.md)
+- [En savoir plus sur Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
+- [En savoir plus sur Microsoft Intune](/intune/index)

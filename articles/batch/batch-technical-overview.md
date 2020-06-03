@@ -1,14 +1,14 @@
 ---
 title: Azure Batch exécute des travaux parallèles à grande échelle dans le cloud
 description: Découvrez l’utilisation d’Azure Batch pour les charges de travail HPC et parallèles à grande échelle
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: f2bdaeec47b50b715920b27d6adf6e078a354964
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c78aec238664520c8c8c02a793298cdc1d3ac7e1
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82116347"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779562"
 ---
 # <a name="what-is-azure-batch"></a>Présentation d’Azure Batch
 
@@ -74,7 +74,7 @@ Le schéma suivant illustre les étapes d’un flux de travail Batch courant, da
 
 N’oubliez pas qu’il ne s’agit ici que d’une des nombreuses façons d’utiliser Azure Batch et que ce scénario ne décrit que quelques-unes de ses fonctionnalités. Par exemple, vous pouvez exécuter [plusieurs tâches en parallèle](batch-parallel-node-tasks.md) sur chaque nœud de calcul. Ou, utiliser des [Tâches d’achèvement et de préparation des travaux](batch-job-prep-release.md) pour préparer les nœuds pour vos travaux, puis nettoyer par la suite. 
 
-Consultez la [Présentation des fonctionnalités du service Batch pour les développeurs](batch-api-basics.md) pour des informations plus détaillées sur les pools, les nœuds, les travaux et les tâches, ainsi que sur les nombreuses fonctionnalités d’API que vous pouvez utiliser lors de la création de votre application Batch. Consultez également les dernières [mises à jour du service Batch](https://azure.microsoft.com/updates/?product=batch).
+Pour une vue d’ensemble de fonctionnalités comme les pools, les nœuds, les travaux et les tâches, consultez [Workflow et les ressources principales du service Batch](batch-service-workflow-features.md) . Consultez également les dernières [mises à jour du service Batch](https://azure.microsoft.com/updates/?product=batch).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

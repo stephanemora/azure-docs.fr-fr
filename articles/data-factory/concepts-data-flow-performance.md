@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 04/27/2020
-ms.openlocfilehash: 8ea26fc041f3fa6194ced65b3e3b9055848ead49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/21/2020
+ms.openlocfilehash: 327fffd807d93fda67ff650954ece65e5db58e63
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188759"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798109"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
 
@@ -41,7 +41,7 @@ Lors de la conception de flux de données de mappage, vous pouvez effectuer un t
 
 Un runtime d’intégration avec davantage de cœurs augmente le nombre de nœuds dans les environnements de calcul Spark et fournit davantage de puissance de traitement pour lire, écrire et transformer vos données. Les flux de données ADF utilisent Spark comme moteur de calcul. L'environnement Spark fonctionne très bien sur les ressources à mémoire optimisée.
 * Essayez un cluster **optimisé pour le calcul** si vous voulez que votre vitesse de traitement soit supérieure à votre vitesse d’entrée.
-* Essayez un cluster **à mémoire optimisée** si vous voulez mettre en cache plus de données en mémoire. L’option À mémoire optimisée a un coût plus élevé par cœur que l’option Optimisé pour le calcul, mais elle permettra probablement d’obtenir des vitesses de transformation plus rapides.
+* Essayez un cluster **à mémoire optimisée** si vous voulez mettre en cache plus de données en mémoire. L’option À mémoire optimisée a un coût plus élevé par cœur que l’option Optimisé pour le calcul, mais elle permettra probablement d’obtenir des vitesses de transformation plus rapides. Si vous rencontrez des erreurs de mémoire insuffisante lors de l’exécution de vos flux de données, basculez vers une configuration de Azure IR optimisée en mémoire.
 
 ![Nouveau runtime d'intégration](media/data-flow/ir-new.png "Nouveau runtime d'intégration")
 
@@ -140,6 +140,10 @@ Par exemple, si vous avez une liste de fichiers de données de juillet 2019 que
 ```DateFiles/*_201907*.txt```
 
 Si vous utilisez des caractères génériques, votre pipeline ne contiendra qu’une seule activité de flux de données. Cette opération sera plus performante qu’une recherche sur le magasin d’objets blob qui effectue ensuite une itération sur tous les fichiers correspondants à l’aide d’une instruction ForEach avec une activité d’exécution de flux de données à l’intérieur.
+
+L’instruction For Each en mode parallèle du pipeline génère plusieurs clusters en mettant en place des clusters de travail pour chaque activité de flux de données exécutée. Cela peut entraîner la limitation de service Azure avec un grand nombre d’exécutions simultanées. Toutefois, l’utilisation de l’exécution de flux de données dans l’instruction For Each avec un ensemble séquentiel dans le pipeline permet d’éviter la limitation et l’épuisement des ressources. Cela force Data Factory à exécuter chacun de vos fichiers séquentiellement sur un flux de données.
+
+Si vous utilisez l’instruction For Each avec un flux de données en séquence, il est recommandé d’utiliser le paramètre TTL dans Azure Integration Runtime. Cela est dû au fait que chaque fichier entraîne un temps de démarrage de cluster de 5 minutes dans votre itérateur.
 
 ### <a name="optimizing-for-cosmosdb"></a>Optimisation pour CosmosDB
 

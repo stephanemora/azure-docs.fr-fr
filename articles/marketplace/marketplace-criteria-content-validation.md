@@ -1,28 +1,28 @@
 ---
-title: Critères de publication des services et offres sur la Place de marché | Place de marché Azure
-description: Cet article décrit comment devenir éditeur sur la Place de marché Azure.
+title: Offres de la Place de marché Azure et exigences de la liste des services
+description: Cet article explique les exigences et les recommandations relatives au référencement des nouvelles offres et nouveaux services sur la Place de marché Azure.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: ca40e8e00cb72d6ecc3246ad7aef3b3bac4fbedd
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 0c7352ce95edf7c6ec5fad9fe658e01a66d88573
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160475"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657921"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Instructions relatives aux listes de la Place de marché Azure
 
-Ce document contient les conditions requises et les recommandations relatives aux nouvelles offres et aux nouveaux services à lister sur la Place de marché Azure.
+Cet article explique les exigences et les recommandations relatives aux nouvelles offres et aux nouveaux services à lister sur la Place de marché Azure.
 
-Toutes les offres doivent répondre aux conditions requises listées dans la section « Conditions de liste applicables à toutes les offres ».
+Toutes les offres doivent répondre aux conditions requises listées dans la section [Conditions de liste applicables à toutes les offres](#listing-requirements-for-all-offers).
 
 Des conditions requises et des check-lists supplémentaires sont fournies pour des types de listes spécifiques, notamment : 
 * [Exigences relatives aux offres d’essai](#trial-offer-requirements)
-* [Exigences relatives aux applications SaaS](#saas-app-requirements)
+* [Configuration requise pour l'application SaaS](#saas-application-requirements)
 * [Exigences relatives aux offres de conteneur](#container-offer-requirements)
 * [Exigences relatives aux offres de conseil](#consulting-offer-requirements)
 
@@ -34,7 +34,7 @@ Des conditions requises et des check-lists supplémentaires sont fournies pour d
 | 2 | Titre de l’offre | Décrit brièvement l’offre de la solution. Correspond à la promotion en ligne de la solution sur le site web du partenaire. | Contient des mots de recherche clés. |
 | 3 | Logo | Le logo s’affiche correctement. | Le logo s’affiche correctement et inclut une « bannière » qui correspond à l’image grand format figurant sur le portail Azure. |
 | 4 |  Description de l’offre | <ul><li> Contient 2 ou 3 paragraphes.</li><li>Description claire et succincte de l’offre de solution.</li><li>Sans fautes d’orthographe et de grammaire.</li><li>Complète : public cible, type d’utilisateur, points d’intérêt (proposition de valeur).</li><li>Rédigée sous une forme narrative avec des phrases courtes et faciles à comprendre.</li></ul> | <ul><li> Secteur d’activité cible indiqué (le cas échéant).</li><li>Mise en forme soignée, chaque en-tête de paragraphe comportant une phrase ou une expression résumant le contenu suivant exposé avec des puces (s’il y a lieu) pour mettre l’accent sur les avantages clés. L’objectif est que le lecteur comprenne l’offre d’un simple coup d’œil grâce à un format clair et lisible, sans avoir à lire de longs paragraphes.</li><li>Un espace sépare chaque paragraphe. La description se lit comme une brochure automobile. Autrement dit, elle est complète et décrit l’offre simplement, sans jargon technique. | 
-| 5 | Catégories et secteurs d’activité | <ul><li>Les catégories correspondent aux fonctionnalités de l’offre de solution.</li><li>Évitez d’étendre les catégories à des domaines non couverts par la solution.</li><li>Secteur d’activité optimal ou tous les secteurs d’activité sélectionnés (en l’absence de secteurs d’activité optimaux). | <ul><li>Au maximum 3 catégories.</li><li>Au maximum 3 secteurs d’activité. |
+| 5 | Catégories et secteurs d’activité | <ul><li>Les catégories correspondent aux fonctionnalités de l’offre de solution.</li><li>Évitez d’étendre les catégories à des domaines non couverts par la solution.</li><li>Secteur d’activité optimal ou tous les secteurs d’activité sélectionnés (en l’absence de secteurs d’activité optimaux). | <ul><li>Bande passante 3 catégories.</li><li>Bande passante 3 secteurs d’activité. |
 | 6 | Images | <ul><li>Aucune image n’est requise, mais si une image est fournie, elle doit être affichée comme une image haute résolution.</li><li>Les exigences relatives aux images sont listées sur le portail CPP et ici également.</li><li>Le texte inclus dans la capture d’écran est lisible et l’image est nette. | Description claire et succincte de l’offre de solution. |
 | 7 | Videos | <ul><li>Aucune vidéo n’est requise, mais si une vidéo est fournie, elle doit être exempte d’erreurs à la lecture.</li><li>Une vidéo ne doit pas non plus faire référence à des sociétés concurrentes *sauf* si elle illustre une solution de migration. |<ul><li>Durée idéale : au moins 3 minutes.</li><li>Description claire de l’offre de solution dans la vidéo.</li><li>Fournit une démonstration des fonctionnalités de la solution. |
 | 8 | État du référencement (appel à l’action) | <ul><li>Doit comporter l’un des types d’étiquette suivants : <ul><li>*Me contacter*</li><li>*Essai*/*Obtenir la version d’évaluation*/*Démarrer l’évaluation*/*Version d’évaluation*</li><li>*Acheter maintenant*/*Obtenir maintenant*</li></ul></ul> | Le client peut facilement comprendre les prochaines étapes : <ol><li>Essayer la version d’évaluation.</li><li>Acheter maintenant.</li><li>Contacter par e-mail ou téléphone pour organiser une démonstration (preuve de concept), une évaluation ou une réunion de réflexion.</li></ol> | 
@@ -53,7 +53,7 @@ Des conditions requises et des check-lists supplémentaires sont fournies pour d
 
 ---
 
-## <a name="saas-app-requirements"></a>Configuration requise des applications SaaS
+## <a name="saas-application-requirements"></a>Configuration requise pour l'application SaaS
 
 |  | Élément de liste | Condition requise de base | Condition requise optimale | 
 |:--- |:--- |:--- |:--- |
@@ -62,9 +62,9 @@ Des conditions requises et des check-lists supplémentaires sont fournies pour d
 | 3 | Test drive | Sélectionnez *Oui* ou *Non* | Le client peut facilement comprendre les prochaines étapes : <ol><li>Essayer la version d’évaluation.</li><li>Acheter maintenant.</li><li>Contacter par e-mail ou téléphone pour organiser une démonstration (preuve de concept), une évaluation ou une réunion de réflexion.</li></ol> |
 | 4 | Informations sur les vitrines : Résumé de l’offre | Apparaît dans la page de recherche de votre application et comporte un maximum de 100 caractères. | |
 | 5 | Informations sur les vitrines : Secteurs d’activité | Secteurs d’activité (au plus 2) : sélectionnez les secteurs d’activité les mieux appropriés à votre application. | |
-| 6 | Description de l’offre | <ul><li>Structure HTML simple autorisée, comprenant des balises \<p>, \<em>, \<ul>, \<li>, \<ol> et d’en-tête. Au maximum 3 000 caractères.</li><li>Contient 2 ou 3 paragraphes.</li><li>Description claire et succincte de l’offre de solution.</li><li>La description est complète et indique le public cible, le type d’utilisateur et les points d’intérêt (proposition de valeur).</li><li>Rédigée sous une forme narrative avec des phrases courtes et faciles à comprendre. | <ul><li>Secteur d’activité cible indiqué (le cas échéant).</li><li>Mise en forme soignée, chaque en-tête de paragraphe comportant une phrase ou une expression résumant le contenu suivant exposé avec des puces (s’il y a lieu) pour mettre l’accent sur les avantages clés. L’objectif est que le lecteur comprenne l’offre d’un simple coup d’œil grâce à un format clair et lisible, sans avoir à lire de paragraphes.</li><li>Un espace sépare chaque paragraphe. La description se lit comme une brochure automobile. Autrement dit, elle est complète et décrit l’offre simplement, sans jargon technique. | 
+| 6 | Description de l’offre | <ul><li>Structure HTML simple autorisée, comprenant des balises \<p>, \<em>, \<ul>, \<li>, \<ol> et d’en-tête. Bande passante 3 000 caractères.</li><li>Contient 2 ou 3 paragraphes.</li><li>Description claire et succincte de l’offre de solution.</li><li>La description est complète et indique le public cible, le type d’utilisateur et les points d’intérêt (proposition de valeur).</li><li>Rédigée sous une forme narrative avec des phrases courtes et faciles à comprendre. | <ul><li>Secteur d’activité cible indiqué (le cas échéant).</li><li>Mise en forme soignée, chaque en-tête de paragraphe comportant une phrase ou une expression résumant le contenu suivant exposé avec des puces (s’il y a lieu) pour mettre l’accent sur les avantages clés. L’objectif est que le lecteur comprenne l’offre d’un simple coup d’œil grâce à un format clair et lisible, sans avoir à lire de paragraphes.</li><li>Un espace sépare chaque paragraphe. La description se lit comme une brochure automobile. Autrement dit, elle est complète et décrit l’offre simplement, sans jargon technique. | 
 | 7 | Artefacts marketing | Les logos s’affichent correctement. | <ul><li>Le logo inclut une « bannière » qui correspond à l’image grand format figurant sur le portail Azure.</li><li>Logos : petits (48 &#215; 48 pixels) et grands (216 &#215; 216 pixels) requis.</li><li>[Exigences relatives aux images de bannière](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer).</li><li>Capture d’écran (au plus 5) : le portail CPP nécessite une image PNG avec une résolution de 1280 &#215; 720 pixels. |
-| 8 | Catégories et secteurs d’activité | <ul><li>Les catégories correspondent aux fonctionnalités de l’offre de solution.</li><li>Sélectionnez au moins un élément dans la fenêtre contextuelle.</li><li>Évitez d’étendre les catégories à des domaines non couverts par la solution.</li><li>Secteur d’activité optimal ou tous les secteurs d’activité sélectionnés (en l’absence de secteurs d’activité optimaux). | Au maximum 3 catégories sélectionnées, le cas échéant. |
+| 8 | Catégories et secteurs d’activité | <ul><li>Les catégories correspondent aux fonctionnalités de l’offre de solution.</li><li>Sélectionnez au moins un élément dans la fenêtre contextuelle.</li><li>Évitez d’étendre les catégories à des domaines non couverts par la solution.</li><li>Secteur d’activité optimal ou tous les secteurs d’activité sélectionnés (en l’absence de secteurs d’activité optimaux). | Bande passante 3 catégories sélectionnées, le cas échéant. |
 | 9 | Gestion des prospects | Sélectionnez le système dans lequel vos prospects seront stockés. Consultez [Obtenir des prospects](./partner-center-portal/commercial-marketplace-get-customer-leads.md) pour connecter votre système CRM. |  |
 | 10 | Contacts : Support et aide de la solution | <ul><li>Nom du contact d’ingénierie : nom du contact d’ingénierie pour votre application. Cette personne recevra des informations techniques de Microsoft.</li><li>Adresse e-mail du contact d’ingénierie : adresse de messagerie du contact d’ingénierie pour votre application.</li><li>Téléphone du contact d’ingénierie : numéro de téléphone du contact d’ingénierie. Les [notations de numéro de téléphone ISO](https://en.wikipedia.org/wiki/E.123) sont prises en charge.</li><li>Nom du contact d’assistance : nom du contact d’assistance pour votre application. Cette personne recevra des informations de support de Microsoft.</li><li>Adresse e-mail du contact d’assistance : adresse de messagerie du contact d’assistance pour votre application.</li><li>Téléphone du contact d’assistance : numéro de téléphone du contact d’assistance. Les [notations de numéro de téléphone ISO](https://en.wikipedia.org/wiki/E.123) sont prises en charge.</li><li>URL d’assistance : URL de votre page d’assistance. | <ul><li>Toutes les méthodes d’assistance sont listées.</li><li>Assistance payante offerte gratuitement pendant la période d’*essai* ou d’utilisation de la *version d’évaluation*. |
 | 11 | Informations juridiques |<ul><li>URL de la politique de confidentialité : URL de la politique de confidentialité de votre application dans le champ correspondant du portail CPP.</li><li>Conditions d’utilisation : conditions d’utilisation de votre application. Les clients doivent accepter ces conditions avant de pouvoir essayer de votre application. |    Politiques ou conditions générales disponibles via un site public. |
@@ -75,7 +75,7 @@ Des conditions requises et des check-lists supplémentaires sont fournies pour d
 
 |  | Élément de liste | Condition requise de base | Condition requise optimale | 
 |:--- |:--- |:--- |:--- |
-|1 |Paramètres de l’offre | <ul><li>ID de l’offre : Au maximum 50 caractères.</li><li>ID de l’éditeur : Sélectionnez-la dans la liste déroulante.</li><li>Nom : Au maximum 50 caractères. | Reflète le style de titre déjà disponible dans la description. Évitez d’utiliser des titres longs. | 
+|1 |Paramètres de l’offre | <ul><li>ID de l’offre : Bande passante 50 caractères.</li><li>ID de l’éditeur : Sélectionnez-la dans la liste déroulante.</li><li>Nom : Bande passante 50 caractères. | Reflète le style de titre déjà disponible dans la description. Évitez d’utiliser des titres longs. | 
 | 2 | Références (SKU) | Le partenaire sélectionne de nouvelles références SKU.| Le titre reflète le style de titre déjà disponible dans la description. Évitez d’utiliser des titres longs.  |
 | 3 | Artefacts de la Place de marché | Les logos s’affichent correctement. |<ul><li>Le logo inclut une « bannière » qui correspond à l’image grand format figurant sur le portail Azure.</li><li>Logos : petits (48 &#215; 48 pixels) et grands (216 &#215; 216 pixels) requis.</li><li>[Exigences relatives aux images de bannière](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer).</li><li>Capture d’écran (au plus 5) : le portail CPP nécessite une image PNG avec une résolution de 1280 &#215; 720 pixels.|
 | 4 | Gestion des prospects |<ul><li>Gestion des prospects : Sélectionnez le système dans lequel vos prospects seront stockés.</li><li>Consultez [Obtenir des prospects](./partner-center-portal/commercial-marketplace-get-customer-leads.md) pour connecter votre système CRM. | |

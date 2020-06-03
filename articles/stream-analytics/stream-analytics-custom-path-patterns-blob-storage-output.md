@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: e978771eaafafe4120f9eec802525c293fb9c7c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dc37cb985ae561ddbd06c2236ab77d6d20d9242c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75426381"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747638"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Partitionnement personnalisé de sortie BLOB dans Azure Stream Analytics
 
@@ -79,8 +79,8 @@ Les jetons de spécificateur de format suivants peuvent être utilisés individu
 |{datetime:dd}|Jour de 01 à 31|02|
 |{datetime:d}|Jour de 1 à 31|2|
 |{datetime:HH}|Heure au format 24 heures, de 00 à 23|10|
-|{datetime:mm}|Minutes de 00 à 24|06|
-|{datetime:m}|Minutes de 0 à 24|6|
+|{datetime:mm}|Minutes de 00 à 60|06|
+|{datetime:m}|Minutes de 0 à 60|6|
 |{datetime:ss}|Secondes de 00 à 60|08|
 
 Si vous ne souhaitez pas utiliser des modèles DateTime personnalisés, vous pouvez ajouter le jeton {date} et/ou {time} au préfixe de chemin. Vous obtenez ainsi une liste déroulante contenant les formats DateTime prédéfinis.

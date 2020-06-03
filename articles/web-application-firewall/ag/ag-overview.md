@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: e0e5c143e619b1c381a4a618a811883ad189719b
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 45e7e59f72fcda983053314c0b11ff56de8a72e8
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314356"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747764"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Pare-feu d’applications web Azure sur Azure Application Gateway
 
@@ -72,7 +72,7 @@ Cette section décrit les principaux avantages qu’offre WAF sur App Gateway.
 - Limites de taille de demande configurables avec seuils inférieur et supérieur.
 - Des listes d’exclusion vous permettent d’omettre certains attributs de demande d’une évaluation de pare-feu d’applications web. À titre d’exemple courant, citons les jetons Active Directory insérés qui sont utilisés pour les champs d’authentification ou de mot de passe.
 - Créez des règles personnalisées pour répondre aux besoins spécifiques de votre application.
-- Géofiltrez le trafic pour autoriser ou bloquer l’accès de certains pays à vos applications. (préversion)
+- Géofiltrez le trafic pour autoriser ou bloquer l’accès de certains pays/régions à vos applications. (préversion)
 - Protégez vos applications des bots avec l’ensemble de règles d’atténuation des risques des bots. (préversion)
 
 ## <a name="waf-policy"></a>Stratégie WAF

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1b9a1771ad498fa3fb9b8294adb8a6556a00863a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 02050745e7c8a9aa05d3f2de63a4bc5f1ebf8318
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190416"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654775"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Base de référence de sécurité Azure pour Azure Database pour MySQL
 
@@ -902,7 +902,7 @@ Fournir une authentification Key Vault avec une identité managée : https://do
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12 : Gérer les identités de façon sécurisée et automatique
 
-**Aide** : L’instance Azure Database pour MySQL prend en charge l’authentification Azure Active Directory (en préversion) pour accéder aux bases de données.  Quand vous créez l’instance Azure Database pour MySQL, vous fournissez les informations d’identification d’un utilisateur administrateur. Cet administrateur peut être utilisé pour créer des utilisateurs de base de données supplémentaires.  
+**Aide** : L’instance Azure Database pour MySQL prend en charge l’authentification Azure Active Directory pour accéder aux bases de données.  Quand vous créez l’instance Azure Database pour MySQL, vous fournissez les informations d’identification d’un utilisateur administrateur. Cet administrateur peut être utilisé pour créer des utilisateurs de base de données supplémentaires.  
 
 Pour les machines virtuelles Azure ou les applications web s’exécutant sur Azure App Service utilisées pour accéder à vos instances Azure Database pour MySQL, utilisez Managed Service Identity conjointement avec Azure Key Vault pour stocker et récupérer les informations d’identification pour l’instance Azure Database pour MySQL. Vérifiez que la suppression réversible est activée dans Key Vault.
 

@@ -8,12 +8,12 @@ ms.subservice: workloads
 ms.topic: overview
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: ae98325d98df1ac8a06e0c0bc950d89cc6b77eda
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 44006bdfd9ffe6e78380adefe9271f42c0a76f84
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82192261"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773277"
 ---
 # <a name="confidential-computing-on-azure"></a>Informatique confidentielle dans Azure
 
@@ -42,13 +42,13 @@ Microsoft Azure vous aide à réduire la surface d’attaque pour renforcer la p
 
 ## <a name="introduction-to-confidential-computing"></a>Présentation de l’informatique confidentielle <a id="intro to acc"></a>
 
-L’informatique confidentielle est un terme du [Confidential Computing Consortium](https://confidentialcomputing.io/) (CCC), une fondation dédiée à la définition de l’informatique confidentielle et à l’accélération de son adoption. L’informatique confidentielle est la protection des données en cours d’utilisation lors de calculs. Les calculs sont effectués dans un environnement d’exécution approuvé (TEE, Trusted Execution Environment) basé sur le matériel.
+L’informatique confidentielle est un terme spécialisé du [Confidential Computing Consortium](https://confidentialcomputing.io/) (CCC), une fondation dédiée à la définition de l’informatique confidentielle et à l’accélération de son adoption. Le CCC définit l’informatique confidentielle comme la protection des données utilisées en effectuant des calculs dans un environnement TEE (Trusted Execution Environment, environnement d’exécution de confiance) matériel.
 
 Un TEE est un environnement dans lequel seul le code autorisé est exécuté. Aucune donnée dans le TEE ne peut être lue ou falsifiée par du code en dehors de cet environnement.
 
-### <a name="enclaves-and-trusted-execution-environments"></a>Enclaves et environnements d’exécution approuvés
+### <a name="enclaves"></a>Enclaves
 
-Dans le cadre de l’informatique confidentielle, les TEE sont communément appelés *enclaves* ou *enclaves sécurisées*. Les enclaves sont les parties sécurisées du processeur et de la mémoire d’un matériel. Il n’existe aucun moyen de consulter les données ou le code à l’intérieur de l’enclave, même avec un débogueur. Si du code non fiable tente de modifier le contenu dans la mémoire de l’enclave, l’environnement est désactivé et les opérations sont refusées.
+Les enclaves sont les parties sécurisées du processeur et de la mémoire d’un matériel. Il n’existe aucun moyen de consulter les données ou le code à l’intérieur de l’enclave, même avec un débogueur. Si du code non fiable tente de modifier le contenu dans la mémoire de l’enclave, l’environnement est désactivé et les opérations sont refusées.
 
 Quand vous développez des applications, vous pouvez utiliser des [outils logiciels](#oe-sdk) pour protéger des parties de votre code et de vos données dans l’enclave. Ces outils garantissent qu’aucune personne extérieure à l’environnement approuvé ne peut consulter ou modifier votre code et vos données. 
 
@@ -96,11 +96,11 @@ Une application créée avec des enclaves est partitionnée de deux façons :
 1. Un composant « non approuvé » (l’hôte)
 1. Un composant « approuvé » (l’enclave)
 
-L’**hôte** est votre application enclave s’exécutant sur un environnement non approuvé. Le code dans l’hôte n’a pas accès au code chargé dans l’enclave. 
+**L’hôte** correspond à l’emplacement sur lequel s’exécute votre application enclave. Il s’agit d’un environnement non approuvé. Le code de l’enclave déployé sur l’hôte n’est pas accessible à l’hôte. 
 
-L’**enclave** est l’endroit où le code et les données s’exécutent dans l’implémentation du TEE. Les calculs sécurisés doivent avoir lieu dans l’enclave pour garantir la protection des secrets et des données sensibles. 
+**L’enclave** est l’endroit où s’exécutent le code de l’application et ses données en cache/sa mémoire. Les calculs sécurisés doivent avoir lieu dans les enclaves pour garantir la protection des secrets et des données sensibles. 
 
-Quand vous commencez à développer une application enclave, vous devez déterminer le code et les données à protéger. Le code que vous choisissez de placer dans le composant approuvé est isolé du reste de votre application. Une fois l’enclave initialisée et le code chargé en mémoire, ce code ne peut être ni lu ni modifié en dehors de l’environnement protégé.
+Lors de la conception de l’application, il est important d’identifier et de déterminer quelle partie de l’application doit s’exécuter dans les enclaves. Le code que vous choisissez de placer dans le composant approuvé est isolé du reste de votre application. Une fois l’enclave initialisée et le code chargé en mémoire, ce code ne peut être ni lu ni modifié à partir des composants non approuvés. 
 
 ### <a name="open-enclave-software-development-kit-oe-sdk"></a>SDK Open Enclave (SDK OE) <a id="oe-sdk"></a>
 

@@ -3,12 +3,12 @@ title: Organiser vos ressources avec des groupes d’administration - Azure Gove
 description: Découvrez les groupes d’administration, le fonctionnement des autorisations et leur utilisation.
 ms.date: 04/15/2020
 ms.topic: overview
-ms.openlocfilehash: cc60e4555f0fb2b920b8061fb044ce5dde990d38
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 43c8bb2bdb71b0b75d2fcc31451952214978093c
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81381540"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773149"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organiser vos ressources avec des groupes d’administration Azure
 
@@ -143,18 +143,18 @@ Utilisez l’ID du groupe d’administration et non le nom d’affichage du grou
 
 ### <a name="issues-with-breaking-the-role-definition-and-assignment-hierarchy-path"></a>Problèmes de chemin rompu entre la définition de rôle et l’attribution de rôle
 
-L’étendue attribuable aux définitions de rôles peut être n’importe où dans la hiérarchie d’un groupe d’administration. Une définition de rôle peut être définie sur un groupe d’administration parent alors que l’attribution de rôle réelle existe sur l’abonnement enfant. Comme ces deux éléments sont liés, une erreur se produit quand vous tentez de séparer l’attribution de sa définition.
+L’étendue attribuable aux définitions de rôles peut être n’importe où dans la hiérarchie d’un groupe d’administration. Une définition de rôle peut être définie sur un groupe d’administration parent alors que l’attribution de rôle réelle existe sur l’abonnement enfant. Comme ces deux éléments sont liés, une erreur se produit si vous tentez de séparer l’attribution de sa définition.
 
 Par exemple, examinons une petite section d’une hiérarchie pour un visuel.
 
 :::image type="content" source="./media/subtree.png" alt-text="sous-arborescence" border="false":::
 
-Supposons qu’un rôle personnalisé est défini sur le groupe d’administration Marketing. Ce rôle personnalisé est ensuite attribué dans les deux abonnements d’essai gratuit.  
+Prenons l’exemple d’un rôle personnalisé défini sur le groupe d’administration Marketing. Ce rôle personnalisé est ensuite attribué dans les deux abonnements d’essai gratuit.  
 
 Si nous tentons de déplacer l’un de ces abonnements pour qu’il devienne enfant du groupe d’administration Production, ce déplacement rompt le chemin entre l’attribution de rôle de l’abonnement et la définition de rôle du groupe d’administration Marketing. Dans ce scénario, vous recevez une erreur indiquant que le déplacement n’est pas autorisé, car il rompt cette relation.  
 
 Il existe plusieurs solutions pour corriger ce scénario :
-- Supprimez l’attribution de rôle de l’abonnement avant de déplacer l’abonnement vers un autre groupe d’administration parent.
+- Supprimez l’attribution de rôle de l’abonnement avant de déplacer ce dernier vers un autre groupe d’administration parent.
 - Ajoutez l’abonnement dans l’étendue attribuable de la définition de rôle.
 - Changez l’étendue attribuable dans la définition de rôle. Dans l’exemple ci-dessus, vous pouvez changer les étendues attribuables du groupe d’administration Marketing vers le groupe d’administration racine afin que la définition soit disponible dans les deux branches de la hiérarchie.  
 - Créez un rôle personnalisé supplémentaire qui sera défini dans l’autre branche. Pour ce nouveau rôle, vous devrez également changer l’attribution de rôle dans l’abonnement.  
@@ -163,13 +163,14 @@ Il existe plusieurs solutions pour corriger ce scénario :
 
 Certaines limitations s’appliquent quand vous utilisez des rôles personnalisés dans des groupes d’administration. 
 
- - Vous pouvez définir un seul groupe d’administration dans les étendues attribuables d’un nouveau rôle. Cette limitation vise à réduire le nombre de situations où la relation entre les définitions de rôles et les attributions de rôles est rompue. Ce problème se produit quand un abonnement ou un groupe d’administration avec une attribution de rôle est déplacé vers un autre parent qui n’a pas la définition de rôle.  
- - Les actions du plan de données RBAC ne peuvent pas être définies dans des rôles personnalisés de groupe d’administration. Cette restriction s’explique par l’existence d’un problème de latence avec les actions RBAC mettant à jour les fournisseurs de ressources de plan de données. Nous travaillons actuellement sur ce problème de latence ; ces actions seront désactivées de la définition de rôle pour réduire les risques.
+ - Vous pouvez définir un seul groupe d’administration dans les étendues attribuables d’un nouveau rôle. Cette limitation vise à réduire le nombre de situations où la relation entre les définitions de rôles et les attributions de rôles est rompue. Cette situation se produit quand un abonnement ou un groupe d’administration comportant une attribution de rôle est déplacé vers un autre parent dépourvu de la définition de rôle.  
+ - Il n’est pas possible de définir les actions du plan de données RBAC dans des rôles personnalisés de groupe d’administration. Cette restriction s’explique par un problème de latence des actions RBAC mettant à jour les fournisseurs de ressources de plan de données.
+   Nous travaillons actuellement sur ce problème de latence ; ces actions seront désactivées de la définition de rôle pour réduire les risques.
  - Azure Resource Manager ne valide pas le groupe d’administration existant dans l’étendue attribuable de la définition de rôle. Même si vous avez fait une faute de frappe ou indiqué un ID de groupe d’administration incorrect, la définition de rôle est créée.  
 
 ## <a name="moving-management-groups-and-subscriptions"></a>Déplacement des groupes d’administration et des abonnements 
 
-Pour qu’un abonnement ou un groupe d’administration puisse être un enfant d’un autre groupe d’administration, trois règles doivent être remplies.
+Pour déplacer un groupe d’administration ou un abonnement de sorte qu’il devienne l’enfant d’un autre groupe d’administration, trois règles doivent être remplies.
 
 Pour effectuer le déplacement, vous devez avoir : 
 

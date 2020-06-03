@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: victorh
-ms.openlocfilehash: c5a53167c6a4ca6c886b858a1608eaa173185bd8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e1afc389508eb75313d046b759bcc9c03a50daad
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335862"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648413"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Vue d’ensemble de l’analyse d’intégrité Application Gateway
 
@@ -64,12 +64,12 @@ Une fois les critères de correspondance spécifiés, ils peuvent être joints �
 | URL de sonde |http://127.0.0.1:\<port\>/ |Chemin d'accès de l'URL |
 | Intervalle |30 |Durée de l’attente, en secondes, avant l’envoi de la sonde d’intégrité suivante.|
 | Délai d’attente |30 |Durée de l’attente, en secondes, de la passerelle d’application pour une réponse de la sonde avant que la sonde ne soit déclarée comme défectueuse. Si une sonde renvoie un état intègre, le serveur principal correspondant est immédiatement marqué comme étant intègre.|
-| Seuil de défaillance sur le plan de l’intégrité |3 |Détermine le nombre de sondes à envoyer en cas d’échec de la sonde d’intégrité standard. Ces sondes d’intégrité supplémentaires sont envoyées de façon rapprochée pour déterminer rapidement l’intégrité du serveur back-end et ne tiennent pas compte de l’intervalle d’analyse. Ce comportement est uniquement celui du SKU v1. Dans le cas du SKU v2, les sondes d’intégrité attendent l’intervalle. Le serveur principal est marqué comme étant défectueux après que le nombre d’échecs consécutifs a atteint le seuil de défaillance. |
+| Seuil de défaillance sur le plan de l’intégrité |3 |Détermine le nombre de sondes à envoyer en cas d’échec de la sonde d’intégrité standard. Ces sondes d’intégrité supplémentaires sont envoyées de façon rapprochée pour déterminer rapidement l’intégrité du serveur back-end et ne tiennent pas compte de l’intervalle d’analyse. Ce comportement est uniquement celui du SKU v1. Dans le cas du SKU v2, les sondes d’intégrité attendent l’intervalle. Le serveur principal est marqué comme étant défectueux après que le nombre d’échecs consécutifs a atteint le seuil de défaillance. |
 
 > [!NOTE]
 > Le port est le même que celui utilisé par les paramètres HTTP du serveur principal.
 
-La sonde par défaut examine uniquement http:\//127.0.0.1:\<port\> pour déterminer l’état d’intégrité. Si vous devez configurer la sonde d’intégrité de sorte qu’elle accède à une URL personnalisée ou modifier d’autres paramètres, vous devez utiliser des sondes personnalisées.
+La sonde par défaut examine uniquement http:\//127.0.0.1:\<port\> pour déterminer l’état d’intégrité. Si vous devez configurer la sonde d’intégrité de sorte qu’elle accède à une URL personnalisée ou modifier d’autres paramètres, vous devez utiliser des sondes personnalisées. Pour plus d’informations à propos des sondes HTTP, consultez [Présentation de la terminaison TLS et du TLS de bout en bout sur la passerelle Application Gateway](ssl-overview.md#for-probe-traffic).
 
 ### <a name="probe-intervals"></a>Intervalles d'analyse
 

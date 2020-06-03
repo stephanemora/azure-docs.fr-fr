@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 71bc20680467d270436e28190bb49db5b9313ca0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: f3e53ac189e0d612b09c362e82ba5bc2fe5fec8d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420043"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696835"
 ---
 # <a name="cetas-with-synapse-sql"></a>CETAS avec Synapse SQL
 
@@ -78,6 +78,9 @@ SELECT <select_criteria>
 
 Remplit la nouvelle table avec les résultats d’une instruction SELECT. *select_criteria* correspond au corps de l’instruction SELECT qui détermine les données qui sont copiées dans la nouvelle table. Pour plus d’informations sur les instructions SELECT, consultez [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
+> [!NOTE]
+> La clause ORDER BY dans la partie SELECT de CETAS n’est pas prise en charge.
+
 ## <a name="permissions"></a>Autorisations
 
 Pour que CETAS fonctionne, vous devez disposer d’autorisations permettant d’afficher le contenu des dossiers et permettant d’écrire dans le dossier LOCATION.
@@ -86,7 +89,9 @@ Pour que CETAS fonctionne, vous devez disposer d’autorisations permettant d’
 
 Ces exemples utilisent CETAS pour enregistrer la population totale agrégée par année et par état dans le dossier aggregated_data qui se trouve dans la source de données population_ds.
 
-Cet exemple s’appuie sur les informations d’identification, la source de données et le format de fichier externe créés précédemment. Reportez-vous au document [tables externes](develop-tables-external-tables.md). Pour enregistrer les résultats d’une requête dans un autre dossier d’une même source de données, modifiez l’argument LOCATION. Pour enregistrer les résultats dans un autre compte de stockage, créez une autre source de données pour l’argument DATA_SOURCE.
+Cet exemple s’appuie sur les informations d’identification, la source de données et le format de fichier externe créés précédemment. Reportez-vous au document [tables externes](develop-tables-external-tables.md). Pour enregistrer les résultats d’une requête dans un autre dossier d’une même source de données, modifiez l’argument LOCATION. 
+
+Pour enregistrer les résultats dans un autre compte de stockage, créez une autre source de données pour l’argument DATA_SOURCE.
 
 > [!NOTE]
 > Les exemples qui suivent utilisent un compte Azure Open Data Storage public. Ce compte est en lecture seule. Pour exécuter ces requêtes, vous devez fournir la source de données pour laquelle vous disposez d’autorisations en écriture.
@@ -111,7 +116,7 @@ GO
 SELECT * FROM population_by_year_state
 ```
 
-L’exemple ci-dessous utilise une table externe comme source pour CETAS. Il s’appuie sur les informations d’identification, la source de données, le format de fichier externe et la table externe créés précédemment. Reportez-vous au document [tables externes](develop-tables-external-tables.md).
+L’exemple suivant utilise une table externe comme source pour CETAS. Il s’appuie sur les informations d’identification, la source de données, le format de fichier externe et la table externe créés précédemment. Reportez-vous au document [tables externes](develop-tables-external-tables.md).
 
 ```sql
 -- use CETAS with select from external table
@@ -152,7 +157,8 @@ CETAS peut être utilisé pour stocker les jeux de résultats avec les types de 
 - TINYINT
 - bit
 
-Les applications métier ne peuvent pas être utilisés avec CETAS.
+> [!NOTE]
+> Les applications métier ne peuvent pas être utilisés avec CETAS.
 
 Les types de données suivants ne peuvent pas être utilisés dans la partie SELECT de CETAS :
 
@@ -167,4 +173,4 @@ Les types de données suivants ne peuvent pas être utilisés dans la partie SEL
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez essayer d’interroger des [tables Spark](develop-storage-files-spark-tables.md).
+Vous pouvez essayer d’interroger des [Tables externes Apache Spark pour Azure Synapse](develop-storage-files-spark-tables.md).

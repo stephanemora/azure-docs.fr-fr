@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 03/10/2020
-ms.openlocfilehash: 0d6fa02578814c4c5d034be05cbc63093d70603b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 841d518c02dbc76a172890f6019d78d048f4e8bb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257230"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653848"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Créer, examiner et déployer des modèles de machine learning automatisé avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -159,7 +159,7 @@ Kurtosis| Mesure de la latéralité des données de cette colonne par rapport à
 
 ## <a name="advanced-featurization-options"></a>Options avancées de caractérisation
 
-Le machine learning automatisé offre automatiquement un prétraitement et des garde-fous des données pour pouvoir identifier et gérer les problèmes potentiels liés à vos données. 
+Le Machine Learning automatisé offre automatiquement un prétraitement et des garde-fous des données pour pouvoir identifier et gérer les problèmes potentiels liés à vos données, tels que [le surajustement et les données déséquilibrées](concept-manage-ml-pitfalls.md#prevent-over-fitting). 
 
 ### <a name="preprocessing"></a>Prétraitement
 
@@ -168,7 +168,7 @@ Le machine learning automatisé offre automatiquement un prétraitement et des g
 
 |Étapes de &nbsp;prétraitement| Description |
 | ------------- | ------------- |
-|Supprimer les caractéristiques de cardinalité élevée ou d’absence de variance* |Supprimez ces éléments des jeux de formation et de validation, y compris les caractéristiques dont toutes les valeurs sont manquantes, ayant la même valeur dans toutes les lignes ou présentant une cardinalité très élevée (par exemple des hachages, des ID ou des GUID).|
+|Supprimer les caractéristiques de cardinalité élevée ou d’absence de variance* |Supprimez ces éléments des jeux de formation et de validation, y compris les fonctionnalités dont toutes les valeurs sont manquantes, ayant la même valeur dans toutes les lignes ou présentant une cardinalité très élevée (par exemple des hachages, des ID ou des GUID).|
 |Imputer des valeurs manquantes* |Pour les fonctionnalités numériques, remplacement par la moyenne des valeurs dans la colonne.<br/><br/>Pour les fonctionnalités catégorielles, remplacement par la valeur la plus fréquente.|
 |Générer des caractéristiques supplémentaires* |Pour les caractéristiques de type date/heure : Année, Mois, Jour, Jour de la semaine, Jour de l’année, Trimestre, Semaine de l’année, Heure, Minute, Seconde.<br/><br/>Pour les caractéristiques de type texte : Fréquence des termes basée sur les unigrammes, les bigrammes et les trigrammes.|
 |Transformer et encoder*|Les fonctionnalités numériques avec très peu de valeurs uniques sont transformées en fonctionnalités catégorielles.<br/><br/>Un encodage à chaud est effectué pour les catégories de faible cardinalité et un encodage avec hachage à chaud pour les catégories à cardinalité élevée.|
@@ -190,7 +190,7 @@ Les garde-fous des données affichent l’un des trois états suivants : **Réu
 
 State| Description
 ----|----
-Réussi| Aucun problème de données n’a été détecté et aucune action de l’utilisateur n’est requise. 
+Passed| Aucun problème de données n’a été détecté et aucune action de l’utilisateur n’est requise. 
 Terminé| Des modifications ont été appliquées à vos données. Nous encourageons les utilisateurs à passer en revue les actions correctives prises par le ML automatisé pour vérifier que les modifications s’alignent sur les résultats attendus. 
 Alerté| Un problème de données qui n’a pas pu être résolu a été détecté. Nous encourageons les utilisateurs à examiner et à résoudre le problème. 
 

@@ -6,12 +6,12 @@ author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.date: 05/04/2020
-ms.openlocfilehash: 0276a859fb82f7775aca498d73d1cbf780aaf5fc
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: c58f66ac06cca7146a28813406e74932046f6ee4
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793021"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746675"
 ---
 # <a name="tax-details-for-commercial-marketplace-publishers"></a>Détails des taxes pour les éditeurs de la place de marché commerciale
 
@@ -252,7 +252,7 @@ Pour comprendre vos motifs fiscaux pour la sélection des prix et la responsabil
 | Vanuatu                          | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | État de la Cité du Vatican                     | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Venezuela                        | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
-| Vietnam                          | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. [Apprenez-en davantage sur les motifs fiscaux pour ce pays.](#mixed-remittance-countriesregions-for-publishers) | Prix moins les frais de Store                 | Serveur de publication          |
+| Vietnam                          | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. [Apprenez-en davantage sur les motifs fiscaux pour ce pays/région.](#mixed-remittance-countriesregions-for-publishers) | Prix moins les frais de Store                 | Serveur de publication          |
 | Wallis et Futuna                | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Yémen                            | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Zambie                           | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
@@ -269,7 +269,7 @@ Les éléments suivants s’appliquent uniquement aux éditeurs de la Place de m
 
 ## <a name="mixed-remittance-countriesregions-for-publishers"></a>Pays/régions de versement mixte pour les éditeurs
 
-Certains partenaires de facturation Microsoft peuvent recueillir et verser les taxes sur les ventes, la consommation, les biens et services, la valeur ajoutée ou des taxes similaires éventuellement applicables à l’acquisition par les Clients de vos Applications ou Produits dans l’application par l’intermédiaire du Store dans les pays/régions listés ci-dessous. Les [rapports](payout-summary-overview.md#transaction-history-download-export) que Microsoft met à votre disposition identifieront les transactions pour lesquelles un partenaire de facturation a recueilli les taxes sur les ventes, la consommation, les biens et services, la valeur ajoutée ou des taxes similaires applicables à l’acquisition par les Clients de vos Applications ou Produits dans l’application par l’intermédiaire du Store. À l’exception des transactions décrites dans ces rapports, ni Microsoft ni ses fournisseurs de services de facturation ne pourront verser des taxes sur les ventes, la consommation, les biens et services, la valeur ajoutée ou des taxes similaires liées à l’acquisition par les Clients de vos Applications ou Produits dans l’application dans ces pays. Il vous appartient de réviser les rapports qui vous sont fournis ainsi que de déterminer et d’honorer vos obligations éventuelles en matière d’enregistrement, de collecte et de versement de taxes liées aux transactions impliquant vos Applications ou Produits dans l’application.
+Certains partenaires de facturation Microsoft peuvent recueillir et verser les taxes sur les ventes, la consommation, les biens et services, la valeur ajoutée ou des taxes similaires éventuellement applicables à l’acquisition par les Clients de vos Applications ou Produits dans l’application par l’intermédiaire du Store dans les pays/régions listés ci-dessous. Les [rapports](payout-summary-overview.md#transaction-history-download-export) que Microsoft met à votre disposition identifieront les transactions pour lesquelles un partenaire de facturation a recueilli les taxes sur les ventes, la consommation, les biens et services, la valeur ajoutée ou des taxes similaires applicables à l’acquisition par les Clients de vos Applications ou Produits dans l’application par l’intermédiaire du Store. À l’exception des transactions décrites dans ces rapports, ni Microsoft ni ses fournisseurs de services de facturation ne pourront verser des taxes sur les ventes, la consommation, les biens et services, la valeur ajoutée ou des taxes similaires liées à l’acquisition par les Clients de vos Applications ou Produits dans l’application dans ces pays/région(s). Il vous appartient de réviser les rapports qui vous sont fournis ainsi que de déterminer et d’honorer vos obligations éventuelles en matière d’enregistrement, de collecte et de versement de taxes liées aux transactions impliquant vos Applications ou Produits dans l’application.
 
 | Pays/régions de versement mixte |
 |------------------------------------|

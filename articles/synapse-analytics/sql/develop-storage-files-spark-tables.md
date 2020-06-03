@@ -1,5 +1,5 @@
 ---
-title: Interroger des tables Spark avec SQL à la demande (préversion)
+title: Synchronisation d’Apache Spark pour les définitions de tables externes Azure Synapse dans SQL à la demande (préversion)
 description: Vue d’ensemble de l’interrogation des tables Spark avec SQL à la demande (préversion).
 services: synapse-analytics
 author: julieMSFT
@@ -9,22 +9,26 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 41e31a322a3d771557474fdf5c318960822bcfe1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 47737489256d349ebc02c107cf8bbb2e8ec1cb7a
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420073"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701965"
 ---
-# <a name="query-spark-tables-with-azure-synapse-analytics-using-sql-on-demand-preview"></a>Interroger des tables Spark avec Azure Synapse Analytics avec SQL à la demande (préversion)
+# <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-sql-on-demand-preview"></a>Synchronisation d’Apache Spark pour les définitions de tables externes Azure Synapse dans SQL à la demande (préversion)
 
-SQL à la demande (préversion) peut synchroniser automatiquement les métadonnées à partir des pools Spark dans l’espace de travail Synapse (préversion). Une base de données SQL à la demande sera créée pour chaque base de données existante dans les pools Spark (préversion). Pour chaque table Spark basée sur Parquet ou CSV, une table externe est créée dans la base de données SQL à la demande. Par conséquent, vous pouvez arrêter vos pools Spark et quand même interroger les tables Spark à partir de SQL à la demande.
+SQL à la demande (préversion) peut synchroniser automatiquement les métadonnées à partir d’Apache Spark pour les pools Azure Synapse. Une base de données SQL à la demande sera créée pour chaque base de données existante dans les pools Spark (préversion). 
+
+Pour chaque table externe Spark de type Parquet et située dans le Stockage Azure, une table externe est créée dans la base de données SQL à la demande. Par conséquent, vous pouvez arrêter vos pools Spark et interroger quand même les tables externes Spark à partir de SQL à la demande.
 
 Quand une table est partitionnée dans Spark, les fichiers dans le stockage sont organisés par dossiers. SQL à la demande utilise les métadonnées de partition et cible uniquement les dossiers et fichiers pertinents pour votre requête.
 
-La synchronisation des métadonnées est configurée automatiquement pour chaque pool Spark provisionné dans l’espace de travail Azure Synapse. Vous pouvez commencer à interroger des tables Spark immédiatement.
+La synchronisation des métadonnées est configurée automatiquement pour chaque pool Spark provisionné dans l’espace de travail Azure Synapse. Vous pouvez tout de suite commencer à interroger des tables externes Spark.
 
-Chaque table Spark est représentée par une table externe dans un schéma dbo qui correspond à une base de données SQL à la demande. Pour les requêtes de table Spark, exécutez une requête qui cible un [spark_table] externe. Avant d’exécuter l’exemple ci-dessous, assurez-vous de disposer d’un [accès correct au compte de stockage](develop-storage-files-storage-access-control.md) où se trouvent les fichiers.
+Chaque table externe Parquet Spark située dans le Stockage Azure est représentée par une table externe dans un schéma dbo qui correspond à une base de données SQL à la demande. 
+
+Pour les requêtes de table externe Spark, exécutez une requête qui cible une [spark_table] externe. Avant d’exécuter l’exemple ci-dessous, assurez-vous de disposer d’un [accès correct au compte de stockage](develop-storage-files-storage-access-control.md) où se trouvent les fichiers.
 
 ```sql
 SELECT * FROM [db].dbo.[spark_table]

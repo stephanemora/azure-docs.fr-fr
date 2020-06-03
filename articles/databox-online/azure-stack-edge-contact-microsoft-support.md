@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 3839fb325b1ed0c052f7a4e8955e9a9fda51fc5f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 291dbdd874e3d657ff171d7e08ea6a1ee7e5999f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82568710"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683088"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-and-azure-data-box-gateway"></a>Ouvrir un ticket de support pour Azure Stack Edge et Azure Data Box Gateway
 
@@ -27,9 +27,9 @@ Cet article s’applique aux services Azure Stack Edge et Azure Data Box Gateway
 Procédez comme suit pour créer une demande de support.
 
 1. Accédez à votre commande Azure Stack Edge ou Data Box Gateway. Accédez à la section **Support + dépannage**, puis cliquez sur **Nouvelle demande de support**.
-   
+
 2. Dans **Nouvelle demande de support**, dans l'onglet **De base**, procédez comme suit :
-    
+
     1. Dans la liste déroulante **Type de problème**, sélectionnez **Technique**.
     2. Choisissez votre **abonnement**.
     3. Sous **Service**, sélectionnez **Mes services**. Dans la liste déroulante, sélectionnez **Azure Stack Edge et Data Box Gateway**.
@@ -42,7 +42,7 @@ Procédez comme suit pour créer une demande de support.
         ![Concepts de base](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-1.png)
 
 3. Sous l’onglet **Détails**, effectuez les étapes suivantes :
-    
+
     1. Fournissez la date et l’heure de début du problème.
     2. Fournissez une **description** de votre problème.
     3. Dans le panneau **Chargement de fichiers**, sélectionnez l’icône de dossier pour sélectionner d’autres fichiers, le cas échéant.
@@ -67,16 +67,16 @@ Procédez comme suit pour créer une demande de support.
 
 Ces informations ne s'appliquent qu'à l’appareil Azure Stack. Le processus de signalement des problèmes matériels est le suivant :
 
-1. Ouvrez un ticket de support depuis le portail Azure pour signaler un problème matériel. Sous **Type de problème**, sélectionnez **Azure Stack Hardware (Matériel Azure Stack)** . Choisissez le **sous-type de problème** **Hardware failure (Défaillance matérielle)** . 
+1. Ouvrez un ticket de support depuis le portail Azure pour signaler un problème matériel. Sous **Type de problème**, sélectionnez **Azure Stack Hardware (Matériel Azure Stack)** . Choisissez le **sous-type de problème** **Hardware failure (Défaillance matérielle)** .
 
     ![Problème matériel](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-hardware-issue-1.png)
 
-    Une fois votre ticket de support créé, un ingénieur de support vous contactera dès que possible pour traiter votre demande. 
+    Une fois votre ticket de support créé, un ingénieur de support vous contactera dès que possible pour traiter votre demande.
 
-2. Si le support Microsoft détermine qu'il s'agit d'un problème matériel, l'une des actions suivantes se produit : 
+2. Si le support Microsoft détermine qu'il s'agit d'un problème matériel, l'une des actions suivantes se produit :
 
-    - Une unité de remplacement de champ (FRU) pour la pièce défectueuse est envoyée. Actuellement, le bloc d'alimentation est la seule FRU prise en charge. 
-    - Pour toute autre panne de pièce, Microsoft effectue un remplacement complet du système (FSR) ou un échange d’appareil.
+    * Une unité de remplacement de champ (FRU) pour la pièce défectueuse est envoyée. Actuellement, les blocs d’alimentation et les disques durs sont les seules unités remplaçables sur site (FRU) prises en charge.
+    * Seules les unités remplaçables sur site sont remplacées le jour ouvrable suivant, tout le reste nécessite le remplacement complet du système (FSR).
 
 3. Si un ticket de support est envoyé avant 16h30, heure locale (du lundi au vendredi), un technicien est dépêché sur place le jour ouvrable pour procéder à un remplacement de la FRU ou à un remplacement complet du système.
 
@@ -84,11 +84,11 @@ Ces informations ne s'appliquent qu'à l’appareil Azure Stack. Le processus de
 
 Après avoir créé un ticket de support, vous pouvez gérer son cycle de vie depuis le portail.
 
-#### <a name="to-manage-your-support-requests"></a>Pour gérer vos demandes de support
+### <a name="to-manage-your-support-requests"></a>Pour gérer vos demandes de support
 
 1. Pour accéder à la page d’aide et de support, cliquez sur **Parcourir > Aide + support**.
 
-    ![Gérer les demandes de support](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-manage-support-request-1.png)   
+    ![Gérer les demandes de support](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-manage-support-request-1.png)
 
 2. Une liste tabulaire des **demandes de support récentes** s’affiche sous **Aide + support**.
 
@@ -96,7 +96,6 @@ Après avoir créé un ticket de support, vous pouvez gérer son cycle de vie de
 
 3. Sélectionnez une demande de support. Vous pouvez afficher l’état et les détails de cette demande. Si vous souhaitez donner suite à cette demande, cliquez sur **+ Nouveau message**.
 
-   
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment [résoudre les problèmes liés au service Azure Stack Edge](azure-stack-edge-troubleshoot.md).

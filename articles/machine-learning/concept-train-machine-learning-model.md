@@ -8,13 +8,13 @@ author: Blackmist
 ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/05/2020
-ms.openlocfilehash: 593ca5d63245ed664b5f63373d1d651129055544
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/13/2020
+ms.openlocfilehash: 99e2c878443b9a4256eec495429dbe57a88557d0
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592387"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683014"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Former des modèles avec Azure Machine Learning
 
@@ -111,6 +111,18 @@ Le concepteur vous permet d’entraîner des modèles via une interface de gliss
 + [Classification : Prédire l’évolution, l’appétence et la vente incitative](how-to-designer-sample-classification-churn.md)
 + [Classification avec un script R personnalisé : Prédire les retards de vols](how-to-designer-sample-classification-flight-delay.md)
 + [Classification de texte : Jeu de données Wikipédia SP 500](how-to-designer-sample-text-classification.md)
+
+## <a name="many-models-solution-accelerator"></a>Accélérateur de solution de nombreux modèles
+
+L’[accélérateur de solution de nombreux modèles](https://aka.ms/many-models) (préversion) s’appuie sur Azure Machine Learning et vous permet d’effectuer l’apprentissage, l’utilisation et la gestion de centaines, voire de milliers de modèles Machine Learning.
+
+Par exemple, la création d’un modèle __pour chaque instance ou chaque individu__ dans les scénarios suivants peut mener à des résultats améliorés :
+
+* Prédiction des ventes pour chaque magasin individuel
+* Maintenance prédictive pour des centaines de puits de pétrole
+* Personnalisation d’une expérience pour des utilisateurs individuels.
+
+Pour plus d’informations, consultez l’[Accélérateur de solution de nombreux modèles](https://aka.ms/many-models) sur GitHub.
 
 ## <a name="cli"></a>Interface de ligne de commande
 

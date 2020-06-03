@@ -3,12 +3,12 @@ title: Mise à l’échelle d’un type de nœud Azure Service Fabric
 description: Découvrez comment mettre à l’échelle un cluster Service Fabric en ajoutant un groupe de machines virtuelles identiques.
 ms.topic: article
 ms.date: 02/13/2019
-ms.openlocfilehash: 4dbb9e4fbfeb27c5b8b13f70207888cf37bbb0e0
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 5ea4f37a6c088c6f738ef05db8b5b295982c27fe
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998942"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674225"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Monter en puissance un type de nœud principal de cluster Service Fabric
 Cet article explique comment monter en puissance un type de nœud principal de cluster Service Fabric en augmentant les ressources de machine virtuelle. Un cluster Service Fabric est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Une machine ou une machine virtuelle faisant partie d’un cluster est appelée un nœud. Les groupes de machines virtuelles identiques constituent une ressource de calcul Azure que vous utilisez pour déployer et gérer une collection de machines virtuelles en tant que groupe. Chaque type de nœud défini dans un cluster Azure est [ configuré comme un groupe identique distinct](service-fabric-cluster-nodetypes.md). Chaque type de nœud peut alors faire l’objet d’une gestion séparée. Une fois que vous avez créé un cluster Service Fabric, vous pouvez mettre à l’échelle le type de nœud d’un cluster verticalement (changement des ressources des nœuds) ou mettre à niveau le système d’exploitation des machines virtuelles du type de nœud.  Une mise à l’échelle peut s’effectuer à tout moment, même lorsque des charges de travail sont en cours d’exécution sur le cluster.  Lorsque vous mettez vos nœuds à l’échelle, vos applications sont automatiquement mises à l’échelle.
@@ -22,7 +22,7 @@ Cet article explique comment monter en puissance un type de nœud principal de c
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="upgrade-the-size-and-operating-system-of-the-primary-node-type-vms"></a>Mettre à niveau la taille et le système d’exploitation des machines virtuelles du type de nœud principal
+## <a name="process-to-upgrade-the-size-and-operating-system-of-the-primary-node-type-vms"></a>Procédure de mise à niveau de la taille et du système d’exploitation des machines virtuelles du type de nœud principal
 Voici la procédure pour mettre à jour la taille et le système d’exploitation des machines virtuelles du type de nœud principal.  Après la mise à niveau, la taille des machines virtuelles du type de nœud principal sera Standard D4_V2 et leur système d’exploitation sera Windows Server 2016 Datacenter avec Conteneurs.
 
 > [!WARNING]
@@ -41,43 +41,126 @@ Voici la procédure pour mettre à jour la taille et le système d’exploitatio
 10. Supprimez l’état des nœuds du cluster.  Si le niveau de durabilité de l’ancien groupe identique était Argent ou Or, cette étape est effectuée automatiquement par le système.
 11. Si vous avez déployé l’application avec état dans une étape précédente, vérifiez que l’application fonctionne.
 
+## <a name="set-up-the-test-cluster"></a>Configurer le cluster de test
+
+Commencez par télécharger les deux ensembles de fichiers dont nous aurons besoin pour ce tutoriel : le [modèle]() et les [paramètres]() « avant » ainsi que le [modèle]() et les [paramètres]() « après ».
+
+Ensuite, connectez-vous à votre compte Azure.
+
 ```powershell
-# Variables.
-$groupname = "sfupgradetestgroup"
-$clusterloc="southcentralus"  
-$subscriptionID="<your subscription ID>"
-
 # sign in to your Azure account and select your subscription
-Login-AzAccount -SubscriptionId $subscriptionID 
+Login-AzAccount -SubscriptionId "<your subscription ID>"
+```
 
-# Create a new resource group for your deployment and give it a name and a location.
-New-AzResourceGroup -Name $groupname -Location $clusterloc
+Ce tutoriel décrit le scénario de création d’un certificat autosigné. Pour utiliser un certificat existant à partir de Azure Key Vault, ignorez l’étape ci-dessous et reproduisez les étapes pour [déployer le cluster à l’aide d’un certificat existant](https://docs.microsoft.com/azure/service-fabric/upgrade-managed-disks#use-an-existing-certificate-to-deploy-the-cluster).
 
-# Deploy the two node type cluster.
-New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\Deploy-2NodeTypes-2ScaleSets.parameters.json" `
-    -TemplateFile "C:\temp\cluster\Deploy-2NodeTypes-2ScaleSets.json" -Verbose
+### <a name="generate-a-self-signed-certificate-and-deploy-the-cluster"></a>Générer un certificat autosigné et déployer le cluster
 
-# Connect to the cluster and check the cluster health.
-$ClusterName= "sfupgradetest.southcentralus.cloudapp.azure.com:19000"
-$thumb="F361720F4BD5449F6F083DDE99DC51A86985B25B"
+Tout d’abord, attribuez les variables dont vous aurez besoin pour le déploiement du cluster Service Fabric. Ajustez les valeurs de `resourceGroupName`, `certSubjectName`, `parameterFilePath` et `templateFilePath` pour votre compte et votre environnement spécifiques :
 
-Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
+```powershell
+# Assign deployment variables
+$resourceGroupName = "sftestupgradegroup"
+$certOutputFolder = "c:\certificates"
+$certPassword = "Password!1" | ConvertTo-SecureString -AsPlainText -Force
+$certSubjectName = "sftestupgrade.southcentralus.cloudapp.azure.com"
+$templateFilePath = "C:\Deploy-2NodeTypes-2ScaleSets.json"
+$parameterFilePath = "C:\Deploy-2NodeTypes-2ScaleSets.parameters.json"
+```
+
+> [!NOTE]
+> Assurez-vous que l’emplacement `certOutputFolder` existe sur votre ordinateur local avant d’exécuter la commande pour déployer un nouveau cluster Service Fabric.
+
+Ensuite, ouvrez le fichier *Deploy-2NodeTypes-2ScaleSets.parameters.json*, ajustez les valeurs de `clusterName` et `dnsName` pour qu’elles correspondent aux valeurs dynamiques que vous avez définies dans PowerShell et enregistrez vos modifications.
+
+Déployez ensuite le cluster de test Service Fabric :
+
+```powershell
+# Deploy the initial test cluster
+New-AzServiceFabricCluster `
+    -ResourceGroupName $resourceGroupName `
+    -CertificateOutputFolder $certOutputFolder `
+    -CertificatePassword $certPassword `
+    -CertificateSubjectName $certSubjectName `
+    -TemplateFile $templateFilePath `
+    -ParameterFile $parameterFilePath
+```
+
+Une fois le déploiement terminé, localisez le fichier *.pfx* (`$certPfx`) sur votre ordinateur local et importez-le dans votre magasin de certificats :
+
+```powershell
+cd c:\certificates
+$certPfx = ".\sftestupgradegroup20200312121003.pfx"
+
+Import-PfxCertificate `
+     -FilePath $certPfx `
+     -CertStoreLocation Cert:\CurrentUser\My `
+     -Password (ConvertTo-SecureString Password!1 -AsPlainText -Force)
+```
+
+L’opération retournera l’empreinte de certificat, que vous utiliserez pour vous connecter au nouveau cluster et vérifier son état d’intégrité.
+
+### <a name="connect-to-the-new-cluster-and-check-health-status"></a>Se connecter au nouveau cluster et vérifier l’état d’intégrité
+
+Connectez-vous au cluster et assurez-vous que tous ses nœuds sont sains (en remplaçant les variables `clusterName` et `thumb` pour votre cluster) :
+
+```powershell
+# Connect to the cluster
+$clusterName = "sftestupgrade.southcentralus.cloudapp.azure.com:19000"
+$thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
+
+Connect-ServiceFabricCluster `
+    -ConnectionEndpoint $clusterName `
+    -KeepAliveIntervalInSec 10 `
     -X509Credential `
     -ServerCertThumbprint $thumb  `
     -FindType FindByThumbprint `
     -FindValue $thumb `
     -StoreLocation CurrentUser `
-    -StoreName My 
+    -StoreName My
 
+# Check cluster health
 Get-ServiceFabricClusterHealth
+```
 
-# Deploy a new scale set into the primary node type.  Create a new load balancer and public IP address for the new scale set.
-New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\Deploy-2NodeTypes-3ScaleSets.parameters.json" `
-    -TemplateFile "C:\temp\cluster\Deploy-2NodeTypes-3ScaleSets.json" -Verbose
+Nous sommes prêts à commencer la procédure de mise à niveau.
 
-# Check the cluster health again. All 15 nodes should be healthy.
+## <a name="upgrade-the-primary-node-type-vms"></a>Mettre à niveau les machines virtuelles du type de nœud principal
+
+Après avoir décidé de mettre à niveau les machines virtuelles du type de nœud principal, ajoutez un nouveau groupe identique au type de nœud principal. Ainsi, le type de nœud principal compte deux groupes identiques. Un échantillon de fichiers [modèle](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.json) et de [paramètres](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.parameters.json) a été fourni pour montrer les modifications nécessaires. Les machines virtuelles du nouveau groupe identique ont la taille Standard D4_V2 et exécutent Windows Server Datacenter 2016 avec Containers. Un nouvel équilibreur de charge et une adresse IP publique sont également ajoutés avec le nouveau groupe identique. 
+
+Pour trouver le nouveau groupe identique dans le modèle, recherchez la ressource « Microsoft.Compute/virtualMachineScaleSets » nommée par le paramètre vmNodeType2Name. Le nouveau groupe identique est ajouté au type de nœud principal à l’aide des propriétés->virtualMachineProfile->extensionProfile->extensions->propriétés->paramètres->paramètre nodeTypeRef.
+
+### <a name="deploy-the-updated-template"></a>Déployer le modèle mis à jour
+
+Ajustez `parameterFilePath` et `templateFilePath` selon les besoins, puis exécutez la commande suivante :
+
+```powershell
+# Deploy the new scale set into the primary node type along with a new load balancer and public IP
+$templateFilePath = "C:\Deploy-2NodeTypes-3ScaleSets.json"
+$parameterFilePath = "C:\Deploy-2NodeTypes-3ScaleSets.parameters.json"
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile $templateFilePath `
+    -TemplateParameterFile $parameterFilePath `
+    -CertificateThumbprint $thumb `
+    -CertificateUrlValue $certUrlValue `
+    -SourceVaultValue $sourceVaultValue `
+    -Verbose
+```
+
+Une fois le déploiement terminé, vérifiez à nouveau l’intégrité du cluster et assurez-vous que tous les nœuds (sur l’original et sur le nouveau groupe identique) sont sains.
+
+```powershell
 Get-ServiceFabricClusterHealth
+```
 
+## <a name="migrate-nodes-to-the-new-scale-set"></a>Migrez les nœuds vers le nouveau groupe identique
+
+Nous sommes maintenant prêts à désactiver les nœuds du groupe identique d’origine. À mesure que ces nœuds sont désactivés, les services système et les nœuds initiaux (seed) migrent vers les machines virtuelles du nouveau groupe identique, car ils sont également marqués comme type de nœud principal.
+
+```powershell
 # Disable the nodes in the original scale set.
 $nodeNames = @("_NTvm1_0","_NTvm1_1","_NTvm1_2","_NTvm1_3","_NTvm1_4")
 
@@ -85,36 +168,36 @@ Write-Host "Disabling nodes..."
 foreach($name in $nodeNames){
     Disable-ServiceFabricNode -NodeName $name -Intent RemoveNode -Force
 }
+```
 
-Write-Host "Checking node status..."
-foreach($name in $nodeNames){
- 
-    $state = Get-ServiceFabricNode -NodeName $name 
+Utilisez Service Fabric Explorer pour surveiller la migration des nœuds initiaux vers le nouveau groupe identique et la progression des nœuds dans le groupe identique d’origine de l’état *Désactivation* à *Désactivé*.
 
-    $loopTimeout = 50
+> [!NOTE]
+> L’exécution de l’opération de désactivation sur tous les nœuds du groupe identique d’origine peut prendre un certain temps. Pour garantir la cohérence des données, un seul nœud initial peut changer à la fois. Chaque modification du nœud initial requiert une mise à jour du cluster ; par conséquent, le remplacement d’un nœud initial nécessite deux mises à niveau du cluster (une pour l’ajout et l’autre pour la suppression de nœuds). La mise à niveau des cinq nœuds initiaux dans cet exemple de scénario entraîne la mise à niveau de dix clusters.
 
-    do{
-        Start-Sleep 5
-        $loopTimeout -= 1
-        $state = Get-ServiceFabricNode -NodeName $name
-        Write-Host "$name state: " $state.NodeDeactivationInfo.Status
-    }
+## <a name="remove-the-original-scale-set"></a>Supprimer le groupe identique d’origine
 
-    while (($state.NodeDeactivationInfo.Status -ne "Completed") -and ($loopTimeout -ne 0))
-    
+Une fois l’opération de désactivation terminée, supprimez le groupe identique.
 
-    if ($state.NodeStatus -ne [System.Fabric.Query.NodeStatus]::Disabled)
-    {
-        Write-Error "$name node deactivation failed with state" $state.NodeStatus
-        exit
-    }
-}
+```powershell
+# Remove the original scale set
+$scaleSetName = "NTvm1"
 
-# Remove the scale set
-$scaleSetName="NTvm1"
-Remove-AzVmss -ResourceGroupName $groupname -VMScaleSetName $scaleSetName -Force
+Remove-AzVmss `
+    -ResourceGroupName $resourceGroupName `
+    -VMScaleSetName $scaleSetName `
+    -Force
+
 Write-Host "Removed scale set $scaleSetName"
+```
 
+Dans Service Fabric Explorer, les nœuds supprimés (et donc l’*état d’intégrité du cluster*) s’affichent désormais à l’état *Erreur*.
+
+## <a name="remove-the-old-load-balancer-and-update-dns-settings"></a>Supprimer l’ancien équilibreur de charge et mettre à jour les paramètres DNS
+
+Nous pouvons désormais supprimer les ressources associées à l’ancien type de nœud principal, en commençant par l’équilibreur de charge et l’ancienne adresse IP publique. 
+
+```powershell
 $lbname="LB-sfupgradetest-NTvm1"
 $oldPublicIpName="PublicIP-LB-FE-0"
 $newPublicIpName="PublicIP-LB-FE-2"
@@ -131,16 +214,28 @@ Remove-AzLoadBalancer -Name $lbname -ResourceGroupName $groupname -Force
 
 # Remove the old public IP
 Remove-AzPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupname -Force
+```
 
+Ensuite, nous mettons à jour les paramètres DNS de la nouvelle adresse IP publique pour reproduire les paramètres de l’adresse IP publique de l’ancien type de nœud principal.
+
+```powershell
 # Replace DNS settings of Public IP address related to new Primary Node Type with DNS settings of Public IP address related to old Primary Node Type
 $PublicIP = Get-AzPublicIpAddress -Name $newPublicIpName  -ResourceGroupName $groupname
 $PublicIP.DnsSettings.DomainNameLabel = $primaryDNSName
 $PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
 Set-AzPublicIpAddress -PublicIpAddress $PublicIP
+```
 
+Vérifiez à nouveau l’intégrité du cluster
+
+```powershell
 # Check the cluster health
 Get-ServiceFabricClusterHealth
+```
 
+Enfin, supprimez l’état du nœud pour chacun des nœuds associés. Si le niveau de durabilité de l’ancien groupe identique était Argent ou Or, cela se fera automatiquement.
+
+```powershell
 # Remove node state for the deleted nodes.
 foreach($name in $nodeNames){
     # Remove the node from the cluster
@@ -148,6 +243,8 @@ foreach($name in $nodeNames){
     Write-Host "Removed node state for node $name"
 }
 ```
+
+Le type de nœud principal du cluster a été mis à niveau. Vérifiez que toutes les applications déployées fonctionnent correctement et que le cluster est sain.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [ajouter un type de nœud à un cluster](virtual-machine-scale-set-scale-node-type-scale-out.md).

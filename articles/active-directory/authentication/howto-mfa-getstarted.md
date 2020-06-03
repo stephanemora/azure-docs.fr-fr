@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 845a202faccbbe0a604560ac57ae30f87344b95a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 15d519e1cede27b3626d715c48790af620589e43
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81451123"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757601"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planifier un déploiement d'Azure Multi-Factor Authentication
 
@@ -55,7 +55,7 @@ Microsoft fournit des [modèles de communication](https://aka.ms/mfatemplates) e
 
 ## <a name="deployment-considerations"></a>Points à prendre en considération pour le déploiement
 
-Azure Multi-Factor Authentication est déployé en appliquant des stratégies avec l’accès conditionnel. Une [stratégie d’accès conditionnel](../conditional-access/overview.md) peuvent exiger que les utilisateurs procèdent à une authentification multifacteur lorsque certains critères sont remplis :
+Azure Multi-Factor Authentication est déployé en appliquant des stratégies avec l’accès conditionnel. Une stratégie d’accès conditionnel peuvent exiger que les utilisateurs procèdent à une authentification multifacteur lorsque certains critères sont remplis :
 
 * Tous les utilisateurs, un utilisateur, un membre de groupe ou un rôle affecté
 * Accès à une application cloud spécifique
@@ -114,7 +114,7 @@ Les administrateurs peuvent choisir les [méthodes d’authentification](../auth
 Une notification Push est envoyée à l’application Microsoft Authenticator sur votre appareil mobile. L’utilisateur consulte la notification et sélectionne **Approuver** pour valider la vérification. Les notifications Push sur l’application mobile constituent l’option la moins intrusive pour les utilisateurs. Elles sont également l’option la plus fiable et sécurisée, car elles utilisent une connexion de données plutôt que le réseau de téléphonie.
 
 > [!NOTE]
-> Si le personnel de votre organisation travaille ou voyage en Chine, la méthode de **notification via application mobile** sur les **appareils Android** ne fonctionne pas dans ce pays. D’autres méthodes doivent être proposées aux utilisateurs.
+> Si le personnel de votre organisation travaille ou voyage en Chine, la méthode de **notification via application mobile** sur les **appareils Android** ne fonctionne pas dans ce pays ou cette région. D’autres méthodes doivent être proposées aux utilisateurs.
 
 ### <a name="verification-code-from-mobile-app"></a>Code de vérification de l’application mobile
 
@@ -221,7 +221,7 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 ## <a name="plan-conditional-access-policies"></a>Planifier les stratégies d’accès conditionnel
 
-Pour planifier votre stratégie d’accès conditionnel, qui déterminera quand l’authentification multifacteur et d’autres contrôles sont requis, reportez-vous à la [définition de l’accès conditionnel dans Azure Active Directory](../conditional-access/overview.md).
+Pour planifier votre stratégie d’accès conditionnel, qui déterminera quand l’authentification multifacteur et d’autres contrôles sont requis, reportez-vous à [Stratégies d’accès conditionnel courantes](../conditional-access/concept-conditional-access-policy-common.md).
 
 Il est important que vous évitiez de perdre l’accès à votre locataire Azure AD. Vous pouvez pallier l’impact d’un défaut d’accès administratif [en créant plusieurs comptes d’accès d’urgence dans votre locataire](../users-groups-roles/directory-emergency-access.md) et en les excluant de la stratégie d’accès conditionnel.
 
