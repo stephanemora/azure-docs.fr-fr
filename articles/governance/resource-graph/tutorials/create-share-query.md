@@ -3,12 +3,12 @@ title: 'Tutoriel : Gérer les requêtes dans le portail Azure'
 description: Dans ce tutoriel, vous créez une requête Resource Graph et vous la partagez avec d’autres personnes dans le portail Azure.
 ms.date: 05/20/2020
 ms.topic: tutorial
-ms.openlocfilehash: e63a92a4570a0713ed65e1090e4d77d25fb10f95
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 80725bd03d31a4985374005fe68a62e16aaef000
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83637761"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148019"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutoriel : Créer et partager une requête Azure Resource Graph sur le portail Azure
 
@@ -44,7 +44,7 @@ Les requêtes privées ne sont accessibles et visibles que par le compte qui les
 
    Sélectionnez **Exécuter la requête** pour afficher les résultats de la requête dans le volet inférieur.
 
-   Pour plus d'informations sur cette requête, consultez [Exemples - Nombre de machines virtuelles par type de système d'exploitation](../samples/starter.md#count-virtual-machines-by-os-type).
+   Pour plus d'informations sur cette requête, consultez [Exemples - Nombre de machines virtuelles par type de système d'exploitation](../samples/starter.md#count-os).
 
 
 1. Sélectionnez **Enregistrer** ou **Enregistrer sous**, entrez **Nombre de machines virtuelles par système d'exploitation**, conservez le type **Requête privée**, puis sélectionnez **Enregistrer** en bas du volet **Enregistrer la requête**. Le titre de l'onglet change : **Requête 1** est remplacé par **Nombre de machines virtuelles par système d'exploitation**.
@@ -76,7 +76,7 @@ Pour créer une requête partagée, procédez comme suit :
     
    Sélectionnez **Exécuter la requête** pour afficher les résultats de la requête dans le volet inférieur.
 
-   Pour plus d'informations sur cette requête, consultez [Exemples - Nombre de machines virtuelles par type de système d'exploitation](../samples/starter.md#count-virtual-machines-by-os-type).
+   Pour plus d'informations sur cette requête, consultez [Exemples - Nombre de machines virtuelles par type de système d'exploitation](../samples/starter.md#count-os).
 
 1. Sélectionnez **Enregistrer** ou **Enregistrer sous**.
 
