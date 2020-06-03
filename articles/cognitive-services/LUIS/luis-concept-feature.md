@@ -2,13 +2,13 @@
 title: Fonctionnalités – LUIS
 description: Ajoutez des fonctionnalités à un modèle de langage afin de fournir des conseils sur la façon de reconnaître les entrées que vous souhaitez étiqueter ou classer.
 ms.topic: conceptual
-ms.date: 04/23/2020
-ms.openlocfilehash: 906876e39eb7ff31c2e6b954d1514d8afc50bf3a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/14/2020
+ms.openlocfilehash: c4f19ceed2e48f3f6ec2ed0958bccb7a85cff44f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591894"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742712"
 ---
 # <a name="machine-learning-ml-features"></a>Caractéristiques de Machine Learning (ML)
 
@@ -38,9 +38,9 @@ Si votre application LUIS doit être en mesure de généraliser et d’identifie
 À l’aide d’une liste d’expressions, LUIS prend en compte le contexte et généralise pour identifier les éléments qui y sont similaires, sans être une correspondance de texte exacte.
 
 Procédure d’utilisation d’une liste d’expressions :
-* Commencez par une entité issue du Machine Learning.
-    * Ajoutez des exemples d’énoncés.
-    * Étiquetez avec une entité issue du Machine Learning.
+* Commencez par une entité de machine-learning
+    * Ajouter des exemples d’énoncés
+    * Étiquetez avec une entité de machine-learning
 * Ajoutez une liste d’expressions.
     * Ajoutez des mots avec une signification similaire : n’ajoutez **pas** tous les mot ou toutes les expression qui vous passent par la tête. Au lieu de cela, ajoutez quelques mots ou expressions à la fois, puis effectuez à nouveau l’apprentissage et publiez.
     * Révisez le résultat et ajoutez des mots suggérés.
@@ -54,7 +54,7 @@ Les termes médicaux constituent un bon exemple de mots nécessitant une liste d
 Si vous souhaitez extraire les termes médicaux :
 * Commencez par créer des exemples d’énoncés et étiquetez les conditions médicales au sein de ces énoncés.
 * Créez ensuite une liste d’expressions avec des exemples de termes dans le domaine du sujet. Cette liste d’expressions doit inclure le terme que vous avez étiqueté et d’autres termes qui décrivent le même concept.
-* Ajoutez la liste d’expressions à l’entité ou à la sous-entité qui extrait le concept utilisé dans la liste d’expressions. Le scénario le plus courant est un composant (enfant) d’une entité issue du Machine Learning. Si la liste d’expressions doit être appliquée à toutes les intentions ou entités, marquez la liste d’expressions comme une liste d’expressions globale. L’indicateur `enabledForAllModels` contrôle l’étendue de ce modèle dans l’API.
+* Ajoutez la liste d’expressions à l’entité ou à la sous-entité qui extrait le concept utilisé dans la liste d’expressions. Le scénario le plus courant est un composant (enfant) d’une entité de machine-learning. Si la liste d’expressions doit être appliquée à toutes les intentions ou entités, marquez la liste d’expressions comme une liste d’expressions globale. L’indicateur `enabledForAllModels` contrôle l’étendue de ce modèle dans l’API.
 
 <a name="how-to-use-phrase-lists"></a>
 <a name="how-to-use-a-phrase-lists"></a>
@@ -85,12 +85,24 @@ Par exemple, si n entités d’adresse de livraison contenaient une sous-entité
     * Rue (sous-entité)
     * Ville (sous-entité)
     * Région ou département (sous-entité)
-    * Pays (sous-entité)
+    * Pays/région (sous-entité)
     * Code postal (sous-entité)
+
+## <a name="nested-subentities-with-features"></a>Sous-entités imbriquées avec des caractéristiques
+
+Une sous-entité issue du machine learning indique la présence d’un concept pour l’entité parente, que celle-ci soit une autre sous-entité ou une entité supérieure. La valeur de la sous-entité fait office de caractéristique pour son entité parente.
+
+Une sous-entité peut avoir pour caractéristique tant une liste d’expressions qu’un modèle (une autre entité).
+
+Quand la sous-entité comprend une liste d’expressions, cela améliore le vocabulaire du concept, mais n’ajoute pas d’informations à la réponse JSON de la prédiction.
+
+Lorsque la sous-entité a une caractéristique d’une autre entité, la réponse JSON inclut les données extraites de celle-ci.
 
 ## <a name="required-features"></a>Caractéristiques requises
 
 Une caractéristique requise doit être trouvée pour que le modèle soit retourné à partir du point de terminaison de prédiction. Utilisez une caractéristique requise lorsque vous savez que vos données entrantes doivent correspondre à la caractéristique.
+
+Si le texte de l’énoncé ne correspond pas à la caractéristique requise, il n’est pas extrait.
 
 **Une caractéristique requise utilise une entité non issue du Machine Learning** :
 * Entité d’expression régulière
@@ -106,14 +118,14 @@ Poursuivons avec l’exemple de l’adresse de livraison :
     * Numéro de rue (sous-entité)
     * Ville (sous-entité)
     * Région ou département (sous-entité)
-    * Pays (sous-entité)
+    * Pays/région (sous-entité)
     * Code postal (sous-entité)
 
 ### <a name="required-feature-using-prebuilt-entities"></a>Caractéristique requise utilisant des entités prédéfinies
 
-La ville, la région et le pays sont généralement un ensemble de listes fermé, ce qui signifie qu’elles ne changent pas beaucoup au fil du temps. Ces entités peuvent avoir des caractéristiques recommandées pertinentes et ces caractéristiques peuvent être définies comme « requises ». Cela signifie que l’intégralité de l’adresse de livraison n’est pas renvoyée, car les entités avec les caractéristiques requises sont introuvables.
+Les informations de localité/ville, département/province et pays/région sont généralement constitués d’un ensemble fermé de listes qui ne changent pas beaucoup au fil du temps. Ces entités peuvent avoir des caractéristiques recommandées pertinentes et ces caractéristiques peuvent être définies comme « requises ». Cela signifie que l’intégralité de l’adresse de livraison n’est pas renvoyée, car les entités avec les caractéristiques requises sont introuvables.
 
-Que se passe-t-il si la ville, la région ou le pays se trouvent dans l’énoncé, mais sous la forme d’une localité ou d’un mot d’argot que LUIS ne pourra pas appréhender ? Si vous souhaitez utiliser un post-traitement pour aider à résoudre l’entité (par exemple, si LUIS émet un score de confiance faible), ne définissez pas la caractéristique comme « requise ».
+Que se passe-t-il si les informations de localité/ville, département/province et pays/région figurent dans l’énoncé, mais sont exprimées dans un dialecte ou un argot hermétique que LUIS ne comprend pas ? Si vous souhaitez utiliser un post-traitement pour aider à résoudre l’entité (par exemple, si LUIS émet un score de confiance faible), ne définissez pas la caractéristique comme « requise ».
 
 Un autre exemple de caractéristique requise pour l’adresse de livraison consiste à définir le numéro de rue en tant que numéro [prédéfini](luis-reference-prebuilt-entities.md) requis. Cela permet à un utilisateur d’entrer « 1 rue Microsoft » ou « un rue Microsoft ». Ces deux options utiliseront la forme numérique « 1 » pour la sous-entité du numéro de rue.
 
@@ -121,19 +133,19 @@ Un autre exemple de caractéristique requise pour l’adresse de livraison consi
 
 Une [entité de liste](reference-entity-list.md) est utilisée en tant que liste de noms canoniques, ainsi que leurs synonymes. En tant que caractéristique requise, si l’énoncé n’inclut ni le nom canonique ni un synonyme, l’entité n’est pas retournée dans le cadre du point de terminaison de prédiction.
 
-Continuons avec notre exemple d’adresse de livraison. Supposons que votre entreprise soit livrée uniquement dans certains pays. Vous pouvez créer une entité de liste qui comprend plusieurs méthodes utilisables par votre client pour référencer le pays. Si LUIS ne trouve pas de correspondance exacte dans le texte de l’énoncé, l’entité (qui a la caractéristique requise de l’entité de liste) n’est pas renvoyée dans la prédiction.
+Continuons avec notre exemple d’adresse de livraison. Supposons que votre entreprise n’expédie que vers un ensemble limité de pays/régions. Vous pouvez créer une entité de liste qui comprend plusieurs méthodes utilisables par votre client pour référencer le pays. Si LUIS ne trouve pas de correspondance exacte dans le texte de l’énoncé, l’entité (qui a la caractéristique requise de l’entité de liste) n’est pas renvoyée dans la prédiction.
 
 |Nom canonique|Synonymes|
 |--|--|
-|États-Unis|É.-U.<br>É.-U. A.<br>US<br>USA<br>0|
+|États-Unis|États-Unis<br>É.-U. A.<br>US<br>États-Unis<br>0|
 
-L’application cliente, telle qu’un chatbot, peut poser une question de suivi, de sorte que le client comprend que la sélection du pays est limitée et _requise_.
+L’application cliente, par exemple, un robot conversationnel, peut poser une question subsidiaire permettant au client de comprendre que la sélection du pays/région est limitée et _obligatoire_.
 
 ### <a name="required-feature-using-regular-expression-entities"></a>Caractéristique requise utilisant des entités d’expression régulière
 
 Une [entité d’expression régulière](reference-entity-regular-expression.md) utilisée comme caractéristique requise fournit des caractéristiques de recherche en texte enrichi.
 
-Toujours dans notre exemple d’adresse de livraison : vous pouvez créer une expression régulière qui capture les règles de syntaxe des codes postaux des pays.
+Toujours dans notre exemple d’adresse de livraison, vous pouvez créer une expression régulière qui capture les règles de syntaxe des codes postaux de pays/régions.
 
 ## <a name="global-features"></a>Caractéristiques globales
 

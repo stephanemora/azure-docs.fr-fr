@@ -1,6 +1,6 @@
 ---
-title: Créer des configurations à partir de serveurs existants – -Azure Automation
-description: Découvrez comment créer des configurations à partir de serveurs existants pour Azure Automation.
+title: Créer des configurations à partir de serveurs existants pour Azure Automation State Configuration
+description: Cet article explique comment créer des configurations à partir de serveurs existants pour Azure Automation State Configuration.
 keywords: dsc,powershell,configuration,installation
 services: automation
 ms.service: automation
@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dff9b8f52207a38cf7eaddefa178aff262ddc546
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 775fae09c4d618551327669362cd28a0ae2cc801
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585544"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837006"
 ---
 # <a name="create-configurations-from-existing-servers"></a>Créer des configurations à partir de serveurs existants
 
@@ -45,6 +45,6 @@ Pour tester ReverseDSC, accédez à [PowerShell Gallery](https://www.powershellg
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Vue d’ensemble de la configuration d’état souhaité Windows PowerShell](/powershell/scripting/dsc/overview/overview)
-- [Ressources DSC](/powershell/scripting/dsc/resources/resources)
-- [Configuration de Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- Pour comprendre DSC PowerShell, consultez [Vue d’ensemble de la fonctionnalité Desired State Configuration de Windows PowerShell](/powershell/scripting/dsc/overview/overview).
+- Découvrez les ressources DSC PowerShell dans [Ressources DSC](/powershell/scripting/dsc/resources/resources).
+- Pour plus d’informations sur la configuration du Configuration Manager local, consultez [configuration du Configuration Manager local](/powershell/scripting/dsc/managing-nodes/metaconfig).

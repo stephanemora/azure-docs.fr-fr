@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 509f9557a8128df12353ad02a7c7db02b7b42631
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c4d0639831d2f6f60a719637c5158fba5caf6f43
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158451"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659354"
 ---
 # <a name="configure-rules"></a>Configurer des règles
-
-
 
 *Cet article s’applique aux opérateurs, aux créateurs et aux administrateurs.*
 
@@ -37,6 +35,12 @@ Dans la capture d’écran suivante, les conditions vérifient que la températu
 
 ![Conditions](media/howto-configure-rules/conditions.png)
 
+### <a name="use-a-cloud-property-in-a-value-field"></a>Utiliser une propriété Cloud dans un champ de valeur
+
+Vous pouvez référencer une propriété de Cloud du modèle d’appareil dans le champ **Valeur** pour une condition. La propriété de Cloud et la valeur de télémétrie doivent être de types similaires. Par exemple, si **Température** est un double, seules les propriétés Cloud de type double s’affichent en tant qu’options dans la liste déroulante **Valeur**.
+
+Si vous choisissez une valeur de télémétrie de type d’événement, la liste déroulante **Valeur** comprend l’option **Toute**. L’option **Toute** signifie que la règle se déclenche quand votre application reçoit un événement de ce type, quelle que soit la charge utile.
+
 ## <a name="use-aggregate-windowing"></a>Utiliser le fenêtrage des temps d’agrégation
 
 Les règles évaluent les fenêtres des temps d’agrégation sous forme de fenêtres bascule. Dans la capture d’écran ci-dessous, la fenêtre de temps est de cinq minutes. Toutes les cinq minutes, la règle est évaluée sur les cinq dernières minutes de données. Les données ne sont évaluées qu’une seule fois dans la fenêtre à laquelle elles correspondent.
@@ -49,7 +53,4 @@ Une restriction s’applique aux règles qui sont appliquées aux modules IoT Ed
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à configurer une règle dans votre application Azure IoT Central, vous pouvez :
-
-> [!div class="nextstepaction"]
-> [Analyser vos données à la volée](howto-create-analytics.md)
+Maintenant que vous avez appris à configurer une règle dans votre application Azure IoT Central, vous pouvez apprendre à [Configurer des règles avancées](howto-configure-rules-advanced.md) à l’aide de Power Automate ou d’Azure Logic Apps.

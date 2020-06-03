@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 5b4d625d28584bb601905e9439c112c845219e54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ab4db53086046ff831fe91d003599841aa8148c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73954376"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829781"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installer un serveur cible maître Linux pour la restauration automatique
 Après avoir basculé une machine virtuelle sur Azure, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. 
@@ -27,7 +27,7 @@ Si votre machine virtuelle protégée est de type Windows, vous avez besoin d’
 ## <a name="overview"></a>Vue d’ensemble
 Cet article fournit la marche à suivre pour installer un serveur cible maître Linux.
 
-Publiez vos commentaires ou vos questions en bas de cet article ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Publiez des commentaires ou des questions à la fin de cet article ou sur la [page de questions Microsoft Q&A pour Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -4,16 +4,16 @@ description: Découvrez quels systèmes d’exploitation peuvent exécuter le ru
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/06/2020
+ms.date: 05/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 42c0a5d0c590f8c395c2afe366a00fcb9c83ce46
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec143fbca94c5423ca67e09fa2932e55c06f418e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536936"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652775"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Systèmes pris en charge Azure IoT Edge
 
@@ -105,7 +105,7 @@ Les composants IoT Edge peuvent être installés ou mis à jour individuellement
 
 | Libérer   | Démon de sécurité  | Hub Edge<br>Agent Edge | Libiothsm | Moby  |
 | --------- | ---------------- | ---------------------- | --------- | ----- |
-| **1.0.9** | 1.0.9            | 1.0.9                  | 1.0.9     |       |
+| **1.0.9** | 1.0.9.1<br>1.0.9            | 1.0.9.1<br>1.0.9                  | 1.0.9.1<br>1.0.9     |       |
 | **1.0.8** | 1.0.8            | 1.0.8.5<br>1.0.8.4<br>1.0.8.3<br>1.0.8.2<br>1.0.8.1<br>1.0.8 | 1.0.8 | 3.0.6 |
 | **1.0.7** | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7       | 1.0.7.1<br>1.0.7 | 3.0.5<br>3.0.4 (ARMv7hl, CentOS) |
 | **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6       | 1.0.6.1<br>1.0.6 |  |

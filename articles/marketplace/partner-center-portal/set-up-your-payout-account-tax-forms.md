@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: 627f6f01a17fc8cabb4f1883306baeb0e2d77e70
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 0256e5c60a417cec47f90cd6ec30fe9208f47f7f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792885"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738283"
 ---
 # <a name="set-up-your-payout-account-and-tax-forms"></a>Configurer votre compte de paiement et vos déclarations de taxe
 
@@ -36,13 +36,13 @@ Une fois que vous avez configuré votre compte, vous devez effectuer deux opéra
 
 Tout d’abord, vous devez créer un profil fiscal et l’attribuer aux programmes auxquels vous participez. Vous pouvez créer votre *profil fiscal* pour le marché commercial en procédant comme suit :
 
-- Indiquez votre pays de résidence et votre nationalité.
+- Indiquez votre pays/région de résidence et votre nationalité.
 - Remplissez les déclarations de taxe appropriées.
 
 Vous pouvez compléter et soumettre vos formulaires fiscaux par voie électronique dans l’Espace partenaires. En général, vous n’avez pas besoin d’imprimer ou d’envoyer de formulaires par courrier.
 
 > [!IMPORTANT]
-> Les différents pays et régions ont des exigences fiscales différentes. La quantité exacte d’impôts que vous devez payer varie selon les pays et les régions dans lesquels vous vendez vos offres. Consultez le [Contrat relatif aux éditeur de la place de marché Microsoft Azure](https://go.microsoft.com/fwlink/p/?LinkID=699560) pour savoir quels pays Microsoft reverse la taxe de vente et d’utilisation en votre nom. Dans d’autres pays, en fonction de l’endroit où vous êtes inscrit, vous devrez peut-être directement reverser les taxes de ventes et d’utilisation de vos ventes à l’autorité fiscale locale. En outre, les recettes de la vente d’application que vous recevez peuvent être considérées comme du revenu imposable. Nous vous encourageons vivement à contacter l’autorité compétente de votre pays ou région qui vous aidera à déterminer les informations fiscales appropriées pour les activités commerciales de marketplace.
+> Les différents pays et régions ont des exigences fiscales différentes. La quantité exacte d’impôts que vous devez payer varie selon les pays et les régions dans lesquels vous vendez vos offres. Consultez le [Contrat d’éditeur de la Place de marché Microsoft Azure](https://go.microsoft.com/fwlink/p/?LinkID=699560) pour savoir dans quels pays/régions Microsoft acquitte la taxe sur les ventes et l’utilisation en votre nom. Dans d’autres pays/régions, en fonction de l’endroit où vous êtes inscrit, vous devrez peut-être verser directement la taxe sur les ventes et l’utilisation à l’autorité fiscale locale. En outre, les recettes de la vente d’application que vous recevez peuvent être considérées comme du revenu imposable. Nous vous encourageons vivement à contacter l’autorité compétente de votre pays ou région qui vous aidera à déterminer les informations fiscales appropriées pour les activités commerciales de marketplace.
 
 1. Dans [Espace partenaires](https://partner.microsoft.com/dashboard), sélectionnez l’icône **Paramètres de compte** en haut à droite, puis **Paramètres du développeur**.
 
@@ -54,20 +54,20 @@ Vous pouvez compléter et soumettre vos formulaires fiscaux par voie électroniq
 
 5. Cliquez sur le bouton **Modifier** pour modifier vos informations fiscales.
 
-6. Sélectionnez la case d’option appropriée, puis indiquez votre pays si vous y êtes invité. Cette étape détermine l’entité métier Microsoft qui sera utilisée pour effectuer des versements sur votre compte.
+6. Sélectionnez la case d’option appropriée, puis sélectionnez votre pays/région si vous y êtes invité. Cette étape détermine l’entité métier Microsoft qui sera utilisée pour effectuer des versements sur votre compte.
 
-7. En fonction de vos sélections à l’étape 6, vous serez invité à fournir les informations fiscales requises pour votre pays.
+7. En fonction de vos sélections à l’étape 6, vous serez invité à fournir les informations fiscales requises pour votre pays/région.
 
    > [!NOTE]
-   > Quel que soit votre pays de résidence ou votre nationalité, vous devez remplir les déclarations de taxe des États-Unis pour vendre des offres ou des modules complémentaires sur la place de marché commerciale. Les éditeurs qui répondent à certaines exigences en matière de résidence aux États-Unis doivent remplir le formulaire IRS W-9. Les autres éditeurs en dehors des États-Unis doivent remplir le formulaire IRS W-8. Vous pouvez remplir ces formulaires en ligne lorsque vous complétez votre profil fiscal.
+   > Quel que soit votre pays/région de résidence ou votre nationalité, vous devez remplir les déclarations de taxe des États-Unis pour vendre des offres ou des modules complémentaires sur la Place de marché commerciale. Les éditeurs qui répondent à certaines exigences en matière de résidence aux États-Unis doivent remplir le formulaire IRS W-9. Les autres éditeurs en dehors des États-Unis doivent remplir le formulaire IRS W-8. Vous pouvez remplir ces formulaires en ligne lorsque vous complétez votre profil fiscal.
 
 ### <a name="withholding-rates"></a>Taux de retenue d’impôt
 
-Les informations que vous envoyez dans vos formulaires fiscaux déterminent le taux de retenue d’impôt approprié. Le taux de retenue d’impôt s’applique uniquement aux ventes que vous réalisez aux États-Unis. Les ventes réalisées dans des régions en dehors des États-Unis ne sont pas soumises à la retenue d’impôt. Le taux de retenue d’impôt peut varier, mais pour la plupart des éditeurs inscrits en dehors des États-Unis, le taux par défaut est de 30 %. Vous pouvez réduire ce taux si votre pays a signé une convention fiscale avec les États-Unis.
+Les informations que vous envoyez dans vos formulaires fiscaux déterminent le taux de retenue d’impôt approprié. Le taux de retenue d’impôt s’applique uniquement aux ventes que vous réalisez aux États-Unis. Les ventes réalisées dans des régions en dehors des États-Unis ne sont pas soumises à la retenue d’impôt. Le taux de retenue d’impôt peut varier, mais pour la plupart des éditeurs inscrits en dehors des États-Unis, le taux par défaut est de 30 %. Vous pouvez réduire ce taux si votre pays/région a signé une convention fiscale avec les États-Unis.
 
 ### <a name="tax-treaty-benefits"></a>Avantages issus des conventions fiscales
 
-Si vous êtes situé en dehors des États-Unis, vous pourrez peut-être tirer parti des avantages liés aux conventions fiscales. Ces avantages varient d’un pays à l’autre et peuvent vous aider à réduire le taux d’imposition retenu par la place de marché commerciale. Vous pouvez demander des avantages issus des conventions fiscales en complétant la partie II du formulaire W-8BEN. Nous vous conseillons de communiquer avec les ressources appropriées dans votre pays ou région pour déterminer si ces avantages peuvent s’appliquer à vous.
+Si vous êtes situé en dehors des États-Unis, vous pourrez peut-être tirer parti des avantages liés aux conventions fiscales. Ces avantages varient selon le pays ou la région, et peuvent vous aider à réduire le taux d’imposition retenu par la Place de marché commerciale. Vous pouvez demander des avantages issus des conventions fiscales en complétant la partie II du formulaire W-8BEN. Nous vous conseillons de communiquer avec les ressources appropriées dans votre pays ou région pour déterminer si ces avantages peuvent s’appliquer à vous.
 
 > [!NOTE]
 > Aucun numéro individuel de contribuable (ITIN) n’est nécessaire pour recevoir des paiements de la part de Microsoft ou pour bénéficier des avantages découlant des conventions fiscales.
@@ -142,13 +142,13 @@ Dans Sélectionner les pays et les régions, vous pouvez créer un compte de pai
 
 Questions fréquemment posées sur l’utilisation de PayPal comme mode de paiement :
 
-- **De quels paramètres PayPal ai-je besoin pour recevoir des paiements ?** Assurez-vous que votre compte PayPal ne bloque pas les paiements eCheck. Ce paramètre est géré dans la page Préférences de réception de paiement de PayPal. Pour plus d’informations, consultez la [page de configuration de compte PayPal](https://go.microsoft.com/fwlink/p/?linkid=513139).
+- **De quels paramètres PayPal ai-je besoin pour recevoir des paiements ?** Assurez-vous que votre compte PayPal ne bloque pas les paiements eCheck. Ce paramètre est géré dans la page des préférences pour la réception de paiements de PayPal. Pour plus d’informations, consultez la [page de configuration de compte PayPal](https://go.microsoft.com/fwlink/p/?linkid=513139).
 
 - **Est-ce que mon pays/ma région est pris en charge ?** Consultez les [seuils, les méthodes et les délais de paiement](payment-thresholds-methods-timeframes.md) pour savoir quels pays/quelles régions prennent en charge PayPal comme mode de paiement.
 
-- **Mon compte PayPal doit-il être inscrit dans le même pays ou la même région que mon compte espace partenaires ?** Non. Quand vous configurez un compte PayPal, vous pouvez accepter la configuration par défaut. Vous ne devriez pas rencontrer de problèmes avec d’autres pays/régions et devises, sauf si vous avez bloqué le paiement dans certaines devises. Ce paramètre est géré dans la page Préférences de réception de paiement de PayPal.
+- **Mon compte PayPal doit-il être inscrit dans le même pays ou la même région que mon compte espace partenaires ?** Non. Quand vous configurez un compte PayPal, vous pouvez accepter la configuration par défaut. Vous ne devriez pas rencontrer de problèmes avec d’autres pays/régions et devises, sauf si vous avez bloqué le paiement dans certaines devises. Ce paramètre est géré dans la page des préférences pour la réception de paiements de PayPal.
 
-- **Dois-je accepter les paiements PayPal manuellement ?** Non. Par défaut, les comptes PayPal sont configurés de manière à contraindre les utilisateurs à accepter les paiements manuellement. Par conséquent, le paiement sera renvoyé si vous ne l’acceptez pas dans un délai de 30 jours. Vous pouvez modifier ce paramètre en désactivant l’option « Me demander » dans la page Paramètres supplémentaires de PayPal.
+- **Dois-je accepter les paiements PayPal manuellement ?** Non. Par défaut, les comptes PayPal sont configurés de manière à contraindre les utilisateurs à accepter les paiements manuellement. Par conséquent, le paiement sera retourné si vous ne l’acceptez pas dans un délai de 30 jours. Vous pouvez modifier ce paramètre en désactivant l’option « Me demander » dans la page Paramètres supplémentaires de PayPal.
 
 - **Quelles sont les devises prises en charge par PayPal ?** Consultez la [page de support de PayPal](https://developer.paypal.com/docs/classic/api/currency-codes/#paypal) pour obtenir la liste actuelle
 

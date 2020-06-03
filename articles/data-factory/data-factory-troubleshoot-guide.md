@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: f07cc109b21010df89b105576cb9afcf93df774a
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: ac6081f02ad532b512ecca335b949eec71c060ff
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744767"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836156"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Résoudre les problèmes dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -665,7 +665,7 @@ Le tableau suivant s’applique à Azure Batch.
        1. Pour plus d’informations sur les alertes et les résolutions des alertes, consultez [Gestion et surveillance d’un cluster](https://docs.cloudera.com/HDPDocuments/Ambari-2.7.5.0/managing-and-monitoring-ambari/content/amb_predefined_alerts.html).
     1. Passez en revue la mémoire YARN. Si la mémoire YARN est élevée, le traitement de vos tâches peut être retardé. Si vous ne disposez pas de ressources suffisantes pour prendre en charge votre application/travail Spark, mettez à l’échelle le cluster pour vous assurer qu’il dispose de suffisamment de mémoire et de cœurs. 
  1. Exécutez un exemple de travail.
-    1. Si vous exécutez le même travail sur le serveur principal HDInsight, vérifiez qu’il a réussi. POur obtenir des exemples d’exécutions, consultez [Exécuter les exemples MapReduce inclus dans HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux) 
+    1. Si vous exécutez le même travail sur le serveur principal HDInsight, vérifiez qu’il a réussi. Pour obtenir des exemples d’exécutions, consultez [Exécuter les exemples MapReduce inclus dans HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux) 
  1. Si le travail échoue encore sur HDInsight, vérifiez les journaux des applications et les informations, fournies pour apporter de l’aide :
     1. Vérifiez que le travail a été envoyé sur YARN. Si le travail n’a pas été envoyé sur YARN, consultez `--master yarn`.
     1. Si l’application a terminé l’exécution, collectez l’heure de début et l’heure de fin de l’application YARN. Si l’application n’a pas terminé l’exécution, collectez l’heure de début/heure de lancement.
@@ -1055,4 +1055,4 @@ Si vous avez besoin d’une aide supplémentaire, essayez les ressources suivant
 * [Forum Stack Overflow pour Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Informations Twitter sur Data Factory](https://twitter.com/hashtag/DataFactory)
 * [Vidéos Azure](https://azure.microsoft.com/resources/videos/index/)
-* [Forum MSDN](https://social.msdn.microsoft.com/Forums/home)
+* [Page de questions Microsoft Q&R](https://docs.microsoft.com/answers/topics/azure-data-factory.html)

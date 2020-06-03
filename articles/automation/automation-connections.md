@@ -1,17 +1,17 @@
 ---
 title: Gérer les connexions dans Azure Automation
-description: Les ressources de connexion dans Azure Automation contiennent les informations nécessaires pour se connecter à une application ou un service externe à partir d’un Runbook ou d’une configuration DSC. Cet article présente de façon détaillée les connexions et leur utilisation dans la création textuelle et graphique.
+description: Cet article explique comment gérer les connexions Azure Automation pour des applications ou services externes, et comment les utiliser dans des runbooks.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1a50c5d3d6e068054cfc8381b220d38471a7eb6c
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 3c5901dbd45cc0ce82c7fcd8117705eaeed7b4ba
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996570"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837125"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Gérer les connexions dans Azure Automation
 
@@ -141,7 +141,7 @@ Vous pouvez ajouter une activité pour la cmdlet `Get-AutomationConnection` inte
 
 ![ajouter au canevas](media/automation-connections/connection-add-canvas.png)
 
-L’image suivante montre un exemple d’utilisation d’un objet de connexion dans un runbook graphique. Il repose sur les données `Constant value` définies pour l’activité `Get RunAs Connection` qui utilise un objet de connexion pour l’authentification. Un [lien pipeline](automation-graphical-authoring-intro.md#links-and-workflow) est utilisé ici car l'ensemble de paramètres `ServicePrincipalCertificate`attend un seul objet.
+L’image suivante montre un exemple d’utilisation d’un objet de connexion dans un runbook graphique. Il repose sur les données `Constant value` définies pour l’activité `Get RunAs Connection` qui utilise un objet de connexion pour l’authentification. Un [lien pipeline](automation-graphical-authoring-intro.md#use-links-for-workflow) est utilisé ici car l'ensemble de paramètres `ServicePrincipalCertificate`attend un seul objet.
 
 ![obtenir les connexions](media/automation-connections/automation-get-connection-object.png)
 

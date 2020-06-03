@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 04/28/2020
 ms.author: shvija
-ms.openlocfilehash: b9dcf35b3ea178894a0387e650b6814c0f920926
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: cb47119fdddad70f8b7d5de94f9a2d35efd80d76
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649800"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259301"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurer les journaux de diagnostic pour un Event Hub Azure.
 
@@ -247,7 +247,7 @@ Le code JSON des journaux utilisateur des clés gérées par le client inclut le
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Présentation d’Event Hubs](event-hubs-what-is-event-hubs.md)
-- [Vue d’ensemble de l'API Event Hubs](event-hubs-api-overview.md)
+- [Exemples de hubs d’événements](sdks.md)
 - Prise en main des hubs d’événements
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)

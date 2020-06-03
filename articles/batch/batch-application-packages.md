@@ -1,15 +1,15 @@
 ---
-title: Installation de packages d’applications sur des nœuds de calcul
+title: Déployer des packages d’application sur des nœuds de calcul
 description: Utilisez la fonctionnalité de packages d’applications d’Azure Batch pour gérer facilement plusieurs applications et versions pour l’installation sur des nœuds de calcul Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7824d3e2d8cfb7b52041e59a9007688c4ef1cafa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd5821a7876cc99be41fbb2c5b095b931653c345
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115616"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780306"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Déployer des applications sur les nœuds avec des packages d’applications Batch
 
@@ -68,7 +68,7 @@ Avec des packages d’application, la tâche de démarrage de votre pool ne doit
 Vous pouvez utiliser le [Portail Azure][portal] ou les API de Batch Management pour gérer les packages d’application dans votre compte Batch. Dans les sections suivantes, nous allons commencer par montrer comment lier un compte de stockage, puis nous aborderons l’ajout d’applications et de packages et leur gestion avec le portail.
 
 ### <a name="link-a-storage-account"></a>Liaison d’un compte de stockage
-Pour utiliser les packages d’application, vous devez commencer par lier un [compte Azure Storage](batch-api-basics.md#azure-storage-account) à votre compte Batch. Si vous n’avez pas encore configuré de compte de stockage, le Portail Azure affiche un avertissement la première fois que vous cliquez sur **Applications** dans votre compte Batch.
+Pour utiliser les packages d’application, vous devez commencer par lier un [compte Azure Storage](accounts.md#azure-storage-accounts) à votre compte Batch. Si vous n’avez pas encore configuré de compte de stockage, le Portail Azure affiche un avertissement la première fois que vous cliquez sur **Applications** dans votre compte Batch.
 
 
 
@@ -285,9 +285,7 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
 
 > [!TIP]
-> Pour plus d’informations sur les paramètres d’environnement de nœud de calcul, voir la section [Paramètres d’environnement des tâches](batch-api-basics.md#environment-settings-for-tasks) de l’article [Présentation des fonctionnalités du service Batch pour les développeurs](batch-api-basics.md).
-> 
-> 
+> Pour plus d’informations sur les paramètres d’environnement de nœud de calcul, consultez [Paramètres d’environnement des tâches](jobs-and-tasks.md#environment-settings-for-tasks). 
 
 ## <a name="update-a-pools-application-packages"></a>Mise à jour des packages d’applications d’un pool
 Si un pool existant a déjà été configuré avec un package d’application, vous pouvez spécifier un nouveau package pour le pool. Si vous spécifiez une nouvelle référence de package pour un pool, les points suivants s’appliquent :

@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2019
-ms.openlocfilehash: 0e91bc9c994a48b335c3ccb7373a9f4f5dc6d1e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/26/2020
+ms.openlocfilehash: 11fb2b7785540f24b0a8318428da01a4edd5cb5b
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605085"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860628"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Créer un espace de travail Log Analytics avec Azure CLI 2.0
 
@@ -117,6 +117,14 @@ Les paramètres suivants sont définis comme une valeur par défaut :
 Le déploiement peut prendre plusieurs minutes. Lorsqu’il est terminé, vous voyez un message similaire au message suivant qui inclut le résultat :
 
 ![Exemple de résultat lorsque le déploiement est achevé](media/quick-create-workspace-cli/template-output-01.png)
+
+## <a name="troubleshooting"></a>Dépannage
+Lorsque vous créez un espace de travail qui a été supprimé au cours des 14 derniers jours et qui se trouve dans l’[état de suppression réversible](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior), l’opération peut avoir des résultats différents en fonction de la configuration de votre espace de travail :
+1. Si vous fournissez les mêmes nom d’espace de travail, groupe de ressources, abonnement et région que dans l’espace de travail supprimé, votre espace de travail est récupéré avec ses données, sa configuration et ses agents connectés.
+2. Si vous utilisez le même nom d’espace de travail, mais un groupe de ressources, un abonnement ou une région différents, vous recevez un message erreur indiquant que *le nom de l’espace de travail « nom-espace-de-travail » n’est pas unique* ou qu’il y a un *conflit*. Pour annuler la suppression réversible afin de supprimer définitivement votre espace de travail et d’en créer un nouveau sous le même nom, procédez comme suit pour récupérer l’espace de travail avant d’effectuer la suppression définitive :
+   * [Récupérer](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) votre espace de travail
+   * [Supprimer définitivement](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) votre espace de travail
+   * Créer un espace de travail en reprenant le même nom d’espace de travail
 
 ## <a name="next-steps"></a>Étapes suivantes
 Disposant à présent d’un espace de travail, vous pouvez configurer la collecte des données de télémétrie de surveillance, exécuter des recherches dans les journaux pour analyser ces données et ajouter une solution de gestion pour fournir des données et insights analytiques supplémentaires.  

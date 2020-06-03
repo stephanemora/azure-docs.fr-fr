@@ -1,26 +1,26 @@
 ---
-title: Activer une liste Microsoft AppSource et Place de marché Microsoft Azure à l’aide d’Azure Active Directory | Azure
-description: Activer un type de liste à l’aide d’Azure Active Directory dans la Place de marché Azure et AppSource pour les éditeurs d’application et de service.
+title: Intégrer votre offre de la Place de marché commerciale Microsoft avec Azure Active Directory
+description: Utilisez Azure Active Directory pour authentifier vos offres sur Microsoft AppSource et de la Place de marché Azure.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 324f8def5ddafb15156a31fe5addabadcee6f115
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 17cbfe92744ad96f2b5651b7e2f47a6443337068
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160611"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658046"
 ---
-# <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Activer une liste AppSource et Place de marché en utilisant Azure Active Directory
+# <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Intégrer votre liste de la Place de marché commerciale avec Azure Active Directory
 
- Azure Active Directory (Azure AD) est un service d’identité cloud qui permet de s’authentifier avec un compte Microsoft. Azure AD utilise les infrastructures standard du secteur. [En savoir plus sur Azure Active Directory](https://azure.microsoft.com/services/active-directory).
+ Cet article explique les exigences liées à l’intégration d’une liste ou d’une offre de la Place de marché commerciale avec Azure Active Directory (Azure AD). Azure AD est un service d’identité cloud qui utilise des frameworks standard pour permettre l’authentification auprès d’un compte Microsoft. [En savoir plus sur Azure Active Directory](https://azure.microsoft.com/services/active-directory).
 
 ## <a name="azure-ad-benefits"></a>Avantages d’Azure AD
 
-Les clients de Microsoft AppSource et de la Place de marché Azure utilisent les expériences intégrées au produit pour effectuer des recherches dans les catalogues. Ces actions nécessitent que les clients se connectent au produit. L’intégration Azure AD offre les avantages suivants :
+Les clients de Microsoft AppSource et de la Place de marché Azure utilisent des expériences intégrées dans le produit pour rechercher dans des catalogues de référencement en vitrine. Ces actions nécessitent que les clients se connectent au produit. L’intégration Azure AD offre les avantages suivants :
 
 - Un engagement plus rapide et une expérience client optimisée
 - Une authentification unique (SSO) pour des millions d’utilisateurs en entreprise
@@ -29,17 +29,17 @@ Les clients de Microsoft AppSource et de la Place de marché Azure utilisent les
 
 ## <a name="offers-that-require-azure-ad"></a>Offres qui nécessitent Azure AD
 
-Aux différents [types d’offre et options de référencement](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) pour AppSource et la Place de marché Azure correspondent différentes exigences pour l’implémentation d’Azure AD. Pour plus de détails, consultez le tableau suivant :
+Aux différents [types d’offre et options de référencement](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) pour AppSource et la Place de marché Azure correspondent différentes exigences pour l’implémentation d’Azure AD. Pour plus de détails, consultez le tableau suivant.
 
 | **Type d’offre**    | **Authentification unique Azure AD nécessaire ?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
 |  | Me contacter | Version d’évaluation | Version d’évaluation | Transaction |
-| Machine virtuelle | N/A | Non  | Non  | Non  |
+| Machine virtuelle | N/A | Non | Non | Non |
 | Applications Azure ( modèle de solution)  | N/A | N/A | N/A | N/A |
-| Applications managées  | N/A | N/A | N/A | Non  |
-| SaaS  | Non  | Oui | Oui | Oui |
-| Containers  | N/A | N/A | N/A | Non  |
-| Services de conseil  | Non  | N/A | N/A | N/A |
+| Applications managées  | N/A | N/A | N/A | Non |
+| SaaS  | Non | Oui | Oui | Oui |
+| Containers  | N/A | N/A | N/A | Non |
+| Services de conseil  | Non | N/A | N/A | N/A |
 
 Pour plus d’informations sur les exigences techniques SaaS, consultez le [guide de publication de l’offre des applications SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 

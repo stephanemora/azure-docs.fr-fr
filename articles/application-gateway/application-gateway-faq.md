@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: 92011495f5f746b18a7706ed2f9583548cc51286
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: fd5617af2da9aa00cb75deb82f83be29db78d79d
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836663"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873502"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Forum aux questions sur Application Gateway
 
@@ -94,7 +94,7 @@ Consultez [Considérations relatives à la taille du sous-réseau Application Ga
 
 Oui. En plus de plusieurs instances d’un déploiement Application Gateway donné, vous pouvez configurer une autre ressource Application Gateway unique dans un sous-réseau existant qui contient une autre ressource Application Gateway.
 
-À lui seul, un sous-réseau n'est pas en mesure de prendre en charge Standard_v2 et Standard Application Gateway.
+Un seul sous-réseau ne peut pas prendre en charge les références (SKU) v2 et v1 d’Application Gateway.
 
 ### <a name="does-application-gateway-v2-support-user-defined-routes-udr"></a>Application Gateway v2 prend-il en charge les itinéraires définis par l’utilisateur (UDR) ?
 

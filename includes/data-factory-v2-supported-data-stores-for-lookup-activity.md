@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: connecteurs pris en charge pour l’activité de recherche
 services: data-factory
 author: linda33wj
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: fb44f217b7a940bc07a164e482b67ddb53835715
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d583c25afc5c328ef64a8c931e4209f0d88a14a9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440480"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84124197"
 ---
 | Category | Banque de données |
 |:--- |:--- |
@@ -27,7 +27,7 @@ ms.locfileid: "75440480"
 | &nbsp; |[Base de données Azure pour PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |
 | &nbsp; |[Azure Files](../articles/data-factory/connector-azure-file-storage.md) |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |
-| &nbsp; |[Azure SQL Database Managed Instance](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |
+| &nbsp; |[Azure SQL Managed Instance](../articles/azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |
 | &nbsp; |[Azure Synapse Analytics (anciennement SQL Data Warehouse)](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Stockage Table Azure](../articles/data-factory/connector-azure-table-storage.md) |
 | **Sauvegarde de la base de données** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
@@ -90,6 +90,7 @@ ms.locfileid: "75440480"
 | &nbsp; |[SAP ECC](../articles/data-factory/connector-sap-ecc.md) |
 | &nbsp; |[ServiceNow](../articles/data-factory/connector-servicenow.md) |
 | &nbsp; |[Shopify (préversion)](../articles/data-factory/connector-shopify.md) |
+| &nbsp; |[Liste SharePoint Online](../articles/data-factory/connector-sharepoint-online-list.md) |
 | &nbsp; |[Square (préversion)](../articles/data-factory/connector-square.md) |
 | &nbsp; |[Table web (table HTML)](../articles/data-factory/connector-web-table.md) 
 | &nbsp; |[Xero](../articles/data-factory/connector-xero.md) |

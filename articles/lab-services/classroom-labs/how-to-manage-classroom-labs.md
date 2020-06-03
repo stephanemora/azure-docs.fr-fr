@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 7a60f761e4ee575e3196bb1ccd3baa42f27221f8
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 4c2c02e47059d73e29da705fc9075721e080e636
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588171"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701796"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gérer des laboratoires de classe dans Azure Lab Services 
 Cet article décrit comment créer et supprimer un laboratoire de classe. Il montre également comment afficher tous les laboratoires de classe dans un compte de laboratoire. 
@@ -29,18 +29,18 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
 ## <a name="create-a-classroom-lab"></a>Créer un laboratoire de classe
 
 1. Accédez au [site web Azure Lab Services](https://labs.azure.com). Internet Explorer 11 n’est pas encore pris en charge. 
-2. Sélectionnez **Se connecter** et entrez vos informations d’identification. Sélectionnez ou entrez un **ID utilisateur** qui est un membre du rôle **Créateur de laboratoire** dans le compte de laboratoire, puis entrez un mot de passe. Azure Lab Services prend en charge les comptes professionnels et les comptes Microsoft. 
-3. Sélectionnez **Nouveau labo**. 
+1. Sélectionnez **Se connecter** et entrez vos informations d’identification. Sélectionnez ou entrez un **ID utilisateur** qui est un membre du rôle **Créateur de laboratoire** dans le compte de laboratoire, puis entrez un mot de passe. Azure Lab Services prend en charge les comptes professionnels et les comptes Microsoft. 
+1. Sélectionnez **Nouveau labo**. 
     
     ![Créer un laboratoire de classe](../media/tutorial-setup-classroom-lab/new-lab-button.png)
-3. Dans la fenêtre **New Lab** (Nouveau laboratoire), effectuez les actions suivantes : 
+1. Dans la fenêtre **New Lab** (Nouveau laboratoire), effectuez les actions suivantes : 
     1. Spécifiez un **nom** pour votre laboratoire. 
-    2. Sélectionnez la **taille des machines virtuelles**  dont vous avez besoin pour la classe. Pour obtenir la liste des tailles disponibles, consultez la section [Tailles de machine virtuelle](#vm-sizes). 
-    3. Sélectionnez **l’image de machine virtuelle** que vous souhaitez utiliser pour le laboratoire de classe. Si vous sélectionnez une image Linux, vous voyez une option pour activer la connexion Bureau à distance pour celle-ci. Pour plus d’informations, consultez [Activer la connexion Bureau à distance pour Linux](how-to-enable-remote-desktop-linux.md).
+    1. Sélectionnez la **taille des machines virtuelles**  dont vous avez besoin pour la classe. Pour obtenir la liste des tailles disponibles, consultez la section [Tailles de machine virtuelle](#vm-sizes). 
+    1. Sélectionnez **l’image de machine virtuelle** que vous souhaitez utiliser pour le laboratoire de classe. Si vous sélectionnez une image Linux, vous voyez une option pour **activer la connexion Bureau à distance**. Pour plus d’informations, consultez [Activer la connexion Bureau à distance pour Linux](how-to-enable-remote-desktop-linux.md).
 
         Si vous vous êtes connecté avec les informations d’identification du propriétaire du compte Lab, vous verrez une option permettant d’activer d’autres images pour le lab. Pour plus d’informations, consultez [Activer des images au moment de la création d’un lab](specify-marketplace-images.md#enable-images-at-the-time-of-lab-creation).
-    4. Vérifiez le **tarif horaire total** affiché sur la page. 
-    6. Sélectionnez **Enregistrer**.
+    1. Vérifiez le **tarif horaire total** affiché sur la page. 
+    1. Sélectionnez **Enregistrer**.
 
         ![Fenêtre Nouveau labo](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 
@@ -70,24 +70,24 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
     ![État de la création du modèle de machine virtuelle](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
 8. Dans la page **Modèle**, effectuez les étapes suivantes : Ces étapes sont **facultatives** pour le tutoriel.
 
-    2. Connectez-vous au modèle de machine virtuelle en sélectionnant **Se connecter**. S’il s’agit d’un modèle de machine virtuelle Linux, choisissez si vous voulez vous connecter avec SSH ou RDP (si RDP est activé).
+    1. Connectez-vous au modèle de machine virtuelle en sélectionnant **Se connecter**. S’il s’agit d’un modèle de machine virtuelle Linux, choisissez si vous voulez vous connecter à l’aide de SSH ou d’un bureau à distance GUI.  Une configuration supplémentaire est requise pour utiliser un bureau à distance GUI. Pour plus d’informations, consultez [Activer un bureau à distance graphique pour des machines virtuelles Linux](how-to-use-remote-desktop-linux-student.md).
     1. Sélectionnez **Réinitialiser le mot de passe** pour réinitialiser le mot de passe pour la machine virtuelle. 
     1. Installez et configurez des logiciels sur votre modèle de machine virtuelle. 
     1. **Arrêtez** la machine virtuelle.  
     1. Entrez une **description** pour le modèle
-10. Dans la page **Modèle**, sélectionnez **Publier** dans la barre d’outils. 
+9.  Dans la page **Modèle**, sélectionnez **Publier** dans la barre d’outils. 
 
     ![Bouton Publier le modèle](../media/tutorial-setup-classroom-lab/template-page-publish-button.png)
 
     > [!WARNING]
     > Une fois que vous publiez, vous ne pouvez pas annuler la publication. 
-8. Dans la page **Publier le modèle**, entrez le nombre de machines virtuelles que vous souhaitez créer dans le labo, puis sélectionnez **Publier**. 
+10. Dans la page **Publier le modèle**, entrez le nombre de machines virtuelles que vous souhaitez créer dans le labo, puis sélectionnez **Publier**. 
 
     ![Publier le modèle - nombre de machines virtuelles](../media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
 11. Vous pouvez voir l’**état de publication** du modèle sur la page. Ce processus peut prendre jusqu’à une heure. 
 
     ![Publier un modèle - progression](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
-4. Passez à la page **Pool de machines virtuelles** en sélectionnant Machines virtuelles dans le menu de gauche ou en sélectionnant la vignette Machines virtuelles. Vérifiez que des machines virtuelles se trouvent à l’état **Non affectée**. Ces machines virtuelles ne sont pas encore affectées aux étudiants. Elles doivent être à l’état **Arrêtée**. Vous pouvez démarrer la machine virtuelle d’un étudiant, vous y connecter, l’arrêter et la supprimer dans cette page. Vous pouvez démarrer les machines virtuelles dans cette page ou laisser les étudiants le faire. 
+12. Passez à la page **Pool de machines virtuelles** en sélectionnant Machines virtuelles dans le menu de gauche ou en sélectionnant la vignette Machines virtuelles. Vérifiez que des machines virtuelles se trouvent à l’état **Non affectée**. Ces machines virtuelles ne sont pas encore affectées aux étudiants. Elles doivent être à l’état **Arrêtée**. Vous pouvez démarrer la machine virtuelle d’un étudiant, vous y connecter, l’arrêter et la supprimer dans cette page. Vous pouvez démarrer les machines virtuelles dans cette page ou laisser les étudiants le faire. 
 
     ![Machines virtuelles à l’état Arrêtée](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 

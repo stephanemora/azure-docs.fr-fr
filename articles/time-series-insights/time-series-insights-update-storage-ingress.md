@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: e3af10e5e9b56b537fedf0af7ffa7ddb37030c73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca5ba8d7b2d78440401e29344361538c3650ba48
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189179"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779177"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Entrée et stockage des données dans Azure Time Series Insights - Préversion
 
@@ -79,6 +79,17 @@ Nous vous recommandons d’utiliser les meilleures pratiques suivantes :
 
 * Découvrez comment optimiser et façonner vos données JSON, ainsi que les limitations actuelles de la préversion, en lisant [comment mettre en forme JSON pour l’entrée et la requête](./time-series-insights-update-how-to-shape-events.md).
 
+* Utilisez l’ingestion de streaming uniquement pour des données récentes et en quasi-temps réel. Les données historiques de streaming ne sont pas prises en charge.
+
+#### <a name="historical-data-ingestion"></a>Ingestion de données historiques
+
+L’utilisation du pipeline de streaming pour importer des données historiques n’est pas prise en charge actuellement dans Azure Time Series Insights en préversion. Si vous devez importer des données passées dans votre environnement, suivez les instructions ci-dessous :
+
+* Ne diffusez pas parallèlement des données historiques et dynamiques. L’ingestion de données dans le désordre entraînera une dégradation des performances de requête.
+* Ingérez les données historiques de façon chronologique pour obtenir des performances optimales.
+* Restez dans les limites du débit d’ingestion ci-dessous.
+* Désactivez le magasin Warm si les données sont antérieures à la période de rétention du magasin Warm.
+
 ### <a name="ingress-scale-and-preview-limitations"></a>Limitations de l’échelle d’entrée et de la préversion
 
 Les limitations d’entrée de la préversion d’Azure Time Series Insights sont décrites ci-dessous.
@@ -101,7 +112,7 @@ Par défaut, la préversion de Time Series Insights peut ingérer des données e
  
 * **Exemple 1 :**
 
-    Contoso Shipping est doté de 100 000 appareils qui émettent un événement trois fois par minute. La taille d’un événement est de 200 octets. Un hub IoT comportant quatre partitions est utilisé en tant que source d'événements Time Series Insights.
+    Contoso Shipping est doté de 100 000 appareils qui émettent un événement trois fois par minute. La taille d’un événement est de 200 octets. Un IoT Hub comportant quatre partitions est utilisé en tant que source d’événements Time Series Insights.
 
     * Le taux d’ingestion de leur environnement Time Series Insights est le suivant : **100 000 appareils * 200 octets/événement * (3/60 événements/s) = 1 Mbit/s**.
     * Le taux d’ingestion par partition est de 0,25 Mbits/s.

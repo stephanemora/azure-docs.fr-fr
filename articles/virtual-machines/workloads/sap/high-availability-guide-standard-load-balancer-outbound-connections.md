@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/07/2020
+ms.date: 05/12/2020
 ms.author: radeltch
-ms.openlocfilehash: 4fd01764c183098a8bd78d502eea7ab173fa22cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a89c848f5c6e57aba01c7156cdc61f9e69c30d0b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80293910"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660174"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Connectivité de point de terminaison public pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP
 
@@ -176,7 +176,7 @@ Vous pouvez utiliser le proxy pour autoriser les appels de Pacemaker au point de
 ### <a name="important-considerations"></a>Points importants à prendre en compte
 
   - Si un proxy d’entreprise est déjà en place, vous pouvez acheminer les appels sortants vers des points de terminaison publics. Les appels sortants vers des points de terminaison publics passent par le point de contrôle de l’entreprise.  
-  - Assurez-vous que la configuration du proxy autorise la connectivité sortante vers l’API de gestion Azure : `https://management.azure.com`  
+  - Assurez-vous que la configuration du proxy autorise la connectivité sortante vers l’API de gestion Azure : `https://management.azure.com` et `https://login.microsoftonline.com`  
   - Vérifiez qu’il existe un itinéraire entre les machines virtuelles et le proxy  
   - Le proxy gère uniquement les appels HTTP/HTTPS. S’il est nécessaire d’effectuer des appels sortants vers le point de terminaison public sur différents protocoles (par exemple, RFC), une solution alternative sera nécessaire  
   - La solution de proxy doit être hautement disponible, afin d’éviter l’instabilité dans le cluster Pacemaker  
@@ -219,6 +219,10 @@ Pour autoriser Pacemaker à communiquer avec l’API de gestion Azure, procédez
      # Take the cluster out of maintenance mode
      sudo pcs property set maintenance-mode=false
      ```
+
+## <a name="other-solutions"></a>Autres solutions
+
+Si le trafic sortant est routé via un pare-feu tiers, assurez-vous que la configuration de celui-ci autorise une connexion sortante vers l’API de gestion Azure : `https://management.azure.com` et `https://login.microsoftonline.com`.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

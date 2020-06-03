@@ -5,12 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 0491f10f22e35c81e5bc35d537546001f136be50
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f84a609ea2821546c4001b98ad11495305ac101a
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826823"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171070"
 ---
 # <a name="enable-change-tracking-and-inventory-from-azure-portal"></a>Activer le Suivi des modifications et inventaire à partir du portail Azure
 
@@ -61,8 +61,4 @@ Connectez-vous à Azure sur https://portal.azure.com.
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur l’utilisation de la fonctionnalité, consultez [Gérer le Suivi des modifications et inventaire](change-tracking-file-contents.md).
-* Pour plus d’informations sur les configurations d’étendue, consultez [Utiliser des configurations d’étendue pour la fonctionnalité Suivi des modifications et inventaire](automation-scope-configurations-change-tracking.md).
-* Pour savoir comment utiliser la fonctionnalité afin d’identifier les logiciels installés dans votre environnement, consultez [Détecter les logiciels installés sur vos machines virtuelles](automation-tutorial-installed-software.md).
-* Si vous ne souhaitez pas intégrer votre compte Automation avec un espace de travail Log Analytics lors de l’activation de cette fonctionnalité, consultez [Dissocier un espace de travail d’un compte Automation](automation-unlink-workspace-change-tracking.md).
-* Lorsque vous avez fini de déployer des modifications sur des machines virtuelles, vous pouvez les supprimer comme décrit dans [Supprimer des machines virtuelles de Suivi des modifications et inventaire](automation-remove-vms-from-change-tracking.md).
 * Pour résoudre des problèmes généraux liés à la fonctionnalité, consultez [Résoudre les problèmes rencontrés avec Suivi des modifications et inventaire](troubleshoot/change-tracking.md).

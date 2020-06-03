@@ -1,29 +1,25 @@
 ---
-title: Déployer un modèle Azure Resource Manager dans un runbook Azure Automation
-description: Comment déployer un modèle Azure Resource Manager stocké dans Stockage Azure à partir d’un runbook
+title: Déployer un modèle Azure Resource Manager dans un runbook PowerShell Azure Automation
+description: Cet article explique comment déployer un modèle Azure Resource Manager stocké dans Stockage Azure à partir d’un runbook PowerShell.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 keywords: powerShell, runbook, json, azure automation
-ms.openlocfilehash: 1bf381499ac31fafc8aaeef2b4ee488cfa1aa5c1
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 921d878c585b811700b1c112524e314f0af53c24
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994697"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837074"
 ---
-# <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Déployer un modèle Azure Resource Manager dans un runbook PowerShell Azure Automation
+# <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>Déployer un modèle Azure Resource Manager dans un runbook PowerShell
 
-Vous pouvez écrire un [runbook PowerShell Azure Automation](automation-first-runbook-textual-powershell.md) qui déploie une ressource Azure en utilisant un [modèle Azure Resource Manager](../azure-resource-manager/resource-manager-create-first-template.md).
-
-Ainsi, vous pouvez automatiser le déploiement de ressources Azure. Vous pouvez gérer vos modèles Resource Manager à un emplacement central et sécurisé, tel que Stockage Azure.
+Vous pouvez écrire un [runbook PowerShell Azure Automation](automation-first-runbook-textual-powershell.md) qui déploie une ressource Azure en utilisant un [modèle Azure Resource Manager](../azure-resource-manager/resource-manager-create-first-template.md). L’utilisation du modèle vous permet d’utiliser Azure Automation et Stockage Azure pour automatiser le déploiement de vos ressources Azure. Vous pouvez gérer vos modèles Resource Manager dans un emplacement central et sécurisé tel que le Stockage Azure.
 
 Dans cet article, nous créons un runbook PowerShell qui utilise un modèle Resource Manager stocké dans le service [Stockage Azure](../storage/common/storage-introduction.md) pour déployer un nouveau compte de stockage Azure.
 
 ## <a name="prerequisites"></a>Prérequis
-
-Pour ce tutoriel, vous devez disposer des éléments suivants :
 
 * Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou [créer un compte gratuit](https://azure.microsoft.com/free/).
 * [compte Automation](automation-sec-configure-azure-runas-account.md) pour le stockage du Runbook et l’authentification auprès des ressources Azure.  Ce compte doit avoir l’autorisation de démarrer et d’arrêter la machine virtuelle.
@@ -231,15 +227,10 @@ Vous pouvez voir que le nouveau compte de stockage a été créé en exécutant 
 Get-AzStorageAccount
 ```
 
-## <a name="summary"></a>Résumé
-
-Et voilà ! Vous pouvez maintenant utiliser Azure Automation et Stockage Azure avec des modèles Resource Manager pour déployer toutes vos ressources Azure.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur les modèles Resource Manager, consultez [Vue d'ensemble d'Azure Resource Manager](../azure-resource-manager/management/overview.md).
 * Pour démarrer avec Stockage Azure, consultez [Introduction à Azure Storage](../storage/common/storage-introduction.md).
-* Pour rechercher d’autres runbooks Azure Automation utiles, consultez [Galeries de runbooks et de modules pour Azure Automation](automation-runbook-gallery.md).
+* Pour trouver d’autres runbooks Azure Automation utiles, consultez [Utiliser des runbooks et des modules dans Azure Automation](automation-runbook-gallery.md).
 * Pour accéder à d'autres modèles Resource Manager utiles, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/).
-* Pour obtenir des informations de référence sur les cmdlets PowerShell, consultez [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* Pour obtenir des informations de référence sur les cmdlets PowerShell, consultez [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).

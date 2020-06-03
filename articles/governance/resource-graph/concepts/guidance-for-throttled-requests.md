@@ -1,14 +1,14 @@
 ---
 title: Instructions pour les requêtes limitées
 description: Apprenez à regrouper, échelonner, paginer et interroger en parallèle pour éviter que les demandes soient limitées par Azure Resource Graph.
-ms.date: 12/02/2019
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: fbd4bec715b187bcc643fe32b8452b0e062e7713
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dbcd438f1eda4edd30deef41542beeae6d746dc2
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79229737"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682063"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Conseils pour les requêtes limitées dans Azure Resource Graph
 
@@ -235,7 +235,7 @@ Fournissez les détails suivants :
 - Votre cas d’usage spécifique et les axes stratégiques qui imposent de disposer d’une limite plus élevée.
 - À combien de ressources avez-vous accès ? Combien d’entre elles sont retournées par une requête unique ?
 - Quels sont les types de ressources qui vous intéressent ?
-- Quel est votre modèle de requête ? X requêtes toutes les Y secondes, etc.
+- Quel est votre modèle de requête ? X requêtes toutes les Y secondes, etc.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

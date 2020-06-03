@@ -1,7 +1,6 @@
 ---
-title: Extension CLI
-titleSuffix: Azure Machine Learning
-description: Découvrez l’extension CLI Azure Machine Learning pour l'interface de ligne de commande Azure. L’interface de ligne de commande Azure est un utilitaire de ligne de commande multiplateforme qui vous permet d'utiliser des ressources du cloud Azure. Grâce à l’extension de Machine Learning, vous pouvez utiliser Azure Machine Learning. L’interface de ligne de commande Machine Learning crée et gère des ressources telles que votre espace de travail, les magasins de données, les jeux de données, les pipelines, les modèles et les déploiements.
+title: Installer et utiliser l’interface de ligne de commande d’Azure Machine Learning
+description: Découvrez comment installer et utiliser l’extension CLI d’Azure Machine Learning pour créer et gérer des ressources telles que votre espace de travail, des banques de données, des jeux de données, des pipelines, des modèles et des déploiements.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +10,14 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 16f9080487af95e7de5c5f8c91fd5c8d356b7bde
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: d401522ffc45e2e7ea20de70a59ed967dd7623ab
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81618063"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659795"
 ---
-# <a name="use-the-cli-extension-for-azure-machine-learning"></a>Utiliser l’extension CLI pour Azure Machine Learning
+# <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Installer et utiliser l’extension CLI pour Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 L'interface CLI Azure Machine Learning est une extension pour l'[interface Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), une interface de ligne de commande multiplateforme pour la plateforme Azure. Cette extension fournit les commandes à utiliser avec Azure Machine Learning. Il vous permet d’automatiser vos activités Machine Learning. La liste suivante fournit des exemples d’actions que vous pouvez effectuer avec l’extension CLI :

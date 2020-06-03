@@ -1,18 +1,18 @@
 ---
-title: Lumières
+title: Éclairage de la scène
 description: Description et propriétés des sources de lumière
 author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 0a4a226af1347b5302b0c3964889fc072f89e7f8
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: e33e012480c876dc5befbb93404bdb131ea9329a
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679123"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022144"
 ---
-# <a name="lights"></a>Lumières
+# <a name="scene-lighting"></a>Éclairage de la scène
 
 Par défaut, une [lumière ambiante](sky.md) est utilisée pour l'éclairage des objets rendus à distance. Dans la plupart des cas, cet éclairage est suffisant, mais vous pouvez ajouter d'autres sources de lumière à la scène.
 

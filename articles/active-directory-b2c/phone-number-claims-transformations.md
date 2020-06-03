@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bd26b2b475e293a1fda1b007289ba7c3eef35136
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8052f94755019d8ad3fe818d979d2eb7f8ba0a5e
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78183927"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738759"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Définir des transformations de revendications de numéro de téléphone dans Azure AD B2C
 
@@ -62,7 +62,7 @@ Cette transformation de revendication valide le format du numéro de téléphone
 
 | Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | phoneNumberString | string |  Revendication de chaîne pour le numéro de téléphone. Le numéro de téléphone doit être au format international, précédé du signe « + » et d’un indicatif de pays. Si la revendication d’entrée `country` est fournie, le numéro de téléphone est au format local (sans l’indicatif téléphonique international). |
+| InputClaim | phoneNumberString | string |  Revendication de chaîne pour le numéro de téléphone. Le numéro de téléphone doit être au format international, précédé du signe « + » et d’un indicatif de pays/région. Si la revendication d’entrée `country` est fournie, le numéro de téléphone est au format local (sans l’indicatif téléphonique international). |
 | InputClaim | country | string | [Facultatif] Revendication de chaîne pour l’indicatif téléphonique international au format ISO3166 (indicatif téléphonique international ISO-3166 à deux lettres). |
 | OutputClaim | outputClaim | phoneNumber | Résultat de cette transformation de revendications. |
 
@@ -113,24 +113,24 @@ Le profil technique auto-déclaré qui appelle le profil technique de validation
 
 ## <a name="getnationalnumberandcountrycodefromphonenumberstring"></a>GetNationalNumberAndCountryCodeFromPhoneNumberString
 
-Cette chaîne extrait l’indicatif du pays et le numéro national de la revendication d’entrée, et lève éventuellement une exception si le numéro de téléphone fourni n’est pas valide.
+Cette chaîne extrait l’indicatif international et le numéro national de la revendication d’entrée, et lève éventuellement une exception si le numéro de téléphone fourni n’est pas valide.
 
 | Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | phoneNumber | string | Revendication de chaîne du numéro de téléphone. Le numéro de téléphone doit être au format international, précédé du signe « + » et d’un indicatif de pays. |
+| InputClaim | phoneNumber | string | Revendication de chaîne du numéro de téléphone. Le numéro de téléphone doit être au format international, précédé du signe « + » et d’un indicatif de pays/région. |
 | InputParameter | throwExceptionOnFailure | boolean | [Facultatif] Paramètre indiquant si une exception est levée lorsque le numéro de téléphone n’est pas valide. La valeur par défaut est false. |
-| InputParameter | countryCodeType | string | [Facultatif] Paramètre indiquant le type d’indicatif de pays dans la revendication de sortie. Les valeurs disponibles sont **CallingCode** (le code d’appel international d’un pays, par exemple + 1) ou **ISO3166** (code ISO-3166 de deux lettres du pays). |
+| InputParameter | countryCodeType | string | [Facultatif] Paramètre indiquant le type d’indicatif international dans la revendication de sortie. Les valeurs disponibles sont **CallingCode** (le code d’appel international d’un pays, par exemple + 1) ou **ISO3166** (préfixe international ISO-3166 de deux lettres). |
 | OutputClaim | nationalNumber | string | Revendication de chaîne pour le numéro national du numéro de téléphone. |
-| OutputClaim | countryCode | string | Revendication de chaîne pour l’indicatif de pays du numéro de téléphone. |
+| OutputClaim | countryCode | string | Revendication de chaîne pour le préfixe international du numéro de téléphone. |
 
 
 Si la transformation de revendications **GetNationalNumberAndCountryCodeFromPhoneNumberString** est exécutée à partir d’un [profil technique de validation](validation-technical-profile.md) appelé par un [profil technique auto-déclaré](self-asserted-technical-profile.md) ou une [action de contrôle d’affichage](display-controls.md#display-control-actions), les métadonnées du profil technique auto-déclaré **UserMessageIfPhoneNumberParseFailure** contrôlent le message d’erreur présenté à l’utilisateur.
 
 ![Diagramme du chemin d’exécution du message d’erreur](./media/phone-authentication/assert-execution.png)
 
-Vous pouvez utiliser cette transformation de revendications pour fractionner un numéro de téléphone complet en indicatif de pays et numéro national. Si le numéro de téléphone fourni n’est pas valide, vous pouvez choisir de lever un message d’erreur.
+Vous pouvez utiliser cette transformation de revendications pour fractionner un numéro de téléphone complet en préfixe international et numéro national. Si le numéro de téléphone fourni n’est pas valide, vous pouvez choisir de lever un message d’erreur.
 
-L’exemple suivant tente de fractionner le numéro de téléphone en numéro national et indicatif de pays. Si le numéro de téléphone est valide, il est remplacé par le numéro national. Si le numéro de téléphone n’est pas valide, aucune exception n’est levée et le numéro de téléphone conserve sa valeur d’origine.
+L’exemple suivant tente de fractionner le numéro de téléphone en numéro national et préfixe international. Si le numéro de téléphone est valide, il est remplacé par le numéro national. Si le numéro de téléphone n’est pas valide, aucune exception n’est levée et le numéro de téléphone conserve sa valeur d’origine.
 
 ```XML
 <ClaimsTransformation Id="GetNationalNumberAndCountryCodeFromPhoneNumberString" TransformationMethod="GetNationalNumberAndCountryCodeFromPhoneNumberString">

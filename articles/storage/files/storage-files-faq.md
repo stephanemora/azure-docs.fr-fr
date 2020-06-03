@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 01b5f87c2557e2195573b90766ee45e001798cca
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 8896aba104a99d323b3c39cfaeab6043d1c12f9d
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537693"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832008"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard. Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -20,7 +20,7 @@ ms.locfileid: "81537693"
 Cet article répond à des questions courantes sur les fonctionnalités d’Azure Files, notamment concernant l’utilisation d’Azure File Sync avec Azure Files. Si vous ne trouvez pas de réponse à votre question ici, vous pouvez nous joindre par le biais des méthodes suivantes (par ordre de priorité) :
 
 1. La section Commentaires de cet article
-2. [Forum du Stockage Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+2. [Page de questions Microsoft Q&R sur le Stockage Azure](https://docs.microsoft.com/answers/topics/azure-file-storage.html).
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) 
 4. Support Microsoft Pour créer une demande de support, dans le portail Azure, sous l’onglet **Aide**, sélectionnez le bouton **Aide et support**, puis **Nouvelle demande de support**.
 
@@ -68,7 +68,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
 * <a id="redundancy-options"></a>
   **Quelles sont les options de redondance de stockage prises en charge par Azure Files ?**  
-    À l’heure actuelle, Azure Files prend en charge le stockage localement redondant (LRS), le stockage redondant dans une zone (ZRS), le stockage géoredondant (GRS) et le stockage géoredondant dans une zone(GZRS) (préversion). Nous envisageons la prise en charge du stockage géoredondant avec accès en lecture (RA-GRS), mais aucun calendrier n’est arrêté pour l’instant.
+    À l’heure actuelle, Azure Files prend en charge le stockage localement redondant (LRS), le stockage redondant dans une zone (ZRS), le stockage géoredondant (GRS) et le stockage géoredondant dans une zone(GZRS). Nous envisageons la prise en charge du stockage géoredondant avec accès en lecture (RA-GRS), mais aucun calendrier n’est arrêté pour l’instant.
 
 * <a id="tier-options"></a>
   **Quels sont les niveaux de stockage pris en charge par Azure Files ?**  
@@ -170,7 +170,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
     - Vous pouvez utiliser des signatures d’accès partagé (SAP) pour générer des jetons qui ont des autorisations spécifiques et qui sont valides pendant un laps de temps spécifié. Par exemple, vous pouvez générer un jeton offrant un accès en lecture seule à un fichier spécifique, valide pendant 10 minutes. Toute personne possédant le jeton pendant sa période de validité dispose d’un accès en lecture seule à ce fichier pendant 10 minutes. Les clés de signature d’accès partagé ne sont prises en charge que par le biais de l’API REST ou dans les bibliothèques de client. Vous devez monter le partage de fichiers Azure sur SMB à l’aide des clés de compte de stockage.
 
-    - Azure File Sync conserve et réplique toutes les listes de contrôle d’accès discrétionnaire, ou listes DACL (qu’elles soient locales ou basées sur Active Directory) sur tous les points de terminaison de serveur avec lesquels il effectue une synchronisation. Étant donné que Windows Server peut déjà s’authentifier auprès d’Active Directory, Azure File Sync constitue une option efficace en attendant que l’authentification Active Directory et les listes ACL soient totalement prises en charge.
+    - Azure File Sync conserve et réplique toutes les listes de contrôle d’accès discrétionnaire, ou listes DACL (qu’elles soient locales ou basées sur Active Directory) sur tous les points de terminaison de serveur avec lesquels il effectue une synchronisation. 
     
     Pour obtenir une représentation complète de tous les protocoles pris en charge sur les services de stockage Azure, vous pouvez consulter la rubrique [Autorisation de l’accès à Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 

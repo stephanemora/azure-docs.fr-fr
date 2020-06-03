@@ -4,17 +4,17 @@ description: Extraire des données d’un texte d’énoncé avec des intentions
 author: diberry
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 3b6b09fd1066a9caa745cddf30d76e2843c3f56c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 35f015691b15c6451a66509671c7dc2fc72f38e4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589718"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682193"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extraire des données d’un texte d’énoncé avec des intentions et des entités
 LUIS donne la possibilité d’obtenir des informations à partir des énoncés d’un utilisateur en langage naturel. Les informations sont extraites de façon à pouvoir être utilisées par un programme, une application ou un chatbot de manière exploitable. Dans les sections suivantes, découvrez quelles sont les données retournées à partir des intentions et des entités avec des exemples de JSON.
 
-Les données les plus difficiles à extraire sont les données issues du Machine Learning, car il n’y a pas de correspondance de texte exacte. L’extraction de données à partir [d’entités](luis-concept-entity-types.md) issues du Machine Learning doit faire partie du [cycle de création](luis-concept-app-iteration.md) jusqu’à ce que vous ayez la certitude de recevoir les données attendues.
+Les données les plus difficiles à extraire sont les données de machine-learning, car il n’y a pas de correspondance de texte exacte. L’extraction de données à partir [d’entités](luis-concept-entity-types.md) de machine-learning doit faire partie du [cycle de création](luis-concept-app-iteration.md) jusqu’à ce que vous ayez la certitude de recevoir les données attendues.
 
 ## <a name="data-location-and-key-usage"></a>Emplacement des données et utilisation de la clé
 LUIS extrait des données à partir de l’énoncé de l’utilisateur au [point de terminaison](luis-glossary.md#endpoint) publié. La **requête HTTPS** (POST ou GET) contient l’énoncé ainsi que certaines configurations facultatives, comme l’environnement de production ou l’environnement intermédiaire.
@@ -245,7 +245,7 @@ Certaines applications doivent être capables de rechercher les nouveaux noms, c
 
 ## <a name="patternany-entity-data"></a>Données d’entité Pattern.any
 
-[Pattern.any](reference-entity-pattern-any.md) est un espace réservé à longueur variable utilisé uniquement dans le gabarit d’énoncé d’un modèle pour marquer où l’entité commence et se termine. L’entité utilisée dans le modèle doit être trouvée pour que celui-ci soit appliqué. 
+[Pattern.any](reference-entity-pattern-any.md) est un espace réservé à longueur variable utilisé uniquement dans le gabarit d’énoncé d’un modèle pour marquer où l’entité commence et se termine. L’entité utilisée dans le modèle doit être trouvée pour que celui-ci soit appliqué.
 
 ## <a name="sentiment-analysis"></a>analyse de sentiments
 Si l’analyse des sentiments est configurée lors de la [publication](luis-how-to-publish-app.md#sentiment-analysis), la réponse JSON de LUIS l’intègre. Pour plus d’informations sur l’analyse des sentiments, consultez la documentation [Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).

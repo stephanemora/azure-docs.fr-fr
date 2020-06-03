@@ -1,6 +1,6 @@
 ---
 title: Gérer les planifications dans Azure Automation
-description: Découvrez comment créer et gérer une planification dans Azure Automation afin de pouvoir démarrer automatiquement un Runbook à un instant donné ou selon une planification périodique.
+description: Cet article explique comment créer et utiliser une planification dans Azure Automation.
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
@@ -9,22 +9,22 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4cd6d4236b95a17f404df13e8b50daf989cf6072
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 557dc3ad48f8f21d8898e2beb5d940d66058e90c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82652107"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744974"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Gérer les planifications dans Azure Automation
 
 Pour planifier le démarrage d'un Runbook dans Azure Automation à une heure spécifiée, liez-le à une ou plusieurs planifications. Une planification peut être configurée pour une exécution des Runbooks ponctuelle ou régulière à des heures et jours précis dans le portail Azure. Vous pouvez également planifier une exécution hebdomadaire ou mensuelle, ou des jours spécifiques de la semaine ou du mois, ou encore un jour particulier du mois. Un Runbook peut être lié à plusieurs planifications et une planification peut avoir plusieurs Runbooks qui lui sont liés.
 
 > [!NOTE]
-> Les planifications ne prennent pas en charge les configurations Azure Automation DSC pour le moment.
+> Azure Automation prend en charge l’heure d’été et la planifie de manière appropriée pour les opérations d’automatisation.
 
->[!NOTE]
->Cet article a été mis à jour pour tenir compte de l’utilisation du nouveau module Az d’Azure PowerShell. Vous pouvez toujours utiliser le module AzureRM, qui continue à recevoir des correctifs de bogues jusqu’à au moins décembre 2020. Pour en savoir plus sur le nouveau module Az et la compatibilité avec AzureRM, consultez [Présentation du nouveau module Az d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Pour obtenir des instructions relatives à l’installation du module Az sur votre Runbook Worker hybride, voir [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Pour votre compte Automation, vous pouvez mettre à jour vos modules vers la dernière version en suivant les instructions du [Guide de mise à jour des modules Azure PowerShell dans Azure Automation](../automation-update-azure-modules.md).
+> [!NOTE]
+> Actuellement, les planifications ne sont pas activées pour les configurations Azure Automation DSC.
 
 ## <a name="powershell-cmdlets-used-to-access-schedules"></a>Cmdlets PowerShell utilisées pour accéder aux planifications
 

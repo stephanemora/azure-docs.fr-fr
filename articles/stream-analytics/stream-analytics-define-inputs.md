@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.openlocfilehash: 388f43fec9242f6a4b448483d9486aa4413d2612
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 52f333a8e39dfd8f68666e6438a7d40414b6f958
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228081"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701422"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Diffuser en continu des données en tant qu’entrées dans Stream Analytics
 
@@ -134,7 +134,7 @@ L’horodatage par défaut des événements de stockage d’objets blob dans Str
 
 Si un objet blob est chargé dans un conteneur de comptes de stockage à 13:00, et que le travail Azure Stream Analytics est lancé avec l’option *Heure personnalisée* à 13:00 ou avant, l’objet blob est récupéré, car son heure de modification se situe dans la période d’exécution de la tâche.
 
-Si un travail Azure Stream Analytics est lancé avec l’option *Maintenant* à 13:00, et qu’un objet blob est chargé dans le conteneur de comptes de stockage à 13:01, Azure Stream Analytics récupère l’objet blob.
+Si un travail Azure Stream Analytics est lancé avec l’option *Maintenant* à 13:00, et qu’un objet blob est chargé dans le conteneur de comptes de stockage à 13:01, Azure Stream Analytics récupère l’objet blob. L’horodateur affecté à chaque blob est basé uniquement sur `BlobLastModifiedTime`. Le dossier dans lequel se trouve le blob n’a aucune relation avec l’horodateur affecté. Par exemple, s’il existe un blob *2019/10-01/00/B1.txt* assorti de la valeur `BlobLastModifiedTime` 2019-11-11, l’horodateur affecté à ce blob est 2019-11-11.
 
 Pour traiter les données en tant que flux à l’aide d’un horodatage dans la charge utile d’événement, vous devez utiliser le mot-clé [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Une tâche Stream Analytics extrait les données de l’entrée Stockage Blob Azure toutes les secondes si le fichier blob est disponible. Si le fichier blob n’est pas disponible, il existe une interruption exponentielle avec un délai maximal de 90 secondes.
 
@@ -143,7 +143,7 @@ Les entrées au format CSV nécessitent une ligne d’en-tête pour définir les
 > [!NOTE]
 > Stream Analytics ne prend pas en charge l’ajout de contenu à un objet blob existant. Stream Analytics n’affiche chaque fichier qu’une seule fois, et toutes les modifications qui sont apportées à celui-ci, une fois que le travail a lu les données, ne sont pas traitées. Une meilleure pratique consiste à télécharger toutes les données d’un objet blob en une seule fois, puis d’ajouter les événements récents supplémentaires dans un fichier blob nouveau et différent.
 
-Dans de rares cas, lors du chargement d’un grand nombre d’objets blob, il peut arriver que Stream Analytics ignore la lecture de certains d’entre eux. Il est recommandé de charger les objets blobs à au moins 2 secondes d’intervalle les uns des autre sur le stockage Blob. Si cette option n’est pas possible, vous pouvez utiliser les concentrateurs Event Hubs pour diffuser en continu de grands volumes d’événements. 
+Dans des scénarios où de nombreux blobs sont ajoutés en permanence, et où Stream Analytics traite les blobs à mesure qu’ils sont ajoutés, il est possible que certains blobs soient ignorés dans de rares cas en raison de la granularité de la valeur `BlobLastModifiedTime`. Vous pouvez atténuer ce problème en téléchargeant les blobs à au moins deux secondes d’intervalle. Si cette option n’est pas possible, vous pouvez utiliser les concentrateurs Event Hubs pour diffuser en continu de grands volumes d’événements.
 
 ### <a name="configure-blob-storage-as-a-stream-input"></a>Configurer un stockage d’objets blob en tant qu’entrée de flux de données 
 
@@ -157,7 +157,7 @@ Le tableau suivant décrit chaque propriété de la page **Nouvelle entrée** du
 | **Clé du compte de stockage** | Clé secrète associée au compte de stockage. Cette option est automatiquement renseignée, sauf si vous sélectionnez l’option pour indiquer manuellement les paramètres du stockage d’objets blob. |
 | **Conteneur** | Conteneur pour les entrées d’objets blob. Les conteneurs fournissent un regroupement logique des objets blob stockés dans le service d’objets blob Microsoft Azure. Lorsque vous chargez un objet blob dans le service de stockage Blob Azure, vous devez spécifier un conteneur pour cet objet blob. Vous pouvez choisir l’option **Use existing container** (Utiliser un conteneur existant) ou **Créer nouveau**.|
 | **Modèle de chemin d’accès** (facultatif) | Chemin d’accès au fichier utilisé pour localiser les objets blob dans le conteneur spécifié. Si vous souhaitez lire des objets blob à partir de la racine du conteneur, ne définissez pas de modèle de chemin d’accès. Dans le chemin d’accès, vous pouvez spécifier une ou plusieurs instances de l’une des trois variables suivantes : `{date}`, `{time}` ou `{partition}`<br/><br/>Exemple 1 : `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemple 2 : `cluster1/logs/{date}`<br/><br/>Le caractère `*` n’est pas une valeur autorisée pour le préfixe du chemin d’accès. Seuls les <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caractères d’objet blob Azure</a> valides sont autorisés. N’incluez pas de noms de conteneurs ou de fichiers. |
-| **Format de date** (facultatif) | Format de date suivant lequel les fichiers sont organisés si vous utilisez la variable de date dans le chemin d’accès. Exemple : `YYYY/MM/DD` |
+| **Format de date** (facultatif) | Format de date suivant lequel les fichiers sont organisés si vous utilisez la variable de date dans le chemin d’accès. Exemple : `YYYY/MM/DD` <br/><br/> Lorsque l’entrée de blob contient `{date}` ou `{time}` dans son chemin d’accès, les dossiers sont examinés dans l’ordre chronologique croissant.|
 | **Format d’heure** (facultatif) |  Format d’heure suivant lequel les fichiers sont organisés si vous utilisez la variable d’heure dans le chemin d’accès. Actuellement, la seule valeur possible est `HH` pour les heures. |
 | **Clé de partition** | Si votre entrée est partitionnée par une propriété, vous pouvez ajouter le nom de cette propriété. Les clés de partition sont facultatives et sont utilisées pour améliorer les performances de votre requête si celle-ci comprend une clause PARTITION BY ou GROUP BY pour cette propriété. |
 | **Format de sérialisation de l’événement** | Format de sérialisation (JSON, CSV, Avro ou [Autre (Protobuf, XML, propriétaire…)](custom-deserializer.md)) du flux de données entrant.  Vérifiez que le format JSON est conforme à la spécification et n’inclut pas de 0 au début des nombres décimaux. |

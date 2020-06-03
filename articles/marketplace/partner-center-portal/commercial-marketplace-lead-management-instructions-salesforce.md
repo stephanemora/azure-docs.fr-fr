@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 7d64b8914fa0b109dfc662a97a7f84d94e3491ec
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 7fbe27845164eb7711d3531173fb440c5a3570f4
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789706"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849131"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configurer la gestion des prospects pour Salesforce
 
@@ -70,9 +70,9 @@ Lorsque vous êtes prêt à configurer les informations de gestion des prospects
 
 1. Sélectionnez votre offre, puis accédez à l’onglet **Configuration de l’offre**.
 
-1. Dans la section **Gestion des prospects**, sélectionnez **Connexion**. 
+1. Dans la section **Prospects**, sélectionnez **Se connecter**.
 
-    ![Section Gestion des prospects - bouton Se connecter](./media/commercial-marketplace-lead-management-instructions-salesforce/lead-management-connect.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-salesforce/customer-leads.png" alt-text="Prospects":::
 
 1. Dans la fenêtre contextuelle **Détails de la connexion**, sélectionnez **Salesforce** pour définir **Destination du prospect** et collez la valeur `oid` du formulaire Web-to-Lead que vous avez créé dans le champ **Identificateur de l’organisation**.
 

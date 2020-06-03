@@ -4,12 +4,12 @@ description: Découvrez comment créer un cluster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: 4f0d702a213c4c34024c043edc50d25e6696cbc1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 49776fb50eabeef8238e54c7a2f3128c99c2514b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610936"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849686"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Créer un cluster Azure Kubernetes Service privé
 
@@ -103,12 +103,13 @@ Comme indiqué, l'appairage VNet permet d’accéder à votre cluster privé. Po
 * Les zones de disponibilité sont actuellement prises en charge pour certaines régions, reportez-vous au début de ce document 
 * Les [limitations du service Azure Private Link][private-link-service] s’appliquent aux clusters privés.
 * Aucune prise en charge des nœuds virtuels dans un cluster privé pour faire tourner des Azure Container Instances privées dans un réseau virtuel Azure privé
-* Aucune prise en charge de l’intégration d’Azure DevOps avec les clusters privés.
+* Aucune prise en charge des agents hébergés par Microsoft Azure DevOps avec des clusters privés. Envisagez d’utiliser des [agents auto-hébergés][devops-agents]. 
 * Pour les clients qui doivent activer Azure Container Registry afin d’utiliser des clusters AKS privés, le réseau virtuel Container Registry doit être appairé avec le réseau virtuel du cluster d’agent.
 * Aucune prise en charge de Azure Dev Spaces
 * Aucune prise en charge de la conversion de clusters AKS existants en clusters privés
 * La suppression ou la modification du point de terminaison privé dans le sous-réseau du client entraîne l’arrêt du fonctionnement du cluster. 
 * Les données actives Azure Monitor pour conteneurs ne sont actuellement pas prises en charge.
+* Le Contrat SLA de durée de fonctionnement n’est pas pris en charge.
 
 
 <!-- LINKS - internal -->
@@ -120,4 +121,4 @@ Comme indiqué, l'appairage VNet permet d’accéder à votre cluster privé. Po
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
-
+[devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops

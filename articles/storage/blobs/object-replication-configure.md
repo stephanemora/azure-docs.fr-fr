@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 6c951d7875086658763243c7c1973f08233f96e0
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 89a4c934a0245c39f6015a43d9de16db800691d8
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83748648"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170628"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Configurer la réplication d’objets pour des objets blob de blocs (préversion)
 
@@ -68,7 +68,7 @@ Pour créer une stratégie de réplication dans le portail Azure, procédez comm
 
 Pour créer une stratégie de réplication à l’aide de PowerShell, commencez par installer la version [2.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) du module PowerShell Az.Storage. Pour installer le module en préversion, procédez comme suit :
 
-1. Désinstallez toutes les anciennes installations d’Azure PowerShell de Windows à l’aide du paramètre **Applications et fonctionnalités** situé sous **Paramètres**.
+1. Désinstallez toutes les anciennes installations d’Azure PowerShell de Windows à l’aide du paramètre **Applications et fonctionnalités** sous **Paramètres**.
 
 1. Vérifiez que la dernière version de PowerShellGet est installée. Ouvrez une fenêtre Windows PowerShell et exécutez la commande suivante pour installer la dernière version :
 
@@ -246,12 +246,15 @@ Pour supprimer une stratégie de réplication dans le portail Azure, procédez c
 Pour supprimer une stratégie de réplication, supprimez la stratégie du compte source et du compte de destination. La suppression de la stratégie supprime également toutes les règles qui lui sont associées.
 
 ```powershell
-Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
-    -StorageAccountName $destAccountName |
-    Remove-AzStorageObjectReplicationPolicy
-Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
-    -StorageAccountName $srcAccountName |
-    Remove-AzStorageObjectReplicationPolicy
+# Remove the policy from the destination account.
+Remove-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $destAccountName `
+    -PolicyId $destPolicy.PolicyId
+
+# Remove the policy from the source account.
+Remove-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName `
+    -PolicyId $destPolicy.PolicyId
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)

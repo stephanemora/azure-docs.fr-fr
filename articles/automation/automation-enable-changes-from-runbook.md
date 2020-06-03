@@ -5,12 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 014442dee1be23a189e22a505abf86050601b2aa
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 2728964d5bbf83b42251068ffbdea223ff6bd85e
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826740"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171087"
 ---
 # <a name="enable-change-tracking-and-inventory-from-a-runbook"></a>Activer Change Tracking et Inventory à partir d’un runbook
 
@@ -103,9 +103,5 @@ Pour démarrer ce runbook, vous devez avoir activé Suivi des modifications et i
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour planifier un runbook, voir [Gérer les planifications dans Azure Automation](shared-resources/schedules.md).
-* Pour plus d’informations sur l’utilisation de la fonctionnalité, voir [Gérer Suivi des modifications et inventaire](change-tracking-file-contents.md).
-* Pour plus d’informations sur les configurations d’étendue, voir [Utiliser des configurations d’étendue pour la fonctionnalité Suivi des modifications et inventaire](automation-scope-configurations-change-tracking.md).
-* Pour savoir comment utiliser la fonctionnalité afin d’identifier les logiciels installés dans votre environnement, voir [Détecter les logiciels installés sur vos machines virtuelles](automation-tutorial-installed-software.md).
-* Si vous ne souhaitez pas intégrer votre compte Automation avec un espace de travail Log Analytics lors de l’activation de cette fonctionnalité, voir [Dissocier un espace de travail d’un compte Automation](automation-unlink-workspace-change-tracking.md).
-* Lorsque vous avez fini de déployer des modifications sur des machines virtuelles, vous pouvez les supprimer comme décrit dans [Supprimer des machines virtuelles de Suivi des modifications et inventaire](automation-remove-vms-from-change-tracking.md).
-* Pour résoudre des problèmes généraux liés à la fonctionnalité, voir [Résoudre les problèmes rencontrés avec Suivi des modifications et inventaire](troubleshoot/change-tracking.md).
+* Pour plus d’informations sur l’utilisation de la fonctionnalité, consultez [Gérer le Suivi des modifications et inventaire](change-tracking-file-contents.md).
+* Pour résoudre des problèmes généraux liés à la fonctionnalité, consultez [Résoudre les problèmes rencontrés avec Suivi des modifications et inventaire](troubleshoot/change-tracking.md).

@@ -7,12 +7,12 @@ ms.date: 11/20/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 54085d602246d38adb970ed02f451241ca7ba19d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2e168abaf522fa1126e3cb4618941952b562df31
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68726404"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831872"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Utilisation du stockage d’objets blob à partir d’iOS
 
@@ -392,7 +392,7 @@ Maintenant que vous avez appris à utiliser le stockage d’objets blob d’iOS,
 - [Bibliothèque cliente d’Azure Storage pour iOS](https://github.com/azure/azure-storage-ios)
 - [Documentation de référence d’Azure Storage pour iOS](https://azure.github.io/azure-storage-ios/)
 - [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-- [Blog de l'équipe Azure Storage](https://blogs.msdn.com/b/windowsazurestorage)
+- [Blog de l'équipe Azure Storage](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
 
-Si vous avez des questions concernant cette bibliothèque, n’hésitez pas à les publier sur notre [forum MSDN Azure](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou sur [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+Si vous avez des questions concernant cette bibliothèque, n’hésitez pas à les publier sur notre [Page de questions Microsoft Q&R](https://docs.microsoft.com/answers/topics/azure-blob-storage.html) ou sur [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 Si vous avez des suggestions de fonctionnalités pour le stockage Azure, envoyez un message sur [Commentaires sur le stockage Azure](https://feedback.azure.com/forums/217298-storage/).

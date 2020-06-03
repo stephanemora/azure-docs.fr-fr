@@ -3,12 +3,12 @@ title: Modifier une base de connaissances - QnA Maker
 description: QnA Maker vous permet de gérer le contenu de votre base de connaissances en fournissant une expérience d’édition simple d’utilisation.
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 018e733dda06b7785b0a87ea3e08009967213134
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 66adf9e1fe227f11514276147de32e8691db7fab
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650815"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993573"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Modifier des paires de Q/R dans votre base de connaissances
 
@@ -85,7 +85,7 @@ Vous pouvez modifier tous les champs d’une paire de Q/R, quelle que soit la so
 
 ## <a name="delete-a-qna-pair"></a>Supprimer une paire QnA
 
-Pour supprimer un QnA, cliquez sur l’icône **Supprimer** à l’extrême droite de la ligne QnA. Il s’agit d’une opération définitive. Elle ne peut pas être annulée. Envisagez d’exporter votre base de connaissances à partir de la page **Publier** avant de supprimer des ensembles.
+Pour supprimer un QnA, cliquez sur l’icône **Supprimer** à l’extrême droite de la ligne QnA. Il s’agit d’une opération définitive. Elle ne peut pas être annulée. Envisagez d’exporter votre base de connaissances à partir de la page **Publier** avant de supprimer des paires.
 
 ![Supprimer une paire QnA](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
 
@@ -110,7 +110,7 @@ Vous ne pouvez pas lier des paires QnA dans les métadonnées de la réponse.
 
 ## <a name="add-metadata"></a>Ajouter des métadonnées
 
-Ajoutez des ensembles de métadonnées en sélectionnant d’abord **Afficher les options**, puis en sélectionnant **Afficher les métadonnées**. Cette opération affiche la colonne de métadonnées. Ensuite, sélectionnez le signe **+** pour ajouter un ensemble de métadonnées. Cet ensemble se compose d’une clé et une valeur.
+Ajoutez des paires de métadonnées en sélectionnant d’abord **Afficher les options**, puis en sélectionnant **Afficher les métadonnées**. Cette opération affiche la colonne de métadonnées. Ensuite, sélectionnez le signe **+** pour ajouter une paire de métadonnées. Cette paire se compose d’une clé et une valeur.
 
 ## <a name="save-changes-to-the-qna-pairs"></a>Enregistrez les changements apportés aux paires QnA
 

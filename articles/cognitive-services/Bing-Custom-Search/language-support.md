@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
-ms.openlocfilehash: 85326ae9166f7ea15ec2f45c01755b8f9ef03aff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 004bd973651d5903db4254a8883be2c8a83d9b38
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66388560"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310578"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Langues et régions prises en charge par l’API Recherche personnalisée Bing
 
@@ -50,7 +50,7 @@ Vous pouvez spécifier un pays/une région à l’aide du paramètre de requête
 |Corée du Sud|KR|
 |Malaisie|MY|
 |Mexique|MX|
-|Pays-bas|NL|
+|Pays-Bas|NL|
 |Nouvelle-Zélande|NZ|
 |Norvège|Non|
 |Chine|CN|
@@ -65,7 +65,7 @@ Vous pouvez spécifier un pays/une région à l’aide du paramètre de requête
 |Suisse|CH|
 |Taïwan|TW|
 |Turquie|TR|
-|United Kingdom|Go|
+|Royaume-Uni|Go|
 |États-Unis|US|
 
 
@@ -94,7 +94,7 @@ Vous pouvez spécifier un pays/une région à l’aide du paramètre de requête
 |Corée du Sud|Coréen|ko-KR|
 |Malaisie|Anglais|en-MY|
 |Mexique|Espagnol|es-MX|
-|Pays-bas|Néerlandais|nl-NL|
+|Pays-Bas|Néerlandais|nl-NL|
 |Nouvelle-Zélande|Anglais|en-NZ|
 |Norvège|Norvégien|no-NO|
 |Chine|Chinois|zh-CN|
@@ -110,6 +110,6 @@ Vous pouvez spécifier un pays/une région à l’aide du paramètre de requête
 |Suisse|Allemand|de-CH|
 |Taïwan|Chinois traditionnel|zh-TW|
 |Turquie|Turc|tr-TR|
-|United Kingdom|Anglais|en-GB|
+|Royaume-Uni|Anglais|en-GB|
 |États-Unis|Anglais|fr-FR|
 |États-Unis|Espagnol|es-US|

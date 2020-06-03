@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 39f1137638f9cd4926b712bdd18e681d90adcdc4
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: d594f3cf556fe311e0b7400a23fd61d0336fe5f1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668552"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651118"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Questions fréquemment posées (FAQ) sur la migration de Stockage Azure
 
@@ -284,13 +284,13 @@ Un stockage géoredondant avec accès en lecture est requis pour accéder au sto
 
 **Pour un compte de stockage répliqué (par exemple un stockage redondant interzone, un stockage géoredondant ou un stockage redondant avec accès en lecture), comment accéder aux données stockées dans la région secondaire ?**
 
--   Si vous utilisez un stockage redondant interzone ou un stockage géoredondant, vous ne pouvez accéder aux données de la région secondaire qu'en procédant à un basculement vers cette région. Pour plus d'informations sur le processus de basculement, consultez [Récupération d'urgence et basculement de compte de stockage (préversion) dans Stockage Azure](storage-disaster-recovery-guidance.md).
+-   Si vous utilisez un stockage redondant interzone ou un stockage géoredondant, vous ne pouvez accéder aux données de la région secondaire qu'en procédant à un basculement vers cette région. Pour plus d’informations sur le processus de basculement, consultez [Récupération d’urgence et basculement de compte de stockage](storage-disaster-recovery-guidance.md).
 
 -   Si vous utilisez un stockage géoredondant avec accès en lecture, vous pouvez accéder à tout moment aux données de la région secondaire. Appliquez l'une des méthodes suivantes :  
 
     - **AzCopy** : Ajoutez **-secondary** au nom du compte de stockage dans l’URL pour accéder au point de terminaison secondaire. Par exemple :  
 
-      https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
+      `https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd`
 
     - **Jeton SAS** : Utilisez un jeton SAS pour accéder aux données du point de terminaison. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé](storage-sas-overview.md).
 

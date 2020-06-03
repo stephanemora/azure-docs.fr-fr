@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: def92071496716f90b24158a50e4a5233e93c994
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: bdacee476fbc25154fe225700730f1b8f7f872ec
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677984"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682271"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Types d’application pour la plateforme d’identité Microsoft
 
@@ -25,7 +25,7 @@ Le point de terminaison de la plateforme d’identité Microsoft v2.0 prend en c
 
 ## <a name="the-basics"></a>Concepts de base
 
-Vous devez inscrire chaque application qui utilise la plateforme d’identité Microsoft dans le [portail d’inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908). Le processus d’inscription des applications collecte les valeurs suivantes et les affecte à votre application :
+Vous devez inscrire chaque application utilisant la plateforme d’identité Microsoft dans le portail Azure [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908). Le processus d’inscription des applications collecte les valeurs suivantes et les affecte à votre application :
 
 * un **ID d’application** qui identifie de manière unique votre application ;
 * un **URI de redirection** que vous pouvez utiliser pour renvoyer les réponses à votre application ;
@@ -42,13 +42,19 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>Applications à page unique (Javascript)
 
-De nombreuses applications modernes disposent d’un frontend d’application à page unique écrit principalement en JavaScript. Souvent, il est écrit à l’aide d’une infrastructure telle qu’Angular, React ou Vue. Le point de terminaison de la plateforme d’identité Microsoft prend en charge ces applications à l’aide du [flux implicite OAuth 2.0](v2-oauth2-implicit-grant-flow.md).
+De nombreuses applications modernes ont un frontal d’application monopage écrit principalement en JavaScript, souvent avec une infrastructure telle que Angular, React ou Vue. Le point de terminaison de la plateforme d’identité Microsoft prend en charge ces applications à l’aide du [flux de code d’autorisation OAuth 2.0](v2-oauth2-auth-code-flow.md).
 
-Dans ce flux, l'application reçoit des jetons directement du point de terminaison de plateforme d’identité Microsoft, sans exécuter d’échanges de serveur à serveur. Tout traitement de logique d'authentification et de gestion de sessions est entièrement exécuté dans le client javascript, sans redirections de pages supplémentaires.
+Dans ce processus, l’application reçoit un code du point de terminaison `authorize` de la plateforme d’identité Microsoft, et l’échange contre des jetons et jetons d’actualisation à l’aide de requêtes web intersites. Le jeton d’actualisation expire toutes les 24 heures, et l’application doit demander un autre code.
 
-![Affiche le flux d’authentification implicite](./media/v2-app-types/convergence-scenarios-implicit.svg)
+![Flux de code pour les applications monopages](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
 
-Pour voir ce scénario en action, exécutez l’un des exemples de code d’application monopage dans la section relative à la [prise en main de la plateforme d’identité Microsoft](v2-overview.md#getting-started).
+Pour voir ce scénario en action, consultez le [didacticiel : Connecter les utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage JavaScript à l’aide d’un flux de code d’autorisation](tutorial-v2-javascript-auth-code.md).
+
+### <a name="authorization-code-flow-vs-implicit-flow"></a>Flux de code d’autorisation et flux implicite
+
+Pour l’essentiel de l’historique d’OAuth 2.0, le [flux implicite](v2-oauth2-implicit-grant-flow.md) était la méthode recommandée pour générer des applications monopages. Avec la suppression des [cookies tiers](reference-third-party-cookies-spas.md) et une [plus grande attention](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14) portée sur les problèmes de sécurité liés au flux implicite, nous avons adopté vers le code d’autorisation pour les applications monopages.
+
+Pour garantir la compatibilité de votre application dans Safari et dans d’autres navigateurs prenant en charge la confidentialité, nous recommandons d’utiliser le flux de code d’autorisation plutôt que le flux implicite.
 
 ## <a name="web-apps"></a>les applications web
 
@@ -77,7 +83,8 @@ Vous pouvez vérifier l’identité de l’utilisateur en validant le jeton d’
 
 Pour voir ce scénario en action, exécutez l’un des exemples de code de connexion d’application web dans la section relative à la [prise en main de la plateforme d’identité Microsoft](v2-overview.md#getting-started).
 
-En plus de la connexion simple, une application de serveur web peut également nécessiter l’accès à un autre service Web, comme une API REST. Dans ce cas, l’application de serveur web s’engager dans un flux OpenID Connect et OAuth 2.0 à l’aide du [flux de code d’autorisation OAuth 2.0](active-directory-v2-protocols.md). Pour en savoir plus sur ce scénario, découvrez comment [la bien démarrer avec les applications web et des API web](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
+En plus de la connexion simple, une application de serveur web peut également nécessiter l’accès à un autre service Web, comme une API REST. Dans ce cas, l’application de serveur web s’engager dans un flux OpenID Connect et OAuth 2.0 à l’aide du [flux de code d’autorisation OAuth 2.0](v2-oauth2-auth-code-flow.md). Pour en savoir plus sur ce scénario, découvrez comment [la bien démarrer avec les applications web et des API web](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
+
 
 ## <a name="web-apis"></a>API Web
 
@@ -120,3 +127,7 @@ Dans ce flux, l’application interagit directement avec le point de terminaison
 ![Affiche le flux d’authentification des applications démons](./media/v2-app-types/convergence-scenarios-daemon.svg)
 
 Pour créer une application démon, consultez la [documentation sur les informations d’identification des clients](v2-oauth2-client-creds-grant-flow.md) ou consultez un [exemple d’application .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+À présent que vous êtes familiarisé avec les types d’applications que la plateforme d’identité Microsoft prend en charge, apprenez-en davantage sur [OAuth 2.0 et OpenID Connect](active-directory-v2-protocols.md) afin de comprendre les composants de protocole utilisés par les différents scénarios.

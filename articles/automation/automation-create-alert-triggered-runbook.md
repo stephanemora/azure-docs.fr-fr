@@ -1,16 +1,16 @@
 ---
 title: Utiliser une alerte pour déclencher un runbook Azure Automation
-description: Découvrez comment déclencher un runbook à exécuter quand une alerte Azure est déclenchée.
+description: Cet article explique comment déclencher un runbook à exécuter quand une alerte Azure est levée.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: eb7a1cc0cb589fa3d2fe605913d47be4444516e8
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 1feadeaf2a905abee396c09829dab5e06c46d99c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996862"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837108"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Utiliser une alerte pour déclencher un runbook Azure Automation
 
@@ -22,7 +22,7 @@ Vous pouvez utiliser des runbooks Automation avec trois types d’alerte :
 
 * Alertes courantes
 * Alertes de journal d’activité
-* Alerte de métrique quasiment en temps réel
+* Alertes de métrique en quasi temps réel
 
 > [!NOTE]
 > Le schéma d’alerte commun standardise l’expérience de consommation pour les notifications d’alerte dans Azure de nos jours. Les trois types d’alerte actuels dans Azure (métrique, journal et journal d’activité) ont traditionnellement eu leurs propres modèles d’e-mail, schémas de webhook, etc. Pour en savoir plus, consultez [Schéma d’alerte courant](../azure-monitor/platform/alerts-common-schema.md)
@@ -191,9 +191,8 @@ Les alertes utilisent des groupes d’actions, qui sont des collections d’acti
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur le démarrage d’un runbook Automation avec un Webhook, consultez [Démarrer un runbook depuis un Webhook](automation-webhooks.md).
-* Pour plus d’informations sur les différentes façons de démarrer un Runbook, voir [Démarrage d’un Runbook](automation-starting-a-runbook.md).
-* Pour découvrir comment créer une alerte de journal d’activité, consultez [Créer des alertes de journal d’activité](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
+* Pour démarrer un runbook à l’aide d’un webhook, consultez [Démarrer un runbook depuis un Webhook](automation-webhooks.md).
+* Pour découvrir les différentes façons de démarrer un runbook, consultez [Démarrer un runbook](automation-starting-a-runbook.md).
+* Pour créer une alerte de journal d’activité, consultez [Créer des alertes de journal d’activité](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
 * Pour apprendre à créer une alerte quasiment en temps réel, consultez [Créer une règle d’alerte avec le portail Azure](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
-* Pour obtenir des informations de référence sur les cmdlets PowerShell, consultez [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* Pour obtenir des informations de référence sur les cmdlets PowerShell, consultez [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).

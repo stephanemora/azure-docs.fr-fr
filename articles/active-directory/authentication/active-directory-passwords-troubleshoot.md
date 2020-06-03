@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1224aef044c558147f4c7234f6514d0de2f09e0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5ca3f4b1e1061b0ca86cc836849499b83ee055fe
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143992"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826517"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Résoudre les problèmes relatifs à la réinitialisation de mot de passe libre-service
 
@@ -256,7 +256,7 @@ Azure AD Connect a besoin de l’autorisation Active Directory **Réinitialiser 
 
 ## <a name="azure-ad-forums"></a>Forums d’Azure AD
 
-Si vous avez une question générale sur Azure AD et la réinitialisation du mot de passe en libre-service, vous pouvez demander de l’aide à la communauté sur les [forums d’Azure AD](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Les membres de la communauté comprennent des ingénieurs, des chefs de produit, MVP et autres professionnels de l’informatique.
+Si vous avez une question générale sur Azure AD et la réinitialisation du mot de passe en libre-service, vous pouvez demander de l’aide à la communauté via la [Pages des Q&R Microsoft pour Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html). Les membres de la communauté comprennent des ingénieurs, des chefs de produit, MVP et autres professionnels de l’informatique.
 
 ## <a name="contact-microsoft-support"></a>Contact Microsoft support
 

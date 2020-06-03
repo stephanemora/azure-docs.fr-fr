@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f90a6dd94a498b6de6b5e2ec8381180483d0ac8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28467dbaabb0b84bf7da9f2ae28d6405699b2c6b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113151"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845744"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Intégrer votre infrastructure VPN avec Azure MFA en utilisant l’extension NPS (Network Policy Server) pour Azure
 
@@ -245,9 +245,9 @@ Dans cette section, vous configurez votre serveur VPN pour utiliser l’authenti
     b. Dans **Secret partagé**, sélectionnez **Modifier** et entrez le mot de passe secret partagé que vous avez créé et noté précédemment.
 
     c. Dans le champ **Délai (en secondes)** , entrez la valeur **30**.  
-    Il est nécessaire de prévoir un délai suffisant pour exécuter le second facteur d’authentification.
+    Il est nécessaire de prévoir un délai suffisant pour exécuter le second facteur d’authentification. Il existe des VPN ou régions qui requièrent des paramètres de délai d’expiration supérieurs à 30 secondes pour empêcher les utilisateurs de recevoir plusieurs appels téléphoniques. Si des utilisateurs rencontrent ce problème, augmentez la valeur **Délai d’expiration (secondes)** par incréments de 30 secondes jusqu’à ce que le problème disparaisse.
 
-    ![Fenêtre Ajouter un serveur RADIUS configurant le délai](./media/howto-mfa-nps-extension-vpn/image16.png)
+    ![Fenêtre Ajouter un serveur RADIUS configurant le délai](./media/howto-mfa-nps-extension-vpn/image16.png) 
 
 8. Sélectionnez **OK**.
 

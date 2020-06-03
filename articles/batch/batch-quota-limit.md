@@ -1,15 +1,15 @@
 ---
 title: Quotas et limites du service
 description: En savoir plus sur les contraintes, les limites et les quotas par défaut d’Azure Batch, et comment demander une augmentation de quota
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: a901d54ea584ec67bfa679e9cdc716ab27d45eca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b172800e6ed2a28315da3b45eb39f2207f8f1c16
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115820"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780004"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas et limites du service Batch
 
@@ -132,10 +132,10 @@ Les pools Batch dans la configuration de machine virtuelle déployés dans un r�
 Ces ressources sont allouées dans l’abonnement contenant le réseau virtuel fourni lors de la création du pool Batch. Ces ressources sont limitées par les [quotas de ressources](../azure-resource-manager/management/azure-subscription-service-limits.md) de l’abonnement. Si vous planifiez des déploiements de pools de grande taille dans un réseau virtuel, vérifiez les quotas de l’abonnement pour ces ressources. Si nécessaire, demandez une augmentation sur le portail Azure en sélectionnant **Aide et support**.
 
 
-## <a name="related-topics"></a>Rubriques connexes
-* [Création et gestion d’un compte Azure Batch dans le portail Azure](batch-account-create-portal.md)
-* [Vue d'ensemble des fonctionnalités d'Azure Batch](batch-api-basics.md)
-* [Abonnement Azure et limites, quotas et contraintes du service](../azure-resource-manager/management/azure-subscription-service-limits.md)
+## <a name="next-steps"></a>Étapes suivantes
+* [Créer un compte Azure Batch à l’aide du portail Azure](batch-account-create-portal.md).
+* Apprenez-en davantage sur le [flux de travail et les ressources principales du service Batch](batch-service-workflow-features.md), telles que les pools, les nœuds, les travaux et les tâches.
+* En savoir plus sur [Abonnement Azure et limites, quotas et contraintes de service](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/

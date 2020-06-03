@@ -9,13 +9,13 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: anandsub
-ms.date: 12/19/2019
-ms.openlocfilehash: e7de92878dac72470c0b65d1cf18c1a2d526a0bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/15/2020
+ms.openlocfilehash: 79b89c6a6a7598dd3fbdfc5030fd59fe1aab6625
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418488"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832776"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Création visuelle dans Azure Data Factory
 
@@ -31,9 +31,17 @@ Pour ouvrir la **zone de travail de création**, cliquez sur l’icône de crayo
 
 ![Zone de travail de création](media/author-visually/authoring-canvas.png)
 
-Ici, vous allez créer les pipelines, les activités, les jeux de données, les services liés, les flux de données, les déclencheurs et les runtimes d’intégration qui composent votre fabrique. Pour commencer à créer un pipeline à l’aide de la zone de travail de création, consultez [Copier des données à l’aide de l’activité de copie](tutorial-copy-data-portal.md). 
+Ici, vous créez les pipelines, les activités, les jeux de données, les services liés, les flux de données, les déclencheurs et les runtimes d’intégration qui composent votre fabrique. Pour commencer à créer un pipeline à l’aide de la zone de travail de création, consultez [Copier des données à l’aide de l’activité de copie](tutorial-copy-data-portal.md). 
 
 L’expérience de création visuelle par défaut fonctionne directement avec le service Data Factory. L’intégration GitHub ou Azure Repos Git est également prise en charge afin d’autoriser le contrôle du code source et la collaboration pour les utiliser sur vos pipelines Data Factory. Pour en savoir plus sur les différences entre ces expériences de création, consultez [Contrôle de code source dans Azure Data Factory](source-control.md).
+
+### <a name="properties-pane"></a>Propriétés, volet
+
+Pour des ressources de niveau supérieur, telles que des pipelines, des jeux de données et des flux de données, les propriétés de haut niveau sont modifiables dans le volet Propriétés sur le côté droit de la zone de dessin. Le volet Propriétés contient des propriétés telles que le nom, la description, les annotations et d’autres propriétés de haut niveau. Les sous-ressources telles que les activités de pipeline et les transformations de flux de données sont modifiées via le volet en bas de la zone de dessin. 
+
+![Zone de travail de création](media/author-visually/properties-pane.png)
+
+Par défaut, le volet des propriétés s’ouvre uniquement lors de la création de ressource. Pour le modifier, cliquez sur l’icône du volet de propriétés située dans l’angle supérieur droit de la zone de dessin.
 
 ## <a name="expressions-and-functions"></a>Expressions et fonctions
 

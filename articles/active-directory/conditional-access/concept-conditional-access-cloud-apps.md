@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6cf00fab14f91b151327b435068d689edab32b2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: dfdfcda0ce466299d57f79ba1e60a96309078587
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737722"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014347"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Accès conditionnel : Applications ou actions cloud
 
@@ -36,7 +36,7 @@ Les administrateurs peuvent affecter une stratégie d’accès conditionnel aux 
 - [Office 365 (préversion)](#office-365-preview)
 - Azure Analysis Services
 - Azure DevOps
-- [Azure SQL Database et Data Warehouse](../../sql-database/sql-database-conditional-access.md)
+- [Azure SQL Database et Data Warehouse](../../azure-sql/database/conditional-access-configure.md)
 - Dynamics CRM en ligne
 - Microsoft Application Insights Analytics
 - [Microsoft Azure Information Protection](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)

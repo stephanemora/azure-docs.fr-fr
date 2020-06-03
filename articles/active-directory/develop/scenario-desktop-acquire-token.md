@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 24567461ee8a87fc9dbd1c5fb4eba5e34d458f7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c439c118e242f3561593aa0c8fe9a88b3b07a4a9
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82097759"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771840"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Application de bureau qui appelle des API web : Acquérir un jeton
 
@@ -105,7 +105,7 @@ if not result:
     result = app.acquire_token_by_xxx(scopes=config["scope"])
 ```
 
-# <a name="macos"></a>[MacOS](#tab/macOS)
+# <a name="macos"></a>[macOS](#tab/macOS)
 
 ### <a name="in-msal-for-ios-and-macos"></a>Dans MSAL pour iOS et macOS
 
@@ -374,7 +374,7 @@ if not result:
 
 ```
 
-# <a name="macos"></a>[MacOS](#tab/macOS)
+# <a name="macos"></a>[macOS](#tab/macOS)
 
 ### <a name="in-msal-for-ios-and-macos"></a>Dans MSAL pour iOS et macOS
 
@@ -419,9 +419,9 @@ Pour connecter un utilisateur de domaine sur une machine jointe à Azure AD ou �
 
 - L’authentification Windows intégrée n’est utilisable que pour les utilisateurs *fédérés+* , c’est-à-dire les utilisateurs créés dans Active Directory et reposant sur Azure AD. Les utilisateurs créés directement dans Azure AD sans appui Active Directory, appelés utilisateurs *managés*, ne peuvent pas utiliser ce flux d’authentification. Cette restriction ne concerne pas le flux de nom d’utilisateur et de mot de passe.
 - L’authentification Windows intégrée est destinée aux applications écrites pour les plateformes .NET Framework, .NET Core et UWP, la plateforme Windows universelle.
-- IWA ne permet pas de contourner l’authentification multifacteur (MFA). Si l’authentification MFA est configurée, IWA peut échouer en cas de demande MFA exigée, car MFA a besoin d’une interaction utilisateur.
+- L’authentification Windows n’ignore pas l’[authentification multifacteur (MFA)](../authentication/concept-mfa-howitworks.md). Si l’authentification MFA est configurée, IWA peut échouer en cas de demande MFA exigée, car MFA a besoin d’une interaction utilisateur.
   > [!NOTE]
-  > Voilà qui est délicat. L’authentification IWA est non interactive, mais MFA nécessite l’interactivité avec l’utilisateur. Vous n’avez pas le contrôle lorsque le fournisseur d’identité demande l’exécution de MFA, l’administrateur de locataire, si. D’après ce que nous avons pu observer, l’authentification MFA est demandée lorsque vous vous connectez depuis un autre pays alors que vous n’êtes pas connecté à un réseau d’entreprise via un VPN, et parfois même lorsque vous êtes connecté via un VPN. Ne vous attendez pas à un ensemble déterministe de règles. Azure AD utilise l’intelligence artificielle pour apprendre en continu à déterminer si l’authentification MFA est exigée. Ayez recours à une invite utilisateur de secours, comme une authentification interactive ou un flux de code d’appareil, si l’IWA échoue.
+  > Voilà qui est délicat. L’authentification IWA est non interactive, mais MFA nécessite l’interactivité avec l’utilisateur. Vous n’avez pas le contrôle lorsque le fournisseur d’identité demande l’exécution de MFA, l’administrateur de locataire, si. D’après ce que nous avons pu observer, l’authentification MFA est demandée lorsque vous vous connectez depuis un autre pays/région alors que vous n’êtes pas connecté à un réseau d’entreprise via un VPN, et parfois même lorsque vous êtes connecté via un VPN. Ne vous attendez pas à un ensemble déterministe de règles. Azure AD utilise l’intelligence artificielle pour apprendre en continu à déterminer si l’authentification MFA est exigée. Ayez recours à une invite utilisateur de secours, comme une authentification interactive ou un flux de code d’appareil, si l’IWA échoue.
 
 - L’autorité transmise dans `PublicClientApplicationBuilder` doit être :
   - Avec locataire sous le format `https://login.microsoftonline.com/{tenant}/`, dans lequel `tenant` est le GUID qui représente l’ID de locataire ou un domaine associé au locataire.
@@ -590,9 +590,9 @@ private static IAuthenticationResult acquireTokenIwa() throws Exception {
 
 Ce flux n’est pas encore pris en charge dans MSAL Python.
 
-# <a name="macos"></a>[MacOS](#tab/macOS)
+# <a name="macos"></a>[macOS](#tab/macOS)
 
-Ce flux ne s’applique pas à MacOS.
+Ce flux ne s’applique pas à macOS.
 
 ---
 
@@ -615,7 +615,7 @@ Ce flux est *déconseillé*, car le fait que votre application demande à un uti
 
 Les contraintes suivantes s’appliquent également :
 
-- Le flux de nom d’utilisateur et de mot de passe n’est pas compatible avec l’accès conditionnel et l’authentification multifacteur. Par conséquent, si votre application s’exécute dans un locataire Azure AD pour lequel l’administrateur de locataire exige une authentification multifacteur, vous ne pouvez pas utiliser ce flux. De nombreuses organisations font cela.
+- Le flux de nom d’utilisateur et de mot de passe n’est pas compatible avec l’accès conditionnel et l’authentification multifacteur. Par conséquent, si votre application s’exécute dans un locataire Azure AD pour lequel l’administrateur de locataires exige une authentification multifacteur, vous ne pouvez pas utiliser ce flux. De nombreuses organisations font cela.
 - Ce moyen fonctionne uniquement pour les comptes professionnels et scolaires (pas les comptes MSA).
 - Ce flux est disponible sur .NET Desktop et .NET Core, mais pas sur UWP.
 
@@ -913,7 +913,7 @@ if not result:
         config["username"], config["password"], scopes=config["scope"])
 ```
 
-# <a name="macos"></a>[MacOS](#tab/macOS)
+# <a name="macos"></a>[macOS](#tab/macOS)
 
 Ce flux n’est pas pris en charge sur MSAL pour macOS.
 
@@ -1144,9 +1144,9 @@ if not result:
         # and then keep calling acquire_token_by_device_flow(flow) in your own customized loop
 ```
 
-# <a name="macos"></a>[MacOS](#tab/macOS)
+# <a name="macos"></a>[macOS](#tab/macOS)
 
-Ce flux ne s’applique pas à MacOS.
+Ce flux ne s’applique pas à macOS.
 
 ---
 

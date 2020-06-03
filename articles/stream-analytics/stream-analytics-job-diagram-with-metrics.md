@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 3c0c29e1793e56efae8d13cb01d57faf257d8805
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 00e1175cc85f1c34260c5e03ed3f81ac25cf7448
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75426074"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836496"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Débogage piloté par les données à l’aide du diagramme de travail
 
@@ -79,7 +79,7 @@ Si l’étape de requête précédente est un processeur d’entrée, utilisez l
 
 
 ## <a name="get-help"></a>Obtenir de l’aide
-Pour une assistance supplémentaire, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
+Pour obtenir une assistance supplémentaires, consultez notre [page de questions Microsoft Q&R sur Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation de Stream Analytics](stream-analytics-introduction.md)

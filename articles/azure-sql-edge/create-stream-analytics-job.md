@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 5e0043ebba1a317dcc6798d6be74aac051d97012
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7db7f9548a3daa86a53dd37fbe088661e8b7b17e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595388"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685163"
 ---
 # <a name="create-stream-analytics-job-in-azure-sql-edge-preview"></a>Créer une tâche Stream Analytics dans Azure SQL Edge (préversion) 
 
@@ -22,6 +22,9 @@ Cet article explique comment créer une tâche T-SQL Streaming dans Azure SQL Ed
 
 1. Créer les objets d’entrée et de sortie du flux externe
 2. Définir la requête de tâche de streaming dans le cadre de la création de la tâche de streaming
+
+> [!NOTE]
+> Pour activer la fonctionnalité de diffusion en continu T-SQL dans Azure SQL Edge, activez TF 11515 en tant qu’option de démarrage, ou utilisez la commande [DBCC TRACEON]( https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql). Pour plus d’informations sur la façon d’activer les indicateurs de trace à l’aide du fichier mssql.conf, consultez [Configurer à l’aide du fichier mssql.conf](configure.md#configure-using-mssqlconf-file). Cette exigence sera supprimée dans les futures mises à jour d’Azure SQL Edge (préversion).
 
 ## <a name="configure-an-external-stream-input-and-output-object"></a>Configurer un objet d’entrée et de sortie de flux externe
 

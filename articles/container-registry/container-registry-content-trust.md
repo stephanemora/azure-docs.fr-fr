@@ -3,19 +3,19 @@ title: Gérer des images signées
 description: Découvrez comment activer l’approbation de contenu pour votre registre de conteneurs Azure et comment envoyer (push) ou extraire (pull) des images signées.
 ms.topic: article
 ms.date: 09/06/2019
-ms.openlocfilehash: ce1e9e5cce0de58703e69df8db14cfbf3ecf04f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 72d45301e1d8a5f29eda941bd39217082f5dc6ba
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78249921"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680489"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Approbation de contenu dans Azure Container Registry
 
 Azure Container Registry implémente le modèle d’[approbation de contenu][docker-content-trust] de Docker, qui permet l’envoi (push) et le tirage (pull) d’images signées. Cet article vous permet de bien démarrer avec l’activation de l’approbation de contenu dans vos registres de conteneur.
 
 > [!NOTE]
-> L’approbation de contenu est une fonctionnalité de la [référence SKU Premium](container-registry-skus.md) d’Azure Container Registry.
+> L’Approbation de contenu est une fonctionnalité du [Niveau de service Premium](container-registry-skus.md) d’Azure Container Registry.
 
 ## <a name="how-content-trust-works"></a>Fonctionnement de l’approbation de contenu
 

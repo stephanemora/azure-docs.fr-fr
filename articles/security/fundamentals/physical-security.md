@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 634f89b3123902d981ad07dd1404315387104322
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 19fd257e76cdf811343f1c1c772fb3646933bb86
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68726723"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774059"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Sécurité locale et physique des centres de données Azure
 Cet article décrit ce que Microsoft fait pour sécuriser l’infrastructure Azure.
@@ -28,7 +28,7 @@ Cet article décrit ce que Microsoft fait pour sécuriser l’infrastructure Azu
 ## <a name="datacenter-infrastructure"></a>Infrastructure de centre de données
 Azure est composé d’une [infrastructure de centres de données distribuée à l’échelle mondiale](https://azure.microsoft.com/global-infrastructure/) qui gère des milliers de services en ligne et couvre plus de 100 installations de haute sécurité dans le monde entier.
 
-L’infrastructure est conçue pour rapprocher les applications des utilisateurs dans le monde entier, en préservant la résidence des données et en offrant aux clients des options complètes de conformité et de résilience. Azure est présent dans 52 régions du monde et disponible dans 140 pays/régions.
+L’infrastructure est conçue pour rapprocher les applications des utilisateurs dans le monde entier, en préservant la résidence des données et en offrant aux clients des options complètes de conformité et de résilience. Azure est présent dans 58 régions du monde et disponible dans 140 pays/régions.
 
 Une région est un ensemble de centres de données qui sont interconnectés dans un réseau massif et résilient. Par défaut, le réseau gère la distribution, l’équilibrage de charge, la redondance et le chiffrement du contenu. En proposant plus de régions dans le monde que les autres fournisseurs de cloud, Azure offre aux clients la possibilité de déployer des applications là où ils en ont besoin.
 

@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 05/12/2020
 ms.author: juliako
-ms.openlocfilehash: dc57978dd881532cab59150dec921df9ffa958c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb57af37308badcd3123af3348178aaac061f376
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767202"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652185"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Forum Aux Questions sur Video Indexer
 
@@ -99,6 +99,10 @@ Pour plus d’informations, consultez les articles sur la personnalisation des m
 Oui. Appuyez sur le bouton **Modifier la vidéo** à partir de la vue de la bibliothèque, ou sur le bouton **Ouvrir dans l’éditeur** à partir de la vue du lecteur pour accéder à l’onglet **Projets**. Vous pouvez créer un nouveau projet et ajouter d’autres vidéos à partir de votre bibliothèque pour les modifier. Une fois que vous avez terminé, vous pouvez afficher votre vidéo et la télécharger. 
 
 Si vous souhaitez obtenir des insights sur votre nouvelle vidéo, indexez-la avec Video Indexer et elle apparaîtra dans votre bibliothèque avec ses insights.
+
+### <a name="can-i-index-multiple-audio-streams-or-channels"></a>Puis-je indexer plusieurs flux ou canaux audio ?
+
+S’il existe plusieurs flux audio, Video Indexer prend le premier qu’il rencontre et ne traite que celui-là. Dans n’importe quel flux audio qu’il traite, Video Indexer prend les différents canaux (s’il y en a) et les traite ensemble comme mono. Pour la manipulation de flux/canaux, vous pouvez utiliser des commandes ffmpeg sur le fichier avant de l’indexer.
 
 ### <a name="what-is-the-sla-for-video-indexer"></a>Quel est le contrat SLA pour Video Indexer ?
 

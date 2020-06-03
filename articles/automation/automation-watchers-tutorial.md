@@ -1,20 +1,26 @@
 ---
-title: Créer une tâche Observateur dans le compte Azure Automation | Documents Microsoft
-description: Découvrez comment créer une tâche d'observateur dans le compte Azure Automation afin de surveiller les fichiers créés dans un dossier.
+title: Suivre les fichiers mis à jour avec une tâche d’observateur dans Azure Automation
+description: Cet article explique comment créer une tâche d’observateur dans le compte Azure Automation afin de surveiller la création de fichiers dans un dossier.
 services: automation
 ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 1175350e7f9f4db92d7d59eba0cc66ac4bb49f5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3369a807410e9e959e8091d5b16c8480803d26bb
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617355"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830580"
 ---
-# <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Créer des tâches d’observateur Azure Automation pour suivre les modifications des fichiers sur un ordinateur local
+# <a name="track-updated-files-with-a-watcher-task"></a>Suivre les fichiers mis à jour avec une tâche d’observateur
 
 Azure Automation utilise une tâche d’observateur pour rechercher les événements et déclencher des actions avec des runbooks PowerShell. La tâche d’observateur se compose de deux éléments : l’observateur et l’action. Un runbook d’observateur s’exécute à un intervalle défini dans la tâche d’observateur et génère des données vers un runbook d’action. 
+
+> [!NOTE]
+> Les tâches d’observateur ne sont pas prises en charge dans Azure Chine Vianet 21.
+
+> [!IMPORTANT]
+> Depuis de mai 2020, l’utilisation de Azure Logic Apps est la méthode prise en charge pour surveiller des événements, planifier des tâches récurrentes et déclencher des actions. Consultez [Créer et exécuter des tâches, processus et flux de travail automatisés récurrents avec Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
 
 Ce didacticiel vous guide lors de la création d’une tâche d’observateur pour surveiller l’ajout d’un nouveau fichier à un répertoire. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -34,9 +40,6 @@ Pour effectuer ce didacticiel, vous avez besoin des éléments suivants :
 * Un [compte Automation](automation-offering-get-started.md) qui contiendra les runbooks Watcher et d'actions ainsi que la tâche d'observateur.
 * Un [Runbook Worker hybride](automation-hybrid-runbook-worker.md) où la tâche d'observateur est exécutée.
 * Runbooks PowerShell. Les runbooks PowerShell Workflow ne sont pas pris en charge par les tâches d’observateur.
-
-> [!NOTE]
-> Les tâches Watcher ne sont pas prises en charge dans Azure China.
 
 ## <a name="import-a-watcher-runbook"></a>Importer un runbook d’observateur
 
@@ -166,5 +169,4 @@ Dans ce didacticiel, vous avez appris à :
 Suivez ce lien pour en savoir plus sur la création de votre propre runbook.
 
 > [!div class="nextstepaction"]
-> [Mon premier runbook PowerShell](automation-first-runbook-textual-powershell.md).
-
+> [Créer un runbook PowerShell](learn/automation-tutorial-runbook-textual-powershell.md)

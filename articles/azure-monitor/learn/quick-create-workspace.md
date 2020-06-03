@@ -5,20 +5,20 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2019
-ms.openlocfilehash: 3c2e9d5634916c3713b7e3380c0496611d8f60a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/26/2020
+ms.openlocfilehash: e6ef8fb7dfd98a509b0b89e049c70169dafbe134
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77656277"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860560"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Créer un espace de travail Log Analytics dans le portail Azure
 Utilisez le menu **Espaces de travail Log Analytics** pour créer un espace de travail Log Analytics à l’aide du portail Azure. Un espace de travail Log Analytics est un environnement unique pour les données de journal d’activité Azure Monitor. Chaque espace de travail dispose d’un référentiel de données et d’une configuration propres. Les sources de données et les solutions sont configurées de façon à stocker leurs données dans un espace de travail particulier. Vous devez avoir un espace de travail Log Analytics si vous souhaitez collecter des données à partir des sources suivantes :
 
 * Ressources Azure dans votre abonnement
 * Ordinateurs locaux surveillés par System Center Operations Manager
-* Regroupements d'appareils à partir de Configuration Manager 
+* Regroupements d’appareils à partir de Configuration Manager 
 * Données de diagnostics ou de journaux du Stockage Azure
 
 Pour les autres sources, telles que les machines virtuelles Azure et les machines virtuelles Windows ou Linux dans votre environnement, consultez les rubriques suivantes :
@@ -50,6 +50,14 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 3. Après avoir entré les informations requises dans le volet **Espace de travail Log Analytics**, cliquez sur **OK**.  
 
 Pendant que les informations sont vérifiées et l’espace de travail créé, vous pouvez suivre la progression sous **Notifications** dans le menu. 
+
+## <a name="troubleshooting"></a>Dépannage
+Lorsque vous créez un espace de travail qui a été supprimé au cours des 14 derniers jours et qui se trouve dans l’[état de suppression réversible](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior), l’opération peut avoir des résultats différents en fonction de la configuration de votre espace de travail :
+1. Si vous fournissez les mêmes nom d’espace de travail, groupe de ressources, abonnement et région que dans l’espace de travail supprimé, votre espace de travail est récupéré avec ses données, sa configuration et ses agents connectés.
+2. Si vous utilisez le même nom d’espace de travail, mais un groupe de ressources, un abonnement ou une région différents, vous recevez le message erreur : *Ce nom d’espace de travail est déjà utilisé. Essayez un autre nom.* . Pour annuler la suppression réversible afin de supprimer définitivement votre espace de travail et d’en créer un nouveau sous le même nom, procédez comme suit pour récupérer l’espace de travail avant d’effectuer la suppression définitive :
+   - [Récupérer](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) votre espace de travail
+   - [Supprimer définitivement](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) votre espace de travail
+   - Créer un espace de travail en reprenant le même nom d’espace de travail
 
 ## <a name="next-steps"></a>Étapes suivantes
 Disposant à présent d’un espace de travail, vous pouvez configurer la collecte des données de télémétrie de surveillance, exécuter des recherches dans les journaux pour analyser ces données et ajouter une solution de gestion pour fournir des données et insights analytiques supplémentaires. 

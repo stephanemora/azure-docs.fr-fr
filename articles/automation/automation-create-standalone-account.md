@@ -1,20 +1,20 @@
 ---
 title: Création d’un compte Azure Automation autonome
-description: Cet article vous guide tout au long des procédures de création, de test et d’utilisation d’un exemple d’authentification de principal de sécurité dans Azure Automation.
+description: Cet article explique comment créer un compte Azure Automation autonome et un compte d’identification Classic.
 services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 72a40363edf0e83eea26ee697ce992226da0db4f
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 0734ac0843eec164ad2207020da9dd1a7e9fa429
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392287"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837091"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Création d’un compte Azure Automation autonome
 
-Cet article vous montre comment créer un compte Azure Automation dans le portail Azure. Vous pouvez utiliser le compte Automation du portail pour évaluer Automation et vous familiariser avec la solution sans recourir à des solutions de gestion supplémentaires ou à une intégration aux journaux Azure Monitor. Ajoutez ces solutions de gestion ou intégrez-les aux journaux Azure Monitor pour prendre en charge une supervision avancée des tâches de runbook ultérieurement.
+Cet article vous montre comment créer un compte Azure Automation dans le portail Azure. Vous pouvez utiliser le compte Automation du portail pour évaluer Automation et vous familiariser avec la solution sans recourir à des fonctionnalités de gestion supplémentaires ou à une intégration aux journaux Azure Monitor. Vous pouvez ajouter de fonctionnalités de gestion ou procéder à une intégration avec les journaux Azure Monitor pour une supervision avancée des tâches de runbook ultérieurement.
 
 Avec un compte Automation, vous pouvez authentifier des runbooks en gérant des ressources dans Azure Resource Manager ou dans le modèle de déploiement classique. Un compte Automation peut gérer les ressources sur toutes les régions et abonnements pour un locataire donné.
 
@@ -31,13 +31,11 @@ Grâce à ce compte créé pour vous, vous pouvez rapidement commencer à créer
 Pour créer ou mettre à jour un compte Automation et effectuer les tâches décrites dans cet article, vous devez disposer des privilèges et autorisations suivants :
 
 * Pour créer un compte Automation, votre compte d'utilisateur Azure AD doit être ajouté à un rôle disposant d'autorisations équivalentes à celles du rôle Propriétaire des ressources `Microsoft.Automation`. Pour plus d’informations, voir [Contrôle d’accès en fonction du rôle dans Azure Automation](automation-role-based-access-control.md).
-* Dans le portail Azure, sous **Azure Active Directory** > **GÉRER** > **Paramètres utilisateur**, si **Inscriptions des applications** a la valeur **Oui**, les utilisateurs non-administrateurs dans votre locataire Azure AD peuvent [inscrire les applications Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Si **Inscriptions des applications** est défini sur **Non**, l’utilisateur qui effectue cette action doit être administrateur général dans Azure AD.
+* Dans le portail Azure, sous **Azure Active Directory** > **GÉRER** > **Paramètres utilisateur**, si **Inscriptions d’applications** a la valeur **Oui**, les utilisateurs non-administrateurs dans votre locataire Azure AD peuvent [inscrire les applications Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Si **Inscriptions des applications** est défini sur **Non**, l’utilisateur qui effectue cette action doit être administrateur général dans Azure AD.
 
-Si vous n'êtes pas membre de l'instance Active Directory de l'abonnement avant de recevoir le rôle d'Administrateur général/Coadministrateur de l'abonnement, vous êtes ajouté à Active Directory en tant qu'invité. Dans ce scénario, le volet Ajouter un compte Automation affiche ce message : `You do not have permissions to create.`
+Si vous n’êtes pas membre de l’instance Active Directory de l’abonnement avant de recevoir le rôle d’Administrateur général/Coadministrateur de l’abonnement, vous êtes ajouté à Active Directory en tant qu’invité. Dans ce scénario, le volet Ajouter un compte Automation affiche ce message : `You do not have permissions to create.`
 
-Si un utilisateur reçoit d'abord le rôle d'Administrateur général/Coadministrateur, vous pouvez le supprimer de l'instance Active Directory de l'abonnement. Vous pouvez réattribuer le rôle d'Utilisateur à l'utilisateur dans Active Directory.
-
-Pour vérifier les rôles d’utilisateur :
+Si un utilisateur reçoit d'abord le rôle d'Administrateur général/Coadministrateur, vous pouvez le supprimer de l'instance Active Directory de l'abonnement. Vous pouvez réattribuer le rôle d'Utilisateur à l'utilisateur dans Active Directory. Pour vérifier les rôles d’utilisateur :
 
 1. Sur le portail Azure, accédez au volet Azure Active Directory.
 1. Sélectionnez **Utilisateurs et groupes**.
@@ -83,8 +81,6 @@ Pour créer un compte Azure Automation dans le portail Azure, suivez les étapes
 
 1. Pour suivre l'avancement de la création du compte Automation, sélectionnez **Notifications** dans le menu.
 
-### <a name="resources-included"></a>Ressources incluses
-
 Une fois le compte Automation créé, plusieurs ressources vous sont automatiquement créées. Suite à cette création, ces runbooks peuvent être supprimés en toute sécurité si vous ne souhaitez pas les conserver. Les comptes d’identification peuvent être utilisés pour authentifier votre compte dans un runbook et doivent être conservés sauf si vous en créez un autre ou si vous n’en avez pas besoin. Le tableau ci-dessous récapitule les ressources du compte d’identification.
 
 | Ressource | Description |
@@ -105,9 +101,9 @@ Les comptes d'identification Classic ne sont plus créés par défaut lorsque vo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur la création graphique, consultez [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md).
-* Pour une prise en main des Runbooks PowerShell, consultez [Mon premier Runbook PowerShell](automation-first-runbook-textual-powershell.md).
-* Pour obtenir des informations sur la prise en main des Runbooks de workflow PowerShell, voir [Mon premier runbook PowerShell Workflow](automation-first-runbook-textual.md).
-* Pour vous familiariser avec les runbooks Python 2, consultez [Mon premier runbook Python 2](automation-first-runbook-textual-python2.md).
-* Pour obtenir des informations de référence sur les cmdlets PowerShell, consultez [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+* Pour en savoir plus sur la création graphique, consultez [Créer des runbooks graphiques dans Azure Automation](automation-graphical-authoring-intro.md).
+* Pour commencer à utiliser des runbooks PowerShell, consultez [Tutoriel : Créer un runbook PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
+* Pour commencer à utiliser les runbooks de Flux de travail PowerShell, consultez [Tutoriel : Créer un runbook de Flux de travail PowerShell](learn/automation-tutorial-runbook-textual.md).
+* Pour commencer à utiliser des runbooks Python 2, consultez le [Tutoriel : Créer un runbook Python 2](learn/automation-tutorial-runbook-textual-python2.md).
+* Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).

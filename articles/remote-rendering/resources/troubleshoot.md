@@ -5,16 +5,21 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: c1b807c6e4fa269ac2ab8d7eacd3ca1d4f81a1ca
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: b6cb9c70de27e40c62d6a7adeece5cb39554c090
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792613"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83844560"
 ---
 # <a name="troubleshoot"></a>Dépanner
 
 Cette page liste les problèmes courants qui interfèrent avec Azure Remote Rendering et les façons de les résoudre.
+
+## <a name="cant-link-storage-account-to-arr-account"></a>Impossibilité de lier un compte de stockage à un compte ARR
+
+Parfois, lors de la [liaison d’un compte de stockage](../how-tos/create-an-account.md#link-storage-accounts), le compte de rendu à distance (ARR, Remote Rendering Account) n’est pas répertorié. Pour résoudre ce problème, accédez au compte ARR dans le portail Azure, puis sélectionnez **Identité** dans le groupe **Paramètres** sur la gauche. Assurez-vous que l’**État** est **Activé**.
+![Débogueur de frames Unity](./media/troubleshoot-portal-identity.png)
 
 ## <a name="client-cant-connect-to-server"></a>Le client ne peut pas se connecter au serveur
 
@@ -150,7 +155,7 @@ Basculez le *type de build* de la solution Unity sur **Déboguer**. Lors du test
 ### <a name="compile-failures-when-compiling-unity-samples-for-hololens-2"></a>Échecs de compilation lors de la compilation d’exemples Unity pour HoloLens 2
 
 Nous avons constaté de faux échecs lors de tentative de compilation d’exemples Unity (démarrage rapide, ShowCaseApp, etc.) pour HoloLens 2. Visual Studio signale qu’il ne peut pas copier certains fichiers qui sont pourtant présents. Si vous avez rencontré ce problème :
-* Supprimez tous les fichiers Unity temporaires du projet, puis réessayez.
+* Supprimez tous les fichiers Unity temporaires du projet, puis réessayez. C’est-à-dire, fermez Unity, supprimez les dossiers *library* et *obj* temporaires dans le répertoire du projet, puis chargez/générez à nouveau le projet.
 * Vérifiez que les projets se trouvent dans un répertoire sur disque dont le chemin est relativement court, car l’étape de copie échoue parfois en présence de noms de fichiers longs.
 * Si cela n’est pas la cause, il est possible que MS Sense interfère avec l’étape de copie. Pour configurer une exception, exécutez cette commande de Registre à partir de la ligne de commande (nécessite des droits d’administrateur) :
     ```cmd

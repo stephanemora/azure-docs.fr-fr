@@ -1,19 +1,19 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 04/29/2019
-ms.author: rolyon
+ms.date: 05/26/2020
+ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: d791c4ba46587ac5709d72cb31bc76f087118b03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee02200f1fb32d430a858d218e27534561ebc24a
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67476252"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83868069"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Créer une ou plusieurs révisions d’accès
 
@@ -36,13 +36,14 @@ ms.locfileid: "67476252"
     ![Étendue des utilisateurs pour la révision d’une appartenance à un rôle](./media/active-directory-privileged-identity-management-access-reviews/users.png)
 
     > [!NOTE]
-    > La sélection de plusieurs rôles crée plusieurs révisions d’accès. Par exemple, en sélectionnant cinq rôles, vous créez cinq révisions d’accès distinctes.
+    > - Les rôles sélectionnés ici incluent des [rôles permanents et éligibles](../articles/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md).
+    > - La sélection de plusieurs rôles crée plusieurs révisions d’accès. Par exemple, en sélectionnant cinq rôles, vous créez cinq révisions d’accès distinctes.
 
-    Si vous créez une révision d’accès des rôles Azure AD, l’exemple suivant présente une liste Révision d’appartenance.
+    Si vous créez une révision d’accès des **rôles Azure AD**, l’exemple suivant présente une liste Révision d’appartenance.
 
     ![Volet Révision d’appartenance répertoriant les rôles Azure AD que vous pouvez sélectionner](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
 
-    Si vous créez une révision d’accès des rôles de ressource Azure, l’exemple suivant présente une liste Révision d’appartenance.
+    Si vous créez une révision d’accès des **rôles de ressource Azure**, l’image suivant présente une liste Révision d’appartenance.
 
     ![Volet Révision d’appartenance répertoriant les rôles de ressource Azure que vous pouvez sélectionner](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
 

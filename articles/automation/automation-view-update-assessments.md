@@ -1,18 +1,18 @@
 ---
-title: Affichage des évaluations des mises à jour Azure Automation Update Management
-description: Cet article explique comment voir les évaluations des mises à jour pour Update Management.
+title: Afficher les évaluations de mise à jour d’Azure Automation
+description: Cet article explique comment voir les évaluations des déploiements d’Update Management.
 services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 75762afc9ae69da81e89ce320f454d9764f82914
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 321146364897d46a403bdfd6789fcb219179d88c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617386"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830597"
 ---
-# <a name="view-azure-automation-update-management-update-assessments"></a>Affichage des évaluations des mises à jour Azure Automation Update Management
+# <a name="view-update-assessments"></a>Voir les évaluations des mises à jour
 
 Dans votre compte Azure Automation, sélectionnez **Update Management** pour voir l’état de vos machines.
 
@@ -28,11 +28,11 @@ Sélectionnez **Mises à jour manquantes** pour afficher la liste des mises à j
 
 ![Mises à jour manquantes](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
-## <a name="update-classifications"></a>Classifications des mises à jour
+## <a name="work-with-update-classifications"></a>Utiliser des classifications de mise à jour
 
 Les tableaux suivants répertorient les classifications des mises à jour prises en charge dans Update Management, avec une définition de chaque classification.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 |classification ;  |Description  |
 |---------|---------|
@@ -64,4 +64,4 @@ Pour classifier les mises à jour sur Red Hat Enterprise version 6, vous devez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez examiné les évaluations des mises à jour, vous pouvez planifier un déploiement des mises à jour en suivant les étapes décrites dans [Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure](automation-tutorial-update-management.md).
+Pour obtenir des informations générales, consultez [Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure](automation-tutorial-update-management.md).

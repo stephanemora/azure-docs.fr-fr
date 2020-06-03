@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 86bce85c6ec273b4ab5f9f00cbae68fc054f53f5
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: c7f1700cb386a197b33427e2ea615de019284d96
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262398"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738317"
 ---
 # <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Résumé dans l’analytique de la Place de marché commerciale
 
@@ -70,7 +70,7 @@ La carte thermique **Clients par zone géographique** affiche un nombre de clien
 - Vous pouvez déplacer la carte pour afficher l'emplacement exact.
 - Vous pouvez zoomer sur un emplacement spécifique.
 - La carte thermique comporte une grille supplémentaire présentant les détails du nombre de clients, du nombre de commandes et des heures d’utilisation normalisée à l’endroit spécifié.
-- Vous pouvez rechercher et sélectionner un pays de la grille pour zoomer sur un emplacement de la carte. Pour revenir à la vue d’origine, appuyez sur le bouton **Accueil** de la carte.
+- Vous pouvez rechercher et sélectionner un pays/région dans la grille pour zoomer sur l’emplacement dans la carte. Pour revenir à la vue d’origine, appuyez sur le bouton **Accueil** de la carte.
 - Un **nouveau** client a acheté une de vos offres pour la première fois au cours du mois compris dans la plage de dates sélectionnée.
 
 ### <a name="growth-trend-charts"></a>Graphiques de tendances de croissance
@@ -118,7 +118,7 @@ Le graphe **Tendance des commandes SaaS d’essai gratuit** présente la tendanc
 - Pour obtenir une vue d’ensemble des rapports d’analytique disponibles sur la Place de marché commerciale de l’Espace partenaires, consultez [Analytique de la Place de marché commerciale dans l’Espace partenaires](./analytics.md).
 - Pour plus d’informations sur vos commandes dans un format graphique et téléchargeable, consultez [Tableau de bord des commandes dans l’analytique de la Place de marché commerciale](./orders-dashboard.md).
 - Pour voir les métriques de facturation à l’utilisation des offres de machines virtuelles, consultez [Tableau de bord de l’utilisation dans l’analytique de la place de marché commerciale](./usage-dashboard.md).
-- Pour obtenir des informations détaillées sur vos clients, y compris des tendances de croissance, consultez [Tableau de bord Client dans l’analytique de la Place de marché commerciale](./customer-dashboard.md).
+- Pour obtenir des informations détaillées sur vos clients, y compris des tendances de croissance, consultez [Tableau de bord client dans l’analytique de la Place de marché commerciale](./customer-dashboard.md).
 - Pour obtenir la liste de vos demandes de téléchargement des 30 derniers jours, consultez [Tableau de bord des téléchargements dans l’analytique de la Place de marché commerciale](./downloads-dashboard.md).
 - Pour une vue centralisée des commentaires clients sur les offres de la Place de marché Azure et AppSource, consultez [Tableau de bord Évaluations et avis dans l’analytique de la place de marché commerciale](./ratings-reviews.md).
 - Pour voir les questions fréquentes sur l’analytique de la place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Questions fréquentes et terminologie pour l’analytique de la place de marché commerciale](./faq-terminology.md).

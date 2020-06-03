@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e529144198d0c635e74955e98d47dd46ac4fb733
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 5d4fb87ae5edd4919923e66336760aadf23d1888
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614182"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657253"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identifier et diagnostiquer les problèmes
 
@@ -139,6 +139,7 @@ Le tableau suivant répertorie les erreurs courantes que pourraient rencontrer v
 
 |Code numérique|Code d'erreur|Solution suggérée|
 |---|---|---|
+|1322|ConnectionFailedNoMappingOfSIDinAD|L’utilisateur n’est pas membre d’Azure Active Directory. Suivez les instructions du [Centre d’administration Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) pour les ajouter.|
 |3|UnauthorizedAccess|L’utilisateur qui a tenté d’exécuter la cmdlet PowerShell d’administration n’est pas autorisé à le faire ou a mal tapé son nom d’utilisateur.|
 |1 000|TenantNotFound|Le nom de l’abonné que vous avez saisi ne correspond à aucun abonné existant. Vérifiez que vous n’avez fait aucune faute de frappe et réessayez.|
 |1006|TenantCannotBeRemovedHasSessionHostPools|Vous ne pouvez pas supprimer un abonné tant qu’il contient des objets. Supprimez d’abord les pools d’hôte de la session, puis réessayez.|
@@ -160,6 +161,7 @@ Le tableau suivant répertorie les erreurs courantes que pourraient rencontrer v
 
 |Code numérique|Code d'erreur|Solution suggérée|
 |---|---|---|
+|-2147467259|ConnectionFailedAdErrorNoSuchMember|L’utilisateur n’est pas membre d’Azure Active Directory. Suivez les instructions du [Centre d’administration Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) pour les ajouter.|
 |-2147467259|ConnectionFailedAdTrustedRelationshipFailure|L’hôte de la session n’est pas correctement joint à Active Directory.|
 |-2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|Les connexions ont échoué car l’hôte de la session est indisponible. Vérifiez l’intégrité de l’hôte de la session.|
 |-2146233088|ConnectionFailedClientDisconnect|Si vous rencontrez souvent cette erreur, assurez-vous que l’ordinateur est connecté au réseau.|

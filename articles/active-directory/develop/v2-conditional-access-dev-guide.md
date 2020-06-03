@@ -1,5 +1,6 @@
 ---
 title: Guide du développeur pour l’accès conditionnel à Azure Active Directory
+titleSuffix: Microsoft identity platform
 description: Guide du développeur et scénarios pour l’accès conditionnel à Azure AD et la plateforme d’identité Microsoft.
 services: active-directory
 keywords: ''
@@ -7,28 +8,28 @@ author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
-ms.date: 03/16/2020
+ms.date: 05/18/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: aae1b8aa27363e8f1d3c72d3934146c47b0cf2c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6b31a03a6367c9c6f2025c1544b59c95b3f69175
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535891"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771075"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Guide du développeur pour l’accès conditionnel à Azure Active Directory
 
 La fonctionnalité d’accès conditionnel dans Azure Active Directory (Azure AD) offre l’une des méthodes que vous pouvez utiliser pour sécuriser votre application et protéger un service. L’accès conditionnel permet aux développeurs et aux clients d’entreprise de protéger les services dans une multitude de façons, notamment :
 
-* Authentification multifacteur
+* [Authentification multifacteur](../authentication/concept-mfa-howitworks.md)
 * Autoriser uniquement les appareils inscrits sur Intune inscrit pour accéder aux services spécifiques
 * Restriction des plages IP et emplacements utilisateur
 
-Pour plus d’informations sur toutes les fonctionnalités de l’accès conditionnel, consultez [Accès conditionnel dans Azure Directory](../active-directory-conditional-access-azure-portal.md).
+Pour plus d’informations sur toutes les fonctionnalités de l’accès conditionnel, consultez [Qu’est-ce que l’accès conditionnel](../conditional-access/overview.md).
 
 Destiné aux développeurs créant des applications pour Azure AD, cet article montre comment utiliser l’accès conditionnel et explique l’impact de l’accès à des ressources non contrôlées auxquelles des stratégies d’accès conditionnel sont peut-être appliquées. Cet article explore également les implications de l’accès conditionnel dans les applications web et le flux On-Behalf-Of accédant à Microsoft Graph et appelant des API.
 
@@ -126,7 +127,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 Dans l’API Web 1, nous interceptons l’erreur `error=interaction_required`, et renvoyons le défi `claims` à l’application de bureau. À ce stade, l’application de bureau peut effectuer un nouvel appel `acquireToken()` et ajouter le défi `claims` comme un paramètre de chaîne de requêtes supplémentaire. Cette nouvelle demande oblige l’utilisateur à effectuer une authentification multifacteur et à renvoyer ce nouveau jeton à l’API Web 1, puis exécuter le flux Pour le compte de.
 
-Pour tester ce scénario, consultez notre [exemple de code .NET](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). Il indique comment repasser le défi de revendications à partir d’API Web 1 vers l’application native et construire une nouvelle demande à l’intérieur de l’application cliente.
+Pour tester ce scénario, consultez notre [exemple de code .NET](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph#handling-required-interactions-with-the-user-dynamic-consent-mfa-etc-). Il indique comment repasser le défi de revendications à partir d’API Web 1 vers l’application native et construire une nouvelle demande à l’intérieur de l’application cliente.
 
 ## <a name="scenario-app-accessing-multiple-services"></a>Scénario : application accédant à plusieurs services
 
@@ -175,7 +176,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 Notre application a besoin d’intercepter le `error=interaction_required`. L’application peut alors utiliser `acquireTokenPopup()` ou `acquireTokenRedirect()` sur la même ressource. L’utilisateur est obligé d’effectuer une authentification multifacteur. Une fois que l’utilisateur a terminé l’authentification multifacteur, l’application émet un nouveau jeton d’accès pour la ressource demandée.
 
-Pour tester ce scénario, consultez notre [exemple de code Pour le compte de SPA JS](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). Cet exemple de code utilise la stratégie d’accès conditionnel et l’API Web précédemment inscrites avec un SPA JS pour illustrer ce scénario. Il explique comment gérer correctement le défi de revendications et obtenir un jeton d’accès qui peut être utilisé pour votre API web. Vous pouvez également extraire [l’exemple de code Angular.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) général pour obtenir des conseils sur une SPA Angular
+Pour tester ce scénario, consultez notre [exemple de code Pour le compte de SPA JS](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/a2b257381b410c765ee01ecb611aa6f98c099eb1/2.%20Web%20API%20now%20calls%20Microsoft%20Graph/README.md). Cet exemple de code utilise la stratégie d’accès conditionnel et l’API Web précédemment inscrites avec un SPA JS pour illustrer ce scénario. Il explique comment gérer correctement le défi de revendications et obtenir un jeton d’accès qui peut être utilisé pour votre API web. Vous pouvez également extraire [l’exemple de code Angular.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) général pour obtenir des conseils sur une SPA Angular
 
 ## <a name="see-also"></a>Voir aussi
 

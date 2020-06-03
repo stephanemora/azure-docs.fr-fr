@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: aebb590d93b3fb26151f15c176a2941845cdd50c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f780ad3d2c95f9d23ea9a0b675b59ba22e25016
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75426499"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651934"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Utiliser les données de référence d’une base de données SQL pour une tâche Azure Stream Analytics
 
@@ -156,16 +156,16 @@ Quand vous utilisez la requête delta, des [tables temporelles dans Azure SQL Da
  
 2. Créez la requête delta. 
    
-   Cette requête récupère toutes les lignes dans votre base de données SQL qui ont été insérées ou supprimées entre l’heure de début **\@deltaStartTime** et l’heure de fin **\@deltaEndTime**. La requête delta doit retourner les mêmes colonnes que la requête d’instantané, ainsi que l’opération ( **_operation_** ) de la colonne. Cette colonne définit si la ligne est insérée ou supprimée entre **\@deltaStartTime** et **\@deltaEndTime**. Les lignes obtenues sont marquées avec le chiffre **1** si les enregistrements ont été insérés ou avec le chiffre **2** s’ils ont été supprimés. 
+   Cette requête récupère toutes les lignes dans votre base de données SQL qui ont été insérées ou supprimées entre l’heure de début **\@deltaStartTime** et l’heure de fin **\@deltaEndTime**. La requête delta doit retourner les mêmes colonnes que la requête d’instantané, ainsi que l’opération (**_operation_**) de la colonne. Cette colonne définit si la ligne est insérée ou supprimée entre **\@deltaStartTime** et **\@deltaEndTime**. Les lignes obtenues sont marquées avec le chiffre **1** si les enregistrements ont été insérés ou avec le chiffre **2** s’ils ont été supprimés. La requête doit également ajouter un **filigrane** du côté SQL Server pour s’assurer que toutes les mises à jour de la période delta sont correctement capturées. L’utilisation de la requête delta sans **filigrane** peut produire un jeu de données de référence incorrect.  
 
    Pour les enregistrements qui ont été mis à jour, la table temporelle se charge de la comptabilité en capturant une opération d’insertion et de suppression. Le runtime Stream Analytics applique ensuite les résultats de la requête delta à l’instantané précédent pour conserver les données de référence à jour. Un exemple de requête delta est présenté ci-dessous :
 
    ```SQL
-      SELECT DeviceId, GroupDeviceId, Description, 1 as _operation_
+      SELECT DeviceId, GroupDeviceId, Description, ValidFrom as _watermark_, 1 as _operation_
       FROM dbo.DeviceTemporal
       WHERE ValidFrom BETWEEN @deltaStartTime AND @deltaEndTime   -- records inserted
       UNION
-      SELECT DeviceId, GroupDeviceId, Description, 2 as _operation_
+      SELECT DeviceId, GroupDeviceId, Description, ValidTo as _watermark_, 2 as _operation_
       FROM dbo.DeviceHistory   -- table we created in step 1
       WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
    ```

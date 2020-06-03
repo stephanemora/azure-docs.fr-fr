@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e1cf3905a34fdced878526cfcc55e6dd0a1a369f
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: de8574cd691c77bb764c7e695db1e7c2f23c5f3a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82595296"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837895"
 ---
 Dans cet article, nous allons répondre à certaines questions fréquentes sur Azure Disques managés et les disques SSD Premium Azure.
 
@@ -257,32 +257,6 @@ Toutes les régions Azure prennent actuellement en charge les disques SSD Standa
 **La Sauvegarde Azure est-elle disponible pendant l’utilisation de disques SSD Standard ?**
 Oui, le service Sauvegarde Azure est à présent disponible.
 
-**Comment faire pour créer des disques SSD Standard ?**
-Vous pouvez créer des disques SSD Standard en utilisant des modèles Azure Resource Manager, le kit SDK, PowerShell ou CLI. Les paramètres suivants sont nécessaires dans le modèle Resource Manager pour créer des disques SSD Standard :
-
-* *apiVersion* pour Microsoft.Compute doit être défini sur `2018-04-01` (ou version ultérieure)
-* Pour *managedDisk.storageAccountType*, indiquez `StandardSSD_LRS`.
-
-L’exemple suivant illustre la section *properties.storageProfile.osDisk* d’une machine virtuelle qui utilise des disques SSD Standard :
-
-```json
-"osDisk": {
-    "osType": "Windows",
-    "name": "myOsDisk",
-    "caching": "ReadWrite",
-    "createOption": "FromImage",
-    "managedDisk": {
-        "storageAccountType": "StandardSSD_LRS"
-    }
-}
-```
-
-Si vous souhaitez un exemple de modèle complet de création d’un disque SSD Standard, consultez [Créer une machine virtuelle à partir d’une image Windows avec des disques de données SSD Standard](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
-
-**Puis-je convertir mes disques existants en disques SSD standard ?**
-Oui, vous pouvez. Reportez-vous à [Convertir le stockage de disques managés Azure de standard en premium, et vice versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) pour des recommandations générales relatives à la conversion de la fonctionnalité Disques managés. Et utilisez la valeur suivante pour mettre à jour le type de disque vers un disque SSD standard.
--AccountType StandardSSD_LRS
-
 **Quel est l’avantage d’utiliser des disques SSD Standard au lieu des disques HDD ?**
 Les disques SSD standard offrent une meilleure latence, cohérence, disponibilité et fiabilité par rapport aux disques HDD. Pour cette raison, les charges de travail des applications s’exécutent beaucoup plus facilement sur les disques SSD Standard. Notez que les disques SSD Premium constituent la solution recommandée pour la plupart des charges de travail de production gourmandes en E/S.
 
@@ -332,9 +306,9 @@ Oui
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Disques managés et Storage Service Encryption
 
-**Azure Storage Encryption est-il activé par défaut lors de la création d’un disque géré ?**
+**Le chiffrement côté serveur est-il activé par défaut lors de la création d’un disque managé ?**
 
-Oui.
+Oui. Les Disques managés sont chiffrés à l’aide d’un chiffrement côté serveur avec des clés gérées par la plateforme. 
 
 **Le volume de démarrage est-il chiffré par défaut sur un disque managé ?**
 
@@ -342,30 +316,27 @@ Oui. Tous les disques managés sont chiffrés par défaut, y compris le disque d
 
 **Qui gère les clés de chiffrement ?**
 
-Microsoft gère les clés de chiffrement.
+Les clés gérées par la plateforme sont managées par Microsoft. Vous pouvez également utiliser et gérer vos propres clés stockées dans Azure Key Vault. 
 
-**Puis-je désactiver Storage Service Encryption pour mes disques managés ?**
+**Puis-je désactiver le chiffrement côté serveur pour mes disques managés ?**
 
 Non.
 
-**Storage Service Encryption est-il disponible dans toutes les régions ?**
+**Le chiffrement côté serveur est-il uniquement disponible dans des régions spécifiques ?**
 
-Non. Il est disponible dans toutes les régions où la fonctionnalité Disques managés est disponible. La fonctionnalité Disques managés est disponible dans toutes les zones publiques et en Allemagne. Il est également disponible en Chine, mais uniquement pour les clés gérées par Microsoft, pas pour les clés gérées par le client.
+Non. Le chiffrement côté serveur avec des clés gérées par la plateforme et par le client est disponible dans toutes les régions où les Disques managés sont disponibles. 
 
-**Comment puis-je savoir si mon disque géré est chiffré ?**
+**Azure Site Recovery prend-il en charge le chiffrement côté serveur avec une clé gérée par le client pour les scénarios de récupération d’urgence Local vers Azure et Azure vers Azure ?**
 
-Vous pouvez déterminer l’heure de création d’un disque géré depuis le portail Azure, Azure CLI et PowerShell. S’il a été créé après le 9 juin 2017, votre disque est chiffré.
+Oui. 
 
-**Comment puis-je chiffrer mes disques existants qui ont été créés avant le 10 juin 2017 ?**
+**Puis-je sauvegarder des Disques managés chiffrés à l’aide d’un chiffrement côté serveur avec une clé gérée par le client en utilisant le service Sauvegarde Azure ?**
 
-À compter du 10 juin 2017, les nouvelles données écrites sur des disques managés existants sont chiffrées automatiquement. Nous avons également l’intention de chiffrer les données existantes, et le chiffrement aura lieu de manière asynchrone en arrière-plan. Si vous devez chiffrer des données existantes maintenant, créez une copie de votre disque. Les nouveaux disques seront chiffrés.
-
-* [Copier les disques managés à l’aide de l’interface Azure CLI](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
-* [Copier les disques managés à l’aide de PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
+Oui.
 
 **Les instantanés et les images gérés sont-ils chiffrés ?**
 
-Oui. Tous les instantanés et les images gérés créés après le 9 juin 2017 sont automatiquement chiffrés. 
+Oui. Toutes les captures instantanées et images managées sont automatiquement chiffrées. 
 
 **Puis-je convertir des machines virtuelles avec des disques non managés situés sur des comptes de stockage qui sont ou ont été chiffrés sur des disques managés ?**
 
@@ -484,6 +455,6 @@ Nous prenons en charge la mise en cache d’hôte en lecture seule et en lecture
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Que dois-je faire si je n’ai pas trouvé de réponse à ma question ici ?
 
-Si votre question n’est pas répertoriée ici, faites-le-nous savoir et nous vous aiderons à trouver une réponse. Vous pouvez poser une question à la fin de cet article dans les commentaires. Pour prendre contact avec l’équipe de stockage Azure et d’autres membres de la Communauté sur cet article, consultez le [forum MSDN sur le stockage Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
+Si votre question n’est pas répertoriée ici, faites-le-nous savoir et nous vous aiderons à trouver une réponse. Vous pouvez poser une question à la fin de cet article dans les commentaires. Pour prendre contact avec l’équipe de Stockage Azure et d’autres membres de la Communauté concernant cet article, consultez le MSDN [Page de Q&A de Microsoft sur le Stockage Azure](https://docs.microsoft.com/answers/products/azure?product=storage).
 
 Pour soumettre une demande de fonctionnalité, transmettez vos questions et vos idées sur le [forum dédié aux commentaires sur le stockage Azure](https://feedback.azure.com/forums/217298-storage).

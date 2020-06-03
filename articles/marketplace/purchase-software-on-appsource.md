@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/20/2020
-ms.openlocfilehash: bc19246354bebd1ba2a827e7718cbad95b896e14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 450a97b0be1b11980d65477d396431170180d00f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284974"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746643"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Comment acheter des logiciels sur Microsoft AppSource
 
@@ -29,7 +29,7 @@ Pour acheter des offres SaaS, vous devez avoir :
 - Une carte de crédit valide dans le pays ou la région où vous achetez l’offre.
 
     > [!Note]
-    > Le pays de facturation de la carte de crédit peut être verrouillé sur l’emplacement de votre instance Azure Active Directory.
+    > Le pays/la région de facturation de la carte de crédit peut être verrouillé sur l’emplacement de votre instance Azure Active Directory.
 
 ## <a name="steps-for-making-purchases-on-appsource"></a>Étapes nécessaires pour effectuer des achats sur AppSource
 

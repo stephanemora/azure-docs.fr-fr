@@ -1,18 +1,18 @@
 ---
-title: Déterminer votre option de publication dans les vitrines de la place de marché commerciale de Microsoft
-description: Cet article décrit les critères d’éligibilité et les exigences de publication pour les partenaires tentant de comprendre comment publier des applications dans Microsoft AppSource et sur la Place de marché Azure.
+title: Déterminer votre option de publication – Place de marché commerciale de Microsoft
+description: Cet article décrit les critères d’éligibilité et la configuration requise pour la publication d’offres sur Microsoft AppSource et la Place de marché Azure.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: e91ca0334276dbe9118eb0e40d042f598e8b3c0f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 92a24a59038eb74a6a2f6a738005ff8aadf35ff0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415740"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658065"
 ---
 # <a name="determine-your-publishing-option"></a>Déterminer votre option de publication
 

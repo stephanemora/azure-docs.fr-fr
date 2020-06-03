@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 12/05/2019
-ms.openlocfilehash: f2f8b9f207993c49201d03d3d1fed3c5800e8780
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.date: 05/15/2020
+ms.openlocfilehash: 6624cd0ff70ab359f4af36ca2f1f107d8f0b5fd9
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673813"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659274"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installer une passerelle de données locale pour Azure Logic Apps
 
@@ -68,13 +68,15 @@ Cet article explique comment télécharger, installer et configurer votre passer
     > [!TIP]
     > Pour réduire la latence, vous pouvez installer la passerelle le plus près possible de votre source de données, ou sur le même ordinateur, en supposant que vous disposiez des autorisations nécessaires.
 
-  * Installez la passerelle sur un ordinateur qui se trouve sur un réseau câblé, connecté à Internet, toujours allumé et qui ne se met pas en veille. Sinon, la passerelle ne peut pas s’exécuter et les performances peuvent se dégrader sur un réseau sans fil.
+  * Installez la passerelle sur un ordinateur local branché à un réseau câblé, connecté à Internet, toujours allumé et qui ne se met pas en veille. Sinon, la passerelle ne peut pas s’exécuter et les performances peuvent se dégrader sur un réseau sans fil.
 
   * Si vous prévoyez d’utiliser l’authentification Windows, veillez à installer la passerelle sur un ordinateur membre du même environnement Active Directory que vos sources de données.
 
   * La région que vous sélectionnez pour l’installation de votre passerelle est le même emplacement que celui que vous devez sélectionner quand vous créez plus tard la ressource de passerelle Azure pour votre application logique. Par défaut, cette région est le même emplacement que votre locataire Azure AD qui gère votre compte Azure. Vous pouvez cependant changer l’emplacement lors de l’installation de la passerelle.
 
-  * Si vous mettez à jour votre installation de passerelle vers la dernière version, désinstallez d’abord votre passerelle actuelle pour obtenir une expérience plus propre.
+  * Si vous mettez à jour votre installation de passerelle, commencez par désinstaller votre passerelle actuelle pour obtenir une interface plus propre.
+
+    Nous vous recommandons de vérifier que vous utilisez une version prise en charge. Microsoft publie une nouvelle mise à jour de la passerelle de données locale chaque mois, et prend actuellement en charge uniquement les six dernières versions de la passerelle de données locale. Si vous rencontrez des problèmes avec la version que vous utilisez, essayez d’opérer une [mise à niveau vers la version la plus récente](https://aka.ms/on-premises-data-gateway-installer), car celle-ci résoudra peut-être votre problème.
 
   * La passerelle a deux modes : le mode standard et le mode personnel, qui s’applique seulement à Power BI. Vous ne pouvez pas avoir plusieurs passerelles s’exécutant dans le même mode sur le même ordinateur.
 
@@ -162,11 +164,11 @@ Une fois que vous avez configuré votre passerelle principale, quand vous accéd
 
 Si vous devez modifier l’emplacement de votre passerelle, déplacer votre programme d’installation de passerelle vers un nouvel ordinateur, récupérer une passerelle endommagée ou contrôler une passerelle existante, vous avez besoin de la clé de récupération qui a été fournie lors de l’installation de la passerelle.
 
-1. Exécutez le programme d’installation de passerelle sur l’ordinateur où se trouve la passerelle existante. Si vous n’avez pas le dernier programme d’installation de passerelle, [téléchargez la dernière version de la passerelle](https://aka.ms/on-premises-data-gateway-installer).
+> [!NOTE]
+> Avant de restaurer la passerelle sur l’ordinateur où la passerelle d’origine est installée, vous devez d’abord désinstaller la passerelle sur cet ordinateur. Cette action déconnecte l’ancienne passerelle.
+> Si vous supprimez un cluster de passerelle pour un service cloud, vous ne pouvez pas restaurer ce cluster.
 
-   > [!NOTE]
-   > Avant de restaurer la passerelle sur l’ordinateur où la passerelle d’origine est installée, vous devez d’abord désinstaller la passerelle sur cet ordinateur. Cette action déconnecte l’ancienne passerelle.
-   > Si vous supprimez un cluster de passerelle pour un service cloud, vous ne pouvez pas restaurer ce cluster.
+1. Exécutez le programme d’installation de passerelle sur l’ordinateur où se trouve la passerelle existante.
 
 1. Une fois le programme d’installation ouvert, connectez-vous avec le même compte Azure que celui utilisé pour installer la passerelle.
 
@@ -258,8 +260,6 @@ Voici comment faire correspondre vos comptes Active Directory locaux avec Azure 
 <a name="faq"></a>
 
 ## <a name="faq-and-troubleshooting"></a>FAQ et résolution des problèmes
-
-Pour plus d’informations, consultez les rubriques suivantes :
 
 * [Questions fréquentes (FAQ) sur la passerelle de données locale](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
 * [Résoudre des problèmes de passerelle de données locale](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)

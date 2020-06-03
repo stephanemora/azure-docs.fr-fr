@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0e3a2ddda4529cee584f5eabf6677af940d2bdd
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d6bf5d40262c5991504d3dc62490fb50f6a20592
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585893"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826092"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Utilisation d'invitations Azure Active Directory B2B Collaboration
 
@@ -42,9 +42,9 @@ Comme alternative à l’e-mail d’invitation, vous pouvez donner à un invité
 
 > [!IMPORTANT]
 > Le lien direct doit être spécifique au locataire. Autrement dit, il doit inclure un ID de locataire ou un domaine vérifié, afin que l’invité puisse être authentifié dans votre locataire, là où se trouve l’application partagée. Une URL ordinaire, telle que https://myapps.microsoft.com ne fonctionne pas pour un invité, car elle redirige vers son locataire de base pour l’authentification. Voici quelques exemples de liens directs avec contexte de locataire :
- > - Panneau d’accès des applications : https://myapps.microsoft.com/?tenantid=&lt;id de locataire&gt; 
- > - Panneau d’accès des applications pour un domaine vérifié : https://myapps.microsoft.com/&lt; domaine vérifié&gt;
- > - Portail Azure : https://portal.azure.com/&lt; id de locataire&gt;
+ > - Panneau d’accès des applications : `https://myapps.microsoft.com/?tenantid=<tenant id>`
+ > - Panneau d’accès des applications pour un domaine vérifié : `https://myapps.microsoft.com/<;verified domain>`
+ > - Portail Azure : `https://portal.azure.com/<tenant id>`
  > - Application individuelle : voir comment utiliser un [lien d’authentification directe](../manage-apps/end-user-experiences.md#direct-sign-on-links)
 
 Il existe certains cas où l’e-mail d’invitation est recommandé par rapport à un lien direct. Si ces cas particuliers sont importants pour votre organisation, nous vous conseillons d’inviter les utilisateurs par l’intermédiaire de méthodes qui envoient toujours l’e-mail d’invitation :

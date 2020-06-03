@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 6902876e066649ae4dff4134fb8cc462f30dd0b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 14c2a9a2ad818cc358535a91f9a6813ec7b91a6f
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74084875"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826279"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Ajouter un script VMM à un plan de récupération
 
 Cet article explique comment créer un script VMM (System Center Virtual Machine Manager) et l’ajouter à un plan de récupération dans [Azure Site Recovery](site-recovery-overview.md).
 
-Postez des commentaires ou des questions au bas de cet article ou sur le [forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Publiez des commentaires ou des questions au bas de cet article ou sur la [page de questions Microsoft Q&R sur Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
 
 ## <a name="prerequisites"></a>Prérequis
 

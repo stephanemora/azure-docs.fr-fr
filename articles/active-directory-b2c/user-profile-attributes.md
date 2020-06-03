@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 3/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e921f0a40f53b1d08831047d1cb89ca26de41402
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e6965e15b7482935148ae7fcd2edf0f3cc722b2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80057292"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738555"
 ---
 # <a name="user-profile-attributes"></a>Attributs de profil utilisateur
 
@@ -54,7 +54,7 @@ Le tableau ci-dessous répertorie les attributs de [type de ressource utilisateu
 |jobTitle        |String|Intitulé du poste de l’utilisateur. Longueur max. : 128.|Oui|Oui|Persistant, Sortie|
 |ImmutableID     |String|Identificateur généralement utilisé pour les utilisateurs migrés à partir d’un Active Directory local.|Non|Non|Persistant, Sortie|
 |legalAgeGroupClassification|String|Classification de tranche d’âge légal. En lecture seule et calculée en fonction des propriétés ageGroup et consentProvidedForMinor. Valeurs autorisées : null, minorWithOutParentalConsent, minorWithParentalConsent, minorNoParentalConsentRequired, notAdult et adult.|Oui|Non|Persistant, Sortie|
-|legalCountry<sup>1</sup>  |String|Pays à des fins juridiques.|Non|Non|Persistant, Sortie|
+|legalCountry<sup>1</sup>  |String|Pays/région à des fins juridiques.|Non|Non|Persistant, Sortie|
 |mail            |String|Adresse SMTP de l’utilisateur, par exemple « bob@contoso.com ». Lecture seule.|Non|Non|Persistant, Sortie|
 |mailNickName    |String|Alias de messagerie de l’utilisateur. Longueur max. : 64.|Non|Non|Persistant, Sortie|
 |mobile (mobilePhone) |String|Numéro de portable principal de l’utilisateur. Longueur max. : 64.|Oui|Non|Persistant, Sortie|
@@ -79,7 +79,7 @@ Le tableau ci-dessous répertorie les attributs de [type de ressource utilisateu
 |surname         |String|Patronyme de l’utilisateur (nom). Longueur max. : 64.|Oui|Oui|Persistant, Sortie|
 |telephoneNumber (première entrée de businessPhones)|String|Numéro de téléphone principal du lieu de travail de l’utilisateur.|Oui|Non|Persistant, Sortie|
 |userPrincipalName    |String|Nom d’utilisateur principal (UPN) de l’utilisateur. L’UPN est un nom de connexion au format Internet d’un utilisateur selon la norme Internet RFC 822. Le domaine doit être présent dans la collection de domaines vérifiés du locataire. Cette propriété est obligatoire quand un compte est créé. Non modifiable.|Non|Non|Entrée, Persistant, Sortie|
-|usageLocation   |String|Requis pour les utilisateurs auxquels des licences seront attribuées en raison des exigences légales sur la vérification de la disponibilité des services dans les pays. N'accepte pas la valeur NULL. Code de pays à deux lettres (norme ISO 3166). Exemples : « US », « JP » et « GB ».|Oui|Non|Persistant, Sortie|
+|usageLocation   |String|Requis pour les utilisateurs auxquels des licences seront attribuées en raison des exigences légales sur la vérification de la disponibilité des services dans les pays/régions. N'accepte pas la valeur NULL. Code de pays/région à deux lettres (norme ISO 3166). Exemples : « US », « JP » et « GB ».|Oui|Non|Persistant, Sortie|
 |userType        |String|Valeur de chaîne qui permet de classer des types d'utilisateurs dans votre répertoire. La valeur doit être Member. Lecture seule.|Lecture seule|Non|Persistant, Sortie|
 |userState (externalUserState)<sup>2</sup>|String|Pour un compte Azure AD B2B uniquement, indique si le statut de l’invitation est PendingAcceptance (En attente d’acceptation) ou Accepted (Acceptée).|Non|Non|Persistant, Sortie|
 |userStateChangedOn (externalUserStateChangeDateTime)<sup>2</sup>|DateTime|Affiche l’horodatage de la modification la plus récente de la propriété UserState.|Non|Non|Persistant, Sortie|

@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6741c034351099f544c20749eb7c7a39e7932181
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: fd854691203361847ae9a6c873121c9b66820a90
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195126"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743368"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Configurer le module PowerShell pour Windows Virtual Desktop
 
 >[!IMPORTANT]
 >Ce contenu s’applique à la mise à jour Printemps 2020 avec des objets Azure Resource Manager Windows Virtual Desktop.
 >
-> La mise à jour Printemps 2020 de Windows Virtual Desktop est en préversion publique. Cette préversion est fournie sans contrat de niveau de service et nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. 
+> La mise à jour Printemps 2020 de Windows Virtual Desktop est en préversion publique. Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. 
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Le module PowerShell pour Windows Virtual Desktop est intégré au module Azure PowerShell. Cet article vous indique comment configurer le module PowerShell afin de pouvoir exécuter des cmdlets pour Windows Virtual Desktop.
@@ -63,7 +63,12 @@ Cela vous permet de vous connecter directement à l’abonnement par défaut cor
 Si vous souhaitez modifier l’abonnement par défaut une fois que vous êtes connecté, exécutez cette cmdlet :
 
 ```powershell
-Select-AzSubscription -SubscriptionName <preferredsubscriptionname>
+Select-AzSubscription -Subscription <preferredsubscriptionname>
+```
+
+Vous pouvez également sélectionner « on » dans une liste à l’aide de la cmdlet Out-GridView :
+```powershell
+Get-AzSubscription | Out-GridView -PassThru | Select-AzSubscription
 ```
 
 Lorsque vous sélectionnez un nouvel abonnement à utiliser, vous n’avez pas besoin de spécifier l’ID de cet abonnement dans les cmdlets que vous exécutez par la suite. Par exemple, la cmdlet suivante récupère un hôte de session spécifique sans avoir besoin de l’ID d’abonnement :

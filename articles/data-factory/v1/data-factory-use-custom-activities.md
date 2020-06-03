@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 54cb06f1c77ab68818d8531b57d6eb936deda8d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2cea9cd1439bce0c55d701539471c463acb8f7e2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231545"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020130"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -372,7 +372,7 @@ La méthode retourne un dictionnaire qui peut être utilisé pour enchaîner ult
     > Définissez la version 4.5.2 de .NET Framework comme infrastructure cible pour votre projet : cliquez avec le bouton droit sur le projet et cliquez sur **Propriétés** pour définir l’infrastructure cible. Data Factory ne prend pas en charge les activités personnalisées compilées avec les versions de .NET Framework ultérieures à la version 4.5.2.
 
 11. Lancez **l’Explorateur Windows** et accédez au dossier **bin\debug** ou **bin\release** (selon le type de build).
-12. Créez un fichier zip **MyDotNetActivity.zip** contenant tous les fichiers binaires dans le \<dossier projet\>\bin\Debug. Incluez le fichier **MyDotNetActivity.pdb** afin d’obtenir des détails supplémentaires tels que le numéro de ligne du code source à l’origine du problème en cas de défaillance.
+12. Créez un fichier zip **MyDotNetActivity.zip** contenant tous les fichiers binaires dans le dossier \<project folder\>\bin\Debug. Incluez le fichier **MyDotNetActivity.pdb** afin d’obtenir des détails supplémentaires tels que le numéro de ligne du code source à l’origine du problème en cas de défaillance.
 
     > [!IMPORTANT]
     > Tous les fichiers contenus dans le fichier zip de l’activité personnalisée doivent se trouver au **premier niveau** et ne doivent pas contenir de sous-dossiers.
@@ -1031,7 +1031,7 @@ L’exemple [Azure Data Factory - Environnement local](https://github.com/gbruec
 
 [batch-net-library]: ../../batch/batch-dotnet-get-started.md
 [batch-create-account]: ../../batch/batch-account-create-portal.md
-[batch-technical-overview]: ../../batch/batch-technical-overview.md
+[batch-technical-overview]:../../azure-sql/database/sql-database-paas-overview.md
 [batch-get-started]: ../../batch/batch-dotnet-get-started.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 07/29/2019
-ms.author: raymondl
-ms.openlocfilehash: ec5ff756d7e732430675676868bc754627a2a4a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/13/2020
+ms.author: aahi
+ms.openlocfilehash: c1ca14b8471ef6257c0603e61d78e789e846f0ae
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "72429031"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142399"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemple : Comment extraire des phrases clés avec l’Analyse de texte
 
-L’[API Extraction de phrases clés](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) évalue un texte non structuré puis, pour chaque document JSON, retourne une liste d’expressions clés.
+L’[API Extraction de phrases clés](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) évalue un texte non structuré puis, pour chaque document JSON, retourne une liste d’expressions clés.
 
 Cette fonctionnalité est utile si vous avez besoin d’identifier rapidement les principaux points d’une collection de documents. Par exemple, pour le texte d’entrée « The food was delicious and there were wonderful staff » (La nourriture était délicieuse et le personnel adorable), le service retourne les principaux points de discussion : « food » (nourriture) et « wonderful staff » (personnel adorable).
 
@@ -72,16 +72,16 @@ La taille des documents doit être égale ou inférieure à 5 120 caractères pa
 
 Pour en savoir plus sur la définition de la requête, voir [Comment appeler l’API REST Analyse de texte](text-analytics-how-to-call-api.md). Les points suivants sont réaffirmés pour des raisons pratiques :
 
-+ Créez une demande **POST**. Passez en revue la documentation de l’API pour cette requête : [API d’expressions clés](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6).
++ Créez une demande **POST**. Passez en revue la documentation de l’API pour cette requête : [API d’expressions clés](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases).
 
-+ Définissez le point de terminaison HTTP pour l’extraction de phrases clés à l’aide d’une ressource Analyse de texte sur Azure, ou avec un [conteneur Analyse de texte](text-analytics-how-to-install-containers.md) instancié. Vous devez inclure `/text/analytics/v2.1/keyPhrases` dans l’URL. Par exemple : `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v2.1/keyPhrases`.
++ Définissez le point de terminaison HTTP pour l’extraction de phrases clés à l’aide d’une ressource Analyse de texte sur Azure, ou avec un [conteneur Analyse de texte](text-analytics-how-to-install-containers.md) instancié. Vous devez inclure `/text/analytics/v3.0/keyPhrases` dans l’URL. Par exemple : `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`.
 
 + Définissez un en-tête de requête pour inclure la [clé d’accès](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) des opérations Analyse de texte.
 
 + Dans le corps de la demande, fournissez la collection de documents JSON que vous avez préparée pour cette analyse.
 
 > [!Tip]
-> Utilisez [Postman](text-analytics-how-to-call-api.md) ou ouvrez la **console de test d’API** dans la [documentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) pour structurer une demande et la publier dans le service.
+> Utilisez [Postman](text-analytics-how-to-call-api.md) ou ouvrez la **console de test d’API** dans la [documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) pour structurer une demande et la publier dans le service.
 
 ## <a name="step-2-post-the-request"></a>Étape 2 : Publier la requête
 
@@ -152,17 +152,18 @@ Comme indiqué, l’analyseur recherche et ignore les mots non essentiels, et co
 
 Dans cet article, vous avez vu les concepts et le flux de travail lié à l’extraction de phrases clés à l’aide de l’API Analyse de texte dans Cognitive Services. En résumé :
 
-+ L’[API Extraction de phrases clés](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) est disponible pour les langues sélectionnées.
++ L’[API Extraction de phrases clés](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) est disponible pour les langues sélectionnées.
 + Les documents JSON figurant dans le corps de la demande incluent un ID, un texte et un code de langue.
 + La demande POST s’effectue sur un point de terminaison `/keyphrases`, à l’aide [d’une clé d’accès et d’un point de terminaison](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) personnalisés valides pour votre abonnement.
 + La sortie de réponse, qui se compose de mots et de phrases clés pour chaque ID de document, peut être diffusée vers n’importe quelle application qui accepte JSON, y compris Microsoft Office Excel et Power BI, pour n’en citer que quelques-unes.
 
 ## <a name="see-also"></a>Voir aussi
 
- [Vue d’ensemble Analyse de texte](../overview.md) [Questions fréquentes (FAQ)](../text-analytics-resource-faq.md)</br>
+ [Vue d’ensemble d’Analyse de texte](../overview.md)[Questions fréquentes (FAQ)](../text-analytics-resource-faq.md)</br>
  [Page produit d’Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759712)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [API Analyse de texte](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)
+* [Vue d’ensemble d’Analyse de texte](../overview.md)
+* [Utilisation de la bibliothèque cliente Analyse de texte](../quickstarts/text-analytics-sdk.md)
+* [Nouveautés](../whats-new.md)

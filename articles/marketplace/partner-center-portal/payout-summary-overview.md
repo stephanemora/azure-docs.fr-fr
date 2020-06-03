@@ -1,18 +1,18 @@
 ---
 title: Vue d’ensemble de la synthèse des revenus – Place de marché Azure
-description: La page Récapitulatif des paiements vous montre les détails de l’argent que vous avez gagné avec votre offre. Elle vous permet également de savoir quand vous recevrez des paiements et le montant que vous allez percevoir.
+description: La page Récapitulatif des paiements vous montre les détails de l’argent que vous avez gagné avec votre offre. Elle vous permet également de savoir à quels moments vous recevrez les paiements et quels montants vous percevrez.
 author: mingshen
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 48644f2f8148a7aa1974be0d7f761e9b3a55612d
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: a872331238946de0d57e6d42164f1ce7fb1c7357
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82782546"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746205"
 ---
 # <a name="payout-summary-overview"></a>Vue d’ensemble de la synthèse des revenus
 
@@ -47,7 +47,7 @@ Voici les rôles et les autorisations permettant d’accéder au rapport de reve
 
 Voici les différences dans le rapport de revenu entre le portail Cloud Partner (ancien) et l’Espace partenaires (nouveau) :
 
-| Portail Cloud Partner | Espace partenaire |
+| Portail des partenaires cloud | Espace partenaire |
 | --- | --- |
 | **Lien** : https://cloudpartner.azure.com/ | **Lien** : https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory et https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
 | **Navigation** : Rapports de paiement fournis dans le paiement des insights | **Navigation** : Rapports de paiement fournis dans l’Espace partenaires – Icône de paiement |
@@ -70,7 +70,7 @@ Cette option permet de télécharger chaque ligne de revenu que vous voyez dans 
 | participantId | Identité principale du revenu partenaire dans le cadre du programme |
 | participantIdType | ID des programmes d’incentives et vendeur si les programmes relèvent du Store et de la Place de marché Azure |
 | participantName | Nom du partenaire de revenu |
-| partnerCountryCode | Emplacement/pays du partenaire de revenu |
+| partnerCountryCode | Emplacement/pays/région du partenaire de revenu |
 | programName | Nom du programme d’incentives/du Store |
 | transactionId | Identificateur unique de la transaction |
 | transactionCurrency | Devise dans laquelle la transaction cliente d’origine s’est produite (il ne s’agit pas de la devise de l’emplacement du partenaire) |
@@ -113,15 +113,15 @@ Cette option permet de télécharger chaque ligne de revenu que vous voyez dans 
 | storeFee | Montant retenu par Microsoft en guise de frais pour la mise à disposition de l’application ou du module complémentaire sur la Place de marché commerciale. |
 | transactionPaymentMethod | Moyen de paiement client utilisé pour la transaction (par exemple, carte, facturation d’opérateur de téléphonie mobile et PayPal) |
 | tpan | Réseau publicitaire tiers |
-| customerCountry | Pays du client |
+| customerCountry | Pays/Région du client |
 | CustomerCity | Ville du client |
 | customerState | État du client |
 | customerZip | Code postal du client |
 | ID de locataire | ID du locataire |
 | externalReferenceId | Identificateur unique du programme |
 | externalReferenceIdLabel | Étiquette de l’identificateur unique |
-| transactionCountryCode | Code du pays dans lequel la transaction s’est produite |
-| taxCountry | Pays du client |
+| transactionCountryCode | Code du pays/région dans lequel la transaction s’est produite |
+| taxCountry | Pays/Région du client |
 | taxState | État du client |
 | taxCity | Ville du client |
 | taxZipCode | Code postal du client |
@@ -132,7 +132,7 @@ Cette option permet de télécharger chaque ligne de revenu que vous voyez dans 
 | AssetId | Identificateur unique des commandes du client pour votre service de la place de marché. Il représente les lignes d’achat. Il peut y avoir plusieurs ressources. |
 | OrderId | Lié à la facture d’un client |
 | LineItemId | Ligne individuelle dans la facture d’un client |
-| Pays du client | Nom de pays fourni par le client. Il peut être différent du pays associé à l’abonnement Azure d’un client. |
+| Pays/Région du client | Nom de pays/région fourni par le client. Il peut être différent du nom du pays ou de la région associé à l’abonnement Azure du client. |
 | EmailAddress de client | Adresse e-mail fournie par le client. Elle peut être différente de l’adresse e-mail associée à l’abonnement Azure d’un client. |
 | SkuId | ID de la référence SKU, tel que défini lors de la publication. Une offre peut englober de nombreuses références SKU, mais une référence SKU ne peut être associée qu’à une seule offre. |
 
@@ -142,6 +142,6 @@ Cette option permet de télécharger chaque ligne de revenu que vous voyez dans 
 ## <a name="billing-questions-and-support"></a>Questions et support sur la facturation
 Pour obtenir de l’aide sur la facturation, contactez le [support éditeur](https://partner.microsoft.com/support/v2/?stage=1) de la Place de marché commerciale.
 
-## <a name="next-step"></a>Étape suivante
+## <a name="next-step"></a>étape suivante
 
 - [Synthèse des revenus](./payout-summary.md)

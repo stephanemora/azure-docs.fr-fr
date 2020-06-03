@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 7ba6ea8606fc354527ff4114bc45a0904941ba93
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a0b3a91d9af119191717aa63a2dedf0797159fd
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77918935"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745798"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk : Forum Aux Questions (FAQ)
 
@@ -56,8 +56,8 @@ R.  Pour voir où les disques Data Box Disk sont actuellement disponibles, accé
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>Q. Dans quelles régions puis-je stocker des données avec des disques Data Box ?
 R. La solution Data Box Disk est prise en charge dans toutes les régions des États-Unis, du Canada, de l’Australie, de l’Europe Ouest, de l’Europe Nord, de la Corée et du Japon. Seules les régions du cloud public Azure sont prises en charge. Azure Government et les autres clouds souverains ne sont pas pris en charge.
 
-### <a name="q-will-my-data-box-disk-cross-country-borders-during-shipping"></a>Q. Mon disque Data Box Disk traversera-t-il des frontières lors de son expédition ?
-R. Les disques Data Box Disk sont envoyés au sein du même pays, ils ne franchissent aucune frontière internationale. La seule exception concerne les commandes au sein de l’Union européenne (UE), où les disques peuvent être expédiés depuis et vers n’importe quel pays de l’UE.
+### <a name="q-will-my-data-box-disk-cross-countryregion-borders-during-shipping"></a>Q. Mon disque Data Box Disk traversera-t-il des frontières lors de son expédition ?
+R. Les disques Data Box Disk sont envoyés au sein du même pays/région. Ils ne franchissent aucune frontière internationale. La seule exception concerne les commandes au sein de l’Union européenne (UE), où les disques peuvent être expédiés depuis et vers n’importe quel pays/région de l’UE.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>Q. Qui dois-je contacter si je rencontre des problèmes avec des disques Data Box ?
 R. Si vous rencontrez des problèmes avec Data Box Disk, veuillez [contacter le Support Microsoft](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).

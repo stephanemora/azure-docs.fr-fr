@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/25/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 9b8c44f99953d4518f0bc3f558f396250657c632
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: abf5d0d4aeeb18a11f50220e982448d41a9ac1b4
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79138941"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773200"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Vous connecter à vos comptes à l’aide de l’application Microsoft Authenticator
 
@@ -62,6 +62,9 @@ Sur un appareil iOS :
 - **Lorsque vous appuyez sur la vignette de compte**, le compte s’ouvre dans un affichage plein écran du compte. Si vous voyez **Connexion par téléphone activée**, cela signifie que vous avez fini de configurer la connexion sans votre mot de passe. Si vous voyez **Activer la connexion par téléphone**, appuyez dessus pour activer la connexion par téléphone.
 - **Si vous avez déjà utilisé l’application pour la vérification à deux facteurs**, vous pouvez appuyer sur la vignette de compte, qui se développe alors en affichage plein écran du compte. Ensuite, appuyez sur **Activer la connexion par téléphone** pour activer la connexion par téléphone.
 - **Si vous ne trouvez pas votre compte professionnel ou scolaire** sur l’écran **Comptes** de l’application, cela signifie que vous ne l’avez pas encore ajouté à l’application. Ajoutez votre compte professionnel ou scolaire en suivant les étapes décrites dans l’article Ajouter votre compte professionnel ou scolaire.
+
+> [!NOTE]
+> L’Authenticator sur iOS ne prend pas en charge une combinaison d’inscription d’appareil et d’authentification basée sur un certificat. L’utilisateur doit utiliser une solution de contournement en inscrivant l’appareil manuellement via des paramètres de l’Authenticator avant de se connecter.
 
 Une fois que vous avez activé la connexion par téléphone, vous pouvez vous connecter à l’aide de l’application Microsoft Authenticator.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: c1c5bdd1d210a1933699cad52dbf123b50048e01
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: d264ead87e7fa638830bf25fdb07983b164334b7
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421329"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698668"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Accéder à Azure Cosmos DB à partir de réseaux virtuels (VNet)
 
@@ -23,6 +23,10 @@ Par défaut, un compte Azure Cosmos est accessible depuis n’importe quelle sou
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 
 Voici quelques questions fréquemment posées sur la configuration de l’accès à partir de réseaux virtuels :
+
+### <a name="are-notebooks-and-mongo-shell-currently-compatible-with-virtual-network-enabled-accounts"></a>Les blocs-notes et l’interpréteur de commandes Mongo sont-ils actuellement compatibles avec les comptes à extension de réseau virtuel ?
+
+Actuellement, l’intégration de l’[interpréteur de commandes Mongo dans l’Explorateur de données Cosmos DB](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) et le [service Jupyter Notebook](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks) ne sont pas pris en charge avec l’accès au réseau virtuel. Il s’agit d’un développement en cours.
 
 ### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>Puis-je spécifier à la fois le point de terminaison de service de réseau virtuel et la stratégie de contrôle d’accès IP sur un compte Azure Cosmos ? 
 

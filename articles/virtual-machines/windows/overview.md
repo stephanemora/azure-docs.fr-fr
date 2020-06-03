@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7973ef9c56b70b6b43256db947e7f6f7210c178f
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: bf1e3abc1d4fceaa6547f63346ecd64e1128eac2
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930435"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234960"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Machines virtuelles Windows dans Azure
 
@@ -97,7 +97,7 @@ Les ressources de cette table sont utilisées par la machine virtuelle et doiven
 | [Groupe de ressources](../../azure-resource-manager/management/overview.md) |Oui |La machine virtuelle doit être contenue dans un groupe de ressources. |
 | [Compte de stockage](../../storage/common/storage-create-storage-account.md) |Oui |La machine virtuelle doit stocker ses disques durs virtuels dans le compte de stockage. |
 | [Réseau virtuel](../../virtual-network/virtual-networks-overview.md) |Oui |La machine virtuelle doit faire partie d’un réseau virtuel. |
-| [Adresse IP publique](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Non |La machine virtuelle peut avoir une adresse IP publique pour être accessible à distance. |
+| [Adresse IP publique](../../virtual-network/public-ip-addresses.md) |Non |La machine virtuelle peut avoir une adresse IP publique pour être accessible à distance. |
 | [Interface réseau](../../virtual-network/virtual-network-network-interface.md) |Oui |La machine virtuelle a besoin de l’interface réseau pour communiquer sur le réseau. |
 | [Disques de données](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Non |La machine virtuelle peut comprendre des disques de données pour développer ses capacités de stockage. |
 

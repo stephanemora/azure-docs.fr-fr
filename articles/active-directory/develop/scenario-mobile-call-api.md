@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 28f57c5657ce2f8537a654a7f67ed4481fab2c91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 781406a1bfd253f0ab3eb333f23917be4aeb3ba9
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80882690"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771738"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Appeler une API web à partir d’une application mobile
 
@@ -138,7 +138,7 @@ result = await app.AcquireTokenSilent("scopeApi2")
 Une interaction est obligatoire quand :
 
 - L’utilisateur a donné son consentement pour la première API, mais doit également le donner pour d’autres d’étendues Dans ce cas, vous utilisez le consentement incrémentiel.
-- La première API ne nécessite aucune authentification multifacteur, contrairement à l’API qui suit.
+- La première API ne nécessite aucune [authentification multifacteur](../authentication/concept-mfa-howitworks.md), contrairement à l’API qui suit.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.date: 05/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ddce8d4d7ca1f03c0a57d0f0c8c41ac122973e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8c8d6c1aca81d59b42ceca17ecfb071ee5f13bd
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77185558"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014364"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Immersion dans la sécurité de l’authentification directe Azure Active Directory
 
@@ -75,6 +75,9 @@ Les sections suivantes décrivent ces étapes de manière détaillée.
 Seuls les administrateurs généraux peuvent installer un agent d’authentification (à l’aide d’Azure AD Connect ou de façon autonome) sur un serveur local. Cette installation ajoute deux nouvelles entrées dans la liste **Panneau de configuration** > **Programmes** > **Programmes et fonctionnalités** :
 - L’application de l’agent d’authentification proprement dite. Cette application s’exécute avec des privilèges [NetworkService](https://msdn.microsoft.com/library/windows/desktop/ms684272.aspx).
 - L’application de mise à jour qui est utilisée pour mettre à jour automatiquement l’agent d’authentification. Cette application s’exécute avec des privilèges [LocalSystem](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx).
+
+>[!IMPORTANT]
+>Du point de vue de la sécurité, les administrateurs doivent traiter le serveur exécutant l’agent PTA comme s’il s’agissait d’un contrôleur de domaine.  Les serveurs d’agent PTA doivent être renforcés de la même manière que décrit dans [Sécurisation des contrôleurs de domaine contre les attaques](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack)
 
 ### <a name="authentication-agent-registration"></a>Inscription de l’agent d’authentification
 

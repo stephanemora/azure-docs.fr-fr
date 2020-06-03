@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 845c53ec970777901ae8d1c0abf5032ac705d3e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 085830ee1c8e7556a7c3390aaf6e638245d20324
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231297"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745756"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -342,7 +342,7 @@ Par rapport à un circuit ExpressRoute Standard, un circuit Local a le même ens
 ExpressRoute Local a les mêmes limites de ressources (par exemple, le nombre de réseaux virtuels par circuit) que Standard. 
 
 ### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>Où ExpressRoute Local est-il disponible et à quelles régions Azure chaque emplacement de peering est-il mappé ?
-ExpressRoute Local est disponible aux emplacements de peering proches d’une ou de deux régions Azure. Il n’est pas disponible à un emplacement de peering situé dans un état, une province ou un pays où il n’y a pas de région Azure. Consultez les mappages exacts à [la page Emplacements](expressroute-locations-providers.md).  
+ExpressRoute Local est disponible aux emplacements de peering proches d’une ou de deux régions Azure. Il n’est pas disponible à un emplacement de peering situé dans un état, une province ou un pays/région où il n’y a pas de région Azure. Consultez les mappages exacts à [la page Emplacements](expressroute-locations-providers.md).  
 
 ## <a name="expressroute-for-office-365"></a>ExpressRoute pour Office 365
 

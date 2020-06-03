@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 60a5d50b511fc9db02daa9b7e74eedfe40eeb7a5
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: c3892cfe3f8bd6966f5bd00c0747590eef3bc50d
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609899"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860515"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurer votre application App Service ou Azure Functions pour utiliser une connexion Azure AD
 
@@ -125,14 +125,39 @@ Vous pouvez inscrire des clients natifs pour permettre une authentification au n
 1. Une fois l’inscription d’application créée, copiez la valeur de l’**ID d’application (client)** .
 1. Sélectionnez **Autorisations des API** > **Ajouter une autorisation** > **Mes API**.
 1. Sélectionnez l’inscription d'application que vous avez créée précédemment pour votre application App Service. Si celle-ci n’apparaît pas, vérifiez que vous avez ajouté l’étendue **user_impersonation** dans [Créer une inscription d’application dans Azure AD pour votre application App Service](#register).
-1. Sélectionnez **user_impersonation**, puis **Ajouter des autorisations**.
+1. Sous **Autorisations déléguées**, sélectionnez **user_impersonation**, puis **Ajouter des autorisations**.
 
 Vous avez maintenant configuré une application cliente native qui peut accéder à votre application App Service au nom d’un utilisateur.
+
+## <a name="configure-a-daemon-client-application-for-service-to-service-calls"></a>Configurer une application cliente de démon pour des appels de service à service
+
+Votre application peut acquérir un jeton pour appeler une API web hébergée dans votre App Service ou application de fonction pour son propre compte (et non pour le compte d’un utilisateur). Ce scénario est utile pour les applications de démon non interactives qui effectuent des tâches sans utilisateur connecté. Il utilise l’octroi d’[informations d’identification du client](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) OAuth 2.0 standard.
+
+1. Dans le [Azure portal], sélectionnez **Active Directory** > **Inscriptions d’applications** > **Nouvelle inscription**.
+1. Dans la page **Inscrire une application**, entrez un **Nom** pour votre inscription d’application.
+1. Pour une application démon, vous n’avez pas besoin d’un URI de redirection. Vous pouvez donc conserver cette zone vide.
+1. Sélectionnez **Create** (Créer).
+1. Une fois l’inscription d’application créée, copiez la valeur de l’**ID d’application (client)** .
+1. Sélectionnez **Certificats & secrets** > **Nouvelle clé secrète client** > **Ajouter**. Copiez la valeur de la clé secrète client qui s'affiche sur la page. Elle ne s’affichera plus.
+
+Vous pouvez maintenant [demander un jeton d’accès à l’aide de l’ID client et de la clé secrète client](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) en définissant le paramètre `resource` sur l’**URI d’ID d’application** de l’application cible. Le jeton d’accès obtenu peut ensuite être présenté à l’application cible à l’aide de l’[en-tête d’autorisation OAuth 2.0](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#use-the-access-token-to-access-the-secured-resource) standard. La fonction Authentification/autorisation App Service valide et utilise le jeton comme d’habitude pour indiquer à présent que l’appelant (en l’occurrence, une application, pas un utilisateur) est authentifié.
+
+À l’heure actuelle, cela permet à _n’importe quelle_ application cliente de votre locataire Azure AD de demander un jeton d’accès et de s’authentifier auprès de l’application cible. Si vous souhaitez également appliquer un _autorisation_ pour n’autoriser que certaines applications clientes, vous devez effectuer une configuration supplémentaire.
+
+1. [Définissez un rôle d’application](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) dans le manifeste de l’inscription d’application représentant l’App Service ou l’application de fonction que vous souhaitez protéger.
+1. Sur l’inscription de l’application représentant le client qui doit être autorisé, sélectionnez **Autorisations de l’API** > **Ajouter une autorisation** > **Mes API**.
+1. Sélectionnez l’inscription d’application que vous avez créée précédemment. Si vous ne voyez pas l’inscription d’application, assurez-vous que vous avez [ajouté un rôle d’application](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md).
+1. Sous **Autorisations d’application**, choisissez le rôle d’application que vous avez créé précédemment, puis sélectionnez **Ajouter des autorisations**.
+1. Veillez à cliquer sur **Accorder un consentement administrateur** pour autoriser l’application cliente à demander l’autorisation.
+1. Comme pour le scénario précédent (avant l’ajout de rôles), vous pouvez maintenant [demander un jeton d’accès](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) pour la même `resource` cible, et le jeton d’accès inclut une revendication `roles` contenant les rôles d’application qui ont été autorisés pour l’application cliente.
+1. Dans le code de l’App Service ou de l’application de fonction cibles, vous pouvez désormais vérifier que les rôles attendus sont présents dans le jeton (cela n’est pas effectué par la fonction Authentification/autorisation App Service). Pour plus d’informations, consultez la section [Revendications d’utilisateurs d’accès](app-service-authentication-how-to.md#access-user-claims).
+
+Vous avez maintenant configuré une application cliente démon qui peut accéder à votre application App Service en utilisant sa propre identité.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Étapes suivantes
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
-
+* [Tutoriel : Authentifier et autoriser des utilisateurs de bout en bout dans Azure App Service](app-service-web-tutorial-auth-aad.md)
 <!-- URLs. -->
 
 [Azure portal]: https://portal.azure.com/

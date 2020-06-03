@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1869fac973cd4cd68e1e91be89c25fdf1427f6a5
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: e8b7d3945adaf75949ef36b50a5e56a02fde1548
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80653209"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680918"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portail de l’utilisateur pour le serveur Azure Multi-Factor Authentication
 
@@ -105,7 +105,7 @@ Une installation du portail de l'utilisateur sur un serveur autre que le serveur
     * Recherchez la clé **"USE_WEB_SERVICE_SDK"** et modifiez **value="false"** en **value="true"**
     * Recherchez la clé **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** et modifiez **value=""** en **value="DOMAIN\User"** où DOMAIN\User est un compte de service faisant partie du groupe « PhoneFactor Admins ».
     * Recherchez la clé **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** et modifiez **value=""** en **value="Password"** où Password est le mot de passe pour le compte de service entré dans la ligne précédente.
-    * Recherchez la valeur **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** et modifiez cette URL d’espace réservé par l’URL du Kit de développement logiciel (SDK) de service web que nous avons installé à l’étape 2.
+    * Recherchez la valeur `https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx` et modifiez cette URL d’espace réservé par l’URL du Kit de développement logiciel (SDK) de service web que nous avons installé à l’étape 2.
     * Enregistrez le fichier config Web et fermez le Bloc-notes.
 
 6. Ouvrez un navigateur web à partir de n’importe quel ordinateur et accédez à l’URL où le portail de l’utilisateur a été installé (par exemple, `https://mfa.contoso.com/MultiFactorAuth`). Assurez-vous qu'aucun avertissement ou erreur de certificat ne soit affiché.

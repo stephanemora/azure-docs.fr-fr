@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f08107874598a68fb5ce2a1a8a98b6a81d7b94d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c2291d4d2eca2abd11ef9c0f18f3fda52424ab93
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81756779"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739088"
 ---
 # <a name="string-claims-transformations"></a>Transformations de revendications de chaînes
 
@@ -77,7 +77,7 @@ Le profil technique autodéclaré appelle le profil technique de validation **lo
 </TechnicalProfile>
 ```
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
   - **inputClaim1** : someone@contoso.com
@@ -112,7 +112,7 @@ Utilisez cette transformation de revendication pour mettre un ClaimType en majus
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
   - **email** : SomeOne@contoso.com
@@ -143,7 +143,7 @@ Utilisez cette transformation de revendication pour définir une chaîne de vale
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 - Paramètre d’entrée :
     - **value** : Contoso terms of service...
@@ -180,7 +180,7 @@ Utilisez cette transformation de revendication pour vérifier si une revendicati
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
   - **inputClaim1** : someone@contoso.com
@@ -221,7 +221,7 @@ Vous pouvez utiliser cette transformation de revendication pour vérifier si une
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 - Revendications d’entrée :
     - **inputClaim1** : v1
 - Paramètres d’entrée :
@@ -256,7 +256,7 @@ L’exemple suivant génère un ID unique global. Cette transformation de revend
   </OutputClaims>
 </ClaimsTransformation>
 ```
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 - Paramètres d’entrée :
     - **randomGeneratorType** : GUID
@@ -279,7 +279,7 @@ L’exemple suivant génère une valeur entière aléatoire comprise entre 0 et 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 - Paramètres d’entrée :
     - **randomGeneratorType** : INTEGER
@@ -316,7 +316,7 @@ Utilisez cette transformation de revendication pour mettre en forme une chaîne 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **inputClaim** : 5164db16-3eee-4629-bfda-dcc3326790e9
@@ -353,7 +353,7 @@ Utilisez cette transformation de revendication pour mettre en forme une chaîne 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **inputClaim1** : Joe
@@ -424,7 +424,7 @@ La transformation de revendications définit la valeur du type de revendication 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 - Revendications de sortie :
   - **subject** : Code de vérification de l’e-mail du compte Contoso
@@ -469,7 +469,7 @@ La transformation de revendication recherche le texte de l’élément et retour
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **mapFromClaim** : B2C_V1_90001
@@ -506,7 +506,7 @@ L’exemple suivant recherche le nom de domaine dans l’une des collections inp
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **inputParameterId** : test.com
@@ -516,7 +516,7 @@ L’exemple suivant recherche le nom de domaine dans l’une des collections inp
     - **test.com** : c7026f88-4299-4cdb-965d-3f166464b8a9
     - **errorOnFailedLookup** : false
 - Revendications de sortie :
-    - **outputClaim** : c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **outputClaim**:    c7026f88-4299-4cdb-965d-3f166464b8a9
 
 Lorsque le paramètre d’entrée `errorOnFailedLookup` est défini sur `true`, la transformation de revendications **LookupValue** est toujours exécutée à partir d’un [profil technique de validation](validation-technical-profile.md) appelé par un [profil technique autodéclaré](self-asserted-technical-profile.md) ou un [DisplayConrtol](display-controls.md). Les métadonnées `LookupNotFound` d’un profil technique autodéclaré contrôlent le message d’erreur présenté à l’utilisateur.
 
@@ -541,7 +541,7 @@ L’exemple suivant recherche le nom de domaine dans l’une des collections inp
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **inputParameterId** : live.com
@@ -599,7 +599,7 @@ Utilisez cette transformation de revendication pour analyser le nom de domaine d
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
   - **emailAddress** : joe@outlook.com
@@ -717,7 +717,7 @@ Vous pouvez utiliser cette transformation de revendication pour vérifier si une
   </OutputClaims>
 </ClaimsTransformation>
 ```
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **inputClaim** : v1
@@ -763,7 +763,7 @@ Par exemple, la transformation de revendication suivante vérifie si la valeur d
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **claimToMatch** : Secondaire
@@ -804,7 +804,7 @@ Utilisez cette transformation de revendication pour vérifier si un type de reve
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **inputClaim** : "Admin, Approver, Editor"
@@ -825,7 +825,7 @@ Extrait des parties d’un type de revendication de chaîne, en commençant au c
 | InputParameter | length | int | Nombre de caractères dans la sous-chaîne. |
 | OutputClaim | outputClaim | boolean | Chaîne équivalente à la sous-chaîne length qui commence au niveau de startIndex dans cette instance, ou Empty si startIndex est égal à la longueur de cette instance et que la longueur est égale à zéro. |
 
-Par exemple, obtenir le préfixe du pays du numéro de téléphone.
+Par exemple, obtenir le préfixe international du numéro de téléphone.
 
 
 ```XML
@@ -842,7 +842,7 @@ Par exemple, obtenir le préfixe du pays du numéro de téléphone.
   </OutputClaims>
 </ClaimsTransformation>
 ```
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **inputClaim** : "+1644114520"
@@ -880,7 +880,7 @@ Par exemple, normalisez un numéro de téléphone en supprimant les caractères 
   </OutputClaims>
 </ClaimsTransformation>
 ```
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **inputClaim** : "+164-411-452-054"
@@ -916,7 +916,7 @@ L’exemple suivant prend une collection de chaînes de rôles d’utilisateur e
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
   - **inputClaim** : [ "Admin", "Author", "Reader" ]
@@ -952,7 +952,7 @@ L’exemple suivant prend une chaîne de rôles d’utilisateur délimitée par 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
   - **inputClaim** : "Admin,Author,Reader"
@@ -964,7 +964,7 @@ L’exemple suivant prend une chaîne de rôles d’utilisateur délimitée par 
 ## <a name="string-claim-transformations-expressions"></a>Expressions de transformations de revendications de chaînes
 Les expressions de transformations de revendications dans les stratégies personnalisées Azure AD B2C fournissent des informations contextuelles sur l’ID du locataire et l’ID du profil technique.
 
-  | Expression | Description |  Exemple |
+  | Expression | Description | Exemple |
  | ----- | ----------- | --------|
  | `{TechnicalProfileId}` | Nom de l’ID du profil technique. | Facebook-OAUTH |
  | `{RelyingPartyTenantId}` | ID de locataire de la stratégie de partie de confiance. | votre-locataire.onmicrosoft.com |

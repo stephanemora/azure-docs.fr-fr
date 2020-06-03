@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2019
+ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 307ca08e733417efc9496415a09a0898fe10393e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce9f8ee592c1fb2f7ac98339bbd14ce57440bc1a
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183464"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83815704"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services – Guide de l’administrateur
 Les administrateurs des technologies de l’information qui gèrent les ressources cloud d’une université sont généralement responsables de la configuration du compte lab de leur établissement. Une fois un compte lab configuré, les administrateurs ou enseignants créent des laboratoires de salle de classe dans ce compte. Cet article offre une vue d’ensemble globale des ressources Azure en question ainsi que des conseils pour les créer.
@@ -179,11 +179,12 @@ Au moment de créer un labo de classe, les administrateurs ou les créateurs de 
 | ---- | ----- | ------ | ------------- |
 | Petite| <ul><li>2 cœurs</li><li>3,5 Go de RAM</li> | [Standard_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Cette taille est idéale pour la ligne de commande, l’ouverture d’un navigateur web, les serveurs web à faible trafic et les bases de données de petite et moyenne taille. |
 | Moyenne | <ul><li>4 cœurs</li><li>7 Go de RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Cette taille est idéale pour les bases de données relationnelles, le caching en mémoire et l’analyse. |
-| Moyenne (virtualisation imbriquée) | <ul><li>4 cœurs</li><li>16 Go de RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Cette taille est idéale pour les bases de données relationnelles, le caching en mémoire et l’analyse.  Cette taille prend également en charge la virtualisation imbriquée. |
-| grand | <ul><li>8 cœurs</li><li>32 Go de RAM</li></ul>  | [Standard_DC8_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Cette taille est idéale pour les applications nécessitant des UC plus rapides, de meilleures performances du disque local, des bases de données volumineuses et des caches mémoire volumineux.  Cette taille prend également en charge la virtualisation imbriquée. |
+| Moyenne (virtualisation imbriquée) | <ul><li>4 cœurs</li><li>16 Go de RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Cette taille est idéale pour les bases de données relationnelles, le caching en mémoire et l’analyse.
+| grand | <ul><li>8 cœurs</li><li>16 Go de RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Cette taille est idéale pour les applications nécessitant des UC plus rapides, de meilleures performances du disque local, des bases de données volumineuses et des caches mémoire volumineux.  Cette taille prend également en charge la virtualisation imbriquée. |
+| Grande (virtualisation imbriquée) | <ul><li>8 cœurs</li><li>16 Go de RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Cette taille est idéale pour les applications nécessitant des UC plus rapides, de meilleures performances du disque local, des bases de données volumineuses et des caches mémoire volumineux. |
 | GPU de petite taille (visualisation) | <ul><li>6 cœurs</li><li>56 Go de RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Cette taille est optimisée pour la visualisation à distance, la diffusion en continu, les jeux et l’encodage avec des infrastructures comme OpenGL ou DirectX. |
 | GPU de petite taille (calcul) | <ul><li>6 cœurs</li><li>56 Go de RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Cette taille convient tout particulièrement aux applications qui nécessitent beaucoup de ressources informatiques comme l’intelligence artificielle et le Deep Learning. |
-| GPU de taille moyenne (visualisation) | <ul><li>12 cœurs</li><li>112 Go de RAM</li></ul>  | [Standard_NC12](https://docs.microsoft.com/azure/virtual-machines/nc-series) | Cette taille est optimisée pour la visualisation à distance, la diffusion en continu, les jeux et l’encodage avec des infrastructures comme OpenGL ou DirectX. |
+| GPU de taille moyenne (visualisation) | <ul><li>12 cœurs</li><li>112 Go de RAM</li></ul>  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Cette taille est optimisée pour la visualisation à distance, la diffusion en continu, les jeux et l’encodage avec des infrastructures comme OpenGL ou DirectX. |
 
 ## <a name="manage-identity"></a>Gérer l’identité
 

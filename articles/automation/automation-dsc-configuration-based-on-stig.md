@@ -1,6 +1,6 @@
 ---
-title: Configuration basée sur STIG à utiliser dans la configuration d’état – Azure Automation
-description: Découvrez les configurations basées sur STIG pour la configuration d’état dans Azure Automation.
+title: Configurer des données basées sur STIG pour Azure Automation State Configuration
+description: Cet article explique comment configurer des données basées sur STIG pour Azure Automation State Configuration.
 keywords: dsc,powershell,configuration,installation
 services: automation
 ms.service: automation
@@ -10,14 +10,14 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d6d257198fcae54b1214d77f6b905d876d2687f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d1b05f9e77d3530f3e883aa3f9d98de09c8f54c2
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585530"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836989"
 ---
-# <a name="configuration-based-on-stig"></a>Configuration basée sur STIG
+# <a name="configure-data-based-on-stig"></a>Configurer des données basées sur STIG
 
 > S’applique à : Windows PowerShell 5.1
 
@@ -43,6 +43,6 @@ Pour tester PowerSTIG, accédez à [PowerShell Gallery](https://www.powershellga
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Vue d’ensemble de la configuration d’état souhaité Windows PowerShell](/powershell/scripting/dsc/overview/overview)
-- [Ressources DSC](/powershell/scripting/dsc/resources/resources)
-- [Configuration de Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- Pour comprendre DSC PowerShell, consultez [Vue d’ensemble de la fonctionnalité Desired State Configuration de Windows PowerShell](/powershell/scripting/dsc/overview/overview).
+- Découvrez les ressources DSC PowerShell dans [Ressources DSC](/powershell/scripting/dsc/resources/resources).
+- Pour plus d’informations sur la configuration du Configuration Manager local, consultez [configuration du Configuration Manager local](/powershell/scripting/dsc/managing-nodes/metaconfig).

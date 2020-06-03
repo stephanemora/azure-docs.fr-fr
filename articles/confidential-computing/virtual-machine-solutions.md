@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: e574ac33e5f7da814c4bd813fc1c083c7cb4c2c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 49b159434497d4b455a338ba88058d73d7de10ee
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187883"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773132"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Solutions sur des machines virtuelles Azure
 
@@ -39,7 +39,7 @@ az vm list-skus
     --output table
 ```
 
-Depuis le mois d’avril 2020, ces références SKU sont disponibles dans les régions et zones de disponibilité suivantes :
+Depuis le mois de mai 2020, ces références SKU sont disponibles dans les régions et zones de disponibilité suivantes :
 
 ```output
 Name              Locations      AZ_a
@@ -86,7 +86,7 @@ Suivez un tutoriel de démarrage rapide pour déployer une machine virtuelle de 
   
 - **Redimensionnement** : en raison de leur matériel spécialisé, vous pouvez uniquement redimensionner les instances d’informatique confidentielle qui appartiennent à la même famille de taille. Par exemple, vous pouvez uniquement redimensionner une machine virtuelle de la série DCsv2 d’une taille DCsv2 en une autre de cette même série. Le redimensionnement d’une taille d’informatique non confidentielle en une taille d’informatique confidentielle n’est pas pris en charge.  
 
-- **Image** : pour assurer la prise en charge d’Intel Software Guard Extension (Intel SGX) sur les instances d’informatique confidentielle, tous les déploiements doivent être exécutés sur des images de génération 2. L’informatique confidentielle Azure prend en charge les charges de travail s’exécutant sur Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2 et Windows Server 2016 Gen 2. Consultez l’article sur la [prise en charge des machines virtuelles de génération 2 sur Azure](../virtual-machines/linux/generation-2.md) pour en savoir plus sur les scénarios pris en charge et non pris en charge. 
+- **Image** : pour assurer la prise en charge d’Intel Software Guard Extension (Intel SGX) sur les instances d’informatique confidentielle, tous les déploiements doivent être exécutés sur des images de génération 2. L’informatique confidentielle Azure prend en charge les charges de travail s’exécutant sur Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, Windows Server 2019 gen2 et Windows Server 2016 Gen 2. Consultez l’article sur la [prise en charge des machines virtuelles de génération 2 sur Azure](../virtual-machines/linux/generation-2.md) pour en savoir plus sur les scénarios pris en charge et non pris en charge. 
 
 - **Stockage** : les disques de données de machines virtuelles d’informatique confidentielle Azure et nos disques de système d’exploitation éphémères se trouvent sur des disques NVMe. Les instances ne prennent en charge que les disques SSD Premium et SSD Standard, et non SSD Ultra ou HDD Standard. La taille de machine virtuelle **DC8_v2** ne prend pas en charge le stockage Premium. 
 
@@ -100,15 +100,15 @@ Lors de l’utilisation de machines virtuelles dans Azure, vous êtes responsabl
 
 ## <a name="deploying-via-an-azure-resource-manager-template"></a>Déploiement par le biais d’un modèle Azure Resource Manager 
 
-Azure Resource Manager est le service de déploiement et de gestion d’Azure. Il fournit une couche de gestion qui vous permet de créer, mettre à jour et supprimer des ressources dans votre abonnement Azure. Vous utilisez des fonctionnalités de gestion, telles que le contrôle d’accès, les verrous et les étiquettes, pour sécuriser et organiser vos ressources après le déploiement.
+Azure Resource Manager est le service de déploiement et de gestion d’Azure. Il fournit une couche de gestion qui vous permet de créer, mettre à jour et supprimer des ressources dans votre abonnement Azure. Vous pouvez utiliser des fonctionnalités de gestion, telles que le contrôle d’accès, les verrous et les étiquettes, pour sécuriser et organiser vos ressources après le déploiement.
 
 Pour en savoir plus sur les modèles Azure Resource Manager, consultez [Vue d’ensemble du déploiement de modèles](../azure-resource-manager/templates/overview.md).
 
-Pour déployer une machine virtuelle de série DCsv2 dans un modèle ARM, vous utiliserez la [ressource Machine virtuelle](../virtual-machines/windows/template-description.md). Vous devez veiller à spécifier les propriétés correctes pour **vmSize** et pour votre **imageReference**.
+Pour déployer une machine virtuelle de série DCsv2 dans un modèle Azure Resource Manager, vous utiliserez la [ressource Machine virtuelle](../virtual-machines/windows/template-description.md). Veillez à spécifier les propriétés correctes pour **vmSize** et votre **imageReference**.
 
 ### <a name="vm-size"></a>Taille de la machine virtuelle
 
-Spécifiez l’une des tailles suivantes dans votre modèle ARM dans la ressource Machine virtuelle. Cette chaîne est spécifiée en tant que **vmSize** dans **properties**.
+Spécifiez l’une des tailles suivantes dans votre modèle Azure Resource Manager dans la ressource Machine virtuelle. Cette chaîne est spécifiée en tant que **vmSize** dans **properties**.
 
 ```json
   [
@@ -124,6 +124,12 @@ Spécifiez l’une des tailles suivantes dans votre modèle ARM dans la ressourc
 Sous **properties**, vous devrez également référencer une image sous **storageProfile**. Utilisez *une seule* des images suivantes pour votre **imageReference**.
 
 ```json
+      "2019-datacenter-gensecond": {
+        "offer": "WindowsServer",
+        "publisher": "MicrosoftWindowsServer",
+        "sku": "2019-datacenter-gensecond",
+        "version": "latest"
+      },
       "2016-datacenter-gensecond": {
         "offer": "WindowsServer",
         "publisher": "MicrosoftWindowsServer",
@@ -146,7 +152,7 @@ Sous **properties**, vous devrez également référencer une image sous **storag
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
-Dans cet article, vous avez découvert les qualifications et configurations nécessaires à la création d’une machine virtuelle d’informatique confidentielle. Vous pouvez maintenant accéder à la Place de marché Azure pour déployer une machine virtuelle de série DCsv2.
+Dans cet article, vous avez découvert les qualifications et configurations nécessaires à la création d’une machine virtuelle d’informatique confidentielle. Vous pouvez maintenant accéder à la Place de marché Microsoft Azure pour déployer une machine virtuelle de série DCsv2.
 
 > [!div class="nextstepaction"]
 > [Déployer une machine virtuelle de série DCsv2 dans la Place de marché Azure](quick-create-marketplace.md)

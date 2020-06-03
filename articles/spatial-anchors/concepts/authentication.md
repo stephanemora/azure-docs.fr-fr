@@ -8,13 +8,12 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.custom: has-adal-ref
-ms.openlocfilehash: c2800dc361eb274eeef706556e09731da079ccab
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 9a3b326f97246ffac386ad43cfa08ce413eea899
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611753"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653372"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autorisation et authentification auprès d’Azure Spatial Anchors
 
@@ -99,7 +98,7 @@ Pour les applications ciblant les utilisateurs Azure Active Directory, l’appro
     1.  Inscrivez votre application dans Azure AD en tant qu’**Application native**. Dans le cadre de l’inscription, vous devez déterminer si votre application doit être multilocataire ou non, et fournir les URL de redirection autorisées pour votre application.
         1.  Basculer sur l’onglet **Autorisations de l’API**
         2.  Sélectionner **Ajouter une autorisation**
-            1.  Sélectionner **Fournisseur de ressources Azure Mixed Reality** sous l’onglet **API utilisées par mon organisation**
+            1.  Sous l’onglet **API utilisées par mon organisation**, sélectionnez **Microsoft Mixed Reality**
             2.  Sélectionner **Autorisations déléguées**
             3.  Cochez la case **mixedreality.signin** sous **mixedreality**
             4.  Sélectionner **Ajouter des autorisations**
@@ -112,12 +111,12 @@ Pour les applications ciblant les utilisateurs Azure Active Directory, l’appro
             2.  Dans le champ **Sélectionner**, entrez le nom des utilisateurs, groupes et/ou applications auxquels vous souhaitez accorder l’accès.
             3.  Cliquez sur **Enregistrer**.
 2. Dans votre code :
-    1.  Veillez à utiliser l’**ID d’application** et l’**Uri de redirection** de votre propre application Azure AD comme paramètres d’**ID client** et d’**Uri de redirection** dans la bibliothèque ADAL.
+    1.  Veillez à utiliser l’**ID d’application** et l’**URI de redirection** de votre propre application Azure AD comme paramètres d’**ID client** et d’**Uri de redirection** dans la bibliothèque MSAL
     2.  Définissez les informations sur le locataire :
         1.  Si votre application prend en charge **Mon organisation uniquement**, remplacez cette valeur par l’**ID de locataire** ou le **Nom du locataire** (par exemple contoso.microsoft.com).
         2.  Si votre application prend en charge les **Comptes dans un annuaire organisationnel**, remplacez cette valeur par **Organizations**.
         3.  Si votre application prend en charge **Tous les utilisateurs de compte Microsoft**, remplacez cette valeur par **Common**.
-    3.  Sur votre demande de jeton, affectez « https://sts.mixedreality.azure.com  » comme **resource**. Cette « resource » indique à Azure AD que votre application demande un jeton pour le service Azure Spatial Anchors.
+    3.  Sur votre demande de jeton, définissez l’**étendue** sur « https://sts.mixedreality.azure.com//.default  ». Cette étendue indique à Azure AD que votre application demande un jeton pour le service d’émission de jeton de sécurité (STS) Mixed Reality.
 
 Avec cela, votre application doit pouvoir obtenir un jeton Azure AD de la part de la bibliothèque MSAL. Vous pouvez définir ce jeton Azure AD en tant qu’**authenticationToken** sur votre objet de configuration de session cloud.
 
@@ -185,16 +184,16 @@ Le jeton d’accès Azure AD est récupéré à l’aide de la [bibliothèque MS
         2.  Dans le champ **Sélectionner**, entrez le nom des applications que vous avez créées et auxquelles vous souhaitez accorder l’accès. Si vous souhaitez que les utilisateurs de votre application aient différents rôles sur le compte Spatial Anchors, vous devez inscrire plusieurs applications dans Azure AD et attribuer à chacune un rôle distinct. Ensuite, implémentez votre logique d’autorisation afin d’utiliser le rôle approprié pour vos utilisateurs.
     3.  Cliquez sur **Enregistrer**.
 2.  Dans votre code (Remarque : Vous pouvez utiliser l’exemple de service fourni sur GitHub) :
-    1.  Veillez à utiliser l’ID d’application, le secret d’application et l’Uri de redirection de votre propre application Azure AD comme paramètres d’ID client, de secret et d’Uri de redirection dans la bibliothèque ADAL.
-    2.  Affectez comme ID de locataire votre propre ID de locataire Azure AD dans le paramètre d’autorité dans la bibliothèque ADAL.
-    3.  Sur votre demande de jeton, affectez « https://sts.mixedreality.azure.com  » comme **resource**.
+    1.  Veillez à utiliser l’ID d’application, le secret d’application et l’URI de redirection de votre propre application Azure AD comme paramètres d’ID client, de secret et d’URI de redirection dans la bibliothèque MSAL
+    2.  Définissez comme ID de locataire votre propre ID de locataire Azure ADD dans le paramètre d’autorité dans la bibliothèque MSAL.
+    3.  Sur votre demande de jeton, définissez l’**étendue** sur « https://sts.mixedreality.azure.com//.default  »
 
 Avec cela, votre service back-end peut récupérer un jeton Azure AD. Il peut ensuite l’échanger contre un jeton MR qu’il renverra au client. L’utilisation d’un jeton Azure AD pour récupérer un jeton MR s’effectue par le biais d’un appel REST. Voici un exemple d’appel :
 
 ```
-GET https://mrc-auth-prod.trafficmanager.net/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
+GET https://sts.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1Ni<truncated>FL8Hq5aaOqZQnJr1koaQ
-Host: mrc-auth-prod.trafficmanager.net
+Host: sts.mixedreality.azure.com
 Connection: Keep-Alive
 
 HTTP/1.1 200 OK
@@ -206,7 +205,7 @@ MS-CV: 05JLqWeKFkWpbdY944yl7A.0
 {"AccessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjI2MzYyMTk5ZTI2NjQxOGU4ZjE3MThlM2IyMThjZTIxIiwidHlwIjoiSldUIn0.eyJqdGkiOiJmMGFiNWIyMy0wMmUxLTQ1MTQtOWEzNC0xNzkzMTA1NTc4NzAiLCJjYWkiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJ0aWQiOiIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJhaWQiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJhYW8iOi0xLCJhcHIiOiJlYXN0dXMyIiwicmlkIjoiL3N1YnNjcmlwdGlvbnMvNzIzOTdlN2EtNzA4NC00ODJhLTg3MzktNjM5Y2RmNTMxNTI0L3Jlc291cmNlR3JvdXBzL3NhbXBsZV9yZXNvdXJjZV9ncm91cC9wcm92aWRlcnMvTWljcm9zb2Z0Lk1peGVkUmVhbGl0eS9TcGF0aWFsQW5jaG9yc0FjY291bnRzL2RlbW9fYWNjb3VudCIsIm5iZiI6MTU0NDU0NzkwMywiZXhwIjoxNTQ0NjM0MzAzLCJpYXQiOjE1NDQ1NDc5MDMsImlzcyI6Imh0dHBzOi8vbXJjLWF1dGgtcHJvZC50cmFmZmljbWFuYWdlci5uZXQvIiwiYXVkIjoiaHR0cHM6Ly9tcmMtYW5jaG9yLXByb2QudHJhZmZpY21hbmFnZXIubmV0LyJ9.BFdyCX9UJj0i4W3OudmNUiuaGgVrlPasNM-5VqXdNAExD8acFJnHdvSf6uLiVvPiQwY1atYyPbOnLYhEbIcxNX-YAfZ-xyxCKYb3g_dbxU2w8nX3zDz_X3XqLL8Uha-rkapKbnNgxq4GjM-EBMCill2Svluf9crDmO-SmJbxqIaWzLmlUufQMWg_r8JG7RLseK6ntUDRyDgkF4ex515l2RWqQx7cw874raKgUO4qlx0cpBAB8cRtGHC-3fA7rZPM7UQQpm-BC3suXqRgROTzrKqfn_g-qTW4jAKBIXYG7iDefV2rGMRgem06YH_bDnpkgUa1UgJRRTckkBuLkO2FvA"}
 ```
 
-Où l’en-tête Authorization est mis en forme comme suit : `Bearer <accoundId>:<accountKey>`
+Où l’en-tête Authorization est mis en forme comme suit : `Bearer <Azure_AD_token>`
 
 Et la réponse contient le jeton MR en texte brut.
 

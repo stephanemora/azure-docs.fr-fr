@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: mimckitt
-ms.openlocfilehash: 105279940546c8e5b40d1d8378b35f85af1ea98b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c8b0d83be0ae464563a06c9307303ee7a5af527f
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82099544"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779780"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Service de métadonnées Azure : Événements planifiés pour les machines virtuelles Windows
 
@@ -134,10 +134,10 @@ Chaque événement est planifié à un minimum de temps dans le futur, en foncti
 
 ### <a name="event-scope"></a>Portée de l’événement     
 Les événements planifiés sont remis à :
- - Machines virtuelles autonomes
- - Toutes les machines virtuelles d’un service cloud      
- - Toutes les machines virtuelles d’un groupe à haute disponibilité      
- - Toutes les machines virtuelles d’un groupe de placement de groupe identique.         
+ - Machines virtuelles autonomes.
+ - Toutes les machines virtuelles d’un service cloud.     
+ - Toutes les machines virtuelles d’un groupe à haute disponibilité.     
+ - Toutes les machines virtuelles d’un groupe de placement de groupe identique (y compris Lot).       
 
 Par conséquent, vous devez vérifier le champ `Resources` de l’événement pour identifier les machines virtuelles qui seront affectées. 
 

@@ -3,12 +3,12 @@ title: Tableau de prise en charge de Sauvegarde Azure pour la sauvegarde de SQL 
 description: Propose un résumé des limitations et des paramètres de prise en charge de la sauvegarde de SQL Server dans les machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 79a7e30ab9240c489a66b547ff85bea7887131b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f9594b9157f84a0536ffd4b62f792fd86fb1c243
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79410118"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234243"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Tableau de prise en charge de la sauvegarde de SQL Server dans les machines virtuelles Azure
 
@@ -19,7 +19,7 @@ Vous pouvez utiliser le service Sauvegarde Azure pour sauvegarder des bases de d
 **Support** | **Détails**
 --- | ---
 **Déploiements pris en charge** | Les machines virtuelles Azure de la Place de marché SQL et les machines virtuelles autres que celles de la Place de marché (sur lesquelles SQL Server est installé manuellement) sont prises en charge.
-**Zones géographiques prises en charge** | Australie Sud-Est (ASE), Australie Est (AE), Australie Centre (AC), Australie Centre 2 (AC) <br> Brésil Sud (BRS)<br> Canada Centre (CNC), Canada Est (CE)<br> Asie Sud-Est (SEA), Asie Est (EA) <br> USA Est (EUS), USA Est 2 (EUS2), West Central US (WCUS), USA Ouest (WUS), USA Ouest 2 (WUS 2), USA Centre Nord (NCUS), USA Centre (CUS), USA Centre Sud (SCUS) <br> Inde Centre (INC), Inde Sud (INS), Inde Ouest <br> Japon Est (JPE), Japon Ouest (JPW) <br> Corée Centre (KRC), Corée Sud (KRS) <br> Europe Nord (NE), Europe Ouest (WE) <br> Royaume-Uni Sud (UKS), Royaume-Uni Ouest (UKW) <br> US Gov Arizona, US Gov Virginie, US Gov Texas, US DoD Centre, US DoD Est <br> Allemagne Nord, Allemagne Centre-Ouest <br> Suisse Nord, Suisse Ouest <br> France Centre <br> Chine Est, Chine Est 2, Chine Nord, Chine Nord 2
+**Régions prises en charge** | Australie Sud-Est (ASE), Australie Est (AE), Australie Centre (AC), Australie Centre 2 (AC) <br> Brésil Sud (BRS)<br> Canada Centre (CNC), Canada Est (CE)<br> Asie Sud-Est (SEA), Asie Est (EA) <br> USA Est (EUS), USA Est 2 (EUS2), West Central US (WCUS), USA Ouest (WUS), USA Ouest 2 (WUS 2), USA Centre Nord (NCUS), USA Centre (CUS), USA Centre Sud (SCUS) <br> Inde Centre (INC), Inde Sud (INS), Inde Ouest <br> Japon Est (JPE), Japon Ouest (JPW) <br> Corée Centre (KRC), Corée Sud (KRS) <br> Europe Nord (NE), Europe Ouest (WE) <br> Royaume-Uni Sud (UKS), Royaume-Uni Ouest (UKW) <br> US Gov Arizona, US Gov Virginie, US Gov Texas, US DoD Centre, US DoD Est <br> Allemagne Nord, Allemagne Centre-Ouest <br> Suisse Nord, Suisse Ouest <br> France Centre <br> Chine Est, Chine Est 2, Chine Nord, Chine Nord 2
 **Systèmes d’exploitation pris en charge** | Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Linux n’est pas actuellement pris en charge.
 **Versions de SQL Server prises en charge** | SQL Server 2019, SQL Server 2017 comme indiqué dans la [page Rechercher le cycle de vie des produits](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 et différents SP comme indiqué dans la [page Rechercher le cycle de vie des produits](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express.
 **Versions .NET prises en charge** | .NET Framework 4.5.2 ou ultérieur installé sur la machine virtuelle

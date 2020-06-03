@@ -1,15 +1,15 @@
 ---
 title: Bien démarrer avec Azure CLI pour Batch
 description: Obtenez une brève introduction aux commandes Batch dans l’interface de ligne de commande Azure pour la gestion des ressources du service Azure Batch.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fe73770dbe8dfe6d69cb08e1fbf44d42bff9e54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2bb3dd2e67c3c3bf9139a25935ab0dd074799c6f
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117367"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780227"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gérer les ressources Batch avec Azure CLI
 
@@ -162,9 +162,9 @@ Les conseils suivants peuvent vous aider lors de la résolution de problèmes su
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur Azure CLI, consultez la [documentation relative à Azure CLI](https://docs.microsoft.com/cli/azure).
-* Pour plus d’informations sur les ressources Batch, consultez [Vue d’ensemble d’Azure Batch pour les développeurs](batch-api-basics.md).
-* Pour en savoir plus sur l’utilisation des modèles Batch afin de créer des pools, des travaux et des tâches sans écrire de code, consultez la section [Utiliser des modèles d’interface CLI Azure Batch et le transfert de fichiers (préversion)](batch-cli-templates.md).
+* Consultez la [Documentation sur Azure CLI](https://docs.microsoft.com/cli/azure).
+* Apprenez-en davantage sur le [flux de travail et les ressources principales du service Batch](batch-service-workflow-features.md), telles que les pools, les nœuds, les travaux et les tâches.
+* Découvrez l’utilisation des modèles Batch afin de créer des pools, des travaux et des tâches sans écrire de code dans la section [Utiliser des modèles d’interface CLI Azure Batch et le transfert de fichiers (préversion)](batch-cli-templates.md).
 
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx

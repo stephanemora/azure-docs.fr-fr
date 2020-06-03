@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f04a3fea3801f917a3ae4aced04ef3824d1cfa82
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad681f4996f713b8bb0c85b07a3f38f0dcb6708a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78184517"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738232"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gérer l’accès utilisateur dans Azure Active Directory B2C
 
@@ -50,7 +50,7 @@ Voici un exemple de flux utilisateur pour le recueil du consentement parental :
 
 2. L’application traite le jeton JSON et affiche un écran à l’intention du mineur pour l’informer que le consentement parental est nécessaire et pour le demander à un parent en ligne.
 
-3. Azure AD B2C affiche un parcours d’authentification que l’utilisateur peut suivre pour se connecter normalement, et émet un jeton à l’application qui doit inclure **legalAgeGroupClassification = “minorWithParentalConsent”** . L’application collecte l’adresse e-mail du parent et vérifie que ce dernier est un adulte. Pour ce faire, elle fait appel à une source de confiance, par exemple un bureau des cartes d’identité, la vérification du permis de conduire ou une preuve de possession d’une carte de crédit. Si la vérification réussit, l’application demande au mineur de se connecter à l’aide du flux utilisateur Azure AD B2C. Si le consentement est refusé (par exemple, si **legalAgeGroupClassification = "minorWithoutParentalConsent"** ), Azure AD B2C retourne un jeton JSON (et non un compte de connexion) à destination de l’application afin de recommencer le processus de consentement. Il est possible de personnaliser le flux utilisateur de façon à ce qu’un mineur ou un adulte puisse récupérer l’accès au compte d’un mineur en envoyant un code d’inscription à l’adresse e-mail du mineur ou à l’adresse e-mail de l’adulte enregistré.
+3. Azure AD B2C affiche un parcours d’authentification que l’utilisateur peut suivre pour se connecter normalement, et émet un jeton à l’application qui doit inclure **legalAgeGroupClassification = "minorWithParentalConsent"** . L’application collecte l’adresse e-mail du parent et vérifie que ce dernier est un adulte. Pour ce faire, elle fait appel à une source de confiance, par exemple un bureau des cartes d’identité, la vérification du permis de conduire ou une preuve de possession d’une carte de crédit. Si la vérification réussit, l’application demande au mineur de se connecter à l’aide du flux utilisateur Azure AD B2C. Si le consentement est refusé (par exemple, si **legalAgeGroupClassification = "minorWithoutParentalConsent"** ), Azure AD B2C retourne un jeton JSON (et non un compte de connexion) à destination de l’application afin de recommencer le processus de consentement. Il est possible de personnaliser le flux utilisateur de façon à ce qu’un mineur ou un adulte puisse récupérer l’accès au compte d’un mineur en envoyant un code d’inscription à l’adresse e-mail du mineur ou à l’adresse e-mail de l’adulte enregistré.
 
 4. L’application permet au mineur de révoquer le consentement.
 
@@ -66,15 +66,15 @@ Un flux utilisateur personnalisé peut recueillir les informations sur la date d
 
 Les étapes suivantes illustrent la logique utilisée pour calculer **ageGroup** à partir de la date de naissance de l’utilisateur :
 
-1. Essayez de rechercher le pays en fonction du code de pays dans la liste. Si vous ne trouvez pas le pays, revenez à la valeur **Default**.
+1. Essayez de trouver le pays ou la région à l’aide de leur code dans la liste. Si vous ne trouvez pas le pays ou la région, revenez à la valeur **Default**.
 
-2. Si le nœud **MinorConsent** est présent dans l’élément de pays :
+2. Si le nœud **MinorConsent** est présent dans l’élément de pays/région :
 
     a. Calculez la date à laquelle l’utilisateur doit être né pour être considéré comme un adulte. Par exemple, si la date actuelle est le 14 mars 2015, et que **MinorConsent** est 18, la date de naissance doit être au plus tard le 14 mars 2000.
 
     b. Comparez la date de naissance minimale avec la date de naissance réelle. Si la date de naissance minimale se situe avant la date de naissance de l’utilisateur, le calcul renvoie **Minor** lors du calcul de la tranche d’âge.
 
-3. Si le nœud **MinorNoConsentRequired** est présent dans l’élément de pays, répétez les étapes 2a et 2 b avec la valeur issue de **MinorNoConsentRequired**. La sortie de l’étape 2b retourne **MinorNoConsentRequired** si la date de naissance minimale se situe avant la date de naissance de l’utilisateur.
+3. Si le nœud **MinorNoConsentRequired** est présent dans l’élément de pays/région, répétez les étapes 2a et 2 b avec la valeur issue de **MinorNoConsentRequired**. La sortie de l’étape 2b retourne **MinorNoConsentRequired** si la date de naissance minimale se situe avant la date de naissance de l’utilisateur.
 
 4. Si aucun des deux calculs ne renvoie la valeur true, le calcul renvoie **Adult**.
 

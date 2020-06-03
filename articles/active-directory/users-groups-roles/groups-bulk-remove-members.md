@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b3c6e471a8e44236baf9bfc2c8eb6c9d5526d72
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 6d6f3a714174b2b808629e0cb41aba6f393d3410
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203446"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83679209"
 ---
 # <a name="bulk-remove-group-members-in-azure-active-directory"></a>Supprimer en bloc les membres d’un groupe dans Azure Active Directory
 
@@ -26,23 +26,23 @@ En utilisant le portail Azure Active Directory (Azure AD), vous pouvez supprimer
 
 ## <a name="understand-the-csv-template"></a>Comprendre le modèle CSV
 
-Téléchargez et renseignez le modèle CSV de chargement en bloc pour ajouter des Azure AD membres du groupe en bloc. Votre modèle CSV peut se présenter comme dans l’exemple suivant :
+Téléchargez et renseignez le modèle CSV de chargement en bloc pour ajouter des membres du groupe Azure AD en bloc. Votre modèle CSV peut se présenter comme dans l’exemple suivant :
 
 ![Feuille de calcul pour le chargement et les appels expliquant l’objectif et les valeurs de chaque ligne et colonne](./media/groups-bulk-remove-members/template-example.png)
 
 ### <a name="csv-template-structure"></a>Structure du modèle CSV
 
-Les lignes d’un modèle CSV téléchargé sont les suivantes :
+Les lignes d’un modèle CSV téléchargé sont les suivantes :
 
-- **Numéro de version** : La première ligne contenant le numéro de version doit être incluse dans le fichier CSV chargé.
-- **En-têtes de colonne** : Le format des en-têtes de colonne est &lt;*Nom d’élément*&gt; [PropertyName] &lt;*Obligatoire ou vide*&gt;. Par exemple : `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Certaines anciennes versions du modèle peuvent avoir de légères variations. Pour les modifications d’appartenance à un groupe, vous avez le choix de l’identificateur : ID d'objet membre ou nom principal de l'utilisateur.
+- **Numéro de version** : La première ligne contenant le numéro de version doit être incluse dans le fichier CSV chargé.
+- **En-têtes de colonne** : Le format des en-têtes de colonne est &lt;*Nom d’élément*&gt; [PropertyName] &lt;*Obligatoire ou vide*&gt;. Par exemple : `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Certaines anciennes versions du modèle peuvent avoir de légères variations. Pour les modifications d’appartenance à un groupe, vous avez le choix de l’identificateur : ID d’objet membre ou nom d’utilisateur principal.
 - **Exemples de lignes** : Nous avons inclus dans le modèle une ligne d’exemples de valeurs acceptables pour chaque colonne. Vous devez supprimer la ligne des exemples et la remplacer par vos propres entrées.
 
 ### <a name="additional-guidance"></a>Conseils supplémentaires
 
-- Les deux premières lignes du modèle chargé ne doivent pas être supprimées ou modifiées, ou le chargement ne pourra pas être traité.
-- Les colonnes requises sont répertoriées en premier.
-- Nous vous déconseillons d’ajouter de nouvelles colonnes au modèle. Toutes les colonnes supplémentaires que vous ajoutez sont ignorées et ne sont pas traitées.
+- Les deux premières lignes du modèle chargé ne doivent pas être supprimées ni modifiées, sinon, le chargement ne pourra pas être traité.
+- Les colonnes obligatoires sont listées en premier.
+- Nous vous déconseillons d’ajouter des colonnes au modèle. Les colonnes que vous ajouterez seront ignorées et ne seront pas traitées.
 - Nous vous recommandons de télécharger la version la plus récente du modèle CSV aussi souvent que possible.
 
 ## <a name="to-bulk-remove-group-members"></a>Supprimer en bloc les membres d’un groupe
@@ -57,7 +57,7 @@ Les lignes d’un modèle CSV téléchargé sont les suivantes :
 
 1. Ouvrez le fichier CSV et ajoutez une ligne pour chaque membre du groupe que vous souhaitez supprimer du groupe (les valeurs requises sont ID d’objet de membre ou Nom principal de l’utilisateur). Puis enregistrez le fichier.
 
-   ![Le fichier CSV contient les noms et les ID des membres à supprimer](./media/groups-bulk-remove-members/csv-file.png)
+    :::image type="content" source="./media/groups-bulk-import-members/csv-file.png" alt-text="Le fichier CSV contient les noms et les ID des membres du groupe à supprimer":::
 
 1. Dans la page **Supprimer en bloc les membres du groupe**, sous **Chargez votre fichier .csv**, accédez au fichier. Quand vous sélectionnez le fichier, la validation du fichier CSV démarre.
 1. Quand le contenu du fichier est validé, la page d’importation en bloc affiche **Fichier chargé**. Si des erreurs sont présentes, vous devez les corriger avant de pouvoir envoyer le travail.

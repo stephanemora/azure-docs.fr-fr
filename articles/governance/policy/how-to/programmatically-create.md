@@ -1,14 +1,14 @@
 ---
 title: Créer des stratégies par programmation
 description: Cet article vous explique comment créer et gérer des stratégies par programmation pour Azure Policy avec Azure CLI, Azure PowerShell et l’API REST.
-ms.date: 01/31/2019
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 08ed43a464d1dd7de8220428dbc1c61ce9fc3ad6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8ee87ecd9e7c636b5bb63c8e94be0e353acc3e13
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79231181"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682126"
 ---
 # <a name="programmatically-create-policies"></a>Créer des stratégies par programmation
 
@@ -16,7 +16,7 @@ Cet article vous explique comment créer et gérer des stratégies par programma
 
 Pour plus d’informations sur la conformité, consultez [Obtention de données de conformité](get-compliance-data.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, vérifiez que les conditions préalables suivantes sont remplies :
 
@@ -133,10 +133,10 @@ Pour créer une définition de stratégie, procédez comme suit.
 
    ```console
    # For defining a policy in a subscription
-   armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+   armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2019-09-01" @<path to policy definition JSON file>
 
    # For defining a policy in a management group
-   armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+   armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2019-09-01" @<path to policy definition JSON file>
    ```
 
    Remplacez {subscriptionId} précédent par l’ID de votre abonnement ou {managementGroupId} par l’ID de votre [groupe d’administration](../../management-groups/overview.md).
@@ -162,7 +162,7 @@ Utilisez la procédure suivante pour créer une attribution de stratégie et ass
 1. Créez l’attribution de stratégie à l’aide de l’appel suivant :
 
    ```console
-   armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2017-06-01-preview" @<path to Assignment JSON file>
+   armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2019-09-01" @<path to Assignment JSON file>
    ```
 
    Remplacez les informations de l’exemple entre &lt;&gt; par vos propres valeurs.
@@ -207,8 +207,8 @@ Pour créer une définition de stratégie, procédez comme suit :
 
    Lorsqu’il est appelé sans paramètre d’emplacement, par défaut, `az policy definition creation` enregistre la définition de stratégie dans l’abonnement sélectionné du contexte de sessions. Pour enregistrer la définition dans un autre emplacement, utilisez les paramètres suivants :
 
-   - **--subscription** : enregistre dans un autre abonnement. Nécessite une valeur _GUID_ pour l’ID d’abonnement ou une valeur _chaîne_ pour le nom de l’abonnement.
-   - **--management-group** : enregistre dans un groupe d’administration. Une valeur de _chaîne_ est nécessaire.
+   - **subscription** : enregistrer dans un autre abonnement. Nécessite une valeur _GUID_ pour l’ID d’abonnement ou une valeur _chaîne_ pour le nom de l’abonnement.
+   - **--management-group** : enregistrer dans un groupe d’administration. Une valeur de _chaîne_ est nécessaire.
 
 1. Pour créer une attribution de stratégie, utilisez la commande suivante. Remplacez les informations de l’exemple entre &lt;&gt; par vos propres valeurs.
 
@@ -216,7 +216,7 @@ Pour créer une définition de stratégie, procédez comme suit :
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
 
-   Le paramètre **--scope** sur `az policy assignment create` peut être défini pour un groupe d’administration, un abonnement, un groupe de ressources ou une seule ressource. Le paramètre utilise un chemin de ressource complet. Pour chaque conteneur, le modèle **--scope** est le suivant. Remplacez `{rName}`, `{rgName}`, `{subId}` et `{mgName}` par le nom de la ressource, le nom du groupe de ressources, l’ID de l’abonnement et le nom du groupe d’administration, respectivement. `{rType}` est remplacé par le **type de la ressource**, comme `Microsoft.Compute/virtualMachines` pour une machine virtuelle.
+   Le paramètre **Scope** sur `az policy assignment create` peut être défini pour un groupe d’administration, un abonnement, un groupe de ressources ou une seule ressource. Le paramètre utilise un chemin de ressource complet. Pour chaque conteneur, le modèle pour **scope** est le suivant. Remplacez `{rName}`, `{rgName}`, `{subId}` et `{mgName}` par le nom de la ressource, le nom du groupe de ressources, l’ID de l’abonnement et le nom du groupe d’administration, respectivement. `{rType}` est remplacé par le **type de la ressource**, comme `Microsoft.Compute/virtualMachines` pour une machine virtuelle.
 
    - Ressource : `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Groupe de ressources : `/subscriptions/{subID}/resourceGroups/{rgName}`

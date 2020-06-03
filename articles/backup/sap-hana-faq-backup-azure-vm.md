@@ -3,12 +3,12 @@ title: FAQ - Sauvegarder des bases de données SAP HANA sur des machines virtuel
 description: Dans cet article, découvrez des réponses à des questions courantes sur la sauvegarde de bases de données SAP HANA avec le service Sauvegarde Microsoft Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: a46c4d6cccc00452a56567880400ef5779e6aed4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56f98dddb00eb3ffc87eb27da73066de807a1ee1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80155390"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701015"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Forum aux questions – Sauvegarde de bases de données SAP HANA sur des machines virtuelles Azure
 
@@ -49,9 +49,9 @@ Reportez-vous aux sections [Prérequis](tutorial-backup-sap-hana-db.md#prerequis
 
 L’exécution du script de pré-inscription définit les autorisations requises pour permettre à Azure de sauvegarder des bases de données SAP HANA. Pour plus d’informations sur ce qu’un script de préinscription permet de faire, [cliquez ici](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
 
-### <a name="will-backups-work-after-migrating-sap-hana-from-10-to-20"></a>Les sauvegardes seront-elles opérationnelles après la migration de SAP HANA de la version 1.0 à la version 2.0 ?
+### <a name="will-backups-work-after-migrating-sap-hana-from-sdc-to-mdc"></a>Les sauvegardes seront-elles opérationnelles après la migration SAP HANA de SDC vers MDC ?
 
-Reportez-vous à [cette section](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) du Guide de résolution des problèmes.
+Reportez-vous à [cette section](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid) du Guide de résolution des problèmes.
 
 ### <a name="can-azure-hana-backup-be-set-up-against-a-virtual-ip-load-balancer-and-not-a-virtual-machine"></a>La sauvegarde Azure HANA peut-elle être configurée sur une adresse IP virtuelle (équilibreur de charge) et non une machine virtuelle ?
 
@@ -60,6 +60,18 @@ Nous ne sommes pas en mesure de configurer la solution sur une adresse IP virtue
 ### <a name="i-have-a-sap-hana-system-replication-hsr-how-should-i-configure-backup-for-this-setup"></a>J’ai une réplication du système SAP HANA (HSR). Comment dois-je configurer la sauvegarde pour cette installation ?
 
 Les nœuds principal et secondaire du HSR seront traités comme deux machines virtuelles indépendantes. Vous devez configurer la sauvegarde sur le nœud principal et, lorsque le basculement intervient, vous devez configurer la sauvegarde sur le nœud secondaire (qui devient alors le nœud principal). Il n’y a pas de basculement automatique de la sauvegarde vers l’autre nœud.
+
+### <a name="how-can-i-move-an-on-demand-backup-to-the-local-file-system-instead-of-the-azure-vault"></a>Comment puis-je déplacer une sauvegarde à la demande vers le système de fichiers local au lieu du coffre Azure ?
+
+1. Attendez la fin de la sauvegarde en cours d’exécution sur la base de données souhaitée (vérifier son accomplissement dans Studio)
+1. Désactivez les sauvegardes de journaux et définissez la sauvegarde du catalogue sur **Filesystem** pour la base de données souhaitée en procédant comme suit :
+1. Double-cliquez sur **SYSTEMDB** -> **configuration** -> **Sélectionner une base de données** -> **Filtre (journal)**
+    1. Définissez enable_auto_log_backup sur **no** (non)
+    1. Définissez log_backup_using_backint sur **false** (faux)
+1. Effectuez une sauvegarde à la demande sur la base de données souhaitée, et attendez la fin de la sauvegarde et de la sauvegarde du catalogue.
+1. Rétablissez les paramètres précédents pour autoriser la circulation des sauvegardes vers le coffre Azure :
+    1. Définissez enable_auto_log_backup sur **yes** (oui)
+    1. Définissez log_backup_using_backint sur **true** (vrai)
 
 ## <a name="restore"></a>Restaurer
 

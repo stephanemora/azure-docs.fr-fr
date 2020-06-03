@@ -9,13 +9,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/19/2018
-ms.openlocfilehash: 40b1b8d040c4b3ea76372920f88551fba35c5f26
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/15/2020
+ms.openlocfilehash: 44a95430ece9c55bb088ae5b968c33691f25b4c5
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81419440"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860776"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Surveiller visuellement Azure Data Factory
 
@@ -132,6 +132,21 @@ Vous pouvez également voir l’historique des réexécutions d’une exécution
 
 ![Voir l’historique d’une exécution de pipeline](media/monitor-visually/rerun-history-image2.png)
 
+## <a name="monitor-consumption"></a>Surveiller la consommation
+
+Vous pouvez voir les ressources qu’une exécution de pipeline utilise en cliquant sur l’icône de consommation en regard de l’exécution. 
+
+![Surveiller la consommation](media/monitor-visually/monitor-consumption-1.png)
+
+Un clic sur l’icône ouvre un rapport consommation des ressources utilisées pour l’exécution de ce pipeline. 
+
+![Surveiller la consommation](media/monitor-visually/monitor-consumption-2.png)
+
+Vous pouvez connecter ces valeurs à la [Calculatrice de prix Azure](https://azure.microsoft.com/pricing/details/data-factory/) pour estimer le coût d’exécution du pipeline. Pour plus d’informations sur la tarification d’Azure Data Factory, consultez [Compréhension de la tarification](pricing-concepts.md).
+
+> [!NOTE]
+> Ces valeurs retournées par la calculatrice de prix constituent une estimation. Celle-ci ne reflète pas le montant exact qu’Azure Data Factory vous facturera 
+
 ## <a name="gantt-views"></a>Vues Gantt
 
 Utilisez des vues Gantt pour visualiser rapidement vos pipelines et vos exécutions d’activités.
@@ -153,9 +168,9 @@ Cliquez sur l’icône **Informations** en bas à gauche. Puis, cliquez sur **Vi
 
 ## <a name="alerts"></a>Alertes
 
-Vous pouvez déclencher des alertes sur les métriques prises en charge dans Data Factory. Sélectionnez **Superviser** > **Alertes et métriques** dans la page de supervision de Data Factory pour commencer.
+Vous pouvez déclencher des alertes sur les métriques prises en charge dans Data Factory. Pour commencer, sélectionnez **Superviser** > **Alertes et métriques** dans la page de supervision de Data Factory.
 
-![Page de supervision de Data Factory](media/monitor-visually/alerts01.png)
+![Page de supervision de Data Factory](media/monitor-visually/start-page.png)
 
 Pour voir une présentation de sept minutes et la démonstration de cette fonctionnalité, regardez la vidéo suivante :
 
@@ -165,31 +180,31 @@ Pour voir une présentation de sept minutes et la démonstration de cette foncti
 
 1.  Sélectionnez **Nouvelle règle d’alerte** pour créer une alerte.
 
-    ![Bouton Nouvelle règle d’alerte](media/monitor-visually/alerts02.png)
+    ![Bouton Nouvelle règle d’alerte](media/monitor-visually/new-alerts.png)
 
 1.  Spécifiez le nom de la règle et sélectionnez la gravité de l’alerte.
 
-    ![Zones pour le nom de la règle et la gravité](media/monitor-visually/alerts03.png)
+    ![Zones pour le nom de la règle et la gravité](media/monitor-visually/name-and-severity.png)
 
 1.  Sélectionnez les critères d’alerte.
 
-    ![Zone pour les critères cibles](media/monitor-visually/alerts04.png)
+    ![Zone pour les critères cibles](media/monitor-visually/add-criteria-1.png)
 
-    ![Liste des critères](media/monitor-visually/alerts05.png)
+    ![Liste des critères](media/monitor-visually/add-criteria-2.png)
 
 1.  Configurez la logique d’alerte. Vous pouvez créer une alerte pour la métrique sélectionnée pour tous les pipelines et activités correspondantes. Vous pouvez également sélectionner un type d’activité, un nom d’activité, un nom de pipeline ou un type d’échec particulier.
 
-    ![Options de configuration de la logique d’alerte](media/monitor-visually/alerts06.png)
+    ![Options de configuration de la logique d’alerte](media/monitor-visually/alert-logic.png)
 
 1.  Configurez les notifications vocales, push, par e-mail et par SMS pour l’alerte. Choisissez ou créez un groupe d’actions pour les notifications d’alerte.
 
-    ![Options de configuration des notifications](media/monitor-visually/alerts07.png)
+    ![Options de configuration des notifications](media/monitor-visually/configure-notification-1.png)
 
-    ![Options d’ajout de notification](media/monitor-visually/alerts08.png)
+    ![Options d’ajout de notification](media/monitor-visually/configure-notification-2.png)
 
 1.  Créez la règle d’alerte
 
-    ![Options de création de règle d’alerte](media/monitor-visually/alerts09.png)
+    ![Options de création de règle d’alerte](media/monitor-visually/create-alert-rule.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,20 +7,23 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 027efd268ee80fbaf921b42d09cc424c8e8483ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a27f37f9c69dcadd1234faf67e23eaaa46d33f7a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82136921"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651064"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Chiffrement côté serveur de disques managés Azure
 
-Les disques managés Azure chiffrent automatiquement vos données par défaut lors de leur conservation dans le cloud. Le chiffrement côté serveur protège vos données et vous aide à répondre aux engagements de votre entreprise en matière de sécurité et de conformité. Les données dans les disque managés Azure sont chiffrées en toute transparence à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits, un des chiffrements par blocs les plus puissants actuellement disponibles, et sont conformes à la norme FIPS 140-2.   
+Les disques managés Azure chiffrent automatiquement vos données par défaut lors de leur conservation dans le cloud. Le chiffrement côté serveur protège vos données et vous aide à honorer les engagements de votre entreprise en matière de sécurité et de conformité. 
 
-Le chiffrement n’a pas d’impact sur les performances des disques managés. Le chiffrement n’entraîne aucun coût supplémentaire.
+Les données dans les disque managés Azure sont chiffrées en toute transparence à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits, un des chiffrements par blocs les plus puissants actuellement disponibles, et sont conformes à la norme FIPS 140-2. Pour plus d’informations sur les modules cryptographiques des disque managés Azure, consultez [API de chiffrement : nouvelle génération](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
 
-Pour plus d’informations sur les modules cryptographiques des disque managés Azure, consultez [API de chiffrement : nouvelle génération](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
+Le chiffrement n’a pas d’impact sur les performances des disques managés et n’entraîne aucun coût supplémentaire. 
+
+> [!NOTE]
+> Les disques temporaires ne sont pas des disques managés et ne sont pas chiffrés par chiffrement côté serveur. Pour plus d’informations sur les disques temporaires, consultez [Vue d’ensemble des disques managés : rôles de disque](managed-disks-overview.md#disk-roles).
 
 ## <a name="about-encryption-key-management"></a>À propos de la gestion des clés de chiffrement
 
@@ -75,11 +78,11 @@ Pour le moment, les clés gérées par le client sont soumises aux restrictions 
 - Seules les [clés RSA « soft » et « hard »](../../key-vault/keys/about-keys.md) d’une taille de 2048 sont prises en charge ; aucune autre clé ou taille n’est prise en charge.
 - Les disques créés à partir d’images personnalisées et chiffrées à l’aide du chiffrement côté serveur et des clés gérées par le client doivent être chiffrés à l’aide des mêmes clés gérées par le client et doivent figurer dans le même abonnement.
 - Les instantanés créés à partir de disques chiffrés à l’aide du chiffrement côté serveur et des clés gérées par le client doivent être chiffrés avec les mêmes clés gérées par le client.
-- Les images personnalisées chiffrées à l’aide du chiffrement côté serveur et des clés gérées par le client ne peuvent pas être utilisées dans la galerie d’images partagées.
 - Toutes les ressources liées à vos clés gérées par le client (coffres de clés Azure, jeux de chiffrement de disque, machines virtuelles, disques et instantanés) doivent se trouver dans le même abonnement et la même région.
 - Les disques, les instantanés et les images chiffrées avec des clés gérées par le client ne peuvent pas être déplacés vers un autre abonnement.
 - Si vous utilisez le portail Azure pour créer votre jeu de chiffrement de disque, vous ne pouvez pas utiliser d’instantanés pour l’instant.
 - Les disques managés chiffrés à l’aide de clés gérées par le client ne peuvent pas être chiffrés avec Azure Disk Encryption.
+- Pour plus d’informations sur l’utilisation de clés gérées par le client avec des galeries d’images partagées, consultez [Préversion : Utiliser des clés gérées par le client pour le chiffrement d’images](../image-version-encryption.md).
 
 ### <a name="cli"></a>Interface de ligne de commande
 #### <a name="setting-up-your-azure-key-vault-and-diskencryptionset"></a>Configuration de d’Azure Key Vault et de DiskEncryptionSet
@@ -128,8 +131,6 @@ Pour le moment, les clés gérées par le client sont soumises aux restrictions 
         desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)
     
         az keyvault set-policy -n $keyVaultName -g $rgName --object-id $desIdentity --key-permissions wrapkey unwrapkey get
-    
-        az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
         ```
 
 #### <a name="create-a-vm-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Créer une machine virtuelle à l’aide d’une image marketplace, en chiffrant le système d’exploitation et les disques de données avec des clés gérées par le client
@@ -233,7 +234,7 @@ az disk show -g yourResourceGroupName -n yourDiskName --query [encryption.type] 
 
 ## <a name="server-side-encryption-versus-azure-disk-encryption"></a>Chiffrement côté serveur et chiffrement de disque Azure
 
-[Azure Disk Encryption pour les machines virtuelles et les groupes de machines virtuelles identiques](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) utilise la fonctionnalité [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) de Windows et la fonctionnalité [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux pour chiffrer les disques managés avec des clés gérées par le client au sein de la machine virtuelle invitée.  Le chiffrement côté serveur avec des clés gérées par le client améliore l’utilisation de Azure Disk Encryption en vous permettant d’utiliser des types et des images de système d’exploitation pour vos machines virtuelles en chiffrant les données dans le service de stockage.
+[Azure Disk Encryption pour les machines virtuelles et les groupes de machines virtuelles identiques](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) tire parti de la fonctionnalité [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux pour chiffrer les disques managés avec des clés gérées par le client au sein de la machine virtuelle invitée.  Le chiffrement côté serveur avec des clés gérées par le client améliore l’utilisation de Azure Disk Encryption en vous permettant d’utiliser des types et des images de système d’exploitation pour vos machines virtuelles en chiffrant les données dans le service de stockage.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

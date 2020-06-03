@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tagore
-ms.openlocfilehash: b86e0d784d26e9e483dd12e20d45189ae8bfb9bd
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: d7019d673bd8dfda31c5073fb7f37e26768dcc1d
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81866180"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778281"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Migrer des ressources IaaS depuis le modèle de déploiement classique vers Azure Resource Manager
 Tout d’abord, il est important de comprendre la différence entre les opérations de plan de données et les opérations de plan de gestion sur les ressources IaaS (infrastructure as a service).
@@ -151,11 +151,11 @@ Les représentations des ressources du modèle de déploiement classique et de R
 | Règles NAT entrantes |Règles NAT entrantes |Les points de terminaison d’entrée définis sur la machine virtuelle sont convertis en règles de traduction NAT (Network Access Translation) du trafic entrant sous l’équilibreur de charge lors de la migration. |
 | Adresse IP virtuelle |Adresse IP publique avec nom DNS |L’adresse IP virtuelle devient une adresse IP publique et est associée à l’équilibreur de charge. Une adresse IP virtuelle ne peut faire l’objet d’une migration que si un point de terminaison d’entrée lui a été attribué. |
 | Réseau virtuel |Réseau virtuel |Le réseau virtuel fait l’objet d’une migration vers le modèle de déploiement Resource Manager avec toutes ses propriétés. Un nouveau groupe de ressources est créé avec le nom `-migrated`. |
-| IP réservées |Adresse IP publique avec méthode d’allocation statique |La migration des IP réservées associées à l’équilibreur de charge est effectuée en même temps que la migration du service cloud ou de la machine virtuelle. La migration d’adresses IP réservées non associées n’est pas prise en charge actuellement. |
+| IP réservées |Adresse IP publique avec méthode d’allocation statique |La migration des IP réservées associées à l’équilibreur de charge est effectuée en même temps que la migration du service cloud ou de la machine virtuelle. Vous pouvez migrer des adresses IP réservées non associées à l’aide de la commande [Move-AzureReservedIP](https://docs.microsoft.com/powershell/module/servicemanagement/azure/move-azurereservedip?view=azuresmps-4.0.0).  |
 | Adresse IP publique par machine virtuelle |Adresse IP publique avec méthode d’allocation dynamique |L’adresse IP publique associée à la machine virtuelle est convertie en ressource d’adresse IP publique avec la méthode d’allocation statique. |
-| Groupes de sécurité réseau |Groupes de sécurité réseau |Les groupes de sécurité réseau (NSG) associés à un sous-réseau sont clonés dans le cadre de la migration vers le modèle de déploiement Resource Manager. Le groupe de sécurité réseau (NSG) du modèle de déploiement classique n’est pas supprimé durant la migration. Toutefois, les opérations du plan de gestion relatives au NSG sont bloquées pendant le processus de migration. |
+| Groupes de sécurité réseau |Groupes de sécurité réseau |Les groupes de sécurité réseau (NSG) associés à un sous-réseau sont clonés dans le cadre de la migration vers le modèle de déploiement Resource Manager. Le groupe de sécurité réseau (NSG) du modèle de déploiement classique n’est pas supprimé durant la migration. Toutefois, les opérations du plan de gestion relatives au NSG sont bloquées pendant le processus de migration. Vous pouvez migrer des groupes de sécurité réseau non associés à l’aide de la commande [Move-AzureNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/servicemanagement/azure/move-azurenetworksecuritygroup?view=azuresmps-4.0.0).|
 | Serveurs DNS |Serveurs DNS |La migration des serveurs DNS associés à un réseau virtuel ou à la machine virtuelle est effectuée dans le cadre de la migration des ressources correspondantes avec toutes les propriétés. |
-| Itinéraires définis par l’utilisateur (UDR) |Itinéraires définis par l’utilisateur (UDR) |Les Itinéraires définis par l’utilisateur associés à un sous-réseau sont clonés dans le cadre de la migration vers le modèle de déploiement Resource Manager. L’itinéraire défini par l’utilisateur dans le modèle de déploiement classique n’est pas supprimé durant la migration. Les opérations du plan de gestion relatives pour l’itinéraire défini par l’utilisateur sont bloquées pendant le processus de migration. |
+| Itinéraires définis par l’utilisateur (UDR) |Itinéraires définis par l’utilisateur (UDR) |Les Itinéraires définis par l’utilisateur associés à un sous-réseau sont clonés dans le cadre de la migration vers le modèle de déploiement Resource Manager. L’itinéraire défini par l’utilisateur dans le modèle de déploiement classique n’est pas supprimé durant la migration. Les opérations du plan de gestion relatives pour l’itinéraire défini par l’utilisateur sont bloquées pendant le processus de migration. Vous pouvez migrer des Itinéraires définis par l’utilisateur (UDR) non associés à l’aide de la commande [Move-AzureRouteTable](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Move-AzureRouteTable?view=azuresmps-4.0.0). |
 | Propriété de transfert IP sur la configuration réseau d’une machine virtuelle |Propriété de transfert IP sur la carte d’interface réseau (NIC) |La propriété de transfert IP sur une machine virtuelle est convertie en propriété sur l’interface réseau pendant la migration. |
 | Équilibreur de charge avec plusieurs adresses IP |Équilibreur de charge avec plusieurs ressources d’adresses IP publiques |Chaque adresse IP publique associée à l’équilibreur de charge est convertie en une ressource d’adresse IP publique et est associée à l’équilibreur de charge après la migration. |
 | Noms DNS internes sur la machine virtuelle |Noms DNS internes sur la carte réseau |Pendant la migration, les suffixes DNS internes pour les machines virtuelles sont migrés vers une propriété en lecture seule nommée « InternalDomainNameSuffix » sur la carte réseau. Le suffixe reste inchangé après la migration et la résolution de la machine virtuelle doit continuer à fonctionner comme auparavant. |

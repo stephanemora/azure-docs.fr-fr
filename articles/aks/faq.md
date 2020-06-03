@@ -2,13 +2,13 @@
 title: Forum aux questions sur Azure Kubernetes Service (AKS)
 description: Recherchez des réponses à certaines des questions les plus fréquemment posées sur Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 10/02/2019
-ms.openlocfilehash: c4bb4328af5df7f729967c7b249847b2ab098770
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/14/2020
+ms.openlocfilehash: 767b5b80aab7d98af92f86bf66cc2ff83242ff92
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79497756"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677787"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)
 
@@ -18,21 +18,20 @@ Cet article aborde les questions fréquemment posées sur Azure Kubernetes Servi
 
 Pour obtenir la liste complète des régions disponibles, consultez [Régions AKS et disponibilité][aks-regions].
 
-## <a name="does-aks-support-node-autoscaling"></a>AKS prend-il en charge la mise à l’échelle automatique des nœuds ?
+## <a name="can-i-spread-an-aks-cluster-across-regions"></a>Puis-je répartir un cluster AKS dans plusieurs régions ?
 
-Oui, la mise à l’échelle horizontale automatique des nœuds d’agent dans AKS est actuellement disponible en préversion. Pour obtenir des instructions, consultez [Mettre automatiquement à l'échelle un cluster pour répondre aux demandes applicatives dans AKS][aks-cluster-autoscaler]. La mise à l’échelle automatique d’AKS est basée sur l’[autoscaler Kubernetes][auto-scaler].
+Non. Les clusters AKS sont des ressources régionales et ne peuvent pas s’étendre sur plusieurs régions. Consultez les [meilleures pratiques relatives à la continuité d’activité et reprise d’activité][bcdr-bestpractices] pour obtenir des conseils sur la façon de créer une architecture qui comprend plusieurs régions.
 
-## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Puis-je déployer AKS dans mon réseau virtuel existant ?
+## <a name="can-i-spread-an-aks-cluster-across-availability-zones"></a>Puis-je répartir un cluster AKS dans plusieurs zones de disponibilité ?
 
-Oui, vous pouvez déployer un cluster AKS dans un réseau virtuel existant en utilisant la [fonctionnalité de mise en réseau avancée][aks-advanced-networking].
+Oui. Vous pouvez déployer un cluster AKS sur une ou plusieurs [zones de disponibilité][availability-zones] dans les [régions qui les prennent en charge][az-regions].
 
 ## <a name="can-i-limit-who-has-access-to-the-kubernetes-api-server"></a>Puis-je limiter qui a accès au serveur d’API Kubernetes ?
 
-Oui, vous pouvez limiter l’accès au serveur d’API Kubernetes en utilisant les [plages d’adresses IP autorisées du serveur d’API][api-server-authorized-ip-ranges].
+Oui. Il existe deux options pour limiter l’accès au serveur d’API :
 
-## <a name="can-i-make-the-kubernetes-api-server-accessible-only-within-my-virtual-network"></a>Puis-je rendre le serveur d’API Kubernetes accessible uniquement dans mon réseau virtuel ?
-
-Pas pour l’instant, mais cela est prévu. Vous pouvez suivre l’avancement de cette option dans le [dépôt GitHub AKS][private-clusters-github-issue].
+- Utiliser des [plages d’adresses IP autorisées pour le serveur d’API][api-server-authorized-ip-ranges] si vous souhaitez conserver un point de terminaison public pour le serveur d’API, mais limiter l’accès à un ensemble de plages d’adresses IP approuvées.
+- Utiliser [un cluster privé][private-clusters] si vous souhaitez limiter le serveur d’API de sorte qu’il soit accessible *uniquement* à partir de votre réseau virtuel.
 
 ## <a name="can-i-have-different-vm-sizes-in-a-single-cluster"></a>Puis-je avoir des machines virtuelles de différentes tailles dans un même cluster ?
 
@@ -50,7 +49,7 @@ Pour plus d’informations sur l’utilisation de kured, consultez [Appliquer le
 
 ### <a name="windows-server-nodes"></a>Nœuds Windows Server
 
-Pour les nœuds Windows Server (actuellement en préversion dans AKS), Windows Update ne s’exécute pas et n’applique pas automatiquement les dernières mises à jour. Suivez une planification régulière basée sur le cycle de mise à jour de Windows et votre propre processus de validation pour effectuer une mise à niveau sur le cluster ou le ou les pools de nœuds Windows Server dans votre cluster AKS. Ce processus de mise à niveau crée des nœuds qui exécutent la dernière image et les derniers correctifs de Windows Server, puis supprime les anciens nœuds. Pour plus d’informations sur ce processus, consultez [Mettre à niveau un pool de nœuds dans AKS][nodepool-upgrade].
+Pour les nœuds Windows Server, Windows Update n’exécute pas et n’applique pas automatiquement les dernières mises à jour. Suivez une planification régulière basée sur le cycle de mise à jour de Windows et votre propre processus de validation pour effectuer une mise à niveau sur le cluster ou le ou les pools de nœuds Windows Server dans votre cluster AKS. Ce processus de mise à niveau crée des nœuds qui exécutent la dernière image et les derniers correctifs de Windows Server, puis supprime les anciens nœuds. Pour plus d’informations sur ce processus, consultez [Mettre à niveau un pool de nœuds dans AKS][nodepool-upgrade].
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Pourquoi deux groupes de ressources sont-ils créés avec AKS ?
 
@@ -97,34 +96,38 @@ AKS prend en charge les [contrôleurs d’admission][admission-controllers] suiv
 
 Actuellement, vous ne pouvez pas modifier la liste des contrôleurs d’admission dans AKS.
 
+## <a name="can-i-use-admission-controller-webhooks-on-aks"></a>Puis-je utiliser des webhooks de contrôleur d’admission dans AKS ?
+
+Oui, vous pouvez utiliser des webhooks de contrôleur d’admission dans AKS. Il est recommandé d’exclure les espaces de noms AKS internes qui sont signalés par l’**étiquette control-plane**. Par exemple, en ajoutant ce qui suit à la configuration du webhook :
+
+```
+namespaceSelector:
+    matchExpressions:
+    - key: control-plane
+      operator: DoesNotExist
+```
+
+## <a name="can-admission-controller-webhooks-impact-kube-system-and-internal-aks-namespaces"></a>Les webhooks de contrôleur d’admission peuvent-ils avoir un impact sur les espaces de noms kube-system et AKS internes ?
+
+Pour maintenir la stabilité du système et empêcher les contrôleurs d’admission personnalisés d’avoir un impact sur les services internes de kube-system, l’espace de noms AKS comprend un **exécuteur d’admission**, qui exclut automatiquement les espaces de noms kube-system et AKS internes. Ce service garantit que les contrôleurs d’admission personnalisés n’affecteront pas les services exécutés dans kube-system.
+
+Si vous avez un cas d’usage critique dans lequel un élément déployé sur kube-system (non recommandé) doit être couvert par votre webhook d’admission personnalisé, vous pouvez ajouter l’étiquette ou l’annotation ci-dessous pour que l’exécuteur d’admission l’ignore.
+
+Étiquette : ```"admissions.enforcer/disabled": "true"``` ou annotation : ```"admissions.enforcer/disabled": true```
+
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault est-il intégré à AKS ?
 
-Pour l’instant, AKS n’est pas intégré nativement à Azure Key Vault. Toutefois, le [projet FlexVolume d’Azure Key Vault pour Kubernetes][keyvault-flexvolume] permet une intégration directe des pods Kubernetes aux secrets Key Vault.
+Pour l’instant, AKS n’est pas intégré nativement à Azure Key Vault. Toutefois, le [fournisseur Azure Key Vault pour le magasin de secrets CSI][csi-driver] permet l’intégration directe à partir de pods Kubernetes à des Secrets Key Vault.
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Puis-je exécuter des conteneurs Windows Server sur AKS ?
 
-Oui, les conteneurs Windows Server sont disponibles en préversion. Pour exécuter des conteneurs Windows Server dans AKS, vous créez un pool de nœuds qui exécute Windows Server en tant que système d’exploitation invité. Les conteneurs Windows Server peuvent utiliser uniquement Windows Server 2019. Pour commencer, consultez [Créer un cluster AKS avec un pool de nœuds Windows Server][aks-windows-cli].
+Oui, les conteneurs Windows Server sont disponibles dans AKS. Pour exécuter des conteneurs Windows Server dans AKS, vous créez un pool de nœuds qui exécute Windows Server en tant que système d’exploitation invité. Les conteneurs Windows Server peuvent utiliser uniquement Windows Server 2019. Pour commencer, consultez [Créer un cluster AKS avec un pool de nœuds Windows Server][aks-windows-cli].
 
 La prise en charge des pools de nœuds dans Windows Server comprend certaines limitations qui font partie du projet amont Windows Server dans Kubernetes. Pour plus d’informations sur ces limitations, consultez [Limitations des conteneurs Windows Server dans AKS][aks-windows-limitations].
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>AKS offre-t-il un contrat de niveau de service ?
 
-Dans un contrat de niveau de service (SLA), le fournisseur accepte de rembourser le coût du service au client si le niveau de service publié n’est pas respecté. AKS étant gratuit, aucun coût ne peut être remboursé, et dès lors, AKS ne dispose d'aucun contrat SLA formel. Toutefois, AKS cherche à maintenir une disponibilité d’au moins 99,5 % pour le serveur d’API Kubernetes.
-
-Il est important de bien distinguer la disponibilité du service AKS, qui fait référence au temps de fonctionnement du plan de contrôle Kubernetes, et la disponibilité de votre charge de travail spécifique, qui s’exécute sur les machines virtuelles Azure. Même si le plan de contrôle n'est pas prêt et donc indisponible, vos charges de travail de cluster s’exécutant sur des machines virtuelles Azure peuvent continuer de fonctionner. Les machines virtuelles Azure sont des ressources payantes qui s'appuient sur un contrat SLA financier. Consultez [ceci pour plus d'informations](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) sur le contrat SLA de machine virtuelle Azure et la manière d'améliorer cette disponibilité avec des fonctionnalités telles que les [Zones de disponibilité][availability-zones].
-
-## <a name="why-cant-i-set-maxpods-below-30"></a>Pourquoi ne puis-je pas définir une valeur maxPods inférieure à 30 ?
-
-Dans AKS, vous pouvez définir la valeur `maxPods` lorsque vous créez le cluster en utilisant les modèles Azure CLI et Azure Resource Manager. Toutefois, Kubenet et Azure CNI requièrent une *valeur minimale* (validée au moment de la création) :
-
-| Mise en réseau | Minimum | Maximale |
-| -- | :--: | :--: |
-| Azure CNI | 30 | 250 |
-| Kubenet | 30 | 110 |
-
-Comme AKS est un service géré, nous déployons et gérons les modules complémentaires et les pods dans le cadre du cluster. Dans le passé, les utilisateurs pouvaient définir une valeur `maxPods` inférieure à la valeur que les pods managés nécessitaient pour s’exécuter (par exemple, 30). AKS calcule désormais le nombre minimal de pods à l’aide de cette formule : ((maxPods ou (maxPods * vm_count)) > minimum de pods de modules complémentaires managés.
-
-Les utilisateurs ne peuvent pas remplacer la validation de la valeur minimale `maxPods`.
+AKS fournit des garanties adossées à un contrat SLA à titre complémentaire facultatif avec le [Contrat SLA de durée de fonctionnement][uptime-sla].
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>Puis-je appliquer des remises de réservation Azure sur mes nœuds d’agent AKS ?
 
@@ -138,7 +141,7 @@ Vous pouvez utiliser la commande `az aks update-credentials` pour déplacer un c
 
 Désolé... Le déplacement des clusters entre des abonnements n’est pas pris en charge pour le moment.
 
-## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>Puis-je déplacer mes clusters AKS de l'abonnement Azure actuel vers un autre abonnement ? 
+## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>Puis-je déplacer mes clusters AKS de l’abonnement Azure actuel vers un autre abonnement ? 
 
 Le déplacement de votre cluster AKS et de ses ressources associées entre des abonnements Azure n'est pas pris en charge.
 
@@ -162,7 +165,7 @@ Le plus souvent, cela est dû au fait qu'un ou plusieurs groupes de sécurité r
 
 Veuillez vérifier que votre principal de service n'a pas expiré.  Consultez : [Principal du service AKS](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) et [Informations d'identification pour la mise à jour d’AKS](https://docs.microsoft.com/azure/aks/update-credentials).
 
-## <a name="my-cluster-was-working-but-suddenly-can-not-provision-loadbalancers-mount-pvcs-etc"></a>Mon cluster fonctionnait, mais tout à coup il ne peut plus approvisionner LoadBalancers, monter des revendications de volume persistant (PVC), etc. 
+## <a name="my-cluster-was-working-but-suddenly-cannot-provision-loadbalancers-mount-pvcs-etc"></a>Mon cluster fonctionnait, mais tout à coup il ne peut plus approvisionner LoadBalancers, monter des revendications de volume persistant (PVC), etc. 
 
 Veuillez vérifier que votre principal de service n'a pas expiré.  Consultez : [Principal du service AKS](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) et [Informations d'identification pour la mise à jour d’AKS](https://docs.microsoft.com/azure/aks/update-credentials).
 
@@ -200,12 +203,17 @@ Non, AKS est un service géré et la manipulation des ressources IaaS n'est pas 
 [api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
 [multi-node-pools]: ./use-multiple-node-pools.md
 [availability-zones]: ./availability-zones.md
+[private-clusters]: ./private-clusters.md
+[bcdr-bestpractices]: ./operator-best-practices-multi-region.md#plan-for-multiregion-deployment
+[availability-zones]: ./availability-zones.md
+[az-regions]: ../availability-zones/az-region.md
+[uptime-sla]: ./uptime-sla.md
 
 <!-- LINKS - external -->
 [aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [auto-scaler]: https://github.com/kubernetes/autoscaler
 [cordon-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
-[hexadite]: https://github.com/Hexadite/acs-keyvault-agent
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
-[keyvault-flexvolume]: https://github.com/Azure/kubernetes-keyvault-flexvol
 [private-clusters-github-issue]: https://github.com/Azure/AKS/issues/948
+[csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure
+[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/

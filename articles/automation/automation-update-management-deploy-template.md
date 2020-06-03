@@ -1,35 +1,38 @@
 ---
-title: Utiliser des modèles Azure Resource Manager pour intégrer Update Management | Microsoft Docs
-description: Vous pouvez utiliser un modèle Azure Resource Manager pour intégrer la solution Update Management d’Azure Automation.
+title: Activer Update Management à l’aide d’un modèle Azure Resource Manager | Microsoft Docs
+description: Cet article explique comment utiliser un modèle Resource Manager pour activer Update Management.
 ms.service: automation
 ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 03/30/2020
-ms.openlocfilehash: e69f3d7350d0da9f364983eae0935532b576bd76
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.date: 04/24/2020
+ms.openlocfilehash: 0a83117d6d58f45d6ee1de2b8d61c2157738fc75
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411470"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830989"
 ---
-# <a name="onboard-update-management-solution-using-azure-resource-manager-template"></a>Intégration de la solution Update Management à l’aide du modèle Azure Resource Manager
+# <a name="enable-update-management-using-azure-resource-manager-template"></a>Activer Update Management à l’aide d’un modèle Azure Resource Manager
 
-Vous pouvez utiliser des [modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) pour activer la solution Update Management d’Azure Automation dans votre groupe de ressources. Cet article fournit un exemple de modèle qui automatise les éléments suivants :
+Vous pouvez utiliser un [modèle Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) pour activer la fonctionnalité Update Management d’Azure Automation dans votre groupe de ressources. Cet article fournit un exemple de modèle qui automatise les éléments suivants :
 
 * Création d’un espace de travail Log Analytics dans Azure Monitor.
 * Création d’un compte de Azure Automation.
-* Lie le compte Automation à l’espace de travail Log Analytics s’il n’est pas déjà lié.
-* Intégrer la solution Update Management d’Azure Automation
+* Liaison du compte Automation à l’espace de travail Log Analytics, s’il n’est pas déjà lié.
+* Activation d’Update Management.
 
-Le modèle n’automatise pas l’intégration d’une ou de plusieurs machines virtuelles Azure ou non-Azure.
+Le modèle n’automatise pas l’activation d’une ou de plusieurs machines virtuelles Azure ou non-Azure.
 
-Si vous disposez déjà d’un espace de travail Log Analytics et d’un compte Automation déployés dans une région prise en charge dans votre abonnement, qu’ils ne sont pas liés et que la solution Update Management n’est pas encore déployée sur l’espace de travail, l’utilisation de ce modèle permet de créer le lien et de déployer la solution Update Management. 
+Si vous disposez déjà d’un espace de travail Log Analytics et d’un compte Automation déployés dans une région prise en charge dans votre abonnement, ils ne sont pas liés. Update Management n’est pas encore activé pour l’espace de travail. Ce modèle permet de créer le lien et de déployer Update Management pour vos machines virtuelles. 
+
+>[!NOTE]
+>L’utilisateur **nxautomation** activé en lien avec Update Management sur Linux exécute uniquement des runbooks signés.
 
 ## <a name="api-versions"></a>Versions d’API
 
-La table suivante répertorie la version d’API pour les ressources utilisées dans cet exemple.
+La table suivante répertorie les versions d’API pour les ressources utilisées dans ce modèle.
 
 | Ressource | Type de ressource | Version de l'API |
 |:---|:---|:---|
@@ -39,7 +42,7 @@ La table suivante répertorie la version d’API pour les ressources utilisées 
 
 ## <a name="before-using-the-template"></a>Avant d’utiliser le modèle
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Az d’Azure PowerShell. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure. Avec Azure PowerShell, le déploiement utilise [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Az d’Azure PowerShell. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également exécuter [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) pour créer une connexion à Azure. Avec Azure PowerShell, le déploiement utilise [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
 Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.1.0 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Avec Azure CLI, ce déploiement utilise [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
 
@@ -50,7 +53,7 @@ Le modèle JSON est configuré de manière à vous demander les éléments suiva
 * Nom du compte Automation
 * Région dans laquelle créer le compte
 
-Le modèle JSON spécifie une valeur par défaut pour les autres paramètres susceptibles d’être utilisés comme configuration standard dans votre environnement. Vous pouvez stocker le modèle dans un compte de stockage Azure pour mettre en place un accès partagé dans votre organisation. Pour plus d’informations sur l’utilisation des modèles, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+Le modèle JSON spécifie une valeur par défaut pour les autres paramètres susceptibles d’être utilisés pour une configuration standard dans votre environnement. Vous pouvez stocker le modèle dans un compte de stockage Azure pour mettre en place un accès partagé dans votre organisation. Pour plus d’informations sur l’utilisation des modèles, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
 Les paramètres suivants dans le modèle sont définis avec une valeur par défaut pour l’espace de travail Log Analytics :
 
@@ -62,8 +65,15 @@ Les paramètres suivants dans le modèle sont définis avec une valeur par défa
 >Lors de la création ou de la configuration d’un espace de travail Log Analytics dans un abonnement pour lequel le nouveau modèle de tarification d’avril 2018 a été choisi, le seul niveau tarifaire Log Analytics valide est **PerGB2018**.
 >
 
->[!NOTE]
->Avant d’utiliser ce modèle, examinez les [détails supplémentaires](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) pour comprendre pleinement les options de configuration de l’espace de travail, telles que le mode de contrôle d’accès, le niveau tarifaire, la conservation des données et le niveau de réservation de capacité. Si vous débutez avec les journaux d’activité Azure Monitor et que vous n’avez pas encore déployé d’espace de travail, vous devriez consulter les conseils de [conception de l’espace de travail](../azure-monitor/platform/design-logs-deployment.md) pour en savoir plus sur le contrôle d’accès et comprendre les stratégies d’implémentation de conception que nous recommandons pour votre organisation.
+Le modèle JSON spécifie une valeur par défaut pour les autres paramètres susceptibles d’être utilisés comme configuration standard dans votre environnement. Vous pouvez stocker le modèle dans un compte de stockage Azure pour mettre en place un accès partagé dans votre organisation. Pour plus d’informations sur l’utilisation des modèles, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+
+Il est important de comprendre les détails de configuration suivants si vous débutez avec Azure Automation et Azure Monitor, afin d’éviter les erreurs lors de la tentative de création, de configuration et d’utilisation d’un espace de travail Log Analytics lié à votre nouveau compte Automation.
+
+* Examinez les [détails supplémentaires](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) pour comprendre pleinement les options de configuration de l’espace de travail, telles que le mode de contrôle d’accès, le niveau tarifaire, la conservation des données et le niveau de réservation de capacité.
+
+* Étant donné que seules certaines régions sont prises en charge pour lier un espace de travail Log Analytics et un compte Automation dans votre abonnement, passez en revue [Mappages d’espace de travail](how-to/region-mappings.md) pour spécifier les régions prises en charge directement ou dans un fichier de paramètres.
+
+* Si vous débutez avec les journaux d’activité Azure Monitor et que vous n’avez pas encore déployé d’espace de travail, vous devriez consulter les conseils de [conception de l’espace de travail](../azure-monitor/platform/design-logs-deployment.md) pour en savoir plus sur le contrôle d’accès et comprendre les stratégies d’implémentation de conception que nous recommandons pour votre organisation.
 
 ## <a name="deploy-template"></a>Déployer un modèle
 
@@ -113,32 +123,6 @@ Les paramètres suivants dans le modèle sont définis avec une valeur par défa
         },
         "location": {
             "type": "string",
-            "allowedValues": [
-                "australiacentral",
-                "australiaeast",
-                "australiasoutheast",
-                "brazilsouth",
-                "canadacentral",
-                "centralindia",
-                "centralus",
-                "eastasia",
-                "eastus",
-                "eastus2",
-                "francecentral",
-                "japaneast",
-                "koreacentral",
-                "northcentralus",
-                "northeurope",
-                "southafricanorth",
-                "southcentralus",
-                "southeastasia",
-                "uksouth",
-                "ukwest",
-                "westcentralus",
-                "westeurope",
-                "westus",
-                "westus2"
-            ],
             "metadata": {
                 "description": "Specifies the location in which to create the workspace."
             }
@@ -235,7 +219,7 @@ Les paramètres suivants dans le modèle sont définis avec une valeur par défa
 
 2. Modifiez le modèle en fonction de vos besoins. Envisagez de créer un [fichier de paramètres Resource Manager](../azure-resource-manager/templates/parameter-files.md) au lieu de passer des paramètres en tant que valeurs inline.
 
-3. Enregistrez ce fichier sous deployUMSolutiontemplate.json dans un dossier local.
+3. Enregistrez ce fichier dans un dossier local sous **deployUMSolutiontemplate.json**.
 
 4. Vous êtes prêt à déployer ce modèle. Vous pouvez utiliser PowerShell ou l’interface de ligne de commande Azure. Lorsque vous êtes invité à entrer un nom d’espace de travail et de compte Automation, fournissez un nom globalement unique dans tous les abonnements Azure.
 
@@ -257,10 +241,9 @@ Les paramètres suivants dans le modèle sont définis avec une valeur par défa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez déployé la solution Update Management, vous pouvez activer des machines virtuelles pour la gestion, passer en revue les évaluations de mise à jour et déployer des mises à jour pour les mettre en conformité.
-
-- À partir de votre [compte Azure Automation](automation-onboard-solutions-from-automation-account.md) pour une ou plusieurs machines Azure et manuellement pour les machines non-Azure.
-
-- Pour une machine virtuelle Azure unique à partir de la page de la machine virtuelle dans le portail Azure. Ce scénario est disponible pour les machines virtuelles [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) et [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management).
-
-- Pour [plusieurs machines virtuelles Azure](manage-update-multi.md), sélectionnez-les dans la page **Machines virtuelles** dans le Portail Azure. 
+* Pour utiliser Update Management pour des machines virtuelles, consultez [Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure](automation-tutorial-update-management.md).
+* Si vous n’avez plus besoin de l’espace de travail Log Analytics, consultez les instructions fournies dans [Dissocier un espace de travail d’un compte Automation pour Update Management](automation-unlink-workspace-update-management.md).
+* Pour supprimer des machines virtuelles d’Update Management, consultez [Supprimer des machines virtuelles d’Update Management](automation-remove-vms-from-update-management.md).
+* Pour résoudre les erreurs générales d’Update Management, consultez [Résoudre les problèmes liés à Update Management](troubleshoot/update-management.md).
+* Pour résoudre les problèmes liés à l’agent de mise à jour Windows, consultez [Résoudre les problèmes de l’agent de mise à jour Windows](troubleshoot/update-agent-issues.md).
+* Pour résoudre les problèmes liés à l’agent de mise à jour Linux, consultez [Résoudre les problèmes de l’agent de mise à jour Linux](troubleshoot/update-agent-issues-linux.md).

@@ -2,24 +2,24 @@
 title: Exécuter des charges de travail sur des machines virtuelles rentables de faible priorité
 description: Apprenez à configurer des machines virtuelles de faible priorité pour réduire le coût des charges de travail Azure Batch.
 author: mscurrell
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: ec75dac7e5615cddf942ff7939ea7e95315f8699
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 90cd6476992eed30abbe9faca5cc66405aa40079
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116041"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780195"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Utiliser des machines virtuelles de faible priorité avec Batch
 
 Azure Batch offre des machines virtuelles de faible priorité afin de réduire le coût des charges de travail Batch. Les machines virtuelles de faible priorité rendent possibles de nouveaux types de charges de travail Batch en permettant d’utiliser une grande quantité de puissance de calcul, moyennant un coût très faible.
- 
+
 Les machines virtuelles de faible priorité tirent parti de la capacité excédentaire dans Azure. Lorsque vous spécifiez des machines virtuelles de faible priorité dans vos pools, Azure Batch peut utiliser ce surplus lorsqu’il est disponible.
- 
+
 La contrepartie à l’utilisation de machines virtuelles de faible priorité est que ces machines virtuelles risquent de ne pas pouvoir être réaffectées ou d’être reportées à tout moment, selon la capacité disponible. Pour cette raison, les machines virtuelles de faible priorité sont plus adaptées à certains types de charges de travail. Utilisez des machines virtuelles de faible priorité pour les charges de travail par lots et de traitement asynchrone lorsque l’heure d’achèvement de la tâche est flexible et que le travail est réparti entre plusieurs machines virtuelles.
- 
+
 Les machines virtuelles de faible priorité sont proposées à un prix considérablement inférieur à celui des machines virtuelles dédiées. Pour plus d’informations sur la tarification, consultez [Tarification Batch](https://azure.microsoft.com/pricing/details/batch/).
 
 > [!NOTE]
@@ -28,7 +28,6 @@ Les machines virtuelles de faible priorité sont proposées à un prix considér
 > Les pools Azure Batch commenceront à prendre en charge les machines virtuelles Spot dans les mois qui suivront leur mise à disposition générale, avec de nouvelles versions des [API et outils Batch](https://docs.microsoft.com/azure/batch/batch-apis-tools). Une fois que la prise en charge des machines virtuelles Spot sera disponible, les machines virtuelles de faible priorité seront déconseillées : elles continueront d’être prises en charge, à l’aide des versions actuelles des API et des outils, pendant au moins 12 mois, afin de laisser suffisamment de temps à une migration vers des machines virtuelles Spot. 
 >
 > Les machines virtuelles Spot ne sont pas prises en charge pour les pools de [configuration du service cloud](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration). Pour utiliser des machines virtuelles Spot, les pools de service cloud doivent être migrés vers des pools de [configuration de machine virtuelle](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration).
-
 
 ## <a name="use-cases-for-low-priority-vms"></a>Cas d’utilisation des machines virtuelles de faible priorité
 
@@ -72,8 +71,7 @@ Azure Batch fournit plusieurs fonctionnalités permettant de facilement utiliser
     Le quota des machines virtuelles de faible priorité est supérieur à celui des machines virtuelles dédiées, car les machines virtuelles de faible priorité sont moins onéreuses. Pour plus d’informations, consultez [Quotas et limites du service Batch](batch-quota-limit.md#resource-quotas).    
 
 > [!NOTE]
-> Les machines virtuelles de faible priorité ne sont actuellement pas prises en charge pour les comptes Batch créés en mode [Abonnement utilisateur](batch-api-basics.md#account).
->
+> Les machines virtuelles de faible priorité ne sont actuellement pas prises en charge pour les comptes Batch créés en mode [Abonnement utilisateur](accounts.md).
 
 ## <a name="create-and-update-pools"></a>Créer et mettre à jour des pools
 
@@ -183,6 +181,6 @@ Pour afficher les mesures dans le portail Azure :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez la [Présentation des fonctionnalités du service Batch pour les développeurs](batch-api-basics.md). Elle contient des informations indispensables pour toute personne se préparant à l’utilisation de Batch. L’article contient des informations plus détaillées sur les ressources du service Batch telles que les pools, les nœuds, les travaux et les tâches, ainsi que sur les nombreuses fonctionnalités API que vous pouvez utiliser lors de la création de votre application Batch.
+* Apprenez-en davantage sur le [flux de travail et les ressources principales du service Batch](batch-service-workflow-features.md), telles que les pools, les nœuds, les travaux et les tâches.
 * Découvrez les [outils et API Batch](batch-apis-tools.md) disponibles pour créer des solutions Batch.
 * Commencez par planifier le passage de machines virtuelles de faible priorité à des machines virtuelles Spot. Si vous utilisez des machines virtuelles de faible priorité avec des pools de **configuration de service cloud**, envisagez de passer à des pools de **configuration de machine virtuelle**.

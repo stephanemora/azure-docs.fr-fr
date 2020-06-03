@@ -3,12 +3,12 @@ title: Gérer les certificats d’un cluster Azure Service Fabric
 description: Explique comment ajouter de nouveaux certificats, substituer un certificat ou supprimer un certificat pour un cluster Service Fabric.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: a3c92e1b39261af32085e4d9b6cb2462d5c0eb64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 43e9c95e0fb8484f7b24c5a0c409d3aa6a68eabc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75458353"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658387"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Ajouter ou supprimer des certificats pour un cluster Service Fabric dans Azure
 Nous vous recommandons de vous familiariser avec la façon dont Service Fabric utilise les certificats X.509 et de prendre connaissance des [scénarios de sécurité d’un cluster](service-fabric-cluster-security.md). Vous devez comprendre ce qu’est un certificat de cluster et quelle est son utilité avant de passer à la suite.
@@ -35,9 +35,7 @@ Pour supprimer un certificat de sécurité de cluster, accédez à la section S�
 
 Si votre intention est de supprimer le certificat marqué comme principal, vous devrez déployer un certificat secondaire avec une date d’expiration plus éloignée que le certificat principal, permettant le comportement de substitution automatique. Supprimez le certificat principal une fois la substitution automatique terminée.
 
-## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Ajouter un certificat secondaire à l’aide de Resource Manager PowerShell
-> [!TIP]
-> Il existe désormais un moyen amélioré et plus simple pour ajouter un certificat secondaire à l’aide de la cmdlet [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate). Vous n’avez pas besoin de suivre le reste des étapes de cette section.  En outre, vous n’avez pas besoin du modèle utilisé à l’origine pour créer et déployer le cluster lors de l’utilisation de la cmdlet [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate).
+## <a name="add-a-secondary-certificate-using-azure-resource-manager"></a>Ajouter un certificat secondaire à l’aide d’Azure Resource Manager
 
 Pour pouvoir exécuter ces étapes, vous devez connaître le fonctionnement de Resource Manager, avoir déployé au moins un cluster Service Fabric à l’aide d’un modèle Resource Manager et disposer du modèle que vous avez utilisé pour configurer le cluster. Il est également supposé que vous maîtrisez l’utilisation de JSON.
 

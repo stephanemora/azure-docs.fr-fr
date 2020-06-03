@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4f08161daf1d9c1a4431d9e3fba3ca741d88b16
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 95d1ffec6a849cb97a6151717c3e30dc362b1403
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743345"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826602"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Procédure : Activer la réinitialisation de mot de passe à partir de l’écran de connexion Windows
 
@@ -30,7 +30,7 @@ Pour les machines exécutant Windows 7, 8, 8.1 et 10, vous pouvez autoriser les
 - Certains fournisseurs tiers d’informations d’identification sont connus pour poser des problèmes avec cette fonctionnalité.
 - La désactivation du Contrôle de compte d’utilisateur via la modification de la [clé de Registre EnableLUA](https://docs.microsoft.com/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) est connue pour provoquer des problèmes.
 - Cette fonctionnalité ne fonctionne pas pour les réseaux avec l’authentification de réseau 802.1x déployée et l’option « Immédiatement avant l’ouverture de session de l’utilisateur ». Pour les réseaux avec l’authentification de réseau 802.1x déployée, il est recommandé d’utiliser l’authentification de la machine pour activer cette fonctionnalité.
-- Les machines jointes Azure AD Hybride doivent disposer d’une connectivité réseau à un contrôleur de domaine pour utiliser le nouveau mot de passe et mettre à jour les informations d’identification mises en cache.
+- Les machines jointes Azure AD Hybride doivent disposer d’une connectivité réseau à un contrôleur de domaine pour utiliser le nouveau mot de passe et mettre à jour les informations d’identification mises en cache. Cela signifie que les appareils doivent se trouver sur le réseau interne de l’organisation ou sur un VPN disposant d’un accès réseau à un contrôleur de domaine local. 
 - Si vous utilisez une image, avant d’exécuter sysprep, vérifiez que le cache web est effacé pour le compte Administrateur intégré avant d’effectuer l’étape CopyProfile. Vous trouverez plus d’informations au sujet de cette étape dans l’article de support [Performances médiocres lors de l’utilisation du profil d’utilisateur par défaut personnalisé](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - Les paramètres suivants sont connus pour leur interférence avec la fonctionnalité de réinitialisation des mots de passe sur les appareils Windows 10
     - Si Ctrl+Alt+Suppr est exigé par la stratégie dans les versions de Windows 10 avant v1809, **Réinitialiser le mot de passe** ne fonctionnera pas.

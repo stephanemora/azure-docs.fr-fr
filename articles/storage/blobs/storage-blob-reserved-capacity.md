@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 06/01/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4ba54736abe335b53a3b8c6733063efcb34ea29a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: c06bbc412a51fc919b862aeb3f62ec58feec89cf
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856827"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259199"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Optimiser les coûts de stockage d’objets blob avec une capacité réservée
 
@@ -35,7 +35,7 @@ Vous pouvez acheter une capacité de réserve Stockage Azure en unités de 100 
 
 La capacité de réserve Stockage Azure est disponible pour un seul abonnement ou plusieurs abonnements (étendue partagée). En cas de limitation à un seul abonnement, la remise de réservation est appliquée à l’abonnement sélectionné uniquement. Lorsque plusieurs abonnements sont concernés, la remise de réservation est partagée entre ces abonnements dans la facturation du client.
 
-Lorsque vous achetez une capacité de réserve Stockage Azure, vous pouvez utiliser votre réservation à la fois pour les objets blob de blocs et les données Azure Data Lake Storage Gen2. Une réservation s’applique à votre utilisation dans le cadre de l’étendue achetée et ne peut pas se limiter à un compte de stockage, un conteneur ou un objet spécifique au sein de l’abonnement. Une réservation ne peut pas être fractionnée sur plusieurs abonnements.
+Lorsque vous achetez une capacité de réserve Stockage Azure, vous pouvez utiliser votre réservation à la fois pour les objets blob de blocs et les données Azure Data Lake Storage Gen2. Une réservation s’applique à votre utilisation dans le cadre de l’étendue achetée et ne peut pas se limiter à un compte de stockage, un conteneur ou un objet spécifique au sein de l’abonnement.
 
 Une réservation de stockage Azure couvre uniquement la quantité de données stockées dans un abonnement ou un groupe de ressources partagé. Les frais relatifs à une suppression anticipée, aux opérations, à la bande passante et au transfert de données ne sont pas inclus dans la réservation. Dès que vous achetez une réservation, les frais de capacité qui correspondent aux attributs de la réservation sont facturés au tarif de la réduction plutôt qu’à celui du paiement à l’utilisation. Pour plus d’informations sur les réservations Azure, consultez [Qu’est-ce qu’une réservation Azure ?](/azure/billing/billing-save-compute-costs-reservations).
 

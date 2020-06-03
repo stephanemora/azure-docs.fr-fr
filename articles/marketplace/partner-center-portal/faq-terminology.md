@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 42478f6e6d6cb28364fe39aafcb52b3a17aa3c23
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: eb91e498fa757c5cec7bd466c60aaf7e8758304c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791474"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744579"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologie et questions fréquentes sur l’analytique de la Place de marché commerciale
 
@@ -51,7 +51,7 @@ Si vous recevez ce message, cela signifie que vous avez des données d’analyti
 | Ville du client| Customer| Nom de ville fourni par le client final. La ville peut être différente de la ville associée à l’abonnement Azure du client.||
 | Langue de communication du client  | Customer| Langue dans laquelle le client préfère communiquer.||
 | Nom de la société du client | Client, Commande | Nom de société fourni par le client. Le nom peut être différent du nom de la ville associée à l’abonnement Azure du client.|  |
-| Pays du client | Client, Commande | Nom de pays fourni par le client. Le pays peut être différent du pays associé à l’abonnement Azure du client.|  |
+| Pays/Région du client | Client, Commande | Nom de pays/région fourni par le client. Ce nom peut être différent du nom du pays ou de la région associé à l’abonnement Azure du client.|  |
 | Adresse e-mail du client| Customer| Adresse e-mail fournie par le client final. L’adresse e-mail peut être différente de l’adresse e-mail associée à l’abonnement Azure du client.||
 | Prénom du client| Customer| Prénom fourni par le client. Le prénom peut être différent du prénom associé à l’abonnement Azure du client.| |
 | ID de client | Client, Commande | Identificateur unique attribué à un client. Un client peut avoir zéro ou plusieurs abonnements de la Place de marché Azure.|  |

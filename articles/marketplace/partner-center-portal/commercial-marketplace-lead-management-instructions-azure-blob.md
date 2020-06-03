@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: dsindona
-ms.openlocfilehash: 076edc62a467701eaf0de23f280cdaf2abd945de
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 9ac7640dd8b63c72bac83c98e07cf861fb26c870
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792715"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845785"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Utiliser Stockage Blob Azure pour gérer les prospects de la Place de marché commerciale
 
@@ -74,9 +74,9 @@ ms.locfileid: "82792715"
 Lorsque vous êtes prêt à configurer les informations de gestion des prospects pour votre offre sur le portail de publication, procédez comme suit :
 
 1. Accédez à la page **Configuration de l'offre** de votre offre.
-2. Sélectionnez **Connexion** dans la section Gestion des prospects.
+2. Dans la section **Prospects**, sélectionnez **Se connecter**.
 
-    ![Offre de connexion](./media/commercial-marketplace-lead-management-instructions-azure-blob/connect-offer.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-blob/customer-leads.png" alt-text="Prospects":::
 
 3. Dans la fenêtre contextuelle Détails de la connexion, sélectionnez **Blob Azure** comme Destination du prospect.
 

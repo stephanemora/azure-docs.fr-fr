@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/10/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 4b6def2ce2b0c1ba6d3a45e64bb7f82b5948a524
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 315bab473ccb42c3ca7b481c16bf8d8fbcfaac67
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83642192"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193461"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -60,7 +60,7 @@ Ces API REST BLOB ne sont pas prises en charge :
 
 Les disques de machine virtuelle non gérés ne sont pas pris en charge dans les comptes qui ont un espace de noms hiérarchique. Si vous souhaitez activer un espace de noms hiérarchique sur un compte de stockage, placez les disques de machine virtuelle non gérés dans un compte de stockage pour lequel la fonctionnalité espace de noms hiérarchique n’est pas activée.
 
-<a id="api-scope-data-lake-client-library" />
+<a id="api-scope-data-lake-client-library"></a>
 
 ## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>Prise en charge des systèmes de fichiers dans les SDK, PowerShell et Azure CLI
 
@@ -79,25 +79,25 @@ Il existe actuellement un bogue qui affecte le niveau d’accès Archive.
 
 Blobfuse n’est pas pris en charge.
 
-<a id="known-issues-tools" />
+<a id="known-issues-tools"></a>
 
 ## <a name="azcopy"></a>AzCopy
 
 Utilisez uniquement la dernière version d’AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Les versions antérieures d’AzCopy (telles qu’AzCopy v8.1) ne sont pas prises en charge.
 
-<a id="storage-explorer" />
+<a id="storage-explorer"></a>
 
 ## <a name="azure-storage-explorer"></a>Explorateur de stockage Azure
 
 Utilisez uniquement les versions `1.6.0` ou ultérieures.
 
-<a id="explorer-in-portal" />
+<a id="explorer-in-portal"></a>
 
 ## <a name="storage-explorer-in-the-azure-portal"></a>Explorateur Stockage dans le portail Azure
 
 Les listes de contrôle d’accès ne sont pas prises en charge pour le moment.
 
-<a id="third-party-apps" />
+<a id="third-party-apps"></a>
 
 ## <a name="thirdpartyapplications"></a>Applications tierces
 

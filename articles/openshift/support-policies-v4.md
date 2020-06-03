@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 7bdcccee3270f9d2b611682a9a59505158a494d2
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: ec27d054055866c72148ad6eb024d4324f063ce8
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204862"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774389"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Stratégie de prise en charge d’Azure Red Hat OpenShift
 
@@ -28,7 +28,9 @@ Certaines configurations pour les clusters Azure Red Hat OpenShift 4 peuvent aff
 * Ne modifiez pas la version de cluster OpenShift.
 * Ne supprimez pas ou ne modifiez pas la journalisation du service Azure Red Hat OpenShift (pods MDSD).
 * Ne supprimez pas ou ne modifiez pas le secret d’extraction de cluster « arosvc.azurecr.io ».
-* Toutes les machines virtuelles du cluster doivent disposer d’un accès Internet sortant, du moins aux points de terminaison Azure Resource Manager (ARM), et de la journalisation des services (Geneva).
+* Toutes les machines virtuelles du cluster doivent disposer d’un accès Internet sortant direct, du moins aux points de terminaison Azure Resource Manager (ARM), et de la journalisation des services (Geneva).  Aucune forme de proxy HTTPS n’est prise en charge.
+* Ne modifiez pas la configuration DNS du réseau virtuel du cluster. Vous devez utiliser le programme de résolution Azure DNS par défaut.
+* Ne remplacez pas les objets MachineConfig du cluster (par exemple, la configuration kubelet) de quelque manière que ce soit.
 * Le service Azure Red Hat OpenShift accède à votre cluster par le biais du service de liaison privée.  Ne supprimez pas et ne modifiez pas l’accès au service.
 * Les nœuds de calcul non RHCOS ne sont pas pris en charge. Par exemple, vous ne pouvez pas utiliser un nœud de calcul RHEL.
 
@@ -66,3 +68,11 @@ Azure Red Hat OpenShift 4 prend en charge les instances de nœuds de travail sur
 |Fsv2|Standard_F8s_v2|8|16|
 |Fsv2|Standard_F16s_v2|16|32|
 |Fsv2|Standard_F32s_v2|32|64|
+
+### <a name="master-nodes"></a>Nœuds master
+
+|Série|Taille|Processeurs virtuels|Mémoire : Gio|
+|-|-|-|-|
+|Dsv3|Standard_D8s_v3|8|32|
+|Dsv3|Standard_D16s_v3|16|64|
+|Dsv3|Standard_D32s_v3|32|128|

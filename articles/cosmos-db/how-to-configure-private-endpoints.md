@@ -4,14 +4,14 @@ description: Découvrez comment configurer Azure Private Link pour accéder à u
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 05/14/2020
 ms.author: thweiss
-ms.openlocfilehash: 4b49d2aa61587d0156755bdd5c47b3eeb90090a5
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 2c4044fded2d14b8c6a1d92f367de9588b7b2ca3
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270687"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697885"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configurer Azure Private Link pour un compte Azure Cosmos
 
@@ -22,9 +22,6 @@ Private Link permet aux utilisateurs d’accéder à un compte Azure Cosmos à p
 Vous pouvez vous connecter à un compte Azure Cosmos configuré avec Private Link en utilisant les méthodes d’approbation automatique ou manuelle. Pour plus d’informations, consultez la section [Flux de travail d’approbation](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) de la documentation Private Link. 
 
 Cet article décrit pas à pas la création d’un point de terminaison privé. Il suppose que vous utilisez la méthode d’approbation automatique.
-
-> [!NOTE]
-> La prise en charge des points de terminaison privés est actuellement disponible pour le mode de connexion par passerelle uniquement. Pour le mode direct, elle est disponible en fonctionnalité d’évaluation.
 
 ## <a name="create-a-private-endpoint-by-using-the-azure-portal"></a>Créer un point de terminaison privé au moyen du Portail Azure
 
@@ -643,21 +640,15 @@ Vous pouvez utiliser les mêmes étapes lorsque vous supprimez une région. Apr�
 
 Les limitations suivantes s’appliquent lorsque vous utilisez Private Link avec un compte Azure Cosmos :
 
-* Lorsque vous utilisez Private Links avec un compte Azure Cosmos à l’aide d’une connexion en mode direct, vous ne pouvez utiliser que le protocole TCP. Le protocole HTTP n’est pas encore pris en charge.
-
-* La prise en charge des points de terminaison privés est actuellement disponible pour le mode de connexion par passerelle uniquement. Pour le mode direct, elle est disponible en fonctionnalité d’évaluation.
+* Lorsque vous utilisez Private Links avec un compte Azure Cosmos à l’aide d’une connexion en mode direct, vous ne pouvez utiliser que le protocole TCP. Le protocole HTTP n’est pas pris en charge actuellement.
 
 * Lorsque vous utilisez l’API Azure Cosmos DB pour les comptes MongoDB, un point de terminaison privé est pris en charge pour les comptes sur le serveur version 3.6 uniquement (c’est-à-dire les comptes utilisant le point de terminaison au format `*.mongo.cosmos.azure.com`). Private Link n’est pas pris en charge pour les comptes sur le serveur version 3.2 (c’est-à-dire les comptes utilisant le point de terminaison au format `*.documents.azure.com`). Pour utiliser Private Link, vous devez migrer les anciens comptes vers la nouvelle version.
 
-* Lorsque vous utilisez l’API d’Azure Cosmos DB pour les comptes MongoDB qui ont Private Link, vous ne pouvez pas utiliser d’outils tels que Robo 3T, Studio 3T et Mongoose. Le point de terminaison peut prendre en charge Private Link uniquement si le paramètre `appName=<account name>` est spécifié. par exemple `replicaSet=globaldb&appName=mydbaccountname`. Étant donné que ces outils ne transmettent pas au service le nom de l’application dans la chaîne de connexion, vous ne pouvez pas utiliser Private Link. Toutefois, vous pouvez toujours accéder à ces comptes à l’aide des pilotes de Kit de développement logiciel (SDK) version 3.6.
+* Lorsque vous utilisez une API d’Azure Cosmos DB pour le compte MongoDB qui possède un lien privé, il se peut que des outils ou bibliothèques ne fonctionnent parce qu’il écartent automatiquement le paramètre `appName` de la chaîne de connexion. Ce paramètre est obligatoire pour se connecter au compte sur un point de terminaison privé. Certains outils, tel Visual Studio Code, ne suppriment pas ce paramètre de la chaîne de connexion. Ils sont donc compatibles.
 
-* Vous ne pouvez pas déplacer ou supprimer un réseau virtuel s’il contient Private Link.
+* Un administrateur réseau doit disposer au moins de l’autorisation `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` dans l’étendue du compte Azure Cosmos pour créer des points de terminaison privés approuvés automatiquement.
 
-* Vous ne pouvez pas supprimer un compte Azure Cosmos s’il est attaché à un point de terminaison privé.
-
-* Vous ne pouvez pas basculer un compte Azure Cosmos vers une région qui n’est pas mappée à tous les points de terminaison privés attachés au compte.
-
-* Un administrateur réseau doit disposer au moins de l’autorisation «*/PrivateEndpointConnectionsApproval » au niveau de l’étendue du compte Azure Cosmos pour créer des points de terminaison privés approuvés automatiquement.
+* Le mode direct n’est pas pris en charge actuellement dans les régions Azure situées en Chine.
 
 ### <a name="limitations-to-private-dns-zone-integration"></a>Limitations de l’intégration à une zone DNS privée
 

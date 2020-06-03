@@ -1,20 +1,20 @@
 ---
-title: Configurer les paramètres Windows Update pour une utilisation par Azure Update Management
-description: Cet article décrit les paramètres Windows Update configurables pour une utilisation avec Azure Update Management.
+title: Configurer les paramètres de Windows Update pour Azure Automation Update Management
+description: Cet article explique comment configurer les paramètres de Windows Update pour qu’ils fonctionnent avec Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
 ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: b9b5f2b19b29eae0132ec01a9f3fb7e8355361f5
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: ea05e75c0d1db1ef27ae2e8e9364327528a7c8ed
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779448"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837159"
 ---
-# <a name="configure-windows-update-settings-for-update-management"></a>Configurer les paramètres Windows Update pour une utilisation par Update Management
+# <a name="configure-windows-update-settings-for-azure-automation-update-management"></a>Configurer les paramètres de Windows Update pour Azure Automation Update Management
 
-Azure Update Management s’appuie sur le [client Windows Update](https://docs.microsoft.com//windows/deployment/update/windows-update-overview) pour télécharger et installer des mises à jour de Windows. Des paramètres spécifiques sont utilisés par le client Windows Update lors de la connexion à Windows Server Update Services (WSUS) ou à Windows Update. Vous pouvez gérer une grande partie de ces paramètres par les moyens suivants :
+Azure Automation Update Management s’appuie sur le [client Windows Update](https://docs.microsoft.com//windows/deployment/update/windows-update-overview) pour télécharger et installer les mises à jour de Windows. Des paramètres spécifiques sont utilisés par le client Windows Update lors de la connexion à Windows Server Update Services (WSUS) ou à Windows Update. Vous pouvez gérer une grande partie de ces paramètres par les moyens suivants :
 
 - Éditeur de stratégie de groupe locale
 - Stratégie de groupe
@@ -27,9 +27,9 @@ Pour obtenir des recommandations supplémentaires sur la configuration de WSUS d
 
 ## <a name="pre-download-updates"></a>Pré-télécharger des mises à jour
 
-Pour configurer le téléchargement automatique des mises à jour, sans les installer automatiquement, vous pouvez utiliser une stratégie de groupe pour définir le [paramètre Configurer les mises à jour automatiques](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates) sur **3**. Ce paramètre permet de télécharger les mises à jour nécessaires en arrière-plan, puis de vous avertir que les mises à jour sont prêtes à être installées. Cela permet à Update Management de garder le contrôle des planifications, mais les mises à jour peuvent être téléchargées en dehors de la fenêtre de maintenance d’Update Management. Ce comportement peut empêcher les erreurs de type **Fenêtre de maintenance dépassée** dans Update Management.
+Pour configurer le téléchargement automatique des mises à jour sans leur installation automatiquement, vous pouvez utiliser une stratégie de groupe pour définir le [paramètre Configurer les mises à jour automatiques](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates) sur 3. Ce paramètre permet de télécharger les mises à jour nécessaires en arrière-plan, puis de vous avertir que les mises à jour sont prêtes à être installées. Cela permet à Update Management de garder le contrôle des planifications, mais autorise le téléchargement des mises à jour en dehors de la fenêtre de maintenance d’Update Management. Ce comportement empêche les erreurs de type `Maintenance window exceeded` dans Update Management.
 
-Vous pouvez activer ce paramètre à l’aide de PowerShell en exécutant la commande suivante :
+Vous pouvez activer ce paramètre dans PowerShell :
 
 ```powershell
 $WUSettings = (New-Object -com "Microsoft.Update.AutoUpdate").Settings
@@ -45,7 +45,7 @@ Les clés de Registre répertoriées sous [Configuration des mises à jour autom
 
 Par défaut, le client Windows Update est configuré pour fournir des mises à jour uniquement pour Windows. Si vous activez le paramètre **Me communiquer les mises à jour d’autres produits Microsoft lorsque je mets à jour Windows**, les mises à jour des autres produits vous sont également fournies, y compris les correctifs de sécurité pour Microsoft SQL Server ou d’autres logiciels Microsoft. Vous pouvez configurer cette option si vous avez téléchargé et copié les derniers [fichiers de modèles d’administration](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra) disponibles pour Windows 2016 et versions ultérieures.
 
-Si vous exécutez Windows Server 2012 R2, ce paramètre ne peut pas être configuré par une stratégie de groupe. Exécutez la commande PowerShell suivante sur ces machines. Update Management se conforme à ce paramètre.
+Si vous avez des machines exécutant Windows Server 2012 R2, vous ne pouvez pas configurer ce paramètre par le biais d’une stratégie de groupe. Exécutez la commande PowerShell suivante sur ces machines :
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
@@ -54,16 +54,12 @@ $ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
 $ServiceManager.AddService2($ServiceId,7,"")
 ```
 
-## <a name="wsus-configuration-settings"></a>Paramètres de configuration WSUS
+## <a name="make-wsus-configuration-settings"></a>Définir des paramètres de configuration WSUS
 
-Update Management prend en charge les paramètres WSUS. Les paramètres WSUS configurables pour une utilisation par Update Management sont répertoriés ci-dessous.
+Update Management prend en charge les paramètres WSUS. Vous pouvez spécifier les sources à utiliser pour l’analyse et le téléchargement des mises à jour en suivant les instructions de la rubrique [Spécifier l’emplacement intranet du service de mise à jour Microsoft](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location). Par défaut, le client Windows Update est configuré pour télécharger les mises à jour à partir de Windows Update. Quand vous spécifiez un serveur WSUS comme source pour vos machines, si les mises à jour ne sont pas approuvées dans WSUS, leur déploiement échoue. 
 
-### <a name="intranet-microsoft-update-service-location"></a>Emplacement intranet du service de mise à jour Microsoft
-
-Vous pouvez spécifier les sources à utiliser pour l’analyse et le téléchargement des mises à jour sous [Spécifier l’emplacement intranet du service de mise à jour Microsoft](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location). Par défaut, le client Windows Update est configuré pour télécharger les mises à jour à partir de Windows Update. Quand vous spécifiez un serveur WSUS comme source pour vos machines, si les mises à jour ne sont pas approuvées dans WSUS, leur déploiement échoue. 
-
-Pour limiter les machines à ce seul service de mise à jour interne, configurez [Ne pas se connecter à des emplacements Internet Windows Update](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations). 
+Pour limiter les machines au service de mise à jour interne, activez l’option [Ne pas se connecter à des emplacements Internet Windows Update](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré les paramètres Windows Update, vous pouvez planifier un déploiement de mises à jour en suivant les instructions sous [Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure](automation-tutorial-update-management.md).
+Planifiez un déploiement des mises à jour en suivant les instructions de la rubrique [Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure](automation-tutorial-update-management.md).

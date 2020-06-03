@@ -8,18 +8,18 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: babanisa
-ms.openlocfilehash: 71d47c83586f7e5e31b148714e2804686422326a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bca450022322db7a7569fa1dc7ce80ec75a9ce69
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588256"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774308"
 ---
 # <a name="authenticating-access-to-azure-event-grid-resources"></a>Authentification de l’accès aux ressources Azure Event Grid
 Cet article fournit des informations sur les scénarios suivants :  
 
 - Authentifier les clients qui publient des événements dans des rubriques Azure Event Grid à l’aide d’une signature d’accès partagé (SAS) ou d’une clé. 
-- Sécuriser votre point de terminaison webhook à l’aide d’Azure Active Directory (Azure AD) pour authentifier Event Grid avant la **remise** des événements au point de terminaison.
+- Sécurisez le point de terminaison webhook utilisé pour recevoir des événements d’Event Grid à l’aide d’Azure Active Directory (Azure AD) ou d’un secret partagé.
 
 ## <a name="authenticate-publishing-clients-using-sas-or-key"></a>Authentifier les clients de publication à l’aide d’une SAS ou d’une clé
 Les rubriques personnalisées utilisent une Signature d’accès partagé (SAP) ou une authentification par clé. Nous vous recommandons la SAP, mais l’authentification par clé propose une programmation simple et est compatible avec de nombreux éditeurs de webhook existants.
@@ -83,18 +83,18 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ### <a name="encryption-at-rest"></a>Chiffrement au repos
 
-Tous les événements ou données écrits sur le disque par le service Event Grid sont chiffrés à l’aide d’une clé managée par Microsoft, ce qui garantit un chiffrement au repos. En outre, la durée maximale de conservation des événements ou données est de 24 heures, conformément à la [stratégie de nouvelles tentatives Event Grid](delivery-and-retry.md). Event Grid supprime automatiquement tous les événements ou données après 24 heures, ou la durée de vie de l’événement, selon la valeur la plus faible.
+L’ensemble des événements ou données écrits sur le disque par le service Event Grid sont chiffrés à l’aide d’une clé gérée par Microsoft, ce qui garantit leur chiffrement au repos. En outre, la durée maximale de conservation des événements ou données est de 24 heures, conformément à la [stratégie de nouvelles tentatives Event Grid](delivery-and-retry.md). Event Grid supprime automatiquement tous les événements ou données après 24 heures, ou la durée de vie de l’événement, selon la valeur la plus faible.
 
 ## <a name="authenticate-event-delivery-to-webhook-endpoints"></a>Authentifier la remise des événements aux points de terminaison webhook
 Les sections suivantes décrivent comment authentifier la remise d’événements aux points de terminaison webhook. L’emploi d’un mécanisme de négociation de validation est obligatoire, quelle que soit la méthode que vous utilisez. Pour plus d’informations, consultez [Remise d’événements webhook](webhook-event-delivery.md). 
 
 ### <a name="using-azure-active-directory-azure-ad"></a>Utilisation d’Azure Active Directory (Azure AD)
-Vous pouvez sécuriser votre point de terminaison webhook à l’aide d’Azure Active Directory (Azure AD) pour authentifier et autoriser Event Grid à remettre des événements à vos points de terminaison. Vous devez créer une application Azure AD, créer un rôle et un principal de service dans votre application qui autorise Event Grid, et configurer l’abonnement aux événements pour utiliser l’application Azure AD. [Découvrez comment configurer Azure Active Directory avec Event Grid](secure-webhook-delivery.md).
+Vous pouvez sécuriser le point de terminaison webhook utilisé pour recevoir des événements d’Event Grid à l’aide d’Azure AD. Vous devez créer une application Azure AD, créer un rôle et un principal de service dans votre application qui autorisent Event Grid, et configurer l’abonnement à un événement pour utiliser l’application Azure AD. Découvrez comment [Configurer Azure Active Directory avec Event Grid](secure-webhook-delivery.md).
 
 ### <a name="using-client-secret-as-a-query-parameter"></a>Utilisation d’un secret client comme paramètre de requête
-Vous pouvez sécuriser votre point de terminaison Webhook en ajoutant des paramètres de requête à l’URL Webhook lorsque vous créez un abonnement à un événement. Définissez un de ces paramètres de requête en tant que secret client, par exemple un [jeton d’accès](https://en.wikipedia.org/wiki/Access_token) ou un secret partagé. Le webhook peut utiliser le secret pour établir que l'événement provient d'Event Grid avec des autorisations valides. Event Grid va inclure ces paramètres de requête dans chaque remise d’événement au Webhook. Si le secret client est mis à jour, l’abonnement aux événements doit également être mis à jour. Pour éviter les échecs de remise durant cette rotation de secrets, configurez le webhook pour qu’il accepte les secrets anciens et nouveaux pendant une durée limitée. 
+Vous pouvez également sécuriser votre point de terminaison webhook en ajoutant des paramètres de requête à l’URL de destination webhook spécifiée lors de la création d’un abonnement à un événement. Définissez l’un des paramètres de requête en tant que clé secrète client, par exemple un [jeton d’accès](https://en.wikipedia.org/wiki/Access_token) ou un secret partagé. Le service Event Grid inclut tous les paramètres de requête dans chaque demande de remise d’événement au webhook. Le service webhook peut récupérer et valider le secret. Si le secret client est mis à jour, l’abonnement aux événements doit également être mis à jour. Pour éviter les échecs de remise pendant cette rotation de secret, faites en sorte que le webhook accepte l’ancien et le nouveau secrets pendant une durée limitée avant de mettre à jour l’abonnement à l’événement avec le nouveau secret. 
 
-Comme les paramètres de requête peuvent contenir des secrets clients, ils doivent être utilisés avec une prudence particulière. Ils sont stockés sous une forme chiffrée et ne sont pas accessibles aux opérateurs de service. Ils ne sont pas enregistrés dans les journaux/traces de service. Lorsque vous modifiez l’abonnement aux événements, les paramètres de requête ne sont pas affichés ni retournés, sauf si le paramètre [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) est utilisé dans [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
+Comme les paramètres de requête peuvent contenir des secrets clients, ils doivent être utilisés avec une prudence particulière. Ils sont stockés sous forme chiffrée hors de portée des opérateurs de service. Ils ne sont pas enregistrés dans les journaux/traces de service. Lors de la récupération des propriétés de l’abonnement à l’événement, par défaut, les paramètres de requête de destination ne sont pas retournés. Par exemple, le paramètre [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) doit être utilisé dans [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
 Pour plus d’informations sur la remise d’événements à des webhooks, consultez [Remise d’événements webhook](webhook-event-delivery.md)
 

@@ -2,14 +2,14 @@
 title: Modifications de point de terminaison de prédiction dans l’API V3
 description: Les API V3 de point de terminaison de prédiction de requête ont évolué. Servez-vous de ce guide pour comprendre comment migrer vers les API de point de terminaison de version 3.
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/15/2020
 ms.author: diberry
-ms.openlocfilehash: 4b6d28b24ffc6c0a848d1c7a34e863da0606d936
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 84afcbcd348c3fd91014096877de2315722b53a0
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81530383"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849329"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Modifications de point de terminaison de prédiction pour V3
 
@@ -73,16 +73,9 @@ L’API de prédiction V2 ne sera pas déconseillée pendant au moins 9 mois apr
 
 ### <a name="changes-by-slot-name-and-version-name"></a>Modifications par nom d’emplacement et nom de version
 
-Le format de l’appel HTTP de point de terminaison V3 a évolué.
+Le [format de l’appel HTTP de point de terminaison](developer-reference-resource.md#rest-endpoints) V3 a évolué.
 
 Si vous souhaitez interroger par version, vous devez d’abord [publier via l’API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) avec `"directVersionPublish":true`. Interrogez le point de terminaison qui fait référence à l’ID de version plutôt qu’au nom d’emplacement.
-
-|VERSION DE L’API DE PRÉDICTION|MÉTHODE|URL|
-|--|--|--|
-|V3|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
-|V3|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
-|V2|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
-|V2|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
 
 |Valeurs valides pour `SLOT-NAME`|
 |--|
@@ -290,4 +283,4 @@ L’API V2 ne sera pas déconseillée pendant au moins 9 mois après la préver
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez la documentation de l’API V3 pour mettre à jour les appels REST existants vers les API de [point de terminaison](https://aka.ms/luis-api-v3) LUIS.
+Consultez la documentation de l’API V3 pour mettre à jour les appels REST existants vers les API de [point de terminaison](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a9459a1fe8fa44c28dd8) LUIS.

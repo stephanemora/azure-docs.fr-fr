@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 52f389e00d63f3659dfe79487b31ec9c3fab1ced
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 82fbc144b9b2dffdddc09900bf6ed9424b445100
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580679"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701458"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressions de transformation de données dans le flux de données de mappage
 
@@ -56,8 +56,15 @@ Ajoute des mois à une date ou à un timestamp. Vous pouvez éventuellement tran
 ___
 ### <code>and</code>
 <code><b>and(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
-Opérateur AND logique.  Identique à && * ``and(true, false) -> false``  
+Opérateur AND logique. Identique à && * ``and(true, false) -> false``  
 * ``true && false -> false``  
+___
+### <code>array</code>
+<code><b>array([<i>&lt;value1&gt;</i> : any], ...) => array</b></code><br/><br/>
+Crée un tableau d’éléments. Tous les éléments doivent être du même type. Si aucun élément n’est spécifié, par défaut, le tableau contient des chaînes vides. Identique à un opérateur de création [] * ``array('Seattle', 'Washington')``
+* ``['Seattle', 'Washington']``
+* ``['Seattle', 'Washington'][1]``
+* ``'Washington'``
 ___
 ### <code>asin</code>
 <code><b>asin(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -79,6 +86,27 @@ Sélectionne une valeur de colonne selon le nom dans le flux de données. Vous p
 * ``toLong(byName($debtCol))``  
 * ``toString(byName('Bogus Column'))``  
 * ``toString(byName('Bogus Column', 'DeriveStream'))``  
+___
+### <code>byNames</code>
+<code><b>byNames(<i>&lt;column names&gt;</i> : array, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
+Sélectionnez un tableau de colonnes par son nom dans le flux. Vous pouvez transmettre un nom de flux facultatif en tant que deuxième argument. S’il existe plusieurs correspondances, la première correspondance est retournée. S’il n’existe aucune correspondance pour une colonne, la sortie entière est une valeur NULL. La valeur retournée requiert des fonctions de conversion de type (ToDate, toString, ...).  Les noms de colonne connus au moment de la conception doivent être traités uniquement selon leur nom. Les entrées calculées ne sont pas prises en charge, mais vous pouvez utiliser des substitutions de paramètre.
+* ``toString(byNames(['parent', 'child']))``
+* ````
+* ``byNames(['parent']) ? string``
+* ````
+* ``toLong(byNames(['income']))``
+* ````
+* ``byNames(['income']) ? long``
+* ````
+* ``toBoolean(byNames(['foster']))``
+* ````
+* ``toLong(byNames($debtCols))``
+* ````
+* ``toString(byNames(['a Column']))``
+* ````
+* ``toString(byNames(['a Column'], 'DeriveStream'))``
+* ````
+* ``byNames(['orderItem']) ? (itemName as string, itemQty as integer)``
 ___
 ### <code>byPosition</code>
 <code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
@@ -119,6 +147,15 @@ ___
 Obtient toutes les colonnes de sortie pour un flux. Vous pouvez transmettre un nom de flux facultatif en tant que deuxième argument.  
 * ``columnNames()``
 * ``columnNames('DeriveStream')``
+
+___
+### <code>columns</code>
+<code><b>columns([<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
+Obtient toutes les colonnes de sortie pour un flux. Vous pouvez transmettre un nom de flux facultatif en tant que deuxième argument.   
+* ``columns()``
+* ````
+* ``columns('DeriveStream')``
+* ````
 ___
 ### <code>compare</code>
 <code><b>compare(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => integer</b></code><br/><br/>

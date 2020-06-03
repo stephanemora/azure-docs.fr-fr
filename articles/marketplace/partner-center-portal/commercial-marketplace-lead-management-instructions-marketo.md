@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: 1f3a097629f8c5f4a3f0ecefa5ee50f2d3e62162
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f1db7cc34a77c342a3d11e4b509d45a745a200db
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789876"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849173"
 ---
 # <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Utiliser Marketo pour gérer les prospects de marketplaces commerciaux
 
@@ -71,9 +71,9 @@ Lorsque vous êtes prêt à configurer les informations de gestion des prospects
 
 1. Sélectionnez votre offre, puis accédez à l’onglet **Configuration de l’offre**.
 
-1. Dans la section **Gestion des prospects**, sélectionnez **Connexion**. 
+1. Dans la section **Prospects**, sélectionnez **Se connecter**.
 
-    ![Section Gestion des prospects - bouton Se connecter](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/customer-leads.png" alt-text="Prospects":::
 
 1. Dans la fenêtre contextuelle **Détails de la connexion**, sélectionnez **Marketo** comme **Destination du prospect**.
 

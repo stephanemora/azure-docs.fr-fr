@@ -12,12 +12,12 @@ ms.date: 02/21/2020
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 186e36e4625a60362c54972b16b53f0f3e6753fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b52bc45287e0e3a8f4908630cb6e57130c1725df
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409190"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772418"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory
 
@@ -38,7 +38,7 @@ Avec les types d’applications suivants, vous avez la possibilité d’exiger q
 - applications de proxy d’application qui utilisent la pré-authentification Azure Active Directory ;
 - applications créées sur la plateforme d’application Azure AD qui utilisent l’authentification OAuth 2.0/OpenID Connect après qu’un utilisateur ou administrateur a donné son consentement à l’application.
 
-Lorsque l’affectation d’utilisateur est requise, seuls les utilisateurs que vous attribuez explicitement à l’application peuvent se connecter. Ils peuvent accéder à l’application via leur page Mes applications ou à l’aide d’un lien direct. 
+Quand une affectation d’utilisateur est requise, seuls les utilisateurs que vous affectez explicitement à l’application (via une affectation directe ou une appartenance à un groupe) peuvent se connecter. Ils peuvent accéder à l’application via leur page Mes applications ou à l’aide d’un lien direct. 
 
 Lorsque l’affectation *n’est pas obligatoire*, soit parce que vous avez défini cette option sur **Non**, soit parce que l’application utilise un autre mode d’authentification unique, n’importe quel utilisateur peut accéder à l’application s’il dispose d’un lien direct vers celle-ci ou vers l’**URL d’accès utilisateur** dans la page **Propriétés** de l’application. 
 
@@ -112,7 +112,9 @@ Pour exiger une affectation d’utilisateur pour une application :
 
 Pour plus d’informations sur la façon d’affecter un utilisateur à un rôle d’application, consultez la documentation de [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
 
-Pour assigner un groupe à une application d’entreprise, vous devez remplacer `Get-AzureADUser` par `Get-AzureADGroup`.
+Pour affecter un groupe à une application d’entreprise, vous devez remplacer `Get-AzureADUser` par `Get-AzureADGroup`, et `New-AzureADUserAppRoleAssignment` par `New-AzureADGroupAppRoleAssignment`.
+
+Pour plus d’informations sur la façon d’affecter un groupe à un rôle d’application, consultez la documentation de [New-AzureADGroupAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
 
 ### <a name="example"></a>Exemple
 

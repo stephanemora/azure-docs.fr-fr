@@ -8,12 +8,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 35049e148af09376667a55e2f0bb4a28cf728245
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 2989d85ddfca036a27ff6b886bd3b13a981c27a3
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83735886"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170254"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Résoudre les problèmes liés à Update Management
 
@@ -50,7 +50,7 @@ Cette erreur peut se produire pour les raisons suivantes :
 
 * Accédez à [Configuration réseau](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) pour connaître les adresses et ports à autoriser pour le fonctionnement de l’agent Log Analytics.
 
-* Recherchez les problèmes de configuration d’étendue. La [configuration de l’étendue](../automation-onboard-solutions-from-automation-account.md#scope-configuration) permet de déterminer les ordinateurs qui sont configurés pour Update Management. Si votre ordinateur figure dans votre espace de travail, mais pas sur le portail Update Management, vous devez définir la configuration de l’étendue pour qu’elle cible les ordinateurs concernés. Pour en savoir plus sur la configuration de l’étendue, consultez [Activer des machines dans l’espace de travail](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
+* Recherchez les problèmes de configuration d’étendue. La [configuration de l’étendue](../automation-scope-configurations-update-management.md) permet de déterminer les ordinateurs qui sont configurés pour Update Management. Si votre ordinateur figure dans votre espace de travail, mais pas sur le portail Update Management, vous devez définir la configuration de l’étendue pour qu’elle cible les ordinateurs concernés. Pour en savoir plus sur la configuration de l’étendue, consultez [Activer des machines dans l’espace de travail](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
 
 * Pour supprimer la configuration du Worker, suivez les étapes décrites dans [Supprimer la fonctionnalité Runbook Worker hybride d’un ordinateur Windows local](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) ou [Supprimer le Runbook Worker hybride à partir d’un ordinateur Linux local](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker). 
 

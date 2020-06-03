@@ -2,17 +2,17 @@
 title: Bons exemples d’énoncés - LUIS
 description: Les énoncés sont des entrées de l’utilisateur que votre application doit interpréter. Collectez des phrases dont vous pensez que les utilisateurs les entreront. Incluez des énoncés de sens identique, mais construits différemment sur le plan de la longueur et du positionnement des mots.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 184038ff2758fbe7c5834682c82c082ef6661234
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: 6a17416183762893432841c27124ec6a0f8a289d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592863"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685273"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprendre ce que sont les bons énoncés pour votre application LUIS
 
-Des **énoncés** sont des entrées de l’utilisateur que votre application doit interpréter. Pour que LUIS apprenne à en extraire des intentions et des entités, il est important de capturer une série d’exemples d’énoncés pour chaque intention. L’apprentissage actif, c’est-à-dire le processus d’apprentissage continu sur la base de nouveaux énoncés, est essentiel pour l’intelligence d’apprentissage automatique qu’offre LUIS.
+Des **énoncés** sont des entrées de l’utilisateur que votre application doit interpréter. Pour que LUIS apprenne à en extraire des intentions et des entités, il est important de capturer une série d’exemples d’énoncés pour chaque intention. L’apprentissage actif, c’est-à-dire le processus d’apprentissage continu sur la base de nouveaux énoncés, est essentiel pour l’intelligence de machine-learning qu’offre LUIS.
 
 Collectez des énoncés dont vous pensez que les utilisateurs les entreront. Incluez des énoncés qui signifient la même chose mais présentent des constructions différentes :
 
@@ -84,7 +84,7 @@ Définissez les paramètres de version sur le portail LUIS, dans la section **Ma
 
 ### <a name="word-forms"></a>Formes des mots
 
-La normalisation **word forms** (formes des mots) ignore les différences entre les mots qui se développent au-delà de leur racine. Par exemple, les mots `run`, `running` et `runs` correspondent à différentes formes de conjugaison.
+La normalisation **word forms** (formes des mots) ignore les différences entre les mots qui se développent au-delà de leur racine.
 
 <a name="utterance-normalization-for-diacritics-and-punctuation"></a>
 

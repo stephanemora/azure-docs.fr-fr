@@ -5,21 +5,20 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 05/20/2020
 ms.author: jgao
-ms.openlocfilehash: f84707adfa406011989c8f9bfdf1e8d9270698a6
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 24a0891b57f67bfb78cf3699bddbcf8d345ee679
+ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984791"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83708004"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utiliser des scripts de déploiement dans des modèles (Préversion)
 
 Découvrez comment utiliser des scripts de déploiement dans des modèles de ressource Azure. Avec un nouveau type de ressource appelé `Microsoft.Resources/deploymentScripts`, les utilisateurs peuvent exécuter des scripts de déploiement dans les déploiements de modèle et examiner les résultats de l’exécution. Ces scripts peuvent être utilisés pour effectuer des étapes personnalisées, comme :
 
 - ajouter des utilisateurs à un annuaire ;
-- créer une inscription d’application ;
 - effectuer des opérations de plan de données, par exemple, copier des objets blob ou alimenter une base de données ;
 - rechercher et valider une clé de licence ;
 - créer un certificat auto-signé ;
@@ -37,14 +36,14 @@ Les avantages du script de déploiement :
 La ressource de script de déploiement n'est disponible que dans les régions où Azure Container Instance est disponible.  Consultez [Disponibilité des ressources pour Azure Container Instances dans les régions Azure](../../container-instances/container-instances-region-availability.md).
 
 > [!IMPORTANT]
-> Deux ressources de script de déploiement, un compte de stockage et une instance de conteneur, sont créées dans le même groupe de ressources pour l’exécution du script et la résolution de problèmes. Ces ressources sont généralement supprimées par le service de script lorsque l’exécution du script de déploiement arrive à un état terminal. Vous êtes facturé pour les ressources jusqu’à ce qu’elles soient supprimées. Pour plus d’informations, consultez [Nettoyer les ressources de script de déploiement](#clean-up-deployment-script-resources).
+> Un compte de stockage et une instance de conteneur sont nécessaires pour l’exécution et la résolution des problèmes d’un script. Vous avez le choix entre les options pour spécifier un compte de stockage existant ; sinon, le compte de stockage et l’instance de conteneur sont automatiquement créés par le service de script. Les deux ressources créées automatiquement sont généralement supprimées par le service de script lorsque l’exécution du script de déploiement arrive à un état terminal. Vous êtes facturé pour les ressources jusqu’à ce qu’elles soient supprimées. Pour plus d’informations, consultez [Nettoyer les ressources de script de déploiement](#clean-up-deployment-script-resources).
 
 ## <a name="prerequisites"></a>Prérequis
 
 - **Une identité managée affectée par l’utilisateur avec le rôle de contributeur au groupe de ressources cible**. Cette identité est utilisée pour exécuter les scripts de déploiement. Pour effectuer des opérations en dehors du groupe de ressources, vous devez accorder des autorisations supplémentaires. Par exemple, attribuez l’identité au niveau de l’abonnement si vous souhaitez créer un groupe de ressources.
 
   > [!NOTE]
-  > Le moteur de script de déploiement crée un compte de stockage et une instance de conteneur en arrière-plan.  Une identité managée affectée par l’utilisateur dotée du rôle de contributeur au niveau de l’abonnement est requise si l’abonnement n’a pas inscrit le compte de stockage Azure (Microsoft.Storage) ni les fournisseurs de ressources d’instance de conteneur Azure (Microsoft.ContainerInstance).
+  > Le service de script crée un compte de stockage (sauf si vous spécifiez un compte de stockage existant) et une instance de conteneur en arrière-plan.  Une identité managée affectée par l’utilisateur dotée du rôle de contributeur au niveau de l’abonnement est requise si l’abonnement n’a pas inscrit le compte de stockage Azure (Microsoft.Storage) ni les fournisseurs de ressources d’instance de conteneur Azure (Microsoft.ContainerInstance).
 
   Pour créer une identité, consultez [Créer une identité managée affectée par l’utilisateur à l’aide du Portail Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [d’Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) ou [d’Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). Vous avez besoin de l’ID d’identité lorsque vous déployez le modèle. Le format de l’identité est le suivant :
 
@@ -101,6 +100,13 @@ L’extrait json ci-dessous est un exemple.  Le schéma de modèle le plus réce
   },
   "properties": {
     "forceUpdateTag": 1,
+    "containerSettings": {
+      "containerGroupName": "mycustomaci"
+    },
+    "storageAccountSettings": {
+      "storageAccountName": "myStorageAccount",
+      "storageAccountKey": "myKey"
+    },
     "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
     "arguments": "[concat('-name ', parameters('name'))]",
     "environmentVariables": [
@@ -132,6 +138,8 @@ Détails des valeurs de propriété :
 - **Identité** : le service de script de déploiement utilise une identité managée affectée par l’utilisateur pour exécuter les scripts. Actuellement, seule l’identité managée affectée par l’utilisateur est prise en charge.
 - **kind** : spécifie le type de script. Actuellement, les scripts Azure PowerShell et Azure CLI sont pris en charge. Les valeurs sont **AzurePowerShell** et **AzureCLI**.
 - **forceUpdateTag** : la modification de cette valeur entre les déploiements de modèle force le script de déploiement à s’exécuter de nouveau. Utilisez la fonction newGuid() ou utcNow() qui doit être définie comme defaultValue d’un paramètre. Pour plus d’informations, consultez [Exécuter le script plusieurs fois](#run-script-more-than-once).
+- **containerSettings** : Spécifiez les paramètres pour personnaliser l’instance de conteneur Azure.  **containerGroupName** est pour spécifier le nom du groupe de conteneurs.  S'il n’est pas spécifié, le nom du groupe est généré automatiquement.
+- **storageAccountSettings**: Spécifiez les paramètres pour utiliser un compte de stockage existant. S’il n’est pas spécifié, un compte de stockage est créé automatiquement. Consultez [Utiliser un compte de stockage existant](#use-an-existing-storage-account).
 - **azPowerShellVersion**/**azCliVersion** : spécifie la version du module à utiliser. Pour obtenir la liste des versions prises en charge de PowerShell et de l’interface CLI, consultez les [conditions préalables](#prerequisites).
 - **arguments** : Spécifiez les valeurs de paramètre. Les valeurs sont séparées par des espaces.
 - **environmentVariables** : spécifie les variables d'environnement à transmettre au script. Pour plus d'informations, consultez [Développer des scripts de déploiement](#develop-deployment-scripts).
@@ -190,7 +198,7 @@ En plus des scripts inclus, vous pouvez utiliser des fichiers de script externe.
 
 Pour voir un exemple, sélectionnez [ici](https://github.com/Azure/azure-docs-json-samples/blob/master/deployment-script/deploymentscript-helloworld-primaryscripturi.json).
 
-Les fichiers de script externe doivent être accessibles.  Pour sécuriser vos fichiers de script qui sont stockés dans les comptes de stockage Azure, consultez [Tutoriel : Sécuriser des artefacts dans les déploiements de modèles Azure Resource Manager](./template-tutorial-secure-artifacts.md).
+Les fichiers de script externe doivent être accessibles.  Pour sécuriser vos fichiers de script qui sont stockés dans les comptes de stockage Azure, consultez [Déployer un modèle Resource Manager privé avec un jeton SAS](./secure-template-with-sas-token.md).
 
 Vous êtes chargé de garantir l'intégrité des scripts référencés par le script de déploiement, à savoir **PrimaryScriptUri** ou **SupportingScriptUris**.  Référencez uniquement les scripts auxquels vous faites confiance.
 
@@ -241,15 +249,17 @@ Les sorties de script de déploiement doivent être enregistrées à l’emplace
 ### <a name="handle-non-terminating-errors"></a>Gérer les erreurs sans fin d’exécution
 
 Vous pouvez contrôler la façon dont PowerShell répond aux erreurs sans fin d’exécution à l’aide de la variable [ **$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
-) dans votre script de déploiement. Le moteur de script de déploiement ne définit ni ne modifie la valeur.  En dépit de la valeur que vous définissez pour $ErrorActionPreference, le script de déploiement définit l’état d’approvisionnement des ressources sur *Failed* (Échec) lorsque le script rencontre une erreur.
+) dans votre script de déploiement. Le service de script ne définit pas/ne modifie pas la valeur.  En dépit de la valeur que vous définissez pour $ErrorActionPreference, le script de déploiement définit l’état d’approvisionnement des ressources sur *Failed* (Échec) lorsque le script rencontre une erreur.
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Passer des chaînes sécurisées au script de déploiement
 
 La définition de variables d'environnement (EnvironmentVariable) dans vos instances de conteneur vous permet de fournir une configuration dynamique de l'application ou du script exécuté par le conteneur. Le script de déploiement gère les variables d’environnement sécurisées et non sécurisées de la même manière qu’Azure Container Instance. Pour plus d’informations, consultez [Définir des variables d’environnement dans des instances de conteneur](../../container-instances/container-instances-environment-variables.md#secure-values).
 
+La taille maximale autorisée pour les variables d’environnement est de 64 Ko.
+
 ## <a name="debug-deployment-scripts"></a>Déboguer les scripts de déploiement
 
-Le service de script crée un [compte de stockage](../../storage/common/storage-account-overview.md) et une [instance de conteneur](../../container-instances/container-instances-overview.md) pour l’exécution d’un script. Les deux ressources affichent le suffixe **azscripts** dans les noms de ressource.
+Le service de script crée un [compte de stockage](../../storage/common/storage-account-overview.md) (sauf si vous spécifiez un compte de stockage existant) et une [instance de conteneur](../../container-instances/container-instances-overview.md) pour l’exécution du script. Si ces ressources sont créées automatiquement par le service de script, les deux ressources ont le suffixe **azscripts** dans les noms des ressources.
 
 ![Noms de ressource de script de déploiement d’un modèle Azure Resource Manager](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
 
@@ -292,22 +302,53 @@ Pour afficher la ressource deploymentScripts dans le portail, sélectionnez **Af
 
 ![Portail d’un script de déploiement de modèle Resource Manager avec l’option Afficher les types masqués](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
 
+## <a name="use-an-existing-storage-account"></a>Utiliser un compte de stockage existant
+
+Un compte de stockage et une instance de conteneur sont nécessaires pour l’exécution et la résolution des problèmes d’un script. Vous avez le choix entre les options pour spécifier un compte de stockage existant ; sinon, le compte de stockage et l’instance de conteneur sont automatiquement créés par le service de script. Exigences requises pour l’utilisation d’un compte de stockage existant :
+
+- Les types de comptes de stockage pris en charge sont les comptes à usage général v2 et v1, ainsi que les comptes FileStorage. Seul FileStorage prend en charge la référence (SKU) Premium. Pour plus d’informations, consultez [Types de comptes de stockage](../../storage/common/storage-account-overview.md).
+- Les règles de pare-feu de compte de stockage ne sont pas encore prises en charge. Pour plus d’informations, consultez [Configurer Pare-feu et réseaux virtuels dans Stockage Azure](../../storage/common/storage-network-security.md).
+- L’identité managée attribuée à l’utilisateur du script de déploiement doit avoir les autorisations nécessaires pour gérer le compte de stockage, y compris la lecture, la création et la suppression des partages de fichiers.
+
+Pour spécifier un compte de stockage existant, ajoutez le code json suivant à l’élément de propriété de `Microsoft.Resources/deploymentScripts` :
+
+```json
+"storageAccountSettings": {
+  "storageAccountName": "myStorageAccount",
+  "storageAccountKey": "myKey"
+},
+```
+
+- **storageAccountName** : spécifiez le nom du compte de stockage.
+- **storageAccountKey "** : spécifiez l’une des clés de compte de stockage. Vous pouvez utiliser la fonction [`listKeys()`](./template-functions-resource.md#listkeys) pour récupérer la clé. Par exemple :
+
+    ```json
+    "storageAccountSettings": {
+        "storageAccountName": "[variables('storageAccountName')]",
+        "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
+    }
+    ```
+
+Consultez [Exemples de modèles](#sample-templates) pour obtenir un exemple complet de la définition `Microsoft.Resources/deploymentScripts`.
+
+Lorsqu’un compte de stockage existant est utilisé, le service de script crée un partage de fichiers avec un nom unique. Pour savoir comment le service de script nettoie le partage de fichiers, consultez [Nettoyer les ressources de script de déploiement](#clean-up-deployment-script-resources).
+
 ## <a name="clean-up-deployment-script-resources"></a>Nettoyer les ressources de script de déploiement
 
-Le script de déploiement crée un compte de stockage et une instance de conteneur qui sont utilisés pour l’exécution de scripts de déploiement et le stockage des informations de débogage. Ces deux ressources sont créées dans le même groupe de ressources que les ressources provisionnées, et sont supprimées par le service de script lorsque le script expire. Vous pouvez contrôler le cycle de vie de ces ressources.  Tant qu’elles ne sont pas supprimées, vous êtes facturé pour les deux ressources. Pour plus d’informations sur les prix, consultez [Tarifs Container Instances](https://azure.microsoft.com/pricing/details/container-instances/) et [Tarifs Stockage Azure](https://azure.microsoft.com/pricing/details/storage/).
+Un compte de stockage et une instance de conteneur sont nécessaires pour l’exécution et la résolution des problèmes d’un script. Vous avez le choix entre les options pour spécifier un compte de stockage existant ; sinon, un compte de stockage et une instance de conteneur sont automatiquement créés par le service de script. Les deux ressources créées automatiquement sont supprimées par le service de script lorsque l’exécution du script de déploiement arrive à un état terminal. Vous êtes facturé pour les ressources jusqu’à ce qu’elles soient supprimées. Pour plus d’informations sur les prix, consultez [Tarifs Container Instances](https://azure.microsoft.com/pricing/details/container-instances/) et [Tarifs Stockage Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 Le cycle de vie de ces ressources est contrôlé par les propriétés suivantes dans le modèle :
 
-- **cleanupPreference** : nettoie la préférence lorsque l’exécution du script arrive à un état terminal.  Les valeurs prises en charge sont les suivantes :
+- **cleanupPreference** : nettoie la préférence lorsque l’exécution du script arrive à un état terminal. Les valeurs prises en charge sont les suivantes :
 
-  - **Always** : supprime les ressources une fois que l’exécution du script a atteint un état terminal. Étant donné que la ressource deploymentScripts peut encore être présente après le nettoyage des ressources, le script système copie les résultats de l’exécution du script (par exemple, stdout, outputs, return value, etc.) dans la base de donnes avant la suppression des ressources.
-  - **OnSuccess** : supprime les ressources uniquement lorsque l’exécution du script s’est déroulée correctement. Vous pouvez toujours accéder aux ressources pour rechercher les informations de débogage.
-  - **OnExpiration** : supprime les ressources uniquement lorsque le paramètre **retentionInterval** est arrivé à expiration. Cette propriété est actuellement désactivée.
+  - **Always** : Supprimez les ressources créées automatiquement une fois que l’exécution du script a atteint un état terminal. Si un compte de stockage existant est utilisé, le service de script supprime le partage de fichiers créé dans le compte de stockage. Étant donné que la ressource deploymentScripts peut encore être présente après le nettoyage des ressources, le script système conserve les résultats de l’exécution du script (par exemple, stdout, résultats, valeur renvoyée, etc.) avant la suppression des ressources.
+  - **OnSuccess** : Supprimez les ressources créées automatiquement uniquement lorsque l’exécution du script est réussie. Si un compte de stockage existant est utilisé, le service de script supprime le partage de fichiers uniquement en cas de réussite de l’exécution du script. Vous pouvez toujours accéder aux ressources pour rechercher les informations de débogage.
+  - **OnExpiration** : Supprimez les ressources créées automatiquement uniquement si le paramètre **retentionInterval** a expiré. Si un compte de stockage existant est utilisé, le service de script supprime le partage de fichiers, mais conserve le compte de stockage.
 
 - **retentionInterval** : spécifie l’intervalle de temps pendant lequel une ressource de script est conservée, et après lequel elle expire et est supprimée.
 
 > [!NOTE]
-> Il est déconseillé d’utiliser les ressources de script de déploiement à d’autres fins.
+> Il n’est pas recommandé d’utiliser le compte de stockage et l’instance de conteneur qui sont générés par le service de script à d’autres fins. Les deux ressources peuvent être supprimées en fonction du cycle de vie du script.
 
 ## <a name="run-script-more-than-once"></a>Exécuter le script plusieurs fois
 

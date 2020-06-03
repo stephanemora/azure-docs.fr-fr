@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment créer des coffres Recovery Se
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 6ac1c7e887f80767d6ff1819476e91cb4b06bf1b
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: f1f1a66bd6e0fbd28be59b0211a1ac17f030022e
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744940"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298616"
 ---
 # <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
@@ -90,9 +90,6 @@ Dans le cadre de ce processus, les implications tarifaires sont liées au niveau
 >- Examinez la [matrice de prise en charge](backup-support-matrix.md#cross-region-restore) pour obtenir la liste des types et des régions managés pris en charge.
 >- La fonctionnalité de restauration inter-régions (CRR) est désormais disponible en préversion dans toutes les régions publiques Azure.
 >- La CRR est une fonctionnalité d’abonnement au niveau du coffre pour tout coffre GRS (désactivé par défaut).
->- Utilisez la commande suivante afin d’intégrer votre abonnement pour cette fonctionnalité :<br>
->  `Register-AzProviderFeature -FeatureName CrossRegionRestore -ProviderNamespace Microsoft.RecoveryServices`
->- Si vous êtes intégré à cette fonctionnalité pendant la préversion publique limitée, l’e-mail d’approbation de la validation inclut les détails de la stratégie de tarification.
 >- Après l’inscription, il peut s’écouler jusqu’à 48 heures avant que les éléments de sauvegarde ne soient disponibles dans les régions secondaires.
 >- Actuellement, la CRR est prise en charge uniquement pour Type de gestion des sauvegardes : Machine virtuelle Azure ARM (les machines virtuelles Azure classiques ne sont pas prises en charge).  Lorsque d’autres types de gestion prendront en charge la CRR, ils seront **automatiquement** enregistrés.
 

@@ -1,5 +1,6 @@
 ---
-title: Référence sur les jetons d’accès à la plateforme d’identités Microsoft | Azure
+title: Jetons d’accès de la plateforme d’identité Microsoft | Azure
+titleSuffix: Microsoft identity platform
 description: En savoir plus sur les jetons d’accès émis par Azure AD 1.0 et les points de terminaison de la plateforme d’identités Microsoft (v2.0).
 services: active-directory
 author: hpsin
@@ -8,22 +9,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/27/2020
+ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ad0f82d4266c42e404200bf6c341623794a6c36e
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 3e1d000ed316a1a92e6dcdab0f9b7d577fd33d8b
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690351"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772231"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Jetons d’accès de la plateforme d’identités Microsoft
 
-Les jetons d’accès permettent aux clients d’appeler en toute sécurité des API protégées par Azure. Les jetons d’accès de la plateforme d’identités Microsoft sont de type [JWT](https://tools.ietf.org/html/rfc7519), c’est-à-dire des objets JSON en Base64 signés par Azure. Les clients doivent traiter les jetons d’accès comme des chaînes opaques, car leur contenu n’est destiné qu’à la ressource. Pour la validation et le débogage, les développeurs peuvent décoder les JWT via un site comme [jwt.ms](https://jwt.ms). Votre client peut obtenir un jeton d’accès à partir de n’importe quel point de terminaison v1.0 ou v2.0 par le biais de plusieurs protocoles.
+Les jetons d’accès permettent aux clients d’appeler en toute sécurité des API protégées. Les jetons d’accès de la plateforme d’identité Microsoft sont des [JWT](https://tools.ietf.org/html/rfc7519), c’est-à-dire des objets JSON encodés en Base64 signés par la plateforme d’identité Azure. Les clients doivent traiter les jetons d’accès comme des chaînes opaques, car leur contenu n’est destiné qu’à la ressource. Pour la validation et le débogage, les développeurs peuvent décoder les jetons web JSON (JWT, JSON Web Tokens) via un site tel que [jwt.ms](https://jwt.ms). Votre client peut obtenir un jeton d’accès à partir de n’importe quel point de terminaison v1.0 ou v2.0 par le biais de plusieurs protocoles.
 
-Quand votre client demande un jeton d’accès, Azure AD retourne également des métadonnées sur le jeton d’accès que votre application peut consommer. Ces informations incluent le délai d’expiration du jeton d’accès et les étendues dans lesquelles il est valide. Ces données permettent à votre application d’effectuer une mise en cache intelligente des jetons d’accès sans avoir à les analyser eux-mêmes.
+Quand votre client demande un jeton d’accès, la plateforme d’identité Microsoft retourne également des métadonnées sur le jeton d’accès que votre application peut utiliser. Ces informations incluent le délai d’expiration du jeton d’accès et les étendues dans lesquelles il est valide. Ces données permettent à votre application d’effectuer une mise en cache intelligente des jetons d’accès sans avoir à les analyser eux-mêmes.
 
 Si votre application est une ressource (API Web) à laquelle les clients peuvent demander l’accès, les jetons d’accès fournissent des informations utiles pour l’authentification et l’autorisation, comme l’utilisateur, le client, l’émetteur, les autorisations, etc.
 
@@ -55,7 +56,7 @@ Afficher ce jeton v2.0 dans [JWT.ms](https://jwt.ms/#access_token=eyJ0eXAiOiJKV1
 
 ## <a name="claims-in-access-tokens"></a>Revendications dans les jetons d’accès
 
-Les TJW sont divisés en trois parties :
+Les jetons JWT (jetons web JSON) comprennent trois parties :
 
 * **En-tête** : fournit des informations sur la façon de [valider le jeton](#validating-tokens), notamment des informations sur le type du jeton et la façon dont il a été signé.
 * **Charge utile** : contient toutes les données importantes concernant l’utilisateur ou l’application qui tente d’appeler votre service.
@@ -161,7 +162,7 @@ Les identités Microsoft peuvent s’authentifier de différentes manières appr
 | `otp` | Code secret à usage unique utilisant un e-mail ou un SMS. |
 | `fed` | Une assertion d’authentification fédérée (par exemple JWT ou SAML) a été utilisée. |
 | `wia` | Authentification Windows intégrée |
-| `mfa` | L’authentification multifacteur a été utilisée. Lorsqu’elle est disponible, les autres méthodes d’authentification sont également incluses. |
+| `mfa` | L’[authentification multifacteur](../authentication/concept-mfa-howitworks.md) a été utilisée. Lorsqu’elle est disponible, les autres méthodes d’authentification sont également incluses. |
 | `ngcmfa` | Équivalente à `mfa`, utilisée pour le provisionnement de certains types avancés d’informations d’identification. |
 | `wiaormfa`| L’utilisateur a utilisé Windows ou un identifiant MFA pour s’authentifier. |
 | `none` | Aucune authentification n’a été effectuée. |

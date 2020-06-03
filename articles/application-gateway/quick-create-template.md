@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/23/2020
+ms.date: 05/28/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: cce3ef20a93c6d7a24bfa312501d2f8cc8ed9273
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 986e061c03634fe33af985c9d11569848500862c
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604902"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170492"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---resource-manager-template"></a>Démarrage rapide : Diriger le trafic web avec Azure Application Gateway - Modèle Resource Manager
 
@@ -60,7 +60,9 @@ Déployez le modèle Resource Manager sur Azure :
    [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
 
 2. Sélectionnez ou créez votre groupe de ressources, puis tapez le nom d’utilisateur et le mot de passe de l’administrateur de machine virtuelle.
-3. Sélectionnez **J’accepte les conditions générales mentionnées ci-dessus**, puis **Acheter**. Le déploiement peut prendre 20 minutes ou plus.
+3. Sélectionnez **Vérifier + créer**, puis sélectionnez **Créer**.
+
+   Le déploiement peut prendre 20 minutes ou plus.
 
 ## <a name="validate-the-deployment"></a>Valider le déploiement
 

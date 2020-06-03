@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 14eda137d386146d96b6b9aa54e1ed57021db19d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7c64835ced558727718690138c3e7a7666cf0809
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427725"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167296"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Concepts de base d’Azure Key Vault
 
@@ -57,7 +57,7 @@ Utilisez le tableau suivant afin de mieux comprendre comment Key Vault peut perm
 
 | Role | Définition du problème | Résolu par Azure Key Vault |
 | --- | --- | --- |
-| Développeur d’une application Azure |« Je souhaite écrire une application pour Azure, qui utilise des clés pour la signature et le chiffrement. Mais ces clés doivent être externes à mon application, afin que la solution soit adaptée à une application répartie au niveau géographique. <br/><br/>Je souhaite protéger ces clés et secrets, sans avoir à écrire le code moi-même, et je veux qu’ils soient faciles à utiliser à partir de mes applications, tout en offrant des performances optimales. » |√ Les clés sont stockées dans un coffre et appelées par un URI, si nécessaire.<br/><br/> √ Les clés sont protégées par Azure, à l’aide d’algorithmes standard, de longueurs de clé et de modules de sécurité matériel.<br/><br/> √ Les clés sont traitées dans des modules de sécurité matériels situés dans les mêmes centres de données Azure que les applications. Cette méthode garantit une meilleure fiabilité et une latence plus faible que si les clés résidaient dans un emplacement séparé, par exemple localement. |
+| Développeur d’une application Azure |« Je souhaite écrire une application pour Azure, qui utilise des clés pour la signature et le chiffrement. Mais ces clés doivent être externes à mon application, afin que la solution soit adaptée à une application répartie au niveau géographique. <br/><br/>Je souhaite protéger ces clés et secrets, sans avoir à écrire le code moi-même, et je veux qu’ils soient faciles à utiliser pour moi à partir de mes applications, avec des performances optimales. et je veux qu’ils soient faciles à utiliser à partir de mes applications, tout en offrant des performances optimales. » |√ Les clés sont stockées dans un coffre et appelées par un URI, si nécessaire.<br/><br/> √ Les clés sont protégées par Azure, à l’aide d’algorithmes standard, de longueurs de clé et de modules de sécurité matériel.<br/><br/> √ Les clés sont traitées dans des modules de sécurité matériels situés dans les mêmes centres de données Azure que les applications. Cette méthode garantit une meilleure fiabilité et une latence plus faible que si les clés résidaient dans un emplacement séparé, par exemple localement. |
 | Développeur de logiciels SaaS (Software as a service) |« Je ne veux pas prendre la responsabilité des clés et secrets de mes clients. <br/><br/>Je veux que les clients détiennent et gèrent eux-mêmes leurs clés, afin de pouvoir me concentrer sur ce que je fais le mieux, c’est-à-dire fournir les principales fonctionnalités logicielles. » |√ Les clients peuvent importer leurs propres clés dans Azure et les gérer. Quand une application SaaS doit effectuer des opérations de chiffrement à l’aide des clés des clients, Key Vault s’en charge à sa place. L’application ne voit pas les clés des clients. |
 | Responsable de la sécurité |« Je veux être sûr que nos applications sont conformes à la norme FIPS 140-2HSM de niveau 2 pour la gestion sécurisée des clés. <br/><br/>Je souhaite m’assurer que mon organisation contrôle le cycle de vie d’une clé et peut surveiller son utilisation. <br/><br/>Et bien que nous utilisions plusieurs ressources et services Azure, je souhaite gérer les clés à partir d’un emplacement unique dans Azure. » |√ Les modules de sécurité matériels sont certifiés FIPS 140-2 de niveau 2.<br/><br/>√ Key Vault a été conçu de manière à ce que Microsoft ne puisse pas afficher ni extraire vos clés.<br/><br/>√ L’utilisation de la clé est consignée en temps quasi réel.<br/><br/>√ Le coffre fournit une interface unique, indépendamment du nombre de coffres dont vous disposez dans Azure, des régions qui sont prises en charge et des applications qui les utilisent. |
 

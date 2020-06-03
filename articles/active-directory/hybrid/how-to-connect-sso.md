@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1b7e4716e731e6b73e3ac60b64baa71043906fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 401f8239cded04b6342b706242e970e39118d73d
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77483752"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827163"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Authentification unique transparente Azure Active Directory
 
@@ -36,7 +36,7 @@ L’authentification unique transparente peut être combinée avec la [synchroni
 ![Authentification unique transparente](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->L’authentification unique transparente a besoin uniquement que l’appareil de l’utilisateur soit **joint au domaine**, mais elle n’est pas utilisée sur des appareils [joints à Azure AD](../devices/concept-azure-ad-join.md) ou [joints à Azure AD Hybride](../devices/concept-azure-ad-join-hybrid.md). L’authentification unique sur des appareils joints à Azure AD et joints à Azure AD Hybride opère en fonction du [jeton d’actualisation principal](../devices/concept-primary-refresh-token.md).
+>L’authentification unique transparente a besoin uniquement que l’appareil de l’utilisateur soit **joint au domaine**, mais elle n’est pas utilisée sur des appareils [joints à Azure AD](../devices/concept-azure-ad-join.md) ou [joints à Azure AD Hybride](../devices/concept-azure-ad-join-hybrid.md). L’authentification unique sur des appareils joints à Azure AD, joints à Azure AD Hybride et inscrits auprès d’Azure AD opère en fonction du [jeton d’actualisation principal](../devices/concept-primary-refresh-token.md).
 
 ## <a name="key-benefits"></a>Principaux avantages
 

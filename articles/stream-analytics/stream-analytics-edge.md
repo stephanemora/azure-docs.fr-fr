@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8bb1bd018866bda9270b78507f0462b6c4d4ea17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9d4df4efc6dbee88e80e620860487636cc9210dd
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475890"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837210"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics sur IoT Edge
  
@@ -226,7 +226,7 @@ La dernière mise à jour des informations de version a été effectuée le 27-0
       
       
 ## <a name="get-help"></a>Obtenir de l’aide
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Pour obtenir de l’aide supplémentaire, consultez notre [page de questions Microsoft Q&R sur Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

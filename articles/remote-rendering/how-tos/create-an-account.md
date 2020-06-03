@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: b9b72fb9e80c588eb3e6642d0228bffa50b35c6e
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 58757dba9a8956d97c19269c2ac913d801f73746
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679231"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83844503"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Créer un compte Azure Remote Rendering
 
@@ -81,9 +81,12 @@ Vous devez effectuer les étapes de ce paragraphe pour chaque compte de stockage
 
 ![Compte de stockage IAM](./media/azure-add-role-assignment.png)
 
-* Le premier rôle à attribuer est **Propriétaire** comme indiqué dans la capture d’écran ci-dessus. 
+* Le premier rôle à attribuer est **Propriétaire** comme indiqué dans la capture d’écran ci-dessus.
 * Sélectionnez **Compte Remote Rendering** dans la liste déroulante ***Attribuer l’accès à**.
 * Sélectionnez votre abonnement et votre compte Remote Rendering dans les dernières listes déroulantes.
+
+> [!WARNING]
+> Si votre Remote Rendering n’est pas répertorié, consultez cette [section pour la résolution de problèmes](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
 
 Répétez deux fois la procédure d’ajout de rôles en effectuant les sélections suivantes dans la liste déroulante **Rôle** :
 * **Contributeur de compte de stockage**

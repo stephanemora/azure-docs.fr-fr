@@ -1,6 +1,6 @@
 ---
-title: Guide de publication d’applications SaaS sur la Place de marché Microsoft Azure
-description: Guide étape par étape et listes de contrôle de publication pour la publication des applications SaaS sur la Place de marché Azure
+title: Guide de publication d’applications SaaS – Place de marché commerciale Microsoft
+description: La configuration requise et ressources pour la publication d’offres d’applications SaaS sur Microsoft AppSource et dans la Place de marché Azure.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 author: dsindona
 ms.service: marketplace
@@ -8,16 +8,16 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: dsindona
-ms.openlocfilehash: 3a3cbe26b9fa82e236acbfd0c7e8ca3e81a7aa75
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d1ee4fc0760e76af7475dd3b2dc83f306e7a7bd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117231"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657830"
 ---
-# <a name="saas-applications-offer-publishing-guide"></a>Guide de publication de l’offre des applications SaaS
+# <a name="saas-applications-offer-publishing-guide"></a>Guide de publication des offres d’applications SaaS
 
-Vous pouvez publier des applications SaaS sur la Place de marché de trois façons différentes : « Me contacter », « Essayer maintenant » et « Obtenir maintenant ». Ce guide détaille ces trois options, y compris les exigences propres à chacune. 
+Vous pouvez publier des applications SaaS sur la Place de marché commerciale avec trois appels à l’action : « Me contacter », « Essayer maintenant » et « Obtenir maintenant ». Cet article détaille ces trois options, y compris les exigences propres à chacune. 
 
 ## <a name="offer-overview"></a>Vue d’ensemble de l’offre  
 
@@ -28,8 +28,8 @@ Des applications SaaS sont disponibles dans Microsoft AppSource et sur la Place 
 
 | Offre d’applications SaaS | Exigences commerciales | Exigences techniques |  
 | --- | --- | --- |  
-| **Nous contacter** | Oui | Non  |  
-| **Power BI / Dynamics** | Oui | Oui (Intégration Azure AD) |  
+| **Nous contacter** | Oui | Non |  
+| **Power BI/Dynamics** | Oui | Oui (Intégration Azure AD) |  
 | **Applications SaaS**| Oui | Oui (Intégration Azure AD) |     
 
 ## <a name="saas-list"></a>Liste de SaaS

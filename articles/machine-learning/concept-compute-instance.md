@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 280851b2fea0b8100a7d0f8ec8105109a41c8c83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c03df8fb0cd8f5f092450ebe4c66266d2ff4293
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79237145"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816350"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Qu’est-ce qu’une instance de calcul Azure Machine Learning ?
 
@@ -51,7 +51,6 @@ Ces outils et environnements sont installés sur l’instance de calcul :
 |Bibliothèque Intel MPI||
 |Azure CLI ||
 |Exemples Azure Machine Learning ||
-|Moteur EDAT Azure Machine Learning ||
 |Docker||
 |Nginx||
 |NCCL 2.0 ||
@@ -68,9 +67,8 @@ Ces outils et environnements sont installés sur l’instance de calcul :
 |Anaconda Python||
 |Jupyter et extensions||
 |Jupyterlab et extensions||
-|Visual Studio Code ||
-[SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>de PyPI|`azureml-sdk[notebooks,contrib,automl,explain]`</br>`azureml-contrib-datadrift`</br>`azureml-telemetry`</br>`azureml-tensorboard`</br>`azureml-contrib-opendatasets`</br>`azureml-opendatasets`</br>`azureml-contrib-reinforcementlearning`</br>`azureml-mlflow`</br>`azureml-contrib-interpret` |
-|Autres packages PyPI|`jupytext`</br>`jupyterlab-git`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
+[SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>de PyPI|Comprend la plupart des packages supplémentaires azureml.  Pour afficher la liste complète, [ouvrez une fenêtre de terminal sur votre instance de calcul](how-to-run-jupyter-notebooks.md#terminal), puis exécutez <br/> `conda list -n azureml_py36 azureml*` |
+|Autres packages PyPI|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Packages Conda|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Packages Deep learning|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
 |Packages ONNX|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
@@ -116,7 +114,7 @@ Vous pouvez effectuer les actions suivantes :
 
 * Créer une instance de calcul. Spécifier le nom et le type de machine virtuelle Azure, y compris les GPU (veuillez noter que le type de machine virtuelle ne peut pas être modifié après la création), activer/désactiver l’accès SSH et configurer des paramètres du réseau virtuel en option. Vous pouvez également créer une instance directement à partir de notebooks intégrés, du Portail Azure, du modèle Resource Manager ou du Kit de développement logiciel (SDK) Azure Machine Learning. Le quota de cœurs dédiés par région qui s’applique à la création d’une instance de calcul est unifié et partagé avec le quota de clusters de calcul Azure Machine Learning.
 * Actualiser l’onglet des instances de calcul.
-* Démarrer, arrêter et redémarrer une instance de calcul
+* Démarrer, arrêter et redémarrer une instance de calcul Quand vous n’utilisez pas la machine virtuelle, arrêtez-la pour réduire les coûts. Ensuite, redémarrez-la quand vous en avez besoin.
 * Supprimer une instance de calcul
 
 Pour chaque instance de calcul dans votre espace de travail, vous pouvez :

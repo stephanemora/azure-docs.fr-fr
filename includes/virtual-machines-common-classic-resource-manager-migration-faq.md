@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: 57469bef7014010164234638f3d059ac96b125cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa97935c10b2a5df70c9babf031a889a9c1e9f34
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78384067"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837872"
 ---
 ## <a name="what-is-the-time-required-for-migration"></a>Quel est le temps nécessaire pour une migration ?
 
@@ -92,7 +92,7 @@ Nous vous recommandons d’abandonner votre migration et de créer ensuite une d
 
 ## <a name="how-do-i-report-an-issue"></a>Comment signaler un problème ? 
 
-Publiez vos problèmes et questions concernant la migration sur notre [forum consacré aux machines virtuelles](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows)en utilisant le mot clé ClassicIaaSMigration. Nous vous recommandons de poster toutes vos questions sur ce forum. Si vous disposez d’un contrat de support, vous pouvez également créer un ticket de support.
+Publiez vos problèmes et questions sur la migration dans notre [page de questions Microsoft Q&R sur les machines virtuelles](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html), avec le mot clé ClassicIaaSMigration. Nous vous recommandons de poster toutes vos questions sur ce forum. Si vous disposez d’un contrat de support, vous pouvez également créer un ticket de support.
 
 ## <a name="what-if-i-dont-like-the-names-of-the-resources-that-the-platform-chose-during-migration"></a>Comment procéder si je n’apprécie pas les noms que la plateforme a choisis pour mes ressources lors de la migration ? 
 

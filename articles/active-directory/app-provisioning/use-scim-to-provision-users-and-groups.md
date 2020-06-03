@@ -2,28 +2,23 @@
 title: Développer un point de terminaison SCIM pour le provisionnement d’utilisateurs dans des applications à partir d’Azure AD
 description: Le système SCIM (Cross-domain Identity Management) normalise le provisionnement automatique des utilisateurs. Apprenez à développer un point de terminaison SCIM, à intégrer votre API SCIM à Azure Active Directory et à automatiser le provisionnement des utilisateurs et des groupes dans vos applications cloud.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.custom: aaddev;it-pro;seohack1
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0507989ec25db595a85b89f15d8ff7d056a970f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2fbdf947eb36e1591cc9da52a85e389be63c8535
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297677"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826653"
 ---
-# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Créer un point de terminaison SCIM et configurer l'approvisionnement des utilisateurs avec Azure Active Directory (Azure AD)
+# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Créer un point de terminaison SCIM et configurer l’attribution des utilisateurs à l’aide d’Azure AD
 
 En tant que développeur d'applications, vous pouvez utiliser l'API de gestion des utilisateurs SCIM (System for Cross-Domain Identity Management) pour activer l'approvisionnement automatique des utilisateurs et des groupes entre votre application et Azure AD. Cet article explique comment créer un point de terminaison SCIM et l'intégrer au service d'approvisionnement Azure AD. La spécification SCIM fournit un schéma utilisateur commun pour l’approvisionnement. Utilisée conjointement avec des normes de fédération comme SAML ou OpenID Connect, la spécification SCIM offre aux administrateurs une solution de bout en bout basée sur des normes pour la gestion des accès.
 
@@ -810,7 +805,7 @@ Les demandes d’Azure Active Directory incluent un jeton de support OAuth 2.0.
 
 Dans le jeton, l’émetteur est identifié par une revendication iss, comme `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"`. Dans cet exemple, l’adresse de base de la valeur de revendication, `https://sts.windows.net`, identifie Azure Active Directory comme l’émetteur, tandis que le segment d’adresse relative, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_, est un identificateur unique du locataire Azure Active Directory au nom duquel le jeton a été émis.
 
-L’audience du jeton sera l’ID de modèle d’application de l’application de la galerie. Chacune des applications inscrites dans un locataire unique peut recevoir la même revendication `iss` avec les requêtes SCIM. L’ID de modèle d’application pour chaque application de la galerie varie. Veuillez contacter [ProvisioningFeedback@microsoft.com](mailto:ProvisioningFeedback@microsoft.com) pour toute question concernant l’ID de modèle d’application pour une application de la galerie. L’ID du modèle d’application pour toutes les applications personnalisées est _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_.
+L’audience du jeton sera l’ID de modèle d’application de l’application de la galerie. Chacune des applications inscrites dans un locataire unique peut recevoir la même revendication `iss` avec les requêtes SCIM. L’ID du modèle d’application pour toutes les applications personnalisées est _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_. Le jeton généré par le service de provisionnement d’Azure AD doit être utilisé uniquement pour le test. Ne l’utilisez pas dans les environnements de production.
 
 Dans l’exemple de code, les requêtes sont authentifiées à l’aide du package Microsoft.AspNetCore.Authentication.JwtBearer. Le code suivant impose que les requêtes envoyées à l’un des points de terminaison du service soient authentifiées à l’aide du jeton du porteur émis par Azure Active Directory pour un locataire spécifié :
 
@@ -1200,8 +1195,8 @@ La spécification SCIM ne définit pas de schéma spécifique à SCIM à des fin
 [!NOTE] Il est déconseillé de laisser le champ du jeton vide dans l’interface utilisateur de l’application personnalisée de configuration du provisionnement Azure AD. Le jeton généré est principalement destiné à des fins de test.
 
 **Flux d’octroi du code d’autorisation OAuth :** Le service d’approvisionnement prend en charge l'[octroi du code d’autorisation](https://tools.ietf.org/html/rfc6749#page-24). Une fois la demande de publication de votre application dans la galerie envoyée, notre équipe vous aidera à collecter les informations suivantes :
-*  URL d’autorisation : URL client pour obtenir l’autorisation du propriétaire de la ressource via la redirection de l’agent utilisateur. L’utilisateur est redirigé vers cette URL pour autoriser l’accès. 
-*  URL d’échange de jeton : URL client pour échanger un octroi d’autorisation pour un jeton d’accès, généralement avec authentification du client.
+*  URL d’autorisation : URL client pour obtenir l’autorisation du propriétaire de la ressource via la redirection de l’agent utilisateur. L’utilisateur est redirigé vers cette URL pour autoriser l’accès. Notez que cette URL n’est pas configurable actuellement par le locataire.
+*  URL d’échange de jeton : URL client pour échanger un octroi d’autorisation pour un jeton d’accès, généralement avec authentification du client. Notez que cette URL n’est pas configurable actuellement par le locataire.
 *  ID client : Le serveur d’autorisation fournit au client inscrit un identifiant client, qui est une chaîne unique représentant les informations d’inscription fournies par le client.  L’identifiant client n’est pas secret ; il est exposé au propriétaire de la ressource et **ne doit pas** être utilisé seul à des fins d'authentification du client.  
 *  Clé secrète client : La clé secrète client est une clé secrète générée par le serveur d’autorisation. Il doit s’agir d’une valeur unique exclusivement connue du serveur d’autorisation. 
 
@@ -1225,10 +1220,6 @@ Pour contribuer à la sensibilisation et à la demande de notre intégration con
 * **Documentation technique.** Créez un article du centre d’aide ou une documentation technique sur la façon dont les clients peuvent commencer. [Exemple : Envoi + Intégration de Microsoft Azure Active Directory.](https://envoy.help/en/articles/3453335-microsoft-azure-active-directory-integration/
 ) 
 * **Communication du client.** Avertissez les clients de la nouvelle intégration dans le cadre de votre communication (bulletins mensuels, campagnes par courrier électronique, notes de publication de produits). 
-
-### <a name="allow-ip-addresses-used-by-the-azure-ad-provisioning-service-to-make-scim-requests"></a>Autoriser les adresses IP utilisées par le service d’approvisionnement AD Azure à effectuer des demandes SCIM
-
-Certaines applications autorisent le trafic entrant vers leur application. Pour que le service d’approvisionnement AD Azure puisse fonctionner comme prévu, les adresses IP utilisées doivent être autorisées. Pour obtenir la liste d’adresses IP de chaque balise de service/région, consultez le fichier JSON - [Plages d’adresses IP Azure et balises de service – Cloud Public](https://www.microsoft.com/download/details.aspx?id=56519). Vous pouvez télécharger et programmez ces adresses IP dans votre pare-feu selon vos besoins. Les plages d’adresses IP réservées pour l’approvisionnement Azure AD se trouvent sous « AzureActiveDirectoryDomainServices ».
 
 ## <a name="related-articles"></a>Articles connexes
 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11f35c7615135f5aa6c63d5d05898d139df61d0d
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 1db23bb1176a41b4b9bac548b737fbd13fbe82c4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203292"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685262"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Restaurer en bloc des utilisateurs supprimés dans Azure Active Directory
 
@@ -32,17 +32,17 @@ Téléchargez et renseignez le modèle CSV pour vous aider à restaurer les util
 
 ### <a name="csv-template-structure"></a>Structure du modèle CSV
 
-Les lignes d’un modèle CSV téléchargé sont les suivantes :
+Les lignes d’un modèle CSV téléchargé sont les suivantes :
 
-- **Numéro de version** : La première ligne contenant le numéro de version doit être incluse dans le fichier CSV chargé.
-- **En-têtes de colonne** : Le format des en-têtes de colonne est &lt;*Nom d’élément*&gt; [PropertyName] &lt;*Obligatoire ou vide*&gt;. Par exemple : `Object ID [objectId] Required`. Certaines anciennes versions du modèle peuvent avoir de légères variations.
+- **Numéro de version** : La première ligne contenant le numéro de version doit être incluse dans le fichier CSV chargé.
+- **En-têtes de colonne** : Le format des en-têtes de colonne est &lt;*Nom d’élément*&gt; [PropertyName] &lt;*Obligatoire ou vide*&gt;. Par exemple : `Object ID [objectId] Required`. Certaines anciennes versions du modèle peuvent avoir de légères variations.
 - **Exemples de lignes** : Nous avons inclus dans le modèle une ligne d’exemples de valeurs acceptables pour chaque colonne. Vous devez supprimer la ligne des exemples et la remplacer par vos propres entrées.
 
 ### <a name="additional-guidance"></a>Conseils supplémentaires
 
-- Les deux premières lignes du modèle chargé ne doivent pas être supprimées ou modifiées, ou le chargement ne pourra pas être traité.
-- Les colonnes requises sont répertoriées en premier.
-- Nous vous déconseillons d’ajouter de nouvelles colonnes au modèle. Toutes les colonnes supplémentaires que vous ajoutez sont ignorées et ne sont pas traitées.
+- Les deux premières lignes du modèle chargé ne doivent pas être supprimées ni modifiées, sinon, le chargement ne pourra pas être traité.
+- Les colonnes obligatoires sont listées en premier.
+- Nous vous déconseillons d’ajouter des colonnes au modèle. Les colonnes que vous ajouterez seront ignorées et ne seront pas traitées.
 - Nous vous recommandons de télécharger la version la plus récente du modèle CSV aussi souvent que possible.
 
 ## <a name="to-bulk-restore-users"></a>Pour restaurer des utilisateurs en bloc
@@ -51,11 +51,11 @@ Les lignes d’un modèle CSV téléchargé sont les suivantes :
 1. Dans Azure AD, sélectionnez **Utilisateurs** > **Supprimés**.
 1. Dans la page **Utilisateurs supprimés**, sélectionnez **Restaurer en bloc** pour charger un fichier CSV valide de propriétés des utilisateurs à restaurer.
 
-   ![Sélectionner la commande Restaurer en bloc dans la page Utilisateurs supprimés](./media/users-bulk-restore/bulk-restore.png)
+    ![Sélectionner la commande Restaurer en bloc dans la page Utilisateurs supprimés](./media/users-bulk-restore/bulk-restore.png)
 
 1. Ouvrez le modèle CSV et ajoutez une ligne pour chaque utilisateur à restaurer. La seule valeur obligatoire est **ObjectID**. Puis enregistrez le fichier.
 
-   ![Sélectionner un fichier CSV local dans lequel vous répertoriez les utilisateurs à ajouter](./media/users-bulk-restore/upload-button.png)
+    :::image type="content" source="./media/users-bulk-restore/upload-button.png" alt-text="Sélectionner un fichier CSV local dans lequel vous répertoriez les utilisateurs à ajouter":::
 
 1. Sur la page **Restauration en bloc**, sous **Charger votre fichier csv**, accédez au fichier. Quand vous sélectionnez le fichier et cliquez sur **Envoyer**, la validation du fichier CSV démarre.
 1. Quand le contenu du fichier est validé, un message indique **Fichier chargé**. Si des erreurs sont présentes, vous devez les corriger avant de pouvoir envoyer le travail.

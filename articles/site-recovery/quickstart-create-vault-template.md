@@ -6,12 +6,12 @@ ms.custom: subject-armqs
 ms.date: 04/29/2020
 author: davidsmatlak
 ms.author: v-dasmat
-ms.openlocfilehash: 47c25ebd0fe18d470b04ccbcc85a8638c1ce0346
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: cf85939a1dbaf8d3e8a90a3acf10bda9faac83bc
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598388"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84217298"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-a-resource-manager-template"></a>Démarrage rapide : Créer un coffre Recovery Services avec un modèle Resource Manager
 
@@ -29,13 +29,13 @@ Aucun.
 
 ### <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/).
+Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/).
 
 :::code language="json" source="~/quickstart-templates/101-recovery-services-vault-create/azuredeploy.json" range="1-66" highlight="41-65":::
 
 Deux ressources Azure sont définies dans le modèle :
 
-- [Microsoft.RecoveryServices/vaults](/azure/templates/microsoft.recoveryservices/2016-06-01/vaults) : crée le coffre.
+- [Microsoft.RecoveryServices/vaults](/azure/templates/microsoft.recoveryservices/vaults) : crée le coffre.
 - [Microsoft.RecoveryServices/vaults/backupstorageconfig](/rest/api/backup/backupresourcestorageconfigs) : configure les paramètres de redondance de sauvegarde du coffre.
 
 Le modèle comprend des paramètres facultatifs pour la configuration de sauvegarde du coffre. Les paramètres de redondance de stockage sont le stockage localement redondant (LRS) ou le stockage géoredondant (GRS). Pour plus d’informations, consultez [Définir la redondance de stockage](../backup/backup-create-rs-vault.md#set-storage-redundancy).

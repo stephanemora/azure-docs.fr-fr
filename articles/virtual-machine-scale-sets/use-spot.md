@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer
-ms.openlocfilehash: 59de7a8decef807b548ff4b85f06fc1115ce110b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 756e0d62927b67d26ae75af90c64facfe9c92d31
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125041"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310561"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Machines virtuelles Azure Spot pour les groupes identiques de machines virtuelles 
 
@@ -160,7 +160,7 @@ Pour supprimer l’instance après son exclusion, remplacez le paramètre `evict
 | Paiement à l’utilisation                | Oui                               |
 | Fournisseur de services cloud (CSP) | [Contactez votre partenaire](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Avantages                     | Non disponible                     |
-| Sponsorisé                    | Non disponible                     |
+| Sponsorisé                    | Oui                               |
 | Version d’évaluation gratuite                   | Non disponible                     |
 
 

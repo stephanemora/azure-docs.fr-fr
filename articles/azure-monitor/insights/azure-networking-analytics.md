@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 1045f86db5e1a9ed1979a266937974045e401e27
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1084be9a63e023257326de824ea200dcc1be74d9
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234573"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684651"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Solutions de supervision réseau Azure dans Azure Monitor
 
@@ -150,7 +150,7 @@ Les fichiers journaux d’activité suivants sont pris en charge pour les groupe
 ### <a name="install-and-configure-the-solution"></a>Installer et configurer la solution
 Pour installer et configurer la solution d’analytique du réseau Azure, suivez les instructions suivantes :
 
-1. Activez la solution Azure Network Security Group Analytics depuis la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Azure Monitor à partir de la galerie de solutions](../../azure-monitor/insights/solutions.md).
+1. Activez la solution d’analytique Azure Network Security Group en procédant de la manière décrite dans [Ajouter des solutions Azure Monitor à partir de la Galerie Solutions](../../azure-monitor/insights/solutions.md).
 2. Activez la journalisation des diagnostics pour les ressources [Network Security Group](../../virtual-network/virtual-network-nsg-manage-log.md) que vous voulez surveiller.
 
 ### <a name="enable-azure-network-security-group-diagnostics-in-the-portal"></a>Activer les diagnostics Azure Network Security Group dans le portail

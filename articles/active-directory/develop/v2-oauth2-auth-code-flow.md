@@ -1,5 +1,6 @@
 ---
-title: Flux du code d’autorisation OAuth - Plateforme d’identités Microsoft | Azure
+title: Plateforme d’identité Microsoft et flux de code d’autorisation OAuth 2.0 | Azure
+titleSuffix: Microsoft identity platform
 description: Créez des applications web à l’aide de l’implémentation de la plateforme d’identités Microsoft du protocole d’authentification OAuth 2.0.
 services: active-directory
 author: hpsin
@@ -8,34 +9,44 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 05/19/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ed41150e8247a738d3222127243083470211f7a9
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 2bc9bb8b79ca0a6f59e6c771109cf4d102cdd78e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82689813"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682247"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plateforme d’identités Microsoft et flux de code d’autorisation OAuth
 
-L'octroi d'un code d'autorisation OAuth 2.0 peut servir dans les applications qui sont installées sur un périphérique pour accéder à des ressources protégées, comme des API Web. Avec la mise en œuvre de la plateforme d’identités Microsoft d’OAuth 2.0, vous pouvez ajouter une connexion et un accès API à vos applications mobiles et de bureau. Ce guide est indépendant de la langue. Il explique comment envoyer et recevoir des messages HTTP sans utiliser aucune des [bibliothèques d’authentification Open Source Azure](reference-v2-libraries.md).
+L'octroi d'un code d'autorisation OAuth 2.0 peut servir dans les applications qui sont installées sur un périphérique pour accéder à des ressources protégées, comme des API Web. Avec la mise en œuvre de la plateforme d’identités Microsoft d’OAuth 2.0, vous pouvez ajouter une connexion et un accès API à vos applications mobiles et de bureau.
 
-Cet article explique comment programmer directement par rapport au protocole dans votre application.  Dans la mesure du possible, nous vous recommandons d’utiliser les bibliothèques d’authentification Microsoft (MSAL) prises en charge au lieu d’[acquérir des jetons et d’appeler des API web sécurisées](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Jetez également un coup d’œil aux [exemples d’applications qui utilisent MSAL](sample-v2-code.md).
+Cet article explique comment programmer directement par rapport au protocole dans votre application en utilisant n’importe quel langage.  Dans la mesure du possible, nous vous recommandons d’utiliser les bibliothèques d’authentification Microsoft (MSAL) prises en charge au lieu d’[acquérir des jetons et d’appeler des API web sécurisées](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Jetez également un coup d’œil aux [exemples d’applications qui utilisent MSAL](sample-v2-code.md).
 
-Le flux de code d’autorisation OAuth 2.0 est décrit dans la [section 4.1 des spécifications OAuth 2.0](https://tools.ietf.org/html/rfc6749). Il est utilisé pour exécuter des activités d’authentification et d’autorisation dans la majorité des types d’applications, notamment les [applications web](v2-app-types.md#web-apps) et les [applications installées de façon native](v2-app-types.md#mobile-and-native-apps). Le flux permet aux applications d’acquérir de manière sûre les access_tokens pouvant être utilisés pour accéder aux ressources sécurisées par le point de terminaison de la plateforme d’identités Microsoft.
+Le flux de code d’autorisation OAuth 2.0 est décrit dans la [section 4.1 des spécifications OAuth 2.0](https://tools.ietf.org/html/rfc6749). Il est utilisé pour exécuter des activités d’authentification et d’autorisation dans la majorité des types d’applications, notamment les [applications monopages](v2-app-types.md#single-page-apps-javascript), les [applications web](v2-app-types.md#web-apps) et les [applications installées de façon native](v2-app-types.md#mobile-and-native-apps). Le flux permet aux applications d’acquérir en toute sécurité des jetons d’accès (access_tokens) utilisables pour accéder à des ressources sécurisées par le point de terminaison de la plateforme d’identité Microsoft, ainsi que des jetons d’actualisation pour obtenir des jetons d’accès supplémentaires, ainsi que des jetons d’identification pour l’utilisateur connecté.
 
 ## <a name="protocol-diagram"></a>Schéma de protocole
 
-À un niveau élevé, le flux d'authentification complet pour une application native/mobile est semblable à l''illustration suivante:
+À un niveau élevé, le flux d’authentification complet pour une application ressemble à ceci :
 
 ![Flux de code d’authentification OAuth](./media/v2-oauth2-auth-code-flow/convergence-scenarios-native.svg)
 
+## <a name="setup-required-for-single-page-apps"></a>Configuration requise pour des applications monopages
+
+Le flux de code d’autorisation pour des applications monopages requiert une configuration supplémentaire.  Pendant que vous [créez votre application](howto-create-service-principal-portal.md), vous devez marquer l’URI de redirection de votre application en tant qu’URI de redirection `spa`. Ainsi, le serveur de connexion active la fonctionnalité de partage des ressources cross-origin (CORS, Cross Origin Resource Sharing) pour votre application.  Cela est nécessaire pour échanger le code à l’aide de XHR.
+
+Si vous tentez d’utiliser le flux de code d’autorisation et voyez le message d’erreur suivant :
+
+`access to XMLHttpRequest at 'https://login.microsoftonline.com/common/v2.0/oauth2/token' from origin 'yourApp.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
+
+Vous devez consulter votre inscription d’application et mettre à jour l’URI de redirection de votre application pour le type `spa`.
+
 ## <a name="request-an-authorization-code"></a>Demander un code d’autorisation
 
-Le flux de code d'autorisation commence par le client dirigeant l'utilisateur vers le point de terminaison `/authorize` . Dans cette requête, le client demande les autorisations `openid`, `offline_access` et `https://graph.microsoft.com/mail.read ` à l’utilisateur.  Certaines autorisations sont limitées par l'administrateur, par exemple l'écriture de données dans le répertoire d'une organisation à l'aide de `Directory.ReadWrite.All`. Si votre application requiert l’accès à l’une de ces autorisations d’un utilisateur de l’organisation, ce dernier recevra un message d’erreur indiquant qu’il n’est pas autorisé à donner son consentement pour les permissions de votre application. Pour demander l'accès aux étendues limitées par l'administrateur, vous devez vous adresser directement à un administrateur d'entreprise.  Pour plus d'informations, consultez [Autorisations limitées par l'administrateur](v2-permissions-and-consent.md#admin-restricted-permissions).
+Le flux de code d'autorisation commence par le client dirigeant l'utilisateur vers le point de terminaison `/authorize` . Dans cette demande, le client demande les autorisations `openid`, `offline_access` et `https://graph.microsoft.com/mail.read ` de l’utilisateur.  Certaines autorisations sont limitées par l'administrateur, par exemple l'écriture de données dans le répertoire d'une organisation à l'aide de `Directory.ReadWrite.All`. Si votre application requiert l’accès à l’une de ces autorisations d’un utilisateur de l’organisation, ce dernier recevra un message d’erreur indiquant qu’il n’est pas autorisé à donner son consentement pour les permissions de votre application. Pour demander l'accès aux étendues limitées par l'administrateur, vous devez vous adresser directement à un administrateur d'entreprise.  Pour plus d'informations, consultez [Autorisations limitées par l'administrateur](v2-permissions-and-consent.md#admin-restricted-permissions).
 
 ```
 // Line breaks for legibility only
@@ -64,9 +75,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `state`                 | recommandé | Une valeur incluse dans la requête, qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. Une valeur unique générée de manière aléatoire est généralement utilisée pour [empêcher les falsifications de requête intersite](https://tools.ietf.org/html/rfc6749#section-10.12). La valeur peut également encoder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou la vue sur laquelle il était. |
 | `prompt`  | facultatif    | Indique le type d’interaction utilisateur requis. Les seules valeurs valides pour l’instant sont `login`, `none` et `consent`.<br/><br/>- `prompt=login` oblige l'utilisateur à saisir ses informations d'identification lors de cette requête, annulant de fait l'authentification unique.<br/>Avec - `prompt=none`, c’est le comportement inverse. Cette valeur vous garantit qu’aucune invite interactive d’aucune sorte n’est présentée à l’utilisateur. Si la demande ne peut pas être exécutée en mode silencieux au moyen d’une authentification unique, le point de terminaison de la plateforme d’identités Microsoft renvoie une erreur `interaction_required`.<br/>- `prompt=consent` déclenche l'affichage de la boîte de dialogue de consentement OAuth après la connexion de l'utilisateur, afin de lui demander d'octroyer des autorisations d'accès à l'application.<br/>- `prompt=select_account` interrompt l’authentification unique en fournissant une expérience de sélection de compte répertoriant tous les comptes dans la session ou tout compte mémorisé, ou une option pour choisir d’utiliser un autre compte.<br/> |
 | `login_hint`  | facultatif    | Peut être utilisé pour remplir au préalable le champ réservé au nom d’utilisateur/à l’adresse électronique de la page de connexion de l’utilisateur si vous connaissez déjà son nom d’utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, après avoir extrait le nom d’utilisateur à partir d’une connexion précédente à l’aide de la revendication `preferred_username`.   |
-| `domain_hint`  | facultatif    | Peut être `consumers` ou `organizations`.<br/><br/>S’il est inclus, ce paramètre ignore le processus de découverte par e-mail auquel l’utilisateur doit se soumettre sur la page de connexion, ce qui améliore légèrement l’expérience utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, en extrayant la revendication `tid` à partir d’une connexion précédente. Si la revendication `tid` est définie sur la valeur `9188040d-6c67-4c5b-b112-36a304b66dad`, vous devez utiliser `domain_hint=consumers`. Sinon, utilisez `domain_hint=organizations`.  |
-| `code_challenge_method` | facultatif    | La méthode utilisée pour encoder le `code_verifier` pour le paramètre `code_challenge`. Il peut s'agir de l'une des valeurs suivantes :<br/><br/>- `plain` <br/>- `S256`<br/><br/>S’il est exclu, `code_challenge` est censé être dans un texte en clair si `code_challenge` est inclus. La plateforme d’identités Microsoft prend en charge `plain` et `S256`. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). |
-| `code_challenge`  | facultatif | Utilisé pour sécuriser l’octroi du code d’autorisation via la clé de preuve pour le Code Exchange (PKCE) à partir d’un client natif. Obligatoire si `code_challenge_method` est inclus. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). |
+| `domain_hint`  | facultatif    | S’il est inclus, ce paramètre ignore le processus de découverte par e-mail auquel l’utilisateur doit se soumettre sur la page de connexion, ce qui améliore légèrement l’expérience utilisateur, par exemple, en le dirigeant vers son fournisseur d’identité fédéré. Les applications utilisent souvent ce paramètre au cours de la réauthentification, en extrayant la revendication `tid` à partir d’une connexion précédente. Si la revendication `tid` est définie sur la valeur `9188040d-6c67-4c5b-b112-36a304b66dad`, vous devez utiliser `domain_hint=consumers`. Sinon, utilisez `domain_hint=organizations`.  |
+| `code_challenge`  | recommandé/obligatoire | Utilisé pour sécuriser l’octroi du code d’autorisation par PKCE (Proof Key for Code Exchange). Obligatoire si `code_challenge_method` est inclus. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). Cette option est désormais recommandée pour tous les types d’applications (natives, monopages et confidentielles clients comme des applications web). |
+| `code_challenge_method` | recommandé/obligatoire | La méthode utilisée pour encoder le `code_verifier` pour le paramètre `code_challenge`. Il peut s'agir de l'une des valeurs suivantes :<br/><br/>- `plain` <br/>- `S256`<br/><br/>S’il est exclu, `code_challenge` est censé être dans un texte en clair si `code_challenge` est inclus. La plateforme d’identités Microsoft prend en charge `plain` et `S256`. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). Cela est obligatoire pour les [applications monopages utilisant le flux de code d’autorisation](reference-third-party-cookies-spas.md).|
+
 
 À ce stade, l’utilisateur est invité à saisir ses informations d’identification et à exécuter l’authentification. Le point de terminaison de la plateforme d’identités Microsoft s’assure également que l’utilisateur a accepté les autorisations indiquées dans le paramètre de requête `scope`. Si l’utilisateur n’a pas accepté l’une ou plusieurs de ces autorisations, le point de terminaison lui demande de corriger ce manquement. Les détails sur les [autorisations, les consentements et les applications mutualisées sont disponibles ici](v2-permissions-and-consent.md).
 
@@ -86,6 +98,8 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 |-----------|--------------|
 | `code` | Le code d’autorisation demandé par l’application. L’application peut utiliser ce code d’autorisation pour demander un jeton d’accès pour la ressource cible. Les codes d’autorisation présentent une durée de vie courte. Généralement, ils expirent au bout de 10 minutes. |
 | `state` | Si un paramètre d’état est inclus dans la demande, la même valeur doit apparaître dans la réponse. L’application doit vérifier que les valeurs d’état de la demande et de la réponse sont identiques. |
+
+Vous pouvez également recevoir un jeton d’accès et un jeton d’ID si vous en demandez un et avez activé l’octroi implicite dans votre inscription d’application.  Cette opération est parfois appelée « flux hybride » et utilisée par des infrastructures telles qu’ASP.NET.
 
 #### <a name="error-response"></a>Réponse d’erreur
 
@@ -148,8 +162,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `scope`      | Obligatoire   | Une liste d’étendues séparées par des espaces. Les étendues demandées dans ce tronçon doivent être équivalentes aux étendues demandées dans le premier tronçon, ou correspondre à un sous-ensemble de ces dernières. Les étendues doivent toutes être issues d’une seule ressource, ainsi que les étendues OIDC (`profile`, `openid`, `email`). Pour obtenir une explication plus détaillée des étendues, consultez les [autorisations, consentements et étendues](v2-permissions-and-consent.md). |
 | `code`          | Obligatoire  | Le code d’autorisation acquis dans le premier tronçon du flux. |
 | `redirect_uri`  | Obligatoire  | Valeur redirect_uri qui a déjà été utilisée pour obtenir le paramètre authorization_code. |
-| `client_secret` | requis pour les applications Web | Le secret d’application que vous avez créé dans le portail d’inscription des applications pour votre application. Il ne doit pas être utilisé dans une application native, car les clés secrètes client ne peuvent pas être stockées de manière sûre sur les appareils. Il est requis pour les applications web et les API web, qui présentent la capacité de stocker de manière sûre les clés secrètes client sur le côté serveur.  Le secret du client doit être codé en URL avant d’être envoyé. Pour plus d’informations, cliquez [ici](https://tools.ietf.org/html/rfc3986#page-12). |
-| `code_verifier` | facultatif  | Le même code_verifier utilisé pour obtenir le authorization_code. Obligatoire si PKCE est utilisé dans la requête d’octroi du code d’autorisation. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). |
+| `client_secret` | obligatoire pour les applications web confidentielles | Le secret d’application que vous avez créé dans le portail d’inscription des applications pour votre application. Vous ne devez pas l’utiliser dans une application native ou monopage, car les clés secrètes client ne peuvent pas être stockées de manière fiable sur des appareils ou des pages web. Il est requis pour les applications web et les API web, qui présentent la capacité de stocker de manière sûre les clés secrètes client sur le côté serveur.  Le secret du client doit être codé en URL avant d’être envoyé. Pour plus d’informations sur l’encodage d’URI, consultez la [spécification de syntaxe générique URI](https://tools.ietf.org/html/rfc3986#page-12). |
+| `code_verifier` | recommandé  | Le même code_verifier utilisé pour obtenir le authorization_code. Obligatoire si PKCE est utilisé dans la requête d’octroi du code d’autorisation. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). |
 
 ### <a name="successful-response"></a>Réponse correcte
 
@@ -205,7 +219,7 @@ Les réponses d’erreur se présentent comme suit :
 
 | Code d'erreur         | Description        | Action du client    |
 |--------------------|--------------------|------------------|
-| `invalid_request`  | Erreur de protocole, tel qu’un paramètre obligatoire manquant. | Corrigez l’erreur, puis envoyez à nouveau la demande.   |
+| `invalid_request`  | Erreur de protocole, tel qu’un paramètre obligatoire manquant. | Corriger la demande ou l’inscription d’application et renvoyer la demande   |
 | `invalid_grant`    | Le code d’autorisation ou le vérificateur du code PCKE n’est pas valide ou a expiré. | Essayez une nouvelle requête au point de terminaison `/authorize` et vérifiez que le paramètre code_verifier est correct.  |
 | `unauthorized_client` | Le client authentifié n’est pas autorisé à utiliser ce type d’octroi d’autorisation. | Cela se produit généralement lorsque l’application cliente n’est pas inscrite dans Azure AD ou n’est pas ajoutée au client Azure AD de l’utilisateur. L’application peut proposer à l’utilisateur des instructions pour installer l’application et l’ajouter à Azure AD. |
 | `invalid_client` | Échec d’authentification du client.  | Les informations d’identification du client ne sont pas valides. Pour résoudre le problème, l’administrateur de l’application met à jour les informations d’identification.   |
@@ -213,6 +227,9 @@ Les réponses d’erreur se présentent comme suit :
 | `invalid_resource` | La ressource cible n’est pas valide car elle n’existe pas, Azure AD ne la trouve pas ou elle n’est pas configurée correctement. | Cela indique que la ressource, si elle existe, n’a pas été configurée dans le client. L’application peut proposer à l’utilisateur des instructions pour installer l’application et l’ajouter à Azure AD.  |
 | `interaction_required` | La demande nécessite une interaction utilisateur. Par exemple, une étape d’authentification supplémentaire est nécessaire. | Relancez la demande avec la même ressource.  |
 | `temporarily_unavailable` | Le serveur est temporairement trop occupé pour traiter la demande. | Relancez la requête. L’application cliente peut expliquer à l’utilisateur que sa réponse est reportée en raison d’une condition temporaire. |
+
+> [!NOTE]
+> Les applications monopages peuvent recevoir un message d’erreur `invalid_request` indiquant qu’un échange de jetons cross-origin n’est autorisé que pour le type de client « application monopage ».  Cela indique que l’URI de redirection utilisé pour demander le jeton n’a pas été marqué comme URI de redirection de `spa`.  Pour voir comment activer ce flux, examinez les [étapes d’inscription d’application](#setup-required-for-single-page-apps).
 
 ## <a name="use-the-access-token"></a>Utiliser le jeton d’accès
 
@@ -231,11 +248,15 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 Les jetons d’accès présentent une durée de vie courte. Après leur expiration, vous devez les actualiser afin de pouvoir continuer à accéder aux ressources. Pour ce faire, envoyez une nouvelle requête `POST` au point de terminaison `/token`, en fournissant l’élément `refresh_token` au lieu de l’élément `code`.  Les jetons d’actualisation sont valides pour toutes les autorisations pour lesquelles votre client a déjà reçu un consentement. Par conséquent, un jeton d’actualisation émis pour une requête de `scope=mail.read` peut être utilisé pour demander un nouveau jeton d’accès pour `scope=api://contoso.com/api/UseResource`.
 
-Les jetons d’actualisation n’ont pas de durée de vie spécifiée. En règle générale, leur durée de vie est relativement longue. Toutefois, dans certains cas, les jetons d’actualisation expirent, sont révoqués ou ne disposent pas de privilèges suffisants pour l’action souhaitée. Votre application doit envisager et gérer correctement les [erreurs retournées par le point de terminaison d’émission de jeton](#error-codes-for-token-endpoint-errors).
+Les jetons d’actualisation pour les applications web et natives n’ont pas de durée de vie spécifiée. En règle générale, leur durée de vie est relativement longue. Toutefois, dans certains cas, les jetons d’actualisation expirent, sont révoqués ou ne disposent pas de privilèges suffisants pour l’action souhaitée. Votre application doit envisager et gérer correctement les [erreurs retournées par le point de terminaison d’émission de jeton](#error-codes-for-token-endpoint-errors). Toutefois, les applications monopages obtiennent un jeton d’une durée de vie de 24 heures, ce qui nécessite une nouvelle authentification quotidienne.  Cela peut être effectué en mode silencieux dans un iframe lorsque les cookies tiers sont activés, mais doit être fait dans un cadre de niveau supérieur (navigation en page complète ou fenêtre contextuelle) dans des navigateurs sans cookies tiers, tels que Safari.
 
 Bien que les jetons d’actualisation ne sont pas révoqués lorsqu’il est utilisé pour acquérir de nouveaux jetons d’accès, vous êtes censé ignorer l’ancien jeton d’actualisation. La [spécification OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-6) indique ce qui suit : « Le serveur d’autorisation PEUT émettre un nouveau jeton d’actualisation, auquel cas, le client DOIT ignorer l’ancien jeton d’actualisation et le remplacer par le nouveau. Le serveur d’autorisation PEUT révoquer l’ancien jeton d’actualisation après en avoir émis un nouveau pour le client. »
 
+>[!IMPORTANT]
+> Pour les jetons d’actualisation envoyés à un URI de redirection inscrit en tant que `spa`, le jeton d’actualisation expire au bout de 24 heures. Les jetons d’actualisation supplémentaires acquis à l’aide du jeton d’actualisation initial répercutant ce délai d’expiration, les applications doivent être prêtes à réexécuter le flux de code d’autorisation en utilisant une authentification interactive pour obtenir un nouveau jeton d’actualisation toutes les 24 heures. Les utilisateurs n’ont pas besoin d’entrer leurs informations d’identification et ne voient généralement même pas l’interface utilisateur, mais juste un rechargement votre application. Le navigateur doit cependant accéder à la page de connexion dans un cadre de niveau supérieur pour voir la session de connexion.  Cela est dû au [fonctionnalités de confidentialité dans les navigateurs qui bloquent les cookies tiers](reference-third-party-cookies-spas.md).
+
 ```HTTP
+
 // Line breaks for legibility only
 
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1
@@ -260,7 +281,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type`    | Obligatoire    | Doit inclure `refresh_token` pour ce tronçon du flux de code d'autorisation. |
 | `scope`         | Obligatoire    | Une liste d’étendues séparées par des espaces. Les étendues demandées dans ce tronçon doivent être équivalentes aux étendues demandées dans le tronçon de requête authorization_code d’origine, ou correspondre à un sous-ensemble de ces dernières. Si les étendues spécifiées dans cette requête couvrent plusieurs serveurs de ressources, le point de terminaison de la plateforme d’identités Microsoft renvoie alors un jeton pour la ressource spécifiée dans la première étendue. Pour obtenir une explication plus détaillée des étendues, consultez les [autorisations, consentements et étendues](v2-permissions-and-consent.md). |
 | `refresh_token` | Obligatoire    | Le jeton d’actualisation que vous avez acquis dans le second tronçon du flux. |
-| `client_secret` | requis pour les applications Web | Le secret d’application que vous avez créé dans le portail d’inscription des applications pour votre application. Il ne doit pas être utilisé dans une application native, car les clés secrètes client ne peuvent pas être stockées de manière sûre sur les appareils. Il est requis pour les applications web et les API web, qui présentent la capacité de stocker de manière sûre les clés secrètes client sur le côté serveur. Ce secret doit être encodé URL. Pour plus d’informations, cliquez sur [ici](https://tools.ietf.org/html/rfc3986#page-12). |
+| `client_secret` | requis pour les applications Web | Le secret d’application que vous avez créé dans le portail d’inscription des applications pour votre application. Il ne doit pas être utilisé dans une application native, car les clés secrètes client ne peuvent pas être stockées de manière sûre sur les appareils. Il est requis pour les applications web et les API web, qui présentent la capacité de stocker de manière sûre les clés secrètes client sur le côté serveur. Ce secret doit se présenter sous la forme d’un code URL. Pour plus d’informations, consultez la [spécification de syntaxe générique URI](https://tools.ietf.org/html/rfc3986#page-12). |
 
 #### <a name="successful-response"></a>Réponse correcte
 

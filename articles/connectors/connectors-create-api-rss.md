@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
-ms.openlocfilehash: 3f1e092c2ff325cdcbc32c617af316d6fbe6dd74
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e95b7bfce3d57dfe579a5622c3c13fac2b6af68
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74789339"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834813"
 ---
 # <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Gérer des flux RSS à l’aide d’Azure Logic Apps
 
@@ -25,7 +25,7 @@ RSS (Rich Site Summary), également appelé Really Simple Syndication, est un fo
 
 Vous pouvez utiliser un déclencheur RSS qui obtient des réponses d’un flux RSS et met la sortie à la disposition d’autres actions. Vous pouvez utiliser une action RSS dans vos applications logiques pour effectuer une tâche avec le flux RSS. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/). 
 
@@ -55,7 +55,7 @@ Pour obtenir des détails techniques sur les déclencheurs, les actions et les l
 
 ## <a name="get-support"></a>Obtenir de l’aide
 
-* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Pour toute question, consultez la [page de questions Microsoft Q&A pour Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes

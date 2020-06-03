@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 5bae53c04867233138929867c4895e7f6a2f2149
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: ead0041e26b5dff5cfd81b6fa02b7efff6e6e9d1
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838771"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831192"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Profiter de la parallélisation de requête dans Azure Stream Analytics
 Cet article explique comment tirer parti de la parallélisation dans Azure Stream Analytics. Vous découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée et en réglant la définition de requête Analytics.
@@ -30,7 +30,7 @@ Toutes les entrées Azure Stream Analytics peuvent tirer parti du partitionnemen
 -   IoT Hub (nécessité de définir la clé de partition explicitement avec le mot clé PARTITION BY si vous utilisez le niveau de compatibilité 1.1 ou un niveau inférieur)
 -   Stockage d'objets blob
 
-### <a name="outputs"></a>Outputs
+### <a name="outputs"></a>Sorties
 
 Quand vous utilisez Stream Analytics, vous pouvez tirer parti du partitionnement dans les sorties :
 -   Azure Data Lake Storage
@@ -315,7 +315,7 @@ Utilisez le volet Métriques de votre travail Azure Stream Analytics pour identi
 
 ## <a name="get-help"></a>Obtenir de l’aide
 
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
+Pour obtenir de l’aide supplémentaire, essayez notre [page de questions Microsoft Q&A pour Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)

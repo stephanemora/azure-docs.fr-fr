@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bec28b98a8d2640b5a8034569d49077ce6b4177
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 6151bbd9f056ef95c0875b83c7b6fccb732aebfe
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81450987"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870973"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planification du déploiement de la réinitialisation de mot de passe en libre-service Azure Active Directory
 
@@ -109,7 +109,7 @@ Remarque : pour les utilisateurs qui ont désactivé la [Synchronisation de hac
 
 Vous pouvez aider les utilisateurs à s'inscrire rapidement en déployant la SSPR en parallèle d'une autre application ou d'un autre service populaire de l'organisation. Cette action génère un grand nombre de connexions et booste les inscriptions.
 
-Avant de déployer la SSPR, vous pouvez déterminer le nombre et le coût moyen de chaque appel de réinitialisation de mot de passe. VOUS pouvez utiliser ces données après le déploiement afin de connaître la valeur ajoutée de la SSPR pour l'organisation.
+Avant de déployer la SSPR, vous pouvez déterminer le nombre et le coût moyen de chaque appel de réinitialisation de mot de passe. Vous pouvez utiliser ces données après le déploiement afin de connaître la valeur ajoutée de la SSPR pour l’organisation.
 
 #### <a name="enable-combined-registration-for-sspr-and-mfa"></a>Activer une inscription combinée pour SSPR et MFA
 

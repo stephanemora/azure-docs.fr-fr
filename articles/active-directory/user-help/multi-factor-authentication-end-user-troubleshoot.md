@@ -8,16 +8,16 @@ ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 04/02/2020
 ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: 3df79fb1e103ddfaafeb348641e675cd250f5858
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 8d2e34bcfd180dfeb814dace2a496f3ac593c5bf
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271690"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738606"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problèmes courants avec la vérification en deux étapes et votre compte professionnel ou scolaire
 
@@ -101,7 +101,7 @@ Les mots de passe d’application viennent remplacer les mots de passe standard 
 
 Si vous utilisez la vérification à deux facteurs avec votre compte professionnel ou scolaire (par exemple, alain@contoso.com), cela signifie très probablement que votre organisation a décidé de vous contraindre à utiliser cette fonctionnalité de sécurité supplémentaire. Comme votre organisation a décidé que cette fonctionnalité était obligatoire, vous n’avez aucun moyen de la désactiver individuellement. En revanche, si vous utilisez la vérification à deux facteurs avec un compte personnel, comme alain@outlook.com, vous avez la possibilité d’activer et de désactiver la fonctionnalité. Pour obtenir des instructions sur la façon de contrôler la vérification en deux étapes pour vos comptes personnels, consultez [Activation ou désactivation de la vérification en deux étapes de votre compte Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
-Si vous ne parvenez pas désactiver la vérification à deux facteurs, cela peut également être dû aux paramètres de sécurité par défaut qui ont été appliqués au niveau de l'organisation. Pour plus d'informations sur les paramètres de sécurité par défaut, consultez [Présentation des paramètres de sécurité par défaut](../fundamentals/concept-fundamentals-security-defaults.md).
+Si vous ne parvenez pas désactiver la vérification à deux facteurs, cela peut également être dû aux paramètres de sécurité par défaut qui ont été appliqués au niveau de l'organisation. Pour plus d’informations sur les paramètres de sécurité par défaut, consultez [Présentation des paramètres de sécurité par défaut](../fundamentals/concept-fundamentals-security-defaults.md).
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Je n’ai pas trouvé de réponse à mon problème
 

@@ -1,6 +1,6 @@
 ---
-title: Supprimer un annuaire Azure AD directory - Azure Active Directory | Microsoft Docs
-description: Cet article explique comment préparer un annuaire Azure AD pour la suppression, y compris les répertoires en libre-service
+title: Supprimer une organisation Azure AD (locataire) – Azure Active Directory | Microsoft Docs
+description: Explique comment préparer la suppression d’une organisation Azure AD (locataire), y compris une organisation en libre-service
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,50 +9,50 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 05/21/2020
 ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47a60ed44ddf057ef983f8f76f23fd784bc3efd5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e5ea42f5196b2c4ffe06c139e595dd4641752d35
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73961814"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816197"
 ---
-# <a name="delete-a-directory-in-azure-active-directory"></a>Supprimer un annuaire dans Azure Active Directory
+# <a name="delete-a-tenant-in-azure-active-directory"></a>Supprimer un locataire dans Azure Active Directory
 
-Lorsqu’un annuaire Azure AD est supprimé, toutes les ressources qui y sont contenues sont également supprimées. Vous devez préparer votre organisation en réduisant les ressources associées à un annuaire avant de le supprimer. Seul un administrateur général Azure Active Directory (Azure AD) peut supprimer un locataire Azure AD à partir du portail.
+La suppression d’une organisation Azure AD (locataire) a également pour effet de supprimer toutes les ressources qu’elle contient. Vous devez préparer votre organisation en réduisant les ressources associées à un annuaire avant de le supprimer. Seul un administrateur général Azure Active Directory (Azure AD) peut supprimer un organisation Azure AD du portail.
 
-## <a name="prepare-the-directory"></a>Préparer le répertoire
+## <a name="prepare-the-organization"></a>Préparer l’organisation
 
-Vous ne pouvez pas supprimer un annuaire dans Azure AD avant d’avoir effectué plusieurs vérifications. Ces vérifications limitent le risque d’un impact négatif de la suppression de l’annuaire Azure AD sur l’accès de l’utilisateur, par exemple, sur sa capacité à se connecter à Office 365 ou à accéder à des ressources dans Azure. En effet, si l’annuaire associé à un abonnement est supprimé involontairement, les utilisateurs ne peuvent pas accéder aux ressources Azure de cet abonnement. Les conditions à remplir sont les suivantes :
+Avant de supprimer une organisation d’Azure AD, vous devez faire quelques vérifications. Celles-ci limitent le risque d’un impact négatif de la suppression de l’organisation Azure AD sur l’accès des utilisateurs, par exemple, sur leur capacité à se connecter à Office 365 ou à accéder à des ressources dans Azure. En effet, en cas de suppression d’une organisation associée à un abonnement, les utilisateurs ne peuvent plus accéder aux ressources Azure de cet abonnement. Les conditions à remplir sont les suivantes :
 
-* L’annuaire ne doit contenir aucun utilisateur, à l’exception de l’administrateur général qui va le supprimer. Tous les autres utilisateurs doivent être supprimés avant de pouvoir supprimer le répertoire. Si les utilisateurs sont synchronisés en local, la synchronisation doit d’abord être désactivée et les utilisateurs doivent être supprimés dans l’annuaire de cloud en utilisant le portail Microsoft Azure ou des applets de commande Azure PowerShell.
-* Aucune application ne doit se trouver dans l’annuaire. Elles doivent toutes être retirées avant de pouvoir supprimer l’annuaire.
-* L’annuaire ne doit être lié à aucun fournisseur d’authentification multifacteur.
-* L’annuaire ne doit être associé à aucun abonnement Microsoft Online Services, tel que Microsoft Azure, Office 365 ou Azure AD. Par exemple, si un annuaire par défaut a été créé pour vous dans Azure, vous ne pouvez pas le supprimer si votre abonnement Azure utilise toujours cet annuaire à des fins d’authentification. De même, vous ne pouvez pas supprimer un répertoire auquel un autre utilisateur a associé un abonnement.
+* L’organisation Azure AD (locataire) ne peut contenir aucun utilisateur, à l’exception de l’administrateur général qui doit la supprimer. Tous les autres utilisateurs doivent être supprimés au préalable. Si des utilisateurs se synchronisent à partir d’un emplacement local, la synchronisation doit être désactivée, et les utilisateurs supprimés de l’organisation cloud via le portail Azure ou à l’aide de cmdlets Azure PowerShell.
+* L’organisation ne doit contenir aucune application. Toute application doit être supprimée de l’organisation avant la suppression de celle-ci.
+* Aucun fournisseur d’authentification multifacteur ne peut être lié à l’organisation.
+* Aucun abonnement à des Microsoft Online Services tels que Microsoft Azure, Office 365 ou Azure AD Premium ne peut être associé à l’organisation. Par exemple, si une organisation Azure AD par défaut a été créée pour vous dans Azure, vous ne pouvez pas supprimer celle-ci si votre abonnement Azure en dépend toujours pour l’authentification. De même, vous ne pouvez pas supprimer une organisation à laquelle un autre utilisateur a associé un abonnement.
 
-## <a name="delete-the-directory"></a>Supprimer l’annuaire
+## <a name="delete-the-organization"></a>Supprimer l’organisation
 
 1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte d’administrateur général pour votre organisation.
 
 2. Sélectionnez **Azure Active Directory**.
 
-3. Basculez vers l’annuaire que vous voulez supprimer.
+3. Basculez vers l’organisation à supprimer.
   
    ![Confirmez l’organisation avant de lancer la suppression](./media/directory-delete-howto/delete-directory-command.png)
 
-4. Sélectionnez **Supprimer l’annuaire**.
+4. Sélectionnez **Supprimer le locataire**.
   
    ![Sélectionnez la commande pour supprimer l’organisation](./media/directory-delete-howto/delete-directory-list.png)
 
-5. Si votre annuaire échoue à une ou plusieurs vérifications, vous obtenez un lien vers plus d’informations sur la façon d’y remédier. Une fois toutes les vérifications effectuées, sélectionnez **Supprimer** pour terminer le processus.
+5. Si votre organisation échoue à une ou plusieurs vérifications, vous recevez un lien vers des informations supplémentaires sur la façon d’y remédier. Une fois toutes les vérifications effectuées, sélectionnez **Supprimer** pour terminer le processus.
 
-## <a name="if-you-cant-delete-the-directory"></a>Si vous ne pouvez pas supprimer l’annuaire
+## <a name="if-you-cant-delete-the-organization"></a>Si vous ne pouvez pas supprimer l’organisation
 
-Quand vous avez configuré votre annuaire Azure AD, vous avez peut-être aussi activé des abonnements avec licence pour votre organisation, comme Azure AD Premium P2, Office 365 Business Premium ou Enterprise Mobility + Security E5. Pour éviter la perte accidentelle de données, vous ne pouvez pas supprimer un annuaire tant que les abonnements qui lui sont associés ne sont complètement supprimés. Les abonnements doivent être dans un état **Approvisionnement annulé** pour autoriser la suppression de l’annuaire. Un abonnement **Expiré** ou **Annulé** passe à l’état **Désactivé**, et l’étape finale est l’état **Approvisionnement annulé**.
+Quand vous avez configuré votre organisation Azure AD, vous avez peut-être aussi activé pour celle-ci des abonnements assortis d’une licence, tels qu’Azure AD Premium P2, Office 365 Business Premium ou Enterprise Mobility + Security E5. Pour éviter toute perte accidentelle de données, vous ne pouvez pas supprimer une organisation tant que tous les abonnements associés à celle-ci n’ont pas été complètement supprimés. Pour que la suppression de l’organisation soit autorisée, les abonnements doivent être dans un état **Annulé**. Un abonnement **Expiré** ou **Annulé** passe à l’état **Désactivé**, et l’étape finale est l’état **Approvisionnement annulé**.
 
 S’il s’agit de l’expiration d’un abonnement d’essai à Office 365 (à l’exception des programmes payants Partenaire/CSP, Accord Entreprise ou Licence en volume), consultez le tableau suivant. Pour plus d’informations sur la conservation des données et le cycle de vie des abonnements Office 365, consultez [Qu’arrive-t-il à mes données et à mon accès à la fin de mon abonnement Office 365 pour les entreprises ?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
@@ -67,7 +67,7 @@ Déprovisionné (30 jours après l’état Désactivé) | Données supprimées (
 
 Vous pouvez placer un abonnement dans un état **Approvisionnement annulé** à supprimer trois jours après à l’aide du centre d’administration Microsoft 365.
 
-1. Connectez-vous au [Centre d’administration Microsoft 365](https://admin.microsoft.com) avec un compte d’administrateur général pour votre organisation. Si vous essayez de supprimer l’annuaire « Contoso » qui a le domaine initial par défaut contoso.onmicrosoft.com, connectez-vous avec un UPN de type admin@contoso.onmicrosoft.com.
+1. Connectez-vous au [Centre d’administration Microsoft 365](https://admin.microsoft.com) avec un compte d’administrateur général pour votre organisation. Si vous essayez de supprimer l’organisation « Contoso » qui a le domaine initial par défaut contoso.onmicrosoft.com, connectez-vous avec un UPN tel que admin@contoso.onmicrosoft.com.
 
 2. Affichez un aperçu du nouveau Centre d’administration Microsoft 365 en vous assurant que la bascule **Découvrez le nouveau centre d’administration** est activée.
 
@@ -91,18 +91,18 @@ Vous pouvez placer un abonnement dans un état **Approvisionnement annulé** à 
 
 7. À présent, l’état de l’abonnement a changé et il est marqué pour suppression. L’abonnement passe à l’état **Déprovisionné** 72 heures plus tard.
 
-8. Une fois que vous avez supprimé un abonnement dans votre annuaire et que le délai de 72 heures s’est écoulé, vous pouvez vous reconnecter au centre d’administration Azure AD pour vérifier qu’aucune action n’est nécessaire et qu’aucun abonnement ne bloque la suppression de votre annuaire. Vous pouvez alors supprimer votre annuaire Azure AD.
+8. Une fois que vous avez supprimé un abonnement dans votre organisation et que le délai de 72 heures s’est écoulé, vous pouvez vous reconnecter au centre d’administration Azure AD pour vérifier qu’aucune action n’est nécessaire et qu’aucun abonnement ne bloque plus la suppression de votre organisation. Vous devriez alors pouvoir supprimer votre organisation Azure AD.
   
    ![écran de vérification d’abonnement pour la suppression](./media/directory-delete-howto/delete-checks-passed.png)
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>J’ai un abonnement d’évaluation qui bloque la suppression
 
-L’inscription à certains de nos produits [est en libre-service](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide). C’est le cas pour Microsoft Power BI, Rights Management Services, Microsoft Power Apps ou Dynamics 365. Des utilisateurs individuels peuvent s’inscrire via Office 365, ce qui crée également un utilisateur invité pour l’authentification dans votre annuaire Azure AD. Ces produits en libre-service bloquent les suppressions d’annuaire tant qu’ils ne sont pas complètement supprimés de l’annuaire, afin d’éviter toute perte de données. Peu importe que l’utilisateur se soit inscrit de lui-même, ou qu’on lui ait attribué le produit : seul l’administrateur Azure AD pourra supprimer un tel abonnement.
+L’inscription à certains produits tels que Microsoft Power BI, Rights Management Services, Microsoft Power Apps ou Dynamics 365, est en [libre-service](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide). Des utilisateurs individuels peuvent s’inscrire via Office 365, qui crée également un utilisateur invité pour l’authentification dans votre organisation Azure AD. Afin d’éviter toute perte de données, ces produits en libre-service bloquent la suppression de l’organisation tant qu’ils ne sont pas complètement supprimés de celle-ci. Peu importe que l’utilisateur se soit inscrit de lui-même, ou qu’on lui ait attribué le produit : seul l’administrateur Azure AD pourra supprimer un tel abonnement.
 
 Il existe deux types de produits disponibles à l’inscription en libre service, selon la façon dont ils sont attribués : 
 
 * Attribution au niveau de l’organisation : Un administrateur Azure AD attribue le produit à toute l’organisation et un utilisateur peut utiliser le service grâce à cette attribution, même s’il ne possède pas la licence de ce produit.
-* Attribution de niveau de l’utilisateur : Un utilisateur effectue une inscription en libre-service et s’attribue le produit, sans l’assistance d’un administrateur. Lorsque l’organisation est gérée par un administrateur (pour en savoir plus, veuillez consulter [Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory](domains-admin-takeover.md)), cet administrateur peut attribuer directement le produit à des utilisateurs, sans inscription en libre-service.  
+* Attribution de niveau de l’utilisateur : Un utilisateur effectue une inscription en libre-service et s’attribue le produit, sans l’assistance d’un administrateur. Quand l’organisation est gérée par un administrateur (voir [Prendre le contrôle d’une organisation non gérée en tant qu’administrateur](domains-admin-takeover.md)), celui-ci peut attribuer directement le produit à des utilisateurs, sans inscription en libre-service.  
 
 Lorsque vous déclenchez la suppression d’un produit attribué à des utilisateurs par une inscription en libre-service, cette action supprime définitivement les données et tous les accès utilisateur du service. Tous les utilisateurs a qui ce produit a été attribué, que ce soit individuellement ou au niveau de l’organisation, ne peuvent plus s’y connecter, ni accéder à leurs données liées à ce produit. Si vous souhaitez éviter toute perte de données liées à un produit attribué par une inscription en libre-service, comme [des tableaux de bord Microsoft Power BI](https://docs.microsoft.com/power-bi/service-export-to-pbix) ou [une configuration de stratégie Rights Management Services](https://docs.microsoft.com/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), avant de déclencher la suppression, vérifiez que les données sont sauvegardées et enregistrées ailleurs.
 
@@ -119,7 +119,7 @@ Deleted | Données supprimées | Les utilisateurs ne peuvent pas s’inscrire en
 
 Vous pouvez définir un produit accessible via une inscription en libre-service, comme Microsoft Power BI ou Azure Rights Management Services, dans un état **Supprimer**. Il sera alors immédiatement supprimé du portail Microsoft Azure AD.
 
-1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) avec un compte d’administrateur général de votre organisation. Si vous essayez de supprimer l’annuaire « Contoso » qui a le domaine initial par défaut contoso.onmicrosoft.com, connectez-vous avec un UPN de type admin@contoso.onmicrosoft.com.
+1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) avec un compte d’administrateur général de votre organisation. Si vous essayez de supprimer l’organisation « Contoso » qui a le domaine initial par défaut contoso.onmicrosoft.com, connectez-vous avec un UPN tel que admin@contoso.onmicrosoft.com.
 
 2. Sélectionnez **Licences**, puis **Produits à l’inscription en libre-service**. Vous pouvez afficher tous les produits disponibles à l’inscription en libre-service séparément des abonnements par postes. Choisissez le produit que vous souhaitez supprimer définitivement. Voici un exemple dans Microsoft Power BI :
 
@@ -137,7 +137,7 @@ Vous pouvez définir un produit accessible via une inscription en libre-service,
 
     ![le nom d’utilisateur est mal orthographié ou introuvable](./media/directory-delete-howto/product-deleted.png)
 
-6. Une fois que vous avez supprimé tous les produits, vous pouvez vous reconnecter au centre d’administration Azure AD pour vérifier qu’aucune action n’est nécessaire et qu’aucun produit ne bloque la suppression de votre annuaire. Vous pouvez alors supprimer votre annuaire Azure AD.
+6. Une fois que vous avez supprimé tous les produits, vous pouvez vous reconnecter au Centre d’administration Azure AD pour vérifier qu’aucune action n’est requise et qu’aucun produit ne bloque la suppression de votre organisation. Vous devriez alors pouvoir supprimer votre organisation Azure AD.
 
     ![le nom d’utilisateur est mal orthographié ou introuvable](./media/directory-delete-howto/delete-organization.png)
 

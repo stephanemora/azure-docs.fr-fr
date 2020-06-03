@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.openlocfilehash: 020c25dfb17f733359e596100cfd24cfa3f68036
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a7dfc58258c8c7c6e8bbf7567d743abf90d3a7e5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648565"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194896"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Héberger un site web statique dans Stockage Azure
 
@@ -48,7 +48,7 @@ L’hébergement de site web statique est une fonctionnalité que vous devez act
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-<a id="cli" />
+<a id="cli"></a>
 
 Vous pouvez activer l’hébergement de site web statique à l’aide de l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) (Azure CLI).
 
@@ -76,7 +76,7 @@ Vous pouvez activer l’hébergement de site web statique à l’aide de l’[in
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-<a id="powershell" />
+<a id="powershell"></a>
 
 Vous pouvez activer l’hébergement de site web statique à l’aide du module Azure PowerShell.
 
@@ -195,7 +195,7 @@ set-AzStorageblobcontent -File "<path-to-file>" `
 
 ---
 
-<a id="portal-find-url" />
+<a id="portal-find-url"></a>
 
 ## <a name="find-the-website-url"></a>Trouver l’URL du site web
 
@@ -234,7 +234,7 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
 ---
 
-<a id="metrics" />
+<a id="metrics"></a>
 
 ## <a name="enable-metrics-on-static-website-pages"></a>Activer les métriques sur des pages de site web statiques
 

@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentation sur la reconnaissance vocale
-summary: La reconnaissance vocale du service Speech permet la transcription en temps réel et la transcription par lot des flux audio en texte.
+summary: La reconnaissance vocale du service Speech permet la transcription en temps réel et la transcription par lot des flux audio en texte. Avec une entrée de texte de référence supplémentaire, elle permet également l’évaluation de la prononciation en temps réel et donne aux orateurs un retour d’expérience concertant l’exactitude et la fluidité de leur façon de parler.
 metadata:
   title: Documentation sur la conversion de parole en texte - Tutoriels, informations de référence sur l’API - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/19/2020
   ms.author: trbye
-  ms.openlocfilehash: 717c4e0322b48eca0acfacd20ed527a629bd1ff0
-  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+  ms.openlocfilehash: c1f4b6b43f661251f764e65e5d5378952ab99d10
+  ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/29/2020
-  ms.locfileid: "81401401"
+  ms.lasthandoff: 05/22/2020
+  ms.locfileid: "83800860"
 landingContent:
 - title: À propos de la reconnaissance vocale
   linkLists:
@@ -28,6 +28,8 @@ landingContent:
       url: batch-transcription.md
     - text: Bases de la reconnaissance vocale
       url: speech-to-text-basics.md
+    - text: Utiliser l’interface de commande Speech pour la reconnaissance vocale de texte sans code
+      url: spx-overview.md
   - linkListType: quickstart
     links:
     - text: Reconnaître la voix avec entrée au microphone
@@ -36,6 +38,8 @@ landingContent:
       url: quickstarts/speech-to-text-from-file.md
     - text: Reconnaître la voix stockée dans Stockage Blob
       url: quickstarts/from-blob.md
+    - text: Évaluation de la prononciation avec une entrée de référence
+      url: rest-speech-to-text.md#pronunciation-assessment-parameters
 - title: Développer avec la reconnaissance vocale
   linkLists:
   - linkListType: how-to-guide

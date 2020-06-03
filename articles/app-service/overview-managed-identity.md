@@ -6,24 +6,21 @@ ms.topic: article
 ms.date: 04/14/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 875d2bbebdfa95c6d180979399d876eb2afc01b4
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 0bb17ab98dc17bbe7623467451acc65a126bcaf1
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392519"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779963"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Guide pratique pour utiliser des identités managées pour App Service et Azure Functions
 
+Cette rubrique vous montre comment créer une identité managée pour les applications App Service et Azure Functions et comment l’utiliser pour accéder à d’autres ressources. 
+
 > [!Important] 
-> Si vous migrez votre application entre différents abonnements/locataires, les identités managées pour App Service et Azure Functions présentent un comportement anormal. L’application devra obtenir une nouvelle identité, ce qui peut être effectué par la désactivation et la réactivation de la fonctionnalité. Consultez [Suppression d’une identité](#remove) ci-dessous. Les ressources en aval devront également disposer de stratégies d’accès mises à jour pour utiliser la nouvelle identité.
+> Si vous migrez votre application entre différents abonnements/locataires, les identités managées pour App Service et Azure Functions présentent un comportement anormal. L’application doit obtenir une nouvelle identité, ce qu’elle fait en désactivant, puis réactivant la fonctionnalité. Consultez [Suppression d’une identité](#remove) ci-dessous. Les ressources en aval doivent également disposer de stratégies d’accès mises à jour pour utiliser la nouvelle identité.
 
-Cette rubrique vous montre comment créer une identité managée pour les applications App Service et Azure Functions et comment l’utiliser pour accéder à d’autres ressources. Une identité managée provenant d’Azure Active Directory (Azure AD) permet à votre application d’accéder facilement à d’autres ressources protégées par Azure AD, comme Azure Key Vault. Managée par la plateforme Azure, l’identité ne nécessite pas que vous approvisionniez ou permutiez de secrets. Pour plus d’informations sur les identités managées dans Azure AD, consultez [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).
-
-Deux types d’identité peuvent être accordés à votre application :
-
-- Une **identité attribuée par le système** est liée à votre application et est supprimée si votre application est supprimée. Une application ne peut avoir qu’une seule identité attribuée par le système.
-- Une **identité attribuée par l’utilisateur** est une ressource Azure autonome qui peut être assignée à votre application. Une application peut avoir plusieurs identités attribuées par l’utilisateur.
+[!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 
 ## <a name="add-a-system-assigned-identity"></a>Ajouter une identité affectée par le système
 
@@ -42,6 +39,11 @@ Pour configurer une identité managée dans le portail, vous créez une applicat
 4. Dans l’onglet **Attribuée par le système**, définissez **État** sur **Activé**. Cliquez sur **Enregistrer**.
 
     ![Identité managée dans App Service](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
+
+
+> [!NOTE] 
+> Pour trouver l’identité managée pour votre application web ou d’emplacement dans le portail Azure, accédez à la section Paramètres utilisateur sous Applications d’entreprise.
+
 
 ### <a name="using-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure (CLI)
 

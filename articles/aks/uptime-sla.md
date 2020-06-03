@@ -4,12 +4,13 @@ description: Découvrez l’offre de Contrat SLA de durée de fonctionnement fac
 services: container-service
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: e0e1399f69640dddfd618ac99637023390f28a92
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.custom: references_regions
+ms.openlocfilehash: 2df0ad675f03b25363ab0f5b13dceb762a657ed7
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683207"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299551"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Contrat SLA de durée de fonctionnement Azure Kubernetes Service (AKS)
 
@@ -25,18 +26,6 @@ Les clients peuvent toujours créer un nombre illimité de clusters gratuits ave
 ## <a name="sla-terms-and-conditions"></a>Conditions générales des contrats SLA
 
 Le contrat SLA de durée de fonctionnement est une fonctionnalité payante et activée par cluster. Le tarif du contrat SLA de durée de fonctionnement est déterminé par le nombre de clusters discrets, et non par la taille des clusters individuels. Consultez [Détails de la tarification du contrat SLA de durée de fonctionnement](https://azure.microsoft.com/pricing/details/kubernetes-service/) pour en savoir plus.
-
-## <a name="region-availability"></a>Disponibilité dans les régions
-
-Le contrat SLA de durée de fonctionnement est disponible dans les régions suivantes :
-
-* Australie Est
-* Centre du Canada
-* USA Est
-* USA Est 2
-* États-Unis - partie centrale méridionale
-* Asie Sud-Est
-* USA Ouest 2
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

@@ -1,33 +1,33 @@
 ---
-description: Découvrez plus d’informations sur l’historique de l’extension Configuration d’état souhaité (DSC, Desired State Configuration) dans Azure.
+title: Utiliser l’historique des versions de l’extension Azure Desired State Configuration
+description: Cet article explique comment utiliser l’historique des versions de l’extension Desired State Configuration (DSC) dans Azure.
 ms.date: 06/21/2018
 keywords: dsc, powershell, azure, extension
-title: Historique des versions de l’extension Azure DSC
 author: mgoedtel
 ms.author: magoedte
 services: automation
 ms.service: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.openlocfilehash: 207b8f7467753a8693bbabe6dd3f7a890307cf21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b55280dd8ed5ea82cf861e300306db5a787c31e8
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82120588"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836921"
 ---
-# <a name="azure-desired-state-configuration-extension-version-history"></a>Historique des versions de l’extension Configuration d’état souhaité Azure
+# <a name="work-with-azure-desired-state-configuration-extension-version-history"></a>Utiliser l’historique des versions de l’extension Azure Desired State Configuration
 
 L’extension de machine virtuelle Configuration d’état souhaité Azure est mise à jour en fonction des besoins pour prendre en charge les améliorations et les nouvelles fonctionnalités fournies par Azure, par Windows Server et par Windows Management Framework qui inclut Windows PowerShell.
 
-Cet article fournit des informations sur chaque version de l’extension de machine virtuelle Configuration d’état souhaité Azure et sur les environnements qu’elle prend en charge ; il contient aussi des commentaires et des remarques sur les nouvelles fonctionnalités ou sur les changements.
+Cet article fournit des informations sur chaque version de l’extension de machine virtuelle Configuration d’état souhaité Azure et sur les environnements qu’elle prend en charge. Il contient aussi des commentaires et des remarques sur les nouvelles fonctionnalités ou sur les changements.
 
 ## <a name="latest-version"></a>Version la plus récente
 
 ### <a name="version-276"></a>Version 2.76
 
 - **Date de publication :**
-  - 9 mai 2018 (Azure) | 21 juin 2018 (Azure Chine, Azure Government)
+  - 9 mai 2018 (Azure) | 21 juin 2018 (Azure Chine Vianet 21, Azure Government)
 - **Prise en charge du système d’exploitation :**
   - Windows Server 2016
   - Windows Server 2012 R2
@@ -42,7 +42,7 @@ Cet article fournit des informations sur chaque version de l’extension de mach
   - WMF 4.0
 - **Environment :**
   - Azure
-  - Azure Chine
+  - Azure Chine Vianet 21
   - Azure Government
 - **Remarques :** Cette version utilise DSC telle qu’elle est incluse dans Windows Server 2016. Pour les autres systèmes d’exploitation Windows, elle installe [Windows Management Framework 5.1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (l’installation de WMF nécessite un redémarrage). Pour Nano Server, le rôle DSC est installé sur la machine virtuelle.
 - **Nouvelles fonctionnalités :**
@@ -181,10 +181,10 @@ Cet article fournit des informations sur chaque version de l’extension de mach
 - **Date de publication :** 3 juin 2016
 - **Prise en charge du système d’exploitation :** Windows Server 2016 Technical Preview, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1
 - **Prise en charge de WMF :** WMF 5.0 RTM, WMF 4.0 Update, WMF 4.0
-- **Environment :** Azure, Azure Chine, Azure Government
+- **Environment :** Azure, Azure Chine Vianet 21, Azure Government
 - **Remarques :** Cette version utilise DSC telle qu’elle est incluse dans Windows Server 2016 Technical Preview. Pour les autres systèmes d’exploitation Windows, elle installe [Windows Management Framework 5.0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (l’installation de WMF nécessite un redémarrage).
 - **Nouvelles fonctionnalités :**
-  - L’extension DSC est désormais intégrée à Azure Chine. Cette version contient principalement des correctifs pour l’exécution de l’extension sur Azure Chine.
+  - L’extension DSC est désormais intégrée à Azure Chine Vianet 21. Cette version contient principalement des correctifs pour l’exécution de l’extension sur Azure Chine Vianet 21.
 
 ### <a name="version-218"></a>Version 2.18
 
@@ -249,7 +249,7 @@ Cet article fournit des informations sur chaque version de l’extension de mach
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus informations sur DSC PowerShell, reportez-vous au [centre de documentation PowerShell](/powershell/scripting/dsc/overview/overview).
+- Pour plus informations sur DSC PowerShell, consultez le [Centre de documentation PowerShell](/powershell/scripting/dsc/overview/overview).
 - Examinez le [modèle Resource Manager pour l’extension DSC](/azure/virtual-machines/extensions/dsc-template).
-- Pour obtenir plus de fonctionnalités gérables avec DSC PowerShell ainsi que plus de ressources DSC, parcourez la [galerie PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
+- Pour plus de fonctionnalités et de ressources que vous pouvez gérer avec DSC PowerShell, parcourez le référentiel [PowerShell Gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
 - Pour plus d’informations sur le passage de paramètres sensibles dans des configurations, consultez [Gérer les informations d’identification de façon sécurisée avec le gestionnaire d’extensions DSC](/azure/virtual-machines/extensions/dsc-credentials).

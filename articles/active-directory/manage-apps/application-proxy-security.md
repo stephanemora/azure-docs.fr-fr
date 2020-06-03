@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fd6794bafc3c209032f32626e8c46b51769d05e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74e0faf8ac776c043f2407e509c936d21f227664
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481226"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739966"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considérations de sécurité pour l’accès aux applications à distance avec le proxy d’application Azure AD
 
@@ -47,7 +47,7 @@ Si vous choisissez Passthrough comme méthode de préauthentification, vous ne b
 
 Appliquez des contrôles de stratégie plus riches avant que les connexions à votre réseau soient établies.
 
-Avec [l’accès conditionnel](../conditional-access/overview.md), vous pouvez définir les restrictions sur le trafic qui est autorisé à accéder à vos applications principales. Vous pouvez créer des stratégies qui limitent les connexions en fonction de l’emplacement, de la force de l’authentification et du profil de risque de l’utilisateur.
+Avec l’[accès conditionnel](../conditional-access/concept-conditional-access-cloud-apps.md), vous pouvez définir des restrictions quant à la façon dont les utilisateurs sont autorisés à accéder à vos applications. Vous pouvez créer des stratégies qui limitent les connexions en fonction de l’emplacement, de la force de l’authentification et du profil de risque de l’utilisateur.
 
 Vous pouvez également utiliser l’accès conditionnel pour configurer des stratégies Multi-Factor Authentication, qui ajoutent une couche de sécurité supplémentaire aux authentifications des utilisateurs. De plus, vos applications peuvent également être acheminées vers Microsoft Cloud App Security via l’accès conditionnel Azure AD pour assurer un contrôle et une surveillance en temps réel par le biais de stratégies [d’accès](https://docs.microsoft.com/cloud-app-security/access-policy-aad) et de [session](https://docs.microsoft.com/cloud-app-security/session-policy-aad)
 

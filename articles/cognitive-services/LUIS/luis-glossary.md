@@ -1,16 +1,16 @@
 ---
 title: Glossaire - LUIS
-description: Ce glossaire décrit les termes que vous pourriez rencontrer en utilisant LUIS.
+description: Le glossaire explique les termes que vous pourriez rencontrer en utilisant le service API LUIS.
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: eb823e65acc55dd9d739b31e506ad27f6af9095a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1513099decc21a7d219bfcb84563619640028550
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589667"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681620"
 ---
-# <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossaire des termes et concepts utilisés par LUIS (Language Understanding Intelligent Service)
+# <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossaire Language Understanding des termes et concepts courants
 Ce glossaire décrit les termes que vous pourriez rencontrer lors de l’utilisation de LUIS (Language Understanding Intelligent Service).
 
 ## <a name="active-version"></a>Version active
@@ -38,7 +38,7 @@ La création correspond à la possibilité de créer, de gérer et de déployer 
 
 ### <a name="authoring-key"></a>Clé de création
 
-La [clé de création](luis-concept-keys.md) est utilisée pour créer l’application. Elle n’est pas utilisée pour les requêtes du point de terminaison au niveau de la production. Pour plus d'informations, voir [Limites des clés](luis-limits.md#key-limits).
+La [clé de création](luis-concept-keys.md) est utilisée pour créer l’application. et non pour les requêtes du point de terminaison au niveau de la production. Pour plus d'informations, voir [Limites des clés](luis-limits.md#key-limits).
 
 ### <a name="authoring-resource"></a>Ressource de création
 
@@ -67,7 +67,7 @@ Dans les tests par lots, les points de données représentent les énoncés dans
 
 Dans les tests par lots, les points de données représentent les énoncés dans lesquels votre application a mal prédit l’existence de l’intention/entité cible.
 
-### <a name="precision"></a>Précision
+### <a name="precision"></a>Precision
 Dans les tests par lots, la précision (également appelée coefficient de prévision d'un test positif) est la part d’énoncés pertinents parmi les énoncés récupérés.
 
 Si l’on prend un exemple dans le domaine de l’élevage, un test par lots correspond au nombre de moutons prédits divisé par le nombre total d’animaux (moutons et non-mouton).
@@ -139,9 +139,9 @@ Le schéma d’entité est la structure que vous définissez pour les entités i
 
 ### <a name="entitys-subentity"></a>Sous-entité d’entité
 
-Une sous-entité est une entité enfant d’une entité issue du Machine Learning.
+Une sous-entité est une entité enfant d’une entité de machine-learning.
 
-### <a name="non-machine-learned-entity"></a>Entité non issue du Machine Learning
+### <a name="non-machine-learning-entity"></a>Entité non-machine-learning
 
 Entité qui utilise la correspondance de texte pour extraire les données :
 * Entité de liste
@@ -160,11 +160,11 @@ Une [entité d’expression régulière](reference-entity-regular-expression.md)
 
 Consultez l’entrée Modèle prédéfini pour [entité prédéfinie](#prebuilt-entity)
 
-## <a name="features"></a>Caractéristiques
+## <a name="features"></a>Fonctionnalités
 
 Dans le Machine Learning, une caractéristique est un trait typique qui aide le modèle à reconnaître un concept particulier. Il s’agit d’une indication que LUIS peut utiliser, mais ce n’est pas une règle absolue.
 
-Ce terme est également appelé **[caractéristique issue du Machine Learning](luis-concept-feature.md)** .
+On parle également de **[fonctionnalité de machine learning](luis-concept-feature.md)** .
 
 Ces indicateurs sont utilisés conjointement avec les étiquettes pour apprendre à prédire de nouvelles données. LUIS prend en charge les listes d’expressions et l’utilisation d’autres modèles en tant que caractéristiques.
 
@@ -174,7 +174,7 @@ Une caractéristique requise est un moyen de contraindre la sortie d’un modèl
 
 Prenons un exemple dans lequel vous disposez d’une caractéristique prédéfinie que vous avez marquée comme étant requise sur l’entité « quantité » pour un bot de commande de menu. Lorsque votre bot voit `I want a bajillion large pizzas?`, « bajillion » n’est pas prédit comme une quantité, quel que soit le contexte dans lequel il apparaît. « Bajillion » n’est pas un nombre valide et ne sera pas prédit par l’entité de nombre prédéfinie.
 
-## <a name="intent"></a>Intention
+## <a name="intent"></a>Intentionnel
 
 Une [intention](luis-concept-intent.md) représente une tâche ou une action que l’utilisateur souhaite effectuer. Il s’agit d’un but ou d’un objectif exprimé dans l’énoncé d’un utilisateur, par exemple réserver un vol ou régler une facture. Dans LUIS, l’ensemble d’un énoncé est considéré comme une intention, mais les parties de l’énoncé sont extraites en tant qu’entités
 
@@ -199,6 +199,10 @@ Un modèle (issu du Machine Learning) est une fonction qui effectue une prédict
 ## <a name="normalized-value"></a>Valeur normalisée
 
 Vous ajoutez des valeurs à vos entités de [liste](#list-entity). Chacune de ces valeurs peut avoir une liste d’un ou plusieurs synonymes. Seule la valeur normalisée est retournée dans la réponse.
+
+## <a name="overfitting"></a>Surajustement
+
+Un surajustement se produit quand le modèle est fixé sur les exemples spécifiques et qu’il n’est pas possible de le généraliser correctement.
 
 ## <a name="owner"></a>Propriétaire
 
@@ -240,7 +244,7 @@ Votre ressource de prédiction LUIS est un élément gérable qui est disponible
 
 La ressource de prédiction correspond au « genre » Azure `LUIS`.
 
-### <a name="prediction-score"></a>Score de prédiction
+### <a name="prediction-score"></a>Scores de prédictions
 
 Le [score](luis-concept-prediction-score.md) est un nombre compris entre 0 et 1. Il mesure la confiance du système par rapport au fait qu’un énoncé d’entrée puisse correspondre à une intention. Plus le score est proche de 1, plus le système est confiant en ce qui concerne sa sortie. Plus le score est proche de 0, plus le système est certain que l’entrée ne correspond pas à une sortie attendue. Les scores entre ses deux valeurs signifient que le système ne sait pas vraiment quelle décision prendre.
 
@@ -260,7 +264,7 @@ Le quota LUIS correspond à la limitation du niveau d’abonnement Azure. Il peu
 
 ## <a name="schema"></a>schéma
 
-Votre schéma inclut vos intentions et entités, ainsi que les sous-entités. Le schéma est initialement planifié, puis itéré dans le temps. Le schéma n’inclut pas les paramètres d’application, les caractéristiques ou les exemples de énoncés. 
+Votre schéma inclut vos intentions et entités, ainsi que les sous-entités. Le schéma est initialement planifié, puis itéré dans le temps. Le schéma n’inclut pas les paramètres d’application, les caractéristiques ou les exemples de énoncés.
 
 ## <a name="sentiment-analysis"></a>Analyse des sentiments
 L’analyse des sentiments attribue des valeurs positives ou négatives aux énoncés fournis par [l’Analyse de texte](../text-analytics/overview.md).
@@ -281,7 +285,7 @@ Vous pouvez attribuer une valeur normalisée aux [entités de listes](reference-
 |--|--|
 |Petite| la petite, S|
 |Moyenne| normale, M|
-|grande| large, L|
+|grand| large, L|
 |Très grande| la plus grande, XL|
 
 Le modèle retourne la valeur normalisée de l’entité lorsque l’un des synonymes est visible dans l’entrée.

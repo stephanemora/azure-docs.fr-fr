@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 5d641b573a1cad5cac6db6199f5bad5c06151c62
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 7adf9a9701eb2492f0b13a26af1dbaf8de631373
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759079"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021362"
 ---
 # <a name="cut-planes"></a>Plans de coupe
 
@@ -60,11 +60,11 @@ void CreateCutPlane(ApiHandle<AzureSession> session, ApiHandle<Entity> ownerEnti
 
 Les propriétés suivantes sont exposées sur un composant de plan de coupe :
 
-* **Activée :** vous pouvez désactiver temporairement les plans de coupe en désactivant le composant. Les plans de coupe désactivés n’entraînent pas de surcharge de rendu, et ne sont pas comptabilisés dans la limite globale des plans de coupe.
+* `Enabled`: vous pouvez désactiver temporairement les plans de coupe en désactivant le composant. Les plans de coupe désactivés n’entraînent pas de surcharge de rendu, et ne sont pas comptabilisés dans la limite globale des plans de coupe.
 
-* **Normal :** spécifie la direction (+X,-X,+Y,-Y,+Z,-Z) qui est utilisée comme plan perpendiculaire. Cette direction est relative à l’orientation de l’entité propriétaire. Déplacez et faites pivoter l’entité propriétaire pour obtenir un positionnement précis.
+* `Normal`: spécifie la direction (+X,-X,+Y,-Y,+Z,-Z) qui est utilisée comme plan perpendiculaire. Cette direction est relative à l’orientation de l’entité propriétaire. Déplacez et faites pivoter l’entité propriétaire pour obtenir un positionnement précis.
 
-* **FadeColor** et **FadeLength :**
+* `FadeColor` et `FadeLength` :
 
   si la valeur alpha de *FadeColor* est différente de zéro, les pixels proches du plan de coupe s’estompent vers la partie RVB de FadeColor. La puissance du canal alpha détermine s’il s’estompe entièrement dans la couleur du fondu, ou seulement partiellement. *FadeLength* définit la distance au-delà de laquelle ce fondu doit avoir lieu.
 

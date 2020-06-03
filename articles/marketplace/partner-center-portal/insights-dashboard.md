@@ -1,22 +1,22 @@
 ---
-title: Tableau de bord Insights de la Place de marché dans les données d’analytique de la Place de marché commerciale dans l’Espace partenaires
-description: Accédez à un résumé du Web Analytics de la place de marché, qui permet aux éditeurs de mesurer l’engagement client vis-à-vis des vitrines AppSource et Place de marché Azure.
+title: Insights sur la Place de marché – Place de marché commerciale Microsoft
+description: Accédez à un résumé du Web Analytics de la Place de marché, qui vous permet de mesurer l’engagement client dans Microsoft AppSource et la Place de marché Azure.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: 05389f0aea7e2637dd28281236e7fd7ec2b412fd
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 2d9691279b987f9d45f755ab340ff70671d350c0
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81251705"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745654"
 ---
-# <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Insights de la Place de marché dans les données d’analytique de la Place de marché commerciale
+# <a name="marketplace-insights-dashboard-in-partner-center"></a>Tableau de bord des Insights sur la Place de marché dans l’Espace partenaires
 
-Cet article donne des informations sur le tableau de bord Insight sur la place de marché de l’Espace partenaires. Ce tableau de bord présente un résumé du Web Analytics de la place de marché, qui permet aux éditeurs de mesurer l’engagement client vis-à-vis de leurs fiches produits respectives sur les vitrines des places de marché : AppSource et la Place de marché Azure.
+Cet article donne des informations sur le tableau de bord Insight sur la place de marché de l’Espace partenaires. Ce tableau de bord présente un résumé du Web Analytics de la place de marché, qui permet aux éditeurs de mesurer l’engagement client vis-à-vis de leurs fiches produits respectives sur les vitrines des places de marché : Microsoft AppSource et Place de marché Azure
 
 ## <a name="marketplace-insights-dashboard"></a>Tableau de bord des insights de la Place de marché
 
@@ -89,7 +89,7 @@ Le carte thermique ci-dessous présente le nombre de **Visites de pages**, **App
 La carte thermique comporte les fonctionnalités suivantes :
 
 - Une grille supplémentaire permet d’afficher les détails des **Visites de pages**, **Appels à l’action** et **Visiteurs uniques** dans un emplacement spécifique, sur lequel vous pouvez zoomer.  
-- La **répartition par pays** correspond au nombre total de pays en provenance desquels vos clients ont effectué des visites de pages sur la plage de dates sélectionnée.
+- La **répartition par pays/région** correspond au nombre total de pays/régions en provenance desquels vos clients ont effectué des visites de pages sur la plage de dates sélectionnée.
 - Vous pouvez rechercher et sélectionner un pays de la grille pour zoomer sur un emplacement de la carte. Revenez à la vue d’origine en sélectionnant **Accueil** sur la carte.
 
 ## <a name="page-visits-versus-unique-visitors-trend"></a>Comparaison des tendances des visites de pages et des visiteurs uniques
@@ -134,11 +134,11 @@ Ce tableau affiche en mode Liste les visites de pages et les appels à l’actio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour une vue d’ensemble des rapports d’analytique disponibles sur la Place de marché commerciale de l’Espace partenaires, consultez [Analytique de la place de marché commerciale dans l’Espace partenaires](./analytics.md).
-- Pour voir les graphes, tendances et valeurs des données agrégées qui résument l’activité de la Place de marché pour vos offres, consultez [Tableau de bord Résumé dans l’analytique de la place de marché commerciale](./summary-dashboard.md).
-- Pour plus d’informations sur vos commandes dans un format graphique et téléchargeable, consultez [Tableau de bord des commandes dans l’analytique de la place de marché commerciale](./orders-dashboard.md).
+- Pour obtenir une vue d’ensemble des rapports d’analytique disponibles sur la Place de marché commerciale de l’Espace partenaires, consultez [Analytique de la Place de marché commerciale dans l’Espace partenaires](./analytics.md).
+- Pour consulter les graphes, tendances et valeurs des données agrégées qui résument l’activité de la Place de marché pour vos offres, consultez [Tableau de bord Résumé dans l’analytique de la Place de marché commerciale](./summary-dashboard.md).
+- Pour plus d’informations sur vos commandes dans un format graphique et téléchargeable, consultez [Tableau de bord des commandes dans l’analytique de la Place de marché commerciale](./orders-dashboard.md).
 - Pour voir les métriques de facturation à l’utilisation des offres de machines virtuelles, consultez [Tableau de bord de l’utilisation dans l’analytique de la place de marché commerciale](./usage-dashboard.md).
-- Pour des informations détaillées sur vos clients, y compris les tendances de croissance, consultez [Tableau de bord client dans l’analytique de la place de marché commerciale](./customer-dashboard.md).
-- Pour obtenir la liste de vos demandes de téléchargement des 30 derniers jours, consultez [Tableau de bord des téléchargements dans l’analytique de la place de marché commerciale](./downloads-dashboard.md).
+- Pour obtenir des informations détaillées sur vos clients, y compris des tendances de croissance, consultez [Tableau de bord client dans l’analytique de la Place de marché commerciale](./customer-dashboard.md).
+- Pour obtenir la liste de vos demandes de téléchargement des 30 derniers jours, consultez [Tableau de bord des téléchargements dans l’analytique de la Place de marché commerciale](./downloads-dashboard.md).
 - Pour une vue centralisée des commentaires clients sur les offres de la Place de marché Azure et AppSource, consultez [Tableau de bord Évaluations et avis dans l’analytique de la place de marché commerciale](./ratings-reviews.md).
-- Pour obtenir des réponses aux questions fréquentes sur l’analytique de la Place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Questions fréquentes et terminologie pour l’analytique de la place de marché commerciale](./faq-terminology.md).
+- Pour voir les questions fréquentes sur l’analytique de la place de marché commerciale et un dictionnaire complet des termes liés aux données, consultez [Questions fréquentes et terminologie pour l’analytique de la place de marché commerciale](./faq-terminology.md).

@@ -1,5 +1,6 @@
 ---
-title: Générer une application de bureau appelant des API web - Plateforme d’identités Microsoft | Azure
+title: Générer une application de bureau qui appelle des API web | Azure
+titleSuffix: Microsoft identity platform
 description: Apprendre à générer une application de bureau qui appelle des API web (vue d’ensemble)
 services: active-directory
 author: jmprieur
@@ -8,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 09cc43dec2eff48754f5a6e693badd6bb1907cce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92f0909660427e414264442523dba3ed2abe0142
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80882999"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771857"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Scénario : Application de bureau qui appelle des API web
 
@@ -50,7 +51,7 @@ Vous écrivez une application de bureau et voulez connecter des utilisateurs à 
   - Ou s’il s’agit d’une application .NET Core et que vous acceptez que l’interaction d’authentification avec Azure Active Directory (Azure AD) se produise dans le navigateur système.
 
 - Pour des applications hébergées sous Windows, il est également possible que des applications s’exécutant sur des ordinateurs reliés à un domaine Windows ou joints à Azure AD acquièrent un jeton en silence en utilisant l’authentification Windows intégrée.
-- Enfin, et bien que ce ne soit pas recommandé, vous pouvez utiliser un nom d’utilisateur et un mot de passe dans des applications clientes publiques. Ce flux est toujours nécessaire dans certains scénarios, par exemple, de DevOps. Son utilisation impose des contraintes sur votre application. Par exemple, il ne peut pas connecter un utilisateur qui a besoin d’effectuer une authentification multifacteur (accès conditionnel). De plus, votre application ne bénéficiera pas de l’authentification unique (SSO).
+- Enfin, et bien que ce ne soit pas recommandé, vous pouvez utiliser un nom d’utilisateur et un mot de passe dans des applications clientes publiques. Ce flux est toujours nécessaire dans certains scénarios, par exemple, de DevOps. Son utilisation impose des contraintes sur votre application. Par exemple, il ne peut pas se connecter à un utilisateur qui a besoin d’effectuer une [authentification multifacteur](../authentication/concept-mfa-howitworks.md) (accès conditionnel). De plus, votre application ne bénéficiera pas de l’authentification unique (SSO).
 
   Il va également à l’encontre des principes de l’authentification moderne et n’est fourni que pour des raisons d’héritage.
 

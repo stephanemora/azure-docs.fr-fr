@@ -2,13 +2,13 @@
 title: Procédure d’activation d’Azure Monitor pour les conteneurs | Microsoft Docs
 description: Cet article décrit la façon dont vous activez et configurez Azure Monitor pour les conteneurs afin que vous puissiez comprendre les performances de votre conteneur et les problèmes liés aux performances identifiés.
 ms.topic: conceptual
-ms.date: 04/21/2020
-ms.openlocfilehash: 284668dfe2aec809ce9a94e15f7c83cf0f2025b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/28/2020
+ms.openlocfilehash: 0348d580a42d4a522ac05f929c96547a47e831a9
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185929"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84147900"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>Procédure d’activation d’Azure Monitor pour les conteneurs
 
@@ -66,7 +66,6 @@ Le tableau suivant répertorie les informations de configuration du proxy et du 
 | *.ods.opinsights.azure.com | 443 |  
 | *.oms.opinsights.azure.com | 443 |
 | dc.services.visualstudio.com | 443 |
-| *.microsoftonline.com | 443 |
 | *.monitoring.azure.com | 443 |
 | login.microsoftonline.com | 443 |
 
@@ -76,7 +75,6 @@ Le tableau suivant répertorie les informations de configuration du proxy et du 
 |--------------|------|-------------|
 | *.ods.opinsights.azure.cn | 443 | Ingestion de données |
 | *.oms.opinsights.azure.cn | 443 | Intégration d’OMS |
-| microsoft.com | 80 | Utilisé pour la connectivité réseau. Cet élément n’est requis que si la version de l’image de l’agent est ciprod09262019 ou antérieure. |
 | dc.services.visualstudio.com | 443 | Pour la télémétrie de l’agent à l’aide d’Azure Public Cloud Application Insights. |
 
 Le tableau suivant répertorie les informations de configuration du proxy et du pare-feu pour Azure - Gouvernement des États-Unis.
@@ -85,7 +83,6 @@ Le tableau suivant répertorie les informations de configuration du proxy et du 
 |--------------|------|-------------|
 | *.ods.opinsights.azure.us | 443 | Ingestion de données |
 | *.oms.opinsights.azure.us | 443 | Intégration d’OMS |
-| microsoft.com | 80 | Utilisé pour la connectivité réseau. Cet élément n’est requis que si la version de l’image de l’agent est ciprod09262019 ou antérieure. |
 | dc.services.visualstudio.com | 443 | Pour la télémétrie de l’agent à l’aide d’Azure Public Cloud Application Insights. |
 
 ## <a name="components"></a>Components

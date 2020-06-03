@@ -1,6 +1,6 @@
 ---
-title: Résolution des problèmes de configuration d’Azure Automation State Configuration
-description: Cet article fournit des informations sur la résolution des problèmes rencontrés avec Azure Automation State Configuration.
+title: Résoudre des problèmes liés à Azure Automation State Configuration
+description: Cet article explique comment dépanner et résoudre les problèmes liés à Azure Automation State Configuration.
 services: automation
 ms.service: automation
 ms.subservice: ''
@@ -9,19 +9,16 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d0801bb44fc0c08df1adee1f817e8fccab166fb5
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 6e057f5c9525f3b4ca373897c865990eb29835c0
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82652806"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681376"
 ---
-# <a name="troubleshoot-issues-with-azure-automation-state-configuration"></a>Résoudre les problèmes rencontrés avec Azure Automation State Configuration
+# <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Résoudre des problèmes liés à Azure Automation State Configuration
 
-Cet article fournit des informations sur la résolution des problèmes qui surviennent lorsque vous compilez ou déployez des configurations dans Azure Automation State Configuration.
-
->[!NOTE]
->Cet article a été mis à jour pour tenir compte de l’utilisation du nouveau module Az d’Azure PowerShell. Vous pouvez toujours utiliser le module AzureRM, qui continue à recevoir des correctifs de bogues jusqu’à au moins décembre 2020. Pour en savoir plus sur le nouveau module Az et la compatibilité avec AzureRM, consultez [Présentation du nouveau module Az d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Pour obtenir des instructions relatives à l’installation du module Az sur votre Runbook Worker hybride, voir [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Pour votre compte Automation, vous pouvez mettre à jour vos modules vers la dernière version en suivant les étapes sous [Guide de mise à jour des modules Azure PowerShell dans Azure Automation](../automation-update-azure-modules.md).
+Cet article fournit des informations sur la détection et la résolution des problèmes qui surviennent lorsque vous compilez ou déployez des configurations dans Azure Automation State Configuration. Pour obtenir des informations générales sur la fonctionnalité State Configuration, consultez [Vue d’ensemble d’Azure Automation State Configuration](../automation-dsc-overview.md).
 
 ## <a name="diagnose-an-issue"></a>Diagnostiquer un problème
 
@@ -112,7 +109,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 ### <a name="cause"></a>Cause
 
-Ce problème est dû à un certificat incorrect ou expiré. Consultez [Expiration du certificat et nouvel enregistrement](../automation-dsc-onboarding.md#re-registering-a-node).
+Ce problème est dû à un certificat incorrect ou expiré. Consultez [Réinscrire un nœud](../automation-dsc-onboarding.md#re-register-a-node).
 
 Ce problème pourrait aussi être dû à une configuration de proxy n'autorisant pas l’accès à * **.azure-automation.net**. Pour plus d’informations, consultez [Configuration de réseaux privés](../automation-dsc-overview.md#network-planning). 
 
@@ -239,11 +236,11 @@ Vous avez utilisé des informations d’identification dans une configuration, m
 
 Assurez-vous de transmettre la bonne valeur `ConfigurationData` pour définir `PSDscAllowPlainTextPassword` sur true pour chaque configuration de nœud mentionnée dans la configuration. Consultez [Compilation de configurations DSC dans Azure Automation State Configuration](../automation-dsc-compile.md).
 
-## <a name="scenario-failure-processing-extension-error-when-onboarding-from-a-dsc-extension"></a><a name="failure-processing-extension"></a>Scénario : Erreur « Échec lors du traitement de l’extension » au moment de l’intégration à partir d’une extension DSC
+## <a name="scenario-failure-processing-extension-error-when-enabling-a-machine-from-a-dsc-extension"></a><a name="failure-processing-extension"></a>Scénario : Erreur « Échec lors du traitement de l’extension » au moment de l’activation d’une machine à partir d’une extension DSC
 
 ### <a name="issue"></a>Problème
 
-Lors de l’intégration à l’aide d’une extension DSC, un échec se produit avec l’erreur :
+Lors de l’activation d’une machine à l’aide d’une extension DSC, un échec se produit avec l’erreur :
 
 ```error
 VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
@@ -256,7 +253,7 @@ Cette erreur se produit généralement quand le nœud est affecté à un nom de 
 ### <a name="resolution"></a>Résolution
 
 * Assurez-vous que vous affectez le nœud avec un nom qui correspond exactement au nom dans le service.
-* Vous pouvez choisir de ne pas inclure le nom de configuration de nœud, ce qui entraîne l’intégration du nœud, sans affectation de configuration de nœud.
+* Vous pouvez choisir de ne pas inclure le nom de configuration de nœud, ce qui entraîne l’activation du nœud, sans affectation de configuration de nœud.
 
 ## <a name="scenario-one-or-more-errors-occurred-error-when-registering-a-node-by-using-powershell"></a><a name="cross-subscription"></a>Scénario : Erreur « Une ou plusieurs erreurs se sont produites » lors de l’inscription d’un nœud avec PowerShell
 
@@ -274,10 +271,10 @@ Cette erreur se produit lorsque vous essayez d’inscrire un nœud dans un autre
 
 ### <a name="resolution"></a>Résolution
 
-Traitez ce nœud d’un autre abonnement comme s’il était défini dans un cloud distinct ou localement. Inscrivez le nœud à l’aide de l’une des options d’intégration suivantes :
+Traitez ce nœud d’un autre abonnement comme s’il était défini dans un cloud distinct ou localement. Inscrivez le nœud à l’aide de l’une des options suivantes pour l’activation des machines :
 
-* Windows : [Machines physiques/virtuelles Windows locales ou dans un cloud autre qu’Azure/AWS](../automation-dsc-onboarding.md#onboarding-physicalvirtual-windows-machines).
-* Linux : [Machines physiques/virtuelles Linux locales, dans Azure, ou dans un cloud autre qu’Azure](../automation-dsc-onboarding.md#onboarding-physicalvirtual-linux-machines).
+* Windows : [Machines physiques/virtuelles Windows locales ou dans un cloud autre qu’Azure/AWS](../automation-dsc-onboarding.md#enable-physicalvirtual-windows-machines).
+* Linux : [Machines physiques/virtuelles Linux locales, dans Azure, ou dans un cloud autre qu’Azure](../automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines).
 
 ## <a name="scenario-provisioning-has-failed-error-message"></a><a name="agent-has-a-problem"></a>Scénario : Message d’erreur : « Échec du provisionnement »
 
@@ -295,7 +292,7 @@ Ce message s’affiche lorsqu’il y a un problème de connectivité entre le n�
 
 ### <a name="resolution"></a>Résolution
 
-Déterminez si votre nœud se trouve dans un réseau virtuel privé (VPN) ou s’il a d’autres problèmes pour se connecter à Azure. Consultez [Résolution des erreurs d’intégration des solutions](onboarding.md).
+Déterminez si votre nœud se trouve dans un réseau virtuel privé (VPN) ou s’il a d’autres problèmes pour se connecter à Azure. Consultez [Résoudre les problèmes de déploiement de fonctionnalités](onboarding.md).
 
 ## <a name="scenario-failure-with-a-general-error-when-applying-a-configuration-in-linux"></a><a name="failure-linux-temp-noexec"></a>Scénario : Échec avec une erreur générale lors de l’application d’une configuration dans Linux
 

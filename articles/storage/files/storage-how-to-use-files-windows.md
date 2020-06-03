@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2694e0c1536064267faad10517ae58d0709ad1c8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4fef6102ac2ee69926c1c56af338b6e92670dd71
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231762"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773098"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utiliser un partage de fichiers Azure avec Windows
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Il est possible d’utiliser sans problème le partage de fichiers Azure dans Windows et Windows Server. Cet article décrit les considérations concernant l’utilisation d’un partage de fichiers Azure avec Windows et Windows Server.
@@ -30,8 +30,8 @@ Vous pouvez utiliser des partages de fichiers Azure sur une installation Window
 | Windows 8.1 | SMB 3.0 | Oui | Oui |
 | Windows Server 2012 R2 | SMB 3.0 | Oui | Oui |
 | Windows Server 2012 | SMB 3.0 | Oui | Oui |
-| Windows 7<sup>3</sup> | SMB 2.1 | Oui | Non  |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Oui | Non  |
+| Windows 7<sup>3</sup> | SMB 2.1 | Oui | Non |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Oui | Non |
 
 <sup>1</sup>Windows 10, versions 1507, 1607, 1709, 1803, 1809, 1903 et 1909.  
 <sup>2</sup>Windows Server, versions 1809, 1903 et 1909.  
@@ -80,7 +80,7 @@ Vous pouvez utiliser des partages de fichiers Azure sur une installation Window
 ## <a name="using-an-azure-file-share-with-windows"></a>Utiliser un partage de fichiers Azure avec Windows
 Pour utiliser un partage de fichiers Azure avec Windows, vous devez soit le monter (lui affecter un chemin de point de montage ou une lettre de lecteur), soit y accéder via son [chemin d’accès UNC](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
 
-Contrairement à d’autres partages SMB que vous pourriez avoir manipulé (par exemple ceux hébergés sur Windows Server, un serveur Linux Samba ou un périphérique NAS), les partages de fichier Azure ne prennent pas encore en charge l’authentification Kerberos avec votre Active Directory (AD) ou votre identité Azure Active Directory (AAD). Nous [travaillons](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles) actuellement sur cette fonctionnalité. Pour accéder à votre partage de fichiers Azure, utilisez la clé de compte de stockage pour le compte de stockage contenant votre partage de fichiers Azure. Une clé de compte de stockage est une clé administrateur pour un compte de stockage (y compris les autorisations d’administrateur sur tous les fichiers et dossiers dans le partage de fichiers auquel vous accédez), ainsi que pour tous les partages de fichiers et autres ressources de stockage (objets blob, files d’attente, tables, etc.) contenus dans votre compte de stockage. Si cela ne suffit pas pour votre charge de travail, [Azure File Sync](storage-sync-files-planning.md) peut adresser l’absence d’authentification Kerberos et la prise en charge des ACL dans l’intervalle, jusqu'à ce que l’authentification Kerberos basées sur AAD et la prise en charge des ACL soient disponibles publiquement.
+Cet article utilise la clé de compte de stockage pour accéder au partage de fichiers. Une clé de compte de stockage est une clé administrateur pour un compte de stockage (y compris les autorisations d’administrateur sur tous les fichiers et dossiers dans le partage de fichiers auquel vous accédez), ainsi que pour tous les partages de fichiers et autres ressources de stockage (objets blob, files d’attente, tables, etc.) contenus dans votre compte de stockage. Si cela ne suffit pas pour votre charge de travail, vous pouvez utiliser [Azure File Sync](storage-sync-files-planning.md) ou une [authentification basée sur l’identité sur SMB](storage-files-active-directory-overview.md).
 
 Un modèle commun pour délester et déplacer les applications métier (LOB) qui attendent un partage de fichiers SMB vers Azure consiste à utiliser un partage de fichiers Azure comme alternative pour l’exécution d’un serveur de fichiers Windows dédié dans une machine virtuelle Azure. Pour réussir la migration d’une application métier afin qu’elle utilise un partage de fichiers Azure, il est important de considérer que de nombreuses applications métier s’exécutent dans le contexte d’un compte de service dédié avec des autorisations système limitées, plutôt que le compte administrateur de la machine virtuelle. Par conséquent, vous devez vous assurer que vous montez/enregistrez les informations d’identification pour le partage de fichiers Azure à partir du contexte du compte de service plutôt que de votre compte d’administration.
 
@@ -186,7 +186,7 @@ Remove-PSDrive -Name <desired-drive-letter>
     
     ![Une capture d’écran du menu déroulant « Connecter un lecteur réseau »](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-1. Sélectionnez la lettre de lecteur et entrez le chemin d’accès UNC, le format du chemin d’accès UNC étant `<storageAccountName>.file.core.windows.net/<fileShareName>`. Par exemple : `anexampleaccountname.file.core.windows.net/example-share-name`.
+1. Sélectionnez la lettre de lecteur et entrez le chemin d’accès UNC, le format du chemin d’accès UNC étant `\\<storageAccountName>.file.core.windows.net\<fileShareName>`. Par exemple : `\\anexampleaccountname.file.core.windows.net\example-share-name`.
     
     ![Une capture d’écran de la boîte de dialogue « Connecter un lecteur réseau »](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 

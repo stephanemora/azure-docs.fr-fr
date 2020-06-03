@@ -8,19 +8,19 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 3ed79be318319009aabb1b1ef0c42c4021bbbabe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9606bf0108186cd73adbdb38aef3ac428da229d6
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77062657"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828404"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Réinitialiser votre mot de passe professionnel ou scolaire avec des informations de sécurité
 
-Si vous avez oublié votre mot de passe professionnel ou scolaire, que votre organisation ne vous en a jamais envoyé un ou que votre compte a été verrouillé, vous pouvez utiliser vos informations de sécurité et votre appareil mobile pour le réinitialiser. Votre administrateur doit activer cette fonctionnalité pour vous permettre de configurer vos informations et réinitialiser votre propre mot de passe.
+Si vous avez oublié votre mot de passe professionnel ou scolaire, que votre organisation ne vous en a jamais envoyé un ou que votre compte a été verrouillé, vous pouvez utiliser vos informations de sécurité et votre appareil mobile pour le réinitialiser. Votre administrateur doit activer cette fonctionnalité pour vous permettre de configurer vos informations et [réinitialiser votre propre mot de passe](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-reset-register).
 
 Si vous connaissez votre mot de passe mais que vous voulez le changer, consultez les sections [Comment modifier votre mot de passe](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) de cet article.
 

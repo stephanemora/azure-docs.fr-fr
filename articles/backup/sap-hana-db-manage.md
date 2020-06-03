@@ -3,12 +3,12 @@ title: Gérer les bases de données SAP HANA sauvegardées sur des machines virt
 description: Dans cet article, découvrez les tâches courantes de gestion et de supervision des bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 89fd7f23163d301817e767771257d9bc6f4ed526
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3705750e32b8b34ed397b8f68f22b0728129266
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480060"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701109"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gérer et superviser des bases de données SAP HANA sauvegardées
 
@@ -68,13 +68,21 @@ Les sauvegardes s’exécutent conformément à la planification de la stratégi
 
 ### <a name="hana-native-client-integration"></a>Intégration du client natif HANA
 
-Désormais, les sauvegardes complètes à la demande déclenchées à partir d’un client natif HANA s’affichent en tant que sauvegardes complètes dans la page **Éléments de sauvegarde** .
+#### <a name="backup"></a>Sauvegarde
+
+Les sauvegardes à la demande déclenchées à partir d’un des clients natifs HANA (pour **Backint**) s’affichent dans la liste de sauvegardes sur la page **Éléments de sauvegarde**.
 
 ![Dernières sauvegardes exécutées](./media/sap-hana-db-manage/last-backups.png)
 
-Ces sauvegardes complètes ad hoc figurent aussi dans la liste des points de restauration pour la restauration.
+Vous pouvez également [surveiller ces sauvegardes](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) dans la page **Travaux de sauvegarde**.
+
+Ces sauvegardes complètes figurent aussi dans la liste des points de restauration pour restauration.
 
 ![Liste des points de restauration](./media/sap-hana-db-manage/list-restore-points.png)
+
+#### <a name="restore"></a>Restaurer
+
+Les restaurations déclenchées à partir de clients HANA natifs (à l’aide de **Nackint**) pour restaurer sur la même machine peuvent être [surveillées](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) à partir de la page **Travaux de sauvegarde**.
 
 ### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Exécuter une sauvegarde de client natif SAP HANA sur une base de données pour laquelle la sauvegarde Azure est activée
 
@@ -200,13 +208,13 @@ Pour reprendre la protection d’une base de données SAP HANA :
 
 * Dans le menu **Stratégie de sauvegarde**, sélectionnez une stratégie, puis sélectionnez **Enregistrer**.
 
-### <a name="upgrading-from-sap-hana-10-to-20"></a>Mise à niveau de SAP HANA 1.0 vers 2.0
+### <a name="upgrading-from-sdc-to-mdc"></a>Mise à niveau de SDC vers MDC
 
-Découvrez comment continuer la sauvegarde d’une base de données SAP HANA [après la mise à niveau de SAP HANA 1.0 vers 2.0](backup-azure-sap-hana-database-troubleshoot.md#upgrading-from-sap-hana-10-to-20).
+Découvrez comment continuer la sauvegarde d’une base de données SAP HANA [après la mise à niveau de SDC vers MDC](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid).
 
-### <a name="upgrading-without-a-sid-change"></a>Mise à niveau sans modification du SID
+### <a name="upgrading-from-sdc-to-mdc-without-a-sid-change"></a>Mise à niveau de SDC à MDC sans modification du SID
 
-Découvrez comment continuer la sauvegarde d’une base de données SAP HANA dont [le SID n’a pas été modifié après la mise à niveau](backup-azure-sap-hana-database-troubleshoot.md#upgrading-without-an-sid-change).
+Découvrez comment continuer la sauvegarde d’une base de données SAP HANA dont [le SID n’a pas été modifié après la mise à niveau de SDC vers MDC](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-no-change-in-sid).
 
 ### <a name="unregister-an-sap-hana-instance"></a>Désinscrire une instance SAP HANA
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 625d9d5c5ecf095d4acbff625754b2065f184536
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d5e44d6b34a16f03d4ca1f82453f1f6e9f074917
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227217"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860611"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Créer des tables Hive et charger des données à partir de Stockage Blob Azure
 
@@ -149,7 +149,7 @@ Voici la requête Hive qui charge les données dans une table Hive.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **\<path to blob data\>**  : si le fichier blob à charger dans la table Hive se trouve dans le conteneur par défaut du cluster Hadoop HDInsight, le chemin *\<path to blob data\>* doit être au format *'wasb://\<directory in this container>/\<blob file name>'* . Le fichier blob peut également se trouver dans un autre conteneur du cluster Hadoop HDInsight. Dans ce cas, *\<path to blob data\>* doit présenter le format *’wasb://\<nom du conteneur\<nom du compte de stockage>.blob.core.windows.net/\<nom du fichier blob>’* .
+* **\<path to blob data\>**  : si le fichier blob à charger dans la table Hive se trouve dans le conteneur par défaut du cluster Hadoop HDInsight, le chemin *\<path to blob data\>* doit être au format *'wasb://\<directory in this container>/\<blob file name>'* . Le fichier blob peut également se trouver dans un autre conteneur du cluster Hadoop HDInsight. Dans ce cas, *\<path to blob data\>* doit présenter le format *’wasb://\<nom du conteneur>@\<nom du compte de stockage>.blob.core.windows.net/\<nom du fichier blob>’* .
 
   > [!NOTE]
   > Les données blob à charger dans la table Hive doivent se trouver dans le conteneur par défaut ou un autre conteneur du compte de stockage du cluster Hadoop. Sinon, la requête *LOAD DATA* ne peut pas s'exécuter car elle n'aura pas accès aux données.

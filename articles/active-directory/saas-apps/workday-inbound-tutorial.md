@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/23/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fa43eae906c918cad940b8f5efafeea07020098
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 9c953c43ff119d42cdadcd2aba6e15f69765afc2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201633"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745435"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutoriel : Configurer Workday pour l'approvisionnement automatique d'utilisateurs
 
@@ -232,7 +232,7 @@ En général, tous les connecteurs d'approvisionnement Workday ont besoin des in
 > [!NOTE]
 > Il est possible d’ignorer cette procédure et d’utiliser à la place un compte d’administrateur général Workday en tant que compte d’intégration système. Cette procédure, bien qu’adaptée aux démonstrations, n’est pas recommandée pour les déploiements de production.
 
-### <a name="creating-an-integration-system-user"></a>Création d’un utilisateur système d’intégration 
+### <a name="creating-an-integration-system-user"></a>Création d’un utilisateur système d’intégration
 
 **Pour créer un utilisateur de système d’intégration :**
 
@@ -242,7 +242,7 @@ En général, tous les connecteurs d'approvisionnement Workday ont besoin des in
 2. Exécutez la tâche **Create Integration System User** en fournissant un nom d’utilisateur et un mot de passe pour un nouvel utilisateur du système d’intégration.  
   
    * Laissez l’option **Require New Password at Next Sign In** désactivée, étant donné que cet utilisateur se connectera par programmation.
-   * Laissez la valeur par défaut de 0 pour l’option **Session Timeout Minutes** afin d’éviter que les sessions de l’utilisateur n’expirent prématurément.
+   * Conservez la valeur par défaut de 0 pour l’option **Délai d’expiration de session (minutes)** afin d’éviter que les sessions de l’utilisateur expirent prématurément.
    * Sélectionnez l’option **Do Not Allow UI Sessions** (Ne pas autoriser les sessions d’interface utilisateur), car elle fournit une couche de sécurité supplémentaire qui empêche un utilisateur ayant le mot de passe du système d’intégration de se connecter à Workday.
 
    ![Créer un utilisateur de système d’intégration](./media/workday-inbound-tutorial/wd_isu_02.png "Create Integration System User")
@@ -443,7 +443,7 @@ Transférez le programme d’installation de l’agent téléchargé sur l’hô
   
    ![Écran Quitter](./media/workday-inbound-tutorial/pa_install_screen_9.png "Écran Quitter")
    
-1. Vérifiez l'installation de l'agent et assurez-vous qu'il fonctionne en ouvrant le composant logiciel enfichable « Services » et en recherchant le service « Microsoft Azure AD Connect Provisioning Agent ».
+1. Vérifiez l’installation de l’agent et assurez-vous qu’il fonctionne en ouvrant le composant logiciel enfichable « Services » et en recherchant le service « Agent d’approvisionnement Microsoft Azure AD Connect ».
   
    ![Services](./media/workday-inbound-tutorial/services.png)
 
@@ -475,7 +475,7 @@ Lors de cette étape, nous allons établir la connectivité avec Workday et Acti
      > [!NOTE]
      > Ce paramètre concerne seulement les créations de comptes d’utilisateur si l’attribut *parentDistinguishedName* attribut n’est pas configuré dans les mappages d’attributs. Ce paramètre n’est pas utilisé pour la recherche d’utilisateurs ni pour les opérations de mise à jour. Toute la sous-arborescence du domaine se trouve dans l’étendue de l’opération de recherche.
 
-   * **E-mail de notification :** entrez votre adresse e-mail et cochez la case « Envoyer un e-mail en cas de défaillance ».
+   * **E-mail de notification :** entrez votre adresse e-mail et activez la case à cocher « Envoyer un e-mail en cas de défaillance ».
 
      > [!NOTE]
      > Le service Azure AD Provisioning envoie la notification par e-mail si le travail de provisionnement passe à l’état [Mise en quarantaine](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
@@ -492,7 +492,7 @@ Dans cette section, vous allez configurer le flux des données de l’utilisateu
 
 1. Dans l'onglet Approvisionnement, sous **Mappages**, cliquez sur **Synchroniser les employés Workday avec l'instance locale d'Active Directory**.
 
-1. Dans le champ **Portée de l'objet source**, vous pouvez sélectionner les ensembles d'utilisateurs de Workday concernés par l'approvisionnement vers AD, en définissant des filtres basés sur des attributs. La portée par défaut est « tous les utilisateurs dans Workday ». Exemples de filtres :
+1. Dans le champ **Portée de l'objet source**, vous pouvez sélectionner les ensembles d'utilisateurs de Workday concernés par l'approvisionnement vers AD, en définissant des filtres basés sur des attributs. L’étendue par défaut est « tous les utilisateurs de Workday ». Exemples de filtres :
 
    * Exemple : Étendue pour les utilisateurs avec des ID d’employés entre 1000000 et 2000000 (2000000 exclus)
 
@@ -628,7 +628,7 @@ Les sections suivantes décrivent les étapes à suivre afin de configurer l'app
      > Exemple : `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0`
 
 
-   * **E-mail de notification :** entrez votre adresse e-mail et cochez la case « Envoyer un e-mail en cas de défaillance ».
+   * **E-mail de notification :** entrez votre adresse e-mail et activez la case à cocher « Envoyer un e-mail en cas de défaillance ».
 
    * Cliquez sur le bouton **Tester la connexion**.
 
@@ -640,7 +640,7 @@ Dans cette section, vous allez configurer le flux des données de Workday vers A
 
 1. Dans l’onglet Approvisionnement sous **Mappages**, cliquez sur **Synchroniser les employés sur Azure AD**.
 
-2. Dans le champ **Portée de l'objet source**, vous pouvez sélectionner les ensembles d'utilisateurs de Workday concernés par l'approvisionnement vers Azure AD, en définissant des filtres basés sur des attributs. La portée par défaut est « tous les utilisateurs de Workday ». Exemples de filtres :
+2. Dans le champ **Portée de l'objet source**, vous pouvez sélectionner les ensembles d'utilisateurs de Workday concernés par l'approvisionnement vers Azure AD, en définissant des filtres basés sur des attributs. L’étendue par défaut est « tous les utilisateurs de Workday ». Exemples de filtres :
 
    * Exemple : Étendue pour les utilisateurs avec des ID d’employés entre 1000000 et 2000000
 
@@ -725,7 +725,7 @@ Suivez ces instructions pour configurer l’écriture différée des adresses e-
 
    * **URL du client :**  entrez l’URL du point de terminaison des services web Workday pour votre client. Cette URL doit être semblable à : `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources`, où *contoso4* est remplacé par le nom de votre locataire et *wd3-impl* par la chaîne d'environnement qui convient (si nécessaire).
 
-   * **E-mail de notification :** entrez votre adresse e-mail et cochez la case « Envoyer un e-mail en cas de défaillance ».
+   * **E-mail de notification :** entrez votre adresse e-mail et activez la case à cocher « Envoyer un e-mail en cas de défaillance ».
 
    * Cliquez sur le bouton **Tester la connexion**. Si le test de connexion réussit, cliquez sur le bouton **Enregistrer** en haut. En cas d’échec, vérifiez que l’URL et les informations d’identification Workday sont valides dans Workday.
 
@@ -735,7 +735,7 @@ Dans cette section, vous allez configurer le transfert des attributs de réécri
 
 1. Dans l'onglet Approvisionnement, sous **Mappages**, cliquez sur **Synchroniser les utilisateurs d'Azure Active Directory avec Workday**.
 
-2. Dans le champ **Portée de l'objet source**, vous avez la possibilité de filtrer les ensembles d'utilisateurs d'Azure Active Directory dont les adresses e-mail doivent être réécrites dans Workday. La portée par défaut est « tous les utilisateurs dans Azure AD ».
+2. Dans le champ **Portée de l'objet source**, vous avez la possibilité de filtrer les ensembles d'utilisateurs d'Azure Active Directory dont les adresses e-mail doivent être réécrites dans Workday. L’étendue par défaut est « tous les utilisateurs dans Azure AD ».
 
 3. Dans la section **Mappages d’attributs**, mettez à jour l’ID correspondant pour indiquer l’attribut dans Azure Active Directory dans lequel est stocké l’ID d’employé Workday. Une méthode populaire de correspondance consiste à synchroniser l’ID de l’employé Workday avec extensionAttribute1-15 dans Azure AD puis, à utiliser cet attribut dans Azure AD pour faire à nouveau correspondre les utilisateurs dans Workday.
 
@@ -790,7 +790,7 @@ Une fois les configurations d'application d'approvisionnement Workday effectuée
   * [Je dispose d'attributs personnalisés dans Workday et Active Directory. Comment configurer la solution pour qu'elle fonctionne avec mes attributs personnalisés ?](#i-have-custom-attributes-in-workday-and-active-directory-how-do-i-configure-the-solution-to-work-with-my-custom-attributes)
   * [Puis-je transférer une photo de l'utilisateur de Workday vers Active Directory ?](#can-i-provision-users-photo-from-workday-to-active-directory)
   * [Comment synchroniser des numéros de téléphone mobile à partir de Workday avec consentement des utilisateurs pour un usage public ?](#how-do-i-sync-mobile-numbers-from-workday-based-on-user-consent-for-public-usage)
-  * [Comment procéder à la mise en forme des noms d'affichage AD en fonction des attributs service/pays/ville de l'utilisateur et gérer les écarts régionaux ?](#how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances)
+  * [Comment procéder à la mise en forme des noms d’affichage AD en fonction des attributs service/pays/ville de l’utilisateur et gérer les écarts régionaux ?](#how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances)
   * [Comment utiliser SelectUniqueValue afin de générer des valeurs uniques pour l'attribut samAccountName ?](#how-can-i-use-selectuniquevalue-to-generate-unique-values-for-samaccountname-attribute)
   * [Comment supprimer des caractères comportant des signes diacritiques et les convertir en lettres normales de l'alphabet anglais ?](#how-do-i-remove-characters-with-diacritics-and-convert-them-into-normal-english-alphabets)
 
@@ -806,9 +806,9 @@ Non, l'envoi de notifications par e-mail au terme des opérations d'approvisionn
 
 #### <a name="how-do-i-manage-delivery-of-passwords-for-new-hires-and-securely-provide-a-mechanism-to-reset-their-password"></a>Comment gérer la remise des mots de passe aux nouveaux employés et leur fournir un mécanisme sécurisé pour la réinitialisation de leur mot de passe ?
 
-L'une des dernières étapes du processus d'approvisionnement d'un nouveau compte AD est la remise du mot de passe temporaire attribué au compte AD de l'utilisateur. Beaucoup d'entreprises utilisent encore l'approche traditionnelle qui consiste à remettre le mot de passe temporaire au responsable de l'utilisateur, qui le remet à son tour au nouvel employé ou à l'intérimaire. Mais compte tenu de la faille de sécurité inhérente à ce processus, vous pouvez adopter une approche plus efficace en utilisant les fonctionnalités d'Azure AD.
+L’une des dernières étapes du processus d’approvisionnement d’un nouveau compte AD est la remise du mot de passe temporaire attribué au compte AD de l’utilisateur. Beaucoup d’entreprises utilisent encore l’approche traditionnelle qui consiste à remettre le mot de passe temporaire au responsable de l’utilisateur, qui le remet à son tour au nouvel employé ou à l’intérimaire. Mais compte tenu de la faille de sécurité inhérente à ce processus, vous pouvez adopter une approche plus efficace en utilisant les fonctionnalités d'Azure AD.
 
-Dans le cadre du processus de recrutement, les équipes des ressources humaines vérifient généralement les références ainsi que le numéro de téléphone mobile du nouvel employé. Avec l'intégration de l'approvisionnement d'utilisateurs de Workday vers AD, vous pouvez vous appuyer sur cette vérification des RH et déployer une fonctionnalité de réinitialisation de mot de passe en libre-service que l'utilisateur pourra utiliser le jour de sa prise de fonction. Pour ce faire, il convient de propager l’attribut « Numéro de téléphone mobile » du nouvel employé de Workday vers AD, puis d’AD vers Azure AD à l’aide d’Azure AD Connect. Une fois le « Numéro de téléphone mobile » présent dans Azure AD, vous pouvez activer la [Réinitialisation du mot de passe libre-service (SSPR)](../authentication/howto-sspr-authenticationdata.md) sur le compte de l'utilisateur. Ainsi, le jour de sa prise de fonction, le nouvel employé pourra utiliser le numéro enregistré et vérifié pour s'authentifier.
+Dans le cadre du processus de recrutement, les équipes des ressources humaines vérifient généralement les références ainsi que le numéro de téléphone mobile du nouvel employé. Avec l'intégration de l'approvisionnement d'utilisateurs de Workday vers AD, vous pouvez vous appuyer sur cette vérification des RH et déployer une fonctionnalité de réinitialisation de mot de passe en libre-service que l'utilisateur pourra utiliser le jour de sa prise de fonction. Pour ce faire, il convient de propager l’attribut « Numéro de téléphone mobile » du nouvel employé de Workday vers AD, puis d’AD vers Azure AD à l’aide d’Azure AD Connect. Une fois le « Numéro de téléphone mobile » présent dans Azure AD, vous pouvez activer la [Réinitialisation du mot de passe libre-service (SSPR)](../authentication/howto-sspr-authenticationdata.md) sur le compte de l’utilisateur. Ainsi, le jour de sa prise de fonction, le nouvel employé pourra utiliser le numéro enregistré et vérifié pour s’authentifier.
 
 #### <a name="does-the-solution-cache-workday-user-profiles-in-the-azure-ad-cloud-or-at-the-provisioning-agent-layer"></a>La solution met-t-elle les profils utilisateur Workday en cache dans le cloud Azure AD ou au niveau de la couche de l'agent d'approvisionnement ?
 
@@ -919,7 +919,7 @@ Oui, un agent d'approvisionnement peut être configuré pour gérer plusieurs do
 * Accédez au répertoire contenant les scripts d'inscription et exécutez les commandes suivantes en remplaçant le paramètre \[tenant ID\] par l'ID de votre locataire.
 
   ```powershell
-  cd “C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\RegistrationPowershell\Modules\PSModulesFolder”
+  cd "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\RegistrationPowershell\Modules\PSModulesFolder"
   Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\RegistrationPowershell\Modules\PSModulesFolder\AppProxyPSModule.psd1"
   Get-PublishedResources -TenantId "[tenant ID]"
   ```
@@ -991,7 +991,7 @@ La solution ne prend actuellement pas en charge la définition des attributs bin
 * Enregistrez le mappage d'attributs.
 * Effacez l'état actuel et redémarrez la synchronisation complète.
 
-#### <a name="how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances"></a>Comment procéder à la mise en forme des noms d'affichage AD en fonction des attributs service/pays/ville de l'utilisateur et gérer les écarts régionaux ?
+#### <a name="how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances"></a>Comment procéder à la mise en forme des noms d’affichage AD en fonction des attributs service/pays/ville de l’utilisateur et gérer les écarts régionaux ?
 
 Il est souvent nécessaire de configurer l’attribut *displayName* d’AD afin qu’il fournisse également des informations sur le service et le pays/la région de l’utilisateur. Par exemple, si John Smith travaille au service Marketing aux États-Unis, vous souhaiterez peut-être que son nom d'affichage (*displayName*) se présente sous la forme *Smith, John (Marketing-US)* .
 
@@ -1008,9 +1008,9 @@ Voici comment gérer ces exigences pour que la valeur *CN* ou *displayName* incl
   
    Vérifiez auprès de votre équipe Workday que l'expression d'API ci-dessus est valide pour la configuration de votre locataire Workday. Si nécessaire, vous pouvez y apporter des modifications comme décrit dans la section [Personnaliser la liste des attributs d'utilisateurs Workday](#customizing-the-list-of-workday-user-attributes).
 
-* De même, les informations relatives au pays présentes dans Workday sont récupérées à l'aide de l'expression XPATH suivante : *wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference*
+* De même, les informations relatives au pays ou à la région présentes dans Workday sont récupérées à l’aide de l’expression XPATH suivante : *wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference*
 
-     Cinq attributs liés au pays sont disponibles dans la section Liste des attributs de Workday.
+     Cinq attributs liés au pays ou à la région sont disponibles dans la section Liste des attributs de Workday.
 
      | Attribut Workday | Expression de l'API XPATH |
      | ----------------- | -------------------- |
@@ -1154,7 +1154,7 @@ Lorsque vous cliquez sur l'un des enregistrements du journal d'audit, la page **
 
   À ce stade, en cas de problème lié à vos expressions de mappage d'attributs ou aux données Workday entrantes (par exemple : valeur vide ou nulle pour les attributs requis), vous rencontrerez un échec accompagné du code ErrorCode détaillant celui-ci.
 
-* Enregistrement **AD Export** : cet enregistrement du journal affiche le résultat de l'opération de création de compte AD, ainsi que les valeurs d'attribut définies au cours du processus. Utilisez les informations de la section *Détails supplémentaires* de l'enregistrement du journal pour résoudre les problèmes liés à l'opération de création de compte. Un exemple d'enregistrement est fourni ci-dessous avec des indications permettant d'interpréter chacun des champs. Dans la section « Détails supplémentaires », la propriété « EventName » est définie sur « EntryExportAdd », la propriété « JoiningProperty » est définie sur la valeur de l'attribut ID correspondant, la propriété « SourceAnchor » est définie sur l'ID Workday (WID) associé à l'enregistrement et la propriété « TargetAnchor » est définie sur le valeur de l'attribut AD « ObjectGuid » de l'utilisateur nouvellement créé. 
+* Enregistrement **AD Export** : cet enregistrement du journal affiche le résultat de l'opération de création de compte AD, ainsi que les valeurs d'attribut définies au cours du processus. Utilisez les informations de la section *Détails supplémentaires* de l'enregistrement du journal pour résoudre les problèmes liés à l'opération de création de compte. Un exemple d'enregistrement est fourni ci-dessous avec des indications permettant d'interpréter chacun des champs. Dans la section « Détails supplémentaires », la propriété « EventName » est définie sur « EntryExportAdd », la propriété « JoiningProperty » est définie sur la valeur de l’attribut ID correspondant, la propriété « SourceAnchor » est définie sur l’ID Workday (WID) associé à l’enregistrement et la propriété « TargetAnchor » est définie sur le valeur de l’attribut AD « ObjectGuid » de l’utilisateur nouvellement créé. 
 
   ```JSON
   ErrorCode : None // Use the error code captured here to troubleshoot AD account creation issues
@@ -1176,11 +1176,11 @@ Lorsque vous cliquez sur l'un des enregistrements du journal d'audit, la page **
 
 ### <a name="understanding-logs-for-manager-update-operations"></a>Familiarisation avec les journaux d’activité pour les opérations de mise à jour de l’attribut manager
 
-L'attribut manager est un attribut de référence dans AD. Le service d'approvisionnement ne définit pas l'attribut manager dans le cadre de l'opération de création de l'utilisateur. L'attribut manager est plutôt défini dans le cadre d'une opération de *mise à jour* après la création du compte AD de l'utilisateur. Dans le prolongement de l'exemple précédent, supposons qu'un nouvel employé doté de l'ID employé « 21451 » soit activé dans Workday et que son manager (*21023*) dispose déjà d'un compte AD. Dans ce scénario, la recherche dans les journaux d’audit de l’utilisateur 21451 affiche 5 entrées.
+L'attribut manager est un attribut de référence dans AD. Le service d'approvisionnement ne définit pas l'attribut manager dans le cadre de l'opération de création de l'utilisateur. L'attribut manager est plutôt défini dans le cadre d'une opération de *mise à jour* après la création du compte AD de l'utilisateur. Dans le prolongement de l’exemple précédent, supposons qu’un nouvel employé doté de l’ID employé « 21451 » soit activé dans Workday et que son manager (*21023*) dispose déjà d’un compte AD. Dans ce scénario, la recherche dans les journaux d’audit de l’utilisateur 21451 affiche 5 entrées.
 
   [![Mise à jour de l’attribut manager](media/workday-inbound-tutorial/wd_audit_logs_03.png)](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
 
-Les 4 premiers enregistrements sont semblables à ceux que nous avons explorés dans le cadre de l'opération de création de l'utilisateur. Le cinquième enregistrement correspond à l'exportation associée à la mise à jour de l'attribut manager. L'enregistrement du journal affiche le résultat de l'opération de mise à jour du manager du compte AD, effectuée à l'aide de l'attribut *objectGuid* du manager.
+Les 4 premiers enregistrements sont semblables à ceux que nous avons explorés dans le cadre de l'opération de création de l'utilisateur. Le cinquième enregistrement correspond à l'exportation associée à la mise à jour de l'attribut manager. L’enregistrement du journal affiche le résultat de l’opération de mise à jour du manager du compte AD, effectuée à l’aide de l’attribut *objectGuid* du manager.
 
   ```JSON
   // Modified Properties
@@ -1272,7 +1272,7 @@ Il vous faut pour cela utiliser [Workday Studio](https://community.workday.com/s
 
 7. Définissez **Opération** sur **Get_Workers**.
 
-8.  Cliquez sur le petit lien **Configurer** sous les volets Requête/Réponse pour définir vos informations d’identification Workday. Cochez **Authentification**, puis entrez le nom d’utilisateur et le mot de passe de votre compte système d’intégration Workday. Veillez à mettre le nom d’utilisateur au format nom\@locataire et à laisser l’option **WS-Security UsernameToken** sélectionnée.
+8.    Cliquez sur le petit lien **Configurer** sous les volets Requête/Réponse pour définir vos informations d’identification Workday. Cochez **Authentification**, puis entrez le nom d’utilisateur et le mot de passe de votre compte système d’intégration Workday. Veillez à mettre le nom d’utilisateur au format nom\@locataire et à laisser l’option **WS-Security UsernameToken** sélectionnée.
 
     ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 

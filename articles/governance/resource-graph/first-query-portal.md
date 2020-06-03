@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Votre première requête dans le portail'
 description: Dans ce guide de démarrage rapide, vous suivez les étapes pour exécuter votre première requête à partir du portail Azure en utilisant l’Explorateur Azure Resource Graph.
 ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 69fb1262de706185d8968e9381bb34dd0d84a3b7
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: a4b8e0b792dfda1bbd1866444ddc6c4ec8d289b6
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872087"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148036"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de l’Explorateur Azure Resource Graph
 
@@ -51,7 +51,7 @@ Le navigateur de schémas est un excellent moyen de découvrir les propriétés 
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Créer un graphique à partir de la requête Resource Graph
 
-Après avoir exécuté la dernière requête ci-dessus, si vous sélectionnez l’onglet **Graphiques**, vous obtenez le message suivant : « Le jeu de résultats n’est pas compatible avec une visualisation de graphique à secteurs ». Les requêtes qui listent des résultats ne peuvent pas être converties en graphique, mais les requêtes qui fournissent des décomptes de ressources le peuvent. À l’aide de l’[exemple de requête Nombre de machines virtuelles par type d’OS](./samples/starter.md#count-virtual-machines-by-os-type), créons une visualisation à partir de la requête Resource Graph.
+Après avoir exécuté la dernière requête ci-dessus, si vous sélectionnez l’onglet **Graphiques**, vous obtenez le message suivant : « Le jeu de résultats n’est pas compatible avec une visualisation de graphique à secteurs ». Les requêtes qui listent des résultats ne peuvent pas être converties en graphique, mais les requêtes qui fournissent des décomptes de ressources le peuvent. À l’aide de l’[exemple de requête Nombre de machines virtuelles par type d’OS](./samples/starter.md#count-os), créons une visualisation à partir de la requête Resource Graph.
 
 1. Dans la partie **Requête 1** de la fenêtre, entrez la requête suivante, puis sélectionnez  **Exécuter la requête**.
 

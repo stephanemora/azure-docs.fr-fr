@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 25aa9fc166e831acd2ed0389bbbe4d2dc7e04b19
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: baabad550f5e6b0ae39936fc182e6d9789d189d8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594744"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650944"
 ---
 # <a name="disk-bursting"></a>Mode rafale des disques
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
@@ -24,7 +24,7 @@ La prise en charge du mode rafale au niveau des machines virtuelles est activée
 Le mode rafale est activé par défaut pour les machines virtuelles qui le prennent en charge.
 
 ## <a name="disk-level-bursting"></a>Mode rafale au niveau des disques
-Le mode rafale est également disponible sur nos [disques SSD Premium](disks-types.md#premium-ssd) pour les tailles de disque P20 et inférieures dans toutes les régions. Le mode rafale du disque est activé par défaut sur les nouveaux déploiements des tailles de disque qui le prennent en charge. Les tailles de disque existantes, si elles prennent en charge le mode rafale du disque, peuvent activer les rafales via l’une des méthodes suivantes : 
+Le mode rafale est également disponible sur nos [SSD Premium](disks-types.md#premium-ssd) pour les tailles de disque P20 et inférieures dans toutes les régions des clouds Azure publics, gouvernementaux et en Chine. Le mode rafale du disque est activé par défaut sur les nouveaux déploiements des tailles de disque qui le prennent en charge. Les tailles de disque existantes, si elles prennent en charge le mode rafale du disque, peuvent activer les rafales via l’une des méthodes suivantes : 
 - **Redémarrer la machine virtuelle** 
 - **Détacher et rattacher le disque**
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 9dbcae6e3947576a7d2bc204c2a3a6fb2e95953d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4975a5842ef23b54444663f653f43bb8dbd1d2c1
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76988283"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745982"
 ---
 # <a name="azure-maps-supported-categories"></a>Catégories prises en charge dans Azure Maps
 
@@ -24,7 +24,7 @@ Lorsque vous effectuez une [recherche par catégorie ](https://docs.microsoft.co
 | **Code de catégorie** | **Catégories correspondant au code** |
 | --- | --- |
 | ACCESS\_GATEWAY | accès aux lignes aériennes, barrière de sécurité, accès, passerelle d’accès |
-| ADMINISTRATION\_DIVISION | province, division administrative de quatrième niveau, division administrative de premier niveau, division administrative historique de troisième niveau, siège d’une division administrative de quatrième niveau, siège d’une division administrative de deuxième niveau, entité politique dépendante, lieu habité, siège d’une division administrative de troisième niveau, lieux habités, division administrative de deuxième niveau, siège d’une division administrative de premier niveau, division administrative, localité peuplée, région historique, site historique, lieu habité historique, établissement israélien, division administrative historique de quatrième niveau, division administrative de cinquième niveau, division administrative historique de premier niveau, division administrative de troisième niveau, entité politique historique, division administrative historique, siège d’un gouvernement d’une entité politique, division administrative historique de deuxième niveau, capitale d’une entité politique |
+| ADMINISTRATION\_DIVISION | province, division administrative de quatrième niveau, division administrative de premier niveau, division administrative historique de troisième niveau, siège d’une division administrative de quatrième niveau, siège d’une division administrative de deuxième niveau, entité politique dépendante, lieu habité, siège d’une division administrative de troisième niveau, lieux habités, division administrative de deuxième niveau, siège d’une division administrative de premier niveau, division administrative, localité peuplée, région historique, site historique, lieu habité historique, établissement israélien, division administrative historique de quatrième niveau, division administrative de cinquième niveau, division administrative historique de premier niveau, division administrative de troisième niveau, entité politique historique, division administrative historique, siège d’un gouvernement d’une entité politique, division administrative historique de deuxième niveau, capitale/ville principale d’une entité politique |
 | ADVENTURE\_SPORTS\_VENUE | tournoi de sports d’aventure |
 | AGRICULTURE | horticulture, producteur principal, agriculture, ferme, village agricole, ferme, propriété familiale, pâturage, commune, installation aquacole, fermes, zone de pêche, produits laitiers, champ(s) |
 | AIRPORT | autorité privée, autorité militaire, héliport, fermé, aéroport moyen, grand aéroport, petit aéroport, aérodrome, base d’hydravions, autorité publique, port d’aérostats, aéroport |

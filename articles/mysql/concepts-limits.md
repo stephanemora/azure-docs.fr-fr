@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/1/2020
-ms.openlocfilehash: 6ca09ab0578fb88e443d6e9e1f920c22457eb042
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9cf5c958a0dd9a19e6b976ff36a18c45e062f604
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548469"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659933"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitations dans Azure Database pour MySQL
 Les sections suivantes abordent la capacité, la prise en charge du moteur de stockage, la prise en charge des privilèges, la prise en charge des instructions de manipulation des données et les limites fonctionnelles du service de base de données. Vous pouvez aussi consulter les [limitations générales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) qui sont applicables au moteur de base de données MySQL.
@@ -154,6 +154,12 @@ Consultez la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/serve
 ### <a name="time_zone"></a>time_zone
 
 Les tables de fuseaux horaires peuvent être remplies en appelant la procédure stockée `mysql.az_load_timezone` à partir d’un outil tel que la ligne de commande MySQL ou MySQL Workbench. Pour savoir comment appeler la procédure stockée et définir les fuseaux horaires au niveau global ou au niveau de la session, consultez les articles relatifs au [Portail Azure](howto-server-parameters.md#working-with-the-time-zone-parameter) ou à [Azure CLI](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter).
+
+### <a name="innodb_file_per_table"></a>innodb_file_per_table
+
+MySQL stocke la table InnoDB dans différents espaces de stockage en fonction de la configuration que vous avez fournie lors de la création de la table. L’[espace disque logique du système](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) est la zone de stockage pour le dictionnaire de données InnoDB. Un [espace disque logique de fichier par table](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) contient des données et des index pour une table InnoDB unique, et est stocké dans son propre fichier de données au sein du système de fichiers. Ce comportement est contrôlé par le paramètre de serveur `innodb_file_per_table`. La définition de `innodb_file_per_table` sur `OFF` amène InnoDB à créer des tables dans l’espace disque logique du système. Autrement, InnoDB crée des tables dans des espaces disques logiques de fichier par table.
+
+Azure Database pour MySQL prend en charge jusqu’à **1 To**, dans un fichier de données unique. Si la taille de votre base de données est supérieure à 1 To, vous devez créer la table dans l’espace disque logique [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table). Si vous avez table d’une taille supérieure à 1 To, vous devez utiliser la table de partition.
 
 ## <a name="storage-engine-support"></a>Prise en charge du moteur de stockage
 

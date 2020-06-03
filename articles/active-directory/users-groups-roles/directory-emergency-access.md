@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80ab7e0603f63fb395832b0da887916dc032c3bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5c26b4e04970dd6c35fc6a71a1aade94d949b520
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74028124"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816180"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gérer des comptes d’accès d’urgence dans Azure AD
 
@@ -44,7 +44,7 @@ Créez plusieurs comptes d’accès d’urgence. Ces comptes doivent être des c
 Lors de la configuration de ces comptes, les conditions suivantes doivent être remplies :
 
 - Les comptes d’accès d’urgence ne doivent être associés à aucun utilisateur au sein de l’organisation. Veillez à ce que vos comptes d’accès d’urgence ne soient pas connectés à un matériel fourni à un employé et voyageant avec celui-ci, tel un téléphone mobile, un module de sécurité matériel, ou d’autres informations d’identification propres à l’employé. Cette précaution de sécurité couvre les cas où un employé n’est pas joignable alors que les informations d’identification doivent être fournies. Il est important de s’assurer que tous les appareils inscrits sont conservés dans un endroit sûr et connu, disposant de plusieurs moyens de communication avec Azure AD.
-- Le mécanisme d’authentification utilisé pour un compte d’accès d’urgence doit être distinct de celui utilisé par d’autres comptes administratifs, y compris d’autres comptes d’accès d’urgence.  Par exemple, si votre administrateur normal se connecte via une MFA locale, Azure MFA devrait être un mécanisme différent.  En revanche, si Azure MFA est votre principal composant d’authentification pour vos comptes administratifs, envisagez une approche différente pour ces derniers, telle que l’utilisation d’un accès conditionnel avec un fournisseur MFA tiers.
+- Le mécanisme d’authentification utilisé pour un compte d’accès d’urgence doit être distinct de celui utilisé par d’autres comptes administratifs, y compris d’autres comptes d’accès d’urgence.  Par exemple, si votre administrateur normal se connecte via une MFA locale, Azure MFA devrait être un mécanisme différent.  En revanche, si Azure MFA est votre principal composant d’authentification pour vos comptes administratifs, envisagez une approche différente pour ces derniers, telle que l’utilisation d’un accès conditionnel avec un fournisseur MFA tiers via des [contrôles personnalisés](https://docs.microsoft.com/azure/active-directory/conditional-access/controls).
 - L’appareil ou les informations d’identification ne doivent pas expirer ou faire potentiellement l’objet d’un nettoyage automatisé en raison d’une utilisation insuffisante.  
 - Vous devez rendre l’attribution de rôle d’administrateur général permanente pour vos comptes d’accès d’urgence. 
 

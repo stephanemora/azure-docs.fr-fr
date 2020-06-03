@@ -4,12 +4,12 @@ description: Apporte des conseils visant à vous aider à diagnostiquer la cause
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 5e669a68794a8622bb4a2fa55b206153717fd772
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c229bd836029226a1e042de9bfe706654f97dc26
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187900"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658932"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Résolution des problèmes de sauvegarde lente de fichiers et de dossiers dans Azure Backup
 
@@ -95,6 +95,8 @@ Les indicateurs suivants peuvent vous aider à identifier le goulot d’étrangl
 
 * **L’interface utilisateur affiche la progression du transfert de données**. Les données sont toujours en cours de transfert. La bande passante réseau ou la taille des données engendrent peut-être un ralentissement.
 * **L’interface utilisateur n’affiche pas la progression du transfert de données**. Ouvrez les journaux d’activité sous C:\Program Files\Microsoft Azure Recovery Services Agent\Temp, puis recherchez l’entrée FileProvider::EndData dans les journaux d’activité. Cette entrée signifie que le transfert de données est terminé et que l’opération de catalogage est en cours. N’annulez pas les tâches de sauvegarde. Attendez un peu plus longtemps que l’opération de catalogage soit terminée. Si le problème persiste, contactez le [support Azure](https://portal.azure.com/#create/Microsoft.Support).
+
+Si vous essayez de sauvegarder des disques de grande taille, il est recommandé d’utiliser [Azure Data Box](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box)] pour la première sauvegarde (réplication initiale).  Si vous ne pouvez pas utiliser Data Box, tous les problèmes réseau temporaires qui se produisent dans votre environnement pendant des transferts de données longs sur le réseau peuvent entraîner des échecs de sauvegarde.  Pour éviter ceux-ci, vous pouvez ajouter quelques dossiers à votre sauvegarde initiale et continuer à ajouter des dossiers de manière incrémentielle jusqu’à ce que tous les dossiers soient dûment sauvegardés dans Azure.  Les sauvegardes incrémentielles suivantes seront relativement plus rapides.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

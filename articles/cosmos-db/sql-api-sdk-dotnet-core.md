@@ -1,19 +1,19 @@
 ---
 title: 'Azure Cosmos DB : Ressources, kit SDK et API .NET Core SQL'
 description: Tout savoir sur l’API SQL .NET Core et le kit de développement logiciel (SDK), notamment les dates de sortie, les dates de déclassement et les modifications effectuées entre chaque version du kit de développement logiciel (SDK) .NET Core Azure Cosmos DB.
-author: SnehaGunda
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 03/22/2018
-ms.author: sngun
-ms.openlocfilehash: 35c81f023726803fb2346d68ae783fdfe124143f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: 3738af6349a6f71f6100c601858b39c6329d0295
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72177706"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660383"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK .NET Core Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -22,8 +22,9 @@ ms.locfileid: "72177706"
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Flux de modification .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.JS](sql-api-sdk-node.md)
-> * [Java asynchrone](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
+> * [Kit SDK Java v4](sql-api-sdk-java-v4.md)
+> * [Kit SDK Java asynchrone v2](sql-api-sdk-async-java.md)
+> * [Kit SDK Java synchrone v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)

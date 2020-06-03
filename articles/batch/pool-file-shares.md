@@ -1,14 +1,14 @@
 ---
 title: Partage de fichiers Azure pour des pools Azure Batch
 description: Guide pratique pour monter un partage Azure Files à partir de nœuds de calcul dans un pool Linux ou Windows dans Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 666ee6bd0e6287545c107427dffcc9f2ccde900a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb7e6f158e246319e851ee2edd5b21bae33c3723
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115446"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780283"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Utiliser un partage de fichiers Azure avec un pool Batch
 
@@ -172,6 +172,5 @@ batch_service_client.task.add(job_id, task)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour découvrir d’autres options permettant de lire et d’écrire des données dans Batch, consultez la [vue d’ensemble des fonctionnalités de Batch](batch-api-basics.md) et l’article [Conserver les résultats des tâches et des travaux](batch-task-output.md).
-
+* Pour d’autres options de lecture et d’écriture de données dans Batch, consultez [Conserver les résultats des tâches et des travaux](batch-task-output.md).
 * Consultez également la boîte à outils [Batch Shipyard](https://github.com/Azure/batch-shipyard), qui contient des [recettes Shipyard](https://github.com/Azure/batch-shipyard/tree/master/recipes) afin de déployer des systèmes de fichiers pour des charges de travail de conteneur Batch.

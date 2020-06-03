@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 87a9632ec2433b8698e3ae3761ba733aa6bc63a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd99934ca74736c1f80bd47d701120398437e27a
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885682"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845319"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procédure : personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise
 
@@ -169,9 +169,9 @@ Pour ajouter une condition de revendication :
 
 L’ordre dans lequel vous ajoutez les conditions est important. Azure AD évalue les conditions de haut en bas pour décider quelle valeur émettre dans la revendication. 
 
-Par exemple, Brita Simon est un utilisateur invité dans le locataire Contoso. Elle appartient à une autre organisation qui utilise également Azure AD. Étant donné la configuration ci-dessous pour l’application Fabrikam, quand Brita tente de se connecter à Fabrikam, Azure AD évalue les conditions comme suit.
+Par exemple, Britta Simon est figure parmi les utilisateurs invités dans le locataire Contoso. Elle appartient à une autre organisation qui utilise également Azure AD. Étant donné la configuration ci-dessous pour l’application Fabrikam, quand Britta tente de se connecter à Fabrikam, Azure AD évalue les conditions comme suit.
 
-Tout d’abord, Azure AD vérifie si le type d’utilisateur de Brita est `All guests`. Dans la mesure où la valeur est True, Azure AD attribue la source de la revendication à `user.extensionattribute1`. Deuxièmement, Azure AD vérifie si le type d’utilisateur de Brita est `AAD guests`, puisque c’est également le cas, Azure AD attribue la source de la revendication à `user.mail`. Enfin, la revendication est émise avec la valeur `user.email` pour Brita.
+Tout d’abord, Azure AD vérifie si le type d’utilisateur de Britta est `All guests`. Dans la mesure où la valeur est True, Azure AD attribue la source de la revendication à `user.extensionattribute1`. Deuxièmement, Azure AD vérifie si le type d’utilisateur de Britta est `AAD guests`, et puisque c’est également le cas, Azure AD attribue la source de la revendication à `user.mail`. Enfin, la revendication est émise avec la valeur `user.mail` pour Britta.
 
 ![Configuration conditionnelle des revendications](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 

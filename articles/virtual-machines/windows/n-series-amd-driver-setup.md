@@ -8,16 +8,20 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 63114bdf60c1feb2b6cb1092ef78397efdc5b666
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 745ec7ebf792fe1165022516be4c83fb9e864cc9
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81865753"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799879"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installer les pilotes GPU AMD sur les machines virtuelles de série N exécutant Windows
 
-Pour tirer parti des fonctionnalités GPU des nouvelles machines virtuelles de la série NVv4 Azure exécutant Windows, installez des pilotes GPU AMD. L’extension du pilote AMD sera disponible dans les prochaines semaines. Cet article indique les systèmes d’exploitation pris en charge, les pilotes et les étapes manuelles d’installation et de vérification.
+Pour tirer parti des fonctionnalités GPU des nouvelles machines virtuelles de la série NVv4 Azure exécutant Windows, installez des pilotes GPU AMD. L’[extension du pilote GPU AMD](../extensions/hpccompute-amd-gpu-windows.md) installe les pilotes GPU AMD sur une machine virtuelle de série NVv4. Installez ou gérez l’extension à l’aide du portail Azure ou d’outils tels qu’Azure PowerShell ou les modèles Azure Resource Manager. Pour connaître les systèmes d’exploitation pris en charge et les étapes de déploiement, consultez lq [documentation sur l’extension du pilote GPU AMD](../extensions/hpccompute-amd-gpu-windows.md).
+
+Si vous choisissez d’installer manuellement les pilotes GPU AMD, cet article indique les systèmes d’exploitation, les pilotes et les étapes d’installation et de vérification pris en charge.
+
+Seuls les pilotes GPU publiés par Microsoft sont pris en charge sur les machines virtuelles de série NVv4. N’installez PAS de pilotes GPU à partir d’une autre source.
 
 Pour obtenir les spécifications de base, les capacités de stockage et les informations relatives aux disques, consultez [GPU Windows VM sizes](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Tailles de machine virtuelle Windows GPU).
 
@@ -34,13 +38,9 @@ Pour obtenir les spécifications de base, les capacités de stockage et les info
 
 1. Connectez-vous à chaque machine virtuelle série NVv4 à l’aide du Bureau à distance.
 
-2. Si vous êtes client NVv4 en préversion, arrêtez la machine virtuelle et attendez qu’elle passe à l’état Arrêté (désalloué).
+2. Téléchargez et installez la dernière version du pilote.
 
-3. Démarrez la machine virtuelle et téléchargez l’[utilitaire de nettoyage AMD](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe) le plus récent. Désinstallez le pilote existant en exécutant « amdcleanuputility-x64.exe ». N'utilisez AUCUN utilitaire de nettoyage installé avec le pilote précédent.  
-
-4. Téléchargez et installez la dernière version du pilote.
-
-5. Redémarrez la machine virtuelle.
+3. Redémarrez la machine virtuelle.
 
 ## <a name="verify-driver-installation"></a>Vérification de l’installation du pilote
 

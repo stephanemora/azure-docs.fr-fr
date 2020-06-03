@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 91a9a761b35a945fcd105465ae8dea7cb6623f42
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 62933a0e83a7494bc208068cb418f9ccc29ba637
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83643327"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266353"
 ---
 # <a name="what-are-security-defaults"></a>Présentation des paramètres de sécurité par défaut
 
@@ -65,7 +65,7 @@ Une fois l’inscription avec Azure Multi-Factor Authentication terminée, les n
 - Administrateur Exchange
 - Administrateur de l’accès conditionnel
 - Administrateur de sécurité
-- Administrateur de mot de passe ou administrateur du support technique
+- Administrateur du support technique
 - Administrateur de facturation
 - Administrateur d’utilisateurs
 - Administrateur d’authentification

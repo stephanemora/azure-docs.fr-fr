@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8902c3147bbe142fc58d4e2c3fa83601c8ccbba3
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 5b83b0687db72c78a0c7788933acf07f5cb9e0ed
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203514"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83679348"
 ---
-# <a name="bulk-import-group-members-in-azure-active-directory"></a>Importer en bloc les membres d’un groupe dans Azure Active Directory
+# <a name="bulk-add-group-members-in-azure-active-directory"></a>Ajouter en bloc les membres d’un groupe dans Azure Active Directory
 
 En utilisant le portail Azure Active Directory (Azure AD), vous pouvez ajouter un grand nombre de membres à un groupe en utilisant un fichier de valeurs séparées par des virgules (CSV) pour importer en bloc les membres du groupe.
 
@@ -57,7 +57,7 @@ Les lignes d’un modèle CSV téléchargé sont les suivantes :
 
 1. Ouvrez le fichier CSV et ajoutez une ligne pour chaque membre du groupe que vous souhaitez importer dans le groupe (les valeurs requises sont **ID d’objet de membre** ou **Nom principal de l’utilisateur**). Puis enregistrez le fichier.
 
-   ![Le fichier CSV contient les noms et les ID des membres à importer](./media/groups-bulk-import-members/csv-file.png)
+    :::image type="content" source="./media/groups-bulk-import-members/csv-file.png" alt-text="Le fichier CSV contient les noms et les ID des membres à importer":::
 
 1. Dans la page **Importer en bloc les membres du groupe**, sous **Chargez votre fichier .csv**, accédez au fichier. Quand vous sélectionnez le fichier, la validation du fichier CSV démarre.
 1. Quand le contenu du fichier est validé, la page d’importation en bloc affiche **Fichier chargé**. Si des erreurs sont présentes, vous devez les corriger avant de pouvoir envoyer le travail.

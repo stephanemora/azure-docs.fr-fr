@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.date: 10/10/2019
-ms.openlocfilehash: 63843230b3d4a521df858b00c8e5c887e8f53a7a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 05/08/2019
+ms.openlocfilehash: 3233292f0097330cc5e6ed07460de80934a278e4
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415591"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849295"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Environnements de calcul pris en charge par Azure Data Factory
 
@@ -38,16 +38,27 @@ Le tableau suivant fournit une liste d’environnements de calcul pris en charge
 | [Fonction Azure](#azure-function-linked-service)         | [Activité de fonction Azure](control-flow-azure-function-activity.md)
 >  
 
-## <a name="on-demand-hdinsight-compute-environment"></a>Environnement de calcul HDInsight à la demande
+## <a name="hdinsight-compute-environment"></a>Environnement de calcul HDInsight à la demande
+
+Reportez-vous au tableau ci-dessous pour plus d’informations sur les types de services liés de stockage pris en charge pour la configuration dans des environnements à la demande et BYOC.
+
+| Dans Services liés de calcul | Nom de la propriété                | Description                                                  | Objet blob | ADLS Gen2 | Azure SQL DB | ADLS Gen 1 |
+| ------------------------- | ---------------------------- | ------------------------------------------------------------ | ---- | --------- | ------------ | ---------- |
+| À la demande                 | linkedServiceName            | Service lié Azure Storage utilisé par le cluster à la demande pour le stockage et le traitement des données. | Oui  | Oui       | Non           | Non         |
+|                           | additionalLinkedServiceNames | Spécifie les comptes de stockage supplémentaires pour le service lié HDInsight afin que le service Data Factory puisse les inscrire en votre nom. | Oui  | Non        | Non           | Non         |
+|                           | hcatalogLinkedServiceName    | Nom du service lié à SQL Azure pointant vers la base de données HCatalog. Le cluster HDInsight à la demande est créé en utilisant la base de données Azure SQL en tant que metastore. | Non   | Non        | Oui          | Non         |
+| BYOC                      | linkedServiceName            | Référence du service Stockage Azure lié.                | Oui  | Oui       | Non           | Non         |
+|                           | additionalLinkedServiceNames | Comptes de stockage supplémentaires pour le service lié HDInsight, que le service Data Factory peut inscrire pour vous. | Non   | Non        | Non           | Non         |
+|                           | hcatalogLinkedServiceName    | Nom du service lié SQL Azure pointant vers la base de données HCatalog. | Non   | Non        | Non           | Non         |
+
+### <a name="azure-hdinsight-on-demand-linked-service"></a>Service lié à la demande Azure HDInsight
 
 Dans ce type de configuration, l'environnement de calcul est entièrement géré par le service Azure Data Factory. Il est automatiquement créé par le service Azure Data Factory avant qu'une tâche de traitement des données ne soit soumise et il est supprimé lorsque la tâche est terminée. Vous pouvez créer un service lié pour un environnement de calcul à la demande, le configurer et contrôler les paramètres granulaires pour l'exécution de la tâche, la gestion du cluster et les actions d'amorçage.
 
 > [!NOTE]
-> La configuration à la demande est actuellement prise en charge uniquement pour les clusters Azure HDInsight. Azure Databricks prend également en charge les travaux à la demande à l'aide de clusters de travaux. Pour plus d'informations, reportez-vous à [Service Azure Databricks lié](#azure-databricks-linked-service).
+> La configuration à la demande est actuellement prise en charge uniquement pour les clusters Azure HDInsight. Azure Databricks prend également en charge les travaux à la demande en utilisant des clusters de travail. Pour plus d’informations, consultez [Service Azure Databricks lié](#azure-databricks-linked-service).
 
-## <a name="azure-hdinsight-on-demand-linked-service"></a>Service lié à la demande Azure HDInsight
-
-Le service Azure Data Factory peut créer automatiquement un cluster HDInsight à la demande pour traiter des données. Le cluster est créé dans la même région que celle du compte de stockage (propriété linkedServiceName dans JSON) associé au cluster. Le compte de stockage doit être un compte Stockage Azure standard universel. 
+Le service Azure Data Factory peut créer automatiquement un cluster HDInsight à la demande pour traiter des données. Le cluster est créé dans la même région que celle du compte de stockage (propriété linkedServiceName dans JSON) associé au cluster. Le compte de stockage `must` doit être un compte Stockage Azure standard universel. 
 
 Notez les points **importants** suivants sur le service lié HDInsight à la demande :
 
@@ -59,7 +70,7 @@ Notez les points **importants** suivants sur le service lié HDInsight à la dem
 > [!IMPORTANT]
 > Il faut généralement au moins **20 minutes** pour mettre en service un cluster Azure HDInsight à la demande.
 
-### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemple
 
 Le JSON suivant définit un service lié HDInsight à la demande sous Linux. Le service Data Factory crée automatiquement un cluster HDInsight **Linux** pour traiter l’activité requise. 
 
@@ -100,7 +111,7 @@ Le JSON suivant définit un service lié HDInsight à la demande sous Linux. Le 
 >
 > Pendant la poursuite de l’activité, vous voyez de nombreux conteneurs dans votre Stockage Blob Azure. Si vous n’en avez pas besoin pour dépanner les travaux, il se peut que vous deviez les supprimer pour réduire les frais de stockage. Les noms de ces conteneurs sont conformes au modèle suivant : `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Utilisez des outils tels que [Microsoft Storage Explorer](https://storageexplorer.com/) pour supprimer des conteneurs dans votre stockage d’objets blob Azure.
 
-### <a name="properties"></a>Propriétés
+#### <a name="properties"></a>Propriétés
 
 | Propriété                     | Description                              | Obligatoire |
 | ---------------------------- | ---------------------------------------- | -------- |
@@ -131,7 +142,7 @@ Le JSON suivant définit un service lié HDInsight à la demande sous Linux. Le 
 > [!IMPORTANT]
 > Les services HDInsight liés ne prennent actuellement pas en charge les clusters HBase, Interactive Query (Hive LLAP) et Storm. 
 
-#### <a name="additionallinkedservicenames-json-example"></a>Exemple JSON additionalLinkedServiceNames
+* Exemple JSON additionalLinkedServiceNames
 
 ```json
 "additionalLinkedServiceNames": [{
@@ -140,7 +151,7 @@ Le JSON suivant définit un service lié HDInsight à la demande sous Linux. Le 
 }]
 ```
 
-### <a name="service-principal-authentication"></a>Authentification d’un principal du service
+#### <a name="service-principal-authentication"></a>Authentification d’un principal du service
 
 Le service lié de HDInsight à la demande nécessite une authentification du principal du service pour créer des clusters HDInsight à votre place. Pour utiliser une authentification du principal du service, inscrivez une entité d’application dans Azure Active Directory (Azure AD), et octroyez-lui le rôle de **contributeur** de l’abonnement ou du groupe de ressources dans lequel le cluster HDInsight est créé. Pour une procédure détaillée, voir [Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Prenez note des valeurs suivantes, qui vous permettent de définir le service lié :
 
@@ -156,7 +167,7 @@ Utilisez l’authentification par principal de service en spécifiant les propri
 | **servicePrincipalKey** | Spécifiez la clé de l’application.           | Oui      |
 | **client**              | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du portail Azure. | Oui      |
 
-### <a name="advanced-properties"></a>Propriétés avancées
+#### <a name="advanced-properties"></a>Propriétés avancées
 
 Vous pouvez également spécifier les propriétés suivantes pour la configuration granulaire du cluster HDInsight à la demande.
 
@@ -171,7 +182,7 @@ Vous pouvez également spécifier les propriétés suivantes pour la configurati
 | stormConfiguration     | Spécifie les paramètres de configuration Storm (storm-site.xml) pour le cluster HDInsight. | Non       |
 | yarnConfiguration      | Spécifie les paramètres de configuration Yarn (yarn-site.xml) pour le cluster HDInsight. | Non       |
 
-#### <a name="example--on-demand-hdinsight-cluster-configuration-with-advanced-properties"></a>Exemple : configuration de cluster HDInsight à la demande avec les propriétés avancées
+* Exemple : configuration de cluster HDInsight à la demande avec les propriétés avancées
 
 ```json
 {
@@ -225,7 +236,7 @@ Vous pouvez également spécifier les propriétés suivantes pour la configurati
 }
 ```
 
-### <a name="node-sizes"></a>Tailles de nœuds
+#### <a name="node-sizes"></a>Tailles de nœuds
 Vous pouvez spécifier les tailles du nœud principal, du nœud de données et du nœud zookeeper en utilisant les propriétés suivantes : 
 
 | Propriété          | Description                              | Obligatoire |
@@ -234,8 +245,7 @@ Vous pouvez spécifier les tailles du nœud principal, du nœud de données et d
 | dataNodeSize      | Spécifie la taille du nœud de données. La valeur par défaut est : Standard_D3. | Non       |
 | zookeeperNodeSize | Spécifie la taille du nœud ZooKeeper. La valeur par défaut est : Standard_D3. | Non       |
 
-#### <a name="specifying-node-sizes"></a>Spécification des tailles de nœud
-Pour connaître les valeurs des chaînes à spécifier pour les propriétés mentionnées dans la section précédente, consultez [Tailles des machines virtuelles](../virtual-machines/linux/sizes.md). Les valeurs doivent être conformes aux **applets de commande et API** référencées dans l’article. Comme vous pouvez le voir dans l’article, le nœud de données de grande taille (par défaut) a 7 Go de mémoire, ce qui risque de s’avérer insuffisant pour votre scénario. 
+* Pour connaître les valeurs des chaînes à spécifier pour les propriétés mentionnées dans la section précédente, consultez [Tailles des machines virtuelles](../virtual-machines/linux/sizes.md). Les valeurs doivent être conformes aux **applets de commande et API** référencées dans l’article. Comme vous pouvez le voir dans l’article, le nœud de données de grande taille (par défaut) a 7 Go de mémoire, ce qui risque de s’avérer insuffisant pour votre scénario. 
 
 Si vous voulez créer des nœuds principaux et des nœuds worker de taille D4, spécifiez la valeur **Standard_D4** pour les propriétés headNodeSize et dataNodeSize. 
 
@@ -246,7 +256,7 @@ Si vous voulez créer des nœuds principaux et des nœuds worker de taille D4, s
 
 Si vous spécifiez une valeur incorrecte pour ces propriétés, vous risquez de rencontrer l’**erreur** suivante : Failed to create cluster. (Impossible de créer le cluster.) Exception : Impossible de terminer l’opération de création du cluster. Operation failed with code ’400’. Cluster left behind state (État du cluster abandonné) : 'Error' (« Error »). Message : 'PreClusterCreationValidationFailure'. Quand vous recevez ce message d’erreur, vérifiez que vous utilisez les noms d’**applet de commande et d’API** figurant dans l’article [Tailles des machines virtuelles](../virtual-machines/linux/sizes.md).        
 
-## <a name="bring-your-own-compute-environment"></a>Apportez votre propre environnement de calcul
+### <a name="bring-your-own-compute-environment"></a>Apportez votre propre environnement de calcul
 Dans ce type de configuration, les utilisateurs peuvent inscrire un environnement de calcul existant en tant que service lié dans Data Factory. L'environnement de calcul est géré par l'utilisateur et le service Data Factory l'utilise pour exécuter les activités.
 
 Ce type de configuration est pris en charge pour les environnements de calcul suivants :
@@ -437,7 +447,7 @@ Vous créez un service lié Azure Machine Learning Service pour connecter un esp
 | servicePrincipalId     | Spécifiez l’ID client de l’application.     | Non |
 | servicePrincipalKey    | Spécifiez la clé de l’application.           | Non |
 | tenant                 | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du portail Azure. | Obligatoire si updateResourceEndpoint est spécifié | Non |
-| connectVia             | Runtime d’intégration à utiliser pour répartir les activités à ce service lié. Vous pouvez utiliser un runtime d’intégration Azure ou un runtime d’intégration auto-hébergé. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non |    
+| connectVia             | Runtime d’intégration à utiliser pour répartir les activités à ce service lié. Vous pouvez utiliser un runtime d’intégration Azure ou un runtime d’intégration auto-hébergé. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Service lié Azure Data Lake Analytics
 Vous créez un service lié **Analytique Azure Data Lake** pour lier un service de calcul Analytique Azure Data Lake Analytics à une fabrique de données Azure. L’activité U-SQL Analytique Data Lake dans le pipeline fait référence à ce service lié. 

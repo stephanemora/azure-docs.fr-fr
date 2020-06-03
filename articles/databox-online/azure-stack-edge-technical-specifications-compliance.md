@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 054f1449d6f06225633bf0647cac93ca42f2b59b
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 5a4ac2342ca36d83d1a579851c090c4713814c8d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929007"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652036"
 ---
 # <a name="azure-stack-edge-technical-specifications"></a>Spécifications techniques d’Azure Stack Edge
 
-Les composants matériels de l’appareil Microsoft Azure Stack Edge sont conformes aux caractéristiques techniques et normes réglementaires présentées dans cet article. Les spécifications techniques décrivent les blocs d’alimentation (PSU), la capacité de stockage, les boîtiers et les normes environnementales. 
+Les composants matériels de l’appareil Microsoft Azure Stack Edge sont conformes aux caractéristiques techniques et normes réglementaires présentées dans cet article. Les spécifications techniques décrivent les blocs d’alimentation (PSU), la capacité de stockage, les boîtiers et les normes environnementales.
 
 ## <a name="compute-memory-specifications"></a>Spécifications de calcul et de mémoire
 
@@ -28,15 +28,13 @@ L’appareil Azure Stack Edge présente les spécifications suivantes en matièr
 | UC    | 2 processeurs 10 cœurs                     |
 | Mémoire              | 128 Go de RAM                  |
 
-
 ## <a name="fpga-specifications"></a>Spécifications FPGA
 
-Pour les scénarios de Machine Learning, chaque appareil Azure Stack Edge dispose d’un FPGA (Field Programmable Gate Array). 
+Pour les scénarios de Machine Learning, chaque appareil Azure Stack Edge dispose d’un FPGA (Field Programmable Gate Array).
 
 | Caractéristique           | Valeur                  |
 |-------------------------|----------------------------|
-| FPGA   | Intel Arria 10 <br> Les modèles à réseau neuronal profond disponibles sont les mêmes que ceux [pris en charge par les instances cloud FPGA](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
-
+| FPGA   | Intel Arria 10 <br> Les modèles à réseau neuronal profond disponibles sont les mêmes que ceux [pris en charge par les instances cloud FPGA](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure).|
 
 ## <a name="power-supply-unit-specifications"></a>Spécifications des blocs d’alimentation
 
@@ -48,6 +46,11 @@ L’appareil Azure Stack Edge a deux blocs d’alimentation de 100-240 V avec d
 | Fréquence               | 50/60 Hz                   |
 | Sélection de la plage de tension | Détermination automatique : 100-240 V AC |
 | Enfichable à chaud           | Oui                        |
+
+### <a name="azure-stack-edge-power-cord-specifications-by-region"></a>Spécifications du cordon d’alimentation d’Azure Stack Edge par région
+
+Votre appareil Azure Stack Edge a besoin d’un cordon d’alimentation différent en fonction de votre région Azure.
+Pour voir les spécifications techniques de tous les cordons d’alimentation pris en charge, consultez [Spécifications du cordon d’alimentation d’Azure Stack Edge par région](azure-stack-edge-technical-specifications-power-cords-regional.md).
 
 <!--## Power consumption statistics
 
@@ -133,7 +136,6 @@ Cette section présente les caractéristiques liées à l’environnement du bo�
 |    Énergie             |    Commission de régulation (UE) N° 617/2013                                                                                                                                                                                        |
 |    RoHS           |    EN 50581:2012                                                                                                                                                                                        |
 
-
 ### <a name="operating-temperature-de-rating-specifications"></a>Spécifications de température de fonctionnement en allègement de régime
 
 |     Température de fonctionnement en allègement de régime     |     Plage de températures ambiantes                                                         |
@@ -141,7 +143,6 @@ Cette section présente les caractéristiques liées à l’environnement du bo�
 |    Jusqu’à 35°C (95°F)                       |    La température maximale est réduite de 1°C/300 mètres (1°F/547 ft) au-dessus de 950 m (3117 ft).    |
 |    35°C à 40°C (95°F à 104°F)            |    La température maximale est réduite de 1°C/175 mètres (1°F/319 ft) au-dessus de 950 m (3117 ft).    |
 |    40°C à 45°C (104°F à 113°F)           |    La température maximale est réduite de 1°C/125 mètres (1°F/228 ft) au-dessus de 950 m (3117 ft).    |
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

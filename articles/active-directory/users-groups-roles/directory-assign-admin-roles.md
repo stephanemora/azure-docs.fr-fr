@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c16ba26d1c59bd932e657f41882fbd23dc3a69e
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 3abf7b4acfae5e90d0b3f6781b8fbbf0f6f1427d
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592228"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860594"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -99,14 +99,6 @@ Toutes les stratégies Azure DevOps d’entreprise peuvent être gérées par le
 ### <a name="azure-information-protection-administrator"></a>[Administrateur Azure Information Protection](#azure-information-protection-administrator-permissions)
 
 Les utilisateurs avec ce rôle ont toutes les autorisations dans le service Azure Information Protection. Ce rôle permet de configurer les étiquettes pour la stratégie Azure Information Protection, de gérer les modèles de protection et d’activer la protection. Il n’octroie aucune autorisation dans Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health ni dans le Centre de sécurité et conformité Office 365.
-
-### <a name="b2c-user-flow-administrator"></a>[Administrateur de flux d’utilisateurs B2C](#b2c-user-flow-administrator-permissions)
-
-Les utilisateurs dotés de ce rôle peuvent créer et gérer des flux d’utilisateurs B2C (également appelés stratégies « intégrées ») dans le portail Azure. En créant ou modifiant des flux d’utilisateurs, ces utilisateurs peuvent modifier le contenu html/CSS/javascript de l’expérience utilisateur, modifier les exigences d’authentification multifacteur par flux d’utilisateurs, modifier des revendications dans le jeton et ajuster des paramètres de session pour toutes les stratégies dans l’organisation Azure AD. En revanche, ce rôle n’inclut pas la possibilité de consulter les données utilisateur, ou d’apporter des modifications aux attributs inclus dans le schéma de l’organisation. Les modifications apportées aux stratégies Identity Experience Framework (aussi dites personnalisées) sortent également de la portée de ce rôle.
-
-### <a name="b2c-user-flow-attribute-administrator"></a>[Administrateur d’attributs de flux d’utilisateurs B2C](#b2c-user-flow-attribute-administrator-permissions)
-
-Les utilisateurs ayant ce rôle peuvent ajouter ou supprimer des attributs personnalisés disponibles pour tous les flux d’utilisateurs dans l’organisation Azure AD. Ainsi, ils peuvent modifier ou ajouter de nouveaux éléments au schéma d’utilisateur final, influer sur le comportement de tous les flux d’utilisateurs et entraîner indirectement des modifications des données demandées aux utilisateurs finaux et envoyées sous forme de revendications aux applications. Ce rôle ne peut pas modifier des flux d’utilisateurs.
 
 ### <a name="b2c-ief-keyset-administrator"></a>[Administrateur de jeux de clés B2C IEF](#b2c-ief-keyset-administrator-permissions)
 
@@ -214,6 +206,15 @@ Les utilisateurs avec ce rôle ont des autorisations générales dans Microsoft 
 > [!NOTE]
 > Dans l’API Microsoft Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de service Exchange ». Il est appelé « Administrateur Exchange » dans le [portail Azure](https://portal.azure.com). Il est « Administrateur Exchange en ligne » dans le [centre d’administration Exchange](https://go.microsoft.com/fwlink/p/?LinkID=529144).
 
+
+### <a name="external-id-user-flow-administrator"></a>[Administrateur de flux d’utilisateurs ID externe](#external-id-user-flow-administrator-permissions)
+
+Les utilisateurs dotés de ce rôle peuvent créer et gérer des flux d’utilisateurs B2C (également appelés stratégies « intégrées ») dans le portail Azure. En créant ou modifiant des flux d’utilisateurs, ces utilisateurs peuvent modifier le contenu html/CSS/javascript de l’expérience utilisateur, modifier les exigences d’authentification multifacteur par flux d’utilisateurs, modifier des revendications dans le jeton et ajuster des paramètres de session pour toutes les stratégies dans l’organisation Azure AD. En revanche, ce rôle n’inclut pas la possibilité de consulter les données utilisateur, ou d’apporter des modifications aux attributs inclus dans le schéma de l’organisation. Les modifications apportées aux stratégies Identity Experience Framework (aussi dites personnalisées) sortent également de la portée de ce rôle.
+
+### <a name="external-id-user-flow-attribute-administrator"></a>[Administrateur d’attribut de flux d’utilisateurs ID externe](#external-id-user-flow-attribute-administrator-permissions)
+
+Les utilisateurs ayant ce rôle peuvent ajouter ou supprimer des attributs personnalisés disponibles pour tous les flux d’utilisateurs dans l’organisation Azure AD. Ainsi, ils peuvent modifier ou ajouter de nouveaux éléments au schéma d’utilisateur final, influer sur le comportement de tous les flux d’utilisateurs et entraîner indirectement des modifications des données demandées aux utilisateurs finaux et envoyées sous forme de revendications aux applications. Ce rôle ne peut pas modifier des flux d’utilisateurs.
+
 ### <a name="external-identity-provider-administrator"></a>[Administrateur de fournisseurs d’identité externes](#external-identity-provider-administrator-permissions)
 
 Cet administrateur gère la fédération entre les organisations Azure AD et les fournisseurs d’identité externes. Avec ce rôle, les utilisateurs peuvent ajouter de nouveaux fournisseurs d’identité et configurer tous les paramètres disponibles (par exemple, chemin d’authentification, ID de service, conteneurs de clés attribués). Cet utilisateur peut permettre à l’organisation d’approuver des authentifications de fournisseurs d’identité externes. L’impact produit sur les expériences d’utilisateur final varie selon le type d’organisation :
@@ -237,8 +238,6 @@ Les utilisateurs affectés à ce rôle peuvent lire les paramètres et les infor
 > [!NOTE]
 > Le rôle de lecteur général comporte des restrictions pour le moment.
 >
->- [Centre d’administration OneDrive](https://admin.onedrive.com/) : le Centre d’administration OneDrive ne prend pas en charge le rôle de lecteur général.
->- [Portail Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) : Le lecteur général ne peut pas lire le mode de provisionnement d’une application d’entreprise.
 >- [Centre d’administration M365](https://admin.microsoft.com/Adminportal/Home#/homepage) : Le lecteur général ne peut pas lire les demandes du Customer Lockbox. L’onglet **Demandes du Customer Lockbox** ne figure pas sous **Support** dans le volet gauche du centre d’administration M365.
 >- [Centre de sécurité et de conformité Office](https://sip.protection.office.com/homepage) - Le lecteur général ne peut pas lire les journaux d'audit SCC, effectuer une recherche de contenu ou voir le Degré de sécurisation.
 >- [Centre d’administration Teams](https://admin.teams.microsoft.com) : Le lecteur général ne peut pas lire le **cycle de vie Teams**, les **analyses et rapports**, la **gestion des appareils téléphoniques IP** et le **catalogue d’applications**.
@@ -307,6 +306,21 @@ Les utilisateurs dotés de ce rôle peuvent superviser toutes les notifications 
 ### <a name="message-center-reader"></a>[Lecteur du Centre de messages](#message-center-reader-permissions)
 
 Les utilisateurs dans ce rôle peuvent superviser les notifications et les mises à jour d’avis d’intégrité dans le [Centre de messages Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) pour leur organisation sur les services configurés comme Exchange, Intune et Microsoft Teams. Les lecteurs du Centre de messages reçoivent par e-mail des résumés hebdomadaires des publications, mises à jour, et peuvent partager les messages publiés sur le Centre de messages dans Office 365. Dans Azure AD, les utilisateurs affectés à ce rôle disposeront d’un accès en lecture seule aux services Azure AD comme les utilisateurs et les groupes. Ce rôle n’a pas d'accès pour afficher, créer ou gérer des tickets de support.
+
+### <a name="modern-commerce-administrator"></a>[Administrateur de Commerce moderne](#modern-commerce-administrator-permissions)
+Ne pas utiliser. Ce rôle est attribué automatiquement à partir de Commerce, et n’est ni prévu, ni pris en charge pour toute autre utilisation. Consultez les détails ci-dessous.
+
+Le rôle Administrateur de Commerce moderne donne à certains utilisateurs l’autorisation d’accéder au Centre d’administration Microsoft 365 et de consulter les entrées de navigation de gauche pour **Hébergement**, **Facturation** et **Support**. Le contenu disponible dans ces zones est contrôlé par des [rôles spécifiques du commerce](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles) attribués aux utilisateurs pour gérer des produits qu’ils ont achetés pour eux-mêmes ou votre organisation. Cela peut inclure des tâches telles que le paiement de factures, ou l’accès à des comptes de facturation et à des profils de facturation. 
+
+Les utilisateurs ayant le rôle Administrateur de Commerce moderne disposent généralement d’autorisations d’administration dans d’autres systèmes d’achat Microsoft, mais ne disposent pas des rôles Administrateur général ou Administrateur de facturation utilisés pour accéder au Centre d’administration. 
+
+**Quand le rôle Administrateur de Commerce moderne est-il attribué ?**
+* **Achat en libre-service dans le Centre d’administration Microsoft 365** : l’achat en libre-service permet aux utilisateurs de tester de nouveaux produits en les achetant ou en s’y inscrivant eux-mêmes. Ces produits sont gérés dans le Centre d’administration. Les utilisateurs qui effectuent un achat en libre-service se voient attribuer un rôle dans le système Commerce et le rôle Administrateur de Commerce moderne afin de pouvoir gérer leurs achats dans le Centre d’administration. Les administrateurs peuvent bloquer les achats en libre-service (pour Power BI, Power Apps, Power automate) via [PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Pour plus d’informations, consultez [FAQ sur l’achat en libre-service](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
+* **Achats sur la Place de marché commerciale de Microsoft** : comme pour l’achat en libre-service, quand un utilisateur achète un produit ou un service sur Microsoft AppSource ou la Place de marché Azure, le rôle Administrateur de Commerce moderne lui est attribué s’il n’a pas le rôle Administrateur général ou Administrateur de facturation. Dans certains cas, il peut arriver que des utilisateurs soient empêchés d’effectuer ces achats. Pour plus d’informations, consultez [Place de marché commerciale de Microsoft](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase).   
+* **Propositions de Microsoft** : une proposition est une offre formelle de Microsoft à votre organisation pour l’achat de produits et services Microsoft. Lorsque la personne qui accepte la proposition n’a pas de rôle Administrateur général ou Administrateur de facturation dans Azure AD, elle se voit attribuer un rôle spécifique du commerce pour compléter la proposition et le rôle Administrateur de Commerce moderne pour accéder au Centre d’administration. Quand elle accède au Centre d’administration, elle ne peut utiliser que des fonctionnalités autorisées par son rôle spécifique du commerce. 
+* **Rôles spécifiques du commerce** : certains utilisateurs se voient attribuer des rôles spécifiques du commerce. Si un utilisateur n’est pas un Administrateur général ou un Administrateur de facturation, il obtient le rôle Administrateur de Commerce moderne qui lui permet d’accéder au Centre d’administration.  
+
+En cas de suppression de l’attribution du rôle Administrateur de Commerce moderne à un utilisateur, celui-ci perd son accès au Centre d’administration Microsoft 365. S’il gérait des produits pour lui-même ou pour votre organisation, ils ne peut plus les gérer. Cette gestion peut inclure l’attribution de licences, la modification de modes de paiement, le paiement de factures ou d’autres tâches d’administration des abonnements. 
 
 ### <a name="network-administrator"></a>[Administrateur réseau](#network-administrator-permissions)
 
@@ -382,7 +396,7 @@ Les utilisateurs dotés de ce rôle peuvent créer, gérer et supprimer du conte
 
 ### <a name="security-administrator"></a>[Administrateur de la sécurité](#security-administrator-permissions)
 
-Les utilisateurs disposant de ce rôle sont autorisés à gérer les fonctionnalités liées à la sécurité dans le Centre de sécurité Microsoft 365, Azure Active Directory Identity Protection, Azure Information Protection et le Centre de sécurité et conformité Office 365. Pour plus d’informations sur les autorisations Office 365, consultez [Autorisations dans le Centre de sécurité et conformité Office 365](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+Les utilisateurs disposant de ce rôle sont autorisés à gérer les fonctionnalités liées à la sécurité dans le Centre de sécurité Microsoft 365, Azure Active Directory Identity Protection, Azure Active Directory Authentication, Azure Information Protection et le Centre de sécurité et conformité Office 365. Pour plus d’informations sur les autorisations Office 365, consultez [Autorisations dans le Centre de sécurité et conformité Office 365](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 Dans | Peut
 --- | ---
@@ -396,6 +410,8 @@ Windows Defender ATP et EDR | Attribuer des rôles<br>Gérer des groupes de mach
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Ajouter des administrateurs, des stratégies et des paramètres, charger des journaux d’activité et effectuer des actions de gouvernance
 [Centre de sécurité Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | peut afficher les stratégies de sécurité, les états de sécurité, les alertes et les recommandations, et ignorer les alertes et les recommandations
 [Office 365 Service Health](https://docs.microsoft.com/office365/enterprise/view-service-health) | Afficher l’intégrité des services Office 365
+[Verrouillage intelligent](../authentication/howto-password-smart-lockout.md) | Définissez le seuil et la durée des verrouillages lorsque des événements d’échec de connexion se produisent.
+[Protection par mot de passe](../authentication/concept-password-ban-bad.md) | Configurez une liste personnalisée de mots de passe interdits ou une protection par mot de passe locale.
 
 ### <a name="security-operator"></a>[Opérateur de sécurité](#security-operator-permissions)
 
@@ -597,22 +613,6 @@ Peut gérer tous les aspects du service Azure Information Protection.
 | microsoft.azure.supportTickets/allEntities/allTasks | Créez et gérez les tickets de support Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
-
-### <a name="b2c-user-flow-administrator-permissions"></a>Autorisations d’administrateur de flux d’utilisateurs B2C
-
-Créez et gérez tous les aspects des flux d’utilisateurs.
-
-| **Actions** | **Description** |
-| --- | --- |
-| microsoft.aad.b2c/userFlows/allTasks | Lisez et configurez des flux d’utilisateurs dans Azure Active Directory B2C. |
-
-### <a name="b2c-user-flow-attribute-administrator-permissions"></a>Autorisations d’administrateur d’attributs de flux d’utilisateurs B2C
-
-Créez et gérez le schéma d’attribut disponible pour tous les flux d’utilisateurs.
-
-| **Actions** | **Description** |
-| --- | --- |
-| microsoft.aad.b2c/userAttributes/allTasks | Lisez et configurez les attributs utilisateur dans Azure Active Directory B2C. |
 
 ### <a name="b2c-ief-keyset-administrator-permissions"></a>Autorisations d’administrateur de jeux de clés B2C IEF
 
@@ -1029,6 +1029,22 @@ Peut gérer tous les aspects du produit Exchange.
 | microsoft.office365.usageReports/allEntities/read | Lisez des rapports d’utilisation Office 365. |
 | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
 
+### <a name="external-id-user-flow-administrator-permissions"></a>Autorisations d’administrateur de flux d’utilisateurs ID externe
+
+Créez et gérez tous les aspects des flux d’utilisateurs.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.b2c/userFlows/allTasks | Lisez et configurez des flux d’utilisateurs dans Azure Active Directory B2C. |
+
+### <a name="external-id-user-flow-attribute-administrator-permissions"></a>Autorisations d’administrateur d’attribut de flux d’utilisateurs ID externe
+
+Créez et gérez le schéma d’attribut disponible pour tous les flux d’utilisateurs.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.b2c/userAttributes/allTasks | Lisez et configurez les attributs utilisateur dans Azure Active Directory B2C. |
+
 ### <a name="external-identity-provider-administrator-permissions"></a>Autorisations d’administrateur de fournisseurs d’identité externes
 
 Configurez des fournisseurs d’identité pour une utilisation dans une fédération directe.
@@ -1316,6 +1332,23 @@ Peut lire les messages et les mises à jour de son organisation dans le Centre d
 | --- | --- |
 | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
 | microsoft.office365.messageCenter/messages/read | Lisez les messages dans microsoft.office365.messageCenter. |
+
+### <a name="modern-commerce-administrator-permissions"></a>Autorisations d’Administrateur de Commerce moderne
+Peut gérer les achats commerciaux d’une société, d’un service ou d’une équipe. 
+
+> [!NOTE]
+> Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
+>
+>
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.commerce.billing/partners/read | Consultez la propriété du parfaire de Facturation O365. |
+| microsoft.commerce.volumeLicenseServiceCenter/allEntities/allTasks | Gérez tous les aspects du Centre de services de licences en volume. |
+| microsoft.directory/organization/basic/update | Mettez à jour des propriétés de base sur une organisation dans Azure Active Directory. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
+| microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
+
 
 ### <a name="network-administrator-permissions"></a>Autorisations d’administrateur réseau
 Peut gérer les emplacements réseau et passer en revue les insights sur la conception réseau de l’entreprise pour les applications Software as a Service Microsoft 365.
@@ -1807,8 +1840,6 @@ Développeur d’applications | Développeur d’applications | CF1C38E5-3621-40
 Administrateur d’authentification | Administrateur d’authentification | c4e39bd9-1100-46d3-8c65-fb160da0071f
 Administrateur Azure DevOps | Administrateur Azure DevOps | e3973bdf-4987-49ae-837a-ba8e231c7286
 Administrateur Azure Information Protection | Administrateur Azure Information Protection | 7495fdc4-34c4-4d15-a289-98788ce399fd
-Administrateur de flux d’utilisateurs B2C | Administrateur de flux d’utilisateurs B2C | 6e591065-9bad-43ed-90f3-e9424366d2f0
-Administrateur d’attributs de flux d’utilisateurs B2C | Administrateur d’attributs de flux d’utilisateurs B2C | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
 Administrateur de jeux de clés B2C IEF | Administrateur de jeux de clés B2C IEF | aaf43236-0c0d-4d5f-883a-6955382ac081
 Administrateur de stratégies B2C IEF | Administrateur de stratégies B2C IEF | 3edaf663-341e-4475-9f94-5c398ef6c070
 Administrateur de facturation | Administrateur de facturation | b0f54661-2d74-4c50-afa3-1ec803f12efe
@@ -1829,6 +1860,8 @@ Lecteurs de répertoires | Lecteurs d’annuaires | 88d8e3e3-8f55-4a1e-953a-9b98
 Comptes de synchronisation d’annuaires | Non affiché, car il ne doit pas être utilisé | d29b2b05-8046-44ba-8758-1e26182fcf32
 Enregistreurs de répertoire | Non affiché, car il ne doit pas être utilisé | 9360feb5-f418-4baa-8175-e2a00bac4301
 Administrateur de services Exchange | Administrateur Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
+Administrateur de flux d’utilisateurs ID externe | Administrateur de flux d’utilisateurs ID externe | 6e591065-9bad-43ed-90f3-e9424366d2f0
+Administrateur d’attribut de flux d’utilisateurs ID externe | Administrateur d’attribut de flux d’utilisateurs ID externe | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
 Administrateur de fournisseurs d’identité externes | Administrateur de fournisseurs d’identité externes | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Lecteur général | Lecteur général | f2ef992c-3afb-46b9-b7cf-a126ee74c451
 Administrateur de groupes | Administrateur de groupes | fdd7a751-b60b-444a-984c-02652fe8fa1c 
@@ -1841,6 +1874,7 @@ Administrateur de licence | Administrateur de licence | 4d6ac14f-3453-41d0-bef9-
 Administrateur de services Lync | Administrateur Skype Entreprise | 75941009-915a-4869-abe7-691bff18279e
 Lecteur de confidentialité du Centre de messages | Lecteur de confidentialité du Centre de messages | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 Lecteur du Centre de messages | Lecteur du Centre de messages | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
+Administrateur de Commerce moderne | Administrateur de Commerce moderne | d24aef57-1500-4070-84db-2666f29cf966
 Administrateur réseau | Administrateur réseau | d37c8bed-0711-4417-ba38-b4abe66ce4c2
 Administrateur d’applications Office | Administrateur d’applications Office | 2b745bdf-0803-4d80-aa65-822c4493daac
 Prise en charge de niveau 1 de partenaire | Non affiché, car il ne doit pas être utilisé | 4ba39ca4-527c-499a-b93d-d9b492c50246

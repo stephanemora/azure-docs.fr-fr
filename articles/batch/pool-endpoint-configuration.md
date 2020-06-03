@@ -1,14 +1,14 @@
 ---
 title: Configurer des points de terminaison de nœud dans le pool Azure Batch
 description: Comment configurer ou désactiver l’accès aux ports SSH ou RDP sur les nœuds de calcul dans un pool Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/13/2018
-ms.openlocfilehash: 8b0ae4b80757bfa647cd5322668d793fa66ffca3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1713637a9aba937525e64e1c4146589fca443461
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113848"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780291"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configurer ou désactiver l’accès à distance aux nœuds de calcul dans un pool Azure Batch
 
@@ -120,7 +120,5 @@ pool.network_configuration = batchmodels.NetworkConfiguration(
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Apprenez-en davantage sur le [flux de travail et les ressources principales du service Batch](batch-service-workflow-features.md), telles que les pools, les nœuds, les travaux et les tâches.
 - Pour plus d’informations sur les règles NSG dans Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](../virtual-network/security-overview.md).
-
-- Pour obtenir une présentation détaillée de Batch, consultez [Développer des solutions de calcul parallèles à grande échelle avec Batch](batch-api-basics.md).
-

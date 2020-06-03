@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: c65e3ad7ed02ddd4e6ed1d60628a738d333e9a9c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d3e5f99edb8043b563f37a1710c973bf925338db
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189379"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745563"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configurer le trafic réseau sortant pour les clusters Azure HDInsight à l’aide du pare-feu
 
@@ -115,7 +115,8 @@ Créez les règles de réseau pour configurer correctement votre cluster HDInsig
     | Nom | Protocol | Adresses sources | Étiquettes de service | Ports de destination | Notes |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | Configurez une règle de réseau dans la section Balises de service pour SQL qui vous permettra de journaliser et d’auditer le trafic SQL. Si vous avez configuré des points de terminaison de service pour SQL Server sur le sous-réseau HDInsight, le pare-feu sera contourné. |
-
+    | Rule_8 | TCP | * | Azure Monitor | * | (facultatif) Les clients qui envisagent d’utiliser la fonctionnalité de mise à l’échelle automatique doivent ajouter cette règle. |
+    
    ![Titre : Entrer une collection de règles d’application](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
 1. Sélectionnez **Ajouter**.
@@ -188,61 +189,7 @@ Après avoir correctement configuré le pare-feu, vous pouvez utiliser le point 
 
 Pour utiliser le point de terminaison public (`https://CLUSTERNAME.azurehdinsight.net`) ou ssh (`CLUSTERNAME-ssh.azurehdinsight.net`), assurez-vous d’avoir les routes appropriées dans la table de routage et les règles de groupe de sécurité réseau pour éviter le problème de routage asymétrique expliqué [ici](../firewall/integrate-lb.md). Plus précisément, dans ce cas, vous devez autoriser l’adresse IP du client dans les règles NSG entrantes et l’ajouter à la table de routage définie par l’utilisateur avec le tronçon suivant défini comme `internet`. Si le routage n’est pas configuré correctement, une erreur d’expiration du délai s’affiche.
 
-## <a name="configure-another-network-virtual-appliance"></a>Configurer une autre appliance virtuelle réseau
-
-> [!Important]
-> Les informations suivantes sont requises **uniquement** si vous souhaitez configurer une appliance virtuelle réseau (NVA) autre que le pare-feu Azure.
-
-Les instructions précédentes vous aideront à configurer le pare-feu Azure pour restreindre le trafic sortant de votre cluster HDInsight. Le pare-feu Azure est automatiquement configuré pour autoriser le trafic dans la plupart des scénarios importants courants. L’utilisation d’une autre appliance virtuelle réseau vous oblige à configurer un certain nombre de fonctionnalités supplémentaires. Gardez les facteurs suivants à l’esprit pendant la configuration de votre appliance virtuelle réseau :
-
-* Les services compatibles avec les points de terminaison de service doivent être configurés avec des points de terminaison de service.
-* Les dépendances d’adresses IP sont destinées au trafic non HTTP/S (à la fois le trafic TCP et UDP).
-* Les points de terminaison HTTP/HTTPS avec des noms FQDN peuvent être placés dans votre dispositif NVA.
-* Les points de terminaison HTTP/HTTPS avec des caractères génériques sont des dépendances qui peuvent varier selon le nombre de qualificateurs.
-* Affectez la table de routage créée à votre sous-réseau HDInsight.
-
-### <a name="service-endpoint-capable-dependencies"></a>Dépendances compatibles avec les points de terminaison de service
-
-| **Point de terminaison** |
-|---|
-| Azure SQL |
-| Stockage Azure |
-| Azure Active Directory |
-
-#### <a name="ip-address-dependencies"></a>Dépendances des adresses IP
-
-| **Point de terminaison** | **Détails** |
-|---|---|
-| \*:123 | Vérification de l’horloge NTP. Le trafic est vérifié à plusieurs points de terminaison sur le port 123 |
-| Adresses IP publiées [ici](hdinsight-management-ip-addresses.md) | Ces adresses IP sont associées au service HDInsight |
-| Adresses IP privées AAD-DS pour les clusters ESP |
-| \*:16800 pour KMS Windows Activation |
-| \*12000 pour Log Analytics |
-
-#### <a name="fqdn-httphttps-dependencies"></a>Dépendances HTTP/HTTPS FQDN
-
-> [!Important]
-> La liste ci-dessous contient seulement quelques-uns des noms FQDN les plus importants. Si vous avez besoin de noms FQDN supplémentaires (principalement Stockage Azure et Azure Service Bus) pour configurer votre appliance virtuelle réseau (NVA), accédez à [ce fichier](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
-
-| **Point de terminaison**                                                          |
-|---|
-| azure.archive.ubuntu.com:80                                           |
-| security.ubuntu.com:80                                                |
-| ocsp.msocsp.com:80                                                    |
-| ocsp.digicert.com:80                                                  |
-| wawsinfraprodbay063.blob.core.windows.net:443                         |
-| registry-1.docker.io:443                                              |
-| auth.docker.io:443                                                    |
-| production.cloudflare.docker.com:443                                  |
-| download.docker.com:443                                               |
-| us.archive.ubuntu.com:80                                              |
-| download.mono-project.com:80                                          |
-| packages.treasuredata.com:80                                          |
-| security.ubuntu.com:80                                                |
-| azure.archive.ubuntu.com:80                                           |
-| ocsp.msocsp.com:80                                                    |
-| ocsp.digicert.com:80                                                  |
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Architecture de réseau virtuel Azure HDInsight](hdinsight-virtual-network-architecture.md)
+* [Configurer une appliance virtuelle réseau](./network-virtual-appliance.md)

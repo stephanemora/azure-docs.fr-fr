@@ -5,19 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: f55ebb3270fdd97a1fdbbf5a56f9703c08933f9f
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: fd37ccc5850baf1cfb778b6706a76c91bd178922
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855324"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835170"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Gérer des pré-scripts et des post-scripts
 
 Les pré-scripts et les post-scripts sont des runbooks à exécuter dans votre compte Azure Automation avant (tâche préalable) et après (tâche postérieure) un déploiement de mises à jour. Les pré-scripts et les post-scripts s’exécutent dans le contexte Azure, pas localement. Les pré-scripts s’exécutent au début du déploiement de la mise à jour. Les post-scripts s’exécutent à la fin du déploiement et après chaque redémarrage qui a été configuré.
-
->[!NOTE]
->Cet article a été mis à jour pour tenir compte de l’utilisation du nouveau module Az d’Azure PowerShell. Vous pouvez toujours utiliser le module AzureRM, qui continue à recevoir des correctifs de bogues jusqu’à au moins décembre 2020. Pour en savoir plus sur le nouveau module Az et la compatibilité avec AzureRM, consultez [Présentation du nouveau module Az d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Pour obtenir des instructions relatives à l’installation du module Az sur votre Runbook Worker hybride, voir [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Pour votre compte Automation, vous pouvez mettre à jour vos modules vers la dernière version en suivant les instructions du [Guide de mise à jour des modules Azure PowerShell dans Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="pre-script-and-post-script-requirements"></a>Configuration requise pour les pré-scripts et les post-scripts
 
@@ -94,7 +91,7 @@ Un exemple complet avec toutes les propriétés est disponible ici : [Obtenir l
 > [!NOTE]
 > L’objet `SoftwareUpdateConfigurationRunContext` peut contenir des entrées en double pour les machines. De ce fait, il se peut que les pré-scripts et les post-scripts s’exécutent plusieurs fois sur la même machine. Pour éviter ce comportement, utilisez le paramètre `Sort-Object -Unique` pour sélectionner uniquement les noms de machine virtuelle uniques.
 
-## <a name="using-a-pre-script-or-post-script-in-a-deployment"></a>Utilisation d’un pré-script ou d’un post-script dans un déploiement
+## <a name="use-a-pre-script-or-post-script-in-a-deployment"></a>Utiliser un pré-script ou d’un post-script dans un déploiement
 
 Pour utiliser un pré-script ou un post-script dans un déploiement de mises à jour, commencez par créer un déploiement de mises à jour. Sélectionnez **Pre-scripts + Post-scripts**. Cette action ouvre la page **Select Pre-scripts + Post-scripts** (Sélectionner des pré-scripts et post-scripts).
 
@@ -120,7 +117,7 @@ Lorsque vous sélectionnez l’exécution du déploiement de mises à jour, vous
 
 dans votre script.
 
-## <a name="stopping-a-deployment"></a>Planification d’un déploiement
+## <a name="stop-a-deployment"></a>Arrêter un déploiement
 
 Si vous souhaitez arrêter un déploiement basé sur un pré-script, vous devez [lever](automation-runbook-execution.md#throw) une exception. Si vous ne le faites pas, le post-script et le déploiement continueront de s’exécuter. L’extrait de code suivant montre comment lever une exception.
 
@@ -137,9 +134,7 @@ foreach($summary in $finalStatus)
 }
 ```
 
-
-
-## <a name="interacting-with-machines"></a>Interaction avec des machines
+## <a name="interact-with-machines"></a>Interagir avec des machines
 
 Les pré-scripts et les tâches postérieures s’exécutent sous la forme de runbooks dans votre compte Automation, et non directement sur les machines de votre déploiement. Les tâches préalables et les tâches postérieures s’exécutent également dans le contexte Azure et n’ont pas accès aux machines non Azure. Les sections suivantes vous montrent comment interagir directement avec les machines, qu’il s’agisse de machines virtuelles Azure ou de machines non-Azure.
 
@@ -163,7 +158,7 @@ Les tâches antérieures et les tâches postérieures s’exécutent dans le con
 
 Pour interagir avec les machines non-Azure, un runbook parent est exécuté dans le contexte Azure. Ce runbook appelle un runbook enfant avec l’applet de commande [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0). Vous devez spécifier le paramètre `RunOn` et indiquer le nom du Runbook Worker hybride sur lequel exécuter le script. Consultez l’exemple de runbook [Update Management – exécuter le script localement](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
 
-## <a name="aborting-patch-deployment"></a>Abandon du déploiement de correctifs
+## <a name="abort-patch-deployment"></a>À propos du déploiement de correctifs
 
 Si votre pré-script retourne une erreur, vous serez peut-être amené à annuler le déploiement. Pour cela, vous devez [lever](/powershell/module/microsoft.powershell.core/about/about_throw) une erreur dans votre script pour toute logique pouvant constituer une défaillance.
 
@@ -250,7 +245,4 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Poursuivez avec le tutoriel suivant pour apprendre à gérer les mises à jour de vos machines virtuelles Windows :
-
-> [!div class="nextstepaction"]
-> [Gérer les mises à jour et les correctifs pour vos machines virtuelles Windows Azure](automation-tutorial-update-management.md)
+* Pour plus de détails sur la gestion des mises à jour, consultez [Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure](automation-tutorial-update-management.md).

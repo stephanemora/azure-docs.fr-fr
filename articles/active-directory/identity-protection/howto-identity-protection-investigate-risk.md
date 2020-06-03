@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5191f05752c177aa29d121abe9d1aa29fde265a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 23105a78e2ba34cf6a45f749ebfdd6b034ebf0dc
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79227777"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680147"
 ---
 # <a name="how-to-investigate-risk"></a>Procédure : Examiner les risques
 
@@ -74,6 +74,9 @@ Les administrateurs peuvent ensuite choisir d’agir sur ces événements. Les a
 
 - Confirmer que la connexion est compromise
 - Confirmer que la connexion est sécurisée
+
+> [!NOTE] 
+> Identity Protection évalue les risques pour tous les flux d’authentification, qu’ils soient interactifs ou non. Toutefois, le rapport de connexion n’affiche que les connexions interactives. Des connexions risquées peuvent s’être produites sur des connexions non interactives, mais elles ne figurent pas dans le rapport de connexions Azure AD.
 
 ## <a name="risk-detections"></a>Détections de risques
 
