@@ -6,8 +6,6 @@
   items:
     - name: "Qu’est-ce que Data Science Virtual Machine (DSVM)\_?"
       href: overview.md
-    - name: "Qu’est-ce que Geo AI Data Science Virtual Machine\_?"
-      href: geo-ai-dsvm-overview.md
     - name: Outils inclus dans Data Science Virtual Machine
       href: tools-included.md
 - name: Démarrages rapides
@@ -17,8 +15,6 @@
       href: provision-vm.md
     - name: Créer une instance Ubuntu de Data Science Virtual Machine
       href: dsvm-ubuntu-intro.md
-    - name: Créer une instance Geo AI de Data Science Virtual Machine
-      href: provision-geo-ai-dsvm.md
 - name: Concepts
   items:
     - name: Frameworks d’apprentissage profond et d’intelligence artificielle
@@ -45,8 +41,6 @@
       href: vm-do-ten-things.md
     - name: Utiliser une instance Linux de Data Science Virtual Machine
       href: linux-dsvm-walkthrough.md
-    - name: Utiliser une instance Geo AI de Data Science Virtual Machine
-      href: use-geo-ai-dsvm.md
     - name: Créer un pool Data Science Virtual Machine mis à l’échelle automatiquement
       href: dsvm-pools.md
     - name: Intégration avec Active Directory

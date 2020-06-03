@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: davidsmatlak
 ms.author: v-dasmat
 ms.date: 04/21/2020
-ms.openlocfilehash: 865c39ea9a48f9f5e0fbf04dea629b6886cf7ae4
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: fb4a21946b848ad05abac9b06999c7982812a361
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584062"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021209"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 
@@ -323,7 +323,7 @@ Sauf mention contraire, le tableau suivant s’applique aux références SKU v1,
 
 ## <a name="sql-database-limits"></a>Limites de base de données SQL
 
-Pour connaître les limites SQL Database, consultez [Limites de ressources SQL Database pour les bases de données uniques](../../sql-database/sql-database-vcore-resource-limits-single-databases.md), [Limites de ressources SQL Database pour les pools élastiques et les bases de données mises en pool](../../sql-database/sql-database-vcore-resource-limits-elastic-pools.md) et [Limites de ressources de SQL Database pour les instances gérées](../../sql-database/sql-database-managed-instance-resource-limits.md).
+Pour connaître les limites SQL Database, consultez [Limites de ressources SQL Database pour les bases de données uniques](../../azure-sql/database/resource-limits-vcore-single-databases.md), [Limites de ressources SQL Database pour les pools élastiques et les bases de données mises en pool](../../azure-sql/database/resource-limits-vcore-elastic-pools.md) et [Limites de ressources de SQL Database pour les instances gérées](../../azure-sql/managed-instance/resource-limits.md).
 
 ## <a name="sql-data-warehouse-limits"></a>Limites SQL Data Warehouse
 
