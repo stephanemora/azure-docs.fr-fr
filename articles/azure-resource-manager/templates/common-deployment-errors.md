@@ -4,12 +4,12 @@ description: Décrit comment résoudre les erreurs courantes lors du déploiemen
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 10/04/2019
-ms.openlocfilehash: bc1568c53cdb5518f694d77a2f28f3cf77296ee2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e1b7a318f73a513d699de97f0973ece9b6481b93
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460379"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84230625"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager
 
@@ -62,8 +62,8 @@ Si vous recherchez des informations sur un code d’erreur et que ces informatio
 | OperationNotAllowed | Le déploiement tente une opération qui dépasse le quota autorisé pour l’abonnement, le groupe de ressources ou la région. Si possible, modifiez votre déploiement pour respecter les quotas. Dans le cas contraire, vous pouvez demander une modification de vos quotas. | [Résoudre les erreurs de quota](error-resource-quota.md) |
 | ParentResourceNotFound | Assurez-vous qu’il existe une ressource parente avant de créer des ressources enfants. | [Résoudre les erreurs de ressource parente](error-parent-resource.md) |
 | PasswordTooLong | Vous avez peut-être choisi un mot de passe comportant trop de caractères ou converti la valeur de votre mot de passe en chaîne sécurisée avant de la transmettre en tant que paramètre. Si le modèle inclut un paramètre de **chaîne sécurisée**, vous n’avez pas besoin de convertir la valeur en chaîne sécurisée. Indiquez la valeur de mot de passe sous forme de texte. |  |
-| PrivateIPAddressInReservedRange | L’adresse IP spécifiée inclut une plage d’adresses requise par Azure. Modifiez l’adresse IP pour éviter d’utiliser la plage réservée. | [Adresses IP](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
-| PrivateIPAddressNotInSubnet | L’adresse IP spécifiée se trouve en dehors de la plage de sous-réseau. Modifiez l’adresse IP pour qu’elle se trouve dans la plage de sous-réseau. | [Adresses IP](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
+| PrivateIPAddressInReservedRange | L’adresse IP spécifiée inclut une plage d’adresses requise par Azure. Modifiez l’adresse IP pour éviter d’utiliser la plage réservée. | [Adresses IP](../../virtual-network/public-ip-addresses.md) |
+| PrivateIPAddressNotInSubnet | L’adresse IP spécifiée se trouve en dehors de la plage de sous-réseau. Modifiez l’adresse IP pour qu’elle se trouve dans la plage de sous-réseau. | [Adresses IP](../../virtual-network/public-ip-addresses.md) |
 | PropertyChangeNotAllowed | Certaines propriétés ne peuvent pas être changées sur une ressource déployée. Durant la mise à jour d’une ressource, limitez vos modifications aux propriétés autorisées. | [Mettre à jour une ressource](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | RequestDisallowedByPolicy | Votre abonnement inclut une stratégie de ressource qui empêche une action que vous tentez d’exécuter au cours du déploiement. Recherchez la stratégie qui bloque l’action. Si possible, modifiez votre déploiement pour respecter les limitations de la stratégie. | [Résoudre les erreurs de stratégie](error-policy-requestdisallowedbypolicy.md) |
 | ReservedResourceName | Spécifiez un nom de ressource qui n’inclut pas de nom réservé. | [Noms de ressource réservés](error-reserved-resource-name.md) |

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: afdd9b1b063d0a82c8cdb27ef01b412daaa9f1df
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6dc94cca66370daa307a21daa6c96a778baed08c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198906"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017628"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Prise en main du stockage de files d’attente Azure à l’aide de .NET
 
@@ -500,7 +500,7 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 - Pour plus d’informations sur les autres options de stockage de données dans Azure, consultez d’autres guides de fonctionnalités.
   - [Prise en main du stockage de tables Azure à l’aide de .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) pour le stockage de données structurées.
   - [Prise en main d’Azure Blob Storage à l’aide de .NET](../blobs/storage-dotnet-how-to-use-blobs.md) pour le stockage de données non structurées.
-  - [Connexion à SQL Database à l’aide de .NET (C#)](../../sql-database/sql-database-connect-query-dotnet-core.md) pour stocker des données relationnelles.
+  - [Connexion à SQL Database à l’aide de .NET (C#)](../../azure-sql/database/connect-query-dotnet-core.md) pour stocker des données relationnelles.
 
 [Download and install the Azure SDK for .NET]: /develop/net/
 [.NET client library reference]: https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409

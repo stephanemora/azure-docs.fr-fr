@@ -9,12 +9,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: a2eba958ca2d4a90cb3706839d726fdd0a48ed4f
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: acada42cd50d607925d7c4583820c2590ff76639
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994086"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266557"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dix choses que vous pouvez effectuer sur la machine virtuelle Science des données de Windows
 
@@ -457,7 +457,7 @@ Effectuez les étapes prérequises suivantes pour accéder à Azure Cosmos DB 
 1. Le Kit de développement logiciel (SDK) Azure Cosmos DB Python est déjà installé sur la DSVM. Pour le mettre à jour, exécutez ```pip install pydocumentdb --upgrade``` à partir d’une invite de commandes.
 2. Créez un compte et une base de données Azure Cosmos DB à partir du [portail Azure](https://portal.azure.com).
 3. Téléchargez l’outil de migration de données Azure Cosmos DB à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=53595) et extrayez-le dans le répertoire de votre choix.
-4. Importez des données JSON (données volcano) stockées dans un [objet blob public](https://https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json) dans Azure Cosmos DB avec les paramètres de commande suivants dans l’outil de migration. (Utilisez dtui.exe à partir du répertoire où vous avez installé l’outil de migration de données Azure Cosmos DB.) Entrez les paramètres d'emplacement source et cible suivant :
+4. Importez des données JSON (données volcano) stockées dans un [objet blob public](https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json) dans Azure Cosmos DB avec les paramètres de commande suivants dans l’outil de migration. (Utilisez dtui.exe à partir du répertoire où vous avez installé l’outil de migration de données Azure Cosmos DB.) Entrez les paramètres d'emplacement source et cible suivant :
    
     `/s:JsonFile /s.Files:https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: ab25b2e300f9fe9b0b1d077a42538c69fa543af2
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: acfe367033d1553f5ee408ad0f4170e5d981377e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982698"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021821"
 ---
 # <a name="ingesting-data-into-a-sql-pool"></a>Ingérer des données dans un pool SQL
 
@@ -24,7 +24,7 @@ Cet article explique comment ingérer les données d’un compte de stockage Azu
 
 * **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * **Compte de stockage Azure** : Vous utilisez Azure Data Lake Storage Gen2 comme magasin de données *source*. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte Stockage Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) pour découvrir comment procéder.
-* **Azure Synapse Analytics** : Vous utilisez un pool SQL en tant que magasin de données *récepteur*. Si vous ne disposez pas d’une instance Synapse Analytics, consultez [Créer un pool SQL](../../sql-database/sql-database-get-started-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) pour savoir comment procéder.
+* **Azure Synapse Analytics** : Vous utilisez un pool SQL en tant que magasin de données *récepteur*. Si vous ne disposez pas d’une instance Synapse Analytics, consultez [Créer un pool SQL](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) pour savoir comment procéder.
 
 ## <a name="create-linked-services"></a>Créez des services liés
 

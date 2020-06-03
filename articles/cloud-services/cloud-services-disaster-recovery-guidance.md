@@ -10,12 +10,12 @@ ms.workload: cloud-services
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
-ms.openlocfilehash: e3f0fd88eb302dac208f43d0622ae28b31dcddc2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d4f869c8b4ae6e90cfe64a2bf3d13839d72727be
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77157504"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015297"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Que faire si une interruption de service Azure affecte Azure Cloud Services
 Microsoft s’engage à déployer tous les efforts nécessaires pour vous garantir en permanence la disponibilité de ses services quand vous en avez besoin. Il arrive parfois que des phénomènes incontrôlables entraînent des interruptions de service non planifiées.
@@ -47,7 +47,7 @@ Pour plus d’informations sur la façon de créer et de déployer une applicati
 Suivant vos sources de données d’application, vous pouvez être amené à vérifier les procédures de récupération.
 
 * Pour les sources de données Azure Storage, voir [Redondance de Stockage Azure](../storage/common/storage-redundancy.md) pour vérifier les options disponibles selon le modèle de redondance choisi pour votre application.
-* Pour les sources SQL Database, consultez [Vue d’ensemble : continuité des activités cloud et récupération d’urgence d’une base de données avec SQL Database](../sql-database/sql-database-business-continuity.md) pour vérifier les options disponibles selon le modèle de réplication choisi pour votre application.
+* Pour les sources SQL Database, consultez [Vue d’ensemble : continuité des activités cloud et récupération d’urgence d’une base de données avec SQL Database](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md) pour vérifier les options disponibles selon le modèle de réplication choisi pour votre application.
 
 
 ## <a name="option-3-wait-for-recovery"></a>Option 3 : attente de récupération

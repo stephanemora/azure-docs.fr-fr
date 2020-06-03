@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: b7f7793016d2a408d6b286f417e3e89e7a22ca91
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 375dac3fffc1a49cc3d10999c4969a7365dfb49c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232374"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193435"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Migrer un magasin HDFS local vers Stockage Azure à l’aide d’Azure Data Box
 
@@ -239,7 +239,7 @@ Exécutez cette commande pour appliquer des autorisations aux données que vous 
 
 Avant de déplacer vos données vers une Data Box, vous devrez télécharger des scripts d'aide, vérifier que vos données sont organisées pour tenir sur une Data Box, puis exclure tout fichier inutile.
 
-<a id="download-helper-scripts" />
+<a id="download-helper-scripts"></a>
 
 ### <a name="download-helper-scripts-and-set-up-your-edge-node-to-run-them"></a>Télécharger des scripts d'aide et configurer votre nœud de périphérie pour qu'il les exécute
 

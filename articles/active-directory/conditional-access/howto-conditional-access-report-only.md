@@ -4,19 +4,19 @@ description: Utilisation du mode Rapport uniquement dans l’accès conditionnel
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 05/01/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb13eb699f770d4d7f896b8179888d1514b1c46d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 46a00d55c58992be1009da1de5441ebe4e589a70
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690374"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994967"
 ---
 # <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>Configurer une stratégie d’accès conditionnel en mode Rapport seul
 

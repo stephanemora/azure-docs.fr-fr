@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 4ca8fe3e217d3b4affc1bc0bda9ed193e91b2104
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c0714bf27897de72246461ae3ad3250c55390e1
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79537140"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170662"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure Database pour MySQL
 
@@ -25,7 +25,7 @@ Pour créer une règle de réseau virtuel, il doit d’abord exister un [réseau
 > Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database pour MySQL est déployé, pour les serveurs à usage général et à mémoire optimisée.
 > En cas de peering de réseau virtuel, si le trafic passe par une passerelle de réseau virtuel commune avec des points de terminaison de service et qu'il est supposé transiter par l'homologue, créez une règle ACL/VNet pour permettre aux machines virtuelles Azure du réseau virtuel de la passerelle d'accéder au serveur Azure Database pour MySQL.
 
-<a name="anch-terminology-and-description-82f" />
+<a name="anch-terminology-and-description-82f"></a>
 
 ## <a name="terminology-and-description"></a>Terminologie et description
 
@@ -45,7 +45,7 @@ Une règle de réseau virtuel donne l’instruction au serveur Azure Database po
 
 
 
-<a name="anch-benefits-of-a-vnet-rule-68b" />
+<a name="anch-benefits-of-a-vnet-rule-68b"></a>
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>Avantages d’une règle de réseau virtuel
 
@@ -69,7 +69,7 @@ Si votre serveur **Microsoft.Sql** était un nœud sur un sous-réseau de votre 
 
 Toutefois, depuis août 2018, le service Azure Database pour MySQL ne figure plus parmi les services pouvant être assignés directement à un sous-réseau.
 
-<a name="anch-details-about-vnet-rules-38q" />
+<a name="anch-details-about-vnet-rules-38q"></a>
 
 ## <a name="details-about-virtual-network-rules"></a>Informations sur les règles de réseau virtuel
 

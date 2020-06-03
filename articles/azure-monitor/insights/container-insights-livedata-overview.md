@@ -3,12 +3,13 @@ title: Voir Live Data (préversion) avec Azure Monitor pour conteneurs | Microso
 description: Cet article décrit la vue en temps réel des journaux, métriques de pod et événements Kubernetes, sans l’utilisation de kubectl, dans Azure Monitor pour conteneurs.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 38615acf079c33c49e27394bfdb9b8104e5a68ac
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.custom: references_regions
+ms.openlocfilehash: 80bf3e50ac63ae9b48d6f3b314bc52bcb209072f
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872112"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196053"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Comment voir les journaux, métriques de pod et événements Kubernetes en temps réel
 

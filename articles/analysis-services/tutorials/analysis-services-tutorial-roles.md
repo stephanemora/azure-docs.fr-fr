@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 0bedc88b78f2ac758d3201965425b42b69580719
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 6e757260c7cd8945ff75dd0e760f3afeffd992f9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81454252"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016387"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutoriel : Configurer l’administrateur du serveur et les rôles d’utilisateur
 
@@ -59,7 +59,7 @@ Pour les tâches restantes, vous utilisez SSMS pour vous connecter à votre serv
     ![Se connecter dans SSMS](./media/analysis-services-tutorial-roles/aas-connect-ssms-auth.png)
 
     > [!TIP]
-    > Choisir Active Directory - Authentification universelle avec prise en charge de MFA est recommandé. Ce type de type d’authentification prend en charge l’[authentification multifacteur et non interactive](../../sql-database/sql-database-ssms-mfa-authentication.md). 
+    > Choisir Active Directory - Authentification universelle avec prise en charge de MFA est recommandé. Ce type de type d’authentification prend en charge l’[authentification multifacteur et non interactive](../../azure-sql/database/authentication-mfa-ssms-overview.md). 
 
 3. Dans l’**Explorateur d’objets**, développez pour afficher les objets de serveur. Faites un clic droit pour afficher les propriétés de serveur.
    
