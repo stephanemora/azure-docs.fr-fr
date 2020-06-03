@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 93ec5e740ac6acf9420a9d980092ed772ac1618e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c5269488b1c449580d56a0c1506c59b89c76ca6
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76720977"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267986"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Accédez aux jeux de données avec Python grâce à la bibliothèque cliente Python d'Azure Machine Learning
 L’aperçu de la bibliothèque cliente Python de Microsoft Azure Machine Learning offre un accès sécurisé à vos jeux de données Azure Machine Learning à partir d’un environnement Python local et permet la création et la gestion de jeux de données dans un espace de travail.
@@ -40,7 +40,7 @@ Il a une dépendance sur les packages suivants :
 * python-dateutil
 * pandas
 
-Nous vous invitons à utiliser une distribution Python telle qu’[Anaconda](http://continuum.io/downloads#all) ou [Canopy](https://store.enthought.com/downloads/), qui est fournie avec Python, IPython et les trois packages listés ci-dessus installés. Bien que IPython n'est pas formellement requis, il s'agit d'un environnement idéal pour la manipulation et la visualisation interactive des données.
+Nous vous invitons à utiliser une distribution Python telle qu’[Anaconda](https://www.anaconda.com/) ou [Canopy](https://store.enthought.com/downloads/), qui est fournie avec Python, IPython et les trois packages listés ci-dessus installés. Bien que IPython n'est pas formellement requis, il s'agit d'un environnement idéal pour la manipulation et la visualisation interactive des données.
 
 ### <a name="how-to-install-the-azure-machine-learning-python-client-library"></a><a name="installation"></a>Installation de la bibliothèque cliente Python d'Azure Machine Learning
 Installez la bibliothèque cliente Python d’Azure Machine Learning pour effectuer les tâches décrites dans cette rubrique. Cette bibliothèque est disponible depuis le [Python Package Index](https://pypi.python.org/pypi/azureml). Pour l'installer dans votre environnement Python, exécutez la commande suivante à partir de votre environnement Python local :

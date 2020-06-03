@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: cbef0244f30a7cf14f8fea4c6a445cf0de662dc4
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.openlocfilehash: 46dd7949dde1890035053a7a985f2f1d921e141e
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82737893"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266659"
 ---
 # <a name="create-diagnostic-setting-to-collect-resource-logs-and-metrics-in-azure"></a>Créer un paramètre de diagnostic pour collecter les journaux et les métriques des ressources dans Azure
 
@@ -149,11 +149,11 @@ az monitor diagnostic-settings create  \
 --event-hub-rule /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
 ```
 
-### <a name="configure-diagnostic-settings-using-rest-api"></a>Configurer des paramètres de diagnostic à l’aide de l’API REST
+## <a name="configure-diagnostic-settings-using-rest-api"></a>Configurer des paramètres de diagnostic à l’aide de l’API REST
 
 Pour créer ou mettre à jour des paramètres de diagnostic à l’aide de l’[API REST Azure Monitor](https://docs.microsoft.com/rest/api/monitor/), voir [Paramètres de diagnostic](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings).
 
-### <a name="configure-diagnostic-settings-using-resource-manager-template"></a>Configurer des paramètres de diagnostic à l’aide du modèle Resource Manager
+## <a name="configure-diagnostic-settings-using-resource-manager-template"></a>Configurer des paramètres de diagnostic à l’aide du modèle Resource Manager
 
 Pour créer ou mettre à jour des paramètres de diagnostic à l’aide d’un modèle Resource Manager, voir [Créer un paramètre de diagnostic dans Azure Monitor à l’aide d’un modèle Resource Manager](diagnostic-settings-template.md).
 

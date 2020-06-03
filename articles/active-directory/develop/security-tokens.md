@@ -13,12 +13,12 @@ ms.date: 05/11/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: def198a15710d0aff4a943300eedc338a7772e46
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 88dc4bb86459cd0390c4c01deb871aa93e39c6d1
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115793"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266744"
 ---
 # <a name="security-tokens"></a>Jetons de sécurité
 
@@ -77,7 +77,7 @@ Selon la façon dont votre client est créé, il peut utiliser un ou plusieurs d
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Flux du code d’autorisation](v2-oauth2-auth-code-flow.md) | | x | x | x | x|
 |[Flux implicite](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
-|[Circuit OIDC hybride](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[Circuit OIDC hybride](v2-protocols-oidc.md#protocol-diagram-access-token-acquisition)| | x  | |          |            x   |
 |[Échange de jetons d’actualisation](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | jeton d'actualisation | x | x | x| |
 |[Flux On-Behalf-Of](v2-oauth2-on-behalf-of-flow.md) | access token| x| x| x| |
 |[Informations d’identification du client](v2-oauth2-client-creds-grant-flow.md) | | | x (application uniquement)| | |

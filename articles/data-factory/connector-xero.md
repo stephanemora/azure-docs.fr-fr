@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 8a704c3891c687edbb7c5aac206f4b6c7766fa8c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ba5105c6183c88ca7e5641cdacaa5d80ea529bc6
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81409986"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263888"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Copier des données de Xero à l’aide d’Azure Data Factory
 
@@ -35,7 +35,7 @@ Vous pouvez copier les données de Xero vers toute banque de données réceptric
 
 Plus précisément, ce connecteur Xero prend en charge ce qui suit :
 
-- [Application privée](https://developer.xero.com/documentation/getting-started/api-application-types) Xero mais pas d’application publique.
+- [Application privée](https://developer.xero.com/documentation/getting-started/getting-started-guide) Xero mais pas d’application publique.
 - Toutes les tables Xero (points de terminaison d’API) à l’exception de « Reports ». 
 
 Azure Data Factory fournit un pilote intégré qui permet la connexion. Vous n’avez donc pas besoin d’installer manuellement un pilote à l’aide de ce connecteur.
@@ -55,7 +55,7 @@ Les propriétés prises en charge pour le service lié Xero sont les suivantes :
 | type | La propriété type doit être définie sur : **Xero** | Oui |
 | host | Le point de terminaison du serveur Xero (`api.xero.com`).  | Oui |
 | consumerKey | Clé de consommateur associée à l’application Xero. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
-| privateKey | La clé privée provenant du fichier .pem qui a été généré pour votre application privée Xero, consultez [Créer une paire de clés publique/privée](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Remarque : pour **générer privatekey.pem avec numbits 512** à l’aide de `openssl genrsa -out privatekey.pem 512` ; 1024 n’est pas pris en charge. Inclut tout le texte du fichier .pem, y compris les fins de ligne Unix (\n), voir l’exemple ci-dessous.<br/><br/>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| privateKey | La clé privée provenant du fichier .pem qui a été généré pour votre application privée Xero, consultez [Créer une paire de clés publique/privée](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Remarque : pour **générer privatekey.pem avec numbits 512** à l’aide de `openssl genrsa -out privatekey.pem 512` ; 1024 n’est pas pris en charge. Inclut tout le texte du fichier .pem, y compris les fins de ligne Unix (\n), voir l’exemple ci-dessous.<br/><br/>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non |
 | useHostVerification | Indique si le nom d’hôte est requis dans le certificat de serveur et doit correspondre au nom d’hôte du serveur lors de la connexion via le protocole TLS. La valeur par défaut est true.  | Non |
 | usePeerVerification | Indique s’il faut vérifier l’identité du serveur en cas de connexion TLS. La valeur par défaut est true.  | Non |

@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 1e7eaf49fb8b62259b8c619c89edffd629dfde7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa778aa395d013bd644f69886ea5ebc2399e6f54
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81685510"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84265248"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Utiliser un broker d’ID pour la gestion des informations d’identification
 
@@ -100,7 +100,7 @@ L’authentification SSH requiert que le hachage soit disponible dans Azure AD D
 
 Dans la configuration du broker d’ID, les applications personnalisées et les clients qui se connectent à la passerelle peuvent être mis à jour pour acquérir, dans un premier temps, le jeton OAuth requis. Vous pouvez suivre les étapes décrites dans ce [document](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) pour obtenir le jeton avec les informations suivantes :
 
-*   URI de ressource OAuth : https://hib.azurehdinsight.net 
+*   URI de ressource OAuth : `https://hib.azurehdinsight.net` 
 * AppId : 7865c1d2-f040-46cc-875f-831a1ef6a28a
 *   Autorisation : (nom : Cluster.ReadWrite, id: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 

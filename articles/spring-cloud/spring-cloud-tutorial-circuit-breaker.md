@@ -6,12 +6,12 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
-ms.openlocfilehash: e5fbb14477275ca329243797b75550cfe92077b6
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: a92c5fde68227bf94342dd380250429675bd084d
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701559"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248853"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Utiliser le tableau de bord Circuit Breaker avec Azure Spring Cloud
 Spring [Cloud Netflix Turbine](https://github.com/Netflix/Turbine) est couramment utilisé pour regrouper plusieurs flux de métriques [Hystrix](https://github.com/Netflix/Hystrix), en vue de leur supervision dans une vue unique à l’aide du tableau de bord Hystrix. Ce tutoriel montre comment les utiliser sur Azure Spring Cloud.
@@ -59,7 +59,7 @@ Une fois que toutes les applications sont en cours d’exécution et découvrabl
 Effectuez une vérification à l’aide de points de terminaison publics ou de points de terminaison de test privés.
 
 ### <a name="using-public-endpoints"></a>Utilisation de points de terminaison publics
-Accédez à hystrix-turbine en suivant le chemin `https://<SERVICE-NAME>-hystrix-turbine azuremicroservices.io/hystrix` à partir de votre navigateur.  L’illustration suivante montre le tableau de bord Hystrix en cours d’exécution dans cette application.
+Accédez à hystrix-turbine en suivant le chemin `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/hystrix` à partir de votre navigateur.  L’illustration suivante montre le tableau de bord Hystrix en cours d’exécution dans cette application.
 
 ![Tableau de bord Hystrix](media/spring-cloud-circuit-breaker/hystrix-dashboard.png)
 

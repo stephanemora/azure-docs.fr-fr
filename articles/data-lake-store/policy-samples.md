@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Data Lake Storage Gen1
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Data Lake Storage Gen1. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 05/13/2020
+ms.date: 05/29/2020
 ms.topic: sample
 author: twooley
 ms.author: twooley
 ms.service: data-lake-store
 ms.custom: subject-policy-samples
-ms.openlocfilehash: c254510cd30e5fc971d097e5706ab622f02cacd3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 65e2f5a0d8fce63c18df1b41e4c3383712b4a107
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656263"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235775"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-data-lake-storage-gen1"></a>Définitions de stratégie intégrées d’Azure Policy pour Azure Data Lake Storage Gen1
 

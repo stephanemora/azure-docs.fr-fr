@@ -2,19 +2,19 @@
 title: Configurer Azure SQL Edge (préversion)
 description: En savoir plus sur la configuration d'Azure SQL Edge (préversion)
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 5dcdd1604674ca56fb7a646d4c571d63bd2c0e3e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a28724e00f59fe049d1d9d6dfbcbc5a3f9556124
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594008"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235141"
 ---
 # <a name="configure-azure-sql-edge-preview"></a>Configurer Azure SQL Edge (préversion)
 
@@ -72,7 +72,7 @@ Contrairement à SQL Server sur Linux, Azure SQL Edge n’inclut pas l’[utilit
 ```
 
 Les options mssql.conf suivantes ne s’appliquent pas à SQL Edge :
-</br></br>
+
 |Option|Description|
 |:---|:---|
 |**Feedback des clients** | Choisir si SQL Server envoie ou non un feedback à Microsoft. |

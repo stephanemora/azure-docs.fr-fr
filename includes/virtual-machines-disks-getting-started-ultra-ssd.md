@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 10b3a6bb9592c955d16b070ae412374b8a1f4444
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4468025f6389d31269d9e587fca25390f19bdbbc
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196970"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84200382"
 ---
 Les disques Ultra Azure permettent un stockage de disque à haut débit avec un nombre élevé d’IOPS et une faible latence homogène pour les machines virtuelles Azure IaaS. Cette nouvelle offre fournit des performances optimales aux mêmes niveaux de disponibilité que nos offres de disques existantes. Entre autres avantages, les disques Ultra permettent de changer dynamiquement les performances des disques SSD en fonction de vos charges de travail, sans avoir à redémarrer les machines virtuelles. Les disques Ultra sont adaptés aux charges de travail qui consomment beaucoup de données, par exemple SAP HANA, les bases de données de niveau supérieur et les charges de travail avec un grand nombre de transactions.
 
@@ -30,11 +30,11 @@ Pour tirer parti des disques Ultra, vous devez déterminer la zone de disponibil
 #### <a name="cli"></a>Interface de ligne de commande
 
 ```azurecli
-$subscription = "<yourSubID>"
+subscription = "<yourSubID>"
 # example value is southeastasia
-$region = "<yourLocation>"
+region = "<yourLocation>"
 # example value is Standard_E64s_v3
-$vmSize = "<yourVMSize>"
+vmSize = "<yourVMSize>"
 
 az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].locationInfo[0].zoneDetails[0].Name" --subscription $subscription
 ```
@@ -65,10 +65,10 @@ Maintenant que vous savez quelle zone déployer, suivez les étapes de déploiem
 Les disques Ultra déployés dans la région USA Ouest doivent être déployés sans aucune option de redondance. Toutefois, cette région ne comprend pas nécessairement toutes les tailles de disque qui prennent en charge les disques Ultra. Pour déterminer celles qui, dans la région USA Ouest, prennent en charge les disques Ultra, vous pouvez utiliser l’un ou l’autre des extraits de code suivants. Veillez d’abord à remplacer les valeurs `vmSize` et `subscription` :
 
 ```azurecli
-$subscription = "<yourSubID>"
-$region = "westus"
+subscription = "<yourSubID>"
+region = "westus"
 # example value is Standard_E64s_v3
-$vmSize = "<yourVMSize>"
+vmSize = "<yourVMSize>"
 
 az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].capabilities" --subscription $subscription
 ```
@@ -219,12 +219,12 @@ az vm start -n $vmName -g $rgName
 Maintenant que vous disposez d’une machine virtuelle capable d’attacher des disques Ultra, vous pouvez créer un disque Ultra et l’attacher à cette machine.
 
 ```azurecli-interactive
-$location="eastus2"
-$subscription="xxx"
-$rgname="ultraRG"
-$diskname="ssd1"
-$vmname="ultravm1"
-$zone=123
+location="eastus2"
+subscription="xxx"
+rgname="ultraRG"
+diskname="ssd1"
+vmname="ultravm1"
+zone=123
 
 #create an ultra disk
 az disk create `
@@ -244,10 +244,10 @@ az disk create `
 Si votre machine virtuelle se trouve dans une région/zone de disponibilité capable d’utiliser les disques Ultra, vous pouvez utiliser des disques Ultra sans avoir à créer de machine virtuelle.
 
 ```azurecli
-$rgName = "<yourResourceGroupName>"
-$vmName = "<yourVMName>"
-$diskName = "<yourDiskName>"
-$subscriptionId = "<yourSubscriptionID>"
+rgName = "<yourResourceGroupName>"
+vmName = "<yourVMName>"
+diskName = "<yourDiskName>"
+subscriptionId = "<yourSubscriptionID>"
 
 az vm disk attach -g $rgName --vm-name $vmName --disk $diskName --subscription $subscriptionId
 ```

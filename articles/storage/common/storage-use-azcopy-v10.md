@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6e6bd55fbb73113dfbcd01e94753c4fb21219c14
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 60f3e725a4df619e3cc8ed7e8878fe2a5e5c3406
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780876"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195197"
 ---
 # <a name="get-started-with-azcopy"></a>Bien démarrer avec AzCopy
 
@@ -23,7 +23,7 @@ AzCopy est un utilitaire de ligne de commande que vous pouvez utiliser pour copi
 >
 > Si vous avez besoin d’utiliser une version antérieure d’AzCopy, consultez la section [Utiliser la version précédente d’AzCopy](#previous-version) de cet article.
 
-<a id="download-and-install-azcopy" />
+<a id="download-and-install-azcopy"></a>
 
 ## <a name="download-azcopy"></a>Télécharger AzCopy
 
@@ -125,7 +125,7 @@ Cette commande retourne un code d’authentification et l’URL d’un site web.
 
 Une fenêtre de connexion s’affiche. Dans cette fenêtre, connectez-vous à votre compte Azure à l’aide de vos informations d’identification de compte Azure. Une fois connecté, vous pouvez fermer la fenêtre du navigateur et commencer à utiliser AzCopy.
 
-<a id="service-principal" />
+<a id="service-principal"></a>
 
 #### <a name="authenticate-a-service-principal"></a>Authentifier un principal du service
 
@@ -191,7 +191,7 @@ Remplacez l’espace réservé `<path-to-certificate-file>` par le chemin d’ac
 > [!NOTE]
 > Envisagez d’utiliser une invite comme dans cet exemple. De cette façon, votre mot de passe n’apparaîtra pas dans l’historique des commandes de votre console. 
 
-<a id="managed-identity" />
+<a id="managed-identity"></a>
 
 #### <a name="authenticate-a-managed-identity"></a>Authentifier une identité managée
 
@@ -304,7 +304,7 @@ L’[Explorateur de stockage](https://azure.microsoft.com/features/storage-explo
 
 L’Explorateur Stockage utilise votre clé de compte pour effectuer des opérations, donc après vous être connecté à Storage Explorer, vous n’aurez pas besoin de fournir des informations d’autorisation supplémentaires.
 
-<a id="previous-version" />
+<a id="previous-version"></a>
 
 ## <a name="use-the-previous-version-of-azcopy"></a>Utiliser la version précédentes d’AzCopy
 

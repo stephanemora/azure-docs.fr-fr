@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/24/2020
-ms.openlocfilehash: a41dcc9c7ec86f41c64a69ea1aba762b960b2633
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cdff42c6ff0cadb5ce4b3d7fc469d648349d1e88
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283019"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84265197"
 ---
 # <a name="getting-started-with-ai-enrichment"></a>Prise en main de l’enrichissement par IA
 
@@ -102,7 +102,7 @@ Les index sont générés à partir d’un schéma d’index qui définit les ch
 
 1. Définissez le [schéma d’index](https://docs.microsoft.com/rest/api/searchservice/create-index). La collection *Champs* inclut des champs issus des données sources. Vous devez également écraser les champs supplémentaires pour stocker des valeurs générées pour le contenu créé au cours de l’enrichissement.
 
-1. Définissez [l’indexeur](https://docs.microsoft.com/rest/api/searchservice/create-skillset) faisant référence à la source de données, à l’ensemble de compétences et à l’index.
+1. Définissez [l’indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer) faisant référence à la source de données, à l’ensemble de compétences et à l’index.
 
 1. Dans l’indexeur, ajoutez *outputFieldMappings*. Cette section mappe la sortie de l’ensemble de compétences (à l’étape 3) aux champs d’entrées dans le schéma d’index (à l’étape 4).
 

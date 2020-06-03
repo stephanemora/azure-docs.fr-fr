@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: philmea
-ms.openlocfilehash: 5f88a21efd04c9dd24fe31e925a3b911b5ec9df2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 380e354beb2f58b958e3c88d9f93ad0bda655971
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77045896"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266472"
 ---
 # <a name="run-azure-iot-edge-on-windows-server-virtual-machines"></a>Exécuter Azure IoT Edge sur des machines virtuelles Windows Server
 
@@ -22,11 +22,11 @@ Le runtime Azure IoT Edge est ce qui transforme un appareil en appareil IoT Edge
 
 Pour en savoir plus sur le fonctionnement du runtime IoT Edge et les composants inclus, consultez [Présentation du runtime Azure IoT Edge et de son architecture](iot-edge-runtime.md).
 
-Cet article présente les étapes à suivre pour exécuter le runtime Azure IoT Edge sur une machine virtuelle Windows Server 2019, avec l’offre [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) de la Place de marché Azure. Suivez les instructions fournies dans [Installer le runtime Azure IoT Edge](how-to-install-iot-edge-windows.md) pour les autres versions de Windows.
+Cet article présente les étapes à suivre pour exécuter le runtime Azure IoT Edge sur une machine virtuelle Windows Server 2019, avec l’offre [Windows Server](https://www.microsoft.com/cloud-platform/windows-server-pricing) de la Place de marché Azure. Suivez les instructions fournies dans [Installer le runtime Azure IoT Edge](how-to-install-iot-edge-windows.md) pour les autres versions de Windows.
 
 ## <a name="deploy-from-the-azure-marketplace"></a>Effectuer un déploiement à partir de la Place de marché Azure
 
-1. Accédez à l’offre [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) de la Place de marché Azure ou effectuez une recherche sur « Windows Server » dans la [Place de marché Azure](https://azuremarketplace.microsoft.com/).
+1. Accédez à l’offre [Windows Server](https://www.microsoft.com/cloud-platform/windows-server-pricing) de la Place de marché Azure ou effectuez une recherche sur « Windows Server » dans la [Place de marché Azure](https://azuremarketplace.microsoft.com/).
 2. Sélectionnez **Obtenir maintenant**.
 3. Dans **Abonnement logiciel**, recherchez « Windows Server 2019 Datacenter Server Core avec Containers », puis sélectionnez **Continuer** dans la boîte de dialogue suivante.
     * Vous pouvez également utiliser ces instructions pour les autres versions de Windows Server avec Containers.

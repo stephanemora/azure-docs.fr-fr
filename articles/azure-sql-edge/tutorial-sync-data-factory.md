@@ -2,19 +2,19 @@
 title: Synchroniser des données à partir d’Azure SQL Edge (préversion) à l’aide d’Azure Data Factory
 description: Découvrez comment synchroniser des données entre Azure SQL Edge (préversion) et le Stockage Blob Azure
 keywords: SQL Edge, synchroniser des données à partir de SQL Edge, fabrique de données SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: tutorial
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 1238505a10214c315bd5f2ceb428cf097b3ef5c6
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: cc81784d4ad3613cf46176912625cf980c44f064
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593454"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235046"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Tutoriel : Synchroniser des données de SQL Edge sur le Stockage Blob Azure à l’aide d’Azure Data Factory
 

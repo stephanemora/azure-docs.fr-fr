@@ -9,12 +9,12 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.custom: storage-accounts
-ms.openlocfilehash: 130764ad5504ded398a9fdf9fa27d6cb936fbacc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 31b8200b63780388fb53db588c418951c500ac19
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82099782"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84232901"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Comment créer une image de machine virtuelle non managée à partir d’une machine virtuelle Azure
 
@@ -142,7 +142,7 @@ Créez le réseau virtuel et le sous-réseau du [réseau virtuel](../../virtual-
     ```    
 
 ### <a name="create-a-public-ip-address-and-network-interface"></a>Création d'une adresse IP publique et une interface réseau
-Pour établir la communication avec la machine virtuelle dans le réseau virtuel, vous avez besoin d’une [adresse IP publique](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) et d’une interface réseau.
+Pour établir la communication avec la machine virtuelle dans le réseau virtuel, vous avez besoin d’une [adresse IP publique](../../virtual-network/public-ip-addresses.md) et d’une interface réseau.
 
 1. Créez une adresse IP publique. Cet exemple crée une adresse IP publique nommée **myPip**. 
    
