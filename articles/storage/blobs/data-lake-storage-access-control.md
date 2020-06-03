@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: dd23745f811cf67aa5e7ef7aa96b877b5980c270
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 4f5be29dd42b03e86abb2be392ea42f875536fb5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793123"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193516"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Contrôle d’accès dans Azure Data Lake Storage Gen2
 
 Azure Data Lake Storage Gen2 implémente un modèle de contrôle d’accès qui prend en charge le contrôle d’accès en fonction du rôle (RBAC) Azure et les listes de contrôle d’accès (ACL) POSIX. Cet article présente les notions de base du modèle de contrôle d’accès pour Data Lake Storage Gen2.
 
-<a id="azure-role-based-access-control-rbac" />
+<a id="azure-role-based-access-control-rbac"></a>
 
 ## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 

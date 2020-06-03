@@ -3,12 +3,13 @@ title: Voir Déploiements (préversion) avec Azure Monitor pour conteneurs | Mic
 description: Cet article décrit la vue en temps réel de Kubernetes Deployments, sans l’utilisation de kubectl, dans Azure Monitor pour conteneurs.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 7d0344851e1db8c014a1bb16b228a0c2f76444d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: references_regions
+ms.openlocfilehash: 98901ba8622404c03f3456b4ca404715d7016d9c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75404769"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194997"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>Guide pratique pour voir Déploiements (préversion) en temps réel
 

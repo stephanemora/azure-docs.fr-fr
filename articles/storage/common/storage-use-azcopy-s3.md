@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a3180593eaf8c01c772fd761d88b5f5b9f7657ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f6d2be3760a28a8702b221dbd484901918441d9
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75941502"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195203"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copier des données depuis Amazon S3 vers le Stockage Azure avec AzCopy
 
@@ -135,7 +135,7 @@ Dans le cadre d’une commande `copy` AzCopy, vous pouvez fournir une valeur pou
 | **FailIfInvalid** | Les objets ne sont pas copiés. AzCopy enregistre une erreur et l’inclut dans le nombre d’échecs qui apparaît dans le résumé de transfert.  |
 | **RenameIfInvalid**  | AzCopy résout la clé de métadonnées non valides et copie l’objet dans Azure à l’aide de la paire valeur/clé des métadonnées résolues. Pour connaître précisément les étapes suivies par AzCopy pour renommer les clés d’objet, consultez la section [Comment AzCopy renomme les clés d’objet](#rename-logic) ci-dessous. Si AzCopy n’est pas en mesure de renommer la clé, l’objet n’est pas copié. |
 
-<a id="rename-logic" />
+<a id="rename-logic"></a>
 
 ### <a name="how-azcopy-renames-object-keys"></a>Comment AzCopy renomme les clés d’objet
 

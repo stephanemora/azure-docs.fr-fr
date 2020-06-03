@@ -4,12 +4,12 @@ description: Découvrez comment créer une fonction à partir de la ligne de com
 ms.date: 03/30/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 7826701a2d328fe40ad75bb3d68b2764d53f9590
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 8b720a34268a1a43b65ef8a7b8afbf61b753f79a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626256"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195019"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Démarrage rapide : Créer une fonction dans Azure qui répond à des requêtes HTTP
 
@@ -105,7 +105,7 @@ Fournissez les valeurs suivantes à l’invite :
 | **groupId** | `com.fabrikam` | Valeur qui identifie de façon unique votre projet parmi tous les projets, avec respect des [règles de nommage de package](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) pour Java. |
 | **artifactId** | `fabrikam-functions` | Valeur qui correspond au nom du fichier jar, sans numéro de version. |
 | **version** | `1.0-SNAPSHOT` | Choisissez la valeur par défaut. |
-| **package** | `com.fabrikam.functions` | Valeur qui correspond au package Java pour le code de fonction généré. Utilisez la valeur par défaut. |
+| **package** | `com.fabrikam` | Valeur qui correspond au package Java pour le code de fonction généré. Utilisez la valeur par défaut. |
 
 Tapez `Y` ou appuyez sur Entrée pour confirmer.
 
@@ -145,7 +145,7 @@ L’objet retourné est un [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.a
 #### <a name="functionjava"></a>Function.java
 *Function.java* contient une méthode `run` qui reçoit des données de requête dans la variable `request` d’un objet [HttpRequestMessage](/java/api/com.microsoft.azure.functions.httprequestmessage), doté de l’annotation[HttpTrigger](/java/api/com.microsoft.azure.functions.annotation.httptrigger) qui définit le comportement du déclencheur. 
 
-:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java":::
+:::code language="java" source="~/azure-functions-samples-java/src/main/java/com/functions/Function.java":::
 
 Le message de réponse est généré par l’API [HttpResponseMessage. Builder](/java/api/com.microsoft.azure.functions.httpresponsemessage.builder).
 
@@ -153,7 +153,7 @@ Le message de réponse est généré par l’API [HttpResponseMessage. Builder](
 
 Les paramètres des ressources Azure créées pour héberger votre application sont définis dans l’élément de **configuration** du plug-in avec un **groupId** de `com.microsoft.azure` dans le fichier pom.xml généré. Par exemple, l’élément de configuration ci-dessous indique à un déploiement basé sur Maven de créer une application de fonction dans le groupe de ressources `java-functions-group` de la région `westus`. L’application de fonction elle-même s’exécute sur Windows hébergé dans le plan `java-functions-app-service-plan` qui, par défaut, est un plan de consommation serverless.    
 
-:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="116-155":::
+:::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
 
 Vous pouvez modifier ces paramètres pour contrôler la façon dont les ressources sont créées dans Azure, par exemple en modifiant `runtime.os` pour passer de `windows` à `linux` avant le déploiement initial. Pour obtenir la liste complète des paramètres pris en charge par le plug-in Maven, consultez les [détails de la configuration](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
 
@@ -414,3 +414,4 @@ az group delete --name java-functions-group
 
 > [!div class="nextstepaction"]
 > [Se connecter à une file d’attente Stockage Azure](functions-add-output-binding-storage-queue-cli.md)
+ 

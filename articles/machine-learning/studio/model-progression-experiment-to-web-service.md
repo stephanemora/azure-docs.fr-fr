@@ -10,16 +10,15 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: 1618e64eba32e857ccd0ba4b5a7a656f1d954bf8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4d7ab5cada77ccebc214e09b43fbb70b3ad8bb59
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659911"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117200"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Comment faire évoluer un modèle Machine Learning Studio (classique) d’une simple expérience en un service web
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 Azure Machine Learning Studio (classique) fournit un canevas interactif qui permet de développer, d’exécuter, de tester et d’itérer une ***expérience*** représentant un modèle d’analyse prédictive. Il existe un large éventail de modules capables d’effectuer les opérations suivantes :
 
 * Entrer des données dans votre expérience

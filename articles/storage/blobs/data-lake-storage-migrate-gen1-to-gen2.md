@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: aa4881aef9f3a9ba5d19fb0b768f13a1eb372296
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c2db8c41d29b3fd8cb40744708ff87d7f4ec5b12
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131431"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193491"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrer Azure Data Lake Storage de Gen1 vers Gen2
 
@@ -87,7 +87,7 @@ Effectuez la migration des données, des charges de travail et des applications 
 
 Une fois que vous êtes certain que vos applications et vos charges de travail sont stables sur Gen2, vous pouvez commencer à utiliser Gen2 pour vos scénarios métier. Désactivez les pipelines restants qui s’exécutent sur Gen1, puis désactivez votre compte Gen1. 
 
-<a id="gen1-gen2-feature-comparison" />
+<a id="gen1-gen2-feature-comparison"></a>
 
 ## <a name="gen1-vs-gen2-capabilities"></a>Comparaison entre les fonctionnalités de Gen1 et de Gen2
 
@@ -103,9 +103,9 @@ Ce tableau compare les fonctionnalités de Gen1 à celles de Gen2.
 |Prise en charge du réseau virtuel|[Intégration au réseau virtuel](../../data-lake-store/data-lake-store-network-security.md)|[Points de terminaison de service](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [points de terminaison privés](../common/storage-private-endpoints.md)|
 |Expérience développeur|[REST](../../data-lake-store/data-lake-store-data-operations-rest-api.md), [.NET](../../data-lake-store/data-lake-store-data-operations-net-sdk.md), [Java](../../data-lake-store/data-lake-store-get-started-java-sdk.md), [Python](../../data-lake-store/data-lake-store-data-operations-python.md), [PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), [Azure CLI](../../data-lake-store/data-lake-store-get-started-cli-2.0.md)|Disponibilité générale - [REST](/rest/api/storageservices/data-lake-storage-gen2), [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md)<br>Préversion publique - [JavaScript](data-lake-storage-directory-file-acl-javascript.md), [PowerShell](data-lake-storage-directory-file-acl-powershell.md), [Azure CLI](data-lake-storage-directory-file-acl-cli.md)|
 |Journaux d’activité de ressources|Journaux classiques<br>[Intégré à Azure Monitor](../../data-lake-store/data-lake-store-diagnostic-logs.md)|[Journaux classiques](../common/storage-analytics-logging.md) - Disponibilité générale<br>Intégration à Azure Monitor - Date à confirmer|
-|Écosystème|[HDInsight (3.6)](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure Databricks (3.1 et versions ultérieures)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [SQL DW](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store), [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight (3.6, 4.0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure Databricks (5.1 et versions ultérieures)](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2), [SQL DW](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md), [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
+|Écosystème|[HDInsight (3.6)](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure Databricks (3.1 et versions ultérieures)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [SQL DW](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store), [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight (3.6, 4.0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure Databricks (5.1 et versions ultérieures)](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2), [SQL DW](../../azure-sql/database/vnet-service-endpoint-rule-overview.md), [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
 
-<a id="migration-patterns" />
+<a id="migration-patterns"></a>
 
 ## <a name="gen1-to-gen2-patterns"></a>Modèles Gen1 à Gen2
 
