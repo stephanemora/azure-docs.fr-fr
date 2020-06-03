@@ -3,12 +3,13 @@ title: Remplacer les points de terminaison par défaut des SDK Azure Application
 description: Modifiez les points de terminaison par défaut des SDK Azure Monitor Application Insights pour certaines régions, comme Azure Government.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: f5bf5b07f7c058b4778e7695f150fdc71e048182
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.custom: references_regions
+ms.openlocfilehash: d0c9467497a8bd108d37a340d2cdbb887061e3a6
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629182"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194834"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Remplacer les points de terminaison par défaut d’Application Insights
 

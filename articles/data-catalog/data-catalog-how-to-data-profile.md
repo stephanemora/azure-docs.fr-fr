@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 04ac6c2bf0137289221a4ae6ed58d5a71ad21739
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 698da509be2f375925459bbdd4a35d21c6ff4407
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68950221"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171223"
 ---
 # <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Guide pratique pour utiliser des sources de données de profilage de données dans Azure Data Catalog
 
@@ -45,7 +45,7 @@ L’inclusion de profils de données lors de l’inscription de ressources de do
 > Vous pouvez également ajouter de la documentation à une ressource pour décrire dans quelle mesure les données peuvent être intégrées à une application. Voir [Comment documenter des sources de données](data-catalog-how-to-documentation.md).
 >
 
-<a name="howto"/>
+<a name="howto"></a>
 
 ## <a name="how-to-include-a-data-profile-when-registering-a-data-source"></a>Comment inclure un profil de données lors de l’inscription d’une source de données
 

@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: e9abb2ded5465d4b245f4c9bcfab921444d41fa2
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 481406b02d7d864dd16ac42918ae1aa2dea0b145
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684912"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195225"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Informations de référence sur les données de supervision du stockage Azure
 
@@ -84,7 +84,7 @@ Stockage Azure fournit les mesures de transaction suivantes dans Azure Monitor.
 | SuccessE2ELatency | Latence moyenne de bout en bout des requêtes réussies envoyées à un service de stockage ou à l’opération API spécifiée. Cette valeur inclut le temps de traitement requis au sein de Stockage Microsoft Azure pour lire la requête, envoyer la réponse et recevoir un accusé de réception de la réponse. <br/><br/> Unité : Millisecondes <br/> Type d’agrégation : Average <br/> Dimensions applicables : GeoType, ApiName et Authentication ([Définition](#metrics-dimensions)) <br/> Exemple de valeur : 1 024 |
 | Disponibilité | Pourcentage de disponibilité pour le service de stockage ou l’opération API spécifiée. La disponibilité est calculée en prenant la valeur TotalBillableRequests puis en la divisant par le nombre de requêtes applicables, y compris les requêtes qui ont généré des erreurs inattendues. Toutes erreurs inattendues réduisent la disponibilité du service de stockage ou de l’opération API spécifiée. <br/><br/> Unité : Pourcentage <br/> Type d’agrégation : Average <br/> Dimensions applicables : GeoType, ApiName et Authentication ([Définition](#metrics-dimensions)) <br/> Exemple de valeur : 99,99 |
 
-<a id="metrics-dimensions" />
+<a id="metrics-dimensions"></a>
 
 ## <a name="metrics-dimensions"></a>Dimensions de mesures
 
