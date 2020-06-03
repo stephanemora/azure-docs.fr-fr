@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/22/2020
-ms.openlocfilehash: 945ef895304a151ea7e0ef5b94ed0b42757743ad
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: ac351e688eba274c989b4b475c6d61607b9ea5c1
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890610"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219304"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copier des données de SAP HANA à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -299,7 +299,7 @@ Lors de la copie de données de SAP HANA, les mappages suivants sont utilisés e
 | timestamp          | DateTime                       |
 | VARBINARY          | Byte[]                         |
 
-### <a name="sap-hana-sink"></a>Récepteur SAP HANA
+## <a name="sap-hana-sink"></a>Récepteur SAP HANA
 
 Actuellement, le connecteur SAP HANA n’est pas pris en charge en tant que récepteur, alors que vous pouvez utiliser un connecteur ODBC générique avec le pilote SAP HANA pour écrire des données dans SAP HANA. 
 
