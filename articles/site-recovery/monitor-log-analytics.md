@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 0b3f5963572368cb9c884984418140b4bbc0dea3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0cf0ed943dd2135a3e8d545b76eda35285dae24d
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131185"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300788"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Superviser Site Recovery avec les journaux Azure Monitor
 
@@ -252,7 +252,7 @@ AzureDiagnostics 
 
 ## <a name="set-up-alerts---examples"></a>Configurer des alertes - Exemples
 
-Vous pouvez configurer des alertes Site Recovery en fonction des données Azure Monitor. [En savoir plus sur la configuration des alertes de journaux](../azure-monitor/platform/alerts-log.md#managing-log-alerts-from-the-azure-portal) 
+Vous pouvez configurer des alertes Site Recovery en fonction des données Azure Monitor. [En savoir plus sur la configuration des alertes de journaux](../azure-monitor/platform/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) 
 
 > [!NOTE]
 > Certains de ces exemples utilisent **replicationProviderName_s** avec une valeur de **A2A**. Cela permet de configurer des alertes pour les machines virtuelles Azure qui ont été répliquées dans une région Azure secondaire. Dans ces exemples, vous pouvez remplacer **A2A** par **InMageAzureV2** si vous souhaitez configurer des alertes pour des machines virtuelles VMware locales ou des serveurs physiques ayant été répliqués dans Azure.

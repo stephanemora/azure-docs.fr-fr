@@ -10,12 +10,12 @@ ms.date: 04/21/2020
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
-ms.openlocfilehash: cea5fb507225f063e2d48c56fae254e123a8f72b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3408970bcf5e34ce9f0f0afe9e723b4877dcd694
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81771777"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193405"
 ---
 # <a name="query-acceleration-sql-language-reference-preview"></a>Informations de référence sur l’accélération des requêtes en langage SQL (préversion)
 
@@ -54,7 +54,7 @@ L’exemple suivant retourne des décalages appropriés pour le fractionnement d
 SELECT sys.split(split_size)FROM BlobStorage
 ```
 
-<a id="data-types" />
+<a id="data-types"></a>
 
 ## <a name="data-types"></a>Types de données
 
@@ -231,7 +231,7 @@ Une instruction SELECT peut contenir une ou plusieurs expressions de projection 
 
 L’opérateur ``IS MISSING`` est le seul opérateur non standard pris en charge par le langage SQL d’accélération des requêtes.  Pour les données JSON, si un champ est manquant dans un enregistrement d’entrée particulier, le champ d’expression ``IS MISSING`` prend la valeur booléenne true.
 
-<a id="table-descriptors" />
+<a id="table-descriptors"></a>
 
 ## <a name="table-descriptors"></a>Descripteurs de table
 
@@ -302,7 +302,7 @@ SELECT weight,warehouses[0].longitude,id,tags[1] FROM BlobStorage[*]
 > [!NOTE]
 > BlobStorage et BlobStorage[\*] font tous deux référence à l’objet entier. Toutefois, si vous avez un chemin d’accès dans la clause FROM, vous devez utiliser BlobStorage[\*].path.
 
-<a id="sys-split" />
+<a id="sys-split"></a>
 
 ## <a name="syssplit"></a>Sys.Split
 

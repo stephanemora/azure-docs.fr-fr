@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 59c121f09858114cecfaeb45e257315d1ab92935
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 241aad3e9bf78d587c7f31d8046de171bd2638b3
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81403427"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263990"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Démarrage rapide : Détecter des visages sur une image avec l’API REST et Java
 
@@ -248,7 +248,7 @@ Compilez le code et exécutez-le. Une réponse correcte affiche les données Vis
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé une application console Java simple qui utilise des appels REST à l’API Visage Azure pour détecter des visages dans une image et retourner leurs attributs. Découvrez à présent comment exploiter davantage cette fonctionnalité dans une application Android.
+Dans ce guide de démarrage rapide, vous avez créé une application console Java simple qui utilise des appels REST à l’API Visage Azure pour détecter des visages dans une image et retourner leurs attributs. Explorez à présent la documentation de référence sur l’API Visage pour en savoir plus sur les scénarios pris en charge.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Créer une application Android pour détecter et encadrer des visages](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+> [API Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
