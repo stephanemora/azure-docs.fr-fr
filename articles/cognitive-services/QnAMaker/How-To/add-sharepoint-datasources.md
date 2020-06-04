@@ -3,12 +3,12 @@ title: Fichiers SharePoint – QnA Maker
 description: Ajoutez des sources de données SharePoint sécurisées à votre base de connaissances afin d’enrichir celle-ci de questions et de réponses pouvant être sécurisées avec Active Directory.
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 6f05079e39c8afb001bd4ba09d68f435c18efad5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93f17e79834b412ce0babf220ba13649ae07718c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294880"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660311"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Ajouter une source de données SharePoint sécurisée à votre base de connaissances
 
@@ -32,7 +32,7 @@ Vous pouvez ajouter tout [type de fichier](../Concepts/content-types.md) pris en
 
    ![Obtenez l’URL du fichier SharePoint en sélectionnant le menu symbolisé par des points de suspension du fichier, puis en copiant l’URL.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
-1. Dans le portail QnA Maker, sur la page **Paramètres**, [ajoutez l’URL](manage-knowledge-bases.md#edit-knowledge-base) à la Base de connaissances.
+1. Dans le portail QnA Maker, sur la page **Paramètres**, ajoutez l’URL à la Base de connaissances.
 
 ### <a name="images-with-sharepoint-files"></a>Images représentant des fichiers SharePoint
 

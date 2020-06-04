@@ -1,25 +1,20 @@
 ---
-title: Paramètres d’entrée de Runbook
-description: Les paramètres d’entrée de Runbook augmentent la flexibilité des Runbooks en vous permettant de transmettre des données à un Runbook lors de son démarrage. Cet article décrit différents cas où des paramètres d’entrée sont utilisés dans des Runbooks.
+title: Configurer les paramètres d’entrée de runbook dans Azure Automation
+description: Cet article explique comment configurer des paramètres d’entrée de runbook, qui permettent de transmettre des données à un runbook au démarrage.
 services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3741adbab6bcbc68f266c331e3056013afc0105e
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: c996c51583d81905e7853323166407e38ae79225
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656028"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830036"
 ---
-# <a name="runbook-input-parameters"></a>Paramètres d’entrée de Runbook
+# <a name="configure-runbook-input-parameters"></a>Configurer les paramètres d’entrée de runbook
 
 Les paramètres d’entrée de runbook augmentent la flexibilité d’un runbook en vous permettant de lui transmettre des données lors de son démarrage. Ces paramètres permettent de cibler les actions des runbooks pour des scénarios et environnements spécifiques. Cet article décrit la configuration et l’utilisation des paramètres d’entrée dans vos runbooks.
-
->[!NOTE]
->Cet article a été mis à jour pour tenir compte de l’utilisation du nouveau module Az d’Azure PowerShell. Vous pouvez toujours utiliser le module AzureRM, qui continue à recevoir des correctifs de bogues jusqu’à au moins décembre 2020. Pour en savoir plus sur le nouveau module Az et la compatibilité avec AzureRM, consultez [Présentation du nouveau module Az d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Pour obtenir des instructions relatives à l’installation du module Az sur votre Runbook Worker hybride, voir [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Pour votre compte Automation, vous pouvez mettre à jour vos modules vers la dernière version en suivant les instructions du [Guide de mise à jour des modules Azure PowerShell dans Azure Automation](automation-update-azure-modules.md).
-
-## <a name="configuring-input-parameters"></a>Configuration des paramètres d’entrée
 
 Vous pouvez configurer des paramètres d’entrée pour des runbooks PowerShell, PowerShell Workflow, graphiques et Python. Un Runbook peut avoir plusieurs paramètres avec différents types de données, ou aucun paramètre. Les paramètres d’entrée peuvent être obligatoires ou facultatifs, et vous pouvez utiliser des valeurs par défaut pour les paramètres facultatifs.
 
@@ -119,7 +114,7 @@ Contrairement aux runbooks PowerShell, PowerShell Workflow et graphiques, les ru
 
 Pour obtenir un exemple montrant comment utiliser les paramètres d’entrée dans un runbook Python, consultez [My first Python runbook in Azure Automation](automation-first-runbook-textual-python2.md) (Mon premier runbook Python dans Azure Automation).
 
-## <a name="assigning-values-to-input-parameters-in-runbooks"></a>Affectation de valeurs aux paramètres d’entrée dans des runbooks
+## <a name="assign-values-to-input-parameters-in-runbooks"></a>Affecter des valeurs aux paramètres d’entrée dans des Runbooks
 
 Cette section décrit plusieurs façons de passer des valeurs aux paramètres d’entrée dans des runbooks. Vous pouvez affecter des valeurs de paramètre lors des opérations suivantes :
 
@@ -274,7 +269,7 @@ Quand vous exécutez un runbook à l’aide d’un webhook, le paramètre d’en
 
 ![Paramètre WebhookData](media/automation-runbook-input-parameters/automation-09-webhook-data-parameters.png)
 
-## <a name="passing-a-json-object-to-a-runbook"></a>Passer un objet JSON à un runbook
+## <a name="pass-a-json-object-to-a-runbook"></a>Passer un objet JSON à un runbook
 
 Il peut être utile stocker les données à passer dans un runbook dans un fichier JSON. Par exemple, vous pouvez créer un fichier JSON qui contient tous les paramètres que vous voulez passer à un runbook. Pour ce faire, vous devez convertir le code JSON en chaîne, puis convertir la chaîne en objet PowerShell avant de la passer au runbook.
 
@@ -362,6 +357,5 @@ Vous pouvez maintenant appeler le runbook à partir de votre ordinateur local à
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur les différentes façons de démarrer un Runbook, voir [Démarrage d’un Runbook](automation-starting-a-runbook.md).
-* Pour modifier un Runbook textuel, voir [Modification des Runbooks textuels](automation-edit-textual-runbook.md).
-* Pour modifier un Runbook graphique, voir [Création graphique dans Azure Automation](automation-graphical-authoring-intro.md).
+* Pour préparer un runbook textuel, consultez [Modifier le runbooks textuel dans Azure Automation](automation-edit-textual-runbook.md).
+* Pour préparer un runbook graphique, consultez [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md).

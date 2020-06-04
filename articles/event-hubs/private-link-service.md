@@ -7,14 +7,14 @@ ms.author: spelluru
 ms.date: 03/12/2020
 ms.service: event-hubs
 ms.topic: article
-ms.openlocfilehash: fb8fc93174345d0bdb09e4308a4206a65ed2270a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb4c46ecd64958b1daf6c3f7fb5fe613dc9ba729
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82148202"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649901"
 ---
-# <a name="integrate-azure-event-hubs-with-azure-private-link-preview"></a>Intégrer Azure Event Hubs à Azure Private Link (préversion)
+# <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Intégrer Azure Event Hubs à Azure Private Link
 Le service Azure Private Link vous permet d’accéder aux services Azure (par exemple, Azure Event Hubs, Stockage Azure et Azure Cosmos DB) ainsi qu’aux services de partenaire ou de client hébergés par Azure via un **point de terminaison privé** dans votre réseau virtuel.
 
 Un point de terminaison privé est une interface réseau qui vous permet de vous connecter de façon privée et sécurisée à un service basé sur Azure Private Link. Le point de terminaison privé utilise une adresse IP privée de votre réseau virtuel, plaçant de fait le service dans votre réseau virtuel. Sachant que l’ensemble du trafic à destination du service peut être routé via le point de terminaison privé, il n’y a aucun besoin de passerelles, d’appareils NAT, de connexions ExpressRoute ou VPN ou d’adresses IP publiques. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. Vous pouvez vous connecter à une instance d’une ressource Azure, ce qui vous donne le plus haut niveau de granularité en matière de contrôle d’accès.
@@ -23,8 +23,6 @@ Pour plus d’informations, consultez [Qu’est-ce qu’Azure Private Link ?](.
 
 > [!IMPORTANT]
 > Cette fonctionnalité est prise en charge uniquement avec le niveau **dédié**. Pour plus d’informations sur le niveau dédié, consultez [Vue d’ensemble d’Event Hubs Dedicated](event-hubs-dedicated-overview.md). 
->
-> Cette fonctionnalité est actuellement en **préversion**. 
 
 >[!WARNING]
 > L’activation des points de terminaison privés peut empêcher d’autres services Azure d’interagir avec Event Hubs.
@@ -39,7 +37,7 @@ Pour plus d’informations, consultez [Qu’est-ce qu’Azure Private Link ?](.
 > - Azure IoT Device Explorer
 >
 > Les services Microsoft suivants doivent se trouver sur un réseau virtuel
-> - Azure Web Apps 
+> - Azure Web Apps
 > - Azure Functions
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Ajouter un point de terminaison privé avec le portail Azure
@@ -64,7 +62,7 @@ Si vous avez déjà un espace de noms Event Hubs, vous pouvez créer une connexi
 2. Dans la barre de recherche, tapez **event hubs**.
 3. Dans la liste, sélectionnez l’**espace de noms** auquel vous voulez ajouter un point de terminaison privé.
 4. Sélectionnez l’onglet **Réseau** situé sous **Paramètres**.
-5. Sélectionnez l’onglet **Connexions de point de terminaison privé (préversion)** en haut de la page. Si vous n’utilisez pas de niveau dédié Event Hubs, vous voyez le message : **Les connexions de point de terminaison privé sur Event Hubs sont prises en charge uniquement par les espaces de noms créés sous un cluster dédié**.
+5. Sélectionnez l’onglet **Connexions des points de terminaison privés** en haut de la page. Si vous n’utilisez pas de niveau dédié Event Hubs, vous voyez le message : **Les connexions de point de terminaison privé sur Event Hubs sont prises en charge uniquement par les espaces de noms créés sous un cluster dédié**.
 6. Sélectionnez le bouton **+ Point de terminaison privé** en haut de la page.
 
     ![Image](./media/private-link-service/private-link-service-3.png)
@@ -244,46 +242,33 @@ Vous devez vérifier que les ressources contenues dans le sous-réseau de la res
 
 Commencez par créer une machine virtuelle en suivant les étapes décrites dans [Créer une machine virtuelle Windows sur le portail Azure](../virtual-machines/windows/quick-create-portal.md).
 
-Sous l’onglet **Réseau** :
+Sous l’onglet **Réseau** : 
 
-1. Spécifiez un **réseau virtuel** et un **sous-réseau**. Vous pouvez créer un nouveau réseau virtuel ou en utiliser un existant. Si vous en sélectionnez un existant, veillez à ce que la région corresponde.
-1. Spécifiez une ressource d’**adresse IP publique**.
-1. Dans **Groupe de sécurité réseau de la carte réseau**, sélectionnez **Aucun**.
-1. Dans **Équilibrage de charge**, sélectionnez **Non**.
+1. Spécifiez un **réseau virtuel** et un **sous-réseau**. Vous devez sélectionner le réseau virtuel sur lequel vous avez déployé le point de terminaison privé.
+2. Spécifiez une ressource d’**adresse IP publique**.
+3. Pour **Groupe de sécurité réseau de la carte réseau**, sélectionnez **Aucun**.
+4. Pour **Équilibrage de charge**, sélectionnez **Non**.
 
-Ouvrez la ligne de commande et exécutez la commande suivante :
+Connectez-vous à la machine virtuelle, ouvrez la ligne de commande et exécutez la commande suivante :
 
 ```console
-nslookup <your-event-hubs-namespace-name>.servicebus.windows.net
+nslookup <event-hubs-namespace-name>.servicebus.windows.net
 ```
 
-Si vous exécutez la commande ns lookup pour résoudre l’adresse IP d’un espace de noms Event Hubs via un point de terminaison public, vous obtenez un résultat semblable à ceci :
+Vous devez obtenir un résultat similaire à ce qui suit. 
 
 ```console
-c:\ >nslookup <your-event-hubs-namespae-name>.servicebus.windows.net
-
 Non-authoritative answer:
-Name:    
-Address:  (public IP address)
-Aliases:  <your-event-hubs-namespace-name>.servicebus.windows.net
-```
-
-Si vous exécutez la commande ns lookup pour résoudre l’adresse IP d’un espace de noms Event Hubs via un point de terminaison privé, vous obtenez un résultat semblable à ceci :
-
-```console
-c:\ >nslookup your_event-hubs-namespace-name.servicebus.windows.net
-
-Non-authoritative answer:
-Name:    
-Address:  10.1.0.5 (private IP address)
-Aliases:  <your-event-hub-name>.servicebus.windows.net
+Name:    <event-hubs-namespace-name>.privatelink.servicebus.windows.net
+Address:  10.0.0.4 (private IP address associated with the private endpoint)
+Aliases:  <event-hubs-namespace-name>.servicebus.windows.net
 ```
 
 ## <a name="limitations-and-design-considerations"></a>Limitations et remarques sur la conception
 
 **Prix** : Pour plus d’informations sur les prix, consultez [Prix d’Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitations** :  Le point de terminaison privé pour Azure Event Hubs est en préversion publique. Cette fonctionnalité est disponible dans toutes les régions publiques Azure.
+**Limitations** :  Cette fonctionnalité est disponible dans toutes les régions publiques Azure.
 
 **Nombre maximal de points de terminaison privés par espace de noms Event Hubs** : 120.
 

@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 70ad69c1a34f656347b0cf53b28a1c35ac6ad043
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a8699b3942fe3a4b23f1d72036b7364cdab36f8e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595838"
+ms.locfileid: "83651978"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Utiliser les identités managées pour accéder à Azure SQL Database à partir d’une tâche Azure Stream Analytics (préversion)
 
@@ -56,13 +56,17 @@ Une fois l'identité managée créée, sélectionnez un administrateur Active Di
 
    ![Page Administrateur Active Directory](./media/sql-db-output-managed-identity/active-directory-admin-page.png)
  
-1. Sur la page Administrateur Active Directory, recherchez un utilisateur ou un groupe à définir en tant qu’administrateur pour SQL Server, puis cliquez sur **Sélectionner**.  
+1. Sur la page Administrateur Active Directory, recherchez un utilisateur ou un groupe à définir en tant qu’administrateur pour SQL Server, puis cliquez sur **Sélectionner**.
 
    ![Ajouter un administrateur Active Directory](./media/sql-db-output-managed-identity/add-admin.png)
 
-1. Sur la page **Administrateur Active Directory**, sélectionnez **Enregistrer**. Le processus de modification de l’administrateur prend quelques minutes.  
+   La page Administrateur Active Directory affiche tous les membres et groupes présents dans Active Directory. Les utilisateurs ou groupes grisés ne peuvent pas être sélectionnés, car ils ne sont pas pris en charge en tant qu’administrateurs Azure AD. Consultez la liste des administrateurs de prise en charge dans la section  **Fonctionnalités et limitations d’Azure AD** de l’article  [Utiliser l’authentification Azure Active Directory pour l’authentification auprès de SQL Database ou d’Azure Synapse](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations). Le contrôle d'accès basé sur les rôles (RBAC) s'applique uniquement au portail et n'est pas propagé vers SQL Server. Par ailleurs, l’utilisateur ou groupe sélectionné est l’utilisateur qui sera en mesure de créer l’**Utilisateur de base de données autonome** dans la section suivante.
 
-## <a name="create-a-database-user"></a>Créer un utilisateur de base de données
+1. Sur la page **Administrateur Active Directory**, sélectionnez **Enregistrer**. Le processus de modification de l’administrateur prend quelques minutes.
+
+   Lors de la configuration de l’administrateur Azure AD, le nom du nouvel administrateur (utilisateur ou groupe) ne peut pas être présent dans la base de données MASTER virtuelle en tant qu’utilisateur de l’authentification SQL Server. S’il est présent, la configuration de l’administrateur d’Azure AD échoue et annule sa création, indiquant qu’il existe déjà un administrateur (nom). Dans la mesure où l’utilisateur de l’authentification SQL Server ne fait pas partie d’Azure AD, tout effort pour se connecter au serveur en utilisant l’authentification Azure AD échoue. 
+
+## <a name="create-a-contained-database-user"></a>Créer un utilisateur de base de données autonome
 
 Créez ensuite un utilisateur de base de données autonome dans votre base de données SQL Database mappé à l’identité Azure Active Directory. L'utilisateur de base de données autonome ne dispose d'aucune connexion à la base de données MASTER, mais correspond à une identité dans l'annuaire associé à la base de données. L’identité Azure Active Directory peut être un compte d’utilisateur individuel ou un groupe. Dans ce cas, créez un utilisateur de base de données autonome pour votre tâche Stream Analytics. 
 
@@ -92,15 +96,27 @@ Créez ensuite un utilisateur de base de données autonome dans votre base de do
    CREATE USER [ASA_JOB_NAME] FROM EXTERNAL PROVIDER; 
    ```
 
+1. Pour que l’Azure Active Directory de Microsoft vérifie si la tâche Stream Analytics a accès à SQL Database, nous devons autoriser Azure Active Directory à communiquer avec la base de données. Pour ce faire, accédez de nouveau à la page « Pare-feu et réseau virtuel » dans le portail Azure, puis activez l’option « Autoriser les services et les ressources Azure à accéder à ce serveur ». 
+
+   ![Pare-feu et réseau virtuel](./media/sql-db-output-managed-identity/allow-access.png)
+
 ## <a name="grant-stream-analytics-job-permissions"></a>Octroyer des autorisations de tâche Stream Analytics
 
-L'identité managée autorise la tâche Stream Analytics à **SE CONNECTER** à votre ressource SQL Database. Très probablement, il serait efficace de permettre à la tâche Stream Analytics d'exécuter des commandes telles que **SELECT**. Utilisez SQL Server Management Studio pour octroyer ces autorisations à la tâche Stream Analytics. Pour plus d'informations, consultez la référence [GRANT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql?view=sql-server-ver15).
+Une fois que vous avez créé un utilisateur de base de données autonome et accordé un accès aux services Azure du portail, comme décrit dans la section précédente, votre tâche Stream Analytics est autorisée par Managed Identity à **se connecter** (autorisation CONNECT) à votre ressource SQL Database via une identité. Nous vous recommandons d’accorder à la tâche Stream Analytics les autorisations SELECT et INSERT, car celles-ci seront nécessaires plus tard dans le flux de travail Stream Analytics. L’autorisation **SELECT** permet à la tâche de tester sa connexion à la table dans SQL Database. L’autorisation **INSERT** permet de tester des requêtes Stream Analytics de bout en bout une fois que vous avez configuré une entrée et la sortie SQL Database. Vous pouvez accorder ces autorisations à la tâche Stream Analytics en utilisant SQL Server Management Studio. Pour plus d'informations, consultez la référence [GRANT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql?view=sql-server-ver15).
+
+Pour n’accorder une autorisation qu’à une table ou à un objet spécifiques dans la base de données, utilisez la syntaxe T-SQL suivante, puis exécutez la requête. 
+
+```sql
+GRANT SELECT, INSERT ON OBJECT::TABLE_NAME TO ASA_JOB_NAME; 
+```
 
 Vous pouvez également cliquer avec le bouton droit sur votre base de données SQL dans SQL Server Management Studio, puis sélectionner **Propriétés > Autorisations**. La tâche Stream Analytics que vous avez ajoutée précédemment s'affiche dans le menu Autorisations, et vous pouvez manuellement octroyer ou refuser des autorisations comme vous le souhaitez.
 
 ## <a name="create-an-azure-sql-database-output"></a>Créer une sortie Azure SQL Database
 
 Maintenant que votre identité gérée est configurée, vous êtes prêt à ajouter la base de données Azure SQL Database en tant que sortie à votre tâche Stream Analytics.
+
+Assurez-vous d’avoir créé une table dans votre SQL Database avec le schéma de sortie approprié. Le nom de cette table est l’une des propriétés requises qui doit être spécifiée lorsque vous ajoutez la sortie SQL Database à la tâche Stream Analytics. En outre, assurez-vous que la tâche dispose des autorisations **SELECT** et **INSERT** pour tester la connexion et exécuter des requêtes Stream Analytics. Si ce n’est déjà fait, consultez la section [Octroyer des autorisations de tâche Stream Analytics](#grant-stream-analytics-job-permissions). 
 
 1. Revenez à votre tâche Stream Analytics, puis accédez à la page **Sorties** sous **Topologie de la tâche**. 
 

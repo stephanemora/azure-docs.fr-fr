@@ -1,16 +1,16 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 01/23/2020
+ms.date: 05/15/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 658910dc4291375c7b2ab22e88c599b970b885af
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 0a4dcf749a76623df7f46d77bf3e4877f2c41900
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80419165"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821511"
 ---
 Des images de machine virtuelle standardisées permettent aux organisations de migrer vers le cloud en veillant à la cohérence des déploiements. Les images incluent généralement des paramètres de sécurité et de configuration prédéfinis et les logiciels nécessaires. La mise en place de votre propre pipeline d’acquisition d’image nécessite du temps, une infrastructure et une configuration. En revanche, le Générateur d’images de machine virtuelle Azure génère une simple configuration décrivant votre image et l’envoie au service qui la produit et la distribue.
  
@@ -30,7 +30,7 @@ La préversion prend en charge les fonctionnalités suivantes :
 - L’intégration avec la Galerie d’images partagées Azure vous permet de distribuer, de contrôler les versions, et de mettre à l’échelle des images globalement, et offre un système de gestion des images.
 - L’intégration avec des pipelines de génération d’images existants vous permet d’appeler simplement le Générateur d’images à partir de votre pipeline ou d’utiliser la simple tâche Azure DevOps de prévisualisation du Générateur d’images.
 - Migrez un pipeline de personnalisation d’image existant vers Azure. Utilisez vos scripts, commandes et processus existants pour personnaliser des images.
-- Création d’images au format VHD.
+- Création d’images au format VHD pour prendre en charge Azure Stack.
  
 
 ## <a name="regions"></a>Régions
@@ -55,8 +55,7 @@ Le Générateur d’images Azure prendra en charge les images de système d’ex
 - Windows 2016
 - Windows 2019
 
-La prise en charge des images ISO RHEL est dépréciée. Pour plus d’informations, consultez la documentation du modèle.
-
+Les fichiers ISO RHEL ne sont plus pris en charge.
 ## <a name="how-it-works"></a>Fonctionnement
 
 
@@ -77,29 +76,18 @@ Le Générateur d’images Azure est un service Azure entièrement managé acces
 
 
 ## <a name="permissions"></a>Autorisations
+Lorsque vous vous inscrivez à AIB, cela permet au service AIB de créer, de gérer et de supprimer un groupe de ressources intermédiaire (IT_ *), et d’y ajouter des ressources requise pour la génération d’image. Cette opération est effectuée par un nom de principal du service AIB rendu disponible dans votre abonnement lors d’une inscription réussie.
 
-Pour permettre au Générateur d’images de machine virtuelle Azure de distribuer des images vers les images gérées ou une galerie d’images partagées, vous devrez fournir des autorisations « Contributeur » pour le service « Générateur d’images Azure Virtual Machine » (ID d’application : cf32a0cc-373c-47c9-9156-0db11f6a6dfc ) sur les groupes de ressources. 
+Pour permettre à Azure VM Image Builder de distribuer des images aux images gérées ou à une galerie d’images partagées, vous devez créer une identité attribuée par l’utilisateur Azure qui dispose des autorisations nécessaires pour lire et écrire des images. Si vous accédez à Azure Storage, cela nécessite des autorisations pour lire des conteneurs privés.
 
-Si vous utilisez une image managée personnalisée ou une version d’image existantes, le Générateur d’images Azure a besoin au minimum d’un accès « Lecteur » à ces groupes de ressources.
+Au départ, vous devez suivre la documentation [créer une identité gérée attribuée par l’utilisateur Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli) pour savoir comment créer une identité.
 
-Vous pouvez accorder l’accès à l’aide d’Azure CLI :
+Une fois que vous disposez de l'identité, vous devez lui accorder des autorisations. Pour ce faire, vous pouvez utiliser une définition de rôle personnalisée Azure, puis attribuer l'identité gérée attribuée par l'utilisateur pour utiliser la définition de rôle personnalisée.
 
-```azurecli-interactive
-az role assignment create \
-    --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
-    --role Contributor \
-    --scope /subscriptions/$subscriptionID/resourceGroups/<distributeResoureGroupName>
-```
+Les autorisations sont expliquées plus en détail [ici](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements), et les exemples montrent comment cela est implémenté.
 
-Vous pouvez accorder l’accès à l’aide de PowerShell :
-
-```azurePowerShell-interactive
-New-AzRoleAssignment -ObjectId ef511139-6170-438e-a6e1-763dc31bdf74 -Scope /subscriptions/$subscriptionID/resourceGroups/<distributeResoureGroupName> -RoleDefinitionName Contributor
-```
-
-
-Si le compte de service est introuvable, cela peut signifier que l’abonnement auquel vous ajoutez l’attribution de rôle n’est pas encore inscrit pour le fournisseur de ressources.
-
+> [!Note]
+> Précédemment avec AIB, vous utiliseriez le SPN AIB et lui accordiez des autorisations d’accès aux groupes de ressources d’image. Nous nous éloignons de ce modèle afin de permettre des fonctionnalités futures. À compter du 26 mai 2020, image Builder n’acceptera plus les modèles qui n’ont pas d’identité attribuée par l’utilisateur, et les modèles existants devront être renvoyés au service avec une [identité d’utilisateur](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#identity). Les exemples ici montrent déjà comment vous pouvez créer une identité attribuée par l’utilisateur et l’ajouter à un modèle. Pour plus d’informations, consultez cette [documentation](https://github.com/danielsollondon/azvmimagebuilder#service-updates-and-latest-release-information) concernant ce changement et les mises à jour de publications.
 
 ## <a name="costs"></a>Coûts
 Nous vous facturons des coûts de calcul, de mise en réseau et de stockage lors de la création, de la génération et du stockage d’images avec le Générateur d’images Azure. Ces coûts sont similaires à ceux associés à la création manuelle d’images personnalisées. Pour les ressources, vous êtes facturé conformément aux tarifs Azure qui vous sont appliqués. 
@@ -113,5 +101,4 @@ Le Générateur d’images Azure distribue l’image aux régions choisies, ce q
 ## <a name="next-steps"></a>Étapes suivantes 
  
 Pour essayer le Générateur d’images Azure, voir les articles sur la génération d’images [Linux](../articles/virtual-machines/linux/image-builder.md) ou [Windows](../articles/virtual-machines/windows/image-builder.md).
- 
  

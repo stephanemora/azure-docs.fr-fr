@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/07/2020
 ms.topic: article
-ms.openlocfilehash: 8f64c4a9a438b07fef428a5ed044985736055525
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 3f808d45197f7d9ee23d3f809a2ab0452e92c20e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758841"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021294"
 ---
 # <a name="spatial-queries"></a>Requêtes spatiales
 
@@ -88,9 +88,9 @@ void CastRay(ApiHandle<AzureSession> session)
 
 Il existe trois modes de collecte de hits :
 
-* **Closest :** (Le plus proche) dans ce mode, seul le hit le plus proche sera signalé.
-* **Any :** (N’importe lequel) préférez ce mode lorsque vous souhaitez savoir *si* un rayon peut atteindre quelque chose, sans être intéressé de savoir exactement ce qui a été touché. Cette requête peut être beaucoup moins coûteuse à évaluer, mais elle n’a que peu d’applications.
-* **All :** (Tout) dans ce mode, tout ce que touche le rayon est signalé, trié par distance. N’utilisez pas ce mode, à moins que le premier hit à lui seul ne soit pas suffisant. Limitez le nombre de hits signalés avec l’option `MaxHits`.
+* **`Closest` :** dans ce mode, seul le hit le plus proche sera signalé.
+* **`Any` :** préférez ce mode lorsque vous souhaitez savoir *si* un rayon peut atteindre quelque chose, sans être intéressé de savoir exactement ce qui a été touché. Cette requête peut être beaucoup moins coûteuse à évaluer, mais elle n’a que peu d’applications.
+* **`All` :** dans ce mode, tout ce que touche le rayon est signalé, trié par distance. N’utilisez pas ce mode, à moins que le premier hit à lui seul ne soit pas suffisant. Limitez le nombre de hits signalés avec l’option `MaxHits`.
 
 L’exclusion sélective d’objets, pour qu’ils ne soient pas pris en compte par les ray casts, peut se faire en utilisant le composant [HierarchicalStateOverrideComponent](override-hierarchical-state.md).
 
@@ -106,11 +106,11 @@ Le résultat d’une requête de ray cast est un tableau de hits. Le tableau est
 
 Un hit présente les propriétés suivantes :
 
-* **HitEntity :** l’[entité](../../concepts/entities.md) touchée.
-* **SubPartId :** le *sous-maillage* touché dans un [MeshComponent](../../concepts/meshes.md). Peut être utilisé pour une indexation dans `MeshComponent.UsedMaterials` et une recherche des [matériaux](../../concepts/materials.md) à ce stade.
-* **HitPosition :** position dans l’espace universel où le rayon a croisé l’objet.
-* **HitNormal :** perpendiculaire à la surface de l’espace universel du maillage, au point de l’intersection.
-* **DistanceToHit :** distance, de la position de départ du rayon au hit.
+* **`HitEntity` :** l’[entité](../../concepts/entities.md) touchée.
+* **`SubPartId` :** le *sous-maillage*touché dans un [MeshComponent](../../concepts/meshes.md). Peut être utilisé pour une indexation dans `MeshComponent.UsedMaterials` et une recherche des [matériaux](../../concepts/materials.md) à ce stade.
+* **`HitPosition` :** position dans l’espace universel où le rayon a croisé l’objet.
+* **`HitNormal` :** perpendiculaire à la surface de l’espace universel du maillage, au point de l’intersection.
+* **`DistanceToHit` :** distance, de la position de départ du rayon au hit.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

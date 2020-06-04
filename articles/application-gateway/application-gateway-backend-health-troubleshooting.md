@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: surmb
-ms.openlocfilehash: a16120194b1b8015466005f42336828c2b4ace6c
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: c51d79d55f77468030100fa10973e2a31148ceae
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983838"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648444"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Résoudre les problèmes d’intégrité des back-ends dans Application Gateway
 ==================================================
@@ -203,6 +203,10 @@ Pour créer une sonde personnalisée, effectuez les étapes décrites [ici](http
 
 Pour en savoir plus sur la correspondance des sondes d’Application Gateway, [consultez cette section](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching).
 
+>[!NOTE]
+> Pour tous les messages d’erreur liés au protocole TLS, consultez la page de [présentation de TLS](ssl-overview.md) afin d’en savoir plus sur le comportement SNI et les différences entre les références SKU v1 et v2.
+
+
 #### <a name="backend-server-certificate-invalid-ca"></a>Autorité de certification non valide pour le certificat du serveur back-end
 
 **Message :** Le certificat de serveur utilisé par le serveur back-end n’est pas signé par une autorité de certification reconnue. Ajoutez le serveur back-end à la liste approuvée d’Application Gateway en chargeant le certificat racine du certificat de serveur qui est utilisé par le serveur back-end.
@@ -280,7 +284,7 @@ Si la sortie n’affiche pas la chaîne complète du certificat retourné, réex
 
 **Message :** Le nom commun (CN) du certificat du back-end ne correspond pas à l’en-tête d’hôte de la sonde.
 
-**Cause :** Application Gateway vérifie si le nom d’hôte spécifié dans les paramètres HTTP du back-end correspond au nom commun (CN) présenté par le certificat TLS/SSL du serveur back-end. Ce comportement s’applique aux références SKU Standard_v2 et WAF_v2. L’indication du nom du serveur (SNI, Server Name Indication) des références SKU Standard et WAF est définie comme nom de domaine complet dans l’adresse du pool de back-ends.
+**Cause :** Application Gateway vérifie si le nom d’hôte spécifié dans les paramètres HTTP du back-end correspond au nom commun (CN) présenté par le certificat TLS/SSL du serveur back-end. Ce comportement (v2) s’applique aux références SKU Standard_v2 et WAF_v2. L’indication du nom du serveur (SNI, Server Name Indication) (v1) des références SKU Standard et WAF est définie comme le nom de domaine complet dans le pool d’adresses back-end. Pour plus d’informations sur le comportement SNI et les différences entre les références SKU v1 et v2, consultez [Présentation de la terminaison TLS et du chiffrement TLS de bout en bout avec Application Gateway](ssl-overview.md).
 
 Dans la référence SKU v2, en présence d’une sonde par défaut (aucune sonde personnalisée n’a été configurée et associée), le SNI est défini à partir du nom d’hôte mentionné dans les paramètres HTTP. Si l’option « Choisir un nom d’hôte à partir d’une adresse back-end » est activée dans les paramètres HTTP et que le pool d’adresses back-end contient un nom de domaine complet valide, ce paramètre est appliqué.
 
