@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77

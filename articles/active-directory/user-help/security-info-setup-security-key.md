@@ -25,7 +25,7 @@ Vous pouvez utiliser des clés de sécurité comme méthode de connexion avec mo
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-key.md)]
 
 >[!Note]
-> Si vous ne voyez pas l’option de clé de sécurité, il est possible que votre organisation ne vous autorise pas à l’utiliser à des fins de vérification. Dans ce cas, vous devez choisir une autre méthode ou contacter le support technique de votre organisation pour obtenir de l'aide.
+> Si vous ne voyez pas l’option de clé de sécurité, il est possible que votre organisation ne vous autorise pas à l’utiliser à des fins de vérification. Dans ce cas, vous devez choisir une autre méthode ou contacter le support technique de votre organisation pour obtenir de l’aide.
 
 ## <a name="security-verification-versus-password-reset-authentication"></a>Vérification de la sécurité ou authentification avec réinitialisation du mot de passe
 

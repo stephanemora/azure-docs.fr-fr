@@ -22,7 +22,7 @@ Cet article fournit des informations sur la façon de configurer les contrôles 
 
 ## <a name="default-settings"></a>Paramètres par défaut
 
-Lorsque vous déployez la solution de supervision à distance pour la première fois, il existe deux rôles : **administrateur** et **lecture seule**.
+Quand vous déployez la solution de supervision à distance pour la première fois, il existe deux rôles : **Administrateur** et **Lecture seule**.
 
 Tout utilisateur ayant le rôle **administrateur** bénéficie d’un accès total à la solution, avec les autorisations suivantes ci-dessous. Un utilisateur ayant le rôle **lecture seule** a uniquement accès pour afficher la solution.
 

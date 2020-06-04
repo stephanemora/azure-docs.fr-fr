@@ -35,7 +35,7 @@ Le SDK Speech Devices fournit un exemple de code Java pour la capture audio en t
 - [Exemple de code d’appareil ROOBO](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Java/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/ConversationTranscription.java)
 - [Exemple de code du kit de développement Azure Kinect](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Java/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Un abonnement au service Speech. Vous pouvez [obtenir un abonnement d’essai Reconnaissance vocale](https://azure.microsoft.com/try/cognitive-services/) si vous n’en avez pas.
 

@@ -77,7 +77,7 @@ Un abonnement Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire v
 3. Connectez le kit DevKit à votre ordinateur. VS Code détecte automatiquement votre kit DevKit et ouvre les pages suivantes :
 
    * La page d’introduction du kit DevKit.
-   * Exemples Arduino : exemples pratiques pour démarrer avec le kit DevKit.
+   * Exemples Arduino : Exemples pratiques pour démarrer avec DevKit.
 
 4. Développez la section **EXEMPLES ARDUINO** à gauche, accédez à **Exemples pour MXCHIP AZ3166 > AzureIoT** et sélectionnez **RemoteMonitoring**. Une nouvelle fenêtre VS Code s’ouvre avec le dossier de projet qu’elle contient.
 

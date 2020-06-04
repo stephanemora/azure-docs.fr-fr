@@ -12,7 +12,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 05/31/2020
 ms.locfileid: "84233978"
 ---
-|Name |Description |Stratégies |Version |
+|Nom |Description |Stratégies |Version |
 |---|---|---|---|
 |[Auditer les machines virtuelles Linux qui n’ont pas les applications spécifiées installées](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_InstalledApplicationLinux.json) |Cette initiative permet de déployer les exigences de stratégie et d’auditer les machines virtuelles Linux sur lesquelles les applications spécifiées ne sont pas installées. Pour plus d’informations sur les stratégies Guest Configuration, consultez [https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.1.0 |
 |[Auditer les machines virtuelles Linux qui ont les applications spécifiées installées](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_NotInstalledApplicationLinux.json) |Cette initiative permet de déployer les exigences de stratégie et d’auditer les machines virtuelles Linux sur lesquelles les applications spécifiées sont installées. Pour plus d’informations sur les stratégies Guest Configuration, consultez [https://aka.ms/gcpol](https://aka.ms/gcpol) |2 |1.1.0 |

@@ -12,7 +12,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 05/31/2020
 ms.locfileid: "84233750"
 ---
-|Name |Description |Effet(s) |Version |GitHub |
+|Nom |Description |Effet(s) |Version |GitHub |
 |---|---|---|---|---|
 |[L’application API doit uniquement être accessible via HTTPS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb7ddfbdc-1260-477d-91fd-98bd9be789a6) |L'utilisation de HTTPS garantit l'authentification du serveur/service, et protège les données en transit contre les attaques par écoute clandestine de la couche réseau. |Audit, Désactivé |1.0.0 |[Lien](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppServiceApiApp_AuditHTTP_Audit.json) |
 |[L’authentification doit être activée sur votre application API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4ebc54a-46e1-481a-bee2-d4411e95d828) |L’authentification Azure App Service est une fonctionnalité qui peut empêcher les requêtes HTTP anonymes d’accéder à l’application API ou authentifier celles ayant des jetons avant qu’elles n’accèdent à l’application API. |AuditIfNotExists, Désactivé |1.0.0 |[Lien](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Authentication_ApiApp_Audit.json) |

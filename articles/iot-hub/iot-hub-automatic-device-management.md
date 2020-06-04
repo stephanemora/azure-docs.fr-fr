@@ -30,7 +30,7 @@ La gestion automatique des appareils fonctionne en mettant à jour un ensemble d
 
 * Les **métriques** définissent les nombres récapitulatifs des différents états de configuration tels que **Réussite**, **En cours** et **Erreur**. Les indicateurs de performance personnalisés sont spécifiés en tant que requêtes sur les propriétés signalées du jumeau.  Les indicateurs de performance système sont des indicateurs de performance par défaut qui mesurent l’état de la mise à jour des jumeaux, comme le nombre de jumeaux qui sont ciblés et le nombre de jumeaux qui ont été correctement mis à jour.
 
-Les configurations automatiques s’exécutent pour la première fois peu de temps après la création de la configuration, puis à cinq minutes d’intervalle. Les requêtes relatives aux métriques s’exécutent à chaque exécution de la configuration automatique.
+Les configurations automatiques s’exécutent pour la première fois peu de temps après la création de la configuration, puis à cinq minutes d’intervalle. Les requêtes relatives aux indicateurs de performance s’exécutent à chaque exécution de la configuration automatique.
 
 ## <a name="implement-twins"></a>Implémenter des jumeaux
 

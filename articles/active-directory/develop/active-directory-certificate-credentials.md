@@ -41,12 +41,12 @@ Plateforme d’identités Microsoft - Pour calculer l’assertion, vous pouvez u
 
 | Paramètre |  Notes |
 | --- | --- |
-| `aud` | Public : doit être **https://login.microsoftonline.com/*tenant_Id*  /oauth2/jeton** |
+| `aud` | Audience: Doit être **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
 | `exp` | Date d’expiration : date d’expiration du jeton. L’heure est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’à l’expiration du jeton.|
 | `iss` | Émetteur : doit être le paramètre client_id (ID de l’application du service client) |
 | `jti` | GUID : ID JWT |
 | `nbf` | Pas avant : date avant laquelle le jeton ne peut pas être utilisé. L’heure est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’émission du jeton. |
-| `sub` | Objet : comme pour `iss`, doit être le paramètre client_id (ID de l’application du service client) |
+| `sub` | Objet : En ce qui concerne `iss`, doit être le paramètre client_id (ID de l’application du service client) |
 
 ### <a name="signature"></a>Signature
 
@@ -94,7 +94,7 @@ Vous pouvez associer les informations d’identification du certificat à l’ap
 Dans l’inscription d’application Azure pour l’application cliente :
 1. Cliquez sur **Certificats et secrets**.
 2. Cliquez sur **Charger un certificat** et sélectionnez le fichier de certificat à charger.
-3. Cliquez sur **Ajouter**.
+3. Cliquez sur **Add**.
   Une fois le certificat chargé, les valeurs d'empreinte numérique, de date de début et d’expiration s'affichent.
 
 ### <a name="updating-the-application-manifest"></a>Mise à jour du manifeste d’application

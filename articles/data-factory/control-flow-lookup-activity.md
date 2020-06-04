@@ -54,7 +54,7 @@ Les sources de données suivantes sont prises en charge pour l’activité Look
 
 ## <a name="type-properties"></a>Propriétés type
 
-Name | Description | Type | Requis ?
+Nom | Description | Type | Requis ?
 ---- | ----------- | ---- | --------
 dataset | Fournit la référence de jeu de données pour la recherche. Pour plus d’informations, voir la section **Propriétés du jeu de données** dans chaque article traitant du connecteur correspondant. | Paire clé/valeur | Oui
 source | Contient des propriétés sources spécifiques au jeu de données, identiques à la source de l’activité Copy. Pour plus d’informations, consultez la section **Propriétés de l’activité Copy** dans chaque article traitant du connecteur correspondant. | Paire clé/valeur | Oui
@@ -106,7 +106,7 @@ Dans cet exemple, l’activité Copy copie les données d’une table SQL de vot
 Cet exemple illustre une recherche pour la première ligne uniquement. Pour effectuer une recherche portant sur toutes les lignes et chaîner les résultats avec l’activité ForEach, consultez les exemples dans [Copier plusieurs tables en bloc à l’aide d’Azure Data Factory](tutorial-bulk-copy.md).
 
 ### <a name="pipeline"></a>Pipeline
-Ce pipeline contient deux activités : Lookup et Copy. 
+Ce pipeline contient deux activités : Recherche et Copie. 
 
 - L’activité Lookup est configurée pour utiliser **LookupDataset**, qui fait référence à un emplacement dans le stockage Blob Azure. L’activité Lookup lit le nom de la table SQL à partir d’un fichier JSON dans cet emplacement. 
 - L’activité Copy utilise la sortie de l’activité Lookup, qui correspond au nom de la table SQL. La propriété **tableName** dans **SourceDataset** est configurée pour utiliser la sortie de l’activité Lookup. L’activité Copy copie les données de la table SQL dans un emplacement du stockage Blob Azure. L’emplacement est spécifié par la propriété **SinkDataset**. 

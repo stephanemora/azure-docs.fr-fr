@@ -64,7 +64,7 @@ Azure prend en charge diverses distributions de Linux (voir [Distributions Lin
 * [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [SLES et openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Autres - Distributions non approuvées](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Autres : Distributions non approuvées](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Consultez également les [notes d’installation Linux](create-upload-generic.md#general-linux-installation-notes) pour obtenir d’autres conseils généraux sur la préparation d’images Linux pour Azure.
 
@@ -73,11 +73,11 @@ Consultez également les [notes d’installation Linux](create-upload-generic.md
 > 
 > 
 
-## <a name="option-1-upload-a-vhd"></a>Option 1 : charger un disque dur virtuel
+## <a name="option-1-upload-a-vhd"></a>Option 1 : Télécharger un disque dur virtuel
 
 Vous pouvez désormais charger un disque dur virtuel directement dans un disque managé. Pour plus d’instructions, consultez [Charger un disque dur virtuel dans Azure à l'aide d'Azure CLI](disks-upload-vhd-to-managed-disk-cli.md).
 
-## <a name="option-2-copy-an-existing-vm"></a>Option 2 : copier une machine virtuelle existante
+## <a name="option-2-copy-an-existing-vm"></a>Option n°2 : Copier une machine virtuelle existante
 
 Vous pouvez également créer une machine virtuelle personnalisée dans Azure, puis copier le disque du système d’exploitation et l’attacher à une nouvelle machine virtuelle pour créer une autre copie. Cette approche est bien adaptée à un test, mais si vous souhaitez utiliser une machine virtuelle Azure existante comme modèle pour plusieurs nouvelles machines virtuelles, créez plutôt une *image*. Pour plus d’informations sur la création d’une image à partir d’une machine virtuelle Azure existante, consultez l’article [Créer une image personnalisée d’une machine virtuelle Azure avec Azure CLI](tutorial-custom-images.md).
 

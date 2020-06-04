@@ -25,7 +25,7 @@ Cet article vous montre comment déployer plusieurs conteneurs Azure Cognitive S
 
 Il peut être utile d’orchestrer plusieurs images conteneur sur un même ordinateur hôte. Dans cet article, nous allons regrouper les conteneurs Read et Form Recognizer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Cette procédure nécessite plusieurs outils qui doivent être installés et exécutés localement :
 

@@ -217,7 +217,7 @@ Les exemples de code de cette section montrent comment s’authentifier avec Azu
 >
 >
 
-### <a name="code-example-using-azure-ad-integrated-authentication-with-batch-net"></a>Exemple de code : utilisation de l’authentification intégrée Azure AD avec Batch .NET
+### <a name="code-example-using-azure-ad-integrated-authentication-with-batch-net"></a>Exemple de code : utilisation de l’authentification intégrée Azure AD avec Batch .NET
 
 Pour s’authentifier avec l’authentification intégrée à partir de Batch .NET, vous devez référencer les packages [Azure Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) et [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
 
@@ -290,7 +290,7 @@ public static async Task PerformBatchOperations()
 }
 ```
 
-### <a name="code-example-using-an-azure-ad-service-principal-with-batch-net"></a>Exemple de code : utilisation d’un principal de service Azure AD avec Batch .NET
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-net"></a>Exemple de code : utilisation d’un principal de service Azure AD avec Batch .NET
 
 Pour s’authentifier avec un principal de service à partir de Batch .NET, vous devez référencer les packages [Azure Batch .NET](https://www.nuget.org/packages/Azure.Batch/) et [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
 
@@ -358,7 +358,7 @@ public static async Task PerformBatchOperations()
 }
 ```
 
-### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Exemple de code : utilisation d’un principal de service Azure AD avec Batch Python
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Exemple de code : utilisation d’un principal de service Azure AD avec Batch Python
 
 Pour s’authentifier avec un principal de service à partir de Batch Python, installez et référencez les modules [azure-batch](https://pypi.org/project/azure-batch/) et [azure-common](https://pypi.org/project/azure-common/).
 

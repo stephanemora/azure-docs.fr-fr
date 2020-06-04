@@ -45,7 +45,7 @@ DevOps Starter crée un pipeline CI/CD dans Azure Pipelines. Vous pouvez créer 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-1. Dans la zone de recherche, saisissez puis sélectionnez **DevOps Starter**. Cliquez sur **Ajouter** pour en créer une.
+1. Dans la zone de recherche, tapez, puis sélectionnez **DevOps Starter**. Cliquez sur le **signe +** pour créer une ressource.
 
     ![Tableau de bord DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png) 
 
@@ -90,7 +90,7 @@ DevOps Starter configure automatiquement un pipeline CI/CD dans Azure Pipelines.
 
 1. Sous le nom de votre pipeline de build, sélectionnez **Historique**. Ce volet montre une piste d’audit des modifications que vous avez apportées récemment à la build. Azure DevOps suit les modifications apportées au pipeline de build et permet de comparer les versions.
 
-1. Sélectionnez **Déclencheurs**. DevOps Starter crée automatiquement un déclencheur CI, tandis que chaque validation dans le référentiel lance une nouvelle build. Si vous le souhaitez, vous pouvez choisir d’inclure ou d’exclure des branches dans le processus CI.
+1. Sélectionnez **Déclencheurs**. DevOps Starter crée automatiquement un déclencheur CI tandis que chaque validation dans le dépôt lance une nouvelle build. Si vous le souhaitez, vous pouvez choisir d’inclure ou d’exclure des branches dans le processus CI.
 
 1. Sélectionnez **Rétention**. En fonction de votre scénario, vous pouvez spécifier des stratégies pour conserver ou supprimer un certain nombre de builds.
 

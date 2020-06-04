@@ -21,7 +21,7 @@ ms.locfileid: "80876723"
 
 Découvrez comment déployer le conteneur Détection de langue. Cette procédure vous montre comment créer les conteneurs Docker locaux, envoyer (push) les conteneurs à votre propre registre de conteneurs privés, exécuter le conteneur dans un cluster Kubernetes et le tester dans un navigateur web.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Cette procédure nécessite plusieurs outils qui doivent être installés et exécutés localement. N’utilisez pas Azure Cloud Shell.
 

@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
@@ -9,10 +9,10 @@ ms.date: 09/12/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67177033"
 ---
 Pour ouvrir un port ou créer un point de terminaison sur une machine virtuelle dans Azure, créez un filtre réseau sur un sous-réseau ou une interface réseau de machine virtuelle. Vous placez ces filtres, qui contrôlent le trafic entrant et sortant, dans un groupe de sécurité réseau associé à la ressource qui reçoit le trafic.
@@ -29,7 +29,7 @@ Une fois que vous avez créé une machine virtuelle configurée pour traiter des
 
    - **Plages de ports sources** : * (autorise n’importe quel port source)
 
-   - **Valeur de priorité** : entrez une valeur de priorité inférieure à 65 500 et prioritaire par rapport à la règle fourre-tout par défaut de refus de trafic entrant.
+   - **Valeur de priorité** : entrez une valeur de priorité inférieure à 65 500 et prioritaire par rapport à la règle fourre-tout par défaut de refus de trafic entrant.
 
 3. Associer le groupe de sécurité réseau à l’interface réseau de machine virtuelle ou au sous-réseau.
 

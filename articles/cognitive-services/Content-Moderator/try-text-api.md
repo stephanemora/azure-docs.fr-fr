@@ -23,7 +23,7 @@ Utilisez l’[API Modération de texte](https://westus.dev.cognitive.microsoft.c
 
 ## <a name="get-your-api-key"></a>Obtenir votre clé API
 
-Avant de pouvoir tester l’API dans la console en ligne, vous avez besoin de votre clé d’abonnement. Elle se trouve sous l’onglet **Paramètres**, dans la zone **Ocp-Apim-Subscription-Key**. Pour plus d’informations, consultez la [vue d’ensemble ](overview.md) de Content Moderator.
+Avant de pouvoir tester l’API dans la console en ligne, vous avez besoin de votre clé d’abonnement. Elle se trouve sous l’onglet **Paramètres**, dans la zone **Ocp-Apim-Subscription-Key**. Pour plus d’informations, consultez [What is Content Moderator?](overview.md) (Présentation de Content Moderator).
 
 ## <a name="navigate-to-the-api-reference"></a>Accéder aux informations de référence sur l’API
 

@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
 ms.openlocfilehash: 41f2d4540f665137d34d262546cdc1a2edfbae3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77608734"
 ---
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Avant d’écrire le code de gestion CDN, vous devez effectuer certaines tâches de préparation pour permettre à ce code d’interagir avec Azure Resource Manager. Ce travail de préparation implique les opérations suivantes :
 
 * Créez un groupe de ressources destiné à héberger le profil CDN créé dans ce didacticiel.

@@ -33,7 +33,7 @@ Ce guide pratique vous montre comment effectuer les tâches suivantes :
 
 Pour avoir une vue d’ensemble de la sécurité et de l’authentification dans Azure Machine Learning, consultez l’[article de présentation des concepts](concept-enterprise-security.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Créez un [espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 * [Configurez votre environnement de développement](how-to-configure-environment.md) pour installer le SDK Azure Machine Learning ou utilisez une [machine virtuelle de notebooks Azure Machine Learning](concept-azure-machine-learning-architecture.md#compute-instance) avec le SDK déjà installé.
@@ -136,7 +136,7 @@ Cet appel ne génère pas de sortie, mais vous avez bien configuré l’authenti
 
 ## <a name="authenticate-to-your-workspace"></a>Authentification auprès de votre espace de travail
 
-Maintenant que l’authentification du principal de service est activée, vous pouvez vous authentifier auprès de votre espace de travail dans le SDK sans avoir à vous connecter physiquement en tant qu’utilisateur. Pour cela, utilisez le constructeur de classe `ServicePrincipalAuthentication` et définissez les paramètres aux valeurs que vous avez obtenues aux étapes précédentes. Les paramètres `tenant_id`, `tenantId` et `service_principal_id` sont respectivement mappés aux valeurs `clientId`, `service_principal_password`et `clientSecret` notées plus haut.
+Maintenant que l’authentification du principal de service est activée, vous pouvez vous authentifier auprès de votre espace de travail dans le SDK sans avoir à vous connecter physiquement en tant qu’utilisateur. Pour cela, utilisez le constructeur de classe `ServicePrincipalAuthentication` et définissez les paramètres aux valeurs que vous avez obtenues aux étapes précédentes. Les paramètres `tenant_id`, `service_principal_id` et `service_principal_password` sont respectivement mappés aux valeurs `tenantId`, `clientId`et `clientSecret` notées plus haut.
 
 ```python
 from azureml.core.authentication import ServicePrincipalAuthentication

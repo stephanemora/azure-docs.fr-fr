@@ -26,7 +26,7 @@ Dans Azure Active Directory B2C (Azure AD B2C), le flux des informations d’ide
 
 [!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Suivez les étapes de l’article [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](custom-policy-get-started.md).
 
@@ -254,8 +254,8 @@ Utilisez votre application de développement d’API favorite pour générer un 
 | Clé | Valeur |
 | --- | ----- |
 | username | `user-account` |
-| password | `password1` |
-| grant_type | password |
+| mot de passe | `password1` |
+| grant_type | mot de passe |
 | scope | openid `application-id` offline_access |
 | client_id | `application-id` |
 | response_type | jeton id_token |

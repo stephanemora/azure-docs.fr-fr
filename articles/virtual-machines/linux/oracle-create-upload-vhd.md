@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/10/2019
 ms.author: guybo
 ms.openlocfilehash: fd6d17709cc3e5e9f6bb89ed7480fcd9ee80fd97
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759393"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Préparation d’une machine virtuelle Linux Oracle pour Azure
@@ -38,7 +38,7 @@ Vous devez suivre des étapes de configuration spécifiques dans le système d'e
    
         # sudo rpm -e --nodeps NetworkManager
    
-    **Remarque :** si le package n’est pas déjà installé, la commande échoue et un message d’erreur s’affiche. Ceci est normal.
+    **Remarque :** si le package n'est pas déjà installé, la commande échoue et un message d'erreur s'affiche. Ceci est normal.
 4. Créez un fichier nommé **network** in the `/etc/sysconfig/` et entrez-y le texte suivant :
    
         NETWORKING=yes

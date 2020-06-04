@@ -12,7 +12,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 05/31/2020
 ms.locfileid: "84232491"
 ---
-|Name |Description |Effet(s) |Version |GitHub |
+|Nom |Description |Effet(s) |Version |GitHub |
 |---|---|---|---|---|
 |[Ajouter une étiquette aux groupes de ressources](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F726aca4c-86e9-4b04-b0c5-073027359532) |Ajoute l’étiquette et la valeur indiquées lors de la création ou de la mise à jour d’un groupe de ressources auquel cette étiquette manque. Il est possible de corriger des groupes de ressources existants en déclenchant une tâche de correction. Si l’étiquette existe avec une valeur différente, elle n’est pas modifiée. |modify |1.0.0 |[Lien](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddTag_ResourceGroup_Modify.json) |
 |[Ajouter une étiquette aux ressources](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4f9dc7db-30c1-420c-b61a-e1d640128d26) |Ajoute l’étiquette et la valeur indiquées lors de la création ou de la mise à jour d’une ressource à laquelle cette étiquette manque. Il est possible de corriger des ressources existantes en déclenchant une tâche de correction. Si l’étiquette existe avec une valeur différente, elle n’est pas modifiée. Ne modifie pas les balises sur les groupes de ressources. |modify |1.0.0 |[Lien](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddTag_Modify.json) |

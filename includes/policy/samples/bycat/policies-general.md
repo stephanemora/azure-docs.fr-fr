@@ -12,7 +12,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 05/31/2020
 ms.locfileid: "84232508"
 ---
-|Name |Description |Effet(s) |Version |GitHub |
+|Nom |Description |Effet(s) |Version |GitHub |
 |---|---|---|---|---|
 |[Emplacements autorisés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe56962a6-4747-49cd-b67b-bf8b01975c4c) |Cette stratégie vous permet de restreindre les emplacements que votre organisation peut spécifier lors du déploiement de ressources. Utilisez-la pour appliquer vos exigences de conformité géographique. Exclut les groupes de ressources, Microsoft.azureactivedirectory/b2cdirectories et les ressources qui utilisent la région « globale ». |deny |1.0.0 |[Lien](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/AllowedLocations_Deny.json) |
 |[Emplacements autorisés pour les groupes de ressources](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe765b5de-1225-4ba3-bd56-1ac6695af988) |Cette stratégie vous permet de restreindre les emplacements où votre organisation peut créer des groupes de ressources. Utilisez-la pour appliquer vos exigences de conformité géographique. |deny |1.0.0 |[Lien](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/ResourceGroupAllowedLocations_Deny.json) |

@@ -102,11 +102,11 @@ Pour utiliser l'appel téléphonique comme méthode par défaut lorsque vous vou
 
     ![Lien Changer pour la méthode de connexion par défaut](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Sélectionnez **Téléphone - Appeler ( *_votre_numéro_de_téléphone_* )** dans la liste déroulante des méthodes disponibles, puis sélectionnez **Confirmer**.
+2. Sélectionnez **Téléphone - Appeler (*_votre_numéro_de_téléphone_*)** dans la liste déroulante des méthodes disponibles, puis sélectionnez **Confirmer**.
 
     ![Choisir la méthode de connexion par défaut](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
 
-    La méthode par défaut utilisée pour la connexion devient **Téléphone - Appeler ( *_votre_numéro_de_téléphone_* )** .
+    La méthode par défaut utilisée pour la connexion devient **Téléphone - Appeler (*_votre_numéro_de_téléphone_*)** .
 
 ## <a name="additional-security-info-methods"></a>Autres méthodes d’informations de sécurité
 

@@ -100,4 +100,4 @@ Pour accéder au moteur de règles, vous devez d’abord sélectionner **Gérer*
 - [Conditions de correspondance du moteur de règles](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Expressions conditionnelles du moteur de règles](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
 - [Fonctionnalités du moteur de règles](cdn-verizon-premium-rules-engine-reference-features.md)
-- [Azure Friday : les nouvelles fonctionnalités Premium puissantes du CDN Azure](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vidéo)
+- [Azure Fridays : les nouvelles fonctionnalités Premium puissantes du CDN Azure](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vidéo)

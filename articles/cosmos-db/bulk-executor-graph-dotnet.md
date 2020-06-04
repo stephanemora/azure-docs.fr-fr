@@ -113,7 +113,7 @@ e.AddProperty("customProperty", "value");
 
 ## <a name="sample-application"></a>Exemple d’application
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 * Visual Studio 2019 avec la charge de travail de développement Azure. Vous pouvez commencer gratuitement avec [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/).
 * Un abonnement Azure. Vous pouvez créer [un compte Azure gratuit ici](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Vous pouvez également créer un compte de base de données Cosmos [en essayant Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure.
 * Une base de données d’API Gremlin Azure Cosmos DB avec une **collection illimitée**. Ce guide montre comment commencer avec [l’API Gremlin Azure Cosmos DB dans .NET](https://docs.microsoft.com/azure/cosmos-db/create-graph-dotnet).

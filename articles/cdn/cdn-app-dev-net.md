@@ -156,7 +156,7 @@ Rédigeons la structure de base de notre programme.
 
 Maintenant que la structure de base de notre programme est écrite, nous devons créer les méthodes appelées par la méthode `Main` .
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 Pour pouvoir utiliser la bibliothèque Azure CDN Management Library, nous devons authentifier notre principal de service et obtenir un jeton d’authentification.  Cette méthode utilise la bibliothèque ADAL pour récupérer le jeton.
 
 ```csharp

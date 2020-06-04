@@ -24,7 +24,7 @@ Découvrez comment utiliser Azure Kubernetes Service (AKS) avec [Apache Kafka](h
 > [!NOTE]  
 > Ce document se concentre sur les étapes à suivre pour permettre à Azure Kubernetes Service de communiquer avec Kafka sur HDInsight. Nous prenons pour exemple un simple client Kafka pour montrer que la configuration fonctionne.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Abonnement Azure
@@ -80,7 +80,7 @@ Si vous n’avez pas déjà un cluster AKS, utilisez un des documents suivants p
     |Propriété | Valeur |
     |---|---|
     |Espace d’adressage|Vous devez utiliser un espace d’adressage qui ne chevauche pas celui utilisé par le réseau en cluster AKS.|
-    |Location|Utilisez le même __emplacement__ pour le réseau virtuel que celui que vous avez utilisé pour le cluster AKS.|
+    |Emplacement|Utilisez le même __emplacement__ pour le réseau virtuel que celui que vous avez utilisé pour le cluster AKS.|
 
 1. Attendez que le réseau virtuel ait été créé avant de passer à l’étape suivante.
 
@@ -160,8 +160,8 @@ Suivez les étapes ci-dessous pour configurer Kafka afin qu’il publie des adre
 
 3. Modifiez le fichier `index.js` et modifiez les lignes suivantes :
 
-    * `var topic = 'mytopic'`: Remplacez `mytopic` par le nom de la rubrique Kafka utilisé par cette application.
-    * `var brokerHost = '176.16.0.13:9092`: Remplacez `176.16.0.13` par l’adresse IP interne de l’un des hôtes du répartiteur pour votre cluster.
+    * `var topic = 'mytopic'`: remplacez `mytopic` par le nom de la rubrique Kafka utilisé par cette application.
+    * `var brokerHost = '176.16.0.13:9092`: remplacez `176.16.0.13` par l’adresse IP interne de l’un des hôtes du répartiteur pour votre cluster.
 
         Pour trouver l’adresse IP interne des hôtes du répartiteur (workernodes) dans le cluster, consultez le document [API REST Apache Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-internal-ip-address-of-cluster-nodes). Choisissez l’adresse IP de l’une des entrées dont le nom de domaine commence par `wn`.
 

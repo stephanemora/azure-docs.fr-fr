@@ -29,7 +29,7 @@ Cet article vous indique comment configurer la récupération d’urgence vers u
 > * Activer la réplication pour une machine virtuelle
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce scénario :
 
@@ -64,7 +64,7 @@ Préparez les serveurs VMM comme suit :
 
 Sélectionnez les éléments à répliquer et l’emplacement de la réplication.
 
-1. Cliquez sur **Site Recovery** > **Étape 1 : Préparez l’infrastructure** > **Objectif de protection**.
+1. Cliquez sur **Site Recovery** > **Étape 1 : préparer l’infrastructure** > **Objectif de protection**.
 2. Sélectionnez **Vers le site de récupération**, puis **Oui, avec Hyper-V**.
 3. Sélectionnez **Oui** pour indiquer que vous utilisez VMM pour gérer les hôtes Hyper-V.
 4. Sélectionnez **Oui** si vous avez un serveur VMM secondaire. Si vous déployez la réplication entre des clouds sur un seul serveur VMM, cliquez sur **Non**. Cliquez ensuite sur **OK**.

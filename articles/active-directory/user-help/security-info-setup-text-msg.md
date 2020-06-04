@@ -27,7 +27,7 @@ Si vous êtes invité à les configurer immédiatement après vous être connect
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->Si vous ne voyez pas d'option téléphonique, cela peut indiquer que votre organisation ne vous autorise pas à utiliser cette option à des fins de vérification. Dans ce cas, vous devez choisir une autre méthode ou contacter le support technique de votre organisation pour obtenir de l'aide.
+>Si vous ne voyez pas d'option téléphonique, cela peut indiquer que votre organisation ne vous autorise pas à utiliser cette option à des fins de vérification. Dans ce cas, vous devez choisir une autre méthode ou contacter le support technique de votre organisation pour obtenir de l’aide.
 
 ## <a name="set-up-text-messages-from-the-security-info-page"></a>Configurer les informations de sécurité pour utiliser les SMS
 
@@ -89,11 +89,11 @@ Pour utiliser la messagerie texte comme méthode par défaut lorsque vous vous c
 
     ![Lien Changer pour la méthode de connexion par défaut](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Sélectionnez **Téléphone - texte ( *_votre_numéro_de_téléphone_* )** dans la liste déroulante des méthodes disponibles, puis sélectionnez **Confirmer**.
+2. Sélectionnez **Téléphone - texte (*_votre_numéro_de_téléphone_*)** dans la liste déroulante des méthodes disponibles, puis sélectionnez **Confirmer**.
 
     ![Choisir la méthode de connexion par défaut](media/security-info/securityinfo-myprofile-phonetext-changeddefault.png)
 
-    La méthode par défaut utilisée pour la connexion devient **Téléphone - texte ( *_votre_numéro_de_téléphone_* )** .
+    La méthode par défaut utilisée pour la connexion devient **Téléphone - texte (*_votre_numéro_de_téléphone_*)** .
 
 ## <a name="additional-security-info-methods"></a>Autres méthodes d’informations de sécurité
 

@@ -13,10 +13,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: c568dddcbbf57ebd6ed5906bb83af01a84dafa41
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683825"
 ---
 # <a name="create-an-advanced-device-model"></a>Créer un modèle d’appareil avancé
@@ -25,7 +25,7 @@ Ce guide décrit les fichiers JSON et JavaScript qui définissent un modèle d�
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre les étapes de ce guide pratique, vous avez besoin d’une instance déployée de la simulation d’appareil dans votre abonnement Azure.
 
@@ -59,7 +59,7 @@ Un modèle d’appareil classique comprend :
 Chaque fichier de définition d’appareil contient les détails d’un modèle d’appareil simulé, notamment les informations suivantes :
 
 * Nom du modèle d’appareil : chaîne.
-* Protocole : AMQP | MQTT | HTTP.
+* Protocole : AMQP | MQTT | HTTP.
 * État initial de l'appareil.
 * Fréquence d’actualisation de l’état de l’appareil.
 * Fichiers JavaScript à utiliser pour actualiser l’état de l’appareil.

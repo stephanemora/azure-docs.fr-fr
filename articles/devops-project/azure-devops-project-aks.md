@@ -151,7 +151,7 @@ Si vous êtes en phase de test, vous pouvez éviter une hausse des frais de fact
 > [!IMPORTANT]
 > La procédure suivante supprime définitivement les ressources. La fonctionnalité *Supprimer* détruit les données qui sont créées par le projet dans DevOps Starter, à la fois dans Azure et dans Azure DevOps, et vous ne pourrez plus les récupérer. Utilisez cette procédure uniquement après avoir lu attentivement les invites.
 
-1. Dans le portail Azure, accédez au tableau de bord DevOps Starter.
+1. Dans le Portail Azure, accédez au tableau de bord DevOps Starter.
 1. En haut à droite, sélectionnez **Supprimer**. 
 1. À l’invite, sélectionnez **Oui** pour *supprimer définitivement* les ressources.
 

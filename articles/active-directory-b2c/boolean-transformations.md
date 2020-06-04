@@ -112,7 +112,7 @@ Le profil technique autodéclaré appelle le profil technique de validation **lo
 - Revendications d’entrée :
     - **inputClaim** : false
     - **valueToCompareTo** : true
-- Résultat : Erreur levée
+- Résultat : Erreur levée
 
 ## <a name="comparebooleanclaimtovalue"></a>CompareBooleanClaimToValue
 

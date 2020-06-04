@@ -133,7 +133,7 @@ Ce scénario utilise un exemple d’application monolithique appelé [**sava**](
 
 1. Accédez à **Deployments**.
 
-2. Cliquez sur **Ajouter**.
+2. Cliquez sur **Add**.
 
 3. Collez dans le fichier YAML de schéma suivant. Ce schéma contient un seul cluster avec une seule variante de service, que nous allons changer ultérieurement :
 
@@ -197,7 +197,7 @@ Pour fusionner le nouveau service sava 1.1 avec le déploiement en cours d’ex�
 
 1. Dans l’interface utilisateur de Vamp, cliquez sur **Schémas**.
 
-2. Cliquez sur **Ajouter**, puis collez dans le fichier YAML de schéma suivant : ce schéma décrit une nouvelle variante de service (sava:1.1.0) à déployer dans le cluster existant (sava_cluster).
+2. Cliquez sur **Add** (Ajouter), puis collez l’extrait au format YAML du blueprint ci-dessous. Ce blueprint décrit une nouvelle variante de service (sava:1.1.0) à déployer dans le cluster existant (sava_cluster).
 
    ```YAML
    name: sava:1.1.0      # blueprint name

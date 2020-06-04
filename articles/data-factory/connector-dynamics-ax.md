@@ -45,7 +45,7 @@ Plus précisément, ce connecteur Dynamics AX prend en charge la copie de donné
 
 Les sections suivantes fournissent des informations sur les propriétés que vous pouvez utiliser pour définir des entités Data Factory propres au connecteur Dynamics AX.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour l’authentification de principal de service, effectuez les étapes suivantes :
 
@@ -142,7 +142,7 @@ Pour copier des données de Dynamics AX, définissez le type **source** de l’a
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété **type** de la source de l’activité de copie doit être définie sur **DynamicsAXSource**. | Oui |
-| query | Options de requête OData pour filtrer les données. Exemple : `"?$select=Name,Description&$top=5"`.<br/><br/>**Remarque** : le connecteur copie les données à partir de l’URL combinée `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Pour plus d’informations, consultez [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Non |
+| query | Options de requête OData pour filtrer les données. Exemple : `"?$select=Name,Description&$top=5"`.<br/><br/>**Remarque** : Le connecteur copie les données à partir de l’URL combinée : `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Pour plus d’informations, consultez [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Non |
 
 **Exemple**
 

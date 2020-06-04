@@ -36,7 +36,7 @@ Azure Data Factory fournit un pilote intégré qui permet la connexion. Vous n�
 
 Ce connecteur prend actuellement en charge les versions de MariaDB allant de 10.0 à 10.2.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -52,7 +52,7 @@ Les propriétés suivantes sont prises en charge pour le service lié MariaDB :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur **MariaDB**. | Oui |
+| type | La propriété type doit être définie sur : **MariaDB** | Oui |
 | connectionString | Chaîne de connexion ODBC permettant de se connecter à MariaDB. <br/>Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `pwd` de la chaîne de connexion. Pour plus d’informations, reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
@@ -133,7 +133,7 @@ Pour copier des données de MariaDB, affectez la valeur **MariaDBSource** au typ
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source de l’activité de copie doit être définie sur **MariaDBSource**. | Oui |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **MariaDBSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

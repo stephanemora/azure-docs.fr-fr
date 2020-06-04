@@ -102,12 +102,12 @@ Cette section décrit les en-têtes de requête HTTP et les paramètres qui son
 > [!TIP]
 > Lisez les [Informations de référence sur l’API REST Azure](https://docs.microsoft.com/rest/api/azure/) pour en savoir plus sur l’utilisation des API REST, la création de requêtes HTTP et la gestion des réponses HTTP.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Authentification
 
 Pour exécuter des requêtes authentifiées sur les [API REST Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), un jeton de porteur OAuth 2.0 valide doit être passé dans l’[en-tête d’autorisation](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) à l’aide du client REST de votre choix (Postman, JavaScript, C#).
 
 > [!TIP]
-> Pour savoir comment s’authentifier par programmation auprès des API Time Series Insights à l’aide du [Kit de développement logiciel (SDK) JavaScript Client](https://tsiclientsample.azurewebsites.net/), lisez l’[exemple de visualisation hébergé du Kit de développement logiciel (SDK) client](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) Azure Time Series Insights ainsi que des graphes et autres graphiques.
+> Pour savoir comment s’authentifier par programmation auprès des API Time Series Insights à l’aide du [Kit de développement logiciel (SDK) JavaScript Client](https://github.com/microsoft/tsiclient/blob/master/docs/API.md), lisez l’[exemple de visualisation hébergé du Kit de développement logiciel (SDK) client](https://tsiclientsample.azurewebsites.net/) Azure Time Series Insights ainsi que des graphes et autres graphiques.
 
 ### <a name="http-headers"></a>En-têtes HTTP
 
@@ -119,7 +119,7 @@ Les en-têtes de requête obligatoires sont décrits ci-dessous.
 
 > [!IMPORTANT]
 > Le jeton doit être émis exactement vers la ressource `https://api.timeseries.azure.com/` (également appelée « audience » du jeton).
-> * Votre [AuthURL](https://www.getpostman.com/) **Postman** sera donc : `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
+> * Votre **AuthURL** [Postman](https://www.getpostman.com/) sera donc : `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
 > * `https://api.timeseries.azure.com/` est valide, mais `https://api.timeseries.azure.com` ne l’est pas.
 
 Les en-têtes de requête facultatifs sont décrits ci-dessous.

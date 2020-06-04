@@ -23,7 +23,7 @@ Ce guide vous montre comment déplacer des données de visage, comme un objet Pe
 
 Cette même stratégie de migration s’applique également aux objets LargePersonGroup et LargeFaceList. Si vous ne connaissez pas bien les concepts utilisés dans ce guide, lisez les définitions correspondantes dans le guide [Concepts de reconnaissance faciale](../concepts/face-recognition.md). Ce guide utilise la bibliothèque cliente .NET de Visage avec C#.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Vous devez disposer des éléments suivants :
 

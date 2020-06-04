@@ -53,7 +53,7 @@ Pour créer un runtime d’intégration auto-hébergé partagé à l’aide d’
 1. Créer un runtime d’intégration lié.
 1. Révoquer le partage.
 
-### <a name="prerequisites"></a>Conditions préalables requises 
+### <a name="prerequisites"></a>Prérequis 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

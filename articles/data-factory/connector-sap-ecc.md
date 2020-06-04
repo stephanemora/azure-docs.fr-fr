@@ -50,7 +50,7 @@ Plus précisément, ce connecteur SAP ECC prend en charge ce qui suit :
 >[!TIP]
 >Pour copier des données à partir de SAP ECC via une table ou un affichage SAP, utilisez le connecteur de [Table SAP](connector-sap-table.md), qui est plus rapide et plus évolutif.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 En règle générale, SAP ECC expose des entités par le biais de services OData via la passerelle SAP. Pour utiliser ce connecteur SAP ECC, vous devez :
 
@@ -58,7 +58,7 @@ En règle générale, SAP ECC expose des entités par le biais de services OData
 
 - **Activer et configurer le service SAP OData**. Vous pouvez activer le service OData par le biais de TCODE SICF en quelques secondes. Vous pouvez également configurer les objets qui doivent être exposés. Pour plus d’informations, consultez la page [guide pas à pas](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -146,7 +146,7 @@ Les propriétés prises en charge dans la section `source` de l’activité de c
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| `type` | La propriété `type` de la section `source` d’activité de copie doit être définie sur `SapEccSource`. | Oui |
+| `type` | La propriété `SapEccSource` de la section `type` d’activité de copie doit être définie sur `source`. | Oui |
 | `query` | Les options de requête OData pour filtrer les données. Par exemple :<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>Le connecteur SAP ECC copie les données à partir de l’URL combinée :<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>Pour plus d’informations, consultez [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Non |
 
 ### <a name="example"></a>Exemple

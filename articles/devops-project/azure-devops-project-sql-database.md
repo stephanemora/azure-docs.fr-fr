@@ -170,7 +170,7 @@ Si vous êtes en phase de test, vous pouvez éviter une hausse des frais de fact
 > [!IMPORTANT]
 > La procédure suivante supprime définitivement les ressources. La fonctionnalité *Supprimer* détruit les données qui sont créées par le projet dans DevOps Starter, à la fois dans Azure et dans Azure DevOps, et vous ne pourrez plus les récupérer. Utilisez cette procédure uniquement après avoir lu attentivement les invites.
 
-1. Dans le portail Azure, accédez au tableau de bord DevOps Starter.
+1. Dans le Portail Azure, accédez au tableau de bord DevOps Starter.
 2. En haut à droite, sélectionnez **Supprimer**. 
 3. À l’invite, sélectionnez **Oui** pour *supprimer définitivement* les ressources.
 
@@ -192,6 +192,6 @@ Pour en savoir plus sur le pipeline CI/CD, consultez :
 > [!div class="nextstepaction"]
 > [Définir votre pipeline de déploiement continu (CD) multiétape](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
-## <a name="videos"></a>Videos
+## <a name="videos"></a>Vidéos
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK3308/player]
