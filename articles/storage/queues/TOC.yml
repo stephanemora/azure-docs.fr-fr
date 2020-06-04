@@ -71,8 +71,18 @@
       href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Reprise d’activité après sinistre et basculement
       href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Liste de contrôle des performances et de l’évolutivité
-      href: storage-performance-checklist.md
+    - name: 'Optimisation des performances, de la mise à l’échelle et des coûts'
+      items:
+        - name: Cibles de performance et d’évolutivité
+          items:
+            - name: Stockage de files d'attente
+              href: scalability-targets.md
+            - name: Comptes de stockage standard
+              href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: Fournisseur de ressources de stockage
+              href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Liste de contrôle des performances et de l’évolutivité
+          href: storage-performance-checklist.md
     - name: Accès concurrentiel
       href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Superviser et dépanner
@@ -214,54 +224,8 @@
           href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Informations de référence
   items:
-    - name: Cibles de performance et d’évolutivité
-      items:
-        - name: Stockage de files d'attente
-          href: scalability-targets.md
-        - name: Comptes de stockage standard
-          href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Fournisseur de ressources de stockage
-          href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Azure PowerShell
-      href: /powershell/module/az.storage
-    - name: Azure CLI
-      href: /cli/azure/storage
-    - name: .NET
-      items:
-        - name: "Files d’attente (version\_11.x)"
-          href: /dotnet/api/microsoft.azure.storage.queue
-        - name: "Files d’attente (version\_12.x)"
-          href: /dotnet/api/azure.storage.queues
-        - name: Fournisseur de ressources de stockage
-          href: /dotnet/api/overview/azure/storage/management
-    - name: Java
-      items:
-        - name: "Files d’attente (version\_8.x)"
-          href: /java/api/com.microsoft.azure.storage.queue
-        - name: "Files d’attente (version\_12.x)"
-          href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html'
-        - name: Fournisseur de ressources de stockage
-          href: /java/api/overview/azure/storage/management
-    - name: "JavaScript (version\_12.x)"
-      href: /javascript/api/@azure/storage-queue
-    - name: "Python (version\_12.x)"
-      href: /python/api/azure-storage-queue/?view=azure-python
-    - name: REST
-      items:
-        - name: 'Objets blob, files d’attente, tables et fichiers'
-          href: /rest/api/storageservices
-        - name: Fournisseur de ressources de stockage
-          href: /rest/api/storagerp
-    - name: C++
-      href: 'https://azure.github.io/azure-storage-cpp'
-    - name: Ruby
-      href: 'https://azure.github.io/azure-storage-ruby'
-    - name: PHP
-      href: 'https://azure.github.io/azure-storage-php/'
-    - name: iOS
-      href: 'https://azure.github.io/azure-storage-ios/'
-    - name: Android
-      href: 'https://azure.github.io/azure-storage-android'
+    - name: Informations de référence sur le stockage File d’attente Azure
+      href: ../queues/reference.md
     - name: Modèle Resource Manager
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
@@ -289,7 +253,7 @@
       href: 'https://azure.microsoft.com/pricing/details/storage/'
     - name: Calculatrice de prix Azure
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
     - name: Packages NuGet (.NET)
       items:

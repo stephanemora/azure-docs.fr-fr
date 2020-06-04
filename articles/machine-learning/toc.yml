@@ -70,7 +70,8 @@
       items:
         - name: Entraîner et déployer avec l’interface CLI
           href: tutorial-train-deploy-model-cli.md
-        - name: Créer des espaces de travail avec des modèles Resource Manager
+        - name: Créer des espaces de travail avec un modèle ARM
+          displayName: Resource Manager
           href: tutorial-resource-manager-workspace.md
     - name: Visual Studio Code
       items:
