@@ -952,8 +952,10 @@
               href: configure-raid.md
             - name: Configurer LVM
               href: configure-lvm.md
-        - name: Trouver les disques non attachés
+        - name: Rechercher les disques non attachés - CLI
           href: find-unattached-disks.md
+        - name: Rechercher les disques non attachés - Portail
+          href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Utiliser le stockage de fichier File Storage
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: FAQ sur Managed Disks

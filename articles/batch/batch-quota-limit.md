@@ -4,12 +4,12 @@ description: En savoir plus sur les contraintes, les limites et les quotas par d
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: b172800e6ed2a28315da3b45eb39f2207f8f1c16
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 3168c6fc60b2552129e9a11fbf6e8e24d9b37b14
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780004"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84229853"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas et limites du service Batch
 
@@ -126,7 +126,7 @@ Une fois que vous avez envoyé votre demande de support, le support Azure vous c
 Les pools Batch dans la configuration de machine virtuelle déployés dans un réseau virtuel Azure allouent automatiquement des ressources de mise en réseau Azure supplémentaires. Les ressources suivantes sont nécessaires pour chacun des 50 nœuds de pools dans un réseau virtuel :
 
 * Un seul [groupe de sécurité réseau](../virtual-network/security-overview.md#network-security-groups)
-* Une seule [adresse IP publique](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* Une seule [adresse IP publique](../virtual-network/public-ip-addresses.md)
 * Un seul [équilibreur de charge](../load-balancer/load-balancer-overview.md)
 
 Ces ressources sont allouées dans l’abonnement contenant le réseau virtuel fourni lors de la création du pool Batch. Ces ressources sont limitées par les [quotas de ressources](../azure-resource-manager/management/azure-subscription-service-limits.md) de l’abonnement. Si vous planifiez des déploiements de pools de grande taille dans un réseau virtuel, vérifiez les quotas de l’abonnement pour ces ressources. Si nécessaire, demandez une augmentation sur le portail Azure en sélectionnant **Aide et support**.

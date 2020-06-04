@@ -50,6 +50,8 @@
           href: create-fslogix-profile-container.md
         - name: Utiliser Azure Files et Azure AD DS
           href: create-profile-container-adds.md
+    - name: Créer des partages de fichiers de conteneur de profils
+      href: create-file-share.md
     - name: Configurer les paramètres d’un pool d’hôtes
       items:
         - name: Propriétés RDP
@@ -134,6 +136,8 @@
       href: 'https://docs.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context'
 - name: Ressources
   items:
+    - name: PowerShell
+      href: '/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization'
     - name: Outil d’estimation de l’expérience
       href: 'https://azure.microsoft.com/services/virtual-desktop/assessment/'
     - name: Calculatrice de prix

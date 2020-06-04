@@ -11,7 +11,8 @@
       href: create-member.md
     - name: Créer un membre en utilisant CLI
       href: create-member-cli.md
-    - name: Créer un membre en utilisant un modèle
+    - name: Créer un membre en utilisant un modèle ARM
+      displayName: Resource Manager
       href: create-member-template.md
     - name: Se connecter à un nœud de transaction
       items:

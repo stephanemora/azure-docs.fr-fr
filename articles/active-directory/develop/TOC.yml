@@ -548,6 +548,9 @@
               href: msal-js-pass-custom-state-authentication-request.md
             - name: Comportement d’invite
               href: msal-js-prompt-behavior.md
+            - name: Migrer une SPA d’un flux de code implicite vers un flux de code d’authentification
+              href: migrate-spa-implicit-to-auth-code.md
+              displayName: 'authorization, single-page app, 2.0'
         - name: MSAL pour iOS et macOS
           items:
             - name: Différences MSAL pour iOS et macOS

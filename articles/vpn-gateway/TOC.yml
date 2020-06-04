@@ -24,6 +24,8 @@
           href: work-remotely-support.md
         - name: Configurations d’appliances virtuelles réseau et travail à distance
           href: nva-work-remotely-support.md
+    - name: À propos de la conception de la passerelle VPN
+      href: design.md
     - name: À propos des paramètres de la passerelle VPN
       href: vpn-gateway-about-vpn-gateway-settings.md
     - name: À propos des périphériques VPN
@@ -285,5 +287,5 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Contrat SLA
       href: 'https://azure.microsoft.com/support/legal/sla'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway'

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 5d6d4a41deb1ef96789a48eefba306be4dfb20eb
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 3cf16c2cd119eb3eec64104b2573ff7de2cc76c4
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745134"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020079"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extraire, transformer et charger (ETL) à l’échelle
 
@@ -106,9 +106,9 @@ L’adaptabilité de HBase est déterminée par le nombre de nœuds contenus dan
 
 Azure propose trois bases de données relationnelles PaaS :
 
-- [Azure SQL Database](../../sql-database/sql-database-technical-overview.md) est une implémentation de Microsoft SQL Server. Pour en savoir plus sur les performances, consultez [Optimisation des performances dans Azure SQL Database](../../sql-database/sql-database-performance-guidance.md).
-- [Azure Database pour MySQL](../../mysql/overview.md) est une implémentation d’Oracle MySQL.
-- [Azure Database pour PostgreSQL](../../postgresql/quickstart-create-server-database-portal.md) est une implémentation de PostgreSQL.
+* [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) est une implémentation de Microsoft SQL Server. Pour en savoir plus sur les performances, consultez [Paramétrage des performances dans Azure SQL Database](../../azure-sql/database/performance-guidance.md).
+* [Azure Database pour MySQL](../../mysql/overview.md) est une implémentation d’Oracle MySQL.
+* [Azure Database pour PostgreSQL](../../postgresql/quickstart-create-server-database-portal.md) est une implémentation de PostgreSQL.
 
 Ajoutez de la capacité de traitement et de mémoire pour mettre à l’échelle ces produits.  Vous pouvez également choisir d’utiliser des disques Premium avec les produits pour bénéficier de meilleures performances d’E/S.
 

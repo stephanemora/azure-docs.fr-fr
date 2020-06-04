@@ -87,11 +87,11 @@
         - name: Inscrire un fournisseur de services SAML
           href: connect-with-saml-service-providers.md
           displayName: 'SP, RP, service provider, connect'
-        - name: Inscrire une application Graph
+        - name: Inscrire une application Microsoft Graph
           href: microsoft-graph-get-started.md
           displayName: 'migrate, migration, microsoft graph'
         - name: Ajouter une application d’API web
-          href: add-web-application.md
+          href: add-web-api-application.md
         - name: Ajouter une application cliente native
           href: add-native-application.md
         - name: iOS ObjC utilisant AppAuth
@@ -397,6 +397,8 @@
           href: user-migration.md
 - name: Informations de référence
   items:
+    - name: Inscriptions des applications
+      href: app-registrations-training-guide.md
     - name: Modèle de facturation
       href: billing.md
     - name: Exemples de code
@@ -442,5 +444,5 @@
     - name: Support
       href: support-options.md
       displayName: technical
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c'

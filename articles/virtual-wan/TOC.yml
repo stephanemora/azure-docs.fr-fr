@@ -48,8 +48,6 @@
       href: upgrade-virtual-wan.md
     - name: Configurer une stratégie IPsec personnalisée
       href: virtual-wan-custom-ipsec-portal.md
-    - name: Installer un pare-feu Azure dans un hub
-      href: howto-firewall.md
     - name: ExpressRoute
       items:
         - name: Créer une connexion ExpressRoute
@@ -60,6 +58,8 @@
       items:
         - name: Créer une connexion de site à site
           href: virtual-wan-site-to-site-portal.md
+        - name: Plusieurs liens ISP - Sélection de chemin Azure
+          href: path-selection-multiple-links.md
     - name: VPN utilisateur (point à site)
       items:
         - name: Créer une connexion VPN utilisateur
@@ -86,8 +86,6 @@
           href: openvpn-azure-ad-client.md
         - name: Configurer l’authentification Azure AD multi-application
           href: openvpn-azure-ad-tenant-multi-app.md
-        - name: Installer un pare-feu Azure dans un hub
-          href: howto-firewall.md
     - name: Routage
       items:
         - name: Acheminer le trafic depuis un hub virtuel vers une NVA
@@ -98,12 +96,14 @@
               href: virtual-wan-route-table.md
         - name: Afficher les routes effectives d’un hub virtuel
           href: effective-routes-virtual-hub.md
-        - name: Plusieurs liens ISP - Sélection de chemin Azure
-          href: path-selection-multiple-links.md
     - name: Sécurité
       items:
         - name: Installer un pare-feu Azure dans un hub
           href: howto-firewall.md
+    - name: Surveillance
+      items:
+        - name: Métriques et journaux d’activité
+          href: logs-metrics.md
 - name: Informations de référence
   items:
     - name: Azure PowerShell

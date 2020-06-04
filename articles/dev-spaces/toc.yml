@@ -73,8 +73,8 @@
               href: how-dev-spaces-works-routing.md
             - name: Débogage à distance
               href: how-dev-spaces-works-remote-debugging.md
-            - name: Connexion de votre ordinateur de développement à AKS
-              href: how-dev-spaces-works-connect.md
+            - name: Processus local avec Kubernetes
+              href: how-dev-spaces-works-local-process-kubernetes.md
         - name: Fonctionnement de VS Code avec Dev Spaces
           href: how-vs-code-works-with-dev-spaces.md
         - name: Configuration réseau dans différentes topologies réseau
@@ -111,8 +111,10 @@
           href: how-to/ingress-https-traefik.md
         - name: Utiliser NGINX pour une entrée personnalisée et HTTPS
           href: how-to/ingress-https-nginx.md
-        - name: Connecter votre ordinateur de développement à un cluster AKS (préversion)
-          href: how-to/connect.md
+        - name: Utiliser un processus local avec Kubernetes avec Visual Studio Code (préversion)
+          href: how-to/local-process-kubernetes-vs-code.md
+        - name: Utiliser un processus local avec Kubernetes avec Visual Studio (préversion)
+          href: how-to/local-process-kubernetes-visual-studio.md
     - name: Dépannage
       href: troubleshooting.md
     - name: Questions fréquentes (FAQ)

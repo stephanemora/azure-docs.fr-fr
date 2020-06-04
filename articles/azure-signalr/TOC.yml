@@ -25,7 +25,7 @@
   items:
     - name: Générer une application serverless en temps réel avec l’authentification
       href: signalr-tutorial-authenticate-azure-functions.md
-    - name: Moniteur
+    - name: Superviser
       items:
         - name: Utiliser les journaux de diagnostic pour superviser SignalR Service
           href: signalr-tutorial-diagnostic-logs.md
@@ -57,7 +57,7 @@
       href: signalr-concept-messages-and-connections.md
     - name: Considérations relatives aux performances
       href: signalr-concept-performance.md
-    - name: Authentication
+    - name: Authentification
       href: signalr-concept-authenticate-oauth.md
     - name: Gestion des événements
       href: signalr-concept-event-grid-integration.md
@@ -73,6 +73,12 @@
       items:
         - name: Rotation des clés d’accès
           href: signalr-howto-key-rotation.md
+        - name: Utiliser des étiquettes de service Azure
+          href: howto-service-tags.md
+        - name: Utiliser des points de terminaison privés Azure
+          href: howto-private-endpoints.md
+        - name: Gérer le contrôle d’accès réseau
+          href: howto-network-access-control.md
     - name: Integrate
       items:
         - name: Liaisons Azure Functions
@@ -107,7 +113,7 @@
       href: 'https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#signalr-service-limits'
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/signalr-service/'
-    - name: Videos
+    - name: Vidéos
       href: 'https://www.youtube.com/results?search_query=Azure+SignalR+Core'
     - name: Stackoverflow
       href: 'https://stackoverflow.com/search?q=signalr+service'

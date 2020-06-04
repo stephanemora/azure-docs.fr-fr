@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 9f780ad3d2c95f9d23ea9a0b675b59ba22e25016
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b9a855a89a37cde0be3c30b2428c32db361aa2e8
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651934"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021685"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Utiliser les données de référence d’une base de données SQL pour une tâche Azure Stream Analytics
 
@@ -40,7 +40,7 @@ Utilisez les étapes suivantes pour ajouter une base de données Azure SQL comme
 
    ![Configuration de la base de données SQL comme référence](./media/sql-reference-data/sql-input-config.png)
 
-3. Testez la requête d’instantané dans l’éditeur de requête SQL. Pour plus d’informations, consultez [Utiliser l’éditeur de requête SQL du portail Azure pour se connecter aux données et les interroger](../sql-database/sql-database-connect-query-portal.md).
+3. Testez la requête d’instantané dans l’éditeur de requête SQL. Pour plus d’informations, consultez [Utiliser l’éditeur de requête SQL du portail Azure pour se connecter aux données et les interroger](../azure-sql/database/connect-query-portal.md).
 
 ### <a name="specify-storage-account-in-job-config"></a>Spécifier le compte de stockage dans la configuration de la tâche
 
@@ -69,7 +69,7 @@ Suivez ces étapes pour ajouter Azure SQL Database comme source d’entrée de r
 
 ### <a name="create-a-sql-database-table"></a>Création d’une table de base de données SQL
 
-Utilisez SQL Server Management Studio pour créer une table dans laquelle stocker vos données de référence. Pour plus d’informations, consultez [Concevoir votre première base de données Azure SQL à l’aide de SSMS](../sql-database/sql-database-design-first-database.md).
+Utilisez SQL Server Management Studio pour créer une table dans laquelle stocker vos données de référence. Pour plus d’informations, consultez [Concevoir votre première base de données Azure SQL à l’aide de SSMS](../azure-sql/database/design-first-database-tutorial.md).
 
 L’exemple de table utilisé dans l’exemple suivant a été créé à partir de l’instruction suivante :
 
@@ -129,7 +129,7 @@ Avant de déployer la tâche sur Azure, vous pouvez tester la logique de la requ
 
 ## <a name="delta-query"></a>Requête delta
 
-Quand vous utilisez la requête delta, des [tables temporelles dans Azure SQL Database](../sql-database/sql-database-temporal-tables.md) sont recommandées.
+Quand vous utilisez la requête delta, des [tables temporelles dans Azure SQL Database](../azure-sql/temporal-tables.md) sont recommandées.
 
 1. Créer une table temporelle dans la base de données Azure SQL Database.
    

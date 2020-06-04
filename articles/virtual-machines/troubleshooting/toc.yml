@@ -69,6 +69,8 @@
       items:
         - name: Diagnostics de démarrage
           href: boot-diagnostics.md
+        - name: Erreur de démarrage - Une erreur de lecture de disque s’est produite
+          href: boot-error-disk-read-error-occurred.md
         - name: Erreurs de BitLocker
           href: troubleshoot-bitlocker-boot-error.md
         - name: Erreurs liées à un écran bleu

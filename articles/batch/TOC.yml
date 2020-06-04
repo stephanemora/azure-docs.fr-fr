@@ -129,6 +129,8 @@
           href: batch-custom-images.md
         - name: Créer un pool dans un réseau virtuel
           href: batch-virtual-network.md
+        - name: Créer un pool avec des adresses IP publiques
+          href: create-pool-public-ip.md
         - name: Monter un système de fichiers virtuel
           href: virtual-file-mount.md
         - name: Monter un partage de fichiers Azure
@@ -281,5 +283,5 @@
       href: 'https://azure.microsoft.com/updates/?product=batch&updatetype=&platform='
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-batch'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=batch'
