@@ -16,7 +16,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 05/12/2020
 ms.locfileid: "83197498"
 ---
-# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Didacticiel : Installer des applications dans des groupes identiques de machines virtuelles avec un modèle Azure
+# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Tutoriel : Installer des applications dans des groupes de machines virtuelles identiques avec un modèle Azure
 Pour exécuter des applications sur des instances de machine virtuelle d’un groupe identique, vous devez d’abord installer les composants d’application et les fichiers requis. Dans un didacticiel précédent, vous avez appris à créer et utiliser une image personnalisée de machine virtuelle pour déployer vos instances de machine virtuelle. Cette image personnalisée comprenait l’installation et la configuration manuelles d’applications. Vous pouvez également automatiser l’installation des applications pour un groupe identique après le déploiement de chaque instance de machine virtuelle, ou mettre à jour une application déjà exécutée dans un groupe identique. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]

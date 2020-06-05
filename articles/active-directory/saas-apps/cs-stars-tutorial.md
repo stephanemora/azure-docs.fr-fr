@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à CS Stars | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à CS Stars | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et CS Stars.
 services: active-directory
 documentationCenter: na
@@ -23,7 +23,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "81869433"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Didacticiel : Intégration d’Azure Active Directory avec CS Stars
+# <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Tutoriel : Intégration d’Azure Active Directory à CS Stars
 
 Dans ce didacticiel, vous allez apprendre à intégrer CS Stars à Azure Active Directory (Azure AD).
 L’intégration de CS Stars dans Azure AD vous offre les avantages suivants :
@@ -35,7 +35,7 @@ L’intégration de CS Stars dans Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD avec CS Stars, vous avez besoin des éléments suivants :
 

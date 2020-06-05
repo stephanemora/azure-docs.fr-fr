@@ -11,7 +11,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "82117214"
 ---
-# <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Démarrage rapide : exécution de votre premier travail Microsoft Azure Batch avec l’API .NET
+# <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Démarrage rapide : exécution de votre premier travail Microsoft Azure Batch avec l’API .NET
 
 Ce démarrage rapide exécute un travail Azure Batch à partir d’une application C# basée sur l’API .NET Azure Batch. L’application télécharge plusieurs fichiers de données d’entrée vers Stockage Azure, puis crée un *pool* de nœuds de calcul Azure Batch (machines virtuelles). Ensuite, elle crée un exemple de *travail* qui exécute des *tâches* pour traiter chaque fichier d’entrée sur le pool à l’aide d’une commande de base. À l’issue de ce démarrage rapide, vous maîtriserez les concepts clés du service Batch et serez prêt à essayer Azure Batch avec des charges de travail plus réalistes à plus grande échelle.
 
@@ -19,7 +19,7 @@ Ce démarrage rapide exécute un travail Azure Batch à partir d’une applicati
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * [Visual Studio 2017 ou version ultérieure](https://www.visualstudio.com/vs), ou [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) pour Linux, macOS ou Windows. 
 

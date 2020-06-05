@@ -19,7 +19,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "81770042"
 ---
-# <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutoriel : utiliser un appareil simulé pour tester la connectivité avec votre Hub IoT
+# <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutoriel : Utiliser un appareil simulé pour tester la connectivité avec votre hub IoT
 
 Dans ce tutoriel, vous utilisez les outils du portail Azure IoT Hub et les commandes Azure CLI pour tester la connectivité de l’appareil. Ce tutoriel utilise également un simulateur d’appareil simple que vous exécutez sur votre ordinateur de bureau.
 
@@ -34,7 +34,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Les scripts CLI que vous exécutez dans ce tutoriel utilisent l’[extension Microsoft Azure IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). Pour installer cette extension, exécutez la commande CLI suivante :
 
@@ -56,7 +56,7 @@ node --version
 
 Téléchargez l’exemple de projet Node.js de simulateur d’appareil à partir de https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip et extrayez l’archive ZIP.
 
-Assurez-vous que le port 8883 est ouvert dans votre pare-feu. L'exemple d’appareil de ce tutoriel utilise le protocole MQTT qui communique sur le port 8883. Ce port peut être bloqué dans certains environnements réseau professionnels et scolaires. Pour plus d’informations sur les façons de contourner ce problème, consultez [Connexion à IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+Assurez-vous que le port 8883 est ouvert dans votre pare-feu. L'exemple d’appareil de ce tutoriel utilise le protocole MQTT qui communique sur le port 8883. Dans certains environnements réseau professionnels et scolaires, ce port peut être bloqué. Pour plus d’informations sur les différentes façons de contourner ce problème, consultez [Connexion à IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 

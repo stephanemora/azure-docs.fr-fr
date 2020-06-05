@@ -16,7 +16,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 05/12/2020
 ms.locfileid: "83198221"
 ---
-# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutoriel : Créer et gérer un groupe de machines virtuelles identiques avec Azure CLI
+# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutoriel : Créer et gérer un groupe de machines virtuelles identiques avec Azure CLI
 Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Tout au long du cycle de vie du groupe de machines virtuelles identiques, vous devrez peut-être exécuter une ou plusieurs tâches de gestion. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]

@@ -114,6 +114,8 @@
   items:
     - name: Gérer
       items:
+        - name: Travaux de mise à l’échelle automatique
+          href: stream-analytics-autoscale.md
         - name: Mettre à jour les informations d’identification
           href: stream-analytics-login-credentials-inputs-outputs.md
         - name: Configurer des stratégies de tri d’événements
@@ -611,6 +613,8 @@
       href: /rest/api/streamanalytics
     - name: Modèle Resource Manager
       href: /azure/templates/microsoft.streamanalytics/allversions
+    - name: Azure CLI
+      href: /cli/azure/ext/stream-analytics/stream-analytics
 - name: Ressources
   items:
     - name: Préversions Stream Analytics

@@ -32,7 +32,7 @@ L’exemple suivant montre comment inclure les données d’App Configuration en
 
 Vous pouvez utiliser l’éditeur de code de votre choix pour exécuter les étapes de ce tutoriel. [Visual Studio Code](https://code.visualstudio.com/) est une excellente option disponible sur les plateformes Windows, macOS et Linux.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Si vous créez localement, téléchargez et installez l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) si vous ne l’avez pas déjà fait.
 

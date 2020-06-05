@@ -34,7 +34,7 @@ Dans ce tutoriel, vous utilisez Azure PowerShell pour créer un pipeline Azure D
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -42,7 +42,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 - **Réseau virtuel Azure.** Si vous ne disposez pas d’un réseau virtuel Azure, créez-le en suivant [ces instructions](../virtual-network/quick-create-portal.md). Dans cet exemple, HDInsight est dans un réseau virtuel Azure. Voici un exemple de configuration du réseau virtuel Azure. 
 
     ![Création d’un réseau virtuel](media/tutorial-transform-data-using-hive-in-vnet/create-virtual-network.png)
-- **Cluster HDInsight.** Créez un cluster HDInsight et joignez-le au réseau virtuel que vous avez créé à l’étape précédente en suivant cet article : [Étendre HDInsight à l’aide d’un réseau virtuel Azure](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Voici un exemple de configuration de HDInsight dans un réseau virtuel. 
+- **Cluster HDInsight.** Créez un cluster HDInsight et joignez-le au réseau virtuel que vous avez créé à l’étape précédente en suivant les instructions de cet article : [Étendre Azure HDInsight à l’aide d’un réseau virtuel Azure](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Voici un exemple de configuration de HDInsight dans un réseau virtuel. 
 
     ![HDInsight dans un réseau virtuel](media/tutorial-transform-data-using-hive-in-vnet/hdinsight-in-vnet-configuration.png)
 - **Azure PowerShell**. Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](/powershell/azure/install-Az-ps).
@@ -93,7 +93,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     ```powershell
     $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" 
     ```
-2. Lancez **PowerShell**. Gardez Azure PowerShell ouvert jusqu’à la fin de ce guide de démarrage rapide. Si vous fermez puis rouvrez Azure PowerShell, vous devez réexécuter ces commandes. Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent sur la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent être proposés dans d’autres régions.
+2. Lancez **PowerShell**. Gardez Azure PowerShell ouvert jusqu’à la fin de ce guide de démarrage rapide. Si vous fermez puis rouvrez Azure PowerShell, vous devez réexécuter ces commandes. Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent dans la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent être proposés dans d’autres régions.
 
     Exécutez la commande suivante, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure :
         
@@ -110,7 +110,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     ```powershell
     Select-AzSubscription -SubscriptionId "<SubscriptionId>"    
     ```  
-3. Créez le groupe de ressources ADFTutorialResourceGroup s’il n’existe pas déjà dans votre abonnement. 
+3. Créez le groupe de ressources : ADFTutorialResourceGroup s’il n’existe pas déjà dans votre abonnement. 
 
     ```powershell
     New-AzResourceGroup -Name $resourceGroupName -Location "East Us" 
@@ -156,9 +156,9 @@ Dans cette section, vous créez un runtime d’intégration autohébergé et l�
 
    ![Inscrire le runtime d’intégration](media/tutorial-transform-data-using-hive-in-vnet/register-integration-runtime.png)
 
-   Le message suivant s’affiche lorsque le runtime d’intégration autohébergé est inscrit correctement : ![Le nœud Runtime d'intégration (autohébergé) a été inscrit](media/tutorial-transform-data-using-hive-in-vnet/registered-successfully.png)
+   Le message suivant s’affiche une fois que le runtime d’intégration auto-hébergé est bien inscrit : ![Inscription réussie](media/tutorial-transform-data-using-hive-in-vnet/registered-successfully.png)
 
-   La page suivante apparaît lorsque le nœud est connecté au service cloud : ![Le nœud est connecté au service cloud.](media/tutorial-transform-data-using-hive-in-vnet/node-is-connected.png)
+   La page suivante apparaît une fois que le nœud est connecté au service cloud : ![Le nœud est connecté](media/tutorial-transform-data-using-hive-in-vnet/node-is-connected.png)
 
 ## <a name="author-linked-services"></a>Créer des services liés
 

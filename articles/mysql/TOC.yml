@@ -190,6 +190,8 @@
           href: howto-connection-string.md
         - name: Configuration du chiffrement SSL
           href: howto-configure-ssl.md
+        - name: Configurer TLS
+          href: howto-tls-configurations.md
         - name: les applications web
           href: howto-connect-webapp.md
         - name: Se connecter avec la redirection
@@ -312,7 +314,7 @@
       href: 'https://docs.microsoft.com/answers/topics/azure-database-mysql.html'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-database-mysql'
-    - name: Videos
+    - name: Vidéos
       items:
         - name: Vidéos de produit
           href: videos.md

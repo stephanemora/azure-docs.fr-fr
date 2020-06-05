@@ -24,7 +24,7 @@ ms.locfileid: "80877816"
 
     |Paramètre|Valeur|
     |--|--|
-    |Subscription|Sélectionnez un abonnement approprié.|
+    |Abonnement|Sélectionnez un abonnement approprié.|
     |Resource group|Sélectionnez un groupe de ressources disponible.|
     |Nom du cluster Kubernetes|Entrer un nom (en minuscules).|
     |Région|Sélectionnez un emplacement proche.|

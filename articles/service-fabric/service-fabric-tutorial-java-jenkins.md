@@ -13,7 +13,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/30/2020
 ms.locfileid: "82594761"
 ---
-# <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Tutoriel : Configurer un environnement Jenkins pour activer l’intégration/le déploiement continus pour une application Java sur Service Fabric
+# <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Tutoriel : Configurer un environnement Jenkins pour activer l’intégration/le déploiement continus (CI/CD) pour une application Java sur Service Fabric
 
 Ce tutoriel est la cinquième partie de la série. Il vous explique comment utiliser Jenkins pour déployer des mises à niveau pour votre application. Dans ce didacticiel, le plug-in Jenkins Service Fabric est utilisé en association avec un référentiel GitHub hébergeant l’application Voting pour déployer l’application vers un cluster.
 
@@ -31,7 +31,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 > * [Configurer la surveillance et les diagnostics pour l’application](service-fabric-tutorial-java-elk.md)
 > * Configurer l’intégration continue/le déploiement continu
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Installer Git sur votre ordinateur local à partir de [la page de téléchargements de Git](https://git-scm.com/downloads). Pour plus d’informations sur Git, consultez la [documentation Git](https://git-scm.com/docs).
 * Avoir une connaissance pratique de [Jenkins](https://jenkins.io/).

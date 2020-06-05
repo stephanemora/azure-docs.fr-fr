@@ -19,7 +19,7 @@ ms.locfileid: "82731949"
 
 Ce démarrage rapide vous guide tout au long de la connexion de l’instance App Center de votre application à Application Insights. Avec Application Insights, vous pouvez interroger, segmenter, filtrer et analyser vos données de télémétrie avec davantage d’outils puissants que ceux disponibles à partir du service [Analytics](https://docs.microsoft.com/mobile-center/analytics/) d’App Center.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 

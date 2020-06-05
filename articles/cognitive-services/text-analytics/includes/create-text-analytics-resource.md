@@ -25,9 +25,9 @@ ms.locfileid: "80876410"
 
     |Paramètre|Valeur|
     |--|--|
-    |Name|Entrez un nom (entre 2 et 64 caractères).|
-    |Subscription|Sélectionnez l’abonnement approprié.|
-    |Location|Sélectionnez un emplacement proche.|
+    |Nom|Entrez un nom (entre 2 et 64 caractères).|
+    |Abonnement|Sélectionnez l’abonnement approprié.|
+    |Emplacement|Sélectionnez un emplacement proche.|
     |Niveau tarifaire| Entrez **S**, le niveau tarifaire standard.|
     |Resource group|Sélectionnez un groupe de ressources disponible.|
 

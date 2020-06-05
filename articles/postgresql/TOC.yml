@@ -235,6 +235,10 @@
               href: howto-migrate-using-export-and-import.md
             - name: Migration avec temps d’arrêt minimal
               href: howto-migrate-online.md
+        - name: Connecter des applications
+          items:
+            - name: Configurer TLS
+              href: howto-tls-configurations.md
         - name: Configurer les paramètres du serveur
           items:
             - name: Portail Azure
@@ -345,7 +349,7 @@
       href: 'https://docs.microsoft.com/answers/topics/azure-database-postgresql.html'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-database-postgresql'
-    - name: Videos
+    - name: Vidéos
       items:
         - name: Vidéos de produit
           href: videos.md

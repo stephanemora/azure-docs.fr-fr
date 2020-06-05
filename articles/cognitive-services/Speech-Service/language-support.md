@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 3fe1b999fbdc03157778a1329e05e8c342183528
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 437dc18dc16e879e95ff4ec7c1a9ab7ec3f17bef
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587372"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84265996"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Prise en charge des langues et de la voix pour le service Speech
 
@@ -24,7 +24,11 @@ La prise en charge des langues varie selon les fonctionnalités du service Speec
 
 ## <a name="speech-to-text"></a>Reconnaissance vocale
 
-Le Kit de développement logiciel (SDK) et l’API REST Speech de Microsoft prennent en charge les langages suivants (paramètres régionaux). Afin d'améliorer la précision, la personnalisation est proposée pour un sous-ensemble de langues en téléchargeant des transcriptions audio + étiquetées à la main ou des textes associés : Phrases. La personnalisation de la prononciation est actuellement disponible uniquement pour `en-US` et `de-DE`. Pour en savoir plus sur la personnalisation, cliquez [ici](how-to-custom-speech.md).
+Le Kit de développement logiciel (SDK) et l’API REST Speech de Microsoft prennent en charge les langages suivants (paramètres régionaux). 
+
+Afin d'améliorer la précision, la personnalisation est proposée pour une partie des langues en chargeant des **transcriptions audio + étiquetées à la main** ou des **textes associés : Phrases.** Pour en savoir plus sur la personnalisation, consultez [Bien démarrer avec Custom Speech](how-to-custom-speech.md).
+
+Pour plus d’informations sur la façon dont vous pouvez améliorer la prononciation, consultez [Améliorer un modèle pour Custom Speech](how-to-custom-speech-improve-accuracy.md#add-new-words-with-pronunciation).
 
 <!--
 To get the AM and ML bits:
@@ -39,7 +43,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-AE` | Arabe (Émirats arabes unis)                      | Oui       | Non                                                |
 | `ar-BH` | Arabe (Bahreïn), standard moderne | Oui       | Modèle de langage                                    |
 | `ar-EG` | Arabe (Égypte)                    | Oui       | Modèle de langage                                    |
+| `ar-IL` | Arabe (Israël)                   | Oui       | Non                                                |
 | `ar-KW` | Arabe (Koweït)                   | Oui       | Non                                                |
+| `ar-PS` | Arabe (Palestine)                | Oui       | Non                                                |
 | `ar-QA` | Arabe (Qatar)                    | Oui       | Non                                                |
 | `ar-SA` | Arabe (Arabie saoudite)             | Oui       | Non                                                |
 | `ar-SY` | Arabe (Syrie)                    | Oui       | Modèle de langage                                    |
@@ -73,7 +79,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ta-IN` | Tamoul (Inde)                     | Oui       | Modèle de langage                                    |
 | `te-IN` | Télougou (Inde)                    | Oui       | Non                                                |
 | `th-TH` | Thaï (Thaïlande)                   | Oui       | Non                                                |
-| `tr-TR` | Turc (Turquie)                  | Oui       | Non                                                |
+| `tr-TR` | Turc (Turquie)                  | Oui       | Modèle de langage                                    |
 | `zh-CN` | Chinois (mandarin, simplifié)    | Oui       | Modèle acoustique<br>Modèle de langage                  |
 | `zh-HK` | Chinois (cantonais, traditionnel)  | Oui       | Modèle de langage                                    |
 | `zh-TW` | Chinois (mandarin, taïwanais)      | Oui       | Modèle de langage                                    |
@@ -93,29 +99,29 @@ Les voix neurales peuvent être utilisées pour rendre les interactions avec les
 
 Pour plus d’informations sur la disponibilité régionale, consultez [régions](regions.md#standard-and-neural-voices).
 
-|Paramètres régionaux  | Langage            | Sexe | Nom de la voix  | Prise en charge bilingue | Prise en charge du style |
-|--|--|--|--|--|--|
-| `de-DE` | Allemand (Allemagne)    | Female | « de-DE-KatjaNeural » | Oui. Anglais (US) | Général |
-| `en-AU` | Anglais (Australie) | Female |  « en-AU-NatashaNeural » | Non | Général |
-| `en-CA` | Anglais (Canada)    | Female |  « en-CA-ClaraNeural »| Non | Général |
-| `en-GB` | Anglais (Royaume-Uni)        | Female |  « en-GB-LibbyNeural »| Non | Général |
-|  |      | Female |  « en-GB-MiaNeural » | Non | Général |
-| `en-US` | Anglais (US)        | Female |  « en-US-AriaNeural »| Non | Général, plusieurs styles de voix sont disponibles |
-|  |      | Male   | « en-US-GuyNeural » | Non | Général |
-| `es-ES` | Espagnol (Espagne)     | Female |  « es-ES-ElviraNeural »| Oui. Anglais (US) | Général |
-| `es-MX` | Espagnol (Mexique)    | Female |  « es-MX-DaliaNeural » | Oui. Anglais (US) | Général |
-| `fr-CA` | Français (Canada)     | Female |  « fr-CA-SylvieNeural » | Oui. Anglais (US) | Général |
-| `fr-FR` | Français (France)     | Female | « fr-FR-DeniseNeural »  | Oui. Anglais (US) | Général |
-| `it-IT` | Italien (Italie)     | Female |  « it-IT-ElsaNeural »  | Oui. Anglais (US) | Général |
-| `ja-JP` | Japonais            | Female |  « ja-JP-NanamiNeural » | Oui. Anglais (US) | Général |
-| `ko-KR` | Coréen              | Female |  « ko-KR-SunHiNeural » | Oui. Anglais (US) | Général |
-| `nb-NO` | Norvégien           | Female | « NB-non-IselinNeural » | Non | Général |
-| `pt-BR` | Portugais (Brésil) | Female |  « pt-BR-FranciscaNeural » | Non | Général |
-| `tr-TR` | Turc             | Female | « TR-TR-EmelNeural » | Non | Général |
-| `zh-CN` | Chinois (mandarin, simplifié)  | Female |  « zh-CN-XiaoxiaoNeural »  | Oui. Anglais (US) | Général, plusieurs styles de voix sont disponibles |
-|  |  | Female |  « zh-CN-XiaoyouNeural »  | Oui. Anglais (US) | Voix d’enfant, optimisée pour raconter des histoires |
-|  |  | Male |  « zh-CN-YunyangNeural »  | Oui. Anglais (US) | Optimisée pour la lecture d’actualités, plusieurs styles de voix sont disponibles |
-|  |  | Male |  « zh-CN-YunyeNeural »  | Non | Optimisée pour raconter des histoires |
+|Paramètres régionaux  | Langage            | Sexe | Nom de la voix | Prise en charge du style |
+|--|--|--|--|--|
+| `de-DE` | Allemand (Allemagne)                | `Female` | « de-DE-KatjaNeural »      | Général |
+| `en-AU` | Anglais (Australie)             | `Female` | « en-AU-NatashaNeural »    | Général |
+| `en-CA` | Anglais (Canada)                | `Female` | « en-CA-ClaraNeural »      | Général |
+| `en-GB` | Anglais (Royaume-Uni)                    | `Female` | « en-GB-LibbyNeural »      | Général |
+|         |                                 | `Female` | « en-GB-MiaNeural »        | Général |
+| `en-US` | Anglais (US)                    | `Female` | « en-US-AriaNeural »       | Général, plusieurs styles de voix sont disponibles |
+|         |                                 | `Male`   | « en-US-GuyNeural »        | Général |
+| `es-ES` | Espagnol (Espagne)                 | `Female` | « es-ES-ElviraNeural »     | Général |
+| `es-MX` | Espagnol (Mexique)                | `Female` | « es-MX-DaliaNeural »      | Général |
+| `fr-CA` | Français (Canada)                 | `Female` | « fr-CA-SylvieNeural »     | Général |
+| `fr-FR` | Français (France)                 | `Female` | « fr-FR-DeniseNeural »     | Général |
+| `it-IT` | Italien (Italie)                 | `Female` | « it-IT-ElsaNeural »       | Général |
+| `ja-JP` | Japonais                        | `Female` | « ja-JP-NanamiNeural »     | Général |
+| `ko-KR` | Coréen                          | `Female` | « ko-KR-SunHiNeural »      | Général |
+| `nb-NO` | Norvégien                       | `Female` | « NB-non-IselinNeural »     | Général |
+| `pt-BR` | Portugais (Brésil)             | `Female` | « pt-BR-FranciscaNeural »  | Général |
+| `tr-TR` | Turc                         | `Female` | « TR-TR-EmelNeural »       | Général |
+| `zh-CN` | Chinois (mandarin, simplifié)  | `Female` | « zh-CN-XiaoxiaoNeural »   | Général, plusieurs styles de voix sont disponibles |
+|         |                                 | `Female` | « zh-CN-XiaoyouNeural »    | Voix d’enfant, optimisée pour raconter des histoires |
+|         |                                 | `Male`   | « zh-CN-YunyangNeural »    | Optimisée pour la lecture d’actualités, plusieurs styles de voix sont disponibles |
+|         |                                 | `Male`   | « zh-CN-YunyeNeural »      | Optimisée pour raconter des histoires |
 
 > [!IMPORTANT]
 > La voix `en-US-JessaNeural` a basculé sur `en-US-AriaNeural`. Si vous utilisiez « Jessa », procédez à une conversion vers « Aria ».
@@ -131,86 +137,86 @@ Plus de 75 voix standard sont disponibles dans plus de 45 langues et paramètr
 
 | Paramètres régionaux | Langage | Sexe | Nom de la voix |
 |--|--|--|--|
-| <sup>1</sup>`ar-EG` | Arabe (Égypte) | Female | « ar-EG-Hoda » |
-| `ar-SA` | Arabe (Arabie saoudite) | Male | « ar-SA-Naayf » |
-| `bg-BG` | Bulgare | Male |  « bg-BG-Ivan » |
-| `ca-ES` | Catalan (Espagne) | Female |  « ca-ES-HerenaRUS » |
-| `cs-CZ` | Tchèque | Male | « cs-CZ-Jakub » |
-| `da-DK` | Danois | Female |  « da-DK-HelleRUS » |
-| `de-AT` | Allemand (Autriche) | Male | « de-AT-Michael » |
-| `de-CH` | Allemand (Suisse) | Male |  « de-CH-Karsten » |
-| `de-DE` | Allemand (Allemagne) | Female |  « de-DE-Hedda » |
-|  |  | Female | « de-DE-HeddaRUS » |
-|  |  | Male |  « de-DE-Stefan-Apollo » |
-| `el-GR` | Grec | Male | « el-GR-Stefanos » |
-| `en-AU` | Anglais (Australie) | Female |  « en-AU-Catherine » |
-|  |  | Female |  « en-AU-HayleyRUS » |
-| `en-CA` | Anglais (Canada) | Female |  « en-CA-Linda » |
-|  |  | Female |  « en-CA-HeatherRUS » |
-| `en-GB` | Anglais (Royaume-Uni) | Female |  « en-GB-Susan-Apollo » |
-|  |  | Female |  « en-GB-HazelRUS » |
-|  |  | Male |  « en-GB-George-Apollo » |
-| `en-IE` | Anglais (Irlande) | Male | « en-IE-Sean » |
-| `en-IN` | Anglais (Inde) | Female | « en-IN-Heera-Apollo » |
-|  |  | Female |  « en-IN-PriyaRUS » |
-|  |  | Male |  « en-IN-Ravi-Apollo » |
-| `en-US` | Anglais (US) | Female |  « en-US-ZiraRUS » |
-|  |  | Female | « en-US-AriaRUS » |
-|  |  | Male | « en-US-BenjaminRUS » |
-|  |  | Male |  « en-US-Guy24kRUS » |
-| `es-ES` | Espagnol (Espagne) | Female |  « es-ES-Laura-Apollo » |
-|  |  | Female | « es-ES-HelenaRUS » |
-|  |  | Male | « es-ES-Pablo-Apollo » |
-| `es-MX` | Espagnol (Mexique) | Female |  « es-MX-HildaRUS » |
-|  |  | Male | « es-MX-Raul-Apollo » |
-| `fi-FI` | Finnois | Female | « fi-FI-HeidiRUS » |
-| `fr-CA` | Français (Canada) | Female | « fr-CA-Caroline » |
-|  |  | Female | « fr-CA-HarmonieRUS » |
-| `fr-CH` | Français (Suisse) | Male | « fr-CH-Guillaume » |
-| `fr-FR` | Français (France) | Female |  « fr-FR-Julie-Apollo » |
-|  |  | Female |« fr-FR-HortenseRUS » |
-|  |  | Male |  « fr-FR-Paul-Apollo » |
-| `he-IL` | Hébreu (Israël) | Male |  « he-IL-Asaf » |
-| `hi-IN` | Hindi (Inde) | Female | « hi-IN-Kalpana-Apollo » |
-|  |  | Female |  « hi-IN-Kalpana » |
-|  |  | Male |  « hi-IN-Hemant » |
-| `hr-HR` | Croate | Male | « hr-HR-Matej » |
-| `hu-HU` | Hongrois | Male |  « hu-HU-Szabolcs » |
-| `id-ID` | Indonésien | Male | « id-ID-Andika » |
-| `it-IT` | Italien | Male |  « it-IT-Cosimo-Apollo » |
-|  |  | Female |  « it-IT-LuciaRUS » |
-| `ja-JP` | Japonais | Female |  « ja-JP-Ayumi-Apollo » |
-|  |  | Male | « ja-JP-Ichiro-Apollo » |
-|  |  | Female |  « ja-JP-HarukaRUS » |
-| `ko-KR` | Coréen | Female | « ko-KR-HeamiRUS » |
-| `ms-MY` | Malais | Male |  « ms-MY-Rizwan » |
-| `nb-NO` | Norvégien | Female |  « nb-NO-HuldaRUS » |
-| `nl-NL` | Néerlandais | Female |  « nl-NL-HannaRUS » |
-| `pl-PL` | Polonais | Female |  « pl-PL-PaulinaRUS » |
-| `pt-BR` | Portugais (Brésil) | Female | « pt-BR-HeloisaRUS » |
-|  |  | Male |  « pt-BR-Daniel-Apollo » |
-| `pt-PT` | Portugais (Portugal) | Female | « pt-PT-HeliaRUS » |
-| `ro-RO` | Roumain | Male | « ro-RO-Andrei » |
-| `ru-RU` | Russe | Female |  « ru-RU-Irina-Apollo » |
-|  |  | Male | « ru-RU-Pavel-Apollo » |
-|  |  | Female |  « ru-RU-EkaterinaRUS » |
-| `sk-SK` | Slovaque | Male | « sk-SK-Filip » |
-| `sl-SI` | Slovène | Male |  « sl-SI-Lado » |
-| `sv-SE` | Suédois | Female | « sv-SE-HedvigRUS » |
-| `ta-IN` | Tamoul (Inde) | Male |  « ta-IN-Valluvar » |
-| `te-IN` | Télougou (Inde) | Female |  « te-IN-Chitra » |
-| `th-TH` | Thaï | Male |  « th-TH-Pattara » |
-| `tr-TR` | Turc (Turquie) | Female | « tr-TR-SedaRUS » |
-| `vi-VN` | Vietnamien | Male |  « vi-VN-An » |
-| `zh-CN` | Chinois (mandarin, simplifié) | Female |  « zh-CN-HuihuiRUS » |
-|  |  | Female | « zh-CN-Yaoyao-Apollo » |
-|  |  | Male | « zh-CN-Kangkang-Apollo » |
-| `zh-HK` | Chinois (cantonais, traditionnel) | Female |  « zh-HK-Tracy-Apollo » |
-|  |  | Female | « zh-HK-TracyRUS » |
-|  |  | Male |  « zh-HK-Danny-Apollo » |
-| `zh-TW` | Chinois (mandarin, taïwanais) | Female |  « zh-TW-Yating-Apollo » |
-|  |  | Female | « zh-TW-HanHanRUS » |
-|  |  | Male |  « zh-TW-Zhiwei-Apollo » |
+| <sup>1</sup>`ar-EG` | Arabe (Égypte) | `Female` | « ar-EG-Hoda » |
+| `ar-SA` | Arabe (Arabie saoudite) | `Male` | « ar-SA-Naayf » |
+| `bg-BG` | Bulgare | `Male` |  « bg-BG-Ivan » |
+| `ca-ES` | Catalan | `Female` |  « ca-ES-HerenaRUS » |
+| `cs-CZ` | Tchèque | `Male` | « cs-CZ-Jakub » |
+| `da-DK` | Danois | `Female` |  « da-DK-HelleRUS » |
+| `de-AT` | Allemand (Autriche) | `Male` | « de-AT-Michael » |
+| `de-CH` | Allemand (Suisse) | `Male` |  « de-CH-Karsten » |
+| `de-DE` | Allemand (Allemagne) | `Female` |  « de-DE-Hedda » |
+|  |  | `Female` | « de-DE-HeddaRUS » |
+|  |  | `Male` |  « de-DE-Stefan-Apollo » |
+| `el-GR` | Grec | `Male` | « el-GR-Stefanos » |
+| `en-AU` | Anglais (Australie) | `Female` |  « en-AU-Catherine » |
+|  |  | `Female` |  « en-AU-HayleyRUS » |
+| `en-CA` | Anglais (Canada) | `Female` |  « en-CA-Linda » |
+|  |  | `Female` |  « en-CA-HeatherRUS » |
+| `en-GB` | Anglais (Royaume-Uni) | `Female` |  « en-GB-Susan-Apollo » |
+|  |  | `Female` |  « en-GB-HazelRUS » |
+|  |  | `Male` |  « en-GB-George-Apollo » |
+| `en-IE` | Anglais (Irlande) | `Male` | « en-IE-Sean » |
+| `en-IN` | Anglais (Inde) | `Female` | « en-IN-Heera-Apollo » |
+|  |  | `Female` |  « en-IN-PriyaRUS » |
+|  |  | `Male` |  « en-IN-Ravi-Apollo » |
+| `en-US` | Anglais (US) | `Female` |  « en-US-ZiraRUS » |
+|  |  | `Female` | « en-US-AriaRUS » |
+|  |  | `Male` | « en-US-BenjaminRUS » |
+|  |  | `Male` |  « en-US-Guy24kRUS » |
+| `es-ES` | Espagnol (Espagne) | `Female` |  « es-ES-Laura-Apollo » |
+|  |  | `Female` | « es-ES-HelenaRUS » |
+|  |  | `Male` | « es-ES-Pablo-Apollo » |
+| `es-MX` | Espagnol (Mexique) | `Female` |  « es-MX-HildaRUS » |
+|  |  | `Male` | « es-MX-Raul-Apollo » |
+| `fi-FI` | Finnois | `Female` | « fi-FI-HeidiRUS » |
+| `fr-CA` | Français (Canada) | `Female` | « fr-CA-Caroline » |
+|  |  | `Female` | « fr-CA-HarmonieRUS » |
+| `fr-CH` | Français (Suisse) | `Male` | « fr-CH-Guillaume » |
+| `fr-FR` | Français (France) | `Female` |  « fr-FR-Julie-Apollo » |
+|  |  | `Female` |« fr-FR-HortenseRUS » |
+|  |  | `Male` |  « fr-FR-Paul-Apollo » |
+| `he-IL` | Hébreu (Israël) | `Male` |  « he-IL-Asaf » |
+| `hi-IN` | Hindi (Inde) | `Female` | « hi-IN-Kalpana-Apollo » |
+|  |  | `Female` |  « hi-IN-Kalpana » |
+|  |  | `Male` |  « hi-IN-Hemant » |
+| `hr-HR` | Croate | `Male` | « hr-HR-Matej » |
+| `hu-HU` | Hongrois | `Male` |  « hu-HU-Szabolcs » |
+| `id-ID` | Indonésien | `Male` | « id-ID-Andika » |
+| `it-IT` | Italien | `Male` |  « it-IT-Cosimo-Apollo » |
+|  |  | `Female` |  « it-IT-LuciaRUS » |
+| `ja-JP` | Japonais | `Female` |  « ja-JP-Ayumi-Apollo » |
+|  |  | `Male` | « ja-JP-Ichiro-Apollo » |
+|  |  | `Female` |  « ja-JP-HarukaRUS » |
+| `ko-KR` | Coréen | `Female` | « ko-KR-HeamiRUS » |
+| `ms-MY` | Malais | `Male` |  « ms-MY-Rizwan » |
+| `nb-NO` | Norvégien | `Female` |  « nb-NO-HuldaRUS » |
+| `nl-NL` | Néerlandais | `Female` |  « nl-NL-HannaRUS » |
+| `pl-PL` | Polonais | `Female` |  « pl-PL-PaulinaRUS » |
+| `pt-BR` | Portugais (Brésil) | `Female` | « pt-BR-HeloisaRUS » |
+|  |  | `Male` |  « pt-BR-Daniel-Apollo » |
+| `pt-PT` | Portugais (Portugal) | `Female` | « pt-PT-HeliaRUS » |
+| `ro-RO` | Roumain | `Male` | « ro-RO-Andrei » |
+| `ru-RU` | Russe | `Female` |  « ru-RU-Irina-Apollo » |
+|  |  | `Male` | « ru-RU-Pavel-Apollo » |
+|  |  | `Female` |  « ru-RU-EkaterinaRUS » |
+| `sk-SK` | Slovaque | `Male` | « sk-SK-Filip » |
+| `sl-SI` | Slovène | `Male` |  « sl-SI-Lado » |
+| `sv-SE` | Suédois | `Female` | « sv-SE-HedvigRUS » |
+| `ta-IN` | Tamoul (Inde) | `Male` |  « ta-IN-Valluvar » |
+| `te-IN` | Télougou (Inde) | `Female` |  « te-IN-Chitra » |
+| `th-TH` | Thaï | `Male` |  « th-TH-Pattara » |
+| `tr-TR` | Turc (Turquie) | `Female` | « tr-TR-SedaRUS » |
+| `vi-VN` | Vietnamien | `Male` |  « vi-VN-An » |
+| `zh-CN` | Chinois (mandarin, simplifié) | `Female` |  « zh-CN-HuihuiRUS » |
+|  |  | `Female` | « zh-CN-Yaoyao-Apollo » |
+|  |  | `Male` | « zh-CN-Kangkang-Apollo » |
+| `zh-HK` | Chinois (cantonais, traditionnel) | `Female` |  « zh-HK-Tracy-Apollo » |
+|  |  | `Female` | « zh-HK-TracyRUS » |
+|  |  | `Male` |  « zh-HK-Danny-Apollo » |
+| `zh-TW` | Chinois (mandarin, taïwanais) | `Female` |  « zh-TW-Yating-Apollo » |
+|  |  | `Female` | « zh-TW-HanHanRUS » |
+|  |  | `Male` |  « zh-TW-Zhiwei-Apollo » |
 
 **1** *ar-EG prend en charge l’arabe standard moderne (MSA).*
 

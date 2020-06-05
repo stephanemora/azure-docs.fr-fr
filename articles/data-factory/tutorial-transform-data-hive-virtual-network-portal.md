@@ -34,7 +34,7 @@ Dans ce didacticiel, vous utilisez le portail Azure pour créer un pipeline Azur
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -42,7 +42,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 - **Réseau virtuel Azure.** Si vous ne disposez pas d’un réseau virtuel Azure, créez-le en suivant [ces instructions](../virtual-network/quick-create-portal.md). Dans cet exemple, HDInsight est dans un réseau virtuel Azure. Voici un exemple de configuration du réseau virtuel Azure. 
 
     ![Création d’un réseau virtuel](media/tutorial-transform-data-using-hive-in-vnet-portal/create-virtual-network.png)
-- **Cluster HDInsight.** Créez un cluster HDInsight et joignez-le au réseau virtuel que vous avez créé à l’étape précédente en suivant cet article : [Étendre HDInsight à l’aide d’un réseau virtuel Azure](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Voici un exemple de configuration de HDInsight dans un réseau virtuel. 
+- **Cluster HDInsight.** Créez un cluster HDInsight et joignez-le au réseau virtuel que vous avez créé à l’étape précédente en suivant les instructions de cet article : [Étendre Azure HDInsight à l’aide d’un réseau virtuel Azure](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Voici un exemple de configuration de HDInsight dans un réseau virtuel. 
 
     ![HDInsight dans un réseau virtuel](media/tutorial-transform-data-using-hive-in-vnet-portal/hdinsight-virtual-network-settings.png)
 - **Azure PowerShell**. Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](/powershell/azure/install-Az-ps).
@@ -95,7 +95,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 5. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge pour la création de fabriques de données sont affichés dans la liste.
 6. Sélectionnez **Épingler au tableau de bord**.     
 7. Cliquez sur **Créer**.
-8. Sur le tableau de bord, vous voyez la mosaïque suivante avec l’état : **Déploiement de fabrique de données**. 
+8. Sur le tableau de bord, vous voyez la vignette suivante avec l’état : **Déploiement de Data Factory**. 
 
      ![mosaïque déploiement de fabrique de données](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
 9. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image.

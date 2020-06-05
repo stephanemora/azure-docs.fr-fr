@@ -22,7 +22,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "81254612"
 ---
-# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Didacticiel : Ajouter Azure CDN à une application web Azure App Service
+# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutoriel : Ajouter Azure CDN à une application web Azure App Service
 
 Ce didacticiel montre comment ajouter [Azure Content Delivery Network (CDN)](cdn-overview.md) à une [application web dans Azure App Service](../app-service/overview.md). Web Apps est un service pour l’hébergement d’applications web, d’API REST et de backends mobiles. 
 
@@ -38,7 +38,7 @@ Ce que vous allez apprendre :
 > * Utiliser des chaînes de requête pour contrôler les versions mises en cache.
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce tutoriel :
 
@@ -268,6 +268,6 @@ Vous avez appris à effectuer les opérations suivantes :
 Découvrez comment optimiser les performances du réseau CDN dans les articles suivants :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Ajouter un domaine personnalisé à un point de terminaison Azure CDN](cdn-map-content-to-custom-domain.md)
+> [Tutoriel : Ajouter un domaine personnalisé à votre point de terminaison Azure CDN](cdn-map-content-to-custom-domain.md)
 
 

@@ -13,7 +13,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "80292031"
 ---
-# <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Didacticiel : Déployer une application Java sur un cluster Service Fabric dans Azure
+# <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Tutoriel : Déployer une application Java sur un cluster Service Fabric dans Azure
 
 Ce troisième didacticiel de la série vous montre comment déployer une application Service Fabric sur un cluster dans Azure.
 
@@ -32,7 +32,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 > * [Configurer la surveillance et les diagnostics pour l’application](service-fabric-tutorial-java-elk.md)
 > * [Configurer CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce tutoriel :
 

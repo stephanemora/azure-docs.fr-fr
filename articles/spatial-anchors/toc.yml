@@ -78,7 +78,7 @@
       href: 'https://github.com/Azure/azure-spatial-anchors-samples'
 - name: Concepts
   items:
-    - name: Authentication
+    - name: Authentification
       href: concepts/authentication.md
     - name: Relations entre les ancres
       href: concepts/anchor-relationships-way-finding.md
@@ -100,6 +100,8 @@
       href: 'https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/'
     - name: Kit SDK pour HoloLens C++/WinRT
       href: 'https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/'
+    - name: Azure CLI
+      href: /cli/azure/ext/mixed-reality/spatial-anchors-account
 - name: Ressources
   items:
     - name: Notes de publication

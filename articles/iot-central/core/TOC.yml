@@ -57,6 +57,8 @@
       href: concepts-architecture.md
     - name: Présentation des modèles d’application
       href: concepts-app-templates.md
+    - name: "Que sont les modèles d’appareils\_?"
+      href: concepts-device-templates.md
     - name: Connectivité des appareils
       href: concepts-get-connected.md
     - name: Se connecter aux appareils IoT Edge

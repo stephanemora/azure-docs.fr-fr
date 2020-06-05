@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Interroger les données à partir d’un compte d’API Cassandra dans Azure Cosmos DB'
+title: 'Tutoriel : Interroger les données à partir d’un compte d’API Cassandra dans Azure Cosmos DB'
 description: Ce tutoriel montre comment interroger les données utilisateur d’un compte d’API Cassandra Azure Cosmos DB à l’aide d’une application Java.
 ms.service: cosmos-db
 author: kanshiG
@@ -15,7 +15,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 05/06/2020
 ms.locfileid: "82853037"
 ---
-# <a name="tutorial-query-data-from-a-cassandra-api-account-in-azure-cosmos-db"></a>Tutoriel : Interroger les données à partir d’un compte d’API Cassandra dans Azure Cosmos DB
+# <a name="tutorial-query-data-from-a-cassandra-api-account-in-azure-cosmos-db"></a>Tutoriel : Interroger les données à partir d’un compte d’API Cassandra dans Azure Cosmos DB
 
 En tant que développeur, vous pouvez avoir des applications qui utilisent des paires clé/valeur. Vous pouvez utiliser un compte d’API Cassandra dans Azure Cosmos DB pour stocker et interroger des données de clé/valeur. Ce tutoriel montre comment interroger les données utilisateur d’un compte d’API Cassandra dans Azure Cosmos DB à l’aide d’une application Java. L’application Java utilise le [pilote Java](https://github.com/datastax/java-driver) et interroge des données utilisateur, comme l’ID de l’utilisateur, son nom et sa localité. 
 
@@ -27,7 +27,7 @@ Ce tutoriel décrit les tâches suivantes :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Cet article appartient à un tutoriel en plusieurs parties. Avant de commencer, veillez à effectuer les étapes précédentes pour créer un compte, un espace de clés et une table d’API Cassandra, puis pour [charger des exemples de données dans la table](cassandra-api-load-data.md). 
 

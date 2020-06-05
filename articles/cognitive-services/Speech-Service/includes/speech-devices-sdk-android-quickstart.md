@@ -18,7 +18,7 @@ Ce guide nécessite un compte [Azure Cognitive Services](../get-started.md) avec
 
 Le code source de l’exemple d’application est fourni avec le Kit de développement logiciel (SDK) Speech Devices. Il est également [disponible sur GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer à utiliser le SDK Speech Devices, vous devez :
 

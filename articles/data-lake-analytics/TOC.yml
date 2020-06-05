@@ -151,7 +151,7 @@
       href: /rest/api/datalakeanalytics/
     - name: Modèle Resource Manager
       href: /azure/templates/microsoft.datalakeanalytics/allversions
-    - name: Interface de ligne de commande
+    - name: Azure CLI
       href: 'https://docs.microsoft.com/cli/azure/dla'
 - name: Ressources
   items:
@@ -171,7 +171,7 @@
       href: 'https://azure.microsoft.com/updates/?product=data-lake-analytics'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-data-lake'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=data-lake-analytics'
     - name: Exemples de code
       href: 'https://azure.microsoft.com/resources/samples/?service=data-lake-analytics'

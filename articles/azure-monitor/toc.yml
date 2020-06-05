@@ -230,7 +230,7 @@
                     - name: Historique des versions
                       href: platform/diagnostics-extension-versions.md
                     - name: Format des journaux de ressources JSON Lines
-                      href: platform/diagnostic-logs-append-blobs.md
+                      href: platform/resource-logs-append-blobs.md
                     - name: Dépannage
                       href: platform/diagnostics-extension-troubleshooting.md
                 - name: Linux
@@ -1173,8 +1173,10 @@
           href: platform/alerts-metric-near-real-time.md
     - name: Journaux de plateforme
       items:
+        - name: Catégories et types de journaux de ressources pris en charge
+          href: platform/resource-logs-categories.md
         - name: Schémas des journaux de ressources
-          href: platform/diagnostic-logs-schema.md
+          href: platform/resource-logs-schema.md
         - name: Schéma du journal d'activité
           href: platform/activity-log-schema.md
     - name: Schémas d’extension de diagnostic

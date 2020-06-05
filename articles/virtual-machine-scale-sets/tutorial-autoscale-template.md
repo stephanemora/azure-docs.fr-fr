@@ -16,7 +16,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 05/20/2020
 ms.locfileid: "83700926"
 ---
-# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Didacticiel : mettre automatiquement à l’échelle un groupe de machines virtuelles identiques avec un modèle Azure
+# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Tutoriel : Mettre automatiquement à l’échelle un groupe de machines virtuelles identiques avec un modèle Azure
 Lorsque vous créez un groupe identique, vous définissez le nombre d’instances de machine virtuelle que vous souhaitez exécuter. À mesure que la demande de votre application change, vous pouvez augmenter ou diminuer automatiquement le nombre d’instances de machine virtuelle. La capacité de mise à l’échelle automatique vous permet de suivre la demande du client ou de répondre aux changements de performances de votre application tout au long de son cycle de vie. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
@@ -187,7 +187,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Lorsque **stress** affiche une sortie semblable à *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, appuyez sur la touche *Entrée* pour revenir à l’invite de commandes.
+Lorsque **stress** affiche une sortie du type *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, appuyez sur la touche *Entrée* pour revenir à l’invite de commandes.
 
 Pour vérifier que **stress** génère une charge d’UC, examinez la charge du système actif avec l’utilitaire **top** :
 
@@ -215,7 +215,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-De nouveau, lorsque **stress** affiche une sortie semblable à *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, appuyez sur la touche *Entrée* pour revenir à l’invite de commandes.
+Là encore, si **stress** affiche une sortie semblable à *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, appuyez sur la touche *Entrée* pour revenir à l’invite de commandes.
 
 Fermez votre connexion à la deuxième instance de machine virtuelle. **stress** continue de s’exécuter sur l’instance de machine virtuelle.
 

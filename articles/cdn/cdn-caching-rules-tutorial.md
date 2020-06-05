@@ -21,7 +21,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "81254306"
 ---
-# <a name="tutorial-set-azure-cdn-caching-rules"></a>Didacticiel : Définir des règles de mise en cache d’Azure CDN
+# <a name="tutorial-set-azure-cdn-caching-rules"></a>Tutoriel : Définir les règles de mise en cache d’Azure CDN
 
 > [!NOTE] 
 > Les règles de mise en cache sont disponibles uniquement pour les profils **CDN Azure Standard fourni par Verizon** et **CDN Azure Standard fourni par Akamai**. Pour des profils **Azure CDN de Microsoft**, vous devez utiliser le [moteur de règles standard](cdn-standard-rules-engine-reference.md) Pour les profils **Azure CDN Premium de Verizon**, vous devez utiliser le [moteur de règles Premium Verizon](cdn-rules-engine.md) dans le portail **Gérer** pour une fonctionnalité similaire.
@@ -40,9 +40,9 @@ Dans ce tutoriel, vous allez apprendre à :
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-Avant d’effectuer les étapes de ce tutoriel, vous devez d’abord créer un profil CDN et au moins un point de terminaison CDN. Pour plus d’informations, consultez la page[Prise en main d’Azure CDN](cdn-create-new-endpoint.md).
+Avant d’effectuer les étapes de ce tutoriel, vous devez d’abord créer un profil CDN et au moins un point de terminaison CDN. Pour plus d’informations, consultez [Démarrage rapide : Créer un point de terminaison et un profil de réseau de distribution de contenu Azure](cdn-create-new-endpoint.md).
 
 ## <a name="open-the-azure-cdn-caching-rules-page"></a>Ouvrir la page des règles de mise en cache d’Azure CDN
 

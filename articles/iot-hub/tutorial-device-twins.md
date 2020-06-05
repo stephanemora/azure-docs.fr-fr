@@ -20,7 +20,7 @@ ms.locfileid: "81767809"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
-# <a name="tutorial-configure-your-devices-from-a-back-end-service"></a>Didacticiel : Configurer vos appareils à partir d’un service back-end
+# <a name="tutorial-configure-your-devices-from-a-back-end-service"></a>Tutoriel : Configurer vos appareils à partir d’un service backend
 
 Outre la réception de données de télémétrie à partir de vos appareils, vous devrez peut-être configurer vos appareils à partir de votre service back-end. Lorsque vous envoyez une configuration souhaitée à vos appareils, vous pouvez choisir de recevoir des mises à jour d’état et de conformité de ces appareils. Par exemple, vous pouvez définir une plage de température de fonctionnement cible pour un appareil ou collecter des informations sur la version du microprogramme auprès de vos appareils.
 
@@ -39,7 +39,7 @@ Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Les deux exemples d’applications que vous exécutez dans ce guide de démarrage rapide sont écrits à l’aide de Node.js. Votre ordinateur de développement doit disposer de Node.js v10.x.x ou ultérieur.
 
@@ -53,7 +53,7 @@ node --version
 
 Téléchargez l’exemple de projet Node.js à partir de https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip et extrayez l’archive ZIP.
 
-Assurez-vous que le port 8883 est ouvert dans votre pare-feu. L'exemple d’appareil de ce tutoriel utilise le protocole MQTT qui communique sur le port 8883. Ce port peut être bloqué dans certains environnements réseau professionnels et scolaires. Pour plus d’informations sur les façons de contourner ce problème, consultez [Connexion à IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+Assurez-vous que le port 8883 est ouvert dans votre pare-feu. L'exemple d’appareil de ce tutoriel utilise le protocole MQTT qui communique sur le port 8883. Dans certains environnements réseau professionnels et scolaires, ce port peut être bloqué. Pour plus d’informations sur les différentes façons de contourner ce problème, consultez [Connexion à IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="set-up-azure-resources"></a>Configurer les ressources Azure
 

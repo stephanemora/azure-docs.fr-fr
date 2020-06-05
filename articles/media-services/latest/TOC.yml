@@ -99,7 +99,7 @@
       items:
         - name: Vue d’ensemble
           href: live-streaming-overview.md
-        - name: Événements en direct et Sorties en direct
+        - name: Événements en direct et sorties en direct
           href: live-events-outputs-concept.md
           displayName: 'vanity, ingest'
         - name: Encodeurs live locaux testés
@@ -126,7 +126,7 @@
         - name: Filtres
           displayName: "manifest, dynamic manifest, filter, hls, dash, m3u8, mpd,\tcontent delivery"
           href: filters-concept.md
-        - name: Points de terminaison de diffusion en continu
+        - name: Points de terminaison de streaming
           displayName: 'origin, packager, cdn'
           href: streaming-endpoint-concept.md
         - name: Mise à l’échelle du streaming avec CDN
@@ -215,7 +215,7 @@
         - name: Accéder à l’API
           displayName: 'portal, cli'
           href: access-api-howto.md
-        - name: Mettre à l’échelle les unités réservées Multimédia
+        - name: Mettre à l’échelle des unités réservées Multimédia
           href: media-reserved-units-cli-how-to.md
         - name: Créer une ressource
           href: cli-create-asset.md
@@ -376,6 +376,10 @@
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Modèle Resource Manager
       href: /azure/templates/microsoft.media/allversions
+    - name: Schémas d’encodeur standard
+      items:
+        - name: Métadonnées de sortie
+          href: output-metadata-schema.md
 - name: Ressources
   items:
     - name: Communauté Azure Media Services

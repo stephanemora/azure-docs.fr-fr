@@ -39,8 +39,8 @@ Reportez-vous aux informations concernant l’[ordinateur hôte du conteneur du 
 
 | Service | Processeur/conteneur | Mémoire/conteneur |
 |--|--|--|
-| **Reconnaissance vocale** | un décodeur nécessite un minimum de 1 150 millicores. Si `optimizedForAudioFile` est activé, 1 950 millicores sont requis. (par défaut : deux décodeurs) | Requis : 2 Go<br>Limité :  4 Go |
-| **Synthèse vocale** | une demande simultanée nécessite un minimum de 500 millicores. Si `optimizeForTurboMode` est activé, 1 000 millicores sont requis. (par défaut : deux demandes simultanées) | Requis : 1 Go<br> Limité : 2 Go |
+| **Reconnaissance vocale** | un décodeur nécessite un minimum de 1 150 millicores. Si `optimizedForAudioFile` est activé, 1 950 millicores sont requis. (par défaut : deux décodeurs) | Requis : 2 Go<br>Limité :  4 Go |
+| **Synthèse vocale** | une demande simultanée nécessite un minimum de 500 millicores. Si `optimizeForTurboMode` est activé, 1 000 millicores sont requis. (par défaut : deux demandes simultanées) | Requis : 1 Go<br> Limité : 2 Go |
 
 ## <a name="connect-to-the-kubernetes-cluster"></a>Se connecter au cluster Kubernetes
 
