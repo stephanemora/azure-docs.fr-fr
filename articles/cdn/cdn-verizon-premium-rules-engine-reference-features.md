@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: 373e7838327d11b1b54278ee0c16c6e6ae554b0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d2d4090934a940809fe75ad70e0650eb1c9353f1
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253490"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872710"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Fonctionnalités du moteur de règles Azure CDN de Verizon Premium
 
@@ -20,150 +20,9 @@ Cet article comprend les descriptions détaillées des fonctionnalités du [mote
 
 La troisième partie d’une règle est la fonctionnalité. Une fonctionnalité définit le type d’action appliqué au type de requête qui est identifié par un ensemble de conditions de correspondance.
 
-## <a name="access-features"></a>Fonctionnalités d’accès
 
-Ces fonctionnalités sont conçues pour contrôler l’accès au contenu.
+Pour connaître les dernières fonctionnalités, consultez la [Documentation du moteur de règles Verizon](https://docs.vdms.com/cdn/index.html#Quick_References/HRE_QR.htm#Actions).
 
-Nom | Objectif
------|--------
-[Deny Access (403)](#deny-access-403) | Détermine si toutes les requêtes sont rejetées avec une réponse 403 Interdit.
-[Token Auth](#token-auth) | Détermine si l’authentification basée sur les jetons est appliquée à une requête.
-[Token Auth Denial Code](#token-auth-denial-code) | Détermine le type de réponse à retourner à un utilisateur quand une requête est refusée en raison de l’authentification basée sur les jetons.
-[Token Auth Ignore URL Case](#token-auth-ignore-url-case) | Détermine si les comparaisons d’URL effectuées par l’authentification basée sur les jetons respectent la casse.
-[Token Auth Parameter](#token-auth-parameter) | Détermine si le paramètre de chaîne de requête de l’authentification basée sur les jetons doit être renommé.
-
-## <a name="caching-features"></a>Fonctionnalités de mise en cache
-
-Ces fonctionnalités sont conçues pour personnaliser la mise en cache du contenu.
-
-Nom | Objectif
------|--------
-[Bandwidth Parameters](#bandwidth-parameters) | Détermine si les paramètres de limitation de bande passante (par exemple, ec_rate et ec_prebuf) sont actifs.
-[Bandwidth Throttling](#bandwidth-throttling) | Limite la bande passante pour la réponse fournie par le point de présence (POP).
-[Bypass Cache](#bypass-cache) | Détermine si la requête doit contourner la mise en cache.
-[Cache-Control Header Treatment](#cache-control-header-treatment) | Contrôle la génération des en-têtes `Cache-Control` par le point de présence quand la fonctionnalité Obsolescence maximale externe est active.
-[Cache-Key Query String](#cache-key-query-string) | Détermine si la clé de cache inclut ou exclut les paramètres de chaîne de requête associés à une requête.
-[Cache-Key Rewrite](#cache-key-rewrite) | Réécrit la clé de cache associée à une requête.
-[Complete Cache Fill](#complete-cache-fill) | Détermine ce qui se passe quand une requête génère une absence de cache partielle sur un point de présence.
-[Compress File Types](#compress-file-types) | Définit les formats de fichier des fichiers qui sont compressés sur le serveur.
-[Default Internal Max-Age](#default-internal-max-age) | Détermine l’intervalle d’âge maximal par défaut pour la revalidation du cache entre le point de présence et le serveur d’origine.
-[Expires Header Treatment](#expires-header-treatment) | Contrôle la génération des en-têtes `Expires` par un point de présence quand la fonctionnalité Obsolescence maximale externe est active.
-[External Max-Age](#external-max-age) | Détermine l’intervalle d’âge maximal pour la revalidation du cache entre le navigateur et le point de présence.
-[Force Internal Max-Age](#force-internal-max-age) | Détermine l’intervalle d’âge maximal pour la revalidation du cache entre le point de présence et le serveur d’origine.
-[H.264 Support (HTTP Progressive Download)](#h264-support-http-progressive-download) | Détermine les types de formats de fichier H.264 qui peuvent être utilisés pour diffuser du contenu.
-[Honor No-Cache Request](#honor-no-cache-request) | Détermine si les requêtes non-cache d’un client HTTP sont transmises au serveur d’origine.
-[Ignore Origin No-Cache](#ignore-origin-no-cache) | Détermine si le CDN ignore certaines directives remises par un serveur d’origine.
-[Ignore Unsatisfiable Ranges](#ignore-unsatisfiable-ranges) | Détermine la réponse à retourner aux clients quand une requête génère un code d’état 416 Plage demandée non satisfaisante.
-[Internal Max-Stale](#internal-max-stale) | Contrôle la durée après l’expiration normale d’une ressource mise en cache pendant laquelle cette ressource peut être remise depuis un point de présence quand ce point de présence ne parvient pas à la revalider avec le serveur d’origine.
-[Partial Cache Sharing](#partial-cache-sharing) | Détermine si une requête peut générer du contenu partiellement mis en cache.
-[Prevalidate Cached Content](#prevalidate-cached-content) | Détermine si du contenu mis en cache peut faire l’objet d’une revalidation anticipée avant l’expiration de sa durée de vie.
-[Refresh Zero-Byte Cache Files](#refresh-zero-byte-cache-files) | Détermine la façon dont les points de présence gèrent la requête d’un client HTTP liée à une ressource de cache de 0 octet.
-[Set Cacheable Status Codes](#set-cacheable-status-codes) | Définit l’ensemble des codes d’état qui peuvent générer du contenu mis en cache.
-[Stale Content Delivery on Error](#stale-content-delivery-on-error) | Détermine si du contenu mis en cache qui a expiré est remis quand une erreur se produit pendant la revalidation du cache ou l’extraction du contenu demandé à partir du serveur d’origine du client.
-[Stale While Revalidate](#stale-while-revalidate) | Améliore les performances en permettant aux points de présence de rendre obsolète le client pour le demandeur pendant la revalidation.
-
-## <a name="comment-feature"></a>Fonctionnalité de commentaire
-
-Cette fonctionnalité est conçue pour fournir des informations supplémentaires à l’intérieur d’une règle.
-
-Nom | Objectif
------|--------
-[Commentaire](#comment) | Permet d’ajouter une remarque dans une règle.
-
-## <a name="header-features"></a>Fonctionnalités d’en-tête
-
-Ces fonctionnalités sont conçues pour ajouter, modifier ou supprimer des en-têtes de la demande ou réponse.
-
-Nom | Objectif
------|--------
-[Age Response Header](#age-response-header) | Détermine si un en-tête de réponse Age est inclus dans la réponse envoyée au demandeur.
-[Debug Cache Response Headers](#debug-cache-response-headers) | Détermine si une réponse peut inclure l’en-tête de réponse X-EC-Debug qui fournit des informations sur la stratégie de cache de la ressource demandée.
-[Modify Client Request Header](#modify-client-request-header) | Remplace, complète ou supprime un en-tête dans une requête.
-[Modify Client Response Header](#modify-client-response-header) | Remplace, complète ou supprime un en-tête dans une réponse.
-[Set Client IP Custom Header](#set-client-ip-custom-header) | Permet d’ajouter l’adresse IP du client demandeur à la requête sous la forme d’en-tête de requête personnalisé.
-
-## <a name="logging-features"></a>Fonctionnalités de journalisation
-
-Ces fonctionnalités sont conçues pour personnaliser les données stockées dans les fichiers journaux bruts.
-
-Nom | Objectif
------|--------
-[Custom Log Field 1](#custom-log-field-1) | Détermine le format et le contenu à attribuer au champ de fichier journal personnalisé dans un fichier journal brut.
-[Log Query String](#log-query-string) | Détermine si une chaîne de requête est stockée avec l’URL dans les journaux d’activité d’accès.
-
-
-<!---
-## Optimize
-
-These features determine whether a request will undergo the optimizations provided by Edge Optimizer.
-
-Name | Purpose
------|--------
-Edge Optimizer | Determines whether Edge Optimizer can be applied to a request.
-Edge Optimizer – Instantiate Configuration | Instantiates or activates the Edge Optimizer configuration associated with a site.
-
-### Edge Optimizer
-**Purpose:** Determines whether Edge Optimizer can be applied to a request.
-
-If this feature has been enabled, then the following criteria must also be met before the request will be processed by Edge Optimizer:
-
-- The requested content must use an edge CNAME URL.
-- The edge CNAME referenced in the URL must correspond to a site whose configuration has been activated in a rule.
-
-This feature requires the ADN platform and the Edge Optimizer feature.
-
-Value|Result
--|-
-Enabled|Indicates that the request is eligible for Edge Optimizer processing.
-Disabled|Restores the default behavior. The default behavior is to deliver content over the ADN platform without any additional processing.
-
-**Default Behavior:** Disabled
-
-
-### Edge Optimizer - Instantiate Configuration
-**Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
-
-This feature requires the ADN platform and the Edge Optimizer feature.
-
-Key information:
-
-- Instantiation of a site configuration is required before requests to the corresponding edge CNAME can be processed by Edge Optimizer.
-- This instantiation only needs to be performed a single time per site configuration. A site configuration that has been instantiated will remain in that state until the Edge Optimizer – Instantiate Configuration feature that references it is removed from the rule.
-- The instantiation of a site configuration does not mean that all requests to the corresponding edge CNAME will automatically be processed by Edge Optimizer. The Edge Optimizer feature determines whether an individual request will be processed.
-
-If the desired site does not appear in the list, then you should edit its configuration and verify that the Active option has been marked.
-
-**Default Behavior:** Site configurations are inactive by default.
---->
-
-## <a name="origin-features"></a>Fonctionnalités d’origine
-
-Ces fonctionnalités sont conçues pour contrôler la manière dont le CDN communique avec un serveur d’origine.
-
-Nom | Objectif
------|--------
-[Maximum Keep-Alive Requests](#maximum-keep-alive-requests) | Définit le nombre maximal de requêtes pour une connexion toujours active avant sa fermeture.
-[Proxy Special Headers](#proxy-special-headers) | Définit l’ensemble des en-têtes de requête propres à CDN à transmettre depuis un point de présence vers un serveur d’origine.
-
-## <a name="specialty-features"></a>Fonctionnalités spéciales
-
-Il s’agit de fonctionnalités avancées destinées aux utilisateurs expérimentés.
-
-Nom | Objectif
------|--------
-[Cacheable HTTP Methods](#cacheable-http-methods) | Détermine l’ensemble de méthodes HTTP supplémentaires pouvant être mises en cache sur le réseau.
-[Cacheable Request Body Size](#cacheable-request-body-size) | Définit le seuil permettant de déterminer si une réponse POST peut être mise en cache.
-[User Variable](#user-variable) | À usage interne uniquement.
-
-## <a name="url-features"></a>Fonctionnalités d’URL
-
-Ces fonctionnalités permettent de rediriger ou de réécrire une requête vers une URL différente.
-
-Nom | Objectif
------|--------
-[Follow Redirects](#follow-redirects) | Détermine si les requêtes peuvent être redirigées vers le nom d’hôte défini dans l’en-tête Location retourné par un serveur d’origine du client.
-[URL Redirect](#url-redirect) | Redirige les requêtes via l’en-tête Location.
-[URL Rewrite](#url-rewrite)  | Réécrit l’URL de la requête.
 
 ## <a name="azure-cdn-from-verizon-premium-rules-engine-features-reference"></a>Informations de référence sur les fonctionnalités du moteur de règles Azure CDN de Verizon Premium
 
@@ -338,7 +197,7 @@ Pour dupliquer le comportement de mise en cache de la chaîne de requête « no
 
 L’exemple d’utilisation suivant inclut un exemple de requête et la clé de cache par défaut :
 
-- **Exemple de requête :** http://wpc.0001.&lt ;Domain&gt; /800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
+- **Exemple de requête :** http://wpc.0001.&lt;Domain&gt; /800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
 - **Clé de cache par défaut :** /800001/Origin/folder/asset.htm
 
 ##### <a name="include"></a>Inclure
@@ -487,8 +346,8 @@ Type de média Internet|Description
 texte/brut|Fichiers de texte brut
 texte/html| Fichiers HTML
 texte/css|Cascading Style Sheets (CSS)
-application/x-javascript|Javascript
-application/javascript|Javascript
+application/x-javascript|JavaScript
+application/javascript|JavaScript
 
 Informations essentielles :
 
@@ -1416,9 +1275,6 @@ Cette fonctionnalité inclut des critères de correspondance devant être rempli
 **Objectif :** À usage interne uniquement.
 
 [Retour au début](#azure-cdn-from-verizon-premium-rules-engine-features)
-
-</br>
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Informations de référence du moteur de règles](cdn-verizon-premium-rules-engine-reference.md)

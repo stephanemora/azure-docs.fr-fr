@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 5cde80bf3205557884dfe8f2b8f5e79031bbca69
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: b7994754d3ca9c43fe7935b2b52c42f2f113b1d3
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612059"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873038"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Lire les entrées dans n’importe quel format avec des désérialiseurs .NET personnalisés
 
@@ -112,7 +112,7 @@ message MessageBodyProto {
 }
 ```
 
-L’exécution de `protoc.exe` à partir du NuGet **Google.Protobuf.Tools** génère un fichier. cs avec la définition. Le fichier généré n’est pas montré ici.
+L’exécution de `protoc.exe` à partir du NuGet **Google.Protobuf.Tools** génère un fichier. cs avec la définition. Le fichier généré n’est pas montré ici. Vous devez vous vérifier que la version de Protobuf NuGet utilisée dans votre projet Stream Analytics correspond à la version de Protobuf qui a servi à générer l’entrée. 
 
 L’extrait de code suivant est l’implémentation du désérialiseur en supposant que le fichier généré est inclus dans le projet. Cette implémentation est simplement un wrapper léger sur le fichier généré.
 

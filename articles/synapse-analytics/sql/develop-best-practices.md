@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ed2638cfe4ab7e849e428729ccd17ffdeb6314af
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 9a291971ce0edead9ca28a47f7ad0689b0f65547
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086349"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834949"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>Meilleures pratiques de développement pour SQL Synapse
 Cet article fournit des conseils et décrit les bonnes pratiques à adopter quand vous développez votre solution d’entrepôt de données. 
@@ -154,7 +154,7 @@ Par conséquent, vous obtiendrez de meilleures performances. Pour plus d’infor
 
 Si vos données dans le stockage ne sont pas partitionnées, envisagez de les partitionner afin de pouvoir utiliser ces fonctions pour optimiser les requêtes ciblant ces fichiers.
 
-Lorsque de l’[interrogation de tables Spark partitionnées](develop-storage-files-spark-tables.md) à partir de SQL à la demande, la requête cible automatiquement uniquement les fichiers nécessaires.
+Lorsque vous [interrogez des tables externes partitionnées Apache Spark pour Azure Synapse](develop-storage-files-spark-tables.md) à partir de SQL à la demande, la requête ne cible automatiquement que les fichiers nécessaires.
 
 ### <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Utiliser CETAS pour améliorer les performances des requêtes et les jointures
 
@@ -166,7 +166,7 @@ Comme CETAS génère des fichiers Parquet, les statistiques sont automatiquement
 
 ### <a name="next-steps"></a>Étapes suivantes
 
-Si vous avez besoin d’informations non fournies dans cet article, utilisez la fonction « Recherche de documents » sur le côté gauche de cette page pour effectuer une recherche dans tous les documents du pool SQL.  Le [Forum pool SQL](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) vous permet de poser des questions à d’autres utilisateurs et au groupe du produit pool SQL.  
+Si vous avez besoin d’informations non fournies dans cet article, utilisez la fonction « Recherche de documents » sur le côté gauche de cette page pour effectuer une recherche dans tous les documents du pool SQL.  La [page de questions Microsoft Q&A sur le pool SQL](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) vous permet de poser des questions à d’autres utilisateurs et au groupe du produit pool SQL.  
 
 Nous suivons activement ce forum pour vous assurer que vos questions sont traitées par un autre utilisateur ou un membre de notre équipe.  Si vous préférez poser vos questions sur Stack Overflow, nous avons également un [Forum Stack Overflow sur le pool SQL Azure](https://stackoverflow.com/questions/tagged/azure-sqldw).
  

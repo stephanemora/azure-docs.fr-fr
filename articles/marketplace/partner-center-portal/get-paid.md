@@ -6,14 +6,14 @@ ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 678c47fc345838f6d1e93ac397a4e54d1c61391f
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: d34687703506db89b524ad7510d4946df8ac5360
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780495"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849023"
 ---
-# <a name="getting-paid-in-commercial-marketplace"></a>Recevoir un paiement dans la place de marché commerciale
+# <a name="getting-paid-in-the-commercial-marketplace"></a>Recevoir un paiement dans la place de marché commerciale
 
 Voici quelques informations importantes sur la réception du paiement de vos offres, modules complémentaires et recettes publicitaires.
 
@@ -30,7 +30,7 @@ Les frais de Store sont appliqués à toutes les ventes d’offres collectées p
 
 ## <a name="price-tiers"></a>Niveaux de prix
 
-Les niveaux de prix que vous sélectionnez déterminent le prix de vente dans tous les pays où vous choisissez de distribuer votre offre. Vous pouvez également utiliser d’autre caractéristiques tarifaires, comme le choix de différents prix pour différents marchés.
+Les niveaux de prix que vous sélectionnez déterminent le prix de vente dans tous les pays/toutes les régions où vous choisissez de distribuer votre offre. Vous pouvez également utiliser d’autre caractéristiques tarifaires, comme le choix de différents prix pour différents marchés.
 
 Vous pouvez proposer votre application gratuitement, ou choisir le prix que les clients doivent payer pour acquérir votre offre. Les niveaux de prix commencent à 0,99 USD, avec des incréments supplémentaires (1,09 USD, 1,19 USD, etc.). Les incréments entre les niveaux de prix augmentent à mesure que le prix est plus élevé.
 
@@ -43,17 +43,15 @@ Vous avez également la possibilité de saisir un prix libre de votre choix dans
 
 Gardez à l’esprit que le prix que vous sélectionnez peut inclure la taxe sur les ventes ou la valeur ajoutée que vos clients doivent payer. Pour plus d’informations, consultez [Détails des taxes pour une offre payante](tax-details-paid-transactions.md).
 
-
 ## <a name="payout-reporting"></a>Rapports de paiement
 
 Vous pouvez accéder aux détails de vos informations de paiement et télécharger des rapports dans la page **Récapitulatif des paiements** de l’[Espace partenaires](https://partner.microsoft.com/dashboard). Pour en savoir plus sur les informations présentées ici et sur la façon dont nous classons l’argent que vous gagnez, consultez la présentation des [rapports de paiements](payout-summary-overview.md).
-
 
 ## <a name="payout-time-frame"></a>Délai de paiement
 
 Les paiements sont effectués chaque mois (à condition que le seuil de paiement applicable soit atteint et que vous n’ayez pas mis votre paiement en attente comme indiqué ci-dessous). En général, nous envoyons tout paiement dû le 15 du mois donné. Notez que les paiements prennent généralement entre 3 et 10 jours ouvrables supplémentaires pour parvenir à votre compte de paiement. Pour plus d’informations, consultez [Seuils, modes et délais de paiement](payment-thresholds-methods-timeframes.md).
 
-##  <a name="payout-hold-status"></a>État de paiement en attente
+## <a name="payout-hold-status"></a>État de paiement en attente
 
 Par défaut, nous envoyons les paiements une fois par mois, comme décrit ci-dessus. Toutefois, vous avez la possibilité de mettre les paiements d’un programme en attente, ce qui nous empêche de les envoyer à votre compte. Même si vous choisissez de mettre vos paiements en attente, nous continuerons d’enregistrer vos revenus et de vous fournir les informations associées dans votre **Synthèse des paiements**. Toutefois, nous n’enverrons pas de paiements à votre compte tant que vous n’aurez pas retiré la mise en attente.
 

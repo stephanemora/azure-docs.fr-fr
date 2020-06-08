@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e09887b8000a0aeb52879d5306bc0a00da5141f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b50407b3ea7389388577d229f67a4e4baca4296d
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176139"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873590"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Vue d’ensemble des instantanés de partage pour Azure Files 
 Azure Files vous permet de prendre des instantanés de partages de fichiers. Les instantanés de partage capturent l’état d’un partage à ce point dans le temps. Dans cet article, nous décrivons les fonctionnalités fournies par les instantanés de partage et comment vous pouvez en tirer parti dans votre propre cas d’usage.
@@ -80,7 +80,7 @@ Quand vous exécutez l’infrastructure sur Azure, automatisez les sauvegardes p
 
 Avant de déployer le planificateur d’instantané de partage, étudiez attentivement vos paramètres de fréquence et de rétention des instantanés de partage pour éviter de subir des frais d’instantané de partage inutiles.
 
-Les instantanés de partage assurent uniquement une protection au niveau des fichiers. Ils n’empêchent pas les suppressions accidentelles sur un compte de stockage ou un partage de fichiers. Pour protéger un compte de stockage contre les suppressions accidentelles, vous pouvez verrouiller celui-ci ou le groupe de ressources.
+Les instantanés de partage assurent uniquement une protection au niveau des fichiers. Ils n’empêchent pas les suppressions accidentelles sur un compte de stockage ou un partage de fichiers. Pour protéger un compte de stockage contre les suppressions accidentelles, vous pouvez [activer la suppression réversible](storage-files-prevent-file-share-deletion.md) ou verrouiller le compte de stockage ou le groupe de ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Utilisation des instantanés de partage dans :

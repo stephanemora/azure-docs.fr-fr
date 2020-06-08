@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: b85846419ce5f6cd4093e198d83240817c95754a
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 3c922675619fc877d9d97a43b69a15f5ca4f393e
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983055"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849108"
 ---
 # <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>Créer une offre SaaS dans la place de marché commerciale
 
@@ -120,7 +120,7 @@ Répertoriez votre offre aux clients avec un lien vers un essai gratuit en fourn
 
 #### <a name="contact-me"></a>Me contacter
 
-Collectez des informations de contact client en connectant votre système de gestion de la relation client (CRM). Le client devra autoriser le partage de ses informations. Ces informations client, ainsi que le nom de l’offre, son ID et la place de marché sur laquelle il a trouvé votre offre, seront envoyées au système CRM que vous avez configuré. Pour plus d’informations sur la configuration de votre CRM, consultez [Connecter la gestion des prospects](#connect-lead-management).
+Collectez des informations de contact client en connectant votre système de gestion de la relation client (CRM). Le client devra autoriser le partage de ses informations. Ces informations client, ainsi que le nom de l’offre, son ID et la place de marché sur laquelle il a trouvé votre offre, seront envoyées au système CRM que vous avez configuré. Pour plus d’informations sur la configuration de votre CRM, consultez [Prospects](#customer-leads).
 
 #### <a name="example-marketplace-offer-listing"></a>Exemple d’annonce d’offre sur Place de marché
 
@@ -140,7 +140,7 @@ Pour plus d’informations, consultez [Proposer une version d’évaluation de v
 - [Meilleures pratiques techniques](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Vue d’ensemble](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF ; veillez à désactiver votre bloqueur de fenêtres publicitaires)
 
-### <a name="connect-lead-management"></a>Connecter la gestion des prospects
+### <a name="customer-leads"></a>Prospects
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 
@@ -227,28 +227,13 @@ Renseignez les informations à afficher dans la place de marché, dont les descr
 - **Search keywords (Mots clés de recherche)** : entrez un maximum de trois mots clés que les clients pourront utiliser pour rechercher votre offre sur les places de marché.
 - **Instructions de prise en main** (obligatoire) : expliquez aux clients potentiels comment configurer et commencer à utiliser votre application.  Ce démarrage rapide peut contenir des liens vers des ressources en ligne plus détaillées. Jusqu’à 3 000 caractères peuvent être entrés dans ce champ.
 
-#### <a name="description"></a>**Description**
+#### <a name="description"></a>Description
 
-Ce champ est obligatoire. Éléments à inclure dans **Description** :
+Ce champ est obligatoire.
 
-* Décrivez clairement la proposition de valeur de votre offre dès les premières phrases de votre description.  
-* Gardez à l’esprit que les premières phrases peuvent être affichées dans les résultats de recherche.  
-* Ne comptez pas sur les fonctionnalités de votre produit pour convaincre. Concentrez-vous plutôt sur ce que votre application peut apporter aux clients.  
-* Autant que possible, utilisez le vocabulaire propre au secteur visé, ainsi que des termes décrivant les avantages proposés.
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-Votre proposition de valeur doit comprendre les principaux composants suivants :
-
-* Description du produit
-* Type d’utilisateur qui tire parti du produit
-* Les clients ont des besoins ou des problèmes auxquels le produit répond
-
-Pour que la description de votre offre soit plus accrocheuse, utilisez l’éditeur de texte enrichi pour appliquer la mise en forme.
-
-![Utilisation de l’éditeur de texte enrichi](./media/rich-text-editor.png)
-
-| <center>Changer la mise en forme du texte | <center>Ajouter des puces ou une numérotation | <center>Ajouter ou supprimer une mise en retrait de texte |
-| --- | --- | --- |
-| <center>![Changer la mise en forme du texte à l’aide de l’éditeur de texte enrichi](./media/text-editor3.png) |  <center>![Changer la mise en forme du texte à l’aide de l’éditeur de texte enrichi](./media/text-editor4.png) |  <center>![Mettre en retrait à l’aide de l’éditeur de texte enrichi](./media/text-editor5.png) |
+[!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
 #### <a name="links"></a>Liens
 
@@ -355,7 +340,7 @@ Cette page vous permet de configurer les marchés dans lesquels sera disponible 
 
 #### <a name="markets-optional"></a>Marchés (facultatif)
 
-Chaque plan doit être disponible sur au moins un marché. Sélectionnez **Modifier les marchés** et cochez la case des emplacements dans lesquels vous souhaitez que ce plan soit disponible. Cette page inclut une zone de recherche et une option pour sélectionner les pays « reversant les taxes », pour lesquels Microsoft reverse les ventes et utilise les taxes en votre nom.
+Chaque plan doit être disponible sur au moins un marché. Sélectionnez **Modifier les marchés** et cochez la case des emplacements dans lesquels vous souhaitez que ce plan soit disponible. Cette page inclut une zone de recherche et une option pour sélectionner les pays/régions « reversant les taxes », pour lesquels Microsoft reverse les ventes et utilise les taxes en votre nom.
 
 Si vous avez déjà fixé des prix pour votre plan en dollar américain (USD) et ajouté un autre emplacement de marché, le prix de ce nouveau marché sera calculé selon le taux de change en vigueur. Vérifiez le prix de chaque place de marché avant toute publication. Affichez les prix à l’aide du lien Exporter les prix (xlsx) après avoir enregistré vos changements.
 

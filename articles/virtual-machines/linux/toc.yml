@@ -13,6 +13,9 @@
       href: quick-create-portal.md
     - name: Créer une machine virtuelle - Azure PowerShell
       href: quick-create-powershell.md
+    - name: Créer une machine virtuelle - Modèle ARM
+      displayName: 'Resource Manager, template, json'
+      href: quick-create-template.md
 - name: Tutoriels
   items:
     - name: 1 - Créer/gérer des machines virtuelles

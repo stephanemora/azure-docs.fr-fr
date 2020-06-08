@@ -70,6 +70,8 @@
       href: azure-portal-safelist-urls.md
     - name: Structure des tableaux de bord Azure
       href: azure-portal-dashboards-structure.md
+    - name: Azure CLI
+      href: /cli/azure/ext/portal/portal
 - name: Ressources
   items:
     - name: Feuille de route Azure

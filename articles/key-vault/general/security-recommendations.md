@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 0da1a3019124f62aba6a959ce9104c85bd85d3fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28b768e421ac72be363ab187312e52ba15d34970
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81616484"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872990"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Recommandations de sécurité pour Azure Key Vault
 
@@ -30,7 +30,7 @@ Certaines recommandations contenues dans cet article peuvent être supervisées 
 
 | Recommandation | Commentaires | Security Center |
 |-|----|--|
-|Activer la suppression réversible | [La suppression réversible](overview-soft-delete.md) vous permet de récupérer des coffres et des objets de coffre supprimés |  - |
+|Activer la suppression réversible | La [suppression réversible](overview-soft-delete.md) permet de récupérer des coffres et des objets de coffre supprimés |  - |
 | Limiter l’accès aux données du coffre  | Suivez le principe du moindre privilège et limitez les membres de votre organisation qui ont accès aux données du coffre. |  - |
 
 ## <a name="identity-and-access-management"></a>Gestion de l’identité et de l’accès

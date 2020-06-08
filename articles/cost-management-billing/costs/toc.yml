@@ -31,6 +31,8 @@
           href: understand-cost-mgt-data.md
         - name: Comprendre et utiliser des étendues
           href: understand-work-scopes.md
+        - name: Gérer les coûts avec l’automatisation
+          href: manage-automation.md
         - name: Migrer de l’API EA vers l’API MCA
           href: migrate-cost-management-api.md
     - name: Guides pratiques

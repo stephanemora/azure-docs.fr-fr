@@ -341,6 +341,12 @@
   items:
     - name: Informations de référence des API
       items:
+        - name: Modèle ARM
+          href: /azure/templates/microsoft.web/2018-11-01/sites/functions
+        - name: Azure CLI
+          href: /cli/azure/functionapp
+        - name: Azure PowerShell
+          href: /powershell/module/az.functions
         - name: Java
           href: 'https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable'
         - name: Python
@@ -462,6 +468,9 @@
             - name: Vue d’ensemble
               href: functions-bindings-signalr-service.md
               displayName: SignalR Service
+            - name: Déclencheur
+              href: functions-bindings-signalr-service-trigger.md
+              displayName: SignalR Service
             - name: Entrée
               href: functions-bindings-signalr-service-input.md
               displayName: SignalR Service
@@ -498,7 +507,7 @@
       href: 'functions-scale.md#service-limits'
     - name: Disponibilité régionale
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Videos
+    - name: Vidéos
       href: 'https://www.youtube.com/c/AzureFunctions'
     - name: Page de questions Microsoft Q&A
       href: 'https://docs.microsoft.com/answers/topics/azure-functions.html'

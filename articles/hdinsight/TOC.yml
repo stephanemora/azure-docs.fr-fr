@@ -59,8 +59,6 @@
           href: ./hdinsight-selecting-vm-size.md
         - name: Planification de la capacité des clusters
           href: ./hdinsight-capacity-planning.md
-        - name: Demander une augmentation du quota de cœurs de processeur
-          href: ./quota-increase-request.md
         - name: Bonnes pratiques sur la gestion des clusters
           href: ./cluster-management-best-practices.md
         - name: Disponibilité et fiabilité
@@ -239,6 +237,8 @@
               href: ./cluster-availability-monitor-logs.md
         - name: Dépanner
           items:
+            - name: Demander une augmentation du quota de cœurs de processeur
+              href: ./quota-increase-request.md
             - name: Résoudre les problèmes liés aux actions de script
               href: ./troubleshoot-script-action.md
             - name: Échecs de la création de ressources

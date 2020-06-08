@@ -1,28 +1,28 @@
 ---
-title: Effectuer des recherches dans les journaux Azure Update Management
+title: Interroger les journaux Update Management Azure Automation
 description: Cet article explique comment interroger les journaux pour Update Management dans votre espace de travail Log Analytics.
 services: automation
 ms.subservice: update-management
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09eacb42eff6ecf3a3fca2d7fb401f52195f5f2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b40357e71275d835a200f3bc08c618b6713001d8
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617423"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830767"
 ---
-# <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Interroger des enregistrements de mises à jour pour Update Management dans les journaux d’activité Azure Monitor
+# <a name="query-update-management-logs"></a>Interroger les journaux Update Management
 
-Outre les détails fournis dans la solution Update Management, vous pouvez effectuer des recherches dans les journaux stockés dans votre espace de travail Log Analytics. À partir de la page de la solution, dans le volet gauche, sélectionnez **Journaux**. La page Recherche dans les journaux s’ouvre.
+Outre les détails fournis pendant le déploiement d’Update Management, vous pouvez effectuer des recherches dans les journaux stockés dans votre espace de travail Log Analytics. Pour effectuer des recherches dans les journaux à partir de votre compte Automation, sélectionnez **Update Management**, puis ouvrez l’espace de travail Log Analytics associé à votre déploiement.
 
-Vous pouvez également apprendre à personnaliser les requêtes ou à les utiliser à partir de différents clients. Voir [Documentation de l’API de recherche Log Analytics](https://dev.loganalytics.io/).
+Vous pouvez également personnaliser les requêtes de journal ou les utiliser à partir de différents clients. Voir [Documentation de l’API de recherche Log Analytics](https://dev.loganalytics.io/).
 
-## <a name="update-records"></a>Enregistrements de mises à jour
+## <a name="query-update-records"></a>Interroger des enregistrements de mises à jour
 
 Update Management collecte les enregistrements des machines virtuelles Windows et Linux et les types de données qui apparaissent dans les résultats de la recherche dans les journaux. Les sections suivantes décrivent ces enregistrements.
 
-### <a name="required-updates"></a>Mises à jour requises
+### <a name="query-required-updates"></a>Interroger les mises à jour requises
 
 Un enregistrement du type `RequiredUpdate` est créé, qui représente les mises à jour requises par un ordinateur. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
 
@@ -43,7 +43,7 @@ Un enregistrement du type `RequiredUpdate` est créé, qui représente les mises
 | UpdateSeverity | Degré de gravité de la vulnérabilité. Les valeurs sont les suivantes :<br> *Critical*<br> *Important*<br> *Moderate*<br> *Low* |
 | UpdateTitle | Titre de la mise à jour.|
 
-### <a name="update"></a>Update
+### <a name="query-update-record"></a>Interroger un enregistrement de mise à jour
 
 Un enregistrement du type `Update` est créé, qui représente les mises à jour disponibles et leur état d’installation pour un ordinateur. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
 
@@ -80,7 +80,7 @@ Un enregistrement du type `Update` est créé, qui représente les mises à jour
 | Ressource | Nom de la ressource. | 
 | ResourceType | Type de ressource. | 
 
-### <a name="update-agent"></a>Agent de mise à jour
+### <a name="query-update-agent-record"></a>Interroger un enregistrement d’agent de mise à jour
 
 Un enregistrement du type `UpdateAgent` est créé, qui fournit des détails sur l’agent de mise à jour sur l’ordinateur. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
 
@@ -101,7 +101,7 @@ Un enregistrement du type `UpdateAgent` est créé, qui fournit des détails sur
 | WindowsUpdateAgentVersion | Version de l’agent Windows Update. |
 | WSUSServer | Erreurs si l’agent Windows Update a un problème, pour faciliter la résolution des problèmes. |
 
-### <a name="update-deployment-status"></a>État du déploiement des mises à jour 
+### <a name="query-update-deployment-status-record"></a>Interroger un enregistrement d’état du déploiement des mises à jour
 
 Un enregistrement du type `UpdateRunProgress` est créé, qui fournit l’état du déploiement des mises à jour d’un déploiement planifié par ordinateur. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
 
@@ -133,7 +133,7 @@ Un enregistrement du type `UpdateRunProgress` est créé, qui fournit l’état 
 | VMUUID | Identificateur unique de la machine virtuelle. |
 | ResourceId | Identificateur unique de la ressource associée à l’enregistrement. |
 
-### <a name="update-summary"></a>Résumé de la mise à jour 
+### <a name="query-update-summary-record"></a>Interroger un enregistrement de résumé des mises à jour
 
 Un enregistrement du type `UpdateSummary` est créé, qui fournit un résumé des mises à jour par ordinateur. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
 
@@ -171,7 +171,7 @@ Un enregistrement du type `UpdateSummary` est créé, qui fournit un résumé de
 
 Les sections suivantes présentent des exemples de requêtes sur les journaux d’enregistrements des mises à jour qui sont collectés pour Update Management.
 
-### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Vérifier que les ordinateurs non-Azure sont intégrés
+### <a name="confirm-that-non-azure-machines-are-enabled-for-update-management"></a>Vérifier que les machines non-Azure sont activées pour Update Management
 
 Pour vérifier que les machines directement connectées communiquent avec les journaux Azure Monitor, exécutez l’une des recherches suivantes dans les journaux.
 
@@ -182,7 +182,7 @@ Heartbeat
 | where OSType == "Linux" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 ```loganalytics
 Heartbeat
@@ -197,7 +197,7 @@ Sur un ordinateur Windows, vous pouvez vérifier les informations suivantes pour
 Si l’agent ne parvient pas à communiquer avec les journaux Azure Monitor et s’il est configuré pour communiquer avec Internet par le biais d’un pare-feu ou d’un serveur proxy, vérifiez que le pare-feu ou le serveur proxy est correctement configuré. Pour savoir comment vérifier la configuration du pare-feu ou du serveur proxy, consultez [Configuration réseau de l’agent Windows](../azure-monitor/platform/agent-windows.md) ou [Configuration réseau de l’agent Linux](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
-> Si vos systèmes Linux sont configurés pour communiquer avec un proxy ou Log Analytics Gateway et que vous intégrez cette solution, vous devez mettre à jour les autorisations *proxy.conf* pour accorder au groupe omiuser une autorisation d’accès en lecture sur le fichier. Pour cela, exécutez les commandes suivantes :
+> Si vos systèmes Linux sont configurés pour communiquer avec un proxy ou Log Analytics Gateway et que vous activez Update Management, vous devez mettre à jour les autorisations `proxy.conf` pour accorder au groupe omiuser une autorisation d’accès en lecture sur le fichier. Pour cela, exécutez les commandes suivantes :
 >
 > `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`
 > `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
@@ -409,5 +409,5 @@ Update
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Effectuez des recherches dans les [journaux Azure Monitor](../log-analytics/log-analytics-log-searches.md) pour voir les données de mise à jour détaillées.
-* [Créez des alertes](automation-tutorial-update-management.md#configure-alerts) pour connaître l’état de déploiement des mises à jour.
+* Pour plus d’informations sur les journaux Azure Monitor, consultez [Journaux Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+* Pour obtenir de l’aide sur les alertes, consultez [Configurer des alertes](automation-tutorial-update-management.md#configure-alerts).

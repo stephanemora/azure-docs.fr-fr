@@ -2,14 +2,13 @@
 title: Surveiller à l’aide de tests web à plusieurs étapes – Azure Application Insights
 description: Configuration des tests web multiétape pour surveiller vos applications web avec Azure Application Insights
 ms.topic: conceptual
-ms.date: 10/23/2019
-ms.reviewer: sdash
-ms.openlocfilehash: 3b8baad127b16a1bd9d071d0c3d4df68da8c3304
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/26/2020
+ms.openlocfilehash: 04361f7b3306c5f7c164a849d8b05d7cf4756999
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77655938"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873343"
 ---
 # <a name="multi-step-web-tests"></a>Tests web à plusieurs étapes
 
@@ -17,6 +16,9 @@ Vous pouvez surveiller une séquence enregistrée d’URL et d’interactions av
 
 > [!NOTE]
 > Les tests web à plusieurs étapes dépendent des fichiers de test web Visual Studio. Il a été [annoncé](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) que Visual Studio 2019 est la dernière version avec la fonctionnalité de test web. Il est important de comprendre que même si aucune nouvelle fonctionnalité ne sera ajoutée, les fonctionnalités de test web dans Visual Studio 2019 sont toujours prises en charge et continueront d’être prises en charge pendant le cycle de vie du support du produit. L’équipe de produit Azure Monitor a répondu aux questions concernant l’avenir des tests de disponibilité à plusieurs étapes [ici](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101).  
+> </br>
+> Les tests web comportant plusieurs étapes **ne sont pas pris en charge** dans le cloud [Azure Government](https://docs.microsoft.com/azure/azure-government/).
+
 
 ## <a name="pre-requisites"></a>Conditions préalables
 

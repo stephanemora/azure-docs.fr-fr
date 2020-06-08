@@ -1,15 +1,15 @@
 ---
 title: Forum Aux Questions - LUIS
 description: Cet article contient des réponses aux questions fréquemment posées sur Language Understanding (LUIS).
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 3a30dd1c55d1ee4314e5a9a2f14ffe832994c467
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 15f2cf3c06e56656efd68d472cabd1da52c375cc
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592846"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343538"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur Language Understanding
 
@@ -333,4 +333,4 @@ Vidéos :
 
 Pour en savoir plus sur LUIS, voir les ressources suivantes :
 * [Questions de Stack Overflow balisées avec LUIS](https://stackoverflow.com/questions/tagged/luis)
-* [Forum Language Understanding Intelligent Services (LUIS) de MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS)
+* [Page de questions Microsoft Q&A sur MSDN Language Understanding Intelligent Services (LUIS)](https://docs.microsoft.com/answers/topics/azure-language-understanding.html)

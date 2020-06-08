@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b3dc111fe62cbae857f3369165ba29cf40e90342
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 345794eead05a4ff5e5d1396df78878d2693f405
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426389"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834983"
 ---
 # <a name="best-practices-for-sql-pools-in-azure-synapse-analytics"></a>Meilleures pratiques pour les pools SQL dans Azure Synapse Analytics
 
@@ -193,7 +193,7 @@ Les pools SQL disposent de plusieurs vues de gestion dynamique qui peuvent être
 
 Consultez également notre article [Dépannage](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) concernant les problèmes courants et leurs solutions.
 
-Si vous avez besoin d’informations non fournies dans cet article, utilisez la fonction « Recherche de documents » sur le côté gauche de cette page pour effectuer une recherche dans tous les documents du pool SQL.  Le [Forum pool SQL](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) vous permet de poser des questions à d’autres utilisateurs et au groupe du produit pool SQL.  
+Si vous avez besoin d’informations non fournies dans cet article, la [page de questions Microsoft Q&A sur Azure Synapse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) vous permet de poser des questions à d’autres utilisateurs et au groupe du produit pool SQL.  
 
 Nous suivons activement ce forum pour vous assurer que vos questions sont traitées par un autre utilisateur ou un membre de notre équipe.  Si vous préférez poser vos questions sur Stack Overflow, nous avons également un [Forum Stack Overflow Azure Synapse Stack](https://stackoverflow.com/questions/tagged/azure-sqldw).
 

@@ -50,6 +50,8 @@
               href: class-type-big-data-analytics.md
             - name: MATLAB
               href: class-type-matlab.md
+            - name: Conception assistée par ordinateur (CAO) SolidWorks
+              href: class-type-solidworks.md
 - name: Guides pratiques
   items:
     - name: Guide de l’administrateur
@@ -112,6 +114,8 @@
               href: how-to-enable-nested-virtualization-template-vm-ui.md
             - name: Activer la virtualisation imbriquée sur une machine virtuelle modèle à l’aide d’un script
               href: how-to-enable-nested-virtualization-template-vm-using-script.md
+        - name: Configurer un labo avec des GPU
+          href: how-to-setup-lab-gpu.md
         - name: Préparer une machine virtuelle de modèle Windows
           href: how-to-prepare-windows-template.md
         - name: Contrôler le comportement d’arrêt de Windows

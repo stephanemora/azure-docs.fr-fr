@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
-ms.openlocfilehash: b15da2aa83231bfdc8732995888349b06ab56d15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 158dd5e1f69340e233a0c2392d3f19fd5cf562ea
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78163775"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845544"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrer une base de données MySQL vers une base de données Azure pour MySQL à l’aide des images mémoire et de la restauration
 Cet article décrit deux méthodes courantes pour sauvegarder et restaurer des bases de données dans votre base de données Azure pour MySQL.
@@ -23,6 +23,8 @@ Pour parcourir ce guide pratique, vous aurez besoin des éléments suivants :
 - [Créer un serveur de base de données Azure pour MySQL - Portail Azure](quickstart-create-mysql-server-database-using-azure-portal.md)
 - Utilitaire de ligne de commande [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) installé sur une machine
 - MySQL Workbench ([téléchargement de MySQL Workbench](https://dev.mysql.com/downloads/workbench/)) ou un autre outil MySQL tiers pour exécuter les commandes de sauvegarde et de restauration
+
+Si vous souhaitez migrer des bases de données volumineuses avec des tailles de base de données supérieures à 1 To, vous pouvez utiliser des outils de la communauté comme mydumper/myloader prenant en charge l’exportation et l’importation parallèles. Le vidage et la restauration parallèles peuvent contribuer à réduire considérablement le délai de migration de bases de données volumineuses. Vous pouvez consulter notre [blog techcommunity](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699) afin d’obtenir les meilleures pratiques pour la migration de bases de données volumineuses vers un service Azure Database pour MySQL à l’aide des outils mydumper/myloader.
 
 ## <a name="use-common-tools"></a>Utiliser des outils courants
 Utilisez les outils et utilitaires courants tels que MySQL Workbench ou mysqldump pour vous connecter à distance et restaurer les données dans Azure Database pour MySQL. Utilisez ces outils sur votre ordinateur client disposant d’une connexion web pour se connecter à la base de données Azure pour MySQL. Utilisez une connexion chiffrée SSL pour appliquer les meilleures pratiques de sécurité ; consultez également la page [Configurer la connectivité SSL dans la base de données Azure pour MySQL](concepts-ssl-connection-security.md). Il est inutile de déplacer les fichiers d’images mémoire dans un emplacement spécifique du cloud lors de la migration vers la base de données Azure pour MySQL. 
@@ -90,6 +92,16 @@ Ajoutez les informations de connexion à MySQL Workbench.
 
 ![Chaîne de connexion MySQL Workbench](./media/concepts-migrate-dump-restore/2_setup-new-connection.png)
 
+## <a name="preparing-the-target-azure-database-for-mysql-server-for-fast-data-loads"></a>Préparation du serveur Azure Database pour MySQL afin d’accélérer les chargements de données
+Pour préparer le serveur Azure Database pour MySQL cible afin d’accélérer les chargements de données, les paramètres et la configuration de serveur suivants doivent être modifiés.
+- max_allowed_packet : définissez cette valeur sur 1073741824 (par exemple, 1 Go) pour éviter tout problème de dépassement de capacité en raison de longues lignes.
+- slow_query_log : définissez cette valeur sur OFF pour désactiver le journal des requêtes lentes. Cela élimine la surcharge causée par la journalisation de requêtes lentes pendant les chargements de données.
+- query_store_capture_mode : définissez les deux valeurs sur NONE pour désactiver le magasin de données des requêtes. Cela permet d’éliminer la surcharge causée par les activités d’échantillonnage par le magasin de données des requêtes.
+- innodb_buffer_pool_size : effectuez un scale-up du serveur avec la référence SKU 32 vCore Memory Optimized à partir du niveau tarifaire du portail pendant la migration afin d’augmenter la valeur innodb_buffer_pool_size. La valeur Innodb_buffer_pool_size peut être augmentée uniquement en effectuant un scale-up du calcul pour le serveur Azure Database pour MySQL.
+- innodb_write_io_threads & innodb_write_io_threads : affectez la valeur 16 aux paramètres du serveur dans le portail Azure pour accélérer la migration.
+- Effectuer un scale-up du niveau de stockage : le nombre d’opérations d’E/S par seconde (IOPS) pour le serveur Azure Database pour MySQL augmente progressivement. Pour accélérer les chargements, vous pouvez augmenter le niveau de stockage et accroître ainsi les IOPS. N’oubliez pas que le stockage peut seulement faire l’objet d’un scale-up.
+
+Une fois la migration terminée, vous pouvez rétablir les valeurs précédentes des paramètres du serveur et du niveau de calcul. 
 
 ## <a name="restore-your-mysql-database-using-command-line-or-mysql-workbench"></a>Restaurer votre base de données MySQL à l’aide d’une ligne de commande ou de MySQL Workbench
 Une fois que vous avez créé la base de données cible, vous pouvez utiliser la commande mysql ou MySQL Workbench pour restaurer les données dans la base de données créée à cet effet à partir du fichier d’image mémoire.
@@ -100,7 +112,6 @@ Dans cet exemple, vous restaurez les données dans la base de données nouvellem
 ```bash
 $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p testdb < testdb_backup.sql
 ```
-
 ## <a name="export-using-phpmyadmin"></a>Exporter avec PHPMyAdmin
 Pour exporter, vous pouvez utiliser l’outil courant phpMyAdmin, que vous avez peut-être déjà installé localement dans votre environnement. Pour exporter votre base de données MySQL avec PHPMyAdmin :
 1. Ouvrez phpMyAdmin.
@@ -118,6 +129,9 @@ L’importation d’une base de données est similaire à l’exportation. Effec
 4. Cliquez sur le lien **SQL** pour afficher la page dans laquelle vous pouvez taper des commandes SQL ou charger votre fichier SQL. 
 5. Utilisez le bouton **Parcourir** pour trouver le fichier de base de données. 
 6. Cliquez sur le bouton **OK** pour exporter la sauvegarde, exécuter les commandes SQL et recréer votre base de données.
+
+## <a name="known-issues"></a>Problèmes connus
+Pour les problèmes connus, les trucs et astuces, nous vous recommandons de consulter notre blog [techcommunity](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/tips-and-tricks-in-using-mysqldump-and-mysql-restore-to-azure/ba-p/916912).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Connecter des applications à Azure Database pour MySQL](./howto-connection-string.md).

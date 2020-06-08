@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 2ecca18e9de02bfe5f3bcb972d0b4034ab8012ac
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: c115859c24b2c26ab2c221c4fdc35cb442d652b1
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791015"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848010"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Utiliser Stockage Table Azure pour gérer les prospects de marketplaces commerciaux
 
@@ -182,8 +182,9 @@ Lorsque vous êtes prêt à configurer les informations de gestion des leads pou
 
 1. Accédez à la page **Configuration de l’offre** de votre offre.
 
-1. Sélectionnez **Connexion** dans la section **Gestion des prospects**.
-     ![Gestion des prospects](./media/commercial-marketplace-lead-management-instructions-azure-table/lead-management.png)
+1. Dans la section **Prospects**, sélectionnez **Se connecter**.
+
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Prospects":::
 
 1. Dans la fenêtre contextuelle **Détails de la connexion**, sélectionnez **Table Azure** comme **Destination du prospect**. 
      ![Lead management, Connection details](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)

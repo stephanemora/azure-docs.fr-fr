@@ -110,7 +110,7 @@
       href: troubleshoot-set-up-overview.md
     - name: Identifier et diagnostiquer les problèmes
       href: diagnostics-role-service.md
-    - name: Création d’un pool de locataires et d’hôtes
+    - name: Création d’un pool d’hôtes
       href: troubleshoot-set-up-issues.md
     - name: Configuration d’une machine virtuelle hôte de session
       href: troubleshoot-vm-configuration.md

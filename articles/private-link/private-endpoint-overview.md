@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: c0cf8a91ee1dbdd70f1b911dba24fb69ee7bc0e3
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 51afa118be75c7e9ea2cb6e394d27cc39a58de0b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744404"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849652"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Qu’est-ce qu’Azure Private Endpoint ?
 
@@ -35,7 +35,9 @@ Azure Private Endpoint est une interface réseau qui vous permet de vous connect
 Voici quelques détails clés sur Private Endpoint : 
 - Private Endpoint permet la connectivité entre consommateurs à partir du même réseau virtuel, des réseaux virtuels avec homologation globale et locaux l’aide d’un [VPN](https://azure.microsoft.com/services/vpn-gateway/) ou [d’Express Route](https://azure.microsoft.com/services/expressroute/) et des services basés sur Private Link.
  
-- Lors de la création d’un point de terminaison privé, une interface réseau en lecture seule est également créée pour le cycle de vie de la ressource. Une adresse IP privée est attribuée à l’interface à partir du sous-réseau qui est mappé à la ressource de liaison privée.
+- Les connexions réseau ne peuvent être initiées que par des clients se connectant au point de terminaison privé ; les fournisseurs de services n’ont pas de configuration de routage pour initier des connexions aux consommateurs du service. Les connexions peuvent uniquement être établies dans une seule direction.
+
+- Lors de la création d’un point de terminaison privé, une interface réseau en lecture seule est également créée pour le cycle de vie de la ressource. Des adresses IP privées sont attribuées dynamiquement à l’interface à partir du sous-réseau qui est mappé à la ressource de liaison privée. La valeur de l’adresse IP privée reste inchangée pour l’intégralité du cycle de vie du point de terminaison privé.
  
 - Private Endpoint doit être déployé dans la même région que le réseau virtuel. 
  
@@ -61,6 +63,7 @@ Une ressource Private Link est la cible de destination d’une instance Private 
 |**Azure Database pour PostgreSQL – Serveur unique** | Microsoft.DBforPostgreSQL/servers    | postgresqlServer |
 |**Azure Database pour MySQL** | Microsoft.DBforMySQL/servers    | mysqlServer |
 |**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers    | mariadbServer |
+|**Azure IoT Hub** | Microsoft.Devices/IotHubs    | iotHub |
 |**Azure Key Vault** | Microsoft.KeyVault/vaults    | coffre |
 |**Azure Kubernetes Service – API Kubernetes** | Microsoft.ContainerService/managedClusters    | managedCluster |
 |**Azure Search** | Microsoft.Search/searchService| searchService|  

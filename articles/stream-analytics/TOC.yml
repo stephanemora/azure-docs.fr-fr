@@ -14,6 +14,7 @@
         - name: Portail Azure
           href: stream-analytics-quick-create-portal.md
         - name: Modèle ARM
+          displayName: Resource Manager
           href: quick-create-azure-resource-manager.md
         - name: PowerShell
           href: stream-analytics-quick-create-powershell.md
@@ -48,6 +49,10 @@
       href: feature-comparison.md
     - name: Développer en local
       href: develop-locally.md
+    - name: Sécurité
+      items:
+        - name: Base de référence de la sécurité
+          href: security-baseline.md
     - name: Types d’entrée pour un travail
       items:
         - name: Vue d’ensemble des entrées

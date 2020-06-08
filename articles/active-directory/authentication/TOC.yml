@@ -80,6 +80,8 @@
           href: howto-mfa-userstates.md
         - name: Configurer des fournisseurs d’authentification
           href: concept-mfa-authprovider.md
+        - name: Utiliser des mots de passe d’application
+          href: howto-mfa-app-passwords.md
         - name: Fédération d’annuaires
           items:
             - name: Adaptateur Windows Server 2016 AD FS
@@ -169,6 +171,8 @@
           href: howto-mfaserver-deploy-userportal.md
         - name: Service Web de l’application mobile
           href: howto-mfaserver-deploy-mobileapp.md
+        - name: Configurer les paramètres
+          href: howto-mfa-server-settings.md
         - name: Configurer la haute disponibilité
           href: howto-mfaserver-deploy-ha.md
         - name: Mettre à niveau le serveur MFA
@@ -233,5 +237,5 @@
       href: ../fundamentals/whats-new.md
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

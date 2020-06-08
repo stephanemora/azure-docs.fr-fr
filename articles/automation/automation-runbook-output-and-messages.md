@@ -1,18 +1,18 @@
 ---
-title: Sortie et messages de Runbook dans Azure Automation
-description: Décrit comment créer et récupérer la sortie et les messages d’erreur à partir des Runbooks dans Azure Automation.
+title: Surveiller une sortie de runbook dans Azure Automation
+description: Cet article décrit comment surveiller une sortie et des messages de runbook.
 services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 92b6378b00e12f618d07798b5ce789cbd9971544
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fb7ddce34a32d7108587bf1a3d47be4b31214535
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535534"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832280"
 ---
-# <a name="runbook-output-and-messages-in-azure-automation"></a>Sortie et messages de Runbook dans Azure Automation
+# <a name="monitor-runbook-output"></a>Superviser une sortie de runbook
 
 La plupart des Runbooks Azure Automation ont une certaine forme de sortie. Cette sortie peut être un message d’erreur destiné à l’utilisateur ou un objet complexe que vous souhaitez utiliser avec un autre Runbook. Windows PowerShell fournit [plusieurs flux](/powershell/module/microsoft.powershell.core/about/about_redirection) pour l’envoi d’une sortie à partir d’un script ou d’un flux de travail. Azure Automation fonctionne différemment avec chaque flux. Vous devez suivre les meilleures pratiques d’utilisation des flux lorsque vous créez un Runbook.
 
@@ -27,14 +27,11 @@ Le tableau suivant décrit brièvement chaque flux avec son comportement dans le
 | Commentaires |Messages fournissant des informations générales ou de débogage. |Consignation dans l’historique des tâches uniquement si la journalisation documentée est activée pour le Runbook |Affichage dans le volet de sortie du test uniquement si la variable `VerbosePreference` est définie sur Continue dans le Runbook |
 | Avertissement |Message d’avertissement destiné à l’utilisateur. |Consignation dans l’historique des tâches |Affichage dans le volet de sortie du test |
 
->[!NOTE]
->Cet article a été mis à jour pour tenir compte de l’utilisation du nouveau module Az d’Azure PowerShell. Vous pouvez toujours utiliser le module AzureRM, qui continue à recevoir des correctifs de bogues jusqu’à au moins décembre 2020. Pour en savoir plus sur le nouveau module Az et la compatibilité avec AzureRM, consultez [Présentation du nouveau module Az d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Pour obtenir des instructions relatives à l’installation du module Az sur votre Runbook Worker hybride, voir [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Pour votre compte Automation, vous pouvez mettre à jour vos modules vers la dernière version en suivant les instructions du [Guide de mise à jour des modules Azure PowerShell dans Azure Automation](automation-update-azure-modules.md).
+## <a name="use-the-output-stream"></a>Utiliser le flux de sortie
 
-## <a name="output-stream"></a>Flux de sortie
+Le flux de sortie est destiné à la sortie des objets créés par un script ou un workflow lorsqu’il s’exécute correctement. Azure Automation utilise principalement ce flux pour les objets destinés à être consommés par les Runbooks parents qui appellent le [Runbook actuel](automation-child-runbooks.md). Lorsqu’un parent [appelle un Runbook en ligne](automation-child-runbooks.md#invoke-a-child-runbook-using-inline-execution), l’enfant retourne les données au parent à partir du flux de sortie. 
 
-Le flux de sortie est destiné à la sortie des objets créés par un script ou un flux de travail lorsqu’il s’exécute correctement. Azure Automation utilise principalement ce flux pour les objets destinés à être consommés par les Runbooks parents qui appellent le [Runbook actuel](automation-child-runbooks.md). Lorsqu’un parent [appelle un Runbook en ligne](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution), l’enfant retourne les données au parent à partir du flux de sortie. 
-
-Votre Runbook utilise le flux de sortie pour communiquer des informations générales à l’utilisateur uniquement si le Runbook n’est jamais appelé par un autre Runbook. Cependant, vos Runbooks devraient utiliser le [flux des commentaires](#verbose-stream) pour communiquer des informations générales à l’utilisateur.
+Votre Runbook utilise le flux de sortie pour communiquer des informations générales à l’utilisateur uniquement si le Runbook n’est jamais appelé par un autre Runbook. Cependant, vos Runbooks devraient utiliser le [flux des commentaires](#monitor-verbose-stream) pour communiquer des informations générales à l’utilisateur.
 
 Configurez vos Runbooks pour qu’ils consignent les données dans le flux de sortie à l’aide de [Write-Output](https://technet.microsoft.com/library/hh849921.aspx). Vous pouvez également placer l’objet sur sa propre ligne dans le script.
 
@@ -44,7 +41,7 @@ Write-Output –InputObject $object
 $object
 ```
 
-### <a name="handling-output-from-a-function"></a>Gestion de la sortie à partir d’une fonction
+### <a name="handle-output-from-a-function"></a>Gérer la sortie à partir d’une fonction
 
 Quand une fonction Runbook écrit dans le flux de sortie, la sortie est retournée au Runbook. Si le Runbook affecte cette sortie à une variable, la sortie n’est pas écrite dans le flux de sortie. Toute écriture dans d’autres flux à partir de la fonction se fait dans le flux correspondant du Runbook. Considérez l’exemple de Runbook PowerShell Workflow suivant.
 
@@ -80,7 +77,7 @@ Verbose inside of function
 
 Une fois que vous avez publié le Runbook et avant de démarrer, vous devez activer la journalisation détaillée dans les paramètres du Runbook pour obtenir la sortie de flux détaillé.
 
-### <a name="declaring-output-data-type"></a>Déclaration du type de données de sortie
+### <a name="declare-output-data-type"></a>Déclarer le type de données de sortie
 
 Voici des exemples de types de données de sortie :
 
@@ -126,15 +123,15 @@ La première activité appelle le Runbook **AuthenticateTo-Azure**. La deuxième
 
 Le résultat obtenu est le nom de l’abonnement.<br> ![Résultats du Runbook Test-ChildOutputType](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
 
-## <a name="message-streams"></a>Flux de messages
+## <a name="monitor-message-streams"></a>Gérer les flux de messages
 
 Contrairement au flux de sortie, les flux de messages communiquent des informations à l’utilisateur. Il existe plusieurs flux de messages pour les différents types d’informations, et Azure Automation traite chaque flux différemment.
 
-### <a name="warning-and-error-streams"></a>Flux d’erreurs et d’avertissements
+### <a name="monitor-warning-and-error-streams"></a>Surveiller les flux d’erreurs et d’avertissements
 
 Les flux d’erreurs et d’avertissements consignent les problèmes qui se produisent dans un Runbook. Azure Automation écrit ces flux dans l’historique des travaux lors de l’exécution d’un Runbook. Automation intègre les flux dans le volet Sortie de test du portail Azure lors du test d’un Runbook. 
 
-Par défaut, un Runbook continue de s’exécuter après un avertissement ou une erreur. Vous pouvez spécifier l’interruption de votre Runbook en cas d’avertissement ou d’erreur en définissant une [variable de préférence](#preference-variables) avant de créer le message. Par exemple, pour déclencher l’interruption du Runbook en cas d’erreur, comme dans le cas d’une exception, affectez la valeur Stop à la variable `ErrorActionPreference`.
+Par défaut, un Runbook continue de s’exécuter après un avertissement ou une erreur. Vous pouvez spécifier l’interruption de votre Runbook en cas d’avertissement ou d’erreur en définissant une [variable de préférence](#work-with-preference-variables) avant de créer le message. Par exemple, pour déclencher l’interruption du Runbook en cas d’erreur, comme dans le cas d’une exception, affectez la valeur Stop à la variable `ErrorActionPreference`.
 
 Créez un message d’avertissement ou un message d’erreur à l’aide de l’applet de commande [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) ou [Write-Error](https://technet.microsoft.com/library/hh849962.aspx). Les activités peuvent également écrire dans les flux d’avertissement et d’erreur.
 
@@ -146,11 +143,11 @@ Write-Warning –Message "This is a warning message."
 Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
 ```
 
-### <a name="debug-stream"></a>flux de débogage
+### <a name="monitor-debug-stream"></a>Surveiller un flux de débogage
 
 Azure Automation utilise le flux de message de débogage pour les utilisateurs interactifs. Cette utilisation est proscrite dans les Runbooks.
 
-### <a name="verbose-stream"></a>flux des commentaires
+### <a name="monitor-verbose-stream"></a>Surveiller le flux des commentaires
 
 Le flux des commentaires prend en charge les informations générales sur le fonctionnement du Runbook. Dans la mesure où le flux de débogage n’est pas disponible dans un Runbook, votre Runbook devrait utiliser des messages documentés pour les informations de débogage. 
 
@@ -166,7 +163,7 @@ Le code suivant crée un message documenté à l’aide de l’applet de command
 Write-Verbose –Message "This is a verbose message."
 ```
 
-## <a name="progress-records"></a>Informations de progression
+## <a name="handle-progress-records"></a>Gérer les informations de progression
 
 Vous pouvez utiliser l’onglet **Configurer** du portail Azure pour configurer un Runbook afin de journaliser les informations de progression. Avec le paramètre par défaut, les enregistrements ne sont pas journalisés, afin d’optimiser les performances. Dans la plupart des cas, vous devriez conserver le paramètre par défaut. Activez cette option uniquement pour résoudre les problèmes liés à un Runbook ou déboguer un Runbook. 
 
@@ -175,7 +172,7 @@ Si vous activez la journalisation des enregistrements de progression, votre Runb
 >[!NOTE]
 >La cmdlet [Write-Progress](https://technet.microsoft.com/library/hh849902.aspx) n’est pas valide dans un Runbook, dans la mesure où cette cmdlet est destinée à un utilisateur interactif.
 
-## <a name="preference-variables"></a>Variables de préférence
+## <a name="work-with-preference-variables"></a>Utiliser les variables de préférence
 
 Vous pouvez définir certaines [variables de préférence](https://technet.microsoft.com/library/hh847796.aspx) Windows PowerShell dans vos Runbooks pour contrôler la réponse aux données envoyées aux différents flux de sortie. Le tableau suivant répertorie les variables de préférence qui peuvent être utilisées dans des Runbooks, ainsi que leurs valeurs par défaut et leurs valeurs valides. D’autres valeurs sont disponibles pour les variables de préférence lorsqu’elles sont utilisées dans Windows PowerShell en dehors d’Azure Automation.
 
@@ -193,11 +190,11 @@ Le tableau suivant indique le comportement associé aux valeurs des variables de
 | SilentlyContinue |Poursuit l’exécution du Runbook sans enregistrer le message. Le message est alors ignoré. |
 | Arrêter |Enregistre le message et interrompt le Runbook. |
 
-## <a name="retrieving-runbook-output-and-messages"></a><a name="runbook-output"></a>Récupération de la sortie et des messages de Runbook
+## <a name="retrieve-runbook-output-and-messages"></a><a name="runbook-output"></a>Récupérer la sortie et les messages d’un runbook
 
 ### <a name="retrieve-runbook-output-and-messages-in-azure-portal"></a>Récupérer la sortie et les messages d’un Runbook dans Azure Automation
 
-Vous pouvez afficher les détails d’une tâche de Runbook dans le portail Azure à partir de l’onglet **Tâches** du Runbook. Le résumé de la tâche affiche les paramètres d’entrée et le [flux de sortie](#output-stream), en plus des informations générales sur le travail et les éventuelles exceptions. L’historique des travaux inclut les messages du flux de sortie ainsi que des [flux d’avertissements et des flux d’erreurs](#warning-and-error-streams). Il inclut également les messages du [flux de commentaires](#verbose-stream) et les [informations de progression](#progress-records) si le Runbook est configuré pour journaliser les enregistrements détaillés et les informations de progression.
+Vous pouvez afficher les détails d’une tâche de Runbook dans le portail Azure à partir de l’onglet **Tâches** du Runbook. Le résumé de la tâche affiche les paramètres d’entrée et le [flux de sortie](#use-the-output-stream), en plus des informations générales sur le travail et les éventuelles exceptions. L’historique des travaux inclut les messages du flux de sortie ainsi que des [flux d’avertissements et des flux d’erreurs](#monitor-warning-and-error-streams). Il inclut également les messages du [flux de commentaires](#monitor-verbose-stream) et les [informations de progression](#handle-progress-records) si le Runbook est configuré pour journaliser les enregistrements détaillés et les informations de progression.
 
 ### <a name="retrieve-runbook-output-and-messages-in-windows-powershell"></a>Récupérer la sortie et les messages d’un Runbook dans Windows PowerShell
 
@@ -262,6 +259,7 @@ Pour savoir comment configurer l’intégration aux journaux Azure Monitor dans 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur l’exécution d’un Runbook, la manière de surveiller des tâches de Runbook et autres détails techniques, voir [Suivi d’une tâche de Runbook](automation-runbook-execution.md).
-* Pour comprendre comment créer et utiliser des Runbooks enfants, consultez [Runbooks enfants dans Azure Automation](automation-child-runbooks.md).
-* Pour plus d’informations sur PowerShell, notamment le langage de référence et les modules d’apprentissage, consultez la [Documentation PowerShell](/powershell/scripting/overview).
+* Pour savoir comment utiliser des runbooks, voir [Gérer les runbooks dans Azure Automation](manage-runbooks.md).
+* Pour plus d’informations sur PowerShell, consultez la [documentation PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+* * Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

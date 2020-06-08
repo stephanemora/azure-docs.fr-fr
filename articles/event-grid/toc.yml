@@ -195,7 +195,13 @@
 - name: Guides pratiques
   items:
     - name: 'Créer, afficher et gérer des rubriques système'
-      href: create-view-manage-system-topics.md
+      items:
+        - name: Portail Azure
+          href: create-view-manage-system-topics.md
+        - name: Azure CLI
+          href: create-view-manage-system-topics-cli.md
+        - name: "Modèle Azure\_Resource\_Manager"
+          href: create-view-manage-system-topics-arm.md
     - name: Envoyer des messages dans une rubrique personnalisée
       href: post-to-custom-topic.md
     - name: S’abonner aux événements Auth0

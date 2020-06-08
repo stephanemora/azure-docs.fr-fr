@@ -7,25 +7,25 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 160898f8535d3dad4811af016ebca779b7ef43a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dca235374ca20ef8a17e685706f952127d5ece2a
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78189615"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869433"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configurer les jetons dans Azure Active Directory B2C
 
 Dans cet article, vous allez apprendre à configurer la [durée de vie et la compatibilité d’un jeton](tokens-overview.md) dans Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [Créez un flux d'utilisateurs](tutorial-create-user-flows.md) pour permettre aux utilisateurs de s'inscrire et de se connecter à votre application.
 
-## <a name="configure-token-lifetime"></a>Configurer la durée de vie des jetons
+## <a name="configure-jwt-token-lifetime"></a>Configurer la durée de vie des jetons JWT
 
 Vous pouvez configurer la durée de vie des jetons sur n’importe quel flux utilisateur.
 
@@ -41,7 +41,7 @@ Vous pouvez configurer la durée de vie des jetons sur n’importe quel flux uti
 
 8. Cliquez sur **Enregistrer**.
 
-## <a name="configure-token-compatibility"></a>Configurer la compatibilité des jetons
+## <a name="configure-jwt-token-compatibility"></a>Configurer la compatibilité des jetons JWT
 
 1. Sélectionnez **Flux utilisateur (stratégies)** .
 2. Ouvrez le flux utilisateur que vous avez créé précédemment.
@@ -54,7 +54,7 @@ Vous pouvez configurer la durée de vie des jetons sur n’importe quel flux uti
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez plus d’informations sur [l’utilisation des jetons d’accès](access-tokens.md).
+Découvrez comment [demander des jetons d’accès](access-tokens.md).
 
 
 

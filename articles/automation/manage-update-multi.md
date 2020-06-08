@@ -1,22 +1,22 @@
 ---
-title: Gérer les mises à jour pour plusieurs machines virtuelles Azure
-description: Cet article décrit la gestion des mises à jour pour les machines virtuelles Azure et non-Azure.
+title: Gérer les mises à jour pour plusieurs machines virtuelles dans Azure Automation
+description: Cet article explique comment gérer les mises à jour pour plusieurs machines virtuelles.
 services: automation
 ms.subservice: update-management
 ms.date: 03/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6a878ecf4519a852a9798b320bda26cd490487a4
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: d08afc6e501fd76167e0939633442213958f0d49
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731983"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834626"
 ---
-# <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Gérer les mises à jour pour plusieurs machines virtuelles Azure
+# <a name="manage-updates-for-multiple-vms"></a>Gérer les mises à jour pour plusieurs machines virtuelles
 
 Vous pouvez utiliser Azure Automation Update Management pour gérer les mises à jour et les correctifs pour vos machines virtuelles Windows et Linux. À partir de votre compte [Azure Automation](automation-offering-get-started.md) compte, vous pouvez :
 
-- Intégrer des machines virtuelles.
+- Activer les machines virtuelles pour la gestion des mises à jour.
 - Évaluer l’état des mises à jour disponibles.
 - Planifier l’installation des mises à jour requises.
 - Passer en revue les résultats du déploiement pour vérifier que les mises à jour ont été appliquées correctement à toutes les machines virtuelles pour lesquelles Update Management est activé.
@@ -26,25 +26,23 @@ Vous en saurez plus sur la configuration système exigée pour Update Management
 ## <a name="prerequisites"></a>Prérequis
 
 * Une machine virtuelle ou un ordinateur virtuel avec l’un des systèmes d’exploitation pris en charge.
-* Un accès à un référentiel de mises à jour pour les machines virtuelles Linux intégrées à Update Management.
+* Un accès à un référentiel de mises à jour pour les machines virtuelles Linux activées pour Update Management.
 
-## <a name="enable-update-management-for-azure-virtual-machines"></a>Activer la gestion des mises à jour pour les machines virtuelles Azure
+## <a name="enable-update-management-for-azure-vms"></a>Activer Update Management pour les machines virtuelles Azure
 
-Dans le portail Azure, ouvrez votre compte Automation, puis sélectionnez **Gestion des mises à jour**.
+1. Dans le portail Azure, ouvrez votre compte Automation, puis sélectionnez **Gestion des mises à jour**.
 
-Sélectionnez **Ajouter des machines virtuelles Azure**.
+2. Sélectionnez **Ajouter des machines virtuelles Azure**.
 
-![Ajouter une machine virtuelle Azure](./media/manage-update-multi/update-onboard-vm.png)
+    ![Ajouter une machine virtuelle Azure](./media/manage-update-multi/update-onboard-vm.png)
 
-Sélectionnez une machine virtuelle à intégrer.
+3. Sélectionnez une machine virtuelle à activer, puis sélectionnez **Activer** sous **Activer Update Management**.
 
-Sous **Activer la gestion des mises à jour**, sélectionnez **Activer** pour intégrer la machine virtuelle.
+    ![Boîte de dialogue Activer la gestion des mises à jour](./media/manage-update-multi/update-enable.png)
 
-![Boîte de dialogue Activer la gestion des mises à jour](./media/manage-update-multi/update-enable.png)
+    Une fois l’opération terminée, Update Management est activé sur votre machine virtuelle.
 
-Une fois que l’intégration est terminée, la gestion des mises à jour est activée pour votre machine virtuelle.
-
-## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Activer la gestion des mises à jour pour les machines et ordinateurs virtuels non Azure
+## <a name="enable-update-management-for-non-azure-vms-and-computers"></a>Activer Update Management pour les machines et ordinateurs virtuels non Azure
 
 Vous devez installer l’agent Log Analytics pour Windows et Linux sur les machines virtuelles qui s’exécutent sur votre réseau d’entreprise ou dans un autre environnement cloud afin de les activer avec Update Management. Pour connaître la configuration système requise et les méthodes prises en charge pour déployer l’agent sur les machines hébergées en dehors d’Azure, consultez [Vue d’ensemble de l’agent Log Analytics](../azure-monitor/platform/log-analytics-agent.md).
 
@@ -74,7 +72,7 @@ Les agents installés sur des machines et ordinateurs virtuels collectent des do
 
 ### <a name="supported-agents"></a>Agents pris en charge
 
-Le tableau suivant décrit les sources connectées prises en charge par cette solution :
+Le tableau suivant décrit les sources connectées que Update Management prend en charge :
 
 | Source connectée | Prise en charge | Description |
 | --- | --- | --- |
@@ -117,7 +115,7 @@ Dans le volet **Nouveau déploiement de mises à jour**, spécifiez les informat
 
   ![Volet Nouveau déploiement de mises à jour](./media/manage-update-multi/update-select-computers.png)
 
-- **Classification des mises à jour** : sélectionnez les types de logiciels à inclure dans le déploiement de mises à jour. Pour obtenir la description des types de classification, consultez [Classifications des mises à jour](automation-view-update-assessments.md#update-classifications). Les types de classification sont les suivants :
+- **Classification des mises à jour** : sélectionnez les types de logiciels à inclure dans le déploiement de mises à jour. Pour obtenir la description des types de classification, consultez [Classifications des mises à jour](automation-view-update-assessments.md#work-with-update-classifications). Les types de classification sont les suivants :
   - Mises à jour critiques
   - Mises à jour de sécurité
   - Correctifs cumulatifs
@@ -134,7 +132,6 @@ Dans le volet **Nouveau déploiement de mises à jour**, spécifiez les informat
 
 > [!NOTE]
 > Vous ne pouvez pas spécifier des mises à jour qui ont été remplacées pour être incluses dans le déploiement des mises à jour.
->
 
 - **Paramètres de planification** : vous pouvez accepter la date et l’heure par défaut ; cette valeur est de 30 minutes après l’heure actuelle. Vous pouvez également spécifier une heure différente.
 
@@ -179,10 +176,10 @@ Le volet Résultats des mises à jour affiche un récapitulatif du nombre total 
 
 Pour afficher toutes les entrées de journal créées par le déploiement, sélectionnez **Tous les journaux d’activité**.
 
-Pour voir le flux des tâches du runbook qui gère le déploiement des mises à jour sur la machine virtuelle cible, sélectionnez la vignette Sortie.
+Pour voir le flux des tâches du runbook qui gère le déploiement des mises à jour sur la machine virtuelle cible, sélectionnez la vignette de sortie.
 
 Pour afficher les informations détaillées sur les erreurs du déploiement, sélectionnez **Erreurs**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur les journaux, la sortie et les erreurs Update Management, consultez [Interroger des enregistrements de mises à jour pour Update Management](automation-update-management-query-logs.md).
+* Si vous avez besoin d’effectuer des recherches dans les journaux de mise à jour, consultez [Interroger les journaux Update Management](automation-update-management-query-logs.md).
