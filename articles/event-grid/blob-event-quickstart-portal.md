@@ -5,16 +5,16 @@ services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 04/16/2020
+ms.date: 06/02/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: ada451b6bb3578a2903e9bd832b98981d7029d1d
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 3c84bf32f0d7b8b8381747e995f060d7e2dc1c9b
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605728"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310479"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Démarrage rapide : Acheminer des événements de stockage Blob vers un point de terminaison web avec le portail Azure
 
@@ -86,12 +86,18 @@ Avant de nous abonner aux événements du stockage d’objets blob, nous allons 
 Vous vous abonnez à une rubrique pour communiquer à Event Grid les événements qui vous intéressent, et où les envoyer.
 
 1. Dans le portail, accédez au compte de stockage Azure que vous avez créé précédemment. Dans le menu de gauche, sélectionnez **Toutes les ressources** et votre compte de stockage. 
-2. Dans la page **Compte de stockage**, sélectionnez **Événements** dans le menu de gauche.
+2. Dans la page **Compte de stockage**, sélectionnez **Événements** dans le menu de gauche. 
 1. Sélectionnez **Autres options**, puis **Webhook**. Vous envoyez des événements à votre application de visionneuse, avec un webhook comme point de terminaison. 
 
    ![Sélectionner Webhook](./media/blob-event-quickstart-portal/select-web-hook.png)
 3. Dans la page **Créer un abonnement aux événements**, effectuez les étapes suivantes : 
     1. Entrez un **nom** pour l’abonnement aux événements.
+    2. Entrez un **nom** pour la **rubrique système**. 
+
+       ![Entrez des noms pour l’abonnement aux événements et la rubrique système](./media/blob-event-quickstart-portal/event-subscription-name-system-topic.png)
+
+       > [!NOTE]
+       > Auparavant, lorsque vous créiez un abonnement pour un événement déclenché par des sources Azure, le service Event Grid créait automatiquement une rubrique système avec un nom généré de manière aléatoire. Vous pouvez désormais spécifier un nom pour la rubrique système à l’aide de cette zone de texte. Vous pouvez utiliser cette ressource de rubrique système pour découvrir des métriques et des journaux de diagnostic.
     2. Sélectionnez **Webhook** pour **Type de point de terminaison**. 
 
        ![Sélectionner le type de point de terminaison webhook](./media/blob-event-quickstart-portal/select-web-hook-end-point-type.png)

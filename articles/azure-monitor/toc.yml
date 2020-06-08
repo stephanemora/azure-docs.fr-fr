@@ -622,6 +622,10 @@
                   href: app/javascript.md
                 - name: Mappage de source pour JavaScript
                   href: app/source-map-support.md
+                - name: Dépanner
+                  items:
+                    - name: Échec de chargement de kit SDK
+                      href: app/javascript-sdk-load-failure.md
             - name: Récapitulatif des API Application Insights
               displayname: 'SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency'
               href: app/api-custom-events-metrics.md
@@ -743,6 +747,8 @@
               href: app/profiler-settings.md
             - name: Suivre les requêtes de profilage
               href: app/profiler-trackrequests.md
+            - name: Configurer BYOS (Bring Your Own Storage)
+              href: app/profiler-bring-your-own-storage.md
             - name: Résolution des problèmes liés au profileur
               href: app/profiler-troubleshooting.md
         - name: Débogueur de capture instantanée
@@ -756,6 +762,8 @@
               href: app/snapshot-debugger-vm.md
             - name: Mettre à niveau le Débogueur de capture instantanée
               href: app/snapshot-debugger-upgrade.md
+            - name: Configurer BYOS (Bring Your Own Storage)
+              href: app/profiler-bring-your-own-storage.md
             - name: Résolution des problèmes du débogueur de capture instantanée
               displayname: 'troubleshoot, troubleshooting'
               href: app/snapshot-debugger-troubleshoot.md

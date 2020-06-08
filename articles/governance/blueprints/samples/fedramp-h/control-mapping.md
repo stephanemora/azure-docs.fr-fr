@@ -1,14 +1,14 @@
 ---
 title: Exemples de contrôles de blueprint FedRAMP High
 description: Mappage des contrôles de l’exemple de blueprint FedRAMP High. Chaque contrôle est mis en correspondance avec une ou plusieurs stratégies Azure qui simplifient l’évaluation.
-ms.date: 01/31/2020
+ms.date: 05/12/2020
 ms.topic: sample
-ms.openlocfilehash: cceca23e4bdc749c553eaf41b5f9599be3c9bf7d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f57f753c405e736a4c83dd6f10b6f38184ce74b6
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77150610"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168877"
 ---
 # <a name="control-mapping-of-the-fedramp-high-blueprint-sample"></a>Mappage des contrôles de l’exemple de blueprint FedRAMP High
 
@@ -118,9 +118,7 @@ Les données de journal collectées par Azure Monitor sont stockées dans un esp
 
 ## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) Révision, analyse et rapports d’audit | Intégration/analyse et fonctionnalités de surveillance
 
-Ce blueprint fournit des définitions de stratégie qui auditent les enregistrements avec l’analyse de l’évaluation des vulnérabilités sur les machines virtuelles, les groupes de machines virtuelles identiques, les instances managées SQL et les serveurs SQL.
-Ces définitions de stratégie vérifient également la configuration des journaux de diagnostic pour fournir des insights sur les opérations effectuées au sein des ressources Azure. Ces insights fournissent des informations en temps réel sur l’état de la sécurité de vos ressources déployées et peuvent vous aider à classer par ordre de priorité les actions de correction.
-Pour plus d’informations sur l’analyse et la surveillance des vulnérabilités, nous vous recommandons d’utiliser également Azure Sentinel et Azure Security Center.
+Ce blueprint fournit des définitions de stratégie qui auditent les enregistrements avec l’analyse de l’évaluation des vulnérabilités sur les machines virtuelles, les groupes de machines virtuelles identiques, les serveur SQL Database et les serveurs SQL Managed Instance. Ces définitions de stratégie vérifient également la configuration des journaux de diagnostic pour fournir des insights sur les opérations effectuées au sein des ressources Azure. Ces insights fournissent des informations en temps réel sur l’état de la sécurité de vos ressources déployées et peuvent vous aider à classer par ordre de priorité les actions de correction. Pour plus d’informations sur l’analyse et la surveillance des vulnérabilités, nous vous recommandons d’utiliser également Azure Sentinel et Azure Security Center.
 
 - \[Préversion\] : L’évaluation des vulnérabilités doit être activée sur les machines virtuelles
 - \[Préversion\] : Activer Azure Monitor pour machines virtuelles

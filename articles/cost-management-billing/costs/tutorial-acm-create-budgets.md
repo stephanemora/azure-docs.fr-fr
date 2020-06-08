@@ -3,17 +3,17 @@ title: 'Tutoriel : Créer et gérer des budgets Azure'
 description: Ce tutoriel vous aide à planifier et à prendre en compte les coûts de services Azure que vous consommez.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/22/2020
+ms.date: 05/27/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: e8afa19b6d79ce915ca41f7b0e6b4a203d7daa1b
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: ef165f63ff1f9e45bb3586192146d822e334dc54
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82101754"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142433"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
 
@@ -115,6 +115,15 @@ Après avoir créé un budget, il est indiqué dans l’analyse des coûts. Visu
 
 Dans l’exemple précédent, vous avez créé un budget pour un abonnement. Vous pouvez aussi créer un budget pour un groupe de ressources. Si vous voulez créer un budget pour un groupe de ressources, accédez à **Gestion des coûts + facturation** &gt; **Abonnements** &gt; sélectionnez un abonnement > **Groupes de ressource** > sélectionnez un groupe de ressources > **Budgets** > puis **Ajouter** un budget.
 
+### <a name="create-a-budget-for-combined-azure-and-aws-costs"></a>Créer un budget pour les coûts Azure et AWS combinés
+
+Vous pouvez regrouper vos coûts Azure et AWS en affectant un groupe d’administration à votre connecteur, ainsi que ses comptes consolidés et liés. Attribuez vos abonnements Azure au même groupe d’administration. Créez ensuite un budget pour les coûts combinés.
+
+1. Dans Cost Management, sélectionnez **Budgets**.
+1. Sélectionnez **Ajouter**.
+1. Sélectionnez **Modifier l’étendue**, puis sélectionnez le groupe d’administration.
+1. Terminez la création du budget.
+
 ## <a name="costs-in-budget-evaluations"></a>Coûts des évaluations de budget
 
 Les évaluations des coûts budgétaires incluent désormais les données d’instance réservée et d’achat. Si les frais vous concernent, vous pouvez recevoir des alertes à mesure que des frais sont incorporés dans vos évaluations. Nous vous recommandons de vous connecter au [portail Azure](https://portal.azure.com) pour vérifier que les seuils budgétaires sont configurés correctement afin de tenir compte des nouveaux coûts. Vos frais facturés Azure ne changent pas. Les budgets sont désormais évalués pour un ensemble plus complet de vos coûts. Si les frais ne vous concernent pas, le comportement de votre budget reste inchangé.
@@ -125,7 +134,6 @@ Si vous souhaitez filtrer les nouveaux coûts afin que les budgets soient évalu
 - Type de frais : Usage
 
 Les évaluations des coûts budgétaires sont basées sur le coût réel. Elles n’incluent pas l’amortissement. Pour plus d’informations sur les options de filtrage mises à votre disposition dans les budgets, consultez [Comprendre les options de regroupement et de filtrage](quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options).
-
 
 ## <a name="trigger-an-action-group"></a>Déclencher un groupe d’actions
 

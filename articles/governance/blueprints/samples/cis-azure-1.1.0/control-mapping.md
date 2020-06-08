@@ -1,14 +1,14 @@
 ---
 title: Exemples de contrôles de blueprint CIS Microsoft Azure Foundations Benchmark
 description: Correspondance des recommandations de l’exemple de blueprint CIS Microsoft Azure Foundations Benchmark avec Azure Policy.
-ms.date: 05/06/2020
+ms.date: 05/12/2020
 ms.topic: sample
-ms.openlocfilehash: 2163162f52eb4ad7f580c01d6539c242bd332645
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: b6029e147af49cfb91078c6228615c32ad2db5fe
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82863958"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167228"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Exemple de blueprint CIS Microsoft Azure Foundations Benchmark : correspondance des recommandations
 
@@ -192,14 +192,14 @@ Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md)
 
 ## <a name="44-ensure-that-advanced-data-security-on-a-sql-server-is-set-to-on"></a>4.4 Vérifier que l’option « Advanced Data Security » sur un serveur SQL Server est définie sur « Activé »
 
-Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier qu’Advanced Data Security est activé sur les serveurs SQL et les instances managées SQL.
+Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md) qui vous permet de vérifier qu’Advanced Data Security est activé sur les serveurs SQL Database et SQL Managed Instance.
 
 - Advanced Data Security doit être activé sur vos serveurs SQL
 - Advanced Data Security doit être activée sur vos instances managées SQL.
 
 ## <a name="45-ensure-that-threat-detection-types-is-set-to-all"></a>4.5 Vérifier que l’option « Types de détection des menaces » est définie sur « Tous »
 
-Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui vous permettent de vérifier qu’Advanced Threat Protection est correctement configuré sur les serveurs SQL et les instances managées SQL.
+Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui vous permettent de vérifier qu’Advanced Threat Protection est correctement configuré sur les serveurs SQL Database et SQL Managed Instance.
 
 - Les types Advanced Threat Protection doivent être définis sur « Tous » dans les paramètres Advanced Data Security du serveur SQL.
 - Les types Advanced Threat Protection doivent être définis sur « Tous » dans les paramètres Advanced Data Security de l’instance gérée SQL.
@@ -232,7 +232,7 @@ Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md)
 
 ## <a name="410-ensure-sql-servers-tde-protector-is-encrypted-with-byok-use-your-own-key"></a>4.10 Vérifier que le protecteur TDE du serveur SQL est chiffré avec BYOK (Bring Your Own Key)
 
-Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui vous permettent de vérifier que la protection Transparent Data Encryption pour les serveurs SQL et les instances managées SQL est chiffrée avec votre propre clé.
+Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui vous permettent de vérifier que la protection Transparent Data Encryption pour les serveurs SQL Database et SQL Managed Instance est chiffrée avec votre propre clé.
 
 - Le protecteur TDE du serveur SQL doit être chiffré avec votre propre clé.
 - Le protecteur TDE de l’instance gérée SQL doit être chiffré avec votre propre clé.

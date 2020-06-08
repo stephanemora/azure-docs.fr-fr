@@ -1,18 +1,18 @@
 ---
 title: Qu’est-ce qu’Azure Lighthouse ?
 description: Azure Lighthouse permet aux fournisseurs de services de fournir des services managés à leurs clients avec une automatisation et une efficacité accrues à grande échelle.
-ms.date: 05/05/2020
+ms.date: 05/28/2020
 ms.topic: overview
-ms.openlocfilehash: bc54a6f67ed3d0ac194793baba4270d524edf5b1
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 27f99cb398294d570b2d91131fcf40dd0648e981
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857136"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219057"
 ---
 # <a name="what-is-azure-lighthouse"></a>Qu’est-ce qu’Azure Lighthouse ?
 
-Azure Lighthouse offre aux fournisseurs de services un plan de contrôle unique pour voir et gérer Azure sur tous leurs clients avec une automatisation et une mise à l’échelle supérieures et une gouvernance améliorée. Avec Azure Lighthouse, les fournisseurs de services peuvent fournir des services managés à l’aide des outils de gestion complets et robustes intégrés dans la plateforme Azure. Cette offre peut également aider les organisations informatiques d’entreprise à gérer les ressources de plusieurs locataires. 
+Azure Lighthouse offre aux fournisseurs de services un plan de contrôle unique pour voir et gérer Azure sur tous leurs clients avec une automatisation et une mise à l’échelle supérieures et une gouvernance améliorée. Avec Azure Lighthouse, les fournisseurs de services peuvent fournir des services managés à l’aide des outils de gestion complets et robustes intégrés dans la plateforme Azure. Cette offre peut également aider les organisations informatiques d’entreprise à gérer les ressources de plusieurs locataires.
 
 ![Schéma de présentation d’Azure Lighthouse](media/azure-lighthouse-overview.jpg)
 
@@ -20,7 +20,7 @@ Azure Lighthouse offre aux fournisseurs de services un plan de contrôle unique 
 
 Azure Lighthouse vous aide à créer et à fournir des services managés de manière rentable et efficace pour vos clients. Voici les avantages :
 
-- **Gestion à grande échelle** : les opérations d’engagement client et de gestion du cycle de vie des ressources des clients sont plus simples et plus évolutives. Les API, les outils de gestion et les workflows existants peuvent être utilisés avec les ressources client déléguées.
+- **Gestion à grande échelle** : les opérations d’engagement client et de gestion du cycle de vie des ressources des clients sont plus simples et plus évolutives. Les API, les outils de gestion et les workflows existants peuvent être utilisés avec les ressources client déléguées, quelles que soient les régions où ils se trouvent.
 - **Visibilité et précision accrues pour les clients** : les clients ont une meilleure visibilité de vos actions et peuvent contrôler avec précision l’étendue de la gestion qu’ils délèguent, notamment la capacité à supprimer intégralement l’accès tout en préservant votre adresse IP.
 - **Outillage de plateforme complet et unifié** : notre outillage est adapté aux principaux scénarios des fournisseurs de services, notamment aux modèles de licences multiples tels que Contrat Entreprise, Fournisseur de solutions cloud et paiement à l’utilisation. Les nouvelles fonctionnalités opèrent avec des outils et API, des modèles de licence et des programmes de partenaires tels que le [programme Fournisseur de solutions cloud (CSP)](https://docs.microsoft.com/partner-center/csp-overview) existants. Vous pouvez intégrer Azure Lighthouse à vos workflows et applications, et vous pouvez suivre votre impact sur les engagements client en [liant votre ID partenaire](../billing/billing-partner-admin-link-started.md).
 

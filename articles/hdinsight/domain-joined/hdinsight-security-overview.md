@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 91a3c71ecaa8af58e13cb96571fc7afdf618fcdd
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 94823445e4f8e3f8d40a219dc23b40f8a5c267c6
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780077"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996310"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Vue d’ensemble de la sécurité d’entreprise dans Azure HDInsight
 
@@ -43,7 +43,7 @@ Avec cette configuration, des employés de l’entreprise peuvent se connecter a
 
 L’une des bonnes pratiques que la plupart des entreprises appliquent consiste à s’assurer que chaque employé ne dispose pas d’un accès complet à toutes les ressources de l’entreprise. Parallèlement, l’administrateur peut définir des stratégies de contrôle d’accès en fonction du rôle pour les ressources du cluster. Cette action est uniquement disponible dans les clusters ESP.
 
-L’administrateur Hadoop peut configurer le contrôle d’accès en fonction du rôle (RBAC). Les configurations sécurisent Apache [Hive](apache-domain-joined-run-hive.md), [HBase](apache-domain-joined-run-hbase.md) et [Kafka](apache-domain-joined-run-kafka.md) avec des plug-ins Apache Range. La configuration de stratégies RBAC vous permet d’associer des autorisations à un rôle dans l’organisation. Cette couche d’abstraction permet de s’assurer plus facilement que les utilisateurs disposent uniquement des autorisations nécessaires pour effectuer leur travail. Ranger vous permet également d’auditer l’accès aux données par les employés et toute modification apportée aux stratégies de contrôle d’accès.
+L’administrateur Hadoop peut configurer le contrôle d’accès en fonction du rôle (RBAC). Les configurations sécurisent Apache [Hive](apache-domain-joined-run-hive.md), [HBase](apache-domain-joined-run-hbase.md) et [Kafka](apache-domain-joined-run-kafka.md) avec des plug-ins Apache Ranger. La configuration de stratégies RBAC vous permet d’associer des autorisations à un rôle dans l’organisation. Cette couche d’abstraction permet de s’assurer plus facilement que les utilisateurs disposent uniquement des autorisations nécessaires pour effectuer leur travail. Ranger vous permet également d’auditer l’accès aux données par les employés et toute modification apportée aux stratégies de contrôle d’accès.
 
 Par exemple, l’administrateur peut configurer [Apache Ranger](https://ranger.apache.org/) pour définir des stratégies de contrôle d’accès pour Hive. Cette fonctionnalité garantit le filtrage au niveau des lignes et des colonnes (masquage des données), et filtre les données sensibles contre les utilisateurs non autorisés.
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 03/13/2020
-ms.openlocfilehash: dd3e77610749eb5d146b0c0b7cf9d307fba0dd83
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e63f073c4f7166cd205b85ef06589f6056b2a70f
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79370234"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195689"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Démarrage rapide : Créer une instance en mode hybride à l’aide du portail Azure et d’Azure Database Migration Service
 
@@ -26,7 +26,7 @@ Le mode hybride d’Azure Database Migration Service gère les migrations de bas
 >[!NOTE]
 >Actuellement, Azure Database Migration Service exécuté en mode hybride prend en charge les migrations SQL Server vers :
 >
->- Une instance managée d’Azure SQL Database avec un temps d’arrêt quasi nul (en ligne).
+>- Une instance managée d’Azure SQL avec un temps d’arrêt quasi nul (en ligne).
 >- Une base de données unique Azure SQL Database avec un temps d’arrêt (hors connexion).
 >- MongoDb vers Azure CosmosDB avec un temps d’arrêt quasi nul (en ligne).
 >- MongoDb vers Azure CosmosDB avec un temps d’arrêt (hors connexion).
@@ -191,5 +191,5 @@ Spécifiez les paramètres en haut du script, puis exécutez le script à partir
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Migrer SQL Server vers une instance gérée Azure SQL Database en ligne](tutorial-sql-server-managed-instance-online.md)
-> [Migrer SQL Server vers une base de données unique ou mise en pool dans Azure SQL Database hors connexion](tutorial-sql-server-to-azure-sql.md)
+> [Migrer SQL Server vers une instance managée d’Azure SQL en ligne](tutorial-sql-server-managed-instance-online.md)
+> [Migrer SQL Server vers Azure SQL Database hors connexion](tutorial-sql-server-to-azure-sql.md)

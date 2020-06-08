@@ -6,20 +6,22 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.topic: tutorial
-ms.date: 02/13/2020
+ms.date: 05/28/2020
 ms.author: banders
-ms.openlocfilehash: 8ebda9716df2e9e45050760ee8d0434c12838370
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5a9e21cacb17743cbb8324a06c083c52aa261eb9
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199124"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194135"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Tutoriel : Consulter votre facture Azure
 
 Cet article vous aide à comprendre votre facture Azure. Pour chaque période de facturation, vous recevez normalement une facture par e-mail. Cette facture est une représentation de votre facture Azure. Les informations de coût figurant sur la facture sont disponibles dans le portail Azure. Dans ce tutoriel, vous allez comparer votre facture avec le fichier détaillé sur l’utilisation quotidienne et l’analyse des coûts disponible dans le portail Azure.
 
 Ce tutoriel s’applique uniquement aux clients Azure disposant d’un abonnement individuel. Les abonnements individuels courants sont ceux avec un paiement à l’utilisation, achetés directement sur le site web Azure.
+
+Pour obtenir de l’aide pour comprendre des frais inattendus, voir [Analyser les frais inattendus](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started#analyze-unexpected-charges). Si vous devez annuler votre abonnement Azure, voir [Annulation de votre abonnement Azure](../manage/cancel-azure-subscription.md).
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -47,7 +49,7 @@ La première étape pour comparer l’utilisation et les coûts consiste à tél
 
 Dans le portail Azure, tapez *abonnements* dans la zone de recherche, puis cliquez sur [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
-![Accéder aux abonnements](./media/review-individual-bill/navigate-subscriptions.png)
+[![Accéder aux abonnements](./media/review-individual-bill/navigate-subscriptions.png)](./media/review-individual-bill/navigate-subscriptions.png#lightbox)
 
 Dans la liste des abonnements, cliquez sur l’abonnement concerné.
 
@@ -147,7 +149,7 @@ Par exemple, les compteurs suivants peuvent être créés pour suivre l’utilis
 
 Une fois la machine virtuelle créée, chaque compteur commence à émettre des enregistrements d’utilisation. Cette utilisation et le tarif du compteur font l’objet d’un suivi dans le système de comptabilisation d’Azure.
 
-Vous pouvez voir les compteurs qui ont été utilisés pour calculer votre facture dans le fichier CSV d’utilisation.
+Vous pouvez voir les compteurs qui ont été utilisés pour calculer votre facture dans le fichier CSV d’utilisation, comme dans l’exemple précédent.
 
 ## <a name="pay-your-bill"></a><a name="payment"></a>Régler votre facture
 

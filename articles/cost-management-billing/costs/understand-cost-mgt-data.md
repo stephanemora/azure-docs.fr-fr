@@ -7,12 +7,12 @@ ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.openlocfilehash: 5fce5c8de3b2224ef471b0b3eec5ff29a869a9f6
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 10bd2e4722751b290263fc0599890ca92cd743c9
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844520"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995647"
 ---
 # <a name="understand-cost-management-data"></a>Comprendre les données Cost Management
 
@@ -75,7 +75,12 @@ Les offres suivantes ne sont pas encore prises en charge :
 | **Plans de support** | Support Professional Direct Azure Government | Default_2014-09-01 | MS-AZR-USGOV-0042P |
 | **Plans de support** | Developer Support Azure Government  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
-## <a name="determine-your-offer-type"></a>Déterminer le type de votre offre
+### <a name="free-trial-to-pay-as-you-go-upgrade"></a>Passer d’un essai gratuit au paiement à l’utilisation
+
+Pour des informations sur la disponibilité des services de niveau gratuit après être passé d’un essai gratuit au paiement à l’utilisation, consultez les [Questions fréquentes (FAQ) sur les comptes gratuits Azure](https://azure.microsoft.com/free/free-account-faq/).
+
+### <a name="determine-your-offer-type"></a>Déterminer le type de votre offre
+
 Si vous ne voyez pas de données pour un abonnement et que vous souhaitez déterminer si votre abonnement figure dans les offres prises en charge, vous pouvez valider que votre abonnement est pris en charge. Pour valider la prise en charge d’un abonnement Azure, connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez ensuite **Tous les services** dans le volet du menu de gauche. Dans la liste des services, sélectionnez **Abonnements**. Dans le menu de la liste des abonnements, sélectionnez l’abonnement que vous souhaitez vérifier. Votre abonnement est affiché sous l’onglet Vue d’ensemble et vous pouvez voir les éléments **Offre** et **ID de l’offre**. L’image suivante en montre un exemple.
 
 ![Exemple de l’onglet Vue d’ensemble de l’abonnement montrant l’offre et l’ID de l’offre](./media/understand-cost-mgt-data/offer-and-offer-id.png)
@@ -106,7 +111,7 @@ Azure Cost Management reçoit des étiquettes dans le cadre de chaque enregistre
 - Les étiquettes de ressource sont prises en charge seulement pour les ressources déployées sur des groupes de ressources.
 - Certaines ressources déployées peuvent ne pas prendre en charge les étiquettes ou ne pas inclure d’étiquettes dans les données d’utilisation : consultez [Étiquettes prises en charge pour les ressources Azure](../../azure-resource-manager/tag-support.md).
 - Les étiquettes de ressource sont incluses seulement dans les données d’utilisation quand l’étiquette est appliquée : les étiquettes ne sont pas appliquées aux données d’historique.
-- Les étiquettes de ressource sont disponibles dans Cost Management seulement une fois que les données sont actualisées : consultez [La fréquence de mise à jour des données d’utilisation varie](#usage-data-update-frequency-varies).
+- Les étiquettes de ressource ne sont disponibles dans Cost Management qu’une fois les données actualisées (voir [Mises à jour et rétention des données de coût et d’utilisation](#cost-and-usage-data-updates-and-retention)).
 - Les étiquettes de ressource sont disponibles dans Cost Management seulement quand la ressource est active/en cours d’exécution et produit des enregistrements d’utilisation (par exemple pas quand une machine virtuelle est désallouée).
 - La gestion des étiquettes nécessite un accès Contributeur à chaque ressource.
 - La gestion des stratégies d’étiquettes nécessite l’accès Propriétaire ou Contributeur de stratégie à un groupe d’administration, un abonnement ou un groupe de ressources.
@@ -114,7 +119,7 @@ Azure Cost Management reçoit des étiquettes dans le cadre de chaque enregistre
 Si vous ne voyez pas une étiquette spécifique dans Cost Management, prenez en considération les éléments suivants :
 
 - L’étiquette a-t-elle été appliquée directement à la ressource ?
-- L’étiquette a-t-elle été appliquée il y a plus de 24 heures ? Consultez [La fréquence de mise à jour des données d’utilisation varie](#usage-data-update-frequency-varies)
+- L’étiquette a-t-elle été appliquée il y a plus de 24 heures ? Voir [Mises à jour et rétention des données de coût et d’utilisation](#cost-and-usage-data-updates-and-retention)
 - Le type de ressource prend-il en charge les étiquettes ? Les types de ressources suivants ne prennent pas en charge les étiquettes dans les données d’utilisation à la date du 1er décembre 2019. Pour obtenir la liste complète de ce qui est pris en charge, consultez [Prise en charge des étiquettes pour les ressources Azure](../../azure-resource-manager/tag-support.md).
     - Annuaires Azure Active Directory B2C
     - Pare-feux Azure
@@ -134,24 +139,22 @@ Voici quelques conseils pour l’utilisation des étiquettes :
 - Utilisez l’API Tags conjointement avec Query ou UsageDetails pour obtenir tous les coûts en fonction des étiquettes actuelles.
 
 
-## <a name="free-trial-to-pay-as-you-go-upgrade"></a>Passer d’un essai gratuit au paiement à l’utilisation
+## <a name="cost-and-usage-data-updates-and-retention"></a>Mises à jour et rétention des données de coût et d’utilisation
 
-Pour des informations sur la disponibilité des services de niveau gratuit après être passé d’un essai gratuit au paiement à l’utilisation, consultez les [Questions fréquentes (FAQ) sur les comptes gratuits Azure](https://azure.microsoft.com/free/free-account-faq/).
+Les données de coût et d’utilisation sont généralement disponibles dans Gestion des coûts + facturation dans le Portail Azure et les [API de prise en charge](../index.yml) dans les 8 à 24 heures. Gardez à l’esprit les points suivants quand vous passez en revue les coûts :
 
-## <a name="rated-usage-data-refresh-schedule"></a>Planification d’actualisation des données sur l’utilisation estimée
-
-Les données de coût et d’utilisation sont disponibles dans Gestion des coûts + facturation dans le portail Azure et les [API de prise en charge](../index.yml). Gardez à l’esprit les points suivants quand vous passez en revue les coûts :
-
+- Chaque service Azure (tel que Stockage, Compute et SQL) émet une utilisation à différents intervalles. Vous pouvez voir des données pour certains services plus tôt que d’autres.
 - Les frais estimés pour la période de facturation en cours sont mis à jour six fois par jour.
 - Les frais estimés pour la période de facturation en cours peuvent changer au fur et à mesure que votre utilisation augmente.
 - Chaque mise à jour est cumulative et inclut tous les éléments de ligne et les informations de la mise à jour précédente.
 - Azure finalise ou _ferme_ la période de facturation en cours jusqu’à 72 heures (trois jours calendaires) après la fin de la période de facturation.
 
-Les exemples suivants illustrent la façon dont les périodes de facturation peuvent se terminer.
+Les exemples suivants illustrent la façon dont les périodes de facturation peuvent se terminer :
 
-Abonnements Contrat Entreprise (EA). Si le mois de facturation se termine le 31 mars, les frais estimés sont mis à jour jusqu’à 72 heures plus tard. Dans cet exemple, à minuit (UTC) le 4 avril.
+* Abonnements Contrat Entreprise (EA). Si le mois de facturation se termine le 31 mars, les frais estimés sont mis à jour jusqu’à 72 heures plus tard. Dans cet exemple, à minuit (UTC) le 4 avril.
+* Abonnements avec paiement à l’utilisation. Si le mois de facturation se termine le 15 mai, les frais estimés peuvent être mis à jour jusqu’à 72 heures plus tard. Dans cet exemple, à minuit (UTC) le 19 mai.
 
-Abonnements avec paiement à l’utilisation. Si le mois de facturation se termine le 15 mai, les frais estimés peuvent être mis à jour jusqu’à 72 heures plus tard. Dans cet exemple, à minuit (UTC) le 19 mai.
+Une fois les données de coût et d’utilisation disponibles dans Cost Management + facturation, elles sont conservées pendant au moins 7 ans.
 
 ### <a name="rerated-data"></a>Données réestimées
 
@@ -166,16 +169,6 @@ Les coûts indiqués dans Cost Management sont arrondis. Les coûts retournés p
   - Frais 2 : 0,004 USD
   -    Rendu des frais agrégés : 0,004 + 0.004 = 0,008. Les frais affichés sont de 0,01 USD.
 - API de requête – Les frais affichés présentent huit décimales et ne sont pas arrondis.
-
-
-## <a name="usage-data-update-frequency-varies"></a>La fréquence de mise à jour des données d’utilisation varie
-
-La disponibilité de vos données d’utilisation engagées dans Cost Management dépend de plusieurs facteurs, notamment :
-
-- La fréquence à laquelle les services Azure (par exemple Stockage, Compute, CDN et SQL) envoient les données d’utilisation.
-- Le temps nécessaire pour traiter les données d’utilisation via le moteur de classement et des pipelines de gestion des coûts.
-
-Certains services envoient les données d’utilisation plus fréquemment que d’autres. Par conséquent, vous pouvez voir dans Cost Management des données pour certains services plus tôt que d’autres services qui émettent des données moins fréquemment. En règle générale, l’affichage de l’utilisation des services prend entre 8 et 24 heures dans Cost Management. Gardez à l’esprit que les données pour un mois ouvert sont actualisées au fur et à mesure que votre utilisation augmente, car les mises à jour sont cumulatives.
 
 ## <a name="historical-data-might-not-match-invoice"></a>Les données historiques peuvent ne pas correspondre à la facture
 

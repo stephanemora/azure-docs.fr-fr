@@ -3,12 +3,12 @@ title: Vue d’ensemble d’Azure Resource Graph
 description: Découvrez comment le service Azure Resource Graph permet d’exécuter des requêtes complexes sur des ressources à grande échelle entre des abonnements et des locataires.
 ms.date: 03/02/2020
 ms.topic: overview
-ms.openlocfilehash: f5c091f60faedb76e3ca6cd68505c06f51be21b6
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: a084215f6f2d1b5a8ed34ca59266e1c0087f608b
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381514"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167262"
 ---
 # <a name="what-is-azure-resource-graph"></a>Qu’est-ce qu’Azure Resource Graph ?
 
@@ -22,7 +22,7 @@ Azure Resource Graph est un service Azure conçu pour étendre Gestion des resso
 À travers cette documentation, nous allons examiner en détail chacune de ces fonctionnalités.
 
 > [!NOTE]
-> Azure Resource Graph gère la barre de recherche du portail Azure, la nouvelle expérience de navigation « Toutes les ressources » d’Azure ainsi que l’option [Historique des modifications de la stratégie](../policy/how-to/determine-non-compliance.md#change-history-preview)
+> Azure Resource Graph gère la barre de recherche du portail Azure, la nouvelle expérience de navigation « Toutes les ressources » d’Azure ainsi que l’option [Historique des modifications de la stratégie](../policy/how-to/determine-non-compliance.md#change-history)
 > _Différentiel visuel_ d’Azure Policy. Il est conçu pour aider les clients à gérer des environnements à grande échelle.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
@@ -79,16 +79,17 @@ Pour plus d’informations, consultez les [Instructions pour les requêtes limit
 
 ## <a name="running-your-first-query"></a>Exécution de votre première requête
 
-L’Explorateur Azure Resource Graph, qui fait partie du portail Azure, permet d’exécuter des requêtes Resource Graph directement dans le portail Azure. Épinglez les résultats sous forme de graphiques dynamiques pour fournir des informations dynamiques en temps réel à votre workflow du portail. Pour plus d’informations, consultez [Première requête avec l’Explorateur Azure Resource Graph](first-query-portal.md).
+L’Explorateur Azure Resource Graph, qui fait partie du portail Azure, permet d’exécuter des requêtes Resource Graph directement dans le portail Azure. Épinglez les résultats sous forme de graphiques dynamiques pour fournir des informations dynamiques en temps réel à votre workflow du portail. Pour plus d’informations, consultez [Première requête avec l’Explorateur Azure Resource Graph](./first-query-portal.md).
 
-Resource Graph prend en charge Azure CLI, Azure PowerShell, le kit Azure SDK pour .NET, etc. La requête est structurée de la même manière pour chaque langage. Découvrez comment activer Resource Graph :
+Resource Graph prend en charge Azure CLI, Azure PowerShell, le Kit de développement logiciel (SDK) Azure pour Python, etc. La requête est structurée de la même manière pour chaque langage. Découvrez comment activer Resource Graph :
 
-- [Portail Azure et Explorateur Resource Graph](first-query-portal.md) 
-- [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension)
-- [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)
+- [Portail Azure et Explorateur Resource Graph](./first-query-portal.md) 
+- [Azure CLI](./first-query-azurecli.md#add-the-resource-graph-extension)
+- [Azure PowerShell](./first-query-powershell.md#add-the-resource-graph-module)
+- [Python](./first-query-python.md#add-the-resource-graph-library)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Exécuter votre première requête avec le [portail Azure](first-query-portal.md).
-- Exécuter votre première requête avec [Azure CLI](first-query-azurecli.md).
-- Exécuter votre première requête avec [Azure PowerShell](first-query-powershell.md).
+- Découvrez plus en détails le [langage de requête](./concepts/query-language.md).
+- Examinez le langage utilisé dans les [requêtes de démarrage](./samples/starter.md).
+- Examinez les utilisations avancées dans les [Requêtes avancées](./samples/advanced.md).
