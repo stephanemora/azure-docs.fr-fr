@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/18/2020
 ms.author: diberry
-ms.openlocfilehash: fc9f44739cd57eb46179ff17eba1d4f73d968799
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3b9466bf52b3650216408a8f0906f3208dfae42d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585621"
+ms.locfileid: "83653913"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Créer une application LUIS dans le portail LUIS
 Il existe deux façons de créer une application LUIS. Vous pouvez créer une application LUIS dans le portail LUIS ou par le biais des [API](developer-reference-resource.md) de création LUIS.
@@ -45,10 +45,10 @@ Vous pouvez créer une application avec les API de création de deux manières 
 
 ## <a name="create-new-app-in-luis"></a>Créer une application dans LUIS
 
-1. Dans la page **Mes applications**, sélectionnez votre abonnement et la ressource de création, puis **+ Créer**. Si vous utilisez la clé d’évaluation gratuite, découvrez comment [créer une ressource de création](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal).
+1. Dans la page **Mes applications**, sélectionnez votre **Abonnement** et **Ressource de création**, puis **+ Créer**. Si vous utilisez la clé d’évaluation gratuite, découvrez comment [créer une ressource de création](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal).
 
-    ![Liste des applications LUIS](./media/create-app-in-portal.png)
-
+> [!div class="mx-imgBorder"]
+> ![Liste des applications LUIS](./media/create-app-in-portal.png)
 
 1. Dans la boîte de dialogue, entrez le nom de votre application, par exemple `Pizza Tutorial`.
 
@@ -64,7 +64,7 @@ Vous pouvez créer une application avec les API de création de deux manières 
     > [!div class="mx-imgBorder"]
     > ![Liste des intentions avec l’intention None créée sans aucun exemple d’énoncé.](media/pizza-tutorial-new-app-empty-intent-list.png)
 
-## <a name="other-actions-available"></a>Autres actions disponibles
+## <a name="other-actions-available-on-my-apps-page"></a>Autres actions disponibles sur la page Mes applications
 
 La barre d’outils de contextuelle propose d’autres actions :
 

@@ -8,12 +8,12 @@ ms.reviewer: jrasnick, carlrab
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: 25d11d2cf41f8653c5a54007f121c1251bb24b1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c2e1dbba61399ee3a4435f4f287b47f4bfd6f872
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82096297"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774441"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Créer une application d’apprentissage automatique avec Apache Spark MLlib et Azure Synapse Analytics
 
@@ -21,8 +21,8 @@ Cet article explique comment utiliser Apache Spark [MLlib](https://spark.apache.
 
 MLLib est une bibliothèque principale Spark qui fournit de nombreux utilitaires pour l’exécution de tâches d’apprentissage automatique. Certains de ces utilitaires conviennent pour les tâches suivantes :
 
-- Classification
-- Régression
+- classification ;
+- régression ;
 - Clustering
 - Modélisation de rubrique
 - Décomposition de valeur singulière (SVD) et analyse des composants principaux (PCA)
@@ -30,7 +30,7 @@ MLLib est une bibliothèque principale Spark qui fournit de nombreux utilitaires
 
 ## <a name="understand-classification-and-logistic-regression"></a>Comprendre la classification et la régression logistique
 
-Une *classification*, tâche d’apprentissage automatique très courante, est le processus de tri de données d’entrée par catégories. Un algorithme de classification doit déterminer comment attribuer des *étiquettes* aux données d’entrée que vous fournissez. Par exemple, on peut imaginer un algorithme apprentissage automatique qui accepte des informations de stock en entrée et divise le stock en deux catégories : ce qu’il faut vendre et ce qu’il faut conserver.
+Une *classification*, tâche de Machine Learning très courante, est le processus de tri de données d’entrée par catégories. Un algorithme de classification doit déterminer comment attribuer des *étiquettes* aux données d’entrée que vous fournissez. Par exemple, on peut imaginer un algorithme apprentissage automatique qui accepte des informations de stock en entrée et divise le stock en deux catégories : ce qu’il faut vendre et ce qu’il faut conserver.
 
 Une *régression logistique* est un algorithme que vous utilisez pour effectuer une classification. L’API de régression logistique de Spark est utile pour la *classification binaire*ou pour classer les données d’entrée dans un des deux groupes. Pour plus d’informations sur la régression logistique, consultez [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
 
@@ -54,7 +54,7 @@ Dans les étapes suivantes, vous allez développer un modèle pour prédire si u
     import matplotlib.pyplot as plt
     from datetime import datetime
     from dateutil import parser
-    from pyspark.sql.functions import unix_timestamp
+    from pyspark.sql.functions import unix_timestamp, date_format, col, when
     from pyspark.ml import Pipeline
     from pyspark.ml import PipelineModel
     from pyspark.ml.feature import RFormula
@@ -238,6 +238,9 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 ```
 
 Maintenant qu’il y a deux tramedonnées, la tâche suivante consiste à créer la formule modèle et à l’exécuter sur la tramedonnées d’apprentissage, puis à valider par rapport à la tramedonnées de test. Vous devez expérimenter différentes versions de la formule modèle pour voir l’impact de différentes combinaisons.
+
+> [!Note]
+> Pour enregistrer le modèle, vous aurez besoin du rôle runbook automation du Contributeur aux données du Stockage Blob Azure. Sous votre compte de stockage, accédez à Access Control (IAM), puis sélectionnez Ajouter une attribution de rôle. Attribuez le rôle runbook automation du Contributeur aux données du Stockage Blob à votre serveur SQL Database. Seuls les membres dotés du privilège Propriétaire peuvent effectuer cette étape. Pour découvrir les divers rôles intégrés pour les ressources Azure, consultez ce [guide](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```python
 ## Create a new LR object for the model

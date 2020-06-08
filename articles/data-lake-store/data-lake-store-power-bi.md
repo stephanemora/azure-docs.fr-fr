@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 952be68a1675732857969f875cd2b39c2feab674
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: eb34199f6f1b304d56c691f56b78d9c035be8a5b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691651"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744771"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analyser des données dans Azure Data Lake Storage Gen1 à l’aide de Power BI
 Dans cet article, vous apprenez à utiliser Power BI Desktop pour analyser et visualiser les données stockées dans Azure Data Lake Storage Gen1.
@@ -81,10 +81,10 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
         ![Graphique à secteurs](./media/data-lake-store-power-bi/pie-chart.png "Créer des visualisations")
 16. En sélectionnant un pays/une région spécifique dans les filtres au niveau de la page, vous pouvez maintenant voir le nombre de pilotes dans chaque ville du pays/de la région sélectionné(e). Par exemple, sous l’onglet **Visualisations**, sous **Filtres au niveau de la page**, sélectionnez **Brésil**.
     
-    ![Sélectionner un pays](./media/data-lake-store-power-bi/select-country.png "Sélectionner un pays/une région")
+    ![Sélectionner un pays/une région](./media/data-lake-store-power-bi/select-country.png "Sélectionner un pays/une région")
 17. Le graphique à secteurs est automatiquement mis à jour pour afficher les pilotes dans les villes du Brésil.
     
-    ![Pilotes dans un pays](./media/data-lake-store-power-bi/driver-per-country.png "Pilotes par pays/région")
+    ![Pilotes dans un pays/région](./media/data-lake-store-power-bi/driver-per-country.png "Pilotes par pays/région")
 18. Dans le menu **Fichier**, cliquez sur **Enregistrer** pour enregistrer la visualisation sous forme de fichier Power BI Desktop.
 
 ## <a name="publish-report-to-power-bi-service"></a>Publication d’un rapport dans le service Power BI

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 1167846c399430bd2db2eaa3114628ebb63ce639
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f03d1cfeccf03614fe0a5828a05768a5ae3f56e2
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592319"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699651"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Configurer un labo axé sur le deep learning dans le cadre du traitement en langage naturel avec Azure Lab Services
 Cet article vous montre comment configurer un labo axé sur le deep learning dans le cadre du traitement en langage naturel (NLP) avec Azure Lab Services. Le traitement en langage naturel (NLP) est une forme d’intelligence artificielle (IA) qui fournit aux ordinateurs des fonctionnalités de traduction, de reconnaissance vocale et d’autres fonctionnalités de compréhension de la langue.  
@@ -40,7 +40,9 @@ Suivez [ce tutoriel](tutorial-setup-classroom-lab.md) pour créer un labo et app
 | ------------ | ------------------ |
 | Taille de machine virtuelle | GPU de petite taille (calcul). Cette taille est optimisée pour les applications nécessitant beaucoup de ressources système et de ressources réseau, notamment l’intelligence artificielle et le deep learning. |
 | Image de machine virtuelle | [Data Science Virtual Machine pour Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Cette image fournit des outils et des frameworks de deep learning pour le machine learning et la science des données. Pour voir la liste complète des outils installés sur cette image, consultez l’article suivant : [Ce qui est inclut dans la machine DSVM](../../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm). |
-| Activer la connexion Bureau à distance | <p>L’activation de ce paramètre permet aux formateurs et aux étudiants de se connecter à leurs machines virtuelles à l’aide du Bureau à distance (RDP).</p><p>**Important !** L’activation de ce paramètre ouvre uniquement le port **RDP** sur des ordinateurs Linux. Si RDP est déjà installé et configuré sur l’image de machine virtuelle, vous ou les étudiants pouvez vous connecter aux machines virtuelles via RDP sans suivre d’étapes supplémentaires. <p>Si le protocole RDP n’est pas installé et configuré sur l’image de machine virtuelle, vous devez vous connecter à la machine Linux à l’aide de SSH la première fois et installer les packages RDP et GUI afin que vous ou les étudiants puissiez vous connecter à la machine Linux à l’aide de RDP ensuite. Pour plus d’informations, voir [Installer et configurer le Bureau à distance pour effectuer une connexion à une machine virtuelle Linux dans Azure](../../virtual-machines/linux/use-remote-desktop.md). Publiez ensuite l’image pour permettre aux étudiants de se connecter à l’aide de RDP aux machines virtuelles Linux d’étudiant.  |
+| Activer la connexion Bureau à distance | <p>L’image de science des données est déjà configurée pour utiliser X2Go afin que les enseignants et les étudiants puissent se connecter à l’aide d’un Bureau à distance de l’interface graphique utilisateur.  X2Go n’exige *pas* l’activation du paramètre **Activer la connexion Bureau à distance**.  Ce paramètre doit être activé uniquement si vous choisissez plutôt d’utiliser RDP.
+
+>**Important !** Bien que nous vous recommandons d’utiliser X2Go avec l’image de science des données, si vous choisissez d’utiliser à la place RDP, vous devrez vous connecter à la machine virtuelle Linux à l’aide de SSH la première fois et installer les packages RDP et GUI.  Ensuite, vous/vos étudiants pouvez vous connecter à la machine virtuelle Linux à l’aide de RDP ultérieurement.  Pour plus d’informations, consultez [Utiliser le Bureau à distance graphique pour des machines virtuelles Linux](how-to-enable-remote-desktop-linux.md).
 
 L’image Data Science Virtual Machine pour Linux fournit les outils et infrastructures de deep learning nécessaires pour ce type de cours. Par conséquent, une fois la machine modèle créée, vous n’avez pas besoin de la personnaliser davantage. Elle peut être publiée afin d’être utilisée par les étudiants. Sélectionnez le bouton **Publier** dans la page du modèle pour publier le modèle dans le labo.  
 

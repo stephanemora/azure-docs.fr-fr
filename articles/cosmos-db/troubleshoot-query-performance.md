@@ -8,12 +8,12 @@ ms.date: 04/22/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: b3c6926f17e8378fd3b53bfd59a7c5ea8141adb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 977b2fa40e2ce27a2711e5a44f5fb487433c9462
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82097232"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714557"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Résoudre des problèmes de requête lors de l’utilisation d’Azure Cosmos DB
 
@@ -200,7 +200,8 @@ Si une expression peut être convertie en une plage de valeurs de chaîne, elle 
 
 Voici la liste de certaines fonctions de chaîne courantes qui peuvent utiliser l’index :
 
-- STARTSWITH(str_expr, str_expr)
+- STARTSWITH(str_expr1, str_expr2, bool_expr)  
+- CONTAINS(str_expr, str_expr, bool_expr)
 - LEFT(str_expr, num_expr) = str_expr
 - SUBSTRING(str_expr, num_expr, num_expr) = str_expr, mais seulement si la première num_expr est 0
 
@@ -208,7 +209,6 @@ Voici quelques fonctions système courantes qui n’utilisent pas l’index et d
 
 | **Fonction système**                     | **Idées pour l’optimisation**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| CONTAINS                                | Utilisez Recherche Azure pour la recherche en texte intégral.                        |
 | UPPER/LOWER                             | Au lieu d’utiliser la fonction système pour normaliser les données pour les comparaisons, normalisez la casse lors de l’insertion. Une requête telle que ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` devient ```SELECT * FROM c WHERE c.name = 'BOB'```. |
 | Fonctions mathématiques (non-agrégations) | Si vous devez calculer fréquemment une valeur dans votre requête, stockez cette valeur en tant que propriété dans votre document JSON. |
 

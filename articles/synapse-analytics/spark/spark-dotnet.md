@@ -5,19 +5,21 @@ author: mamccrea
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3882352c7e1d484818a58d7bd4410cbd66bd6637
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: fcac7e47570cf10388891f2e9b81da896acc5c02
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587797"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699329"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Utiliser .NET pour Apache Spark avec Azure Synapse Analytics
 
-[.NET pour Apache Spark](https://dot.net/spark) est un support .NET gratuit, open source et multiplateforme pour Spark. .NET pour Apache Spark fournit des liaisons .NET pour Spark, qui vous permettent d’accéder aux API Spark en C# et F#. .NET pour Apache Spark vous permet d’écrire et d’exécuter des fonctions définies par l’utilisateur pour Spark à l’aide de .NET. Les API .NET pour Spark vous donnent accès à tous les aspects de Spark qui vous aident à analyser vos données, dont Spark SQL et Structured Streaming.
+[.NET pour Apache Spark](https://dot.net/spark) fournit un support .NET gratuit, open source et multiplateforme pour Spark. 
+
+Il fournit de liaisons .NET pour Spark qui vous permettent d’accéder aux API Spark en C# et F#. .NET pour Apache Spark vous permet également d’écrire et d’exécuter des fonctions définies par l’utilisateur pour Spark écrites dans .NET. Les API .NET pour Spark vous donnent accès à tous les aspects des DataFrames Spark qui vous aident à analyser vos données, dont Spark SQL, Delta Lake et Diffusion en continu structurée.
 
 Vous pouvez analyser des données avec .NET pour Apache Spark par le biais de définitions de programmes de traitement par lots Spark ou avec des blocs-notes Azure Synapse Analytics interactifs. Cet article explique comment utiliser .NET pour Apache Spark avec Azure Synapse à l’aide des deux techniques.
 
@@ -31,16 +33,10 @@ Consultez le tutoriel pour apprendre à utiliser Azure Synapse Analytics pour [c
 
    ```dotnetcli
    cd mySparkApp
-   dotnet publish -c Release -f netcoreapp3.0 -r ubuntu.16.04-x64
+   dotnet publish -c Release -f netcoreapp3.1 -r ubuntu.16.04-x64
    ```
 
    **Sur Linux :**
-
-### <a name="net-for-apache-spark-in-azure-synapse-analytics-notebooks"></a>.NET pour Apache Spark dans des blocs-notes Azure Synapse Analytics
-
-Lorsque vous créez un bloc-notes, vous choisissez un noyau de langage pour exprimer votre logique métier. Il existe une prise en charge de noyau pour plusieurs langages, dont C#.
-
-Pour utiliser .NET pour Apache Spark dans votre bloc-notes Azure Synapse Analytics, sélectionnez **.NET Spark (C#)** en tant que noyau, puis attachez le bloc-notes à un pool Spark existant.
 
    ```bash
    zip -r publish.zip
@@ -50,7 +46,7 @@ Pour utiliser .NET pour Apache Spark dans votre bloc-notes Azure Synapse Analyti
 
 Les blocs-notes constituent une excellente option pour le prototypage de vos pipelines et scénarios .NET pour Apache Spark. Vous pouvez commencer à utiliser, comprendre, filtrer, afficher et visualiser vos données rapidement et efficacement. Les ingénieurs de données, chercheurs de données, analystes d’entreprise et ingénieurs d’apprentissage automatique sont tous en mesure de collaborer sur un document interactif partagé. Vous voyez les résultats immédiats de l’exploration de données et pouvez visualiser vos données dans le même bloc-notes.
 
-### <a name="how-to-use-notebooks"></a>Comment utiliser des notebooks
+### <a name="how-to-use-net-for-apache-spark-notebooks"></a>Comment utiliser .NET pour les blocs-notes Apache Spark
 
 Lorsque vous créez un bloc-notes, vous choisissez un noyau de langage pour exprimer votre logique métier. Il existe une prise en charge de noyau pour plusieurs langages, dont C#.
 
@@ -58,7 +54,7 @@ Pour utiliser .NET pour Apache Spark dans votre bloc-notes Azure Synapse Analyti
 
 Le bloc-notes .NET Spark est basé sur des expériences .NET interactives et fournit des expériences C# interactives avec la possibilité d’utiliser .NET pour Spark sans configuration avec la variable de session Spark `spark` prédéfinie.
 
-### <a name="sparknet-c-kernel-features"></a>Fonctionnalités du noyau Spark.NET C#
+### <a name="net-for-apache-spark-c-kernel-features"></a>.NET pour les fonctionnalités du noyau c# Apache Spark
 
 Lorsque vous utilisez .NET pour Apache Spark dans le bloc-notes Azure Synapse Analytics, vous disposez des fonctionnalités suivantes :
 

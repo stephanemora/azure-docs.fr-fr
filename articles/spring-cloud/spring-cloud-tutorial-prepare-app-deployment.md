@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 16cee333d52765755b732c4de4dd8a6e092a130d
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 0b630c746932696d51455653a6e6db8869f04863
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81731176"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657145"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Préparer une application Spring Java pour le déploiement dans Azure Spring Cloud
 
@@ -129,11 +129,24 @@ Pour Spring Boot version 2.2, ajoutez la dépendance suivante au fichier POM de 
 </dependency>
 ```
 
-## <a name="other-required-dependencies"></a>Autres dépendances nécessaires
+## <a name="other-recommended-dependencies-to-enable-azure-spring-cloud-features"></a>Autres dépendances recommandées pour activer les fonctionnalités Azure Spring Cloud
 
-Pour activer les fonctionnalités intégrées d’Azure Spring Cloud, votre application doit inclure les dépendances suivantes. Ceci garantit que votre application se configure elle-même correctement avec chaque composant.
+Pour activer les fonctionnalités intégrées d’Azure Spring Cloud à partir du registre de services dans le traçage distribué, vous devez également inclure les dépendances suivantes dans votre application. Vous pouvez supprimer certaines de ces dépendances si vous n’avez pas besoin de fonctionnalités correspondantes pour les applications spécifiques.
 
-### <a name="enablediscoveryclient-annotation"></a>Annotation EnableDiscoveryClient
+### <a name="service-registry"></a>Registre de service
+
+Pour utiliser le service managé Azure Service Registry, ajoutez la dépendance `spring-cloud-starter-netflix-eureka-client` dans le fichier pom.xml, comme indiqué ici :
+
+```xml
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+    </dependency>
+```
+
+Le point de terminaison du serveur Service Registry est injecté automatiquement sous la forme de variables d’environnement avec votre application. Les applications peuvent alors s’inscrire automatiquement auprès du serveur Service Registry et découvrir d’autres microservices dépendants.
+
+#### <a name="enablediscoveryclient-annotation"></a>Annotation EnableDiscoveryClient
 
 Ajoutez l’annotation suivante au code source de l’application.
 ```java
@@ -159,20 +172,7 @@ public class GatewayApplication {
 }
 ```
 
-### <a name="service-registry-dependency"></a>Dépendance Service Registry
-
-Pour utiliser le service managé Azure Service Registry, ajoutez la dépendance `spring-cloud-starter-netflix-eureka-client` dans le fichier pom.xml, comme indiqué ici :
-
-```xml
-    <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-    </dependency>
-```
-
-Le point de terminaison du serveur Service Registry est injecté automatiquement sous la forme de variables d’environnement avec votre application. Les applications peuvent alors s’inscrire automatiquement auprès du serveur Service Registry et découvrir d’autres microservices dépendants.
-
-### <a name="distributed-configuration-dependency"></a>Dépendance de la configuration distribuée
+### <a name="distributed-configuration"></a>Configuration distribuée
 
 Pour activer la configuration distribuée, ajoutez la dépendance `spring-cloud-config-client` suivante dans la section des dépendances de votre fichier pom.xml :
 
@@ -186,7 +186,7 @@ Pour activer la configuration distribuée, ajoutez la dépendance `spring-cloud-
 > [!WARNING]
 > Ne spécifiez pas `spring.cloud.config.enabled=false` dans votre configuration de démarrage. Si vous le faites, votre application cessera de fonctionner avec le serveur de configuration.
 
-### <a name="metrics-dependency"></a>Dépendance des métriques
+### <a name="metrics"></a>Mesures
 
 Ajoutez la dépendance `spring-boot-starter-actuator` dans la section des dépendances de votre fichier pom.xml, comme indiqué ici :
 
@@ -199,7 +199,7 @@ Ajoutez la dépendance `spring-boot-starter-actuator` dans la section des dépen
 
  Les métriques sont tirées (pull) périodiquement des points de terminaison JMX. Vous pouvez visualiser les métriques dans le portail Azure.
 
-### <a name="distributed-tracing-dependency"></a>Dépendance du suivi distribué
+### <a name="distributed-tracing"></a>Suivi distribué
 
 Ajoutez les dépendances `spring-cloud-starter-sleuth` et `spring-cloud-starter-zipkin` suivantes dans la section des dépendances de votre fichier pom.xml :
 

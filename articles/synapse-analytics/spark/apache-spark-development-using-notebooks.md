@@ -6,15 +6,15 @@ author: ruixinxu
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
-ms.openlocfilehash: 506339cefa90fb17bedfc946f70cb4d7d8047cf2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 21e3ba8cbf60cbbdc6480719016fc48db4fe390c
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427137"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702101"
 ---
 # <a name="create-develop-and-maintain-azure-synapse-studio-preview-notebooks"></a>Créer, développer et tenir à jour des blocs-notes Azure Synapse Studio (préversion)
 
@@ -55,12 +55,12 @@ Il existe plusieurs façons d’ajouter une cellule à un bloc-notes.
 
 ### <a name="set-a-primary-language"></a>Définir un langage principal
 
-Les blocs-notes Azure Synapse Studio prennent en charge quatre langages Spark :
+Les notebooks Azure Synapse Studio prennent en charge quatre langages Apache Spark :
 
-* pyspark (Python)
-* spark (Scala)
-* sparkSQL
-* Spark.NET (C#)
+* pySpark (Python)
+* Spark (Scala)
+* SparkSQL
+* .NET pour Apache Spark (C#)
 
 Vous pouvez définir le langage principal des nouvelles cellules ajoutées dans la liste déroulante de la barre de commandes supérieure.
 
@@ -75,9 +75,9 @@ Vous pouvez utiliser plusieurs langages dans un même bloc-notes en spécifiant 
 |%%pyspark| Python | Exécuter une requête **Python** sur du contexte Spark.  |
 |%%spark| Scala | Exécuter une requête **Scala** sur du contexte Spark.  |  
 |%%sql| SparkSQL | Exécuter une requête **SparkSQL** sur du contexte Spark.  |
-|%%csharp | Spark.NET C# | Exécutez une requête **Spark.NET C#** sur du contexte Spark. |
+|%%csharp | .NET pour Spark C# | Exécutez une requête **.NET pour Spark C#** sur du contexte Spark. |
 
-L’image suivante illustre la façon d’écrire une requête PySpark avec la commande magic **%%PySpark**, ou une requête SparkSQL avec la commande magic **%%sql** dans un bloc-notes **Spark(Scala)** . Notez que le langage principal du bloc-notes est défini sur Scala.
+L’image suivante illustre la façon d’écrire une requête PySpark avec la commande magic **%%PySpark**, ou une requête SparkSQL avec la commande magic **%%sql** dans un bloc-notes **Spark(Scala)** . Notez que le langage principal du notebook est défini sur pySpark.
 
    ![synapse-spark-magic](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
@@ -118,7 +118,7 @@ Les fonctionnalités IntelliSense sont à des niveaux de maturité différents p
 |PySpark (Python)|Oui|Oui|Oui|Oui|Oui|Oui|Oui|Oui|
 |Spark (Scala)|Oui|Oui|Oui|Oui|-|-|-|Oui|
 |SparkSQL|Oui|Oui|-|-|-|-|-|-|
-|Spark.NET (C#)|Oui|-|-|-|-|-|-|-|
+|.NET pour Spark (C#)|Oui|-|-|-|-|-|-|-|
 
 ### <a name="format-text-cell-with-toolbar-buttons"></a>Mettre en forme une cellule de texte avec des boutons de barre d’outils
 
@@ -356,7 +356,7 @@ Les raccourcis clavier suivants vous permettent de parcourir et d’exécuter pl
 |Exécuter la cellule active et sélectionner la cellule en dessous | Maj + Entrée |
 |Exécuter la cellule active et insérer en dessous | Alt + Entrée |
 |Sélectionner la cellule au-dessus| Haut |
-|Sélectionner la cellule en dessous| Bas |
+|Sélectionner la cellule en dessous| Descendre |
 |Insérer une cellule au-dessus| Un |
 |Insérer une cellule en dessous| B |
 |Étendre les cellules sélectionnées au-dessus| Maj + Haut |
@@ -373,7 +373,7 @@ Les raccourcis clavier suivants vous permettent de naviguer et d’exécuter du 
 | Action |Raccourcis de bloc-notes Synapse Studio  |
 |--|--|
 |Déplacer le curseur vers le haut | Haut |
-|Déplacer le curseur vers le bas|Bas|
+|Déplacer le curseur vers le bas|Descendre|
 |Annuler|Ctrl + Z|
 |Rétablir|CTRL + Y|
 |Commenter/Supprimer un commentaire|Ctrl + /|
@@ -390,5 +390,8 @@ Les raccourcis clavier suivants vous permettent de naviguer et d’exécuter du 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [Démarrage rapide : Créer un pool Apache Spark (préversion) dans Azure Synapse Analytics avec des outils web](../quickstart-apache-spark-notebook.md)
+- [Présentation d’Apache Spark dans Azure Synapse Analytics](apache-spark-overview.md)
+- [Utiliser .NET pour Apache Spark avec Azure Synapse Analytics](spark-dotnet.md)
 - [Documentation .NET pour Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

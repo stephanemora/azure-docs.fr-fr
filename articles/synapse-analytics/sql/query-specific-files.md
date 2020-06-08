@@ -6,15 +6,15 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 40a8e2c153ec3d8e7b4007340b9433a38f9ccc89
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e8d7301799bfb4af9a0f5a6f242be929e8253d7c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427545"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744217"
 ---
 # <a name="using-file-metadata-in-queries"></a>Utiliser des métadonnées de fichier dans les requêtes
 
@@ -26,10 +26,7 @@ Vous pouvez utiliser les fonctions `filepath` et `filename` pour retourner les n
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de lire le reste de cet article, consultez les conditions préalables suivants :
-
-- [Première configuration](query-data-storage.md#first-time-setup)
-- [Composants requis](query-data-storage.md#prerequisites)
+La première étape consiste à **créer une base de données** avec une source de données qui fait référence au compte de stockage. Ensuite, initialisez les objets en exécutant le [script d’installation](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) sur cette base de données. Ce script d’installation crée les sources de données, les informations d’identification délimitées à la base de données et les formats de fichiers externes utilisés dans ces exemples.
 
 ## <a name="functions"></a>Fonctions
 
@@ -41,15 +38,15 @@ L’exemple suivant lit les fichiers de données NYC Yellow Taxi pour les trois 
 
 ```sql
 SELECT
-    r.filename() AS [filename]
+    nyc.filename() AS [filename]
     ,COUNT_BIG(*) AS [rows]
-FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
-        FORMAT='PARQUET') AS [r]
-GROUP BY
-    r.filename()
-ORDER BY
-    [filename];
+FROM  
+    OPENROWSET(
+        BULK 'parquet/taxi/year=2017/month=9/*.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT='PARQUET'
+    ) nyc
+GROUP BY nyc.filename();
 ```
 
 L’exemple suivant montre comment utiliser *filename()* dans la clause WHERE pour filtrer les fichiers à lire. Il accède au dossier entier dans la partie OPENROWSET de la requête et filtre les fichiers dans la clause WHERE.
@@ -61,10 +58,14 @@ SELECT
     r.filename() AS [filename]
     ,COUNT_BIG(*) AS [rows]
 FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
-    FORMAT='PARQUET') AS [r]
+    BULK 'csv/taxi/yellow_tripdata_2017-*.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV',
+        PARSER_VERSION = '2.0',
+        FIRSTROW = 2) 
+        WITH (C1 varchar(200) ) AS [r]
 WHERE
-    r.filename() IN ('yellow_tripdata_2017-10.parquet', 'yellow_tripdata_2017-11.parquet', 'yellow_tripdata_2017-12.parquet')
+    r.filename() IN ('yellow_tripdata_2017-10.csv', 'yellow_tripdata_2017-11.csv', 'yellow_tripdata_2017-12.csv')
 GROUP BY
     r.filename()
 ORDER BY
@@ -85,28 +86,14 @@ SELECT
     r.filepath() AS filepath
     ,COUNT_BIG(*) AS [rows]
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/yellow_tripdata_2017-1*.csv',
+        BULK 'csv/taxi/yellow_tripdata_2017-1*.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT = 'CSV',
+        PARSER_VERSION = '2.0',
         FIRSTROW = 2
     )
     WITH (
-        vendor_id INT,
-        pickup_datetime DATETIME2,
-        dropoff_datetime DATETIME2,
-        passenger_count SMALLINT,
-        trip_distance FLOAT,
-        rate_code SMALLINT,
-        store_and_fwd_flag SMALLINT,
-        pickup_location_id INT,
-        dropoff_location_id INT,
-        payment_type SMALLINT,
-        fare_amount FLOAT,
-        extra FLOAT,
-        mta_tax FLOAT,
-        tip_amount FLOAT,
-        tolls_amount FLOAT,
-        improvement_surcharge FLOAT,
-        total_amount FLOAT
+        vendor_id INT
     ) AS [r]
 GROUP BY
     r.filepath()
@@ -125,28 +112,14 @@ SELECT
     ,r.filepath(2) AS [month]
     ,COUNT_BIG(*) AS [rows]
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/yellow_tripdata_*-*.csv',
+        BULK 'csv/taxi/yellow_tripdata_*-*.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT = 'CSV',
+        PARSER_VERSION = '2.0',        
         FIRSTROW = 2
     )
 WITH (
-    vendor_id INT,
-    pickup_datetime DATETIME2,
-    dropoff_datetime DATETIME2,
-    passenger_count SMALLINT,
-    trip_distance FLOAT,
-    rate_code SMALLINT,
-    store_and_fwd_flag SMALLINT,
-    pickup_location_id INT,
-    dropoff_location_id INT,
-    payment_type SMALLINT,
-    fare_amount FLOAT,
-    extra FLOAT,
-    mta_tax FLOAT,
-    tip_amount FLOAT,
-    tolls_amount FLOAT,
-    improvement_surcharge FLOAT,
-    total_amount FLOAT
+    vendor_id INT
 ) AS [r]
 WHERE
     r.filepath(1) IN ('2017')

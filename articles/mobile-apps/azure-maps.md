@@ -7,12 +7,12 @@ ms.service: vs-appcenter
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
-ms.openlocfilehash: aa2931440b538346d9f1aa9d0ec967f1a812d56b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b6eec99594ca748fa0610c60c83fd58e388f7923
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80241017"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742905"
 ---
 # <a name="geospatial-apis-to-add-maps-spatial-analytics-and-mobility-solutions-with-azure-maps"></a>API géospatiales pour ajouter des cartes, une analytique spatiale et des solutions de mobilité avec Azure Maps
 
@@ -25,7 +25,7 @@ ms.locfileid: "80241017"
 - **Routage** : affiche les itinéraires les plus courts ou les plus rapides disponibles pour plusieurs destinations à un moment donné. Le routage fournit également des itinéraires spécialisés et des informations pour les piétons, les cyclistes et les véhicules commerciaux.
 - **Fuseaux horaires** : permet de savoir facilement l’heure qu’il est n’importe où dans le monde.
 - **Opérations spatiales** : pour améliorer l’intelligence géographique.
-- **Géolocalisation** : recherche le pays d’une adresse IP.
+- **Géolocalisation** : Recherche le pays/région d’une adresse IP.
 - **Service de données** : charge et stocke des données géospatiales afin de les utiliser avec des opérations spatiales ou la composition d’images.
 - **Mobilité** : fournit une intelligence de localisation en temps réel sur les services de transport en commun à proximité. Les arrêts, les itinéraires et les estimations de temps de trajet sont inclus.
 

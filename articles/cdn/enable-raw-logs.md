@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2020
 ms.author: sohamnc
-ms.openlocfilehash: c6e8570746ae3dd0051dbec084c89d90580d28b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4693cdac2d5d3a57987cc692797756314ded11e
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371636"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747316"
 ---
 # <a name="azure-cdn-http-raw-logs"></a>Journaux bruts HTTP Azure CDN
 Les journaux bruts offrent des informations détaillées sur les opérations et erreurs qui sont importantes pour l’audit et la résolution des problèmes. Les journaux bruts diffèrent des journaux d’activité. Les journaux d’activité apportent une visibilité dans les opérations effectuées sur des ressources Azure. Les journaux bruts fournissent un enregistrement des opérations de votre ressource.
@@ -84,7 +84,7 @@ Azure CDN du service Microsoft fournit actuellement des journaux bruts. Les jour
 | Pop                   | Pop de périphérie, qui a répondu à la demande de l’utilisateur. Les abréviations des POP sont les codes aéroport de leurs Metros respectifs.                                                                                   |
 | Cache Status          | Indique si l’objet a été retourné à partir du cache ou s’il est issu de l’origine.                                                                                                             |
 > [!IMPORTANT]
-> La fonctionnalité des journaux bruts HTTP est disponible automatiquement pour tous les profils créés ou mis à jour après le **25 février 2020**. Pour les profils CDN créés précédemment, vous devez mettre à jour le point de terminaison CDN après la configuration de la journalisation. Par exemple, vous pouvez accéder au géofiltrage sous les points de terminaison CDN et bloquer tous les pays qui ne sont pas pertinents pour votre charge de travail, puis cliquer sur Enregistrer. 
+> La fonctionnalité des journaux bruts HTTP est disponible automatiquement pour tous les profils créés ou mis à jour après le **25 février 2020**. Pour les profils CDN créés précédemment, vous devez mettre à jour le point de terminaison CDN après la configuration de la journalisation. Par exemple, vous pouvez accéder au filtrage géographique sous les points de terminaison CDN et bloquer tous les pays/régions qui ne sont pas pertinents pour votre charge de travail, puis cliquer sur Enregistrer. 
 
 > [!NOTE]
 > Vous pouvez voir les journaux sous votre profil Log Analytics en exécutant une requête. Voici un exemple de requête : AzureDiagnostics | where Category == "AzureCdnAccessLog"

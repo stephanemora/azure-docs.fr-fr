@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: ba516a548fc8385ca86526a7f2dd082b27e53208
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 60cd6b8ba2cbfca497ae1b92113b12e85a34bf26
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77211384"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778185"
 ---
 ## <a name="general-entity-types"></a>Types d’entités générales
 
-### <a name="person"></a>Person
+### <a name="person"></a>Personne
 
 Reconnaître les noms de personnes dans le texte.
 
@@ -38,7 +38,7 @@ Langages :
 |--------------|--------------------------------------------------------------------------------------------|----------------------------------------|
 | N/A          | Types de travaux, par exemple `civil engineer`, `salesperson`, `chef`, `librarian`, `nursing aide` | `2020-02-01`                           |
 
-### <a name="location"></a>Location
+### <a name="location"></a>Emplacement
 
 Points de repère, structures et caractéristiques géographiques et entités géopolitiques naturels et créés par l’homme.
 
@@ -49,9 +49,9 @@ Langages :
 | Nom de sous-type              | Description                                                                              | Disponible à partir de la version du modèle |
 |---------------------------|------------------------------------------------------------------------------------------|----------------------------------------|
 | N/A                       | emplacements, par exemple `Atlantic Ocean`, `library`, `Eiffel Tower`, `Statue of Liberty`  | `2019-10-01`                           |
-| Entité géopolitique (GPE) – En anglais uniquement| Villes, pays, États, par exemple, `Seattle`, `Pennsylvania`, `South Africa`, `Tokyo` | `2020-02-01`                           |
+| Entité géopolitique (GPE) – En anglais uniquement| Villes, pays/régions, États, par exemple, `Seattle`, `Pennsylvania`, `South Africa`, `Tokyo` | `2020-02-01`                           |
 
-### <a name="organization"></a>Organization  
+### <a name="organization"></a>Organisation  
 
 Organisations, entreprises, agences et autres groupes de personnes reconnus. Par exemple : sociétés, groupes politiques, bandes musicales, clubs de sport, organismes gouvernementaux et organisations publiques. Les nationalités et les religions ne sont pas incluses dans ce type d’entité. 
 
@@ -112,9 +112,9 @@ Langages :
 |--------------|------------------------------------------------|----------------------------------------|
 | N/A          | Numéros de téléphone américains, par exemple `(312) 555-0176` | `2019-10-01`                           |
 
-### <a name="email"></a>Email
+### <a name="email"></a>E-mail
 
-Adresse de messagerie. 
+Adresse e-mail. 
 
 Langages :
 
@@ -126,7 +126,7 @@ Langages :
 
 ### <a name="url"></a>URL
 
-URL Internet
+URL Internet.
 
 Langages :
 
@@ -184,6 +184,6 @@ Langages :
 | Pourcentage  | `50%`, `fifty percent`       |
 | Ordinal     | `2nd`, `second`              |
 | Age         | `90 day old`, `30 years old` |
-| Devise    | `$10.99`, `€30.00`           |
+| Devise    | `$10.99`, `&euro;30.00`           |
 | Dimension   | `10 miles`, `40 cm`          |
 | Température | `32 degrees`, `10°C`         |

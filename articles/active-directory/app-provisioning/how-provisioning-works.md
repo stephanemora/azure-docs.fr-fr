@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/10/2019
+ms.date: 05/20/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 7ee685da3492b6915a687151beea3e82e46185de
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 533e38206b9a85b449880d88c9ff969c051fac53
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593724"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712228"
 ---
 # <a name="how-provisioning-works"></a>Comment fonctionne le provisionnement
 
@@ -63,7 +63,7 @@ Quand vous configurez l’approvisionnement pour une application SaaS, l’un de
 
 Pour le provisionnement sortant entre Azure AD et une application SaaS, les [attributions d’utilisateurs ou de groupes](../manage-apps/assign-user-or-group-access-portal.md) constituent la méthode la plus courante pour déterminer les utilisateurs qui sont compris dans l’étendue du provisionnement. Étant donné que les attributions d’utilisateurs sont également utilisées pour l’authentification unique, cette même méthode peut être utilisée pour gérer l’accès et le provisionnement. L’étendue basée sur les attributions ne s’applique pas aux scénarios de provisionnement entrant tels que Workday et Successfactors.
 
-* **Groupes.** Avec un plan de licence Azure AD Premium, vous pouvez utiliser des groupes pour autoriser l’accès à une application SaaS intégrée. Ensuite, lorsque l’étendue de provisionnement est définie sur **Synchroniser uniquement les utilisateurs et groupes assignés**, le service de provisionnement Azure AD provisionne ou déprovisionne des utilisateurs selon qu’ils sont membres d’un groupe affecté à l’application. L’objet de groupe n’est pas provisionné, sauf si l’application prend en charge les objets de groupe. Assurez-vous que les groupes affectés à votre application ont la propriété « SecurityEnabled » définie sur « False ».
+* **Groupes.** Avec un plan de licence Azure AD Premium, vous pouvez utiliser des groupes pour autoriser l’accès à une application SaaS intégrée. Ensuite, lorsque l’étendue de provisionnement est définie sur **Synchroniser uniquement les utilisateurs et groupes assignés**, le service de provisionnement Azure AD provisionne ou déprovisionne des utilisateurs selon qu’ils sont membres d’un groupe affecté à l’application. L’objet de groupe n’est pas provisionné, sauf si l’application prend en charge les objets de groupe. Assurez-vous que les groupes attribués à votre application ont la propriété « SecurityEnabled » définie sur « False ».
 
 * **Groupes dynamiques.** Le service d’attribution d’utilisateurs Azure AD peut lire et attribuer des utilisateurs dans des [groupes dynamiques](../users-groups-roles/groups-create-rule.md). Gardez à l’esprit les mises en garde et suggestions suivantes :
 

@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 56d8ab81fcf9200fec2cfb4a741724b8f79db820
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5f10b987fa8783084b14774b9bce5e857f3c59c4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81408039"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650478"
 ---
 # <a name="temporary-tables-in-synapse-sql-pool"></a>Tables temporaires dans le pool SQL Synapse
 Cet article contient des conseils de base pour l’utilisation des tables temporaires et met en évidence les principes des tables temporaires au niveau de la session. 
@@ -29,7 +29,7 @@ Elles sont uniquement visibles pour la session dans laquelle elles ont été cr�
 
 Les tables temporaires offrent un gain de performances, car leurs résultats sont écrits en local et non dans un stockage distant.
 
-Les tables temporaires sont utiles lors du traitement des données, notamment lors d’une transformation lorsque les résultats intermédiaires sont temporaires. Avec SQL Analytics, les tables temporaires existent au niveau de la session.  Elles sont visibles uniquement dans la session dans laquelle elles ont été créées. Ainsi, elles sont automatiquement supprimées à la fermeture de cette session. 
+Les tables temporaires sont utiles lors du traitement des données, notamment lors d’une transformation lorsque les résultats intermédiaires sont temporaires. Dans le pool SQL, les tables temporaires existent au niveau de la session.  Elles sont visibles uniquement dans la session dans laquelle elles ont été créées. Ainsi, elles sont automatiquement supprimées à la fermeture de cette session. 
 
 ## <a name="temporary-tables-in-sql-pool"></a>Tables temporaires dans le pool SQL
 
@@ -233,5 +233,5 @@ Par ailleurs, il n’est pas possible de créer des vues sur des tables temporai
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur le développement de tables, consultez l’article [Conception de tables à l’aide des ressources SQL Analytics](sql-data-warehouse-tables-overview.md).
+Pour en savoir plus sur le développement de tables, consultez [Conception de tables à l’aide des ressources SQL Analytics](sql-data-warehouse-tables-overview.md).
 

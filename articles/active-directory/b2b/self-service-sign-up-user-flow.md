@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfd430d750b2220882479a430322f4b4c4e0c44c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: cd94fffded8c0e5d7b120993f069b042c2b19b6c
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594728"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712347"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Ajouter un flux utilisateur d’inscription en libre-service à une application (préversion)
 |     |
@@ -25,7 +25,10 @@ ms.locfileid: "83594728"
 | L’inscription en libre-service est une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-L’association de votre flux utilisateur avec une application vous permet d’activer l’inscription sur cette application. Vous pouvez choisir plusieurs applications à associer au flux utilisateur. Une fois que vous associez le flux utilisateur à une ou plusieurs applications, les utilisateurs qui visitent cette application peuvent s’inscrire à l’aide des options configurées dans le flux utilisateur.
+Vous pouvez créer des flux d’utilisateurs pour les applications générées par votre organisation. L’association de votre flux utilisateur avec une application vous permet d’activer l’inscription sur cette application. Vous pouvez choisir plusieurs applications à associer au flux utilisateur. Une fois que vous avez associé le flux d’utilisateurs à une ou plusieurs applications, les utilisateurs qui visitent cette application pourront s'inscrire et obtenir un compte invité à l’aide des options configurées dans le flux d’utilisateurs.
+
+> [!NOTE]
+> Vous pouvez associer des flux d’utilisateurs à des applications générées par votre organisation. Les flux d’utilisateurs ne peuvent pas être utilisés pour les applications Microsoft, telles que SharePoint ou Teams.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -33,9 +36,12 @@ L’association de votre flux utilisateur avec une application vous permet d’a
 
 Azure AD est le fournisseur d’identité par défaut pour l’inscription en libre-service. Cela signifie que les utilisateurs peuvent s’inscrire par défaut avec un compte Azure AD. Des fournisseurs d’identité sociale peuvent également être inclus dans ces flux d’inscription pour prendre en charge les comptes Google et Facebook.
 
-- [Ajouter Google à votre liste de fournisseurs d’identité sociale](google-federation.md)
 - [Ajouter Facebook à votre liste de fournisseurs d’identité sociale](facebook-federation.md)
- 
+- [Ajouter Google à votre liste de fournisseurs d’identité sociale](google-federation.md)
+
+> [!NOTE]
+> Dans la préversion actuelle, si un flux d’utilisateurs d’inscription en libre-service est associé à une application et que vous envoyez à l’utilisateur une invitation à cette application, l’utilisateur ne pourra pas utiliser un compte Gmail pour accepter l’invitation. En guise de solution de contournement, l’utilisateur peut passer par le processus d’inscription en libre-service. Ou, il peut accepter l’invitation en accédant à une autre application ou à l’aide de leur portail Mes applications sur https://myapps.microsoft.com.
+
 ### <a name="define-custom-attributes-optional"></a>Définir des attributs personnalisés (facultatif)
 
 Les attributs utilisateur sont des valeurs collectées auprès de l’utilisateur lors de son inscription en libre-service. Azure AD est fourni avec un ensemble intégré d’attributs, mais vous pouvez créer des attributs personnalisés à utiliser dans votre flux utilisateur. Vous pouvez également lire et écrire ces attributs à l’aide de l’API Microsoft Graph. Consultez [Définir des attributs personnalisés pour des flux utilisateur](user-flow-add-custom-attributes.md)

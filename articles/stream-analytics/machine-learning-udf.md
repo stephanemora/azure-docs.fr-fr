@@ -7,19 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: 07fa72f086b676723279ee4b8efd927beb2692f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c232ab06d2b3a28dad7ae98a8f22f457778fd3e6
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81481967"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83874085"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Intégration d’Azure Stream Analytics avec Azure Machine Learning (préversion)
 
 Vous pouvez implémenter des modèles Machine Learning en tant que fonctions définies par l’utilisateur dans vos tâches Azure Stream Analytics pour effectuer le scoring et les prédictions en temps réel sur vos données d’entrée de streaming. [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) vous permet d’utiliser n’importe quel outil open source populaire, comme Tensorflow, scikit-learn ou PyTorch pour préparer, entraîner et déployer des modèles.
-
-> [!NOTE]
-> Cette fonctionnalité n’existe qu’en préversion publique. Vous pouvez accéder à cette fonctionnalité sur le portail Azure uniquement en utilisant le [lien d’aperçu du portail Stream Analytics](https://aka.ms/asaportalpreview). Cette fonctionnalité est également disponible dans la dernière version [d’Azure Stream Analytics Tools pour Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -31,7 +28,7 @@ Effectuez les étapes suivantes avant d’ajouter un modèle de Machine Learning
 
 3. Assurez-vous que votre service web accepte et retourne les données sérialisées JSON.
 
-4. Déployez votre modèle sur [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) pour les déploiements de production à grande échelle. Si le service web n’est pas en mesure de gérer le nombre de requêtes provenant de votre tâche, les performances de votre tâche Stream Analytics sont dégradées, ce qui a une incidence sur la latence. Les modèles déployés sur Azure Container Instances ne sont pas pris en charge actuellement, mais seront disponibles dans les prochains mois.
+4. Déployez votre modèle sur [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) pour les déploiements de production à grande échelle. Si le service web n’est pas en mesure de gérer le nombre de requêtes provenant de votre tâche, les performances de votre tâche Stream Analytics sont dégradées, ce qui a une incidence sur la latence. Les modèles déployés sur Azure Container Instances sont pris en charge uniquement lorsque vous utilisez le portail Azure.
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>Ajouter un modèle Machine Learning à votre tâche
 

@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: d678a29de9dea8a5a2f6d0259a452ca4c69feb03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57be24142a8504347f420e5780e9621cd2eac91d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77086919"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778272"
 ---
 ## <a name="personal-information-entity-types"></a>Types d’entités d’informations personnelles :
 
-### <a name="person"></a>Person
+### <a name="person"></a>Personne
 Reconnaître les noms de personnes dans le texte.
 
 Langages :
@@ -27,7 +27,7 @@ Langages :
 |--------------|-----------------------------------------------------------|----------------------------------------|
 | N/A          | Noms reconnus, par exemple `Bill Gates`, `Marie Curie` | `2020-02-01`                           |
 
-### <a name="organization"></a>Organization  
+### <a name="organization"></a>Organisation  
 
 Reconnaître les organisations, sociétés, agences, entreprises, clubs et autres groupes de personnes.
 
@@ -51,9 +51,9 @@ Langages :
 |--------------|------------------------------------------------|----------------------------------------|
 | N/A          | Numéros de téléphone américains, par exemple `(312) 555-0176` | `2020-02-01`                           |
 
-### <a name="email"></a>Email
+### <a name="email"></a>E-mail
 
-Adresse de messagerie. 
+Adresse e-mail. 
 
 Langages :
 
@@ -65,7 +65,7 @@ Langages :
 
 ### <a name="url"></a>URL
 
-URL Internet
+URL Internet.
 
 Langages :
 
@@ -164,9 +164,9 @@ Langages :
 | Carte de crédit                | Numéros de carte de crédit.                                                       |
 | Code IBAN                  | Codes IBAN pour les informations sur les instructions de paiement.                            |
 
-#### <a name="government-and-country-specific-identification"></a>Identification propres aux gouvernements et pays
+#### <a name="government-and-countryregion-specific-identification"></a>Identification propres aux gouvernements et pays/régions
 
-Les entités ci-dessous sont regroupées et listées par pays :
+Les entités ci-dessous sont regroupées et répertoriées par pays/régions :
 
 Argentine
 * Numéro d’identité nationale (DNI)
@@ -268,7 +268,7 @@ Japon
 Malaisie
 * Numéro de carte d’identité
 
-Pays-bas
+Pays-Bas
 * Numéro de service citoyen (BSN)
 
 Nouvelle-Zélande
@@ -316,7 +316,7 @@ Taïwan
 Thaïlande
 * Code d’identification de population
 
-United Kingdom
+Royaume-Uni
 * Numéro de passeport
 * Numéro de permis de conduire
 * Numéro d’assurance nationale (NINO)

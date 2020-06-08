@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: trbye
-  ms.openlocfilehash: 83bf5f9e623d1d777834e5efdd26fa4cdbc42819
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.openlocfilehash: 8a58079f44fb4d78c2d3f652a5f3b61dae9c8991
+  ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81401465"
+  ms.lasthandoff: 05/22/2020
+  ms.locfileid: "83800813"
 landingContent:
 - title: À propos de la synthèse vocale
   linkLists:
@@ -26,6 +26,8 @@ landingContent:
       url: text-to-speech.md
     - text: Bases de la synthèse vocale
       url: text-to-speech-basics.md
+    - text: Utiliser l’interface de commande Speech pour la conversion de texte par synthèse vocale sans code
+      url: spx-overview.md
   - linkListType: quickstart
     links:
     - text: Synthétiser la voix vers un haut-parleur

@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8b45840215092281c7fbc8d499e26b095b374dd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8e263d29bc71ac76c374eeda78e5250a0af2095
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77191024"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744785"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Concepts et composition des ensembles de compétences dans Recherche cognitive Azure
 
@@ -26,9 +26,9 @@ Un ensemble de compétences est une ressource réutilisable dans Recherche cogni
 
 Un ensemble de compétences a trois propriétés :
 
-+   ```skills```, une collection non triée de compétences dont la séquence d’exécution est déterminée par la plateforme en fonction des entrées requises pour chaque compétence
-+   ```cognitiveServices```, la clé Cognitive Services nécessaire pour la facturation des compétences cognitives appelées
-+   ```knowledgeStore```, le compte de stockage dans lequel seront projetés vos documents
++    ```skills```, une collection non triée de compétences dont la séquence d’exécution est déterminée par la plateforme en fonction des entrées requises pour chaque compétence
++    ```cognitiveServices```, la clé Cognitive Services nécessaire pour la facturation des compétences cognitives appelées
++    ```knowledgeStore```, le compte de stockage dans lequel seront projetés vos documents
 
 
 
@@ -54,14 +54,14 @@ Dans la suite de ce document, nous faisons référence à l’[exemple des avis 
 
 ### <a name="context"></a>Context
 Chaque compétence demande un contexte. Un contexte détermine :
-+   Le nombre de fois que la compétence est exécutée, en fonction des nœuds sélectionnés. Pour les valeurs de contexte d’une collection, l’ajout de ```/*``` à la fin spécifie que la compétence est appelée une fois pour chaque instance dans la collection. 
-+   L’endroit dans l’arborescence d’enrichissements où les sorties de la compétence sont ajoutées. Les sorties sont toujours ajoutées à l’arborescence en tant qu’enfants du nœud de contexte. 
-+   La forme des entrées. Pour les collections à plusieurs niveaux, la définition du contexte sur la collection parente détermine la forme de l’entrée de la compétence. Par exemple, dans une arborescence d’enrichissements avec une liste de pays, chaque entrée est enrichie avec une liste d’états contenant elle-même une liste de codes postaux.
++    Le nombre de fois que la compétence est exécutée, en fonction des nœuds sélectionnés. Pour les valeurs de contexte d’une collection, l’ajout de ```/*``` à la fin spécifie que la compétence est appelée une fois pour chaque instance dans la collection. 
++    L’endroit dans l’arborescence d’enrichissements où les sorties de la compétence sont ajoutées. Les sorties sont toujours ajoutées à l’arborescence en tant qu’enfants du nœud de contexte. 
++    La forme des entrées. Pour les collections à plusieurs niveaux, la définition du contexte sur la collection parente détermine la forme de l’entrée de la compétence. Par exemple, dans une arborescence d’enrichissements avec une liste de pays/régions, chaque entrée est enrichie avec une liste d’États contenant elle-même une liste de codes postaux.
 
 |Context|Entrée|Forme de l’entrée|Appel de compétence|
 |---|---|---|---|
-|```/document/countries/*``` |```/document/countries/*/states/*/zipcodes/*``` |Liste de tous les codes postaux du pays |Une fois par pays |
-|```/document/countries/*/states/*``` |```/document/countries/*/states/*/zipcodes/*``` |Liste de tous les codes postaux de l’état | Une fois par paire pays/état|
+|```/document/countries/*``` |```/document/countries/*/states/*/zipcodes/*``` |Liste de tous les codes postaux du pays/de la région |Une fois par pays/région |
+|```/document/countries/*/states/*``` |```/document/countries/*/states/*/zipcodes/*``` |Liste de tous les codes postaux de l’état | Une fois par combinaison pays/région et État|
 
 ### <a name="sourcecontext"></a>SourceContext
 
@@ -77,7 +77,7 @@ Le diagramme ci-dessus montre le sélecteur à utiliser en fonction de l’endro
 
 ## <a name="generate-enriched-data"></a>Générer des données enrichies 
 
-Examinons maintenant l’ensemble de compétences des avis sur les hôtels. Vous pouvez effectuer le [tutoriel](knowledge-store-connect-powerbi.md) pour créer l’ensemble de compétences, ou simplement [afficher](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/samples/skillset.json) l’ensemble de compétences. Nous allons voir de quelle façon :
+Examinons maintenant l’ensemble de compétences des avis sur les hôtels. Vous pouvez effectuer le [tutoriel](knowledge-store-connect-powerbi.md) pour créer l’ensemble de compétences ou simplement [afficher](https://github.com/Azure-Samples/azure-search-postman-samples/) l’ensemble de compétences. Nous allons voir de quelle façon :
 
 * L’arborescence d’enrichissements évolue au fur et à mesure de l’exécution de chaque compétence 
 * Le contexte et les entrées déterminent le nombre de fois qu’une compétence s’exécute 

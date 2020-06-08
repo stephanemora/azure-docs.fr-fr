@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 5196c85ca1d68028893caee55035c6c455b37d64
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 1bc5f5f5ffe44cbefe5a131aa041e5afc2e8257f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81676936"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659234"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statistiques dans SQL Synapse
 
@@ -30,11 +30,13 @@ Plus la ressource de pool SQL connaît vos données, plus elle peut exécuter de
 
 L’optimiseur de requête du pool SQL est un optimiseur basé sur les coûts. Il compare le coût de différents plans de requête, puis choisit le plan avec le coût le plus bas. Dans la plupart des cas, il choisit le plan qui s’exécute le plus rapidement.
 
-Par exemple, si l’optimiseur estime que la date de filtrage de votre requête va renvoyer une ligne, il choisira un certain plan. S’il estime que la date sélectionnée va renvoyer un million de lignes, il choisira un autre plan.
+Par exemple, si l’optimiseur estime que la date de filtrage de votre requête va renvoyer une ligne, il choisira un seul plan. S’il estime que la date sélectionnée va renvoyer un million de lignes, il choisira un autre plan.
 
 ### <a name="automatic-creation-of-statistics"></a>Création automatique de statistiques
 
-Le pool SQL analyse les requêtes utilisateur entrantes à la recherche de statistiques manquantes lorsque l’option AUTO_CREATE_STATISTICS de la base de données est définie sur `ON`.  Si des statistiques manquent, l’optimiseur de requête crée des statistiques sur des colonnes individuelles dans le prédicat de requête ou la condition de jointure. Cette fonction permet d’améliorer les estimations de cardinalité du plan de requête.
+Le pool SQL analyse les requêtes utilisateur entrantes à la recherche de statistiques manquantes lorsque l’option AUTO_CREATE_STATISTICS de la base de données est définie sur `ON`.  Si des statistiques manquent, l’optimiseur de requête crée des statistiques sur des colonnes individuelles dans le prédicat de requête ou la condition de jointure. 
+
+Cette fonction permet d’améliorer les estimations de cardinalité du plan de requête.
 
 > [!IMPORTANT]
 > La création automatique de statistiques est activée par défaut.
@@ -101,7 +103,9 @@ L’une des premières questions que vous devez vous poser quand vous dépannez 
 
 Or, vous ne pouvez pas répondre à cette question en vous appuyant sur l’âge des données. Un objet de statistiques à jour peut être ancien si aucune modification notable n’affecte les données sous-jacentes. Lorsque le nombre de lignes ou la distribution des valeurs change de manière substantielle dans une colonne, il convient *alors* de mettre à jour les statistiques.
 
-Aucune vue de gestion dynamique n'est disponible pour déterminer si les données de la table ont changé depuis la dernière mise à jour des statistiques. Le fait de connaître l’ancienneté de vos statistiques peut vous donner un petit aperçu. Vous pouvez utiliser la requête suivante pour déterminer la date de la dernière mise à jour des statistiques sur chaque table.
+Aucune vue de gestion dynamique n'est disponible pour déterminer si les données de la table ont changé depuis la dernière mise à jour des statistiques. Le fait de connaître l’ancienneté de vos statistiques peut vous donner un petit aperçu. 
+
+Vous pouvez utiliser la requête suivante pour déterminer la date de la dernière mise à jour des statistiques sur chaque table.
 
 > [!NOTE]
 > Si la distribution des valeurs d’une colonne a subi une modification significative, vous devez mettre à jour les statistiques, quelle que soit la date de la dernière mise à jour.
@@ -137,9 +141,11 @@ Par exemple, les statistiques des **colonnes de date** d’un entrepôt de donn�
 
 Les statistiques d’une colonne indiquant le sexe d’un client dans une table n’auront peut-être jamais besoin d’être mises à jour. Si l’on part du principe que la distribution des données est constante d’un client à l’autre, l’ajout de nouvelles lignes dans une table ne devrait pas affecter cette distribution.
 
-Cela étant, si votre entrepôt de données ne fait mention que d’un seul sexe et qu’une nouvelle exigence nécessite le recours à plusieurs sexes, vous devez mettre à jour les statistiques de la colonne relative au sexe. Pour plus d’informations, consultez l’article [Statistiques](/sql/relational-databases/statistics/statistics).
+Cela étant, si votre entrepôt de données ne fait mention que d’un seul sexe et qu’une nouvelle exigence nécessite le recours à plusieurs sexes, vous devez mettre à jour les statistiques de la colonne relative au sexe. 
 
-### <a name="implementing-statistics-management"></a>Implémentation de fonctions de gestion des statistiques
+Pour plus d’informations, consultez l’article [Statistiques](/sql/relational-databases/statistics/statistics).
+
+### <a name="implement-statistics-management"></a>Implémenter la gestion des statistiques
 
 Il est souvent judicieux d’étendre le processus de chargement des données afin de vérifier que les statistiques sont mises à jour à la fin du chargement. Le chargement des données se produit lorsque la taille ou la distribution des valeurs, voire les deux, sont souvent modifiées dans les tables. Dès lors, il est logique que le processus de chargement implémente certains processus de gestion.
 
@@ -275,6 +281,7 @@ CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 #### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>Utiliser une procédure stockée pour créer des statistiques sur toutes les colonnes d’une base de données
 
 Le pool SQL n’inclut pas de procédure stockée par le système équivalente à sp_create_stats dans SQL Server. Cette procédure stockée crée un objet de statistiques sur une colonne portant sur chaque colonne de la base de données non pourvue de statistiques.
+
 L’exemple suivant vous aidera à commencer à concevoir votre base de données. N’hésitez pas à l’adapter à vos besoins :
 
 ```sql
@@ -418,7 +425,9 @@ Par exemple :
 UPDATE STATISTICS dbo.table1;
 ```
 
-L’instruction UPDATE STATISTICS est facile à utiliser. N’oubliez pas que cette action met à jour *toutes* les statistiques dans la table et, ce qui implique davantage de tâches que nécessaire. Si les performances ne constituent pas un problème, il s’agit de la méthode la plus simple et la plus exhaustive pour garantir que les statistiques sont à jour.
+L’instruction UPDATE STATISTICS est facile à utiliser. N’oubliez pas que cette action met à jour *toutes* les statistiques dans la table et, ce qui implique davantage de tâches que nécessaire. 
+
+Si les performances ne constituent pas un problème, il s’agit de la méthode la plus simple et la plus exhaustive pour garantir que les statistiques sont à jour.
 
 > [!NOTE]
 > Lors de la mise à jour de toutes les statistiques d’une table, le pool SQL procède à une analyse pour échantillonner la table à la recherche de chaque objet de statistiques. Si la table est volumineuse et comprend un grand nombre de colonnes et de statistiques, il peut s’avérer plus efficace de mettre à jour les statistiques individuellement, en fonction des besoins.
@@ -501,7 +510,9 @@ La fonction DBCC SHOW_STATISTICS() présente les données contenues dans un obje
 - Vecteur de densité
 - Histogramme
 
-L'en-tête correspond aux métadonnées sur les statistiques. L’histogramme affiche la distribution des valeurs dans la première colonne de l’objet de statistiques. Le vecteur de densité mesure la corrélation entre les colonnes. Le pool SQL calcule les évaluations de cardinalité avec certaines données dans l’objet de statistiques.
+L'en-tête correspond aux métadonnées sur les statistiques. L’histogramme affiche la distribution des valeurs dans la première colonne de l’objet de statistiques. 
+
+Le vecteur de densité mesure la corrélation entre les colonnes. Le pool SQL calcule les évaluations de cardinalité avec certaines données dans l’objet de statistiques.
 
 #### <a name="show-header-density-and-histogram"></a>Afficher l’en-tête, la densité et l’histogramme
 
@@ -555,7 +566,11 @@ Les statistiques sont créées par colonne donnée pour un jeu de données parti
 
 ### <a name="why-use-statistics"></a>Pourquoi utiliser des statistiques ?
 
-Plus SQL à la demande (préversion) connaît vos données, plus il peut exécuter des requêtes sur celles-ci rapidement. Collecter des statistiques sur vos données est l’une des actions les plus importantes pour optimiser vos requêtes. L’optimiseur de requête de SQL à la demande est un optimiseur basé sur les coûts. Il compare le coût de différents plans de requête, puis choisit le plan avec le coût le plus bas. Dans la plupart des cas, il choisit le plan qui s’exécute le plus rapidement. Par exemple, si l’optimiseur estime que la date de filtrage de votre requête va renvoyer une ligne, il choisira un certain plan. S’il estime que la date sélectionnée va renvoyer un million de lignes, il choisira un autre plan.
+Plus SQL à la demande (préversion) connaît vos données, plus il peut exécuter des requêtes sur celles-ci rapidement. Collecter des statistiques sur vos données est l’une des actions les plus importantes pour optimiser vos requêtes. 
+
+L’optimiseur de requête de SQL à la demande est un optimiseur basé sur les coûts. Il compare le coût de différents plans de requête, puis choisit le plan avec le coût le plus bas. Dans la plupart des cas, il choisit le plan qui s’exécute le plus rapidement. 
+
+Par exemple, si l’optimiseur estime que la date de filtrage de votre requête va renvoyer une ligne, il choisira un certain plan. S’il estime que la date sélectionnée va renvoyer un million de lignes, il choisira un autre plan.
 
 ### <a name="automatic-creation-of-statistics"></a>Création automatique de statistiques
 
@@ -570,9 +585,11 @@ La création automatique de statistiques étant effectuée de façon synchrone, 
 
 ### <a name="manual-creation-of-statistics"></a>Création manuelle de statistiques
 
-SQL à la demande vous permet de créer des statistiques manuellement. Pour les fichiers CSV, vous devez créer des statistiques manuellement, la création automatique de statistiques n'étant pas activée pour ces fichiers. Consultez les exemples ci-dessous pour obtenir des instructions sur la création manuelle de statistiques.
+SQL à la demande vous permet de créer des statistiques manuellement. Pour les fichiers CSV, vous devez créer des statistiques manuellement, la création automatique de statistiques n'étant pas activée pour ces fichiers. 
 
-### <a name="updating-statistics"></a>Mettre à jour les statistiques
+Consultez les exemples suivants pour obtenir des instructions sur la création manuelle de statistiques.
+
+### <a name="update-statistics"></a>Mettre à jour les statistiques
 
 Les modifications apportées aux données des fichiers, de même que la suppression et l’ajout de fichiers entraînent des modifications de distribution des données et rendent les statistiques obsolètes. Dès lors, les statistiques doivent être mises à jour.
 
@@ -592,9 +609,9 @@ Lorsque le nombre de lignes ou la distribution des valeurs change de manière su
 > [!NOTE]
 > Si la distribution des valeurs d’une colonne a subi une modification significative, vous devez mettre à jour les statistiques, quelle que soit la date de la dernière mise à jour.
 
-### <a name="implementing-statistics-management"></a>Implémentation de fonctions de gestion des statistiques
+### <a name="implement-statistics-management"></a>Implémenter la gestion des statistiques
 
-Vous pouvez étendre votre pipeline de données pour permettre la mise à jour des statistiques lorsque les données changent considérablement en cas d'ajout, de suppression ou de modification de fichiers.
+Vous pouvez étendre votre pipeline de données pour permettre la mise à jour des statistiques lorsque les données sont considérablement modifiées en cas d'ajout, de suppression ou de modification de fichiers.
 
 Les principes généraux suivants sont fournis afin de vous aider à mettre à jour vos statistiques :
 
@@ -611,6 +628,8 @@ Ces exemples montrent comment utiliser différentes options pour créer des stat
 
 > [!NOTE]
 > À ce stade, vous pouvez créer des statistiques à une seule colonne uniquement.
+>
+> La procédure sp_create_file_statistics sera renommée en sp_create_openrowset_statistics. Le rôle serveur public dispose de l’autorisation ADMINISTER BULK OPERATIONS accordée alors que le rôle de base de données public dispose des autorisations EXECUTE sur sp_create_file_statistics et sp_drop_file_statistics. Cela peut être modifié à l’avenir.
 
 La procédure stockée suivante est utilisée pour créer des statistiques :
 
@@ -696,6 +715,9 @@ Pour mettre à jour les statistiques, vous devez supprimer et créer des statist
 sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
 ```
 
+> [!NOTE]
+> La procédure sp_drop_file_statistics sera renommée en sp_drop_openrowset_statistics. Le rôle serveur public dispose de l’autorisation ADMINISTER BULK OPERATIONS accordée alors que le rôle de base de données public dispose des autorisations EXECUTE sur sp_create_file_statistics et sp_drop_file_statistics. Cela peut être modifié à l’avenir.
+
 Arguments : [ @stmt =] N’statement_text' - Spécifie la même instruction Transact-SQL que celle utilisée lors de la création des statistiques.
 
 Pour mettre à jour les statistiques de la colonne year du jeu de données basé sur le fichier population.csv, vous devez supprimer et créer des statistiques :
@@ -750,7 +772,7 @@ ON { external_table } ( column )
 
 Arguments : external_table - Spécifie la table externe dans laquelle les statistiques doivent être créées.
 
-FULLSCAN calcule les statistiques en analysant toutes les lignes. FULLSCAN et SAMPLE 100 PERCENT ont les mêmes résultats. Cette option ne peut pas être utilisée avec l'option SAMPLE.
+FULLSCAN calcule les statistiques en analysant toutes les lignes. FULLSCAN et SAMPLE 100 PERCENT ont les mêmes résultats. FULLSCAN ne peut pas être utilisé avec l'option SAMPLE.
 
 SAMPLE number PERCENT - Spécifie le pourcentage ou nombre de lignes approximatif dans la table ou vue indexée devant être utilisé par l'optimiseur de requête lors de la création des statistiques. Ce nombre peut être compris entre 0 et 100.
 

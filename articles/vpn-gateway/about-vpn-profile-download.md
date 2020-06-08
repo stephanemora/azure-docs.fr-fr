@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 03/17/2020
+ms.date: 05/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: b78d32dbb7b4e0d9a3b13ff741e6e38c12be0e62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4526611fa8b80a7b97ee7317f5e285c50f05b0de
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79528504"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650661"
 ---
 # <a name="about-p2s-vpn-client-profiles"></a>À propos des profils clients VPN P2S
 
@@ -20,7 +20,7 @@ Le fichier de profil téléchargé contient les informations nécessaires à la 
 
 [!INCLUDE [client profiles](../../includes/vpn-gateway-vwan-vpn-profile-download.md)]
 
-* Le dossier **OpenVPN** contient le profil *ovpn* qui doit être modifié pour inclure la clé et le certificat. Pour plus d’informations, consultez [Configurer des clients OpenVPN pour la passerelle VPN Azure](vpn-gateway-howto-openvpn-clients.md#windows). Ce dossier ne sera pas présent dans le fichier zip si l’authentification Azure AD est sélectionnée sur la passerelle VPN. À la place, le fichier azurevpnconfig.xml se trouve dans le dossier AzureVPN.
+* Le dossier **OpenVPN** contient le profil *ovpn* qui doit être modifié pour inclure la clé et le certificat. Pour plus d’informations, consultez [Configurer des clients OpenVPN pour la passerelle VPN Azure](vpn-gateway-howto-openvpn-clients.md#windows). Si vous sélectionnez l’authentification Azure AD sur la passerelle VPN, ce dossier sera absent du fichier zip. Au lieu de cela, accédez au dossier AzureVPN et recherchez azurevpnconfig.xml.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

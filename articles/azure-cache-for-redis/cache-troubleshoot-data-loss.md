@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: d54506b94f076f0a3d967f88bd4e2960a1ca6396
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ef7824640dcd2b9dbae1d27f385e5334ba9875ff
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75530899"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699224"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Résoudre les problèmes de perte de données dans Azure Cache pour Redis
 
@@ -27,7 +27,7 @@ Azure Cache pour Redis ne supprime pas de façon aléatoire les clés lorsqu’e
 
 Si vous constatez que des clés ont disparu de votre cache, passez en revue les causes possibles suivantes :
 
-| Cause : | Description |
+| Cause | Description |
 |---|---|
 | [Expiration des clés](#key-expiration) | Les clés sont supprimées en raison des délais d’attente définis pour elles. |
 | [Éviction des clés](#key-eviction) | Les clés sont supprimées pour cause de sollicitation de la mémoire. |
@@ -80,13 +80,13 @@ cmdstat_hdel:calls=1,usec=47,usec_per_call=47.00
 
 ### <a name="async-replication"></a>Réplication asynchrone
 
-Toute instance Azure Cache pour Redis de niveau Standard ou Premium est configurée avec un nœud maître et au moins un réplica. Un processus en arrière-plan permet de copier les données de façon asynchrone du maître vers un réplica. Le site web [redis.io](https://redis.io/topics/replication) décrit le fonctionnement général de la réplication des données dans Redis. Dans les scénarios où les clients écrivent fréquemment dans Redis, vous pouvez subir une perte partielle de données, car cette réplication est garantie instantanée. Par exemple, si le maître tombe en panne *après* qu’un client y a écrit une clé, mais *avant* que le processus en arrière-plan n’envoie cette clé au réplica, cette clé est perdue quand le réplica prend le relais en tant que nouveau maître.
+Toute instance Azure Cache pour Redis de niveau Standard ou Premium est configurée avec un nœud maître et au moins un réplica. Un processus en arrière-plan permet de copier les données de façon asynchrone du maître vers un réplica. Le site web [redis.io](https://redis.io/topics/replication) décrit le fonctionnement général de la réplication des données dans Redis. Dans les scénarios où les clients écrivent fréquemment dans Redis, vous pouvez subir une perte partielle de données, car l’instantanéité de cette réplication n’est pas garantie. Par exemple, si le maître tombe en panne *après* qu’un client y a écrit une clé, mais *avant* que le processus en arrière-plan n’envoie cette clé au réplica, cette clé est perdue quand le réplica prend le relais en tant que nouveau maître.
 
 ## <a name="major-or-complete-loss-of-keys"></a>Perte majeure ou totale des clés
 
 Si vous constatez que tout ou partie des clés ont disparu de votre cache, passez en revue les causes possibles suivantes :
 
-| Cause : | Description |
+| Cause | Description |
 |---|---|
 | [Vidage des clés](#key-flushing) | Les clés ont été vidées manuellement. |
 | [Sélection incorrecte de la base de données](#incorrect-database-selection) | Le logiciel Azure Cache pour Redis est configuré pour utiliser une base de données autre que celle par défaut. |

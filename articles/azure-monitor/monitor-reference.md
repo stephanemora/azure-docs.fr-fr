@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: 27503defa23b2a35e767156139228aa2e177652f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: d154029e20ed952ca371685b00d5520f9d7850c8
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405180"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873840"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Quels sont les éléments supervisés par Azure Monitor ?
 Cet article décrit les différentes applications et services supervisés par Azure Monitor. 
@@ -27,11 +27,14 @@ Les Insights offrent une expérience de surveillance personnalisée pour des app
 |:---|:---|
 | [Application Insights](app/app-insights-overview.md) | Service extensible Gestion des performances des applications (APM) pour superviser votre application web en temps réel sur n’importe quelle plateforme. |
 | [Azure Monitor pour conteneurs](insights/container-insights-overview.md) | Supervise les performances des charges de travail de conteneur déployées sur Azure Container Instances ou sur des clusters Kubernetes managés hébergés sur Azure Kubernetes Service (AKS). |
-| [Azure Monitor pour Cosmos DB (préversion)](insights/cosmosdb-insights-overview.md) | Fournit une vue des performances globales, des défaillances, de la capacité et de l’intégrité opérationnelle de toutes vos ressources Azure Cosmos DB dans une expérience interactive unifiée. |
+| [Azure Monitor pour Cosmos DB](insights/cosmosdb-insights-overview.md) | Fournit une vue des performances globales, des défaillances, de la capacité et de l’intégrité opérationnelle de toutes vos ressources Azure Cosmos DB dans une expérience interactive unifiée. |
 | [Azure Monitor pour réseaux (préversion)](insights/network-insights-overview.md) | Fournit une vue complète de l’intégrité et des métriques pour toutes vos ressources réseau. La fonctionnalité de recherche avancée vous aide à identifier les dépendances de ressources, par l’activation de scénarios tels que l’identification des ressources qui hébergent votre site Web, en recherchant simplement le nom de votre site Web. |
 [Azure Monitor pour groupes de ressources (préversion)](insights/resource-group-insights.md) |  Facilite la classification et le diagnostic des problèmes que rencontrent vos ressources, tout en offrant un contexte en lien avec l’intégrité et les performances du groupe de ressources dans son ensemble. |
-| [Azure Monitor pour le stockage (préversion)](insights/storage-insights-overview.md) | Fournit une supervision complète de vos comptes de stockage Azure grâce à une vue unifiée des performances, des capacités et de la disponibilité de vos services de stockage Azure. |
-| [Azure Monitor pour machines virtuelles ](insights/container-insights-overview.md) | Supervise les machines virtuelles et groupes de machines virtuelles identiques à grande échelle. Il analyse les performances et l’intégrité des machines virtuelles Windows et Linux, et supervise leurs processus et dépendances vis-à-vis d’autres ressources et des processus externes. |
+| [Azure Monitor pour le stockage](insights/storage-insights-overview.md) | Fournit une supervision complète de vos comptes de stockage Azure grâce à une vue unifiée des performances, des capacités et de la disponibilité de vos services de stockage Azure. |
+| [Azure Monitor pour machines virtuelles](insights/container-insights-overview.md) | Supervise les machines virtuelles et groupes de machines virtuelles identiques à grande échelle. Il analyse les performances et l’intégrité des machines virtuelles Windows et Linux, et supervise leurs processus et dépendances vis-à-vis d’autres ressources et des processus externes. |
+| [Azure Monitor pour Key Vault (préversion)](insights/key-vaults-insights-overview.md) | Offre une analyse complète de vos coffres de clés en fournissant une vue unifiée des requêtes, des performances, des échecs et de la latence de Key Vault. |
+| [Azure Monitor pour Azure Cache pour Redis (préversion)](insights/redis-cache-insights-overview.md) |  Offre une vue unifiée et interactive des performances globales, des défaillances, de la capacité et de l’intégrité opérationnelle. |
+
 
 ### <a name="core-solutions"></a>Solutions principales
 
@@ -115,7 +118,7 @@ Le tableau suivant liste les services Azure et les données qu’ils collectent 
 |Intune | Non | Oui | Non |  |
 |IoT Central | Non | Non | Non |  |
 |IoT Hub | Oui | Oui | Non |  |
-|Key Vault | Oui | Oui | Non |  |
+|Key Vault | Oui | Oui | [Oui](insights/key-vaults-insights-overview.md) |  |
 |Kubernetes Service (AKS) | Non | Non | [Oui](insights/container-insights-overview.md)  |  |
 |Load Balancer | Oui | Oui | Non |  |
 |Logic Apps | Oui | Oui | Non |  |
@@ -139,7 +142,7 @@ Le tableau suivant liste les services Azure et les données qu’ils collectent 
 |Private Link | Non | Non | Non |  |
 |Project Spool Communication Platform | Non | Non | Non |  |
 |Red Hat OpenShift | Non | Non | Non |  |
-|Cache Redis | Oui | Oui | Non |  |
+|Cache Redis | Oui | Oui | [Oui](insights/redis-cache-insights-overview.md) | |
 |Graphe des ressources | Non | Non | Non |  |
 |Gestionnaire de ressources | Non | Non | Non |  |
 |Retail Search – by Bing | Non | Non | Non |  |

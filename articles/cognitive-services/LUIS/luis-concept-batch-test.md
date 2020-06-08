@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: e9ad7c52af20762633c710b39a64fbebf0cf6213
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5ebd9b05b2dea9e04d4c9745c13d692ea88fcb8
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218823"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680421"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Tests par lot avec 1000 énoncés dans le portail de LUIS
 
@@ -24,7 +24,7 @@ Les tests par lot valident votre version entraînée active afin de mesurer la p
 
 ## <a name="group-data-for-batch-test"></a>Regrouper les données pour le test par lot
 
-Il est important que les énoncés utilisés pour les tests par lot soient nouveaux pour LUIS. Si vous avez un jeu de données d’énoncés, divisez les énoncés en trois jeux : exemples d’énoncés ajoutés à une intention, énoncés reçus du point de terminaison publié et énoncés utilisés pour exécuter des tests par lot sur LUIS une fois qu’il a été entraîné. 
+Il est important que les énoncés utilisés pour les tests par lot soient nouveaux pour LUIS. Si vous avez un jeu de données d’énoncés, divisez les énoncés en trois jeux : exemples d’énoncés ajoutés à une intention, énoncés reçus du point de terminaison publié et énoncés utilisés pour exécuter des tests par lot sur LUIS une fois qu’il a été entraîné.
 
 ## <a name="a-data-set-of-utterances"></a>Un jeu de données d’énoncés
 
@@ -35,7 +35,7 @@ Envoyez un fichier d’énoncés, appelé *jeu de données*, pour les tests par 
 |*Aucun énoncé en double|
 |1000 énoncés ou moins|
 
-*Les doublons sont considérés comme des correspondances de chaînes exactes, et non comme des correspondances qui sont tokenizées en premier. 
+*Les doublons sont considérés comme des correspondances de chaînes exactes, et non comme des correspondances qui sont tokenizées en premier.
 
 ## <a name="entities-allowed-in-batch-tests"></a>Entités autorisées dans les tests de lots
 
@@ -46,7 +46,7 @@ Toutes les entités personnalisées de ce modèle s’affichent dans le filtre d
 
 ## <a name="batch-file-format"></a>Format de fichier de traitement par lot
 
-Le fichier de traitement par lot est constitué d’énoncés. Chaque énoncé doit avoir une prédiction d’intention attendue ainsi que toute [entité d’apprentissage automatique](luis-concept-entity-types.md#types-of-entities) censée être détectée. 
+Le fichier de traitement par lot est constitué d’énoncés. Chaque énoncé doit avoir une prédiction d’intention attendue ainsi que toute [entité de machine-learning](luis-concept-entity-types.md#types-of-entities) censée être détectée.
 
 ## <a name="batch-syntax-template-for-intents-with-entities"></a>Modèle de syntaxe de lot pour les intentions avec des entités
 
@@ -57,7 +57,7 @@ Utilisez le modèle suivant pour démarrer votre fichier de commandes :
   {
     "text": "example utterance goes here",
     "intent": "intent name goes here",
-    "entities": 
+    "entities":
     [
         {
             "entity": "entity name 1 goes here",
@@ -74,7 +74,7 @@ Utilisez le modèle suivant pour démarrer votre fichier de commandes :
 ]
 ```
 
-Le fichier de commandes utilise les propriétés **startPos** et **endPos** pour noter le début et la fin d’une entité. Les valeurs commencent à zéro ; elles ne doivent ni commencer ni se terminer par un espace. Les journaux d’activité de requêtes, eux, utilisent les propriétés startIndex et endIndex. 
+Le fichier de commandes utilise les propriétés **startPos** et **endPos** pour noter le début et la fin d’une entité. Les valeurs commencent à zéro ; elles ne doivent ni commencer ni se terminer par un espace. Les journaux d’activité de requêtes, eux, utilisent les propriétés startIndex et endIndex.
 
 [!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
@@ -97,7 +97,7 @@ Si vous ne souhaitez pas tester d’entités, incluez la propriété `entities` 
 
 ## <a name="common-errors-importing-a-batch"></a>Erreurs courantes d’importation de lot
 
-Les erreurs courantes sont les suivantes : 
+Les erreurs courantes sont les suivantes :
 
 > * Plus de 1000 énoncés
 > * Objet JSON d’énoncé n’ayant pas de propriété d’entités. La propriété peut être un tableau vide.
@@ -112,7 +112,7 @@ LUIS effectue le suivi de l’état du dernier test de chaque jeu de données. C
 
 ## <a name="batch-test-results"></a>Résultats du test par lot
 
-Le résultat du test par lot est un graphe à nuages de points, appelé matrice d’erreur. Ce graphe est une quadruple comparaison des énoncés dans le fichier de commandes et de l’intention et des entités prédits du modèle actuel. 
+Le résultat du test par lot est un graphe à nuages de points, appelé matrice d’erreur. Ce graphe est une quadruple comparaison des énoncés dans le fichier de commandes et de l’intention et des entités prédits du modèle actuel.
 
 Les points de données des sections **Faux positif** et **Faux négatif** indiquent des erreurs qui doivent être examinées. Si tous les points de données figurent dans les sections **Vrai positif** et **Vrai négatif**, la précision de votre application est parfaite sur ce jeu de données.
 
@@ -124,13 +124,13 @@ Ce graphique vous permet d’identifier les énoncés que LUIS prédit correctem
 
 ## <a name="errors-in-the-results"></a>Erreurs dans les résultats
 
-Les erreurs dans le test par lot indiquent des intentions qui ne sont pas prédites comme indiqué dans le fichier de traitement par lot. Les erreurs sont indiquées dans les deux sections en rouge du graphique. 
+Les erreurs dans le test par lot indiquent des intentions qui ne sont pas prédites comme indiqué dans le fichier de traitement par lot. Les erreurs sont indiquées dans les deux sections en rouge du graphique.
 
-La section Faux positif indique qu’un énoncé a été mis en correspondance avec une intention ou une entité alors qu’il n’aurait pas dû l’être. La section Faux négatif indique qu’un énoncé n’a pas été mis en correspondance avec une intention ou une entité alors qu’il aurait dû l’être. 
+La section Faux positif indique qu’un énoncé a été mis en correspondance avec une intention ou une entité alors qu’il n’aurait pas dû l’être. La section Faux négatif indique qu’un énoncé n’a pas été mis en correspondance avec une intention ou une entité alors qu’il aurait dû l’être.
 
 ## <a name="fixing-batch-errors"></a>Correction des erreurs de lot
 
-S’il existe des erreurs dans le test par lot, vous pouvez ajouter des énoncés à une intention et/ou étiqueter davantage d’énoncés avec l’entité afin d’aider LUIS à effectuer la distinction entre les intentions. Si vous avez ajouté des énoncés et que vous les avez étiquetés, mais que des erreurs se produisent encore dans le test par lot, essayez d’ajouter une fonctionnalité de [liste d’expressions](luis-concept-feature.md) avec un vocabulaire propre au domaine pour aider LUIS à apprendre plus rapidement. 
+S’il existe des erreurs dans le test par lot, vous pouvez ajouter des énoncés à une intention et/ou étiqueter davantage d’énoncés avec l’entité afin d’aider LUIS à effectuer la distinction entre les intentions. Si vous avez ajouté des énoncés et que vous les avez étiquetés, mais que des erreurs se produisent encore dans le test par lot, essayez d’ajouter une fonctionnalité de [liste d’expressions](luis-concept-feature.md) avec un vocabulaire propre au domaine pour aider LUIS à apprendre plus rapidement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

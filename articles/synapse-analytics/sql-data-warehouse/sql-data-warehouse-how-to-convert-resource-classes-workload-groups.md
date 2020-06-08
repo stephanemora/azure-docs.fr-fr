@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/19/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5d73ba8f21fe7731fb751d42a8497ff8e1ebba7d
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: f0cc0cd7233d0c16cae8389fcddd50a16cf96bd2
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383625"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683638"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Convertir les classes de ressources en groupes de charge de travail
 
@@ -38,7 +38,7 @@ SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant
 > [!NOTE]
 > Les groupes de charges de travail fonctionnent selon le pourcentage de ressources système globales.  
 
-Étant donné que les groupes de charges de travail fonctionnent selon le pourcentage de ressources système globales, à mesure que vous montez ou descendez en puissance, le pourcentage de ressources allouées aux classes de ressources statiques par rapport aux modifications globales des ressources système est modifié.  Par exemple, staticrc40 avec Dw1000c alloue 9,6 % des ressources système globales.  19,2 % sont alloués avec DW2000c.  Ce modèle est similaire que vous souhaitiez mettre à l’échelle à des fins concurrentielles ou allouer plus de ressources par requête.
+Étant donné que les groupes de charges de travail fonctionnent selon le pourcentage de ressources système globales, à mesure que vous montez ou descendez en puissance, le pourcentage de ressources allouées aux classes de ressources statiques par rapport aux modifications globales des ressources système est modifié.  Par exemple, staticrc40 avec DW1000c alloue 19,2 % des ressources système globales.  9,6 % sont alloués avec DW2000c.  Ce modèle est similaire que vous souhaitiez mettre à l’échelle à des fins concurrentielles ou allouer plus de ressources par requête.
 
 ## <a name="create-workload-group"></a>Créer le groupe de charge de travail
 

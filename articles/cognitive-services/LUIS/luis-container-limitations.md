@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: e50dd636c1bd9403d5eca2157e4e46772418f92c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 2061d69fdfd13683ee722951cc7aaedcb1e1750a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592897"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745369"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>Limitations des conteneurs Language Understanding (LUIS)
 
@@ -35,7 +35,7 @@ Vous pouvez utiliser une application LUIS si elle **n’inclut aucune** des dép
 
 Configurations d’application non prises en charge|Détails|
 |--|--|
-|Cultures de conteneur non prises en charge| Néerlandais (`nl-NL`)<br>Japonais (`ja-JP`)<br>L’allemand est uniquement pris en charge avec le [générateur de jetons 1.0.2](luis-language-support.md#custom-tokenizer-versions).|
+|Cultures de conteneur non prises en charge| Le néerlandais (`nl-NL`), le japonais (`ja-JP`) et l’allemand (`de-DE`) sont uniquement pris en charge avec le [générateur de jetons 1.0.2](luis-language-support.md#custom-tokenizer-versions).|
 |Entités non prises en charge pour toutes les cultures|Entité prédéfinie [KeyPhrase](luis-reference-prebuilt-keyphrase.md) pour toutes les cultures|
 |Entités non prises en charge pour la culture anglaise (`en-US`)|Entités prédéfinies [GeographyV2](luis-reference-prebuilt-geographyV2.md)|
 |Préparation vocale|Les dépendances externes ne sont pas prises en charge dans le conteneur.|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: aschhab
-ms.openlocfilehash: 9c1a0cb92fbaf98d25799ffb5a85e666e7c05f8c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6630d96c90a221a6b0374f2e4758748a77ad0610
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158897"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647831"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Vue d’ensemble des files d’attente de lettres mortes Service Bus
 
@@ -50,14 +50,13 @@ Comme le message est déplacé par le service broker, deux propriétés sont ajo
 
 Les applications peuvent définir leurs propres codes pour la propriété `DeadLetterReason`, mais le système définit les valeurs suivantes.
 
-| Condition | DeadLetterReason | DeadLetterErrorDescription |
-| --- | --- | --- |
-| Toujours |HeaderSizeExceeded |Le quota de taille pour ce flux a été dépassé. |
-| !TopicDescription.<br />EnableFilteringMessagesBeforePublishing et SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |exception.Message |
-| EnableDeadLetteringOnMessageExpiration |TTLExpiredException |Le message a expiré et a été placé dans la file d’attente de lettres mortes. |
-| SubscriptionDescription.RequiresSession |L’ID de session a la valeur Null. |L’entité activée dans la session n’autorise pas les messages dont l’identificateur de session a la valeur null. |
-| !dead letter queue | MaxTransferHopCountExceeded | Nombre maximal de sauts autorisés lors du transfert entre files d’attente. La valeur est définie sur 4. |
-| Mise en file d’attente de lettres mortes explicite par l’application |Spécifié par l’application |Spécifié par l’application |
+| DeadLetterReason | DeadLetterErrorDescription |
+| --- | --- |
+|HeaderSizeExceeded |Le quota de taille pour ce flux a été dépassé. |
+|TTLExpiredException |Le message a expiré et a été placé dans la file d’attente de lettres mortes. Pour plus d’informations, consultez la section [Dépassement de TimeToLive](#exceeding-timetolive). |
+|L’ID de session a la valeur Null. |L’entité activée dans la session n’autorise pas les messages dont l’identificateur de session a la valeur null. |
+|MaxTransferHopCountExceeded | Nombre maximal de sauts autorisés lors du transfert entre files d’attente. La valeur est définie sur 4. |
+| MaxDeliveryCountExceededExceptionMessage | Le message n’a pas pu être consommé après un nombre de tentatives de livraison maximal. Pour plus d’informations, consultez la section [Dépassement de MaxDeliveryCount](#exceeding-maxdeliverycount). |
 
 ## <a name="exceeding-maxdeliverycount"></a>Dépassement de MaxDeliveryCount
 

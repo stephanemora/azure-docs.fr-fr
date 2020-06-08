@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ccdd25d82af2b4893260af18dac818816d9e4579
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ddcd95356f9b70fec5a74f36f5b80e55ea56b477
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72791972"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744016"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Compétence cognitive Extraction de phrases clés
 
@@ -44,10 +44,17 @@ Les paramètres respectent la casse.
 
 ## <a name="skill-inputs"></a>Entrées de la compétence
 
-| Entrées     | Description |
+| Entrée  | Description |
 |--------------------|-------------|
 | text | Texte à analyser.|
 | languageCode  |  Chaîne indiquant la langue des enregistrements. Si ce paramètre n’est pas spécifié, le code de langue par défaut est utilisé pour l’analyse des enregistrements. <br/>Voir la [Liste complète des langues prises en charge](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages).|
+
+## <a name="skill-outputs"></a>Sorties de la compétence
+
+| Sortie  | Description |
+|--------------------|-------------|
+| keyPhrases | Liste des expressions clés extraites du texte d’entrée. Les expressions clés sont retournées par ordre d’importance. |
+
 
 ##  <a name="sample-definition"></a>Exemple de définition
 

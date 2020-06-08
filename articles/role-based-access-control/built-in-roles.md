@@ -1,6 +1,6 @@
 ---
-title: Rôles intégrés Azure pour Azure RBAC
-description: Cet article décrit les rôles intégrés Azure pour le contrôle d’accès en fonction du rôle (RBAC) Azure. Il dresse la liste des Actions, NotActions, DataActions et NotDataActions.
+title: Rôles intégrés à Azure - Azure RBAC
+description: Cet article décrit les rôles intégrés à Azure pour le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Il dresse la liste des Actions, NotActions, DataActions et NotDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,26 +11,26 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 03/22/2020
+ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 2fe3b94463da07304f2c853910ac5d2a6771d070
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 0a574ba281a037a06ddda1981ae6fa35b905bca1
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545638"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683650"
 ---
 # <a name="azure-built-in-roles"></a>Rôles intégrés Azure
 
-Le [contrôle d’accès en fonction du rôle (RBAC) Azure](overview.md) a plusieurs rôles intégrés Azure que vous pouvez affecter aux utilisateurs, groupes, principaux de service et identités managées. Les attributions de rôles vous permettent de contrôler l’accès aux ressources Azure. Si les rôles intégrés ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres [rôles personnalisés Azure](custom-roles.md).
+[Le contrôle d’accès en fonction du rôle (RBAC) Azure](overview.md) a plusieurs rôles intégrés Azure que vous pouvez affecter aux utilisateurs, groupes, principaux de service et identités managées. Les attributions de rôles vous permettent de contrôler l’accès aux ressources Azure. Si les rôles intégrés ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres [rôles personnalisés Azure](custom-roles.md).
 
-Cet article répertorie les rôles intégrés pour les ressources Azure, qui sont en constante évolution. Pour obtenir les derniers rôles, utilisez la commande [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou [az role definition list](/cli/azure/role/definition#az-role-definition-list). Si vous recherchez des rôles d’administrateur pour Azure Active Directory (Azure AD), consultez [Autorisations de rôles d’administrateur dans Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Cet article répertorie les rôles intégrés à Azure, qui sont en constante évolution. Pour obtenir les derniers rôles, utilisez la commande [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou [az role definition list](/cli/azure/role/definition#az-role-definition-list). Si vous recherchez des rôles d’administrateur pour Azure Active Directory (Azure AD), consultez [Autorisations de rôles d’administrateur dans Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ## <a name="all"></a>Tous
 
-Le tableau ci-après fournit une brève description et l'ID unique de chaque rôle intégré. Sélectionnez le nom d’un rôle pour voir la liste des `Actions`, `NotActions`, `DataActions` et `NotDataActions` concernant ce rôle. Pour plus d’informations sur la signification de ces actions et la manière dont elles s'appliquent en termes de gestion et de données, consultez [Comprendre les définitions de rôle relatives aux ressources Azure](role-definitions.md).
+Le tableau ci-après fournit une brève description et l'ID unique de chaque rôle intégré. Sélectionnez le nom d’un rôle pour voir la liste des `Actions`, `NotActions`, `DataActions` et `NotDataActions` concernant ce rôle. Pour obtenir des informations sur la signification de ces actions et la manière dont elles s’appliquent en termes de gestion et de données, consultez [Comprendre les définitions de rôle Azure](role-definitions.md).
 
 
 > [!div class="mx-tableFixed"]
@@ -81,7 +81,7 @@ Le tableau ci-après fournit une brève description et l'ID unique de chaque rô
 > | [Expéditeur de messages de données en file d’attente du stockage](#storage-queue-data-message-sender) | Ajoutez des messages à une file d’attente de stockage Azure. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [Autorisations pour appeler les opérations de données d’objet blob et de file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | [Lecteur des données en file d’attente du stockage](#storage-queue-data-reader) | Lire et répertorier des files d’attente et messages en file d’attente du stockage Azure. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [Autorisations pour appeler les opérations de données d’objet blob et de file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Web** |  |  |
-> | [Lecteur de données Azure Maps (préversion)](#azure-maps-data-reader-preview) | Octroie un accès pour lire les données liées au mappage à partir d’un compte Azure Maps. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
+> | [Lecteur de données Azure Maps](#azure-maps-data-reader) | Octroie un accès pour lire les données liées au mappage à partir d’un compte Azure Maps. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
 > | [Contributeur du service de recherche](#search-service-contributor) | Permet de gérer des services de recherche, mais pas d’y accéder. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 > | [Contributeur de plan web](#web-plan-contributor) | Permet de gérer des plans web pour des sites web, mais pas d’y accéder. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [Contributeur de site web](#website-contributor) | Permet de gérer des sites web (pas des plans web), mais pas d’y accéder. | de139f84-1756-47ae-9be6-808fbbe84772 |
@@ -147,16 +147,16 @@ Le tableau ci-après fournit une brève description et l'ID unique de chaque rô
 > | [Lecteur Azure Sentinel](#azure-sentinel-reader) | Lecteur Azure Sentinel | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
 > | [Répondeur Azure Sentinel](#azure-sentinel-responder) | Répondeur Azure Sentinel | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
 > | [Contributeur Key Vault](#key-vault-contributor) | Permet de gérer des coffres de clés, mais pas d’y accéder. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
-> | [Administrateur de la sécurité](#security-admin) | peut afficher les stratégies de sécurité, les états de sécurité, les alertes et les recommandations, modifier les stratégies de sécurité et ignorer les alertes et les recommandations. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
+> | [Administrateur de la sécurité](#security-admin) | Autorisations d’affichage et de mise à jour pour Security Center. Dispose des mêmes autorisations que le rôle Lecteur de sécurité et peut également modifier la stratégie de sécurité et ignorer les alertes et les recommandations. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | [Contributeur d'évaluation de la sécurité](#security-assessment-contributor) | Vous permet d’envoyer (push) les évaluations à Security Center | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
 > | [Gestionnaire de sécurité (hérité)](#security-manager-legacy) | Il s’agit d’un rôle hérité. Utilisez plutôt l’administrateur de sécurité. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
-> | [Lecteur de sécurité](#security-reader) | Peut afficher les recommandations et les alertes, afficher les stratégies de sécurité, afficher les états de la sécurité, mais ne peut pas apporter de modifications. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
+> | [Lecteur de sécurité](#security-reader) | Autorisations d’affichage pour Security Center. Peut afficher les recommandations, les alertes, une stratégie de sécurité et les états de sécurité, mais ne peut pas apporter de modifications. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **DevOps** |  |  |
 > | [Utilisateur de DevTest Labs](#devtest-labs-user) | Permet de connecter, de démarrer, de redémarrer et d’arrêter vos machines virtuelles dans votre Azure DevTest Labs. | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | [Créateur Lab](#lab-creator) | Permet de créer, de gérer et de supprimer des labs gérés dans vos comptes Azure Lab. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
 > | **Surveiller** |  |  |
 > | [Contributeur de composants Application Insights](#application-insights-component-contributor) | Gérer les composants Application Insights | ae349356-3a1b-4a5e-921d-050484c6347e |
-> | [Débogueur de capture instantanée d’Application Insights](#application-insights-snapshot-debugger) | Autorise l’utilisateur à consulter et à télécharger les instantanés de débogage collectés à l’aide du débogueur de capture instantanée Application Insights. Ces autorisations ne sont pas incluses dans les rôles [Propriétaire](#owner) et [Contributeur](#contributor). | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
+> | [Débogueur de capture instantanée d’Application Insights](#application-insights-snapshot-debugger) | Autorise l’utilisateur à consulter et à télécharger les instantanés de débogage collectés à l’aide du débogueur de capture instantanée Application Insights. Ces autorisations ne sont pas incluses dans les rôles [Propriétaire](#owner) et [Contributeur](#contributor). Lorsque vous donnez aux utilisateurs le rôle Débogueur de capture instantanée Application Insights, vous devez leur accorder directement le rôle. Le rôle n’est pas reconnu lorsqu’il est ajouté à un rôle personnalisé. | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
 > | [Contributeur de surveillance](#monitoring-contributor) | Peut lire toutes les données de surveillance et modifier les paramètres de surveillance. Consultez aussi [Bien démarrer avec les rôles, les autorisations et la sécurité dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | [Publication des métriques de surveillance](#monitoring-metrics-publisher) | Permet de publier les métriques relatives aux ressources Azure | 3913510d-42f4-4e42-8a64-420c390055eb |
 > | [Lecteur de surveillance](#monitoring-reader) | Peut lire toutes les données de supervision (métriques, journaux d’activité, etc.) Consultez aussi [Bien démarrer avec les rôles, les autorisations et la sécurité dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
@@ -173,6 +173,7 @@ Le tableau ci-après fournit une brève description et l'ID unique de chaque rô
 > | [Opérateur blueprint](#blueprint-operator) | Peut affecter des blueprints publiés existants, mais ne peut pas en créer de nouveaux. Notez que cela fonctionne uniquement si l’affectation est effectuée avec une identité managée affectée par l’utilisateur. | 437d2ced-4a38-4302-8479-ed2bcb43d090 |
 > | [Contributeur Cost Management](#cost-management-contributor) | Peut afficher les coûts et gérer la configuration des coûts (par exemple, budgets, exportations) | 434105ed-43f6-45c7-a02f-909b2ba83430 |
 > | [Lecteur Cost Management](#cost-management-reader) | Peut afficher les données et la configuration des coûts (par exemple, budgets, exportations) | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
+> | [Administration des paramètres de hiérarchie](#hierarchy-settings-administrator) | Permet aux utilisateurs de modifier et de supprimer des paramètres de hiérarchie | 350f8d15-c687-4448-8ae1-157740a3936d |
 > | [Rôle Contributeur d'application managée](#managed-application-contributor-role) | Permet de créer des ressources d’application managées. | 641177b8-a67a-45b9-a033-47bc880bb21e |
 > | [Rôle opérateur d’application managée](#managed-application-operator-role) | Permet de lire les ressources d’application managée et d’effectuer des actions sur ces ressources. | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | [Lecteur Applications managées](#managed-applications-reader) | Vous permet de lire les ressources dans une application managée et de demander un accès JIT. | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
@@ -335,7 +336,7 @@ Vous permet de gérer l'accès utilisateur aux ressources Azure.
 > | **Actions** |  |
 > | */read | Lire les ressources de tous les types, à l’exception des secrets. |
 > | Microsoft.Authorization/* | Gérer les autorisations |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -392,11 +393,11 @@ Permet de gérer des machines virtuelles classiques, mais pas d’y accéder, ni
 > | Microsoft.ClassicStorage/storageAccounts/images/read | Retourne l’image du compte de stockage. (Déconseillé. Utilisez « Microsoft.ClassicStorage/storageAccounts/vmImages ») |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Répertorie les clés d’accès des comptes de stockage. |
 > | Microsoft.ClassicStorage/storageAccounts/read | Retourne le compte de stockage avec le compte spécifique. |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -513,7 +514,7 @@ Permet de gérer des machines virtuelles, mais pas d’y accéder, ni au réseau
 > | Microsoft.Compute/disks/read | Obtenir les propriétés d’un disque |
 > | Microsoft.Compute/disks/delete | Supprimer le disque |
 > | Microsoft.DevTestLab/schedules/* |  |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Joint un pool d’adresses principales de passerelle d’application. Impossible à alerter. |
 > | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joint un pool d’adresses principales d’équilibrage de charge. Impossible à alerter. |
 > | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Joint un pool NAT entrant d’équilibrage de charge. Impossible à alerter. |
@@ -539,12 +540,12 @@ Permet de gérer des machines virtuelles, mais pas d’y accéder, ni au réseau
 > | Microsoft.RecoveryServices/Vaults/usages/read | Renvoie des détails d’utilisation d’un coffre Recovery Services. |
 > | Microsoft.RecoveryServices/Vaults/write | L’opération de création de coffre entraîne la création d’une ressource Azure de type « coffre ». |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.SqlVirtualMachine/* |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Retourne les clés d’accès au compte de stockage spécifié. |
 > | Microsoft.Storage/storageAccounts/read | Retourne la liste des comptes de stockage ou récupère les propriétés du compte de stockage spécifié. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -681,10 +682,10 @@ Peut gérer les points de terminaison CDN, mais ne peut pas accorder l’accès 
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
 > | Microsoft.Cdn/profiles/endpoints/* |  |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -735,10 +736,10 @@ Peut afficher des points de terminaison CDN, mais ne peut pas effectuer de modif
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
 > | Microsoft.Cdn/profiles/endpoints/*/read |  |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -789,10 +790,10 @@ Peut gérer des profils CDN et leurs points de terminaison, mais ne peut pas acc
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
 > | Microsoft.Cdn/profiles/* |  |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -843,10 +844,10 @@ Peut afficher des profils CDN et leurs points de terminaison, mais ne peut pas y
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
 > | Microsoft.Cdn/profiles/*/read |  |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -895,11 +896,11 @@ Permet de gérer des réseaux classiques, mais pas d’y accéder.
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
 > | Microsoft.ClassicNetwork/* | Créer et gérer des réseaux classiques |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -946,12 +947,12 @@ Permet de gérer des zones DNS et des jeux d’enregistrements dans Azure DNS, m
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.Network/dnsZones/* | Créer et gérer des enregistrements et zones DNS |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -998,12 +999,12 @@ Permet de gérer des réseaux, mais pas d’y accéder.
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.Network/* | Créer et gérer des réseaux |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -1050,12 +1051,12 @@ Permet de gérer des profils Traffic Manager, mais pas de contrôler qui y a acc
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.Network/trafficManagerProfiles/* |  |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -1116,12 +1117,12 @@ Peut créer et gérer un cluster Avere vFXT.
 > | Microsoft.Network/virtualNetworks/subnets/join/action | Joint un réseau virtuel. Impossible à alerter. |
 > | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joint des ressources telles qu’un compte de stockage ou une base de données SQL à un sous-réseau. Impossible à alerter. |
 > | Microsoft.Network/networkSecurityGroups/join/action | Joint un groupe de sécurité réseau. Impossible à alerter. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Storage/*/read |  |
 > | Microsoft.Storage/storageAccounts/* | Créer et gérer les comptes de stockage |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | Microsoft.Resources/subscriptions/resourceGroups/resources/read | Obtient les ressources du groupe de ressources. |
 > | **NotActions** |  |
 > | *Aucune* |  |
@@ -1274,7 +1275,7 @@ Permet de gérer le service de sauvegarde, mais pas de créer des coffres, ni d�
 > | Microsoft.RecoveryServices/Vaults/read | L’opération d’obtention de coffre obtient un objet représentant la ressource Azure de type « coffre ». |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Créer et gérer les identités inscrites |
 > | Microsoft.RecoveryServices/Vaults/usages/* | Créer et gérer l’utilisation du coffre Recovery Services |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Storage/storageAccounts/read | Retourne la liste des comptes de stockage ou récupère les propriétés du compte de stockage spécifié. |
 > | Microsoft.RecoveryServices/Vaults/backupstorageconfig/* |  |
@@ -1292,7 +1293,7 @@ Permet de gérer le service de sauvegarde, mais pas de créer des coffres, ni d�
 > | Microsoft.RecoveryServices/operations/read | Retourne la liste d’opérations pour un fournisseur de ressources |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtient l’état de l’opération pour une opération donnée. |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Répertorier tous les intentions de protection de sauvegarde |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -1406,7 +1407,7 @@ Permet de gérer des services de sauvegarde, à l’exception de la suppression 
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | L’opération d’obtention de conteneurs peut être utilisée pour obtenir les conteneurs inscrits pour une ressource. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/write | L’opération d’inscription d’un conteneur de service peut être utilisée pour inscrire un conteneur avec Recovery Services. |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Renvoie des détails d’utilisation d’un coffre Recovery Services. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Storage/storageAccounts/read | Retourne la liste des comptes de stockage ou récupère les propriétés du compte de stockage spécifié. |
 > | Microsoft.RecoveryServices/Vaults/backupstorageconfig/* |  |
@@ -1427,7 +1428,7 @@ Permet de gérer des services de sauvegarde, à l’exception de la suppression 
 > | Microsoft.RecoveryServices/operations/read | Retourne la liste d’opérations pour un fournisseur de ressources |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtient l’état de l’opération pour une opération donnée. |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Répertorier tous les intentions de protection de sauvegarde |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -1638,11 +1639,11 @@ Permet de gérer des comptes de stockage classiques, mais pas d’y accéder.
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
 > | Microsoft.ClassicStorage/storageAccounts/* | Créer et gérer les comptes de stockage |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -1732,9 +1733,9 @@ Permet de gérer toutes les opérations sous le service Data Box à l’exceptio
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | Microsoft.Databox/* |  |
 > | **NotActions** |  |
 > | *Aucune* |  |
@@ -1789,7 +1790,7 @@ Permet de gérer le service Data Box, mais ne permet pas de créer une commande,
 > | Microsoft.Databox/locations/regionConfiguration/action | Cette méthode retourne les configurations pour la région. |
 > | Microsoft.Databox/locations/validateAddress/action | Valider l'adresse de livraison et fournir d'autres adresses s’il en est |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -1841,11 +1842,11 @@ Permet d’envoyer, de surveiller et de gérer vos propres travaux, mais pas de 
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
 > | Microsoft.BigAnalytics/accounts/* |  |
 > | Microsoft.DataLakeAnalytics/accounts/* |  |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | Microsoft.BigAnalytics/accounts/Delete |  |
 > | Microsoft.BigAnalytics/accounts/TakeOwnership/action |  |
@@ -1965,14 +1966,14 @@ Permet la gestion des comptes de stockage. Fournit l’accès à la clé de comp
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.Insights/diagnosticSettings/* | Crée, met à jour ou lit le paramètre de diagnostic pour Analysis Server. |
 > | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joint des ressources telles qu’un compte de stockage ou une base de données SQL à un sous-réseau. Impossible à alerter. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Storage/storageAccounts/* | Créer et gérer les comptes de stockage |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -2071,6 +2072,7 @@ Lire, écrire et supprimer des conteneurs et objets blob du stockage Azure. Pour
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Supprimer un objet blob. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Retourner un objet blob ou une liste d'objets blob. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action | Déplace l'objet blob d'un chemin à un autre |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Écrire dans un objet blob. |
 > | **NotDataActions** |  |
 > | *Aucune* |  |
@@ -2095,6 +2097,7 @@ Lire, écrire et supprimer des conteneurs et objets blob du stockage Azure. Pour
       "dataActions": [
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
       ],
       "notDataActions": []
@@ -2541,7 +2544,7 @@ Lire et répertorier des files d’attente et messages en file d’attente du st
 ## <a name="web"></a>Web
 
 
-### <a name="azure-maps-data-reader-preview"></a>Lecteur de données Azure Maps (préversion)
+### <a name="azure-maps-data-reader"></a>Lecteur de données Azure Maps
 
 Octroie un accès pour lire les données liées au mappage à partir d’un compte Azure Maps.
 
@@ -2553,7 +2556,7 @@ Octroie un accès pour lire les données liées au mappage à partir d’un comp
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
-> | Microsoft.Maps/accounts/data/read | Accorde à un compte Maps l’accès en lecture aux données. |
+> | Microsoft.Maps/accounts/*/read |  |
 > | **NotDataActions** |  |
 > | *Aucune* |  |
 
@@ -2570,12 +2573,12 @@ Octroie un accès pour lire les données liées au mappage à partir d’un comp
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.Maps/accounts/data/read"
+        "Microsoft.Maps/accounts/*/read"
       ],
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Maps Data Reader (Preview)",
+  "roleName": "Azure Maps Data Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -2590,12 +2593,12 @@ Permet de gérer des services de recherche, mais pas d’y accéder.
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Search/searchServices/* | Créer et gérer les services de recherche |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -2642,11 +2645,11 @@ Permet de gérer des plans web pour des sites web, mais pas d’y accéder.
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | Microsoft.Web/serverFarms/* | Créer et gérer des batteries de serveurs |
 > | Microsoft.Web/hostingEnvironments/Join/Action | Joint un environnement App Service Environment |
 > | **NotActions** |  |
@@ -2696,12 +2699,12 @@ Permet de gérer des sites web (pas des plans web), mais pas d’y accéder.
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.Insights/components/* | Créer et gérer les composants Insights |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | Microsoft.Web/certificates/* | Créer et gérer les certificats de site web |
 > | Microsoft.Web/listSitesAssignedToHostName/read | Récupère les noms de sites affectés à un nom d’hôte. |
 > | Microsoft.Web/serverFarms/join/action |  |
@@ -3095,7 +3098,7 @@ Lire les données de comptes Azure Cosmos DB. Consultez [Contributeur de compte 
 > | Microsoft.Insights/MetricDefinitions/read | Lire les définitions des mesures |
 > | Microsoft.Insights/Metrics/read | Lire des mesures |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -3142,12 +3145,12 @@ Permet de gérer des comptes Azure Cosmos DB, mais pas d’accéder aux données
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.DocumentDb/databaseAccounts/* |  |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joint des ressources telles qu’un compte de stockage ou une base de données SQL à un sous-réseau. Impossible à alerter. |
 > | **NotActions** |  |
 > | Microsoft.DocumentDB/databaseAccounts/readonlyKeys/* |  |
@@ -3247,11 +3250,11 @@ Gérer des comptes Azure Cosmos DB. Azure Cosmos DB était auparavant appelé Do
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
 > | Microsoft.DocumentDb/databaseAccounts/* | Créer et gérer des comptes Azure Cosmos DB |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joint des ressources telles qu’un compte de stockage ou une base de données SQL à un sous-réseau. Impossible à alerter. |
 > | **NotActions** |  |
 > | *Aucune* |  |
@@ -3301,11 +3304,11 @@ Permet de gérer des caches Redis, mais pas d’y accéder.
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
 > | Microsoft.Cache/redis/* | Créer et gérer les caches Redis |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -3352,14 +3355,14 @@ Permet de gérer des bases de données SQL, mais pas d’y accéder. Vous ne pou
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Sql/locations/*/read |  |
 > | Microsoft.Sql/servers/databases/* | Créer et gérer les bases de données SQL |
 > | Microsoft.Sql/servers/read | Retourner la liste des serveurs ou obtenir les propriétés pour le serveur spécifié. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | Microsoft.Insights/metrics/read | Lire des mesures |
 > | Microsoft.Insights/metricDefinitions/read | Lire les définitions des mesures |
 > | **NotActions** |  |
@@ -3460,17 +3463,17 @@ Permet de gérer des instances SQL Managed Instance et la configuration réseau 
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Network/networkSecurityGroups/* |  |
 > | Microsoft.Network/routeTables/* |  |
 > | Microsoft.Sql/locations/*/read |  |
 > | Microsoft.Sql/managedInstances/* |  |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | Microsoft.Network/virtualNetworks/subnets/* |  |
 > | Microsoft.Network/virtualNetworks/* |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.Insights/metrics/read | Lire des mesures |
 > | Microsoft.Insights/metricDefinitions/read | Lire les définitions des mesures |
 > | **NotActions** |  |
@@ -3526,10 +3529,10 @@ Permet de gérer les stratégies de sécurité des serveurs et bases de données
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joint des ressources telles qu’un compte de stockage ou une base de données SQL à un sous-réseau. Impossible à alerter. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/* |  |
 > | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/* |  |
@@ -3567,7 +3570,7 @@ Permet de gérer les stratégies de sécurité des serveurs et bases de données
 > | Microsoft.Sql/servers/read | Retourner la liste des serveurs ou obtenir les propriétés pour le serveur spécifié. |
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Créer et gérer les stratégies d’alerte de sécurité de serveur SQL |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -3650,13 +3653,13 @@ Permet de gérer des serveurs et bases de données SQL, mais pas d’y accéder,
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Sql/locations/*/read |  |
 > | Microsoft.Sql/servers/* | Créer et gérer les serveurs SQL |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | Microsoft.Insights/metrics/read | Lire des mesures |
 > | Microsoft.Insights/metricDefinitions/read | Lire les définitions des mesures |
 > | **NotActions** |  |
@@ -3895,11 +3898,11 @@ Créer et gérer des fabriques de données, ainsi que les ressources enfants qu�
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
 > | Microsoft.DataFactory/dataFactories/* | Créer et gérer des fabriques de données ainsi que leurs ressources enfants |
 > | Microsoft.DataFactory/factories/* | Créer et gérer des fabriques de données ainsi que leurs ressources enfants |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | Microsoft.EventGrid/eventSubscriptions/write | Créer ou mettre à jour un abonnement à un événement |
 > | **NotActions** |  |
 > | *Aucune* |  |
@@ -4000,9 +4003,9 @@ Permet de lire et de modifier des configurations de cluster HDInsight.
 > | Microsoft.HDInsight/clusters/configurations/* |  |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Resources/deployments/operations/read | Obtient ou répertorie les opérations de déploiement. |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -4099,14 +4102,15 @@ Peut lire toutes les données de surveillance et modifier les paramètres de sur
 > | Microsoft.ClassicCompute/virtualMachines/extensions/* |  |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Répertorie les clés d’accès des comptes de stockage. |
 > | Microsoft.Compute/virtualMachines/extensions/* |  |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.HybridCompute/machines/extensions/write | Installe ou met à jour toutes les extensions Azure Arc |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.Insights/diagnosticSettings/* | Crée, met à jour ou lit le paramètre de diagnostic pour Analysis Server. |
 > | Microsoft.OperationalInsights/* |  |
 > | Microsoft.OperationsManagement/* |  |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Retourne les clés d’accès au compte de stockage spécifié. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -4130,6 +4134,7 @@ Peut lire toutes les données de surveillance et modifier les paramètres de sur
         "Microsoft.ClassicCompute/virtualMachines/extensions/*",
         "Microsoft.ClassicStorage/storageAccounts/listKeys/action",
         "Microsoft.Compute/virtualMachines/extensions/*",
+        "Microsoft.HybridCompute/machines/extensions/write",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Insights/diagnosticSettings/*",
         "Microsoft.OperationalInsights/*",
@@ -4161,7 +4166,7 @@ Peut afficher et rechercher toutes les données de surveillance, ainsi qu’affi
 > | */read | Lire les ressources de tous les types, à l’exception des secrets. |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Effectue les recherches à l’aide d’un nouveau moteur. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Exécute une requête de recherche. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Récupère les clés partagées de l’espace de travail. Ces clés sont utilisées pour connecter les agents Microsoft Operational Insights à l’espace de travail. |
 > | **DataActions** |  |
@@ -4258,19 +4263,19 @@ Vous permet de créer, lire, mettre à jour, supprimer et gérer les clés de Co
 > | Microsoft.CognitiveServices/* |  |
 > | Microsoft.Features/features/read | Afficher les fonctionnalités d’un abonnement |
 > | Microsoft.Features/providers/features/read | Afficher les fonctionnalités d’un abonnement pour un fournisseur de ressources donné |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.Insights/diagnosticSettings/* | Crée, met à jour ou lit le paramètre de diagnostic pour Analysis Server. |
 > | Microsoft.Insights/logDefinitions/read | Lire les définitions de journal |
 > | Microsoft.Insights/metricdefinitions/read | Lire les définitions des mesures |
 > | Microsoft.Insights/metrics/read | Lire des mesures |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/deployments/operations/read | Obtient ou répertorie les opérations de déploiement. |
 > | Microsoft.Resources/subscriptions/operationresults/read | Obtenir les résultats de l’opération de l’abonnement. |
 > | Microsoft.Resources/subscriptions/read | Obtient la liste des abonnements. |
 > | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -4378,7 +4383,7 @@ Vous permet de lire et de répertorier les clés de Cognitive Services.
 > | Microsoft.Resources/subscriptions/operationresults/read | Obtenir les résultats de l’opération de l’abonnement. |
 > | Microsoft.Resources/subscriptions/read | Obtient la liste des abonnements. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -4588,11 +4593,11 @@ Peut gérer le service et les API
 > | **Actions** |  |
 > | Microsoft.ApiManagement/service/* | Créer et gérer le service Gestion des API |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -4648,11 +4653,11 @@ Peut gérer le service, mais pas les API
 > | Microsoft.ApiManagement/service/updatehostname/action | Configurer, mettre à jour ou supprimer des noms de domaine personnalisés pour un service Gestion des API |
 > | Microsoft.ApiManagement/service/write | Créer ou mettre à jour une instance du service Gestion des API |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Obtenir les clés associées à un utilisateur |
 > | **DataActions** |  |
@@ -4711,11 +4716,11 @@ Accès en lecture seule au service et aux API
 > | Microsoft.ApiManagement/service/*/read | Lire les instances du service Gestion des API |
 > | Microsoft.ApiManagement/service/read | Lire les métadonnées d’une instance du service Gestion des API |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Obtenir les clés associées à un utilisateur |
 > | **DataActions** |  |
@@ -5031,10 +5036,10 @@ Vous permet de gérer les opérations d’abonnement aux événements EventGrid.
 > | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | Lister les abonnements à des événements globaux par type de rubrique |
 > | Microsoft.EventGrid/locations/eventSubscriptions/read | Lister les abonnements à des événements régionaux |
 > | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | Lister des abonnements à des événements régionaux par type de rubrique |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -5133,12 +5138,12 @@ Permet de gérer des comptes Intelligent Systems, mais pas d’y accéder.
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.IntelligentSystems/accounts/* | Créer et gérer les comptes Intelligent Systems |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -5187,18 +5192,18 @@ Permet de gérer des applications logiques, mais pas d’en modifier l’accès.
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Répertorie les clés d’accès des comptes de stockage. |
 > | Microsoft.ClassicStorage/storageAccounts/read | Retourne le compte de stockage avec le compte spécifique. |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.Insights/metricAlerts/* |  |
 > | Microsoft.Insights/diagnosticSettings/* | Crée, met à jour ou lit le paramètre de diagnostic pour Analysis Server. |
 > | Microsoft.Insights/logdefinitions/* | Cette autorisation est nécessaire pour les utilisateurs qui doivent accéder aux journaux d’activité via le portail. Répertorier les catégories de journaux dans le journal d’activité. |
 > | Microsoft.Insights/metricDefinitions/* | Lire des définitions de mesure (liste de types de mesure disponibles pour une ressource). |
 > | Microsoft.Logic/* | Gère les ressources Logic Apps. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/operationresults/read | Obtenir les résultats de l’opération de l’abonnement. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Storage/storageAccounts/listkeys/action | Retourne les clés d’accès au compte de stockage spécifié. |
 > | Microsoft.Storage/storageAccounts/read | Retourne la liste des comptes de stockage ou récupère les propriétés du compte de stockage spécifié. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | Microsoft.Web/connectionGateways/* | Crée et gère une passerelle de connexion. |
 > | Microsoft.Web/connections/* | Crée et gère une connexion. |
 > | Microsoft.Web/customApis/* | Crée et gère une API personnalisée. |
@@ -5276,7 +5281,7 @@ Permet de lire, d’activer et de désactiver des applications logiques, mais pa
 > | Microsoft.Resources/deployments/operations/read | Obtient ou répertorie les opérations de déploiement. |
 > | Microsoft.Resources/subscriptions/operationresults/read | Obtenir les résultats de l’opération de l’abonnement. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | Microsoft.Web/connectionGateways/*/read | Lit les passerelles de connexion. |
 > | Microsoft.Web/connections/*/read | Lit les connexions. |
 > | Microsoft.Web/customApis/*/read | Lit l’API personnalisée. |
@@ -5343,10 +5348,10 @@ Peut créer, lire, mettre à jour et supprimer une identité attribuée à l’u
 > | Microsoft.ManagedIdentity/userAssignedIdentities/write | Crée une identité assignée d’utilisateur ou met à jour les balises associées à l’identité assignée d’un utilisateur existant |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/delete | Supprime l’identité assignée d’un utilisateur existant |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -5396,10 +5401,10 @@ Peut lire et assigner une identité attribuée à l’utilisateur.
 > | Microsoft.ManagedIdentity/userAssignedIdentities/*/read |  |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -5458,10 +5463,10 @@ Contributeur Azure Sentinel
 > | Microsoft.OperationalInsights/workspaces/dataSources/read | Obtenir des sources de données sous un espace de travail. |
 > | Microsoft.Insights/workbooks/* |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -5515,6 +5520,7 @@ Lecteur Azure Sentinel
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.SecurityInsights/*/read |  |
+> | Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action | Vérifier l’autorisation et la licence de l’utilisateur |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Effectue les recherches à l’aide d’un nouveau moteur. |
 > | Microsoft.OperationalInsights/workspaces/*/read | Afficher les données Log Analytics |
 > | Microsoft.OperationalInsights/workspaces/LinkedServices/read | Obtient les services liés sous un espace de travail spécifié. |
@@ -5525,10 +5531,10 @@ Lecteur Azure Sentinel
 > | Microsoft.OperationalInsights/workspaces/dataSources/read | Obtenir des sources de données sous un espace de travail. |
 > | Microsoft.Insights/workbooks/read | Lire un classeur |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -5548,6 +5554,7 @@ Lecteur Azure Sentinel
     {
       "actions": [
         "Microsoft.SecurityInsights/*/read",
+        "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
         "Microsoft.OperationalInsights/workspaces/*/read",
         "Microsoft.OperationalInsights/workspaces/LinkedServices/read",
@@ -5583,6 +5590,7 @@ Répondeur Azure Sentinel
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.SecurityInsights/*/read |  |
+> | Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action | Vérifier l’autorisation et la licence de l’utilisateur |
 > | Microsoft.SecurityInsights/cases/* |  |
 > | Microsoft.SecurityInsights/incidents/* |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Effectue les recherches à l’aide d’un nouveau moteur. |
@@ -5595,10 +5603,10 @@ Répondeur Azure Sentinel
 > | Microsoft.OperationalInsights/workspaces/dataSources/read | Obtenir des sources de données sous un espace de travail. |
 > | Microsoft.Insights/workbooks/read | Lire un classeur |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -5618,6 +5626,7 @@ Répondeur Azure Sentinel
     {
       "actions": [
         "Microsoft.SecurityInsights/*/read",
+        "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
         "Microsoft.SecurityInsights/cases/*",
         "Microsoft.SecurityInsights/incidents/*",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
@@ -5655,11 +5664,11 @@ Permet de gérer des coffres de clés, mais pas d’y accéder.
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.KeyVault/* |  |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | Microsoft.KeyVault/locations/deletedVaults/purge/action | Vider un coffre Key Vault supprimé de manière réversible |
 > | Microsoft.KeyVault/hsmPools/* |  |
@@ -5702,7 +5711,7 @@ Permet de gérer des coffres de clés, mais pas d’y accéder.
 
 ### <a name="security-admin"></a>Administrateur de la sécurité
 
-peut afficher les stratégies de sécurité, les états de sécurité, les alertes et les recommandations, modifier les stratégies de sécurité et ignorer les alertes et les recommandations.
+Autorisations d’affichage et de mise à jour pour Security Center. Dispose des mêmes autorisations que le rôle Lecteur de sécurité et peut également modifier la stratégie de sécurité et ignorer les alertes et les recommandations.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -5712,13 +5721,13 @@ peut afficher les stratégies de sécurité, les états de sécurité, les alert
 > | Microsoft.Authorization/policyAssignments/* | Créer et gérer des attributions de stratégies |
 > | Microsoft.Authorization/policyDefinitions/* | Créer et gérer des définitions de stratégies |
 > | Microsoft.Authorization/policySetDefinitions/* | Créer et gérer des ensembles de stratégies |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.Management/managementGroups/read | Répertorie les groupes d’administration de l’utilisateur authentifié. |
 > | Microsoft.operationalInsights/workspaces/*/read | Afficher les données Log Analytics |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Security/* | Créer et gérer des stratégies et des composants de sécurité |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -5812,12 +5821,12 @@ Il s’agit d’un rôle hérité. Utilisez plutôt l’administrateur de sécur
 > | Microsoft.ClassicCompute/*/read | Lire les informations de configuration relatives aux machines virtuelles classiques |
 > | Microsoft.ClassicCompute/virtualMachines/*/write | Écrire la configuration des machines virtuelles classiques |
 > | Microsoft.ClassicNetwork/*/read | Lire les informations de configuration relatives au réseau classique |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Security/* | Créer et gérer des stratégies et des composants de sécurité |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -5860,19 +5869,19 @@ Il s’agit d’un rôle hérité. Utilisez plutôt l’administrateur de sécur
 
 ### <a name="security-reader"></a>Lecteur de sécurité
 
-Peut afficher les recommandations et les alertes, afficher les stratégies de sécurité, afficher les états de la sécurité, mais ne peut pas apporter de modifications.
+Autorisations d’affichage pour Security Center. Peut afficher les recommandations, les alertes, une stratégie de sécurité et les états de sécurité, mais ne peut pas apporter de modifications.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.operationalInsights/workspaces/*/read | Afficher les données Log Analytics |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Security/*/read | Lire des stratégies et des composants de sécurité |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | Microsoft.Management/managementGroups/read | Répertorie les groupes d’administration de l’utilisateur authentifié. |
 > | **NotActions** |  |
 > | *Aucune* |  |
@@ -6035,7 +6044,7 @@ Permet de créer, de gérer et de supprimer des labs gérés dans vos comptes Az
 > | Microsoft.LabServices/labAccounts/getPricingAndAvailability/action | Permet d'obtenir le prix et la disponibilité de combinaisons de tailles, de zones géographiques et de systèmes d'exploitation pour le compte Lab. |
 > | Microsoft.LabServices/labAccounts/getRestrictionsAndUsage/action | Permet d'obtenir les informations principales sur les restrictions et l'utilisation de cet abonnement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -6092,9 +6101,9 @@ Gérer les composants Application Insights
 > | Microsoft.Insights/components/* | Créer et gérer les composants Insights |
 > | Microsoft.Insights/webtests/* | Créer et gérer les tests web Insights |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -6136,18 +6145,18 @@ Gérer les composants Application Insights
 
 ### <a name="application-insights-snapshot-debugger"></a>Débogueur de capture instantanée d’Application Insights
 
-Autorise l’utilisateur à consulter et à télécharger les instantanés de débogage collectés à l’aide du débogueur de capture instantanée Application Insights. Ces autorisations ne sont pas incluses dans les rôles [Propriétaire](#owner) et [Contributeur](#contributor).
+Autorise l’utilisateur à consulter et à télécharger les instantanés de débogage collectés à l’aide du débogueur de capture instantanée Application Insights. Ces autorisations ne sont pas incluses dans les rôles [Propriétaire](#owner) et [Contributeur](#contributor). Lorsque vous donnez aux utilisateurs le rôle Débogueur de capture instantanée Application Insights, vous devez leur accorder directement le rôle. Le rôle n’est pas reconnu lorsqu’il est ajouté à un rôle personnalisé. 
 
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.Insights/components/*/read |  |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -6197,7 +6206,7 @@ Peut lire toutes les données de surveillance et modifier les paramètres de sur
 > | Microsoft.AlertsManagement/alertsSummary/* |  |
 > | Microsoft.Insights/actiongroups/* |  |
 > | Microsoft.Insights/activityLogAlerts/* |  |
-> | Microsoft.Insights/AlertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/AlertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.Insights/components/* | Créer et gérer les composants Insights |
 > | Microsoft.Insights/DiagnosticSettings/* | Crée, met à jour ou lit le paramètre de diagnostic pour Analysis Server. |
 > | Microsoft.Insights/eventtypes/* | Événements du journal d’activité, (événements de gestion) dans un abonnement. Cette autorisation est applicable pour l’accès par programme et portail dans le journal d’activité. |
@@ -6209,12 +6218,15 @@ Peut lire toutes les données de surveillance et modifier les paramètres de sur
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | Créer et gérer les tests web Insights |
 > | Microsoft.Insights/workbooks/* |  |
+> | Microsoft.Insights/privateLinkScopes/* |  |
+> | Microsoft.Insights/privateLinkScopeOperationStatuses/* |  |
+> | Microsoft.OperationalInsights/workspaces/write | Crée un espace de travail ou lie un espace de travail existant en fournissant l’ID de client à partir de l’espace de travail existant. |
 > | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Lire/écrire/supprimer des packs de solution Log Analytics. |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* | Lire/écrire/supprimer des recherches enregistrées Log Analytics. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Exécute une requête de recherche. |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Récupère les clés partagées de l’espace de travail. Ces clés sont utilisées pour connecter les agents Microsoft Operational Insights à l’espace de travail. |
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Lire/écrire/supprimer les configurations des insights de stockage Log Analytics. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
 > | Microsoft.AlertsManagement/smartDetectorAlertRules/* |  |
@@ -6255,6 +6267,9 @@ Peut lire toutes les données de surveillance et modifier les paramètres de sur
         "Microsoft.Insights/scheduledqueryrules/*",
         "Microsoft.Insights/webtests/*",
         "Microsoft.Insights/workbooks/*",
+        "Microsoft.Insights/privateLinkScopes/*",
+        "Microsoft.Insights/privateLinkScopeOperationStatuses/*",
+        "Microsoft.OperationalInsights/workspaces/write",
         "Microsoft.OperationalInsights/workspaces/intelligencepacks/*",
         "Microsoft.OperationalInsights/workspaces/savedSearches/*",
         "Microsoft.OperationalInsights/workspaces/search/action",
@@ -6287,7 +6302,7 @@ Permet de publier les métriques relatives aux ressources Azure
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Insights/Register/Action | Inscrire le fournisseur Microsoft Insights |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | **NotActions** |  |
 > | *Aucune* |  |
@@ -6334,7 +6349,7 @@ Peut lire toutes les données de supervision (métriques, journaux d’activité
 > | **Actions** |  |
 > | */read | Lire les ressources de tous les types, à l’exception des secrets. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Exécute une requête de recherche. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -6472,10 +6487,10 @@ Permet de créer et de gérer des travaux avec des runbooks Automation.
 > | Microsoft.Automation/automationAccounts/jobs/suspend/action | Suspend un travail Azure Automation |
 > | Microsoft.Automation/automationAccounts/jobs/write | Crée un travail Azure Automation |
 > | Microsoft.Automation/automationAccounts/jobs/output/read | Obtient le résultat d’un travail |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -6542,12 +6557,12 @@ Les opérateurs d’Automation sont en mesure de démarrer, d’arrêter, de sus
 > | Microsoft.Automation/automationAccounts/runbooks/read | Obtient un runbook Azure Automation |
 > | Microsoft.Automation/automationAccounts/schedules/read | Obtient une ressource de planification Azure Automation |
 > | Microsoft.Automation/automationAccounts/schedules/write | Crée ou met à jour une ressource de planification Azure Automation |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Automation/automationAccounts/jobs/output/read | Obtient le résultat d’un travail |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -6609,10 +6624,10 @@ Propriétés de lecture du runbook : pour pouvoir créer des travaux depuis le r
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
 > | Microsoft.Automation/automationAccounts/runbooks/read | Obtient un runbook Azure Automation |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -6757,7 +6772,7 @@ Autorise l’accès en lecture aux données de facturation
 > | Microsoft.Consumption/*/read |  |
 > | Microsoft.Management/managementGroups/read | Répertorie les groupes d’administration de l’utilisateur authentifié. |
 > | Microsoft.CostManagement/*/read |  |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -6806,8 +6821,8 @@ Peut gérer les définitions blueprint, mais ne peut pas les affecter.
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
 > | Microsoft.Blueprint/blueprints/* | Créer et gérer des définitions de blueprint ou des artefacts de blueprint. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -6854,8 +6869,8 @@ Peut affecter des blueprints publiés existants, mais ne peut pas en créer de n
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
 > | Microsoft.Blueprint/blueprintAssignments/* | Créer et gérer des affectations de blueprint |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -6904,7 +6919,7 @@ Peut afficher les coûts et gérer la configuration des coûts (par exemple, bud
 > | Microsoft.Billing/billingPeriods/read |  |
 > | Microsoft.Resources/subscriptions/read | Obtient la liste des abonnements. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | Microsoft.Advisor/configurations/read | Obtenir des configurations |
 > | Microsoft.Advisor/recommendations/read | Lit les recommandations |
 > | Microsoft.Management/managementGroups/read | Répertorie les groupes d’administration de l’utilisateur authentifié. |
@@ -6960,7 +6975,7 @@ Peut afficher les données et la configuration des coûts (par exemple, budgets,
 > | Microsoft.Billing/billingPeriods/read |  |
 > | Microsoft.Resources/subscriptions/read | Obtient la liste des abonnements. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | Microsoft.Advisor/configurations/read | Obtenir des configurations |
 > | Microsoft.Advisor/recommendations/read | Lit les recommandations |
 > | Microsoft.Management/managementGroups/read | Répertorie les groupes d’administration de l’utilisateur authentifié. |
@@ -7003,6 +7018,48 @@ Peut afficher les données et la configuration des coûts (par exemple, budgets,
 }
 ```
 
+### <a name="hierarchy-settings-administrator"></a>Administrateur de paramètres de hiérarchie
+
+Permet aux utilisateurs de modifier et de supprimer des paramètres de hiérarchie
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Actions** |  |
+> | Microsoft.Management/managementGroups/settings/write | Crée ou met à jour les paramètres de hiérarchie de groupe d’administration. |
+> | Microsoft.Management/managementGroups/settings/delete | Supprime les paramètres de hiérarchie de groupe d’administration. |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows users to edit and delete Hierarchy Settings",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/350f8d15-c687-4448-8ae1-157740a3936d",
+  "name": "350f8d15-c687-4448-8ae1-157740a3936d",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Management/managementGroups/settings/write",
+        "Microsoft.Management/managementGroups/settings/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Hierarchy Settings Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="managed-application-contributor-role"></a>Rôle Contributeur d'application managée
 
 Permet de créer des ressources d’application managées.
@@ -7015,7 +7072,7 @@ Permet de créer des ressources d’application managées.
 > | Microsoft.Solutions/applications/* |  |
 > | Microsoft.Solutions/register/action | Inscrit à Solutions. |
 > | Microsoft.Resources/subscriptions/resourceGroups/* |  |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -7104,7 +7161,7 @@ Vous permet de lire les ressources dans une application managée et de demander 
 > | --- | --- |
 > | **Actions** |  |
 > | */read | Lire les ressources de tous les types, à l’exception des secrets. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Solutions/jitRequests/* |  |
 > | **NotActions** |  |
 > | *Aucune* |  |
@@ -7280,11 +7337,11 @@ Vous permet de gérer des comptes et applications New Relic Application Performa
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | NewRelic.APM/accounts/* |  |
 > | **NotActions** |  |
 > | *Aucune* |  |
@@ -7384,7 +7441,7 @@ Utilisateurs dotés de droits pour créer ou modifier une stratégie de ressourc
 > | Microsoft.Authorization/policydefinitions/* | Créer et gérer des définitions de stratégies |
 > | Microsoft.Authorization/policysetdefinitions/* | Créer et gérer des ensembles de stratégies |
 > | Microsoft.PolicyInsights/* |  |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -7430,7 +7487,7 @@ Permet de gérer le service Site Recovery sauf la création de coffre et l’att
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.Network/virtualNetworks/read | Obtenir la définition de réseau virtuel. |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp est une opération interne utilisée par le service. |
 > | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp est une opération interne utilisée par le service. |
@@ -7452,11 +7509,11 @@ Permet de gérer le service Site Recovery sauf la création de coffre et l’att
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | Lire les alertes pour le coffre Recovery Services |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Storage/storageAccounts/read | Retourne la liste des comptes de stockage ou récupère les propriétés du compte de stockage spécifié. |
 > | Microsoft.RecoveryServices/vaults/replicationOperationStatus/read | Lit tout état de l’opération de réplication du coffre |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -7524,7 +7581,7 @@ Permet de basculer et de restaurer mais pas d’effectuer d’autres opérations
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.Network/virtualNetworks/read | Obtenir la définition de réseau virtuel. |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp est une opération interne utilisée par le service. |
 > | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp est une opération interne utilisée par le service. |
@@ -7577,10 +7634,10 @@ Permet de basculer et de restaurer mais pas d’effectuer d’autres opérations
 > | Microsoft.RecoveryServices/Vaults/usages/read | Renvoie des détails d’utilisation d’un coffre Recovery Services. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | L’opération de jeton de coffre peut être utilisée pour obtenir un jeton de coffre pour les opérations de serveur principal au niveau du coffre. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Storage/storageAccounts/read | Retourne la liste des comptes de stockage ou récupère les propriétés du compte de stockage spécifié. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -7707,7 +7764,7 @@ Permet d’afficher l’état de Site Recovery mais pas d’effectuer d’autres
 > | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Renvoie des détails d’utilisation d’un coffre Recovery Services. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | L’opération de jeton de coffre peut être utilisée pour obtenir un jeton de coffre pour les opérations de serveur principal au niveau du coffre. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -7779,7 +7836,7 @@ Permet de créer et de gérer des demandes de support
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -7825,9 +7882,9 @@ Vous permet de gérer les étiquettes sur les entités, sans fournir l’accès 
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Resources/subscriptions/resourceGroups/resources/read | Obtient les ressources du groupe de ressources. |
 > | Microsoft.Resources/subscriptions/resources/read | Obtient les ressources d’un abonnement. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | Microsoft.Resources/tags/* |  |
 > | **NotActions** |  |
 > | *Aucune* |  |
@@ -7880,11 +7937,11 @@ Permet de gérer des services BizTalk, mais pas d’y accéder.
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
 > | Microsoft.BizTalkServices/BizTalk/* | Créer et gérer BizTalk Services |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -7931,12 +7988,12 @@ Permet de gérer des collections de tâches du planificateur, mais pas d’y acc
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
-> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/alertRules/* | Créer et gérer une alerte de métrique classique |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/deployments/* | Créer et gérer un déploiement |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Scheduler/jobcollections/* | Créer et gérer des collections de travaux |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Support/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |

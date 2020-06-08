@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2020
+ms.date: 05/20/2020
 ms.author: aschhab
-ms.openlocfilehash: a4bc2dcfd1826623516a40be0aff7688d0b6168c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9cedf3678fc73b004c142380b4ba69c10ca72ebf
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116687"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726993"
 ---
 # <a name="message-sessions"></a>Sessions de message
-Les sessions Microsoft Azure Service Bus permettent un traitement conjoint et chronologique de séquences illimitées de messages associés. Vous pouvez utiliser des sessions dans des modèles premier entré, premier sorti (FIFO) et requête-réponse. Cet article explique comment utiliser des sessions pour implémenter ces modèles lors de l’utilisation de Service Bus. 
-
-## <a name="first-in-first-out-fifo-pattern"></a>Modèle premier entré, premier sorti (FIFO)
-Pour garantir l’application de la méthode FIFO dans Service Bus, utilisez des sessions. Service Bus n’est pas normatif concernant la nature de la relation entre les messages, et ne définit aucun modèle spécifique pour déterminer le début et la fin d’une séquence de messages.
+Les sessions Microsoft Azure Service Bus permettent un traitement conjoint et chronologique de séquences illimitées de messages associés. Vous pouvez utiliser des sessions dans des modèles **premier entré, premier sorti (FIFO**) et **requête-réponse**. Cet article explique comment utiliser des sessions pour implémenter ces modèles lors de l’utilisation de Service Bus. 
 
 > [!NOTE]
 > Le niveau de base de Service Bus ne prend pas en charge les sessions. Les niveaux standard et premium prennent en charge les sessions. Pour connaître les différences entre ces niveaux, voir [Tarification de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
+
+## <a name="first-in-first-out-fifo-pattern"></a>Modèle premier entré, premier sorti (FIFO)
+Pour garantir l’application de la méthode FIFO dans Service Bus, utilisez des sessions. Service Bus n’est pas normatif concernant la nature de la relation entre les messages, et ne définit aucun modèle spécifique pour déterminer le début et la fin d’une séquence de messages.
 
 Lors de l’envoi de messages dans une rubrique ou dans une file d’attente, tout expéditeur peut créer une session en définissant la propriété [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) sur un identificateur défini par l’application unique pour la session. Au niveau du protocole AMQP 1.0, cette valeur est mappée sur la propriété *group-id*.
 
@@ -89,13 +89,13 @@ La définition du nombre de livraisons par message dans le contexte de sessions 
 | Scénario | Le nombre de livraisons du message est-il incrémenté |
 |----------|---------------------------------------------|
 | La session est acceptée, mais le verrouillage de session expire (en raison du délai d’expiration) | Oui |
-| La session est acceptée, les messages de la session ne sont pas terminés (même s’ils sont verrouillés) et la session est fermée | Non  |
+| La session est acceptée, les messages de la session ne sont pas terminés (même s’ils sont verrouillés) et la session est fermée | Non |
 | La session est acceptée, les messages sont terminés, puis la session est explicitement fermée | S.O. (il s’agit du flux standard. Ici, les messages sont supprimés de la session) |
 
 ## <a name="request-response-pattern"></a>Modèle requête-réponse
 Le [modèle requête-réponse](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html) est un modèle d’intégration bien établi qui permet à l’application de l’expéditeur d’envoyer une demande et fournit au destinataire un moyen de renvoyer correctement une réponse à l’application de l’expéditeur. Ce modèle a généralement besoin d’une file d’attente ou d’une rubrique de courte durée de vie à laquelle l’application puisse envoyer des réponses. Dans ce scénario, les sessions fournissent une solution alternative simple avec une sémantique comparable. 
 
-Plusieurs applications peuvent envoyer leurs requêtes à une seule file d’attente de requêtes, avec un paramètre d’en-tête spécifique défini pour identifier de manière unique l’application de l’expéditeur. L’application du destinataire peut traiter les requêtes arrivant dans la file d’attente et envoyer des réponses sur une file d’attente prenant en charge les sessions, en définissant l’ID de session sur l’identificateur unique que l’expéditeur a envoyé sur le message de requête. L’application qui a envoyé la requête peut alors recevoir des messages sur un ID de session spécifique et traiter correctement les réponses.
+Plusieurs applications peuvent envoyer leurs requêtes à une seule file d’attente de requêtes, avec un paramètre d’en-tête spécifique défini pour identifier de manière unique l’application de l’expéditeur. L’application du destinataire peut traiter les requêtes arrivant dans la file d’attente et envoyer des réponses sur une file d’attente activée par la session, en définissant l’ID de session sur l’identificateur unique que l’expéditeur a envoyé sur le message de requête. L’application qui a envoyé la requête peut alors recevoir des messages sur l’ID de session spécifique et traiter correctement les réponses.
 
 > [!NOTE]
 > L’application qui envoie les requêtes initiales doit connaître l’ID de session et utiliser `SessionClient.AcceptMessageSession(SessionID)` pour verrouiller la session sur laquelle elle attend la réponse. Il est judicieux d’utiliser un GUID qui identifie de façon unique l’instance de l’application en tant qu’ID de session. Il ne doit y avoir aucun gestionnaire de session ou `AcceptMessageSession(timeout)` sur la file d’attente pour s’assurer que les réponses sont disponibles pour verrouillage et traitement par des destinataires spécifiques.

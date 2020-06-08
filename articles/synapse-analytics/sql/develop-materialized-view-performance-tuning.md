@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 30ca03633b9b0788235439204a3c1926fe6b6a6b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a07c419ecaa0cb0ec05c7c392a4d5ed9b0bfa491
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427061"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747406"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Réglage des performances avec des vues matérialisées
 
@@ -153,7 +153,7 @@ Pour utiliser le résultat mis en cache, la forme de la requête de cache doit c
 
 ## <a name="example"></a>Exemple
 
-Cet exemple utilise une requête de type TPCDS qui recherche les clients qui dépensent plus d’argent via catalogue que dans les magasins. Il identifie également les clients préférés et leur pays d’origine.   La requête consiste à sélectionner les 100 premiers enregistrements issus de l’instruction UNION de trois sous-instructions SELECT impliquant les fonctions SUM() et GROUP BY.
+Cet exemple utilise une requête de type TPCDS qui recherche les clients qui dépensent plus d’argent via catalogue que dans les magasins. Il identifie également les clients préférés et leur pays/région d’origine.   La requête consiste à sélectionner les 100 premiers enregistrements issus de l’instruction UNION de trois sous-instructions SELECT impliquant les fonctions SUM() et GROUP BY.
 
 ```sql
 WITH year_total AS (

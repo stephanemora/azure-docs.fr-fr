@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1f5ff48f4d5a658a1bbb4e6b9fb4b3f0f3fb190f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a530a6f656f37657a198af85d93d5404ac88d0e1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81602690"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651030"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrer des charges de travail à l’aide de réseaux étendus de couche 2
 
@@ -136,7 +136,7 @@ Les étapes suivantes montrent comment récupérer l'ID du routeur logique de l'
 
 ## <a name="fetch-the-logical-switch-id-needed-for-l2vpn"></a>Récupérer l'ID du commutateur logique nécessaire pour L2VPN
 
-1. Connectez-vous à [NSX-T Manager](https://nsx-t-manager-ip-address).
+1. Se connecter à NSX-T Manager (`https://nsx-t-manager-ip-address`).
 2. Sélectionnez **Mis en réseau** > **Commutation** > **Commutateurs** >  **<\Commutateur logique\>**  > **Vue d'ensemble**.
 3. Notez l'UUID du commutateur logique étendu, nécessaire lors de la configuration de L2VPN.
 

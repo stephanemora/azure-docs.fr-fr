@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 56ab49949b4ea2a92bc591042b2d43a7f7b2dc63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cd2511dcbf2e387a6f324742219b81c927b534af
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632683"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636391"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limites de mémoire et de concurrence pour Azure Synapse Analytics
 
@@ -77,7 +77,7 @@ Avec l’introduction des [groupes de charges de travail](sql-data-warehouse-wor
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>Valeurs maximales de concurrence pour les classes de ressources
 
-Pour vérifier que chaque requête dispose de suffisamment de ressources pour s’exécuter efficacement, SQL Analytics dans Azure Synapse suit l’utilisation des ressources en assignant des emplacements de concurrence à chaque requête. Le système place les requêtes dans une file d’attente en fonction de l’importance et des emplacements de concurrence. Les requêtes attendent dans la file d’attente jusqu’à ce que suffisamment d’emplacements de concurrence soient disponibles. L’[importance](sql-data-warehouse-workload-importance.md) et les emplacements de concurrence déterminent la hiérarchisation des priorités du processeur. Pour plus d’informations, voir [Analyser votre charge de travail](analyze-your-workload.md).
+Pour s’assurer que chaque requête dispose de suffisamment de ressources pour s’exécuter efficacement, Synapse SQL suit l’utilisation des ressources en attribuant des emplacements de concurrence à chaque requête. Le système place les requêtes dans une file d’attente en fonction de l’importance et des emplacements de concurrence. Les requêtes attendent dans la file d’attente jusqu’à ce que suffisamment d’emplacements de concurrence soient disponibles. L’[importance](sql-data-warehouse-workload-importance.md) et les emplacements de concurrence déterminent la hiérarchisation des priorités du processeur. Pour plus d’informations, voir [Analyser votre charge de travail](analyze-your-workload.md).
 
 **Classes de ressources statiques**
 

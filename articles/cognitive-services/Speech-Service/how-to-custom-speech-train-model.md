@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: a2bc39a35299f56ba52a0143ce123560bd4d88fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 09867d6739998902ea0fd11281d1b975866c1242
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77137769"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722624"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Entraîner un modèle pour Custom Speech
 
@@ -42,7 +42,7 @@ La première étape pour entraîner un modèle consiste à charger des données 
 2. Accédez à **Speech-to-text > Custom Speech > Training**.
 3. Cliquez sur **Train model**.
 4. Ensuite, nommez et décrivez votre entraînement dans les champs **Name** et **Description**.
-5. À partir du menu déroulant **Scenario and Baseline model** (Scénario et modèle de référence), sélectionnez le scénario qui correspond le mieux à votre domaine. Si vous ne savez pas quel scénario choisir, sélectionnez **General**. Le modèle de référence est le point de départ de votre entraînement. Si vous n’avez pas de préférence, vous pouvez utiliser la dernière version.
+5. À partir du menu déroulant **Scenario and Baseline model** (Scénario et modèle de référence), sélectionnez le scénario qui correspond le mieux à votre domaine. Si vous ne savez pas quel scénario choisir, sélectionnez **General**. Le modèle de référence est le point de départ de votre entraînement. Le modèle le plus récent est généralement le meilleur choix.
 6. Dans la page **Select training data** (Sélectionner les données d’entraînement), choisissez le ou les jeux de données de transcriptions audio + étiquetées à la main à utiliser pour l’entraînement.
 7. Une fois l’entraînement terminé, vous pouvez choisir d’effectuer le test de précision sur le modèle nouvellement entraîné. Cette étape est facultative.
 8. Sélectionnez **Create** pour générer votre modèle personnalisé.
@@ -56,7 +56,7 @@ Vous pouvez inspecter les données et évaluer la précision du modèle à l’a
 - [Inspecter les données](how-to-custom-speech-inspect-data.md)
 - [Évaluer les données](how-to-custom-speech-evaluate-data.md)
 
-Si vous choisissez de tester la précision, il est important de sélectionner un jeu de données acoustique différent de celui que vous avez utilisé avec votre modèle pour vous faire une idée réaliste des performances du modèle.
+Si vous choisissez de tester l’exactitude, il est important de sélectionner un jeu de données acoustique différent de celui que vous avez utilisé avec votre modèle pour vous faire une idée réaliste des performances du modèle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

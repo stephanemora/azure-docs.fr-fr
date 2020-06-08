@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: b28901918f2606100d92f47800c6e0fb6778e3d0
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 850b06153a25020f36a4c7df1863e5a576495f3b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82606889"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744156"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Protection contre les menaces dans Azure Security Center
 
@@ -31,6 +31,9 @@ La protection contre les menaces d’Azure Security Center offre des défenses c
 
 Qu’une alerte soit générée par Security Center ou reçue par Security Center à partir d’un autre produit de sécurité, vous pouvez l’exporter. Pour exporter vos alertes vers Azure Sentinel (ou un système SIEM tiers) ou tout autre outil externe, suivez les instructions indiquées dans [Exportation d’alertes vers SIEM](continuous-export.md). 
 
+> [!NOTE]
+> Les alertes provenant de différentes sources peuvent prendre différentes durées d’affichage. Par exemple, l’affichage des alertes qui nécessitent une analyse du trafic réseau peut prendre plus de temps que pour les alertes liées à des processus suspects s’exécutant sur des machines virtuelles.
+
 > [!TIP]
 > Pour activer les fonctionnalités de protection contre les menaces de Security Center, vous devez appliquer le niveau tarifaire Standard à l’abonnement contenant les charges de travail concernées.
 >
@@ -44,20 +47,12 @@ Qu’une alerte soit générée par Security Center ou reçue par Security Cente
 
 Azure Security Center s’intègre aux services Azure pour superviser et protéger vos machines Windows. Security Center présente les alertes et les suggestions de correction de l’ensemble de ces services dans un format facile à utiliser.
 
-* **Microsoft Defender ATP** <a name="windows-atp"></a> - Security Center étend ses plateformes de protection de charge de travail cloud en s’intégrant avec Microsoft Defender ATP (Advanced Threat Protection). Ensemble, ils offrent des fonctionnalités EDR (protection évolutive des points de terminaison) complètes.
+* **Advanced Threat Protection (ATP) de Microsoft Defender**<a name="windows-atp"></a> - Security Center étend ses plateformes de protection de charge de travail cloud en s’intégrant Advanced Threat Protection (ATP) de Microsoft Defender. Ensemble, ils offrent des fonctionnalités EDR (protection évolutive des points de terminaison) complètes.
 
     > [!IMPORTANT]
     > Le capteur Microsoft Defender ATP est automatiquement activé sur les serveurs Windows qui utilisent Security Center.
 
     Quand Microsoft Defender ATP détecte une menace, il déclenche une alerte. L’alerte s’affiche dans le tableau de bord de Security Center. À partir du tableau de bord, vous pouvez accéder à la console Microsoft Defender ATP et effectuer un examen détaillé pour découvrir l’étendue de l’attaque. Pour plus d’informations sur Microsoft Defender ATP, consultez [Intégrer des serveurs au service Microsoft Defender ATP](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
-
-* **Analyse de vidage sur incident** <a name="windows-dump"></a> - Lorsque le logiciel se bloque, un vidage sur incident capture une partie de la mémoire au moment de l’incident.
-
-    Un plantage peut avoir été provoqué par un programme malveillant ou contenir un programme malveillant. Pour éviter d’être détectées par les produits de sécurité, différentes formes de programmes malveillants utilisent une attaque sans fichier, ce qui évite l’écriture sur disque ou le chiffrement de composants logiciels écrits sur le disque. Ce type d’attaque est difficile à détecter à l’aide des approches traditionnelles basées sur le disque.
-
-    Toutefois, il est possible de détecter ce type d’attaque à l’aide de l’analyse de la mémoire. En analysant la mémoire dans le vidage sur incident, Security Center peut détecter les techniques utilisées par l’attaque. Par exemple, l’attaque peut tenter d’exploiter des vulnérabilités présentes dans le logiciel, d’accéder à des données confidentielles et de persister subrepticement sur une machine compromise. Security Center détecte toutes ces techniques avec un impact minime sur les performances des ordinateurs hôtes.
-
-    Pour obtenir des détails sur les alertes d’analyse de vidage sur incident, consultez la [table de référence des alertes](alerts-reference.md#alerts-windows).
 
 * **Détection des attaques sans fichier** <a name="windows-fileless"></a> - Les attaques sans fichier ciblant des points de terminaison sont courantes. Pour éviter d’être détectées, les attaques sans fichier injectent des charges utiles malveillantes en mémoire. Les charges utiles des attaquants sont conservées dans la mémoire des processus compromis et effectuent un large éventail d’activités malveillantes.
 
@@ -81,7 +76,7 @@ Security Center collecte les enregistrements d’audit à partir des machines Li
 
 * **Intégration des alertes auditd Linux et de l’agent Log Analytics** <a name="linux-auditd"></a> : le système auditd se compose d’un sous-système au niveau du noyau, qui est responsable de la supervision des appels système. Il filtre les appels par un ensemble de règles donné et écrit les messages pour ces derniers dans un socket. Security Center intègre les fonctionnalités du package auditd à l’agent Log Analytics. Cette intégration permet la collecte des événements auditd dans toutes les distributions Linux prises en charge, sans prérequis.
 
-    Les enregistrements auditd sont collectés, enrichis et agrégés dans des événements à l’aide de l’agent Log Analytics pour Linux. Security Center enrichit continuellement l’analytique, qui utilise les signaux Linux pour détecter les comportements malveillants sur les machines Linux locales ou dans le cloud. À l’image des fonctionnalités Windows, cette analytique englobe les processus suspects, les tentatives de connexion douteuses, le chargement de modules de noyau et bien d’autres activités. Ces activités peuvent signaler qu’une machine fait l’objet d’une attaque ou qu’elle a subi une violation de la sécurité.  
+    Les enregistrements auditd sont collectés, enrichis et agrégés dans des événements à l’aide de l’agent Log Analytics pour Linux. Security Center enrichit continuellement l’analytique, qui utilise les signaux Linux pour détecter les comportements malveillants sur les machines Linux locales ou dans le cloud. À l’image des fonctionnalités Windows, cette analytique englobe les processus suspects, les tentatives de connexion douteuses, le chargement de modules de noyau et diverses autres activités. Ces activités peuvent signaler qu’une machine fait l’objet d’une attaque ou qu’elle a subi une violation de la sécurité.  
 
     Pour obtenir la liste des alertes Linux, consultez la [table de référence des alertes](alerts-reference.md#alerts-linux).
 
@@ -169,9 +164,9 @@ Pour plus d'informations, consultez les pages suivantes :
 
 Advanced Threat Protection pour le stockage détecte les tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des comptes de stockage. Cette couche de protection vous permet de traiter efficacement les menaces sans pour autant être un expert en sécurité, et vous aide à gérer des systèmes de supervision de la sécurité.
 
-La protection avancée contre les menaces pour Stockage Azure n’est actuellement disponible que pour le [Stockage Blob](https://azure.microsoft.com/services/storage/blobs/). 
+La protection avancée contre les menaces pour Stockage Azure est actuellement disponible pour le [Stockage Blob](https://azure.microsoft.com/services/storage/blobs/) uniquement. 
 
-Ce service est disponible dans tous les clouds publics et les clouds de l’État fédéral américain, mais pas dans d’autres régions de cloud souverain ou de cloud Azure Government.
+Ce service est disponible dans tous les clouds publics et les clouds US Government, mais pas dans d’autres régions de cloud souverain ou de cloud Azure Government.
 
 Pour plus d’informations sur la tarification, y compris une version d’évaluation gratuite de 30 jours, consultez la [page de tarification d’Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 

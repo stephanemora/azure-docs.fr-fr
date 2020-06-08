@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mazha
-ms.openlocfilehash: 491f413f9bf189b1a46d04042fd7223a47af1f24
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 3539c101b8bf146e9feee6dfc4e90f859f0ef142
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929126"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745460"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Sécurisation des ressources CDN Azure avec l’authentification du jeton
 
@@ -33,7 +33,7 @@ L’authentification du jeton est un mécanisme qui vous permet d’empêcher Az
 
 L’authentification du jeton s’assure que les requêtes sont générées par un site de confiance en vérifiant qu’elles comportent une valeur de jeton contenant des informations codées sur le demandeur. Le contenu est fourni à un demandeur uniquement si les informations codées respectent les exigences définies. Dans le cas contraire, les requêtes sont refusées. Vous pouvez procéder à la configuration à l’aide d’un ou de plusieurs des paramètres suivants :
 
-- Pays : autorisez ou refusez les requêtes provenant des pays/régions spécifiés par leur [code pays](/previous-versions/azure/mt761717(v=azure.100)).
+- Pays/région : autorisez ou refusez les requêtes provenant des pays/régions spécifiés par leur [code pays/région](/previous-versions/azure/mt761717(v=azure.100)).
 - URL : autorisez uniquement les requêtes qui correspondent à la ressource ou au chemin d’accès spécifique.
 - Hôte : autorisez ou refusez les requêtes utilisant les hôtes spécifiés dans l’en-tête de requête.
 - Référent : autorisez ou refusez une requête provenant du référent spécifié.
@@ -120,11 +120,11 @@ L’organigramme suivant décrit comment Azure CDN valide une demande du client 
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>Autorise uniquement les requêtes provenant d’un ou de plusieurs pays (ou régions) spécifiés. Les requêtes provenant de tous les autres pays/régions sont refusées. Utilisez un [code de pays ISO 3166](/previous-versions/azure/mt761717(v=azure.100)) de deux lettres pour chaque pays, en séparant les codes par une virgule ; n’ajoutez pas d’espace. Par exemple, pour autoriser l’accès aux requêtes provenant uniquement des États-Unis et de France, entrez `US,FR`.</td>
+      >    <td>Autorise uniquement les requêtes provenant d’un ou de plusieurs pays (ou régions) spécifiés. Les requêtes provenant de tous les autres pays/régions sont refusées. Utilisez un [code de pays/région ISO 3166](/previous-versions/azure/mt761717(v=azure.100)) de deux lettres pour chaque pays/région, en séparant les codes par une virgule ; n’ajoutez pas d’espace. Par exemple, pour autoriser l’accès aux requêtes provenant uniquement des États-Unis et de France, entrez `US,FR`.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 
-      >    <td>Refuse les requêtes provenant d’un ou de plusieurs pays (ou régions) spécifiés. Les requêtes provenant de tous les autres pays/régions sont autorisées. L’implémentation est identique à celle du paramètre <b>ec_country_allow</b>. Si un code de pays est présent dans les paramètres <b>ec_country_allow</b> et <b>ec_country_deny</b>, le paramètre <b>ec_country_allow</b> est prioritaire.</td>
+      >    <td>Refuse les requêtes provenant d’un ou de plusieurs pays (ou régions) spécifiés. Les requêtes provenant de tous les autres pays/régions sont autorisées. L’implémentation est identique à celle du paramètre <b>ec_country_allow</b>. Si un code de pays/région est présent dans les paramètres <b>ec_country_allow</b> et <b>ec_country_deny</b>, le paramètre <b>ec_country_allow</b> est prioritaire.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_ref_allow</b></td>
@@ -195,7 +195,7 @@ L’organigramme suivant décrit comment Azure CDN valide une demande du client 
    - PHP
    - Perl
    - Java
-   - Python 
+   - Python    
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Tarification du fournisseur et des fonctionnalités du CDN Azure
 

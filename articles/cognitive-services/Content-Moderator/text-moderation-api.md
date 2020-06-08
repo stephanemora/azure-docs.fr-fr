@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 41e88dd5a08de485f770559959843ba3b54e590f
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 5f41330836edab647f379eb43130c078c46cce53
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81274008"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685066"
 ---
 # <a name="learn-text-moderation-concepts"></a>Familiarisez-vous avec les concepts de modération de texte
 
-Utilisez la modération du texte assistée par ordinateur et les fonctionnalités de [révision par des humains](Review-Tool-User-Guide/human-in-the-loop.md) de Content Moderator pour modérer le contenu du texte.
+Utilisez les modèles de modération de texte de Content Moderator pour analyser le contenu du texte.
 
-Vous bloquez, approuvez ou révisez le contenu en fonction de vos stratégies et de vos seuils. Utilisez-le pour augmenter la modération humaine dans des environnements où des partenaires, des employés et des consommateurs de génèrent du contenu de texte. Ces environnements incluent notamment les salles de conversation, les forums de discussion, les bots conversationnels, les catalogues d’e-commerce et les documents. 
+Vous pouvez bloquer, approuver ou passer en revue le contenu en fonction de vos stratégies et seuils (Consultez [Révisions, flux de travail et travaux](./review-api.md) pour savoir comment configurer les révisions humaines). Utilisez les modèles de modération de texte pour augmenter la modération humaine dans des environnements où des partenaires, des employés et des consommateurs génèrent du contenu de texte. Ces environnements incluent notamment les salles de conversation, les forums de discussion, les bots conversationnels, les catalogues d’e-commerce et les documents. 
 
 La réponse du service inclut les informations suivantes :
 
@@ -155,4 +155,4 @@ Content Moderator fournit une [API de liste de termes](https://westus.dev.cognit
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Évaluez la [Console d’API Modération du texte](try-text-api.md) et utilisez les exemples de code API REST. Consultez également la section Modération de texte du [Démarrage rapide du kit SDK .NET](dotnet-sdk-quickstart.md) si vous connaissez déjà Visual Studio et C#.
+Testez les API à l’aide de la [console API de modération de texte](try-text-api.md). Consultez également [Révisions, flux de travail et travaux](./review-api.md) pour en savoir plus sur le mode de configuration des révisions humaines.

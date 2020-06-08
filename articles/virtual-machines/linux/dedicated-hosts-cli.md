@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: ba40e610e31a1215ac90baf63a04b435b636d68a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dc772368de1a0f7d8a7d4f44b47ecafda70f0a70
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127699"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714846"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Déployez des machines virtuelles sur des hôtes dédiés à l’aide d’Azure CLI
  
@@ -25,13 +25,21 @@ Vérifiez que vous avez installé Azure CLI version 2.0.70 ou version ultérieur
 
 - Actuellement, les hôtes dédiés ne prennent pas en charge les groupes de machines virtuelles identiques.
 - Les tailles et les types de matériel disponibles pour les hôtes dédiés varient selon la région. Pour en savoir plus, consultez la [page de tarification de l’hôte](https://aka.ms/ADHPricing).
- 
 
 ## <a name="create-resource-group"></a>Créer un groupe de ressources 
 Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Créez le groupe de ressources avec la commande az group create. L’exemple suivant crée un groupe de ressources nommé *myDHResourceGroup* à l’emplacement *USA Est*.
 
 ```bash
 az group create --name myDHResourceGroup --location eastus 
+```
+ 
+## <a name="list-available-host-skus-in-a-region"></a>Répertorier les niveaux tarifaires de l’hôte disponibles dans une région
+Tous les niveaux tarifaires de l’hôte ne sont pas disponibles dans toutes les régions et zones de disponibilité. 
+
+Répertoriez la disponibilité de l’hôte et les éventuelles restrictions d’offre avant de commencer l’approvisionnement des hôtes dédiés. 
+
+```bash
+az vm list-skus -l eastus2  -r hostGroups/hosts  -o table  
 ```
  
 ## <a name="create-a-host-group"></a>Créer un groupe hôte 

@@ -3,12 +3,12 @@ title: Limites - LUIS
 description: Cet article liste les limites connues d’Azure Cognitive Services Language Understanding (LUIS). LUIS a plusieurs zones de limites. La limite de modèle contrôle les intentions, les entités et les caractéristiques dans LUIS. La limite de quota dépend du type de clé. La combinaison de touches contrôle le site web de LUIS.
 ms.topic: reference
 ms.date: 05/06/2020
-ms.openlocfilehash: 71f6126cbf9615d7f808f098202f29094a913982
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d4a6162758fab7e5c9592b98974620bbf06ba978
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593237"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684602"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limites de vos clés et de votre modèle LUIS
 LUIS a plusieurs zones de limites. La première est la [limite de modèle](#model-limits), qui contrôle les intentions, les entités et les caractéristiques dans LUIS. Le deuxième domaine est la [limite de quota](#key-limits), qui est fonction du type de clé. La troisième zone de limites est la [séquence de touches](#keyboard-controls) pour contrôler le site web LUIS. Un quatrième domaine est le [mappage de régions du monde](luis-reference-regions.md) entre le site web de création de LUIS et les API du [point de terminaison](luis-glossary.md#endpoint) de LUIS.
@@ -28,7 +28,7 @@ Si votre application dépasse les limites de modèle LUIS, utilisez une applicat
 | Entités externes | sans limite |
 | [Intentions][intents]|500 par application : 499 intentions personnalisées et l’intention _Aucune_ obligatoire.<br>L’application [dispatch](https://aka.ms/dispatch-tool) a 500 sources de dispatch correspondantes.|
 | [Répertorier des entités](./luis-concept-entity-types.md) | Parent : 50, Enfant : 20 000 éléments. Le nom canonique est *nombre maximum de caractère par défaut. Les valeurs synonymes n’ont aucune restriction de longueur. |
-| [Entités + rôles issus de l’apprentissage automatique](./luis-concept-entity-types.md) :<br> composite,<br>simple,<br>rôles d’entité|Limite de 100 entités parentes ou de 330 entités, selon la limite que l’utilisateur atteint en premier. Un rôle est comptabilisé comme une entité pour les besoins de cette limite. Un exemple est un composite avec une entité simple qui possède 2 rôles : 1 composite + 1 simple + 2 rôles = 4 des 330 entités.<br>Les sous-entités peuvent avoir un maximum de 5 niveaux d’imbrication.|
+| [Entités de machine-learning + rôles](./luis-concept-entity-types.md) :<br> composite,<br>simple,<br>rôles d’entité|Limite de 100 entités parentes ou de 330 entités, selon la limite que l’utilisateur atteint en premier. Un rôle est comptabilisé comme une entité pour les besoins de cette limite. Un exemple est un composite avec une entité simple qui possède 2 rôles : 1 composite + 1 simple + 2 rôles = 4 des 330 entités.<br>Les sous-entités peuvent avoir un maximum de 5 niveaux d’imbrication.|
 |Modèle en tant que fonctionnalité| Nombre maximum de modèles pouvant être utilisés en tant que fonctionnalité sur un modèle spécifique pour avoir 10 modèles. Nombre maximum de listes d’expressions utilisées en tant que fonctionnalité sur un modèle spécifique pour avoir 10 listes d’expressions.|
 | [Préversion - Entités de liste dynamique](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listes de 1 000 environ par demande pour interroger le point de terminaison de prédiction|
 | [Modèles](luis-concept-patterns.md)|500 modèles par application.<br>La longueur maximale du modèle est de 400 caractères.<br>3 entités Pattern.any par modèle<br>2 textes facultatifs maximum imbriqués dans le modèle|
@@ -53,7 +53,7 @@ Les noms d’objet doivent être uniques par rapport aux autres objets du même 
 |Objets|Restrictions|
 |--|--|
 |Intention, entité|Les noms des intentions et des entités doivent être uniques dans la version d’une application.|
-|Composants de l’entité ML|Tous les composants de l’entité issue du Machine Learning (entités enfants) doivent être uniques au sein de cette entité pour les composants du même niveau.|
+|Composants de l’entité ML|Tous les composants de l’entité de machine-learning (entités enfants) doivent être uniques au sein de cette entité pour les composants du même niveau.|
 |Fonctionnalités | Toutes les fonctionnalités nommées, telles que les listes d’expressions, doivent être uniques au sein d’une version d’application.|
 |Rôles d’entité|Tous les rôles d’une entité ou d’un composant d’entité doivent être uniques lorsqu’ils se trouvent au même niveau d’entité (parent, enfant, petit-enfant, etc.).|
 

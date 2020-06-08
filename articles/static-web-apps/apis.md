@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 7f86ce9158b5b07b036c785c2973e8a5883ed686
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 4fa3acf0e6cc767aeee4504bbc4df382a75e256b
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594268"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758756"
 ---
 # <a name="api-support-in-azure-static-web-apps-preview-with-azure-functions"></a>Prise en charge des API dans Azure Static Web Apps (préversion) avec Azure Functions
 
@@ -32,6 +32,7 @@ Les points de terminaison d’API sont disponibles pour l’application web via 
 Azure Static Web Apps fournit une API via Azure Functions. Les fonctionnalités d’Azure Functions sont axées sur un ensemble spécifique de fonctionnalités qui vous permettent de créer une API pour une application web et de permettre à celle-ci de se connecter à l’API en toute sécurité. Ces fonctionnalités sont fournies avec certaines contraintes, notamment :
 
 - Le préfixe d’itinéraire de l’API doit être _api_.
+- L’application de fonctions API doit être en JavaScript.
 - Les déclencheurs et les liaisons sont limités à [HTTP](../azure-functions/functions-bindings-http-webhook.md).
   - Tous les autres [déclencheurs et liaisons Azure Functions](../azure-functions/functions-triggers-bindings.md#supported-bindings) sont limitées à l’exception des liaisons de sortie.
 - Les journaux ne sont disponibles que si vous ajoutez [Application Insights](../azure-functions/functions-monitoring.md) à votre application Functions.

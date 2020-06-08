@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 36777208dc8ac179f1aaf345c374a33001e3f8bd
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: dd6228ea50968c98c5ba151b8af9a0c2fa829582
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81404260"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684063"
 ---
 # <a name="learn-image-moderation-concepts"></a>Familiarisez-vous avec les concepts de modération d'image
 
-Utilisez la modération d'image assistée par ordinateur et l'[outil de révision à intervention humaine](Review-Tool-User-Guide/human-in-the-loop.md) de Content Moderator pour modérer les images incluant du contenu pour adultes et osé. Recherchez du contenu textuel dans les images, extrayez le texte et détectez les visages. Vous pouvez comparer des images à des listes personnalisées et prendre des mesures complémentaires.
+Utilisez la modération de l’image assistée par ordinateur de Content Moderator et l’[outil de révision](Review-Tool-User-Guide/human-in-the-loop.md) pour modérer les images incluant du contenu pour adultes et osé. Recherchez du contenu textuel dans les images, extrayez le texte et détectez les visages. Vous pouvez comparer des images à des listes personnalisées et prendre des mesures complémentaires.
 
 ## <a name="evaluating-for-adult-and-racy-content"></a>Évaluer du contenu pour adultes et osé
 
@@ -147,4 +147,4 @@ Pour des cas plus subtils, utilisez l'[outil de révision](Review-Tool-User-Guid
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Évaluez la [Console d’API Modération de l’image](try-image-api.md) et utilisez les exemples de code API REST. Consultez également la section Modération d’images du [Démarrage rapide du kit SDK .NET](dotnet-sdk-quickstart.md) si vous connaissez déjà Visual Studio et C#.
+Évaluez la [Console d’API Modération de l’image](try-image-api.md) et utilisez les exemples de code API REST. Consultez également [Révisions, flux de travail et travaux](./review-api.md) pour en savoir plus sur le mode de configuration des révisions humaines.

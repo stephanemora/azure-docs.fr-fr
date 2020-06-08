@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
-ms.openlocfilehash: 104311904b99cadbbc8c0267a98f2709443608ea
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 7b7580843bc5ad90ebc394c41e81f4d16f51ccb1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80891456"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701768"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Configurer des journaux de flux NSG avec un modèle Azure Resource Manager
 
@@ -110,7 +110,7 @@ Vous trouverez ci-dessous deux exemples de modèles complets permettant de confi
 ```
 
 > [!NOTE]
-> * Le nom de la ressource a le format « ressource parente>/ressource enfant ». Ici, la ressource parente est l’instance de Network Watcher régionale (format : NetworkWatcher_<RegionName>. Exemple : NetworkWatcher_centraluseuap)
+> * Le nom de la ressource a le format « Parent Resource_Child resource ». Ici, la ressource parente est l’instance de Network Watcher régionale (format : NetworkWatcher_NomRégion. Exemple : NetworkWatcher_centraluseuap)
 > * targetResourceId est l’ID de ressource du groupe de sécurité réseau cible
 > * storageId est l’ID de ressource du compte de stockage de destination
 
@@ -160,9 +160,14 @@ Vous pouvez enregistrer les exemples de modèles ci-dessus localement en tant qu
 
 Pour déployer le modèle, exécutez la commande suivante dans PowerShell.
 ```azurepowershell
+$context = Get-AzSubscription -SubscriptionId 56acfbd6-vc72-43e9-831f-bcdb6f2c5505
+Set-AzContext $context
 New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatcherRG `
     -TemplateFile "C:\MyTemplates\azuredeploy.json"
 ```
+
+> [!NOTE]
+> Les commandes ci-dessus déploient une ressource dans le groupe de ressources NetworkWatcherRG et non le groupe de ressources contenant le groupe de sécurité réseau
 
 
 ## <a name="verifying-your-deployment"></a>Vérification de votre déploiement
