@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: a887dd4df44ba58b0e6646ffb1c10eb21edf3e69
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 5c717a02c2008436617d16f08625a1cecc204340
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381294"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849516"
 ---
 # <a name="deprecation-of-tls-10-and-11-in-iot-hub"></a>Dépréciation de TLS 1.0 et 1.1 dans IoT Hub
 
@@ -22,15 +22,26 @@ Pour offrir un chiffrement optimal, IoT Hub passe au mécanisme de chiffrement p
 
 IoT Hub continuera à prendre en charge TLS 1.0/1.1 jusqu’à nouvel ordre. Toutefois, nous recommandons à tous les clients de migrer vers TLS 1.2 dès que possible.
 
-## <a name="supported-ciphers"></a>Chiffrements pris en charge
+## <a name="deprecating-tls-11-ciphers"></a>Dépréciation des chiffrements TLS 1.1
 
-La chronologie de la disponibilité des différents chiffrements utilisés dans la négociation TLS est la suivante :
+* `TLS_ECDHE_RSA_WITH_AES_256_CBC_SH`
+* `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
+* `TLS_RSA_WITH_AES_256_CBC_SHA`
+* `TLS_RSA_WITH_AES_128_CBC_SHA`
+* `TLS_RSA_WITH_3DES_EDE_CBC_SHA`
 
-* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 (actuellement pris en charge)
-* TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 (sera pris en charge dans la seconde moitié de 2020)
-* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (sera pris en charge dans la seconde moitié de 2020)
-* TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (sera pris en charge dans la seconde moitié de 2020)
+## <a name="deprecating-tls-10-ciphers"></a>Dépréciation des chiffrements TLS 1.0
 
+* `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`
+* `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
+* `TLS_RSA_WITH_AES_256_CBC_SHA`
+* `TLS_RSA_WITH_AES_128_CBC_SHA`
+* `TLS_RSA_WITH_3DES_EDE_CBC_SHA`
+
+## <a name="tls-12-ciphers"></a>Chiffrements TLS 1.2
+
+Consultez [Chiffrements recommandés TLS 1.2 IoT Hub](iot-hub-tls-support.md#recommended-ciphers).
+ 
 ## <a name="customer-feedback"></a>Feedback des clients
 
 Même si la mise en œuvre de TLS 1.2 est un choix de chiffrement optimal à l’échelle industrielle et sera effectuée comme prévu, nous aimerions entendre l’avis des clients concernant leurs déploiements spécifiques et les difficultés d’adoption de TLS 1.2. Vous pouvez pour cela envoyer vos commentaires à l’adresse [iot_tls1_deprecation@microsoft.com](mailto:iot_tls1_deprecation@microsoft.com).

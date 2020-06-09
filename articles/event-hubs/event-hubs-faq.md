@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: 7f6e1896c97c96cd484d15fb9e6a3056e5c5d6b2
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: e8ae3cbbca926a97bf90f4ac1104d4f082b332fd
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086366"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835612"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Forum Aux Questions (FAQ) sur Event Hubs
 
@@ -150,9 +150,11 @@ Vous pouvez commencer avec un faible nombre d’unités de débit, par exemple, 
 L’activation de cette fonctionnalité n’engendre **acun coût**. 
 
 ### <a name="how-are-throughput-limits-enforced"></a>Comment les limites d’unités de débit sont-elles appliquées ?
-Si le débit d’entrée total ou le taux d’événements d’entrée total de tous les concentrateurs d’événements d’un espace de noms dépassent les allocations d’unité de débit agrégées, les expéditeurs sont limités et reçoivent des erreurs indiquant que le quota d’entrée a été dépassé.
+Si le débit d’**entrée** total ou le taux d’événements d’entrée total de tous les hubs d’événements d’un espace de noms dépassent les allocations d’unité de débit agrégées, les expéditeurs sont limités et reçoivent des erreurs indiquant que le quota d’entrée a été dépassé.
 
-Si le débit de sortie total ou le taux d’événements de sortie total de tous les concentrateurs d’événements d’un espace de noms dépassent les allocations d’unité de débit agrégées, les récepteurs sont limités et reçoivent des erreurs indiquant que le quota de sortie a été dépassé. Les quotas d’entrée et de sortie sont appliqués séparément afin qu’aucun expéditeur n’entraîne un ralentissement de la consommation d’événements ni qu’aucun récepteur n’empêche l’envoi d’événements à un concentrateur d’événements.
+Si le débit de **sortie** total ou le taux d’événements de sortie total de tous les hubs d’événements d’un espace de noms dépassent les allocations d’unité de débit agrégées, les récepteurs sont limités, mais aucune erreur de limitation n’est générée. 
+
+Les quotas d’entrée et de sortie sont appliqués séparément afin qu’aucun expéditeur n’entraîne un ralentissement de la consommation d’événements ni qu’aucun récepteur n’empêche l’envoi d’événements à un concentrateur d’événements.
 
 ### <a name="is-there-a-limit-on-the-number-of-throughput-units-tus-that-can-be-reservedselected"></a>Y a-t-il une limite au nombre d’unités de débit (TU) qui peuvent être réservées/sélectionnées ?
 Sur une offre mutualisée, les unités de débit peuvent atteindre 40 TU (vous pouvez sélectionner jusqu’à 20 TU dans le portail et augmenter un ticket de support pour le porter à 40 TU sur le même espace de noms). Au-delà de 40 TU, Event Hubs propose le modèle basé sur les ressources/capacités appelé **Clusters dédiés Event Hubs**. Les clusters dédiés sont vendus en unités de capacité (CU).
@@ -248,7 +250,7 @@ Event Hubs prend en charge deux types de [journaux de diagnostics](event-hubs-di
 
 ### <a name="support-and-sla"></a>Prise en charge et contrats SLA
 
-Un support technique pour les hubs d'événements est disponible via les [forums de la communauté](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). La gestion de la facturation et des abonnements est fournie gratuitement.
+Un support technique pour Event Hubs est disponible via la [page de questions Microsoft Q&A sur Azure Service Bus](https://docs.microsoft.com/answers/topics/azure-service-bus.html). La gestion de la facturation et des abonnements est fournie gratuitement.
 
 Pour en savoir plus sur notre contrat SLA, consultez la section [Contrats de niveau de Service](https://azure.microsoft.com/support/legal/sla/) .
 

@@ -2,20 +2,20 @@
 title: Sécuriser l’accès à un coffre de clés - Azure Key Vault | Microsoft Docs
 description: Gérez les autorisations d’accès à Azure Key Vault, aux clés et aux secrets. Couvre le modèle d’authentification et d’autorisation de Key Vault, et explique comment sécuriser votre coffre de clés.
 services: key-vault
-author: amitbapat
-manager: rkarlin
+author: ShaneBala-keyvault
+manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.author: ambapat
-ms.openlocfilehash: 0ae1b26bb2e01d388f3f91d94134bb9723a5a305
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 05/11/2020
+ms.author: sudbalas
+ms.openlocfilehash: 348ddb0fa8bd973a7e8ebcf5ae14de1eee57d5a5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427689"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827512"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Sécuriser l’accès à un coffre de clés
 
@@ -135,7 +135,7 @@ Une fois les autorisations Key Vault définies, vous devez accorder aux trois r�
 
 Pour plus d’informations sur le déploiement des certificats, clés d’accès et secrets par programmation, consultez ces ressources :
 - Découvrez comment [déployer des certificats sur des machines virtuelles à partir d’un coffre de clés géré par un client](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/) (billet de blog).
-- Téléchargez les [exemples de client Azure Key Vault](https://www.microsoft.com/download/details.aspx?id=45343). Ce contenu montre comment utiliser un certificat de démarrage pour s’authentifier auprès d’Azure AD afin d’accéder à un coffre de clés.
+- Examinez les [exemples de client Azure Key Vault](https://docs.microsoft.com/samples/browse/?term=Key%20Vault). Ce contenu montre comment utiliser un certificat de démarrage pour s’authentifier auprès d’Azure AD afin d’accéder à un coffre de clés.
 
 Vous pouvez accorder la plupart des autorisations d’accès à l’aide du portail Azure. Pour accorder des autorisations granulaires, vous pouvez utiliser Azure PowerShell ou l’interface Azure CLI.
 
@@ -233,4 +233,4 @@ Pour plus d’informations sur l’utilisation de la journalisation du coffre de
 
 Pour plus d’informations sur l’utilisation des clés et des secrets avec Azure Key Vault, consultez [À propos des clés et des secrets](https://msdn.microsoft.com/library/azure/dn903623.aspx).
 
-Pour toute question concernant Key Vault, rendez-vous sur les [forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
+Pour toute question concernant Key Vault, rendez-vous sur la [page de questions Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-key-vault.html).

@@ -5,12 +5,12 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 03/30/2020
 ms.subservice: metrics
-ms.openlocfilehash: 6be8cb1b7e74301d16a1174f5ca2b774334dac3f
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 91fc2c4525ee622064520b0098087d54158bbe9e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422105"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680695"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Métriques de plateforme Azure Monitor exportables par le biais des paramètres de diagnostic
 
@@ -24,7 +24,10 @@ En raison des subtilités du back-end Azure Monitor, toutes les métriques ne so
 
 ## <a name="change-to-behavior-for-nulls-and-zero-values"></a>Changement de comportement pour les valeurs NULL et zéro 
  
-Pour les métriques de plateforme qui peuvent être exportées via les paramètres de diagnostic, il existe quelques mesures pour lesquelles Azure Monitor interprète « 0 » comme « Null ». Ceci a provoqué une certaine confusion entre les véritables « 0 » (émis par la ressource) et les « 0 » interprétés (Null). Un changement aura lieu bientôt et les métriques de plateforme exportées via les paramètres de diagnostic n’exporteront plus de « 0 », sauf si elles ont été réellement émises par la ressource sous-jacente. La modification avait été planifiée pour le 1er avril 2020, mais a été retardée en raison de décalages de priorité dus au COVID-19. 
+Pour les métriques de plateforme qui peuvent être exportées via les paramètres de diagnostic, il existe quelques mesures pour lesquelles Azure Monitor interprète « 0 » comme « Null ». Ceci a provoqué une certaine confusion entre les véritables « 0 » (émis par la ressource) et les « 0 » interprétés (Null). Un changement aura lieu bientôt et les métriques de plateforme exportées via les paramètres de diagnostic n’exporteront plus de « 0 », sauf si elles ont été réellement émises par la ressource sous-jacente. 
+
+> [!CAUTION]
+> Le changement de comportement décrit ci-dessus est prévu pour le 1er juin 2020.
 
 Notez ce qui suit :
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/1/2020
-ms.openlocfilehash: 18f227c1888e0565eebb640fa61ced56dc994865
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: d4450689f6865c19436e437e09a3aa9f286c6e21
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632343"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653124"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitations dans Azure Database for MariaDB
 Les sections suivantes abordent la capacité, la prise en charge du moteur de stockage, la prise en charge des privilèges, la prise en charge des instructions de manipulation des données et les limites fonctionnelles du service de base de données.
@@ -150,7 +150,13 @@ Consultez la [documentation MariaDB](https://mariadb.com/kb/en/server-system-var
 
 ### <a name="time_zone"></a>time_zone
 
-Les tables de fuseaux horaires peuvent être remplies en appelant la procédure stockée `mysql.az_load_timezone` à partir d’un outil tel que la ligne de commande MySQL ou MySQL Workbench. Pour savoir comment appeler la procédure stockée et définir les fuseaux horaires au niveau global ou au niveau de la session, reportez-vous aux articles relatif au [Portail Azure](howto-server-parameters.md#working-with-the-time-zone-parameter) ou à [Azure CLI](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter).
+Les tables de fuseaux horaires peuvent être remplies en appelant la procédure stockée `mysql.az_load_timezone` à partir d’un outil tel que la ligne de commande MySQL ou MySQL Workbench. Pour savoir comment appeler la procédure stockée et définir les fuseaux horaires au niveau global ou au niveau de la session, consultez les articles relatifs au [Portail Azure](howto-server-parameters.md#working-with-the-time-zone-parameter) ou à [Azure CLI](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter).
+
+### <a name="innodb_file_per_table"></a>innodb_file_per_table
+
+MariaDB stocke la table InnoDB dans différents espaces disque logique en fonction de la configuration que vous avez fournie pendant la création de la table. L’[espace disque logique du système](https://mariadb.com/kb/en/innodb-system-tablespaces/) est la zone de stockage pour le dictionnaire de données InnoDB. Un [espace disque logique de fichier par table](https://mariadb.com/kb/en/innodb-file-per-table-tablespaces/) contient des données et des index pour une table InnoDB unique, et est stocké dans son propre fichier de données au sein du système de fichiers. Ce comportement est contrôlé par le paramètre de serveur `innodb_file_per_table`. La définition de `innodb_file_per_table` sur `OFF` amène InnoDB à créer des tables dans l’espace disque logique du système. Autrement, InnoDB crée des tables dans des espaces disques logiques de fichier par table.
+
+Azure Database for MariaDB prend en charge jusqu’à **1 To** dans un même fichier de données. Si la taille de votre base de données est supérieure à 1 To, vous devez créer la table dans l’espace disque logique [innodb_file_per_table](https://mariadb.com/kb/en/innodb-system-variables/#innodb_file_per_table). Si vous avez une table d’une taille supérieure à 1 To, vous devez utiliser la table de partition.
 
 ## <a name="storage-engine-support"></a>Prise en charge du moteur de stockage
 

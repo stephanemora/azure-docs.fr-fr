@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 7a4fc57b3be8dd59997ef2bfc9624892cf726160
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: a2be74f6c9178577f86e5522e37e7c210643dd07
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790981"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847809"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Utiliser un point de terminaison HTTPS pour gérer les prospects de marketplaces commerciaux
 
@@ -229,8 +229,9 @@ Lorsque vous êtes prêt à configurer les informations de gestion des prospects
 
 1. Sélectionnez votre offre, puis accédez à l’onglet **Configuration de l’offre**.
 
-1. Dans la section **Gestion des prospects**, sélectionnez **Connexion**. 
-    ![Lead management Connect button](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
+1. Dans la section **Prospects**, sélectionnez **Se connecter**.
+
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-https/customer-leads.png" alt-text="Prospects":::
 
 1. Dans la fenêtre contextuelle **Détails de la connexion**, sélectionnez **Point de terminaison HTTPS** comme **Destination du prospect**. Collez l’URL HTTP POST à partir du flux que vous avez créé en suivant les étapes précédentes dans le champ **URL du point de terminaison HTTPS**.
     ![Connection details Contact email](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)

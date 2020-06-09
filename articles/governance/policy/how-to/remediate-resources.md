@@ -3,12 +3,12 @@ title: Remédier aux ressources non conformes
 description: Ce guide explique comment corriger les ressources qui ne sont pas conformes aux stratégies dans Azure Policy.
 ms.date: 02/26/2020
 ms.topic: how-to
-ms.openlocfilehash: f4846b6eb1ea03c6706a610cab16ec376d19b060
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: acdb067e888ecbe68e3221944568b202f2510c41
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195228"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849958"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corriger les ressources non conformes avec Azure Policy
 
@@ -180,6 +180,10 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 ```
 
 Pour accéder à d’autres cmdlets et exemples de correction, consultez le module [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights).
+
+### <a name="create-a-remediation-task-during-policy-assignment-in-the-azure-portal"></a>Créer une tâche de correction au moment d’affecter une stratégie sur le portail Azure
+
+Une façon simple de créer une tâche de correction est d’utiliser le portail Azure pendant l’affectation d’une stratégie. Si la définition de la stratégie à affecter est un effet **deployIfNotExists** ou **Modify**, l’Assistant situé sous l’onglet **Correction** propose une option _Créer une tâche de correction_. Si cette option est sélectionnée, une tâche de correction est créée en même temps que l’affectation de la stratégie.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

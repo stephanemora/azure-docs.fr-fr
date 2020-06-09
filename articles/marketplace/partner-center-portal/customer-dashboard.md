@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 4d9dc0315a5c87ed67390e8edb23d44ee55f242b
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: dcb9f554b214813439ab8753cf21e7d11a0fba56
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732765"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872565"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Client dans l’analytique de la Place de marché commerciale
 
@@ -52,9 +52,9 @@ Il existe trois **types de clients** : anciens, existants et nouveaux.
 
 ### <a name="customer-by-geography"></a>Clients par zone géographique
 
-Le graphe **Client par zone géographique** présente le nombre total de clients et le nombre de clients acquis au cours de la plage de dates sélectionnée, mis en relation avec le pays du client. Les couleurs claires sur la carte indiquent des valeurs faibles et les couleurs foncées des valeurs élevées. Cliquez sur l’un des enregistrements du tableau pour zoomer sur un pays.
+Le graphe **Client par zone géographique** présente le nombre total de clients et le nombre de clients acquis au cours de la plage de dates sélectionnée, mis en relation avec le pays/région du client. Les couleurs claires sur la carte indiquent des valeurs faibles et les couleurs foncées des valeurs élevées. Cliquez sur l’un des enregistrements du tableau pour zoomer sur un pays/région.
 
-Le carte thermique présente le nombre de clients et le pourcentage par pays du client. Vous pouvez vous déplacer sur la carte pour voir l’emplacement exact et zoomer sur un emplacement spécifique. Cette carte comporte une grille supplémentaire permettant d’afficher le pourcentage de clients par emplacement, ainsi que les clients récemment ajoutés à cet emplacement.
+Le carte thermique présente le nombre de clients et le pourcentage par pays/région du client. Vous pouvez vous déplacer sur la carte pour voir l’emplacement exact et zoomer sur un emplacement spécifique. Cette carte comporte une grille supplémentaire permettant d’afficher le pourcentage de clients par emplacement, ainsi que les clients récemment ajoutés à cet emplacement.
 
 ### <a name="customer-trends"></a>Tendances clients
 
@@ -97,7 +97,9 @@ Le tableau **Détails des clients** présente la liste numérotée des 1 000 me
 - Chaque colonne de la grille peut être triée.
 - Les données peuvent être extraites dans un fichier TSV en présence d'un nombre d’enregistrements inférieur à 1 000.
 - En présence d’un nombre d’enregistrements supérieur à 1 000, les données exportées sont placées de manière asynchrone sur une page de téléchargement pour une durée de 30 jours.
-- Des filtres peuvent être appliqués au tableau pour afficher uniquement les données qui vous intéressent. Les données peuvent être filtrées par nom de société, ID de client, ID d’abonnement de la Place de marché, type de licence Azure, date d'achat, date d'annulation, adresse e-mail du client, pays/état/ville/code postal du client, langue du client, etc.
+- Des filtres peuvent être appliqués au tableau pour afficher uniquement les données qui vous intéressent. Les données peuvent être filtrées par nom de société, ID de client, ID d’abonnement de la Place de marché, type de licence Azure, date d’achat, date d’annulation, adresse e-mail du client, pays/région/état/ville/code postal du client, langue du client, et ainsi de suite.
+- Quand une offre est achetée par un client protégé, les informations contenues dans **Données détaillées du client** sont masquées (************).
+- Les détails de la dimension Client, tels que le nom de la société, le nom du client et son adresse e-mail, sont au niveau de l’ID de l’organisation, et non au niveau de la transaction Place de marché Azure ou AppSource.
 
 ### <a name="customer-page-filters"></a>Filtres de la page Client
 

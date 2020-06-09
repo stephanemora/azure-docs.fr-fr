@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: af7d04bd74ada296b9f0e0f7c149c2a781cec579
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd405513f8bdef09e6d3ab996fc2c04bd397db13
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73496494"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659443"
 ---
 # <a name="add-full-text-search-to-azure-blob-data-using-azure-cognitive-search"></a>Ajouter la recherche en texte intégral à des données blob Azure à l’aide de Recherche cognitive Azure
 
@@ -58,6 +58,11 @@ En exécutant un indexeur d’objets blob sur un conteneur, vous pouvez extraire
 ### <a name="indexing-blob-metadata"></a>Indexation de métadonnées blob
 
 Pour faciliter le tri dans les objets blob constitués de tout type de contenu, un scénario courant consiste à indexer les métadonnées personnalisées et les propriétés système pour chaque objet blob. De cette façon, les informations de tous les objets blob sont indexées indépendamment du type de document et stockées dans un index de votre service de recherche. Le nouvel index vous permet alors d’effectuer un tri, un filtrage et une facette dans l’ensemble du contenu du stockage Blob.
+
+> [!NOTE]
+> Les balises d’index d’objet blob sont indexées en mode natif par le service de stockage d’objets blob et exposées pour l’interrogation. Si les attributs clé/valeur de vos objets blob nécessitent des fonctionnalités d’indexation et de filtrage, les balises d’index d’objet blob doivent être exploitées à la place des métadonnées.
+>
+> Pour en savoir plus sur un index d’objets blob, consultez [Gérer et rechercher des données sur le Stockage Blob Azure avec un index d’objets blob](../storage/blobs/storage-manage-find-blobs.md).
 
 ### <a name="indexing-json-blobs"></a>Indexation d’objets JSON
 Les indexeurs peuvent être configurés pour extraire le contenu structuré des objets blob qui contiennent des objets JSON. Un indexeur peut lire les objets blob JSON et analyser le contenu structuré dans les champs adaptés d’un document de recherche. Les indexeurs peuvent également extraire les objets blob contenant des objets JSON et mapper chaque élément avec un document de recherche différent. Vous pouvez définir un mode d’analyse pour affecter le type d’objet JSON créé par l’indexeur.

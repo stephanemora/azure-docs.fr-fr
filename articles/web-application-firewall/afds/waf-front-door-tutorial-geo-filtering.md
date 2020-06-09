@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: abcef61d478eccb4e979b60eb845ac8d398a49f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eb97a2d848441a153db47b41644a6226e9d75782
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79135868"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747744"
 ---
 # <a name="set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Configurer une stratégie WAF de filtrage géographique pour votre service Front Door
 
@@ -52,7 +52,7 @@ Créez un profil Front Door en suivant les instructions décrites dans [Démarra
 
 ## <a name="define-geo-filtering-match-condition"></a>Définir la condition de correspondance du filtrage géographique
 
-Créez un exemple de condition de correspondance qui sélectionne les demandes ne provenant pas de « US » en utilisant [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) sur les paramètres lors de la création d’une condition de correspondance. Les codes de pays à deux lettres pour le mappage de pays sont fournis dans [Qu’est-ce que le filtrage géographique sur un domaine pour Azure Front Door ?](waf-front-door-geo-filtering.md).
+Créez un exemple de condition de correspondance qui sélectionne les demandes ne provenant pas de « US » en utilisant [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) sur les paramètres lors de la création d’une condition de correspondance. Les codes de pays/région à deux lettres pour le mappage de pays/région sont fournis dans [Qu’est-ce que le filtrage géographique sur un domaine pour Azure Front Door ?](waf-front-door-geo-filtering.md)
 
 ```azurepowershell-interactive
 $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `

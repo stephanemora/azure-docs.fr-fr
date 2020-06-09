@@ -1,6 +1,6 @@
 ---
-title: Guide de configuration d’un labo de classe accéléré pour Azure Lab Services
-description: Ce guide aide les créateurs de labos à configurer rapidement un compte labo pour l’utiliser dans leur école.
+title: Guide de configuration du laboratoire de classe accéléré pour Azure Lab Services
+description: Ce guide aide les créateurs de laboratoires à configurer rapidement un compte de laboratoire pour une utilisation au sein de leur école.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/18/2020
+ms.date: 05/19/2020
 ms.author: spelluru
-ms.openlocfilehash: e00b6dd5af1cb489aee9e8b4c9f3337eb02e4b14
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 5c2ea38dfa799239adde158506e1359fb84adcc4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878100"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650532"
 ---
-# <a name="classroom-lab-setup-guide"></a>Guide de configuration d’un labo de classe
+# <a name="classroom-lab-setup-guide"></a>Guide de configuration du laboratoire de classe
 
 Le processus de publication d’un labo pour vos étudiants peut prendre plusieurs heures, en fonction du nombre de machines virtuelles qui seront créées dans votre labo. Accordez-vous au moins une journée pour configurer un labo afin de vous assurer qu’il fonctionne correctement et pour disposer de suffisamment de temps pour publier les machines virtuelles des étudiants.
 
@@ -30,7 +30,7 @@ Avant de configurer un nouveau labo, vous devez vous poser les questions suivant
 
 ### <a name="what-software-requirements-does-the-class-have"></a>Quelle est la configuration logicielle requise par la classe ?
 
-En fonction des objectifs d’apprentissage de votre classe, déterminez le système d’exploitation, les applications et les outils qui doivent être installés sur les machines virtuelles du labo. Pour configurer les machines virtuelles du labo, vous avez trois options :
+En fonction des objectifs d’apprentissage de votre classe, déterminez le système d’exploitation, les applications et les outils qui doivent être installés sur les machines virtuelles du labo. Pour configurer des machines virtuelles de laboratoire, vous avez trois options :
 
 - **Utiliser une image de la Place de marché Azure** : la Place de marché Azure fournit des centaines d’images que vous pouvez utiliser lors de la création d’un labo. Pour certaines classes, l’une de ces images peut déjà contenir tout ce dont vous avez besoin pour votre classe.
 
@@ -39,7 +39,7 @@ En fonction des objectifs d’apprentissage de votre classe, déterminez le syst
 - **Utiliser une image personnalisée existante** : vous pouvez réutiliser des images personnalisées existantes que vous avez créées ou qui ont été créées par d’autres administrateurs ou professeurs de votre établissement scolaire. Il faut pour cela que les administrateurs aient configuré une galerie d’images partagées, qui est un référentiel pour l’enregistrement d’images personnalisées.
 
 > [!NOTE]
-> Les administrateurs sont responsables de l’activation des images de la Place de marché Azure et des images personnalisées afin que vous puissiez les utiliser. Collaborez avec votre service informatique pour être sûr que les images dont vous avez besoin sont activées. Les images personnalisées que vous créez sont automatiquement activées pour être utilisées dans les labos dont vous êtes propriétaire.
+> Les administrateurs sont responsables de l’activation des images de la Place de marché Azure et des images personnalisées afin que vous puissiez les utiliser. Collaborez avec votre service informatique pour être sûr que les images dont vous avez besoin sont activées. Les images personnalisées que vous créez sont automatiquement activées pour une utilisation dans les laboratoires dont vous êtes propriétaire.
 
 ### <a name="what-hardware-requirements-does-the-class-have"></a>Quelle est la configuration matérielle requise pour la classe ?
 
@@ -61,7 +61,7 @@ Si vos machines virtuelles de labo doivent utiliser des ressources externes, tel
 Pour accéder aux ressources Azure qui ne sont *pas* sécurisées par un réseau virtuel, aucune autre configuration n’est nécessaire de la part des administrateurs. Vous pouvez accéder à ces ressources par le biais de l’Internet public.
 
 > [!NOTE]
-> Vous devez déterminer si vous pouvez réduire les dépendances de votre labo aux ressources externes en fournissant la ressource directement sur la machine virtuelle. Par exemple, pour éviter d’avoir à lire les données d’une base de données externe, vous pouvez installer la base de données directement sur la machine virtuelle.  
+> Vous devez déterminer si vous pouvez réduire les dépendances de votre laboratoire aux ressources externes en fournissant la ressource directement sur la machine virtuelle. Par exemple, pour éviter d’avoir à lire les données d’une base de données externe, vous pouvez installer la base de données directement sur la machine virtuelle.  
 
 ### <a name="how-will-costs-be-controlled"></a>Comment les coûts seront-ils contrôlés ?
 
@@ -76,7 +76,7 @@ Les services Lab utilisent un modèle tarifaire avec paiement à l’utilisation
 
 ### <a name="how-will-students-save-their-work"></a>Comment les étudiants vont-ils enregistrer leur travail ?
 
-Chaque machine virtuelle affectée à un étudiant l’est pour la durée du labo. Les étudiants peuvent choisir de procéder de différentes façons :
+Chaque machine virtuelle affectée à un étudiant l’est pour la durée du labo. Les élèves peuvent choisir de procéder de différentes façons :
 
 - Enregistrer directement sur la machine virtuelle.
 - Enregistrer sur un emplacement externe, tel que OneDrive ou GitHub.
@@ -92,9 +92,9 @@ Pour les connexions RDP aux machines virtuelles Windows, nous recommandons aux �
 
 Pour les machines virtuelles Linux, les étudiants peuvent utiliser SSH ou RDP. Pour que les étudiants puissent se connecter à l’aide du protocole RDP, vous devez installer et configurer les packages RDP et GUI nécessaires.
 
-## <a name="set-up-your-lab"></a>Configurer votre labo
+## <a name="set-up-your-lab"></a>Configurer votre lab
 
-Une fois que vous avez compris les conditions requises pour le labo de votre classe, vous êtes prêt à le configurer. Suivez les liens de cette section pour savoir comment configurer votre labo.
+Une fois que vous avez compris les conditions requises pour le labo de votre classe, vous êtes prêt à le configurer. Suivez les liens de cette section pour savoir comment configurer votre laboratoire.
 
 1. **Créez un labo**. Pour obtenir des instructions, reportez-vous au didacticiel sur la [Création d’un laboratoire de classe](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#create-a-classroom-lab).
 
@@ -116,7 +116,7 @@ Une fois que vous avez compris les conditions requises pour le labo de votre cla
 
     Pour plus d’informations sur les types de comptes que les étudiants peuvent utiliser, consultez [Comptes étudiants](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#student-accounts).
   
-1. **Maîtriser les coûts.** Pour maîtriser les coûts de votre labo, définissez des plannifications, des quotas et un arrêt automatique. Consultez les tutoriels suivants :
+1. **Maîtriser les coûts.** Pour maîtriser les coûts de votre labo, définissez des plannifications, des quotas et un arrêt automatique. Consultez les didacticiels suivants :
 
    - [Définir un calendrier](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#set-a-schedule-for-the-lab)
         > [!NOTE]
@@ -127,12 +127,17 @@ Une fois que vous avez compris les conditions requises pour le labo de votre cla
    - [Activer l’arrêt automatique lors de la déconnexion](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
 
         > [!NOTE]
-        > Les planifications, les quotas et l’arrêt automatique ne s’appliquent pas au modèle de machine virtuelle. Par conséquent, vous devez penser à arrêter le modèle de machine virtuelle quand vous ne l’utilisez pas, sinon il continuera à occasionner des frais. De plus, par défaut, quand vous créez un labo, le modèle de machine virtuelle est démarré automatiquement. Veillez à terminer immédiatement la configuration du labo et à arrêter le modèle de machine virtuelle.
+        > Les planifications et les quotas ne s’appliquent pas à la machine virtuelle du modèle, mais les paramètres d’arrêt automatique s’appliquent. 
+        > 
+        > Quand vous créez un labo, le modèle de machine virtuelle est créé, mais il ne démarre pas. Vous pouvez le démarrer, vous y connecter et installer les logiciels prérequis pour le labo, puis le publier. Quand vous publiez le modèle de machine virtuelle, il s’arrête automatiquement si vous ne l’avez pas arrêté vous-même. 
+        > 
+        > Étant donné que les modèles de machines virtuelles engendrent des **coûts** pendant leur exécution, prenez soin de vérifier que le modèle de machine virtuelle est arrêté quand vous n’avez pas besoin de l’exécuter. 
+
 
 1. **Utilisez le tableau de bord.** Pour obtenir des instructions, consultez l’article sur l’[utilisation du tableau de bord du labo](https://docs.microsoft.com/azure/lab-services/classroom-labs/use-dashboard).
 
     > [!NOTE]
-    > Le coût estimé montré dans le tableau de bord est le coût maximal auquel vous pouvez vous attendre pour l’utilisation du labo par les étudiants. Par exemple, les heures de quota inutilisées par vos étudiants ne sont *pas* facturées. Les coûts estimés ne reflètent *pas* les frais liés à l’utilisation du modèle de machine virtuelle ou de la galerie d’images partagées.
+    > Le coût estimé montré dans le tableau de bord est le coût maximal auquel vous pouvez vous attendre pour l’utilisation du labo par les étudiants. Par exemple, les heures de quota inutilisées par vos élèves ne sont *pas* facturées. Les coûts estimés ne reflètent *pas* les frais liés à l’utilisation du modèle de machine virtuelle ou de la galerie d’images partagées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

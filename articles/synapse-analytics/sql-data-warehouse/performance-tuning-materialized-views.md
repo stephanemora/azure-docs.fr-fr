@@ -10,18 +10,16 @@ ms.subservice: ''
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 6a3235d5edc5249bbbdc2e79dac8575ad26fd5e1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7a54d1d644d1069957db7f94d6f5e261e1a8dfb2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417024"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747545"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Réglage des performances avec des vues matérialisées
 
-Les vues matérialisées du pool Synapse SQL fournissent une méthode à faible maintenance pour les requêtes analytiques complexes en vue d'obtenir des performances rapides sans aucune modification des requêtes. Cet article dispense des conseils d’ordre général sur l’utilisation des vues matérialisées.
-
-Les vues matérialisées du pool SQL fournissent une méthode à faible maintenance pour les requêtes analytiques complexes en vue d'obtenir des performances rapides sans aucune modification des requêtes. Cet article dispense des conseils d’ordre général sur l’utilisation des vues matérialisées.
+Les vues matérialisées du pool Synapse SQL fournissent une méthode à faible maintenance pour les requêtes analytiques complexes en vue d’obtenir des performances rapides sans aucune modification des requêtes. Cet article dispense des conseils d’ordre général sur l’utilisation des vues matérialisées.
 
 ## <a name="materialized-views-vs-standard-views"></a>Vues matérialisées et vues standard
 
@@ -161,7 +159,7 @@ Les vues matérialisées permettent de modifier les données dans les tables de 
 
 ## <a name="example"></a>Exemple
 
-Cet exemple utilise une requête de type TPCDS qui recherche les clients qui dépensent plus d’argent par le biais du catalogue que dans les magasins, afin d’identifier les clients préférés et leur pays d’origine.   La requête consiste à sélectionner les 100 premiers enregistrements issus de l’instruction UNION de trois sous-instructions SELECT impliquant les fonctions SUM() et GROUP BY.
+Cet exemple utilise une requête de type TPCDS qui recherche les clients qui dépensent plus d’argent par le biais du catalogue que dans les magasins, afin d’identifier les clients préférés et leur pays/région d’origine.   La requête consiste à sélectionner les 100 premiers enregistrements issus de l’instruction UNION de trois sous-instructions SELECT impliquant les fonctions SUM() et GROUP BY.
 
 ```sql
 WITH year_total AS (

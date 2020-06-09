@@ -5,15 +5,15 @@ services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2541e9e10103d66c6c2fb6978c3029d61b813eab
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: ddfd9346f4a72ceb2e8bf5c336fb3de9b5c8c5c7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614126"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827469"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configurer le type d’affectation d’un pool hôte de bureau personnel
 
@@ -75,6 +75,18 @@ Pour affecter un utilisateur à un hôte de session spécifique, exécutez la cm
 ```powershell
 Set-RdsSessionHost <tenantname> <hostpoolname> -Name <sessionhostname> -AssignedUser <userupn>
 ```
+
+## <a name="remove-a-user-assignment"></a>Supprimer une affectation d’utilisateurs
+
+Vous pouvez supprimer une affectation d’utilisateurs, parce qu’un utilisateur n’a plus besoin du bureau personnel, il a quitté l’entreprise ou vous voulez réutiliser le bureau pour quelqu’un d’autre.
+
+Actuellement, la seule façon de supprimer l’affectation d’utilisateurs d’un bureau personnel consiste à supprimer entièrement l’hôte de session. Pour supprimer l’hôte de session, exécutez cette applet de commande :
+
+```powershell
+Remove-RdsSessionHost
+```
+
+Si vous avez besoin de rajouter l’hôte de session dans le pool hôte du bureau personnel, désinstallez Windows Virtual Desktop sur cette machine, puis suivez les étapes décrites dans [Créer un pool hôte avec PowerShell](create-host-pools-powershell-2019.md) pour réinscrire l’hôte de session.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

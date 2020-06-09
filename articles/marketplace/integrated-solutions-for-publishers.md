@@ -1,22 +1,22 @@
 ---
-title: Solutions intégrées – Place de marché Azure
-description: Solutions intégrées dans la Place de marché Azure et Microsoft AppSource
+title: Publier une solution intégrée – Place de marché commerciale Microsoft
+description: Découvrez les conditions requises et les étapes de publication de solutions intégrées sur Microsoft AppSource et la Place de marché Azure.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 835aa0192dc37032a76bf3863dc1a4ac0109bb22
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: a2bce05288d0085306a59f3ff5ee62939941bbaf
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160560"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800615"
 ---
 # <a name="publish-an-integrated-solution"></a>Publier une solution intégrée
 
-Dans une offre groupée, une solution intégrée combine des technologies de solutions de pointe de fournisseurs de logiciels au déploiement et à la prise en charge d’un partenaire de services. Le partenaire de services référence l’offre dans Microsoft AppSource ou la Place de marché Azure en tant que [service de conseil](./consulting-services.md).
+Cet article explique le processus global et les conditions requises pour la publication d’une solution intégrée sur la Place de marché commerciale. Dans une offre groupée, une solution intégrée combine des technologies de solutions de pointe de fournisseurs de logiciels au déploiement et à la prise en charge d’un partenaire de services. Le partenaire de services référence l’offre dans Microsoft AppSource ou la Place de marché Azure en tant que [service de conseil](./consulting-services.md).
 
 Les solutions intégrées visent à répondre à un scénario ou à un besoin spécifique du client. Les fournisseurs commencent par comprendre les points faibles du secteur ou le défi auquel il est confronté. Ils intègrent ensuite au moins deux technologies de pointe afin de créer une expérience de déploiement unifiée et reproductible pour les clients. Les fournisseurs permettent aux clients d’être rapidement opérationnels. Ils offrent un point de contact unique au client, en fournissant une personnalisation, des conseils et une prise en charge de solutions pertinents. Le résultat est une solution intégrée, incluant de la technologie et des services.
 
@@ -52,7 +52,7 @@ Pour obtenir une vue d’ensemble du programme Solutions intégrées, regardez l
 
 ## <a name="submit-a-nomination"></a>Soumettre une nomination
 
-Les partenaires qui souhaitent participer au programme doivent identifier les autres partenaires avec lesquels ils souhaitent travailler. Ils doivent remplir le [formulaire de nomination des solutions intégrées](https://assetsprod.microsoft.com/mpn/integrated-solutions-partner-nomination.docx). L’équipe du programme des solutions intégrées examine la nomination et se prononce dans les 10 jours ouvrables. L’équipe fournit l’étape d’approbation et les suivantes.
+Les partenaires qui souhaitent participer au programme doivent identifier les autres partenaires avec lesquels ils souhaitent travailler. Ils doivent remplir le [formulaire de nomination des solutions intégrées](https://aka.ms/AA5qicu). L’équipe du programme des solutions intégrées examine la nomination et se prononce dans les 10 jours ouvrables. L’équipe fournit l’étape d’approbation et les suivantes.
 
 ## <a name="develop-an-integrated-solution"></a>Développer une solution intégrée
 
@@ -84,8 +84,8 @@ Une fois votre nomination approuvée, utilisez les ressources du programme pour 
 
     Utilisez ces ressources pour le processus de développement :
 
-    * [Guide de discussion sur l’atelier des décisions commerciales](https://assetsprod.microsoft.com/mpn/integrated-solutions-discussion-guide-for-business-workshop.pptx)
-    * [Guide de discussion sur l’atelier des décisions techniques](https://assetsprod.microsoft.com/mpn/integrated-solutions-discussion-guide-for-technical-workshop.pptx)
+    * [Guide de discussion sur l’atelier des décisions commerciales](https://aka.ms/AA5qicx)
+    * [Guide de discussion sur l’atelier des décisions techniques](https://aka.ms/AA5qid1)
     * [Vidéo de démarrage rapide : ateliers Solutions intégrées](https://partner.microsoft.com/asset/detail/integrated-solutions-workshop-quickstart-guide-mp4)
 
 1. Identifiez un chef de projet inter-partenaires qui appliquera le plan de projet et la chronologie que vous avez développés dans les ateliers commerciaux et techniques.
@@ -98,8 +98,8 @@ Une fois votre nomination approuvée, utilisez les ressources du programme pour 
 
     * Un nom de solution combinée.
     * Une description du référencement de la solution intégrée. Suivez les [bonnes pratiques sur les référencements des offres](./gtm-offer-listing-best-practices.md).
-    * Un argumentaire d’une page pour les clients. Utilisez le [modèle d’une page ](https://assetsprod.microsoft.com/mpn/integrated-solutions-customer-one-pager-template.pptx).
-    * Une présentation client. Utilisez la [présentation client ](https://assetsprod.microsoft.com/mpn/customer-presentation-template.pptx).
+    * Un argumentaire d’une page pour les clients. Utilisez le [modèle d’une page ](https://aka.ms/AA5s08a).
+    * Une présentation client. Utilisez la [présentation client ](https://aka.ms/AA5s7ql).
     * Un logo pour la solution combinée.
 
 ## <a name="publish-your-integrated-solution"></a>Publier votre solution intégrée

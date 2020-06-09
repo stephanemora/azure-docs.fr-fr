@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 73256aef19a03c4c971be5fc9e69f988ef5a831a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1455bc65f175970bb741dab4a56aa0aac58fc59
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75438625"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742998"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box : Forum Aux Questions (FAQ)
 
@@ -166,7 +166,7 @@ A.  To speed up the copy process:
 
 - Create a local VHDx on fast storage or create an empty VHD on the HDD/SSD (slower).
 - Mount it to a VM.
-- Copy files to the VM’s disk.-->
+- Copy files to the VM's disk.-->
 
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box"></a>Q. Puis-je utiliser plusieurs comptes de stockage avec Data Box ?
@@ -194,8 +194,8 @@ Une fois la copie des données effectuée, suivez les étapes ci-dessous pour re
 3. Enroulez le cordon d’alimentation fourni avec la Data Box et fixez-le à l’arrière de l’appareil.
 4. Envoyez un e-mail à l’[équipe des opérations Azure Data Box](mailto:adbops@microsoft.com) en indiquant le code que vous avez enregistré. L’équipe va vous indiquer où et quand déposer l’appareil.
 
-### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>Q. Mes appareils Data Box traverseront-ils des frontières lors de leur expédition ?
-R. Le transport des appareils Data Box s'effectue au sein du même pays ; ils ne franchissent aucune frontière internationale. La seule exception concerne les commandes au sein de l'Union européenne (UE), où les appareils peuvent être expédiés depuis et vers n'importe quel pays de l'UE. Cela concerne les appareils Data Box et Data Box Heavy.
+### <a name="q-will-my-data-box-devices-cross-countryregion-borders-during-shipping"></a>Q. Mes appareils Data Box traverseront-t-il des frontières lors de leur expédition ?
+R. Les appareils Data Box sont expédiés depuis le même pays ou la même région que leur destination, ils ne franchissent aucune frontière internationale. La seule exception concerne les commandes au sein de l’Union européenne (UE), où les appareils peuvent être expédiés depuis et vers n’importe quel pays ou n’importe quelle région de l’UE. Cela concerne les appareils Data Box et Data Box Heavy.
 
 ### <a name="q-i-ordered-a-data-box-in-us-east-but-i-received-a-device-that-was-shipped-from-a-location-in-us-west-where-should-i-return-the-device-to"></a>Q. J’ai commandé un Data Box dans la région USA Est, mais j’ai reçu un appareil qui a été expédié à partir d’un emplacement dans la région USA Ouest. Où renvoyer l’appareil ?
 R. Nous essayons de vous envoyer un appareil Data Box le plus rapidement possible. Nous donnons la priorité à l’envoi à partir du centre de données le plus proche de l’emplacement de votre compte de stockage, mais nous expédions toujours un appareil à partir d’un centre de données Azure disposant d’un stock. Votre Data Box doit être retourné au même emplacement que celui où il a été expédié, tel qu’affiché sur l’étiquette d’expédition.
@@ -221,7 +221,7 @@ R. Si votre appareil ne démarre pas, accédez à votre commande dans le portail
 
 ## <a name="verify-and-upload"></a>Vérification et chargement
 
-### <a name="q-how-soon-can-i-access-my-data-in-azure-once-ive-shipped-the-data-box-back"></a>Q. Après combien de temps puis-je accéder à mes données dans Azure une fois que j’ai renvoyé la Data Box ? 
+### <a name="q-how-soon-can-i-access-my-data-in-azure-once-ive-shipped-the-data-box-back"></a>Q. Après combien de temps puis-je accéder à mes données dans Azure une fois que j’ai renvoyé la Data Box ? 
 R.  Dès que l’état de la commande pour la **copie des données** s’affiche comme **complet**, vous devriez pouvoir accéder à vos données.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>Q. Où se trouvent mes données dans Azure après leur téléchargement ?
@@ -258,7 +258,7 @@ R.  Les rapports suivants sont disponibles pour prendre en charge la chaîne de 
 - Nettoyage de l’appareil Data Box (conformément aux normes NIST 800 88R1), une fois les données copiées sur votre compte Stockage Azure.
 
 ### <a name="are-the-carrier-tracking-logs-from-ups-available"></a>Les journaux d’activité de suivi du transporteur (UPS) sont-ils disponibles ? 
-R.  Les journaux d’activité de suivi du transporteur sont consignés dans l’historique des commandes Data Box. Ce rapport est à votre disposition une fois que l’appareil a été retourné au centre de données Azure et que les données stockées sur les disques de l’appareil ont été nettoyées. Pour vos besoins immédiats, vous pouvez également accéder directement au site Web du transporteur et y saisir le numéro de suivi de la commande pour obtenir les informations de suivi.
+R.  Les journaux d’activité de suivi du transporteur sont consignés dans l’historique des commandes Data Box. Ce rapport est à votre disposition une fois que l’appareil a été retourné au centre de données Azure et que les données stockées sur les disques de l’appareil ont été nettoyées. Pour vos besoins immédiats, vous pouvez également accéder directement au site web du transporteur et y entrer le numéro de suivi de la commande pour obtenir les informations de suivi.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>Puis-je apporter la Data Box au centre de données Azure ? 
 R.  Non. Actuellement, le centre de données Azure n’accepte pas la remise des Data Box des clients ou de transporteurs autres que UPS.

@@ -1,23 +1,20 @@
 ---
-title: Gestion des données Azure Automation
-description: Cet article contient plusieurs rubriques concernant la gestion d’un environnement Azure Automation.  Il inclut actuellement Conservation des données, Sauvegarde Azure Automation et Récupération d'urgence dans Azure Automation.
+title: Gestion des données Azure Automation
+description: Cet article décrit les concepts relatifs à la gestion des données dans Azure Automation, notamment la conservation et la sauvegarde des données.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: f917e9c64a932d75fd0f6b14c9e0f35808467355
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: de60ef31a39a698f9a797a5836546f9b75b67594
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984655"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835204"
 ---
-# <a name="managing-azure-automation-data"></a>Gestion des données Azure Automation
+# <a name="management-of-azure-automation-data"></a>Gestion des données Azure Automation
 
 Cet article contient plusieurs rubriques relatives à la gestion de données dans un environnement Azure Automation.
-
->[!NOTE]
->Cet article a été mis à jour pour tenir compte de l’utilisation du nouveau module Az d’Azure PowerShell. Vous pouvez toujours utiliser le module AzureRM, qui continue à recevoir des correctifs de bogues jusqu’à au moins décembre 2020. Pour en savoir plus sur le nouveau module Az et la compatibilité avec AzureRM, consultez [Présentation du nouveau module Az d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Pour obtenir des instructions relatives à l’installation du module Az sur votre Runbook Worker hybride, voir [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Pour votre compte Automation, vous pouvez mettre à jour vos modules vers la dernière version en suivant les instructions du [Guide de mise à jour des modules Azure PowerShell dans Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="data-retention"></a>Conservation des données
 
@@ -28,9 +25,9 @@ Le tableau suivant récapitule la stratégie de rétention pour les différentes
 | Données | Stratégie |
 |:--- |:--- |
 | Comptes |Un compte est définitivement supprimé 30 jours après avoir été supprimé par un utilisateur. |
-| Ressources |Une ressource est définitivement supprimée 30 jours après avoir été supprimée par un utilisateur ou 30 jours après qu’un utilisateur a supprimé un compte qui contenait la ressource. |
+| Éléments multimédias |Une ressource est définitivement supprimée 30 jours après avoir été supprimée par un utilisateur ou 30 jours après qu’un utilisateur a supprimé un compte qui contenait la ressource. |
 | Nœuds DSC |Un nœud DSC est définitivement supprimé 30 jours après avoir été désinscrit d’un compte Automation via le portail Azure ou l’applet de commande [Unregister-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) dans Windows PowerShell. De même, un nœud peut être supprimé définitivement 30 jours après qu’un utilisateur a supprimé le compte qui contenait le nœud. |
-| Tâches |Une tâche est supprimée et définitivement retirée 30 jours après avoir été modifiée (par exemple, suite à la fin, à l’arrêt ou à l’interruption de la tâche). |
+| travaux |Une tâche est supprimée et définitivement retirée 30 jours après avoir été modifiée (par exemple, suite à la fin, à l’arrêt ou à l’interruption de la tâche). |
 | Modules |Un module est définitivement supprimé 30 jours après avoir été supprimé par un utilisateur ou 30 jours après qu’un utilisateur a supprimé le compte qui contenait le module. |
 | Configurations de nœud/fichiers MOF |Une ancienne configuration de nœud est définitivement supprimée 30 jours après la génération d’une nouvelle configuration de nœud. |
 | Rapports sur le nœud |Le rapport sur un nœud est définitivement supprimé définitivement 90 jours après la génération d’un nouveau rapport pour ce même nœud. |
@@ -50,7 +47,7 @@ Vous pouvez exporter vos Runbooks vers vos fichiers de script en utilisant soit 
 
 Vous ne pouvez pas exporter de modules d’intégration à partir d’Azure Automation. Vous devez les rendre accessibles en dehors du compte Automation.
 
-### <a name="assets"></a>Ressources
+### <a name="assets"></a>Éléments multimédias
 
 Vous ne pouvez pas exporter de ressources Azure Automation : certificats, connexions, informations d’identification, planifications et variables. En revanche, vous pouvez utiliser le portail Azure et des applets de commande Azure pour noter les détails de ces ressources. Ces détails vous serviront par la suite à créer les ressources qui seront utilisées par les runbooks que vous importerez dans un autre compte Automation.
 
@@ -61,7 +58,7 @@ Vous ne pouvez pas récupérer la valeur des variables chiffrées ou des champs 
 Vous pouvez exporter vos configurations DSC dans des fichiers de script en utilisant soit le portail Azure, soit l'applet de commande [Export-AzAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0
 ) dans Windows PowerShell. Vous pouvez importer et utiliser ces configurations dans un autre compte Automation.
 
-## <a name="geo-replication-in-azure-automation"></a>Géoréplication dans Azure Automation
+## <a name="geo-replication-in-azure-automation"></a>Géo-réplication dans Azure Automation
 
 La géoréplication est une fonctionnalité standard des comptes Azure Automation. Au moment de configurer votre compte, vous choisissez une région primaire. Le service de géoréplication interne d’Automation affecte alors automatiquement une région secondaire au compte. Les données de compte de la région primaire sont sauvegardées en continu dans la région secondaire. La liste complète des régions primaires et secondaires se trouve dans [Continuité et reprise d’activité : régions jumelées d’Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
@@ -79,6 +76,5 @@ Le service de géoréplication Automation n’est pas directement accessible aux
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur les ressources sécurisées dans Azure Automation, consultez [Chiffrer des ressources sécurisées dans Azure Automation](automation-secure-asset-encryption.md).
-
+* Pour en savoir plus sur les ressources sécurisées dans Azure Automation, consultez [Chiffrement des ressources sécurisées dans Azure Automation](automation-secure-asset-encryption.md).
 * Pour découvrir plus en détail la géoréplication, consultez [Création et utilisation de la géoréplication active](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication).

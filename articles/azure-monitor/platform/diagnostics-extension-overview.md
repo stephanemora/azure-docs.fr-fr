@@ -6,18 +6,26 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 6cb514312db525ffd2ccf9f7b70968daaa94f322
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5dcdfba6e8dd00c8ba09e5e98293a30d19e51c99
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77672376"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83635950"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Vue d’ensemble de l’extension Diagnostics Azure
 L’extension Diagnostics Azure est un [agent présent dans Azure Monitor](agents-overview.md) qui collecte des données de supervision dans le système d’exploitation invité des ressources de calcul Azure, notamment des machines virtuelles. Cet article fournit une vue d’ensemble de l’extension Diagnostics Azure, notamment des fonctionnalités spécifiques qu’elle prend en charge ainsi que des options d’installation et de configuration. 
 
 > [!NOTE]
 > L’extension Diagnostics Azure est l’un des agents disponibles pour collecter des données de supervision à partir du système d’exploitation invité des ressources de calcul. Pour obtenir une description des différents agents et des conseils sur la sélection des agents appropriés en fonction de vos besoins, consultez [Vue d’ensemble des agents Azure Monitor](agents-overview.md).
+
+## <a name="primary-scenarios"></a>Principaux scénarios
+Les principaux scénarios traités par l’extension Diagnostics sont les suivants :
+
+- Collecter des métriques d’invités dans les métriques Azure Monitor.
+- Envoyer les journaux et les métriques d’invités au stockage Azure à des fins d’archivage.
+- Envoyer les journaux et les métriques d’invité à des hubs d’événements Azure en dehors d’Azure.
+
 
 ## <a name="comparison-to-log-analytics-agent"></a>Comparaison avec l’agent Log Analytics
 L’agent Log Analytics dans Azure Monitor peut également être utilisé pour collecter des données de supervision à partir du système d’exploitation invité des machines virtuelles. Vous pouvez choisir d’utiliser l’un ou l’autre, ou les deux en fonction de vos besoins. Pour une comparaison détaillée des agents Azure Monitor, consultez [Vue d’ensemble des agents Azure Monitor](agents-overview.md). 
@@ -91,7 +99,7 @@ Vous pouvez également installer et configurer les deux extensions de diagnostic
 
 Pour plus d’informations sur l’installation et la configuration des extensions de diagnostic pour Windows et Linux, consultez les articles suivants.
 
-- [Installer et configurer l’extension Diagnostics Azure pour Azure (WAD)](diagnostics-extension-windows-install.md)
+- [Installer et configurer l’extension Diagnostics Azure pour Windows (WAD)](diagnostics-extension-windows-install.md)
 - [Utiliser l’extension de diagnostic Linux pour superviser les métriques et les journaux](../../virtual-machines/extensions/diagnostics-linux.md)
 
 ## <a name="other-documentation"></a>Autre documentation

@@ -2,19 +2,25 @@
 title: Format Markdown - QnA Maker
 description: Voici la liste des formats Markdown que vous pouvez utiliser dans le texte de réponse de QnA Maker.
 ms.topic: reference
-ms.date: 01/09/2020
-ms.openlocfilehash: 3fb7d73afdfd5ab7f1fb56a685b21538b97c8ea4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/19/2020
+ms.openlocfilehash: 38532783c38263b3f1364e30125414958eab1394
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77045396"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652756"
 ---
 # <a name="markdown-format-supported-in-qna-maker-answer-text"></a>Format Markdown pris en charge dans le texte de réponse QnA Maker
 
 QnA Maker stocke le texte de réponse au format Markdown. Il existe plusieurs saveurs de Markdown. Pour vérifier que le texte de réponse est retourné et correctement affiché, utilisez cette référence.
 
 Utilisez le tutoriel **[CommonMark](https://commonmark.org/help/tutorial/index.html)** pour valider votre Markdown. Ce tutoriel a une fonctionnalité **Essayer** pour la validation rapide de copier/coller.
+
+## <a name="when-to-use-rich-text-editing-versus-markdown"></a>Choisir entre la modification de texte enrichi et Markdown
+
+[Modifier le texte enrichi](How-To/edit-knowledge-base.md#add-an-editorial-qna-set) de réponses vous permet, en tant qu’auteur, d’utiliser une barre d’outils de mise en forme pour sélectionner le texte et le mettre en forme rapidement.
+
+Markdown est un outil plus approprié quand vous devez générer automatiquement du contenu pour créer des bases de connaissances à importer dans le cadre d’un pipeline CI/CD ou pour des [tests par lots](Quickstarts/batch-testing.md).
 
 ## <a name="supported-markdown-format"></a>Format Markdown pris en charge
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: de99e9b1e4adceaf08beaf8ad3b5ea114b31a586
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5e5437db480646275a8bbe34e1a64c005a32a16
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233101"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827724"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ d’Azure DevTest Labs
 Obtenez des réponses aux questions les plus fréquemment posées sur Azure DevTest Labs.
@@ -47,7 +47,7 @@ Notre compte Twitter : [@azlabservices](https://twitter.com/azlabservices)
 Si votre question n’est pas répertoriée ici, faites-le-nous savoir pour que nous puissions vous aider à trouver une réponse.
 
 - Postez une question à la fin de ce Forum aux questions.
-- Pour atteindre un public plus large, postez une question sur le [forum MSDN consacré à Azure DevTest Labs](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Dialoguez avec l’équipe d’Azure DevTest Labs et les autres membres de la communauté.
+- Pour atteindre un public plus large, postez une question dans la [page de questions Microsoft Q&A sur Azure DevTest Labs](https://docs.microsoft.com/answers/topics/azure-devtestlabs.html). Dialoguez avec l’équipe d’Azure DevTest Labs et les autres membres de la communauté.
 - Concernant les demandes et idées de fonctionnalité, envoyez-les à [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 
 ### <a name="what-is-a-microsoft-account"></a>Qu’est-ce qu’un compte Microsoft ?
@@ -209,6 +209,9 @@ Pour copier vos machines virtuelles existantes vers DevTest Labs :
 ### <a name="can-i-attach-multiple-disks-to-my-vms"></a>Puis-je attacher plusieurs disques à mes machines virtuelles ?
 
 Oui, vous pouvez attacher plusieurs disques à vos machines virtuelles.
+
+### <a name="are-gen-2-images-supported-by-devtest-labs"></a>Les images de génération 2 sont-elles prises en charge par DevTest Labs ?
+Non. Le service DevTest Labs ne prend pas en charge les images de [génération 2](../virtual-machines/windows/generation-2.md). Si les versions de génération 1 et 2 sont toutes deux disponibles pour une image, DevTest Labs affiche uniquement la version de génération 1 de l’image au moment de créer une machine virtuelle. Si seule la version de génération 2 d’une image est disponible, elle ne sera pas visible. 
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Si je souhaite utiliser une image de système d’exploitation Windows pour mon test, dois-je acheter un abonnement MSDN ?
 Pour utiliser des images de système d’exploitation client Windows (Windows 7 ou une version ultérieure) à des fins de développement ou de test dans Azure, vous devez suivre l’une de ces procédures :

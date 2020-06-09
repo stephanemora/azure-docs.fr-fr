@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: c9d5c2efc14dec5beee0eaf81a4f628421ef3d49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c3e6216c172b0ba1273fea1690c030a05f4c456
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77657042"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742211"
 ---
 # <a name="glossary"></a>Glossaire
 
@@ -31,7 +31,7 @@ La liste suivante décrit les mots courants utilisés avec les services Azure Ma
 
 <a name="altitude"></a> **Altitude** : Hauteur ou élévation verticale d’un point au-dessus d’une surface de référence. Les mesures d’altitude sont basées sur une donnée de référence donnée, telle que le niveau moyen de la mer. Voir également Élévation.
 
-<a name="ambiguous"></a> **Ambigu** : État d’incertitude dans la classification des données qui existe quand un objet peut être assigné de façon justifiée à deux valeurs ou plus d’un attribut donné. Par exemple, le géocodage de « CA » retourne deux résultats ambigus : « Canada » et « Californie ». « CA » est un pays et un code d’État, respectivement pour « Canada » et « Californie ». 
+<a name="ambiguous"></a> **Ambigu** : État d’incertitude dans la classification des données qui existe quand un objet peut être assigné de façon justifiée à deux valeurs ou plus d’un attribut donné. Par exemple, le géocodage de « CA » retourne deux résultats ambigus : « Canada » et « Californie ». « CA » est un pays/une région et un code d’État, respectivement pour « Canada » et « Californie ». 
 
 <a name="annotation"></a> **Annotation** : Texte ou graphique affichés sur la carte pour fournir des informations à l’utilisateur. Une annotation peut identifier ou décrire une entité de carte, fournir des informations générales sur une zone de la carte ou sur la carte elle-même.
 
@@ -93,7 +93,7 @@ La liste suivante décrit les mots courants utilisés avec les services Azure Ma
 
 <a name="coordinate-system"></a> **Système de coordonnées** : Cadre de référence utilisé pour définir les positions des points dans l’espace en deux ou trois dimensions.
 
-<a name="country-code"></a> **Code pays** : Un identificateur unique d’un pays/d’une région selon la norme ISO. ISO2 est un code à deux caractères pour un pays (par exemple, US), et ISO3 est un code à trois caractères (par exemple, USA).
+<a name="country-code"></a> **Code pays** : Un identificateur unique d’un pays/d’une région selon la norme ISO. ISO2 est un code à deux caractères pour un pays/une région (par exemple, US), et ISO3 est un code à trois caractères (par exemple, USA).
 
 <a name="country-subdivision"></a> **Sous-division de pays** : Une sous-division de premier niveau d’un pays/d’une région, couramment appelée état ou province.
 
@@ -307,7 +307,7 @@ La liste suivante décrit les mots courants utilisés avec les services Azure Ma
 
 <a name="radial-search"></a> **Recherche radiale** : Requête spatiale qui effectue une recherche dans une zone située à une distance linéaire fixe (à vol d’oiseau) à partir d’un point. 
 
-<a name="raster-data"></a> **Données Raster** : Matrice de cellules (ou pixels) organisées en lignes et en colonnes (ou en grille) où chaque cellule contient une valeur représentant une information, comme la température. Les données Raster incluent des photographies aériennes numériques, des images satellites, des images numériques et des cartes scannées.
+<a name="raster-data"></a> **Données Raster** : Matrice de cellules (ou pixels) organisées en lignes et en colonnes (ou en grille) où chaque cellule contient une valeur représentant une information, comme la température. Les données raster incluent des photographies aériennes numériques, des images satellites, des images numériques et des cartes scannées.
 
 <a name="raster-layer"></a> **Couche Raster** : Couche de mosaïques qui se compose d’images Raster.
 
@@ -408,5 +408,5 @@ La liste suivante décrit les mots courants utilisés avec les services Azure Ma
 
 <a name="zip-code"></a> **Code ZIP** : Voir [Code postal](#postal-code).
 
-<a name="Zoom level"></a> **Niveau de zoom** : Spécifie le niveau de détail et la partie visible de la carte. Avec un zoom jusqu’au niveau 0, la carte du monde est souvent complètement visible. Toutefois, elle n’affiche que des informations limitées comme le nom des pays/régions et les frontières ainsi que les noms des océans. Avec un zoom plus proche du niveau 17, la carte affiche une zone de quelques rues d’une ville avec des informations routières détaillées. Dans Azure Maps, le niveau de zoom le plus élevé est 22. Pour plus d’informations, consultez la [documentation Niveaux de zoom et grille mosaïque](zoom-levels-and-tile-grid.md).
+<a name="Zoom level"></a> **Niveau de zoom** : Spécifie le niveau de détail et la partie visible de la carte. Avec un zoom jusqu’au niveau 0, la carte du monde est souvent complètement visible. Toutefois, elle n’affiche que des informations limitées comme le nom des pays/régions et les frontières ainsi que les noms des océans. Avec un zoom plus proche du niveau 17, la carte affiche une zone de quelques rues d’une ville avec des informations routières détaillées. Dans Azure Maps, le niveau de zoom le plus élevé est 22. Pour plus d’informations, consultez la [documentation Niveaux de zoom et grille mosaïque](zoom-levels-and-tile-grid.md).
 

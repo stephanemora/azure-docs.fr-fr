@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 6637627d48df8f9b6126debc215aac9bceb76f6b
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: a2c57ca6a1f7eb50c277543e9fbe27a13f839bac
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80419534"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648834"
 ---
 # <a name="azure-functions-networking-options"></a>Options de mise en réseau d’Azure Functions
 
@@ -47,15 +47,7 @@ Pour en savoir plus, consultez [Restrictions d’accès statique Azure App Servi
 
 ## <a name="private-site-access"></a>Accès aux sites privés
 
-L’accès aux sites privés fait référence au fait de rendre votre application accessible uniquement à partir d’un réseau privé, par exemple, à partir d’un réseau virtuel Azure.
-
-* L’accès aux sites privés est disponible dans les plans [Premium](./functions-premium-plan.md), [Consommation](functions-scale.md#consumption-plan) et [App Service](functions-scale.md#app-service-plan) quand des points de terminaison de service sont configurés.
-    * Les points de terminaison de service peuvent être configurés pour chaque application, sous **Fonctionnalités de la plateforme** > **Mise en réseau** > **Configurer des restrictions d’accès** > **Ajouter une règle**. Les réseaux virtuels peuvent maintenant être sélectionnés comme un type de règle.
-    * Pour plus d’informations, consultez [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).
-    * N'oubliez pas qu'avec les points de terminaison de service, votre fonction dispose toujours d'un accès sortant complet à Internet, même si l'intégration au réseau virtuel est configurée.
-* L'accès aux sites privés est également disponible via une instance d'Azure App Service Environment configurée avec un équilibreur de charge interne (ILB). Pour plus d’informations, consultez [Créer et utiliser un équilibreur de charge interne avec un Azure App Service Environment](../app-service/environment/create-ilb-ase.md).
-
-Pour apprendre à configurer l’accès privé aux site, consultez [Établir l’accès privé aux sites avec Azure Functions](functions-create-private-site-access.md).
+[!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
 
 ## <a name="virtual-network-integration"></a>Intégration du réseau virtuel
 
@@ -66,7 +58,7 @@ Azure Functions prend en charge deux types d’intégration de réseau virtuel 
 
 Dans Azure Functions, l'intégration au réseau virtuel utilise une infrastructure partagée avec les applications Web App Service. Pour en savoir plus sur les deux types d'intégration au réseau virtuel, consultez :
 
-* [Intégration au réseau virtuel régional](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
+* [Intégration du réseau virtuel régional](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
 * [Intégration au réseau virtuel avec passerelle obligatoire](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
 Pour savoir comment configurer l’intégration au réseau virtuel, consultez [Intégrer une application de fonction à un réseau virtuel Azure](functions-create-vnet.md).
@@ -102,9 +94,9 @@ Vous pouvez utiliser des fonctions de déclencheur non-HTTP à partir d’un ré
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Plan Premium avec déclencheurs de réseau virtuel
 
-En cas d’exécution dans un plan Premium, vous pouvez connecter des fonctions de déclencheur non-HTTP à des services s’exécutant au sein d’un réseau virtuel. Pour ce faire, vous devez activer la prise en charge des déclencheurs de réseau virtuel pour votre application de fonction. Le paramètre de **prise en charge des déclencheurs de réseau virtuel** se trouve dans le [portail Azure](https://portal.azure.com), sous **Paramètres de l’application de fonction**.
+En cas d’exécution dans un plan Premium, vous pouvez connecter des fonctions de déclencheur non-HTTP à des services s’exécutant au sein d’un réseau virtuel. Pour ce faire, vous devez activer la prise en charge des déclencheurs de réseau virtuel pour votre application de fonction. Le paramètre de **prise en charge des déclencheurs de réseau virtuel** se trouve dans le [portail Azure](https://portal.azure.com), sous **Configuration** > **Paramètres d’exécution de la fonction**.
 
-![Bascule de réseau virtuel](media/functions-networking-options/virtual-network-trigger-toggle.png)
+:::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
 Vous pouvez également activer les déclencheurs de réseau virtuel en utilisant la commande Azure CLI suivante :
 

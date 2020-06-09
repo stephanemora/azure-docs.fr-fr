@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03f6e3d6edde51598b1d148469aceb1ff3b3d636
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: ed8c3563f9a17a30e0d5df5f00c35f34510d6029
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203394"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848921"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Créer des utilisateurs en bloc dans Azure Active Directory
 
@@ -36,17 +36,17 @@ Téléchargez et renseignez le modèle CSV de chargement en bloc pour vous aider
 
 ### <a name="csv-template-structure"></a>Structure du modèle CSV
 
-Les lignes d’un modèle CSV téléchargé sont les suivantes :
+Les lignes d’un modèle CSV téléchargé sont les suivantes :
 
-- **Numéro de version** : La première ligne contenant le numéro de version doit être incluse dans le fichier CSV chargé.
-- **En-têtes de colonne** : Le format des en-têtes de colonne est &lt;*Nom d’élément*&gt; [PropertyName] &lt;*Obligatoire ou vide*&gt;. Par exemple : `Name [displayName] Required`. Certaines anciennes versions du modèle peuvent avoir de légères variations.
+- **Numéro de version** : La première ligne contenant le numéro de version doit être incluse dans le fichier CSV chargé.
+- **En-têtes de colonne** : Le format des en-têtes de colonne est &lt;*Nom d’élément*&gt; [PropertyName] &lt;*Obligatoire ou vide*&gt;. Par exemple : `Name [displayName] Required`. Certaines anciennes versions du modèle peuvent avoir de légères variations.
 - **Exemples de lignes** : Nous avons inclus dans le modèle une ligne d’exemples de valeurs acceptables pour chaque colonne. Vous devez supprimer la ligne des exemples et la remplacer par vos propres entrées.
 
 ### <a name="additional-guidance"></a>Conseils supplémentaires
 
-- Les deux premières lignes du modèle chargé ne doivent pas être supprimées ou modifiées, ou le chargement ne pourra pas être traité.
-- Les colonnes requises sont répertoriées en premier.
-- Nous vous déconseillons d’ajouter de nouvelles colonnes au modèle. Toutes les colonnes supplémentaires que vous ajoutez sont ignorées et ne sont pas traitées.
+- Les deux premières lignes du modèle chargé ne doivent pas être supprimées ni modifiées, sinon, le chargement ne pourra pas être traité.
+- Les colonnes obligatoires sont listées en premier.
+- Nous vous déconseillons d’ajouter des colonnes au modèle. Les colonnes que vous ajouterez seront ignorées et ne seront pas traitées.
 - Nous vous recommandons de télécharger la version la plus récente du modèle CSV aussi souvent que possible.
 
 ## <a name="to-create-users-in-bulk"></a>Pour créer des utilisateurs en bloc
@@ -66,7 +66,7 @@ Les lignes d’un modèle CSV téléchargé sont les suivantes :
 1. Une fois votre fichier validé, sélectionnez **Envoyer** pour démarrer l’opération en bloc Azure qui importe les nouveaux utilisateurs.
 1. Une fois l’opération d’importation terminée, vous recevez une notification de l’état de l’opération en bloc.
 
-Si des erreurs se produisent, vous pouvez télécharger et consulter le fichier de résultats dans la page **Résultats de l’opération en bloc**. Le fichier contient la raison de chaque erreur.
+Si des erreurs se produisent, vous pouvez télécharger et consulter le fichier de résultats dans la page **Résultats de l’opération en bloc**. Le fichier contient la raison de chaque erreur. L’envoi du fichier doit correspondre au modèle fourni et inclure les noms de colonnes exacts.
 
 ## <a name="check-status"></a>Vérification du statut
 

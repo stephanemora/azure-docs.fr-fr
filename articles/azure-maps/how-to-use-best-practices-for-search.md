@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8d62d7d278323baa0ae49b9e12f46468efb067a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea44355795f0685f42de1306e979707f34d8f142
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335308"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742765"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Meilleures pratiques d’utilisation du service Recherche Azure Maps
 
@@ -39,7 +39,7 @@ Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gére
 
 Lorsque vous recherchez une adresse complète ou partielle à l’aide du service Recherche Azure Maps, l’API lit les mots clés de votre requête de recherche. Elle retourne ensuite les coordonnées de longitude et de latitude de l’adresse. Ce processus est appelé *géocodage*. 
 
-La possibilité de géocoder dans un pays dépend de la disponibilité des données de route et de la précision du service de géocodage. Pour plus d’informations sur les fonctionnalités de géocodage Azure Maps par pays ou région, voir [Couverture du géocodage](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage).
+La possibilité de géocoder dans un pays/une région dépend de la disponibilité des données de route et de la précision du service de géocodage. Pour plus d’informations sur les fonctionnalités de géocodage Azure Maps par pays ou région, voir [Couverture du géocodage](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage).
 
 ### <a name="limit-search-results"></a>Limiter les résultats de la recherche
 
@@ -52,7 +52,7 @@ La possibilité de géocoder dans un pays dépend de la disponibilité des donn�
 
 Pour adapter des résultats en fonction de la zone pertinente pour votre utilisateur, ajoutez toujours un maximum de détails sur l’emplacement. Vous pouvez restreindre les résultats de la recherche en spécifiant des types d’entrée :
 
-* Définissez le paramètre `countrySet`. Vous pouvez le définir sur `US,FR`, par exemple. Par défaut, l’API recherche dans le monde entier, de sorte qu’elle peut retourner des résultats inutiles. Si votre requête n’a pas de paramètre `countrySet`, la recherche peut retourner des résultats inexacts. Par exemple, la recherche d’une ville nommée *Bellevue* retourne des résultats pour les États-Unis et la France, car les deux pays contiennent une ville nommée *Bellevue*.
+* Définissez le paramètre `countrySet`. Vous pouvez le définir sur `US,FR`, par exemple. Par défaut, l’API recherche dans le monde entier, de sorte qu’elle peut retourner des résultats inutiles. Si votre requête n’a pas de paramètre `countrySet`, la recherche peut retourner des résultats inexacts. Par exemple, la recherche d’une ville nommée *Bellevue* retourne des résultats pour les États-Unis et la France, car les deux pays/régions contiennent une ville nommée *Bellevue*.
 
 * Vous pouvez utiliser les paramètres `btmRight` et `topleft` pour définir le cadre englobant. Ces paramètres limitent la recherche à une zone spécifique sur la carte.
 
@@ -70,7 +70,7 @@ Nous vous suggérons d’utiliser l’[API de recherche approximative](https://d
 * Utilisez le paramètre `idxSet` pour hiérarchiser le jeu exact de types de résultats. Pour hiérarchiser un jeu exact de résultats, vous pouvez envoyer une liste d’index séparés par des virgules. L’ordre des éléments dans votre liste n’a pas d’importance. Azure Maps prend en charge les index suivants :
 
 * `Addr` - **Plages d’adresses** : Points d’adresse interpolés à partir du début et de la fin de la rue. Ces points sont représentés en tant que plages d’adresses.
-* `Geo` - **Zones géographiques** : Divisions administratives de territoire. Une zone géographique peut être, par exemple, un pays, un État ou une ville.
+* `Geo` - **Zones géographiques** : Divisions administratives de territoire. Une zone géographique peut être, par exemple, un pays/une région, un État ou une ville.
 * `PAD` - **Adresses exactes** : Adresses incluant un nom et un numéro de rue. Des adresses exactes peuvent figurer dans un index. Exemple : *Soquel Dr 2501*. Une adresse exacte fournit le niveau de précision le plus élevé disponible pour des adresses.  
 * `POI` - **Points d’intérêt** : Points sur une carte qui sont considérés comme dignes d’attention ou susceptibles d’être intéressants. L’[API de recherche d’adresse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) ne retourne pas POI.  
 * `Str` - **Rues** : Rues sur la carte.
@@ -480,7 +480,7 @@ url.QueryEscape(query)
 
 Dans une recherche de POI, vous pouvez demander des résultats de recherche par nom. Par exemple, vous pouvez rechercher une entreprise par son nom. 
 
-Nous vous recommandons vivement d’utiliser le paramètre `countrySet` pour spécifier les pays où votre application a besoin d’une couverture. Le comportement par défaut consiste à effectuer des recherches dans le monde entier. Une recherche aussi large peut retourner des résultats superflus et prendre beaucoup de temps.
+Nous vous recommandons vivement d’utiliser le paramètre `countrySet` pour spécifier les pays/régions où votre application a besoin d’une couverture. Le comportement par défaut consiste à effectuer des recherches dans le monde entier. Une recherche aussi large peut retourner des résultats superflus et prendre beaucoup de temps.
 
 ### <a name="brand-search"></a>Recherche de marque
 
@@ -769,7 +769,7 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 
 * **Plage d’adresses** : Plage de points d’adresse interpolés à partir du début et de la fin de la rue.  
 
-* **Geography** : zones sur une carte représentant des divisions administratives d’un territoire, telles qu’un pays, une région ou une ville. 
+* **Zone géographique** : zones sur une carte représentant des divisions administratives d’un territoire, telles qu’un pays/une région, un État ou une ville. 
 
 * **POI** : points sur une carte qui méritent une attention particulière et pourraient être intéressants.
 

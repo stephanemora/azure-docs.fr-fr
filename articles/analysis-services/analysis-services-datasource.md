@@ -4,15 +4,15 @@ description: Décrit les sources de données et les connecteurs pris en charge p
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f65d8fa2c2e522c718c637e32defc4c56fca8364
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71df537535003fe23902949c70b086a30a6b5049
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77461655"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698140"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 
@@ -87,7 +87,7 @@ La connexion aux sources de données locales à partir d’un serveur Azure Anal
 
 ## <a name="understanding-providers"></a>Présentation des fournisseurs
 
-Quand vous créez des projets de modèle tabulaire 1400 et supérieurs dans Visual Studio, par défaut, vous ne spécifiez pas de fournisseur de données au moment d’établir une connexion à une source de données à l’aide de **Obtenir des données**. Les modèles tabulaires 1400 et supérieurs utilisent des connecteurs [Power Query](/power-query/power-query-what-is-power-query) pour gérer les connexions, les requêtes de données et les mashups entre la source de données et Analysis Services. Ils sont parfois appelés connexions de source de données *structurée* dans le sens où les paramètres des propriétés de connexion sont définis automatiquement. Vous pouvez néanmoins activer les sources de données héritées. Dans ce cas, vous pouvez utiliser l’**Assistant Importation de table** pour vous connecter à certaines sources de données traditionnellement prises en charge dans les modèles tabulaires 1200 et inférieurs en tant que sources de données *héritées* ou *fournisseur*. Quand il est spécifié en tant que source de données fournisseur, vous pouvez spécifier un fournisseur de données particulier et d’autres propriétés de connexion avancées. Par exemple, vous pouvez vous connecter à une instance SQL Server Data Warehouse locale ou même à une base de données Azure SQL Database en guise de source de données héritée. Vous pouvez alors sélectionner fournisseur de données MSOLEDBSQL OLE DB Driver pour SQL Server. Dans ce cas, la sélection d’un fournisseur de données OLE DB peut offrir de meilleures performances que le connecteur Power Query. 
+Quand vous créez des projets de modèle tabulaire 1400 et supérieurs dans Visual Studio, par défaut, vous ne spécifiez pas de fournisseur de données au moment d’établir une connexion à une source de données à l’aide de **Obtenir des données**. Les modèles tabulaires 1400 et supérieurs utilisent des connecteurs [Power Query](/power-query/power-query-what-is-power-query) pour gérer les connexions, les requêtes de données et les mashups entre la source de données et Analysis Services. Ils sont parfois appelés connexions de source de données *structurée* dans le sens où les paramètres des propriétés de connexion sont définis automatiquement. Toutefois, vous pouvez activer des sources de données héritées pour un projet de modèle dans Visual Studio. Dans ce cas, vous pouvez utiliser l’**Assistant Importation de table** pour vous connecter à certaines sources de données traditionnellement prises en charge dans les modèles tabulaires 1200 et inférieurs en tant que sources de données *héritées* ou *fournisseur*. Quand il est spécifié en tant que source de données fournisseur, vous pouvez spécifier un fournisseur de données particulier et d’autres propriétés de connexion avancées. Par exemple, vous pouvez vous connecter à une instance SQL Server Data Warehouse locale ou même à une base de données Azure SQL Database en guise de source de données héritée. Vous pouvez alors sélectionner fournisseur de données MSOLEDBSQL OLE DB Driver pour SQL Server. Dans ce cas, la sélection d’un fournisseur de données OLE DB peut offrir de meilleures performances que le connecteur Power Query. 
 
 Quand l’Assistant Importation de table de Visual Studio est utilisé, un fournisseur de données est nécessaire pour se connecter à une source de données. Un fournisseur de données par défaut est alors sélectionné automatiquement. Vous pouvez changer de fournisseur de données si nécessaire. Le type de fournisseur choisi peut dépendre des performances, que le modèle utilise le stockage en mémoire ou DirectQuery, et de la plateforme Analysis Services sur laquelle vous déployez votre modèle.
 
@@ -107,7 +107,7 @@ Une fois les sources de données héritées activées, dans **Explorateur de mod
 
 
 ## <a name="impersonation"></a>Emprunt d'identité
-Dans certains cas, il peut être nécessaire de spécifier un autre compte d’emprunt d’identité. Le compte d’emprunt d’identité peut être spécifié dans Visual Studio ou SSMS.
+Dans certains cas, il peut être nécessaire de spécifier un autre compte d’emprunt d’identité. Le compte d’emprunt d’identité peut être spécifié dans Visual Studio ou SQL Server Management Studio (SSMS).
 
 Pour les sources de données locales :
 

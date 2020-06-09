@@ -3,16 +3,16 @@ title: Se connecter à Oracle Database
 description: Insérer et gérer des enregistrements avec les API REST Oracle Database et Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: fdbf7fd7dded2fc0026e5c819ca579eeddc5cdb6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3e1583abd5cca4ea1f961353eb84a4b93a997e51
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147811"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836275"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Prise en main du connecteur de base de données Oracle
 
@@ -20,6 +20,13 @@ ms.locfileid: "82147811"
 
 * Créez votre flux de travail en ajoutant un nouveau client à une base de données clients ou en mettant à jour une commande dans une base de données de commandes.
 * Utilisez des actions pour obtenir une ligne de données, insérer une nouvelle ligne ou en supprimer. Par exemple, quand un enregistrement est créé dans Dynamics CRM Online (déclencheur), insérez une ligne dans une base de données Oracle (action). 
+
+Ce connecteur ne prend pas en charge les éléments suivants :
+
+* Les vues 
+* Toute table avec des clés composites
+* Types d’objet imbriqués dans des tables
+* Fonctions de base de données avec des valeurs non scalaires
 
 Cet article décrit comment utiliser le connecteur de base de données Oracle dans une application logique.
 
@@ -108,12 +115,6 @@ Cet article décrit comment utiliser le connecteur de base de données Oracle da
 **Cause** : La table n’a pas de clé primaire.  
 
 **Résolution** : Le connecteur Oracle Database requiert une table avec une colonne clé primaire.
-
-#### <a name="currently-not-supported"></a>Actuellement non pris en charge
-
-* Les vues 
-* Toute table avec des clés composites
-* Types d’objet imbriqués dans des tables
  
 ## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
 
@@ -121,7 +122,7 @@ Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ai
 
 ## <a name="get-some-help"></a>Obtenir de l’aide
 
-Le [Forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) est l’endroit idéal pour poser des questions, répondre aux questions posées et découvrir ce que font les autres utilisateurs de Logic Apps. 
+La [page de questions Microsoft Q&A pour Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html) est l’endroit idéal pour poser des questions, répondre aux questions posées et découvrir ce que font les autres utilisateurs de Logic Apps. 
 
 Vous pouvez améliorer Logic Apps et les connecteurs en votant et en soumettant vos idées sur [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish). 
 

@@ -1,18 +1,18 @@
 ---
-title: Vue d’ensemble de Suivi des modifications et inventaire dans Azure Automation
-description: Suivi des modifications et inventaire vous aide à identifier les modifications apportées aux logiciels et aux services Microsoft dans votre environnement.
+title: Présentation de la fonctionnalité Suivi des modifications et inventaire dans Azure Automation
+description: Cet article présente la fonctionnalité Suivi des modifications et inventaire, qui permet d’identifier les modifications apportées aux logiciels et aux services Microsoft de votre environnement.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6a21effc3e567e75a8851fec35ff80dffc60a761
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 4f6ae1ad5b0f3904b84d47316c11aa1a67531a28
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82787173"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835102"
 ---
-# <a name="overview-of-change-tracking-and-inventory"></a>Vue d’ensemble de Suivi des modifications et inventaire
+# <a name="change-tracking-and-inventory-overview"></a>Présentation de la fonctionnalité Suivi des modifications et inventaire
 
 Cet article présente Suivi des modifications et inventaire dans Azure Automation. Cette fonctionnalité effectue le suivi des modifications apportées à l’infrastructure de machines virtuelles et de serveurs pour vous aider à identifier les problèmes opérationnels et environnementaux liés aux logiciels gérés par le gestionnaire de package de distribution. Les éléments suivis par Suivi des modifications et inventaire sont les suivants : 
 
@@ -195,6 +195,10 @@ L’une des principales caractéristiques de Suivi des modifications et inventai
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour utiliser Suivi des modifications et inventaire dans vos runbooks, consultez [Gérer Suivi des modifications et inventaire](change-tracking-file-contents.md).
-* Pour résoudre les erreurs avec Suivi des modifications et inventaire, consultez [Résoudre les problèmes liés à Suivi des modifications et inventaire](automation-tutorial-troubleshoot-changes.md).
-* Effectuez des [recherches dans les journaux Azure Monitor](../log-analytics/log-analytics-log-searches.md) pour afficher les données détaillées du suivi des modifications.
+* Pour plus d’informations sur l’utilisation de la fonctionnalité Suivi des modifications et inventaire, consultez [Gérer la fonctionnalité Suivi des modifications et inventaire](change-tracking-file-contents.md).
+* Pour activer la fonctionnalité sur un runbook, consultez [Activer la fonctionnalité Suivi des modifications et inventaire sur un runbook](automation-enable-changes-from-runbook.md).
+* Pour savoir comment activer la fonctionnalité dans un compte Automation, consultez [Activer la fonctionnalité Suivi des modifications et inventaire dans un compte Automation](automation-enable-changes-from-auto-acct.md).
+* Pour activer la fonctionnalité en parcourant la portail Azure, consultez [Activer la fonctionnalité Suivi des modifications et inventaire sur le portail Azure](automation-onboard-solutions-from-browse.md).
+* Pour activer la fonctionnalité sur une machine virtuelle, consultez [Activer la fonctionnalité Suivi des modifications et inventaire sur une machine virtuelle](automation-enable-changes-from-vm.md).
+* Si vous avez besoin de rechercher dans les journaux d’activité stockés dans votre espace de travail Log Analytics, consultez [Recherches dans les journaux d’Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+* Pour détecter un problème lié aux modifications apportées à une machine virtuelle Azure, consultez [Résoudre les problèmes liés à Change Tracking and Inventory](troubleshoot/change-tracking.md).

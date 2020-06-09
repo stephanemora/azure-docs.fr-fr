@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d204477818ce2733d9f6d1e3dcc7455018456bcb
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 6768bc2420008db1e708cdbe3ef70a6146ed8010
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80884830"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835510"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Architecture Azure Synapse Analytics (anciennement SQL DW)
 
@@ -23,7 +23,7 @@ Azure Synapse est un service d’analytique illimité qui regroupe l’entreposa
 
  Azure Synapse comporte quatre composants :
 
-- SQL Analytics : Effectuer une analyse basée sur T-SQL
+- Synapse SQL : Effectuer une analyse basée sur T-SQL
 
   - Pool SQL (paiement par DWU approvisionné) – Généralement disponible
   - SQL à la demande (paiement par To traité) – (Préversion)
@@ -39,7 +39,7 @@ Azure Synapse est un service d’analytique illimité qui regroupe l’entreposa
 
 ![Architecture de SQL Synapse](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-SQL Analytics utilise une architecture basée sur des nœuds. Les applications se connectent et envoient des commandes T-SQL à un nœud de contrôle qui est le seul point d’entrée pour SQL Analytics. Le nœud de contrôle exécute le moteur MPP qui optimise les requêtes pour un traitement en parallèle, puis transmet les opérations à des nœuds de calcul qui accomplissent leur travail en parallèle.
+SQL Synapse utilise une architecture basée sur des nœuds. Les applications se connectent et envoient des commandes T-SQL à un nœud de contrôle qui est le seul point d’entrée pour SQL Synapse. Le nœud de contrôle exécute le moteur MPP qui optimise les requêtes pour un traitement en parallèle, puis transmet les opérations à des nœuds de calcul qui accomplissent leur travail en parallèle.
 
 Les nœuds de calcul stockent toutes les données utilisateur dans un stockage Azure et exécutent les requêtes parallèles. Le service de déplacement de données (DMS) est un service interne de niveau système, qui déplace les données entre les nœuds en fonction des besoins pour exécuter des requêtes en parallèle et retourner des résultats précis.
 
@@ -74,7 +74,7 @@ Le service de déplacement des données (DMS) est la technologie de transport de
 
 ## <a name="distributions"></a>Distributions
 
-Une distribution est l’unité de base de stockage et de traitement pour des requêtes parallèles s’exécutant sur des données distribuées. Quand SQL Analytics exécute une requête, le travail est divisé en 60 requêtes plus petites qui s’exécutent en parallèle.
+Une distribution est l’unité de base de stockage et de traitement pour des requêtes parallèles s’exécutant sur des données distribuées. Quand Synapse SQL exécute une requête, le travail est divisé en 60 requêtes plus petites qui s’exécutent en parallèle.
 
 Chacune de ces 60 requêtes s’exécute sur l’une des distributions de données. Chaque nœud de calcul gère une ou plusieurs des 60 distributions. Un pool SQL disposant des ressources de calcul maximales a une distribution par nœud de calcul. Un pool SQL disposant des ressources de calcul minimales a toutes les distributions sur un nœud de calcul.  
 
@@ -119,6 +119,6 @@ Le diagramme ci-dessous présente une table répliquée qui est mise en cache su
 - [Demandes de fonctionnalités](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 - [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [Création d’un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md)
-- [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
+- [Page de questions Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
 - [Forum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

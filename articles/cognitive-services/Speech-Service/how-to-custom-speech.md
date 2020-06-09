@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: a52735ee62f564a5dc536fd2b7d3539406388341
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5401957cb527d43e041345ac9e67e7f7a69ed0d0
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402062"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725531"
 ---
 # <a name="what-is-custom-speech"></a>Qu’est-ce que Custom Speech ?
 
@@ -37,9 +37,11 @@ Ce diagramme présente les différents éléments qui composent le [portail Cust
 
 4. [Évaluer la précision](how-to-custom-speech-evaluate-data.md) – Évaluez la précision du modèle de reconnaissance vocale. Le [portail Custom Speech](https://speech.microsoft.com/customspeech) indique un *taux d’erreur de mots*, qui permet de déterminer si un entraînement supplémentaire est nécessaire. Si le résultat vous paraît suffisamment juste, vous pouvez directement utiliser les API du service Speech. Si vous souhaitez améliorer la précision de 5 à 20 % en moyenne relative, utilisez l’onglet **Training** (Entraînement) du portail pour charger des données d’entraînement supplémentaires, comme des transcriptions étiquetées à la main et le texte associé.
 
-5. [Entraîner le modèle](how-to-custom-speech-train-model.md) – Améliorez la précision de votre modèle de reconnaissance vocale en fournissant des transcriptions écrites (entre 10 et 1 000 heures) et le texte associé (< 200 Mo) ainsi que vos données de test audio. Ces données vous aident à entraîner le modèle de reconnaissance vocale. Après l’entraînement, effectuez un nouveau test. Si vous êtes satisfait du résultat, vous pouvez déployer votre modèle.
+5. [Améliorer la précision](how-to-custom-speech-improve-accuracy.md) – Choisissez des données d’entraînement supplémentaires de manière stratégique pour améliorer la qualité du modèle de reconnaissance vocale en fonction de votre scénario.
 
-6. [Déployer le modèle](how-to-custom-speech-deploy-model.md) – Créez un point de terminaison personnalisé pour votre modèle de reconnaissance vocale et utilisez-le dans vos applications, outils ou produits.
+6. [Entraîner le modèle](how-to-custom-speech-train-model.md) – Améliorez la précision de votre modèle de reconnaissance vocale en fournissant des transcriptions écrites (entre 10 et 1 000 heures) et le texte associé (< 200 Mo) ainsi que vos données de test audio. Ces données vous aident à entraîner le modèle de reconnaissance vocale. Après l’entraînement, effectuez un nouveau test. Si vous êtes satisfait du résultat, vous pouvez déployer votre modèle.
+
+7. [Déployer le modèle](how-to-custom-speech-deploy-model.md) – Créez un point de terminaison personnalisé pour votre modèle de reconnaissance vocale et utilisez-le dans vos applications, outils ou produits.
 
 ## <a name="set-up-your-azure-account"></a>Configurer votre compte Azure
 

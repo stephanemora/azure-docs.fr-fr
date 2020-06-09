@@ -1,6 +1,6 @@
 ---
-title: 'Azure Key Vault : Déplacer un coffre vers une autre région | Microsoft Docs'
-description: Conseils pour le déplacement d’un coffre de clés vers une autre région.
+title: Déplacer un coffre de clés dans une autre région – Azure Key Vault | Microsoft Docs
+description: Cet article fournit des conseils pour déplacer un coffre de clés dans une autre région.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
@@ -11,43 +11,38 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another region.
-ms.openlocfilehash: e65a723ac9daafdc09896a50e197034104408df2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4f9f43b3d0aa0af8696300933c08c140951e5e52
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82254070"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651229"
 ---
-# <a name="moving-an-azure-key-vault-across-regions"></a>Déplacement d’un coffre Azure Key Vault d’une région à l’autre
+# <a name="move-an-azure-key-vault-across-regions"></a>Déplacer un coffre de clés Azure d’une région à une autre
 
-## <a name="overview"></a>Vue d’ensemble
+Azure Key Vault ne prend pas en charge les opérations de déplacement de ressources permettant de déplacer un coffre de clés d’une région à une autre. Cet article propose des solutions de contournement pour les organisations qui ont le besoin métier de déplacer un coffre de clés dans une autre région. Chaque option de contournement présente des limitations. Il est essentiel de comprendre les implications de ces solutions de contournement avant d’essayer de les appliquer dans un environnement de production.
 
-Key Vault ne prend pas en charge une opération de déplacement de ressources permettant de déplacer un coffre de clés vers une autre région. Cet article traitera des solutions de contournement possibles pour les entreprises qui doivent déplacer un coffre de clés vers une autre région. Chaque option a ses limites, et il est essentiel de comprendre les implications de ces solutions de contournement avant de les essayer dans un environnement de production.
+Pour déplacer un coffre de clés dans une autre région, créez un coffre de clés dans cette région, puis copiez manuellement chaque secret du coffre de clés existant vers le nouveau. Pour ce faire, vous pouvez utiliser l’une des deux options suivantes.
 
-Si vous devez déplacer un coffre de clés vers une autre région, la solution consiste à créer un coffre de clés dans la région souhaitée et à copier manuellement chaque secret du coffre de clés existant dans le nouveau coffre de clés. Cette opération peut être effectuée de l’une des manières suivantes.
+## <a name="design-considerations"></a>Remarques relatives à la conception
 
-## <a name="design-considerations"></a>Remarques sur la conception
+Avant de commencer, tenez compte des concepts suivants :
 
-* Les noms Key Vault sont globalement uniques. Vous ne pourrez pas réutiliser le même nom de coffre.
+* Les noms de coffres de clés sont globalement uniques. Vous ne pouvez pas réutiliser un nom de coffre de clés.
+* Vous devez reconfigurer vos stratégies d’accès et paramètres de configuration réseau dans le nouveau coffre de clés.
+* Vous devez reconfigurer la suppression réversible et la protection contre le vidage dans le nouveau coffre de clés.
+* L’opération de sauvegarde et restauration ne préserve pas vos paramètres de rotation automatique. Vous serez peut-être amené à reconfigurer les paramètres.
 
-* Vous devrez reconfigurer les stratégies d’accès et les paramètres de configuration réseau dans le nouveau coffre de clés.
+## <a name="option-1-use-the-key-vault-backup-and-restore-commands"></a>Option 1 : Utiliser les commandes de sauvegarde et restauration de coffre de clés
 
-* Vous devrez reconfigurer la suppression réversible et la protection contre le vidage dans le nouveau coffre de clés.
+Vous pouvez sauvegarder chacun des secrets, clés et certificats de votre coffre à l’aide de la commande de sauvegarde. Vos secrets sont téléchargés sous forme d’objet blob chiffré. Vous pouvez ensuite restaurer le blob dans votre nouveau coffre de clés. Pour obtenir la liste des commandes, consultez [Commandes Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-6.13.0#key_vault).
 
-* L’opération de sauvegarde et de restauration ne préserve pas les paramètres de rotation automatique. Vous devrez peut-être reconfigurer ces paramètres.
+L’utilisation des commandes de sauvegarde et restauration présentent deux limitations :
 
-## <a name="option-1---use-the-key-vault-backup-and-restore-commands"></a>Option 1 : Utiliser les commandes de sauvegarde et de restauration du coffre de clés
+* Vous ne pouvez pas sauvegarder un coffre de clés dans une zone géographique et le restaurer dans une autre. Pour plus d’informations, consultez [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/) (Zones géographiques Azure).
 
-Vous pouvez sauvegarder chaque secret, clé et certificat individuels dans votre coffre à l’aide de la commande de sauvegarde. Vos secrets seront téléchargés sous la forme d’un blob chiffré. Vous pouvez ensuite restaurer le blob dans votre nouveau coffre de clés. Les commandes sont documentées dans le lien ci-dessous.
+* La commande de sauvegarde effectue une sauvegarde de toutes les versions de chaque secret. Si vous avez un secret avec un grand nombre de versions antérieures (plus de 10), il y a un risque que la requête dépasse la taille de requête maximale autorisée et que l’opération échoue.
 
-[Commandes Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-6.13.0#key_vault)
+## <a name="option-2-manually-download-and-upload-the-key-vault-secrets"></a>Option°2 : Télécharger et charger manuellement les secrets du coffre de clés
 
-### <a name="limitations"></a>Limites
-
-* Vous ne pouvez pas sauvegarder un coffre de clés dans une zone géographique et le restaurer dans une autre. En savoir plus sur les zones géographiques Azure. [Lien](https://azure.microsoft.com/global-infrastructure/geographies/)
-
-* La commande de sauvegarde effectue une sauvegarde de toutes les versions de chaque secret. Si vous avez un secret comportant un grand nombre de versions antérieures (plus de 10), il y a un risque que la requête dépasse la taille de requête maximale autorisée et que l’opération échoue.
-
-## <a name="option-2---manually-download-and-upload-secrets"></a>Option 2 : Télécharger et charger manuellement les secrets
-
-Certains types de secrets peuvent être téléchargés manuellement. Par exemple, vous pouvez télécharger des certificats en tant que fichier .pfx. Cette option élimine les restrictions géographiques pour certains types de secrets, tels que les certificats. Vous pouvez charger les fichiers .pfx dans un coffre de clés de n’importe quelle région. Votre secret sera téléchargé dans un format non protégé par mot de passe. Vous serez responsable de la sécurisation de vos secrets une fois qu’ils auront quitté Key Vault pendant le déplacement.
+Vous pouvez télécharger certains types de secrets manuellement. Par exemple, vous pouvez télécharger les certificats sous forme de fichier PFX. Cette option élimine les restrictions géographiques pour certains types de secrets, tels que les certificats. Vous pouvez charger les fichiers PFX dans un coffre de clés de n’importe quelle région. Votre secret est téléchargé dans un format non protégé par mot de passe. C’est à vous qu’il revient de sécuriser vos secrets pendant le déplacement.

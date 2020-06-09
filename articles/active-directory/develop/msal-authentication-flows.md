@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/30/2020
+ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 25c219bedbbbec9fbc0c5617c7bd9fc482faf49a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce81af90baeeda519f1b56d1e10a46923ebd22c2
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80050512"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772129"
 ---
 # <a name="authentication-flows"></a>Flux d’authentification
 
@@ -151,7 +151,7 @@ En utilisant le flux de code d’appareil, l’application obtient les jetons vi
 
 Dans le diagramme ci-dessus :
 
-1. Chaque fois que l’authentification de l’utilisateur est nécessaire, l’application fournit un code et invite l’utilisateur à utiliser un autre appareil (par exemple, un smartphone connecté à Internet) pour accéder à une URL (par exemple, `https://microsoft.com/devicelogin`). L’utilisateur est ensuite invité à entrer le code et son expérience se poursuit avec une authentification normale, avec des invites de consentement et une authentification multifacteur si nécessaire.
+1. Chaque fois que l’authentification de l’utilisateur est nécessaire, l’application fournit un code et invite l’utilisateur à utiliser un autre appareil (par exemple, un smartphone connecté à Internet) pour accéder à une URL (par exemple, `https://microsoft.com/devicelogin`). L’utilisateur est ensuite invité à entrer le code ; son expérience se poursuit avec une authentification normale, présentant des invites de consentement et une [authentification multifacteur](../authentication/concept-mfa-howitworks.md) si nécessaire.
 
 2. Après une authentification réussie, l’application de ligne de commande reçoit les jetons requis via un canal arrière et les utilise pour effectuer les appels d’API web dont il a besoin.
 
@@ -182,7 +182,7 @@ L’authentification Windows intégrée est conçue pour les applications écrit
 
 IWA ne permet pas de contourner l’authentification multifacteur. Si l’authentification multifacteur est configurée, l’authentification Windows intégrée peut échouer si une demande d’authentification multifacteur est requise. L’authentification multifacteur nécessite une interaction utilisateur.
 
-Vous ne pouvez pas contrôler les demandes d’authentification à deux facteurs côté fournisseur d’identité. L’administrateur de locataires le peut. En règle générale, l’authentification à deux facteurs est requise lorsque vous vous connectez à partir d’un autre pays, quand vous n’êtes pas connecté via un VPN à un réseau d’entreprise, et parfois même lorsque vous êtes connecté via un VPN. Azure AD utilise l’intelligence artificielle pour apprendre en continu à déterminer si l’authentification à deux facteurs est requise. En cas d’échec d’IWA, vous devez revenir à une [invite utilisateur interactive] (#interactive).
+Vous ne pouvez pas contrôler les demandes d’authentification à deux facteurs côté fournisseur d’identité. L’administrateur de locataires le peut. En règle générale, l’authentification à deux facteurs est obligatoire lorsque vous vous connectez à partir d’un autre pays/une autre région, quand vous n’êtes pas connecté via un VPN à un réseau d’entreprise, et parfois même lorsque vous êtes connecté via un VPN. Azure AD utilise l’intelligence artificielle pour apprendre en continu à déterminer si l’authentification à deux facteurs est requise. En cas d’échec d’IWA, vous devez revenir à une [invite utilisateur interactive] (#interactive).
 
 L’autorité transmise lors de la construction de l’application cliente publique doit être l’une des suivantes :
 - Avec locataire (sous la forme `https://login.microsoftonline.com/{tenant}/` où `tenant` est le GUID représentant l’ID de locataire ou un domaine associé au locataire).
@@ -232,4 +232,4 @@ En dehors des [contraintes inhérentes à l’authentification Windows intégré
 
 ### <a name="azure-ad-b2c-specifics"></a>Spécificités d’Azure Active Directory B2C
 
-Pour plus d’informations sur l’utilisation de MSAL.NET et d’Azure AD B2C, consultez la section sur [l’utilisation de ROPC avec Azure AD B2C (MSAL.NET)](msal-net-aad-b2c-considerations.md#resource-owner-password-credentials-ropc-with-azure-ad-b2c).
+Pour plus d’informations sur l’utilisation de ROPC dans MSAL.NET et Azure AD B2C, consultez [Utilisation de ROPC avec Azure AD B2C](msal-net-aad-b2c-considerations.md#resource-owner-password-credentials-ropc).

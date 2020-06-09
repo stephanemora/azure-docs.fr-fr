@@ -1,6 +1,6 @@
 ---
 title: Gérer les variables dans Azure Automation
-description: Les ressources de variables sont des valeurs disponibles pour tous les Runbooks et configurations DSC d’Azure Automation.  Cet article présente les variables de façon détaillée et comment les utiliser dans une création textuelle ou graphique.
+description: Cet article explique comment utiliser des variables dans les runbooks et les configurations DSC.
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bf7840daad02f679cad4c3b798d2add02c863a15
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 28f69d3ef8301e00b470ce09353be6ae3259bbe3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82651962"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744954"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Gérer les variables dans Azure Automation
 
@@ -33,10 +33,7 @@ Azure Automation conserve les variables et les rend disponibles même en cas d�
 Azure Automation stocke chaque variable chiffrée de manière sécurisée. Lorsque vous créez une variable, vous pouvez spécifier son mode de chiffrement et de stockage par Azure Automation sous la forme d’une ressource sécurisée. 
 
 >[!NOTE]
->Les ressources sécurisées dans Azure Automation incluent les informations d'identification, les certificats, les connexions et les variables chiffrées. Ces ressources sont chiffrées et stockées dans Azure Automation en utilisant une clé unique générée pour chaque compte Automation. Azure Automation stocke la clé dans le coffre de clés managé par le système. Avant de stocker une ressource sécurisée, Automation charge la clé à partir de Key Vault, puis l’utilise pour chiffrer la ressource. 
-
->[!NOTE]
->Cet article a été mis à jour pour tenir compte de l’utilisation du nouveau module Az d’Azure PowerShell. Vous pouvez toujours utiliser le module AzureRM, qui continue à recevoir des correctifs de bogues jusqu’à au moins décembre 2020. Pour en savoir plus sur le nouveau module Az et la compatibilité avec AzureRM, consultez [Présentation du nouveau module Az d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Pour obtenir des instructions relatives à l’installation du module Az sur votre Runbook Worker hybride, voir [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Pour votre compte Automation, vous pouvez mettre à jour vos modules vers la dernière version en suivant les instructions du [Guide de mise à jour des modules Azure PowerShell dans Azure Automation](../automation-update-azure-modules.md).
+>Les ressources sécurisées dans Azure Automation incluent les informations d'identification, les certificats, les connexions et les variables chiffrées. Ces ressources sont chiffrées et stockées dans Azure Automation en utilisant une clé unique générée pour chaque compte Automation. Azure Automation stocke la clé dans le coffre de clés géré par le système. Avant de stocker une ressource sécurisée, Automation charge la clé à partir de Key Vault, puis l’utilise pour chiffrer la ressource. 
 
 ## <a name="variable-types"></a>Types de variables
 
@@ -72,7 +69,7 @@ Les applets de commande du tableau suivant créent et gèrent les variables Auto
 
 Les applets de commande internes figurant dans le tableau suivant sont utilisées pour accéder aux variables dans vos runbooks et configurations DSC. Ces applets de commande sont fournies avec le module global `Orchestrator.AssetManagement.Cmdlets`. Pour plus d’informations, consultez [Applets de commande interne](modules.md#internal-cmdlets).
 
-| Applet de commande interne | Description |
+| Cmdlet interne | Description |
 |:---|:---|
 |`Get-AutomationVariable`|Récupère la valeur d'une variable existante.|
 |`Set-AutomationVariable`|Définit la valeur d'une variable existante.|
@@ -191,7 +188,7 @@ Dans un runbook graphique, vous pouvez ajouter des activités pour les applets d
 
 ![Ajouter une variable à la zone de dessin](../media/variables/runbook-variable-add-canvas.png)
 
-L’image suivante montre des exemples d’activité pour mettre à jour une variable avec une valeur simple dans un runbook graphique. Dans cet exemple, l’activité de `Get-AzVM` récupère une seule machine virtuelle Azure et enregistre le nom d’ordinateur dans une variable de chaîne Automation existante. Peu importe si le [lien est un pipeline ou une séquence](../automation-graphical-authoring-intro.md#links-and-workflow), car le code n’attend qu’un objet unique dans la sortie.
+L’image suivante montre des exemples d’activité pour mettre à jour une variable avec une valeur simple dans un runbook graphique. Dans cet exemple, l’activité de `Get-AzVM` récupère une seule machine virtuelle Azure et enregistre le nom d’ordinateur dans une variable de chaîne Automation existante. Peu importe si le [lien est un pipeline ou une séquence](../automation-graphical-authoring-intro.md#use-links-for-workflow), car le code n’attend qu’un objet unique dans la sortie.
 
 ![Définir une variable simple](../media/variables/runbook-set-simple-variable.png)
 
@@ -199,4 +196,4 @@ L’image suivante montre des exemples d’activité pour mettre à jour une var
 
 * Pour en savoir plus sur les applets de commande utilisées pour accéder aux variables, consultez [Gérer les modules dans Azure Automation](modules.md).
 * Pour obtenir des informations générales sur les runbooks, consultez [Exécution d’un runbook dans Azure Automation](../automation-runbook-execution.md).
-* Pour obtenir des informations détaillées sur les configurations DSC, consultez [Présentation de State Configuration](../automation-dsc-overview.md).
+* Pour obtenir des informations détaillées sur les configurations DSC, consultez [Vue d’ensemble d’Azure Automation State Configuration](../automation-dsc-overview.md).

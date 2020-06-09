@@ -11,23 +11,23 @@ ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2f6e091b6e0285bea5fef9e4d0be40faec936c6b
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 469fdf19f8c5fa511070f2d809d06829578c2131
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633145"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653728"
 ---
-# <a name="integrate-other-services-with-a-sql-analytics-data-warehouse"></a>Intégrer d’autres services avec un entrepôt de données SQL Analytics
+# <a name="integrate-other-services-with-a-synapse-sql-pool-data-warehouse"></a>Intégrer d’autres services à un pool Synapse SQL (entrepôt de données)
 
-La fonctionnalité SQL Analytics dans Azure Synapse Analytics permet aux utilisateurs d’opérer une intégration avec bon nombre des autres services dans Azure. SQL Analytics vous permet de créer un entrepôt de données via sa ressource de pool SQL qui peut ensuite utiliser plusieurs services supplémentaires, dont certains incluent les composants suivants :
+La fonctionnalité de pool SQL dans Azure Synapse Analytics permet aux utilisateurs d’opérer une intégration avec bon nombre des autres services dans Azure. Synapse SQL vous permet de créer un entrepôt de données par le biais de sa ressource de pool SQL qui peut ensuite utiliser plusieurs services supplémentaires, dont certains incluent les composants suivants :
 
 * Power BI
 * Azure Data Factory
 * Azure Machine Learning
 * Azure Stream Analytics
 
-Pour plus d’informations sur les services d’intégration dans Azure, voir l’article [Partenaires d’intégration](sql-data-warehouse-partner-data-integration.md).
+Pour plus d’informations sur les services d’intégration dans Azure, consultez l’article [Partenaires d’intégration](sql-data-warehouse-partner-data-integration.md).
 
 ## <a name="power-bi"></a>Power BI
 

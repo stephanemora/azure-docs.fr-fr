@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/24/2020
 ms.author: aahi
-ms.openlocfilehash: 9025e016725a966061c557f16b610d8897c04c11
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6d47829d32ed0b7ded545c73748cda1019d94bde
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590659"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83721047"
 ---
 ### <a name="container-repositories-and-images"></a>Images et référentiels de conteneurs
 
@@ -40,8 +40,8 @@ Pour plus d’informations, consultez [Comment exécuter et installer des conten
 | Analyse des sentiments v3 (français) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-fr` |
 | Analyse des sentiments v3 (italien) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-it` |
 | Analyse des sentiments v3 (allemand) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-de` |
-| Analyse des sentiments v3 (chinois - simplifié) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-zh` |
-| Analyse des sentiments v3 (chinois - traditionnel) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-zht` |
+| Analyse des sentiments v3 (chinois – simplifié) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-zh` |
+| Analyse des sentiments v3 (chinois – traditionnel) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-zht` |
 | Analyse des sentiments v3 (japonais) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-ja` |
 | Analyse des sentiments v3 (portugais) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-pt` |
 | Analyse des sentiments v3 (néerlandais) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-nl` |
@@ -62,7 +62,7 @@ Les conteneurs en préversion sont à la disposition du public. Le registre de c
 
 #### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>Préversion « contrôlée » publique (registre de conteneurs : `containerpreview.azurecr.io`)
 
-Les conteneurs en préversion contrôlée suivants sont hébergés dans le registre Container Preview et nécessitent une application pour y accéder. Pour plus d’informations, consultez [Processus de contrôle Cognitive Services](../../cognitive-services-gating-process.md).
+Les conteneurs en préversion contrôlée suivants sont hébergés dans le registre Container Preview et nécessitent une application pour y accéder. Pour plus d’informations, consultez les articles suivants sur les conteneurs.
 
 | Service | Conteneur | Nom de registre de conteneurs / référentiel / image |
 |--|--|--|

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 9f9cc4c29b117c83595a36c4e28b1edb428c3cde
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 00cf806bf6575fd96af435abf8d0b3dd8734338a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82254062"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83679655"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Similarité et scoring dans Recherche cognitive Azure
 
@@ -30,13 +30,15 @@ Si vous souhaitez départager des scores identiques, vous pouvez ajouter une cla
 > [!NOTE]
 > Un `@search.score = 1.00` indique un jeu de résultats sans score ou non classé. Le score est uniforme parmi tous les résultats. Des résultats sans score se produisent quand le formulaire de requête est une recherche approximative, des requêtes Regex ou de caractères génériques, ou une expression **$filter**. 
 
-## <a name="scoring-profiles"></a>Profils de scoring
+## <a name="scoring-profiles"></a>Profils de score
 
-Vous pouvez personnaliser la façon dont les différents champs sont classés en définissant un *profil de scoring* personnalisé. Les profils de scoring vous permettent de mieux contrôler le classement d'éléments dans des résultats de recherche. Par exemple, vous pouvez privilégier des éléments en fonction de leur revenu potentiel, promouvoir des éléments plus récents, voire en favoriser d'autres restés trop longtemps en stock. 
+Vous pouvez personnaliser la façon dont les différents champs sont classés en définissant un *profil de scoring* personnalisé. Les profils de score vous permettent de mieux contrôler le classement d'éléments dans des résultats de recherche. Par exemple, vous pouvez privilégier des éléments en fonction de leur revenu potentiel, promouvoir des éléments plus récents, voire en favoriser d'autres restés trop longtemps en stock. 
 
-Un profil de scoring fait partie de la définition d'index, composée de champs, fonctions et paramètres pondérés. Pour plus d’informations sur la définition d’un profil de scoring, consultez [Profils de scoring](index-add-scoring-profiles.md).
+Un profil de score fait partie de la définition d'index, composée de champs, fonctions et paramètres pondérés. Pour plus d’informations sur la définition d’un profil de scoring, consultez [Profils de scoring](index-add-scoring-profiles.md).
 
-## <a name="scoring-statistics"></a>Statistiques de scoring
+<a name="scoring-statistics"></a>
+
+## <a name="scoring-statistics-and-sticky-sessions-preview"></a>Statistiques de scoring et sessions rémanentes (préversion)
 
 À des fins de scalabilité, Recherche cognitive Azure distribue chaque index horizontalement par le biais d’un processus de partitionnement, ce qui signifie que les portions d’un index sont physiquement séparées.
 
@@ -45,13 +47,21 @@ Par défaut, le score d’un document est calculé en fonction de propriétés s
 Si vous préférez calculer le score à partir des propriétés statistiques sur l’ensemble des partitions, vous pouvez le faire en ajoutant *scoringStatistics=global* en tant que [paramètre de requête](https://docs.microsoft.com/rest/api/searchservice/search-documents) (ou en ajoutant *"scoringStatistics": "global"* en tant que paramètre de corps de la [demande de requête](https://docs.microsoft.com/rest/api/searchservice/search-documents)).
 
 ```http
-GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global
+GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global&api-version=2019-05-06-Preview&search=[search term]
   Content-Type: application/json
-  api-key: [admin key]  
+  api-key: [admin or query key]  
 ```
+L’utilisation de scoringStatistics garantit que toutes les partitions dans le même réplica fournissent les mêmes résultats. Cela dit, plusieurs réplicas peuvent être légèrement différents les uns des autres, car ils sont toujours mis à jour avec les dernières modifications apportées à votre index. Dans certains scénarios, vous souhaiterez peut-être que vos utilisateurs obtiennent des résultats plus cohérents pendant une « session de requête ». Dans de tels scénarios, vous pouvez fournir un `sessionId` dans le cadre de vos requêtes. Le `sessionId` est une chaîne unique que vous créez pour faire référence à une session utilisateur unique.
+
+```http
+GET https://[service name].search.windows.net/indexes/[index name]/docs?sessionId=[string]&api-version=2019-05-06-Preview&search=[search term]
+  Content-Type: application/json
+  api-key: [admin or query key]  
+```
+Tant que le même `sessionId` est utilisé, la méthode de la meilleure tentative possible est utilisée pour cibler le même réplica, ce qui améliore la cohérence des résultats présentés à vos utilisateurs. 
 
 > [!NOTE]
-> Une clé API d’administration est requise pour le paramètre `scoringStatistics`.
+> La réutilisation des mêmes valeurs `sessionId` à plusieurs reprises peut interférer avec l’équilibrage de la charge des demandes sur les réplicas et nuire aux performances du service de recherche. La valeur utilisée comme sessionId ne peut pas commencer par un caractère « _ ».
 
 ## <a name="similarity-ranking-algorithms"></a>Algorithmes de classement de similarité
 
@@ -59,16 +69,9 @@ Recherche cognitive Azure prend en charge deux algorithmes de classement de simi
 
 Pour le moment, vous pouvez spécifier l’algorithme de classement de similarité que vous souhaitez utiliser. Pour plus d’informations, consultez [Algorithme de classement](index-ranking-similarity.md).
 
-## <a name="watch-this-video"></a>Regardez cette vidéo
+Le segment vidéo suivant permet d’accéder rapidement à une explication des algorithmes de classement utilisés dans Recherche cognitive Azure. Vous pouvez regarder la vidéo complète pour plus d’informations.
 
-Dans cette vidéo de 16 minutes, l’ingénieur logiciel Raouf Merouche explique le processus d’indexation, d’interrogation et de création de profils de scoring. Vous aurez une bonne idée de ce qui se passe sous le capot quand vos documents sont indexés et récupérés.
-
->[!VIDEO https://channel9.msdn.com/Shows/AI-Show/Similarity-and-Scoring-in-Azure-Cognitive-Search/player]
-
-+ 2 - 3 minutes : indexation (traitement du texte et analyse lexicale).
-+ 3 - 4 minutes : indexation (index inversés).
-+ 4 - 6 minutes : interrogation (récupération et classement).
-+ 7 - 16 minutes : profils de scoring.
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
 
 ## <a name="see-also"></a>Voir aussi
 

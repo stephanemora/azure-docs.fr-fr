@@ -1,178 +1,246 @@
 ---
-title: Récapitulatif des paiements de la place de marché commerciale | Place de marché Azure
-description: La page Récapitulatif des paiements vous montre les détails de l’argent que vous avez gagné avec votre offre. Elle vous permet également de savoir quand vous recevrez des paiements et le montant que vous allez percevoir.
-author: dsindona
-ms.author: dsindona
+title: Rapports de revenus - Place de marché commerciale Microsoft
+description: Les rapports de revenus vous présentent en détail l’argent que vous a rapporté votre offre, notamment le montant et la date de paiement prévue.
+author: mingshen
+ms.author: mingshen
 ms.service: marketplace
-ms.topic: guide
-ms.date: 12/10/2019
-ms.openlocfilehash: 5a930dfb38007349155581424d03ee7b3e7a6b46
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
+ms.date: 04/24/2020
+ms.openlocfilehash: 6639026d071b496027996036a81f6bc66e0185e3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81730200"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744807"
 ---
-# <a name="payout-reporting"></a>Rapports de paiement
+# <a name="payout-summaries"></a>Synthèse des revenus
 
-La page [**Récapitulatif des paiements**](https://docs.microsoft.com/windows/uwp/publish/payout-summary) montre les détails de l’argent que vous avez gagné avec Microsoft. Elle vous permet également de savoir quand vous recevrez des paiements et le montant que vous allez percevoir.
+La synthèse des revenus montre en détail l’argent que vous avez gagné avec Microsoft. Elle vous permet également de savoir à quels moments vous recevrez les paiements et quels montants vous percevrez.
 
-Si vous vendez des offres sur la Place de marché Azure, **Récapitulatif des paiements** vous présente également des informations sur les paiements qui vous ont été versés. Pour plus d’informations sur le processus de paiement de la Place de marché Azure, consultez [Politiques concernant la participation à la Place de marché Microsoft Azure](https://go.microsoft.com/fwlink/p/?LinkId=722436) et [Contrat d’éditeur de la Place de marché Microsoft Azure](https://go.microsoft.com/fwlink/p/?LinkID=699560).
+Si vous vendez des produits sur la Place de marché Azure, vous trouverez également des informations sur les paiements qui ont bien été effectués dans cette synthèse des revenus. Pour plus d’informations, consultez [Politiques de participation à la Place de marché Microsoft Azure](https://docs.microsoft.com/legal/marketplace/participation-policy) et [Contrat d’éditeur de la Place de marché Microsoft Azure](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
 
 > [!NOTE]
-> Pour être éligible au paiement, votre produit doit atteindre le [seuil de paiement](payment-thresholds-methods-timeframes.md) de 50 $. Pour plus d’informations sur le seuil de paiement, consultez cette page pour prendre connaissance du [Contrat d’éditeur de la Place de marché Microsoft Azure](https://go.microsoft.com/fwlink/p/?LinkID=699560).
+> Pour être éligible au paiement, votre produit doit atteindre le [seuil de paiement](payment-thresholds-methods-timeframes.md) de 50 $. Pour plus d’informations sur le seuil de paiement, consultez cette page et examinez le contrat du développeur de l’application.
 
-- [Rôles et autorisation d'accès au rapport de paiement](#roles-and-permission-to-access-the-payout-report)
-- [Rapport de paiement : différence entre le portail Cloud Partner et l’Espace partenaires](#payout-report-difference-between-cloud-partner-portal-and-partner-center)
-- [Types de clients](#customer-types)
-- [Relation entre le paiement et l’utilisation](#corelation-between-payout-and-usage)
-- [Téléchargement de l’historique des transactions](#transaction-history-download-export)
-- [Questions et support sur la facturation](#billing-questions-and-support)
+> [!NOTE]
+> Si vous avez besoin d’aide concernant les paiements, notamment sur la configuration des comptes de paiement, les paiements manquants, la mise en attente des paiements ou d’autres sujets, contactez le support [ici](https://developer.microsoft.com/windows/support).
 
-## <a name="roles-and-permission-to-access-the-payout-report"></a>Rôles et autorisation d'accès au rapport de paiement
+## <a name="access-the-payout-summary-pages"></a>Accéder aux pages de synthèse des revenus
 
-| Rapports/pages    | Propriétaire du compte    | Manager  | Développeur | Contributeur commercial |  Collaborateur financier | Distributeur |
-|------------------|------------------|----------|-----------|----|----|-----|
-| Rapport d'acquisition (y compris les données en temps quasi réel) | Affichage | Affichage | Aucun accès | Aucun accès | Affichage | Aucun accès |
-| Rapport de commentaires/réponses | Peut afficher et envoyer des commentaires | Peut afficher et envoyer des commentaires | Peut afficher et envoyer des commentaires | Aucun accès | Aucun accès | Peut afficher et envoyer des commentaires |
-| Rapport d’intégrité (y compris les données en temps quasi réel) | Affichage | Affichage | Affichage | Affichage | Aucun accès | Aucun accès |
-| Rapport d’utilisation | Affichage | Affichage | Affichage | Affichage | Aucun accès | Aucun accès |
-| Compte de paiement | Peut mettre à jour | Aucun accès | Aucun accès | Aucun accès | Peut mettre à jour | Aucun accès |
-| Profil fiscal | Peut mettre à jour | Aucun accès | Aucun accès | Aucun accès | Peut mettre à jour | Aucun accès |
-| Récapitulatif des paiements | Affichage | Aucun accès | Aucun accès | Aucun accès | Affichage | Aucun accès |
+Pour ouvrir l’une des pages de synthèse des revenus :
 
-## <a name="payout-report-difference-between-cloud-partner-portal-and-partner-center"></a>Rapport de paiement : différence entre le portail Cloud Partner et l’Espace partenaires
+1. Sélectionnez l’icône Revenu dans le coin supérieur droit.
+2. Sélectionnez Historique des transactions, Paiements ou Exporter les données.
 
-| | Portail des partenaires cloud | Espace partenaire |
-|---------|---------|---------|
-| Liens | [https://cloudpartner.azure.com/](https://cloudpartner.azure.com) | [https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory](https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory) et [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
-| Navigation | Rapports de paiement fournis dans le paiement des insights | Rapports de paiement fournis dans l’Espace partenaires – Icône de paiement |
-| Étendue | <ul> <li>La transaction par article est visible, quand la collecte en cours, quand elle est terminée et quand elle est payée </li> <li>Rapports : montre tous les articles une fois que le bon de commande est créé, notamment la collecte et la facturation en cours, ainsi que l’état de la collecte et les articles qui ne peuvent pas encore être payés. </li> </ul> | <ul> <li>Montre les articles une fois qu’ils sont considérés comme des revenus éligibles.</li> <li>Les clients paient d’abord Microsoft, puis les éditeurs de logiciels indépendants peuvent voir le rapport de paiement commencer.</li> <li>Le rapport de paiement ne montre pas la collecte ni la facturation en cours.  </li> </ul>  |
-| Transaction non prête pour le paiement | Facturation en cours | Estimation du prochain paiement : Le paiement est dans l’état non traité.  |
-| État de paiement |  | Non traité : <br> Le revenu est éligible au paiement. Il reste dans cet état pendant une période de réflexion telle que définie dans le guide du programme d’incentives. <br> <br> Ensuite : <br> Des vérifications internes en attente sont générées par l’ordre de paiement avant le traitement du paiement. <br> <br> Envoyé : <br> Le paiement a été envoyé à votre banque. |
+## <a name="transaction-history-page"></a>Page Historique des transactions
 
-## <a name="customer-types"></a>Types de clients
+Cette page affiche tous vos bénéfices individuels avec pour chacun la date, le type et le montant. Vous pouvez afficher ces informations pour une période déterminée, mais aussi filtrer par ID d’inscription, Programme, ID de paiement, Type de bénéfice, Levier et Statut. Les données sont disponibles pour l’exercice actuel (du 1er juillet au 30 juin) et les deux exercices précédents.
 
-### <a name="enterprise-agreement"></a>Contrat Entreprise
+Pour afficher plus de détails sur un bénéfice, sélectionnez la flèche vers le bas située dans la partie droite de la page. Vous obtenez alors le levier, le montant de chiffre d’affaires et le produit. Si l’une de ces données n’est pas disponible et que vous en avez besoin, contactez le [support](https://developer.microsoft.com/windows/support). Si le bénéfice est le résultat d’un ajustement et non d’une transaction, les champs de produit ne s’affichent pas.
 
-Les clients sans Contrat Entreprise sont facturés au mois pour les licences logicielles de la Place de marché. Les clients ayant un Contrat Entreprise sont facturés au mois, mais reçoivent une seule facture par trimestre.
+Pour exporter des données de transaction figurant dans cette page, accédez à la page **Exporter les données**.
 
-### <a name="credit-cards-and-monthly-invoice"></a>Cartes de crédit et facture mensuelle
+## <a name="payments-page"></a>Page Paiements
 
-Les clients peuvent également payer à l’aide d’une carte de crédit et d’une facture mensuelle. Dans ce cas, vos frais de licence logicielle sont facturés tous les mois.
+Les totaux de cette page représentent tous les programmes auxquels vous participez. Vous pouvez filtrer par ID de participant, Programme, ID de paiement et Type de bénéfice. Les montants sont indiqués en dollars américains. La valeur payée est également affichée dans la devise d’arrivée.
 
-### <a name="csp-and-direct-pay-users"></a>CSP et utilisateurs à paiement direct
+| Domaine                   | Description                                                                                |
+|------------------------|---------------------------------------------------------------------------------------------|
+| Total payé cette année   | Montant total cumulé qui vous a été versé cette année, en dollars américains, pour tous vos programmes       |
+| Prochain paiement estimé | Prochain paiement unique qui vous sera adressé (même si d’autres sont prévus sous peu), en dollars américains |
+| Dernier paiement           | Montant (en dollars américains), nom du programme et programme de votre paiement le plus récent           |
+| Paiements par source     | Nombre de paiements (en dollars américains) représentés par le programme au cours des 12 derniers mois           |
+| Paiements               | Sélectionnez **Payé** ou **En attente**, puis triez comme vous le souhaitez. Pour plus d’informations sur un paiement spécifique, sélectionnez **Afficher**. Pour télécharger une copie du relevé des envois de paiements, sélectionnez **Télécharger**. Sachant que la mise à disposition des données de l’historique des transactions peut prendre jusqu’à 24 heures, vous ne verrez peut-être pas les bénéfices associés tout de suite. |
+|||
 
-Exemple d’un client qui fait un achat avec une carte de crédit.
+Pour exporter des données de cette page, sélectionnez **Exporter** et suivez les instructions qui vous sont fournies dans la page Exporter les données.
 
-## <a name="corelation-between-payout-and-usage"></a>Relation entre le paiement et l’utilisation
+## <a name="transaction-history-page"></a>Page Historique des transactions
 
-|Description    |    Date  | Commandes/utilisation  | Paiement |
-|----------|----------|-----------|-------------|
-|Période de commande   | 15 août 2019 au 30 août 2019 | **Commandes des attributs de corrélation** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Utilisation** <br> <ul> <li>CustomerId </li> <li>Nom du client</li> <li>(UsageReference)PurchaseRecordId/LineItemId</li> <li> Estimation des frais d’extension <br> Paiement estimé (DE) </li> </ul> |  |
-|Échéance (mois)   | 30 août 2019 | | |
-|Date de facturation | 1er septembre 2019 | | |
-|Date de paiement du client | 1er septembre 2019 | | |
-|Période de dépôt (cartes de crédit uniquement, 30 jours) | 1er septembre 2019 au 30 septembre 2019 | | **Commandes des attributs de corrélation :** <br> <ul><li>AssetId</li> <li>ID de client</li> <li> Nom du client</li> </ul> <br> **Utilisation** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nom du client</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **État de paiement :** Non traité |
-|Début de la période de collecte | 1er septembre 2019 | | |
-|Fin de la période de collecte (30 jours au maximum) | 30 septembre 2019 | | |
-|Date de calcul du paiement (tous les mois le 15) | 1er octobre 2019 | | **Attributs de corrélation** <br> <ul><li>AssetId</li> <li>ID de client</li> <li>Nom du client</li> </ul> <br> **Utilisation** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nom du client</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **État de paiement :** UpComing |
-|Date de paiement | 15 octobre 2019 | | **Attributs de corrélation** <br> <ul><li>AssetId</li> <li>ID de client</li> <li> Nom du client</li> </ul> <br> **Utilisation** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nom du client</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **État de paiement :** Paiement envoyé |
+Cette page affiche tous vos bénéfices individuels avec, pour chacun, la date, le type et le montant. Vous pouvez afficher ces informations pour une période déterminée et filtrer par ID d’inscription, Programme, ID de paiement, Type de bénéfice, Levier et Statut. Les données sont disponibles pour l’exercice actuel (du 1er juillet au 30 juin) et les deux exercices précédents.
 
-### <a name="enterprise-agreement-quarterlymonthly-customers"></a>Contrat Entreprise (clients trimestriels/mensuels)
+Pour afficher plus de détails sur un bénéfice, sélectionnez la flèche vers le bas située dans la partie droite de la page. Vous obtenez alors le levier, le montant de chiffre d’affaires et le produit. Si l’une de ces données n’est pas disponible et que vous en avez besoin, contactez le [support](https://developer.microsoft.com/windows/support)]. Si le bénéfice est le résultat d’un ajustement et non d’une transaction, les champs de produit ne s’affichent pas.
 
-| Description |    Date  | Usage | Paiement |
-|----------|----------|---------|-----------|
-|Période de commande | 15 août 2019 au 30 août 2019 | **Commandes des attributs de corrélation** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Rapport d’utilisation** <br> <ul> <li>CustomerId </li> <li>Nom du client</li> <li>(UsageReference)PurchaseRecordId/LineItemId</li> <li> Estimation des frais d’extension <br> Paiement estimé (DE) </li> </ul> | |
-|Échéance (trimestre) | 30 septembre 2019 | | |
-|Date de facturation | 15 octobre 2019 | | |
-|Période de dépôt (cartes de crédit uniquement, 30 jours) | n/a | | |
-|Début de la période de collecte | 15 octobre 2019 | | |
-|Cartes de crédit uniquement, 30 jours | 1er novembre 2019 au 30 novembre 2019 | | |
-|Fin de la période de collecte (90 jours au maximum) | 15 janvier 2020 | | |
-|Date de paiement du client | 30 décembre 2019 | | |
-|Calcul du paiement | 15 janvier 2020 | | |
-|Date de paiement | 15 février 2020 | | **Pour les clients basés sur le trimestre** <br> <br> **Rapport sur les commandes** <br> <ul><li>AssetId</li> <li>ID de client</li> <li> Nom du client</li> </ul> <br> **Utilisation** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Nom du client</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **État de paiement :** envoyé |
+Pour exporter des données de cette page, sélectionnez **Exporter** et suivez les instructions qui vous sont fournies dans la page Exporter les données. Les fichiers exportés à partir de la page Historique des transactions affichent les données dans la devise de la transaction, les bénéfices dans la devise de la transaction et en dollars américains, et la valeur payée dans la devise d’arrivée.
 
-## <a name="transaction-history-download-export"></a>Exportation du téléchargement de l’historique des transactions
+## <a name="payment-status"></a>État du paiement
 
-Cette option permet de télécharger chaque article de revenu que vous voyez dans la page d’historique des transactions, le type de revenu, la date, le montant associé de la transaction, le client, le produit et d’autres détails transactionnels applicables au programme d’incentives.
+| État du bénéfice           | Motif                                                                                                                                      | Intervention nécessaire du partenaire ?                                   |
+|--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
+| Non traité              | Le revenu est éligible au paiement. Il reste dans cet état pendant une période de réflexion telle que définie dans le guide du programme d’incentives. | Non                                                         |
+| À venir                 | Des vérifications internes en attente sont générées par l’ordre de paiement avant le traitement du paiement                                                               | Non                                                         |
+| Facture fiscale en attente      | Votre facture fiscale est incomplète ou non valide                                                                                                  | Vous devez mettre à jour votre facture fiscale avant de pouvoir être payé |
+| Rejeté pendant la vérification   | Le paiement a été rejeté pendant la vérification                                                                                                     | Contactez le [Support Microsoft](https://developer.microsoft.com/windows/support) pour obtenir des détails                      |
+| Échec                   | Le paiement a échoué en raison d’une erreur du système Microsoft                                                                                         | Contactez le [Support Microsoft](https://developer.microsoft.com/windows/support) pour obtenir des détails                      |
+| En cours              | Le paiement est en cours                                                                                                                 | Non                                                         |
+| Paiement incorrect        | Le recouvrement du paiement est en cours                                                                                                       | Non                                                         |
+| Envoyé                     | Le paiement a été envoyé à votre banque                                                                                                     | Non                                                         |
+| Retraitement             | Le paiement a rencontré une erreur du système Microsoft et est en cours de retraitement                                                                  | Non                                                         |
+| Inversé                 | Le paiement a été annulé par votre banque et sera renvoyé au prochain cycle de paiement                                                     | Non                                                         |
+| Facture fiscale rejetée     | Votre facture fiscale a été rejetée pendant la vérification. Tous les paiements en attente seront mis en attente tant que l’examen de la facture fiscale n’aura pas été effectué.                 | Contactez le [Support Microsoft](https://developer.microsoft.com/windows/support) pour obtenir des détails                      |
+| Facture fiscale en cours de vérification | Votre facture fiscale est en cours de vérification. Votre paiement sera débloqué une fois que la facture fiscale aura été approuvée.                                   | Non                                                         |
+| Rejeté                 | Le paiement a été rejeté par votre banque                                                                                                      | Contactez votre banque pour obtenir des détails.                             |
+|||
 
-| Nom de la colonne     | Description    |
-|-------------|-------------------------------|
-| earningId                      | Identificateur unique de chaque revenu                                                                                                       |
-| participantId                  | Identité principale du revenu partenaire dans le cadre du programme                                                                            |
-| participantIdType              | Principalement, ID des programmes d’incentives et ID de vendeur pour les programmes du Store et la Place de marché Azure                                          |
-| participantName                | Nom du partenaire de revenu                                                                                                              |
-| partnerCountryCode             | Emplacement/pays du partenaire de revenu                                                                                                  |
-| programName                    | Nom du programme d’incentives/du Store                                                                                                             |
-| transactionId                  | Identificateur unique de la transaction                                                                                                    |
-| transactionCurrency            | Devise dans laquelle la transaction cliente d’origine s’est produite (il ne s’agit pas de la devise de l’emplacement du partenaire)                                     |
-| transactionDate                | Date de la transaction Utile pour les programmes où de nombreuses transactions contribuent à un revenu                                           |
-| transactionExchangeRate        | Taux de change utilisé pour afficher le montant USD correspondant de la transaction                                                                 |
-| transactionAmount              | Montant de la transaction dans la devise de transaction d’origine en fonction du revenu généré                                              |
-| transactionAmountUSD           | Montant de la transaction en USD                                                                                                                |
-| lever                          | Indique une règle métier pour le revenu                                                                                                  |
-| earningRate                    | Taux d’incentives appliqué au montant de la transaction pour générer un revenu                                                                      |
-| quantité                       | Varie selon le programme. Indique la quantité facturée pour les programmes transactionnels                                                            |
-| quantityType                   | Indique le type de quantité, par exemple : Quantité facturée, utilisateurs actifs mensuels                                                                                     |
-| earningType                    | Indique s’il s’agit de frais, de remise, de coop, de vente, etc.                                                                                          |
-| earningAmount                  | Montant du revenu dans la devise de la transaction d’origine                                                                                      |
-| earningAmountUSD               | Montant du revenu en USD                                                                                                                    |
-| earningDate                    | Date du revenu                                                                                                                      |
-| calculationDate                | Date à laquelle le revenu a été calculé dans le système                                                                                            |
-| earningExchangeRate            | Taux de change utilisé pour afficher le montant USD correspondant                                                                                  |
-| exchangeRateDate               | Date du taux de change utilisée pour calculer le montant USD du revenu                                                                                   |
-| paymentAmountWOTax             | Montant du revenu (hors taxe) dans la devise de destination pour les paiements « envoyés » uniquement                                                                 |
-| paymentCurrency                | Devise de destination choisie par le partenaire dans le profil de paiement. Affichée uniquement pour les paiements envoyés                                                   |
-| paymentExchangeRate            | Taux de change utilisé pour calculer paymentAmountWOTax dans la devise de paiement avec ExchangeRateDate                                            |
-| paymentId            | Identificateur unique du paiement. Ce numéro est visible dans votre relevé bancaire                                            |
-| paymentStatus            | État du paiement                                            |
-| paymentStatusDescription            | Description conviviale de l’état du paiement                                            |
-| customerId                     | Sera toujours vide                                                                                                                     |
-| customerName                   | Sera toujours vide                                                                                                                     |
-| partNumber                     | Sera toujours vide                                                                                                                     |
-| ProductName                    | Nom de produit lié à la transaction                                                                                                       |
-| productId                      | Identificateur de produit unique                                                                                                                |
-| parentProductId                | Identificateur de produit parent unique. Remarque : s’il n’existe aucun produit parent pour la transaction, l’ID du produit parent = ID du produit. |
-| parentProductName              | Nom du produit parent. Remarque : s’il n’existe aucun produit parent pour la transaction, le nom du produit parent = Nom du produit.   |
-| productType                    | Type de produit (par exemple application, module complémentaire, jeu, etc.)                                                                                        |
-| invoiceNumber                  | Numéro de facture (applicable à EA uniquement)                                                                                                  |
-| resellerId                     | Identificateur du revendeur                                                                                                                      |
-| resellerName                   | Nom du revendeur                                                                                                                            |
-| transactionType                | Type de transaction (achat, remboursement, contrepassation, rétrofacturation, etc.)                                                               |
-| localProviderSeller            | Fournisseur local/vendeur d’enregistrement                                                                                                          |
-| taxRemitted                    | Montant des taxes versées (ventes, consommation, ou TVA/GST).                                                                                   |
-| taxRemitModel                  | Tiers responsable du versement des taxes (ventes, consommation, ou TVA/GST).                                                                    |
-| storeFee                       | Montant retenu par Microsoft comme frais pour rendre l’application ou le module complémentaire disponible dans le Store.                                            |
-| transactionPaymentMethod       | Moyen de paiement client utilisé pour la transaction (par exemple carte, facturation d’opérateur de téléphonie mobile, PayPal, etc.)                                |
-| tpan                           | Indique le réseau publicitaire tiers                                                                                                     |
-| customerCountry                | Pays du client                                                                                                                         |
-| CustomerCity                   | Ville du client                                                                                                                            |
-| customerState                  | État du client                                                                                                                           |
-| customerZip                    | Code postal du client                                                                                                                 |
-| ID de locataire                       |                                                                                                                                          |
-| externalReferenceId            | Identificateur unique du programme                                                                                                        |
-| externalReferenceIdLabel       | Étiquette de l’identificateur unique                                                                                                                  |
-| transactionCountryCode       | Code du pays dans lequel la transaction s’est produite                                                                                                                  |
-| taxCountry       | Pays du client de la vente                                                                                                                  |
-| taxState       | État du client de la vente                                                                                                                  |
-| taxCity       | Ville du client de la vente                                                                                                                  |
-| taxZipCode       | Code postal du client de la vente                                                                                                                  |
-| LicensingProgramName       |                                                                                                                   |
-| Code du programme       | Chaîne à mapper avec le nom du programme                                                                                                                   |
-| earningAmountInLastPaymentCurrency       | Montant du revenu dans la dernière devise de paiement (ce champ sera vide si aucun paiement précédent n’a été effectué)                                                                                                                   |
-| lastPaymentCurrency       | Dernière devise de paiement (ce champ sera vide si aucun paiement précédent n’a été effectué)                                                                                                                   |
-| AssetId       | Identificateur unique des commandes du client pour votre service de la place de marché.  Il représente les articles achetés traités. Il peut y avoir plusieurs ressources.                                                                                                                   |
-| OrderId       | Associé à la facture d’un client                                                                                                                   |
-| LineItemId       | Ligne individuelle dans la facture d’un client                                                                                                                   |
-| Pays du client       | Nom de pays fourni par le client.  Il peut être différent du pays associé à l’abonnement Azure d’un client.                                                                                                                   |
-| EmailAddress de client       | Adresse e-mail fournie par le client final.  Elle peut être différente de l’adresse e-mail associée à l’abonnement Azure d’un client.                                                                                                                   |
-| SkuId       | ID de la référence SKU, tel que défini lors de la publication. Une offre peut englober de nombreuses références SKU, mais une référence SKU ne peut être associée qu’à une seule offre.                                                                                                                   |
+## <a name="export-data-page"></a>Page Exporter les données
 
->[!Note]
->Tous les rapports et insights associés à l’option de publication Transaction sont disponibles dans la section Insights du portail Cloud Partner ou dans la section Analytics de l'Espace partenaires.
+Suivez ces instructions pour exporter des données.
 
-## <a name="billing-questions-and-support"></a>Questions et support sur la facturation
+La page Exporter les données ne s’actualise pas automatiquement. Vous devrez peut-être l’actualiser manuellement pour afficher les données les plus récentes.
 
-Pour obtenir de l'aide sur les questions de facturation, contactez le [support de l'éditeur de la place de marché commerciale](https://partner.microsoft.com/support/v2/?stage=1).
+Votre filtre peut déclencher l’erreur **Pas de données disponibles**. Cela signifie probablement que vous avez laissé la période par défaut sélectionnée à trois mois, et que vous avez sélectionné un numéro de paiement correspondant à un revenu situé en dehors de cette période. Élargissez la période et réessayez.
+
+## <a name="payments"></a>Paiements
+
+![Exporter les paiements](./media/pc-export-payments.png)
+
+Cette option vous permet de télécharger les paiements que vous avez reçus à votre banque pour un programme donné, les taxes associées et le montant cumulé des bénéfices. Ce rapport étant utilisé pour divers programmes de l’Espace partenaires, certaines colonnes peuvent ne pas s’appliquer à votre rapport. Ces colonnes sont signalées ci-dessous.
+
+| Nom de la colonne              | Description                                                                                                                               |
+|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------  |
+| participantID            | Identité principale du revenu partenaire dans le cadre du programme                                                                             |
+| participantIDType        | En général, ID de programme pour les programmes d’incentives et ID de vendeur pour les programmes du Store                                                                |
+| participantName          | Nom du partenaire de revenu                                                                                                               |
+| programName              | Nom du programme d’incentives/du Store                                                                                                              |
+| earned                   | Montant du chiffre d’affaires dans la devise d’arrivée pour le programme/ID de participant en question                                                                       |
+| earnedUSD                | Montant de chiffres d’affaires enregistré pour le programme/ID de participant, en USD                                                                                      |
+| withheldTax              | Montant des taxes retenues dans la devise d’arrivée pour le programme/ID de participant                                                               |
+| salesTax                 | Montant total des taxes sur les ventes dans la devise d’arrivée pour le programme/ID de participant (s’applique uniquement aux programmes d’incentives)                   |
+| serviceFeeTax            | Montant total de serviceFeeTax dans la devise d’arrivée pour le programme/ID de participant (s’applique uniquement aux programmes du Store et à la Place de marché Azure) |
+| totalPayment             | Paiement total dans la devise locale à l’exclusion de la retenue à la source et en incluant les taxes sur les ventes (le cas échéant) pour le programme/ID de participant   |
+| currencyCode             | Code de la devise d’arrivée                                                                                                                      |
+| paymentMethod            | Mode de paiement utilisé pour payer le partenaire, par exemple, le virement bancaire électronique, l’avoir                                                     |
+| paymentId                | Identificateur unique du paiement. Ce numéro figure généralement sur votre relevé bancaire (s’applique uniquement aux paiements SAP).              |
+| paymentStatus            | État du paiement                                                                                                                            |
+| paymentStatusDescription | Description conviviale de l’état du paiement                                                                                                    |
+| paymentDate              | Date à laquelle le paiement a été envoyé par Microsoft                                                                                                      |
+|||
+
+## <a name="transaction-history"></a>Historique des transactions
+
+![Exporter l’historique des transactions](./media/pc-export-transaction.png)
+
+Cette option permet de télécharger chaque ligne de bénéfice que vous voyez dans la page Historique des transactions, le type de bénéfice, la date, le montant de transaction associé, le client, le produit et d’autres détails transactionnels applicables à vos programmes.
+
+| Nom de la colonne                    | Description                                                                                                                              | Applicabilité pour les incentives/le Store/la Place de marché Azure           |
+|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| earningId                      | Identificateur unique de chaque revenu                                                                                                       | Tous                                                            |
+| participantId                  | Identité principale du revenu partenaire dans le cadre du programme                                                                            | Tous                                                            |
+| participantIdType              | Principalement, ID des programmes d’incentives et ID de vendeur pour les programmes du Store et la Place de marché Azure                                          | Tous                                                            |
+| participantName                | Nom du partenaire de revenu                                                                                                              | Tous                                                            |
+| partnerCountryCode             | Lieu/pays/région du partenaire de revenu                                                                                                  | Tous                                                            |
+| programName                    | Nom du programme d’incentives/du Store                                                                                                             | Tous                                                            |
+| transactionId                  | Identificateur unique de la transaction                                                                                                    | Tous                                                            |
+| transactionCurrency            | Devise dans laquelle la transaction du client d’origine a été effectuée (il ne s’agit pas de la devise locale du partenaire)                                     | Tous                                                            |
+| transactionDate                | Date de la transaction Utile pour les programmes où de nombreuses transactions contribuent à un revenu                                           | Tous                                                            |
+| transactionExchangeRate        | Date du taux de change utilisé pour afficher le montant en USD correspondant de la transaction                                                                 | Tous                                                            |
+| transactionAmount              | Montant de la transaction dans la devise de transaction d’origine en fonction du revenu généré                                              | Tous                                                            |
+| transactionAmountUSD           | Montant de la transaction en USD                                                                                                                | Tous                                                            |
+| lever                          | Indique une règle métier pour le revenu                                                                                                  | Tous                                                            |
+| earningRate                    | Taux d’incentives appliqué au montant de la transaction pour générer un revenu                                                                      | Tous                                                            |
+| quantité                       | Varie selon le programme. Indique la quantité facturée pour les programmes transactionnels                                                            | Tous                                                            |
+| quantityType                   | Indique le type de quantité, par exemple, Quantité facturée, Utilisateurs actifs mensuels                                                                             | Tous                                                            |
+| earningType                    | Indique s’il s’agit de frais, d’une remise, d’une coopération, d’une vente, etc.                                                                                          | Tous                                                            |
+| earningAmount                  | Montant du revenu dans la devise de la transaction d’origine                                                                                      | Tous                                                            |
+| earningAmountUSD               | Montant du revenu en USD                                                                                                                    | Tous                                                            |
+| earningDate                    | Date du revenu                                                                                                                      | Tous                                                            |
+| calculationDate                | Date à laquelle le revenu a été calculé dans le système                                                                                            | Tous                                                            |
+| earningExchangeRate            | Taux de change utilisé pour afficher le montant USD correspondant                                                                                  | Tous                                                            |
+| exchangeRateDate               | Date du taux de change utilisée pour calculer le montant USD du revenu                                                                                   | Tous                                                            |
+| paymentAmountWOTax             | Montant du revenu (hors taxe) dans la devise d’arrivée pour les paiements « Envoyés » uniquement                                                                 | Tous                                                            |
+| paymentCurrency                | Devise de destination choisie par le partenaire dans le profil de paiement. Affichée uniquement pour les paiements envoyés                                                   | Tous                                                            |
+| paymentExchangeRate            | Taux de change utilisé pour calculer paymentAmountWOTax dans la devise de paiement avec ExchangeRateDate                                            | Tous                                                            |
+| claimId                        | Identificateur unique de la demande                                                                                                              | Incentives – certains programmes uniquement                                |
+| planId                         | Identificateur unique du plan                                                                                                               | Incentives – certains programmes uniquement                                |
+| paymentId                      | Identificateur unique du paiement. Ce numéro figure généralement sur votre relevé bancaire                                                 | Paiements SAP uniquement                                              |
+| paymentStatus                  | État du paiement                                                                                                                           | Tous                                                            |
+| paymentStatusDescription       | Description conviviale de l’état du paiement                                                                                                   | Tous                                                            |
+| customerId                     | Sera toujours vide                                                                                                                     | Programmes d’incentives uniquement (exception : OEM) et la Place de marché Azure |
+| customerName                   | Sera toujours vide                                                                                                                     | Programmes d’incentives uniquement (exception : OEM) et la Place de marché Azure |
+| partNumber                     | Sera toujours vide                                                                                                                     | Certains programmes d’incentives et du Store et la Place de marché Azure        |
+| ProductName                    | Nom de produit lié à la transaction                                                                                                       | Tous                                                            |
+| productId                      | Identificateur de produit unique                                                                                                                | Store et Place de marché Azure                                    |
+| parentProductId                | Identificateur de produit parent unique. S’il n’existe aucun produit parent pour la transaction, l’ID du produit parent = ID du produit. | Store et Place de marché Azure                                    |
+| parentProductName              | Nom du produit parent. S’il n’existe aucun produit parent pour la transaction, le nom du produit parent = Nom du produit.   | Store et Place de marché Azure                                    |
+| productType                    | Type de produit (par exemple, application, module complémentaire ou jeu)                                                                                        | Store et Place de marché Azure                                    |
+| invoiceNumber                  | Numéro de facture (applicable à EA uniquement)                                                                                                  | Incentive et Place de marché Azure – certains programmes uniquement           |
+| subscriptionId                 | Identificateur d’abonnement associé au client                                                                                         | Incentive – certains programmes uniquement                                 |
+| subscriptionStartDate          | Date de début de l’abonnement                                                                                                                  | Incentive – certains programmes uniquement                                 |
+| subscriptionEndDate            | Date de fin de l’abonnement                                                                                                                    | Incentive – certains programmes uniquement                                 |
+| resellerId                     | Identificateur du revendeur                                                                                                                      | Incentive – certains programmes uniquement                                 |
+| resellerName                   | Nom du revendeur                                                                                                                            | Incentive – certains programmes uniquement                                 |
+| distributorId                  | Identificateur du serveur de distribution                                                                                                                   | Incentive – certains programmes uniquement                                 |
+| distributorName                | Nom du serveur de distribution                                                                                                                         | Incentive – certains programmes uniquement                                 |
+| agreementNumber                | Numéro de l’accord                                                                                                                         | Incentive – certains programmes uniquement                                 |
+| agreementStartDate             | Date de début de l’accord                                                                                                                     | Incentive – certains programmes uniquement                                 |
+| agreementEndDate               | Date de fin de l’accord                                                                                                                       | Incentive – certains programmes uniquement                                 |
+| charge de travail                       | Charge de travail                                                                                                                                 | Incentive – certains programmes uniquement                                 |
+| transactionType                | Type de transaction (par exemple achat, remboursement, contrepassation ou rétrofacturation)                                                               | Store et Place de marché Azure                                    |
+| localProviderSeller            | Fournisseur local/vendeur d’enregistrement                                                                                                          | Store uniquement                                                     |
+| taxRemitted                    | Montant des taxes versées (ventes, consommation ou TVA/GST)                                                                                   | Store et Place de marché Azure                                    |
+| taxRemitModel                  | Tiers responsable du versement des taxes (ventes, consommation ou TVA/GST)                                                                    | Store uniquement                                                     |
+| storeFee                       | Montant retenu par Microsoft en guise de frais pour la mise à disposition de l’application ou du module complémentaire sur le Store                                           | Store uniquement                                                     |
+| transactionPaymentMethod       | Moyen de paiement client utilisé pour la transaction (par exemple, carte, facturation d’opérateur de téléphonie mobile ou PayPal)                                | Store et Place de marché Azure                                    |
+| tpan                           | Indique le réseau publicitaire tiers                                                                                                     | Store – Annonces uniquement                                               |
+| customerCountry                | Pays/région du client                                                                                                                         | Store et Place de marché Azure                                    |
+| CustomerCity                   | Ville du client                                                                                                                            | Store et Place de marché Azure                                    |
+| customerState                  | État du client                                                                                                                           | Store et Place de marché Azure                                    |
+| customerZip                    | Code postal du client                                                                                                                 | Store et Place de marché Azure                                    |
+| purchaseTypeCode               | Sera toujours vide                                                                                                                     | Programme d’incentives – AGI                                        |
+| purchaseOrderType              | Sera toujours vide                                                                                                                     | Programme d’incentives – AGI                                        |
+| purchaseOrderCoverageStartDate | Sera toujours vide                                                                                                                     | Programme d’incentives – AGI                                        |
+| purchaseOrderCoverageEndDate   | Sera toujours vide                                                                                                                     | Programme d’incentives – AGI                                        |
+| programOfferingLevel           |                                                                                                                                          | Programme d’incentives – AGI                                        |
+| ID de locataire                       |                                                                                                                                          | Programmes d’incentives                                             |
+| externalReferenceId            | Identificateur unique du programme                                                                                                        | Programmes de paiement direct (Incentive et Store)                      |
+| externalReferenceIdLabel       | Étiquette de l’identificateur unique                                                                                                                  | Programmes de paiement direct (Incentive et Store)                      |
+|||
+
+## <a name="historical-statements"></a>Instructions historiques
+
+![Exporter les instructions historiques](./media/pc-export-statements.png)
+
+L’historique des transactions antérieures au 1er juillet 2019 est traité séparément. Les instructions utilisent les champs suivants à la place des champs actuels.
+
+> [!NOTE]
+> L’historique des transactions existant comporte une colonne appelée « Réservé » qui correspond à la colonne « Bénéfices » dans l’historique moderne, sauf qu’elle exclut tous les bénéfices dont le statut est « Paiement envoyé ».
+
+> [!NOTE]
+> Les filtres 3 mois, 6 mois ou 12 mois ne s’appliquent pas à la section **Instructions historiques**.
+
+| Nom du champ              | Description                                                                                                                                                             |
+|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Source du chiffre d’affaires          | Source de votre chiffre d’affaires en fonction de l’origine de la transaction (par exemple, Microsoft Store, Windows Phone Store, Windows Store 8 ou publicité)                  |
+| ID de commande                | Identificateur de commande unique. Cet ID vous permet d’identifier les transactions d’achat avec leurs transactions de non-achat respectives, comme les remboursements ou les rétrofacturations. Les deux ont le même ID de commande. De même, dans le cas d’une charge fractionnée où plusieurs modes de paiement ont été utilisés pour un même achat, il vous permet de lier les transactions d’achat. |
+| ID de transaction          | Identificateur de transaction unique.                                                                                                                                          |
+| Date et heure de la transaction   | Date et heure auxquelles la transaction a eu lieu (UTC).                                                                                                                       |
+| ID du produit parent       | Identificateur de produit parent unique. S’il n’existe aucun produit parent pour la transaction, l’ID du produit parent = ID du produit.                                |
+| Product ID              | Identificateur de produit unique.                                                                                                                                              |
+| Nom du produit parent     | Nom du produit parent. S’il n’existe aucun produit parent pour la transaction, le nom du produit parent = Nom du produit.                                  |
+| Nom du produit            | Nom du produit                                                                                                                                                    |
+| Type de produit            | Type de produit (par exemple, application, module complémentaire ou jeu)                                                                                                                       |
+| Quantité                | Quand la source du chiffre d’affaires est le Microsoft Store pour Entreprises, la Quantité représente le nombre de licences achetées. Pour toutes les autres sources de chiffre d’affaires, la Quantité est toujours égale à 1. Même quand une même transaction est fractionnée en deux lignes en raison de l’utilisation de deux modes de paiement, chaque ligne présente une Quantité égale à 1. |
+| Type de transaction        | Type de transaction (par exemple, achat, remboursement, contrepassation ou rétrofacturation)                                                                                              |
+| Mode de paiement          | Moyen de paiement client utilisé pour la transaction (par exemple, carte, facturation d’opérateur de téléphonie mobile ou PayPal)                                                               |
+| Pays/région        | Pays/région où la transaction a eu lieu                                                                                                                          |
+| Fournisseur local/vendeur | Fournisseur local/vendeur d’enregistrement                                                                                                                                        |
+| Devise de la transaction    | Devise de la transaction                                                                                                                                            |
+| Montant de la transaction      | Montant de la transaction                                                                                                                                              |
+| Taxes versées            | Montant des taxes versées (ventes, consommation ou TVA/GST)                                                                                                                  |
+| Encaissements nets            | Montant de la transaction moins les taxes versées                                                                                                                                   |
+| Frais du Store               | Pourcentage des encaissements nets retenu par Microsoft en guise de frais pour la mise à disposition de l’application ou du module complémentaire sur le Store                                                      |
+| Revenus des applications            | Encaissements nets moins les frais du Store                                                                                                                                       |
+| Taxes retenues          | Montant d’impôt sur le revenu retenu (inclus dans le fichier CSV **Réservé**)                                                                                                |
+| Paiement                 | Revenus des applications moins la retenue à la source éventuellement applicable (montant affiché dans Devise de la transaction). Non inclus dans le fichier CSV **Réservé**.                               |
+| Taux de change                 | Taux de change utilisé pour convertir la devise de la transaction en devise de paiement                                                                                         |
+| Devise de paiement        | Devise dans laquelle votre paiement est effectué                                                                                                                                       |
+| Paiement converti       | Montant du paiement converti en devise de paiement en utilisant le taux de change                                                                                                         |
+| Modèle de paiement des taxes         | Tiers responsable du versement des taxes (ventes, consommation ou TVA/GST)                                                                                                   |
+| Date et heure d’éligibilité   | Date et heure auxquelles le produit de la transaction devient éligible au paiement (UTC). Quand un paiement est créé, il comprend le produit de la transaction avec une date et heure d’éligibilité antérieures à la date de création du paiement (uniquement inclus dans le fichier CSV **Réservé**). |
+| Charges                 | Présente une décomposition de tous les détails de charges agrégés dans la colonne Montant de la transaction (uniquement incluse pour la Place de marché Azure ; non incluse dans le fichier CSV **Réservé**). |
+|||
+
+## <a name="next-step"></a>étape suivante
+
+- [Détails de la politique de paiement](./payout-policy-details.md)

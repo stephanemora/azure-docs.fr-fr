@@ -1,6 +1,6 @@
 ---
-title: Résolution des problèmes relatifs aux comptes Automation
-description: Découvrez comment détecter et résoudre les problèmes liés à un compte Azure.
+title: Résoudre des problèmes liés aux comptes Azure Automation
+description: Découvrez comment résoudre les problèmes liés aux comptes Azure.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,22 +8,22 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 7b5e7171ac679384966e9dce79425cd1fa881c53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bebc89514da7f28015da5cb145ae50bf3fccdb6a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679379"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680083"
 ---
-# <a name="troubleshoot-the-automation-account"></a>Résoudre un problème dans le compte Automation
+# <a name="troubleshoot-azure-automation-account-issues"></a>Résoudre des problèmes liés aux comptes Azure Automation
 
-Cet article traite des solutions aux problèmes que vous pourriez rencontrer en utilisant un compte Automation. Les sections suivantes mettent en évidence des messages d’erreur spécifiques et des résolutions possibles pour chacun d’eux. Pour des informations générales sur les comptes Automation, voir [Créer un compte Azure](../automation-quickstart-create-account.md).
+Cet article traite des solutions aux problèmes que vous pourriez rencontrer en utilisant un compte Azure Automation. Pour obtenir des informations générales sur les comptes Automation, consultez [Vue d’ensemble de l’authentification de compte Azure Automation](../automation-security-overview.md).
 
 ## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>Scénario : Impossible d’inscrire le fournisseur de ressources Automation pour les abonnements
 
 ### <a name="issue"></a>Problème
 
-Lorsque vous utilisez des solutions de gestion dans votre compte Automation, vous rencontrez l’erreur suivante :
+Lorsque vous utilisez des fonctionnalités de gestion comme Update Management dans votre compte Automation, vous rencontrez l’erreur suivante :
 
 ```error
 Error details: Unable to register Automation Resource Provider for subscriptions:
@@ -39,7 +39,7 @@ Pour inscrire le fournisseur de ressources Automation, effectuez les opérations
 
 1. À partir de votre navigateur, accédez au [portail Azure](https://portal.azure.com).
 
-2. Accédez à **Abonnements**, puis sélectionnez votre abonnement dans la page Abonnements.   
+2. Accédez à **Abonnements**, puis sélectionnez votre abonnement.   
 
 3. Sous **Paramètres**, sélectionnez **Fournisseurs de ressources**.
 
@@ -49,8 +49,8 @@ Pour inscrire le fournisseur de ressources Automation, effectuez les opérations
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si votre problème ne figure pas ci-dessus ou que vous ne pouvez pas le résoudre, utilisez un des canaux suivants pour obtenir une aide supplémentaire :
+Si cet article ne vous permet pas de résoudre votre problème, utilisez l’un des canaux suivants pour obtenir une aide supplémentaire :
 
 * Obtenez des réponses de la part d’experts Azure via les [Forums Azure](https://azure.microsoft.com/support/forums/).
-* Connectez-vous avec [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client en connectant la communauté Azure aux ressources appropriées (réponses, support et experts).
-* Signaler un incident au support Azure Accédez au [site du support Azure](https://azure.microsoft.com/support/options/) , puis cliquez sur **Obtenir un support**.
+* Contactez [@AzureSupport](https://twitter.com/azuresupport). Il s’agit du compte Microsoft Azure officiel qui permet à la communauté Azure d’accéder aux ressources dont elle a besoin : réponses, support et experts.
+* Signaler un incident au support Azure Accédez au [site du support Azure](https://azure.microsoft.com/support/options/), puis sélectionnez **Obtenir de l’aide**.

@@ -5,20 +5,20 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/14/2019
+ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ec69a9906eabb4ce56f79b1b88c2b5f2440f84b1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: a222e5a0602a676872eb8119e565f243f2ecc1b4
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612467"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742937"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurer l’attachement d’application MSIX
 
 > [!IMPORTANT]
-> L’application MSIX est actuellement disponible en préversion publique.
+> L’attachement d’application MSIX est actuellement disponible en préversion privée.
 > Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Cette rubrique vous guide tout au long de la configuration de l’attachement d’application MSIX dans un environnement Windows Virtual Desktop.
@@ -41,7 +41,7 @@ Tout d’abord, vous devez obtenir l’image du système d’exploitation que vo
      >[!NOTE]
      >Vous devez être membre du programme Windows Insider pour accéder au portail Windows Insider. Pour en savoir plus sur le programme Windows Insider, consultez notre [Documentation sur Windows Insider](/windows-insider/at-home/).
 
-2. Faites défiler jusqu’à la section **Sélectionner l’édition** et sélectionnez **Windows 10 Insider Preview Enterprise (FAST) – Build 19035** ou version ultérieure.
+2. Faites défiler jusqu’à la section **Sélectionner l’édition** et sélectionnez **Windows 10 Insider Preview Enterprise (FAST) – Build 19041** ou version ultérieure.
 
 3. Sélectionnez **Confirmer**, sélectionnez la langue que vous souhaitez utiliser, puis sélectionnez **Confirmer**.
     
@@ -73,6 +73,14 @@ rem Disable Windows Update:
 
 sc config wuauserv start=disabled
 ```
+
+Une fois que vous avez désactivé les mises à jour automatiques, vous devez activer Hyper-V, car vous allez utiliser la commande Mound-VHD pour l’indexation et la commande Dismount-VHD pour le retrait. 
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
+```
+>[!NOTE]
+>Cette modification va nécessiter le redémarrage de la machine virtuelle.
 
 Ensuite, préparez le disque dur virtuel de la machine virtuelle pour Azure et chargez le disque dur virtuel résultant sur Azure. Pour en savoir plus, consultez [Préparer et personnaliser une image VHD principale](set-up-customize-master-image.md).
 
@@ -257,7 +265,7 @@ Avant de mettre à jour les scripts PowerShell, vérifiez que vous disposez du G
 
     {
 
-    Mount-Diskimage -ImagePath $vhdSrc -NoDriveLetter -Access ReadOnly
+    Mount-VHD -Path $vhdSrc -NoDriveLetter -ReadOnly
 
     Write-Host ("Mounting of " + $vhdSrc + " was completed!") -BackgroundColor Green
 
@@ -452,4 +460,4 @@ catch [Exception]
 
 Cette fonctionnalité n’est pas prise en charge actuellement, mais vous pouvez poser des questions à la communauté sur la [TechCommunity Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
-Vous pouvez également laisser vos commentaires sur Windows Virtual Desktop sur le [Concentrateur de commentaires Windows Virtual Desktop](https://aka.ms/MRSFeedbackHub), ou laisser vos commentaires pour l’application et l’outil d’empaquetage MSIX dans le [Concentrateur de commentaires sur l’attachement d’application MSIX](https://aka.ms/msixappattachfeedback) et le [Concentrateur de commentaires sur l’outil d’empaquetage MSIX](https://aka.ms/msixtoolfeedback).
+Vous pouvez également laisser vos commentaires sur Windows Virtual Desktop sur le [Hub de commentaires Windows Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).

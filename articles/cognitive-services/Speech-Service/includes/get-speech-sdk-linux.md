@@ -4,17 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: e47c8bc4dc814f1d4c5cb115a2da911544dd55f8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a93c478f0621bf62b710f58f3e6f06298bad9954
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399915"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673048"
 ---
 :::row:::
     :::column span="3":::
         Le Kit de développement logiciel (SDK) Speech prend en charge **Ubuntu 16.04/18.04**, **Debian 9**, **Red Hat Enterprise Linux (RHEL) 7/8** et **CentOS 7/8** uniquement sur les architectures cibles suivantes utilisées avec Linux :
-        - x64
     :::column-end:::
     :::column:::
         <br>
@@ -24,11 +23,13 @@ ms.locfileid: "81399915"
     :::column-end:::
 :::row-end:::
 
-> [!IMPORTANT]
-> Lors du ciblage de Linux ARM64 et de l’utilisation de C# -, le Core 3.x .NET (package dotnet-sdk-3.x) est requis. Si vous ciblez ARM32 ou ARM64, Python n’est pas pris en charge.
+- x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu) et ARM64 (Debian/Ubuntu) pour le développement de C++
+- x64, ARM32 (Debian/Ubuntu) et ARM64 (Debian/Ubuntu) pour Java
+- x64, ARM32 (Debian/Ubuntu) et ARM64 (Debian/Ubuntu) pour .NET Core
+- x64 pour Python
 
-> [!NOTE]
-> Les architectures x86 d’Ubuntu 16.04, Ubuntu 18.04 et Debian 9 prennent en charge uniquement le développement en C++ avec le Kit de développement logiciel (SDK) Speech.
+> [!IMPORTANT]
+> Pour C# sur Linux ARM64, le .NET Core 3.x (package dotnet-sdk-3.x) est requis.
 
 ### <a name="system-requirements"></a>Configuration système requise
 
@@ -60,10 +61,8 @@ sudo yum install alsa-lib openssl
 ```
 
 > [!IMPORTANT]
-> Suivez les instructions décrivant [comment configurer RHEL/CentOS 7 pour le Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
-
-> [!TIP]
-> Sur RHEL/CentOS 8, suivez les instructions du [Guide pratique pour configurer OpenSSL pour Linux](../how-to-configure-openssl-linux.md).
+> - Sur RHEL/CentOS 7, suivez les instructions décrivant [comment configurer RHEL/CentOS 7 pour le Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - Sur RHEL/CentOS 8, suivez les instructions du [Guide pratique pour configurer OpenSSL pour Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 ---
 

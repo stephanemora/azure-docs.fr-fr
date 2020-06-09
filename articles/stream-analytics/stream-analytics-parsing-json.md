@@ -6,12 +6,12 @@ author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 01/29/2020
-ms.openlocfilehash: 73905483850a47a9d036bef1b9e1ee60d3484555
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d68c36e7d6603cb8cdc906ad2a0280094e6e0e5
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77484585"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698257"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Analyser des données JSON et Avro dans Azure Stream Analytics
 
@@ -19,7 +19,8 @@ Azure Stream Analytics prend en charge le traitement d’événements dans les f
 
 >[!NOTE]
 >Les fichiers AVRO créés par la capture Event Hub répondent à un format spécifique qui implique que vous utilisiez la fonctionnalité de *désérialiseur personnalisé*. Pour plus d'informations, consultez [Lire les entrées dans n’importe quel format avec des désérialiseurs .NET personnalisés](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples).
-
+>
+>La désérialisation AVRO de Stream Analytics ne prend pas en charge le type Mappage. Stream Analytics ne peut pas lire les objets blob de capture EventHub, car celle-ci utilise un mappage.
 
 
 ## <a name="record-data-types"></a>Données de type enregistrement

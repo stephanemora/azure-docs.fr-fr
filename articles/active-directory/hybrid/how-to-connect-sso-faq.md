@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7241c8dfbedb24f95c29ea9e1c3f763218a5668d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: feea0266b3a724f3d85944073a47e260277cc362
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72025680"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860016"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Authentification unique transparente Azure Active Directory : Forum aux questions
 
@@ -37,7 +37,7 @@ L’authentification unique transparente est une fonctionnalité gratuite et il 
 
 **Q : L'authentification unique transparente est-elle disponible dans le [cloud Microsoft Azure Allemagne](https://www.microsoft.de/cloud-deutschland) et dans le [cloud Microsoft Azure Government](https://azure.microsoft.com/features/gov/) ?**
 
-Non. L’authentification unique transparente est uniquement disponible dans l’instance à l’échelle mondiale d’Azure AD.
+L’authentification unique fluide est disponible pour le cloud Azure Government. Pour plus d’informations, consultez [Considérations sur les identités hybrides pour Azure Government](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud).
 
 **Q : Quelles sont les applications qui tirent parti des paramètres `domain_hint` et `login_hint` de l'authentification unique transparente ?**
 
@@ -74,9 +74,9 @@ Vous pouvez utiliser Azure AD Join et l’authentification unique transparente s
 
 Oui, ce scénario nécessite la version 2.1 ou ultérieure du [client workplace-join](https://www.microsoft.com/download/details.aspx?id=53554).
 
-**Q : Comment puis-je substituer la clé de déchiffrement Kerberos du compte d'ordinateur `AZUREADSSOACC` ?**
+**Q : Comment puis-je substituer la clé de déchiffrement Kerberos du compte d'ordinateur `AZUREADSSO` ?**
 
-Il est important de fréquemment substituer la clé de déchiffrement Kerberos du `AZUREADSSOACC` compte d’ordinateur (c’est-à-dire Azure AD) créé dans votre forêt AD locale.
+Il est important de fréquemment substituer la clé de déchiffrement Kerberos du `AZUREADSSO` compte d’ordinateur (c’est-à-dire Azure AD) créé dans votre forêt AD locale.
 
 >[!IMPORTANT]
 >Nous vous recommandons vivement de substituer la clé de déchiffrement Kerberos au moins tous les 30 jours.
@@ -101,7 +101,7 @@ Procédez comme suit sur le serveur local où vous exécutez Azure AD Connect :
    >[!NOTE]
    >Le compte administrateur de domaine utilisé ne doit pas être membre du groupe Utilisateurs protégés. Sinon, l’opération échoue.
 
-   2. Appelez `Update-AzureADSSOForest -OnPremCredentials $creds`. Cette commande met à jour la clé de déchiffrement de Kerberos pour le `AZUREADSSOACC` compte de l’ordinateur et la forêt AD spécifique et dans Azure AD.
+   2. Appelez `Update-AzureADSSOForest -OnPremCredentials $creds`. Cette commande met à jour la clé de déchiffrement de Kerberos pour le `AZUREADSSO` compte de l’ordinateur et la forêt AD spécifique et dans Azure AD.
    3. Répétez les étapes précédentes pour chaque forêt AD dans laquelle vous avez configuré la fonctionnalité.
 
    >[!IMPORTANT]
@@ -145,7 +145,7 @@ Procédez comme suit sur le serveur local où vous exécutez Azure AD Connect :
    4. Exécutez PowerShell ISE en tant qu’administrateur. Dans PowerShell, appelez `New-AzureADSSOAuthenticationContext`. Cette commande doit afficher une fenêtre contextuelle dans laquelle vous devez entrer vos informations d’identification d’administrateur général de locataire.
    5. Appelez `Get-AzureADSSOStatus | ConvertFrom-Json`. Cette commande vous fournit la liste des forêts AD (examinez la liste « Domaines ») dans lesquelles cette fonctionnalité a été activée.
 
-   **Étape 3. Supprimez manuellement le compte d'ordinateur `AZUREADSSOACCT` de chaque forêt AD répertoriée.**
+   **Étape 3. Supprimez manuellement le compte d'ordinateur `AZUREADSSO` de chaque forêt AD répertoriée.**
 
 ## <a name="next-steps"></a>Étapes suivantes
 

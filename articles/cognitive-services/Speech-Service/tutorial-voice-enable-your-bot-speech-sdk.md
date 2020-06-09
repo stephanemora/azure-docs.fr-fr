@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: cb016ec490dc14cbde1a1cb3f34caf39e4740961
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: c55d81db848dcb1aebe9dacb03387565b3d8db48
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732369"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745610"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutoriel : Activer les fonctions vocales dans votre bot à l’aide du SDK Speech
 
@@ -178,7 +178,7 @@ Maintenant que vous avez créé des ressources, vous allez créer un bot. Vous a
 L’étape suivante consiste à déployer le bot d’écho dans Azure. Il existe plusieurs façons de déployer un bot. Cela dit, dans ce tutoriel, nous allons nous concentrer sur la méthode de publication qui est effectuée directement à partir de Visual Studio.
 
 > [!NOTE]
-> Vous pouvez également déployer un bot à l’aide d’[Azure CLI](https://docs.microsoft.com/azure/bot-service/bot-builder-deploy-az-cli) et de [modèles de déploiement](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/adaptive-dialog/csharp_dotnetcore/04.core-bot/deploymentTemplates).
+> Vous pouvez également déployer un bot à l’aide d’[Azure CLI](https://docs.microsoft.com/azure/bot-service/bot-builder-deploy-az-cli) et de [modèles de déploiement](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/adaptive-dialog/03.core-bot).
 
 1. Dans Visual Studio, ouvrez le bot d’écho qui a été configuré pour être utilisé avec le canal Direct Line Speech :
 
@@ -389,7 +389,7 @@ Dans le code source du client Assistant vocal Windows, examinez les fichiers sui
 
 ## <a name="optional-change-the-language-and-bot-voice"></a>(Facultatif) Changer la langue et la voix du bot
 
-Le bot que vous avez créé est à l’écoute et répond en anglais, avec par défaut une voix de synthèse vocale en anglais américain. Vous n’êtes cependant pas limité à l’utilisation de l’anglais ni à une voix par défaut. Dans cette section, vous allez découvrir comment changer la langue utilisée par votre bot pour écouter et répondre. Vous allez aussi découvrir comment sélectionner une autre voix pour cette langue.
+Le bot que vous avez créé est à l’écoute et répond en anglais, avec par défaut une voix de synthèse vocale en anglais US. Vous n’êtes cependant pas limité à l’utilisation de l’anglais ni à une voix par défaut. Dans cette section, vous allez découvrir comment changer la langue utilisée par votre bot pour écouter et répondre. Vous allez aussi découvrir comment sélectionner une autre voix pour cette langue.
 
 ### <a name="change-the-language"></a>Changer la langue
 

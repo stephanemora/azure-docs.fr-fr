@@ -1,17 +1,17 @@
 ---
 title: Indexation dans Azure Cosmos DB
 description: Comprendre le fonctionnement de l’indexation dans Azure Cosmos DB et différents types d’index, tels que Range, Spatial et les index composites pris en charge.
-author: ThomasWeiss
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/13/2020
-ms.author: thweiss
-ms.openlocfilehash: 684799ee12715c789910accf80aa5b4afec763d4
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.date: 05/21/2020
+ms.author: tisande
+ms.openlocfilehash: df9135c39c1ff27abe8915c221185fca517a5614
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273237"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849788"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Vue d’ensemble de l’indexation dans Azure Cosmos DB
 
@@ -98,10 +98,14 @@ L’index de **plage** est basé sur une structure de type arborescence ordonné
    SELECT * FROM c WHERE IS_DEFINED(c.property)
    ```
 
-- Correspondances de préfixes de chaîne (le mot clé CONTAINS ne tire pas parti de l’index de plage) :
+- Fonctions système String :
 
    ```sql
-   SELECT * FROM c WHERE STARTSWITH(c.property, "value")
+   SELECT * FROM c WHERE CONTAINS(c.property, "value")
+   ```
+
+   ```sql
+   SELECT * FROM c WHERE STRINGEQUALS(c.property, "value")
    ```
 
 - Requêtes `ORDER BY` :
@@ -175,7 +179,7 @@ Tant qu’un prédicat de filtre utilise un type d’index, le moteur de requêt
 
 Les chemins d’accès extraits lors de l’indexation des données facilitent la recherche de l’index lors du traitement d’une requête. En faisant correspondre la clause `WHERE` d’une requête avec la liste des chemins d’accès indexés, il est possible d’identifier très rapidement les éléments qui correspondent au prédicat de la requête.
 
-Considérez la requête suivante : `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. Le prédicat de requête (filtrage sur les éléments, où n’importe quelle localisation possède « France » comme pays) correspondrait au chemin surligné en rouge ci-dessous :
+Considérez la requête suivante : `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. Le prédicat de requête (filtrage sur les éléments, où une localisation affiche « France » comme pays/région) correspondrait au chemin mis en évidence en rouge ci-dessous :
 
 ![Mise en correspondance d’un chemin d’accès spécifique au sein d’une arborescence](./media/index-overview/matching-path.png)
 

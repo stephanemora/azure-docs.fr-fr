@@ -3,12 +3,12 @@ title: Migrer vers une entité issue du Machine Learning v3
 description: La création v3 offre un nouveau type d’entité, l’entité issue du Machine Learning, ainsi que la possibilité d’ajouter des relations à l’entité issue du Machine Learning et à d’autres entités ou fonctionnalités de l’application.
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: 79fbe261f597f55ca6caff468d4d5c154a273c42
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: aaa5472f25a5eca5ceadf979c57a83874ce4cb6e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593220"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684596"
 ---
 # <a name="migrate-to-v3-authoring-entity"></a>Migrer vers l’entité de création v3
 
@@ -106,7 +106,7 @@ Le tableau suivant illustre la migration :
 
 |Modèles v2|Modèles v3|
 |--|--|
-|Parent : entité composant nommée `Order`|Parent : entité issue du Machine Learning nommée `Order`|
+|Parent : entité composant nommée `Order`|Parent : entité issue du Machine Learning nommée `Order`|
 |Enfant : entité prédéfinie datetimeV2|* Migrer une entité prédéfinie sur une nouvelle application.<br>* Ajouter une fonctionnalité requise sur le parent de l’entité prédéfinie datetimeV2.|
 |Enfant : entité de liste pour les garnitures|* Migrer une entité de liste sur une nouvelle application.<br>* Ajouter ensuite une fonctionnalité requise sur le parent de l’entité de liste.|
 
@@ -132,7 +132,7 @@ Le tableau suivant illustre la migration :
 
 |Modèles v2|Modèles v3|
 |--|--|
-|Parent : entité composant nommée `Order`|Parent : entité issue du Machine Learning nommée `Order`|
+|Parent : entité composant nommée `Order`|Parent : entité issue du Machine Learning nommée `Order`|
 |Enfant : entité hiérarchique avec garniture de pizza d’origine et finale|* Ajouter un rôle à `Order` pour chaque garniture.|
 
 ## <a name="api-change-constraint-replaced-with-required-feature"></a>Contrainte de modification d’API remplacée par une fonctionnalité requise

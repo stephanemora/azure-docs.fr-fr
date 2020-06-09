@@ -6,18 +6,18 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4673bcb71fc2f45c3b02f8fe5e463184395e8ef8
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: a92e64311d8a4f5e87c5be3d00c1c23898db551d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891277"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648322"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Déclencheur Azure Event Grid pour Azure Functions
 
 Utilisez le déclencheur de fonction pour répondre à un événement envoyé à une rubrique Event Grid.
 
-Pour plus d’informations sur les détails d’installation et de configuration, consultez la [vue d’ensemble](./functions-bindings-event-grid.md).
+Pour plus d'informations sur les détails d'installation et de configuration, consultez la [vue d'ensemble](./functions-bindings-event-grid.md).
 
 ## <a name="example"></a>Exemple
 
@@ -345,11 +345,11 @@ Dans Azure Functions 2.x et ultérieur, vous pouvez également utiliser le type 
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-L’instance Event Grid est disponible via le paramètre configuré dans la propriété *du fichier*function.json`name`.
+L’instance Event Grid est disponible via le paramètre configuré dans la propriété `name` du fichier *function.json*.
 
 # <a name="python"></a>[Python](#tab/python)
 
-L’instance Event Grid est disponible via le paramètre configuré dans la propriété *du fichier*function.json`name`, typée en `func.EventGridEvent`.
+L’instance Event Grid est disponible via le paramètre configuré dans la propriété `name` du fichier *function.json*, typée en `func.EventGridEvent`.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -401,13 +401,13 @@ Pour pouvoir recevoir des requêtes HTTP Event Grid, créez un abonnement Event 
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Pour les fonctions développées sur le Portail Azure avec le déclencheur Event Grid, sélectionnez **Ajouter un abonnement Event Grid**.
+Pour les fonctions développées dans le portail Azure avec le déclencheur Event Grid, sélectionnez **Intégration**, puis choisissez **Event Grid Trigger** et sélectionnez **Créer un abonnement Event Grid**.
 
-![Créer un abonnement sur le Portail](media/functions-bindings-event-grid/portal-sub-create.png)
+:::image type="content" source="media/functions-bindings-event-grid/portal-sub-create.png" alt-text="Connectez un nouvel abonnement aux événements à déclencher dans le portail.":::
 
-Ce lien ouvre la page **Créer un abonnement aux événements** sur le Portail, en préremplissant l’URL de point de terminaison.
+Ce lien ouvre la page **Créer un abonnement aux événements** dans le portail avec le point de terminaison du déclencheur actuel déjà défini.
 
-![URL de point de terminaison préremplie](media/functions-bindings-event-grid/endpoint-url.png)
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Créer un abonnement aux événements avec le point de terminaison de fonction déjà défini" :::
 
 Pour plus d’informations sur la création d’abonnements à l’aide du Portail Azure, consultez la section [Créer un événement personnalisé - Portail Azure](../event-grid/custom-event-quickstart-portal.md) dans la documentation Event Grid.
 

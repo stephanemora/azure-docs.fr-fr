@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 9dce9e2f63afc50e367d650f93f293b974d912e9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f07efc8fd77f1c34ef96d31f55089726942d05df
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199547"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871222"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Intégrer votre infrastructure NPS existante dans Azure Multi-Factor Authentication
 
@@ -205,9 +205,12 @@ Si votre certificat d’ordinateur précédent est arrivé à expiration, et qu�
 
 ### <a name="microsoft-azure-government-additional-steps"></a>Microsoft Azure Government - Étapes supplémentaires
 
-Pour les clients qui utilisent le cloud Azure Government, les étapes de configuration supplémentaires suivantes sont requises sur chaque serveur NPS :
+Pour les clients qui utilisent le cloud Azure Government, les étapes de configuration supplémentaires suivantes sont demandées sur chaque serveur NPS.
 
-1. Ouvrez l'**Éditeur du Registre** sur le serveur NPS.
+> [!IMPORTANT]
+> Configurez ces paramètres de Registre uniquement si vous êtes client Azure Government.
+
+1. Si vous êtes client Azure Government, ouvrez l’**Éditeur du Registre** sur le serveur NPS.
 1. Accédez à `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Définissez les valeurs de clé suivantes :
 
     | Clé de Registre       | Valeur |

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: c509d174787a58abeee33e039eb7bbbcbcb43f38
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d33cc14612b5c00c8102bd035e7331bef670a4dd
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531732"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836445"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Agrégats JavaScript définis par l’utilisateur Azure Stream Analytics
  
@@ -225,7 +225,7 @@ Créez un fichier JSON local avec le contenu ci-dessous, téléchargez le fichie
 
 ## <a name="get-help"></a>Obtenir de l’aide
 
-Pour obtenir de l’aide supplémentaire, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Pour obtenir de l’aide, consultez notre [page de questions Microsoft Q&A sur Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

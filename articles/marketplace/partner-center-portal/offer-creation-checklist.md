@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 60111b6a23c76314383c5f95be3eb4b38f90d3e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ec276c765c2a574dbbc2fc14b7b23507b4cc4798
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281338"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83850009"
 ---
 # <a name="saas-offer-creation-checklist"></a>Check-list pour la création d’une offre SaaS
 
@@ -58,7 +58,7 @@ La page de configuration de l’offre vous permet de choisir différents canaux 
 | Canaux  | facultatif. Valeur par défaut : Pas activé dans le canal CSP (revendeur).  |
 | Version d’évaluation | facultatif. Valeur par défaut : Aucune version d’évaluation activée.  |
 | Type de version d’évaluation | Obligatoire version d’évaluation activée. Valeur par défaut : Aucune sélectionnée. Options : Azure Resource Manager, Dynamics 365 for Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operations, Logic Apps, Power BI.  |
-| Gestion des prospects – Se connecter à un système CRM | Obligatoire en cas de vente via Microsoft ou de référencement des offres « Me contacter ». Par défaut : aucun système CRM connecté. Options CRM : Azure table, Azure blob, Dynamics CRM Online, Point de terminaison HTTPS, Marketo, Salesforce  |
+| Prospects - Se connecter à un système CRM | Obligatoire en cas de vente via Microsoft ou de référencement des offres « Me contacter ». Par défaut : aucun système CRM connecté. Options CRM : Azure table, Azure blob, Dynamics CRM Online, Point de terminaison HTTPS, Marketo, Salesforce  |
 
 ## <a name="properties-page"></a>Page Propriétés
 

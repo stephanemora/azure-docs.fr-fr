@@ -3,12 +3,12 @@ title: Vue d’ensemble de la sauvegarde hors connexion
 description: En savoir plus sur les composants de la sauvegarde hors connexion. Ils incluent la sauvegarde hors connexion basée sur Azure Data Box et la sauvegarde hors connexion basée sur le service Azure Import/Export.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: a33810c633d8c7ca79c559355935d3c11853bc0a
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: c3ef79136ca32c24ae6d16057d3195b57e8ced2d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160919"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744640"
 ---
 # <a name="overview-of-offline-backup"></a>Vue d’ensemble de la sauvegarde hors connexion
 
@@ -73,11 +73,11 @@ Le tableau suivant compare les deux options disponibles pour vous aider à faire
 | Sécurité (données, appareil et service)                           | [Données](https://docs.microsoft.com/azure/databox/data-box-security#data-box-data-protection) : chiffrement AES 256 bits <br> [Appareil](https://docs.microsoft.com/azure/databox/data-box-security#data-box-device-protection) : boîtier robuste, interface propriétaire basées sur des informations d’identification pour copier les données <br> [Service](https://docs.microsoft.com/azure/databox/data-box-security#data-box-service-protection) : protégé par les fonctionnalités de sécurité Azure | Données : chiffrement BitLocker                                 |
 | Approvisionnement d’un emplacement intermédiaire temporaire                     | Non requis                                                | Supérieur ou égal à la taille estimée des données de sauvegarde        |
 | Régions prises en charge                                           | [Régions des disques Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) <br> [Régions Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) | [Régions du service Azure Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service#region-availability) |
-| Expédition internationale                                     | Non pris en charge  <br>    L’adresse source et le centre de données Azure de destination doivent se trouver dans le même pays.* | Prise en charge                                                    |
+| Expédition internationale                                     | Non pris en charge  <br>    L’adresse source et le centre de données Azure de destination doivent se trouver dans le même pays/la même région.* | Prise en charge                                                    |
 | Logistique du transfert (livraison, transport, enlèvement)           | Entièrement gérée par Microsoft                                     | Managée par le client                                            |
 | Tarifs                                                      | [Tarifs Azure Data Box](https://azure.microsoft.com/pricing/details/databox/) <br> [Tarifs des disques Azure Data Box](https://azure.microsoft.com/pricing/details/databox/disk/) | [Tarifs du service Azure Import/Export](https://azure.microsoft.com/pricing/details/storage-import-export/) |
 
-* Si aucun centre de données Azure n’existe dans votre pays, vous devez expédier vos disques à un centre de données Azure situé dans un autre pays.
+* Si aucun centre de données Azure n’existe dans votre pays/région, vous devez expédier vos disques à un centre de données Azure situé dans un autre pays/une autre région.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

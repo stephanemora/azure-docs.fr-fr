@@ -1,7 +1,7 @@
 ---
-title: Sécuriser des expériences et une inférence dans un réseau virtuel
+title: Isolement réseau et confidentialité
 titleSuffix: Azure Machine Learning
-description: Apprenez à sécuriser les travaux d’expérimentation/de formation et les travaux d’inférence/de notation dans Azure Machine Learning au sein d’un réseau virtuel Azure.
+description: Utilisez un réseau virtuel Azure isolé avec Azure Machine Learning pour sécuriser les travaux d’expérimentation/d’entraînement ainsi que les travaux d’inférence/de scoring.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,30 +9,36 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 04/17/2020
-ms.openlocfilehash: fc7302704f0fcf7bb4c4dee29462998ff26f84de
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.date: 05/11/2020
+ms.custom: contperfq4
+ms.openlocfilehash: 17c6e10b213cb1f3d2b20433a5511c27960cdb06
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801822"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816299"
 ---
-# <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Sécuriser l’expérimentation Azure Machine Learning et les travaux d’inférence au sein d’un réseau virtuel Azure
+# <a name="secure-your-machine-learning-lifecycles-with-private-virtual-networks"></a>Sécuriser vos cycles de vie de Machine Learning avec des réseaux virtuels privés
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Dans cet article, vous apprendrez à sécuriser les travaux d’expérimentation/de formation et les travaux d’inférence/de notation dans Azure Machine Learning au sein d’un réseau virtuel (vnet) Azure.
+Dans cet article, vous allez apprendre à isoler les travaux d’expérimentation/d’entraînement et les travaux d’inférence/de scoring dans Azure Machine Learning au sein d’un réseau virtuel (vnet) Azure. Vous allez aussi découvrir quelques *paramètres de sécurité avancés*, qui ne sont pas utiles dans les cas d’usage basiques ou expérimentaux.
+
+> [!WARNING]
+> Si votre stockage sous-jacent se trouve dans un réseau virtuel, les utilisateurs ne pourront pas utiliser l’expérience web studio d’Azure Machine Learning, notamment :
+> - Le concepteur par glisser-déposer
+> - L’interface utilisateur pour le Machine Learning automatisé
+> - L’interface utilisateur pour l’étiquetage des données
+> - L’interface utilisateur pour les jeux de données
+> - Notebooks
+> 
+> Si vous essayez, vous recevrez un message similaire à l’erreur suivante : `__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
+
+## <a name="what-is-a-vnet"></a>Qu’est-ce qu’un réseau virtuel (VNET) ?
 
 Un **réseau virtuel** agit en tant que limite de sécurité, isolant vos ressources Azure de l’Internet public. Vous pouvez également joindre un réseau virtuel Azure à votre réseau local. En joignant les réseaux, cela vous permet d’entraîner vos modèles et d’accéder à vos modèles déployés à des fins d’inférence de façon sécurisée.
 
-Azure Machine Learning s’appuie sur d’autres services Azure pour les ressources de calcul. Les ressources de calcul ou les [cibles de calcul](concept-compute-target.md) sont utilisées pour entraîner et déployer des modèles. Ces cibles peuvent être créées à l’intérieur d’un réseau virtuel. Par exemple, vous pouvez utiliser la machine virtuelle Microsoft Data Science Virtual Machine pour entraîner un modèle, puis déployer le modèle sur Azure Kubernetes Service (AKS). Pour plus d’informations sur les réseaux virtuels, consultez la page [Présentation du réseau virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+Pour entraîner et déployer des modèles, Azure Machine Learning s’appuie sur d’autres services Azure pour les ressources de calcul, aussi appelées [cibles de calcul](concept-compute-target.md). Ces cibles peuvent être créées à l’intérieur d’un réseau virtuel. Par exemple, vous pouvez utiliser une capacité de calcul Azure Machine Learning pour entraîner un modèle et le déployer sur Azure Kubernetes Service (AKS). 
 
-Cet article fournit aussi des informations détaillées sur les *paramètres de sécurité avancés*, qui ne sont pas nécessaires aux cas d’utilisation de base ou expérimentaux. Certaines sections de cet article fournissent des informations de configuration pour un large éventail de scénarios. Vous n’avez pas besoin de suivre les instructions dans l’ordre ou dans leur intégralité.
-
-> [!TIP]
-> Sauf indication contraire, l’utilisation de ressources telles que des comptes de stockage ou des cibles de calcul à l’intérieur d’un réseau virtuel fonctionne avec les pipelines de Machine Learning et les flux de travail sans pipeline tels que les exécutions de script.
-
-> [!WARNING]
-> Microsoft ne prend pas en charge l'utilisation des fonctionnalités Azure Machine Learning Studio telles que le ML automatisé, les jeux de données, l'étiquetage des données, le concepteur et le bloc-notes si un réseau virtuel est activé pour le stockage sous-jacent.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -42,95 +48,38 @@ Cet article fournit aussi des informations détaillées sur les *paramètres de 
 
 + Un réseau virtuel et un sous-réseau préexistants à utiliser avec vos ressources de calcul.
 
-## <a name="use-a-storage-account-for-your-workspace"></a>Utilisez un compte de stockage pour votre espace de travail
+## <a name="private-endpoints"></a>Instances Private Endpoint
+
+Vous pouvez aussi [activer Azure Private Link](how-to-configure-private-link.md) pour vous connecter à votre espace de travail à l’aide d’un point de terminaison privé. Le point de terminaison privé est un ensemble d’adresses IP privées au sein de votre réseau virtuel. [Découvrez comment configurer ce point de terminaison privé.](how-to-configure-private-link.md)
+
+
+
+> [!TIP]
+> Vous pouvez combiner un réseau virtuel et le service Liaison privée pour protéger la communication entre votre espace de travail et d’autres ressources Azure. Toutefois, certaines combinaisons nécessitent un espace de travail Enterprise Edition. Utilisez le tableau suivant pour comprendre les scénarios qui nécessitent Enterprise Edition :
+>
+> | Scénario | Entreprise</br>edition | De base</br>edition |
+> | ----- |:-----:|:-----:| 
+> | Ni réseau virtuel ni Liaison privée | ✔ | ✔ |
+> | Espace de travail sans Liaison privée. Autres ressources (sauf Azure Container Registry) dans un réseau virtuel | ✔ | ✔ |
+> | Espace de travail sans Liaison privée. Autres ressources avec Liaison privée | ✔ | |
+> | Espace de travail avec Liaison privée. Autres ressources (sauf Azure Container Registry) dans un réseau virtuel | ✔ | ✔ |
+> | Espace de travail et toute autre ressource avec Liaison privée | ✔ | |
+> | Espace de travail avec Liaison privée. Autres ressources sans Liaison privée ou réseau virtuel | ✔ | ✔ |
+> | Azure Container Registry dans un réseau virtuel | ✔ | |
+> | Clés gérées par le client pour l’espace de travail | ✔ | |
+> 
 
 > [!WARNING]
-> Si vos scientifiques de données utilisent le concepteur Azure Machine Learning, ils recevront une erreur lors de la visualisation des données à partir d’un compte de stockage situé à l’intérieur d’un réseau virtuel. Le texte suivant est l’erreur qu’ils reçoivent :
->
-> __Erreur : Unable to profile this dataset (Impossible de profiler ce jeu de données). Cela peut être dû au fait que vos données sont stockées derrière un réseau virtuel ou que vos données ne prennent pas en charge le profil.__
+> La préversion des instances de calcul Azure Machine Learning n’est pas prise en charge dans un espace de travail où le service Liaison privée est activé.
+> 
+> Azure Machine Learning ne prend pas en charge l’utilisation d’un Azure Kubernetes Service avec une liaison privée activée. Au lieu de cela, vous pouvez utiliser Azure Kubernetes Service dans un réseau virtuel. Pour plus d’informations, consultez [Sécuriser l’expérimentation Azure Machine Learning et les travaux d’inférence au sein d’un réseau virtuel Azure](how-to-enable-virtual-network.md).
 
-Pour utiliser le compte Stockage Azure de l’espace de travail d’un réseau virtuel, effectuez les étapes suivantes :
-
-1. Créez une ressource de calcul (par exemple, une instance de Capacité de calcul Machine Learning ou cluster) dans un réseau virtuel ou attachez une ressource de capacité de calcul à l’espace de travail (par exemple, un cluster HDInsight, une machine virtuelle ou un cluster Azure Kubernetes Service). La ressource de capacité de calcul peut servir à l’expérimentation ou au déploiement de modèle.
-
-   Pour plus d’informations, consultez les sections [Utiliser la Capacité de calcul Machine Learning](#amlcompute), [Utiliser une machine virtuelle ou un cluster HDInsight](#vmorhdi) et [Utiliser Azure Kubernetes Service](#aksvnet) de cet article.
-
-1. Dans le Portail Azure, accédez au stockage lié à votre espace de travail.
-
-   [![Image du portail Azure montrant le stockage Azure lié à l’espace de travail Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
-
-1. Sur la page **Stockage Azure**, sélectionnez __Pare-feu et réseaux virtuels__.
-
-   ![La zone « Pare-feu et réseaux virtuels » de la page Stockage Azure dans le portail Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
-
-1. Dans la page __Pare-feux et réseaux virtuels__, effectuez les actions suivantes :
-    - Sélectionnez __Réseaux sélectionnés__.
-    - Cliquez sur __Réseaux virtuel__ puis choisissez le lien __Ajouter un réseau virtuel existant__. Cette action ajoute le réseau virtuel dans lequel votre capacité de calcul réside (voir l’étape 1).
-
-        > [!IMPORTANT]
-        > Le compte de stockage doit se trouver dans les mêmes réseau virtuel et sous-réseau que les instances de calcul ou clusters utilisés pour l'apprentissage ou l'inférence.
-
-    - Vérifiez que __Autoriser les services Microsoft approuvés à accéder à ce compte de stockage__ est coché.
-
-    > [!IMPORTANT]
-    > Lorsque vous travaillez avec le SDK Azure Machine Learning, votre environnement de développement doit être en mesure de se connecter au compte de Stockage Azure. Lorsque le compte de stockage se trouve dans un réseau virtuel, le pare-feu doit autoriser l’accès à partir de l’adresse IP de l’environnement de développement.
-    >
-    > Pour activer l’accès au compte de stockage, consultez les __Pare-feux et réseaux virtuels__ du compte de stockage à partir d’un *navigateur web sur le client de développement*. Utilisez ensuite la case à cocher __Ajouter votre adresse IP client__ pour ajouter l’adresse IP du client à la __PLAGE D’ADRESSES__. Vous pouvez également utiliser le champ __PLAGE D’ADRESSES__ pour entrer manuellement l’adresse IP de l’environnement de développement. Une fois que l’adresse IP du client a été ajoutée, elle peut accéder au compte de stockage à l’aide du SDK.
-
-   [![Le volet « Pare-feu et réseaux virtuels » du Portail Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
-
-> [!IMPORTANT]
-> Vous pouvez placer le _compte de stockage par défaut_ pour Azure Machine Learning ou les _comptes de stockage autres que ceux par défaut_ dans un réseau virtuel.
->
-> Le compte de stockage par défaut est automatiquement configuré lorsque vous créez un espace de travail.
->
-> Pour les comptes de stockage autres que ceux par défaut, le paramètre `storage_account` dans la fonction [`Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) vous permet de spécifier un compte de stockage personnalisé par ID de ressource Azure.
-
-## <a name="use-azure-data-lake-storage-gen-2"></a>Utiliser Azure Data Lake Storage Gen 2
-
-Azure Data Lake Storage Gen2 est un ensemble de fonctionnalités dédiées à l’analytique du Big Data s’appuyant sur le Stockage Blob Azure. Il permet de stocker des données utilisées pour l’apprentissage de modèles avec Azure Machine Learning. 
-
-Pour utiliser Azure Data Lake Storage Gen 2 à l’intérieur du réseau virtuel de votre espace de travail Azure Machine Learning, procédez comme suit :
-
-1. Créez un compte Azure Data Lake Storage Gen 2. Pour plus d’informations, voir [Créer un compte Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
-
-1. Suivez les étapes 2-4 de la section précédente, [Utiliser un compte de stockage pour votre espace de travail](#use-a-storage-account-for-your-workspace) afin de placer le compte dans le réseau virtuel.
-
-Lorsque vous utilisez Azure Machine Learning avec Azure Data Lake Storage Gen 2 à l’intérieur d’un réseau virtuel, suivez les instructions suivantes :
-
-* Si vous utilisez le __Kit de développement logiciel (SDK) pour créer un jeu de données__ et que le système exécutant le code __n’est pas dans le réseau virtuel__, utilisez le paramètre `validate=False`. Ce paramètre ignore la validation qui échoue si le système n’est pas dans le même réseau virtuel que le compte de stockage. Pour plus d’informations, voir la méthode [from_files ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-).
-
-* Lorsque vous utilisez une instance ou un cluster de calcul Azure Machine Learning pour effectuer l’apprentissage d’un modèle à l’aide du jeu de données, celui-ci doit se trouver dans le même réseau virtuel que le compte de stockage.
-
-## <a name="use-a-key-vault-instance-with-your-workspace"></a>Utilisez une instance de coffre de clés avec votre espace de travail
-
-L’instance de coffre de clés associée à l’espace de travail est utilisée par Azure Machine Learning pour stocker les informations d’identification suivantes :
-* Chaîne de connexion du compte de stockage associé
-* Mots de passe pour les instances Azure Container Repository
-* Chaînes de connexion aux magasins de données
-
-Pour utiliser les fonctionnalités d’expérimentation Azure Machine Learning avec Azure Key Vault derrière un réseau virtuel, effectuez les étapes suivantes :
-
-1. Accédez au coffre de clés associé à l’espace de travail.
-
-   [![Le coffre de clés associé à l’espace de travail Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
-
-1. Sur la page **Key Vault**, sélectionnez le volet de gauche __Pare-feux et réseaux virtuels__.
-
-   ![La section « Pare-feux et réseaux virtuels » dans le volet Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
-
-1. Dans la page __Pare-feux et réseaux virtuels__, effectuez les actions suivantes :
-    - Sous __Autoriser l’accès depuis__, cliquez sur __Réseaux sélectionnés__.
-    - Sous __Réseaux virtuels__, sélectionnez __Ajouter des réseaux virtuels existants__ pour ajouter le réseau virtuel où se trouve votre calcul d’expérimentation.
-    - Sous __Autoriser les services Microsoft approuvés pour contourner ce pare-feu__, sélectionnez __Oui__.
-
-   [![La section « Pare-feux et réseaux virtuels » dans le volet Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 
 <a id="amlcompute"></a>
 
-## <a name="use-a-machine-learning-compute"></a><a name="compute-instance"></a>Utiliser une Capacité de calcul Machine Learning
+## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Clusters et instances de calcul
 
-Pour utiliser une instance de calcul Machine Learning Azure ou un cluster de calcul dans un réseau virtuel, les exigences réseau suivantes doivent être remplies :
+Pour utiliser une [**cible de calcul** Azure Machine Learning gérée](concept-compute-target.md#azure-machine-learning-compute-managed) ou une [**instance de calcul** Azure Machine Learning](concept-compute-instance.md) dans un réseau virtuel, le réseau doit réunir les conditions suivantes :
 
 > [!div class="checklist"]
 > * Le réseau virtuel doit être dans les mêmes abonnement et région que l’espace de travail Azure Machine Learning.
@@ -138,6 +87,7 @@ Pour utiliser une instance de calcul Machine Learning Azure ou un cluster de cal
 > * Vérifiez si vos stratégies ou verrous de sécurité sur l’abonnement ou le groupe de ressources du réseau virtuel restreignent les autorisations pour gérer le réseau virtuel. Si vous souhaitez sécuriser le réseau virtuel en limitant le trafic, laissez certains ports ouverts pour le service Capacité de calcul. Pour plus d’informations, voir la section [Ports requis](#mlcports).
 > * Si vous vous apprêtez à placer plusieurs instances ou clusters de calcul sur un réseau virtuel, vous devrez peut-être demander une augmentation du quota pour une ou plusieurs de vos ressources.
 > * Si le ou les comptes de stockage Azure pour l’espace de travail sont également sécurisés dans un réseau virtuel, ils doivent se trouver dans le même réseau virtuel que l’instance ou le cluster de capacité de calcul Azure Machine Learning. 
+> * Pour que la fonctionnalité d’instance de calcul Jupyter fonctionne, vérifiez que la communication avec le socket web n’est pas désactivée.
 
 > [!TIP]
 > La capacité de calcul ou le cluster Machine Learning alloue automatiquement des ressources réseau supplémentaires au __groupe de ressources qui contient le réseau virtuel__. Pour chaque instance ou cluster de calcul, le service alloue les ressources suivantes :
@@ -303,60 +253,51 @@ except ComputeTargetException:
 
 Une fois le processus de création terminé, vous pouvez entraîner votre modèle en utilisant le cluster dans le cadre d’une expérience. Pour plus d’informations, consultez [Sélectionner et utiliser une cible de calcul pour l’entraînement](how-to-set-up-training-targets.md).
 
-## <a name="use-azure-databricks"></a>Utiliser Azure Databricks
+## <a name="use-a-storage-account-for-your-workspace"></a>Utilisez un compte de stockage pour votre espace de travail
 
-Vous devez remplir les conditions suivantes pour pouvoir utiliser Azure Databricks dans un réseau virtuel avec votre espace de travail :
+Pour utiliser le compte Stockage Azure de l’espace de travail d’un réseau virtuel, effectuez les étapes suivantes :
 
-> [!div class="checklist"]
-> * Le réseau virtuel doit être dans les mêmes abonnement et région que l’espace de travail Azure Machine Learning.
-> * Si le ou les comptes de stockage Azure pour l’espace de travail sont également sécurisés dans un réseau virtuel, ils doivent se trouver dans le même réseau virtuel que le cluster Azure Databricks.
-> * Outre les sous-réseaux __databricks-private__ et __databricks-public__ utilisés par Azure Databricks, le sous-réseau __default__ créé pour le réseau virtuel est également requis.
+1. Créez une ressource de calcul (par exemple, une instance de Capacité de calcul Machine Learning ou cluster) dans un réseau virtuel ou attachez une ressource de capacité de calcul à l’espace de travail (par exemple, un cluster HDInsight, une machine virtuelle ou un cluster Azure Kubernetes Service). La ressource de capacité de calcul peut servir à l’expérimentation ou au déploiement de modèle.
 
-Pour obtenir des informations spécifiques sur l’utilisation d’Azure Databricks avec un réseau virtuel, consultez [Déployer des Azure Databricks dans votre réseau virtuel Azure](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html).
+   Pour plus d’informations, consultez les sections [Utiliser la Capacité de calcul Machine Learning](#amlcompute), [Utiliser une machine virtuelle ou un cluster HDInsight](#vmorhdi) et [Utiliser Azure Kubernetes Service](#aksvnet) de cet article.
 
-<a id="vmorhdi"></a>
+1. Dans le Portail Azure, accédez au stockage lié à votre espace de travail.
 
-## <a name="use-a-virtual-machine-or-hdinsight-cluster"></a>Utiliser une machine virtuelle ou un cluster HDInsight
+   [![Image du portail Azure montrant le stockage Azure lié à l’espace de travail Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
+
+1. Sur la page **Stockage Azure**, sélectionnez __Pare-feu et réseaux virtuels__.
+
+   ![La zone « Pare-feu et réseaux virtuels » de la page Stockage Azure dans le portail Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
+
+1. Dans la page __Pare-feux et réseaux virtuels__, effectuez les actions suivantes :
+    - Sélectionnez __Réseaux sélectionnés__.
+    - Cliquez sur __Réseaux virtuel__ puis choisissez le lien __Ajouter un réseau virtuel existant__. Cette action ajoute le réseau virtuel dans lequel votre capacité de calcul réside (voir l’étape 1).
+
+        > [!IMPORTANT]
+        > Le compte de stockage doit se trouver dans les mêmes réseau virtuel et sous-réseau que les instances de calcul ou clusters utilisés pour l'apprentissage ou l'inférence.
+
+    - Vérifiez que __Autoriser les services Microsoft approuvés à accéder à ce compte de stockage__ est coché.
+
+    > [!IMPORTANT]
+    > Lorsque vous travaillez avec le SDK Azure Machine Learning, votre environnement de développement doit être en mesure de se connecter au compte de Stockage Azure. Lorsque le compte de stockage se trouve dans un réseau virtuel, le pare-feu doit autoriser l’accès à partir de l’adresse IP de l’environnement de développement.
+    >
+    > Pour activer l’accès au compte de stockage, consultez les __Pare-feux et réseaux virtuels__ du compte de stockage à partir d’un *navigateur web sur le client de développement*. Utilisez ensuite la case à cocher __Ajouter votre adresse IP client__ pour ajouter l’adresse IP du client à la __PLAGE D’ADRESSES__. Vous pouvez également utiliser le champ __PLAGE D’ADRESSES__ pour entrer manuellement l’adresse IP de l’environnement de développement. Une fois que l’adresse IP du client a été ajoutée, elle peut accéder au compte de stockage à l’aide du SDK.
+
+   [![Le volet « Pare-feu et réseaux virtuels » du Portail Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
 > [!IMPORTANT]
-> Azure Machine Learning prend uniquement en charge les machines virtuelles exécutant Ubuntu.
+> Vous pouvez placer le _compte de stockage par défaut_ pour Azure Machine Learning ou les _comptes de stockage autres que ceux par défaut_ dans un réseau virtuel.
+>
+> Le compte de stockage par défaut est automatiquement configuré lorsque vous créez un espace de travail.
+>
+> Pour les comptes de stockage autres que ceux par défaut, le paramètre `storage_account` dans la fonction [`Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) vous permet de spécifier un compte de stockage personnalisé par ID de ressource Azure.
 
-Pour utiliser une machine virtuelle ou un cluster Azure HDInsight dans un réseau virtuel avec votre espace de travail, effectuez les étapes suivantes :
-
-1. Créez une machine virtuelle ou un cluster HDInsight à l’aide du portail Azure ou de l’interface de ligne de commande Azure, et placez le cluster dans un réseau virtuel Azure. Pour plus d’informations, consultez les articles suivants :
-    * [Créer et gérer des réseaux virtuels Azure pour des machines virtuelles Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
-
-    * [Étendre HDInsight à l’aide d’un réseau virtuel Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
-
-1. Pour autoriser Azure Machine Learning à communiquer avec le port SSH sur la machine virtuelle ou le cluster, configurez une entrée source pour le groupe de sécurité réseau. Le port SSH est généralement le port 22. Pour autoriser le trafic provenant de cette source, effectuez les actions suivantes :
-
-    * Dans la liste déroulante __Source__, sélectionnez __Balise de service__.
-
-    * Dans la liste déroulante __Balise de service source__, sélectionnez __AzureMachineLearning__.
-
-    * Dans la liste déroulante __Plages de port source__, sélectionnez __*__ .
-
-    * Dans la liste déroulante __Destination__, sélectionnez __Tous__.
-
-    * Dans la liste déroulante __Plages de port de destination__, sélectionnez __22__.
-
-    * Sous __Protocole__, sélectionnez __Tous__.
-
-    * Sous __Action__, sélectionnez __Autoriser__.
-
-   ![Règles de trafic entrant pour effectuer des expériences sur une machine virtuelle ou un cluster HDInsight à l’intérieur d’un réseau virtuel](./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png)
-
-    Conservez les règles de trafic sortant par défaut pour le groupe de sécurité réseau. Pour plus d’informations, consultez les règles de sécurité par défaut dans [Groupes de sécurité](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
-
-    Si vous ne souhaitez pas utiliser les règles de trafic sortant par défaut et souhaitez limiter l’accès sortant de votre réseau virtuel, consultez la section [Limiter la connectivité sortante à partir du réseau virtuel](#limiting-outbound-from-vnet).
-
-1. Attachez la machine virtuelle ou le cluster HDInsight à votre espace de travail Azure Machine Learning. Pour plus d’informations, consultez [Configurer des cibles de calcul pour l’entraînement des modèles](how-to-set-up-training-targets.md).
 
 <a id="aksvnet"></a>
 
-## <a name="use-azure-kubernetes-service-aks"></a>Utiliser Azure Kubernetes Service (AKS)
+## <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 
-Pour ajouter AKS sur un réseau virtuel à votre espace de travail, effectuez les étapes suivantes :
+Pour ajouter Azure Kubernetes Service (AKS) dans un réseau virtuel de votre espace de travail, effectuez les étapes suivantes :
 
 > [!IMPORTANT]
 > Avant de commencer la procédure suivante, suivez les conditions préalables de la section [Configurer la mise en réseau avancée dans AKS (Azure Kubernetes Service)](https://docs.microsoft.com/azure/aks/configure-azure-cni#prerequisites) pour savoir comment planifier l’adressage IP de votre cluster.
@@ -464,7 +405,7 @@ except:
 __Azure CLI__
 
 ```azurecli-interactive
-az rest --method put --uri https://management.azure.com"/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>?api-version=2018-11-19 --body @body.json
+az rest --method put --uri https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/computes/<compute>?api-version=2018-11-19 --body @body.json
 ```
 
 Le contenu du fichier `body.json` référencé par la commande est semblable au document JSON suivant :
@@ -473,7 +414,7 @@ Le contenu du fichier `body.json` référencé par la commande est semblable au 
 { 
     "location": "<region>", 
     "properties": { 
-        "resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>", 
+        "resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-name>", 
         "computeType": "AKS", 
         "provisioningState": "Succeeded", 
         "properties": { 
@@ -504,13 +445,11 @@ Pour utiliser ACI sur un réseau virtuel à votre espace de travail, effectuez l
 
 2. Déployez le modèle à l’aide de [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-), en utilisant les paramètres `vnet_name` et `subnet_name`. Appliquez ces paramètres au nom du réseau virtuel et au sous-réseau où vous avez activé la délégation.
 
-
-
-## <a name="use-azure-firewall"></a>Utiliser le Pare-feu Azure
+## <a name="azure-firewall"></a>Pare-feu Azure
 
 Pour obtenir des informations sur l’utilisation d’Azure Machine Learning avec le pare-feu Azure, consultez [Utiliser l’espace de travail Azure Machine Learning derrière le pare-feu Azure](how-to-access-azureml-behind-firewall.md).
 
-## <a name="use-azure-container-registry"></a>Utilisation d’Azure Container Registry
+## <a name="azure-container-registry"></a>Azure Container Registry
 
 > [!IMPORTANT]
 > Azure Container Registry (ACR) peut être placé dans un réseau virtuel, mais vous devez remplir les conditions préalables suivantes :
@@ -557,7 +496,7 @@ Pour obtenir des informations sur l’utilisation d’Azure Machine Learning ave
     
     Pour plus d'informations, consultez les informations de référence disponibles sur la méthode [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-).
 
-1. Si vous utilisez le service Liaison privée pour votre espace de travail Azure Machine Learning et que vous placez l'instance Azure Container Registry de votre espace de travail dans un réseau virtuel, vous devez également appliquer le modèle Azure Resource Manager suivant. Ce modèle permet à votre espace de travail de communiquer avec ACR via le service Liaison privée.
+1. Vous devez appliquer le modèle Azure Resource Manager suivant. Ce modèle permet à votre espace de travail de communiquer avec ACR.
 
     ```json
     {
@@ -608,9 +547,101 @@ Pour obtenir des informations sur l’utilisation d’Azure Machine Learning ave
     ]
     }
     ```
+    
+## <a name="azure-data-lake-storage"></a>Azure Data Lake Storage
+
+Azure Data Lake Storage Gen2 est un ensemble de fonctionnalités dédiées à l’analytique du Big Data s’appuyant sur le Stockage Blob Azure. Il permet de stocker des données utilisées pour l’apprentissage de modèles avec Azure Machine Learning. 
+
+Pour utiliser Azure Data Lake Storage Gen 2 à l’intérieur du réseau virtuel de votre espace de travail Azure Machine Learning, procédez comme suit :
+
+1. Créez un compte Azure Data Lake Storage Gen 2. Pour plus d’informations, voir [Créer un compte Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+
+1. Suivez les étapes 2-4 de la section précédente, [Utiliser un compte de stockage pour votre espace de travail](#use-a-storage-account-for-your-workspace) afin de placer le compte dans le réseau virtuel.
+
+Lorsque vous utilisez Azure Machine Learning avec Azure Data Lake Storage Gen 2 à l’intérieur d’un réseau virtuel, suivez les instructions suivantes :
+
+* Si vous utilisez le __Kit de développement logiciel (SDK) pour créer un jeu de données__ et que le système exécutant le code __n’est pas dans le réseau virtuel__, utilisez le paramètre `validate=False`. Ce paramètre ignore la validation qui échoue si le système n’est pas dans le même réseau virtuel que le compte de stockage. Pour plus d’informations, voir la méthode [from_files ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-).
+
+* Lorsque vous utilisez une instance ou un cluster de calcul Azure Machine Learning pour effectuer l’apprentissage d’un modèle à l’aide du jeu de données, celui-ci doit se trouver dans le même réseau virtuel que le compte de stockage.
+
+## <a name="key-vault-instance"></a>Instance de coffre de clés 
+
+L’instance de coffre de clés associée à l’espace de travail est utilisée par Azure Machine Learning pour stocker les informations d’identification suivantes :
+* Chaîne de connexion du compte de stockage associé
+* Mots de passe pour les instances Azure Container Repository
+* Chaînes de connexion aux magasins de données
+
+Pour utiliser les fonctionnalités d’expérimentation Azure Machine Learning avec Azure Key Vault derrière un réseau virtuel, effectuez les étapes suivantes :
+
+1. Accédez au coffre de clés associé à l’espace de travail.
+
+   [![Le coffre de clés associé à l’espace de travail Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
+
+1. Sur la page **Key Vault**, sélectionnez le volet de gauche __Pare-feux et réseaux virtuels__.
+
+   ![La section « Pare-feux et réseaux virtuels » dans le volet Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
+
+1. Dans la page __Pare-feux et réseaux virtuels__, effectuez les actions suivantes :
+    - Sous __Autoriser l’accès depuis__, cliquez sur __Réseaux sélectionnés__.
+    - Sous __Réseaux virtuels__, sélectionnez __Ajouter des réseaux virtuels existants__ pour ajouter le réseau virtuel où se trouve votre calcul d’expérimentation.
+    - Sous __Autoriser les services Microsoft approuvés pour contourner ce pare-feu__, sélectionnez __Oui__.
+
+   [![La section « Pare-feux et réseaux virtuels » dans le volet Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
+
+
+## <a name="azure-databricks"></a>Azure Databricks
+
+Vous devez remplir les conditions suivantes pour pouvoir utiliser Azure Databricks dans un réseau virtuel avec votre espace de travail :
+
+> [!div class="checklist"]
+> * Le réseau virtuel doit être dans les mêmes abonnement et région que l’espace de travail Azure Machine Learning.
+> * Si le ou les comptes de stockage Azure pour l’espace de travail sont également sécurisés dans un réseau virtuel, ils doivent se trouver dans le même réseau virtuel que le cluster Azure Databricks.
+> * Outre les sous-réseaux __databricks-private__ et __databricks-public__ utilisés par Azure Databricks, le sous-réseau __default__ créé pour le réseau virtuel est également requis.
+
+Pour obtenir des informations spécifiques sur l’utilisation d’Azure Databricks avec un réseau virtuel, consultez [Déployer des Azure Databricks dans votre réseau virtuel Azure](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html).
+
+<a id="vmorhdi"></a>
+
+## <a name="virtual-machine-or-hdinsight-cluster"></a>Machine virtuelle ou cluster HDInsight
+
+> [!IMPORTANT]
+> Azure Machine Learning prend uniquement en charge les machines virtuelles exécutant Ubuntu.
+
+Pour utiliser une machine virtuelle ou un cluster Azure HDInsight dans un réseau virtuel avec votre espace de travail, effectuez les étapes suivantes :
+
+1. Créez une machine virtuelle ou un cluster HDInsight à l’aide du portail Azure ou de l’interface de ligne de commande Azure, et placez le cluster dans un réseau virtuel Azure. Pour plus d’informations, consultez les articles suivants :
+    * [Créer et gérer des réseaux virtuels Azure pour des machines virtuelles Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
+
+    * [Étendre HDInsight à l’aide d’un réseau virtuel Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
+
+1. Pour autoriser Azure Machine Learning à communiquer avec le port SSH sur la machine virtuelle ou le cluster, configurez une entrée source pour le groupe de sécurité réseau. Le port SSH est généralement le port 22. Pour autoriser le trafic provenant de cette source, effectuez les actions suivantes :
+
+    * Dans la liste déroulante __Source__, sélectionnez __Balise de service__.
+
+    * Dans la liste déroulante __Balise de service source__, sélectionnez __AzureMachineLearning__.
+
+    * Dans la liste déroulante __Plages de port source__, sélectionnez __*__ .
+
+    * Dans la liste déroulante __Destination__, sélectionnez __Tous__.
+
+    * Dans la liste déroulante __Plages de port de destination__, sélectionnez __22__.
+
+    * Sous __Protocole__, sélectionnez __Tous__.
+
+    * Sous __Action__, sélectionnez __Autoriser__.
+
+   ![Règles de trafic entrant pour effectuer des expériences sur une machine virtuelle ou un cluster HDInsight à l’intérieur d’un réseau virtuel](./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png)
+
+    Conservez les règles de trafic sortant par défaut pour le groupe de sécurité réseau. Pour plus d’informations, consultez les règles de sécurité par défaut dans [Groupes de sécurité](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
+
+    Si vous ne souhaitez pas utiliser les règles de trafic sortant par défaut et souhaitez limiter l’accès sortant de votre réseau virtuel, consultez la section [Limiter la connectivité sortante à partir du réseau virtuel](#limiting-outbound-from-vnet).
+
+1. Attachez la machine virtuelle ou le cluster HDInsight à votre espace de travail Azure Machine Learning. Pour plus d’informations, consultez [Configurer des cibles de calcul pour l’entraînement des modèles](how-to-set-up-training-targets.md).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Configurer des environnements d’entraînement](how-to-set-up-training-targets.md)
+* [Configurer des points de terminaison privés](how-to-configure-private-link.md)
 * [Où déployer les modèles](how-to-deploy-and-where.md)
 * [Utiliser TLS pour sécuriser un service web par le biais d’Azure Machine Learning](how-to-secure-web-service.md)

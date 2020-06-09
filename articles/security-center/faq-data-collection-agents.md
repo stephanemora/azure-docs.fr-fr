@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0dbad1a94479430426dae47df7ca3a3ecd9dc980
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 53f255c44cded714440f5d524387c4ea1a20d76a
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436196"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849040"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ – Question relatives à la collecte de données, aux agents et aux espaces de travail
 
@@ -49,6 +49,22 @@ Les machines virtuelles Windows ou Linux IaaS sont retenues dans les cas suivant
 - La machine virtuelle est en cours d’exécution.
 - L’[agent de machine virtuelle Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) pour Windows ou Linux est installé.
 - La machine virtuelle n’est pas utilisée comme pare-feu d’applications web ou comme pare-feu de nouvelle génération.
+
+
+## <a name="where-is-the-default-log-analytics-workspace-created"></a>Où est créé l’espace de travail Log Analytics par défaut ?
+
+La localisation de l’espace de travail par défaut dépend de votre région Azure :
+
+- Pour les machines virtuelles aux États-Unis et au Brésil, la localisation de l’espace de travail est les États-Unis
+- Pour les machines virtuelles au Canada, la localisation de l’espace de travail est le Canada
+- Pour les machines virtuelles en Europe, la localisation de l’espace de travail est l’Europe
+- Pour les machines virtuelles au Royaume-Uni, la localisation de l’espace de travail est le Royaume-Uni
+- Pour les machines virtuelles dans les régions Asie Est et Asie Sud-Est, la localisation de l’espace de travail est l’Asie
+- Pour les machines virtuelles en Corée, la localisation de l’espace de travail est la Corée
+- Pour les machines virtuelles en Inde, la localisation de l’espace de travail est l’Inde
+- Pour les machines virtuelles au Japon, la localisation de l’espace de travail est le Japon
+- Pour les machines virtuelles en Chine, la localisation de l’espace de travail est la Chine
+- Pour les machines virtuelles en Australie, la localisation de l’espace de travail est l’Australie
 
 
 ## <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Puis-je supprimer les espaces de travail par défaut créés par Security Center ?

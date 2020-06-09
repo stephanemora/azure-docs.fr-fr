@@ -3,12 +3,12 @@ title: Définition de schéma d’application
 description: L’application LUIS est représentée dans le `.json` ou `.lu` et comprend toutes les intentions, les entités, les exemples de énoncés, les fonctionnalités et les paramètres.
 ms.topic: reference
 ms.date: 05/05/2020
-ms.openlocfilehash: 21b58f79ffd2baf553c6f8b07daa84473e620f77
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: dbbeb4eacbe8e07cf080b3a1527ca39c2b9a5991
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599293"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684346"
 ---
 # <a name="app-schema-definition"></a>Définition de schéma d’application
 
@@ -64,7 +64,7 @@ Lorsque vous importez et exportez l’application, choisissez `.json` ou `.lu`.
 
 ## <a name="version-6x"></a>Version 6.x
 
-* En passant à la version 6. x, utilisez la nouvelle [entité issue du Machine Learning](reference-entity-machine-learned-entity.md) pour représenter vos entités.
+* En passant à la version 6.x, utilisez la nouvelle [entité issue du Machine Learning](reference-entity-machine-learned-entity.md) pour représenter vos entités.
 
 ```json
 {

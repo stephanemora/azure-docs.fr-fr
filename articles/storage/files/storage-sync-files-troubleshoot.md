@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 41bc2a05b81bca586cde261bf2eb05db96d687f8
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 39106f863352061cdaa583bde96f50d3f91a07e9
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801314"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836513"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
 
 Cet article est destiné à vous aider à dépanner et à résoudre les problèmes que vous pouvez rencontrer avec le déploiement d’Azure File Sync. Nous vous y expliquons également comment collecter des journaux d’activité du système qui sont utiles pour analyser les problèmes rencontrés de manière plus approfondie. Si vous ne trouvez pas de réponse à votre question ici, vous pouvez nous joindre par le biais des méthodes suivantes (par ordre de priorité) :
 
-1. [Forum du Stockage Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+1. [Page de questions Microsoft Q&A sur le Stockage Azure](https://docs.microsoft.com/answers/products/azure?product=storage).
 2. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)
 3. Support Microsoft Pour créer une demande de support, dans le portail Azure, sous l’onglet **Aide**, sélectionnez le bouton **Aide et support**, puis **Nouvelle demande de support**.
 
@@ -161,7 +161,7 @@ Cette erreur se produit si la limite des points de terminaison de serveur par se
 Cette erreur se produit si un autre nœud final de serveur est déjà en train de synchroniser le chemin du nœud final de serveur spécifié. Azure File Sync ne prend pas en charge plusieurs points de terminaison de serveur qui synchronisent le même répertoire ou volume.
 
 <a id="-2160590967"></a>**La création du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobFailed » (Code d’erreur : -2160590967 ou 0x80c80077)**  
-Cette erreur se produit si le chemin du point de terminaison de serveur contient des fichiers hiérarchisés orphelins. Si un point de terminaison de serveur a été récemment supprimé, patientez jusqu’à la fin du nettoyage des fichiers hiérarchisés orphelins. Un ID d’événement 6662 est enregistré dans le journal des événements de télémétrie une fois que le nettoyage des fichiers hiérarchisés orphelins a démarré. Un ID d’événement 6661 est enregistré une fois que le nettoyage des fichiers hiérarchisés orphelins est terminé et qu’un point de terminaison de serveur peut être recréé à l’aide du chemin. Si la création du point de terminaison de serveur échoue après l’enregistrement d’un ID d’événement 6661, supprimez les fichiers hiérarchisés orphelins en effectuant les étapes décrites dans la section [Les fichiers hiérarchisés ne sont pas accessibles sur le serveur après la suppression d’une section de point de terminaison de serveur](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint).
+Cette erreur se produit si le chemin du point de terminaison de serveur contient des fichiers hiérarchisés orphelins. Si un point de terminaison de serveur a été récemment supprimé, patientez jusqu’à la fin du nettoyage des fichiers hiérarchisés orphelins. Un ID d’événement 6662 est enregistré dans le journal des événements de télémétrie une fois que le nettoyage des fichiers hiérarchisés orphelins a démarré. Un ID d’événement 6661 est enregistré une fois que le nettoyage des fichiers hiérarchisés orphelins est terminé et qu’un point de terminaison de serveur peut être recréé à l’aide du chemin. Si la création du point de terminaison de serveur échoue après le nettoyage des fichiers hiérarchisés ou si l’ID d’événement 6661 est introuvable dans le journal des événements de télémétrie en raison de la substitution de ce journal, supprimez les fichiers hiérarchisés orphelins en suivant les étapes décrites dans la section [Les fichiers hiérarchisés ne sont pas accessibles sur le serveur après la suppression d’un point de terminaison de serveur](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint).
 
 <a id="-2134347757"></a>**La suppression du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobExpired » (Code d'erreur : -2134347757 ou 0x80c87013)**  
 Cette erreur se produit si le serveur est hors connexion ou n’a pas de connectivité réseau. Si le serveur n’est plus disponible, désinscrivez le serveur dans le portail pour supprimer les points de terminaison de serveur. Pour supprimer les points de terminaison de serveur, suivez les étapes décrites dans [Désinscrire un serveur dans Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).

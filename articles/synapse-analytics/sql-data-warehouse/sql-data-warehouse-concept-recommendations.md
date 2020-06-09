@@ -11,18 +11,18 @@ ms.date: 04/30/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 546945d70554adbb28f19a3153faa67495e55f04
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 17b8ce04cb5029d1bea11344617bf65718ca579c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607745"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653027"
 ---
 # <a name="synapse-sql-recommendations"></a>Recommandations Synapse SQL
 
 Cet article décrit les recommandations Synapse SQL énoncées via Azure Advisor.  
 
-SQL Analytics fournit des recommandations pour garantir que la charge de travail de votre entrepôt de données est toujours optimisée pour la performance. Les recommandations sont étroitement intégrées à [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) pour vous fournir les meilleures pratiques directement dans le [Portail Azure](https://aka.ms/Azureadvisor). SQL Analytics collecte la télémétrie et fait émerger des recommandations pour votre charge de travail active sur une cadence quotidienne. Les scénarios de recommandation pris en charge sont décrits ci-dessous, ainsi que le processus d’application des actions recommandées.
+Synapse SQL fournit des recommandations pour garantir que la charge de travail de votre entrepôt de données est toujours optimisée pour la performance. Les recommandations sont étroitement intégrées à [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) pour vous fournir les meilleures pratiques directement dans le [Portail Azure](https://aka.ms/Azureadvisor). Synapse SQL collecte la télémétrie et fait émerger des recommandations pour votre charge de travail active sur une cadence quotidienne. Les scénarios de recommandation pris en charge sont décrits ci-dessous, ainsi que le processus d’application des actions recommandées.
 
 Vous pouvez [vérifier vos recommandations](https://aka.ms/Azureadvisor) dès aujourd’hui ! 
 

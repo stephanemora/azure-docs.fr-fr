@@ -2,13 +2,13 @@
 title: Ressources du développeur - Language Understanding
 description: Les kits de développement logiciel (SDK), les API REST et l'interface CLI vous aident à développer des applications LUIS (Language Understanding) dans votre langage de programmation. Gérez vos ressources Azure et vos prévisions LUIS.
 ms.topic: reference
-ms.date: 05/05/2020
-ms.openlocfilehash: 820811c53f143c9747cd11f45cafb075398b080b
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: c712a81e5b786ac980a0c48d358fef4caf2e7597
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589004"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758059"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Ressources de développement SDK, REST et CLI pour implémenter LUIS (Language Understanding)
 
@@ -53,15 +53,16 @@ Les API de création et de point de terminaison de prédiction sont disponibles 
 
 LUIS dispose actuellement de 2 types de points de terminaison :
 
-* création sur le point de terminaison de formation
-* prédiction de requête sur le point de terminaison d'exécution
+* **création** sur le point de terminaison de formation
+* **prédiction** de requête sur le point de terminaison d’exécution
 
 |Objectif|URL|
 |--|--|
-|Création sur le point de terminaison de formation|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appID}/`|
-|Runtime V2 - toutes les prédictions sur le point de terminaison d'exécution|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]`|
-|Runtime V3 - prédiction des versions sur le point de terminaison d'exécution|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/versions/{versionId}/predict?query={query}[&verbose][&log][&show-all-intents]`|
-|Runtime V3 - prédiction d'emplacement sur le point de terminaison d'exécution|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/slots/{slotName}/predict?query={query}[&verbose][&log][&show-all-intents]`|
+|Création V2 sur le point de terminaison de formation|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appID}/`|
+|Création V3 sur le point de terminaison de formation|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/authoring/v3.0-preview/apps/{appID}/`|
+|Prédiction V2 - toutes les prédictions sur le point de terminaison d’exécution|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]`|
+|Prédiction V3 - prédiction des versions sur le point de terminaison d’exécution|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/versions/{versionId}/predict?query={query}[&verbose][&log][&show-all-intents]`|
+|Prédiction V3 - prédiction d’emplacement sur le point de terminaison d’exécution|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/slots/{slotName}/predict?query={query}[&verbose][&log][&show-all-intents]`|
 
 Le tableau suivant décrit les paramètres qui apparaissent entre accolades `{}` dans le tableau précédent.
 
@@ -97,7 +98,16 @@ Language Understanding vous permet de gérer votre application et ses modèles a
 
 L'importation et l'exportation de ces formats sont disponibles à partir des API et du portail LUIS. Le portail permet l'importation et l'exportation à partir de la liste Applications et de la liste Versions.
 
-## <a name="other-tools-and-sdks"></a>Autres outils et kits SDK
+## <a name="workshops"></a>Ateliers
+
+* GitHub : (Atelier) [IA conversationnelle : NLU avec LUIS](https://github.com/GlobalAICommunity/Workshop-Conversational-AI)
+
+## <a name="continuous-integration-tools"></a>Outils d’intégration continue
+
+* GitHub : (Préversion) [Développement d’une application LUIS à l’aide des pratiques DevOps](https://github.com/Azure-Samples/LUIS-DevOps-Template)
+* GitHub : [NLU.DevOps](https://github.com/microsoft/NLU.DevOps) - Outils prenant en charge l’intégration et le déploiement continus pour les services NLU.
+
+## <a name="bot-framework-tools"></a>Outils Bot Framework
 
 Bot Framework est disponible en tant que [kit SDK](https://github.com/Microsoft/botframework) dans différents langages et en tant que service avec [Azure Bot Service](https://dev.botframework.com/).
 
@@ -109,8 +119,7 @@ Bot Framework fournit [plusieurs outils](https://github.com/microsoft/botbuilder
 * [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) : générez automatiquement des classes C#/Typescript de support pour vos intentions et entités LUIS.
 * [Bot Framework Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) : application de bureau permettant aux développeurs de bots de tester et de déboguer les bots créés à l'aide du kit SDK Bot Framework.
 * [Bot Framework Composer](https://github.com/microsoft/BotFramework-Composer/blob/stable/README.md) : outil de développement intégré, destiné aux développeurs et aux équipes pluridisciplinaires pour créer des bots et des expériences de conversation avec Microsoft Bot Framework
-* [microsoft/NLU.DevOps](https://github.com/microsoft/NLU.DevOps) : outils prenant en charge l’intégration et le déploiement continus pour les services NLU.
-
+* [Exemples Bot Framework](https://github.com/microsoft/botbuilder-samples) en C#, JavaScript, TypeScript et Python
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur les [codes d’erreur HTTP](luis-reference-response-codes.md) courants

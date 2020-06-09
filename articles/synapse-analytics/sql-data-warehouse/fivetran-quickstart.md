@@ -11,16 +11,16 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8f164232a3b1782511758f93a9e9b8d17d3714d5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 4cf6c82b330a2672fdde39c3acf156a74cb57e34
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414273"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659981"
 ---
 # <a name="quickstart-fivetran-with-data-warehouse"></a>Démarrage rapide : Fivetran avec entrepôt de données 
 
-Ce guide de démarrage rapide décrit comment configurer un nouvel utilisateur Fivetran pour utiliser un entrepôt de données Azure Synapse Analytics approvisionné avec un pool SQL. Cet article suppose que vous disposez d’une entrepôt de données existant.
+Ce guide de démarrage rapide décrit comment configurer un nouvel utilisateur Fivetran pour utiliser un entrepôt de données Azure Synapse Analytics provisionné avec un pool SQL. Cet article suppose que vous disposez d’une entrepôt de données existant.
 
 ## <a name="set-up-a-connection"></a>Configurer une connexion
 

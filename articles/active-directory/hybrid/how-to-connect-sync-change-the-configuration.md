@@ -12,12 +12,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d77882817934d5ad98f16965aeb9dc246931c495
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a9fb43061b42a43755564f825fa01e65dacad3e5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230141"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827293"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Synchronisation d’Azure AD Connect : modifier la configuration par défaut
 L’objectif de cet article est d’expliquer comment apporter des modifications à la configuration par défaut dans la synchronisation Azure Active Directory (Azure AD) Connect. Elle explique pas à pas la procédure pour les scénarios courants. À la fin, vous serez capable d’apporter des modifications simples à votre configuration en fonction de vos propres règles d’entreprise.
@@ -200,7 +200,7 @@ Par défaut, l’attribut UserType n’est pas activé pour la synchronisation, 
 
 - Azure AD accepte seulement deux valeurs pour l’attribut UserType : **Membre** et **Invité**.
 - Si la synchronisation de l’attribut UserType n’est pas activée dans Azure AD Connect, il est défini sur **Membre** pour les utilisateurs Azure AD créés via la synchronisation d’annuaires.
-- Azure AD n’autorise pas la modification par Azure AD Connect de l’attribut UserType sur les utilisateurs Azure AD existants. Il peut uniquement être défini lors de la création des utilisateurs Azure AD et [changé par le biais de PowerShell](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0).
+- Avant la version 1.5.30.0, Azure AD n’autorisait pas la modification par Azure AD Connect de l’attribut UserType sur les utilisateurs Azure AD existants. Dans les versions antérieures, il pouvait uniquement être défini lors de la création des utilisateurs Azure AD, et [changé par le biais de PowerShell](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0).
 
 Avant d’activer la synchronisation de l’attribut UserType, vous devez déterminer comment il sera dérivé d’Active Directory en local. Voici les approches les plus courantes :
 
@@ -210,7 +210,7 @@ Avant d’activer la synchronisation de l’attribut UserType, vous devez déter
 
 - Vous avez également la possibilité de dériver la valeur de l’attribut UserType à partir d’autres propriétés. Par exemple, vous voulez synchroniser tous les utilisateurs en tant **qu’Invités** si leur attribut userPrincipalName AD local se termine par l’élément de domaine <em>@partners.fabrikam123.org</em>. 
 
-    Comme nous l’avons précisé, Azure AD Connect ne peut pas modifier l’attribut UserType sur des utilisateurs Azure AD existants. Par conséquent, vous devez vous assurer que la logique que vous avez choisie est cohérente avec la manière dont l’attribut UserType est déjà configuré pour tous les utilisateurs Azure AD existants dans votre client.
+    Comme nous l’avons précisé, les versions antérieures d’Azure AD Connect ne peuvent pas modifier l’attribut UserType sur des utilisateurs Azure AD existants. Par conséquent, vous devez vous assurer que la logique que vous avez choisie est cohérente avec la manière dont l’attribut UserType est déjà configuré pour tous les utilisateurs Azure AD existants dans votre client.
 
 Les étapes d’activation de la synchronisation de l’attribut UserType peuvent se résumer comme suit :
 

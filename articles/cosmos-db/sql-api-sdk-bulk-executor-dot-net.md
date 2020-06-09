@@ -1,19 +1,19 @@
 ---
 title: 'Azure Cosmos DB : API .NET Bulk Executor, SDK et ressources'
 description: Tout savoir sur l’API .NET et le SDK de l’exécuteur en bloc, notamment les dates de publication, les dates de déclassement et les modifications apportées entre chaque version du SDK .NET de l’exécuteur en bloc Azure Cosmos DB.
-author: tknandu
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 01/16/2020
-ms.author: ramkris
-ms.openlocfilehash: 1a8040fc397b526b540ce9343baa985cab49e2b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: 23ba8b12651c4de05fd8fb0b2721839beb36a7a6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76169399"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660459"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Bibliothèque d’exécuteurs en bloc .NET : Télécharger des informations 
 
@@ -22,8 +22,9 @@ ms.locfileid: "76169399"
 > * [Flux de modification .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.JS](sql-api-sdk-node.md)
-> * [Java asynchrone](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
+> * [Kit SDK Java v4](sql-api-sdk-java-v4.md)
+> * [Kit SDK Java asynchrone v2](sql-api-sdk-async-java.md)
+> * [Kit SDK Java synchrone v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
@@ -33,7 +34,7 @@ ms.locfileid: "76169399"
 
 | |  |
 |---|---|
-| **Description**| La bibliothèque de l’exécuteur en bloc .Net permet aux applications clientes d’effectuer des opérations en bloc sur des comptes Azure Cosmos DB. Cette bibliothèque fournit les espaces de noms BulkImport, BulkUpdate et BulkDelete. Le module BulkImport peut ingérer en bloc des documents de manière optimisée afin que le débit provisionné pour une collection soit consommé dans ses limites maximales. Le module BulkUpdate peut mettre à jour en bloc des données existantes dans des conteneurs Azure Cosmos sous forme de correctifs. Le module BulkDelete peut supprimer en bloc des documents de manière optimisée afin que le débit provisionné pour une collection soit consommé dans ses limites maximales.|
+| **Description**| La bibliothèque de l’exécuteur en bloc .NET permet aux applications clientes d’effectuer des opérations en bloc sur des comptes Azure Cosmos DB. Cette bibliothèque fournit les espaces de noms BulkImport, BulkUpdate et BulkDelete. Le module BulkImport peut ingérer en bloc des documents de manière optimisée afin que le débit provisionné pour une collection soit consommé dans ses limites maximales. Le module BulkUpdate peut mettre à jour en bloc des données existantes dans des conteneurs Azure Cosmos sous forme de correctifs. Le module BulkDelete peut supprimer en bloc des documents de manière optimisée afin que le débit provisionné pour une collection soit consommé dans ses limites maximales.|
 |**Téléchargement du Kit de développement logiciel (SDK)**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **Bibliothèque d’exécuteurs en bloc dans GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
 |**Documentation de l’API**|[Documentation de référence sur l’API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
@@ -63,7 +64,7 @@ ms.locfileid: "76169399"
 
 ### <a name="210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-preview2
 
-* Ajout de la prise en charge de BulkDelete pour les comptes de l’API SQL afin d’accepter les clés de partition et les tuples d’ID de document à supprimer. Cette modification le rend fonctionnellement équivalent à la version 1.4.0.
+* Ajout de la prise en charge de BulkDelete pour les comptes d’API SQL, afin d’accepter les tuples d’ID de document, de clé de partition à supprimer. Cette modification le rend fonctionnellement équivalent à la version 1.4.0.
 
 ### <a name="200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
@@ -117,7 +118,7 @@ ms.locfileid: "76169399"
 
 ### <a name="140"></a><a name="1.4.0"/>1.4.0
 
-* Ajout de la prise en charge de BulkDelete pour les comptes de l’API SQL afin d’accepter les clés de partition et les tuples d’ID de document à supprimer.
+* Ajout de la prise en charge de BulkDelete pour les comptes d’API SQL, afin d’accepter les tuples d’ID de document, de clé de partition à supprimer.
 
 ### <a name="130"></a><a name="1.3.0"/>1.3.0
 

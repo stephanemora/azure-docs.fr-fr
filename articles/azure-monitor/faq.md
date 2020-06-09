@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/26/2020
-ms.openlocfilehash: db63ce2d56eb78bf6b361d530511b6902c1cb6d5
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.date: 05/15/2020
+ms.openlocfilehash: 4cf851022a2b2b0c9a9781f4d41b40982bf2ad57
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637769"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835340"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Questions fréquemment posées sur Azure Monitor
 
@@ -96,6 +96,11 @@ De nombreux fournisseurs de ressources sont inscrits automatiquement, mais il se
 
 ### <a name="why-am-i-am-getting-no-access-error-message-when-opening-log-analytics-from-a-vm"></a>Pourquoi un message d’erreur indiquant une absence d’accès s’affiche-t-il lors de l’ouverture de Log Analytics à partir d’une machine virtuelle ? 
 Pour voir les journaux d’activité de machine virtuelle, vous devez disposer de l’autorisation de lecture sur les espaces de travail qui les stockent. Dans ce cas, votre administrateur doit vous accorder des autorisations dans Azure.
+
+## <a name="metrics"></a>Mesures
+
+### <a name="why-are-metrics-from-the-guest-os-of-my-azure-virtual-machine-not-showing-up-in-metrics-explorer"></a>Pourquoi les métriques du système d’exploitation invité de ma machine virtuelle Azure n’apparaissent pas dans Metrics Explorer ?
+Les [métriques de la plateforme](insights/monitor-azure-resource.md#monitoring-data) sont collectées automatiquement pour les ressources Azure. Vous devez toutefois configurer certains paramètres pour collecter les métriques du système d’exploitation invité d’une machine virtuelle. Pour une machine virtuelle Windows, installez l’extension de diagnostic et configurez le récepteur Azure Monitor comme décrit dans [Installer et configurer l’extension Diagnostics Azure pour Windows (WAD)](platform/diagnostics-extension-windows-install.md). Pour Linux, installez l’agent Telegraf comme décrit dans [Collecter des métriques personnalisées pour une machine virtuelle Linux avec l’agent InfluxData Telegraf](platform/collect-custom-metrics-linux-telegraf.md).
 
 ## <a name="alerts"></a>Alertes
 
@@ -196,11 +201,15 @@ Le Concepteur de vues n’est disponible que pour des utilisateurs disposant d�
 * [Diagnostics Azure](platform/diagnostics-extension-to-application-insights.md)
 * [Applications web Java](app/java-troubleshoot.md)
 
-*Je ne reçois aucune donnée de mon serveur*
+*Je ne reçois aucune donnée de mon serveur :*
 
 * [Définir les exceptions de pare-feu](app/ip-addresses.md)
 * [Configurer un serveur ASP.NET](app/monitor-performance-live-website-now.md)
 * [Configurer un serveur Java](app/java-agent.md)
+
+*Combien de ressources Application Insights je dois déployer ?*
+
+* [Guide pratique pour concevoir votre déploiement Application Insights : une ou plusieurs ressources Application Insights ?](app/separate-resources.md)
 
 ### <a name="can-i-use-application-insights-with-"></a>Puis-je utiliser Application Insights avec... ?
 
@@ -254,6 +263,10 @@ Consultez les [notes de publication](app/release-notes.md) du Kit de développem
 
 ### <a name="how-can-i-change-which-azure-resource-my-project-sends-data-to"></a><a name="update"></a>Comment puis-je changer la ressource Azure à laquelle mon projet envoie des données ?
 Dans l’Explorateur de solutions, cliquez avec le bouton droit sur `ApplicationInsights.config` , puis sélectionnez **Mettre à jour Application Insights**. Vous pouvez envoyer les données à une ressource existante ou à une nouvelle ressource dans Azure. L'Assistant Mise à jour modifie la clé d'instrumentation dans ApplicationInsights.config, qui détermine où le Kit de développement logiciel (SDK) du serveur envoie vos données. Cela modifie également la clé où de l'affichage dans vos pages web, sauf si vous désactivez l'option « Tout mettre à jour ».
+
+### <a name="can-i-use-providersmicrosoftinsights-componentsapiversions0-in-my-azure-resource-manager-deployments"></a>Puis-je utiliser `providers('Microsoft.Insights', 'components').apiVersions[0]` dans mes déploiements d’Azure Resource Manager ?
+
+Nous vous déconseillons d’utiliser cette méthode pour renseigner la version de l’API. La version la plus récente peut représenter des publications de préversions susceptibles de contenir des changements radicaux. Même avec des publications plus récentes autres que de préversions, les versions API ne sont pas toujours rétrocompatibles avec des modèles existants, ou, dans certains cas, la version API peut ne pas être disponible pour tous les abonnements.
 
 ### <a name="what-is-status-monitor"></a>Qu’est-ce que Status Monitor ?
 
@@ -412,7 +425,7 @@ Cela ne dépend pas de l’emplacement où est hébergée votre ressource Applic
 
 ### <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Puis-je envoyer des données de télémétrie au portail Application Insights ?
 
-Nous vous recommandons d’utiliser nos Kits de développement logiciel (SDK) et [l’API du Kit SDK](app/api-custom-events-metrics.md). Il existe des variantes du SDK pour les différentes [plateformes](app/platforms.md). Ces kits de développement logiciel gèrent la mise en mémoire tampon, la compression, la limitation, les nouvelles tentatives, etc. Le [schéma d’ingestion](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) et le [protocole de point de terminaison](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) sont toutefois publics.
+Nous vous recommandons d’utiliser nos Kits de développement logiciel (SDK) et [l’API du Kit SDK](app/api-custom-events-metrics.md). Il existe des variantes du SDK pour les différentes [plateformes](app/platforms.md). Ces kits de développement logiciel gèrent la mise en mémoire tampon, la compression, la limitation, les nouvelles tentatives, etc. Le [schéma d’ingestion](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) et le [protocole de point de terminaison](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) sont toutefois publics.
 
 ### <a name="can-i-monitor-an-intranet-web-server"></a>Puis-je surveiller un serveur web intranet ?
 
@@ -500,6 +513,10 @@ La plupart des données Application Insights ont une latence de moins de 5 minu
 ## <a name="azure-monitor-for-containers"></a>Azure Monitor pour des conteneurs
 
 Ce FAQ Microsoft est une liste de questions fréquemment posées au sujet d'Azure Monitor pour conteneurs (préversion). Si vous avez d’autres questions sur la solution, rendez-vous sur le [forum de discussion](https://feedback.azure.com/forums/34192--general-feedback) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.
+
+### <a name="health-feature-is-in-private-preview"></a>Cette fonctionnalité Health est en préversion privée.
+
+Nous prévoyons d’effectuer toute une série de changements pour ajouter des fonctionnalités et répondre à vos commentaires. La fonctionnalité Health va passer en préversion privée fin juin 2020. Pour plus d’informations, consultez les [annonces suivantes sur les mises à jour Azure](https://azure.microsoft.com/updates/ci-health-limited-preview/).
 
 ### <a name="what-does-other-processes-represent-under-the-node-view"></a>Que représente *Autres processus* sous la vue Nœud ?
 
@@ -718,7 +735,7 @@ Dans ce cas, l’option **Essayer maintenant** s’affiche quand vous ouvrez la 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous ne trouvez pas de réponse à votre question ici, vous pouvez consulter les forums suivants pour plus de questions et réponses.
 
-- [Log Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)
-- [Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
+- [Log Analytics](https://docs.microsoft.com/answers/topics/azure-monitor.html)
+- [Application Insights](https://docs.microsoft.com/answers/topics/azure-monitor.html)
 
 Pour obtenir des commentaires généraux sur Azure Monitor visitez le [forum de commentaires](https://feedback.azure.com/forums/34192--general-feedback).

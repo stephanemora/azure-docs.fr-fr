@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: a60591fb33c8f14a65b406073cf3194fca882d12
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: cdd3c12f0312697e2190d7a94285de19c2d375fc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837377"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653080"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Notes de publication d’Azure Synapse Analytics
 
@@ -41,7 +41,20 @@ Pour améliorer les outils, assurez-vous d’avoir installé la version spécifi
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
 
+## <a name="may-2020"></a>Mai 2020
 
+| Améliorations du service | Détails |
+| --- | --- |
+|**Isolation des charges de travail (GA)**|L’[isolation des charges de travail](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-isolation) est maintenant en disponibilité générale.  Par le biais des [groupes de charges de travail](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest), vous pouvez réserver et contenir des ressources.  La possibilité de configurer des délais d’expiration de requête pour annuler les pertes de contrôle de requêtes est également possible.|
+|**Expérience de portail de gestion des charges de travail (préversion)**| Les utilisateurs peuvent configurer et gérer leurs paramètres de gestion des charges de travail par le biais du portail Azure.  La possibilité de configurer des [groupes de charges de travail](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) et des [classifieurs de charges de travail](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) avec une importance est possible.|
+|**Modifier un groupe de charges de travail**|Il est maintenant possible d’utiliser la commande [ALTER WORKLOAD GROUP](https://docs.microsoft.com/sql/t-sql/statements/alter-workload-group-transact-sql?view=azure-sqldw-latest).  Utilisez cette commande pour changer la configuration d’un [groupe de charges de travail](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-isolation) existant.|
+|**Détection de schéma automatique pour les fichiers Parquet avec la commande COPY**|La [commande COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) prend désormais en charge la détection de schéma automatique lors du chargement de fichiers Parquet. La commande détecte automatiquement le schéma de fichier Parquet et crée la table avant le chargement.|
+|**Charger des types de données Parquet complexes avec la commande COPY**|La [commande COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) prend désormais en charge le chargement de types Parquet complexes. Vous pouvez charger des types complexes tels que Maps et Lists dans des colonnes de chaîne.|
+|**Détection de compression automatique des fichiers Parquet avec la commande COPY**|La [commande COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) prend désormais en charge la détection automatique de la méthode de compression des fichiers Parquet.|
+|**Autres recommandations de chargement**|Des [recommandations de chargement](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations) sont désormais disponibles pour Synapse SQL. Recevez des notifications proactives quand vous devez fractionner vos fichiers pour obtenir un débit maximal, colocaliser votre compte de stockage avec votre pool SQL ou augmenter la taille du lot lors du recours à des utilitaires de chargement comme l’API SQLBulkCopy ou BCP.|
+|**Colonne de distribution T-SQL Updatable (GA)**|Les utilisateurs peuvent désormais mettre à jour les données stockées dans la colonne de distribution. Consultez les [conseils sur la conception de tables distribuées dans un pool Synapse SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute) pour plus d’informations.|
+|**T-SQL Update/Delete from...Join (GA)**|Les mises à jour et suppressions basées sur les résultats de la jointure avec une autre table sont désormais disponibles. Pour plus d’informations, consultez la documentation sur [Update](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql?view=azure-sqldw-latest) et [Delete](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql?view=azure-sqldw-latest).|
+|**T-SQL PREDICT (préversion)**|Vous pouvez désormais prédire les modèles de Machine Learning dans votre entrepôt de données, ce qui vous dispense des opérations de déplacement de données complexes et d’envergure. La fonction T-SQL PREDICT s’appuie sur une infrastructure à modèle ouvert et prend les données et le modèle Machine Learning comme entrée pour générer des prédictions. Pour plus d’informations, consultez la [documentation](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).|
 
 ## <a name="april-2020"></a>Avril 2020
 

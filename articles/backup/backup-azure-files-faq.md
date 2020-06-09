@@ -3,16 +3,16 @@ title: FAQ sur la sauvegarde des fichiers Azure
 description: Cet article fournit des réponses à des questions courantes sur la protection de vos partages de fichiers Azure avec le service Sauvegarde Microsoft Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: d7b19fd11e6784a188a18f6a613eef5ff4f77764
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1be509f3b82cece3afb1e728a19da4c4d9526195
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82105639"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836105"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Questions sur la sauvegarde des fichiers Azure
 
-Cet article répond aux questions courantes sur la sauvegarde des fichiers Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+Cet article répond aux questions courantes sur la sauvegarde des fichiers Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Sauvegarde Azure dans la [page de questions Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-backup.html).
 
 Pour analyser rapidement les sections de cet article, utilisez les liens sur la droite, en dessous de **Dans cet article**.
 
@@ -78,11 +78,82 @@ Tous les instantanés pris par Azure Backup sont accessibles par l’option Voir
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>Quelle est la durée de conservation maximale configurable pour les sauvegardes ?
 
-Consultez la [matrice de prise en charge](azure-file-share-support-matrix.md) pour plus d’informations sur la rétention maximale. Sauvegarde Azure calcule en temps réel le nombre d’instantanée quand vous entrez les valeurs de rétention lors de la configuration de la stratégie de sauvegarde. Dès que le nombre d’instantanés correspondant à vos valeurs de rétention définies dépasse 200, le portail affiche un avertissement vous demandant d’ajuster vos valeurs de rétention. Cela vous évite de dépasser la limite du nombre maximal d’instantanés pris en charge à tout moment par Azure Files pour un partage de fichiers.
+Consultez la [matrice de prise en charge](azure-file-share-support-matrix.md) pour plus d’informations sur la conservation maximale. Sauvegarde Azure calcule en temps réel le nombre d’instantanée quand vous entrez les valeurs de conservation lors de la configuration de la stratégie de sauvegarde. Dès que le nombre d’instantanés correspondant à vos valeurs de conservation définies dépasse 200, le portail affiche un avertissement vous demandant d’ajuster vos valeurs de conservation. Cela vous évite de dépasser la limite du nombre maximal d’instantanés pris en charge à tout moment par Azure Files pour un partage de fichiers.
 
-### <a name="what-happens-when-i-change-the-backup-policy-for-an-azure-file-share"></a>Que se passe-t-il lorsque je modifie la stratégie de sauvegarde pour un partage de fichiers Azure ?
+### <a name="what-is-the-impact-on-existing-recovery-points-and-snapshots-when-i-modify-the-backup-policy-for-an-azure-file-share-to-switch-from-daily-policy-to-gfs-policy"></a>Quel est l’impact sur les points de récupération et les instantanés existants quand je passe d’une stratégie de sauvegarde quotidienne à une stratégie GFS pour un partage de fichiers Azure ?
 
-Lorsqu’une nouvelle stratégie est appliquée sur les partages de fichiers, le planning et la rétention de la nouvelle stratégie sont suivis. Si la rétention est étendue, les points de récupération existants sont marqués comme à conserver afin qu’ils soient conformes à la nouvelle stratégie. Si la rétention est réduite, ils sont marqués comme à nettoyer lors de la prochaine tâche de nettoyage et supprimés.
+Quand vous passez d’une stratégie de sauvegarde quotidienne à une stratégie GFS (en ajoutant une conservation hebdomadaire/mensuelle/annuelle), le comportement est le suivant :
+
+- **Conservation** : Si vous ajoutez une conservation hebdomadaire/mensuelle/annuelle dans le cadre de la modification de la stratégie, tous les points de récupération futurs créés dans le cadre de la sauvegarde planifiée seront marqués selon la nouvelle stratégie. Tous les points de récupération existants seront toujours considérés comme quotidiens et ne seront donc pas marqués comme étant hebdomadaires/mensuels/annuels.
+
+- **Nettoyage des instantanés et des points de récupération** :
+
+  - Si la conservation quotidienne est étendue, la date d’expiration des points de récupération existants est mise à jour en fonction de la valeur de conservation quotidienne configurée dans la nouvelle stratégie.
+  - Si la conservation quotidienne est réduite, les points de récupération et les instantanés existants sont marqués pour suppression au cours du prochain travail d’exécution de nettoyage en fonction de la valeur de conservation quotidienne configurée dans la nouvelle stratégie, puis supprimés.
+
+Voici un exemple qui montre comment cela fonctionne :
+
+#### <a name="existing-policy-p1"></a>Stratégie existante [P1]
+
+|Type de conservation |Planifier |Conservation  |
+|---------|---------|---------|
+|Quotidien    |    Tous les jours à 20:00    |  100 jours       |
+
+#### <a name="new-policy-modified-p1"></a>Nouvelle stratégie [P1 modifiée]
+
+| Type de conservation | Planifier                       | Conservation |
+| -------------- | ------------------------------ | --------- |
+| Quotidien          | Tous les jours à 21:00              | 50 jours   |
+| Hebdomadaire         | Dimanche à 21:00              | 3 semaines   |
+| Mensuelle        | Dernier lundi à 21:00         | 1 mois   |
+| Annuelle         | Troisième dimanche de janvier à 21:00 | 4 ans   |
+
+#### <a name="impact"></a>Impact
+
+1. La date d’expiration des points de récupération existants est ajustée en fonction de la valeur de conservation quotidienne de la nouvelle stratégie, à savoir 50 jours. Tout point de récupération antérieur à 50 jours est donc marqué pour suppression.
+
+2. Les points de récupération existants ne sont pas marqués comme étant hebdomadaires/mensuels/annuels selon la nouvelle stratégie.
+
+3. Toutes les futures sauvegardes seront déclenchées en fonction de la nouvelle planification, c’est-à-dire à 21:00.
+
+4. La date d’expiration de tous les futurs points de récupération sera alignée sur la nouvelle stratégie.
+
+>[!NOTE]
+>Les modifications apportées à la stratégie affecteront uniquement les points de récupération créés dans le cadre de l’exécution de la sauvegarde planifiée. Pour les sauvegardes à la demande, la conservation est déterminée par la valeur **Conserver la sauvegarde jusqu’au** spécifiée au moment de la sauvegarde.
+
+### <a name="what-is-the-impact-on-existing-recovery-points-when-i-modify-an-existing-gfs-policy"></a>Quel est l’impact sur les points de récupération existants quand je modifie une stratégie GFS existante ?
+
+Quand une nouvelle stratégie est appliquée à des partages de fichiers, toutes les futures sauvegardes planifiées seront exécutées conformément à la planification configurée dans la stratégie modifiée.  La conservation de tous les points de récupération existants est alignée en fonction des nouvelles valeurs de conservation configurées. Si la conservation est prolongée, les points de récupération existants sont marqués comme conservés conformément à la nouvelle stratégie. Si la conservation est réduite, ils sont marqués comme à nettoyer dans le prochain travail de nettoyage, puis supprimés.
+
+Voici un exemple qui montre comment cela fonctionne :
+
+#### <a name="existing-policy-p2"></a>Stratégie existante [P2]
+
+| Type de conservation | Planifier           | Conservation |
+| -------------- | ------------------ | --------- |
+| Quotidien          | Tous les jours à 20:00 | 50 jours   |
+| Hebdomadaire         | Dernier lundi à 20:00  | 3 semaines   |
+
+#### <a name="new-policy-modified-p2"></a>Nouvelle stratégie [P2 modifiée]
+
+| Type de conservation | Planifier               | Conservation |
+| -------------- | ---------------------- | --------- |
+| Quotidien          | Tous les jours à 21:00     | 10 jours   |
+| Hebdomadaire         | Tous les lundis à 21:00      | 2 semaines   |
+| Mensuelle        | Dernier lundi à 21:00 | 2 mois  |
+
+#### <a name="impact-of-change"></a>Impact de la modification
+
+1. La date d’expiration des points de récupération quotidiens existants sera ajustée en fonction de la nouvelle valeur de conservation quotidienne, à savoir 10 jours. Tous les points de récupération quotidiens de plus de 10 jours seront donc supprimés.
+
+2. La date d’expiration des points de récupération hebdomadaires existants sera ajustée en fonction de la nouvelle valeur de conservation hebdomadaire, à savoir deux semaines. Tous les points de récupération hebdomadaires de plus de deux semaines seront donc supprimés.
+
+3. Les points de récupération mensuels ne seront créés que dans le cadre des futures sauvegardes en fonction de la configuration de la nouvelle stratégie.
+
+4. La date d’expiration de tous les futurs points de récupération sera alignée sur la nouvelle stratégie.
+
+>[!NOTE]
+>Les modifications apportées à la stratégie affecteront uniquement les points de récupération créés dans le cadre de la sauvegarde planifiée. Pour les sauvegardes à la demande, la conservation est déterminée par la valeur **Conserver la sauvegarde jusqu’au** spécifiée au moment de la sauvegarde.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

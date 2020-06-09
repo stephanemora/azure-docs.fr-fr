@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 985b3258eb0b957242d529945f32ed9704a91e7d
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 65139e0842679f59733c34be838d4aad7f3c63e4
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790998"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847942"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Configurer la gestion des prospects pour Dynamics 365 Customer Engagement
 
@@ -171,10 +171,10 @@ L’étape finale consiste à permettre à l’utilisateur que vous avez créé 
 
 Pour configurer les informations de gestion des prospects pour votre offre dans le portail de publication :
 
-1. Accédez à la page **Configuration de l'offre** de votre offre.
-1. Sélectionnez **Connexion** dans la section **Gestion des prospects**.
+1. Accédez à la page **Configuration de l’offre** de votre offre.
+1. Dans la section **Prospects**, sélectionnez **Se connecter**.
 
-    ![Section Gestion des prospects - bouton Se connecter](./media/commercial-marketplace-lead-management-instructions-dynamics/connect-lead-management.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-dynamics/customer-leads.png" alt-text="Prospects":::
 
 1. Dans la fenêtre contextuelle Détails de la connexion, pour Destination du prospect, sélectionnez **Dynamics 365 Customer Engagement**.
 

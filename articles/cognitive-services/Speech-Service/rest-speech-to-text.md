@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 05/13/2020
 ms.author: yinhew
-ms.openlocfilehash: 005824b0953be741f47c027d121dbe073adca3ba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 555ae9e48f538c1100bab8b35ce61742baa88451
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82131296"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659822"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de reconnaissance vocale
 
@@ -52,9 +52,8 @@ Ces paramètres peuvent être inclus dans la chaîne de la requête REST.
 | Paramètre | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
 | `language` | Identifie la langue parlée qui est reconnue. Voir [Langues prises en charge](language-support.md#speech-to-text). | Obligatoire |
-| `format` | Spécifie le format du résultat. Les valeurs acceptées sont `simple` et `detailed`. Les résultats simples incluent `RecognitionStatus`, `DisplayText`, `Offset` et `Duration`. Les réponses détaillées incluent plusieurs résultats avec des valeurs de niveau de confiance et quatre différentes représentations. La valeur par défaut est `simple`. | Facultatif |
+| `format` | Spécifie le format du résultat. Les valeurs acceptées sont `simple` et `detailed`. Les résultats simples incluent `RecognitionStatus`, `DisplayText`, `Offset` et `Duration`. Les réponses détaillées incluent quatre représentations différentes du texte affiché. La valeur par défaut est `simple`. | Facultatif |
 | `profanity` | Spécifie comment traiter la vulgarité dans les résultats de la reconnaissance. Les valeurs acceptées sont `masked`, qui remplace les vulgarités par des astérisques, `removed`, qui supprime les vulgarités du résultat, ou `raw`, qui inclut les vulgarités dans le résultat. La valeur par défaut est `masked`. | Facultatif |
-| `pronunciationScoreParams` | Spécifie les paramètres pour montrer les scores de prononciation dans les résultats de la reconnaissance, qui évaluent la qualité de la prononciation des entrées vocales, avec des indicateurs de justesse, d’aisance, d’exhaustivité, etc. Ce paramètre est un format JSON encodé en base64 contenant plusieurs paramètres détaillés. Pour plus d’informations sur la création de ce paramètre, consultez [Paramètres d’évaluation de la prononciation](#pronunciation-assessment-parameters). | Facultatif |
 | `cid` | Lorsque vous utilisez le [portail Custom Speech](how-to-custom-speech.md) pour créer des modèles personnalisés, vous pouvez utiliser des modèles personnalisés à l’aide de leur **ID de point de terminaison** figurant sur la page **Déploiement**. Utilisez l’**ID de point de terminaison** comme argument pour le paramètre de chaîne de requête `cid`. | Facultatif |
 
 ## <a name="request-headers"></a>En-têtes de requête
@@ -65,6 +64,7 @@ Ce tableau répertorie les en-têtes obligatoires et facultatifs pour les demand
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Votre clé d’abonnement du service Speech. | Cet en-tête ou `Authorization` est requis. |
 | `Authorization` | Un jeton d’autorisation précédé du mot `Bearer`. Pour en savoir plus, consultez [Authentification](#authentication). | Cet en-tête ou `Ocp-Apim-Subscription-Key` est requis. |
+| `Pronunciation-Assessment` | Spécifie les paramètres pour montrer les scores de prononciation dans les résultats de la reconnaissance, qui évaluent la qualité de la prononciation des entrées vocales, avec des indicateurs de justesse, d’aisance, d’exhaustivité, etc. Ce paramètre est un format JSON encodé en base64 contenant plusieurs paramètres détaillés. Pour plus d’informations sur la création de cet en-tête, consultez [Paramètres d’évaluation de la prononciation](#pronunciation-assessment-parameters). | Facultatif |
 | `Content-type` | Décrit le format et le codec des données audio fournies. Les valeurs acceptées sont `audio/wav; codecs=audio/pcm; samplerate=16000` et `audio/ogg; codecs=opus`. | Obligatoire |
 | `Transfer-Encoding` | Spécifie que les données audio sont envoyées en bloc plutôt que dans un seul fichier. Utilisez uniquement cet en-tête si vous envoyez les données audio en bloc. | Facultatif |
 | `Expect` | Si vous utilisez le transfert en bloc, envoyez `Expect: 100-continue`. Le service Speech accuse réception de la requête initiale et attend des données supplémentaires.| Requis si vous envoyez les données audio en bloc. |
@@ -74,10 +74,10 @@ Ce tableau répertorie les en-têtes obligatoires et facultatifs pour les demand
 
 L’audio est envoyé dans le corps de la requête HTTP `POST`. Il doit être dans l’un des formats de ce tableau :
 
-| Format | Codec | Bitrate | Échantillonnage  |
-|--------|-------|---------|--------------|
-| WAV    | PCM   | 16 bits  | 16 kHz, mono |
-| OGG    | OPUS  | 16 bits  | 16 kHz, mono |
+| Format | Codec | Vitesse de transmission | Échantillonnage  |
+|--------|-------|----------|--------------|
+| WAV    | PCM   | 256 Kbits/s | 16 kHz, mono |
+| OGG    | OPUS  | 256 Kbits/s | 16 kHz, mono |
 
 >[!NOTE]
 >Les formats ci-dessus sont pris en charge via l’API REST et le WebSocket du service Speech. Pour le moment, le [kit de développement logiciel (SDK) Speech](speech-sdk.md) prend en charge le format WAV avec codec PCM, ainsi que d'[autres formats](how-to-use-codec-compressed-audio-input-streams.md).
@@ -106,13 +106,16 @@ Voici un exemple de code JSON contenant les paramètres d’évaluation de la pr
 }
 ```
 
-L’exemple de code suivant montre comment créer les paramètres d’évaluation de la prononciation dans le paramètre de requête d’URL :
+L’exemple de code suivant montre comment créer les paramètres d’évaluation de la prononciation dans l’en-tête `Pronunciation-Assessment` :
 
 ```csharp
-var pronunciationScoreParamsJson = $"{{\"ReferenceText\":\"Good morning.\",\"GradingSystem\":\"HundredMark\",\"Granularity\":\"FullText\",\"Dimension\":\"Comprehensive\"}}";
-var pronunciationScoreParamsBytes = Encoding.UTF8.GetBytes(pronunciationScoreParamsJson);
-var pronunciationScoreParams = Convert.ToBase64String(pronunciationScoreParamsBytes);
+var pronAssessmentParamsJson = $"{{\"ReferenceText\":\"Good morning.\",\"GradingSystem\":\"HundredMark\",\"Granularity\":\"FullText\",\"Dimension\":\"Comprehensive\"}}";
+var pronAssessmentParamsBytes = Encoding.UTF8.GetBytes(pronAssessmentParamsJson);
+var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 ```
+
+>[!NOTE]
+>La fonctionnalité d’évaluation de la prononciation n’est actuellement disponible que dans les régions `westus` et `eastasia`. Par ailleurs, cette fonctionnalité n’est pour le moment disponible que dans la langue `en-US`.
 
 ## <a name="sample-request"></a>Exemple de requête
 
@@ -126,6 +129,12 @@ Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 Host: westus.stt.speech.microsoft.com
 Transfer-Encoding: chunked
 Expect: 100-continue
+```
+
+Pour activer l’évaluation de la prononciation, vous pouvez ajouter l’en-tête ci-dessous. Pour plus d’informations sur la création de cet en-tête, consultez [Paramètres d’évaluation de la prononciation](#pronunciation-assessment-parameters).
+
+```HTTP
+Pronunciation-Assessment: eyJSZWZlcm...
 ```
 
 ## <a name="http-status-codes"></a>Codes d’état HTTP
@@ -200,9 +209,10 @@ Le champ `RecognitionStatus` peut contenir ces valeurs :
 > [!NOTE]
 > Si l’audio est composé uniquement de grossièretés et que le paramètre de requête `profanity` a la valeur `remove`, le service ne retourne pas de résultat de reconnaissance vocale.
 
-Le format `detailed` inclut les mêmes données que le format `simple`, avec `NBest`, liste d’autres interprétations du même résultat de la reconnaissance. Ces résultats sont classés du plus probable au moins probable. La première entrée est identique au principal résultat de reconnaissance.  Lorsque vous utilisez le format `detailed`, `DisplayText` est fourni en tant que `Display` pour chaque résultat dans la liste `NBest`.
+Le format `detailed` comprend des formes supplémentaires de résultats reconnus.
+Lorsque vous utilisez le format `detailed`, `DisplayText` est fourni en tant que `Display` pour chaque résultat dans la liste `NBest`.
 
-Chaque objet de la liste `NBest` inclut :
+L’objet dans la liste `NBest` peut inclure :
 
 | Paramètre | Description |
 |-----------|-------------|
@@ -244,13 +254,6 @@ Réponse classique pour la reconnaissance `detailed` :
         "ITN" : "remind me to buy 5 pencils",
         "MaskedITN" : "remind me to buy 5 pencils",
         "Display" : "Remind me to buy 5 pencils.",
-      },
-      {
-        "Confidence" : "0.54",
-        "Lexical" : "rewind me to buy five pencils",
-        "ITN" : "rewind me to buy 5 pencils",
-        "MaskedITN" : "rewind me to buy 5 pencils",
-        "Display" : "Rewind me to buy 5 pencils.",
       }
   ]
 }

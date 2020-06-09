@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1246b5b980f60c2f3e65aa5b32a7d79dd6efc7d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7997359fb29afc876b184b811e0409cfdbeb265a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81407177"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826466"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Forum Aux Questions sur la gestion des mots de passe
 
 Voici quelques questions fréquemment posées (FAQ) concernant toutes les tâches liées à la réinitialisation des mots de passe.
 
-Si vous avez une question générale sur Azure Active Directory (Azure AD) et la réinitialisation du mot de passe en libre-service, vous ne trouverez pas de réponse ici, mais vous pouvez demander de l’aide à la communauté sur les [forums d’Azure AD](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Les membres de la communauté comprennent des ingénieurs, des chefs de produit, MVP et autres professionnels de l’informatique.
+Si vous avez une question d’ordre général sur Azure Active Directory (Azure AD) et la réinitialisation du mot de passe en libre-service qui ne trouve pas de réponse ici, vous pouvez demander de l’aide à la communauté sur la [Page de questions Microsoft Q&A pour Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html). Les membres de la communauté comprennent des ingénieurs, des chefs de produit, MVP et autres professionnels de l’informatique.
 
 Ce Forum Aux Questions est organisé de la manière suivante :
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a399ee43ef0ce97274f060b7a5b7df46fb523605
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: ab6be101e33fb29f96e2e5ea0fd2e79aa1cf0d09
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582889"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744690"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -118,7 +118,7 @@ Les propriétés utilisateur que vous pouvez utiliser pour créer une expression
 | streetAddress |Toute valeur de chaîne ou *null* |(user.streetAddress -eq "value") |
 | surname |Toute valeur de chaîne ou *null* |(user.surname -eq "value") |
 | telephoneNumber |Toute valeur de chaîne ou *null* |(user.telephoneNumber -eq "value") |
-| usageLocation |Paramètre régional à deux lettres |(user.usageLocation -eq "US") |
+| usageLocation |Code de pays/région à deux lettres |(user.usageLocation -eq "US") |
 | userPrincipalName |Valeur de chaîne quelconque |(user.userPrincipalName -eq "alias@domain") |
 | userType |member guest *null* |(user.userType -eq "Member") |
 
@@ -374,7 +374,7 @@ Vous pouvez également créer une règle qui sélectionne des objets d’apparei
 
 Les attributs d’appareil suivants peuvent être utilisés.
 
- Attribut d’appareil  | Valeurs |  Exemple
+ Attribut d’appareil  | Valeurs | Exemple
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
  displayName | Toute valeur de chaîne. |(device.displayName -eq "Rob iPhone")
