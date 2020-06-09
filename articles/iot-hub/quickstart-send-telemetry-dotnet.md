@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - mqtt
-ms.date: 06/21/2019
-ms.openlocfilehash: b1ee14afcf46dfbedfb9d696b6a0add22ccd39cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/01/2020
+ms.openlocfilehash: 2efd2c982fcd4c799a6c9daa1d89fde25e7f2c64
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769130"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84307631"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-net"></a>Démarrage rapide : Envoyer des données de télémétrie d’un appareil à un hub IoT et les lire avec une application principale (.NET)
 
@@ -33,7 +33,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-Les deux exemples d’applications que vous exécutez dans ce guide de démarrage rapide sont écrits à l’aide de C#. Votre machine de développement doit disposer du Kit SDK .NET Core 2.1.0 ou version ultérieure.
+Les deux exemples d’applications que vous exécutez dans ce guide de démarrage rapide sont écrits à l’aide de C#. Votre machine de développement doit disposer du Kit SDK .NET Core 3.0 ou version ultérieure.
 
 Vous pouvez télécharger le Kit SDK .NET Core pour plusieurs plateformes sur [.NET](https://www.microsoft.com/net/download/all).
 
@@ -42,6 +42,9 @@ Vous pouvez vérifier la version actuelle de C# sur votre machine de développem
 ```cmd/sh
 dotnet --version
 ```
+
+> [!NOTE]
+> Le Kit SDK .NET Core 3.0 ou version ultérieure est recommandé pour compiler le code du service Event Hubs utilisé pour lire les données de télémétrie dans ce démarrage rapide. Vous pouvez utiliser le kit SDK .NET Core 2.1 si vous définissez la version linguistique du code de service sur préversion comme indiqué dans la section [Lire les données de télémétrie envoyées par votre hub](#read-the-telemetry-from-your-hub).
 
 Exécutez la commande suivante afin d’ajouter l’extension Microsoft Azure IoT pour Azure CLI à votre instance Cloud Shell. L’extension IoT ajoute des commandes IoT Hub, IoT Edge et IoT Device Provisioning Service (DPS) à Azure CLI.
 
@@ -125,7 +128,7 @@ L’application d’appareil simulé se connecte à un point de terminaison spé
 
     La capture d’écran suivante présente la sortie lorsque l’application d’appareil simulé envoie des données de télémétrie à votre IoT Hub :
 
-    ![Exécuter l’appareil simulé](media/quickstart-send-telemetry-dotnet/SimulatedDevice.png)
+    ![Exécuter l’appareil simulé](media/quickstart-send-telemetry-dotnet/simulated-device.png)
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Lire les données de télémétrie envoyées par votre hub
 
@@ -137,9 +140,12 @@ L’application back-end se connecte au point de terminaison **Événements** du
 
     | Variable | Valeur |
     | -------- | ----------- |
-    | `s_eventHubsCompatibleEndpoint` | Remplacez la valeur de la variable par le point de terminaison compatible Event Hubs que vous avez noté précédemment. |
-    | `s_eventHubsCompatiblePath`     | Remplacez la valeur de la variable par le chemin compatible Event Hubs que vous avez noté précédemment. |
-    | `s_iotHubSasKey`                | Remplacez la valeur de la variable par la clé principale de service que vous avez notée précédemment. |
+    | `EventHubsCompatibleEndpoint` | Remplacez la valeur de la variable par le point de terminaison compatible Event Hubs que vous avez noté précédemment. |
+    | `EventHubName`                | Remplacez la valeur de la variable par le chemin compatible Event Hubs que vous avez noté précédemment. |
+    | `IotHubSasKey`                | Remplacez la valeur de la variable par la clé principale de service que vous avez notée précédemment. |
+
+    > [!NOTE]
+    > Si vous utilisez le kit SDK .NET Core 2.1, vous devez définir la version linguistique sur préversion pour compiler le code. Pour ce faire, ouvrez le fichier **read-d2c-messages.csproj** et définissez la valeur de l’élément`<LangVersion>` sur `preview`.
 
 3. Dans la fenêtre de terminal local, exécutez les commandes suivantes pour installer les bibliothèques requises pour l’application back-end :
 
@@ -155,7 +161,7 @@ L’application back-end se connecte au point de terminaison **Événements** du
 
     La capture d’écran suivante présente la sortie lorsque l’application back-end reçoit les données de télémétrie envoyées par l’appareil simulé au concentrateur :
 
-    ![Exécuter l’application back-end](media/quickstart-send-telemetry-dotnet/ReadDeviceToCloud.png)
+    ![Exécuter l’application back-end](media/quickstart-send-telemetry-dotnet/read-device-to-cloud.png)
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
