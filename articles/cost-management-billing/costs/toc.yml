@@ -35,6 +35,8 @@
           href: manage-automation.md
         - name: Migrer de l’API EA vers l’API MCA
           href: migrate-cost-management-api.md
+        - name: Options de regroupement et de filtre
+          href: group-filter.md
     - name: Guides pratiques
       items:
         - name: Éviter et analyser les frais inattendus

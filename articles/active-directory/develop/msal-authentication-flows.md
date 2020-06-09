@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: ce81af90baeeda519f1b56d1e10a46923ebd22c2
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 47978317b1ae914e952b764def854d8a011293e0
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772129"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266608"
 ---
 # <a name="authentication-flows"></a>Flux d’authentification
 
@@ -43,7 +43,7 @@ Selon la façon dont votre client est créé, il peut utiliser un ou plusieurs d
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Flux du code d’autorisation](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
 |[Flux implicite](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
-|[Circuit OIDC hybride](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[Circuit OIDC hybride](v2-protocols-oidc.md#protocol-diagram-access-token-acquisition)| | x  | |          |            x   |
 |[Échange de jetons d’actualisation](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | jeton d'actualisation | x | x | x| |
 |[Flux On-Behalf-Of](v2-oauth2-on-behalf-of-flow.md) | access token| x| x| x| |
 |[Flux de code d’appareil](v2-oauth2-device-code.md) | | x| x| x| |

@@ -5,12 +5,12 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 5379f2c46bbeaba4ee8509603b7b739b75d08f04
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 332ff4f6e63a831c1523c3f959708f9dc48a72a9
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836785"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171053"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-azure-vm"></a>Activer Change Tracking et Inventory à partir d’une machine virtuelle Azure
 
@@ -41,15 +41,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 5. Choisissez l’espace de travail Log Analytics et un compte Automation, puis cliquez sur **Activer** pour activer Change Tracking et Inventory pour la machine virtuelle. La configuration prend jusqu’à 15 minutes. 
 
-## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>Vérifier la configuration de l’étendue
-
-Change Tracking et Inventory utilise une configuration d’étendue dans l’espace de travail pour cibler les ordinateurs sur lesquels la fonctionnalité doit être activée. La configuration d’étendue est un groupe d’une ou plusieurs recherches enregistrées qui est utilisé pour limiter l’étendue de la fonctionnalité à des ordinateurs spécifiques. Pour plus d’informations, consultez [Utiliser des configurations d’étendue pour la fonctionnalité Change Tracking et Inventory](automation-scope-configurations-change-tracking.md).
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur l’utilisation de la fonctionnalité, consultez [Gérer Change Tracking et Inventory](change-tracking-file-contents.md).
-* Pour plus d’informations sur les configurations d’étendue, consultez [Utiliser des configurations d’étendue pour Change Tracking et Inventory](automation-scope-configurations-change-tracking.md).
-* Pour savoir comment utiliser la fonctionnalité afin d’identifier les logiciels installés dans votre environnement, consultez [Détecter les logiciels installés sur vos machines virtuelles](automation-tutorial-installed-software.md).
-* Si vous ne souhaitez pas intégrer votre compte Automation avec un espace de travail Log Analytics lors de l’activation de cette fonctionnalité, consultez [Dissocier un espace de travail d’un compte Automation](automation-unlink-workspace-change-tracking.md).
-* Lorsque vous avez fini de déployer des modifications sur des machines virtuelles, vous pouvez les supprimer comme décrit dans [Supprimer des machines virtuelles de Change Tracking et Inventory](automation-remove-vms-from-change-tracking.md).
 * Pour résoudre des problèmes généraux liés à la fonctionnalité, consultez [Résoudre les problèmes rencontrés avec Change Tracking et Inventory](troubleshoot/change-tracking.md).

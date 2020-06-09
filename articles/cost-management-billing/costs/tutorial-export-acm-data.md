@@ -3,17 +3,17 @@ title: 'Tutoriel : Créer et gérer des données exportées depuis Azure Cost M
 description: Cet article vous montre comment créer et gérer des données Azure Cost Management exportées pour les utiliser dans des systèmes externes.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 05/27/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: f0a1515816fe7a9e1d79f69655e6bf21725a0b5d
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 90334d29ed2f649854863f9ad86f03811728a945
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80877947"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142307"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutoriel : Créer et gérer des données exportées
 
@@ -49,17 +49,15 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 ## <a name="create-a-daily-export"></a>Créer une exportation quotidienne
 
-Pour créer, afficher ou planifier une exportation de données, ouvrez l’étendue souhaitée dans le portail Azure et sélectionnez **Analyse du coût** dans le menu. Par exemple, accédez à **Abonnements**, sélectionnez un abonnement dans la liste, puis sélectionnez **Analyse du coût** dans le menu. En haut de la page Analyse du coût, sélectionnez **Exporter**, puis choisissez une option d’exportation. Par exemple, sélectionnez **Planifier l’exportation**.  
+Pour créer, afficher ou planifier une exportation de données, ouvrez l’étendue souhaitée dans le portail Azure et sélectionnez **Analyse du coût** dans le menu. Par exemple, accédez à **Abonnements**, sélectionnez un abonnement dans la liste, puis sélectionnez **Analyse du coût** dans le menu. En haut de la page Analyse du coût, sélectionnez **Paramètres**, puis **Exportations** et choisissez ensuite une option d’exportation.
 
 > [!NOTE]
 > - Vous pouvez non seulement créer des exportations sur des abonnements, mais aussi sur des groupes de ressources, des comptes, des services et des inscriptions. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
 >- Quand vous êtes connecté en tant que partenaire dans l’étendue du compte de facturation ou sur le locataire d’un client, vous pouvez exporter des données vers un compte de stockage Azure lié à votre compte de stockage partenaire. Toutefois, vous devez disposer d’un abonnement actif dans votre locataire CSP.
->
-
 
 Sélectionnez **Ajouter**, tapez un nom pour l’exportation, puis sélectionnez l’option **Exportation quotidienne des coûts en cumul mensuel à ce jour**. Sélectionnez **Suivant**.
 
-![Exemple de nouvelle exportation indiquant le type d’exportation](./media/tutorial-export-acm-data/basics_exports.png)
+[![Exemple de nouvelle exportation indiquant le type d’exportation](./media/tutorial-export-acm-data/basics_exports.png)](./media/tutorial-export-acm-data/basics_exports.png#lightbox)
 
 Spécifiez l’abonnement pour votre compte de stockage Azure, puis sélectionnez votre compte de stockage.  Spécifiez le conteneur de stockage et le chemin du répertoire que vous souhaitez utiliser pour le fichier d’exportation. Sélectionnez **Suivant**.
 
@@ -83,10 +81,19 @@ Il existe deux types d’options d’exportation :
 **Personnalisé** : permet de planifier des exportations hebdomadaires et mensuelles avec des options de cumul hebdomadaire ou mensuel à ce jour. *L’exportation initiale s’exécute immédiatement.*
 
 Si vous avez un abonnement de paiement à l’utilisation, MSDN ou Visual Studio, votre période de facturation peut ne pas être alignée sur le mois calendaire. Pour ces types d’abonnements et groupes de ressources, vous pouvez créer une exportation alignée sur votre période de facturation ou sur les mois calendaires. Pour créer une exportation alignée sur votre mois de facturation, accédez à **Personnalisé**, puis sélectionnez **Période de facturation à ce jour**.  Pour créer une exportation alignée sur le mois calendaire, sélectionnez **Cumul mensuel jusqu'à ce jour**.
->
->
 
 ![Nouvelle exportation - Onglet de base montrant une sélection d’exportation en cumul hebdomadaire personnalisée](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
+
+#### <a name="create-an-export-for-multiple-subscriptions"></a>Création d’une exportation pour plusieurs abonnements
+
+Si vous possédez un Accord Entreprise, vous pouvez utiliser un groupe d’administration pour agréger les informations sur les coûts d’abonnement dans un seul conteneur. Vous pouvez ensuite exporter les données de gestion des coûts pour le groupe d’administration.
+
+Les exportations pour les groupes d’administration d’autres types d’abonnement ne sont pas prises en charge.
+
+1. Créez un groupe d’administration et affectez-lui des abonnements.
+1. Dans Exportations, sélectionnez **Étendue**.
+1. Sélectionnez **Sélectionner ce groupe d’administration**.
+1. Créez une exportation selon l’étendue pour obtenir les données de gestion des coûts pour les abonnements dans le groupe d’administration.
 
 ## <a name="verify-that-data-is-collected"></a>Vérifier que les données sont collectées
 
@@ -104,6 +111,18 @@ Le fichier s’ouvre avec le programme ou l’application configuré pour ouvrir
 
 ![Exemples de données CSV exportées affichées dans Excel](./media/tutorial-export-acm-data/example-export-data.png)
 
+### <a name="download-an-exported-csv-data-file"></a>Télécharger un fichier de données CSV exporté
+
+Vous pouvez également télécharger le fichier CSV exporté dans le Portail Azure. Les étapes suivantes expliquent comment le trouver dans l’analyse des coûts.
+
+1. Dans l’analyse des coûts, sélectionnez **Paramètres**, puis **Exportations**.
+1. Dans la liste des exportations, sélectionnez le compte de stockage pour une exportation.
+1. Dans votre compte de stockage, cliquez sur **Conteneurs**.
+1. Dans la liste des conteneurs, sélectionnez le conteneur souhaité.
+1. Parcourez les répertoires et les objets BLOB de stockage jusqu’à la date de votre choix.
+1. Sélectionnez le fichier CSV, puis **Télécharger**.
+
+[![Exemple de téléchargement d’exportation](./media/tutorial-export-acm-data/download-export.png)](./media/tutorial-export-acm-data/download-export.png#lightbox)
 
 ## <a name="access-exported-data-from-other-systems"></a>Accéder à des données exportées à partir d’autres systèmes
 

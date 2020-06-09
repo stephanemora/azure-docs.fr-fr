@@ -7,12 +7,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 12/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 183189253d11638751e1f8283b202f122131b005
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ae8c4f09c0133dde7b0a73b7c2fcd0a28aa22ae3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836309"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84013195"
 ---
 # <a name="integrate-update-management-with-windows-endpoint-configuration-manager"></a>Intégrer Update Management à Windows Endpoint Configuration Manager
 
@@ -38,7 +38,7 @@ Si vous avez l’intention de continuer à gérer les déploiements de mises à 
 1. Dans Azure Automation, sélectionnez **Update Management**. Créez un déploiement en suivant les étapes décrites dans [Création d’un déploiement de mises à jour](automation-tutorial-update-management.md#schedule-an-update-deployment), puis sélectionnez **Groupes importés** dans la liste déroulante **Type** pour sélectionner le regroupement Windows Endpoint Configuration Manager approprié. Gardez à l’esprit les points importants suivants : a. Si une fenêtre de maintenance est définie dans le regroupement d’appareils Windows Endpoint Configuration Manager sélectionné, les membres du regroupement la respectent au détriment du paramètre **Durée** défini dans le déploiement planifié.
     b. Les membres du regroupement cible doivent disposer d’une connexion Internet (qu’elle soit directe, via un serveur proxy ou via la passerelle Log Analytics).
 
-À l’issue du déploiement des mises à jour par le biais d’Azure Automation, les ordinateurs cibles membres du groupe d’ordinateurs sélectionné installent les mises à jour à l’heure planifiée à partir de leur cache client local. Vous pouvez [consulter l’état du déploiement des mises à jour](automation-tutorial-update-management.md#view-results-of-an-update-deployment) pour surveiller les résultats de votre déploiement.
+À l’issue du déploiement des mises à jour par le biais d’Azure Automation, les ordinateurs cibles membres du groupe d’ordinateurs sélectionné installent les mises à jour à l’heure planifiée à partir de leur cache client local. Vous pouvez [consulter l’état du déploiement des mises à jour](automation-tutorial-update-management.md#check-deployment-status) pour surveiller les résultats de votre déploiement.
 
 ## <a name="manage-software-updates-from-azure-automation"></a>Gérer les mises à jour logicielles à partir d’Azure Automation
 

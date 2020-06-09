@@ -133,6 +133,8 @@
           href: upgrade-cluster.md
         - name: Utiliser un SLA avec une durée de bon fonctionnement
           href: uptime-sla.md
+        - name: Mettre à niveau l’image de nœud (préversion)
+          href: node-image-upgrade.md
         - name: Traiter les mises à jour de système d’exploitation des nœuds
           href: node-updates-kured.md
         - name: Configurer un cluster AKS
@@ -423,7 +425,7 @@
       href: 'https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-container-service'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'
     - name: Questions fréquentes (FAQ)
       href: faq.md
