@@ -5,14 +5,14 @@ author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 06/01/2020
 ms.author: banders
-ms.openlocfilehash: b8f588df89429bd08b1c74fbc528801fb45377ed
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: ea6dc2a35d4b55c2164e7586684cdaf019e5277d
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692307"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299925"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Effectuer des tâches Contrat Entreprise dans votre compte de facturation pour un contrat client Microsoft
 
@@ -125,7 +125,7 @@ Les propriétaires de comptes sur le Contrat Entreprise obtiennent l’autorisat
 
 Pour créer d’autres abonnements Azure, vous obtenez le rôle suivant sur le nouveau compte de facturation.
 
-**Créateur de l’abonnement Azure** : le rôle de créateur d’abonnement Azure vous est affecté dans la section de facture qui est créé pour votre département dans le Contrat Entreprise. Si votre compte n’appartient à aucun département, vous bénéficiez du rôle de créateur d’abonnement Azure sur une section de facture appelée Section de facture par défaut. Ce rôle vous permet de créer les abonnements Azure associés à la section de facture.
+**Créateur de l’abonnement Azure** : le rôle de créateur d’abonnement Azure vous est affecté dans la section de facture qui est créée pour votre département dans le Contrat Entreprise. Si votre compte n’appartient à aucun département, vous bénéficiez du rôle de créateur d’abonnement Azure sur une section de facture appelée Section de facture par défaut. Ce rôle vous permet de créer les abonnements Azure associés à la section de facture.
 
 ### <a name="create-an-azure-subscription"></a>Crée un abonnement Azure
 
