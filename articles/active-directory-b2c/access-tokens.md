@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 36027583d64ac91432888d866440932c6e1bdd07
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a659d8929f845b1c58bd64f628b2d3f47a96674e
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83635443"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84297528"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Demander un jeton d’accès dans Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ Cet article présente comment demander un jeton d’accès pour une application 
 ## <a name="prerequisites"></a>Prérequis
 
 - [Créez un flux d'utilisateurs](tutorial-create-user-flows.md) pour permettre aux utilisateurs de s'inscrire et de se connecter à votre application.
-- Si ce n’est pas déjà fait, [ajoutez une application d’API web à votre locataire Azure Active Directory B2C](add-web-application.md).
+- Si ce n’est pas déjà fait, [ajoutez une application d’API web à votre locataire Azure Active Directory B2C](add-web-api-application.md).
 
 ## <a name="scopes"></a>Étendues
 
@@ -49,7 +49,7 @@ L’exemple suivant présente des étendues encodées dans une URL :
 scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
 ```
 
-Si vous demandez plus d’étendues que ce qui est autorisé pour votre application cliente, l’appel réussit si au moins une autorisation est accordée. La revendication **scp** du jeton d’accès obtenue est remplie uniquement avec les autorisations qui ont été accordées. Le standard OpenID Connect spécifie plusieurs valeurs spéciales d’étendue. Les étendues suivantes représentent l’autorisation d’accès au profil de l’utilisateur :
+Si vous demandez plus d’étendues que ce qui est autorisé pour votre application cliente, l’appel réussit si au moins une autorisation est accordée. La revendication **scp** du jeton d’accès obtenue est remplie uniquement avec les autorisations qui ont été accordées. Le standard OpenID Connect spécifie plusieurs valeurs spéciales d’étendue. Les étendues suivantes représentent l'autorisation d'accès au profil de l'utilisateur :
 
 - **openid** : cette étendue demande un jeton d’ID.
 - **offline_access** : cette étendue demande un jeton d’actualisation à l’aide du [flux de code d’authentification](authorization-code-flow.md).

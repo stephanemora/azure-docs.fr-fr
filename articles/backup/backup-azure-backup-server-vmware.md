@@ -3,12 +3,12 @@ title: Sauvegarder des machines virtuelles VMware avec le serveur de sauvegarde 
 description: Dans cet article, découvrez comment utiliser le serveur de sauvegarde Azure pour sauvegarder des machines virtuelles VMware s’exécutant sur un serveur VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 92846f9bb9259e55a2c957716676ff42c032b2b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4bf61e2a02200b2e6af814ef4509081649e202d
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537404"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204716"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Sauvegarder des machines virtuelles VMware avec le serveur de sauvegarde Azure
 
@@ -26,6 +26,10 @@ Cet article explique comment :
 
 - Veillez à exécuter une version de vCenter/ESXi prise en charge pour la sauvegarde. Reportez-vous au tableau de prise en charge [ici](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix).
 - Assurez-vous que vous avez configuré le serveur de sauvegarde Azure. Dans le cas contraire, [effectuez cette opération](backup-azure-microsoft-azure-backup.md) avant de commencer. Vous devez exécuter le serveur de sauvegarde Azure avec les dernières mises à jour.
+- Vérifiez que les ports réseau suivants sont ouverts :
+    - TCP 443 entre MABS et vCenter
+    - TCP 443 et TCP 902 entre MABS et l'hôte ESXi
+
 
 ## <a name="create-a-secure-connection-to-the-vcenter-server"></a>Créer une connexion sécurisée au serveur vCenter
 

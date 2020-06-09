@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 05/29/2020
 ms.author: jingwang
-ms.openlocfilehash: 696c175f55ecdb09b1b88f9766c4c678afe2c4ec
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1b32685aa060363d00f1566e009beee36bbf9680
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417105"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298548"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Format de texte délimité dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -38,7 +38,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 | firstRowAsHeader | Spécifie s’il faut considérer/faire de la première ligne une ligne d’en-tête avec les noms des colonnes.<br>Les valeurs autorisées sont **True** et **False** (par défaut). | Non       |
 | nullValue        | Spécifie la représentation sous forme de chaîne de la valeur null. <br>La valeur par défaut est une **chaîne vide**. | Non       |
 | encodingName     | Le type de codage utilisé pour lire/écrire des fichiers de test. <br>Les valeurs autorisées sont les suivantes : « UTF-8 », « UTF-16 », « UTF-16BE », « UTF-32 », « UTF-32BE NE », « US-ASCII », « UTF-7 », « BIG5 », « EUC-JP », « EUC-KR », « GB2312 », « GB18030 », « JOHAB », « SHIFT-JIS », « CP875 », « CP866 », « IBM00858 », « IBM037 », « IBM273 », « IBM437 », « IBM500 », « IBM737 », « IBM775 », « IBM850 », » IBM852 », « IBM855 », « IBM857 », « IBM860 », « IBM861 », « IBM863 », « IBM864 », « IBM865 », « IBM869 », « IBM870 », « IBM01140 », « IBM01141 », « IBM01142 », « IBM01143 », « IBM01144 », « IBM01145 », « IBM01146 », « IBM01147 », « IBM01148 », « IBM01149 », « ISO-2022-JP », « ISO-2022-KR «, « ISO-8859-1 », « ISO-8859-2 », « ISO-8859-3", « ISO-8859-4 », « ISO-8859-5 », « ISO-8859-6 », « ISO-8859-7 », « ISO-8859-8 », « ISO-8859-9 », « ISO-8859-13 », « ISO-8859-15 », « WINDOWS-874 », « WINDOWS-1250 », « WINDOWS-1251 », « WINDOWS-1252 », « WINDOWS-1253 », » WINDOWS-1254 », « WINDOWS-1255 », « WINDOWS-1256 », « WINDOWS-1257 », « WINDOWS-1258 ».<br>Notez que le flux de données de mappage ne prend pas en charge le codage UTF-7. | Non       |
-| compressionCodec | Le codec de compression utilisé pour lire/écrire des fichiers texte. <br>Les valeurs autorisées sont **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snappy**, ou **lz4**. La valeur par défaut n’est pas compressée. <br>**Notez** que pour l’instant, l’activité de copie ne prend pas en charge « snappy » et « lz4 » et le flux de données de mappage ne prend pas en charge « ZipDeflate ». <br>**Note** que lorsque vous utilisez l’activité de copie pour décompresser un ou plusieurs fichiers ZipDeflate et écrire dans le magasin de données du récepteur basé sur des fichiers, les fichiers sont extraits dans le dossier : `<path specified in dataset>/<folder named as source zip file>/`. | Non       |
+| compressionCodec | Le codec de compression utilisé pour lire/écrire des fichiers texte. <br>Les valeurs autorisées sont **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snappy**, ou **lz4**. La valeur par défaut n’est pas compressée. <br>**Notez** que pour l’instant, l’activité de copie ne prend pas en charge « snappy » et « lz4 » et le flux de données de mappage ne prend pas en charge « ZipDeflate ». <br>**Notez** que lors de l'utilisation de l'activité de copie pour décompresser des fichiers **ZipDeflate** et écrire dans le magasin de données du récepteur basé sur fichier, par défaut les fichiers sont extraits dans le dossier suivant : `<path specified in dataset>/<folder named as source zip file>/`, utilisez `preserveZipFileNameAsFolder` sur [source de l'activité de copie](#delimited-text-as-source) pour déterminer si le nom du fichier zip doit être conservé comme structure de dossier. | Non       |
 | compressionLevel | Le taux de compression. <br>Les valeurs autorisées sont **Optimal** ou **Fastest**.<br>- **Fastest (le plus rapide) :** l’opération de compression doit se terminer le plus rapidement possible, même si le fichier résultant n’est pas compressé de façon optimale.<br>- **Optimal** : l’opération de compression doit aboutir à une compression optimale, même si elle prend plus de temps. Pour plus d’informations, consultez la rubrique [Niveau de compression](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Non       |
 
 Voici un exemple de jeu de données de texte délimité sur Stockage Blob Azure :
@@ -89,6 +89,36 @@ Prise en charge des **paramètres de lecture du texte délimité** sous `formatS
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | Le type de formatSettings doit être défini sur **DelimitedTextReadSettings**. | Oui      |
 | skipLineCount | Indique le nombre de lignes **non vides** à ignorer lors de la lecture des données à partir des fichiers d’entrée. <br>Si skipLineCount et firstRowAsHeader sont spécifiés, les lignes sont d’abord ignorées, puis les informations d’en-têtes sont lues à partir du fichier d’entrée. | Non       |
+| compressionProperties | Groupe de propriétés permettant de décompresser les données d'un codec de compression spécifique. | Non       |
+| preserveZipFileNameAsFolder<br>(*sous `compressionProperties`* ) | S'applique lorsque le jeu de données d'entrée est configuré avec la compression **ZipDeflate**. Indique si le nom du fichier zip source doit être conservé en tant que structure de dossiers lors de la copie. Lorsque ce paramètre est défini sur true (par défaut), Data Factory inscrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source zip file>/` ; lorsqu'il est défini sur false, Data Factory les inscrit directement dans `<path specified in dataset>`.  | Non |
+
+```json
+"activities": [
+    {
+        "name": "CopyFromDelimitedText",
+        "type": "Copy",
+        "typeProperties": {
+            "source": {
+                "type": "DelimitedTextSource",
+                "storeSettings": {
+                    "type": "AzureBlobStorageReadSettings",
+                    "recursive": true
+                },
+                "formatSettings": {
+                    "type": "DelimitedTextReadSettings",
+                    "skipLineCount": 3,
+                    "compressionProperties": {
+                        "type": "ZipDeflateReadSettings",
+                        "preserveZipFileNameAsFolder": false
+                    }
+                }
+            },
+            ...
+        }
+        ...
+    }
+]
+```
 
 ### <a name="delimited-text-as-sink"></a>Texte délimité en tant que récepteur
 

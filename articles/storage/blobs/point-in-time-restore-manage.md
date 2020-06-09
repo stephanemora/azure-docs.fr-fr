@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cbfc5667fb35b8f807a3a806dda4647af10e9392
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: fe98e04c37172dc6b91c86fab8200022ed860d4f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118208"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170101"
 ---
 # <a name="enable-and-manage-point-in-time-restore-for-block-blobs-preview"></a>Activer et gérer une restauration dans le temps pour les objets blob de blocs (préversion)
 
@@ -23,7 +23,7 @@ Vous pouvez utiliser la limite de restauration dans le temps (préversion) pour 
 Pour plus d’informations et pour savoir comment s’inscrire à la préversion, consultez [Limite de restauration dans le temps pour les objets blob de blocs (préversion)](point-in-time-restore-overview.md).
 
 > [!CAUTION]
-> La limite de restauration dans le temps prend en charge la restauration des opérations sur les objets blob de blocs uniquement. Les opérations sur les conteneurs ne peuvent pas être restaurées. Si vous supprimez un conteneur du compte de stockage en appelant l’opération [Delete container](/rest/api/storageservices/delete-container) au cours de la restauration dans le temps en préversion, ce conteneur ne peut pas être restauré à l’aide d’une opération de restauration. Pendant la préversion, au lieu de supprimer un conteneur, supprimez chacun des objets blob si vous souhaitez les restaurer.
+> La limite de restauration dans le temps prend en charge la restauration des opérations sur les objets blob de blocs uniquement. Les opérations sur les conteneurs ne peuvent pas être restaurées. Si vous supprimez un conteneur du compte de stockage en appelant l’opération [Supprimer le conteneur](/rest/api/storageservices/delete-container) au cours de la restauration dans le temps en préversion, ce conteneur ne peut pas être restauré à l’aide d’une opération de restauration. Pendant la préversion, au lieu de supprimer un conteneur, supprimez chacun des objets blob si vous souhaitez les restaurer.
 
 > [!IMPORTANT]
 > La préversion de la restauration dans le temps est destinée uniquement à une utilisation hors production. Les contrats SLA (contrats de niveau de service) de production ne sont actuellement pas disponibles.
@@ -48,7 +48,7 @@ Pour configurer la restauration dans le temps Azure avec PowerShell, commencez p
     Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. Installer le module Az.Storage en préversion :
+1. Installez le module Az.Storage en préversion :
 
     ```powershell
     Install-Module Az.Storage -Repository PSGallery -RequiredVersion 1.14.1-preview -AllowPrerelease -AllowClobber -Force
@@ -99,14 +99,19 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 ## <a name="perform-a-restore-operation"></a>Effectuer une opération de restauration
 
-Pour lancer une opération de restauration, appelez la commande Restore-AzStorageBlobRange, en spécifiant le point de restauration en tant que valeur UTC **DateTime**. Vous pouvez spécifier une ou plusieurs plages lexicographiques de noms d’objets blob à restaurer ou omettre la plage pour restaurer tous les objets blob de tous les conteneurs du compte de stockage. L’opération de restauration peut prendre plusieurs minutes.
+Pour lancer une opération de restauration, appelez la commande Restore-AzStorageBlobRange, en spécifiant le point de restauration en tant que valeur UTC **DateTime**. Vous pouvez spécifier des plages lexicographiques de noms d'objets blob à restaurer ou omettre la plage pour restaurer tous les objets blob de tous les conteneurs du compte de stockage. Dix plages lexicographiques sont prises en charge par opération de restauration. L’opération de restauration peut prendre plusieurs minutes.
 
 Gardez à l’esprit les règles suivantes lorsque vous spécifiez une plage d’objets blob à restaurer :
 
 - Le modèle de conteneur spécifié pour la plage de début et la plage de fin doit comprendre au moins trois caractères. La barre oblique (/) utilisée pour séparer le nom de conteneur du nom d’objet blob n’est pas prise en compte dans cette valeur minimale.
-- Vous ne pouvez spécifier qu’une seule plage par opération de restauration.
+- Vous pouvez spécifier dix plages par opération de restauration.
 - Les caractères génériques ne sont pas pris en charge. Ils sont traités comme des caractères standard.
 - Vous pouvez restaurer des objets blob dans les conteneurs `$root` et `$web` en les spécifiant explicitement dans une plage transmise à une opération de restauration. Les conteneurs `$root` et `$web` sont restaurés uniquement s’ils sont spécifiés explicitement. Les autres conteneurs système ne peuvent pas être restaurés.
+
+> [!IMPORTANT]
+> Lorsque vous effectuez une opération de restauration, Stockage Azure bloque les opérations de données sur les objets blob de la plage en cours de restauration pendant toute la durée de l'opération. Les opérations de lecture, d’écriture et de suppression sont bloquées dans l’emplacement principal. C'est la raison pour laquelle les opérations telles que l'énumération des conteneurs sur le portail Azure peuvent ne pas se dérouler comme prévu pendant que l'opération de restauration est en cours.
+>
+> Les opérations de lecture à partir de l’emplacement secondaire peuvent se poursuivre pendant l’opération de restauration si le compte de stockage est géorépliqué.
 
 ### <a name="restore-all-containers-in-the-account"></a>Restaurer tous les conteneurs du compte
 
@@ -147,7 +152,7 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 
 ### <a name="restore-multiple-ranges-of-block-blobs"></a>Restaurer plusieurs plages d’objets blob de blocs
 
-Pour restaurer plusieurs plages d’objets blob de blocs, spécifiez un groupe de plages pour le paramètre `-BlobRestoreRange`. L’exemple suivant restaure le contenu complet de *Container1* et *Container4* :
+Pour restaurer plusieurs plages d’objets blob de blocs, spécifiez un groupe de plages pour le paramètre `-BlobRestoreRange`. Dix plages sont prises en charge par opération de restauration. L'exemple suivant spécifie deux plages pour restaurer le contenu complet de *Container1* et *Container4* :
 
 ```powershell
 $range1 = New-AzStorageBlobRangeToRestore -StartRange container1 -EndRange container2

@@ -4,12 +4,12 @@ description: Découvrez les ports et adresses requis pour contrôler le trafic d
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: 194e799daf107220c28404001d223e521dceeb3f
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 724d270b5ea18dbbd30ff2587e8bea5ee126a9ec
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870902"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84264407"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Contrôler le trafic de sortie pour les nœuds de cluster dans Azure Kubernetes Service (AKS)
 
@@ -51,7 +51,7 @@ Les ports de sortie/règles de réseau suivants sont requis pour un cluster AKS 
 * Port TCP *443*
 * Le port TCP [IPAddrOfYourAPIServer]:443 est requis si vous avez une application qui doit communiquer avec le serveur d’API.  Cette modification peut être définie après la création du cluster.
 * Port TCP *9000*, port TCP *22* et port UDP *1194* pour que le pod avant du tunnel communique avec la fin du tunnel sur le serveur d’API.
-    * Pour en savoir plus, reportez-vous aux adresses * *.hcp.\<location\>.azmk8s.io* et * *.tun.\<location\>.azmk8s.io* du tableau suivant.
+    * Pour en savoir plus, reportez-vous aux adresses * *.hcp.\<location\>.azmk8s.io* et * *.tun.\<location\>.azmk8s.io* dans le tableau suivant.
 * Port UDP *123* pour la synchronisation temporelle NTP (Network Time Protocol) (nœuds Linux).
 * Le port UDP *53* pour DNS est également requis si vous avez des pods qui accèdent directement au serveur d’API.
 
@@ -149,7 +149,8 @@ Les règles de nom de domaine complet/d’application suivantes sont requises po
 | cloudflare.docker.com | HTTPS:443 | Cette adresse est utilisée pour extraire des images Linux Alpine et d’autres Azure Dev Spaces Alpine |
 | gcr.io | HTTPS:443 | Cette adresse est utilisée pour extraire les images Helm/Tiller |
 | storage.googleapis.com | HTTPS:443 | Cette adresse est utilisée pour extraire les images Helm/Tiller |
-| azds-\<guid\>.\<location\>.azds.io | HTTPS:443 | Pour communiquer avec les services back-end Azure Dev Spaces pour votre contrôleur. Le nom de domaine complet exact se trouve dans « dataplaneFqdn » dans %USERPROFILE%\.azds\settings.json |
+
+Mettez à jour la configuration de votre pare-feu ou de votre sécurité pour autoriser le trafic réseau à destination et en provenance de tous les noms de domaine complets ci-dessus et des [services d'infrastructure Azure Dev Spaces][dev-spaces-service-tags].
 
 ## <a name="required-addresses-and-ports-for-aks-clusters-with-azure-policy-in-public-preview-enabled"></a>Adresses et ports requis pour les clusters AKS avec Azure Policy (en préversion publique) activé
 
@@ -191,3 +192,4 @@ Dans cet article, vous avez découvert les ports et adresses à autoriser pour l
 [aks-upgrade]: upgrade-cluster.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[dev-spaces-service-tags]: ../dev-spaces/configure-networking.md#virtual-network-or-subnet-configurations

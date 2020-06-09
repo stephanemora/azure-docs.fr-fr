@@ -10,12 +10,12 @@ ms.date: 07/25/2018
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 6d2ea5c0b7354867086fc0cce43732f2d73c53ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cfb40375fe841dd363681aea3d2cf6355046cd51
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81398960"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84113689"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Surveiller un runtime d’intégration dans Azure Data Factory
 
@@ -170,10 +170,10 @@ Le runtime d’intégration Azure-SSIS est un cluster entièrement géré de mac
 | NodeSize | Taille de chacun des nœuds de votre runtime d’intégration Azure-SSIS. |
 | NodeCount | Nombre de nœuds de votre runtime d’intégration Azure-SSIS. |
 | MaxParallelExecutionsPerNode | Nombre d’exécutions en parallèle par nœud dans votre runtime d’intégration Azure-SSIS. |
-| CatalogServerEndpoint | Point de terminaison du serveur Azure SQL Database/Managed Instance existant pour héberger la base de données SSISDB. |
-| CatalogAdminUserName | Nom d’utilisateur administrateur du serveur Azure SQL Database/ Managed Instance existant. Le service Data Factory utilise ces informations pour préparer et gérer pour vous la base de données SSISDB. |
-| CatalogAdminPassword | Mot de passe administrateur du serveur Azure SQL Database/ Managed Instance existant. |
-| CatalogPricingTier | Niveau tarifaire de la base de données SSISDB hébergée par le serveur Azure SQL Database existant.  Ne s’applique pas à Azure SQL Database Managed Instance hébergeant la base de données SSISDB. |
+| CatalogServerEndpoint | Point de terminaison de l'instance existante de SQL Database/SQL Managed Instance pour héberger la base de données SSISDB. |
+| CatalogAdminUserName | Nom de l'utilisateur administrateur de l'instance existante de SQL Database/SQL Managed Instance. Le service Data Factory utilise ces informations pour préparer et gérer pour vous la base de données SSISDB. |
+| CatalogAdminPassword | Mot de passe administrateur de l'instance existante de SQL Database/SQL Managed Instance. |
+| CatalogPricingTier | Niveau tarifaire de la base de données SSISDB hébergée par SQL Database.  Ne s'applique pas à l'instance de SQL Managed Instance qui héberge la base de données SSISDB. |
 | VNetId | ID de ressource de réseau virtuel que votre runtime d’intégration Azure-SSIS doit rejoindre. |
 | Subnet | Nom du sous-réseau que pour votre runtime d’intégration Azure-SSIS doit rejoindre. |
 | id | ID de ressource de votre runtime d’intégration Azure-SSIS. |
@@ -224,8 +224,8 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 Pour plus d’informations sur le runtime d’intégration Azure-SSIS, voir les articles suivants :
 
 - [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime) (Runtime d’intégration Azure-SSIS). Cet article fournit des informations conceptuelles sur les runtimes d’intégration en général, y compris sur le runtime d’intégration Azure-SSIS. 
-- [Didacticiel : deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md) (Déployer des packages SSIS vers Azure). Cet article fournit des instructions détaillées pour créer un runtime d’intégration Azure-SSIS qui utilise une base de données Azure SQL pour héberger le catalogue SSIS. 
-- [Procédure : Créer un runtime d’intégration Azure-SSIS](create-azure-ssis-integration-runtime.md). Cet article s’appuie sur le tutoriel et fournit des instructions sur la façon d’utiliser Azure SQL Database Managed Instance et de joindre le runtime d’intégration à un réseau virtuel. 
+- [Didacticiel : deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md) (Déployer des packages SSIS vers Azure). Cet article fournit des instructions détaillées pour créer une instance Azure-SSIS IR et utilise SQL Database pour héberger le catalogue SSIS. 
+- [Procédure : Créer un runtime d’intégration Azure-SSIS](create-azure-ssis-integration-runtime.md). Cet article s'appuie sur le tutoriel et fournit des instructions sur l'utilisation de SQL Managed Instance et la connexion du runtime d'intégration à un réseau virtuel. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md) (Gérer un runtime d’intégration Azure-SSIS). Cet article vous explique comment arrêter, démarrer ou supprimer un runtime d’intégration Azure-SSIS. Il vous montre également comment effectuer un scale-out en lui ajoutant des nœuds supplémentaires. 
 - [Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel](join-azure-ssis-integration-runtime-virtual-network.md). Cet article fournit des informations conceptuelles sur la façon d’attacher un runtime d’intégration Azure-SSIS à un réseau virtuel Azure. Il décrit également les étapes nécessaires pour utiliser le portail Azure afin de configurer le réseau virtuel de sorte que le runtime d’intégration Azure-SSIS puisse le rejoindre. 
 

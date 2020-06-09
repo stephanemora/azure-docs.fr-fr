@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 40857e83457222365e61a224ead19bd1d1d31ae7
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 5ef5af77831c01ae484398c1f2d8905e5e2bc11e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758977"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021328"
 ---
 # <a name="hierarchical-state-override"></a>Remplacement d’état hiérarchique
 
@@ -27,23 +27,23 @@ Pour prendre en charge ce cas d’usage avec la surcharge la plus faible possibl
 
 Voici l’ensemble fixe d’états qui peuvent être remplacés :
 
-* **Masqué** : Les maillages respectifs dans le graphe de la scène sont masqués ou affichés.
-* **Couleur de teinte** : Un objet rendu peut être teinté avec sa propre couleur et son propre poids de teinte. L’image ci-dessous illustre la teinte de couleur de la jante d’une roue.
+* **`Hidden`**  : Les maillages respectifs dans le graphe de la scène sont masqués ou affichés.
+* **`Tint color`**  : Un objet rendu peut être teinté avec sa propre couleur et son propre poids de teinte. L’image ci-dessous illustre la teinte de couleur de la jante d’une roue.
   
   ![Teinte de couleur](./media/color-tint.png)
 
-* **Semi-transparent** : La géométrie est rendue de manière semi-transparente, par exemple pour révéler les parties internes d’un objet. L’image suivante illustre le rendu de la voiture tout entière en mode semi-transparent, à l’exception de l’étrier de frein rouge :
+* **`See-through`**  : La géométrie est rendue de manière semi-transparente, par exemple pour révéler les parties internes d’un objet. L’image suivante illustre le rendu de la voiture tout entière en mode semi-transparent, à l’exception de l’étrier de frein rouge :
 
   ![Semi-transparent](./media/see-through.png)
 
   > [!IMPORTANT]
   > L’effet semi-transparent ne fonctionne qu’avec le [mode de rendu](../../concepts/rendering-modes.md) *TileBasedComposition*.
 
-* **Sélectionné** : La géométrie est rendue avec un [contour de sélection](outlines.md).
+* **`Selected`**  : La géométrie est rendue avec un [contour de sélection](outlines.md).
 
   ![Contour de sélection](./media/selection-outline.png)
 
-* **Collision désactivée** : La géométrie est exempte de [requêtes spatiales](spatial-queries.md). Comme l’indicateur **Hidden** (masqué) ne désactive pas les collisions, ces deux indicateurs sont souvent définis ensemble.
+* **`DisableCollision`**  : La géométrie est exempte de [requêtes spatiales](spatial-queries.md). Comme l'indicateur **`Hidden`** n'affecte pas l'indicateur d'état des collisions, ces deux indicateurs sont souvent définis ensemble.
 
 ## <a name="hierarchical-overrides"></a>Remplacements hiérarchiques
 
@@ -87,7 +87,7 @@ component->SetState(
 
 ### <a name="tint-color"></a>Couleur de teinte
 
-Le remplacement de couleur de teinte est légèrement spécial en ce sens qu’il existe à la fois un état activation/désactivation/héritage et une propriété de couleur de teinte. La partie alpha de la couleur de teinte définit le poids de l’effet de teinte : si la valeur est 0,0, aucune couleur de teinte n’est visible ; si la valeur est 1,0, l’objet est rendu avec une couleur de teinte pure. Pour les valeurs intermédiaires, la couleur finale est mélangée à la couleur de teinte. La couleur de teinte peut être modifiée image par image pour obtenir une animation de couleur.
+Le remplacement de `tint color` est légèrement spécial en ce sens qu'il existe à la fois un état activation/désactivation/héritage et une propriété de couleur de teinte. La partie alpha de la couleur de teinte définit le poids de l’effet de teinte : si la valeur est 0,0, aucune couleur de teinte n’est visible ; si la valeur est 1,0, l’objet est rendu avec une couleur de teinte pure. Pour les valeurs intermédiaires, la couleur finale est mélangée à la couleur de teinte. La couleur de teinte peut être modifiée image par image pour obtenir une animation de couleur.
 
 ## <a name="performance-considerations"></a>Considérations relatives aux performances
 

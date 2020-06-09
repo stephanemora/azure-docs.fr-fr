@@ -3,12 +3,12 @@ title: Sauvegarder des charges de travail SQL Server sur Azure Stack
 description: Dans cet article, apprenez comment configurer serveur de Sauvegarde Microsoft Azure (MABS) afin de protéger des bases de données SQL Server sur Azure Stack.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: 03211e1147f96429a8406c4c95654161ed2bf308
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b2d41bdccd67539205b74a0ce277b3b01a685c6c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74172309"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84192982"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Sauvegarder SQL Server sur Azure Stack
 
@@ -65,7 +65,7 @@ La gestion de sauvegarde et de récupération de base de données SQL Server dan
 
     ![Méthode de réplication initiale](./media/backup-azure-backup-sql/pg-manual.png)
 
-    La copie de sauvegarde initiale nécessite le transfert de la source de données complète (base de données SQL Server) à partir du serveur de production (ordinateur SQL Server) vers le serveur de sauvegarde Azure. Ces données peuvent être volumineuses et leur transfert sur le réseau peut dépasser la bande passante. Pour cette raison, vous pouvez choisir de transférer la sauvegarde initiale : **Manuellement** (à l’aide d’un support amovible) afin d’éviter la congestion de la bande passante, ou **Automatiquement sur le réseau** (à un moment précis).
+    La copie de sauvegarde initiale nécessite le transfert de la source de données complète (base de données SQL Server) entre le serveur de production (ordinateur SQL Server) et le serveur de sauvegarde Azure. Ces données peuvent être volumineuses et leur transfert sur le réseau peut dépasser la bande passante. C'est la raison pour laquelle vous pouvez choisir de transférer la sauvegarde initiale : **Manuellement** (à l'aide d'un support amovible) afin d'éviter toute congestion de la bande passante, ou **Automatiquement sur le réseau** (à un moment précis).
 
     Une fois la sauvegarde initiale terminée, le reste des sauvegardes se compose de sauvegardes incrémentielles sur la copie de sauvegarde initiale. Les sauvegardes incrémentielles sont en général très limitées et sont faciles à transférer sur le réseau.
 
@@ -73,7 +73,7 @@ La gestion de sauvegarde et de récupération de base de données SQL Server dan
 
     ![Vérifier la cohérence](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    Le serveur de sauvegarde Azure effectue un contrôle de cohérence pour vérifier l’intégrité du point de sauvegarde. Il calcule la somme de contrôle du fichier de sauvegarde sur le serveur de production (ordinateur SQL Server dans ce scénario) et des données sauvegardée pour ce fichier. En cas de conflit, le fichier sauvegardé sur le serveur de sauvegarde Azure est sans doute endommagé. Le serveur de sauvegarde Azure corrige les données sauvegardées en envoyant les blocs correspondant à l’incohérence du contrôle de cohérence. Étant donné que les contrôles de cohérence nécessitent des performances intensives, vous pouvez planifier ces opérations ou les exécuter automatiquement.
+    Le serveur de sauvegarde Azure effectue un contrôle de cohérence pour vérifier l’intégrité du point de sauvegarde. Il calcule la somme de contrôle du fichier de sauvegarde sur le serveur de production (ordinateur SQL Server dans ce scénario) et des données sauvegardée de ce fichier. En cas de conflit, le fichier sauvegardé sur le serveur de sauvegarde Azure est sans doute endommagé. Le serveur de sauvegarde Azure corrige les données sauvegardées en envoyant les blocs correspondant à l’incohérence du contrôle de cohérence. Étant donné que les contrôles de cohérence nécessitent des performances intensives, vous pouvez planifier ces opérations ou les exécuter automatiquement.
 
 10. Pour spécifier la protection des sources de données en ligne, sélectionnez les bases de données à protéger sur Azure et cliquez sur **Suivant**.
 
@@ -90,7 +90,7 @@ La gestion de sauvegarde et de récupération de base de données SQL Server dan
     >
     >
 
-    **Meilleures pratiques** : si vous planifiez des sauvegardes dans Azure qui démarreront à la fin des sauvegardes sur disque local, les dernières sauvegardes sur disque sont toujours copiées vers Azure.
+    **Meilleure pratique** : si vous planifiez des sauvegardes sur Azure qui démarreront au terme des sauvegardes sur disque local, les dernières sauvegardes sur disque sont toujours copiées vers Azure.
 
 12. Cliquez sur la planification de stratégie de rétention. Les détails du fonctionnement de la stratégie de rétention sont fournis dans la section [Utilisation d'Azure Backup pour remplacer votre infrastructure sur bande](backup-azure-backup-cloud-as-tape.md).
 

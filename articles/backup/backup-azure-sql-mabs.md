@@ -3,12 +3,12 @@ title: Sauvegarder des bases de données SQL Server à l'aide du serveur de sauv
 description: Cet article présente les étapes de configuration de la sauvegarde des bases de données SQL Server à l'aide du serveur de sauvegarde Microsoft Azure.
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 9cd6a8b76e4618031f4d21dc04a82a78fad0076d
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 2bb172ca36f3f932fdaaf5b71e8fa183c04d1510
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82159248"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194181"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Sauvegarder des bases de données SQL Server sur Azure à l'aide du serveur de sauvegarde Azure
 
@@ -36,7 +36,7 @@ Pour protéger des bases de données SQL Server dans Azure, commencez par créer
 1. Pour le type de groupe de protection, sélectionnez **Serveurs**.
 
     ![Sélectionner le type de groupe de protection Serveurs](./media/backup-azure-backup-sql/pg-servers.png)
-1. Développez l'ordinateur SQL Server sur lequel se trouvent les bases de données que vous souhaitez sauvegarder. Vous accédez aux sources de données qui peuvent être sauvegardées à partir de ce serveur. Développez **Tous les partages SQL**, puis sélectionnez les bases de données que vous souhaitez sauvegarder. Dans cet exemple, nous sélectionnons ReportServer$MSDPM2012 et ReportServer$MSDPM2012TempDB. Sélectionnez **Suivant**.
+1. Développez l'instance de SQL Server sur laquelle se trouvent les bases de données que vous souhaitez sauvegarder. Vous accédez aux sources de données qui peuvent être sauvegardées à partir de ce serveur. Développez **Tous les partages SQL**, puis sélectionnez les bases de données que vous souhaitez sauvegarder. Dans cet exemple, nous sélectionnons ReportServer$MSDPM2012 et ReportServer$MSDPM2012TempDB. Sélectionnez **Suivant**.
 
     ![Sélectionner une base de données SQL Server](./media/backup-azure-backup-sql/pg-databases.png)
 1. Nommez le groupe de protection, puis sélectionnez **Je souhaite une protection en ligne**.

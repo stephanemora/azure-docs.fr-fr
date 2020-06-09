@@ -3,12 +3,12 @@ title: Points de terminaison privés
 description: Apprenez à créer des points de terminaison privés pour le service Sauvegarde Azure et découvrez les scénarios où l’utilisation des points de terminaison privés contribue à maintenir la sécurité de vos ressources.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: bc778506819c44291bb2d8f69cdd9ac0aed51399
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.openlocfilehash: 2696f3fdbc4e9061afee266ae36ae8d3507026fc
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007618"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84231434"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Points de terminaison privés pour le service Sauvegarde Azure
 
@@ -106,11 +106,11 @@ Si vous souhaitez créer une zone DNS privée distincte dans Azure, vous pouvez 
 
 | **Zone**                                                     | **Service** | **Informations sur l’abonnement et le groupe de ressources**                  |
 | ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
-| `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Remarque** : le critère *geo* dans le nom de la zone fait référence au code de région. Par exemple, *wcus* et *ne* représentent les régions USA Centre-Ouest et Europe Nord. | Backup      | **Abonnement**: Identique à celui utilisé pour la création du point de terminaison privé **Groupe de ressources** : Tout groupe de ressources au sein de l’abonnement |
+| `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Remarque** : le critère *geo* dans le nom de la zone fait référence au code de région. Par exemple, *wcus* et *ne* représentent les régions USA Centre-Ouest et Europe Nord. | Sauvegarde      | **Abonnement**: Identique à celui utilisé pour la création du point de terminaison privé **Groupe de ressources** : Tout groupe de ressources au sein de l’abonnement |
 
 [Cette liste](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) répertorie tous les codes de région.
 
-Pour les conventions d’affectation des noms d’URL dans les zones géographiques nationale :
+Pour les conventions d'affectation de noms d'URL dans les régions nationales :
 
 - [Chine](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
 - [Allemagne](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
@@ -498,7 +498,7 @@ Vous devez créer trois zones DNS privées et les lier à votre réseau virtuel.
 
 | **Zone**                                                     | **Service** |
 | ------------------------------------------------------------ | ----------- |
-| `privatelink.<geo>.backup.windowsazure.com`      | Backup      |
+| `privatelink.<geo>.backup.windowsazure.com`      | Sauvegarde      |
 | `privatelink.blob.core.windows.net`                            | Objet blob        |
 | `privatelink.queue.core.windows.net`                           | File d'attente       |
 

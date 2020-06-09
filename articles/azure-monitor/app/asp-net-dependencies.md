@@ -3,12 +3,12 @@ title: Suivi des dépendances dans Azure Application Insights | Microsoft Docs
 description: Supervisez les appels de dépendances entre Application Insights et votre application locale ou votre application web Microsoft Azure.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 2b7a20731fa5eae8313adcf07d877626fcaa4dce
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 759e465a21b421c22a62245536827546acc2d79e
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980845"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204750"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Suivi des dépendances dans Azure Application Insights 
 
@@ -90,7 +90,10 @@ Pour les pages web, le kit SDK JavaScript Application Insights collecte automati
 
 Pour les appels SQL, le nom du serveur et de la base de données est toujours collecté et stocké comme le nom du `DependencyTelemetry` collecté. Il y a un champ supplémentaire appelé « data », qui peut contenir le texte de la requête SQL complète.
 
-Pour les applications ASP.NET Core, il n’y a aucune étape supplémentaire à faire pour obtenir la requête SQL complète.
+Pour les applications ASP.NET Core, il est maintenant nécessaire d'accepter la collecte de texte SQL à l'aide de
+```csharp
+services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((module, o) => { module. EnableSqlCommandTextInstrumentation = true; });
+```
 
 Pour les applications ASP.NET, la requête SQL complète est collectée à l’aide de l’instrumentation de code octet, qui requiert le moteur d’instrumentation, ou à l’aide du package NuGet [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) au lieu de la bibliothèque System.Data.SqlClient. Vous devez donc effectuer des étapes supplémentaires spécifiques à la plateforme, comme décrit ci-dessous.
 

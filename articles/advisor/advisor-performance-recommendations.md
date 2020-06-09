@@ -3,12 +3,12 @@ title: Améliorer les performances des applications Azure avec Azure Advisor
 description: Utilisez Advisor pour optimiser les performances de vos déploiements Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: ff9b8fb9494c887397947f009b22cdc89d8f70b5
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 230466c7c0e8de2681737bbf9d74341dea7f7b8f
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82787938"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196412"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Améliorer les performances des applications Azure avec Azure Advisor
 
@@ -22,7 +22,7 @@ Azure Advisor identifie les profils Traffic Manager ayant une valeur TTL élevé
 
 ## <a name="improve-database-performance-with-sql-db-advisor"></a>Améliorer les performances de base de données avec SQL DB Advisor
 
-Le conseiller vous offre une vue cohérente et consolidée des recommandations pour toutes vos ressources Azure. Il s’intègre à SQL Database Advisor pour vous proposer des recommandations en vue d’améliorer les performances de votre base de données SQL Azure. SQL Database Advisor évalue les performances de vos bases de données SQL Azure en analysant votre historique d’utilisation. Il propose alors les recommandations les plus adaptées pour exécuter la charge de travail standard de la base de données.
+Le conseiller vous offre une vue cohérente et consolidée des recommandations pour toutes vos ressources Azure. Il s'intègre à SQL Database Advisor pour vous proposer des recommandations en vue d'améliorer les performances de votre base de données. SQL Database Advisor évalue les performances de vos bases de données en analysant votre historique d'utilisation. Il propose alors les recommandations les plus adaptées pour exécuter la charge de travail standard de la base de données.
 
 > [!NOTE]
 > Pour obtenir des recommandations, une base de données doit avoir été utilisée pendant environ une semaine et avoir fait l’objet d’une activité cohérente au cours de cette semaine. SQL Database Advisor peut plus facilement optimiser les modèles de requête cohérents que les pics d’activité aléatoires.

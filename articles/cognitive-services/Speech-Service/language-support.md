@@ -101,27 +101,27 @@ Pour plus d’informations sur la disponibilité régionale, consultez [régions
 
 |Paramètres régionaux  | Langage            | Sexe | Nom de la voix | Prise en charge du style |
 |--|--|--|--|--|
-| `de-DE` | Allemand (Allemagne)                | `Female` | « de-DE-KatjaNeural »      | Général |
-| `en-AU` | Anglais (Australie)             | `Female` | « en-AU-NatashaNeural »    | Général |
-| `en-CA` | Anglais (Canada)                | `Female` | « en-CA-ClaraNeural »      | Général |
-| `en-GB` | Anglais (Royaume-Uni)                    | `Female` | « en-GB-LibbyNeural »      | Général |
-|         |                                 | `Female` | « en-GB-MiaNeural »        | Général |
-| `en-US` | Anglais (US)                    | `Female` | « en-US-AriaNeural »       | Général, plusieurs styles de voix sont disponibles |
-|         |                                 | `Male`   | « en-US-GuyNeural »        | Général |
-| `es-ES` | Espagnol (Espagne)                 | `Female` | « es-ES-ElviraNeural »     | Général |
-| `es-MX` | Espagnol (Mexique)                | `Female` | « es-MX-DaliaNeural »      | Général |
-| `fr-CA` | Français (Canada)                 | `Female` | « fr-CA-SylvieNeural »     | Général |
-| `fr-FR` | Français (France)                 | `Female` | « fr-FR-DeniseNeural »     | Général |
-| `it-IT` | Italien (Italie)                 | `Female` | « it-IT-ElsaNeural »       | Général |
-| `ja-JP` | Japonais                        | `Female` | « ja-JP-NanamiNeural »     | Général |
-| `ko-KR` | Coréen                          | `Female` | « ko-KR-SunHiNeural »      | Général |
-| `nb-NO` | Norvégien                       | `Female` | « NB-non-IselinNeural »     | Général |
-| `pt-BR` | Portugais (Brésil)             | `Female` | « pt-BR-FranciscaNeural »  | Général |
-| `tr-TR` | Turc                         | `Female` | « TR-TR-EmelNeural »       | Général |
-| `zh-CN` | Chinois (mandarin, simplifié)  | `Female` | « zh-CN-XiaoxiaoNeural »   | Général, plusieurs styles de voix sont disponibles |
-|         |                                 | `Female` | « zh-CN-XiaoyouNeural »    | Voix d’enfant, optimisée pour raconter des histoires |
-|         |                                 | `Male`   | « zh-CN-YunyangNeural »    | Optimisée pour la lecture d’actualités, plusieurs styles de voix sont disponibles |
-|         |                                 | `Male`   | « zh-CN-YunyeNeural »      | Optimisée pour raconter des histoires |
+| `de-DE` | Allemand (Allemagne)                | `Female` | « de-DE-KatjaNeural »      | Général |
+| `en-AU` | Anglais (Australie)             | `Female` | « en-AU-NatashaNeural »    | Général |
+| `en-CA` | Anglais (Canada)                | `Female` | « en-CA-ClaraNeural »      | Général |
+| `en-GB` | Anglais (Royaume-Uni)                    | `Female` | « en-GB-LibbyNeural »      | Général |
+|         |                                 | `Female` | « en-GB-MiaNeural »        | Général |
+| `en-US` | Anglais (US)                    | `Female` | « en-US-AriaNeural »       | Général, plusieurs styles de voix sont disponibles |
+|         |                                 | `Male`   | « en-US-GuyNeural »        | Général |
+| `es-ES` | Espagnol (Espagne)                 | `Female` | « es-ES-ElviraNeural »     | Général |
+| `es-MX` | Espagnol (Mexique)                | `Female` | « es-MX-DaliaNeural »      | Général |
+| `fr-CA` | Français (Canada)                 | `Female` | « fr-CA-SylvieNeural »     | Général |
+| `fr-FR` | Français (France)                 | `Female` | « fr-FR-DeniseNeural »     | Général |
+| `it-IT` | Italien (Italie)                 | `Female` | « it-IT-ElsaNeural »       | Général |
+| `ja-JP` | Japonais                        | `Female` | « ja-JP-NanamiNeural »     | Général |
+| `ko-KR` | Coréen                          | `Female` | « ko-KR-SunHiNeural »      | Général |
+| `nb-NO` | Norvégien                       | `Female` | « nb-NO-IselinNeural »     | Général |
+| `pt-BR` | Portugais (Brésil)             | `Female` | « pt-BR-FranciscaNeural »  | Général |
+| `tr-TR` | Turc                         | `Female` | « tr-TR-EmelNeural »       | Général |
+| `zh-CN` | Chinois (mandarin, simplifié)  | `Female` | « zh-CN-XiaoxiaoNeural »   | Général, plusieurs styles de voix sont disponibles |
+|         |                                 | `Female` | « zh-CN-XiaoyouNeural »    | Voix d’enfant, optimisée pour raconter des histoires |
+|         |                                 | `Male`   | « zh-CN-YunyangNeural »    | Optimisée pour la lecture d’actualités, plusieurs styles de voix sont disponibles |
+|         |                                 | `Male`   | « zh-CN-YunyeNeural »      | Optimisée pour raconter des histoires |
 
 > [!IMPORTANT]
 > La voix `en-US-JessaNeural` a basculé sur `en-US-AriaNeural`. Si vous utilisiez « Jessa », procédez à une conversion vers « Aria ».

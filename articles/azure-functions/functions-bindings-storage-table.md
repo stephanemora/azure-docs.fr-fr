@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 1aa3537679ee37cbc6085344d2f31ae4043d32bb
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 4b10660302eb831a982d261cdfdaf91f4dbdfb38
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520670"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248768"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Liaisons de stockage Table Azure pour Azure Functions
 
@@ -40,7 +40,7 @@ La liaison d’entrée de stockage de table Azure permet de lire une table dans 
 
 ### <a name="one-entity"></a>Une entité
 
-L’exemple suivant illustre une [fonction C#](functions-dotnet-class-library.md) qui lit une ligne de table unique. Pour chaque enregistrement inséré dans la table, la fonction est déclenchée.
+L’exemple suivant illustre une [fonction C#](functions-dotnet-class-library.md) qui lit une ligne de table unique. Pour chaque message envoyé à la file d'attente, la fonction sera déclenchée.
 
 La valeur de clé de ligne "{queueTrigger}" indique que la clé de ligne provient de la chaîne de message de file d’attente.
 

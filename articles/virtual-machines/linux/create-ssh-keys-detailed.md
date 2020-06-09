@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: c34a88c39104d3af2c5747d1cd6d3dea6929379a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5add789809f274ef5634f3c33dfedd3cd96b36d0
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78969536"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142467"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Étapes détaillées : Créer et gérer des clés SSH pour l’authentification sur une machine virtuelle Linux dans Azure 
 Avec une paire de clés SSH (secure shell), vous pouvez créer une machine virtuelle Linux sur Azure qui utilise par défaut des clés SSH pour l’authentification sans avoir à utiliser de mot de passe pour la connexion. Les machines virtuelles créées avec le portail Azure, Azure CLI, les modèles Resource Manager ou d’autres outils peuvent inclure votre clé publique SSH dans le cadre du déploiement, qui configure l’authentification par clé SSH pour les connexions SSH. 
@@ -35,7 +35,7 @@ Si vous ne voulez pas utiliser de clés SSH, vous pouvez configurer votre machin
 
 ## <a name="generate-keys-with-ssh-keygen"></a>Générer des clés avec ssh-keygen
 
-Pour créer les clés, la commande par défaut est `ssh-keygen`, disponible avec les utilitaires OpenSSH dans Azure Cloud Shell, un hôte macOS ou Linux, le [sous-système Windows pour Linux](https://docs.microsoft.com/windows/wsl/about) et d’autres outils. `ssh-keygen` pose une série de questions, puis écrit une clé privée et la clé publique correspondante. 
+Pour créer les clés, la commande par défaut est `ssh-keygen`, disponible avec les utilitaires OpenSSH dans Azure Cloud Shell, un hôte macOS ou Linux, et Windows 10. `ssh-keygen` pose une série de questions, puis écrit une clé privée et la clé publique correspondante. 
 
 Par défaut, les clés SSH sont conservées dans le `~/.ssh`répertoire.  Si vous n’avez pas de répertoire `~/.ssh`, la commande `ssh-keygen` en crée un pour vous avec les autorisations appropriées.
 

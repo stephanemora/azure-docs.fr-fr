@@ -5,18 +5,18 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 61fbaf37577efdab0b147d437ae78fc4df0764cb
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: c594f269d32bc87b2389c430343f6480e97bc5f6
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82084955"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142246"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Déclencheur Stockage Blob Azure pour Azure Functions
 
 Le déclencheur de stockage Blob démarre une fonction lors de la détection d’un objet blob nouveau ou mis à jour. Le contenu du blob est fourni comme [entrée de la fonction](./functions-bindings-storage-blob-input.md).
 
-Le déclencheur Stockage Blob Azure nécessite un compte de stockage universel. Pour utiliser un compte dédié aux blobs ou si votre application a des besoins spécifiques, passez en revue les alternatives à l’utilisation de ce déclencheur.
+Le déclencheur Stockage Blob Azure nécessite un compte de stockage universel. Les comptes Stockage v2 avec [espaces de noms hiérarchiques](../storage/blobs/data-lake-storage-namespace.md) sont également pris en charge. Pour utiliser un compte dédié aux blobs ou si votre application a des besoins spécifiques, passez en revue les alternatives à l’utilisation de ce déclencheur.
 
 Pour plus d’informations sur les détails d’installation et de configuration, consultez la [vue d’ensemble](./functions-bindings-storage-blob.md).
 

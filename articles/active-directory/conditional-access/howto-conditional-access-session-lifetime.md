@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e9c0c88064c00c97de7dc58a500910e81c04eef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cc75b300704ef7f8218134c9d384b0718fca1e97
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79230793"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220698"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurer la gestion de session d’authentification avec l’accès conditionnel
 
@@ -50,6 +50,10 @@ Le paramètre de fréquence de connexion fonctionne avec les applications qui on
 - Client web Teams
 - Dynamics CRM en ligne
 - Portail Azure
+
+### <a name="user-sign-in-frequency-and-multi-factor-authentication"></a>Fréquence de connexion des utilisateurs et authentification multifacteur
+
+La fréquence de connexion ne s'appliquait auparavant qu'à l'authentification à un facteur sur les appareils joints à Azure AD, joints à Azure AD Hybride et inscrits auprès d'Azure AD. Il n'y avait pas de moyen facile pour nos clients de renforcer l'authentification multifacteur (MFA) sur ces appareils. Conformément aux commentaires des clients, la fréquence de connexion s'appliquera également à l'authentification multifacteur.
 
 ### <a name="user-sign-in-frequency-and-device-identities"></a>Fréquence de connexion des utilisateurs et identités des appareils
 

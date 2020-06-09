@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/03/2019
 ms.author: spelluru
-ms.openlocfilehash: fc5051667100a2ebaa01b7815f825fadd766b08f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8da33f5a553b4a671d9d7b9b223f77b301b8440b
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75456975"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310272"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Résoudre les problèmes liés à l’application d’artefacts dans une machine virtuelle Azure DevTest Labs
 L’application d’artefacts sur une machine virtuelle peut échouer pour différentes raisons. Cet article décrit différentes méthodes pour vous aider à identifier les causes possibles.
@@ -57,8 +57,9 @@ Vous pouvez résoudre les problèmes affectant les machines virtuelles créées 
 
 ## <a name="symptoms-causes-and-potential-resolutions"></a>Symptômes, causes et solutions possibles 
 
-### <a name="artifact-appears-to-hang"></a>L’artefact semble se bloquer   
-Un artefact semble se bloquer jusqu’à l’expiration d’un délai prédéfini, et l’artefact est marqué comme **Échec**.
+### <a name="artifact-appears-to-stop-responding"></a>L'artefact semble cesser de répondre
+
+Un artefact semble cesser de répondre jusqu'à l'expiration d'un délai prédéfini, et la mention **Échec** apparaît.
 
 Quand un artefact semble se bloquer, commencez par déterminer où il est bloqué. Un artefact peut être bloqué à l’une des étapes suivantes lors de l’exécution :
 
@@ -67,11 +68,11 @@ Quand un artefact semble se bloquer, commencez par déterminer où il est bloqu�
     - Recherchez les erreurs dans ces entrées. Parfois, l’erreur n’est pas marquée de manière précise, et vous devez examiner chaque entrée.
     - Quand vous examinez les détails de chaque entrée, veillez à examiner le contenu de la charge utile JSON. Vous pouvez voir une erreur en bas de ce document.
 - **Lors de la tentative d’exécution de l’artefact**. Cela peut être dû à des problèmes de réseau ou de stockage. Pour plus d’informations, consultez la section correspondante plus loin dans cet article. Cela peut également être dû à la façon dont le script est créé. Par exemple :
-    - Un script PowerShell a des **paramètres obligatoires**, mais l’un d’eux ne lui transmet pas de valeur, soit parce que vous autorisez l’utilisateur à le laisser vide, soit parce que vous n’avez pas de valeur par défaut pour la propriété dans le fichier de définition artifactfile.json. Le script se bloquera car il attend une entrée utilisateur.
+    - Un script PowerShell a des **paramètres obligatoires**, mais l’un d’eux ne lui transmet pas de valeur, soit parce que vous autorisez l’utilisateur à le laisser vide, soit parce que vous n’avez pas de valeur par défaut pour la propriété dans le fichier de définition artifactfile.json. Le script ne répond plus car il attend une entrée de l'utilisateur.
     - Un script PowerShell **exige une entrée utilisateur** dans le cadre de l’exécution. Les scripts doivent être écrits pour fonctionner en mode silencieux sans intervention de l’utilisateur.
 - **Il faut beaucoup de temps à l’agent de machine virtuelle pour être prêt**. Quand la machine virtuelle est démarrée pour la première fois, ou quand l’extension de script personnalisé est installée initialement pour répondre à la requête d’application des artefacts, la machine virtuelle peut exiger une mise à niveau de l’agent de machine virtuelle ou attendre l’initialisation de l’agent de machine virtuelle. Il peut y avoir des services dont dépend l’agent de machine virtuelle qui prennent beaucoup de temps pour s’initialiser. Dans ce cas, consultez [Vue d’ensemble d’agent de machine virtuelle Azure](../virtual-machines/extensions/agent-windows.md) pour plus d’informations sur le dépannage.
 
-### <a name="to-verify-if-the-artifact-appears-to-hang-because-of-the-script"></a>Pour vérifier si l’artefact semble se bloquer à cause du script
+### <a name="to-verify-if-the-artifact-appears-to-stop-responding-because-of-the-script"></a>Pour déterminer si l'artefact ne répond plus à cause du script
 
 1. Connectez-vous à la machine virtuelle en question.
 2. Copiez le script localement sur la machine virtuelle ou recherchez-le sur la machine virtuelle sous `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\<version>`. Il s’agit de l’emplacement où les scripts d’artefact sont téléchargés.
@@ -83,7 +84,7 @@ Quand un artefact semble se bloquer, commencez par déterminer où il est bloqu�
 > 
 > Pour plus d’informations sur l’écriture de vos propres artefacts, consultez le document [AUTHORING.md](https://github.com/Azure/azure-devtestlab/blob/master/Artifacts/AUTHORING.md).
 
-### <a name="to-verify-if-the-artifact-appears-to-hang-because-of-the-vm-agent"></a>Pour vérifier si l’artefact semble se bloquer à cause de l’agent de machine virtuelle
+### <a name="to-verify-if-the-artifact-appears-to-stop-responding-because-of-the-vm-agent"></a>Pour déterminer si l'artefact ne répond plus à cause de l'agent de machine virtuelle
 1. Connectez-vous à la machine virtuelle en question.
 2. À l’aide de l’Explorateur de fichiers, accédez à **C:\WindowsAzure\logs**.
 3. Recherchez et ouvrez le fichier **WaAppAgent.log**.
@@ -119,7 +120,7 @@ L’erreur ci-dessus apparaît dans la section **Message de déploiement** de la
 ### <a name="to-ensure-communication-to-the-azure-storage-service-isnt-being-blocked"></a>Pour garantir que la communication avec le service Stockage Azure n’est pas bloquée
 
 - **Vérifiez si des groupes de sécurité réseau ont été ajoutés**. Il se peut qu’une stratégie d’abonnement ait été ajoutée, dans laquelle des groupes de sécurité réseau sont configurés automatiquement dans tous les réseaux virtuels. Cela affecterait également le réseau virtuel par défaut du laboratoire, s’il est utilisé, ou tout autre réseau virtuel configuré dans votre laboratoire et utilisé pour la création de machines virtuelles.
-- **Vérifiez le compte de stockage du laboratoire par défaut** (autrement dit, le premier compte de stockage créé lors de la création du laboratoire, dont le nom commence généralement par la lettre « a » et se termine par un nombre à plusieurs chiffres, autrement dit a\<nom_labo\>#).
+- **Vérifiez le compte de stockage du labo par défaut** (premier compte de stockage créé lors de la création du labo, dont le nom commence généralement par la lettre « a » et se termine par un nombre à plusieurs chiffres, autrement dit a\<labname\>#).
     1. Accédez au groupe de ressources du laboratoire.
     2. Recherchez la ressource de type **compte de stockage**, dont le nom correspond à la convention.
     3. Accédez à la page du compte de stockage nommée **Pare-feu et réseaux virtuels**.
@@ -137,4 +138,3 @@ Il existe d’autres sources d’erreurs moins fréquentes. Veillez à évaluer 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si aucune de ces erreurs ne s’est produite et que vous ne pouvez toujours pas appliquer d’artefacts, vous pouvez soumettre un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/) , puis cliquez sur **Obtenir un support**.
-

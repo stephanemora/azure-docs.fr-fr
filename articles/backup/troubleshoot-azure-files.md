@@ -3,12 +3,12 @@ title: Résoudre des problèmes de sauvegarde de partages de fichiers Azure
 description: Cet article contient des informations de dépannage concernant les problèmes qui se produisent lors de la protection de vos partages de fichiers Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: a9b3514b4c1a00cc2f9bb1e1922975bf0bb70d24
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 3d04a60b8bab5ba764818eab341ac08836b0dfd1
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562081"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116730"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Résoudre des problèmes lors de la sauvegarde de partages de fichiers Azure
 
@@ -159,7 +159,7 @@ Message d’erreur : Échec de la récupération, car le nombre de fichiers ayan
 
 - Causes courantes des échecs de restauration de fichiers :
 
-  - les fichiers dont la récupération a échoué sont en cours d’utilisation
+  - les fichiers dont la restauration a échoué sont en cours d’utilisation
   - un répertoire du même nom que le fichier dont la récupération a échoué existe dans le répertoire parent.
 
 ### <a name="datatransferserviceallfilesfailedtorecover--recovery-failed-as-no-file-could-be-recovered"></a>DataTransferServiceAllFilesFailedToRecover : échec de la récupération, car aucun fichier ne peut être récupéré
@@ -276,6 +276,45 @@ Code d’erreur : BMSUserErrorObjectLocked
 Message d’erreur : Une autre opération est en cours sur l’élément sélectionné.
 
 Attendez que l’autre opération en cours soit terminée, puis réessayez.
+
+À partir du fichier : troubleshoot-azure-files.md
+
+## <a name="common-soft-delete-related-errors"></a>Erreurs courantes liées à la suppression réversible
+
+### <a name="usererrorrestoreafsinsoftdeletestate--this-restore-point-is-not-available-as-the-snapshot-associated-with-this-point-is-in-a-file-share-that-is-in-soft-deleted-state"></a>UserErrorRestoreAFSInSoftDeleteState - Ce point de restauration n'est pas disponible, car l'instantané qui lui est associé se trouve dans un partage de fichiers qui est dans un état de suppression réversible.
+
+Code d’erreur : UserErrorRestoreAFSInSoftDeleteState
+
+Message d’erreur : Ce point de restauration n'est pas disponible, car l'instantané qui lui est associé se trouve dans un partage de fichiers qui est dans un état de suppression réversible.
+
+Vous ne pouvez pas effectuer d'opération de restauration lorsque le partage de fichiers est dans un état de suppression réversible. Annulez la suppression du partage de fichiers à partir du portail Files ou à l'aide du [script Annuler la suppression](scripts/backup-powershell-script-undelete-file-share.md), puis essayez de le restaurer.
+
+### <a name="usererrorrestoreafsindeletestate--listed-restore-points-are-not-available-as-the-associated-file-share-containing-the-restore-point-snapshots-has-been-deleted-permanently"></a>Les points de restauration listés ne sont pas disponibles, car le partage de fichiers associé contenant les instantanés de point de restauration a été supprimé définitivement.
+
+Code d’erreur : UserErrorRestoreAFSInDeleteState
+
+Message d’erreur : Les points de restauration listés ne sont pas disponibles, car le partage de fichiers associé contenant les instantanés de point de restauration a été supprimé définitivement.
+
+Déterminez si le partage de fichiers sauvegardés a été supprimé. S'il était dans un état de suppression réversible, déterminez si la période de rétention de la suppression réversible est terminée et vérifiez que celle-ci n'a pas été récupérée. Dans les deux cas, vous perdrez définitivement tous vos instantanés et ne pourrez pas récupérer les données.
+
+>[!NOTE]
+> Nous vous recommandons de ne pas supprimer le partage de fichiers sauvegardés, ou s'il est dans un état de suppression réversible, de le supprimer avant la fin de la période de rétention de la suppression réversible, pour éviter de perdre tous vos points de restauration.
+
+### <a name="usererrorbackupafsinsoftdeletestate---backup-failed-as-the-azure-file-share-is-in-soft-deleted-state"></a>UserErrorBackupAFSInSoftDeleteState - La sauvegarde a échoué car le partage de fichiers Azure est dans un état de suppression réversible
+
+Code d’erreur : UserErrorBackupAFSInSoftDeleteState
+
+Message d’erreur : La sauvegarde a échoué car le partage de fichiers Azure est dans un état de suppression réversible
+
+Annulez la suppression du partage de fichiers à partir du **portail Files** ou à l'aide du [script Annuler la suppression](scripts/backup-powershell-script-undelete-file-share.md) pour poursuivre la sauvegarde et empêcher la suppression définitive des données.
+
+### <a name="usererrorbackupafsindeletestate--backup-failed-as-the-associated-azure-file-share-is-permanently-deleted"></a>UserErrorBackupAFSInDeleteState - La sauvegarde a échoué car le partage de fichiers Azure associé a été définitivement supprimé
+
+Code d’erreur : UserErrorBackupAFSInDeleteState
+
+Message d’erreur : La sauvegarde a échoué car le partage de fichiers Azure associé a été définitivement supprimé
+
+Déterminez si le partage de fichiers sauvegardé a été définitivement supprimé. Si oui, arrêtez la sauvegarde du partage de fichiers pour éviter les échecs de sauvegarde répétés. Pour en savoir plus sur l'arrêt de la protection, consultez [Arrêter la protection du partage de fichiers Azure](https://docs.microsoft.com/azure/backup/manage-afs-backup#stop-protection-on-a-file-share).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

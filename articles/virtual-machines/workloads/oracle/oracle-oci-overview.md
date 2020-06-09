@@ -11,15 +11,15 @@ ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/12/2020
+ms.date: 06/01/2020
 ms.author: borisb
 ms.custom: ''
-ms.openlocfilehash: 077fd70f0908dcef3af0c1e037fe137d636a4ac4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9fc14a6a8211308ef9f1cd98cd4b831070a99e22
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660564"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299874"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Solutions d’applications Oracle intégrant Microsoft Azure et l’infrastructure cloud Oracle
 
@@ -35,10 +35,7 @@ Si vous êtes intéressé par le déploiement complet de solutions Oracle sur l�
 
 La connectivité entre clouds vous fournit une solution permettant d’exécuter les applications leaders d’Oracle et vos propres applications personnalisées sur des machines virtuelles Azure tout en bénéficiant des avantages de services de base de données hébergés dans OCI. 
 
-> [!IMPORTANT]
-> Oracle certifie que ces applications s’exécutent dans Azure lors de l’utilisation de la solution d’interconnexion Azure / Oracle Cloud en mai 2020.
-
-Vous pouvez notamment exécuter les applications suivantes dans une configuration entre clouds :
+Depuis mai 2020, les applications suivantes sont certifiées dans une configuration multi-cloud :
 
 * E-Business Suite
 * JD Edwards EnterpriseOne

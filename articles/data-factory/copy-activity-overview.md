@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 2557ce7be44f0505b96df06cd2b44a2fa3ce3fdb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 74210864332319dabb16eda865da9dc9793e3dbd
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414220"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84187681"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
 
@@ -55,7 +55,7 @@ Pour copier des données d’une source vers un récepteur, le service qui exéc
 
 Vous pouvez utiliser l’activité de copie pour copier des fichiers en l'état entre deux banques de données de fichiers, auquel cas les données sont copiées efficacement sans sérialisation ou désérialisation. En outre, vous avez la possibilité d'analyser ou de générer des fichiers d’un format donné. Vous pouvez notamment effectuer ce qui suit :
 
-* Copier des données à partir d’une base de données SQL Server locale et écrire dans Azure Data Lake Storage Gen2 au format Parquet.
+* Copier des données à partir d'une base de données SQL Server et écrire dans Azure Data Lake Storage Gen2 au format Parquet.
 * Copier des fichiers au format texte (CSV) à partir d’un système de fichiers local et les écrire dans le stockage d’objets BLOB Azure au format Avro.
 * Copier des fichiers compressés à partir d’un système de fichiers local, les décompresser à la volée et écrire les fichiers extraits dans Azure Data Lake Storage Gen2.
 * Copier des données au format de texte compressé Gzip (CSV) à partir du stockage Blob Azure et les écrire dans Azure SQL Database.
@@ -250,4 +250,4 @@ Voir les procédures de démarrage rapide, didacticiels et exemples suivants :
 
 - [Copier des données d’un emplacement vers un autre dans le même compte de stockage Blob Azure](quickstart-create-data-factory-dot-net.md)
 - [Copier des données de stockage Blob Azure vers Azure SQL Database](tutorial-copy-data-dot-net.md)
-- [Copier des données depuis une base de données SQL Server locale vers Azure](tutorial-hybrid-copy-powershell.md)
+- [Copier des données d'une base de données SQL Server vers Azure](tutorial-hybrid-copy-powershell.md)

@@ -2,13 +2,13 @@
 title: Fonctions de modèle - Ressources
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs sur les ressources.
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.openlocfilehash: aea3f654551f66390afa207ac5ce682d23e5bfe9
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.date: 06/01/2020
+ms.openlocfilehash: a31aadb02ed3fff83ee6dc62a71aa32d0b716629
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780559"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259437"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Fonctions de ressource pour les modèles ARM
 
@@ -495,7 +495,7 @@ La fonction de référence ne peut être utilisée que dans les propriétés d�
 
 Vous ne pouvez pas utiliser la fonction de référence pour définir la valeur de la propriété `count` dans une boucle de copie. Vous pouvez l'utiliser pour définir d’autres propriétés de la boucle. La référence est bloquée pour la propriété de nombre car cette propriété doit être déterminée préalablement à la résolution de la fonction de référence.
 
-Vous ne pouvez pas utiliser la fonction Référence dans les sorties d’un [modèle imbriqué](linked-templates.md#nested-template) pour retourner une ressource que vous avez déployée dans le modèle imbriqué. Utilisez plutôt un [modèle lié](linked-templates.md#linked-template).
+Pour utiliser la fonction de référence ou n'importe quelle fonction list* dans la section outputs d'un modèle imbriqué, vous devez définir les ```expressionEvaluationOptions``` de manière à utiliser l'évaluation [avec portée interne](linked-templates.md#expression-evaluation-scope-in-nested-templates), ou utiliser un modèle lié plutôt qu'un modèle imbriqué.
 
 Si vous utilisez une fonction **reference** dans une ressource qui est déployée conditionnellement, la fonction est évaluée même si la ressource n’est pas déployée.  Vous obtenez une erreur si la fonction **reference** fait référence à une ressource qui n’existe pas. Utilisez la fonction **if** pour vous assurer que la fonction est évaluée lors du déploiement de la ressource. Consultez la [fonction if](template-functions-logical.md#if) pour un exemple de modèle qui utilise « if » et « reference » avec une ressource déployée de manière conditionnelle.
 
@@ -537,10 +537,20 @@ Pour simplifier la création d’un ID de ressource, utilisez les fonctions `res
 
 [Les identités managées pour ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md) sont des [types de ressources d’extension](../management/extension-resource-types.md) créés implicitement pour certaines ressources. L’identité managée n’étant pas définie explicitement dans le modèle, vous devez référencer la ressource à laquelle elle est appliquée. Utilisez `Full` pour obtenir toutes les propriétés, y compris l’identité créée implicitement.
 
-Par exemple, pour obtenir l’ID de locataire d’une identité managée appliquée à un groupe de machines virtuelles identiques, utilisez :
+Le modèle est :
+
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+
+Par exemple, pour obtenir l'ID de principal d'une identité managée appliquée à une machine virtuelle, utilisez :
 
 ```json
-"tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), '2019-03-01', 'Full').Identity.tenantId]"
+"[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')),'2019-12-01', 'Full').identity.principalId]",
+```
+
+Ou, pour obtenir l'ID de locataire d'une identité managée appliquée à un groupe de machines virtuelles identiques, utilisez :
+
+```json
+"[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
 ```
 
 ### <a name="reference-example"></a>Exemple de référence

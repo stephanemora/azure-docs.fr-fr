@@ -12,12 +12,12 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: 5495aa6fda189897985ed2f198f6e92c996f6fef
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: d513dbd8449dad1d34117e06970f0c0881462aa3
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81868378"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263225"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorisations et consentement dans le point de terminaison de la plateforme d’identités Microsoft
 
@@ -68,7 +68,9 @@ Les _autorisations effectives_ correspondent aux autorisations accordées à vot
 
 ## <a name="openid-connect-scopes"></a>Étendues OpenId Connect
 
-L’implémentation d’OpenID Connect de la plateforme d’identités Microsoft comprend quelques étendues bien définies qui ne s’appliquent pas à une ressource particulière : `openid`, `email`, `profile` et `offline_access`. Les étendues OpenID Connect `address` et `phone` ne sont pas prises en charge.
+L'implémentation d'OpenID Connect sur la plateforme d'identités Microsoft comprend quelques étendues bien définies qui sont également hébergées sur l'instance de Microsoft Graph : `openid`, `email`, `profile` et `offline_access`. Les étendues OpenID Connect `address` et `phone` ne sont pas prises en charge.
+
+En demandant les étendues OIDC et un jeton, vous obtiendrez un jeton pour appeler le [point de terminaison UserInfo](userinfo.md).
 
 ### <a name="openid"></a>openid
 

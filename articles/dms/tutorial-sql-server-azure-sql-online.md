@@ -1,7 +1,7 @@
 ---
 title: 'Tutoriel : Migrer SQL Server en ligne vers une base de données unique SQL'
 titleSuffix: Azure Database Migration Service
-description: Apprenez à effectuer une migration en ligne d’une instance locale de SQL Server vers une base de données unique ou mise en pool dans Azure SQL Database à l’aide du service Azure Database Migration Service.
+description: Apprenez à effectuer une migration en ligne entre SQL Server et Azure SQL Database à l'aide d'Azure Database Migration Service.
 services: dms
 author: pochiraju
 ms.author: rajpo
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/21/2020
-ms.openlocfilehash: bc7355dd7e01a30d47e0ca238b8996aab9b4e6b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e7ef31f7d48096fe94570ca9f3275bda23452f9
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298965"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194161"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Tutoriel : Migrer SQL Server vers une base de données unique ou mise en pool dans Azure SQL Database en ligne à l’aide de DMS
 
-Vous pouvez utiliser Azure Database Migration Service pour migrer les bases de données d’une instance SQL Server locale vers [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) avec un temps d’arrêt minimal. Dans ce tutoriel, vous migrez la base de données **Adventureworks2012** restaurée sur une instance locale de SQL Server 2016 (ou une version ultérieure) vers une base de données unique ou mise en pool dans Azure SQL Database à l’aide du service Azure Database Migration Service.
+Vous pouvez utiliser Azure Database Migration Service pour migrer les bases de données d'une instance de SQL Server vers [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) avec un temps d'arrêt minimal. Dans ce tutoriel, vous migrez la base de données **Adventureworks2012** restaurée sur une instance locale de SQL Server 2016 (ou une version ultérieure) vers une base de données unique ou mise en pool dans Azure SQL Database à l’aide du service Azure Database Migration Service.
 
 Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
@@ -71,7 +71,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 - Ouvrez votre Pare-feu Windows pour permettre à Azure Database Migration Service d’accéder au serveur SQL Server source, par défaut le port TCP 1433.
 - Si vous exécutez plusieurs instances nommées de SQL Server avec des ports dynamiques, vous pouvez activer le service SQL Browser et autoriser l’accès au port UDP 1434 à travers vos pare-feu, de sorte qu’Azure Database Migration Service puisse se connecter à une instance nommée sur votre serveur source.
 - Lorsque vous utilisez une appliance de pare-feu devant vos bases de données sources, vous devrez peut-être ajouter des règles de pare-feu pour permettre à Azure Database Migration Service d’accéder aux bases de données sources pour la migration.
-- Créez une [règle de pare-feu](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) de niveau serveur pour le serveur Azure SQL Database afin de permettre à Azure Database Migration Service d’accéder aux bases de données cibles. Fournissez la plage de sous-réseau du réseau virtuel utilisé pour Azure Database Migration Service.
+- Créez une [règle de pare-feu](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) au niveau du serveur pour qu'Azure SQL Database permette à Azure Database Migration Service d'accéder aux bases de données cibles. Fournissez la plage de sous-réseau du réseau virtuel utilisé pour Azure Database Migration Service.
 - Assurez-vous que les informations d’identification utilisées pour se connecter à une instance SQL Server source disposent des autorisations [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
 - Assurez-vous que les informations d’identification utilisées pour se connecter à l’instance Azure SQL Database cible disposent des autorisations CONTROL DATABASE pour les instances Azure SQL Database cibles.
 - Le serveur SQL Server source doit exécuter SQL Server 2005 ou ultérieur. Pour déterminer la version que votre instance SQL Server exécute, consultez l’article [Comment faire pour déterminer la version, l’édition et le niveau de mise à jour de SQL Server et ses composants](https://support.microsoft.com/help/321185/how-to-determine-the-version-edition-and-update-level-of-sql-server-an).
@@ -127,7 +127,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
 ## <a name="assess-your-on-premises-database"></a>Évaluer votre base de données locale
 
-Avant de pouvoir migrer les données d’une instance locale de SQL Server vers une base de données unique ou mise en pool dans Azure SQL Database, vous devez évaluer la base de données SQL Server pour détecter les problèmes de blocage susceptibles d’empêcher la migration. Une fois que vous avez téléchargé et installé l’Assistant Migration de données v3.3 ou version ultérieure, suivez les étapes décrites dans l’article [Évaluation de la migration de SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) pour évaluer la base de données locale.
+Avant de pouvoir migrer des données d'une instance de SQL Server vers Azure SQL Database, vous devez évaluer la base de données SQL Server afin de détecter tout problème de blocage qui pourrait empêcher la migration. Une fois que vous avez téléchargé et installé l’Assistant Migration de données v3.3 ou version ultérieure, suivez les étapes décrites dans l’article [Évaluation de la migration de SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) pour évaluer la base de données locale.
 
 Pour évaluer une base de données locale, effectuez les étapes suivantes :
 
@@ -155,7 +155,7 @@ Pour évaluer une base de données locale, effectuez les étapes suivantes :
     En ce qui concerne les bases de données uniques ou les bases de données mises en pool dans Azure SQL Database, les évaluations vous permettent d’identifier les problèmes de parité des fonctionnalités ainsi que les problèmes de blocage de migration pour le déploiement sur une base de données unique ou mise en pool.
 
     - La catégorie de **parité de fonctionnalité SQL Server** fournit un ensemble complet de recommandations, d’approches alternatives disponibles dans Azure et de procédures d’atténuation pour vous aider à planifier les efforts de vos projets de migration.
-    - La catégorie de **problèmes de compatibilité** indique les fonctionnalités partiellement ou non prises en charge reflétant les éventuels problèmes de compatibilité susceptibles de bloquer la migration des bases de données SQL Server locales vers Azure SQL Database. Des recommandations sont également fournies pour vous aider à résoudre ces problèmes.
+    - La catégorie de **problèmes de compatibilité** indique les fonctionnalités partiellement prises en charge ou non prises en charge qui reflètent les problèmes de compatibilité susceptibles de bloquer la migration des bases de données SQL Server vers Azure SQL Database. Des recommandations sont également fournies pour vous aider à résoudre ces problèmes.
 
 6. Passez en revue les résultats d’évaluation en ce qui concerne les problèmes de blocage de migration et les problèmes de parité de fonctionnalité en sélectionnant les options spécifiques.
 
@@ -291,7 +291,7 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
 
 ## <a name="specify-target-details"></a>Spécifier les détails de la cible
 
-1. Sélectionnez **Enregistrer** puis, dans l’écran **Détails de la cible de migration**, spécifiez les détails de connexion du serveur Azure SQL Database cible, à savoir l’instance Azure SQL Database préprovisionnée sur laquelle le schéma **AdventureWorks2012** a été déployé à l’aide de DMA.
+1. Sélectionnez **Enregistrer** puis, sur l'écran **Détails de la cible de migration**, spécifiez les détails de connexion de l'instance cible d'Azure SQL Database, à savoir l'instance d'Azure SQL Database pré-approvisionnée sur laquelle le schéma **AdventureWorks2012** a été déployé à l'aide de DMA.
 
     ![Sélectionner la cible](media/tutorial-sql-server-to-azure-sql-online/dms-select-target3.png)
 

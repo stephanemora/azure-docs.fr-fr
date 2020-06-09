@@ -11,12 +11,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 27d3a242d91a79ea00974748f4a8b5460d2dd247
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d86a0df5265418a28e1fe68de0dc2cd601e71f61
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416052"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015589"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Sécuriser une base de données dans Azure Synapse
 
@@ -33,11 +33,11 @@ Cet article présente les bases de la sécurisation de votre pool SQL Synapse. P
 
 L’expression « sécurité de la connexion » fait référence au mode de restriction et de sécurisation appliqué aux connexions à votre base de données, au moyen de règles de pare-feu et d’une fonction de chiffrement des connexions.
 
-Tant le serveur que la base de données utilisent des règles de pare-feu pour refuser toute tentative de connexion à partir d’adresses IP non mises explicitement en liste verte. Pour autoriser les connexions à partir de l’adresse IP publique de l’ordinateur client ou de votre application, vous devez d’abord créer une règle de pare-feu au niveau du serveur à l’aide du portail Azure, de l’API REST ou de PowerShell.
+Le [serveur SQL logique](../../azure-sql/database/logical-servers.md) que ses bases de données utilisent des règles de pare-feu pour rejeter les tentatives de connexion provenant d'adresses IP qui n'ont pas été explicitement mises en liste verte. Pour autoriser les connexions à partir de l’adresse IP publique de l’ordinateur client ou de votre application, vous devez d’abord créer une règle de pare-feu au niveau du serveur à l’aide du portail Azure, de l’API REST ou de PowerShell.
 
-Nous vous recommandons, à titre de meilleure pratique, de limiter autant que possible le nombre de plages d’adresses IP autorisées à traverser le pare-feu de votre serveur.  Pour accéder au pool SQL à partir de votre ordinateur local, vérifiez que le pare-feu de votre réseau et l'ordinateur local autorisent les communications sortantes sur le port TCP 1433.  
+Nous vous recommandons, à titre de meilleure pratique, de limiter autant que possible le nombre de plages d'adresses IP autorisées à traverser le pare-feu au niveau de votre serveur.  Pour accéder au pool SQL à partir de votre ordinateur local, vérifiez que le pare-feu de votre réseau et l'ordinateur local autorisent les communications sortantes sur le port TCP 1433.  
 
-Azure Synapse Analytics utilise des règles de pare-feu IP au niveau serveur. Il ne prend pas en charge les règles de pare-feu IP au niveau de la base de données. Pour plus d’information, voir [Règles de pare-feu Azure SQL Database](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Azure Synapse Analytics utilise des règles de pare-feu IP au niveau serveur. Il ne prend pas en charge les règles de pare-feu IP au niveau de la base de données. Pour plus d’information, voir [Règles de pare-feu Azure SQL Database](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 Par défaut, les connexions à votre pool SQL sont chiffrées.  La modification des paramètres de connexion pour désactiver le chiffrement est ignorée.
 
@@ -45,11 +45,11 @@ Par défaut, les connexions à votre pool SQL sont chiffrées.  La modification 
 
 Le terme « authentification » fait référence au processus de validation de votre identité lorsque vous vous connectez à la base de données. Le pool SQL prend actuellement en charge l'authentification SQL Server avec un nom d'utilisateur et un mot de passe, et avec Azure Active Directory.
 
-Lorsque vous avez créé un serveur logique pour votre base de données, vous avez spécifié un compte de connexion « Admin serveur », associé à un nom d’utilisateur et à un mot de passe. À l’aide de ces informations d’identification, vous pouvez vous authentifier auprès de n’importe quelle base de données sur ce serveur, en tant que propriétaire de la base de données, ou « dbo » via l’authentification SQL Server.
+Lorsque vous avez créé le serveur de votre base de données, vous avez spécifié un compte de connexion « Admin serveur » associé à un nom d'utilisateur et à un mot de passe. À l’aide de ces informations d’identification, vous pouvez vous authentifier auprès de n’importe quelle base de données sur ce serveur, en tant que propriétaire de la base de données, ou « dbo » via l’authentification SQL Server.
 
 Toutefois, en guise de meilleure pratique, il est recommandé que les utilisateurs de votre organisation utilisent un compte différent pour s’authentifier. Cela vous permet de limiter les autorisations accordées à cette application et de réduire les risques d’activité malveillante, au cas où le code de votre application serait vulnérable à une attaque par injection de code SQL.
 
-Pour créer un utilisateur authentifié par SQL Server, connectez-vous à la base de données **master** sur votre serveur avec votre identifiant de connexion d’administrateur du serveur, et créez un nouvel identifiant de connexion au serveur.  Il est judicieux de créer également un utilisateur dans la base de données MASTER. La création d’un utilisateur dans la base de données master permet à un utilisateur de se connecter à l’aide d’outils tels que SSMS sans spécifier de nom de base de données.  Elle permet également d’utiliser l’Explorateur d’objets pour afficher toutes les bases de données sur un serveur SQL Server.
+Pour créer un utilisateur authentifié par SQL Server, connectez-vous à la base de données **master** sur votre serveur avec votre identifiant de connexion d’administrateur du serveur, et créez un nouvel identifiant de connexion au serveur.  Il est judicieux de créer également un utilisateur dans la base de données MASTER. La création d’un utilisateur dans la base de données master permet à un utilisateur de se connecter à l’aide d’outils tels que SSMS sans spécifier de nom de base de données.  Elle permet également d'utiliser l'Explorateur d'objets pour afficher toutes les bases de données d'un serveur.
 
 ```sql
 -- Connect to master database and create a login
@@ -66,7 +66,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 Pour autoriser un utilisateur à effectuer d’autres opérations telles que la création de connexions ou de bases de données, affectez-le aux rôles `Loginmanager` et `dbmanager` dans la base de données master.
 
-Pour en savoir plus sur ces rôles supplémentaires et sur l’authentification auprès d’une base de données SQL, consultez [Gestion des bases de données et connexions dans Azure SQL Database](../../sql-database/sql-database-manage-logins.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).  Pour plus d’informations sur la connexion à l’aide d’Azure Active Directory, voir [Connexion à l’aide de l’authentification Azure Active Directory](sql-data-warehouse-authentication.md).
+Pour en savoir plus sur ces rôles supplémentaires et sur l’authentification auprès d’une base de données SQL, consultez [Gestion des bases de données et connexions dans Azure SQL Database](../../azure-sql/database/logins-create-manage.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).  Pour plus d’informations sur la connexion à l’aide d’Azure Active Directory, voir [Connexion à l’aide de l’authentification Azure Active Directory](sql-data-warehouse-authentication.md).
 
 ## <a name="authorization"></a>Autorisation
 
@@ -92,13 +92,13 @@ L’exemple suivant accorde un accès en lecture à un schéma défini par l’u
 GRANT SELECT ON SCHEMA::Test to ApplicationUser
 ```
 
-La gestion des bases de données et serveurs logiques à partir du portail Azure et l’utilisation de l’API Azure Resource Manager sont contrôlées par les attributions de rôle de votre compte d’utilisateur sur le portail. Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle dans le Portail Azure](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+La gestion des bases de données et serveurs à partir du portail Azure et l'utilisation de l'API Azure Resource Manager sont contrôlées par les attributions de rôle de votre compte d'utilisateur sur le portail. Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle dans le Portail Azure](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="encryption"></a>Chiffrement
 
 La technologie Transparent Data Encryption (TDE) vous aide à vous protéger contre des activités malveillantes en chiffrant et déchiffrant vos données au repos. Lorsque vous chiffrez votre base de données, les fichiers de sauvegardes et les journaux de transactions associés sont chiffrés, sans que cela ne nécessite de modifications de vos applications. Le chiffrement transparent des données chiffre le stockage d’une base de données entière à l’aide d’une clé symétrique appelée clé de chiffrement de base de données.
 
-Dans SQL Database, la clé de chiffrement de base de données est protégée par un certificat de serveur intégré. Le certificat de serveur intégré est unique pour chaque serveur SQL Database. Microsoft fait automatiquement alterner ces certificats au moins tous les 90 jours. L’algorithme de chiffrement utilisé est AES-256. Pour obtenir une description générale du chiffrement transparent des données, consultez la page [Chiffrement transparent des données (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Dans SQL Database, la clé de chiffrement de base de données est protégée par un certificat de serveur intégré. Le certificat de serveur intégré est propre à chaque serveur. Microsoft fait automatiquement alterner ces certificats au moins tous les 90 jours. L’algorithme de chiffrement utilisé est AES-256. Pour obtenir une description générale du chiffrement transparent des données, consultez la page [Chiffrement transparent des données (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Vous pouvez chiffrer votre base de données à l’aide du [Portail Azure](sql-data-warehouse-encryption-tde.md) ou de [T-SQL](sql-data-warehouse-encryption-tde-tsql.md).
 

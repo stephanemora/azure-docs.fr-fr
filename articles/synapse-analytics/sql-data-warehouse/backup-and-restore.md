@@ -11,12 +11,12 @@ ms.date: 03/04/2020
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: 1d82c7c22bb5aeb2740884b0d7ede4a4d8f07f86
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: ea9a9430f9abee6179bacd4f999b7eeca92a8129
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631213"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020844"
 ---
 # <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Sauvegarde et restauration dans un pool SQL Azure Synapse
 
@@ -30,7 +30,7 @@ Une *restauration d’entrepôt de données* est un nouvel entrepôt de données
 
 ## <a name="automatic-restore-points"></a>Points de restauration automatiques
 
-Les captures instantanées sont une fonctionnalité intégrée du service qui crée des points de restauration. Il n’est pas nécessaire de l’activer. Toutefois, le pool SQL doit être dans un état actif pour permettre la création de points de restauration. Si le pool SQL est fréquemment suspendu, il est possible que les points de restauration automatiques ne soient pas créés. Veillez donc à créer un point de restauration défini par l’utilisateur avant de suspendre le pool SQL. Les points de restauration automatiques ne peuvent actuellement pas être supprimés par les utilisateurs étant donné que le service utilise ces points de restauration pour conserver les contrats SLA pour la récupération.
+La fonctionnalité intégrée de captures instantanées crée des points de restauration. Il n’est pas nécessaire de l’activer. Toutefois, le pool SQL doit être dans un état actif pour permettre la création de points de restauration. Si le pool SQL est fréquemment suspendu, il est possible que les points de restauration automatiques ne soient pas créés. Veillez donc à créer un point de restauration défini par l’utilisateur avant de suspendre le pool SQL. Les points de restauration automatiques ne peuvent actuellement pas être supprimés par les utilisateurs étant donné que le service utilise ces points de restauration pour conserver les contrats SLA pour la récupération.
 
 Des captures instantanées de votre entrepôt de données sont prises pendant la journée, créant des points de restauration qui sont disponibles pendant sept jours. Cette période de conservation ne peut pas être modifiée. Le pool SQL prend en charge un objectif de point de récupération (RPO) de huit heures. Vous pouvez restaurer votre entrepôt de données dans la région primaire à partir de n’importe quelle capture instantanée prise au cours des sept derniers jours.
 
@@ -65,7 +65,7 @@ La section suivante contient plus d’informations sur les périodes de rétenti
 Quand vous supprimez un pool SQL, une capture instantanée finale est créée et enregistrée pendant sept jours. Vous pouvez restaurer le pool SQL au point de restauration final créé au moment de la suppression. Si le pool SQL est supprimé dans l’état suspendu, aucune capture instantanée n’est prise. Dans ce scénario, veillez à créer un point de restauration défini par l’utilisateur avant de supprimer le pool SQL.
 
 > [!IMPORTANT]
-> Si vous supprimez une instance SQL Server logique, toutes les bases de données qui appartiennent à l’instance sont également supprimées, sans pouvoir être récupérées. Vous ne pouvez pas restaurer un serveur supprimé.
+> Si vous supprimez le serveur qui héberge un pool SQL, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées. Vous ne pouvez pas restaurer un serveur supprimé.
 
 ## <a name="geo-backups-and-disaster-recovery"></a>Sauvegardes de géoréplication et récupération d’urgence
 
@@ -96,7 +96,7 @@ Si vous devez restaurer un entrepôt de données supprimé ou suspendu, vous pou
 
 ## <a name="cross-subscription-restore"></a>Restauration avec plusieurs abonnements
 
-Si vous devez effectuer une restauration directe dans plusieurs abonnements, votez pour cette fonctionnalité [ici](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Effectuez la restauration vers un autre serveur logique et [« déplacez »](/azure/azure-resource-manager/resource-group-move-resources?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) le serveur dans les abonnements pour effectuer une restauration dans plusieurs abonnements.
+Si vous devez effectuer une restauration directe dans plusieurs abonnements, votez pour cette fonctionnalité [ici](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Procédez à la restauration sur un autre serveur et [« déplacez »](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) le serveur entre les abonnements pour effectuer une restauration inter-abonnements.
 
 ## <a name="geo-redundant-restore"></a>Restauration géoredondante
 
@@ -107,4 +107,4 @@ Vous pouvez [restaurer votre pool SQL](sql-data-warehouse-restore-from-geo-back
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur la planification de la récupération d’urgence, consultez [Vue d’ensemble de la continuité de l’activité](../../sql-database/sql-database-business-continuity.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Pour plus d’informations sur la planification de la récupération d’urgence, consultez [Vue d’ensemble de la continuité de l’activité](../../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).

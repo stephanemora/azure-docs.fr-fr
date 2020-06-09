@@ -5,12 +5,12 @@ author: KarlErickson
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: 34aab24bf39e387715cfa5783b801d45ed488750
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a366a199338539ba8e599bd5f406838f4e7bd21c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732722"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996639"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Utiliser Java et Gradle pour créer et publier une fonction sur Azure
 
@@ -60,7 +60,7 @@ azurefunctions {
 Ouvrez le nouveau fichier Function.java à partir du chemin *src/main/java* dans un éditeur de texte et passez en revue le code généré. Ce code est une fonction [déclenchée par HTTP](functions-bindings-http-webhook.md) qui renvoie le corps de la requête. 
 
 > [!div class="nextstepaction"]
-> [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=generate-project)
+> [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=generate-project)
 
 ## <a name="run-the-function-locally"></a>Exécuter la fonction localement
 
@@ -93,14 +93,16 @@ curl -w "\n" http://localhost:7071/api/HttpExample --data AzureFunctions
 La sortie attendue est la suivante :
 
 <pre>
-Hello AzureFunctions!
+Hello, AzureFunctions
 </pre>
 
-La [clé de fonction](functions-bindings-http-webhook-trigger.md#authorization-keys) n’est pas nécessaire lors de l’exécution locale.  
+> [!NOTE]
+> Si vous définissez authLevel sur `FUNCTION` ou `ADMIN`, la [clé de fonction](functions-bindings-http-webhook-trigger.md#authorization-keys) n'est pas nécessaire lors de l'exécution locale.  
+
 Utilisez `Ctrl+C` dans le terminal pour arrêter le code de la fonction.
 
 > [!div class="nextstepaction"]
-> [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=local-run)
+> [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=local-run)
 
 ## <a name="deploy-the-function-to-azure"></a>Déployer la fonction sur Azure
 
@@ -128,10 +130,10 @@ Cela crée les ressources suivantes dans Azure, en fonction des valeurs du fichi
 
 Le déploiement empaquette également les fichiers projet et les déploie dans la nouvelle application de fonction à l’aide de [zip deployment](functions-deployment-technologies.md#zip-deploy), en activant le mode d’exécution à partir du package.
 
-Étant donné que le déclencheur HTTP que nous avons publié utilise `authLevel = AuthorizationLevel.FUNCTION`, vous devez obtenir la clé de fonction pour appeler le point de terminaison de fonction sur HTTP. Le moyen le plus simple d’obtenir la clé de fonction consiste à passer par le [Azure portal].
+Le paramètre authLevel du déclencheur HTTP de l'exemple de projet est `ANONYMOUS`, ce qui permet d'ignorer l'authentification. Cependant, si vous utilisez un autre niveau d'authentification, comme `FUNCTION` ou `ADMIN`, vous devez obtenir la clé de fonction pour appeler le point de terminaison de fonction sur HTTP. Le moyen le plus simple d’obtenir la clé de fonction consiste à passer par le [Azure portal].
 
 > [!div class="nextstepaction"]
-> [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=deploy)
+> [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=deploy)
 
 ## <a name="get-the-http-trigger-url"></a>Obtient l’URL du déclencheur HTTP
 
@@ -139,9 +141,9 @@ Vous pouvez obtenir l’URL requise pour déclencher votre fonction, avec la cl�
 
 1. Accédez au [Azure portal], connectez-vous, tapez l’_appName_ de votre application de fonction dans **Rechercher** en haut de la page, puis appuyez sur Entrée.
  
-1. Dans votre application de fonction, développez **Fonctions (Lecture seule)** , choisissez votre fonction, puis sélectionnez **</> Obtenir l’URL de fonction** en haut à droite. 
+1. Dans votre application de fonction, sélectionnez **Fonctions**, choisissez votre fonction, puis cliquez sur **</> Obtenir l'URL de fonction** en haut à droite. 
 
-    ![Copier l’URL de fonction à partir du portail Azure](./media/functions-create-java-maven/get-function-url-portal.png)
+    :::image type="content" source="./media/functions-create-first-java-gradle/get-function-url-portal.png" alt-text="Copier l'URL de fonction à partir du portail Azure":::
 
 1. Choisissez **par défaut (Clé de fonction)** et sélectionnez **Copier**. 
 
@@ -152,17 +154,17 @@ Vous pouvez maintenant utiliser l’URL copiée pour accéder à votre fonction.
 Pour vérifier que l’application de fonction s’exécute sur Azure à l’aide de `cURL`, remplacez l’URL de l’exemple ci-dessous par celle que vous avez copiée à partir du portail.
 
 ```console
-curl -w "\n" https://fabrikam-functions-20190929094703749.azurewebsites.net/api/HttpExample?code=zYRohsTwBlZ68YF.... --data AzureFunctions
+curl -w "\n" http://azure-functions-sample-demo.azurewebsites.net/api/HttpExample --data AzureFunctions
 ```
 
 Cela envoie une requête POST au point de terminaison de fonction avec `AzureFunctions` dans le corps de la requête. Vous obtenez la réponse suivante.
 
 <pre>
-Hello AzureFunctions!
+Hello, AzureFunctions
 </pre>
 
 > [!div class="nextstepaction"]
-> [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=verify-deployment)
+> [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=functions-create-first-java-gradle&step=verify-deployment)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

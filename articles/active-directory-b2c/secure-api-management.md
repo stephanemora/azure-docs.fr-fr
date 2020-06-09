@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0ffadca550a3a28b0ab490dd43c3b884602c93df
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8b0362f9bb80af9f98dad032790a9e88651284a1
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83638494"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298871"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Sécuriser une API Gestion des API Azure avec Azure AD B2C
 
@@ -35,23 +35,23 @@ Avant de poursuivre les étapes de cet article, vous devez disposer des ressourc
 
 Lorsque vous sécurisez une API dans Gestion des API Azure avec Azure AD B2C, vous avez besoin de plusieurs valeurs pour la [stratégie de trafic entrant](../api-management/api-management-howto-policies.md) que vous créez dans APIM. Tout d’abord, enregistrez l’ID d’une application que vous avez précédemment créée dans votre locataire Azure AD B2C. Si vous utilisez l’application que vous avez créée dans les prérequis, utilisez l’ID d’application pour *webbapp1*.
 
-Vous pouvez utiliser l’expérience **Applications** actuelle ou notre nouvelle expérience unifiée **Inscriptions d’applications (préversion)** pour obtenir l’ID d’application. [En savoir plus sur la nouvelle expérience](https://aka.ms/b2cappregintro).
+Pour inscrire une application dans votre locataire Azure AD B2C, vous pouvez utiliser notre nouvelle expérience unifiée **Inscriptions d'applications** ou notre expérience héritée **Applications (héritées)** . [En savoir plus sur la nouvelle expérience](https://aka.ms/b2cappregtraining).
 
-#### <a name="applications"></a>[Applications](#tab/applications/)
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
-1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
-1. Sous **Gérer**, sélectionnez **Applications**.
-1. Enregistrez la valeur dans la colonne **ID D’APPLICATION** pour *webapp1* ou une autre application que vous avez créée précédemment.
-
-#### <a name="app-registrations-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Inscriptions des applications](#tab/app-reg-ga/)
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
 1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
-1. Sélectionnez **Inscriptions d’applications (préversion)** , puis sélectionnez l’onglet **Applications détenues**.
+1. Sélectionnez **Inscriptions d'applications**, puis sélectionnez l'onglet **Applications détenues**.
 1. Enregistrez la valeur dans la colonne **ID d’application (cliente)** pour *webapp1* ou une autre application que vous avez créée précédemment.
+
+#### <a name="applications-legacy"></a>[Applications (héritées)](#tab/applications-legacy/)
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
+1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Sous **Gérer**, sélectionnez **Applications (héritées)** .
+1. Enregistrez la valeur dans la colonne **ID D’APPLICATION** pour *webapp1* ou une autre application que vous avez créée précédemment.
 
 * * *
 
@@ -88,7 +88,7 @@ Vous êtes maintenant prêt à ajouter la stratégie de trafic entrant dans Gest
 1. Sélectionnez **API**.
 1. Sélectionnez l’API que vous souhaitez sécuriser avec Azure AD B2C.
 1. Sélectionnez l’onglet **Conception**.
-1. Sous **Traitement entrant**, sélectionnez **\</\>** pour ouvrir l’éditeur de code de stratégie.
+1. Sous **Traitement entrant**, sélectionnez **\</\>** pour ouvrir l'éditeur de code de stratégie.
 1. Placez la balise `<validate-jwt>` suivante à l’intérieur de la stratégie `<inbound>`.
 
     1. Mettez à jour la valeur `url` de l’élément `<openid-config>` avec l’URL de configuration connue de votre stratégie.

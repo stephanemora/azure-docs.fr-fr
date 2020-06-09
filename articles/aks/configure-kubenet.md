@@ -3,14 +3,14 @@ title: Configurer la mise en réseau kubenet dans Azure Kubernetes Service (AKS)
 description: Découvrez comment configurer le réseau kubenet (de base) dans Azure Kubernetes Service (AKS) pour déployer un cluster AKS dans un réseau virtuel et un sous-réseau existants.
 services: container-service
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 060e98f2617da503068911ec1e687241d909dabc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a393e87963eabf2e3cf41148233c0e350dc6e380
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120910"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309666"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utiliser la mise en réseau kubenet avec vos propres plages d’adresses IP dans Azure Kubernetes Service (AKS)
 
@@ -139,7 +139,7 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Affectez maintenant le principal de service pour les autorisations de *Contributeur* de votre cluster AKS sur le réseau virtuel à l’aide de la commande [az role assignment create][az-role-assignment-create]. Fournissez votre propre *\<appId>* comme indiqué dans la sortie de la commande précédente pour créer le principal de service :
+Affectez maintenant le principal de service pour les autorisations de *Contributeur* de votre cluster AKS sur le réseau virtuel à l’aide de la commande [az role assignment create][az-role-assignment-create]. Fournissez votre propre *\<appId>* , comme indiqué dans la sortie de la commande précédente pour créer le principal de service :
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -147,7 +147,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Créer un cluster AKS dans le réseau virtuel
 
-Vous venez de créer un réseau virtuel et un sous-réseau. Vous avez également créé et attribué des autorisations pour un principal de service afin d’utiliser ces ressources réseau. Créez maintenant un cluster AKS dans votre réseau virtuel et sous-réseau à l’aide la commande [az aks create][az-aks-create]. Définissez votre propre *\<appId>* et *\<password>* de principal de service, comme indiqué dans la sortie de la commande précédente pour créer le principal de service.
+Vous venez de créer un réseau virtuel et un sous-réseau. Vous avez également créé et attribué des autorisations pour un principal de service afin d’utiliser ces ressources réseau. Créez maintenant un cluster AKS dans votre réseau virtuel et sous-réseau à l’aide la commande [az aks create][az-aks-create]. Définissez vos propres *\<appId>* et *\<password>* de principal de service, comme indiqué dans la sortie de la commande précédente pour créer le principal de service.
 
 Les plages d’adresses IP suivantes sont également définies dans le cadre du processus de création du cluster :
 
@@ -195,7 +195,22 @@ az aks create \
     --client-secret <password>
 ```
 
-Quand vous créez un cluster AKS, un groupe de sécurité réseau et une table de routage sont créés. Ces ressources réseau sont gérées par le plan de contrôle AKS. Le groupe de sécurité réseau est automatiquement associé aux cartes réseau virtuelles sur vos nœuds. La table de routage est automatiquement associée au sous-réseau de réseau virtuel. Les règles de groupe de sécurité réseau et les tables de routage sont automatiquement mises à jour quand vous créez et exposez des services.
+Lorsque vous créez un cluster AKS, un groupe de sécurité réseau et une table de route sont automatiquement créés. Ces ressources réseau sont gérées par le plan de contrôle AKS. Le groupe de sécurité réseau est automatiquement associé aux cartes réseau virtuelles sur vos nœuds. La table de routage est automatiquement associée au sous-réseau de réseau virtuel. Les règles de groupe de sécurité réseau et les tables de routage sont automatiquement mises à jour quand vous créez et exposez des services.
+
+## <a name="bring-your-own-subnet-and-route-table-with-kubenet"></a>Utiliser votre propre sous-réseau et votre propre table de route avec kubenet
+
+Avec kubenet, une table de route doit exister sur les sous-réseaux de votre cluster. AKS prend en charge l'utilisation de votre propre sous-réseau et de votre propre table de route.
+
+Si votre sous-réseau personnalisé ne contient pas de table de route, AKS en crée une pour vous et y ajoute des règles. Si votre sous-réseau personnalisé contient une table de route lorsque vous créez votre cluster, AKS la reconnaît lors des opérations de cluster et met à jour les règles en conséquence pour les opérations du fournisseur de cloud.
+
+Limites :
+
+* Les autorisations doivent être attribuées avant la création du cluster. Veillez à utiliser un principal de service doté d'autorisations d'écriture sur votre sous-réseau et votre table de route personnalisés.
+* Les identités managées ne sont actuellement pas prises en charge avec les tables de route personnalisées dans kubenet.
+* Une table de route personnalisée doit être associée au sous-réseau avant de créer le cluster AKS. Cette table de route ne peut pas être mise à jour, et toutes les règles d'acheminement doivent être ajoutées ou supprimées de la table de route initiale avant de créer le cluster AKS.
+* Tous les sous-réseaux d'un réseau virtuel AKS doivent être associés à la même table de route.
+* Chaque cluster AKS doit utiliser une table de route unique. Vous ne pouvez pas réutiliser une table de route avec plusieurs clusters.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

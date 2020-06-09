@@ -3,12 +3,12 @@ title: Suppression réversible pour la Sauvegarde Azure
 description: Découvrez comment utiliser les fonctionnalités de sécurité dans Sauvegarde Azure pour renforcer la sécurité des sauvegardes.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d7831488482ef154ce00685e513b36ed235e335e
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 2b0d7a00bce8dfa427958f6db6d7174b9d5f7a79
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791389"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116419"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Suppression réversible pour la Sauvegarde Azure
 
@@ -16,7 +16,10 @@ Les préoccupations en matière de risques de sécurité, comme les logiciels ma
 
 Une fonctionnalité de ce type est la suppression réversible. Avec la suppression réversible, même si un intervenant malveillant supprime une sauvegarde (ou même si les données de sauvegarde sont accidentellement supprimées), les données de sauvegarde sont conservées pendant 14 jours supplémentaires, ce qui permet la récupération de cet élément de sauvegarde sans perte de données. La conservation des données de sauvegarde pendant 14 jours supplémentaires dans l’état « suppression réversible » n’engendre pas de frais pour le client.
 
-La [suppression réversible pour les machines virtuelles Azure](soft-delete-virtual-machines.md) ainsi que la [suppression réversible pour les charges de travail SQL Server dans Azure VM et SAP HANA dans Azure VM](soft-delete-sql-saphana-in-azure-vm.md) sont des fonctionnalités de protection accessibles à tous.
+La protection Suppression réversible est disponible pour les services suivants :
+
+- [Suppression réversible pour les machines virtuelles Azure](soft-delete-virtual-machines.md)
+- [Suppression réversible pour SQL Server dans les machines virtuelles Azure, et suppression réversible pour SAP HANA dans les charges de travail des machines virtuelles Azure](soft-delete-sql-saphana-in-azure-vm.md)
 
 Cet organigramme montre les différentes étapes et états d’un élément de sauvegarde lorsque la suppression réversible est activée :
 

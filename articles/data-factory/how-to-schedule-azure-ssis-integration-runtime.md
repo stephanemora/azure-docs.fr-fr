@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 83ccc3160ed62a1ea801dd8c5795328fd2b5109f
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 0023bcc4a7c31a0e337683fa3d3080a45445fc49
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584026"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117906"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Guide pratique pour démarrer et arrêter Azure-SSIS Integration Runtime selon une planification
 
@@ -133,7 +133,7 @@ Si vous créez un troisième déclencheur qui est planifié pour s’exécuter t
     
 2. Pour tester le troisième pipeline, lancez SQL Server Management Studio (SSMS). Dans la fenêtre **Se connecter au serveur**, effectuez les actions suivantes. 
 
-    1. Pour **Nom du serveur**, entrez **&lt;nom de votre serveur Azure SQL Database&gt;.database.windows.net**.
+    1. Dans le champ **Nom du serveur**, entrez **&lt;nom de votre serveur&gt;.database.windows.net**.
     2. Sélectionnez **Options >>** .
     3. Pour **Se connecter à la base de données**, sélectionnez **SSISDB**.
     4. Sélectionnez **Connecter**. 

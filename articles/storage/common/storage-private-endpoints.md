@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: c51f2db698f30368c9d4090d3d571fa0c131178a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2f79e257eb61cebe000ed9ab831a4da4a5748132
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299054"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267832"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Utiliser des points de terminaison privés pour Stockage Azure
 
@@ -82,8 +82,8 @@ Pour l’exemple illustré ci-dessus, les enregistrements de ressources DNS pour
 | Nom                                                  | Type  | Valeur                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<point de terminaison public du service de stockage\>                   |
-| \<point de terminaison public du service de stockage\>                   | Un     | \<adresse IP publique du service de stockage\>                 |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
+| \<storage service public endpoint\>                   | Un     | \<storage service public IP address\>                 |
 
 Comme mentionné précédemment, vous pouvez refuser ou contrôler l’accès pour les clients en dehors du réseau virtuel via le point de terminaison public à l’aide du pare-feu de stockage.
 
@@ -137,7 +137,7 @@ Cette contrainte résulte des modifications DNS effectuées lorsque le compte A2
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Règles de groupe de sécurité réseau pour les sous-réseaux avec des points de terminaison privés
 
-Actuellement, vous ne pouvez pas configurer de règles de [groupe de sécurité réseau](../../virtual-network/security-overview.md) (NSG, Network Security Group) ni de routes définies par l’utilisateur pour des points de terminaison privés. Les règles NSG appliquées au sous-réseau hébergeant le point de terminaison privé sont appliquées au point de terminaison privé. Une solution de contournement limitée pour ce problème consiste à implémenter vos règles d’accès pour les points de terminaison privés sur les sous-réseaux sources, bien que cette approche puisse nécessiter une charge de gestion supérieure.
+Actuellement, vous ne pouvez pas configurer de règles de [groupe de sécurité réseau](../../virtual-network/security-overview.md) (NSG, Network Security Group) ni de routes définies par l’utilisateur pour des points de terminaison privés. Les règles NSG appliquées au sous-réseau qui héberge le point de terminaison privé ne sont appliquées qu'aux points de terminaison (par exemple, cartes réseau) autres que le point de terminaison privé. Une solution de contournement limitée pour ce problème consiste à implémenter vos règles d’accès pour les points de terminaison privés sur les sous-réseaux sources, bien que cette approche puisse nécessiter une charge de gestion supérieure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

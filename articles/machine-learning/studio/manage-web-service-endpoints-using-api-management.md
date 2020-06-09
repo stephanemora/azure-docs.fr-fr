@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 7064101c21c11b48d8616dbeaa2fd9075660fd3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5814113906aadad01821f78863f5053b8082892
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80473458"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84114827"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Gérer les services web Azure Machine Learning Studio (classique) à l’aide de Gestion des API
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 ## <a name="overview"></a>Vue d’ensemble
 Ce guide décrit la prise en main rapide de la gestion de vos services web Azure Machine Learning Studio (classique) grâce à Gestion des API.
@@ -27,7 +25,7 @@ Ce guide décrit la prise en main rapide de la gestion de vos services web Azure
 ## <a name="what-is-azure-api-management"></a>Qu’est-ce que Gestion des API Azure ?
 Gestion des API Azure est un service Azure qui vous permet de gérer vos points de terminaison d’API REST en définissant l’accès utilisateur, la limitation d’utilisation et la surveillance du tableau de bord. Pour plus d’informations, rendez-vous sur le [site de Gestion des API Azure](https://azure.microsoft.com/services/api-management/). Pour prendre en main Gestion des API Azure, consultez [le guide d’importation et de publication](/azure/api-management/import-and-publish). Cet autre guide, sur lequel ce guide est basé, couvre plus de rubriques, notamment les configurations de notification, la tarification, la gestion des réponses, l’authentification des utilisateurs, la création de produits, les abonnements pour développeur et le tableau de bord d’utilisation.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Pour utiliser ce guide, il vous faut :
 
 * Un compte Azure.
@@ -153,7 +151,7 @@ Les opérations peuvent être directement appelées depuis le portail des dével
 
 4. Pour les **Paramètres de requête**, tapez votre **espace de travail** et votre **service**, tapez « 2.0 » pour la **versionapi** et « true » pour les **détails**. Vous pouvez trouver vos **espace de travail** et **service** dans le tableau de bord du service web AzureML (voir **Test du service web** dans l’annexe A).
 
-   Pour **En-têtes de demande**, cliquez sur **Ajouter un en-tête**, tapez « Content-Type » et « application/json ». Cliquez sur **Ajouter un en-tête** de nouveau, tapez « Authorization » et « Bearer *\<votre clé API de service\>* ». Vous pouvez trouver cette clé API dans le tableau de bord du service web AzureML (voir **Tester le service web dans l’annexe A**).
+   Pour **En-têtes de demande**, cliquez sur **Ajouter un en-tête**, tapez « Content-Type » et « application/json ». Cliquez de nouveau sur **Ajouter un en-tête**, puis tapez « Authorization » et « Bearer *\<your service API-KEY\>*  ». Vous pouvez trouver cette clé API dans le tableau de bord du service web AzureML (voir **Tester le service web dans l’annexe A**).
 
    Pour le **Corps de la demande**, tapez `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`.
 
@@ -217,7 +215,7 @@ Cliquez sur **Oui** pour publier l’expérience.
 ![yes-to-publish](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>Test du service web
-Un service web AzureML se compose de points de terminaison RRS (service de requête/réponse) et BES (service d’exécution de lot). RSS est conçu pour l’exécution synchrone. BES est conçu pour l’exécution de tâches asynchrone. Pour tester un service web avec l’exemple de source Python ci-dessous, vous devrez peut-être télécharger et installer le Kit de développement logiciel (SDK) Microsoft Azure  pour Python (voir [Installation de Python](/azure/developer/python/azure-sdk-install)).
+Un service web AzureML se compose de points de terminaison RRS (service de requête/réponse) et BES (service d’exécution de lot). RSS est conçu pour l’exécution synchrone. BES est conçu pour l’exécution de tâches asynchrone. Pour tester un service web avec l’exemple de source Python ci-dessous, vous devrez peut-être télécharger et installer le Kit de développement logiciel (SDK) Microsoft Azure pour Python (voir : [Installation de Python](/azure/developer/python/azure-sdk-install)).
 
 Il vous faudra également **l’espace de travail**, le **service** et **l’api_key** de votre expérimentation pour l’exemple de source ci-dessous. Vous pouvez trouver l’espace de travail et le service en cliquant sur **Requête/réponse** ou **Exécution de lot** pour votre expérimentation dans le tableau de bord de service web.
 

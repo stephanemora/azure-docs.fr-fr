@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: a664f12843585ac7524cf8d51aef156d15d32504
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3383a16624ecf045753609865931f9d0c44b6b3f
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77650979"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196590"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Questions fréquentes (FAQ) sur l’utilisation d’Azure Database Migration Service
 
@@ -49,7 +49,7 @@ Vous pouvez utiliser Azure Database Migration Service pour effectuer des migrati
 Azure Database Migration Service est la méthode recommandée pour la migration de bases de données à grande échelle vers Microsoft Azure. Pour plus d’informations sur la façon dont Azure Database Migration Service se distingue des autres outils de migration de bases de données Microsoft et pour obtenir des recommandations sur l’utilisation du service pour différents scénarios, consultez le billet de blog [Differentiating Microsoft’s Database Migration Tools and Services](https://techcommunity.microsoft.com/t5/microsoft-data-migration/differentiating-microsoft-s-database-migration-tools-and/ba-p/368529).
 
 **Q. Comment Azure Database Migration Service se distingue du produit Azure Migrate ?**
-Azure Migrate facilite la migration de machines virtuelles locales vers Azure IaaS. Le service évalue la pertinence de la migration et le dimensionnement en fonction des performances, et fournit des estimations de coût pour l’exécution de vos machines locales dans Azure. Azure Migrate est particulièrement utile pour les migrations de type lift-and-shift des charges de travail basées sur des machines virtuelles locales vers des machines virtuelles IaaS Azure. Cependant, contrairement à Azure Database Migration Service, Azure Migrate n’est pas un service de migration de bases de données spécialisée pour les plateformes de base de données relationnelle PaaS Azure, comme Azure SQL Database ou Azure SQL Database Managed Instance.
+Azure Migrate facilite la migration de machines virtuelles locales vers Azure IaaS. Le service évalue la pertinence de la migration et le dimensionnement en fonction des performances, et fournit des estimations de coût pour l’exécution de vos machines locales dans Azure. Azure Migrate est particulièrement utile pour les migrations de type lift-and-shift des charges de travail basées sur des machines virtuelles locales vers des machines virtuelles IaaS Azure. Cependant, contrairement à Azure Database Migration Service, Azure Migrate n'est pas un service de migration de bases de données spécialisé pour les plateformes de base de données relationnelle PaaS Azure, comme Azure SQL Database ou Azure SQL Managed Instance.
 
 ## <a name="setup"></a>Programme d’installation
 

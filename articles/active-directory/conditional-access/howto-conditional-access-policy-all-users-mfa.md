@@ -4,19 +4,19 @@ description: Créer une stratégie d’accès conditionnel personnalisée pour d
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 04/02/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d0ad0a1c0a1b4d13ce4d386df22406a8ab8e51
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7af1347ac57e1a5c5ae99744924ea04fe9757581
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617621"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995342"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Accès conditionnel : Exiger MFA pour tous les utilisateurs
 
@@ -53,7 +53,7 @@ Les étapes suivantes vous aideront à créer une stratégie d’accès conditio
    1. Sélectionnez **Terminé**.
 1. Sous **Applications ou actions cloud** > **Inclure**, sélectionnez **Toutes les applications cloud**.
    1. Sous **Exclure**, sélectionnez toutes les applications ne nécessitant pas d’authentification multifacteur.
-1. Sous **Conditions** > **Applications clientes (préversion)** , définissez **Configurer** sur **Oui**, puis sélectionnez **Terminé**.
+1. Sous **Conditions** > **Applications clientes (préversion)** , définissez **Configurer** sur **Oui**. Sous **Sélectionner les applications clientes auxquelles cette stratégie s'applique**, laissez toutes les valeurs par défaut activées et sélectionnez **Terminé**.
 1. Sous **Contrôles d’accès** > **Accorder**, sélectionnez **Accorder l'accès**, **Requérir l’authentification multifacteur**, et sélectionnez **Sélectionner**.
 1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
 1. Sélectionnez **Créer** pour créer votre stratégie.

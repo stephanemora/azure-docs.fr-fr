@@ -5,12 +5,12 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 05/25/2020
-ms.openlocfilehash: 204ac3be46ac7ba0e1ea96e50379ca417b1299ce
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 1a9e38d2718643212848105e09c60d93f497a34a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847631"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193545"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>Répliquer des machines virtuelles Azure exécutées dans des groupes de placement de proximité dans une autre région
 
@@ -27,6 +27,9 @@ Dans un scénario classique, vous pouvez faire en sorte que vos machines virtuel
 - Le mieux à faire est de basculer/restaurer les machines virtuelles dans un groupe de placement de proximité. Toutefois, si la machine virtuelle ne peut pas être réactivée dans le placement de proximité pendant le basculement/la restauration automatique, alors le basculement/la restauration automatique aura quand même lieu, et les machines virtuelles seront créées en dehors d’un groupe de placement de proximité.
 -  Si un groupe à haute disponibilité est épinglé à un groupe de placement de proximité et que pendant le basculement/la restauration automatique les machines virtuelles dans ce groupe à haute disponibilité ont une contrainte d’allocation, alors elles seront créées en dehors de groupe à haute disponibilité et du groupe de placement de proximité.
 -  Site Recovery pour les groupes de placement de proximité n’est pas pris en charge pour les disques non managés.
+
+> [!Note]
+> Azure Site Recovery ne prend pas en charge la restauration automatique à partir de disques managés dans les scénarios Hyper-V vers Azure. Par conséquent, la restauration automatique d'un groupe de placement de proximité Azure vers Hyper-V n'est pas prise en charge.
 
 ## <a name="prerequisites"></a>Prérequis
 

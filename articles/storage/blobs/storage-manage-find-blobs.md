@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: f1a4d9af8a1b1095527078dd790e80ef45a5ee9a
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 3e5507069a3e1eeadfaf4c3eeee288b2651e88a1
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82710212"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996038"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Gérer et rechercher des données dans le stockage d’objets blob Azure avec un index d’objet blob (préversion)
 
@@ -70,7 +70,7 @@ Les limites suivantes s’appliquent aux étiquettes d’un index d’objet blob
 - Les clés d’étiquette doivent comporter entre 1 et 128 caractères.
 - Les valeurs d’étiquette doivent comporter entre 0 et 256 caractères.
 - Les clés et les valeurs d’étiquette sont sensibles à la casse.
-- Les clés et les valeurs d’étiquette prennent uniquement en charge les types de données de chaîne. Tous les nombres et les caractères spéciaux sont enregistrés sous forme de chaînes.
+- Les clés et les valeurs d'étiquette prennent uniquement en charge les types de données de chaîne. Tous les nombres, dates, heures ou caractères spéciaux sont enregistrés sous forme de chaînes.
 - Les clés et les valeurs d’étiquette doivent respecter les règles de nommage suivantes :
   - Caractères alphanumériques : a-z, A-Z, 0-9
   - Caractères spéciaux : espace, plus, moins, point, deux-points, égal, trait de soulignement, barre oblique
@@ -106,6 +106,13 @@ Le tableau ci-dessous montre tous les opérateurs valides pour FindBlobsByTags 
 |     <=     |  Inférieur ou égal à  | "Company" <= 'Contoso' |
 |    AND     |  ET logique  | "Rank" >= '010' AND "Rank" < '100' |
 | @container |  Limiter l’étendue à un conteneur spécifique   | @container = 'videofiles' AND "status" = 'done' |
+
+> [!NOTE]
+> Familiarisez-vous avec l'ordre lexicographique lors de la définition et de l'interrogation des étiquettes.
+> - Les nombres sont triés avant les lettres. Les nombres sont triés sur la base du premier chiffre.
+> - Les lettres majuscules sont triées avant les lettres minuscules.
+> - Les symboles ne sont pas standard. Certains symboles sont triés avant les valeurs numériques. Les autres symboles sont triés avant ou après les lettres.
+>
 
 ## <a name="conditional-blob-operations-with-blob-index-tags"></a>Opérations d’objet blob conditionnelles avec étiquettes d’index d’objet blob
 Dans les versions REST 2019-10-10 et ultérieures, la plupart des [API de service blob](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs) prennent désormais en charge un en-tête conditionnel, x-ms-if-tags, tel que l’opération réussira uniquement si la condition d’index d’objet blob spécifiée est remplie. Si la condition n’est pas remplie, vous obtiendrez `error 412: The condition specified using HTTP conditional header(s) is not met`.
@@ -246,9 +253,11 @@ Les prix de l’index d’objet blob sont actuellement en préversion publique e
 
 ## <a name="regional-availability-and-storage-account-support"></a>Disponibilité régionale et prise en charge des comptes de stockage
 
-L’index d’objet blob est actuellement disponible uniquement avec les comptes à usage général v2 (GPv2). Dans le portail Azure, vous pouvez mettre à niveau un compte de stockage universel (GPv1) existant en compte GPv2. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).
+L'index d'objet blob n'est actuellement disponible que sur les comptes Usage général v2 (GPv2) sur lesquels l'espace de noms hiérarchique est désactivé. Les comptes Usage général (GPV1) ne sont pas pris en charge, mais vous pouvez mettre à niveau n'importe quel compte GPv1 pour le transformer en compte GPv2. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).
 
 En préversion publique, l’index d’objet blob est actuellement disponible uniquement dans les régions suivantes :
+- Centre du Canada
+- Est du Canada
 - France Centre
 - France Sud
 
@@ -276,7 +285,7 @@ az provider register --namespace 'Microsoft.Storage'
 Cette section décrit les problèmes connus et les conditions de la préversion publique actuelle de l’index d’objet blob. Comme pour la plupart des préversions, cette fonctionnalité ne doit pas être utilisée pour les charges de travail de production avant d’avoir atteint la disponibilité générale, car les comportements peuvent changer.
 
 -   Pour la préversion, vous devez d’abord inscrire votre abonnement avant de pouvoir utiliser l’index d’objet blob pour votre compte de stockage dans les régions en préversion.
--   Seuls les comptes GPv2 sont actuellement pris en charge dans la préversion. Les comptes d’objet blob, BlockBlobStorage et DataLake Gen2 avec HNS activé ne sont actuellement pas pris en charge avec l’index d’objet blob.
+-   Seuls les comptes GPv2 sont actuellement pris en charge dans la préversion. Les comptes d’objet blob, BlockBlobStorage et DataLake Gen2 avec HNS activé ne sont actuellement pas pris en charge avec l’index d’objet blob. Les comptes GPv1 ne seront pas pris en charge.
 -   Le chargement d’objets blob de pages avec des étiquettes d’index ne conserve pas les étiquettes. Vous devez définir les étiquettes après le chargement d’un objet blob de pages.
 -   Lorsque le filtrage est limité à un conteneur individuel, il est possible de passer @container seulement si toutes les étiquettes d’index dans l’expression de filtre sont des contrôles d’égalité (clé=valeur). 
 -   Lorsque vous utilisez l’opérateur de comparaison avec la condition AND, vous pouvez uniquement spécifier le même nom de clé d’étiquette d’index (Age > '013' AND Age < '100').
@@ -290,6 +299,9 @@ Cette section décrit les problèmes connus et les conditions de la préversion 
 
 ### <a name="can-blob-index-help-me-filter-and-query-content-inside-my-blobs"></a>L’index d’objet blob peut-il m’aider à filtrer et à interroger le contenu de mes objets blob ? 
 Non, les balises d’index d’objet blob peuvent vous aider à trouver les objets blob que vous recherchez. Si vous devez rechercher dans vos objets blob, utilisez l’accélération des requêtes ou la recherche Azure.
+
+### <a name="are-there-any-special-considerations-regarding-blob-index-tag-values"></a>Y a-t-il des considérations particulières concernant les valeurs des étiquettes d'index d'objet blob ?
+Les étiquettes d'index d'objet blob ne prennent en charge que les types de données de chaîne, et l'interrogation renvoie les résultats dans l'ordre lexicographique. Pour les nombres, il est recommandé de procéder à un remplissage à l'aide de zéros. Pour la date et les heures, il est recommandé de les stocker dans un format compatible avec la norme ISO 8601.
 
 ### <a name="are-blob-index-tags-and-azure-resource-manager-tags-related"></a>Les étiquettes d’index d’objet blob et les étiquettes Azure Resource Manager sont-elles liées ?
 Non, les étiquettes Azure Resource Manager aident à organiser les ressources de plan de contrôle telles que les abonnements, les groupes de ressources et les comptes de stockage. Les étiquettes d’index d’objet blob fournissent la découverte et la gestion d’objets sur des ressources de plan de données telles que des objets blob dans un compte de stockage.
