@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Base de connaissances de test avec des questions par lots'
 description: Utilisez l’outil de test par lot QnA Maker pour tester les bases de connaissances dans votre ressource QnA Maker pour les réponses attendues, les scores de confiance et les invites multitours.
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 05/26/2020
-ms.openlocfilehash: 9845b7c7cc19550c450a1eb00ec02731ef2d9d44
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 01c767a6fbea5061f644052234f7462857dd342b
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873673"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84337731"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Démarrage rapide : Base de connaissances de test avec des questions par lots et les réponses attendues
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: cc994875e39410ecf01417c4d08248d5bc7d034a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0545be9ebe067a62b398c6c89b79a8484f0b48d4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589820"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683116"
 ---
 # <a name="iterative-app-design-for-luis"></a>Conception d’application itérative pour LUIS
 
@@ -35,7 +35,7 @@ Une application Language Understanding (LUIS) apprend et fonctionne le plus effi
 
 ## <a name="building-a-luis-schema"></a>Création d’un modèle LUIS
 
-Un schéma d’application définit ce que l’utilisateur demande (l’_intention_ __) et quelles parties de l’intention fournissent des informations (appelées _entités_) qui sont utilisées pour aider à déterminer la réponse.
+Un schéma d’application définit ce que l’utilisateur demande (l’_intention_) et quelles parties de l’intention fournissent des informations (appelées _entités_) qui sont utilisées pour aider à déterminer la réponse.
 
 Le schéma d’application doit être spécifique aux domaines d’application afin de déterminer les mots et expressions pertinents, ainsi que l’ordre standard des mots.
 
@@ -115,7 +115,7 @@ Une version peut également être exportée au niveau de l’application ou de l
 
 Le fichier exporté **ne contient pas** les éléments suivants :
 
-* informations issues de l’apprentissage automatique, car l’application effectue un nouvel apprentissage après son importation
+* informations issues du Machine Learning, car l’application est réentraînée après son importation
 * informations sur le contributeur
 
 Pour sauvegarder votre schéma d’application LUIS, exportez une version à partir du [portail LUIS](https://www.luis.ai/applications).
