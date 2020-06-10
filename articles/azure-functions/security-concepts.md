@@ -3,12 +3,12 @@ title: Sécurisation d’Azure Functions
 description: Découvrez comment exécuter votre code de fonction dans Azure à partir d’attaques courantes.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 07d099ae3ce8a544994208436770674e6674e6f0
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 692e8420bda1e7baa8521dd6caaf5eef183823fb
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744061"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259420"
 ---
 # <a name="securing-azure-functions"></a>Sécurisation d’Azure Functions
 
@@ -83,7 +83,7 @@ Comme pour n’importe quelle application ou n’importe quel service, l’objec
 
 #### <a name="user-management-permissions"></a>Autorisations de gestion des utilisateurs
 
-Functions prend en charge [le contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/overview.md). Les rôles RBAC pris en charge par Functions sont [Contributeur](../role-based-access-control/built-in-roles.md#contributor), [Propriétaire](../role-based-access-control/built-in-roles.md#owner) et [Lecteur](../role-based-access-control/built-in-roles.md#owner). 
+Functions prend en charge le [contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/overview.md). Les rôles RBAC pris en charge par Functions sont [Contributeur](../role-based-access-control/built-in-roles.md#contributor), [Propriétaire](../role-based-access-control/built-in-roles.md#owner) et [Lecteur](../role-based-access-control/built-in-roles.md#owner). 
 
 Les autorisations sont effectives au niveau de l’application de fonction. Le rôle de Contributeur est requis pour effectuer la plupart des tâches au niveau application de fonction. Seul le rôle de Propriétaire peut supprimer une application de fonction. 
 

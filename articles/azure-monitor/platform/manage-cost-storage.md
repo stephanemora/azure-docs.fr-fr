@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/21/2020
+ms.date: 05/28/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 6e6be4cd0f8053d356183a75c5a012dee0bd8c68
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: cded8fef70e22ffebc412ea37898100cda4bb3df
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771313"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219016"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gérer l’utilisation et les coûts avec les journaux Azure Monitor
 
@@ -50,7 +50,14 @@ Les clusters dédiés Log Analytics sont des collections d’espaces de travail 
 
 Le niveau de réservation de la capacité du cluster est configuré par programmation avec Azure Resource Manager à l’aide du paramètre `Capacity` sous `Sku`. La `Capacity` est spécifiée en unités de Go et peut avoir des valeurs de 1 000 Go/jour ou plus par incréments de 100 Go/jour. Cela est détaillé [ici](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource). Si votre cluster a besoin d’une réservation supérieure à 2 000 Go/jour, contactez-nous à l’adresse [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com).
 
-Étant donné que la facturation des données ingérées est effectuée au niveau du cluster, les espaces de travail associés à un cluster n’ont plus de niveau tarifaire. Les quantités de données ingérées de chaque espace de travail associé à un cluster sont agrégées pour calculer la facture quotidienne du cluster. Notez que les répartitions par nœud d’[Azure Security Center](https://docs.microsoft.com/azure/security-center/) sont appliquées au niveau de l’espace de travail avant cette agrégation de données agrégées dans tous les espaces de travail du cluster. La conservation des données est toujours facturée au niveau de l’espace de travail. Notez que la facturation du cluster commence lorsque le cluster est créé, que les espaces de travail aient ou non été associés au cluster. 
+Il existe deux modes de facturation pour l’utilisation sur un cluster. Ils peuvent être spécifiés par le paramètre `billingType` lors de la [configuration de votre cluster](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#cmk-manage). Les deux modes sont : 
+
+1. **Cluster** : dans ce cas (valeur par défaut), la facturation des données ingérées est effectuée au niveau du cluster. Les quantités de données ingérées de chaque espace de travail associé à un cluster sont agrégées pour calculer la facture quotidienne du cluster. Notez que les répartitions par nœud d’[Azure Security Center](https://docs.microsoft.com/azure/security-center/) sont appliquées au niveau de l’espace de travail avant cette agrégation de données agrégées dans tous les espaces de travail du cluster. 
+
+2. **Espaces de travail** : les coûts de réservation de capacité pour votre cluster sont attribués proportionnellement aux espaces de travail du cluster (après prise en compte des allocations par nœud depuis [Azure Security Center](https://docs.microsoft.com/azure/security-center/) pour chaque espace de travail). Si le volume total de données ingérées dans un espace de travail au cours d’une journée est inférieur à la réservation de capacité, chaque espace de travail est facturé pour ses données ingérées au taux de réservation de capacité par Go effectif, en les facturant une fraction de la réservation de capacité, et la partie inutilisée de la réservation de capacité est facturée sur la ressource de cluster. Si le volume total de données ingérées dans un espace de travail au cours d’une journée est supérieur à la réservation de capacité, chaque espace de travail est facturé pour une fraction de la réservation de capacité en fonction de la fraction des données ingérées, et chaque espace de travail pour une fraction des données ingérées au-delà de la réservation de capacité. Rien n’est facturé au niveau de la ressource de cluster si le volume total de données ingérées dans un espace de travail au cours d’une journée est supérieur à la réservation de capacité.
+
+
+Dans options de facturation de cluster, la conservation des données est facturée au niveau de l’espace de travail. Notez que la facturation du cluster commence lorsque le cluster est créé, que les espaces de travail aient ou non été associés au cluster. Notez également que les espaces de travail associés à un cluster ne présentent plus de niveau tarifaire.
 
 ## <a name="estimating-the-costs-to-manage-your-environment"></a>Estimation des coûts de gestion de votre environnement 
 
@@ -398,12 +405,13 @@ Pour explorer plus en détail la source de données d’un type de données part
 + le type de données **AzureDiagnostics**
   - `AzureDiagnostics | summarize AggregatedValue = count() by ResourceProvider, ResourceId`
 
-### <a name="tips-for-reducing-data-volume"></a>Conseils pour réduire le volume de données
+## <a name="tips-for-reducing-data-volume"></a>Conseils pour réduire le volume de données
 
 Voici quelques suggestions pour réduire le volume de journaux d’activité collectés :
 
 | Source du volume de données important | Comment réduire le volume de données |
 | -------------------------- | ------------------------- |
+| Container Insights         | [Configurez Container Insights](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-cost#controlling-ingestion-to-reduce-cost) de manière à collecter uniquement les données requises. |
 | Événements de sécurité            | Sélectionnez [les événements de sécurité courants ou minimaux](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier). <br> Modifier la stratégie d’audit de sécurité pour collecter les événements nécessaires uniquement. Plus particulièrement, examinez la nécessité de collecter des événements pour : <br> - [plateforme de filtrage de l’audit](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [registre de l’audit](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [système de fichiers de l’audit](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [objet de noyau d’audit](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [manipulation du descripteur de l’audit](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - stockage amovible de l’audit |
 | Compteurs de performance       | Modifiez la [configuration du compteur de performances](data-sources-performance-counters.md) de façon à : <br> - Réduire la fréquence de collecte <br> - Réduire le nombre de compteurs de performance |
 | Journaux d’événements                 | Modifiez la [configuration du journal d’événements](data-sources-windows-events.md) de façon à : <br> - Réduire le nombre de journaux des événements collectés <br> - Collecter uniquement les niveaux d’événement requis Par exemple, ne collectez pas les événements de niveau *Informations*. |
