@@ -5,13 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.custom: has-adal-ref
-ms.openlocfilehash: 4e3edc9819fc3a282cc707db636c8bb213b13776
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.custom: has-adal-ref, tracking-python
+ms.openlocfilehash: 1203feaf6b400e91e6ab5381df0af245db0a2973
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714472"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559557"
 ---
 # <a name="tutorial-create-a-python-runbook"></a>Tutoriel : Créer un runbook Python
 
@@ -244,9 +244,9 @@ except Exception as detail:
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer un runbook PowerShell](automation-tutorial-runbook-textual-powershell.md)
-- [Créer un runbook graphique](automation-tutorial-runbook-graphical.md)
-- [Créer un runbook PowerShell Workflow](automation-tutorial-runbook-textual.md)
-- [Types de runbooks Azure Automation](../automation-runbook-types.md)
-- [Azure for Python developers](/azure/python/) (Azure pour les développeurs Python)
-- [GitHub Azure Automation](https://github.com/azureautomation/runbooks/tree/master/Utility/Python)
+- Pour démarrer avec les runbooks PowerShell, consultez [Créer un runbook PowerShell](automation-tutorial-runbook-textual-powershell.md).
+- Pour démarrer avec les runbooks graphiques, consultez [Créer un runbook graphique](automation-tutorial-runbook-graphical.md).
+- Pour démarrer avec les runbooks de workflow PowerShell, consultez [Créer un runbook de workflow PowerShell](automation-tutorial-runbook-textual.md).
+- Pour en savoir plus sur les types de runbooks, leurs avantages et leurs limites, consultez [Types de runbooks Azure Automation](../automation-runbook-types.md)
+- Pour en savoir plus sur le développement pour Azure avec Python, consultez [Azure pour les développeurs Python](/azure/python/).
+- Pour afficher des exemples de runbooks Python 2, consultez [GitHub Azure Automation](https://github.com/azureautomation/runbooks/tree/master/Utility/Python).

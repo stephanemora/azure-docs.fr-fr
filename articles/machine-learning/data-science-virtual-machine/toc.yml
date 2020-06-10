@@ -15,8 +15,6 @@
       href: provision-vm.md
     - name: Créer une instance Ubuntu de Data Science Virtual Machine
       href: dsvm-ubuntu-intro.md
-- name: Tutoriels
-  items:
     - name: Créer une DSVM avec un modèle ARM
       displayName: Resource Manager
       href: dsvm-tutorial-resource-manager.md
