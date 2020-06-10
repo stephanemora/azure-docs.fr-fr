@@ -3,14 +3,14 @@ title: 'Démarrage rapide : Créer une base de connaissances - REST, Python - Qn
 description: Ce guide de démarrage rapide basé sur REST en Python vous guide dans la création, par programmation, d’un exemple de base de connaissances QnA Maker qui apparaîtra dans le tableau de bord Azure de votre compte d’API Cognitive Services.
 ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27
-ms.topic: conceptual
-ms.openlocfilehash: bb51a47efc7bcae5014d5ea004674fed7cb33fe0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: RESTCURL2020FEB27, tracking-python
+ms.topic: how-to
+ms.openlocfilehash: 5facd58553a1a66d2c7986a0b7629f8a36b5c972
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78851595"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608517"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Démarrage rapide : Créer une base de connaissances dans QnA Maker à l’aide de Python
 

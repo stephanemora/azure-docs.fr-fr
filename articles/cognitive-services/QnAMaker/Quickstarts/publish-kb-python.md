@@ -3,14 +3,14 @@ title: 'Démarrage rapide : Publier une base de connaissances, REST, Python - Q
 description: Ce démarrage rapide de Python basé sur REST publie votre base de connaissances et crée un point de terminaison qui peut être appelé dans votre application ou bot conversationnel.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27
-ms.topic: conceptual
-ms.openlocfilehash: 6f053ecbd58d3c2527c1b904437dcc4715c76af1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: RESTCURL2020FEB27, tracking-python
+ms.topic: how-to
+ms.openlocfilehash: a5aa5a313a96c12adccf0a1c198dce69661935d6
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78851535"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608653"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>Démarrage rapide : Publier une base de connaissances dans QnA Maker à l'aide de Python
 

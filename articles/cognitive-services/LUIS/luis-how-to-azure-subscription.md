@@ -2,14 +2,14 @@
 title: Comment utiliser les clés de création et de runtime – LUIS
 description: Lorsque vous utilisez Language Understanding (LUIS) pour la première fois, vous n’avez pas besoin de créer de clé de création. Lorsque vous avez l’intention de publier l’application, puis d’utiliser votre point de terminaison de runtime, vous devez créer et attribuer la clé de runtime à l’application.
 services: cognitive-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: d9235b6ef1c7cddbfbbd36f8382439d781af6d5f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c566e8fe56d19856f5a577e472929b7610497d7c
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101023"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344456"
 ---
 # <a name="create-luis-resources"></a>Créer des ressources LUIS
 

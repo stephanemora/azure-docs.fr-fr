@@ -3,14 +3,14 @@ title: 'Démarrage rapide : Obtenir des réponses d’une base de connaissances
 description: Ce guide de démarrage rapide basé sur REST Python vous aide à obtenir programmatiquement une réponse à partir d’une base de connaissances.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27
-ms.topic: conceptual
-ms.openlocfilehash: e290b97446d441a8218a40b528f9833d45960580
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: RESTCURL2020FEB27, tracking-python
+ms.topic: how-to
+ms.openlocfilehash: d985bafe3303acdaf8b47e70a9d5368e3b26335c
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78851559"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610132"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-python"></a>Démarrage rapide : Obtenir des réponses à une question à partir d’une base de connaissance avec Python
 

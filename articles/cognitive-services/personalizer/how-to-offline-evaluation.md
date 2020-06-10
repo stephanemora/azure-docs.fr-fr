@@ -7,15 +7,15 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/20/2020
 ms.author: diberry
-ms.openlocfilehash: ce85c2d264b2b4849a4a36ed757150292fdf39f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2fa4e47f600737c9bff5dbff4dd743946b4e82aa
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77622774"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342151"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Analysez votre boucle d’apprentissage avec une évaluation hors connexion
 

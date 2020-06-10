@@ -10,16 +10,16 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: afb576c265ccdd4a014ed678331f030a0442a197
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c6fbec35920c8afd08ab60fc380c9f816ae599b0
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218551"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561020"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Comment appeler l’API REST Analyse de texte
 
-Les appels de l’**API Analyse de texte** sont des appels HTTP POST/GET, que vous pouvez formuler dans n’importe quel langage. Dans cet article, nous utilisons REST et [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) pour présenter des concepts clés.
+Les appels de l’**API Analyse de texte** sont des appels HTTP POST/GET, que vous pouvez formuler dans n’importe quel langage. Dans cet article, nous utilisons REST et [Postman](https://www.postman.com/downloads/) pour présenter des concepts clés.
 
 Chaque demande doit inclure votre clé d’accès et un point de terminaison HTTP. Le point de terminaison spécifie la région que vous avez choisie lors de l’inscription, l’URL du service et une ressource utilisée lors de la demande : `sentiment`, `keyphrases`, `languages` et `entities`. 
 

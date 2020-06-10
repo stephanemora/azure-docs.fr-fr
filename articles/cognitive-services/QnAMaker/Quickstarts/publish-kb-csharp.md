@@ -4,13 +4,13 @@ description: Ce démarrage rapide de C# basé sur REST publie votre base de conn
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
-ms.topic: conceptual
-ms.openlocfilehash: 0a2f64795d82928e33a10c7e9d162f2333cdf7bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: how-to
+ms.openlocfilehash: 7eaa8d7f7d86e215ea2e9906075c27dd2916dcd5
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78851555"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342746"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Démarrage rapide : Publier une base de connaissances dans QnA Maker à l'aide de C#
 

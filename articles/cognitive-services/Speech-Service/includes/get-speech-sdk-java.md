@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 3a4a68d45d633caf9a318cd17f1e8d94752ecfe9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 64a6bf1fec61871d2787966a5b0af24d4f012032
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673065"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84637461"
 ---
 :::row:::
     :::column span="3":::
-        Le kit de développement logiciel (SDK) Java pour Android est empaqueté au format <a href="https://developer.android.com/studio/projects/android-library" target="_blank">AAR (bibliothèque Android)<span class="docon docon-navigate-external x-hidden-focus"></span></a>, qui inclut les bibliothèques nécessaires et les autorisations Android requises. Il est hébergé dans un référentiel Maven dans `https://csspeechstorage.blob.core.windows.net/maven/` sous la forme d’un package `com.microsoft.cognitiveservices.speech:client-sdk:1.12.0`.
+        Le kit de développement logiciel (SDK) Java pour Android est empaqueté au format <a href="https://developer.android.com/studio/projects/android-library" target="_blank">AAR (bibliothèque Android)<span class="docon docon-navigate-external x-hidden-focus"></span></a>, qui inclut les bibliothèques nécessaires et les autorisations Android requises. Il est hébergé dans un référentiel Maven dans `https://csspeechstorage.blob.core.windows.net/maven/` sous la forme d’un package `com.microsoft.cognitiveservices.speech:client-sdk:1.12.1`.
     :::column-end:::
     :::column:::
         <br>
@@ -32,7 +32,7 @@ Pour utiliser le package dans votre projet Android Studio, effectuez les changem
 
 2. Dans le fichier *build.gradle* au niveau du module, ajoutez le texte suivant à la section `dependencies` :
   ```gradle
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.12.0'
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.12.1'
   ```
 
 Le Kit de développement logiciel (SDK) Java fait aussi partie du [Kit de développement logiciel (SDK) Speech Devices](../speech-devices-sdk.md).

@@ -1,14 +1,14 @@
 ---
 title: Migrer des bases de connaissances - QnA Maker
 description: La migration d’une base de connaissances nécessite l’exportation d’une base de connaissances, puis l’importation dans une autre.
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: 13e5e79bf4eaf6ec59e41b3e12aa1bb23f2c1578
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e2d6c1795b816d3b7ac046ea4055402b9107e20b
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258088"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343086"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrer une base de connaissances à l’aide des fonctions d’exportation-importation
 
