@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 14706b623c6973c09b499e4fcd905e3eed430898
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 24d5ee132444f19118613f6b1b798fd763e46e3c
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593377"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299310"
 ---
 # <a name="tutorial-publish-a-gatsby-site-to-azure-static-web-apps-preview"></a>Tutoriel : Publier un site Gatsby dans Azure Static Web Apps Preview
 
@@ -81,13 +81,13 @@ Vous devez avoir un référentiel sur GitHub pour créer une ressource Azure Sta
 
 Les étapes suivantes vous montrent comment créer une application Static Web Apps et la déployer dans un environnement de production.
 
-### <a name="create-the-application"></a>Créer l'application
+### <a name="create-the-application"></a>Création de l'application
 
-1. Accédez au [portail Azure](https://portal.azure.com).
+1. Accéder au [portail Azure](https://portal.azure.com)
 1. Cliquez sur **Create a Resource** (Créer une ressource).
 1. Recherchez **Static Web Apps**.
-1. Cliquez sur **Static Web Apps (Preview)** (Static Web Apps (préversion)).
-1. Cliquez sur **Create** (Créer).
+1. Cliquez sur **Static Web Apps (Preview)** (Static Web Apps (préversion))
+1. Cliquez sur **Créer**
 
    :::image type="content" source="./media/publish-gatsby/create-in-portal.png" alt-text="Création d’une application Static Web Apps (préversion) dans le portail":::
 
@@ -95,7 +95,7 @@ Les étapes suivantes vous montrent comment créer une application Static Web Ap
 
 1. Dans _Groupe de ressources_, sélectionnez **Nouveau**. Dans _New resource group name_ (Nom du nouveau groupe de ressources), entrez **gatsby-static-web-app**, puis sélectionnez **OK**.
 
-1. Indiquez ensuite un nom unique pour votre application dans la zone **Name** (Nom). Les caractères valides sont `a-z`, `A-Z`, `0-9` et `-`. Cette valeur est utilisée comme préfixe d’URL pour votre application Static Web App au format `https://<YOUR_APP_NAME>.azurestaticapps.net`.
+1. Ensuite, entrez un nom pour votre application dans la zone **Nom**. Les caractères valides sont `a-z`, `A-Z`, `0-9` et `-`.
 
 1. Dans _Region_ (Région), sélectionnez une région disponible proche de vous.
 

@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 05/20/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 738a5bd76cc15b9356275707aed0d0a695aa6367
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 2cd1b846b77e4b600fc9b7590715a73b0ca8f672
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770922"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266319"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Que sont les identités managées pour les ressources Azure ?
 
@@ -50,7 +50,7 @@ Il existe deux types d’identités administrées :
 - Une **identité managée attribué par le système** est activée directement sur une instance de service Azure. Lorsque l’identité est activée, Azure crée une identité pour l’instance dans le locataire Azure AD approuvé par l’abonnement de l’instance. Une fois l’identité créée, ses informations d’identification sont provisionnées sur l’instance. Le cycle de vie d’une identité affectée par le système est directement lié à l’instance de service Azure sur laquelle elle est activée. Si l’instance est supprimée, Azure efface automatiquement les informations d’identification et l’identité dans Azure AD.
 - Une **identité managée attribuée par l’utilisateur** est créée en tant que ressource Azure autonome. Via un processus de création, Azure crée une identité dans le locataire Azure AD approuvé par l’abonnement en cours d’utilisation. Une fois l’identité créée, elle peut être affectée à une ou plusieurs instances de service Azure. Le cycle de vie d’une identité affectée par l’utilisateur est géré séparément de celui des instances de service Azure auxquelles elle est affectée.
 
-En interne, des identités managées sont des principaux de service d’un type spécial, qui sont verrouillés pour être utilisés uniquement avec les ressources Azure. Lorsqu’une identité managée est supprimée, le principal de service correspondant est automatiquement supprimé.
+En interne, les identités managées sont des principaux de service d’un type spécial, qui peuvent être utilisés uniquement avec les ressources Azure. Lorsqu’une identité managée est supprimée, le principal de service correspondant est automatiquement supprimé.
 Par ailleurs, quand une identité affectée par l’utilisateur ou par le système est créée, le fournisseur de ressources d’identités managées émet un certificat en interne pour cette identité. 
 
 Votre code peut utiliser une identité managée pour faire une demande de jetons d’accès pour les services qui prennent en charge l’authentification Azure AD. Azure prend en charge la restauration des informations d’identification utilisées par l’instance de service. 
@@ -61,10 +61,10 @@ Le diagramme suivant illustre le fonctionnement des identités de service admini
 
 |  Propriété    | Identité managée affectée par le système | Identité managée affectée par l’utilisateur |
 |------|----------------------------------|--------------------------------|
-| Création |  Créé dans le cadre d’une ressource Azure (par exemple, une machine virtuelle Azure ou Azure App Service) | Créé en tant que ressource Azure autonome |
+| Création |  Créé dans le cadre d’une ressource Azure (par exemple, une machine virtuelle Azure ou Azure App Service). | Créé comme une ressource Azure autonome. |
 | Cycle de vie | Cycle de vie partagé entre la ressource Azure et l’identité managée avec laquelle elle est créée. <br/> Lorsque la ressource parente est supprimée, l’identité managée l’est également. | Cycle de vie indépendant. <br/> Doit être explicitement supprimé. |
-| Partage entre ressources Azure | Ne peut pas être partagé. <br/> Ne peut être associé qu’à une seule ressource Azure. | Peut être partagé <br/> Une même identité managée affectée par l’utilisateur peut être associée à plusieurs ressources Azure. |
-| Cas d’utilisation courants | Charges de travail contenues dans une même ressource Azure <br/> Charges de travail pour lesquelles vous avez besoin d’identités indépendantes. <br/> Par exemple, une application qui s’exécute sur une seule machine virtuelle | Charges de travail qui s’exécutent sur plusieurs ressources et qui peuvent partager une même identité. <br/> Charges de travail qui ont besoin d’une autorisation préalable pour accéder à une ressource sécurisée dans le cadre d’un flux de provisionnement. <br/> Charges de travail dont les ressources sont recyclées fréquemment, mais pour lesquelles les autorisations doivent rester les mêmes. <br/> Par exemple, une charge de travail où plusieurs machines virtuelles doivent accéder à la même ressource |
+| Partage entre ressources Azure | Ne peut pas être partagé. <br/> Ne peut être associé qu’à une seule ressource Azure. | Peut être partagé. <br/> Une même identité managée affectée par l’utilisateur peut être associée à plusieurs ressources Azure. |
+| Cas d’utilisation courants | Charges de travail contenues dans une même ressource Azure. <br/> Charges de travail pour lesquelles vous avez besoin d’identités indépendantes. <br/> Par exemple, une application qui s’exécute sur une seule machine virtuelle | Charges de travail qui s’exécutent sur plusieurs ressources et qui peuvent partager une même identité. <br/> Charges de travail qui ont besoin d’une autorisation préalable pour accéder à une ressource sécurisée dans le cadre d’un flux de provisionnement. <br/> Charges de travail dont les ressources sont recyclées fréquemment, mais pour lesquelles les autorisations doivent rester les mêmes. <br/> Par exemple, une charge de travail où plusieurs machines virtuelles doivent accéder à la même ressource |
 
 ### <a name="how-a-system-assigned-managed-identity-works-with-an-azure-vm"></a>Fonctionnement d’une identité managée attribuée par le système avec une machine virtuelle Azure
 

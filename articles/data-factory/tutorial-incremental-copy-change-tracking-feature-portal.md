@@ -1,6 +1,6 @@
 ---
 title: Copier de façon incrémentielle des données avec Change Tracking
-description: Dans ce tutoriel, vous allez créer un pipeline Azure Data Factory qui copie de façon incrémentielle des données delta de plusieurs tables d’une base de données SQL Server locale dans une base de données Azure SQL.
+description: Dans ce tutoriel, vous créez un pipeline Azure Data Factory qui copie de façon incrémentielle des données delta de plusieurs tables d’une base de données SQL Server dans une base de données Azure SQL.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 40e4fed9755edc2204c7b6b24a003995a14212d0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 842531b7f4bdd3690258262b32a42a19366c1830
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81415427"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196297"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Charger de façon incrémentielle des données d’Azure SQL Database dans le stockage Blob Azure à l’aide de la technologie de suivi des modifications
 
@@ -42,7 +42,7 @@ Dans une solution d’intégration de données, le chargement incrémentiel de d
 Voici les étapes de workflow de bout en bout classiques pour charger de façon incrémentielle des données à l’aide de la technologie Change Tracking.
 
 > [!NOTE]
-> Azure SQL Database et SQL Server prennent en charge la technologie Change Tracking. Ce tutoriel utilise Azure SQL Database comme magasin de données source. Vous pouvez également utiliser un SQL Server local.
+> Azure SQL Database et SQL Server prennent en charge la technologie Change Tracking. Ce tutoriel utilise Azure SQL Database comme magasin de données source. Vous pouvez également utiliser une instance SQL Server.
 
 1. **Chargement initial de données d’historique** (exécuter une fois) :
     1. Activez la technologie Change Tracking dans la base de données Azure SQL source.
@@ -70,11 +70,11 @@ Dans ce didacticiel, vous créez deux pipelines qui effectuent les deux opérati
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-* **Azure SQL Database**. Vous utilisez la base de données comme magasin de données **sources**. Si vous n’avez pas de base de données Azure SQL Database, consultez l’article [Création d’une base de données Azure SQL](../sql-database/sql-database-get-started-portal.md) pour savoir comme en créer une.
+* **Azure SQL Database**. Vous utilisez la base de données comme magasin de données **sources**. Si vous n’avez pas de base de données Azure SQL Database, consultez l’article [Création d’une base de données Azure SQL](../azure-sql/database/single-database-create-quickstart.md) pour savoir comme en créer une.
 * **Compte Stockage Azure**. Vous utilisez le stockage Blob comme magasin de données **récepteur**. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/common/storage-account-create.md) pour découvrir comment en créer un. Créez un conteneur sous le nom **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Créer une table de source de données dans votre base de données Azure SQL Database
-1. Lancez **SQL Server Management Studio** et connectez-vous à votre serveur Azure SQL.
+1. Lancez **SQL Server Management Studio**, puis connectez-vous à SQL Database.
 2. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur votre **base de données** et choisissez **Nouvelle requête**.
 3. Exécutez la commande SQL suivante sur votre base de données Azure SQL Database pour créer une table sous le nom `data_source_table` comme magasin de la source de données.  
 
@@ -216,8 +216,8 @@ Dans cette étape, vous liez votre base de données Azure SQL à la fabrique de 
 3. Dans la fenêtre **Nouveau service lié**, procédez comme suit :
 
     1. Entrez **AzureSqlDatabaseLinkedService** pour le champ **Nom**.
-    2. Sélectionnez votre serveur SQL Azure pour le champ **Nom du serveur**.
-    4. Sélectionnez votre base de données Azure SQL pour le champ **Nom de la base de données**.
+    2. Sélectionnez votre serveur pour le champ **Nom du serveur**.
+    4. Sélectionnez votre base de données pour le champ **Nom de la base de données**.
     5. Entrez le nom de l’utilisateur pour le champ **Nom d’utilisateur**.
     6. Entrez le mot de passe de l’utilisateur pour le champ **Mot de passe**.
     7. Cliquez sur **Tester la connexion** pour tester la connexion.

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c68a95530f345d1ec0ed077681ec4cd6eb3775
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 733e7529af5de453462efb1a13c21203681e442c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402443"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994263"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trelica"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Trelica
 
@@ -90,9 +90,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure 
     1. Dans la zone **URL de réponse**, entrez une URL au format `https://app.trelica.com/Id/Saml2/<CUSTOM_IDENTIFIER>/Acs`.
 
     > [!NOTE]
-    > La valeur de l’**URL de réponse** n’est pas réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Pour obtenir cette valeur, contactez l’[équipe de support technique de Trelica](mailto:support@trelica.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > La valeur de l’URL de réponse n’est pas réelle. Mettez à jour cette valeur avec l’URL de réponse réelle (également appelée ACS).
+    > Vous la trouverez en vous connectant à Trelica et en accédant à la [page de configuration des fournisseurs d’identité SAML](https://app.trelica.com/Admin/Profile/SAML) (Admin > Account > SAML). Cliquez sur le bouton Copier en regard de l’**URL Assertion Consumer Service (ACS)** pour la placer dans le Presse-papiers, afin de pouvoir la coller dans la zone de texte **URL de réponse** dans Azure AD.
+    > Si vous avez des questions, lisez la [documentation d’aide de Trelica](https://docs.trelica.com/admin/saml/azure-ad) ou contactez l’[équipe de support technique de Trelica](mailto:support@trelica.com).
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**. À droite d’**URL des métadonnées de fédération d’application**, sélectionnez le bouton Copier pour copier l’URL. Enregistrez l’URL sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
     ![Section Certificat de signature SAML, avec le bouton Copier mis en évidence en regard de l’URL des métadonnées de fédération d'application](common/copy-metadataurl.png)
 
@@ -128,11 +130,11 @@ Dans cette section, vous autorisez B.Simon à utiliser l’authentification uniq
 
 ## <a name="configure-trelica-sso"></a>Configurer l’authentification unique Trelica
 
-Pour configurer l’authentification unique côté **Trelica**, vous devez envoyer l’**URL des métadonnées de fédération de l’application** copiée à l’[équipe du support technique Trelica](mailto:support@trelica.com). Celle-ci configure ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Trelica**, accédez à la [page de configuration des fournisseurs d’identité SAML](https://app.trelica.com/Admin/Profile/SAML) (Admin > Account > SAML). Cliquez sur le bouton **New**. Entrez **Azure AD** comme nom et choisissez **Metadata from url** comme type de métadonnées. Collez l’**URL des métadonnées de fédération d’application** copiée à partir d’Azure AD dans le champ **Metadata url** dans Trelica.
+
+Si vous avez des questions, lisez la [documentation d’aide de Trelica](https://docs.trelica.com/admin/saml/azure-ad) ou contactez l’[équipe de support technique de Trelica](mailto:support@trelica.com).
 
 ### <a name="create-a-trelica-test-user"></a>Créer un utilisateur de test Trelica
-
-Dans cette section, vous créez un utilisateur appelé B.Simon dans Trelica.
 
 Trelica prend en charge le provisionnement d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Trelica, il en est créé un après l’authentification.
 

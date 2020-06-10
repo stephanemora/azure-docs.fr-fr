@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 1a2b9c739f3583fb5d842bd9d3834252d542cb7d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 20b030079121104fe7bd75924a63ab0e12be9b19
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739275"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020861"
 ---
 # <a name="introduction"></a>Introduction
 
@@ -59,7 +59,7 @@ EXEC sp_addrolemember 'db_exporter', 'Mary';
 
 Les instructions d’importation ne sont pas obligatoires ; elles sont pré-importées pour l’expérience de notebook.
 
-### <a name="transferring-data-to-or-from-a-sql-pool-in-the-logical-server-dw-instance-attached-with-the-workspace"></a>Transfert de données vers ou à partir d’un pool SQL sur le serveur logique (instance DW) joint à l’espace de travail
+### <a name="transferring-data-to-or-from-a-sql-pool-attached-with-the-workspace"></a>Transfert de données vers ou à partir d’un pool SQL joint à l’espace de travail
 
 > [!NOTE]
 > **Importations non nécessaires dans l’expérience de notebook**
@@ -92,7 +92,7 @@ df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.EXTERNAL)
 
 L’authentification auprès du stockage et du serveur SQL est effectuée.
 
-### <a name="if-you-are-transferring-data-to-or-from-a-sql-pool-or-database-in-a-logical-server-outside-the-workspace"></a>Si vous transférez des données vers ou à partir d’un pool ou d’une base de données SQL sur un serveur logique situé en dehors de l’espace de travail
+### <a name="if-you-are-transferring-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>Si vous transférez des données vers ou à partir d’un pool ou d’une base de données SQL en dehors de l’espace de travail
 
 > [!NOTE]
 > Importations non nécessaires dans l’expérience de notebook

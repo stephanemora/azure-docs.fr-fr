@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 04/16/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 5cb3e6d53f6840b8f4e535976739c188daed18b2
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 5af9deef7b6c3e2ea688f9e8ad5cc498f79c784e
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789032"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84317433"
 ---
 La galerie d’images partagées est un service qui vous permet de structurer et d’organiser vos images managées. Les galeries d’images partagées proposent les éléments suivants :
 

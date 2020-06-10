@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: f0a4bb23d8a868e7c11153748259eba23a0cca38
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 81732f13b85a7c0b514aad61c40802f4547957c2
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79501826"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219125"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutoriel : Copier des données sur Azure Data Box Disk par le biais de NFS
 
@@ -94,7 +94,9 @@ Une fois que vous êtes connecté aux partages Data Box, l’étape suivante con
   * Les fichiers sont sensibles à la casse.
 
     Par exemple, si vous copiez `SampleFile.txt` et `Samplefile.Txt`, la casse est conservée dans le nom lors de la copie dans Data Box, mais le second fichier remplace le premier, car ils sont considérés comme le même fichier.
-* Veillez à conserver une copie des données sources tant que vous n’avez pas la confirmation que le Data Box a transféré vos données dans Stockage Azure.
+
+> [!IMPORTANT]
+> Veillez à conserver une copie des données sources tant que vous n’avez pas la confirmation que le Data Box a transféré vos données dans Stockage Azure.
 
 Si vous utilisez un ordinateur hôte Linux, utilisez un utilitaire de copie similaire à Robocopy. Plusieurs solutions alternatives sont disponibles pour Linux, par exemple, [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) et [Ultracopier](https://ultracopier.first-world.info/).  
 
@@ -102,31 +104,31 @@ La commande `cp` constitue l’une des meilleures options pour copier un répert
 
 Si vous utilisez l’option rsync pour une copie multithread, suivez ces instructions :
 
- - Installez le package **CIFS Utils** ou **NFS Utils** selon le système de fichiers utilisé par votre client Linux.
+* Installez le package **CIFS Utils** ou **NFS Utils** selon le système de fichiers utilisé par votre client Linux.
 
     `sudo apt-get install cifs-utils`
 
     `sudo apt-get install nfs-utils`
 
- -  Installez **Rsync** et **Parallel** (selon la version distribuée de Linux).
+* Installez **Rsync** et **Parallel** (selon la version distribuée de Linux).
 
     `sudo apt-get install rsync`
    
     `sudo apt-get install parallel` 
 
- - Créez un point de montage.
+* Créez un point de montage.
 
     `sudo mkdir /mnt/databox`
 
- - Montez le volume.
+* Montez le volume.
 
     `sudo mount -t NFS4  //Databox IP Address/share_name /mnt/databox` 
 
- - Faites une mise en miroir de la structure de répertoires du dossier.  
+* Faites une mise en miroir de la structure de répertoires du dossier.  
 
     `rsync -za --include='*/' --exclude='*' /local_path/ /mnt/databox`
 
- - Copiez les fichiers. 
+* Copiez les fichiers.
 
     `cd /local_path/; find -L . -type f | parallel -j X rsync -za {} /mnt/databox/{}`
 
@@ -140,22 +142,20 @@ Si vous utilisez l’option rsync pour une copie multithread, suivez ces instruc
 Ouvrez le dossier cible pour afficher et vérifier les fichiers copiés. Si vous rencontrez des erreurs au cours du processus de copie, téléchargez les fichiers d’erreurs pour résoudre les problèmes. Pour plus d’informations, consultez [Afficher les journaux d’erreurs pendant la copie de données vers Data Box](data-box-logs.md#view-error-log-during-data-copy). Pour obtenir une liste détaillée des erreurs lors de la copie des données, consultez [Résolution des problèmes liés à Data Box](data-box-troubleshoot.md).
 
 Pour garantir l’intégrité des données, la somme de contrôle est calculée par le biais d’une fonction inline lors de la copie des données. Une fois la copie terminée, vérifiez l’espace utilisé et l’espace libre sur votre appareil.
-    
-   ![Vérifier l’espace libre et l’espace utilisé sur le tableau de bord](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
+   ![Vérifier l’espace libre et l’espace utilisé sur le tableau de bord](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Ce tutoriel vous a apporté des connaissances concernant Azure Data Box, notamment concernant les points suivants :
 
 > [!div class="checklist"]
+>
 > * Prérequis
 > * Se connecter à Data Box
 > * Copier des données sur Data Box
-
 
 Passez au tutoriel suivant pour découvrir comment renvoyer votre Data Box à Microsoft.
 
 > [!div class="nextstepaction"]
 > [Ship your Azure Data Box to Microsoft](./data-box-deploy-picked-up.md) (Expédier votre Azure Data Box à Microsoft)
-

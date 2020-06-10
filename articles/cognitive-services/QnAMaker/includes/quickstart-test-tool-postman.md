@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 97dfe175a609ab336206098948b4e3fcc401d8bc
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a5af58c645720f0643e9245dc106248e36f2658f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203957"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84237742"
 ---
 Ce guide de démarrage rapide basé sur Postman vous aide à obtenir une réponse de votre base de connaissances.
 
@@ -64,7 +64,7 @@ Dans un démarrage rapide précédent, des métadonnées ont été ajoutées à 
     }
     ```
 
-    La question est un simple mot, `size`, qui peut retourner l’une ou l’autre des deux jeux de questions et réponses. Le paramètre `strictFilters` indique à la réponse de se réduire uniquement aux réponses de `qna_maker`.
+    La question est un seul mot, `size`, qui peut retourner l’une ou l’autre des deux paires question/réponse. Le paramètre `strictFilters` indique à la réponse de se réduire uniquement aux réponses de `qna_maker`.
 
 1. La réponse inclut uniquement la réponse qui répond aux critères de filtre.
 
@@ -103,9 +103,12 @@ Dans un démarrage rapide précédent, des métadonnées ont été ajoutées à 
     }
     ```
 
-    S’il existe une série de questions et réponses qui ne correspond pas au terme recherché, mais qui est conforme au filtre, il n’est pas retourné. À la place, la réponse générale `No good match found in KB.` est retournée.
+    S’il y a une paire question/réponse qui ne correspond pas au terme recherché, mais qui est conforme au filtre, elle n’est pas retournée. À la place, la réponse générale `No good match found in KB.` est retournée.
 
 ## <a name="use-debug-query-property"></a>Utiliser la propriété de requête de débogage
+
+> [!NOTE]
+>Nous vous déconseillons d’utiliser la propriété Debug pour les dépendances. Cette propriété a été ajoutée pour aider l’équipe produit à résoudre les problèmes.
 
 Les informations de débogage vous aident à comprendre comment la réponse retournée a été déterminée. Bien qu’elles s’avèrent utiles, elles ne sont pas indispensables. Pour générer une réponse avec les informations de débogage, ajoutez la propriété `debug` :
 

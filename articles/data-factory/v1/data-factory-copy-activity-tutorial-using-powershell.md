@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 215ed088b17125e7e41877e3c188a6bf3d77e8bb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f34103bb42999f6d2e9bfe35dbc257db7cecd909
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73682856"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119263"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Tutoriel : créer un pipeline Data Factory qui déplace les données à l’aide d’Azure PowerShell
 > [!div class="op_single_selector"]
@@ -189,7 +189,7 @@ Dans cette étape, vous liez votre base de données Azure SQL à votre fabrique 
 1. Créez un fichier JSON nommé AzureSqlLinkedService.json dans C:\ADFGetStartedPSH avec le contenu suivant :
 
     > [!IMPORTANT]
-    > Remplacez &lt;servername&gt;, &lt;databasename&gt;, &lt;username@servername&gt;, et &lt;password&gt; par les noms de votre serveur SQL Azure, de la base de données, du compte d’utilisateur et par le mot de passe.
+    > Remplacez &lt;servername&gt;, &lt;databasename&gt;, &lt;username@servername&gt;, et &lt;password&gt; par les noms de votre serveur, de la base de données, du compte d’utilisateur et par le mot de passe.
     
     ```json
     {
@@ -218,7 +218,7 @@ Dans cette étape, vous liez votre base de données Azure SQL à votre fabrique 
     ProvisioningState : Succeeded
     ```
 
-   Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est activé pour votre serveur SQL Database. Pour vérifier et l’activer, procédez comme suit :
+   Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est activé sur votre serveur. Pour vérifier et l’activer, procédez comme suit :
 
     1. Connectez-vous au [portail Azure](https://portal.azure.com)
     1. Cliquez **Plus de services** à gauche, puis sur **Serveurs SQL** dans la catégorie **BASES DE DONNÉES**.

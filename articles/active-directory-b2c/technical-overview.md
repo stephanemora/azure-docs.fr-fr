@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 09/19/2019
+ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d57bf7fa6d56c1704a78219f8a0af1182ce8a955
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 4a4d52ee3f39daef0e89ccb08cf5ab6a4ebfb735
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739097"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140789"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Vue d’ensemble technique et fonctionnelle d’Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Les ressources principales que vous utilisez dans un locataire Azure AD B2C sont
   * les fournisseurs d’identités *de réseau social*, comme Facebook, LinkedIn ou Twitter, que vous souhaitez prendre en charge dans vos applications ;
   * les fournisseurs d’identités *externes* qui prennent en charge les protocoles d’identité standard, tels que OAuth 2.0, OpenID Connect, etc.
   * les comptes *locaux* qui permettent aux utilisateurs de s’inscrire et de se connecter au moyen d’un nom d’utilisateur (d’une adresse e-mail ou d’un autre ID) et d’un mot de passe.
-* **Clés** : ajoutez et gérez des clés de chiffrement pour la signature et la validation des jetons.
+* **Clés** : ajoutez et gérez des clés de chiffrement pour la signature et la validation des jetons, des secrets clients, des certificats et des mots de passe.
 
 Un locataire Azure AD B2C est la première ressource que vous devez créer pour commencer à utiliser Azure AD B2C. Découvrez comment, dans le [Tutoriel : Créer un locataire Azure Active Directory B2C](tutorial-create-tenant.md).
 
@@ -69,7 +69,7 @@ Apprenez-en davantage sur les types de comptes utilisateur dans Azure AD B2C ave
 
 ## <a name="external-identity-providers"></a>Fournisseurs d’identité externes
 
-Vous pouvez configurer Azure AD B2C pour permettre aux utilisateurs de se connecter à votre application avec des informations d’identification de fournisseurs d’identités de réseau social ou d’entreprise externes (IdP). Azure AD B2C prend en charge les fournisseurs d’identités externes, tels que Facebook, compte Microsoft, Google, Twitter et tout fournisseur d’identité prenant en charge les protocoles OAuth 1.0, OAuth 2.0, OpenID Connect, SAML ou WS-Federation.
+Vous pouvez configurer Azure AD B2C pour permettre aux utilisateurs de se connecter à votre application avec des informations d’identification de fournisseurs d’identités de réseau social ou d’entreprise externes (IdP). Azure AD B2C prend en charge les fournisseurs d’identité externe, comme Facebook, compte Microsoft, Google, Twitter et tout fournisseur d’identité prenant en charge les protocoles OAuth 1.0, OAuth 2.0, OpenID Connect et SAML.
 
 ![Fournisseurs d’identité externes](media/technical-overview/external-idps.png)
 
@@ -134,15 +134,13 @@ Apprenez-en davantage sur les stratégies personnalisées avec [Stratégies pers
 
 ## <a name="protocols-and-tokens"></a>Protocoles et jetons
 
-Azure AD B2C prend en charge les [protocoles OpenID Connect et OAuth 2.0](protocols-overview.md) pour les parcours utilisateur. Dans l’implémentation d’OpenID Connect par Azure AD B2C, votre application entame le parcours utilisateur en émettant des demandes d’authentification vers Azure AD B2C.
+- Pour les applications, Azure AD B2C prend en charge les protocoles [OAuth 2.0](protocols-overview.md), [OpenID Connect](openid-connect.md) et [SAML](connect-with-saml-service-providers.md) pour les parcours utilisateur. Votre application démarre le parcours utilisateur en envoyant des demandes d’authentification à Azure AD B2C. Le résultat d’une demande à Azure AD B2C est un jeton de sécurité, de type [jeton d’ID, jeton d’accès](tokens-overview.md) ou jeton SAML. Ce jeton de sécurité définit l’identité de l’utilisateur dans l’application.
 
-Le résultat d’une demande à Azure AD B2C est un jeton de sécurité, comme un [jeton d’ID ou un jeton d’accès](tokens-overview.md). Ce jeton de sécurité définit l’identité de l’utilisateur. Les jetons sont reçus depuis des points de terminaison Azure AD B2C, comme le point de terminaison `/token` ou `/authorize`. Avec ces jetons, vous pouvez accéder à des revendications utilisables pour valider une identité et autoriser l’accès à des ressources sécurisées.
+- Pour les identités externes, Azure AD B2C prend en charge la fédération avec tout fournisseur d’identité OAuth 1.0, OAuth 2.0, OpenID Connect et SAML.
 
-Pour les identités externes, Azure AD B2C prend en charge la fédération avec tout fournisseur d’identité OAuth 1.0, OAuth 2.0, OpenID Connect, SAML ou WS-Fed.
+Le schéma suivant montre comment Azure AD B2C peut communiquer via divers protocoles, au sein du même flux d’authentification :
 
 ![Schéma de fédération de l’application cliente basée sur OIDC avec un IdP s’appuyant sur SAML](media/technical-overview/protocols.png)
-
-Le schéma précédent montre comment Azure AD B2C peut communiquer via divers protocoles, au sein du même flux d’authentification :
 
 1. L’application par partie de confiance initie une requête d’autorisation auprès d’Azure AD B2C à l’aide d’OpenID Connect.
 1. Quand un utilisateur de l’application choisit de se connecter avec un fournisseur d’identité externe utilisant le protocole SAML, Azure AD B2C appelle le protocole SAML pour communiquer avec ce fournisseur d’identité.

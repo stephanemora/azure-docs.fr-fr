@@ -9,22 +9,25 @@ ms.subservice: ''
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2e0b1ee5584420ab38fda8897ef610794b09c29a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9c90bc9527bffff55d7478150cc1f31827bacc46
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658841"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235288"
 ---
 # <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Fonctionnalités prises en charge par Azure Synapse Link (préversion) pour Azure Cosmos DB
 
-Cet article décrit les fonctionnalités actuellement prises en charge par Azure Synapse Link pour Azure Cosmos DB. 
+Cet article décrit les fonctionnalités actuellement prises en charge par Azure Synapse Link pour Azure Cosmos DB.
 
 ## <a name="azure-synapse-support"></a>Prise en charge d’Azure Synapse
 
 Il existe deux types de conteneurs dans Azure Cosmos DB :
 * Le conteneur HTAP : il s’agit d’un conteneur prenant en charge Synapse Link. Ce conteneur a à la fois un magasin transactionnel et un magasin analytique. 
 * Le conteneur OLTP : il s’agit d’un conteneur doté uniquement d’un magasin de transactions. Il ne prend pas en charge Synapse Link. 
+
+> [!IMPORTANT]
+> Azure Synapse Link pour Azure Cosmos DB est actuellement pris en charge pour les espaces de travail pour lesquels le réseau virtuel managé n’est pas activé. 
 
 Vous pouvez vous connecter à un conteneur Azure Cosmos DB sans activer Synapse Link, auquel cas vous pouvez uniquement lire/écrire dans le magasin transactionnel. La liste ci-dessous répertorie les fonctionnalités actuellement prises en charge dans Synapse Link pour Azure Cosmos DB. 
 

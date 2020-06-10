@@ -11,12 +11,12 @@ ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: d7cd437f597fc34fe83904715fc2e459dfe4550f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 4a36019f9023490c3aac68dbe7004b053f08e5ec
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80875551"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298820"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Tutoriel : Activer l’authentification dans une application monopage avec Azure AD B2C
 
@@ -51,28 +51,27 @@ De plus, vous devez disposer des éléments suivants dans votre environnement de
 
 Au cours du deuxième tutoriel que vous avez effectué dans le cadre des prérequis, vous avez inscrit une application web dans Azure AD B2C. Pour permettre la communication avec l’exemple de code de ce tutoriel, ajoutez une URL de réponse (également appelée URI de redirection) à l’inscription d’application.
 
-Vous pouvez utiliser l’expérience **Applications** actuelle ou notre nouvelle expérience unifiée **Inscriptions d’applications (préversion)** pour mettre à jour l’application. [En savoir plus sur la nouvelle expérience](https://aka.ms/b2cappregintro).
+Pour mettre à jour une application dans votre locataire Azure AD B2C, vous pouvez utiliser notre nouvelle expérience unifiée **Inscriptions d’applications** ou notre expérience héritée **Applications (héritées)** . [En savoir plus sur la nouvelle expérience](https://aka.ms/b2cappregtraining).
 
-#### <a name="applications"></a>[Applications](#tab/applications/)
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-1. Sélectionnez **Tous les services** en haut à gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-1. Sélectionnez **Applications**, puis l’application *webapp1*.
-1. Sous **URL de réponse**, ajoutez `http://localhost:6420`.
-1. Sélectionnez **Enregistrer**.
-1. Dans la page de propriétés, enregistrez l’**ID d’application**. Vous allez utiliser l’ID de l’application au cours d’une prochaine étape quand vous mettrez à jour le code dans l’application web monopage.
-
-#### <a name="app-registrations-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Inscriptions des applications](#tab/app-reg-ga/)
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
 1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
-1. Sélectionnez **Inscriptions d’applications (préversion)** , sélectionnez l’onglet **Applications détenues**, puis l’application *webapp1*.
-1. Sélectionnez **Authentification**, puis **Essayer la nouvelle expérience** (si l’option est affichée).
+1. Sélectionnez **Inscriptions d’applications**, sélectionnez l’onglet **Applications détenues**, puis l’application *webapp1*.
 1. Sous **Web**, sélectionnez le lien **Ajouter un URI**, entrez `http://localhost:6420`, puis sélectionnez **Enregistrer**.
 1. Sélectionnez **Vue d’ensemble**.
 1. Notez l’**ID de l’application** pour l’utiliser plus tard, quand vous mettrez à jour le code dans l’application web monopage.
+
+#### <a name="applications-legacy"></a>[Applications (héritées)](#tab/applications-legacy/)
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
+1. Sélectionnez **Tous les services** en haut à gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Sélectionnez **Applications (héritées)** , puis l’application *webapp1*.
+1. Sous **URL de réponse**, ajoutez `http://localhost:6420`.
+1. Sélectionnez **Enregistrer**.
+1. Dans la page de propriétés, enregistrez l’**ID d’application**. Vous allez utiliser l’ID de l’application au cours d’une prochaine étape quand vous mettrez à jour le code dans l’application web monopage.
 
 * * *
 

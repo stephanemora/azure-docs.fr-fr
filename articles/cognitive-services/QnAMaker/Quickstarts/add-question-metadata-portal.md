@@ -1,22 +1,22 @@
 ---
 title: 'Démarrage rapide : Ajouter des questions et des réponses dans le portail QnA Maker'
-description: Ce guide de démarrage rapide montre comment ajouter des séries de questions et de réponses avec des métadonnées afin de permettre à vos utilisateurs de trouver la réponse à leur question.
+description: Ce guide de démarrage rapide montre comment ajouter des paires question/réponse avec des métadonnées pour permettre à vos utilisateurs de trouver la réponse à leur question.
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: fc8bac425723e9194c447f1cf6ee13547c09d772
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: e35f7437f0028fedffea7cbcb6216fb7e1fad1f8
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873688"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266574"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Démarrage rapide : Ajouter des questions et des réponses à l’aide du portail QnA Maker
 
-Une fois qu’une base de connaissances est créée, ajoutez des jeux de questions et réponses (QnA) avec des métadonnées pour filtrer la réponse. Les questions du tableau ci-dessous concernent les limites du service Azure. Toutefois, chacune d’entre elles concerne un service Azure distinct.
+Une fois qu’une base de connaissances est créée, ajoutez des paires question/réponse (Q/R) avec des métadonnées pour filtrer la réponse. Les questions du tableau ci-dessous concernent les limites du service Azure. Toutefois, chacune d’entre elles concerne un service Azure distinct.
 
 <a name="qna-table"></a>
 
-|Définissez|Questions|Réponse|Métadonnées|
+|Paire|Questions|Réponse|Métadonnées|
 |--|--|--|--|
 |No 1|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
 |No 2|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Cognitive Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Cognitive Search service size?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Cognitive Search tier supports.`|`service=search`<br>`link_in_answer=false`|
@@ -39,11 +39,11 @@ Une fois les métadonnées ajoutées à une paire de Q/R, l’application client
 
 ## <a name="add-additional-alternatively-phrased-questions"></a>Ajouter des questions supplémentaires formulées différemment
 
-La base de connaissances actuelle contient des paires de Q/R de résolution des problèmes liés à QnA Maker. Ces séries ont été créées au moment où l’URL a été ajoutée à la base de connaissances durant le processus de création.
+La base de connaissances actuelle contient des paires de Q/R de résolution des problèmes liés à QnA Maker. Ces paires ont été créées au moment où l’URL a été ajoutée à la base de connaissances durant le processus de création.
 
 Une fois que cette URL a été importée, une seule question a été créée avec une seule réponse. Dans cette procédure, ajoutez des questions supplémentaires.
 
-1. Dans la page **Edit** (Modifier), utilisez la zone de recherche située au-dessus des séries de questions et réponses pour trouver la question `How large a knowledge base can I create?`
+1. Dans la page **Edit** (Modifier), utilisez la zone de recherche située au-dessus des paires question/réponse pour trouver la question `How large a knowledge base can I create?`
 
 1. Dans la colonne **Question**, sélectionnez **+ Add alternative phrasing** (Ajouter une autre formulation), puis ajoutez chacune des nouvelles formulations fournies dans le tableau suivant.
 
@@ -70,9 +70,9 @@ Une fois que cette URL a été importée, une seule question a été créée ave
 
 ## <a name="add-metadata-to-filter-the-answers"></a>Ajouter des métadonnées pour filtrer les réponses
 
-L’ajout de métadonnées à une série de questions et réponses permet à votre application cliente de demander des réponses filtrées. Ce filtre est appliqué avant celui des [premier et deuxième outils de classement](../concepts/query-knowledge-base.md#ranker-process).
+L’ajout de métadonnées à une paire question/réponse permet à votre application cliente de demander des réponses filtrées. Ce filtre est appliqué avant celui des [premier et deuxième outils de classement](../concepts/query-knowledge-base.md#ranker-process).
 
-1. Ajoutez la deuxième série de questions et réponses, sans les métadonnées, à partir du [premier tableau de ce guide de démarrage rapide](#qna-table), puis continuez en effectuant les étapes suivantes.
+1. Ajoutez la deuxième paire question/réponse du [premier tableau de ce guide de démarrage rapide](#qna-table) (sans les métadonnées), puis continuez en effectuant les étapes suivantes.
 
 1. Sélectionnez **View options** (Options d’affichage), puis **Show metadata** (Afficher les métadonnées).
 
@@ -85,7 +85,7 @@ L’ajout de métadonnées à une série de questions et réponses permet à vot
 1. Ajoutez des paires de métadonnées pour les deux mêmes balises de métadonnées :
 
     `link_in_answer` : `true`<br>
-    `server`: `qna_maker`
+    `service`: `qna_maker`
 
     Vous avez désormais deux questions avec les mêmes balises de métadonnées et des valeurs différentes.
 

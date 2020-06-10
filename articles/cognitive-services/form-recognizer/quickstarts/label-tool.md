@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 3c42d520e5e30e57906245b9405b0d445be8ee16
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: cedc400ac6659cf2b2d0e9c499bf8789a6311e32
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871372"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141889"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’outil d’étiquetage des exemples
 
@@ -143,7 +143,8 @@ Vous allez ensuite créer des balises (étiquettes) et les appliquer aux éléme
     > * Étiquetez les valeurs telles qu’elles apparaissent sur le formulaire ; n’essayez pas de fractionner une valeur en deux parties avec deux étiquettes différentes. Par exemple, un champ d’adresse doit être étiqueté avec une étiquette unique, même s’il s’étend sur plusieurs lignes.
     > * N’incluez pas de clés dans vos champs étiquetés&mdash;uniquement les valeurs.
     > * Les données de la table doivent être détectées automatiquement et seront disponibles dans le fichier JSON de sortie final. Toutefois, si le modèle ne parvient pas à détecter toutes les données de votre table, vous pouvez aussi étiqueter manuellement ces champs. Étiquetez chaque cellule de la table avec une étiquette différente. Si vos formulaires comportent des tables avec un nombre variable de lignes, veillez à étiqueter au moins un formulaire avec la table la plus grande possible.
-    > * Pour supprimer une étiquette appliquée, sélectionnez le rectangle dans la vue de document et appuyez sur la touche Suppr.
+    > * Servez-vous des boutons situés à droite de **+** pour rechercher, renommer, réorganiser et supprimer vos étiquettes.
+    > * Pour supprimer une étiquette appliquée sans supprimer l’étiquette proprement dite, sélectionne lez rectangle étiqueté dans la vue du document et appuyez sur la touche de suppression.
 
 ![Fenêtre principale de l’éditeur de l’outil d’étiquetage des exemples](../media/label-tool/main-editor.png)
 

@@ -7,16 +7,16 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/12/2020
 tags: connectors
-ms.openlocfilehash: c32e17aaf83c233ad77bbbf607c30cc526253352
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: f63553ced8484b3ce328fb9537d5831ae1e27fe8
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402595"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84191490"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatiser les workflows pour SQL Server ou Azure SQL Database à l’aide d’Azure Logic Apps
 
-Cet article explique comment accéder aux données dans votre base de données SQL depuis une application logique avec le connecteur SQL Server. Vous pouvez ainsi automatiser des tâches, des processus ou des workflows qui gèrent vos données et ressources SQL en créant des applications logiques. Le connecteur SQL Server fonctionne pour [SQL Server en local](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) et [Azure SQL Database dans le cloud](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview).
+Cet article explique comment accéder aux données dans votre base de données SQL depuis une application logique avec le connecteur SQL Server. Vous pouvez ainsi automatiser des tâches, des processus ou des workflows qui gèrent vos données et ressources SQL en créant des applications logiques. Le connecteur SQL Server fonctionne pour [SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation), ainsi que [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) et [Azure SQL Managed instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
 
 Vous pouvez créer des applications logiques qui s’exécutent lorsqu’elles sont déclenchées par des événements dans votre base de données SQL ou dans d’autres systèmes, tels que Dynamics CRM Online. Vos applications logiques peuvent également obtenir, insérer et supprimer des données, ainsi qu’exécuter des requêtes SQL et des procédures stockées. Par exemple, vous pouvez concevoir une application logique qui recherche automatiquement les nouveaux enregistrements dans Dynamics CRM Online, ajoute des éléments à votre base de données SQL en cas de nouveaux enregistrements, puis envoie des alertes sur les éléments ajoutés par e-mail.
 
@@ -26,7 +26,7 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 
-* Une [base de données SQL Server](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) ou une [base de données SQL Azure](../sql-database/sql-database-get-started-portal.md)
+* Une [base de données SQL Server](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) ou une [base de données SQL Azure](../azure-sql/database/single-database-create-quickstart.md)
 
   Vos tables doivent contenir des données afin que votre application logique puisse renvoyer les résultats lors de l’appel des opérations. Si vous créez une base de données Azure SQL, vous pouvez utiliser les exemples de bases de données inclus.
 

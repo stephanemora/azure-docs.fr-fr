@@ -4,29 +4,29 @@ description: Guide pratique pour configurer des appareils en aval ou de nœud te
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/08/2019
+ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 49a94b8877d46cf95ec8701f470d87e187713f69
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: c7de0fdf6a22b1414be297b6958841ba5c251c4b
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583297"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309218"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connecter un appareil en aval à une passerelle Azure IoT Edge
 
-Cet article explique comment établir une connexion approuvée entre des appareils en aval et des passerelles transparentes IoT Edge. Dans un scénario de passerelle transparente, un ou plusieurs appareils peuvent transmettre leurs messages via un appareil de passerelle qui gère la connexion à IoT Hub. Un appareil en aval est une application ou une plateforme dont l’identité a été créée avec le service cloud [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub). Dans de nombreux cas, ces applications utilisent [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). Un appareil en aval peut même être une application fonctionnant sur l’appareil de passerelle IoT Edge proprement dit.
+Cet article explique comment établir une connexion approuvée entre des appareils en aval et des passerelles transparentes IoT Edge. Dans un scénario de passerelle transparente, un ou plusieurs appareils peuvent transmettre leurs messages via un appareil de passerelle qui gère la connexion à IoT Hub.
 
 La configuration d’une connexion de passerelle transparente s’effectue en trois grandes étapes. Cet article aborde la troisième étape :
 
-1. L’appareil de passerelle doit être en mesure de se connecter aux appareils en aval, de recevoir des communications de ces appareils et de router les messages vers la destination appropriée, tout cela de façon sécurisée. Pour plus d’informations, consultez [Configurer un appareil IoT Edge en tant que passerelle transparente](how-to-create-transparent-gateway.md).
-2. L’appareil en aval doit avoir une identité d’appareil pour s’authentifier auprès d’IoT Hub et savoir comment communiquer par le biais de l’appareil de passerelle associé. Pour plus d’informations, consultez [Authentifier un appareil en aval auprès d’Azure IoT Hub](how-to-authenticate-downstream-device.md).
-3. **L’appareil en aval doit pouvoir se connecter de façon sécurisée à son appareil de passerelle.**
+1. Configurez l’appareil de passerelle en tant que serveur pour permettre aux appareils en aval de s’y connecter en toute sécurité. Configurez la passerelle pour recevoir des messages des appareils en aval et les acheminer vers la destination qui convient. Pour plus d’informations, consultez [Configurer un appareil IoT Edge en tant que passerelle transparente](how-to-create-transparent-gateway.md).
+2. Créez une identité d’appareil pour l’appareil en aval afin qu’il puisse s’authentifier sur IoT Hub. Configurez l’appareil en aval pour envoyer des messages par le biais de l’appareil de passerelle. Pour plus d’informations, consultez [Authentifier un appareil en aval auprès d’Azure IoT Hub](how-to-authenticate-downstream-device.md).
+3. **Connectez l’appareil en aval à l’appareil de passerelle et commencez à envoyer des messages.**
 
 Cet article identifie les problèmes courants liés aux connexions d’appareils en aval et vous guide dans la configuration de vos appareils en aval de la façon suivante :
 
@@ -38,23 +38,23 @@ Dans cet article, les termes *passerelle* et *passerelle IoT Edge* font référe
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Mettez le fichier de certificat **azure-iot-test-only.root.ca.cert.pem** généré dans [Configurer un appareil IoT Edge en tant que passerelle transparente](how-to-create-transparent-gateway.md) à la disposition de votre appareil en aval. Celui-ci se sert de ce certificat pour valider l’identité de l’appareil de passerelle.
+* Mettez le fichier de certificat d'autorité de certification racine utilisé pour générer le certificat d'autorité de certification d'appareil dans [Configurer un appareil IoT Edge en tant que passerelle transparente](how-to-create-transparent-gateway.md) à la disposition de votre appareil en aval. Celui-ci se sert de ce certificat pour valider l’identité de l’appareil de passerelle. Si vous avez utilisé les certificats de démonstration, le certificat d’autorité de certification racine est appelé **azure-iot-test-only.root.ca.cert.pem**.
 * Utilisez la chaîne de connexion modifiée qui pointe vers l’appareil de passerelle, comme expliqué dans [Authentifier un appareil en aval auprès d’Azure IoT Hub](how-to-authenticate-downstream-device.md).
 
 ## <a name="prepare-a-downstream-device"></a>Préparer un appareil en aval
 
-Un appareil en aval est une application ou une plateforme dont l’identité a été créée avec le service cloud [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub). Dans de nombreux cas, ces applications utilisent [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). Un appareil en aval peut même être une application fonctionnant sur l’appareil de passerelle IoT Edge proprement dit. Toutefois, un autre appareil IoT Edge ne peut pas se trouver en aval d’une passerelle IoT Edge.
+Un appareil en aval est une application ou une plateforme dont l’identité a été créée avec le service cloud Azure IoT Hub. Dans de nombreux cas, ces applications utilisent [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). Un appareil en aval peut même être une application fonctionnant sur l’appareil de passerelle IoT Edge proprement dit. Toutefois, un autre appareil IoT Edge ne peut pas se trouver en aval d’une passerelle IoT Edge.
 
 >[!NOTE]
->Les appareils IoT dont les identités sont inscrites dans IoT Hub peuvent utiliser des [jumeaux de module](../iot-hub/iot-hub-devguide-module-twins.md) pour isoler des processus, matériels ou fonctions différents sur un même appareil. Les passerelles IoT Edge prennent en charge les connexions de modules en aval à l’aide de l’authentification par clé symétrique, mais pas à l’aide de l’authentification par certificat X.509.
+>Les appareils IoT inscrits auprès d'IoT Hub peuvent utiliser des [jumeaux de module](../iot-hub/iot-hub-devguide-module-twins.md) pour isoler des processus, matériels ou fonctions différents sur un même appareil. Les passerelles IoT Edge prennent en charge les connexions de modules en aval à l’aide de l’authentification par clé symétrique, mais pas à l’aide de l’authentification par certificat X.509.
 
 Pour connecter un appareil en aval à une passerelle Azure IoT Edge, deux éléments sont nécessaires :
 
 * Un appareil ou une application configurés avec une chaîne de connexion d’appareil IoT Hub ajoutée avec les informations pour se connecter à la passerelle.
 
-    Cette étape est expliquée dans [Authentifier un appareil en aval auprès d’Azure IoT Hub](how-to-authenticate-downstream-device.md).
+    Cette étape a été effectuée dans l’article précédent, [Authentifier un appareil en aval auprès d’Azure IoT Hub](how-to-authenticate-downstream-device.md#retrieve-and-modify-connection-string).
 
-* L’appareil ou l’application doit approuver le certificat de l’**autorité de certification racine** de la passerelle afin de valider les connexions TLS à l’appareil de passerelle.
+* L’appareil ou l’application doit approuver le certificat de l’**autorité de certification racine** de la passerelle afin de valider les connexions TLS (Transport Layer Security) à l’appareil de passerelle.
 
     Cette étape est expliquée en détail dans la suite de cet article. Cette étape peut être effectuée de deux manières : en installant le certificat de l’autorité de certification dans le magasin de certificats du système d’exploitation, ou (pour certains langages) en référençant le certificat au sein des applications à l’aide des SDK Azure IoT.
 
@@ -62,9 +62,9 @@ Pour connecter un appareil en aval à une passerelle Azure IoT Edge, deux élém
 
 Le défi qu’impose la connexion en toute sécurité d’appareils en aval à IoT Edge est le même que pour toute autre communication client/serveur sécurisé survenant sur Internet. Un client et un serveur de communiquent en toute sécurité sur Internet à l’aide du protocole [Transport layer security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). Le protocole TLS est généré à l’aide de constructions [Public key infrastructure (PKI)](https://en.wikipedia.org/wiki/Public_key_infrastructure) standard appelées certificats. TLS est une spécification souvent utilisée, qui convient à de nombreuses situations impliquant la sécurisation de deux points de terminaison. Cette section explique comment connecter des appareils à une passerelle IoT Edge de façon sécurisée.
 
-Lorsqu’un client se connecte à un serveur, le serveur présente une chaîne de certificats, appelée *chaîne de certificats du serveur*. Une chaîne de certificats comprend généralement un certificat d’autorité de certification racine, un ou plusieurs certificats d’autorité de certification intermédiaires, et enfin le certificat du serveur lui-même. Un client établit une relation de confiance avec un serveur en vérifiant par chiffrement l’intégralité de la chaîne de certificats du serveur. Cette validation côté client de la chaîne de certificat du serveur est appelée *validation de la chaîne du serveur*. Le client vérifie par chiffrement que le service possède la clé privée associée au certificat du serveur, dans le cadre d’un processus appelé *preuve de possession*. La combinaison d’une validation de chaîne de serveur et d’une preuve de possession est appelée *authentification du serveur*. Pour valider une chaîne de certificats du serveur, un client a besoin d’une copie du certificat de l’autorité de certification racine qui a servi à créer (ou à émettre) le certificat du serveur. Normalement, lors de la connexion à des sites web, un navigateur est préconfiguré avec des certificats d’autorité de certification couramment utilisés afin de garantir au client un processus transparent.
+Lorsqu’un client se connecte à un serveur, le serveur présente une chaîne de certificats, appelée *chaîne de certificats du serveur*. Une chaîne de certificats comprend généralement un certificat d’autorité de certification racine, un ou plusieurs certificats d’autorité de certification intermédiaires, et enfin le certificat du serveur lui-même. Un client établit une relation de confiance avec un serveur en vérifiant par chiffrement l’intégralité de la chaîne de certificats du serveur. Cette validation côté client de la chaîne de certificat du serveur est appelée *validation de la chaîne du serveur*. Le client vérifie que le service possède la clé privée associée au certificat du serveur, dans le cadre d’un processus appelé *preuve de possession*. La combinaison d’une validation de chaîne de serveur et d’une preuve de possession est appelée *authentification du serveur*. Pour valider une chaîne de certificats du serveur, un client a besoin d’une copie du certificat de l’autorité de certification racine qui a servi à créer (ou à émettre) le certificat du serveur. Normalement, lors de la connexion à des sites web, un navigateur est préconfiguré avec des certificats d’autorité de certification couramment utilisés afin de garantir au client un processus transparent.
 
-Lorsqu’un appareil se connecte à Azure IoT Hub, l’appareil est client et le service cloud IoT Hub est le serveur. Le service cloud IoT Hub s’appuie sur un certificat d’autorité de certification racine appelé **Baltimore CyberTrust Root**, disponible publiquement et largement utilisé. Comme le certificat d’autorité de certification IoT Hub est déjà installé sur la plupart des appareils, de nombreuses implémentations TLS (OpenSSL, Schannel, LibreSSL) l’utilisent automatiquement lors de la validation du certificat du serveur. Un appareil qui se connecte avec succès à IoT Hub peut rencontrer des problèmes en tentant de se connecter à une passerelle IoT Edge.
+Lorsqu’un appareil se connecte à Azure IoT Hub, l’appareil est client et le service cloud IoT Hub est le serveur. Le service cloud IoT Hub s’appuie sur un certificat d’autorité de certification racine appelé **Baltimore CyberTrust Root**, disponible publiquement et largement utilisé. Comme le certificat d’autorité de certification IoT Hub est déjà installé sur la plupart des appareils, de nombreuses implémentations TLS (OpenSSL, Schannel, LibreSSL) l’utilisent automatiquement lors de la validation du certificat du serveur. Cela étant, un appareil qui se connecte avec succès à IoT Hub peut rencontrer des problèmes en tentant de se connecter à une passerelle IoT Edge.
 
 Lorsqu’un appareil se connecte à une passerelle IoT Edge, l’appareil en aval est le client et l’appareil de passerelle est le serveur. Azure IoT Edge permet aux opérateurs (ou utilisateurs) de générer des chaînes de certificats de passerelle adaptées à leurs besoins. L’opérateur peut choisir d’utiliser un certificat d’autorité de certification publique, comme Baltimore, ou un certificat d’autorité de certification racine auto-signé (ou développé en interne). Les certificats d’autorité de certification publique entraînent souvent un coût et sont par conséquent généralement utilisés dans des scénarios de production. Les certificats d’autorité de certification auto-signés sont plus adaptés au développement et aux tests. Les articles listés dans l’introduction qui concernent la configuration des passerelles transparentes utilisent des certificats d’autorité de certification racine autosignés.
 
@@ -93,7 +93,7 @@ sudo update-ca-certificates
 
 Vous devez voir un message indiquant « Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done. » (Mise à jour des certificats dans /etc/ssl/certs... 1 ajouté, 0 supprimé ; terminé.)
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 Les étapes suivantes montrent un exemple d’installation d’un certificat d’autorité de certification sur un hôte Windows. Cet exemple suppose que vous utilisez le certificat **azure-iot-test-only.root.ca.cert.pem** tiré des articles sur les prérequis et que vous avez copié le certificat dans un emplacement de l’appareil en aval.
 

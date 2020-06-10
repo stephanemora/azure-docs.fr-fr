@@ -5,15 +5,15 @@ author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
-ms.date: 02/24/2019
+ms.date: 05/18/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 046e438304991c4af7ea4a208e51b7a695a5bf23
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 4bf55daa64319cfd47efd2e38a368d76f3814b4e
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83004473"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84296667"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Questions fréquentes (FAQ) sur Azure Spatial Anchors
 
@@ -72,21 +72,21 @@ Azure Spatial Anchors respecte les [conditions du contrat de service Azure](http
 
 **Q : Fournissez-vous un contrat SLA ?**
 
-**R :** Comme pour tous les services Azure, nous visons un taux de disponibilité supérieur à 99,9 %. Sachez toutefois qu’Azure Spatial Anchors est actuellement en préversion et qu’à ce titre, les [conditions d’utilisation supplémentaires de préversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) s’appliquent.
+**R :** Comme pour tous les services Azure, nous visons un taux de disponibilité supérieur à 99,9 %. 
 
 **Q : Puis-je publier mes applications dans des app stores en utilisant Azure Spatial Anchors ? Puis-je utiliser Azure Spatial Anchors pour des scénarios de production critiques ?**
 
-**R :** Azure Spatial Anchors est actuellement en préversion et tant que c’est le cas, nous vous invitons à développer des applications, à [fournir des commentaires](https://feedback.azure.com/forums/919252-azure-spatial-anchors) sur le produit et à planifier pour vos déploiements de production.
-
-Les dates de disponibilité générale (GA) seront bientôt annoncées.
+**R :** Oui, Azure Spatial Anchors est en disponibilité générale et est assorti d’un contrat de niveau de service Azure standard. Nous vous invitons à développer des applications pour vos déploiements de production et à [nous faire part de vos commentaires](https://feedback.azure.com/forums/919252-azure-spatial-anchors) à propos du produit.
 
 **Q : Existe-t-il des limites ?**
 
-**R** : Oui, il existe des limites.  Cependant, vous ne devriez pas les atteindre dans le cadre du développement et du test d’une application normale. Pour les déploiements de production, nous sommes prêts à répondre aux exigences élevées de nos clients. [Contactez-nous](mailto:azuremrs@microsoft.com) pour en discuter. Durant cette phase de préversion, nous n’avons pas encore publié de structure de hiérarchisation et de prix, mais cela devrait venir prochainement.
+**R** : Oui, il existe des limites.  Cependant, vous ne devriez pas les atteindre dans le cadre du développement et du test d’une application normale. Pour les déploiements de production, nous sommes prêts à répondre aux exigences élevées de nos clients. [Contactez-nous](mailto:azuremrs@microsoft.com) pour en discuter. 
 
 **Q : Dans quelles régions Azure Spatial Anchors est disponible ?**
 
-**R :** Aujourd’hui, vous pouvez créer un compte Azure Spatial Anchors dans la région Azure USA Est 2. Cela signifie que les ressources de calcul et de stockage exploitées par ce service résident dans cette région. Ceci dit, il n’existe aucune restriction quant à la situation géographique de vos clients. À l’avenir, nous étendrons la disponibilité du service à toutes les régions Azure principales.
+**R :** Azure Spatial Anchors est actuellement disponible dans les régions USA Ouest 2, USA Est, USA Est 2, USA Centre Sud, Europe Ouest, Europe Nord, Royaume-Uni Sud et Australie Est. Des régions supplémentaires seront également disponibles par la suite.
+
+Cela signifie que les ressources de calcul et de stockage exploitées par ce service résident dans ces régions. Ceci dit, il n’existe aucune restriction quant à la situation géographique de vos clients. 
 
 **Q : Le service Azure Spatial Anchors est-il payant ? Si ce n’est pas encore le cas, est-ce prévu ?**
 

@@ -6,46 +6,47 @@ ms.date: 05/19/2020
 ms.topic: overview
 author: mlearned
 ms.author: mlearned
-description: ''
+description: Cet article fournit une vue d’ensemble de Kubernetes avec Azure Arc.
 keywords: Kubernetes, Arc, Azure, conteneurs
-ms.openlocfilehash: 3b3b184ff7b18e05dfeb1052c0d6b4aa406a8787
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.custom: references_regions
+ms.openlocfilehash: 3960a0f0b6866a0a5d3476e841d29c6e5a89a238
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83665274"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309932"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>Qu’est-ce que Kubernetes avec Azure Arc (préversion) ?
 
-Vous pouvez joindre et configurer des clusters Kubernetes à l’intérieur ou à l’extérieur d’Azure grâce à Kubernetes avec Azure Arc (préversion). Lorsqu’un cluster Kubernetes est joint à Azure Arc, il s’affiche dans le portail Azure, avec un ID Azure Resource Manager et une identité managée. Les clusters sont joints à des abonnements Azure standard, en direct dans un groupe de ressources, et peuvent recevoir des étiquettes comme n’importe quelle autre ressource Azure. 
+Vous pouvez attacher et configurer des clusters Kubernetes à l’intérieur ou à l’extérieur d’Azure en utilisant Kubernetes avec Azure Arc (préversion). Quand un cluster Kubernetes est attaché à Azure Arc, il s’affiche dans le portail Azure. Il reçoit alors un ID Azure Resource Manager et une identité managée. Les clusters sont attachés à des abonnements Azure standard, sont situés dans un groupe de ressources et peuvent recevoir des étiquettes comme n’importe quelle autre ressource Azure. 
 
+Pour connecter un cluster Kubernetes à Azure, l’administrateur du cluster doit déployer des agents. Ces agents s’exécutent dans un espace de noms Kubernetes nommé `azure-arc` et représentent des déploiements Kubernetes standard. Les agents sont responsables de la connectivité à Azure, de la collecte des journaux et des métriques Azure Arc, et de la surveillance des demandes de configuration. 
 
-La connexion d’un cluster Kubernetes à Azure nécessite qu’un administrateur de cluster déploie des agents. Ces agents s’exécutent dans un espace de noms Kubernetes nommé `azure-arc` et représentent des déploiements Kubernetes standard. Les agents sont responsables de la connectivité à Azure, de la collecte des journaux et des métriques Azure Arc, et de la surveillance des demandes de configuration.  
+Kubernetes avec Azure Arc prend en charge le protocole SSL standard pour sécuriser les données en transit. Par ailleurs, les données sont chiffrées au repos dans une base de données Azure Cosmos DB pour garantir leur confidentialité.
  
  > [!NOTE]
-> Kubernetes avec Azure Arc est en préversion et n’est pas recommandé pour les charges de travail de production. 
+> Kubernetes avec Azure Arc est en préversion. Nous ne la recommandons pas pour les charges de travail de production. 
 
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge 
 
-Kubernetes avec Azure Arc prend en charge les scénarios suivants : 
+Kubernetes avec Azure Arc prend en charge ces scénarios : 
 
-* Connexion de Kubernetes en cours d’exécution en dehors d’Azure pour l’inventaire, le regroupement et l’étiquetage 
+* Connecter un cluster Kubernetes s’exécutant en dehors d’Azure pour l’inventaire, le regroupement et l’étiquetage.
 
-* Déployer des applications et appliquer une configuration à l’aide de la gestion de la configuration basée sur GitOps 
+* Déployer des applications et appliquer une configuration à l’aide de la gestion de la configuration basée sur GitOps. 
 
-* Utiliser Azure Monitor pour conteneurs pour afficher et surveiller vos clusters 
+* Utiliser Azure Monitor pour conteneurs pour voir et superviser vos clusters. 
 
-* Appliquer des stratégies à l’aide d’Azure Policy pour Kubernetes 
+* Appliquer des stratégies à l’aide d’Azure Policy pour Kubernetes. 
 
  
 ## <a name="supported-regions"></a>Régions prises en charge 
 
-Kubernetes avec Azure Arc est actuellement pris en charge dans les régions suivantes : 
+Kubernetes avec Azure Arc est actuellement pris en charge dans ces régions : 
 
 * USA Est 
 * Europe Ouest 
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

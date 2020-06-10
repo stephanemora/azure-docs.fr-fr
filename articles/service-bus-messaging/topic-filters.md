@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 6e780268d4b8c1a512ce82b1ca10a2f6b7b894b7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: bbf569e95c59e888b830876f0458b063bd3920da
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125755"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258808"
 ---
 # <a name="topic-filters-and-actions"></a>Actions et filtres de rubrique
 
@@ -64,7 +64,7 @@ Le routage utilise des filtres pour distribuer les messages aux différents abon
 
 
 > [!NOTE]
-> Actuellement, le portail Azure ne vous permet pas de spécifier des règles de filtre pour les abonnements. Vous pouvez utiliser l’un des Kits de développement logiciel (SDK) pris en charge ou des modèles Resource Manager pour définir des règles d’abonnement. 
+> Le portail Azure prenant désormais en charge la fonctionnalité Service Bus Explorer, des filtres d’abonnement peuvent être créés ou modifiés à partir du portail. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les exemples suivants : 

@@ -9,17 +9,17 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e18fc765385e6d703e735a1ca15c539c32f36e93
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8501f9d07ffa2d04915d4d1a351317cc145f9844
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82116245"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118263"
 ---
 # <a name="overview-query-data-in-storage"></a>Présentation : Interroger des données dans le stockage
 
 Cette section contient des exemples de requêtes que vous pouvez utiliser pour tester la ressource SQL à la demande (préversion) dans Azure Synapse Analytics.
-Actuellement les fichiers pris en charge sont les suivants : 
+Les formats de fichier actuellement pris en charge sont :  
 - CSV
 - Parquet
 - JSON
@@ -44,67 +44,13 @@ Les paramètres sont également les suivants :
 
 ## <a name="first-time-setup"></a>Première configuration
 
-Avant d’utiliser les exemples contenus plus loin dans cet article, vous devez suivre deux étapes :
-
-- Créer une base de données pour vos vues (au cas où vous souhaiteriez utiliser des vues)
-- Créer les informations d’identification à utiliser par SQL à la demande pour accéder aux fichiers dans le stockage
-
-### <a name="create-database"></a>Créer une base de données
-
-Vous avez besoin d’une base de données pour créer des vues. Vous utiliserez cette base de données pour certains exemples de requêtes de cette documentation.
+La première étape consiste à **créer la base de données** dans laquelle seront exécutées les requêtes. Ensuite, initialisez les objets en exécutant le [script d’installation](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) sur cette base de données. Ce script d’installation crée les sources de données, les informations d’identification limitées à la base de données et les formats de fichiers externes utilisés pour la lecture des données dans ces exemples.
 
 > [!NOTE]
 > Les bases de données sont utilisées uniquement pour voir les métadonnées, et non pour les données réelles.  Notez le nom de la base de données que vous utilisez, vous en aurez besoin plus tard.
 
 ```sql
 CREATE DATABASE mydbname;
-```
-
-### <a name="create-credentials"></a>Créer des informations d’identification
-
-Vous devez créer des informations d’identification avant de pouvoir exécuter des requêtes. Ces informations d’identification sont utilisées par le service SQL à la demande pour accéder aux fichiers dans le stockage.
-
-> [!NOTE]
-> Pour pouvoir exécuter correctement les procédures de cette section, vous devez utiliser un jeton SAS.
->
-> Pour commencer à utiliser des jetons SAS, vous devez supprimer UserIdentity, ce qui est expliqué dans l’article [suivant](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
->
-> Par défaut, SQL à la demande utilise toujours le transfert AAD.
-
-Pour plus d’informations sur la gestion du contrôle d’accès au stockage, consultez ce [lien](develop-storage-files-storage-access-control.md).
-
-Pour créer des informations d’identification destinées aux conteneurs CSV, JSON et Parquet, exécutez le code ci-dessous :
-
-```sql
--- create credentials for CSV container in our demo storage account
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://sqlondemandstorage.blob.core.windows.net/csv')
-DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/csv];
-GO
-
-CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/csv]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D';
-GO
-
--- create credentials for JSON container in our demo storage account
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://sqlondemandstorage.blob.core.windows.net/json')
-DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/json];
-GO
-
-CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/json]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D';
-GO
-
--- create credentials for PARQUET container in our demo storage account
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://sqlondemandstorage.blob.core.windows.net/parquet')
-DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/parquet];
-GO
-
-CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/parquet]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D';
-GO
 ```
 
 ## <a name="provided-demo-data"></a>Données de démonstration fournies
@@ -132,24 +78,6 @@ Les données de démonstration contiennent les jeux de données suivants :
 | /json/                                                       | Dossier parent des données au format JSON                        |
 | /json/books/                                                 | Fichiers JSON avec des données de livres                                   |
 
-## <a name="validation"></a>Validation
-
-Exécutez les trois requêtes suivantes et vérifiez si les informations d’identification sont créées correctement.
-
-> [!NOTE]
-> Tous les URI des exemples de requêtes utilisent un compte de stockage situé dans la région Azure Europe Nord. Assurez-vous d’avoir créé les informations d’identification appropriées. Exécutez la requête ci-dessous et vérifiez que le compte de stockage est listé.
-
-```sql
-SELECT name
-FROM sys.credentials
-WHERE
-     name IN ( 'https://sqlondemandstorage.blob.core.windows.net/csv',
-     'https://sqlondemandstorage.blob.core.windows.net/parquet',
-     'https://sqlondemandstorage.blob.core.windows.net/json');
-```
-
-Si vous ne trouvez pas les informations d’identification appropriées, consultez [Première configuration](#first-time-setup).
-
 ### <a name="sample-query"></a>Exemple de requête
 
 La dernière étape de la validation consiste à exécuter la requête suivante :
@@ -159,7 +87,8 @@ SELECT
     COUNT_BIG(*)
 FROM  
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
+        BULK 'parquet/taxi/year=2017/month=9/*.parquet',
+        DATA_SOURCE = 'sqlondemanddemo',
         FORMAT='PARQUET'
     ) AS nyc;
 ```

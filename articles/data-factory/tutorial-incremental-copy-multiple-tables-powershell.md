@@ -1,6 +1,6 @@
 ---
 title: Copier de façon incrémentielle plusieurs tables avec PowerShell
-description: Dans ce tutoriel, vous créez un pipeline Azure Data Factory qui copie de façon incrémentielle des données delta de plusieurs tables d’une base de données SQL Server locale dans une base de données Azure SQL.
+description: Dans ce tutoriel, vous créez un pipeline Azure Data Factory qui copie de façon incrémentielle des données delta de plusieurs tables d’une base de données SQL Server dans une base de données Azure SQL.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/30/2020
-ms.openlocfilehash: aa4dbfbaff620c25042d2603dab543661ec2cd14
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a3fc4a7fa905e7538199d3b26a0cd8b9791aaac4
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81410005"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194526"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Charger de façon incrémentielle des données provenant de plusieurs tables de SQL Server vers une base de données Azure SQL
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Dans ce tutoriel, vous créez une fabrique de données Azure Data Factory avec un pipeline qui charge les données delta provenant de plusieurs tables d’une base de données SQL Server locale vers une base de données Azure SQL.    
+Dans ce tutoriel, vous créez une fabrique de données Azure Data Factory avec un pipeline qui charge les données delta provenant de plusieurs tables d’une base de données SQL Server vers une base de données Azure SQL.    
 
 Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 
@@ -69,12 +69,12 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-* **SQL Server**. Dans le cadre de ce tutoriel, vous allez utiliser une base de données SQL Server locale comme magasin de données source. 
-* **Azure SQL Database**. Vous allez utiliser une base de données SQL comme magasin de données récepteur. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données Azure SQL Database](../sql-database/sql-database-get-started-portal.md) pour connaître la procédure à suivre pour en créer une. 
+* **SQL Server**. Dans le cadre de ce tutoriel, vous allez utiliser une base de données SQL Server comme magasin de données source. 
+* **Azure SQL Database**. Vous allez utiliser une base de données SQL comme magasin de données récepteur. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) pour connaître la procédure à suivre pour en créer une. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Créer des tables sources dans votre base de données SQL Server
 
-1. Ouvrez [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio), puis connectez-vous à votre base de données SQL Server locale.
+1. Ouvrez [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio), puis connectez-vous à votre base de données SQL Server.
 
 2. Dans **Explorateur de serveurs (SSMS)** ou dans le **volet Connexions (Azure Data Studio)** , cliquez avec le bouton droit sur la base de données, puis choisissez **Nouvelle requête**.
 
@@ -113,7 +113,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ### <a name="create-destination-tables-in-your-azure-sql-database"></a>Créer des tables de destination dans votre base de données Azure SQL
 
-1. Ouvrez [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio), puis connectez-vous à votre base de données SQL Server locale.
+1. Ouvrez [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio), puis connectez-vous à votre base de données SQL Server.
 
 2. Dans **Explorateur de serveurs (SSMS)** ou dans le **volet Connexions (Azure Data Studio)** , cliquez avec le bouton droit sur la base de données, puis choisissez **Nouvelle requête**.
 
@@ -289,11 +289,11 @@ Notez les points suivants :
 
 ## <a name="create-linked-services"></a>Créez des services liés
 
-Vous allez créer des services liés dans une fabrique de données pour lier vos magasins de données et vos services de calcul à la fabrique de données. Dans cette section, vous créez des services liés à votre base de données SQL Server locale et à Azure SQL Database. 
+Vous allez créer des services liés dans une fabrique de données pour lier vos magasins de données et vos services de calcul à la fabrique de données. Dans cette section, vous créez des services liés à votre base de données SQL Server et à Azure SQL Database. 
 
 ### <a name="create-the-sql-server-linked-service"></a>Créer le service lié SQL Server
 
-Dans cette étape, vous liez votre base de données SQL Server locale à la fabrique de données.
+Dans cette étape, vous liez votre base de données SQL Server à la fabrique de données.
 
 1. Créez un fichier JSON nommé **SqlServerLinkedService.json** dans le dossier C:\ADFTutorials\IncCopyMultiTableTutorial (créez les dossiers locaux s’ils n’existent pas déjà) avec le contenu suivant. Sélectionnez la section appropriée en fonction de l’authentification utilisée pour vous connecter à SQL Server.  
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 2e843216bf973033868e75c027b11d27ddfe2e93
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 3207ffca6fd0fbc943f4a2873b8b6c9029d565af
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757464"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022792"
 ---
 # <a name="server-side-performance-queries"></a>Requêtes de performances côté serveur
 
@@ -18,7 +18,7 @@ De bonnes performances de rendu sur le serveur sont capitales pour obtenir des f
 
 La plus grande incidence observée sur les performances de rendu vient des données d’entrée des modèles. Vous pouvez ajuster les données d’entrée, comme indiqué dans [Configurer la conversion de modèle](../../how-tos/conversion/configure-model-conversion.md).
 
-Les performances de l’application côté client peuvent également constituer un goulot d’étranglement. Pour une analyse approfondie des performances côté client, il est recommandé d’effectuer une [trace des performances](../../how-tos/performance-tracing.md).
+Les performances de l’application côté client peuvent également constituer un goulot d’étranglement. Pour une analyse approfondie des performances côté client, il est recommandé d’effectuer une [:::no-loc text="performance trace":::](../../how-tos/performance-tracing.md).
 
 ## <a name="clientserver-timeline"></a>Chronologie client/serveur
 

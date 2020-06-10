@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 89d2105ab080309639c4341072c3f5f36608dfce
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 555e4bf9dfa2318796cde124d07867d09adc229d
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421103"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310255"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gérer l’accès aux espaces de travail, aux données et aux pipelines
 
@@ -34,22 +34,32 @@ Pour un déploiement de production dans un espace de travail Azure Synapse, nous
 
 1. Créer un groupe de sécurité nommé `Synapse_WORKSPACENAME_Users`
 2. Créer un groupe de sécurité nommé `Synapse_WORKSPACENAME_Admins`
-3. Ajout de `Synapse_WORKSPACENAME_Admins` à `ProjectSynapse_WORKSPACENAME_Users`
+3. Ajout de `Synapse_WORKSPACENAME_Admins` à `Synapse_WORKSPACENAME_Users`
+
+> [!NOTE]
+> Découvrez comment créer un groupe de sécurité réseau en consultant [cet article](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+>
+> Découvrez comment ajouter un groupe de sécurité à partir d’un autre groupe de sécurité en consultant [cet article](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal).
+>
+> WORKSPACENAME : vous devez remplacer cette partie par le nom réel de votre espace de travail.
 
 ### <a name="step-2-prepare-the-default-adls-gen2-account"></a>Étape 2 : Préparer le compte ADLS Gen2 par défaut
 
-Lorsque vous provisionniez votre espace de travail, vous deviez choisir un compte ADLSGEN2 et un conteneur pour le système de fichiers que devait utiliser l’espace de travail.
+Quand vous provisionniez votre espace de travail, vous deviez choisir un compte [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) et un conteneur pour le système de fichiers que devait utiliser l’espace de travail.
 
 1. Ouvrez le [portail Azure](https://portal.azure.com)
-2. Accéder au compte ADLSGEN2
+2. Accédez au compte Azure Data Lake Storage Gen2.
 3. Accédez au conteneur (système de fichiers) que vous avez choisi pour l’espace de travail Azure Synapse
 4. Cliquez sur **Contrôle d’accès (IAM)** .
 5. Affectez les rôles suivants :
-   1. Rôle **Lecteur** : `Synapse_WORKSPACENAME_Users`
-   2. Rôle **Propriétaire des données blob du stockage** : `Synapse_WORKSPACENAME_Admins`
-   3. Rôle **Contributeur aux données Blob du stockage** : `Synapse_WORKSPACENAME_Users`
-   4. Rôle **Propriétaire des données Blob du stockage** : `WORKSPACENAME`
-  
+   1. Rôle **Lecteur** à : `Synapse_WORKSPACENAME_Users`
+   2. Rôle **Propriétaire des données Blob du stockage** à : `Synapse_WORKSPACENAME_Admins`
+   3. Rôle **Contributeur aux données Blob du stockage** à : `Synapse_WORKSPACENAME_Users`
+   4. Rôle **Propriétaire des données Blob du stockage** à : `WORKSPACENAME`
+
+> [!NOTE]
+> WORKSPACENAME : vous devez remplacer cette partie par le nom réel de votre espace de travail.
+
 ### <a name="step-3-configure-the-workspace-admin-list"></a>Étape 3 : Configurer la liste des administrateurs de l’espace de travail
 
 1. Accédez à l’[**interface utilisateur web d’Azure Synapse**](https://web.azuresynapse.net).
@@ -66,10 +76,18 @@ Lorsque vous provisionniez votre espace de travail, vous deviez choisir un compt
 6. Cliquez sur **Sélectionner**.
 7. Cliquez sur **Enregistrer**.
 
+> [!NOTE]
+> WORKSPACENAME : vous devez remplacer cette partie par le nom réel de votre espace de travail.
+
 ### <a name="step-5-add-and-remove-users-and-admins-to-security-groups"></a>Étape 5 : Ajouter et supprimer des utilisateurs et des administrateurs dans des groupes de sécurité
 
 1. Ajoutez des utilisateurs qui ont besoin d’un accès administratif à `Synapse_WORKSPACENAME_Admins`.
 2. Ajoutez tous les autres utilisateurs à `Synapse_WORKSPACENAME_Users`.
+
+> [!NOTE]
+> Découvrez comment ajouter un utilisateur comme membre à un groupe de sécurité en consultant [cet article](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal).
+> 
+> WORKSPACENAME : vous devez remplacer cette partie par le nom réel de votre espace de travail.
 
 ## <a name="access-control-to-data"></a>Contrôle d’accès aux données
 
@@ -82,9 +100,13 @@ Le contrôle d’accès aux données sous-jacentes se divise en trois parties :
 ## <a name="access-control-to-sql-databases"></a>Contrôle d’accès aux bases de données SQL
 
 > [!TIP]
-> Les étapes ci-dessous doivent être exécutées pour **chacune** des bases de données SQL afin d’accorder l’accès utilisateur à chacune d’elles.
+> Les étapes ci-dessous doivent être exécutées pour **chaque** base de données SQL afin d’accorder l’accès utilisateur à toutes les bases de données SQL, sauf dans la section [Autorisation au niveau du serveur](#server-level-permission) où vous pouvez attribuer un rôle sysadmin à l’utilisateur.
 
 ### <a name="sql-on-demand"></a>SQL à la demande
+
+Cette section illustre, à l’aide de différents exemples, comment accorder à un utilisateur une autorisation d’accès à une base de données particulière ou des autorisations de serveur complètes.
+
+#### <a name="database-level-permission"></a>Autorisation au niveau base de données
 
 Pour accorder à un utilisateur l’accès à une base de données SQL à la demande **unique**, suivez les étapes de cet exemple :
 
@@ -93,7 +115,7 @@ Pour accorder à un utilisateur l’accès à une base de données SQL à la dem
     ```sql
     use master
     go
-    CREATE LOGIN [John.Thomas@microsoft.com] FROM EXTERNAL PROVIDER;
+    CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
     go
     ```
 
@@ -102,7 +124,7 @@ Pour accorder à un utilisateur l’accès à une base de données SQL à la dem
     ```sql
     use yourdb -- Use your DB name
     go
-    CREATE USER john FROM LOGIN [John.Thomas@microsoft.com];
+    CREATE USER alias FROM LOGIN [alias@domain.com];
     ```
 
 3. Ajouter USER aux membres du rôle spécifié
@@ -110,8 +132,20 @@ Pour accorder à un utilisateur l’accès à une base de données SQL à la dem
     ```sql
     use yourdb -- Use your DB name
     go
-    alter role db_owner Add member john -- Type USER name from step 2
+    alter role db_owner Add member alias -- Type USER name from step 2
     ```
+
+> [!NOTE]
+> Remplacez l’alias par l’alias de l’utilisateur auquel vous voulez accorder l’accès et le domaine par le domaine d’entreprise que vous utilisez.
+
+#### <a name="server-level-permission"></a>Autorisation au niveau du serveur
+
+Pour accorder à un utilisateur l’accès complet à **toutes** les bases de données SQL à la demande, suivez cet exemple :
+
+```sql
+CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
+ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
+```
 
 ### <a name="sql-pools"></a>Pools SQL
 
@@ -173,4 +207,4 @@ DROP USER [<workspacename>];
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir une vue d’ensemble de l’accès et du contrôle dans Synapse SQL, consultez [Contrôle d’accès Synapse SQL](../sql/access-control.md). Pour plus d’informations sur les principaux de base de données, consultez [Principaux](https://msdn.microsoft.com/library/ms181127.aspx). Pour plus d’informations sur les rôles de base de données, consultez l’article [Rôles de base de données](https://msdn.microsoft.com/library/ms189121.aspx).
+Pour une vue d’ensemble de l’identité managée par l’espace de travail Synapse, consultez [Identité managée de l’espace de travail Azure Synapse](../security/synapse-workspace-managed-identity.md). Pour plus d’informations sur les principaux de base de données, consultez [Principaux](https://msdn.microsoft.com/library/ms181127.aspx). Pour plus d’informations sur les rôles de base de données, consultez l’article [Rôles de base de données](https://msdn.microsoft.com/library/ms189121.aspx).

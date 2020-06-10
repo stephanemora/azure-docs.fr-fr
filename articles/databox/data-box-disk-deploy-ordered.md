@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: e7ab15749ccd4ef2808e9cbb362196e38e3d7f4b
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: de481abd82b4fc7dd2eae3763f82b8dd96cc14a9
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746077"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266523"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Tutoriel : Commander une solution Azure Data Box Disk
 
@@ -105,7 +105,7 @@ Effectuez les étapes suivantes pour commander Data Box Disk.
 
 7. Dans l’onglet **Adresse d’expédition**, indiquez vos nom et prénom, le nom et l’adresse postale de la société et un numéro de téléphone valide. Cliquez sur **Valider l’adresse**. Le service valide l’adresse d’expédition de disponibilité du service. Si le service est disponible pour l’adresse de livraison indiquée, vous recevez une notification à cet effet.
 
-   Une fois la commande traitée, vous recevez une notification par e-mail. Pour plus d’informations sur l’expédition gérée par vous-même, consultez [Utiliser l’expédition autogérée](data-box-disk-portal-customer-managed-shipping.md).
+   Une fois la commande traitée, vous recevez une notification par e-mail. Si vous avez choisi l’expédition autogérée, consultez [Utiliser l’expédition autogérée](data-box-disk-portal-customer-managed-shipping.md).
 
     ![Indiquer l’adresse de livraison](media/data-box-disk-deploy-ordered/data-box-shipping-address.png)
 8. Dans **Détails de la notification**, indiquez les adresses de messagerie. Le service envoie des notifications par courrier électronique concernant les mises à jour de l’état de la commande aux adresses de messagerie spécifiées.

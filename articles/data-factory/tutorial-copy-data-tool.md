@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 03/03/2020
-ms.openlocfilehash: be9395b908461b54b607fff32747ca0d9f20f45c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a0ed57657a461e4af8e58931b133437e5897796a
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418658"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022059"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copier des données du stockage Blob Azure vers une base de données SQL Database en utilisant l’outil Copier les données
 
@@ -42,7 +42,7 @@ Dans ce tutoriel, vous effectuerez les étapes suivantes :
 
 * **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * **Compte Stockage Azure** : Utilisez le stockage blob comme magasin de données _source_. Si vous n’avez pas de compte Stockage Azure, consultez les instructions dans [Créer un compte de stockage](../storage/common/storage-account-create.md).
-* **Azure SQL Database** : Utilisez une base de données SQL Database comme magasin de données _récepteur_. Si vous n’avez pas de base de données SQL Database, consultez les instructions dans [Créer une base de données SQL Database](../sql-database/sql-database-get-started-portal.md).
+* **Azure SQL Database** : Utilisez une base de données SQL Database comme magasin de données _récepteur_. Si vous n’avez pas de base de données SQL Database, consultez les instructions dans [Créer une base de données SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Créer un objet blob et une table SQL
 
@@ -76,7 +76,7 @@ Préparez votre stockage Blob et votre base de données SQL Database pour ce tut
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Autorisez les services Azure à accéder au serveur SQL. Vérifiez que le paramètre **Autoriser les services et les ressources Azure à accéder à ce serveur** est activé pour votre serveur exécutant SQL Database. Ce paramètre permet à Data Factory d’écrire des données dans votre instance de base de données. Pour vérifier et activer ce paramètre, accédez à Azure SQL Server > Sécurité > Pare-feux et réseaux virtuels et définissez l’option **Autoriser les services et les ressources Azure à accéder à ce serveur** sur **Activé**.
+2. Autorisez les services Azure à accéder au serveur SQL. Vérifiez que le paramètre **Autoriser les services et les ressources Azure à accéder à ce serveur** est activé pour votre serveur exécutant SQL Database. Ce paramètre permet à Data Factory d’écrire des données dans votre instance de base de données. Pour vérifier et activer ce paramètre, accédez au serveur SQL logique > Sécurité > Pare-feux et réseaux virtuels et définissez l’option **Autoriser les services et les ressources Azure à accéder à ce serveur** sur **Activé**.
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
@@ -89,7 +89,7 @@ Préparez votre stockage Blob et votre base de données SQL Database pour ce tut
 
     ![Message d’erreur de nouvelle fabrique de données](./media/doc-common-process/name-not-available-error.png)
 
-    Si vous recevez un message d’erreur concernant la valeur du nom, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_ **ADFTutorialDataFactory**. Pour savoir comment nommer les artefacts Data Factory, voir [Data Factory - Règles d’affectation des noms](naming-rules.md).
+    Si vous recevez un message d’erreur concernant la valeur du nom, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_**ADFTutorialDataFactory**. Pour savoir comment nommer les artefacts Data Factory, voir [Data Factory - Règles d’affectation des noms](naming-rules.md).
 1. Sélectionnez l’**abonnement** Azure dans lequel vous créez la nouvelle fabrique de données.
 1. Pour **Groupe de ressources**, réalisez l’une des opérations suivantes :
 

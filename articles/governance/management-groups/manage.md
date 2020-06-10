@@ -3,12 +3,12 @@ title: Comment utiliser vos groupes d’administration - Gouvernance Azure
 description: Découvrez comment afficher, tenir, mettre à jour et supprimer votre hiérarchie de groupes d’administration.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: e3d92e0785e54c0999b8cc0f055b7de355a4c4f5
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: b60adbdf404f40739d6bcab7a0a3ceaf24c0b59f
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747471"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259403"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gérer vos ressources avec des groupes d’administration
 
@@ -205,7 +205,7 @@ Lors du déplacement d'un abonnement ou groupe d’administration en tant qu'enf
 Pour effectuer le déplacement, vous devez avoir : 
 
 - Les autorisations en écriture pour le groupe d’administration et l’attribution de rôle dans l’abonnement ou le groupe d’administration enfant.
-  - Un rôle intégré, par exemple, **Propriétaire**
+  - Exemple de rôle intégré **Propriétaire**
 - L’accès en écriture au groupe d’administration dans le groupe d’administration parent cible.
   - Un rôle intégré, par exemple, **Propriétaire**, **Contributeur**, **Contributeur du groupe d’administration**
 - L’accès en écriture au groupe d’administration dans le groupe d’administration parent existant.

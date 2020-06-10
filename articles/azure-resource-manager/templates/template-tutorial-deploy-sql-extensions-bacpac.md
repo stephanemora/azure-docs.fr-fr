@@ -5,22 +5,23 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 83108c056035b16d26343d82c721b275ebcad0c5
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 69e2b25a16a984445a32f884fab5caec6651df32
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754332"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018393"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Tutoriel : Importer des fichiers SQL BACPAC avec des modèles ARM
 
 Découvrez comment utiliser les extensions Azure SQL Database pour importer un fichier BACPAC avec des modèles Azure Resource Manager (ARM). Les artefacts de déploiement correspondent à tous les fichiers, en plus des principaux fichiers modèles requis pour effectuer un déploiement. Le fichier BACPAC est un artefact.
 
-Dans ce tutoriel, vous allez créer un modèle pour déployer un serveur Azure SQL et une base de données SQL et importer un fichier BACPAC. Pour plus d’informations sur la façon de déployer des extensions de machine virtuelle Azure à l’aide de modèles ARM, consultez [Tutoriel : Déployer des extensions de machine virtuelle avec des modèles ARM](./template-tutorial-deploy-vm-extensions.md).
+Dans ce tutoriel, vous allez créer un modèle pour déployer un [serveur SQL logique](../../azure-sql/database/logical-servers.md) et une base de données unique, et importer un fichier BACPAC. Pour plus d’informations sur la façon de déployer des extensions de machine virtuelle Azure à l’aide de modèles ARM, consultez [Tutoriel : Déployer des extensions de machine virtuelle avec des modèles ARM](./template-tutorial-deploy-vm-extensions.md).
 
 Ce tutoriel décrit les tâches suivantes :
 
 > [!div class="checklist"]
+>
 > * Préparer un fichier BACPAC
 > * Ouvrir un modèle de démarrage rapide
 > * Modifier le modèle
@@ -34,7 +35,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
 * Visual Studio Code avec l’extension Outils Resource Manager Consultez [Utiliser Visual Studio Code pour créer des modèles ARM](./use-vs-code-to-create-template.md).
-* Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur Azure SQL Server. Voici un exemple que vous pouvez utiliser pour générer un mot de passe :
+* Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur de serveur. Voici un exemple que vous pouvez utiliser pour générer un mot de passe :
 
     ```console
     openssl rand -base64 32
@@ -44,7 +45,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 ## <a name="prepare-a-bacpac-file"></a>Préparer un fichier BACPAC
 
-Un fichier BACPAC est partagé dans [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Pour créer le vôtre, consultez [Exporter une base de données Azure SQL dans un fichier BACPAC](../../sql-database/sql-database-export.md). Si vous choisissez de publier le fichier sur votre propre emplacement, vous devez mettre à jour le modèle plus tard dans ce didacticiel.
+Un fichier BACPAC est partagé dans [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Pour créer le vôtre, consultez [Exporter une base de données Azure SQL dans un fichier BACPAC](../../azure-sql/database/database-export.md). Si vous choisissez de publier le fichier sur votre propre emplacement, vous devez mettre à jour le modèle plus tard dans ce didacticiel.
 
 Le fichier BACPAC doit être stocké dans un compte de stockage Azure avant de pouvoir être importé à l’aide d’un modèle ARM. Le script PowerShell suivant prépare le fichier BACPAC en suivant les étapes ci-dessous :
 
@@ -142,7 +143,7 @@ Le modèle utilisé dans ce tutoriel est stocké dans [GitHub](https://raw.githu
 
 1. Ajoutez deux ressources supplémentaires au modèle.
 
-    * Pour permettre à l’extension SQL Database d’importer des fichiers BACPAC, vous devez autoriser le trafic à partir des services Azure. Ajoutez la définition de règle de pare-feu suivante sous la définition SQL Server :
+    * Pour permettre à l’extension SQL Database d’importer des fichiers BACPAC, vous devez autoriser le trafic à partir des services Azure. Ajoutez la définition de règle de pare-feu suivante sous la définition du serveur :
 
         ```json
         "resources": [
@@ -238,7 +239,7 @@ Utilisez un mot de passe généré. Consultez les [Conditions préalables](#prer
 
 ## <a name="verify-the-deployment"></a>Vérifier le déploiement
 
-Pour accéder à SQL Server à partir de votre ordinateur client, vous devez ajouter une règle de pare-feu supplémentaire. Pour plus d’informations, consultez [Créer et gérer des règles de pare-feu IP](../../sql-database/sql-database-firewall-configure.md#create-and-manage-ip-firewall-rules).
+Pour accéder au serveur à partir de votre ordinateur client, vous devez ajouter une règle de pare-feu supplémentaire. Pour plus d’informations, consultez [Créer et gérer des règles de pare-feu IP](../../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules).
 
 Dans le portail Azure, sélectionnez la base de données SQL dans le nouveau groupe de ressources déployé. Sélectionnez l’**éditeur de requêtes (préversion)** , puis entrez les informations d’identification d’administrateur. Vous verrez deux tables importées dans la base de données.
 
@@ -255,7 +256,7 @@ Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous ave
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez déployé un serveur SQL et une base de données SQL, et vous avez importé un fichier BACPAC. Pour savoir comment résoudre les problèmes de déploiement de modèle, consultez :
+Dans ce tutoriel, vous avez déployé un serveur et une base de données, et vous avez importé un fichier BACPAC. Pour savoir comment résoudre les problèmes de déploiement de modèle, consultez :
 
 > [!div class="nextstepaction"]
 > [Résoudre les problèmes des déploiements de modèles ARM](./template-tutorial-troubleshoot.md)

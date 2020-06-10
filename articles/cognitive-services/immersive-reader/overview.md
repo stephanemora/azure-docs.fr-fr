@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 01/4/2020
 ms.author: metan
-ms.openlocfilehash: 2eab7ab62f6a7a105dab33aa889af9f2be3a3fa3
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: b9efe70e8658e25d61decffbe44dec776890b17b
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80052380"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267271"
 ---
 # <a name="what-is-immersive-reader"></a>Qu’est-ce que le lecteur immersif ?
 
@@ -61,6 +61,6 @@ Le lecteur immersif est une application web autonome qui, lorsqu’elle est appe
 
 Prise en main du lecteur immersif :
 
-* Passer au [guide de démarrage rapide](./quickstart.md)
+* Passer aux [guides de démarrage rapide](./quickstarts/client-libraries.md?pivots=programming-language-csharp)
 * Explorer le [kit de développement logiciel (SDK) du lecteur immersif sur GitHub](https://github.com/microsoft/immersive-reader-sdk)
 * Lire la [référence du SDK Lecteur immersif](./reference.md)

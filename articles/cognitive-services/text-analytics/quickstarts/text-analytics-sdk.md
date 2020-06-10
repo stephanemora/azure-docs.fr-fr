@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/25/2020
 ms.author: aahi
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: cc3f48ec1113f954336cfae0bda2cba2499d9a1d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: b51dcc214e099ed573fa297d979cfc55ba1513b9
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80240123"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140711"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Démarrage rapide : Utiliser la bibliothèque de client Analyse de texte
 
@@ -32,7 +32,7 @@ Utilisez la bibliothèque de client Analyse de texte dans le cadre des opératio
 ::: zone pivot="programming-language-csharp"
 
 > [!IMPORTANT]
-> * La dernière préversion de l’API Analyse de texte est `3.0-preview`. Elle inclut une préversion publique des fonctionnalités [Analyse des sentiments](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) et [Reconnaissance d’entité nommée (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) améliorées. La dernière version stable est la version `2.1`.
+> * La dernière version stable de la bibliothèque cliente Analyse de texte est `3.0`.
 >    * Veillez à suivre uniquement les instructions concernant la version que vous utilisez.
 > * Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité. Pour les scénarios de production, nous vous recommandons d’utiliser les méthodes asynchrones par lots afin d’optimiser les performances et l’extensibilité. Consultez la documentation de référence ci-dessous.
 
@@ -43,7 +43,7 @@ Utilisez la bibliothèque de client Analyse de texte dans le cadre des opératio
 ::: zone pivot="programming-language-java"
 
 > [!IMPORTANT]
-> * Ce guide de démarrage rapide concerne uniquement la version `3.0-preview` de la bibliothèque de client Analyse de texte, qui comprend une préversion publique des fonctionnalités [Analyse des sentiments](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) et [Reconnaissance d’entité nommée (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) améliorées.
+> * La dernière version stable de la bibliothèque cliente Analyse de texte est `3.0`.
 > * Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité. Pour les scénarios de production, nous vous recommandons d’utiliser les méthodes asynchrones par lots afin d’optimiser les performances et l’extensibilité. Consultez la documentation de référence ci-dessous.
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
@@ -53,7 +53,7 @@ Utilisez la bibliothèque de client Analyse de texte dans le cadre des opératio
 ::: zone pivot="programming-language-javascript"
 
 > [!IMPORTANT]
-> * La dernière préversion de l’API Analyse de texte est `3.0-preview`. Elle inclut une préversion publique des fonctionnalités [Analyse des sentiments](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) et [Reconnaissance d’entité nommée (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) améliorées. La dernière version stable est la version `2.1`.
+> * La dernière version stable de la bibliothèque cliente Analyse de texte est `3.0`.
 >    * Veillez à suivre uniquement les instructions concernant la version que vous utilisez.
 > * Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité. Pour les scénarios de production, nous vous recommandons d’utiliser les méthodes asynchrones par lots afin d’optimiser les performances et l’extensibilité. Consultez la documentation de référence ci-dessous.
 > * Vous pouvez également exécuter cette version de la bibliothèque de client Analyse de texte [dans votre navigateur](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
@@ -65,7 +65,7 @@ Utilisez la bibliothèque de client Analyse de texte dans le cadre des opératio
 ::: zone pivot="programming-language-python"
 
 > [!IMPORTANT]
-> * La dernière préversion de l’API Analyse de texte est `3.0-preview`. Elle inclut une préversion publique des fonctionnalités [Analyse des sentiments](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) et [Reconnaissance d’entité nommée (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) améliorées. La dernière version stable est la version `2.1`.
+> * La dernière version stable de la bibliothèque cliente Analyse de texte est `3.0`.
 >    * Veillez à suivre uniquement les instructions concernant la version que vous utilisez.
 > * Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité. Pour les scénarios de production, nous vous recommandons d’utiliser les méthodes asynchrones par lots afin d’optimiser les performances et l’extensibilité. Consultez la documentation de référence ci-dessous. 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer une application de suivi des panneaux solaires avec IoT Central'
+title: 'Tutoriel : Créer une application de supervision des panneaux solaires avec IoT Central'
 description: "Tutoriel : Apprenez à créer une application de suivi des panneaux solaires à l'aide de modèles d'application Azure IoT Central."
 author: op-ravi
 ms.author: omravi
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: d5ea3d3420cb598693ccaede7ee10d2f8c4fd839
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5a48ea0747a110720a29a9c34fa2dca0f5a74f16
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77025773"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310000"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Tutoriel : Créer et découvrir pas à pas le modèle d'application de suivi des panneaux solaires 
 
@@ -110,4 +110,3 @@ Si vous décidez de ne pas continuer à utiliser cette application, supprimez-la
 * En savoir plus sur l'architecture d'une application pour panneaux solaires en consultant l'[article relatif au concept](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
 * Créer gratuitement des modèles d'application pour panneaux solaires : [application pour panneaux solaires](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
 * En savoir plus sur IoT Central en consultant la [présentation d'IoT Central](https://docs.microsoft.com/azure/iot-central/)
-

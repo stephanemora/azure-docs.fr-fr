@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/19/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 0fa6785b2c4029dc5eb3f0397b1144616be357fe
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 482e1bfe14181a59b744efd794a5636a442ce9a4
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594166"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141940"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’API REST et de Python
 
@@ -28,21 +28,24 @@ Pour suivre cette procédure de démarrage rapide, vous avez besoin des élémen
 - [Python](https://www.python.org/downloads/) doit être installé (si vous souhaitez exécuter l’exemple en local).
 - Au minimum un ensemble de six formulaires du même type. Vous allez utiliser ces données pour entraîner le modèle et tester un formulaire. Vous pouvez utiliser un [exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451) pour ce guide de démarrage rapide. Chargez les fichiers d’entraînement à la racine d’un conteneur de stockage d’objets blob dans un compte Stockage Azure.
 
+> [!NOTE]
+> Ce guide de démarrage rapide utilise des documents distants accessibles par URL. Pour utiliser des fichiers locaux, consultez la [documentation de référence](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync).
+
 ## <a name="create-a-form-recognizer-resource"></a>Créer une ressource Form Recognizer
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
 ## <a name="set-up-training-data"></a>Configurer les données d’entraînement
 
-Ensuite, vous devez configurer les données d’entrée nécessaires. La fonctionnalité de données étiquetées a des exigences d’entrée spéciales au-delà de celles nécessaires pour entraîner un modèle personnalisé. 
+Ensuite, vous devez configurer les données d’entrée nécessaires. La fonctionnalité de données étiquetées a des conditions d’entrée spéciales au-delà de celles nécessaires pour entraîner un modèle personnalisé sans étiquettes.
 
 Vérifiez que tous les documents d’entraînement ont le même format. Si vous avez des formulaires dans plusieurs formats, organisez-les en sous-dossiers en fonction du format. Lors de l’entraînement, vous devez diriger l’API vers un sous-dossier.
 
 Pour effectuer l’entraînement d’un modèle à l’aide de données étiquetées, vous avez besoin des fichiers suivants comme entrées dans le sous-dossier. Vous allez apprendre à créer ces fichiers ci-après.
 
 * **Formulaires sources** : formulaires desquels extraire les données. Les types pris en charge sont JPEG, PNG, PDF ou TIFF.
-* **Fichiers de disposition OCR** : fichiers JSON qui décrivent la taille et les positions de tout texte lisible dans chaque formulaire source. Vous utiliserez l’API de disposition Form Recognizer pour générer ces données. 
-* **Fichiers d’étiquette** : fichiers JSON qui décrivent les étiquettes de données qu’un utilisateur a entrées manuellement.
+* **Fichiers de disposition OCR** : il s’agit de fichiers JSON qui décrivent la taille et la position de tout texte lisible dans chaque formulaire source. Vous utiliserez l’API de disposition Form Recognizer pour générer ces données. 
+* **Fichiers d’étiquettes** : il s’agit de fichiers JSON qui décrivent les étiquettes de données qu’un utilisateur a entrées manuellement.
 
 Tous ces fichiers doivent occuper le même sous-dossier et se présenter sous la forme suivante :
 
@@ -116,7 +119,7 @@ Les fichiers de résultats OCR permettent au service de prendre en compte les fi
 
 ### <a name="create-the-label-files"></a>Créer les fichiers d’étiquette
 
-Les fichiers d’étiquette contiennent des associations clé-valeur qu’un utilisateur a entrées manuellement. Elles sont nécessaires pour l’entraînement des données étiquetées, mais tous les fichiers sources ne doivent pas avoir un fichier d’étiquettes correspondant. Les fichiers sources sans étiquette sont traités comme des documents d’entraînement ordinaires. Nous vous recommandons d’utiliser au moins cinq fichiers étiquetés pour effectuer un entraînement fiable.
+Les fichiers d’étiquette contiennent des associations clé-valeur qu’un utilisateur a entrées manuellement. Elles sont nécessaires pour l’entraînement des données étiquetées, mais tous les fichiers sources ne doivent pas avoir un fichier d’étiquettes correspondant. Les fichiers sources sans étiquette sont traités comme des documents d’entraînement ordinaires. Nous vous recommandons d’utiliser au moins cinq fichiers étiquetés pour effectuer un entraînement fiable. Vous pouvez vous servir d’un outil à interface utilisateur comme l’[outil d’étiquetage des exemples](./label-tool.md) pour générer ces fichiers.
 
 Quand vous créez un fichier d’étiquette, vous pouvez éventuellement spécifier des régions&mdash;positions exactes des valeurs dans le document. L’entraînement gagne ainsi en justesse. Les régions prennent la forme d’un ensemble de huit valeurs correspondant à quatre coordonnées X,Y : en haut à gauche, en haut à droite, en bas à droite et en bas à gauche. Les valeurs de coordonnée sont comprises entre zéro et un, et sont mises à l’échelle en fonction des dimensions de la page.
 
@@ -187,7 +190,7 @@ Pour chaque formulaire source, le fichier d’étiquette correspondant doit avoi
                 ...
 ```
 
-> [!NOTE]
+> [!IMPORTANT]
 > Vous ne pouvez appliquer qu’une seule étiquette à chaque élément de texte, et chaque étiquette ne peut être appliquée qu’une seule fois par page. Vous ne pouvez pas appliquer une étiquette dans plusieurs pages.
 
 
@@ -554,4 +557,7 @@ Conscients que ce scénario est essentiel pour nos clients, nous travaillons à 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez appris à utiliser l’API REST Form Recognizer avec Python pour entraîner un modèle avec des données étiquetées manuellement. Consultez à présent la [documentation de référence sur l’API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) pour explorer l’API Form Recognizer plus en détail.
+Dans ce guide de démarrage rapide, vous avez appris à utiliser l’API REST Form Recognizer avec Python pour entraîner un modèle avec des données étiquetées manuellement. Consultez à présent la documentation de référence sur l’API pour explorer l’API Form Recognizer plus en détail.
+
+> [!div class="nextstepaction"]
+> [Documentation de référence sur l’API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)

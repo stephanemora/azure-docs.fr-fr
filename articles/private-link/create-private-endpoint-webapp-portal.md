@@ -4,16 +4,16 @@ description: Connexion privée à une application web avec Azure Private Endpoin
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
 ms.topic: article
-ms.date: 03/12/2020
+ms.date: 06/02/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 2f10c7378ae7681b14df6e96b6a6f1adac832d1b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 34ea9961c257f398ebed3baaf4ed2ee5b6f3547e
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80287813"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298701"
 ---
 # <a name="connect-privately-to-a-web-app-using-azure-private-endpoint-preview"></a>Connexion privée à une application web avec Azure Private Endpoint (préversion)
 
@@ -23,7 +23,7 @@ Dans ce guide de démarrage rapide, vous allez apprendre à déployer une applic
 Pour plus d’informations, consultez [Utilisation de points de terminaison privés pour application web Azure][privatenedpointwebapp].
 
 > [!Note]
->La préversion est disponible dans les régions USA Est et USA Ouest 2 pour toutes les éditions PremiumV2 Windows et Applications web Linux. 
+>La préversion est disponible dans les régions publiques pour les applications web PremiumV2 Windows et Linux, ainsi que les fonctions Premium élastiques. 
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
-ms.openlocfilehash: 1a46cb537892d4255fd274b5754ab8e8c0278308
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: c6ae8d79ee40729f47a906561d6c8ae586765f5d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774454"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019841"
 ---
 # <a name="use-cli-to-restore-a-managed-instance-database-to-another-geo-region"></a>Utiliser CLI pour restaurer une base de données Managed Instance dans une autre région de zone géographique
 
@@ -28,7 +28,7 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 
 ### <a name="prerequisites"></a>Prérequis
 
-Une paire existante d’instances managées ; consultez [Utiliser Azure CLI pour créer une instance managée Azure SQL Database](sql-database-create-configure-managed-instance-cli.md).
+Une paire existante d’instances managées. Consultez [Utiliser Azure CLI pour créer une instance managée Azure SQL](sql-database-create-configure-managed-instance-cli.md).
 
 ### <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -64,4 +64,4 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](/cli/azure).
 
-Vous trouverez des exemples supplémentaires de scripts CLI SQL Database dans [Documentation Azure SQL Database](../sql-database-cli-samples.md).
+Vous trouverez des exemples supplémentaires de scripts CLI SQL Database dans [Documentation Azure SQL Database](../../azure-sql/database/az-cli-script-samples-content-guide.md).

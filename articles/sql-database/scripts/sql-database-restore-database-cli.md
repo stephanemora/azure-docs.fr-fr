@@ -1,6 +1,6 @@
 ---
-title: Exemple CLI – Sauvegarder et restaurer une base de données Azure SQL
-description: Exemple de script Azure CLI pour restaurer une base de données unique SQL Azure à un point antérieur dans le passé à partir de sauvegardes automatiques
+title: 'Azure CLI : Restaurer une sauvegarde'
+description: Exemple de script Azure CLI permettant de restaurer une base de données dans Azure SQL Database à un état antérieur à partir de sauvegardes automatiques.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,16 +11,16 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: efb73bc04e3c79740651fecdd98258b8101f84b1
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: c33191097afc54189df1099a2d13f606e1516e54
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774275"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022622"
 ---
-# <a name="use-cli-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>Utiliser CLI pour restaurer une base de données unique Azure SQL à un point antérieur dans le passé
+# <a name="use-cli-to-restore-a-single-database-in-azure-sql-database-to-an-earlier-point-in-time"></a>Utiliser CLI pour restaurer une seule base de données dans Azure SQL Database à un état antérieur
 
-Cet exemple Azure CLI restaure une base de données SQL Azure à un point précis dans le temps.  
+Cet exemple Azure CLI restaure une seule base de données dans Azure SQL Database à un état antérieur.  
 
 Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -60,4 +60,4 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](/cli/azure).
 
-Vous trouverez des exemples supplémentaires de scripts CLI SQL Database dans [Documentation Azure SQL Database](../sql-database-cli-samples.md).
+Vous trouverez des exemples supplémentaires de scripts CLI SQL Database dans [Documentation Azure SQL Database](../../azure-sql/database/az-cli-script-samples-content-guide.md).

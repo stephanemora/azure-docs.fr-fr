@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 02/27/2020
-ms.openlocfilehash: 04469fa1bd0473710d9fa0bf0190c6459f1f8a07
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/28/2020
+ms.openlocfilehash: f8b72037046d05b39587c2fd57794b4109a85ae3
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418777"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249176"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copier plusieurs tables en bloc à l’aide d’Azure Data Factory
 
@@ -58,7 +58,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 **Préparer la base de données Azure SQL source** :
 
-Créez une base de données Azure SQL avec l’exemple de données Adventure Works LT. Pour cela, suivez les instructions de l’article [Créer une base de données Azure SQL](../sql-database/sql-database-get-started-portal.md). Ce tutoriel copie toutes les tables de cet exemple de base de données dans un magasin de données Azure Synapse Analytics (anciennement SQL DW).
+Créez une base de données Azure SQL avec l’exemple de données Adventure Works LT. Pour cela, suivez les instructions de l’article [Créer une base de données Azure SQL](../azure-sql/database/single-database-create-quickstart.md). Ce tutoriel copie toutes les tables de cet exemple de base de données dans un magasin de données Azure Synapse Analytics (anciennement SQL DW).
 
 **Préparez le magasin de données Azure Synapse Analytics (anciennement SQL DW) récepteur** :
 
@@ -68,11 +68,12 @@ Créez une base de données Azure SQL avec l’exemple de données Adventure Wor
 
 ## <a name="azure-services-to-access-sql-server"></a>Services Azure pour accéder au serveur SQL
 
-Pour SQL Database et Azure Synapse Analytics (anciennement SQL DW), autorisez les services Azure à accéder au serveur SQL. Vérifiez que le paramètre **Autoriser les services et les ressources Azure à accéder à ce serveur** est défini sur **Activé** pour votre serveur SQL Azure. Ce paramètre permet au service Data Factory de lire les données de votre base de données Azure SQL et de les écrire dans votre magasin de données Azure Synapse Analytics (anciennement SQL DW). 
+Pour SQL Database et Azure Synapse Analytics (anciennement SQL DW), autorisez les services Azure à accéder au serveur SQL. Vérifiez que le paramètre **Autoriser les services et les ressources Azure à accéder à ce serveur** est défini sur **Activé** pour votre serveur. Ce paramètre permet au service Data Factory de lire les données de votre base de données Azure SQL et de les écrire dans votre magasin de données Azure Synapse Analytics (anciennement SQL DW). 
 
-Pour vérifier et activer ce paramètre, accédez à votre serveur SQL Azure > Sécurité > Pare-feux et réseaux virtuels et affectez la valeur **Activé** à l’option **Autoriser les services et les ressources Azure à accéder à ce serveur**.
+Pour vérifier et activer ce paramètre, accédez à votre serveur > Sécurité > Pare-feux et réseaux virtuels et affectez la valeur **Activé** à l’option **Autoriser les services et les ressources Azure à accéder à ce serveur**.
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
+
 1. Lancez le navigateur web **Microsoft Edge** ou **Google Chrome**. L’interface utilisateur de Data Factory n’est actuellement prise en charge que par les navigateurs web Microsoft Edge et Google Chrome.
 1. Accédez au [portail Azure](https://portal.azure.com). 
 1. Dans le menu de gauche du portail Azure, sélectionnez **Créer une ressource** > **Analytics** > **Data Factory**. 
@@ -114,7 +115,7 @@ Dans cette étape, vous créez un service lié qui relie votre base de données 
 
     a. Entrez **AzureSqlDatabaseLinkedService** pour **Nom**.
     
-    b. Sélectionnez votre serveur SQL Azure pour **Nom du serveur**
+    b. Sélectionnez votre serveur pour **Nom du serveur**.
     
     c. Sélectionnez votre base de données Azure SQL pour **Nom de la base de données**. 
     
@@ -135,7 +136,7 @@ Dans cette étape, vous créez un service lié qui relie votre base de données 
    
     a. Entrez **AzureSqlDWLinkedService** pour **Nom**.
      
-    b. Sélectionnez votre serveur SQL Azure pour **Nom du serveur**
+    b. Sélectionnez votre serveur pour **Nom du serveur**.
      
     c. Sélectionnez votre base de données Azure SQL pour **Nom de la base de données**. 
      
@@ -212,7 +213,8 @@ Le pipeline **IterateAndCopySQLTables** prend une liste de tables comme paramèt
 1. Dans le volet gauche, cliquez sur **+ (plus)** , puis cliquez sur **Pipeline**.
 
     ![Menu Nouveau pipeline](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
-1. Dans l’onglet **Général**, indiquez **IterateAndCopySQLTables** pour le nom. 
+ 
+1. Dans le panneau Général, sous **Propriétés**, spécifiez **IterateAndCopySQLTables** pour **Nom**. Réduisez ensuite le panneau en cliquant sur l’icône Propriétés en haut à droite.
 
 1. Basculez vers l’onglet **Paramètres**, et effectuez les actions suivantes : 
 

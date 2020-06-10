@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/30/2020
 ms.topic: tutorial
-ms.openlocfilehash: 33801316e4c0446865169560bb42f98052acba70
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 7901f12763cb97fa76c0908e76755247ae934a20
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80678650"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300587"
 ---
 # <a name="tutorial-setting-up-a-unity-project-from-scratch"></a>Tutoriel : Configuration d’un projet Unity en partant de zéro
 
@@ -31,11 +31,14 @@ Pour ce tutoriel, vous avez besoin des éléments suivants :
 
 * Les informations de votre compte (ID du compte, clé du compte, ID de l’abonnement). Si vous n’avez pas de compte, [créez-en un](../../how-tos/create-an-account.md).
 * Le SDK Windows 10.0.18362.0 [(télécharger)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* Installez la dernière version de Visual Studio 2019 [(télécharger)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* La dernière version de Visual Studio 2019 [(télécharger)](https://visualstudio.microsoft.com/vs/older-downloads/). 
+* [Outils Visual Studio pour Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). Plus précisément, les installations de *charge de travail* suivantes sont obligatoires :
+  * **Développement Desktop en C++**
+  * **Développement de la plateforme Windows universelle (UWP)**
 * Git [(télécharger)](https://git-scm.com/downloads)
 * Unity 2019.3.1 [(télécharger)](https://unity3d.com/get-unity/download)
-  * Installez ces modules dans Unity :
-    * **UWP** - Prise en charge de la génération avec la plateforme Windows universelle
+  * Installez les modules ci-dessous dans Unity :
+    * **UWP** : prise en charge de la build de la plateforme Windows universelle
     * **IL2CPP** - Prise en charge de la génération dans Windows (IL2CPP)
 
 > [!TIP]
@@ -77,7 +80,7 @@ Une fois que vous avez modifié et enregistré le manifeste, Unity s’actualise
 ## <a name="ensure-you-have-the-latest-version-of-the-package"></a>Vérifiez que vous avez la version la plus récente du package.
 
 Les étapes suivantes permettent de vérifier que votre projet utilise la version la plus récente du package Remote Rendering.
-1. Sélectionnez le package dans la fenêtre Project, puis cliquez sur l’icône de package : ![Sélection de l’icône de package](media/package-icons.png)
+1. Sélectionnez le package dans la fenêtre Project, puis cliquez sur l’icône :::no-loc text="package"::: : ![Sélection de l’icône de package](media/package-icons.png)
 1. Dans l’inspecteur (Inspector), cliquez sur « View in Package Manager » (Afficher dans le gestionnaire de package) : ![inspecteur de package](media/package-properties.png)
 1. Dans la page Package Manager (Gestionnaire de package), vérifiez que le bouton Update (Mettre à jour) est disponible pour le package Remote Rendering. Si c’est le cas, en cliquant dessus, vous mettez à jour le package vers la dernière version disponible : ![Le package ARR dans le Gestionnaire de package](media/package-manager.png)
 1. Parfois, la mise à jour du package peut entraîner des erreurs dans la console. Si cela se produit, essayez de fermer, puis de rouvrir le projet.
@@ -90,11 +93,11 @@ Sélectionner le nœud **Main Camera** (Caméra principale).
 
     ![Réinitialisation de la transformation de la caméra](media/camera-reset-transform.png)
 
-1. Définissez **Clear flags** (Effacer les indicateurs) sur *Solid Color* (Couleur unie).
+1. Définissez **:::no-loc text="Clear flags":::** (Effacer les indicateurs) sur *:::no-loc text="Solid Color":::* (Couleur unie).
 
-1. Définissez **Background** (Arrière-plan) sur *Black* (Noir).
+1. Définissez **:::no-loc text="Background":::** (Arrière-plan) sur *:::no-loc text="Black":::* (Noir).
 
-1. Définissez **Clipping Planes** (Plans de découpage) sur *Near = 0.3* (Proche = 0,3) et *Far = 20* (Lointain = 20). Cela signifie que le rendu découpera la géométrie qui est plus proche que 30 cm ou plus lointaine que 20 mètres.
+1. Définissez **:::no-loc text="Clipping Planes":::** (Plans de découpage) sur *Near = 0.3* (Proche = 0,3) et *Far = 20* (Lointain = 20). Cela signifie que le rendu découpera la géométrie qui est plus proche que 30 cm ou plus lointaine que 20 mètres.
 
     ![Propriétés de la caméra Unity](media/camera-properties.png)
 

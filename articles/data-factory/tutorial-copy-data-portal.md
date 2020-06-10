@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/13/2020
+ms.date: 05/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 655a98ef1b6b8b2d4086b472ee7ce4d67346e5ca
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8372683c1463fe3443730bd004c013666deb4100
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418709"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248615"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copier des données à partir d’un stockage Blob Azure vers une base de données SQL en utilisant Azure Data Factory
 
@@ -41,7 +41,7 @@ Dans ce tutoriel, vous effectuerez les étapes suivantes :
 ## <a name="prerequisites"></a>Prérequis
 * **Abonnement Azure**. Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * **Compte Azure Storage**. Vous utilisez le stockage Blob comme magasin de données *source*. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte de stockage Azure](../storage/common/storage-account-create.md) pour découvrir comment en créer un.
-* **Azure SQL Database**. Vous utilisez la base de données comme magasin de données *récepteur*. Si vous ne disposez pas d’une base de données Azure SQL, consultez [Créer une base de données SQL](../sql-database/sql-database-get-started-portal.md) pour découvrir comment en créer une.
+* **Azure SQL Database**. Vous utilisez la base de données comme magasin de données *récepteur*. Si vous ne disposez pas d’une base de données Azure SQL, consultez [Créer une base de données SQL](../azure-sql/database/single-database-create-quickstart.md) pour découvrir comment en créer une.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Créer un objet blob et une table SQL
 
@@ -75,7 +75,7 @@ Dans ce tutoriel, vous effectuerez les étapes suivantes :
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-1. Autorisez les services Azure à accéder au serveur SQL. Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est **ACTIVÉ** pour votre serveur SQL afin que Data Factory puisse écrire des données sur votre serveur SQL. Pour vérifier et activer ce paramètre, accédez à votre serveur SQL Azure > Vue d’ensemble > Définir le pare-feu serveur > définissez l’option **Autoriser l’accès aux services Azure** sur **Activé**.
+1. Autorisez les services Azure à accéder au serveur SQL. Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est **ACTIVÉ** pour votre serveur SQL afin que Data Factory puisse écrire des données sur votre serveur SQL. Pour vérifier et activer ce paramètre, accédez au serveur SQL logique > Vue d’ensemble > Définir le pare-feu serveur > définissez l’option **Autoriser l’accès aux services Azure** sur **Activé**.
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 À cette étape, vous allez créer une fabrique de données et démarrer l’interface utilisateur de Data Factory afin de créer un pipeline dans la fabrique de données.
@@ -114,7 +114,8 @@ Dans ce didacticiel, vous commencez par créer le pipeline. Puis vous créez des
 1. Dans la page **Prise en main**, cliquez sur **Créer un pipeline**.
 
    ![Création d’un pipeline](./media/doc-common-process/get-started-page.png)
-1. Dans l’onglet **Général** du pipeline, entrez **CopyPipeline** pour le **Nom** du pipeline.
+
+1. 1. Dans le volet Général, sous **Propriétés**, spécifiez **CopyPipeline** comme **Nom**. Réduisez ensuite le panneau en cliquant sur l’icône Propriétés en haut à droite.
 
 1. Dans la boîte à outils **Activités**, développez la catégorie **Déplacer et transformer**, puis faites glisser l’activité **Copier les données** de la boîte à outils vers l’aire du concepteur de pipeline. Spécifiez **CopyFromBlobToSql** pour le **Nom**.
 

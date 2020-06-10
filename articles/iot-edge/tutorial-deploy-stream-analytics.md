@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d8c3bde0f32c1df6c98f6a71f6ab830c21256903
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 62ee95db0e3b35c996cb4ee68d772a21c00778fb
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76906289"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220283"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutoriel : Déployer Azure Stream Analytics en tant que module IoT Edge
 
@@ -169,7 +169,7 @@ Pour ce didacticiel, vous déployez deux modules. Le premier est **SimulatedTemp
    1. Cliquez sur **Ajouter** et sélectionnez **Module IoT Edge**.
    1. Pour le nom, tapez **SimulatedTemperatureSensor**.
    1. Pour l’URI de l’image, entrez **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0**.
-   1. Laissez les autres paramètres inchangés et sélectionnez **Enregistrer**.
+   1. Laissez les autres paramètres inchangés et sélectionnez **Ajouter**.
 
 1. Ajoutez votre travail Azure Stream Analytics Edge en suivant les étapes :
 
@@ -187,7 +187,7 @@ Pour ce didacticiel, vous déployez deux modules. Le premier est **SimulatedTemp
 
    Par défaut, le module Stream Analytics prend le nom de la tâche sur laquelle il est basé. Vous pouvez modifier le nom du module dans cette page si vous le souhaitez, mais cela n’est pas nécessaire.
 
-1. Sélectionnez **Annuler** ou **Enregistrer**.
+1. Sélectionnez **Mettre à jour** ou **Annuler**.
 
 1. Notez le nom de votre module Stream Analytics car vous en aurez besoin à l’étape suivante, puis sélectionnez **Suivant : Routes** pour continuer.
 

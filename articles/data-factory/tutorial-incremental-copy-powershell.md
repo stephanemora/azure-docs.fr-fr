@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: f4de4c25cea251ea0db72bcb435ceb63eb308ff0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bb2679d0f681ae82bbe1a50671bd2ff70a239dfb
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81409225"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194503"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Charger de façon incrémentielle les données d’une base de données Azure SQL dans un stockage Blob Azure à l’aide de PowerShell
 
@@ -63,7 +63,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure SQL Database**. Vous utilisez la base de données comme magasin de données source. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données Azure SQL Database](../sql-database/sql-database-get-started-portal.md) pour connaître la procédure à suivre pour en créer une.
+* **Azure SQL Database**. Vous utilisez la base de données comme magasin de données source. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) pour connaître la procédure à suivre pour en créer une.
 * **Stockage Azure**. Vous utilisez le stockage d’objets blob comme magasin de données récepteur. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte de stockage](../storage/common/storage-account-create.md) pour découvrir comment en créer un. Créez un conteneur sous le nom adftutorial. 
 * **Azure PowerShell**. Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](/powershell/azure/install-Az-ps).
 
@@ -732,7 +732,7 @@ Dans ce tutoriel, vous avez effectué les étapes suivantes :
 > * Exécuter le pipeline.
 > * Surveiller l’exécution du pipeline.
 
-Dans ce didacticiel, le pipeline a copié les données d’une table unique d’une base de données SQL vers un stockage d’objets blob. Passez au didacticiel suivant pour découvrir comment copier les données de plusieurs tables d’une base de données SQL Server locale vers une base de données SQL.
+Dans ce didacticiel, le pipeline a copié les données d’une table unique d’une base de données SQL vers un stockage d’objets blob. Passez au tutoriel suivant pour découvrir comment copier les données de plusieurs tables d’une base de données SQL Server vers SQL Database.
 
 > [!div class="nextstepaction"]
 >[Charger de façon incrémentielle des données provenant de plusieurs tables dans SQL Server vers Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)

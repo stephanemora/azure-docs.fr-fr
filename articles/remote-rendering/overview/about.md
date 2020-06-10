@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: overview
-ms.openlocfilehash: a06c63152cb56be6d94cccc472d2e1d65651d6ce
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: e40109a3c43fa30d70b7a13243723d717b4003c4
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677924"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021435"
 ---
 # <a name="about-azure-remote-rendering"></a>À propos d’Azure Remote Rendering
 
@@ -22,7 +22,11 @@ ms.locfileid: "80677924"
 
 ![Exemple de modèle](../media/arr-engine.png)
 
-Les appareils qui ne sont pas attachés disposent d’une puissance de calcul limitée pour le rendu de modèles complexes. Toutefois, pour de nombreuses applications, il ne serait pas acceptable de réduire la fidélité visuelle de quelque manière que ce soit.
+Les appareils qui ne sont pas attachés disposent d’une puissance de calcul limitée pour le rendu de modèles complexes. Toutefois, pour de nombreuses applications, il ne serait pas acceptable de réduire la fidélité visuelle de quelque manière que ce soit. La capture d’écran suivante compare le modèle détaillé à un modèle qui a été simplifié à l’aide d’un outil de création de contenu courant :
+
+![Exemple de modèle](./media/engine-model-decimated.png)
+
+Le modèle simplifié se compose d’environ 200 000 triangles (parties internes détaillées incluses), alors que le modèle d’origine en comprend plus de 18 millions.
 
 *Remote Rendering* résout ce problème en déplaçant la charge de travail de rendu vers des GPU haut de gamme dans le cloud. Un moteur graphique hébergé dans le cloud effectue le rendu de l’image, l’encode sous forme de flux vidéo et la diffuse en streaming sur l’appareil cible.
 

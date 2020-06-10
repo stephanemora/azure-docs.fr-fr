@@ -1,14 +1,14 @@
 ---
 title: Comment gérer le protocole DHCP
-description: Cet article explique comment gérer le protocole DHCP dans une solution Azure VMWare (AVS)
+description: Cet article explique comment gérer le protocole DHCP dans une solution Azure VMware (AVS)
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: ccf28c94e1991681c238f51847fe228313abe29e
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 80791dd2041fb9d6fbc7c67f2d7d7b2d0b6c977e
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739809"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148359"
 ---
 # <a name="how-to-manage-dhcp-in-azure-vmware-solution-avs-preview"></a>Comment gérer le protocole DHCP dans une solution Azure VMWare (AVS) en préversion
 

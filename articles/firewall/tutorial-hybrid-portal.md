@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 208a7a677bdf0b76ffed83e679c6f1ff3041d50d
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 7da5e6fa3c977d309ad028cb446cd411a9d4fbaf
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239682"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298956"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un Pare-feu Azure dans un réseau hybride à l’aide du portail Azure
 
@@ -131,18 +131,6 @@ Tout d’abord, créez le groupe de ressources qui doit contenir les ressources 
 4. Pour **Plage d’adresses (bloc CIDR)** , tapez **192.168.2.0/24**.
 5. Sélectionnez **OK**.
 
-### <a name="create-a-public-ip-address"></a>Créer une adresse IP publique
-
-Il s’agit de l’adresse IP publique utilisée pour la passerelle locale.
-
-1. Dans la page d’accueil du portail Azure, sélectionnez **Créer une ressource**.
-2. Tapez **adresse IP publique** dans la zone de recherche, puis appuyez sur **Entrée**.
-3. Sélectionnez **Adresse IP publique**, puis **Créer**.
-4. Pour le nom, tapez **VNet-Onprem-GW-pip**.
-5. Pour le groupe de ressources, tapez **FW-Hybrid-Test**.
-6. Pour **Emplacement**, sélectionnez le même emplacement que celui utilisé précédemment.
-7. Acceptez les autres valeurs par défaut, puis sélectionnez **Créer**.
-
 ## <a name="configure-and-deploy-the-firewall"></a>Configurer et déployer le pare-feu
 
 À présent, déployez le pare-feu dans le réseau virtuel du hub de pare-feu.
@@ -153,7 +141,7 @@ Il s’agit de l’adresse IP publique utilisée pour la passerelle locale.
 
    |Paramètre  |Valeur  |
    |---------|---------|
-   |Abonnement     |\<votre abonnement\>|
+   |Abonnement     |\<your subscription\>|
    |Resource group     |**FW-Hybrid-Test** |
    |Nom     |**AzFW01**|
    |Emplacement     |Sélectionnez le même emplacement que celui utilisé précédemment|
@@ -422,7 +410,7 @@ Il s’agit d’une machine virtuelle que vous utilisez pour vous connecter au m
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-3. Ouvrez un navigateur web sur **VM-Onprem** et accédez à http://\<adresse IP privée de VM-spoke-01\>.
+3. Ouvrez un navigateur web sur **VM-Onprem** et accédez à http://\<VM-spoke-01 private IP\>.
 
    La page web **VM-spoke-01** doit s’afficher : ![Page web VM-Spoke-01](media/tutorial-hybrid-portal/VM-Spoke-01-web.png)
 

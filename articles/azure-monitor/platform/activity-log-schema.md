@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 12/04/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: c2f171c79423e0cfe8b57c05b8248679f9ada9f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 25517b48ad7dcddffaaeb4ac2f86397d99e0be2c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472739"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017509"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schéma d’événements du journal d’activité
 Le [journal d’activité Azure](platform-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans Azure. Cet article décrit le schéma d’événements pour chaque catégorie. 
@@ -287,7 +287,7 @@ Cette catégorie contient l’enregistrement de tout événement d’intégrité
 
 
 ## <a name="alert"></a>Alerte
-Cette catégorie contient l’enregistrement de toutes les activations des alertes Azure. Un exemple du type d’événement que vous pouvez voir dans cette catégorie est « % du processeur sur myVM a été supérieur à 80 pour les 5 dernières minutes. » Une variété de systèmes Azure possèdent un concept d’alertes : vous pouvez définir une règle quelconque et recevoir une notification lorsque les conditions correspondent à cette règle. Chaque fois qu’un type d’alerte Azure pris en charge « s’active » ou si les conditions sont remplies pour générer une notification, un enregistrement de l’activation est également envoyé à cette catégorie du journal d’activité.
+Cette catégorie contient l’enregistrement de toutes les activations des alertes Azure classiques. Un exemple du type d’événement que vous pouvez voir dans cette catégorie est « % du processeur sur myVM a été supérieur à 80 pour les 5 dernières minutes. » Une variété de systèmes Azure possèdent un concept d’alertes : vous pouvez définir une règle quelconque et recevoir une notification lorsque les conditions correspondent à cette règle. Chaque fois qu’un type d’alerte Azure pris en charge « s’active » ou si les conditions sont remplies pour générer une notification, un enregistrement de l’activation est également envoyé à cette catégorie du journal d’activité.
 
 ### <a name="sample-event"></a>Exemple d’événement
 
@@ -655,7 +655,7 @@ Cette catégorie contient l’enregistrement de toutes les nouvelles recommandat
 | properties.recommendationImpact| Impact de la recommandation. Les valeurs possibles sont « High » (Élevé), « Medium » (Moyen) ou « Low » (Bas) |
 | properties.recommendationRisk| Risque de la recommandation. Les valeurs possibles sont « Error » (Erreur), « Warning » (Avertissement) et « None » (Aucun). |
 
-## <a name="policy"></a>Stratégie
+## <a name="policy"></a>Policy
 
 Cette catégorie contient les enregistrements de toutes les opérations d’action à effet effectuées par [Azure Policy](../../governance/policy/overview.md). Cette catégorie pourrait par exemple contenir les types d’événements _Audit_ et _Deny_ (Refus). Chaque action effectuée par Policy est modélisée en tant qu’opération sur une ressource.
 

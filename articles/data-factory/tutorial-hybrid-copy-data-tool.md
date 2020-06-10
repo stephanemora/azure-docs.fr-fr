@@ -1,6 +1,6 @@
 ---
 title: Copier des données locales avec l’outil Copier des données d’Azure
-description: Créez une fabrique de données Azure, puis utilisez l’outil Copier les données pour copier des données depuis une base de données SQL Server locale vers un stockage d’objets Blob Azure.
+description: Créez une fabrique de données Azure, puis utilisez l’outil Copier les données pour copier des données depuis une base de données SQL Server vers un stockage Blob Azure.
 services: data-factory
 ms.author: abnarain
 author: nabhishek
@@ -11,21 +11,21 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 04/09/2018
-ms.openlocfilehash: 6b4df324fec38d08355754146d8be76d225e6cb7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: badf6ed4e4a330aae288cd6a2b102941901a0461
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418590"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194587"
 ---
-# <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copier des données depuis une base de données SQL Server locale vers un stockage Blob Azure à l’aide de l’outil Copier les données
+# <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copier des données depuis une base de données SQL Server vers un stockage Blob Azure à l’aide de l’outil Copier les données
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Version actuelle](tutorial-hybrid-copy-data-tool.md)
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Dans ce didacticiel, vous utilisez le portail Azure pour créer une fabrique de données. Vous utilisez ensuite l’outil Copier les données pour créer un pipeline qui copie des données depuis une base de données SQL Server locale vers un stockage Blob Azure.
+Dans ce didacticiel, vous utilisez le portail Azure pour créer une fabrique de données. Vous utilisez ensuite l’outil Copier les données pour créer un pipeline qui copie des données depuis une base de données SQL Server vers un stockage Blob Azure.
 
 > [!NOTE]
 > - Si vous débutez avec Azure Data Factory, consultez [Présentation d’Azure Data Factory](introduction.md).
@@ -37,7 +37,7 @@ Dans ce tutoriel, vous effectuerez les étapes suivantes :
 > * Utiliser l’outil Copier les données pour créer un pipeline.
 > * Surveiller les exécutions de pipeline et d’activité.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 ### <a name="azure-subscription"></a>Abonnement Azure
 Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -47,7 +47,7 @@ Pour créer des instances de fabrique de données, le compte d’utilisateur que
 Pour afficher les autorisations dont vous disposez dans l’abonnement, accédez au portail Azure. Dans l’angle supérieur droit, sélectionnez votre nom d’utilisateur, puis **Autorisations**. Si vous avez accès à plusieurs abonnements, sélectionnez l’abonnement approprié. Pour obtenir des exemples d’instructions sur l’ajout d’un utilisateur à un rôle, voir [Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du Portail Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 et 2017
-Dans le cadre de ce didacticiel, vous utilisez une base de données SQL Server locale comme magasin de données *source*. Le pipeline de la fabrique de données que vous allez créer dans ce didacticiel copie les données de cette base de données SQL Server locale (source) dans un stockage Blob (récepteur). Créez ensuite un tableau nommé **emp** dans votre base de données SQL Server, puis insérez-y quelques exemples d’entrées.
+Dans le cadre de ce tutoriel, vous allez utiliser une base de données SQL Server comme magasin de données *source*. Le pipeline de la fabrique de données que vous allez créer dans ce tutoriel copie les données de cette base de données SQL Server (source) dans un stockage Blob (récepteur). Créez ensuite un tableau nommé **emp** dans votre base de données SQL Server, puis insérez-y quelques exemples d’entrées.
 
 1. Exécutez SQL Server Management Studio. S’il n’est pas déjà installé sur votre machine, accédez à [Télécharger SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
@@ -74,7 +74,7 @@ Dans le cadre de ce didacticiel, vous utilisez une base de données SQL Server l
     ```
 
 ### <a name="azure-storage-account"></a>Compte Azure Storage
-Dans ce didacticiel, vous utilisez un compte de stockage Azure à usage général (stockage Blob plus spécifiquement) comme banque de données réceptrice/de destination. Si vous ne possédez pas de compte de stockage à usage général, consultez la section [Créer un compte de stockage](../storage/common/storage-account-create.md) pour savoir comment en créer un. Le pipeline de la fabrique de données que vous créez dans ce didacticiel copie les données de la base de données SQL Server locale (source) dans ce stockage Blob (récepteur). 
+Dans ce didacticiel, vous utilisez un compte de stockage Azure à usage général (stockage Blob plus spécifiquement) comme banque de données réceptrice/de destination. Si vous ne possédez pas de compte de stockage à usage général, consultez la section [Créer un compte de stockage](../storage/common/storage-account-create.md) pour savoir comment en créer un. Le pipeline de la fabrique de données que vous allez créer dans ce tutoriel copie les données de la base de données SQL Server (source) dans ce stockage Blob (récepteur). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Obtenir le nom de compte de stockage et la clé de compte
 Dans ce didacticiel, vous utilisez le nom et la clé de votre compte de stockage. Pour obtenir le nom et la clé de votre compte de stockage, procédez comme suit :
@@ -169,13 +169,13 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 
     a. Dans le champ **Nom**, entrez **SqlServerLinkedService**.
 
-    b. Entrez le nom de votre instance SQL Server locale dans le champ **Nom du serveur**.
+    b. Entrez le nom de votre instance SQL Server dans le champ **Nom du serveur**.
 
     c. Entrez le nom de votre base de données locale dans le champ **Nom de la base de données**.
 
     d. Sélectionnez l’authentification appropriée sous **Type d’authentification**.
 
-    e. Entrez le nom d’utilisateur ayant accès au SQL Server local dans le champ **Nom d’utilisateur**.
+    e. Entrez le nom d’utilisateur ayant accès au SQL Server dans le champ **Nom d’utilisateur**.
 
     f. Entrez le **mot de passe** correspondant à l’utilisateur.
 
@@ -233,7 +233,7 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Le pipeline dans cet exemple copie des données depuis une base de données SQL Server locale vers un stockage Blob. Vous avez appris à :
+Le pipeline dans cet exemple copie des données depuis une base de données SQL Server vers un stockage Blob. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une fabrique de données.

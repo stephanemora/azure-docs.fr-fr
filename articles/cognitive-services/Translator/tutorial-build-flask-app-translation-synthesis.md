@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 955476eefc7575edb90634ce305bbebdf62e2371
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 991a31898bb010dab3db7a545cd115a60bfe3ed1
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592353"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995714"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutoriel : Créer une application Flask avec Azure Cognitive Services
 
@@ -119,7 +119,7 @@ Créons un environnement virtuel pour notre application Flask avec `virtualenv`.
 
 ### <a name="install-requests"></a>Installer Requests
 
-Requests est un module répandu qui est utilisé pour envoyer des requêtes HTTP 1.1. Vous n’avez pas besoin d’ajouter manuellement des chaînes de requête à votre URL, ni d’encoder vos données POST dans un formulaire.
+Requests est un module répandu qui est utilisé pour envoyer des requêtes HTTP 1.1. Vous n’avez pas besoin d’ajouter manuellement des chaînes de requête à vos URL, ni d’encoder vos données POST dans un formulaire.
 
 1. Pour installer Requests, exécutez :
 

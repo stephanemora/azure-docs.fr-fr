@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 80c961c1aa4da199fa87b97bc8e0a37e60c2235f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e17eee8de789b813e5aab726207233e8607ec97f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74903136"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84200309"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>La stratégie personnalisée IPsec/IKE est-elle prise en charge sur toutes les références de passerelle VPN Azure ?
 La stratégie IPsec/IKE personnalisée est prise en charge sur toutes les références SKU Azure, à l’exception de la référence SKU De base.
@@ -104,7 +104,7 @@ Oui. Un tunnel entre des réseaux virtuels se compose de deux ressources de conn
 Non. La stratégie IPsec/IKE est uniquement compatible avec les connexions S2S VPN et entre des réseaux virtuels via les passerelles VPN Azure.
 
 ### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>Comment créer des connexions avec le type de protocole IKEv1 ou IKEv2 ?
-Les connexions IKEv1 peuvent être créées sur toutes les références SKU de type VPN RouteBased, à l’exception de la référence SKU de base. Vous pouvez spécifier un type de protocole de connexion IKEv1 ou IKEv2 lors de la création de connexions. Si vous ne spécifiez pas de type de protocole de connexion, IKEv2 est utilisé comme option par défaut là où c’est applicable. Pour plus d’informations, consultez la documentation de l’[applet de commande PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?). Pour les types SKU et la prise en charge de IKEv1/IKEv2, consultez [Connecter des passerelles à des appareils VPN basés sur des stratégies](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+Les connexions IKEv1 peuvent être créées sur toutes les références SKU de type VPN RouteBased, sauf la référence SKU héritée. Vous pouvez spécifier un type de protocole de connexion IKEv1 ou IKEv2 lors de la création de connexions. Si vous ne spécifiez pas de type de protocole de connexion, IKEv2 est utilisé comme option par défaut là où c’est applicable. Pour plus d’informations, consultez la documentation de l’[applet de commande PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?). Pour les types SKU et la prise en charge de IKEv1/IKEv2, consultez [Connecter des passerelles à des appareils VPN basés sur des stratégies](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 ### <a name="is-transit-between-between-ikev1-and-ikev2-connections-allowed"></a>Le transit entre les connexions IKEv1 et IKEv2 est-il autorisé ?
 Oui. Le transit entre les connexions IKEv1 et IKEv2 est pris en charge.

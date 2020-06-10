@@ -1,6 +1,6 @@
 ---
-title: Tutoriel `:` Utiliser une identité managée pour accéder à Azure SQL - Windows - Azure AD
-description: Ce didacticiel vous guide tout au long de l’utilisation d’une identité managée attribuée par le système de machine virtuelle Windows pour accéder à Azure SQL.
+title: Tutoriel`:` Utiliser une identité managée pour accéder à Azure SQL Database - Windows - Azure AD
+description: Ce tutoriel explique comment utiliser une identité managée attribuée par le système de machine virtuelle Windows pour accéder à Azure SQL Database.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -14,68 +14,67 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fc5596c6914b77b09db10528af891d7e6bd0159
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: dd3d3aeecb66ba332d9c32c944d527ac3a07f2fe
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75977859"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014313"
 ---
-# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Didacticiel : Utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder à Azure SQL
+# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Tutoriel : Utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder à Azure SQL
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Ce didacticiel vous indique comment utiliser une identité attribuée par le système pour une machine virtuelle Windows afin d’accéder à un serveur Azure SQL. Les identités MSI sont gérées automatiquement par Azure et vous permettent de vous authentifier auprès des services prenant en charge l’authentification Azure AD sans avoir à insérer des informations d’identification dans votre code. Vous allez apprendre à effectuer les actions suivantes :
+Ce tutoriel illustre comment utiliser une identité attribuée par le système pour une machine virtuelle Windows afin d’accéder à Azure SQL Database. Les identités MSI sont managées automatiquement par Azure et vous permettent de vous authentifier auprès des services prenant en charge l’authentification Azure AD sans avoir à insérer des informations d’identification dans votre code. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Accorder à votre machine virtuelle l’accès à un serveur Azure SQL
-> * Activer Azure AD Authentication pour le serveur SQL
+>
+> * Accorder à votre machine virtuelle l’accès à Azure SQL Database
+> * Activer l’authentification Azure AD
 > * Créer un utilisateur contenu dans la base de données représentant l’identité attribuée du système de la machine virtuelle
-> * Obtenir un jeton d’accès à l’aide de l’identité de machine virtuelle, et l’utiliser pour interroger un serveur Azure SQL
+> * Obtenir un jeton d’accès à l’aide de l’identité de machine virtuelle, et l’utiliser pour interroger Azure SQL Database
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
 
 ## <a name="enable"></a>Activer
 
 [!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
 
-
 ## <a name="grant-access"></a>Accorder l'accès
 
-Pour accorder à votre machine virtuelle l’accès à un serveur SQL Azure, vous pouvez utiliser un serveur SQL existant ou en créer un. Pour créer un serveur et une base de données à l’aide du portail Azure, procédez de la manière décrite dans cette [procédure de démarrage rapide d’Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). Des procédures de démarrage rapide utilisant Azure CLI et Azure PowerShell sont également décrites dans la [Documentation Azure SQL Database](https://docs.microsoft.com/azure/sql-database/).
+Pour accorder à votre machine virtuelle l’accès à une base de données dans Azure SQL Database, vous pouvez utiliser un [serveur SQL logique](../../azure-sql/database/logical-servers.md) existant ou en créer un. Pour créer un serveur et une base de données à l’aide du portail Azure, procédez de la manière décrite dans cette [procédure de démarrage rapide d’Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). Des procédures de démarrage rapide utilisant Azure CLI et Azure PowerShell sont également décrites dans la [Documentation Azure SQL Database](https://docs.microsoft.com/azure/sql-database/).
 
 Pour accorder à votre machine virtuelle l’accès à une base de données, deux étapes sont nécessaires :
 
-1. Activez Azure AD Authentication pour le serveur SQL.
-2. Créez un **utilisateur contenu** dans la base de données représentant l’identité attribuée du système de la machine virtuelle.
+1. Activer l’authentification Azure AD pour le serveur
+2. Créer un **utilisateur contenu** dans la base de données représentant l’identité attribuée du système de la machine virtuelle
 
 ### <a name="enable-azure-ad-authentication"></a>Activer l’authentification Azure AD
 
-**Pour[ configurer l’authentification Azure AD pour le serveur SQL](/azure/sql-database/sql-database-aad-authentication-configure) :**
+**Pour [configurer l’authentification Azure AD](/azure/sql-database/sql-database-aad-authentication-configure) :**
 
-1.  Dans le portail Azure, dans le volet de navigation gauche, sélectionnez **Serveurs SQL**.
-2.  Cliquez sur le serveur SQL à activer pour Azure AD Authentication.
-3.  Dans la section **Paramètres** du panneau, cliquez sur **Administrateur Active Directory**.
-4.  Dans la barre de commandes, cliquez sur **Définir l’administrateur**.
-5.  Sélectionnez un compte d’utilisateur Azure AD à désigner comme administrateur du serveur, puis cliquez sur **Sélectionner**.
-6.  Dans la barre de commandes, cliquez sur **Enregistrer**.
+1. Dans le portail Azure, dans le volet de navigation gauche, sélectionnez **Serveurs SQL**.
+2. Cliquez sur le serveur SQL à activer pour Azure AD Authentication.
+3. Dans la section **Paramètres** du panneau, cliquez sur **Administrateur Active Directory**.
+4. Dans la barre de commandes, cliquez sur **Définir l’administrateur**.
+5. Sélectionnez un compte d’utilisateur Azure AD à désigner comme administrateur du serveur, puis cliquez sur **Sélectionner**.
+6. Dans la barre de commandes, cliquez sur **Enregistrer**.
 
 ### <a name="create-contained-user"></a>Créer un utilisateur contenu
 
 Cette section montre comment créer un utilisateur contenu dans la base de données représentant l’identité attribuée par le système de la machine virtuelle. Pour cette étape, vous avez besoin de [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Avant de commencer, il peut également être utile de lire les articles suivants pour acquérir une compréhension de l’intégration d’Azure AD :
 
-- [Authentification universelle avec SQL Database et SQL Data Warehouse (prise en charge de SSMS pour MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
-- [Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
+* [Authentification universelle avec SQL Database et SQL Data Warehouse (prise en charge de SSMS pour MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
+* [Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
 
-SQL DB requiert des noms d’affichage AAD uniques. Ainsi, les comptes AAD comme utilisateurs, groupes et principaux de service (applications), et noms des machines virtuelles activées pour l’identité managée doivent être définis de façon unique dans AAD en termes de noms d'affichage. SQL DB vérifie le nom d’affichage AAD lors de la création T-SQL de tels utilisateurs, et s'il n’est pas unique, la commande ne permet pas la mise à disposition d'un nom d’affichage AAD unique pour un compte donné.
+SQL Database nécessite des noms d’affichage AAD uniques. Ainsi, les comptes AAD comme utilisateurs, groupes et principaux de service (applications), et noms des machines virtuelles activées pour l’identité managée doivent être définis de façon unique dans AAD en termes de noms d'affichage. SQL Database vérifie le nom d’affichage AAD lors de la création T-SQL de tels utilisateurs, et s’il n’est pas unique, la commande ne permet pas la mise à disposition d’un nom d’affichage AAD unique pour un compte donné.
 
 **Pour créer un utilisateur contenu :**
 
 1. Exécutez SQL Server Management Studio.
-2. Dans la boîte de dialogue **Se connecter au serveur**, dans le champ **Nom du serveur**, entrez le nom de votre serveur SQL.
+2. Dans la boîte de dialogue **Se connecter au serveur**, entrez le nom de votre serveur dans le champ **Nom du serveur**.
 3. Dans le champ **Authentification**, sélectionnez **Active Directory - Authentification universelle avec prise en charge de MFA**.
 4. Dans le champ **Nom d’utilisateur**, entrez le nom du compte Azure AD que vous avez défini en tant qu’administrateur du serveur, par exemple,helen@woodgroveonline.com.
 5. Cliquez sur **Options**.
@@ -87,24 +86,24 @@ SQL DB requiert des noms d’affichage AAD uniques. Ainsi, les comptes AAD comme
 
     > [!NOTE]
     > `VMName` dans la commande suivante est le nom de la machine virtuelle pour laquelle vous avez activé l’identité attribuée au système sur dans la section Conditions préalables.
-    
-    ```
+
+    ```sql
     CREATE USER [VMName] FROM EXTERNAL PROVIDER
     ```
-    
+
     La commande doit s’exécuter correctement, en créant l’utilisateur contenu pour l’identité attribuée du système de la machine virtuelle.
 11. Effacez le contenu de la fenêtre de requête, entrez la ligne suivante, puis, dans la barre d’outils, cliquez sur **Exécuter** :
 
     > [!NOTE]
     > `VMName` dans la commande suivante est le nom de la machine virtuelle pour laquelle vous avez activé l’identité attribuée au système sur dans la section Conditions préalables.
-    
-    ```
+
+    ```sql
     ALTER ROLE db_datareader ADD MEMBER [VMName]
     ```
 
     La commande doit s’exécuter correctement, en octroyant à l’utilisateur contenu la possibilité de lire la base de données entière.
 
-Le code qui s’exécute dans la machine virtuelle peut désormais obtenir un jeton à partir de son identité managée attribuée par le système et utiliser celui-ci pour s’authentifier auprès du serveur SQL.
+Le code qui s’exécute dans la machine virtuelle peut désormais obtenir un jeton à partir de son identité managée attribuée par le système et l’utiliser pour s’authentifier auprès du serveur.
 
 ## <a name="access-data"></a>Accéder aux données
 
@@ -144,7 +143,7 @@ catch (Exception e)
 }
 
 //
-// Open a connection to the SQL server using the access token.
+// Open a connection to the server using the access token.
 //
 if (accessToken != null) {
     string connectionString = "Data Source=<AZURE-SQL-SERVERNAME>; Initial Catalog=<DATABASE>;";
@@ -156,29 +155,29 @@ if (accessToken != null) {
 
 Un autre moyen rapide de tester la configuration de bout en bout sans devoir écrire et déployer une application sur la machine virtuelle consiste à utiliser PowerShell.
 
-1.  Dans le portail, accédez à **Machines virtuelles** et accédez à votre machine virtuelle Windows. Puis, dans **Vue d’ensemble**, cliquez sur **Connecter**.
-2.  Entrez le **Nom d’utilisateur** et le **Mot de passe** que vous avez ajoutés lorsque vous avez créé la machine virtuelle Windows.
-3.  Maintenant que vous avez créé une **Connexion au Bureau à distance** avec la machine virtuelle, ouvrez **PowerShell** dans la session à distance.
-4.  À l’aide de `Invoke-WebRequest` de Powershell, adressez une requête au point de terminaison de l’identité managée locale pour obtenir un jeton d’accès pour Azure SQL.
+1. Dans le portail, accédez à **Machines virtuelles** et accédez à votre machine virtuelle Windows. Puis, dans **Vue d’ensemble**, cliquez sur **Connecter**.
+2. Entrez le **Nom d’utilisateur** et le **Mot de passe** que vous avez ajoutés lorsque vous avez créé la machine virtuelle Windows.
+3. Maintenant que vous avez créé une **Connexion au Bureau à distance** avec la machine virtuelle, ouvrez **PowerShell** dans la session à distance.
+4. À l’aide de `Invoke-WebRequest` de Powershell, adressez une requête au point de terminaison de l’identité managée locale pour obtenir un jeton d’accès pour Azure SQL.
 
     ```powershell
         $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F' -Method GET -Headers @{Metadata="true"}
     ```
-    
-    Convertissez la réponse d’objet JSON en objet PowerShell. 
-    
+
+    Convertissez la réponse d’objet JSON en objet PowerShell.
+
     ```powershell
     $content = $response.Content | ConvertFrom-Json
     ```
 
     Extrayez le jeton d’accès de la réponse.
-    
+
     ```powershell
     $AccessToken = $content.access_token
     ```
 
-5. Ouvrez une connexion au serveur SQL. N’oubliez pas de remplacer les valeurs de AZURE-SQL-SERVERNAME et DATABASE.
-    
+5. Ouvrez une connexion au serveur. N’oubliez pas de remplacer les valeurs de AZURE-SQL-SERVERNAME et DATABASE.
+
     ```powershell
     $SqlConnection = New-Object System.Data.SqlClient.SqlConnection
     $SqlConnection.ConnectionString = "Data Source = <AZURE-SQL-SERVERNAME>; Initial Catalog = <DATABASE>"
@@ -200,15 +199,13 @@ Un autre moyen rapide de tester la configuration de bout en bout sans devoir éc
 
 Examinez la valeur de `$DataSet.Tables[0]` pour voir les résultats de la requête.
 
-
 ## <a name="disable"></a>Disable
 
 [!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à utiliser une identité managée attribuée par le système pour accéder à Azure SQL Server. Pour en savoir plus sur Azure SQL Server, consultez :
+Dans ce tutoriel, vous avez appris à utiliser une identité managée attribuée par le système pour accéder à Azure SQL Database. Pour en savoir plus sur Azure SQL Database, consultez :
 
 > [!div class="nextstepaction"]
-> [Service Azure SQL Database](/azure/sql-database/sql-database-technical-overview)
+> [Azure SQL Database](/azure/sql-database/sql-database-technical-overview)

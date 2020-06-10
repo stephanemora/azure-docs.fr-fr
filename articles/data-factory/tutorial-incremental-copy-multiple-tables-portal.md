@@ -1,6 +1,6 @@
 ---
 title: Copier de façon incrémentielle plusieurs tables à l’aide du portail Azure
-description: Dans ce tutoriel, vous allez créer un pipeline Azure Data Factory qui copie de façon incrémentielle des données delta de plusieurs tables d’une base de données SQL Server locale dans une base de données Azure SQL.
+description: Dans ce tutoriel, vous créez un pipeline Azure Data Factory qui copie de façon incrémentielle des données delta de plusieurs tables d’une base de données SQL Server dans une base de données Azure SQL.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/20/2018
-ms.openlocfilehash: 290ddf9a99d421bbf6303675fd544e81b637d070
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/29/2020
+ms.openlocfilehash: ba934d8eeadcd3d3e89d5d9f6115c258206c2d13
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81419253"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247255"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Charger de façon incrémentielle des données provenant de plusieurs tables de SQL Server vers une base de données Azure SQL
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Dans ce tutoriel, vous allez créer une fabrique de données Azure Data Factory avec un pipeline qui charge les données delta de plusieurs tables d’une base de données SQL Server locale vers une base de données Azure SQL.    
+Dans ce tutoriel, vous créez une fabrique de données Azure Data Factory avec un pipeline qui charge les données delta provenant de plusieurs tables d’une base de données SQL Server vers une base de données Azure SQL.    
 
 Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 
@@ -67,13 +67,13 @@ Voici les étapes importantes à suivre pour créer cette solution :
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
-* **SQL Server**. Dans le cadre de ce tutoriel, vous allez utiliser une base de données SQL Server locale comme magasin de données source. 
-* **Azure SQL Database**. Vous allez utiliser une base de données SQL comme magasin de données récepteur. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données Azure SQL Database](../sql-database/sql-database-get-started-portal.md) pour connaître la procédure à suivre pour en créer une. 
+## <a name="prerequisites"></a>Prérequis
+* **SQL Server**. Dans le cadre de ce tutoriel, vous allez utiliser une base de données SQL Server comme magasin de données source. 
+* **Azure SQL Database**. Vous allez utiliser une base de données SQL comme magasin de données récepteur. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) pour connaître la procédure à suivre pour en créer une. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Créer des tables sources dans votre base de données SQL Server
 
-1. Ouvrez SQL Server Management Studio, puis connectez-vous à votre base de données SQL Server locale.
+1. Ouvrez SQL Server Management Studio, puis connectez-vous à votre base de données SQL Server.
 
 1. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur la base de données et choisissez **Nouvelle requête**.
 
@@ -269,7 +269,7 @@ Lorsque vous déplacez des données d’un magasin de données d’un réseau pr
 1. Sélectionnez **Auto-hébergé**, puis cliquez sur **Continuer**. 
 1. Entrez **MySelfHostedIR** pour le **Nom**, puis cliquez sur **Créer**. 
 
-1. Cliquez sur **Cliquez ici pour lancer l’installation rapide pour cet ordinateur** dans la section **Option 1 : installation rapide**. 
+1. Cliquez sur **Cliquez ici pour lancer l’installation rapide pour cet ordinateur** dans la section **Option 1 : installation rapide**. 
 
    ![Cliquer sur le lien d’installation rapide](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
 1. Dans la fenêtre **Installation rapide du runtime d’intégration (auto-hébergé)** , cliquez sur **Fermer**. 
@@ -281,10 +281,10 @@ Lorsque vous déplacez des données d’un magasin de données d’un réseau pr
 1. Vérifiez que **MySelfHostedIR** figure dans la liste des runtimes d’intégration.
 
 ## <a name="create-linked-services"></a>Créez des services liés
-Vous allez créer des services liés dans une fabrique de données pour lier vos magasins de données et vos services de calcul à la fabrique de données. Dans cette section, vous créez des services liés à vos bases de données Azure SQL et à votre base de données SQL Server locale. 
+Vous allez créer des services liés dans une fabrique de données pour lier vos magasins de données et vos services de calcul à la fabrique de données. Dans cette section, vous créez des services liés à vos base de données SQL Server et base de données Azure SQL. 
 
 ### <a name="create-the-sql-server-linked-service"></a>Créer le service lié SQL Server
-Dans cette étape, vous liez votre base de données SQL Server locale à la fabrique de données.
+Dans cette étape, vous liez votre base de données SQL Server à la fabrique de données.
 
 1. Dans la fenêtre **Connexions**, passez de l’onglet **Runtimes d’intégration** à l’onglet **Services liés**, puis cliquez sur **+ Nouveau**.
 
@@ -310,7 +310,7 @@ Dans cette dernière étape, vous créez un service lié qui relie votre base de
 1. Dans la fenêtre **Nouveau service lié**, procédez comme suit :
 
     1. Entrez **AzureSqlDatabaseLinkedService** pour **Nom**. 
-    1. Dans le champ **Nom du serveur**, sélectionnez le nom de votre serveur SQL Azure dans la liste déroulante. 
+    1. Dans le champ **Nom du serveur**, sélectionnez le nom de votre serveur dans la liste déroulante. 
     1. Dans le champ **Nom de la base de données**, sélectionnez la base de données Azure SQL dans laquelle vous avez créé les tables customer_table et project_table dans le cadre des prérequis 
     1. Dans le champ **Nom d’utilisateur**, entrez le nom de l’utilisateur qui a accès à la base de données Azure SQL. 
     1. Dans le champ **Mot de passe**, entrez le **mot de passe** de l’utilisateur. 
@@ -388,7 +388,7 @@ Ce pipeline prend une liste de noms de tables comme paramètre. L’activité Fo
 
 1. Dans le volet gauche, cliquez sur **+ (plus)** , puis cliquez sur **Pipeline**.
 
-1. Dans l’onglet **Général**, entrez **IncrementalCopyPipeline** pour **Nom**. 
+1. Dans le volet Général, sous **Propriétés**, spécifiez **IncrementalCopyPipeline** comme **Nom**. Réduisez ensuite le panneau en cliquant sur l’icône Propriétés en haut à droite.  
 
 1. Dans l’onglet **Paramètres**, effectuez les étapes suivantes : 
 
@@ -469,7 +469,7 @@ Ce pipeline prend une liste de noms de tables comme paramètre. L’activité Fo
     1. Sélectionnez **Import parameter** (Paramètre d’importation). 
     1. Indiquez les valeurs suivantes pour les paramètres : 
 
-        | Name | Type | Valeur | 
+        | Nom | Type | Valeur | 
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |

@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 1730317296c672eb9347986ec41fdba25427408e
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a3e66e7f6857361136fb4b7839953790f66b4db5
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200484"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219111"
 ---
-::: zone target="docs" 
+::: zone target="docs"
 
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Tutoriel : Copier des données sur Azure Data Box Disk par le biais de SMB
 
@@ -35,10 +35,10 @@ Ce tutoriel explique comment vous connecter à votre ordinateur hôte et copier 
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
+>
 > * Prérequis
 > * Se connecter à Data Box
 > * Copier des données sur Data Box
-
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -47,15 +47,16 @@ Avant de commencer, assurez-vous que :
 1. Vous avez terminé le [Tutoriel : Configurer Azure Data Box](data-box-deploy-set-up.md).
 2. Vous avez reçu votre Data Box et que l’état de la commande dans le portail est **Remis**.
 3. Vous disposez d’un ordinateur hôte contenant les données que vous souhaitez copier sur Data Box Votre ordinateur hôte doit
-    - Exécuter un [système d’exploitation pris en charge](data-box-system-requirements.md)
-    - Connectez-vous à un réseau haut débit. Nous vous recommandons vivement d’utiliser au minimum une connexion 10 GbE. Si vous ne disposez pas d’une connexion 10 GbE, utilisez une liaison de données 1 GbE. Cependant, les vitesses de copie seront affectées.
+   * Exécuter un [système d’exploitation pris en charge](data-box-system-requirements.md)
+   * Connectez-vous à un réseau haut débit. Nous vous recommandons vivement d’utiliser au minimum une connexion 10 GbE. Si vous ne disposez pas d’une connexion 10 GbE, utilisez une liaison de données 1 GbE. Cependant, les vitesses de copie seront affectées.
 
 ## <a name="connect-to-data-box"></a>Se connecter à Data Box
 
 Selon le compte de stockage sélectionné, Data Box crée jusqu’à :
-- Trois partages pour chaque compte de stockage associé pour GPv1 et GPv2.
-- Un partage pour le stockage Premium.
-- Un partage pour le compte de stockage Blob.
+
+* Trois partages pour chaque compte de stockage associé pour GPv1 et GPv2.
+* Un partage pour le stockage Premium.
+* Un partage pour le compte de stockage Blob.
 
 Sous les partages d’objet blob de blocs et d’objet blob de pages, les entités de premier niveau sont des conteneurs et les entités de second niveau sont des objets blob. Sous les partages Azure Files, les entités de premier niveau sont des partages et les entités de second niveau sont des fichiers.
 
@@ -85,7 +86,7 @@ Si vous utilisez un ordinateur hôte Windows Server, effectuez les étapes suiva
     - Objet blob de blocs Azure - `\\10.126.76.172\devicemanagertest1_BlockBlob`
     - Objet blob de pages Azure - `\\10.126.76.172\devicemanagertest1_PageBlob`
     - Azure Files - `\\10.126.76.172\devicemanagertest1_AzFile`
-    
+
 4. Lorsque vous y êtes invité, entrez le mot de passe du partage. L’exemple suivant illustre la connexion à un partage à l’aide de la commande précédente.
 
     ```
@@ -100,7 +101,7 @@ Si vous utilisez un ordinateur hôte Windows Server, effectuez les étapes suiva
 
     À présent, vous devriez voir les partages sous forme de dossiers.
     
-    ![Se connecter au partage à l’aide de l’Explorateur de fichiers 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)    
+    ![Se connecter au partage à l’aide de l’Explorateur de fichiers 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
 
     **Toujours créer un dossier pour les fichiers que vous envisagez de copier sous le partage, puis copier les fichiers dans ce dossier**. Le dossier créé sous les partages d’objets blob de pages et d’objets blob de blocs représente un conteneur dans lequel les données sont chargées en tant qu’objets blob. Vous ne pouvez pas copier de fichiers directement dans le dossier *root* du compte de stockage.
     
@@ -113,7 +114,7 @@ Si vous utilisez un client Linux, utilisez la commande suivante pour monter le p
 Une fois que vous êtes connecté aux partages Data Box, l’étape suivante consiste à copier les données. Avant de commencer la copie des données, passez en revue les considérations suivantes :
 
 * Vérifiez que les données sont copiées vers des partages compatibles avec le format des données. Par exemple, les données d’objet blob de blocs doivent être copiées dans le partage des objets blob de blocs. Copiez les disques durs virtuels dans un objet blob de pages. Si le format des données ne correspond pas au type de partage, les données ne pourront pas être chargées dans Azure.
-*  Quand vous copiez des données, vérifiez que leur taille est conforme aux limites de taille spécifiées dans l’article [Limitations relatives au Stockage Azure et à Data Box](data-box-limits.md).
+* Quand vous copiez des données, vérifiez que leur taille est conforme aux limites de taille spécifiées dans l’article [Limitations relatives au Stockage Azure et à Data Box](data-box-limits.md).
 * Si les données, qui sont en cours de chargement par Data Box, sont chargées simultanément par d’autres applications en dehors de Data Box, cela peut entraîner l’échec du chargement ou des corruptions de données.
 * Nous vous recommandons :
   * N’utilisez pas SMB et NFS en même temps.
@@ -121,7 +122,9 @@ Une fois que vous êtes connecté aux partages Data Box, l’étape suivante con
 
   En effet, le résultat final ne pourrait pas être déterminé.
 * Créez toujours un dossier pour les fichiers que vous envisagez de copier sous le partage, puis copiez les fichiers dans ce dossier. Le dossier créé sous les partages d’objets blob de pages et d’objets blob de blocs représente un conteneur dans lequel les données sont chargées en tant qu’objets blob. Vous ne pouvez pas copier de fichiers directement dans le dossier *root* du compte de stockage.
-* Veillez à conserver une copie des données sources tant que vous n’avez pas la confirmation que le Data Box a transféré vos données dans Stockage Azure.
+
+> [!IMPORTANT]
+> Veillez à conserver une copie des données sources tant que vous n’avez pas la confirmation que le Data Box a transféré vos données dans Stockage Azure.
 
 Après vous être connecté au partage SMB, commencez la copie des données. Vous pouvez utiliser n’importe quel outil de copie de fichier SMB, comme Robocopy, pour copier vos données. Plusieurs travaux de copie peuvent être lancés simultanément à l’aide de Robocopy. Utilisez la commande suivante :
     
@@ -203,7 +206,6 @@ L’exemple suivant affiche la sortie de la commande robocopy pour copier les fi
         Files :        17        17         0         0         0         0
         Bytes :     3.9 k     3.9 k         0         0         0         0          
     C:\Users>
-       
 
 Pour optimiser les performances, utilisez les paramètres robocopy suivants lors de la copie des données.
 
@@ -211,13 +213,12 @@ Pour optimiser les performances, utilisez les paramètres robocopy suivants lors
 |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
 |    Data Box         |    2 sessions Robocopy <br> 16 threads par session    |    3 sessions Robocopy <br> 16 threads par session    |    2 sessions Robocopy <br> 24 threads par session    |
 
-
 Pour plus d’informations sur la commande Robocopy, consultez [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx) (Robocopy et quelques exemples).
 
 Ouvrez le dossier cible pour afficher et vérifier les fichiers copiés. Si vous rencontrez des erreurs au cours du processus de copie, téléchargez les fichiers d’erreurs pour résoudre les problèmes. Pour plus d’informations, consultez [Afficher les journaux d’erreurs pendant la copie de données vers Data Box](data-box-logs.md#view-error-log-during-data-copy). Pour obtenir une liste détaillée des erreurs lors de la copie des données, consultez [Résolution des problèmes liés à Data Box](data-box-troubleshoot.md).
 
 Pour garantir l’intégrité des données, la somme de contrôle est calculée par le biais d’une fonction inline lors de la copie des données. Une fois la copie terminée, vérifiez l’espace utilisé et l’espace libre sur votre appareil.
-    
+
    ![Vérifier l’espace libre et l’espace utilisé sur le tableau de bord](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 ::: zone-end
@@ -230,6 +231,8 @@ Dans tous les cas, assurez-vous que les noms des partages et des dossiers et que
 
 ## <a name="copy-data-via-smb"></a>Copier des données via SMB
 
+Pour copier des données en utilisant SMB :
+
 1. Si vous utilisez un hôte Windows, utilisez la commande suivante pour vous connecter aux partages SMB :
 
     `\\<IP address of your device>\ShareName`
@@ -240,6 +243,8 @@ Dans tous les cas, assurez-vous que les noms des partages et des dossiers et que
 Pour obtenir des instructions pas à pas, consultez le [Tutoriel : Copier des données sur Azure Data Box Disk par le biais de SMB](data-box-deploy-copy-data.md).
 
 ## <a name="copy-data-via-nfs"></a>Copier des données via NFS
+
+Pour copier des données en utilisant NFS :
 
 1. Si vous utilisez un hôte NFS, utilisez la commande suivante pour monter les partages NFS sur votre Data Box :
 
@@ -252,6 +257,8 @@ Pour obtenir des instructions pas à pas, consultez le [Tutoriel : Copier des d
 
 ## <a name="copy-data-via-rest"></a>Copier des données en utilisant REST
 
+Pour copier des données en utilisant REST :
+
 1. Pour copier des données à l’aide du stockage Blob Data Box en utilisant des API REST, vous pouvez vous connecter sur *http* ou *https*.
 2. Pour copier des données vers le stockage Blob Data Box, vous pouvez utiliser AzCopy.
 
@@ -259,12 +266,16 @@ Pour obtenir des instructions pas à pas, consultez le [Tutoriel : Copier des d
 
 ## <a name="copy-data-via-data-copy-service"></a>Copier des données en utilisant le service de copie de données
 
-1. Pour copier des données par l’intermédiaire du service de copie de données, vous devez créer un travail. Dans l’interface utilisateur web locale de votre Data Box, accédez à **Gérer > Copier des données > Créer**. 
+Pour copier des données en utilisant le service de copie de données :
+
+1. Pour copier des données par l’intermédiaire du service de copie de données, vous devez créer un travail. Dans l’interface utilisateur web locale de votre Data Box, accédez à **Gérer > Copier des données > Créer**.
 2. Renseignez les paramètres et créez un travail.
 
 Pour obtenir des instructions pas à pas, consultez le [Tutoriel : Utiliser le service de copie des données pour copier des données dans Azure Data Box](data-box-deploy-copy-data-via-copy-service.md).
 
 ## <a name="copy-data-to-managed-disks"></a>Copier des données sur des disques managés
+
+Pour copier des disques managés de données :
 
 1. Quand vous commandez l’appareil Data Box, vous devez avoir sélectionné des disques managés comme destination de stockage.
 2. Vous pouvez vous connecter à Data Box par le biais de partages SMB ou NFS.
@@ -274,7 +285,6 @@ Pour obtenir des instructions pas à pas, consultez le [Tutoriel : Utiliser Dat
 
 ::: zone-end
 
-
 ::: zone target="docs"
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -282,10 +292,10 @@ Pour obtenir des instructions pas à pas, consultez le [Tutoriel : Utiliser Dat
 Ce tutoriel vous a apporté des connaissances concernant Azure Data Box, notamment concernant les points suivants :
 
 > [!div class="checklist"]
+>
 > * Prérequis
 > * Se connecter à Data Box
 > * Copier des données sur Data Box
-
 
 Passez au tutoriel suivant pour découvrir comment renvoyer votre Data Box à Microsoft.
 
@@ -293,4 +303,3 @@ Passez au tutoriel suivant pour découvrir comment renvoyer votre Data Box à Mi
 > [Ship your Azure Data Box to Microsoft](./data-box-deploy-picked-up.md) (Expédier votre Azure Data Box à Microsoft)
 
 ::: zone-end
-
