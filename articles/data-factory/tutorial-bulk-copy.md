@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 0f73095f72d07989cdfa309454a2b54efa8e5f95
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a6a6aaedc1bb4abc5cf02ea1cd081ad48ec78d19
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418758"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118199"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copier plusieurs tables en bloc à l’aide d’Azure Data Factory
 
@@ -59,7 +59,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 **Préparer la base de données Azure SQL source** :
 
-Créez une base de données Azure SQL avec l’exemple de données Adventure Works LT. Pour cela, suivez les instructions de l’article [Créer une base de données Azure SQL](../sql-database/sql-database-get-started-portal.md). Ce didacticiel copie toutes les tables de cet exemple de base de données dans un entrepôt de données SQL.
+Créez une base de données Azure SQL avec l’exemple de données Adventure Works LT. Pour cela, suivez les instructions de l’article [Créer une base de données Azure SQL](../azure-sql/database/single-database-create-quickstart.md). Ce didacticiel copie toutes les tables de cet exemple de base de données dans un entrepôt de données SQL.
 
 **Préparer le récepteur Azure SQL Data Warehouse** :
 
@@ -69,7 +69,7 @@ Créez une base de données Azure SQL avec l’exemple de données Adventure Wor
 
 ## <a name="azure-services-to-access-sql-server"></a>Services Azure pour accéder au serveur SQL
 
-Pour SQL Database et SQL Data Warehouse, autorisez les services Azure à accéder au serveur SQL. Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est **activé** pour votre serveur SQL Azure. Ce paramètre permet au service Data Factory de lire les données de votre base de données Azure SQL et de les écrire dans votre entrepôt de données Azure SQL. Pour vérifier et activer ce paramètre, procédez comme suit :
+Pour SQL Database et SQL Data Warehouse, autorisez les services Azure à accéder au serveur SQL. Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est **activé** sur votre serveur. Ce paramètre permet au service Data Factory de lire les données de votre base de données Azure SQL et de les écrire dans votre entrepôt de données Azure SQL. Pour vérifier et activer ce paramètre, procédez comme suit :
 
 1. Cliquez sur **Tous les services** sur la gauche, puis sur **Serveurs SQL**.
 2. Sélectionnez votre serveur, puis cliquez sur **Pare-feu** sous **PARAMÈTRES**.

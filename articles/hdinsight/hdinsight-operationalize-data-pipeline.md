@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/25/2019
-ms.openlocfilehash: 16c7af4d66bd550eb4a286de7c86c436b1fe10e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: efbd8dfa34f5d954e302b421dfcea6c46d9469ca
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75922659"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022826"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Rendre un pipeline d’analytique de données opérationnel
 
@@ -51,11 +51,11 @@ Ce pipeline a besoin d’une base de données Azure SQL Database et d’un clust
 
 ### <a name="provision-azure-sql-database"></a>Provisionner Azure SQL Database
 
-1. Créez une instance d’Azure SQL Database. Consultez [Démarrage rapide : Créer et interroger une base de données unique dans Azure SQL Database à l’aide du Portail Microsoft Azure](../sql-database/sql-database-single-database-get-started.md).
+1. Créez une instance d’Azure SQL Database. Consultez [Démarrage rapide : Créer et interroger une base de données unique dans Azure SQL Database à l’aide du Portail Microsoft Azure](../azure-sql/database/single-database-create-quickstart.md).
 
-1. Pour vous assurer que votre cluster HDInsight pourra accéder à la base de données Azure SQL Database connectée, configurez les règles de pare-feu Azure SQL Database pour autoriser les services et ressources Azure à accéder au serveur. Vous pouvez activer cette option dans le Portail Azure en cliquant sur **Définir le pare-feu du serveur** et sur **ON** sous **Autoriser les services et les ressources Azure à accéder à ce serveur** pour la base de données ou le serveur Azure SQL Database. Pour plus d’informations, consultez [Créer et gérer des règles de pare-feu IP](../sql-database/sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
+1. Pour vous assurer que votre cluster HDInsight pourra accéder à la base de données Azure SQL Database connectée, configurez les règles de pare-feu Azure SQL Database pour autoriser les services et ressources Azure à accéder au serveur. Vous pouvez activer cette option dans le portail Azure en sélectionnant **Définir le pare-feu du serveur** et **ON** sous **Autoriser les services et les ressources Azure à accéder à ce serveur** pour Azure SQL Database. Pour plus d’informations, consultez [Créer et gérer des règles de pare-feu IP](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
-1. Utilisez l’[Éditeur de requête](../sql-database/sql-database-single-database-get-started.md#query-the-database) pour exécuter les instructions SQL suivantes afin de créer le tableau `dailyflights` qui stockera les données résumées à partir de chaque exécution du pipeline.
+1. Utilisez l’[Éditeur de requête](../azure-sql/database/single-database-create-quickstart.md#query-the-database) pour exécuter les instructions SQL suivantes afin de créer le tableau `dailyflights` qui stockera les données résumées à partir de chaque exécution du pipeline.
 
     ```sql
     CREATE TABLE dailyflights
@@ -499,7 +499,7 @@ Pour planifier une exécution quotidienne de ce workflow (ou tous les jours d’
 
 Comme vous pouvez le voir, la majeure partie du coordinateur consiste en une simple transmission d’informations de configuration à l’instance de workflow. Toutefois, il existe quelques éléments importants à appeler.
 
-* Point 1 : les attributs `start` et `end` de l’élément `coordinator-app` lui-même contrôlent l’intervalle de temps pendant lequel s’exécute le coordinateur.
+* Point 1 : les attributs `start` et `end` de l’élément `coordinator-app` lui-même contrôlent l’intervalle de temps pendant lequel s’exécute le coordinateur.
 
     ```
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
@@ -507,7 +507,7 @@ Comme vous pouvez le voir, la majeure partie du coordinateur consiste en une sim
 
     Un coordinateur est responsable de la planification d’actions pendant la plage de dates comprise entre `start` et `end`, en fonction de l’intervalle spécifié par l’attribut `frequency`. Chaque action planifiée exécute à son tour le workflow tel qu’il est configuré. Dans la définition de coordinateur ci-dessus, le coordinateur est configuré pour exécuter des actions comprises entre le 1er janvier 2017 et le 5 janvier 2017. La fréquence est définie sur un jour par l’expression de fréquence `${coord:days(1)}` en [Langage d’expression Oozie](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation). En conséquence, le coordinateur planifie une action (et, par conséquent, le workflow) une fois par jour. Pour les plages de dates passées, comme dans cet exemple, l’action s’exécutera sans délai. Le début de la date à partir de laquelle une action doit s’exécuter s’appelle *l’heure nominale*. Par exemple, pour traiter les données du 1er janvier 2017, le coordinateur planifie une action avec une heure nominale de 2017-01-01T00:00:00 GMT.
 
-* Point 2 : dans la plage de dates du workflow, l’élément `dataset` indique l’endroit, dans HDFS, où rechercher les données d’une plage de dates donnée et configure la manière dont Oozie détermine si les données sont prêtes ou non pour le traitement.
+* Point 2 : dans la plage de dates du workflow, l’élément `dataset` indique l’endroit, dans HDFS, où rechercher les données d’une plage de dates donnée et configure la manière dont Oozie détermine si les données sont prêtes ou non pour le traitement.
 
     ```xml
     <dataset name="ds_input1" frequency="${coord:days(1)}" initial-instance="2016-12-31T00:00Z" timezone="UTC">
@@ -520,7 +520,7 @@ Comme vous pouvez le voir, la majeure partie du coordinateur consiste en une sim
 
     L’élément `done-flag` vide indique qu’Oozie détermine si les données d’entrée sont disponibles à l’heure prévue par la présence d’un répertoire ou d’un fichier. Dans ce cas, il s’agit d’un fichier CSV. S’il en existe un, Oozie suppose que les données sont prêtes et lance une instance de workflow pour le traiter. Si aucun fichier CSV n’est présent, Oozie suppose que les données ne sont pas encore prêtes et que l’exécution du flux de travail passe à l’état en attente.
 
-* Point 3 : l’élément `data-in` spécifie le timestamp à utiliser en particulier comme heure nominale lors du remplacement de valeurs dans `uri-template` pour le jeu de données associé.
+* Point 3 : l’élément `data-in` spécifie le timestamp à utiliser en particulier comme heure nominale lors du remplacement de valeurs dans `uri-template` pour le jeu de données associé.
 
     ```xml
     <data-in name="event_input1" dataset="ds_input1">
@@ -532,11 +532,11 @@ Comme vous pouvez le voir, la majeure partie du coordinateur consiste en une sim
 
 Les trois points précédents se combinent pour créer une situation dans laquelle le coordinateur planifie le traitement des données sources jour après jour.
 
-* Point 1 : le coordinateur commence avec la date nominale 2017-01-01.
+* Point 1 : le coordinateur commence avec la date nominale 2017-01-01.
 
-* Point 2 : Oozie recherche les données disponibles dans `sourceDataFolder/2017-01-FlightData.csv`.
+* Point 2 : Oozie recherche les données disponibles dans `sourceDataFolder/2017-01-FlightData.csv`.
 
-* Point 3 : lorsque Oozie trouve ce fichier, il planifie une instance du workflow qui traitera les données pour 2017-01-01. Oozie continue alors le traitement pour 2017-01-02. Cette évaluation se répète jusqu’à 2017-01-05 non inclus.
+* Point 3 : lorsque Oozie trouve ce fichier, il planifie une instance du workflow qui traitera les données pour 2017-01-01. Oozie continue alors le traitement pour 2017-01-02. Cette évaluation se répète jusqu’à 2017-01-05 non inclus.
 
 Comme pour les workflows, la configuration d’un coordinateur est définie dans un fichier `job.properties`, qui contient un sur-ensemble des paramètres utilisés par le workflow.
 

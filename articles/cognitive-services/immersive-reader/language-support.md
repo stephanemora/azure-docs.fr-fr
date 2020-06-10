@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: metan
-ms.openlocfilehash: c4dae18a5040d475c246d244ea7702ccfdf85cd9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: cdf21ed85933c2a629c5752659e9cc50107a3762
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538365"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309303"
 ---
 # <a name="language-support-for-immersive-reader"></a>Prise en charge linguistique pour le Lecteur immersif
 
@@ -34,15 +34,15 @@ Cet article liste les langues prises en charge pour les fonctionnalités du Lect
 | Chinois | zh |
 | Chinois (Chine) | zh-CN |
 | Chinois (Hong Kong R.A.S.) | zh-HK |
-| Chinois (Macao) | zh-MO |
+| Chinese (Macao (R.A.S.)) | zh-MO |
 | Chinese (Singapore) | zh-SG |
 | Chinois (Taïwan) | zh-TW |
 | Chinois (simplifié) | zh-Hans |
 | Chinois simplifié (Chine) | zh-Hans-CN |
 | Chinois simplifié (Singapour) | zh-Hans-SG |
 | Chinois traditionnel | zh-Hant-CN |
-| Chinois traditionnel (Hong Kong) | zh-Hant-HK |
-| Chinois traditionnel (Macao) | zh-Hant-MO |
+| Chinois traditionnel (Hong Kong R.A.S.) | zh-Hant-HK |
+| Chinois traditionnel (Macao R.A.S.) | zh-Hant-MO |
 | Chinois traditionnel (Taïwan) | zh-Hant-TW |
 | Croate | hr |
 | Croate (Croatie) | hr-HR |
@@ -136,15 +136,15 @@ Cet article liste les langues prises en charge pour les fonctionnalités du Lect
 | Chinois | zh |
 | Chinois (Chine) | zh-CN |
 | Chinois (Hong Kong R.A.S.) | zh-HK |
-| Chinois (Macao) | zh-MO |
+| Chinese (Macao (R.A.S.)) | zh-MO |
 | Chinese (Singapore) | zh-SG |
 | Chinois (Taïwan) | zh-TW |
 | Chinois (simplifié) | zh-Hans |
 | Chinois simplifié (Chine) | zh-Hans-CN |
 | Chinois simplifié (Singapour) | zh-Hans-SG |
 | Chinois traditionnel | zh-Hant-CN |
-| Chinois traditionnel (Hong Kong) | zh-Hant-HK |
-| Chinois traditionnel (Macao) | zh-Hant-MO |
+| Chinois traditionnel (Hong Kong R.A.S.) | zh-Hant-HK |
+| Chinois traditionnel (Macao R.A.S.) | zh-Hant-MO |
 | Chinois traditionnel (Taïwan) | zh-Hant-TW |
 | Croate | hr |
 | Croate (Croatie) | hr-HR |
@@ -267,8 +267,8 @@ Cet article liste les langues prises en charge pour les fonctionnalités du Lect
 | Chinois simplifié (Chine) | zh-Hans-CN |
 | Chinois simplifié (Singapour) | zh-Hans-SG |
 | Chinois traditionnel | zh-Hant-CN |
-| Chinois traditionnel (Hong Kong) | zh-Hant-HK |
-| Chinois traditionnel (Macao) | zh-Hant-MO |
+| Chinois traditionnel (Hong Kong R.A.S.) | zh-Hant-HK |
+| Chinois traditionnel (Macao R.A.S.) | zh-Hant-MO |
 | Chinois traditionnel (Taïwan) | zh-Hant-TW |
 | Croate | hr |
 | Croate (Croatie) | hr-HR |

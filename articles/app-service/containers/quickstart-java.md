@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 8f2e99ffc9f9ee5c5553e8d933d82f83999c8ab2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1ed7126f2698294ac6706aafcb85e3229a7491bb
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81732901"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300062"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Démarrage rapide : Créer une application Java dans Azure App Service sur Linux
 
@@ -34,7 +34,7 @@ ms.locfileid: "81732901"
 Exécutez la commande Maven suivante dans l’invite Cloud Shell pour créer une application nommée `helloworld` :
 
 ```bash
-mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp"
+mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" -Dversion=1.0-SNAPSHOT
 ```
 Ensuite, changez votre répertoire de travail vers le dossier du projet :
 
@@ -44,13 +44,9 @@ cd helloworld
 
 ## <a name="configure-the-maven-plugin"></a>Configurer le plug-in Maven
 
-Le processus de déploiement sur Azure App Service utilise les informations d’identification du compte provenant d’Azure CLI. [Connectez-vous à Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) avant de continuer.
+Le processus de déploiement sur Azure App Service peut récupérer vos informations d’identification Azure dans Azure CLI automatiquement. Si Azure CLI n’est pas installé, le plug-in Maven vous connecte avec OAuth ou la connexion de l’appareil. Consultez les détails sur l’[authentification avec les plug-ins Maven](https://github.com/microsoft/azure-maven-plugins/wiki/Authenticatio), si nécessaire.
 
-```azurecli
-az login
-```
-
-Vous pouvez alors configurer le déploiement, exécuter la commande maven dans l’invite de commandes et utiliser les configurations par défaut en appuyant sur **Entrée** jusqu’à ce que l’invite **Confirm (Y/N)** s’affiche et que vous appuyiez sur **« y »** pour terminer la configuration. 
+Pour configurer le déploiement, exécutez la commande maven dans l’invite de commandes et utilisez les configurations par défaut en appuyant sur **Entrée** jusqu’à ce que l’invite **Confirm (Y/N)** s’affiche et appuyez sur **« y »** pour terminer la configuration. 
 ```cmd
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
@@ -93,7 +89,13 @@ Confirm (Y/N)? : Y
 > [!NOTE]
 > Dans cet article, nous travaillons uniquement avec des applications Java empaquetées dans des fichiers WAR. Le plug-in prend également en charge les applications web JAR. Accédez à la section [Déployer un fichier JAR SE Java sur App Service dans Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) pour l’essayer.
 
-Accédez à nouveau à `pom.xml` pour voir la configuration de plug-in mise à jour. Vous pouvez modifier d’autres configurations pour App Service directement dans votre fichier pom si nécessaire ; certaines des plus courantes sont répertoriées ci-dessous :
+Ouvrez sur `pom.xml` pour voir la configuration mise à jour.
+
+```bash
+code pom.xml
+```
+
+Vous pouvez modifier les configurations d’App Service directement dans votre fichier pom si nécessaire. Voici les plus courantes :
 
  Propriété | Obligatoire | Description | Version
 ---|---|---|---
@@ -147,7 +149,7 @@ L’exécution de cette commande peut prendre une minute.
 > [Se connecter à Azure DB pour PostgreSQL à l’aide de Java](/azure/postgresql/connect-java)
 
 > [!div class="nextstepaction"]
-> [Configurer une application Java](configure-custom-container.md)
+> [Configurer une application Java](configure-language-java.md)
 
 > [!div class="nextstepaction"]
 > [Intégration continue/déploiement continu avec Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 05/04/2020
 ms.topic: tutorial
-ms.openlocfilehash: 9db32912e86079875ad382fb23e521c720fc7fbd
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: b6dceff8b777d09a6f791437eb4aaca70365b518
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83775617"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300715"
 ---
 # <a name="tutorial-integrate-remote-rendering-into-a-hololens-holographic-app"></a>Tutoriel : Intégrer Remote Rendering dans une application holographique HoloLens
 
@@ -33,6 +33,9 @@ Pour ce tutoriel, vous avez besoin des éléments suivants :
 * Les informations de votre compte (ID du compte, clé du compte, ID de l’abonnement). Si vous n’avez pas de compte, [créez-en un](../../../how-tos/create-an-account.md).
 * Le SDK Windows 10.0.18362.0 [(télécharger)](https://developer.microsoft.com/windows/downloads/windows-10-sdk).
 * La dernière version de Visual Studio 2019 [(télécharger)](https://visualstudio.microsoft.com/vs/older-downloads/).
+* [Outils Visual Studio pour Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). Plus précisément, les installations de *charge de travail* suivantes sont obligatoires :
+  * **Développement Desktop en C++**
+  * **Développement de la plateforme Windows universelle (UWP)**
 * Les modèles d’application Windows Mixed Reality pour Visual Studio [(téléchargement)](https://marketplace.visualstudio.com/items?itemName=WindowsMixedRealityteam.WindowsMixedRealityAppTemplatesVSIX).
 
 ## <a name="create-a-new-holographic-app-sample"></a>Créer un exemple d’application holographique

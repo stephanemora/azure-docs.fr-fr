@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: nitinme
-ms.openlocfilehash: d71d9c7e6570e562fe4c692ede1d07b70c923cb6
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ff160c57b86e2269165f5fe1d2808684d2e6e86e
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77118269"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118534"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Tutoriel : Utiliser Form Recognizer avec Azure Logic Apps pour analyser les factures
 
@@ -377,11 +377,10 @@ Pour tester l’application logique, utilisez les exemples de factures situés d
       }
     ]
     ```
-    Vous avez terminé ce tutoriel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez configuré un workflow Azure Logic Apps pour qu’il utilise Form Recognizer afin d’entraîner un modèle et d’extraire le contenu d’une facture. Maintenant, vous allez voir comment créer un jeu de données d’entraînement afin de créer un scénario similaire avec vos propres formulaires.
+Dans ce tutoriel, vous avez configuré un workflow Azure Logic Apps de façon à entraîner un modèle et extraire le contenu d’une facture à l’aide de Form Recognizer. Maintenant, vous allez voir comment créer un jeu de données d’entraînement afin de créer un scénario similaire avec vos propres formulaires.
 
 > [!div class="nextstepaction"]
 > [Créer un jeu de données d’apprentissage](build-training-data-set.md)

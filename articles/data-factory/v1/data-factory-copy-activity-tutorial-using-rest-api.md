@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c6e6d4a38c5ed2afc118b267f253ffc7533f9d82
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6344f2c69e7b6407152e752c61c1928ab651a88c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75438871"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119230"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutoriel : utiliser l’API REST pour créer un pipeline Azure Data Factory afin de copier des données 
 > [!div class="op_single_selector"]
@@ -121,7 +121,7 @@ Pour plus d’informations sur les propriétés JSON, consultez [Service lié Az
 
 ### <a name="azuresqllinkedservicejson"></a>azuresqllinkedservice.json
 > [!IMPORTANT]
-> Remplacez **servername**, **databasename**, **username** et **password** par le nom de votre serveur SQL Azure, le nom de la base de données SQL, le compte d’utilisateur et le mot de passe de ce compte.  
+> Remplacez **servername**, **databasename**, **username** et **password** par le nom de votre serveur, le nom de la base de données SQL, le compte d’utilisateur et le mot de passe de ce compte.  
 > 
 >
 
@@ -403,7 +403,7 @@ Dans cette étape, vous liez votre compte de stockage Azure à votre fabrique de
     ```
 
 ### <a name="create-azure-sql-linked-service"></a>Créer un service lié Azure SQL
-Dans cette étape, vous liez votre base de données Azure SQL à votre fabrique de données. Vous spécifiez le nom du serveur SQL Azure, le nom de la base de données, le nom d’utilisateur et le mot de passe de l’utilisateur dans cette section. Consultez [Service lié SQL Azure](data-factory-azure-sql-connector.md#linked-service-properties) pour en savoir plus sur les propriétés JSON utilisées pour définir un service lié SQL Azure.
+Dans cette étape, vous liez votre base de données Azure SQL à votre fabrique de données. Vous spécifiez le nom du serveur SQL logique, le nom de la base de données, le nom d’utilisateur et le mot de passe de l’utilisateur dans cette section. Consultez [Service lié SQL Azure](data-factory-azure-sql-connector.md#linked-service-properties) pour en savoir plus sur les propriétés JSON utilisées pour définir un service lié SQL Azure.
 
 1. Attribuez la commande à une variable nommée **cmd**. 
    

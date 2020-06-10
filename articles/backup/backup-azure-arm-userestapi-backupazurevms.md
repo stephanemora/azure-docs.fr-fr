@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment configurer, lancer et gérer l
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 4789ef1e0e09df521f8cab539d972e9e669e0a58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d037339d9ff9a891fcc595a3eff75097204a77ab
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226141"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248683"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Sauvegarder une machine virtuelle Azure à l’aide de la sauvegarde Azure via une API REST
 
@@ -29,7 +29,7 @@ Tout d’abord, le coffre doit être en mesure d’identifier la machine virtuel
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
 ```
 
-L’URI POST contient les paramètres `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{fabricName}`. `{fabricName}` est « Azure ». Selon notre exemple, `{vaultName}` est « testVault » et `{vaultresourceGroupName}` est « testVaultRG ». Comme tous les paramètres nécessaires sont fournis dans l’URI, un corps de demande séparé est inutile.
+L’URI POST contient les paramètres `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{fabricName}`. `{fabricName}` est « Azure ». Selon notre exemple, `{vaultName}` correspond à « testVault » et `{vaultresourceGroupName}` à « testVaultRG ». Comme tous les paramètres nécessaires sont fournis dans l’URI, un corps de demande séparé est inutile.
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
@@ -276,7 +276,7 @@ Cela confirme que la protection est activée pour la machine virtuelle et que la
 
 ## <a name="trigger-an-on-demand-backup-for-a-protected-azure-vm"></a>Déclencher une sauvegarde à la demande pour une machine virtuelle Azure protégée
 
-Une fois qu’une machine virtuelle Azure est configurée pour la sauvegarde, les sauvegardes sont effectuées conformément à la planification de la stratégie. Vous pouvez attendre la première sauvegarde planifiée ou déclencher une sauvegarde à la demande à tout moment. La conservation des sauvegardes de la demande se distingue de la conservation de la stratégie de sauvegarde et peut être spécifiée à une date/heure précise. Si elle n’est pas indiquée, elle est supposée être de 30 jours à partir du jour du déclenchement de la sauvegarde à la demande.
+Après configuration d'une machine virtuelle Azure pour la sauvegarde, les sauvegardes sont effectuées conformément à la planification de la stratégie. Vous pouvez attendre la première sauvegarde planifiée ou déclencher une sauvegarde à la demande à tout moment. La conservation des sauvegardes de la demande se distingue de la conservation de la stratégie de sauvegarde et peut être spécifiée à une date/heure précise. Si elle n’est pas indiquée, elle est supposée être de 30 jours à partir du jour du déclenchement de la sauvegarde à la demande.
 
 Le déclenchement d’une sauvegarde à la demande est une opération *POST*.
 

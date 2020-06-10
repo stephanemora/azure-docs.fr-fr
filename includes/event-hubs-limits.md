@@ -1,30 +1,31 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: event-hubs
-author: sethmanheim
+author: spelluru
 ms.service: event-hubs
 ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 2aca4f2c236112b80e9fc985cf80ccad6d82bde3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 333f2317fcc834a10b7336bbda9a43ba16a7ad38
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75901925"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84317792"
 ---
 Le tableau suivant répertorie les quotas et les limites propres à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Pour plus d’informations sur la tarification des hubs d’événements, consultez la rubrique [Tarification des hubs d’événements](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-Les limites suivantes sont communes aux niveaux de base, standard et dédié. 
+Les limites suivantes sont communes aux niveaux de base et standard. 
 
 | Limite | Étendue | Notes | Valeur |
 | --- | --- | --- | --- |
-| Nombre d’espaces de noms Event Hubs par abonnement |Subscription |- |100 |
+| Nombre d’espaces de noms Event Hubs par abonnement |Abonnement |- |100 |
 | Nombre d’Event Hubs par espace de noms |Espace de noms |Les demandes suivantes de création d’un Event Hub sont rejetées. |10 |
 | Nombre de partitions par Event Hub |Entité |- |32 |
-| Taille maximale du nom d’un Event Hub |Entité |- |50 caractères |
+| Taille maximale du nom d’un Event Hub |Entité |- | 256 caractères |
+| Taille maximale d’un nom de groupe de consommateurs |Entité |- | 256 caractères |
 | Nombre de récepteurs non epoch par groupe de consommateurs |Entité |- |5 |
 | Unités de débit maximales |Espace de noms |Le dépassement de la limite d’unités de débit entraîne la limitation de vos données et la génération d’une exception de [serveur occupé](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Vous pouvez demander une plus grande quantité d’unités de débit pour le niveau Standard en remplissant une [demande de support](/azure/azure-portal/supportability/how-to-create-azure-support-request). Les [unités de débit supplémentaires](../articles/event-hubs/event-hubs-auto-inflate.md) sont disponibles par blocs de 20 sur la base d’un engagement d’achat ferme. |20 |
 | Nombre de règles d’autorisation par espace de noms |Espace de noms|Les demandes suivantes pour la création de règle d’autorisation sont rejetées.|12 |
@@ -32,7 +33,7 @@ Les limites suivantes sont communes aux niveaux de base, standard et dédié.
 | Nombre de règles de réseau virtuel (VNet) et de configuration IP | Entité | - | 128 | 
 
 ### <a name="event-hubs-basic-and-standard---quotas-and-limits"></a>Event Hubs De base et Standard - Quotas et limites
-| Limite | Étendue | Notes | De base | standard |
+| Limite | Étendue | Notes | De base | Standard |
 | --- | --- | --- | -- | --- |
 | Taille maximale de l’événement Event Hubs|Entité | &nbsp; | 256 KB | 1 Mo |
 | Nombre de groupes de consommateurs par Event Hub |Entité | &nbsp; |1 |20 |

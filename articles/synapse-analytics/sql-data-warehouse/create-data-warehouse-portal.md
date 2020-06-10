@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: Kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: e393b653ecb9e9d7b8eff277b91215ccc5bf6342
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 282222aad68df94ea9eff4151d31eb5e488bca81
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770820"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117012"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Démarrage rapide : Créer et interroger un pool SQL Synapse avec le portail Azure
 
@@ -37,7 +37,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-sql-pool"></a>Créer un pool SQL
 
-Les entrepôts de données sont créés à l’aide d’un pool SQL dans Azure Synapse Analytics. Un pool SQL est créé avec un ensemble défini de [ressources de calcul](memory-concurrency-limits.md). La base de données est créée dans un [groupe de ressources Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) et dans un [serveur logique Azure SQL](../../sql-database/sql-database-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Les entrepôts de données sont créés à l’aide d’un pool SQL dans Azure Synapse Analytics. Un pool SQL est créé avec un ensemble défini de [ressources de calcul](memory-concurrency-limits.md). La base de données est créée dans un [groupe de ressources Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) et dans un [serveur SQL logique](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 Suivez ces étapes pour créer un pool SQL qui contient l’exemple de données **AdventureWorksDW**.
 
@@ -64,7 +64,7 @@ Suivez ces étapes pour créer un pool SQL qui contient l’exemple de données 
 
    ![changer le niveau de performance d’un entrepôt de données](./media/create-data-warehouse-portal/create-sql-pool-performance-level.png)  
 
-   Pour plus d’informations sur les niveaux de performance, consultez [Gérer le calcul dans Azure SQL Data Warehouse](sql-data-warehouse-manage-compute-overview.md).
+   Pour plus d’informations sur les niveaux de performance, consultez [Gérer le calcul dans Azure Synapse Analytics](sql-data-warehouse-manage-compute-overview.md).
 
 5. Sélectionnez **Paramètres supplémentaires**, sous **Utiliser des données existantes**, choisissez **Exemple** de sorte qu’AdventureWorksDW soit créé comme exemple de base de données.
 
@@ -76,16 +76,16 @@ Suivez ces étapes pour créer un pool SQL qui contient l’exemple de données 
 
    ![sélectionner créer](./media/create-data-warehouse-portal/create-sql-pool-create.png)
 
-6. Dans la barre d’outils, sélectionnez **Notifications** pour superviser le processus de déploiement.
+7. Dans la barre d’outils, sélectionnez **Notifications** pour superviser le processus de déploiement.
 
    ![notification](./media/create-data-warehouse-portal/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Créer une règle de pare-feu au niveau du serveur
 
-Le service Azure Synapse crée un pare-feu au niveau du serveur. Ce pare-feu empêche les outils et les applications externes de se connecter au serveur ou aux bases de données sur le serveur. Pour activer la connectivité, vous pouvez ajouter des règles de pare-feu qui activent la connectivité pour des adresses IP spécifiques. Suivez ces étapes pour créer une [règle de pare-feu au niveau du serveur](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) pour l’adresse IP de votre client.
+Le service Azure Synapse crée un pare-feu au niveau du serveur. Ce pare-feu empêche les outils et les applications externes de se connecter au serveur ou aux bases de données sur le serveur. Pour activer la connectivité, vous pouvez ajouter des règles de pare-feu qui activent la connectivité pour des adresses IP spécifiques. Suivez ces étapes pour créer une [règle de pare-feu au niveau du serveur](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) pour l’adresse IP de votre client.
 
 > [!NOTE]
-> Azure Synapse communique par le biais du port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 1433.
+> Azure Synapse communique par le biais du port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur, sauf si votre service informatique ouvre le port 1433.
 
 1. Lorsque le déploiement est terminé, sélectionnez **Tous les services** dans le menu de gauche. Sélectionnez **Bases de données**, puis sélectionnez l’étoile en regard d’**Azure Synapse Analytics** pour ajouter Azure Synapse Analytics à vos favoris.
 
@@ -99,24 +99,24 @@ Le service Azure Synapse crée un pare-feu au niveau du serveur. Ce pare-feu emp
 
    ![paramètres du serveur](./media/create-data-warehouse-portal/server-settings.png)
 
-5. La page **Paramètres de pare-feu** du serveur SQL Database s’ouvre.
+5. La page **Paramètres de pare-feu** du serveur s’ouvre.
 
    ![règle de pare-feu de serveur](./media/create-data-warehouse-portal/server-firewall-rule.png)
 
 6. Pour ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu, sélectionnez **Ajouter une adresse IP cliente** dans la barre d’outils. Une règle de pare-feu peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
 
-7. Sélectionnez **Enregistrer**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur logique.
+7. Sélectionnez **Enregistrer**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle, ce qui ouvre le port 1433 sur le serveur.
 
 8. Sélectionnez **OK**, puis fermez la page **Paramètres de pare-feu**.
 
-Vous pouvez maintenant vous connecter au serveur SQL et à ses pools SQL à l’aide de cette adresse IP. La connexion fonctionne à partir de SQL Server Management Studio ou d’un autre outil de votre choix. Quand vous vous connectez, utilisez le compte ServerAdmin que vous avez créé précédemment.
+Vous pouvez maintenant vous connecter au serveur et à ses pools SQL à l’aide de cette adresse IP. La connexion fonctionne à partir de SQL Server Management Studio ou d’un autre outil de votre choix. Quand vous vous connectez, utilisez le compte ServerAdmin que vous avez créé précédemment.
 
 > [!IMPORTANT]
 > Par défaut, l’accès via le pare-feu SQL Database est activé pour tous les services Azure. Sélectionnez **OFF** (Désactivé) dans cette page, puis **Enregistrer** pour désactiver le pare-feu pour tous les services Azure.
 
 ## <a name="get-the-fully-qualified-server-name"></a>Obtenir le nom complet du serveur
 
-Obtenez le nom complet de votre serveur SQL dans le portail Azure. Vous utiliserez le nom complet du serveur par la suite pour vous connecter au serveur.
+Obtenez le nom complet de votre serveur dans le portail Azure. Vous utiliserez le nom complet du serveur par la suite pour vous connecter au serveur.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
@@ -128,7 +128,7 @@ Obtenez le nom complet de votre serveur SQL dans le portail Azure. Vous utiliser
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Se connecter au serveur comme administrateur du serveur
 
-Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) pour établir une connexion à votre serveur Azure SQL.
+Cette section utilise SSMS ([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)) pour établir une connexion avec votre serveur.
 
 1. Ouvrez SQL Server Management Studio.
 
@@ -196,7 +196,7 @@ Suivez ces étapes pour nettoyer les ressources dont vous n’avez plus besoin.
 
 3. Pour supprimer le pool SQL afin de ne pas être facturé pour le calcul ou le stockage, sélectionnez **Supprimer**.
 
-4. Pour supprimer le serveur SQL que vous avez créé, sélectionnez **sqlpoolservername.database.windows.net** dans l’image précédente, puis **Supprimer**. N’oubliez pas que la suppression du serveur supprime également toutes les bases de données qui lui sont attribuées.
+4. Pour supprimer le serveur que vous avez créé, sélectionnez **sqlpoolservername.database.windows.net** dans l’image précédente, puis **Supprimer**. N’oubliez pas que la suppression du serveur supprime également toutes les bases de données qui lui sont attribuées.
 
 5. Pour supprimer le groupe de ressources, sélectionnez **myResourceGroup**, puis **Supprimer le groupe de ressources**.
 

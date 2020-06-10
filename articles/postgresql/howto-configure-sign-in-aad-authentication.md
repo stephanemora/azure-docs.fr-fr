@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 91435c2c5ca825793988e002c1ab9f6caacf2b17
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 81d02b32bc1eb6edf22845a4d02ba2ba02536855
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652553"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84236316"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Utiliser Azure Active Directory pour l’authentification avec PostgreSQL
 
@@ -54,21 +54,19 @@ Pour le moment, nous avons testé les clients suivants :
 
 Voici les étapes nécessaires à l’authentification d’un utilisateur ou d’une application avec Azure AD :
 
+### <a name="prerequisites"></a>Prérequis
+
+Vous pouvez poursuivre dans Azure Cloud Shell, une machine virtuelle Azure ou sur votre ordinateur local. Assurez-vous que [l’interface Azure CLI est installée](/cli/azure/install-azure-cli).
+
 ### <a name="step-1-authenticate-with-azure-ad"></a>Étape 1 : S’authentifier avec Azure AD
 
-Assurez-vous que [l’interface Azure CLI est installée](/cli/azure/install-azure-cli).
+Commencez par vous authentifier avec Azure AD à l’aide de l’outil Azure CLI. Cette étape n’est pas obligatoire dans Azure Cloud Shell.
 
-Appelez l’outil Azure CLI pour l’authentification avec Azure AD. Pour ce faire, vous devez fournir votre ID d’utilisateur Azure AD et le mot de passe.
-
-```azurecli-interactive
+```
 az login
 ```
 
-Cette commande lance une fenêtre de navigateur sur la page d’authentification Azure AD.
-
-> [!NOTE]
-> Vous pouvez également utiliser Azure Cloud Shell pour exécuter ces étapes.
-> N’oubliez pas que lors de la récupération du jeton d’accès Azure AD dans Azure Cloud Shell vous devez appeler explicitement `az login` et vous reconnecter (dans la fenêtre distincte avec un code). Après cette connexion, la commande `get-access-token` fonctionne comme prévu.
+La commande lance une fenêtre de navigateur sur la page d’authentification Azure AD. Pour ce faire, vous devez fournir votre ID d’utilisateur Azure AD et le mot de passe.
 
 ### <a name="step-2-retrieve-azure-ad-access-token"></a>Étape 2 : Récupérer un jeton d’accès Azure AD
 

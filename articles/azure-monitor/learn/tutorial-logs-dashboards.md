@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 06/19/2019
+ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: 76ba79561df4a75004369d24c4c6af82de9b1cfc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7bc2da2043c6607cfff62ff524be88efb79c6f18
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77661530"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148257"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Créer et partager des tableaux de bord de données Log Analytics
 
@@ -35,6 +35,14 @@ Sélectionnez **Tableau de bord** pour ouvrir votre [tableau de bord](../../azur
 ![Tableau de bord du portail Azure](media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png)
 
 Celui-ci vous permet de rassembler les données opérationnelles les plus importantes pour le service informatique dans toutes vos ressources Azure, notamment les données de télémétrie d’Azure Log Analytics.  Avant d’aborder la visualisation d’une requête de journal, commençons par créer et partager un tableau de bord.  Vous pouvez ensuite vous concentrer sur notre exemple de requête dans le journal de performances, qui sera restituée sous forme de graphique en courbes, et l’ajouter ensuite au tableau de bord.  
+
+> [!NOTE]
+> Les types de graphiques suivants sont pris en charge dans les tableaux de bord Azure à l’aide des requêtes de journal :
+> - Graphique en aires
+> - Histogramme
+> - Graphique à secteurs (s’affiche dans le tableau de bord sous forme de bouée)
+> - Nuage de points
+> - Graphique temporel
 
 Pour créer un tableau de bord, sélectionnez le bouton **Nouveau tableau de bord** en regard du nom du tableau de bord actuel.
 

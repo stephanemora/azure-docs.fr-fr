@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 9f25c845302d62e3bc9e230b4a6f8f2669f4ac35
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: a9a5fe2eed0c0e6cf990183d321a71a7fabfbbee
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76774281"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118635"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutoriel : Modérer les publications et commandes Facebook avec Azure Content Moderator
 
@@ -70,14 +70,14 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/) et suivez les étap
     
     | Nom du paramètre d’application | value   | 
     | -------------------- |-------------|
-    | cm:TeamId   | Votre ID d’équipe Content Moderator  | 
-    | cm:SubscriptionKey | Votre clé d’abonnement Content Moderator - voir [Informations d’identification](review-tool-user-guide/credentials.md) |
-    | cm:Region | Nom de votre région Content Moderator, sans espaces. Celui-ci se trouve dans le champ **Emplacement** de l’onglet **Vue d’ensemble** de votre ressource Azure.|
-    | cm:ImageWorkflow | Nom du flux de travail à exécuter sur les images |
-    | cm:TextWorkflow | Nom du flux de travail à exécuter sur le texte |
-    | cm:CallbackEndpoint | URL de l’application de fonction CMListener qui sera créée plus loin dans ce guide |
-    | fb:VerificationToken | Jeton secret permettant de s’abonner aux événements de flux Facebook |
-    | fb:PageAccessToken | Le jeton d’accès à l’API Graph Facebook n’expire pas et permet à la fonction de masquer/supprimer des posts pour votre compte. Vous obtiendrez ce jeton à une prochaine étape. |
+    | `cm:TeamId`   | Votre ID d’équipe Content Moderator  | 
+    | `cm:SubscriptionKey` | Votre clé d’abonnement Content Moderator - voir [Informations d’identification](review-tool-user-guide/credentials.md) |
+    | `cm:Region` | Nom de votre région Content Moderator, sans espaces. Vous trouverez ce nom dans le champ **Emplacement** sous l’onglet **Vue d’ensemble** de votre ressource Azure.|
+    | `cm:ImageWorkflow` | Nom du flux de travail à exécuter sur les images |
+    | `cm:TextWorkflow` | Nom du flux de travail à exécuter sur le texte |
+    | `cm:CallbackEndpoint` | URL de l’application de fonction CMListener qui sera créée plus loin dans ce guide |
+    | `fb:VerificationToken` | Jeton secret permettant de s’abonner aux événements de flux Facebook |
+    | `fb:PageAccessToken` | Le jeton d’accès à l’API Graph Facebook n’expire pas et permet à la fonction de masquer/supprimer des posts pour votre compte. Vous obtiendrez ce jeton à une prochaine étape. |
 
     Cliquez sur le bouton **Enregistrer** en haut de la page.
 

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 6debf422d0c16a6a2bfe180e6febb4973846e0f0
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 85376e1861108089cd7918b3b261f05433b59217
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870692"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298026"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutoriel : Publier un site Hugo dans Azure Static Web Apps Preview
 
@@ -109,7 +109,7 @@ Les étapes suivantes vous montrent comment créer une application Static Web Ap
 
 1. Dans _Groupe de ressources_, sélectionnez **Nouveau**. Dans _New resource group name_ (Nom du nouveau groupe de ressources), entrez **hugo-static-app**, puis sélectionnez **OK**.
 
-1. Indiquez ensuite un nom unique pour votre application dans la zone **Name** (Nom). Les caractères valides sont `a-z`, `A-Z`, `0-9` et `-`. Cette valeur est utilisée comme préfixe d’URL pour votre application statique dans le format de `https://<APP_NAME>....`.
+1. Ensuite, entrez un nom pour votre application dans la zone **Nom**. Les caractères valides sont `a-z`, `A-Z`, `0-9` et `-`.
 
 1. Dans _Region_ (Région), sélectionnez une région disponible proche de vous.
 
@@ -153,7 +153,7 @@ Vous ajoutez ensuite les paramètres de configuration utilisés par le processus
 
 1. Ouvrez l’application Hugo dans un éditeur de texte et ouvrez le fichier _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml_.
 
-1. Remplacez la ligne `- uses: actions/checkout@v2` (ligne 18) par le code suivant pour générer l’application Hugo.
+1. Remplacez la ligne `- uses: actions/checkout@v2` (ligne 18) par le code suivant pour générer l’application Hugo. Si vous avez besoin de la version étendue de Hugo, supprimez les marques de commentaire `extended: true`.
 
    ```yml
    - uses: actions/checkout@v2
@@ -164,6 +164,7 @@ Vous ajoutez ensuite les paramètres de configuration utilisés par le processus
      uses: peaceiris/actions-hugo@v2.4.8
      with:
        hugo-version: "latest"
+       # extended: true
 
    - name: Build
      run: hugo

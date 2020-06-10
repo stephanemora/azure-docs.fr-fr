@@ -1,24 +1,24 @@
 ---
-title: 'Démarrage rapide : Extraire des données de reçu à l’aide de cURL – Form Recognizer'
+title: 'Démarrage rapide : Extraire les données de ticket de caisse avec cURL – Form Recognizer'
 titleSuffix: Azure Cognitive Services
-description: Ce guide de démarrage rapide montre comment utiliser l’API REST Form Recognizer avec cURL pour extraire des données d’images de reçus aux États-Unis.
+description: Ce guide de démarrage rapide montre comment utiliser l’API REST Form Recognizer avec cURL pour extraire les données d’images de tickets de caisse américains.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: e053222d3b79668c2f6044417e31e104ce0f4222
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: b1f2d97aabfee47110946336c0ad8ad03d86a163
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77118490"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116575"
 ---
-# <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Démarrage rapide : Extraire des données de reçu à l’aide de l’API REST Form Recognizer avec cURL
+# <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Démarrage rapide : Extraire les données de ticket de caisse à l’aide de l’API REST Form Recognizer avec cURL
 
-Ce guide de démarrage rapide permet d’utiliser l’API REST Azure Form Recognizer avec cURL pour extraire et identifier des informations pertinentes de reçus aux États-Unis.
+Dans ce guide de démarrage rapide, vous allez utiliser l’API REST Azure Form Recognizer avec cURL pour extraire et identifier les informations intéressantes de tickets de caisse américains.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -26,18 +26,18 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour suivre cette procédure de démarrage rapide, vous avez besoin des éléments suivants :
 - [cURL](https://curl.haxx.se/windows/) installé.
-- Une URL pour une image de reçu. Pour ce guide de démarrage rapide, vous pouvez utiliser un [exemple d’image](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg?raw=true).
+- Une URL pour une image de ticket de caisse. Pour ce guide de démarrage rapide, vous pouvez utiliser un [exemple d’image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg).
 
 ## <a name="create-a-form-recognizer-resource"></a>Créer une ressource Form Recognizer
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-## <a name="analyze-a-receipt"></a>Analyser un reçu
+## <a name="analyze-a-receipt"></a>Analyser un ticket de caisse
 
-Pour commencer à analyser un reçu, vous appelez l’API **[Analyze Receipt](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)** (Analyser le reçu) en utilisant la commande cURL ci-dessous. Avant d’exécuter la commande, apportez les modifications suivantes :
+Pour commencer à analyser un ticket de caisse, vous appelez l’API **[Analyze Receipt](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)** en utilisant la commande cURL ci-dessous. Avant d’exécuter la commande, apportez les modifications suivantes :
 
 1. Remplacez `<Endpoint>` par le point de terminaison que vous avez obtenu avec votre abonnement Form Recognizer.
-1. Remplacez `<your receipt URL>` par l’adresse URL d’une image de reçu.
+1. Remplacez `<your receipt URL>` par l’adresse URL d’une image de ticket de caisse.
 1. Remplacez `<subscription key>` par la clé d’abonnement que vous avez copiée à l’étape précédente.
 
 ```bash
@@ -50,9 +50,9 @@ Vous recevrez une réponse `202 (Success)` incluant un en-tête **Operation-Loca
 https://cognitiveservice/formrecognizer/v2.0-preview/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
-## <a name="get-the-receipt-results"></a>Obtenir les résultats du reçu
+## <a name="get-the-receipt-results"></a>Obtenir les résultats du ticket de caisse
 
-Après avoir appelé l’API **Analyze Receipt** (Analyser le reçu), vous appelez l’API **[Get Analyze Receipt Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult)** (Obtenir le résultat de l’analyse du reçu) pour obtenir l’état de l’opération et les données extraites. Avant d’exécuter la commande, apportez les modifications suivantes :
+Après avoir appelé l’API **Analyze Receipt**, vous appelez l’API **[Get Analyze Receipt Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult)** pour obtenir l’état de l’opération et les données extraites. Avant d’exécuter la commande, apportez les modifications suivantes :
 
 1. Remplacez `<Endpoint>` par le point de terminaison que vous avez obtenu avec votre clé d’abonnement Form Recognizer. Vous la trouverez sous l’onglet **Vue d’ensemble** de la ressource Form Recognizer.
 1. Remplacez `<operationId>` par l’ID d’opération obtenu à l’étape précédente.
@@ -66,11 +66,11 @@ curl -X GET "https://<Endpoint>/formrecognizer/v2.0-preview/prebuilt/receipt/ana
 
 Vous recevez une réponse `200 (Success)` avec une sortie JSON. Le premier champ, `"status"`, indique l’état de l’opération. Si l’opération est terminée, le champ `"recognitionResults"` contient chaque ligne de texte extraite de l’accusé de réception, et le champ `"understandingResults"` contient des informations de clé/valeur pour les parties les plus pertinents de l’accusé de réception. Si l’opération n’est pas terminée, la valeur de `"status"` sera `"running"` ou `"notStarted"`, et vous devez rappeler l’API, manuellement ou via un script. Nous vous recommandons d’attendre une seconde ou plus entre chaque appel.
 
-Regardez l’image de reçu suivante et sa sortie JSON correspondante. La sortie a été raccourcie pour une meilleure lisibilité.
+Regardez l’image de ticket suivante et sa sortie JSON correspondante. La sortie a été raccourcie pour une meilleure lisibilité.
 
-![Reçu d’un magasin Contoso](../media/contoso-allinone.jpg)
+![Ticket de caisse du magasin Contoso](../media/contoso-allinone.jpg)
 
-Le nœud `"recognitionResults"` contient tout le texte reconnu. Le texte est organisé par page, puis par ligne, puis par mots individuels. Le nœud `"understandingResults"` contient les valeurs spécifiques du reçu découvertes par le modèle. C’est là que vous trouverez des paires clé/valeur utiles, telles que la taxe, le total et l’adresse du commerçant.
+Le nœud `"recognitionResults"` contient tout le texte reconnu. Le texte est organisé par page, puis par ligne, puis par mots individuels. Le nœud `"understandingResults"` contient les valeurs spécifiques du ticket découvertes par le modèle. C’est là que vous trouverez des paires clé/valeur utiles, telles que la taxe, le total et l’adresse du commerçant.
 
 ```json
 { 
@@ -399,7 +399,7 @@ Le nœud `"recognitionResults"` contient tout le texte reconnu. Le texte est org
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce démarrage rapide, vous avez utilisé l’API REST Form Recognizer avec cURL pour extraire le contenu d’un reçu. Consultez à présent la documentation de référence pour explorer l’API Form Recognizer plus en détail.
+Dans ce guide de démarrage rapide, vous avez utilisé l’API REST Form Recognizer avec cURL pour extraire le contenu d’un ticket de caisse. Consultez à présent la documentation de référence pour explorer l’API Form Recognizer plus en détail.
 
 > [!div class="nextstepaction"]
 > [Documentation de référence sur l’API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)

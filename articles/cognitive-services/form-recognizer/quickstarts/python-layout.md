@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/19/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: f0c1e9eccda8171ab816d33dac3f1947cea67eea
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: c30374b21c1d95b6b710de10da08391d0af4f538
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714608"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141957"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Démarrage rapide : Extraire du texte et des informations de disposition à l’aide de l’API REST Form Recognizer avec Python
 
@@ -27,6 +27,10 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 Pour suivre cette procédure de démarrage rapide, vous avez besoin des éléments suivants :
 - [Python](https://www.python.org/downloads/) doit être installé (si vous souhaitez exécuter l’exemple en local).
 - Un document de formulaire. Vous pouvez télécharger une image à partir de l’[exemple de jeu de données ](https://go.microsoft.com/fwlink/?linkid=2090451) pour ce guide de démarrage rapide.
+
+> [!NOTE]
+> Ce guide de démarrage rapide utilise un document stocké localement. Pour savoir comment utiliser les fichiers distants accessibles par URL, consultez la [documentation de référence](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync).
+
 
 ## <a name="create-a-form-recognizer-resource"></a>Créer une ressource Form Recognizer
 

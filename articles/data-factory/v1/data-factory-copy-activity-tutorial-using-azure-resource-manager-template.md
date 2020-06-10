@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: dd559a8dd0bd59b50f4a3fa663f57874d948bf71
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3800460c7b17adf1a10c1efc3adc12d65bbeb670
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75438855"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021981"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutoriel : utiliser un modèle Azure Resource Manager pour créer un pipeline Data Factory afin de copier des données 
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ Dans ce didacticiel, vous créez une fabrique de données avec les entités Data
 | Service lié Stockage Azure |Lie votre compte Stockage Azure à la fabrique de données. Stockage Azure est le magasin de données source et la base de données Azure SQL est le magasin de données récepteur de l’activité de copie dans le tutoriel. Il spécifie le compte de stockage contenant les données d’entrée pour l’activité de copie. |
 | Service lié Azure SQL Database |Lie votre base de données Azure SQL à la fabrique de données. Il spécifie la base de données Azure SQL qui conserve les données de sortie de l’activité de copie. |
 | Jeu de données d'entrée d'objet Blob Azure |Fait référence au service Stockage Azure lié. Le service lié fait référence à un compte de stockage Azure, et les jeux de données d’objet Blob Azure spécifie le conteneur, le dossier et le nom de fichier dans le stockage contenant les données d’entrée. |
-| Jeu de données de sortie SQL Azure |Fait référence au service SQL Azure lié. Le service lié SQL Azure fait référence à un serveur SQL Azure et le jeu de données SQL Azure spécifie le nom de la table qui contient les données de sortie. |
+| Jeu de données de sortie SQL Azure |Fait référence au service SQL Azure lié. Le service lié SQL Azure fait référence à un serveur SQL logique et le jeu de données SQL Azure spécifie le nom de la table qui contient les données de sortie. |
 | Pipeline de données |Le pipeline a une activité de type copie qui sélectionne le jeu de données d’objets blob Azure comme entrée et le jeu de données SQL Azure comme sortie. L’activité de copie les données d’un objet blob Azure vers une table dans la base de données Azure SQL. |
 
 Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline peut contenir une ou plusieurs activités. Il existe deux types d’activités : les [activités de déplacement des données](data-factory-data-movement-activities.md) et les [activités de transformation des données](data-factory-data-transformation-activities.md). Dans ce didacticiel, vous créez un pipeline avec une activité (activité de copie).
@@ -106,9 +106,9 @@ Créez un fichier JSON nommé **ADFCopyTutorialARM.json** dans le dossier **C:\A
       "storageAccountKey": { "type": "securestring", "metadata": { "description": "Key for the Azure storage account." } },
       "sourceBlobContainer": { "type": "string", "metadata": { "description": "Name of the blob container in the Azure Storage account." } },
       "sourceBlobName": { "type": "string", "metadata": { "description": "Name of the blob in the container that has the data to be copied to Azure SQL Database table" } },
-      "sqlServerName": { "type": "string", "metadata": { "description": "Name of the Azure SQL Server that will hold the output/copied data." } },
-      "databaseName": { "type": "string", "metadata": { "description": "Name of the Azure SQL Database in the Azure SQL server." } },
-      "sqlServerUserName": { "type": "string", "metadata": { "description": "Name of the user that has access to the Azure SQL server." } },
+      "sqlServerName": { "type": "string", "metadata": { "description": "Name of the logical SQL server that will hold the output/copied data." } },
+      "databaseName": { "type": "string", "metadata": { "description": "Name of the Azure SQL Database in the logical SQL server." } },
+      "sqlServerUserName": { "type": "string", "metadata": { "description": "Name of the user that has access to the logical SQL server." } },
       "sqlServerPassword": { "type": "securestring", "metadata": { "description": "Password for the user." } },
       "targetSQLTable": { "type": "string", "metadata": { "description": "Table in the Azure SQL Database that will hold the copied data." } 
       } 
@@ -288,7 +288,7 @@ Créez un fichier JSON nommé **ADFCopyTutorialARM-Parameters** contient les par
 > [!IMPORTANT]
 > Spécifiez le nom et la clé de votre compte de stockage Azure pour les paramètres storageAccountName et storageAccountKey.  
 > 
-> Spécifiez le serveur SQL Azure, la base de données, l’utilisateur et le mot de passe pour les paramètres sqlServerName, databaseName, sqlServerUserName et sqlServerPassword.  
+> Spécifiez le serveur SQL logique, la base de données, l’utilisateur et le mot de passe pour les paramètres sqlServerName, databaseName, sqlServerUserName et sqlServerPassword.  
 
 ```json
 {
@@ -301,7 +301,7 @@ Créez un fichier JSON nommé **ADFCopyTutorialARM-Parameters** contient les par
         },
         "sourceBlobContainer": { "value": "adftutorial" },
         "sourceBlobName": { "value": "emp.txt" },
-        "sqlServerName": { "value": "<Name of the Azure SQL server>" },
+        "sqlServerName": { "value": "<Name of the logical SQL server>" },
         "databaseName": { "value": "<Name of the Azure SQL database>" },
         "sqlServerUserName": { "value": "<Name of the user who has access to the Azure SQL database>" },
         "sqlServerPassword": { "value": "<password for the user>" },
@@ -413,7 +413,7 @@ AzureStorageLinkedService relie votre compte de stockage Azure à la fabrique de
 La propriété connectionString utilise les paramètres storageAccountName et storageAccountKey. Les valeurs de ces paramètres sont transmises à l’aide d’un fichier de configuration. La définition utilise également les variables azureStorageLinkedService et dataFactoryName définies dans le modèle. 
 
 #### <a name="azure-sql-database-linked-service"></a>Service lié Azure SQL Database
-AzureSqlLinkedService lie votre base de données Azure SQL à la fabrique de données. Les données copiées à partir du stockage Blob sont stockées dans cette base de données. Vous avez créé une table emp dans cette base de données dans le cadre des [conditions préalables](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Vous spécifiez le nom du serveur SQL Azure, le nom de la base de données, le nom d’utilisateur et le mot de passe de l’utilisateur dans cette section. Consultez [Service lié SQL Azure](data-factory-azure-sql-connector.md#linked-service-properties) pour en savoir plus sur les propriétés JSON utilisées pour définir un service lié SQL Azure.  
+AzureSqlLinkedService lie votre base de données Azure SQL à la fabrique de données. Les données copiées à partir du stockage Blob sont stockées dans cette base de données. Vous avez créé une table emp dans cette base de données dans le cadre des [conditions préalables](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Vous spécifiez le nom du serveur SQL logique, le nom de la base de données, le nom d’utilisateur et le mot de passe de l’utilisateur dans cette section. Consultez [Service lié SQL Azure](data-factory-azure-sql-connector.md#linked-service-properties) pour en savoir plus sur les propriétés JSON utilisées pour définir un service lié SQL Azure.  
 
 ```json
 {

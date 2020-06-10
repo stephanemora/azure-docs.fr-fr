@@ -1,24 +1,24 @@
 ---
-title: 'Démarrage rapide : Extraire des données de reçu à l’aide de Python – Form Recognizer'
+title: 'Démarrage rapide : Extraire les données de ticket de caisse avec Python – Form Recognizer'
 titleSuffix: Azure Cognitive Services
-description: Ce guide de démarrage rapide montre comment utiliser l’API REST Form Recognizer avec Python pour extraire des données d’images de reçus aux États-Unis.
+description: Ce guide de démarrage rapide montre comment utiliser l’API REST Form Recognizer avec Python pour extraire les données d’images de tickets de caisse américains.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 2224ec64712ff9d1745231f39a1521ae941304ff
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 13b9e67a8bd52fef8439b2b20be3a7e4d28af5fe
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77118756"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141923"
 ---
-# <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Démarrage rapide : Extraire des données de reçu à l’aide de l’API REST Form Recognizer avec Python
+# <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Démarrage rapide : Extraire les données de ticket de caisse à l’aide de l’API REST Form Recognizer avec Python
 
-Ce guide de démarrage rapide permet d’utiliser l’API REST Azure Form Recognizer avec Python pour extraire et identifier des informations pertinentes de reçus aux États-Unis.
+Ce guide de démarrage rapide permet d’utiliser l’API REST Azure Form Recognizer avec Python pour extraire et identifier les informations intéressantes de tickets de caisse américains.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -26,18 +26,21 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour suivre cette procédure de démarrage rapide, vous avez besoin des éléments suivants :
 - [Python](https://www.python.org/downloads/) doit être installé (si vous souhaitez exécuter l’exemple en local).
-- Une URL pour une image de reçu. Pour ce guide de démarrage rapide, vous pouvez utiliser un [exemple d’image](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg?raw=true).
+- Une URL pour une image de ticket de caisse. Pour ce guide de démarrage rapide, vous pouvez utiliser un [exemple d’image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg).
+
+> [!NOTE]
+> Ce guide de démarrage rapide utilise un ticket distant accessible par URL. Pour utiliser des fichiers locaux, consultez la [documentation de référence](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync).
 
 ## <a name="create-a-form-recognizer-resource"></a>Créer une ressource Form Recognizer
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-## <a name="analyze-a-receipt"></a>Analyser un reçu
+## <a name="analyze-a-receipt"></a>Analyser un ticket de caisse
 
-Pour commencer à analyser un reçu, vous appelez l’API **[Analyze Receipt](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)** (Analyser le reçu) en utilisant le script Python ci-dessous. Avant d’exécuter le script, apportez les modifications suivantes :
+Pour commencer à analyser un ticket, vous appelez l’API **[Analyze Receipt](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)** en utilisant le script Python ci-dessous. Avant d’exécuter le script, apportez les modifications suivantes :
 
 1. Remplacez `<Endpoint>` par le point de terminaison que vous avez obtenu avec votre abonnement Form Recognizer.
-1. Remplacez `<your receipt URL>` par l’adresse URL d’une image de reçu.
+1. Remplacez `<your receipt URL>` par l’adresse URL d’une image de ticket de caisse.
 1. Remplacez `<subscription key>` par la clé d’abonnement que vous avez copiée à l’étape précédente.
 
     ```python
@@ -88,9 +91,9 @@ Vous recevrez une réponse `202 (Success)` incluant un en-tête **Operation-Loca
 https://cognitiveservice/formrecognizer/v2.0-preview/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
-## <a name="get-the-receipt-results"></a>Obtenir les résultats du reçu
+## <a name="get-the-receipt-results"></a>Obtenir les résultats du ticket de caisse
 
-Après avoir appelé l’API **Analyze Receipt** (Analyser le reçu), vous appelez l’API **[Get Analyze Receipt Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult)** (Obtenir le résultat de l’analyse du reçu) pour obtenir l’état de l’opération et les données extraites. Ajoutez le code suivant au bas de votre script Python. Ce code utilise la valeur de l’ID d’opération dans un nouvel appel d’API. Ce script appelle l’API à intervalles réguliers jusqu’à ce que les résultats soient disponibles. Nous recommandons un intervalle d’au moins une seconde.
+Après avoir appelé l’API **Analyze Receipt**, vous appelez l’API **[Get Analyze Receipt Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult)** pour obtenir l’état de l’opération et les données extraites. Ajoutez le code suivant au bas de votre script Python. Ce code utilise la valeur de l’ID d’opération dans un nouvel appel d’API. Ce script appelle l’API à intervalles réguliers jusqu’à ce que les résultats soient disponibles. Nous recommandons un intervalle d’au moins une seconde.
 
 ```python
 n_tries = 10
@@ -124,13 +127,13 @@ while n_try < n_tries:
 
 ### <a name="examine-the-response"></a>Examiner la réponse
 
-Le script affiche des réponses sur la console jusqu’à la fin de l’opération d’**analyse du reçu**. Ensuite, il imprime les données textuelles extraites au format JSON. Le champ `"recognitionResults"` contient toutes les lignes de texte extraites du reçu, et le champ `"understandingResults"` des informations de clé/valeur pour les parties les plus pertinentes du reçu.
+Le script affiche des réponses sur la console jusqu’à la fin de l’opération d’**analyse du ticket de caisse**. Ensuite, il imprime les données textuelles extraites au format JSON. Le champ `"recognitionResults"` contient toutes les lignes de texte extraites du ticket de caisse, et le champ `"understandingResults"` des informations de clé/valeur pour les parties les plus intéressantes du ticket.
 
-Regardez l’image de reçu suivante et sa sortie JSON correspondante. La sortie a été raccourcie pour une meilleure lisibilité.
+Regardez l’image de ticket suivante et sa sortie JSON correspondante. La sortie a été raccourcie pour une meilleure lisibilité.
 
-![Reçu d’un magasin Contoso](../media/contoso-allinone.jpg)
+![Ticket de caisse du magasin Contoso](../media/contoso-allinone.jpg)
 
-Le nœud `"recognitionResults"` contient tout le texte reconnu. Le texte est organisé par page, puis par ligne, puis par mots individuels. Le nœud `"understandingResults"` contient les valeurs spécifiques du reçu découvertes par le modèle. C’est là que vous trouverez des paires clé/valeur utiles, telles que la taxe, le total et l’adresse du commerçant.
+Le nœud `"recognitionResults"` contient tout le texte reconnu. Le texte est organisé par page, puis par ligne, puis par mots individuels. Le nœud `"understandingResults"` contient les valeurs spécifiques du ticket découvertes par le modèle. C’est là que vous trouverez des paires clé/valeur utiles, telles que la taxe, le total et l’adresse du commerçant.
 
 ```json
 { 
@@ -459,7 +462,7 @@ Le nœud `"recognitionResults"` contient tout le texte reconnu. Le texte est org
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez utilisé l’API REST Form Recognizer avec Python pour extraire le contenu d’un reçu. Consultez à présent la documentation de référence pour explorer l’API Form Recognizer plus en détail.
+Dans ce guide de démarrage rapide, vous avez utilisé l’API REST Form Recognizer avec Python pour extraire le contenu d’un ticket de caisse. Consultez à présent la documentation de référence pour explorer l’API Form Recognizer plus en détail.
 
 > [!div class="nextstepaction"]
 > [Documentation de référence sur l’API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)

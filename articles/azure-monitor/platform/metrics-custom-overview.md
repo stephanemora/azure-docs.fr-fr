@@ -5,14 +5,14 @@ author: ancav
 ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: 4891d7272516caf4944219907d81ee4fb89e0189
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 2aca113e21d759416580c8876ec2092762893da5
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837309"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299823"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métriques personnalisées dans Azure Monitor (Préversion)
 
@@ -30,7 +30,7 @@ Les métriques personnalisées peuvent être envoyées à Azure Monitor à l’a
 - Installer [l’agent InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md) sur votre machine virtuelle Linux Azure et envoyer les métriques à l’aide du plug-in de sortie Azure Monitor
 - Envoyer des métriques personnalisées [directement à l’API REST Azure Monitor](../../azure-monitor/platform/metrics-store-custom-rest-api.md) : `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`
 
-## <a name="pricing-model-and-rentention"></a>Modèle de tarification et rétention
+## <a name="pricing-model-and-retention"></a>Modèle de tarification et rétention
 
 Pour plus d’informations sur l’activation de la facturation des requêtes de métriques personnalisées et des requêtes de métriques, consultez la [page de tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). Des détails spécifiques sur la grille tarifaire de toutes les métriques, y compris des métriques personnalisées et des requêtes de métriques, sont disponibles sur cette page. En résumé, il n’y a aucun coût d’ingestion pour les métriques standard (métriques de plateforme) dans le magasin de métriques d’Azure Monitor, mais les métriques personnalisées entraînent des coûts lorsqu’elles seront mises en disponibilité générale. Les requêtes d’API de métrique seront facturées.
 
@@ -78,7 +78,7 @@ Les espaces de noms offrent un moyen de grouper ou classer par catégorie des m�
 **Nom** correspond au nom de la métrique rapportée. Généralement, le nom est suffisamment descriptif pour identifier ce qui est mesuré. Par exemple, il peut s’agir d’une métrique qui mesure le nombre d’octets de mémoire utilisés sur une machine virtuelle donnée. Le nom de cette métrique pourrait être **Memory Bytes In Use** (Octets de mémoire en cours d’utilisation).
 
 ### <a name="dimension-keys"></a>Clés de dimension
-Une dimension est une paire de clés ou de valeurs qui décrivent des caractéristiques supplémentaires concernant la métrique collectée. Ces caractéristiques supplémentaires permettent de collecter plus d’informations sur la métrique, offrant des insights plus approfondis. Par exemple, la métrique **Memory Bytes In Use** peut disposer d’une clé de dimension nommée **Process**, qui capture le nombre d’octets de mémoire consommés par chaque processus sur une machine virtuelle. Cette clé vous permet de filtrer les résultats de cette métrique pour connaître la quantité de mémoire utilisée par certains processus ou pour identifier les cinq processus utilisant le plus de mémoire.
+Une dimension est une paire de clés ou de valeurs qui décrivent des caractéristiques supplémentaires concernant la métrique collectée. Ces caractéristiques supplémentaires permettent de collecter plus d’informations sur la métrique, offrant des insights plus approfondis. Par exemple, la métrique **Memory Bytes In Use** peut disposer d’une clé de dimension nommée **Process**, qui capture le nombre d’octets de mémoire consommés par chaque processus sur une machine virtuelle. Cette clé vous permet de filtrer les résultats de la métrique pour connaître la quantité de mémoire utilisée par certains processus ou identifier les cinq processus utilisant le plus de mémoire.
 Les dimensions sont facultatives ; certaines métriques peuvent ne pas avoir de dimensions. Une métrique personnalisée peut avoir jusqu'à 10 dimensions.
 
 ### <a name="dimension-values"></a>Valeurs de dimension
@@ -196,6 +196,7 @@ Dans la préversion publique, la publication des métriques personnalisées n’
 |USA Centre      | https:\//centralus.monitoring.azure.com |
 |Centre du Canada | https:\//canadacentral.monitoring.azure.comc
 |USA Est| https:\//eastus.monitoring.azure.com/ |
+|USA Est 2 | https:\//eastus2.monitoring.azure.com/
 | **Europe** | |
 |Europe Nord    | https:\//northeurope.monitoring.azure.com/ |
 |Europe Ouest     | https:\//westeurope.monitoring.azure.com/ |

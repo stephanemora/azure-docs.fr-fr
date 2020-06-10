@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: e8b8feff0b66aa0b48c88b43049594003b20e5c0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ca70262a7980df9d427fbd7e58e08b41c37d7133
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75411953"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195578"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutoriel : Créer un leaderboard de type Cache-Aside sur ASP.NET
 
@@ -642,9 +642,9 @@ Pour exécuter l’application localement :
 
 ## <a name="publish-and-run-in-azure"></a>Publier et exécuter l’application dans Azure
 
-### <a name="provision-a-sql-azure-database-for-the-app"></a>Configurer une base de données SQL Azure pour l’application
+### <a name="provision-a-database-for-the-app"></a>Provisionner une base de données pour l’application
 
-Dans cette section, vous allez configurer une nouvelle base de données SQL Azure pour l’application à utiliser avec un hébergement dans Azure.
+Dans cette section, vous allez provisionner une nouvelle base de données dans SQL Database que l’application utilisera pendant son hébergement dans Azure.
 
 1. Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Créer une ressource** dans le coin en haut à gauche du portail Azure.
 

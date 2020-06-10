@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/26/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 477f3cf270377bc1341e65ab500093e05277afa8
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 4e56063891a92ef06e3e14651e26f0b73d280e79
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657525"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84231489"
 ---
 Le modèle de projet Azure Functions dans Visual Studio crée un projet que vous pouvez publier dans une application de fonction dans Azure. Vous pouvez utiliser une application de fonction pour regrouper des fonctions en une unité logique afin de faciliter la gestion, le déploiement, la mise à l’échelle et le partage des ressources.
 
@@ -27,12 +27,11 @@ Le modèle de projet Azure Functions dans Visual Studio crée un projet que vous
 
     | Paramètre      | Valeur  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Runtime Functions** | **Azure Functions v2 <br />(.NET Core)** | Cette valeur crée un projet de fonction qui utilise la version 2.x du runtime Azure Functions, qui prend en charge .NET Core. La version 1.x d’Azure Functions prend en charge .NET Framework. Pour plus d’informations, consultez [Vue d’ensemble des versions du runtime Azure Functions](../articles/azure-functions/functions-versions.md).   |
+    | **Runtime Functions** | **Azure Functions v3 <br />(.NET Core)** | Cette valeur crée un projet de fonction qui utilise la version 3.x du runtime Azure Functions, qui prend en charge .NET Core 3.x. La version 1.x d’Azure Functions prend en charge .NET Framework. Pour plus d’informations, consultez [Vue d’ensemble des versions du runtime Azure Functions](../articles/azure-functions/functions-versions.md).   |
     | **Modèle de fonction** | **Déclencheur HTTP** | Cette valeur crée une fonction déclenchée par une requête HTTP. |
     | **Compte de stockage**  | **Émulateur de stockage** | Étant donné qu’une fonction Azure nécessite un compte de stockage, celui-ci est attribué ou créé quand vous publiez votre projet sur Azure. Un déclencheur HTTP n’utilise pas de chaîne de connexion de compte Stockage Azure ; tous les autres types de déclencheurs nécessitent une chaîne de connexion de compte Stockage Azure valide.  |
     | **Droits d’accès** | **Anonyme** | La fonction créée peut être déclenchée par n’importe quel client sans fournir une clé. Ce paramètre d’autorisation facilite le test de votre nouvelle fonction. Pour plus d’informations sur les clés et autorisations, consultez [Clés d’autorisation](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) et [Liaisons HTTP et webhook](../articles/azure-functions/functions-bindings-http-webhook.md). |
     
-
     
     ![Paramètres de projet Azure Functions](./media/functions-vs-tools-create/functions-project-settings.png)
 

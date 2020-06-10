@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: af49e80766d7ac4bd2d9ed677a2571fb0a5a3189
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 99af09ded8759e7f6e2235ce0c1354982568e19d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80131749"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117514"
 ---
 # <a name="what-is-computer-vision"></a>Qu’est-ce que le service Vision par ordinateur ?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Le service Vision par ordinateur d’Azure offre aux développeurs un accès à des algorithmes avancés permettant de traiter des images et de retourner des informations en fonction des caractéristique visuelles qui vous intéressent. Par exemple, le service Vision par ordinateur peut déterminer si une image contient du contenu pour adultes ou rechercher tous les visages humains dans une image.
+Le service Vision par ordinateur d’Azure offre aux développeurs un accès à des algorithmes avancés permettant de traiter des images et de retourner des informations en fonction des caractéristique visuelles qui vous intéressent. Par exemple, Vision par ordinateur peut déterminer si une image contient du contenu pour adultes, identifier des marques ou des objets spécifiques ou trouver des visages humains.
 
-Vous pouvez utiliser le service Vision par ordinateur dans votre application via un Kit de développement logiciel (SDK) natif ou en appelant directement l’API REST. Cette page couvre globalement ce que vous pouvez faire avec le service Vision par ordinateur.
+Vous pouvez utiliser le service Vision par ordinateur dans votre application via un kit SDK de bibliothèque de client ou en appelant directement l’API REST. Cette page couvre globalement ce que vous pouvez faire avec le service Vision par ordinateur.
 
 ## <a name="computer-vision-for-digital-asset-management"></a>Vision par ordinateur pour la gestion des ressources numériques
 
@@ -32,7 +32,7 @@ Vision par ordinateur peut contribuer à de nombreux scénarios de gestion des a
 
 ## <a name="analyze-images-for-insight"></a>Analyser des images pour obtenir des informations
 
-Vous pouvez analyser des images pour obtenir des informations détaillées sur leurs composants et caractéristiques visuels. Toutes les fonctionnalités listées dans le tableau ci-dessous sont fournies par l’API [Analyser l’image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
+Vous pouvez analyser des images pour fournir des insights sur leurs caractéristiques visuelles. Toutes les fonctionnalités listées dans le tableau ci-dessous sont fournies par l’API [Analyser l’image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
 
 | Action | Description |
 | ------ | ----------- |
@@ -50,7 +50,7 @@ Vous pouvez analyser des images pour obtenir des informations détaillées sur l
 
 ## <a name="extract-text-from-images"></a>Extraire du texte à partir des images
 
-Vous pouvez utiliser l’API [Read](concept-recognizing-text.md#read-api) du service Vision par ordinateur pour extraire le texte imprimé ou manuscrit d’images dans un flux de caractères exploitable automatiquement. L’API Read utilise nos derniers modèles et fonctionne avec le texte dont les surfaces et arrière-plans diffèrent, tels que les accusés de réception, les affiches, les cartes de visite, les lettres et les tableaux blancs. Actuellement, l’anglais et l’espagnol sont les seules langues prises en charge.
+Vous pouvez utiliser l’API [Read](concept-recognizing-text.md#read-api) du service Vision par ordinateur pour extraire le texte imprimé ou manuscrit d’images dans un flux de caractères lisibles par une machine. L’API Read utilise les modèles les plus récents et fonctionne avec du texte de diverses surfaces et origines, tels que les tickets de caisse, les affiches, les cartes de visite, les lettres et les tableaux blancs. Elle fonctionne actuellement pour sept langues différentes (voir [Prise en charge des langues](./language-support.md)).
 
 Vous pouvez également utiliser l’API [OCR (reconnaissance optique des caractères)](concept-recognizing-text.md#ocr-optical-character-recognition-api) pour extraire le texte imprimé en plusieurs langues. Le cas échéant, la fonction OCR corrige la rotation du texte reconnu et fournit les coordonnées du cadre de chaque mot. La fonction OCR prend en charge 25 langues et détecte automatiquement la langue du texte reconnu.
 

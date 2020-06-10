@@ -2,15 +2,15 @@
 title: Tutoriel - Créer et déployer un modèle
 description: Créez votre premier modèle Azure Resource Manager. Dans ce tutoriel, vous découvrirez la syntaxe des fichiers de modèle et comment déployer un compte de stockage.
 author: mumian
-ms.date: 05/20/2020
+ms.date: 05/29/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2180ca80d87643eb885d814318e516b4b3c53f37
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: dff1dd15f7f161f25ef7de54e36fa83e3e0036d2
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714795"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235210"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutoriel : Créer et déployer votre premier modèle ARM
 
@@ -39,6 +39,9 @@ Vous avez également besoin d’Azure PowerShell ou d’Azure CLI pour déployer
 - [Installer Azure CLI sur Linux](/cli/azure/install-azure-cli-linux)
 
 Après avoir installé Azure PowerShell ou Azure CLI, prenez soin de vous connecter une première fois. Pour obtenir de l’aide, consultez [Se connecter - PowerShell](/powershell/azure/install-az-ps#sign-in) ou [Se connecter - Azure CLI](/cli/azure/get-started-with-azure-cli#sign-in).
+
+> [!IMPORTANT]
+> Si vous utilisez Azure CLI, veillez à disposer de la version 2.6 ou ultérieure. Les commandes présentées dans ce tutoriel ne fonctionneront pas si vous utilisez une version antérieure. Pour vérifier la version installée, utilisez : `az --version`.
 
 Bien, vous êtes prêt à découvrir les modèles.
 

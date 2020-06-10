@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 1bdc089bb89a732e329bf7d3ffd3d5b5c09ba408
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: ef6d49c9046ba04bbac40ec9bf555e12d2faa8f6
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637246"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021702"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Démarrage rapide : Créer un point de terminaison privé au moyen du portail Azure
 
-Private Endpoint est le composant fondamental de Private Link dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources Private Link. Dans ce guide de démarrage rapide, vous allez découvrir comment créer une machine virtuelle sur un réseau virtuel Azure, un serveur SQL Database avec un point de terminaison privé Azure à l’aide du portail Azure. Ensuite, vous pouvez accéder de façon sécurisée au serveur SQL Database à partir de la machine virtuelle.
+Private Endpoint est le composant fondamental de Private Link dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources Private Link. Dans ce guide de démarrage rapide, vous allez découvrir comment créer une machine virtuelle sur un réseau virtuel Azure et un serveur SQL logique avec un point de terminaison privé Azure à l’aide du portail Azure. Ensuite, vous pourrez accéder de façon sécurisée à SQL Database à partir de la machine virtuelle.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -36,12 +36,12 @@ Dans les étapes figurant dans cette section, vous devez remplacer les paramètr
 
 | Paramètre                   | Valeur                |
 |-----------------------------|----------------------|
-| **\<nom_groupe_ressource>**  | myResourceGroup |
-| **\<nom_réseau_virtuel>** | myVirtualNetwork          |
-| **\<nom_région>**          | Centre-USA Ouest    |
-| **\<espace_d’adressage_IPv4>**   | 10.1.0.0/16          |
-| **\<nom_sous-réseau>**          | mySubnet        |
-| **\<plage_adresses_sous-réseau>** | 10.1.0.0/24          |
+| **\<resource-group-name>**  | myResourceGroup |
+| **\<virtual-network-name>** | myVirtualNetwork          |
+| **\<region-name>**          | Centre-USA Ouest    |
+| **\<IPv4-address-space>**   | 10.1.0.0/16          |
+| **\<subnet-name>**          | mySubnet        |
+| **\<subnet-address-range>** | 10.1.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -93,8 +93,9 @@ Dans les étapes figurant dans cette section, vous devez remplacer les paramètr
 
 1. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer**.
 
-## <a name="create-a-sql-database-server"></a>Créer un serveur de base de données SQL
-Dans cette section, vous allez créer un serveur de base de données SQL dans Azure. 
+## <a name="create-a-logical-sql-server"></a>Créer un serveur SQL logique
+
+Dans cette section, vous allez créer un serveur SQL logique dans Azure. 
 
 1. En haut à gauche de l’écran du portail Azure, sélectionnez **Créer une ressource** > **Bases de données** > **Base de données SQL**.
 
@@ -193,7 +194,7 @@ Après avoir créé **myVm**, connectez-vous à cette machine virtuelle à parti
 
 1. Une fois que le bureau de la machine virtuelle s’affiche, réduisez-le pour revenir à votre poste de travail local.  
 
-## <a name="access-the-sql-database-server-privately-from-the-vm"></a>Accéder au serveur de base de données SQL en privé à partir de la machine virtuelle
+## <a name="access-sql-database-privately-from-the-vm"></a>Accéder à SQL Database en privé à partir de la machine virtuelle
 
 1. Dans le Bureau à distance de *myVM*, ouvrez PowerShell.
 
@@ -233,4 +234,4 @@ Lorsque vous avez fini d’utiliser le point de terminaison privé, le serveur S
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé une machine virtuelle sur un réseau virtuel, un serveur SQL Database et un point de terminaison privé pour un accès privé. Vous vous êtes connecté à une machine virtuelle à partir d’Internet et avez communiqué de façon sécurisée avec le serveur de base de données SQL via une liaison privée. Pour plus d’informations sur les points de terminaison privés, consultez [Qu’est-ce qu’Azure Private Endpoint ?](private-endpoint-overview.md).
+Dans ce guide de démarrage rapide, vous avez créé une machine virtuelle sur un réseau virtuel, un serveur SQL logique et un point de terminaison privé pour un accès privé. Vous vous êtes connecté à une machine virtuelle à partir d’Internet et avez communiqué de façon sécurisée avec SQL Database avec une liaison privée. Pour plus d’informations sur les points de terminaison privés, consultez [Qu’est-ce qu’Azure Private Endpoint ?](private-endpoint-overview.md).

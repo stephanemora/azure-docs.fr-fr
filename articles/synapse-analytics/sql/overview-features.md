@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 556cce9e18c812759ccb6c4b8ee2c91c4cef2b5a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6b4c44f0097b2896a063f3f3922760860e1d4a22
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658897"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118298"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Fonctionnalités Transact-SQL prises en charge dans Azure Synapse SQL
 
@@ -24,7 +24,7 @@ Le langage Transact-SQL est utilisé dans les modèles Synapse SQL serverless et
 
 ## <a name="database-objects"></a>Objets de base de données
 
-Les modèles de consommation Synapse SQL permettent d’utiliser des objets de base de données différents. Le tableau suivant compare les types d’objets pris en charge :
+Les modèles de consommation dans Synapse SQL permettent d’utiliser des objets de base de données différents. Le tableau suivant compare les types d’objets pris en charge :
 
 |   | approvisionné | Sans serveur |
 | --- | --- | --- |
@@ -42,7 +42,7 @@ Les modèles de consommation Synapse SQL permettent d’utiliser des objets de b
 | **[Index de table](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**                           | Oui | Non |
 | **[Partitions de table](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**                     | Oui | Non |
 | **[Statistiques](develop-tables-statistics.md)**            | Oui | Oui |
-| **[Classes de ressources et concurrence](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)** | Oui    | Non |
+| **[Gestion des charges de travail, classes de ressources et contrôle d’accès concurrentiel](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)** | Oui    | Non |
 
 ## <a name="query-language"></a>Langage de requête
 
@@ -50,7 +50,7 @@ Les fonctionnalités prises en charge des langages de requête utilisés dans Sy
 
 |   | approvisionné | Sans serveur |
 | --- | --- | --- |
-| **Instruction SELECT** | Oui. Les clauses de requête Transact-SQL [FOR XML/FOR JSON](/sql/t-sql/queries/select-for-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [MATCH](/sql/t-sql/queries/match-sql-graph?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) et [PREDICT](/sql/t-sql/queries/predict-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) ne sont pas prises en charge. | Oui. Les clauses de requête Transact-SQL [FOR XML](/sql/t-sql/queries/select-for-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [MATCH](/sql/t-sql/queries/match-sql-graph?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [PREDICT](/sql/t-sql/queries/predict-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), ainsi que les indicateurs de requête, ne sont pas pris en charge. [OFFSET/FETCH](/sql/t-sql/queries/select-order-by-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#using-offset-and-fetch-to-limit-the-rows-returned) et [PIVOT/UNPIVOT](/sql/t-sql/queries/from-using-pivot-and-unpivot?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) peuvent être utilisés uniquement pour interroger les données des tables temporaires (et non les données externes). |
+| **Instruction SELECT** | Oui. Les clauses de requête Transact-SQL [FOR XML/FOR JSON](/sql/t-sql/queries/select-for-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [MATCH](/sql/t-sql/queries/match-sql-graph?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) et [PREDICT](/sql/t-sql/queries/predict-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) ne sont pas prises en charge. | Oui. Les clauses de requête Transact-SQL [FOR XML](/sql/t-sql/queries/select-for-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [MATCH](/sql/t-sql/queries/match-sql-graph?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [PREDICT](/sql/t-sql/queries/predict-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), ainsi que les indicateurs de requête, ne sont pas pris en charge. [OFFSET/FETCH](/sql/t-sql/queries/select-order-by-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#using-offset-and-fetch-to-limit-the-rows-returned) et [PIVOT/UNPIVOT](/sql/t-sql/queries/from-using-pivot-and-unpivot?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) peuvent être utilisés pour interroger les objets système (et non les données externes). |
 | **Instruction INSERT** | Oui | Non |
 | **Instruction UPDATE** | Oui | Non |
 | **Instruction DELETE** | Oui | Non |
@@ -77,20 +77,31 @@ Synapse SQL vous permet d’utiliser des fonctionnalités de sécurité intégr�
 | --- | --- | --- |
 | **Connexions** | N/A (seuls les utilisateurs contenus sont pris en charge dans les bases de données) | Oui |
 | **Utilisateurs** |  N/A (seuls les utilisateurs contenus sont pris en charge dans les bases de données) | Oui |
-| **[Utilisateurs contenus](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)** | Oui. **Remarque :** Un seul utilisateur AAD peut avoir le rôle d’administrateur non restreint | Oui |
-| **Authentification Azure Active Directory (AAD)**| Oui, utilisateurs AAD | Oui, connexions et utilisateurs AAD |
-| **Authentification directe AAD pour le stockage** | Oui | Oui |
+| **[Utilisateurs contenus](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)** | Oui. **Remarque :** Un seul utilisateur Azure AD peut avoir le rôle d’administrateur non restreint. | Oui |
+| **Authentification par nom d’utilisateur/mot de passe SQL**| Oui | Oui |
+| **Authentification Azure Active Directory (AAD)**| Oui, utilisateurs Azure AD | Oui, connexions et utilisateurs Azure AD |
+| **Authentification directe Azure Active Directory (AAD) pour le stockage** | Oui | Oui |
 | **Authentification par jeton SAS pour le stockage** | Non | Oui, avec [DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) dans [EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) ou avec [CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) au niveau de l’instance. |
 | **Authentification par clé d’accès de stockage** | Oui, avec [DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) dans [EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Non |
-| **Authentification par identité managée pour le stockage** | Oui, avec des [informations d’identification Managed Service Identity](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Oui, avec des informations d’identification `Managed Identity`. |
+| **Authentification par [identité managée](../security/synapse-workspace-managed-identity.md) pour le stockage** | Oui, avec des [informations d’identification Managed Service Identity](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Oui, avec des informations d’identification `Managed Identity`. |
 | **Authentification avec l’identité de l’application de stockage** | [Oui](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Non |
 | **Autorisations - Au niveau objet** | Oui, y compris la possibilité d’accorder (GRANT), de refuser (DENY) et de révoquer (REVOKE) des autorisations pour les utilisateurs | Oui, y compris la possibilité d’accorder (GRANT), de refuser (DENY) et de révoquer (REVOKE) des autorisations pour les utilisateurs/connexions au niveau des objets système pris en charge |
 | **Autorisations - Au niveau du schéma** | Oui, y compris la possibilité d’accorder (GRANT), de refuser (DENY) et de révoquer (REVOKE) des autorisations pour les utilisateurs/connexions au niveau du schéma | Oui, y compris la possibilité d’accorder (GRANT), de refuser (DENY) et de révoquer (REVOKE) des autorisations pour les utilisateurs/connexions au niveau du schéma |
 | **Autorisations - [Au niveau de la base de données](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)** | Oui | Oui |
 | **Autorisations - [Au niveau du serveur](/sql/relational-databases/security/authentication-access/server-level-roles)** | Non | Oui, sysadmin et d’autres rôles serveur sont pris en charge |
+| **Autorisations - [Sécurité au niveau des colonnes](/azure/synapse-analytics/sql-data-warehouse/column-level-security?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)** | Oui | Oui |
 | **Rôles/Groupes** | Oui (au niveau de la base de données) | Oui (à la fois au niveau du serveur et de la base de données) |
 | **Fonctions d’identité et de sécurité** | Certaines fonctions et certains opérateurs de sécurité Transact-SQL : `CURRENT_USER`, `HAS_DBACCESS`, `IS_MEMBER`, `IS_ROLEMEMBER`, `SESSION_USER`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS` `OPEN/CLOSE MASTER KEY` | Certaines fonctions et certains opérateurs de sécurité Transact-SQL : `CURRENT_USER`, `HAS_DBACCESS`, `HAS_PERMS_BY_NAME`, `IS_MEMBER', 'IS_ROLEMEMBER`, `IS_SRVROLEMEMBER`, `SESSION_USER`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS` et `REVERT`. Les fonctions de sécurité ne peuvent pas être utilisées pour interroger des données externes (stockez le résultat dans une variable qui peut être utilisée dans la requête).  |
 | **DATABASE SCOPED CREDENTIAL** | Oui | Oui |
+| **SERVER SCOPED CREDENTIAL** | Non | Oui |
+| **Sécurité au niveau des lignes** | [Oui](https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&view=sql-server-ver15) | Non |
+| **Chiffrement transparent des données (TDE)** | [Oui](/azure/sql-database/transparent-data-encryption-azure-sql?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=azure-portal) | Non | 
+| **Découverte et classification des données** | [Oui](/azure/sql-database/sql-database-data-discovery-and-classification?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Non |
+| **Évaluation des vulnérabilités** | [Oui](/azure/sql-database/sql-vulnerability-assessment?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Non |
+| **Protection avancée contre les menaces** | [Oui](/azure/sql-database/sql-database-threat-detection-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+| **Audit** | [Oui](/azure/sql-database/sql-database-auditing?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Non |
+| **[Règles de pare-feu](../security/synapse-workspace-ip-firewall.md)**| Oui | Oui |
+| **[Point de terminaison privé](../security/synapse-workspace-managed-private-endpoints.md)**| Oui | Oui |
 
 Le pool SQL et SQL à la demande utilisent le langage Transact-SQL standard pour interroger les données. Pour plus d’informations sur ces différences, consultez la [documentation de référence sur le langage Transact-SQL](/sql/t-sql/language-reference).
 
@@ -120,6 +131,7 @@ Les données qui sont analysées peuvent être stockées sur différents types d
 | **Stockage interne** | Oui | Non |
 | **Azure Data Lake v2** | Oui | Oui |
 | **Stockage Blob Azure** | Oui | Oui |
+| **Stockage analytique Azure CosmosDB** | Non | Oui, à l’aide de [Synapse Link](/azure/cosmos-db/synapse-link?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (en [préversion contrôlée](/azure/cosmos-db/synapse-link?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#limitations)) |
 
 ## <a name="data-formats"></a>Formats de données
 
@@ -133,6 +145,7 @@ Les données qui sont analysées peuvent être stockées dans différents format
 | **Hive ORC** | [Oui](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Non |
 | **Hive RC** | [Oui](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Non |
 | **JSON** | Oui | [Oui](query-json-files.md) |
+| **Avro** | Non | Non |
 | **[Delta-lake](https://delta.io/)** | Non | Non |
 | **[CDM](https://docs.microsoft.com/common-data-model/)** | Non | Non |
 

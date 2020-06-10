@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c4ca328aa0ddc61d86a435b93fe775f294287b98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12deb51cb2c0efc1bef77a3ff2c8d5150ba13cde
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79527382"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196103"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide sur les performances et le réglage de l’activité de copie
 
@@ -366,8 +366,8 @@ Si la taille des données à copier est importante, vous pouvez ajuster votre lo
 
 Faites attention au nombre de jeux de données et d’activités de copie nécessitant que Data Factory se connecte à la même banque de données en même temps. De nombreux travaux de copie simultanés peuvent limiter une banque de données, et entraîner une dégradation des performances, une multiplication des tentatives internes de travail de copie et, dans certains cas, des échecs d’exécution.
 
-## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Exemple de scénario : copie depuis un SQL Server local vers le stockage Blob
-**Scénario** : un pipeline est conçu pour copier des données d’un serveur SQL Server local vers un stockage Blob au format CSV. Pour accélérer la copie des travaux, les fichiers CSV doivent être compressés au format bzip2.
+## <a name="sample-scenario-copy-from-a-sql-server-database-to-blob-storage"></a>Exemple de scénario : Copier d’une base de données SQL Server vers Stockage Blob
+**Scénario** : Un pipeline est conçu pour copier des données d’une base de données SQL Server vers un Stockage Blob au format CSV. Pour accélérer la copie des travaux, les fichiers CSV doivent être compressés au format bzip2.
 
 **Test et analyse** : le débit de l’activité de copie est inférieur à 2 Mbits/s, ce qui est beaucoup plus lent que le test d’évaluation des performances.
 

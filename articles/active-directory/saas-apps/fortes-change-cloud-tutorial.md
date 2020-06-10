@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55305fff95e9707b35ea265915e2893a736ab97d
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 1a8dc8bec5d5e81a8e1e23e7697e6e630b307670
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81264874"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219738"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortes-change-cloud"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Fortes Change Cloud
 
@@ -83,7 +83,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<identifier>.fortes-online.com`
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<identifier>.fortes-online.com/saml/metadata`
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<identifier>.fortes-online.com/saml/SSO`
 
@@ -94,7 +94,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support Fortes Change Cloud](mailto:support@fortes.nl). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. L’application Fortes Change Cloud attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **nameidentifier** est mappé avec **user.userprincipalname**. L’application Fortes Change Cloud s’attend à ce que **nameidentifier** soit mappé à **user.samaccountname**. Vous devez donc modifier le mappage d’attributs en cliquant sur l’icône **Modifier** et changer le mappage d’attributs.
+1. L’application Fortes Change Cloud attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **nameidentifier** est mappé avec **user.userprincipalname**. L’application Fortes Change Cloud s’attend à ce que **Identificateur unique de l’utilisateur** soit mappé à **user.mail**. Vous devez donc modifier le mappage d’attributs en cliquant sur l’icône **Modifier** et changer le mappage d’attributs.
 
     ![image](common/edit-attribute.png)
 

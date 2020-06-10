@@ -1,6 +1,6 @@
 ---
-title: Exemple CLI – Importer un fichier BACPAC dans une base de données Azure SQL
-description: Exemple de script Azure CLI qui importe un fichier BACPAC dans une base de données SQL
+title: 'Azure CLI : Importer un fichier BACPAC vers une base de données dans Azure SQL Database'
+description: Exemple de script Azure CLI permettant d’importer un fichier BACPAC dans une base de données dans Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,16 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 05/24/2019
-ms.openlocfilehash: f47d0ec2edf54aaa708c176e92a9e1026b446882
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9e3638c9823ed0fbae61a0dc5a93dff2e211d3f3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80061831"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022639"
 ---
-# <a name="use-cli-to-import-a-bacpac-file-into-an-azure-sql-database"></a>Utiliser CLI pour importer un fichier BACPAC dans une base de données Azure SQL
+# <a name="use-cli-to-import-a-bacpac-file-into-a-database-in-sql-database"></a>Utiliser CLI pour importer un fichier BACPAC dans une base de données dans SQL Database
 
-Cet exemple de script Azure CLI importe dans une base de données Azure SQL, la base de données contenue dans un fichier *.bacpac*.  
+Cet exemple de script Azure CLI importe une base de données d’un fichier *.bacpac* vers une base de données dans SQL Database.  
 
 Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
 
@@ -55,4 +55,4 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](/cli/azure).
 
-Vous trouverez des exemples supplémentaires de scripts CLI SQL Database dans [Documentation Azure SQL Database](../sql-database-cli-samples.md).
+Vous trouverez des exemples supplémentaires de scripts CLI SQL Database dans [Documentation Azure SQL Database](../../azure-sql/database/az-cli-script-samples-content-guide.md).

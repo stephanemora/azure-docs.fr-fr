@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: fd11fd32c4c6901302d1f7960ad38ad426e6a3a6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 156d960571f4d5f28f64823ecbe8f0465739bb23
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663267"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141719"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Se connecter avec Managed Identity à Azure Database pour MySQL
 
@@ -22,6 +22,9 @@ Cet article explique comment utiliser une identité affectée par l’utilisateu
 > * Créer un utilisateur dans la base de données représentant l’identité affectée par l’utilisateur de la machine virtuelle
 > * Obtenir un jeton d’accès à l’aide de l’identité de la machine virtuelle et l’utiliser pour interroger un serveur Azure Database pour MySQL
 > * Implémenter la récupération de jetons dans un exemple d’application C#
+
+> [!IMPORTANT]
+> La connexion avec une identité gérée est uniquement disponible pour MySQL 5.7 et versions ultérieures.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -72,9 +75,9 @@ CREATE AADUSER 'myuser' IDENTIFIED BY 'CLIENT_ID';
 
 L’identité managée dispose désormais d’un accès lors de l’authentification avec le nom d’utilisateur `myuser` (remplacez-le par le nom de votre choix).
 
-## <a name="retrieving-the-access-token-from-azure-instance-metadata-service"></a>Récupération du jeton d’accès à partir du service de métadonnées d’instance Azure
+## <a name="retrieving-the-access-token-from-azure-instance-metadata-service"></a>Récupération du jeton d’accès à partir d’Azure Instance Metadata Service
 
-Votre application peut désormais récupérer un jeton d’accès à partir du service de métadonnées d’instance Azure et l’utiliser pour l’authentification auprès de la base de données.
+Votre application peut désormais récupérer un jeton d’accès à partir d’Azure Instance Metadata Service et l’utiliser pour l’authentification auprès de la base de données.
 
 Vous effectuez cette récupération de jeton en envoyant une requête HTTP à `http://169.254.169.254/metadata/identity/oauth2/token` et en transmettant les paramètres suivants :
 
