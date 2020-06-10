@@ -3,12 +3,13 @@ title: 'Tutoriel : créer et exécuter un notebook Jupyter - Azure Notebooks 
 description: Apprenez à créer et exécuter un notebook Jupyter dans Azure Notebooks Preview qui illustre le processus de régression linéaire en science des données.
 ms.topic: tutorial
 ms.date: 01/11/2019
-ms.openlocfilehash: 8a1c13f41ef1588b040b3540b852d83764c6ce79
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: tracking-python
+ms.openlocfilehash: e677fca9291bb5247071c3970b7db3f36a6bdceb
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75660815"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561751"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutoriel : Créer et exécuter un notebook Jupyter avec Python
 

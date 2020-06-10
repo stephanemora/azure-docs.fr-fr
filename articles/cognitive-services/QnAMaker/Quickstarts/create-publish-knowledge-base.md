@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Créer, entraîner et publier une base de connaissances - QnA Maker'
 description: Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre contenu, tel que des Questions fréquentes (FAQ) ou des manuels. Cet article inclut un exemple de création d’une base de connaissances QnA Maker à partir d’une simple page web de questions fréquentes (FAQ), pour répondre à des questions sur QnA Maker.
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: a35cbdea2d40e4b0df0ce0f0b36f1b6bf60dd42e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 12f46e9a72f0a3b027fe67e5b8bf27c940685cfe
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871461"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84340587"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Démarrage rapide : Créer, entraîner et publier votre base de connaissances QnA Maker
 
@@ -35,7 +35,7 @@ Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre
 1. À l’**étape 3**, sélectionnez votre annuaire Active Directory, votre abonnement, votre service (ressource) et la langue de toutes les bases de connaissances créées dans le service.
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/qnaservice-selection.png" alt-text="Capture d’écran de la sélection d’une base de connaissances du service QnA Maker":::
-    
+
 1. À l’**étape 3**, nommez votre base de connaissances **My Sample QnA KB**.
 
 1. À l’**étape 4**, configurez les paramètres à l’aide du tableau suivant :
