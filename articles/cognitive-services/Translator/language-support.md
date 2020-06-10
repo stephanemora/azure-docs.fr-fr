@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 359079ad73fcf162fb742afe74c1c1de5896c35c
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 6339b86166aff008bf17b5096d42629daf6e3401
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996072"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434285"
 ---
 # <a name="language-and-region-support-for-translator"></a>Prise en charge de la région et de la langue pour Translator
 
@@ -74,10 +74,11 @@ Translator prend en charge les langues suivantes pour la traduction de texte. La
 |Irlandais | `ga`| Neuronale
 |Italien|    `it`    |    Neuronale|
 |Japonais|    `ja`    |    Neuronale|
-|Kannada|`kn`| Neuronale
+|Kannada|`kn`| Neuronale|
+|Kazakh |`kk`| Neuronale|
 |Kiswahili|    `sw`    |    Statistique|
-|Klingon|    `tlh`    |    Statistique|
-|Klingon (plqaD)|    `tlh-Qaak`    |    Statistique|
+|Klingon|    `tlh-Latn`    |    Statistique|
+|Klingon (plqaD)|    `tlh-Piqd`    |    Statistique|
 |Coréen    |`ko`    |    Neuronale|
 |Letton|    `lv`    |    Neuronale|
 |Lituanien|    `lt`    |    Neuronale|
@@ -130,20 +131,20 @@ La méthode Transliterate prend en charge les langues ci-après. Dans la colonne
 | Chinois (simplifié) | `zh-Hans` | Chinois (simplifié) `Hans`| <--> | Chinois (traditionnel) `Hant`|
 | Chinois (traditionnel) | `zh-Hant` | Chinois (traditionnel) `Hant`| <--> | Latin `Latn` |
 | Chinois (traditionnel) | `zh-Hant` | Chinois (traditionnel) `Hant`| <--> | Chinois (simplifié) `Hans` |
-| Goudjrati | `gu`  | Goudjrati `Gujr` | --> | Latin `Latn` |
+| Goudjrati | `gu`  | Goudjrati `Gujr` | <--> | Latin `Latn` |
 | Hébreu | `he` | Hébreu `Hebr` | <--> | Latin `Latn` |
 | Hindi | `hi` | Dévanâgarî `Deva` | <--> | Latin `Latn` |
 | Japonais | `ja` | Japonais `Jpan` | <--> | Latin `Latn` |
-| Kannada | `kn` | Kannada `Knda` | --> | Latin `Latn` |
-| Malayalam | `ml` | Malayalam `Mlym` | --> | Latin `Latn` |
-| Marathi | `mr` | Dévanâgarî `Deva` | --> | Latin `Latn` |
+| Kannada | `kn` | Kannada `Knda` | <--> | Latin `Latn` |
+| Malayalam | `ml` | Malayalam `Mlym` | <--> | Latin `Latn` |
+| Marathi | `mr` | Dévanâgarî `Deva` | <--> | Latin `Latn` |
 | Odia | `or` | Odia `Orya` | <--> | Latin `Latn` |
 | Pendjabi | `pa` | Gurmukhi `Guru`  | <--> | Latin `Latn`  |
 | Serbe (cyrillique) | `sr-Cyrl` | Cyrillique `Cyrl`  | --> | Latin `Latn` |
 | Serbe (latin) | `sr-Latn` | Latin `Latn` | --> | Cyrillique `Cyrl`|
-| Tamoul | `ta` | Tamoul `Taml` | --> | Latin `Latn` |
-| Télougou | `te` | Télougou `Telu` | --> | Latin `Latn` |
-| Thaï | `th` | Thaï `Thai` | --> | Latin `Latn` |
+| Tamoul | `ta` | Tamoul `Taml` | <--> | Latin `Latn` |
+| Télougou | `te` | Télougou `Telu` | <--> | Latin `Latn` |
+| Thaï | `th` | Thaï `Thai` | <--> | Latin `Latn` |
 
 ## <a name="dictionary"></a>Dictionnaire
 
@@ -177,7 +178,7 @@ Le dictionnaire prend en charge les langues ci-après de ou vers l’anglais à 
 | Italien      | `it`          |
 | Japonais      | `ja`          |
 | Kiswahili      | `sw`          |
-| Klingon      | `tlh`          |
+| Klingon      | `tlh-Latn`          |
 | Coréen      | `ko`          |
 | Letton      | `lv`          |
 | Lituanien      | `lt`          |

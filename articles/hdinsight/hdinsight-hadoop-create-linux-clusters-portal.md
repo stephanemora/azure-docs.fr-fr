@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 8d4e9a1e255884b9250879ab486d7a4e2849473a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a2a9b149bd76ed276f3210f27ea0f60bbc7b7662
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192091"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84190888"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Créer des clusters Linux dans HDInsight à l’aide du portail Azure
 
@@ -62,6 +62,9 @@ Sous l’onglet **De base**, fournissez les informations suivantes :
 Sélectionnez **Suivant : Stockage >>** pour passer à l’onglet suivant.
 
 ## <a name="storage"></a>Stockage
+
+> [!WARNING] 
+> À compter du 15 juin 2020, les clients ne seront pas en mesure de créer un principal de service à l’aide de HDInsight. Consultez [Créer un principal de service et des certificats](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) à l’aide d’Azure Active Directory.
 
 ![HDInsight - Créer un cluster - Stockage](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png "Création d’un cluster dans le portail Azure - Stockage")
 

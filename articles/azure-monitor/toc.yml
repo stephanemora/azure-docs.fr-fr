@@ -155,6 +155,8 @@
           displayname: VM
     - name: Gérer et configurer
       items:
+        - name: Déployer à l’échelle
+          href: platform/deploy-scale.md
         - name: Sécurité et autorisations des rôles
           href: platform/roles-permissions-security.md
         - name: "Adresses\_IP"

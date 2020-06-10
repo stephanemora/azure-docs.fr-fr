@@ -19,8 +19,6 @@
       href: terminology.md
     - name: Rôles et conditions requises
       href: concepts-roles-permissions.md
-    - name: Récupération d'urgence
-      href: disaster-recovery.md
 - name: Exemples
   items:
     - name: Exemples de code
@@ -43,6 +41,10 @@
       href: how-to-delete-invitation.md
     - name: Révoquer un abonnement de partage
       href: how-to-revoke-share-subscription.md
+    - name: Sécurité
+      href: security.md
+    - name: Récupération d'urgence
+      href: disaster-recovery.md
 - name: Informations de référence
   items:
     - name: .NET

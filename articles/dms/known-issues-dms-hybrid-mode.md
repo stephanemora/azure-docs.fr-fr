@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: aedc7ea3d778d52f6f348837430987568af188ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5347cda14773583bcfe92a702e59d4967ce2ea09
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77649600"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196275"
 ---
 # <a name="known-issuesmigration-limitations-with-using-hybrid-mode"></a>Problèmes connus/limitations de migration avec le mode hybride
 
@@ -93,10 +93,10 @@ Si vous n’avez plus accès à l’ordinateur Worker, vous pouvez annuler l’i
 
 Les sections ci-dessous décrivent des problèmes propres à certains scénarios d’utilisation du mode hybride d’Azure Database Migration Service pour effectuer une migration en ligne.
 
-### <a name="online-migrations-to-azure-sql-database-managed-instance"></a>Migrations en ligne vers Azure SQL Database Managed Instance
+### <a name="online-migrations-to-azure-sql-managed-instance"></a>Migrations en ligne vers Azure SQL Managed Instance
 
 **Utilisation élevée du processeur**
 
-**Problème** : pour les migrations en ligne vers SQL Database Managed Instance, l’ordinateur exécutant le Worker hybride affiche une forte utilisation du processeur s’il y a trop de sauvegardes ou si elles sont trop volumineuses.
+**Problème** : pour les migrations en ligne vers SQL Managed Instance, l’ordinateur exécutant le Worker hybride affiche une forte utilisation du processeur s’il y a trop de sauvegardes ou si elles sont trop volumineuses.
 
 **Atténuation** : pour atténuer ce problème, utilisez des sauvegardes compressées, fractionnez la migration pour qu’elle utilise plusieurs partages ou effectuez un scale-up de l’ordinateur exécutant le Worker hybride.

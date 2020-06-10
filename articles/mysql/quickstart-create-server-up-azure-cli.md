@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 7b81e88fe6f658fdf4c1857c6082100894c6f2f6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f2d0d0517579608a76ccf8c1e63aa993556e8d58
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80067717"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608023"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Démarrage rapide : Créer un serveur Azure Database pour MySQL à l’aide d’une simple commande Azure CLI - az mysql up (préversion)
 
@@ -64,7 +64,7 @@ sku-name | GP_Gen5_2 | Nom du la référence SKU. Suit la convention {niveau tar
 backup-retention | 7 | Durée pendant laquelle la sauvegarde doit être conservée. Exprimée en jours.
 geo-redundant-backup | Désactivé | Indique si les sauvegardes géoredondantes doivent être activées ou non pour ce serveur.
 location | westus2 | Emplacement Azure du serveur.
-ssl-enforcement | Désactivé | Indique si le protocole SSL doit être activé ou non pour ce serveur.
+ssl-enforcement | activé | Indique si le protocole SSL doit être activé ou non pour ce serveur.
 storage-size | 5120 | Capacité de stockage du serveur (en mégaoctets).
 version | 5.7 | Version principale de MySQL.
 admin-user | Générée par le système | Nom d’utilisateur du compte administrateur.

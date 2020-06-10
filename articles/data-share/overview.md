@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
-ms.openlocfilehash: 363feda1409d2bb54e60d1b2168cba38f2a8a41c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fa90f272a05b7449981ca5d4ccab161fb1e39e9e
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77621852"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636770"
 ---
 # <a name="what-is-azure-data-share"></a>Qu’est-ce qu’Azure Data Share ?
 
@@ -78,15 +78,6 @@ Avec Azure Data Share, les consommateurs de données peuvent :
 * S’abonner à un partage de données afin de recevoir la dernière version des données via un instantané incrémentiel
 
 Toutes ces fonctionnalités sont disponibles par le biais du portail Azure ou des API REST. Pour plus d’informations sur l’utilisation d’Azure Data Share via les API REST, consultez notre documentation de référence. 
-
-## <a name="security"></a>Sécurité
-
-Azure Data Share s’appuie sur la sécurité sous-jacente fournie par Azure pour protéger les données au repos et en transit. Les données sont chiffrées au repos, lorsque le magasin de données sous-jacent le permet. Les données en transit sont également chiffrées. Les métadonnées concernant un partage de données sont également chiffrées lorsqu’elles sont au repos et en transit. 
-
-Les contrôles d’accès peuvent être définis au niveau des ressources Azure Data Share, afin que seules les personnes autorisées puissent y accéder. 
-
-Azure Data Share utilise les identités managées pour ressources Azure (autrefois, fichiers MSI) dans le cadre de la gestion automatique des identités dans Azure Active Directory. Les identités managées pour ressources Azure permettent d’accéder aux magasins de données qui sont utilisés pour le partage des données. Il n’y a pas d’échange d’informations d’identification entre un fournisseur de données et un consommateur de données. Pour plus d’informations, consultez [Identités managées pour les ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities). 
-
 
 ## <a name="supported-regions"></a>Régions prises en charge
 

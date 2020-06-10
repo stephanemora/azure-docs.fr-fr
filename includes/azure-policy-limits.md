@@ -1,17 +1,17 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
 ms.date: 04/23/2020
 ms.author: dacoulte
-ms.openlocfilehash: 04e607296478520298a2febab61a7edac911a59c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e9faea1d5913a19dfdeff662e26992529dc1b22d
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82131560"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84466886"
 ---
 Il existe un nombre maximal pour chaque type d'objet concernant Azure Policy. Une entrée _Scope_ (Étendue) fait référence soit à l’abonnement, soit au [groupe d’administration](../articles/governance/management-groups/overview.md).
 
@@ -19,7 +19,7 @@ Il existe un nombre maximal pour chaque type d'objet concernant Azure Policy. Un
 |---|---|---|
 | Étendue | Définitions de stratégies | 500 |
 | Étendue | Définitions d’initiative | 100 |
-| Locataire | Définitions d’initiative | 1 000 |
+| Locataire | Définitions d’initiative | 2 500 |
 | Étendue | Affectations de stratégies et d'initiatives | 100 |
 | Définition de stratégie | Paramètres | 20 |
 | Définition d’initiative | Stratégies | 100 |
