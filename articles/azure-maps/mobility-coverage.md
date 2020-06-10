@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 85988d74d21c411586a368e12972450116259a45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db53e09957b5907e9b742c264b6a41f51041df1c
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334401"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310238"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Couverture de la mobilité Azure Maps
 
@@ -119,7 +119,7 @@ Le tableau suivant fournit des informations sur la couverture du service Mobilit
 | Suisse | Bâle, Genève, Yverdon-les-Bains, Zurich | 
 | Turquie | Adana-Mersin, Ankara, Antalya, Balıkesir, Bilecik, Bolu, Bursa, Denizli, Düzce, Elâzığ, Eskişehir, Istanbul, Izmir, Aydin, Kahramanmaraş, Kayseri, Konya, Malatya, Muğla, Samsun, Şanlıurfa |    
 | Royaume-Uni | Est-Anglie, Midlands de l’Est, Londres et Sud-Est, Nord-Est, Nord-Ouest, Irlande du Nord, Écosse, Sud-Ouest, Pays de Galles, Midlands de l’Ouest, Yorkshire |
-| Ukraine | Kharkiv, Zhytomyr, Kiev, Lviv, Tchernivtsi |
+| Ukraine | Kharkiv, Zhytomyr, Kyiv, Lviv, Tchernivtsi |
 
 
 ## <a name="middle-east-and-africa"></a>Moyen-Orient et Afrique

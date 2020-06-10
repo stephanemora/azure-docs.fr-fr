@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: b577b82585ffad0547818b4f19554a2f39cb830c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5b8ac3d46f21f299f3e56dab24a1b5f342fb4b6
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75498091"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309949"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Résoudre les problèmes de restauration automatique sur l’infrastructure locale à partir d’Azure
 
@@ -69,7 +69,7 @@ Pour résoudre ce problème :
 
 ### <a name="error-code-78093"></a>Code d'erreur 78093
 
-**La machine virtuelle n’est pas en cours d’exécution, est dans un état suspendu ou n’est pas accessible.**
+**La machine virtuelle n'est pas en cours d'exécution, ne répond pas ou n'est pas accessible.**
 
 Pour résoudre ce problème :
 

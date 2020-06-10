@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
-ms.openlocfilehash: 3c7d4f0a6d33a52fd972815923e60b33ce8a7448
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: c27bf9a29bdb6e75e10fcafc597f40a88f995461
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901352"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196090"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Résoudre les problèmes de réplication dans le cadre de la reprise d’activité d’une machine virtuelle Azure
 
@@ -105,6 +105,10 @@ Voici quelques-uns des problèmes les plus courants.
 ### <a name="youre-using-azure-storage-spaces-direct-configuration"></a>Vous utilisez la configuration des espaces de stockage direct Azure
 
 **Procédure de résolution** : Azure Site Recovery ne peut pas créer de point de récupération cohérent avec l’application pour la configuration des espaces de stockage direct. [Configurez la stratégie de réplication](azure-to-azure-how-to-enable-replication-s2d-vms.md).
+
+### <a name="app-consistency-not-enabled-on-linux-servers"></a>Cohérence des applications non activée sur les serveurs Linux
+
+**Procédure de résolution** : Azure Site Recovery pour le système d’exploitation Linux prend en charge les scripts personnalisés des applications à des fins de cohérence. Le script personnalisé avec options pré et post-script sera utilisé par l’agent Mobilité Azure Site Recovery pour la cohérence des applications. [Voici](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) les étapes pour activer cela.
 
 ### <a name="more-causes-because-of-vss-related-issues"></a>Autres causes dues à des problèmes liés à VSS :
 

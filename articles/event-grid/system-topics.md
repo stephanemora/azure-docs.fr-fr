@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 06/02/2020
 ms.author: spelluru
-ms.openlocfilehash: 46bceeb31fa38068c6c4f9f3a86ed556ad39effb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67746ebd8a16eb02b8f02d238b0e3c0125989189
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393148"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308266"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Rubriques système dans Azure Event Grid
 Le service Azure Event Grid crée des rubriques système lorsque vous créez un premier abonnement d’événement pour une source d’événements Azure. Actuellement, Event Grid ne crée pas de rubriques système pour les sources de rubrique créées avant le 15 mars 2020. Pour toutes les sources de rubriques que vous avez créées à cette date ou après, Event Grid crée automatiquement des rubriques système. Cet article décrit les principales **rubriques système** utilisées dans Azure Event Grid.
@@ -25,6 +25,9 @@ Lorsque vous créez un premier abonnement d’événement pour une source d’é
 
 La rubrique système n’est pas applicable aux scénarios de rubriques personnalisées, autrement dit, les rubriques Event Grid et les domaines Event Grid. 
 
+## <a name="name"></a>Nom 
+Auparavant, lorsque vous créiez un abonnement pour un événement déclenché par des sources Azure, le service Event Grid créait automatiquement une rubrique système avec un **nom généré de manière aléatoire**. Vous pouvez désormais spécifier un nom pour la rubrique système lors de la création de cette rubrique dans le portail Azure. Vous pouvez utiliser cette ressource de rubrique système pour découvrir des métriques et des journaux de diagnostic.
+
 ## <a name="location"></a>Emplacement
 Pour les sources d’événements Azure qui se trouvent dans une région/un emplacement spécifique, la rubrique système est créée au même endroit que la source d’événements Azure. Par exemple, si vous créez un abonnement aux événements pour un stockage Blob dans USA Est, la rubrique système est créée dans la région USA Est. Pour les sources d’événements Azure globales, comme les abonnements Azure, les groupes de ressources ou les Azure Maps, Event Grid crée la rubrique système dans l’emplacement **global**. 
 
@@ -35,8 +38,6 @@ Lorsque vous essayez de supprimer le groupe de ressources avec le compte de stoc
 
 ![Supprimer un groupe de ressources](./media/system-topics/delete-resource-group.png)
 
-## <a name="next-steps"></a>Étapes suivantes
-Voir les articles suivants : 
 
-- [Rubriques personnalisées](custom-topics.md)
-- [Domaines](event-domains.md)
+## <a name="next-steps"></a>Étapes suivantes
+Consultez l’article suivant : [Créer, afficher et gérer des rubriques système](create-view-manage-system-topics.md).

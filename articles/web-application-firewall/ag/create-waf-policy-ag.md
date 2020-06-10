@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: e3738da806ff36cdb7e8d561b88a457a5264eb76
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 7ab4b60747509dfe56ec2e89b38986de747dab69
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886923"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014534"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Créer des stratégies de pare-feu d’applications web pour Application Gateway
 
@@ -97,9 +97,20 @@ Si vous avez une Stratégie de règles personnalisées uniquement, vous pouvez �
 
 Les modifications apportées à la Stratégie de règles personnalisées uniquement sont désactivées. Pour modifier des paramètres de WAF tels que la désactivation de règles, l’ajout d’exclusions, etc., vous devez migrer vers une nouvelle ressource de stratégie de pare-feu de niveau supérieur.
 
-Pour ce faire, créez une *stratégie de pare-feu d’applications web* et associez-la aux Application Gateways et écouteurs de votre choix. Cette nouvelle stratégie **doit** être identique à la configuration de WAF actuelle, ce qui signifie que chaque règle personnalisée, exclusion, règle désactivée, etc. doit être copiée dans la nouvelle stratégie que vous créez. Une fois que vous avez une stratégie associée à votre Application Gateway, vous pouvez continuer à apporter des modifications à vos règles et paramètres WAF. Vous pouvez également faire cela avec Azure PowerShell. Pour plus d’informations, voir [Associer une stratégie WAF à une Application Gateway existante](associate-waf-policy-existing-gateway.md).
+Pour ce faire, créez une *stratégie de pare-feu d’applications web* et associez-la aux Application Gateways et écouteurs de votre choix. Cette nouvelle stratégie doit être identique à la configuration de WAF actuelle, ce qui signifie que chaque règle personnalisée, exclusion, règle désactivée, etc. doit être copiée dans la nouvelle stratégie que vous créez. Une fois que vous avez une stratégie associée à votre Application Gateway, vous pouvez continuer à apporter des modifications à vos règles et paramètres WAF. Vous pouvez également faire cela avec Azure PowerShell. Pour plus d’informations, voir [Associer une stratégie WAF à une Application Gateway existante](associate-waf-policy-existing-gateway.md).
 
 Si vous le souhaitez, vous pouvez utiliser un script de migration pour migrer vers une stratégie WAF. Pour plus d’informations, consultez [migrer des stratégies de pare-feu d’applications web à l’aide d’Azure PowerShell](migrate-policy.md).
+
+## <a name="force-mode"></a>Mode forcé
+
+Si vous ne souhaitez pas tout copier dans une stratégie identique à celle de votre configuration actuelle, vous pouvez définir le WAF en mode « forcé ». Exécutez le code de Azure PowerShell suivant pour basculer votre WAF en mode forcé. Vous pouvez ensuite associer toute stratégie WAF à votre WAF, même si elle ne présente pas les mêmes paramètres que votre configuration. 
+
+```azurepowershell-interactive
+$appgw = Get-AzApplicationGateway -Name <your Application Gateway name> -ResourceGroupName <your Resource Group name>
+$appgw.ForceFirewallPolicyAssociation = $true
+```
+
+Puis, suivez les étapes permettant d’associer une stratégie WAF à votre passerelle d’application. Pour plus d’informations, consultez [Associer une stratégie WAF à une instance Application Gateway existante](associate-waf-policy-existing-gateway.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,14 +4,14 @@ description: Répertorie les types de ressources Azure qui peuvent être déplac
 author: rayne-wiselman
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 01/20/2020
+ms.date: 05/31/2020
 ms.author: raynew
-ms.openlocfilehash: 9bc7dc66ccf3049ac878f7871c816e5ade1afde5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2f59bbb4711d79fdcb59e39378c25c031ac68af8
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76760706"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249057"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Prise en charge du déplacement des ressources Azure entre les régions
 
@@ -186,7 +186,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Changement de région | 
 > | ------------- | ----------- |
-> | service |  Oui | 
+> | service |  Oui, (utilisation d’un modèle) <br/><br/> [Déplacer la Gestion des API d'une région vers une autre](../../api-management/api-management-howto-migrate.md). | 
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
@@ -200,7 +200,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Changement de région | 
 > | ------------- | ----------- |
-> | apiapps | Non | 
+> | apiapps | Oui, (utilisation d’un modèle)<br/><br/> [Déplacer une application App Service vers une autre région](../../app-service/manage-move-across-regions.md) | 
 > | appidentities | Non | 
 > | gateways | Non | 
 
@@ -217,7 +217,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Changement de région | 
 > | ------------- | ----------- |
-> | automationaccounts | Non | 
+> | automationaccounts | Oui, (utilisation d’un modèle) <br/><br/> [Utilisation de la géoréplication](../../automation/automation-managing-data.md#geo-replication-in-azure-automation) |  
 > | automationaccounts / configurations | Non | 
 > | automationaccounts / runbooks | Non | 
 
@@ -249,7 +249,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Changement de région | 
 > | ------------- | ----------- |
-> | batchaccounts | Non |
+> | batchaccounts |  Oui, (utilisation d’un modèle)<br/><br/> [Déplacer un compte Batch entre régions](../../batch/best-practices.md#moving-batch-accounts-across-regions) |
 
 ## <a name="microsoftbatchai"></a>Microsoft.BatchAI
 
@@ -355,6 +355,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Changement de région | 
 > | ------------- | ----------- |
 > | accounts | Non | 
+> | Recherche cognitive | Oui, (utilisation d’un modèle)<br/><br/> [Déplacer votre service Recherche cognitive vers une autre région](../../search/search-howto-move-across-regions.md)
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -588,6 +589,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Changement de région | 
 > | ------------- | ----------- |
 > | controllers | Non | 
+> | Cluster AKS | Non<br/><br/> [Apprenez-en davantage](../../dev-spaces/faq.md#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region) sur le déplacement vers une autre région.
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
@@ -636,7 +638,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Changement de région | 
 > | ------------- | ----------- |
 > | clusters | Non |  
-> | espaces de noms | Non | 
+> | espaces de noms | Oui (avec modèle)<br/><br/> [Déplacer un espace de noms Event Hubs vers une autre région](../../event-hubs/move-across-regions.md) | 
 
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
 
@@ -713,7 +715,15 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Changement de région | 
 > | ------------- | ----------- |
-> | iotapps |  Non |  
+> | checknameavailability |  Non
+> | graph | Non
+
+## <a name="microsoftiothub"></a>Microsoft.IoTHub
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Changement de région | 
+> | ------------- | ----------- |
+> |  iothub |  Oui (cloner un hub) <br/><br/> [Cloner un hub IoT dans une autre région](../../iot-hub/iot-hub-how-to-clone.md)
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 
@@ -897,7 +907,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | expressrouteports | Non | 
 > | frontdoors | Non | 
 > | frontdoorwebapplicationfirewallpolicies | Non | 
-> | loadbalancers | Oui - Référence SKU de base<br>Non - Référence SKU Standard | Oui - Référence SKU de base<br> Oui - Référence SKU Standard |
+> | loadbalancers | Oui <br/><br/> Vous pouvez exporter la configuration existante en tant que modèle et déployer le modèle dans la nouvelle région. Découvrez comment déplacer un équilibreur de charge [externe](../..//load-balancer/move-across-regions-external-load-balancer-portal.md) ou [interne](../../load-balancer/move-across-regions-internal-load-balancer-portal.md). |
 > | localnetworkgateways |  Non | 
 > | natgateways |  Non | 
 > | networkintentpolicies |  Non | 
@@ -913,7 +923,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | privatednszones / virtualnetworklinks |  Non |  
 > | privateendpoints | Non | 
 > | privatelinkservices | Non | 
-> | publicipaddresses | Oui - Référence SKU de base<br>Non - Référence SKU Standard | Oui - Référence SKU de base<br>Non - Référence SKU Standard |
+> | publicipaddresses | Oui<br/><br/> Vous pouvez exporter la configuration d’adresse IP publique existante en tant que modèle et déployer le modèle dans la nouvelle région. [Apprenez-en davantage](../../virtual-network/move-across-regions-publicip-portal.md) sur le déplacement d'une d’adresse IP publique. |
 > | publicipprefixes | Non | 
 > | routefilters | Non | 
 > | routetables |  Non | 
@@ -1142,7 +1152,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Changement de région | 
 > | ------------- | ----------- |
-> | storageaccounts | Oui | 
+> | storageaccounts | Oui<br/><br/> [Déplacer un compte Stockage Azure vers une autre région](../../storage/common/storage-account-move.md) | 
 
 ## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
 

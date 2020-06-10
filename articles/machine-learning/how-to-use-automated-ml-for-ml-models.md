@@ -7,16 +7,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: nibaccam
-author: tsikiksr
+author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 03/10/2020
-ms.openlocfilehash: 841d518c02dbc76a172890f6019d78d048f4e8bb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/20/2020
+ms.openlocfilehash: 20d98f8eb4971d2aba1ecfbf8abeaba261cde8c4
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653848"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84115904"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Créer, examiner et déployer des modèles de machine learning automatisé avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -120,14 +120,16 @@ Dans le cas contraire, vous verrez une liste de vos expériences récentes Machi
     Configurations supplémentaires|Description
     ------|------
     Métrique principale| Métrique principale utilisée pour évaluer votre modèle. [En savoir plus sur les métriques du modèle](how-to-configure-auto-train.md#explore-model-metrics).
-    Caractérisation automatique| Activez ou désactivez le prétraitement effectué par Machine Learning automatisé. Le prétraitement comprend le nettoyage automatique des données, la préparation et la transformation pour générer des fonctionnalités synthétiques. N’est pas pris en charge pour le type de tâche prévision de séries chronologiques. [En savoir plus le prétraitement](#featurization). 
+    Caractérisation automatique| Activez ou désactivez la caractérisation effectué par le Machine Learning automatisé. La caractérisation automatique comprend le nettoyage automatique des données, la préparation et la transformation pour générer des caractéristiques synthétiques. N’est pas pris en charge pour le type de tâche prévision de séries chronologiques. [Découvrez-en plus sur la caractérisation](how-to-configure-auto-features.md#featurization). 
     Expliquer le meilleur modèle | Sélectionnez cette option pour activer ou désactiver l’affichage de l’explicabilité du meilleur modèle recommandé
     Algorithme bloqué| Sélectionnez les algorithmes que vous souhaitez exclure du travail de formation.
     Critère de sortie| Quand l’un de ces critères est satisfait, le travail d’entraînement s’arrête. <br> *Durée du travail de formation (heures)*  : Délai d'exécution du travail de formation. <br> *Seuil de score de métrique* :  Score de métrique minimal pour tous les pipelines. Ainsi, si vous avez défini une métrique cible que vous souhaitez atteindre, vous ne passez pas plus de temps sur le travail de formation que nécessaire.
     Validation| Sélectionnez une des options de validation croisée à utiliser dans le travail de formation. [En savoir plus sur la validation croisée](how-to-configure-auto-train.md).
     Accès concurrentiel| *Nombre maximal d'itérations simultanées* : Nombre maximal de pipelines (itérations) à tester dans le travail de formation. Le travail ne s'exécutera pas au-delà du nombre d’itérations spécifié.
 
-1. (Facultatif) Voir les paramètres de personnalisation : si vous choisissez d’activer **Personnalisation automatique** dans le formulaire **Paramètres de configuration supplémentaires**, ce formulaire est l’emplacement où vous spécifiez les colonnes sur lesquelles effectuer ces personnalisations et où vous sélectionnez la valeur statistique à utiliser pour les imputations des valeurs manquantes.
+1. (Facultatif) Afficher les paramètres de caractérisation : si vous choisissez d’activer **Caractérisation automatique** dans le formulaire **Paramètres de configuration supplémentaires** formulaire, les techniques caractérisation par défaut sont appliquées. Dans **Afficher les paramètres de caractérisation**, vous pouvez modifier ces valeurs par défaut et les personnaliser en conséquence. Découvrez comment [personnaliser la caractérisation](#customize-featurization). 
+
+    ![Formulaire de type de tâche Azure Machine Learning Studio](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
 <a name="profile"></a>
 
@@ -155,58 +157,19 @@ Variance| Mesure jusqu’où les données de cette colonne sont déployées par 
 Asymétrie| Mesure de la différence entre les données de cette colonne et une distribution normale.
 Kurtosis| Mesure de la latéralité des données de cette colonne par rapport à une distribution normale.
 
-<a name="featurization"></a>
+## <a name="customize-featurization"></a>Personnaliser la caractérisation
 
-## <a name="advanced-featurization-options"></a>Options avancées de caractérisation
+Dans le formulaire **Caractérisation**, vous pouvez activer/désactiver la caractérisation automatique et personnaliser les paramètres correspondants pour votre expérience. Pour ouvrir ce formulaire, reportez-vous à l’étape 10 de la section [Créer et exécuter une expérience](#create-and-run-experiment). 
 
-Le Machine Learning automatisé offre automatiquement un prétraitement et des garde-fous des données pour pouvoir identifier et gérer les problèmes potentiels liés à vos données, tels que [le surajustement et les données déséquilibrées](concept-manage-ml-pitfalls.md#prevent-over-fitting). 
+Le tableau suivant récapitule les personnalisations actuellement disponibles via le studio. 
 
-### <a name="preprocessing"></a>Prétraitement
+Colonne| Personnalisation
+---|---
+Inclus | Spécifie les colonnes à inclure pour la formation.
+Type de caractéristique| Modifiez le type valeur de la colonne sélectionnée.
+Imputer avec| Sélectionnez la valeur à imputer aux valeurs manquantes dans vos données.
 
-> [!NOTE]
-> Si vous envisagez d’exporter vos modèles créés de ML automatisé vers un [modèle ONNX](concept-onnx.md), seules les options de caractérisation marquées d’un astérisque (*) sont prises en charge dans le format ONNX. Apprenez-en davantage sur la [conversion de modèles au format ONNX](concept-automated-ml.md#use-with-onnx). 
-
-|Étapes de &nbsp;prétraitement| Description |
-| ------------- | ------------- |
-|Supprimer les caractéristiques de cardinalité élevée ou d’absence de variance* |Supprimez ces éléments des jeux de formation et de validation, y compris les fonctionnalités dont toutes les valeurs sont manquantes, ayant la même valeur dans toutes les lignes ou présentant une cardinalité très élevée (par exemple des hachages, des ID ou des GUID).|
-|Imputer des valeurs manquantes* |Pour les fonctionnalités numériques, remplacement par la moyenne des valeurs dans la colonne.<br/><br/>Pour les fonctionnalités catégorielles, remplacement par la valeur la plus fréquente.|
-|Générer des caractéristiques supplémentaires* |Pour les caractéristiques de type date/heure : Année, Mois, Jour, Jour de la semaine, Jour de l’année, Trimestre, Semaine de l’année, Heure, Minute, Seconde.<br/><br/>Pour les caractéristiques de type texte : Fréquence des termes basée sur les unigrammes, les bigrammes et les trigrammes.|
-|Transformer et encoder*|Les fonctionnalités numériques avec très peu de valeurs uniques sont transformées en fonctionnalités catégorielles.<br/><br/>Un encodage à chaud est effectué pour les catégories de faible cardinalité et un encodage avec hachage à chaud pour les catégories à cardinalité élevée.|
-|Incorporations de mots|Caractériseur de texte convertissant les vecteurs de jetons de texte en vecteurs de phrase à l’aide d’un modèle déjà formé. Le vecteur d’incorporation de chaque mot d’un document est agrégé pour produire un vecteur de fonctionnalité de document.|
-|Encodages cibles|Pour les fonctionnalités catégorielles, mappe chaque catégorie avec la valeur cible moyenne pour les problèmes de régression, et à la probabilité de chaque classe pour les problèmes de classification. Une pondération basée sur la fréquence et une validation croisée par échantillons (« k-fold ») sont appliquées pour réduire l’ajustement du mappage et le bruit provoqué par les catégories de données éparses.|
-|Encodage de texte cible|Pour l'entrée de texte, un modèle linéaire empilé avec « bag-of-words » est utilisé afin de générer la probabilité de chaque classe.|
-|WoE (Weight of Evidence)|Calcule la valeur WoE en tant que mesure de corrélation des colonnes catégorielles vers la colonne cible. Elle est calculée en tant qu'enregistrement du ratio de probabilités à l'intérieur et à l'extérieur de la classe. Cette étape génère une colonne de fonctionnalités numériques par classe et évite d'avoir à imputer les valeurs manquantes et le traitement de valeur hors norme.|
-|Distance de cluster|Effectue l’apprentissage d’un modèle de clustering k-moyennes sur toutes les colonnes numériques.  Génère de nouvelles fonctionnalités k, une nouvelle fonctionnalité numérique par cluster, contenant la distance de chaque échantillon par rapport au centroïde de chaque cluster.|
-
-### <a name="data-guardrails"></a>Garde-fous des données
-
-Les garde-fous des données sont appliqués quand la caractérisation automatique est activée ou que la validation est définie sur automatique. Les garde-fous des données vous aident à identifier les problèmes potentiels liés à vos données (par exemple les valeurs manquantes ou le déséquilibre des classes) et à entreprendre des actions correctives afin d’améliorer les résultats. 
-
-Les utilisateurs peuvent consulter les garde-fous des données dans le studio sous l’onglet **Garde-fous des données** d’une exécution du ML automatisé ou en définissant ```show_output=True``` lors de l’envoi d’une expérience à l’aide du Kit de développement logiciel (SDK) Python. 
-
-#### <a name="data-guardrail-states"></a>États des garde-fous des données
-
-Les garde-fous des données affichent l’un des trois états suivants : **Réussi**, **Terminé** ou **Alerté**.
-
-State| Description
-----|----
-Passed| Aucun problème de données n’a été détecté et aucune action de l’utilisateur n’est requise. 
-Terminé| Des modifications ont été appliquées à vos données. Nous encourageons les utilisateurs à passer en revue les actions correctives prises par le ML automatisé pour vérifier que les modifications s’alignent sur les résultats attendus. 
-Alerté| Un problème de données qui n’a pas pu être résolu a été détecté. Nous encourageons les utilisateurs à examiner et à résoudre le problème. 
-
->[!NOTE]
-> Les versions précédentes des expériences de ML automatisé affichaient un quatrième État : **Corrigé**. Les expériences plus récentes n’affichent pas cet état, et tous les garde-fous qui affichaient l’état **Corrigé** affichent désormais l’état **Terminé**.   
-
-Le tableau suivant décrit les garde-fous des données pris en charge ainsi que les états associés que les utilisateurs peuvent rencontrer lors de l’envoi de leur expérience.
-
-Garde-fou|Statut|Condition&nbsp;pour&nbsp;le déclencheur
----|---|---
-Imputation des valeurs de caractéristique manquantes |**Passed** <br><br><br> **Done**| Aucune valeur de caractéristique manquante n’a été détectée dans vos données d’entraînement. Découvrez plus d’informations sur l’[imputation d’une valeur manquante](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options). <br><br> Des valeurs de caractéristique manquantes ont été détectées dans vos données d’entraînement et imputées.
-Gestion des caractéristiques à cardinalité élevée |**Passed** <br><br><br> **Done**| Aucune caractéristique à cardinalité élevée n’a été détectée après analyse de vos entrées. Découvrez-en plus sur la [détection de caractéristiques à cardinalité élevée](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options). <br><br> Des caractéristiques à cardinalité élevée ont été détectées dans vos entrées et ont été gérées.
-Gestion du fractionnement de la validation |**Done**| *La configuration de la validation a été définie sur « auto » et les données d’entraînement contenaient **moins** de 20 000 lignes.* <br> Chaque itération du modèle entraîné a été validée à l’aide de la validation croisée. Découvrez-en plus sur les [données de validation](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data). <br><br> *La configuration de la validation a été définie sur « auto » et les données d’entraînement contenaient **plus** de 20 000 lignes.* <br> Les données d’entrée ont été divisées en un jeu de données d’entraînement et un jeu de données de validation pour la validation du modèle.
-Détection de l’équilibrage des classes |**Passed** <br><br><br><br> **Alerted** | Vos entrées ont été analysées et toutes les classes sont équilibrées dans vos données d’entraînement. Un jeu de données est considéré comme équilibré si chaque classe a une bonne représentation dans le jeu de données, telle que mesurée par le nombre et le ratio des échantillons. <br><br><br> Des classes déséquilibrées ont été détectées dans vos entrées. Pour corriger le biais du modèle, résolvez le problème d’équilibrage. Découvrez-en plus sur les [données déséquilibrées](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data).
-Détection des problèmes de mémoire |**Passed** <br><br><br><br> **Done** |<br> Aucun problème potentiel d’insuffisance de mémoire n’a été détecté après analyse des valeurs {horizon, décalage, fenêtre dynamique} sélectionnées. Découvrez-en plus sur les [configurations de prévision](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) de série chronologique. <br><br><br>Les valeurs {horizon, décalage, fenêtre dynamique} sélectionnées ont été analysées et peuvent entraîner une insuffisance de mémoire dans votre expérience. Les configurations de la fenêtre dynamique ou de décalage ont été désactivées.
-Détection de la fréquence |**Passed** <br><br><br><br> **Done** |<br> La série chronologique a été analysée et tous les points de données sont alignés sur la fréquence détectée. <br> <br> La série chronologique a été analysée et les points de données qui ne sont pas alignés sur la fréquence détectée ont été détectés. Ces points de données ont été supprimés du jeu de données. Découvrez-en plus sur la [préparation des données pour la prévision de série chronologique](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data).
+![Formulaire de type de tâche Azure Machine Learning Studio](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
 
 ## <a name="run-experiment-and-view-results"></a>Exécuter une expérience et afficher les résultats
 
@@ -255,6 +218,7 @@ Machine Learning automatisé vous aide à déployer le modèle sans écrire de c
     Le menu *Avancé* offre des fonctionnalités de déploiement par défaut, comme la [collecte de données](how-to-enable-app-insights.md) et des paramètres d’utilisation des ressources. Si vous souhaitez remplacer ces valeurs par défaut, faites-le dans ce menu.
 
 1. Sélectionnez **Déployer**. Le déploiement peut prendre environ 20 minutes.
+    Une fois le déploiement commencé, l’onglet**Détails du modèle** s’affiche. Consultez la progression du déploiement sous la section **État du déploiement** du volet **Propriétés**. 
 
 Vous disposez maintenant d’un service web opérationnel pour générer des prédictions ! Vous pouvez tester les prédictions en interrogeant le service à partir du [support Azure Machine Learning intégré de Power BI](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 

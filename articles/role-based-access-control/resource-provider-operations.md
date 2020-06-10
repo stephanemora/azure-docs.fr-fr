@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3d8851004c5d976961d96ca7d9f315780765fcde
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 679b5e60f65daac2006598c6bf12c9cdeec5541d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199560"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015911"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Opérations du fournisseur de ressources Azure Resource Manager
 
@@ -9055,7 +9055,7 @@ Service Azure : [Applications managées Azure](../azure-resource-manager/manage
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
-Service Azure : [Azure SQL Database](../sql-database/index.yml), [SQL Data Warehouse](../sql-data-warehouse/index.yml)
+Service Azure : [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL Managed Instance](../azure-sql/managed-instance/index.yml) [SQL Data Warehouse](../sql-data-warehouse/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Type d’action | Opération | Description |
@@ -9333,7 +9333,7 @@ Service Azure : [Azure SQL Database](../sql-database/index.yml), [SQL Data Ware
 > | Action | Microsoft.Sql/operations/read | Obtient les opérations REST disponibles |
 > |  | **servers** |  |
 > | Action | Microsoft.Sql/servers/tdeCertificates/action | Créer/mettre à jour le certificat TDE. |
-> | Action | Microsoft.Sql/servers/disableAzureADOnlyAuthentication/action | Désactive l’authentification Azure Active Directory uniquement sur un serveur logique |
+> | Action | Microsoft.Sql/servers/disableAzureADOnlyAuthentication/action | Désactive l’authentification Azure Active Directory uniquement sur un serveur dans Azure SQL Database|
 > | Action | Microsoft.Sql/servers/read | Retourner la liste des serveurs ou obtenir les propriétés pour le serveur spécifié. |
 > | Action | Microsoft.Sql/servers/write | Crée un serveur avec les paramètres spécifiés ou met à jour les propriétés ou balises pour le serveur spécifié. |
 > | Action | Microsoft.Sql/servers/delete | Supprime un serveur existant. |
@@ -9628,7 +9628,7 @@ Service Azure : [Azure SQL Database](../sql-database/index.yml), [SQL Data Ware
 > |  | **servers/importExportOperationResults** |  |
 > | Action | Microsoft.Sql/servers/importExportOperationResults/read | Obtient les opérations d’importation/exportation en cours |
 > |  | **servers/inaccessibleDatabases** |  |
-> | Action | Microsoft.Sql/servers/inaccessibleDatabases/read | Retourne une liste des bases de données inaccessibles dans un serveur logique. |
+> | Action | Microsoft.Sql/servers/inaccessibleDatabases/read | Retourne une liste des bases de données inaccessibles dans un serveur dans Azure SQL Database. |
 > |  | **servers/interfaceEndpointProfiles** |  |
 > | Action | Microsoft.Sql/servers/interfaceEndpointProfiles/write | Crée un profil de point de terminaison d’interface avec les paramètres spécifiés ou met à jour les propriétés ou balises pour le point de terminaison d’interface spécifié |
 > | Action | Microsoft.Sql/servers/interfaceEndpointProfiles/read | Retourne les propriétés pour le profil de point de terminaison d’interface spécifié |
@@ -9699,7 +9699,7 @@ Service Azure : [Azure SQL Database](../sql-database/index.yml), [SQL Data Ware
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 
-Service Azure : [SQL Server sur les machines virtuelles Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
+Service Azure : [SQL Server sur les machines virtuelles Azure](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Type d’action | Opération | Description |

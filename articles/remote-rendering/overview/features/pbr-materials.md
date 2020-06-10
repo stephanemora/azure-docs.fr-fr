@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 64553506f75451c50a87932904f00a7275ea9286
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: e4ee6abe7481fef4d56c980da80e319624975384
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80678911"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021311"
 ---
 # <a name="pbr-materials"></a>Matériaux PBR
 
@@ -26,20 +26,20 @@ Cela étant, les matériaux PBR ne constituent pas une solution universelle. Cer
 
 Ces propriétés sont communes à tous les matériaux :
 
-* **albedoColor :** Cette couleur est multipliée par d’autres couleurs, telles que les couleurs *albedoMap* ou *vertex*. Si la propriété *transparency* est activée sur un matériau, le canal alpha est utilisé pour ajuster l’opacité, avec `1` pour entièrement opaque et `0` pour entièrement transparent. Le blanc constitue la valeur par défaut.
+* **albedoColor :** cette couleur est multipliée par d’autres couleurs, telles que les couleurs *albedoMap* ou *:::no-loc text="vertex ":::* . Si la propriété *transparency* est activée sur un matériau, le canal alpha est utilisé pour ajuster l’opacité, avec `1` pour entièrement opaque et `0` pour entièrement transparent. Le blanc constitue la valeur par défaut.
 
   > [!NOTE]
   > Lorsqu’un matériau PBR est entièrement transparent, comme du verre parfaitement propre, il reflète toujours l’environnement. Les zones lumineuses telles que le soleil sont toujours visibles dans la réflexion. Cela est différent pour [les matériaux de couleur](color-materials.md).
 
-* **albedoMap :** Une [texture 2D](../../concepts/textures.md) pour les valeurs albedo par pixel.
+* **albedoMap :** une [texture 2D](../../concepts/textures.md) pour les valeurs albedo par pixel.
 
-* **alphaClipEnabled** et **alphaClipThreshold :** Si *alphaClipEnabled* est défini sur true, les pixels dont la valeur alpha albedo est inférieure à *alphaClipThreshold* ne seront pas représentés. Le détourage alpha peut être utilisé, même sans activation de la transparence, et s'avère nettement plus rapide à afficher. Les matériaux avec détourage alpha sont cependant plus lents à afficher que les matériaux entièrement opaques. Par défaut, le détourage alpha est désactivé.
+* **alphaClipEnabled** et **alphaClipThreshold :** si la valeur de *alphaClipEnabled* est true, tous les pixels dont la valeur alpha albedo est inférieure à *alphaClipThreshold* ne seront pas représentés. Le détourage alpha peut être utilisé, même sans activation de la transparence, et s’avère nettement plus rapide à rendre. Les matériaux avec détourage alpha sont cependant plus lents à rendre que les matériaux entièrement opaques. Par défaut, le détourage alpha est désactivé.
 
-* **textureCoordinateScale** et **textureCoordinateOffset :** L’échelle est multipliée par les coordonnées de la texture UV, le décalage y est ajouté. Peut être utilisée pour étirer et décaler les textures. La valeur par défaut de l’échelle est de (1, 1) et le décalage est de (0, 0).
+* **textureCoordinateScale** et **textureCoordinateOffset :** l’échelle est multipliée par les coordonnées de la texture UV, le décalage y est ajouté. Peut être utilisée pour étirer et décaler les textures. La valeur par défaut de l’échelle est de (1, 1) et le décalage est de (0, 0).
 
-* **useVertexColor :** Si le maillage comprend des couleurs de vertex et que cette option est activée, les couleurs de vertex des maillages sont multipliées dans *albedoColor* et *albedoMap*. Par défaut, les couleurs de vertex sont désactivées.
+* **useVertexColor :** si le maillage comprend des couleurs :::no-loc text="vertex"::: et que cette option est activée, la couleur :::no-loc text="vertex"::: des maillages est multipliée par *albedoColor* et *albedoMap*. Par défaut, *useVertexColor* est désactivé.
 
-* **isDoubleSided :** Si le recto-verso est défini sur true, les triangles présentant ce matériau sont rendus même si l’appareil photo pointe vers les faces arrière. L’éclairage des matériaux PBR est également correctement calculé pour les faces arrière. Par défaut, cette option est désactivée. Voir aussi [Rendu unilatéral](single-sided-rendering.md).
+* **isDoubleSided :** Si le recto-verso est défini sur true, les triangles présentant ce matériau sont rendus même si l’appareil photo pointe vers les faces arrière. L’éclairage des matériaux PBR est également correctement calculé pour les faces arrière. Par défaut, cette option est désactivée. Consultez aussi le [:::no-loc text="Single-sided"::: rendu](single-sided-rendering.md).
 
 ## <a name="pbr-material-properties"></a>Propriétés des matériaux PBR
 

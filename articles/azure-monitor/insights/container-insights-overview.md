@@ -3,12 +3,12 @@ title: Vue d’ensemble d’Azure Monitor pour les conteneurs | Microsoft Docs
 description: Cet article décrit Azure Monitor pour les conteneurs qui surveille la solution AKS Container Service et la valeur qu’elle offre en surveillant l’intégrité de vos clusters AKS et Container Instances dans Azure.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 3ff2c35ae9f5838447ce90e2a020649427920a43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5bd951f7dcb2def62893df48709f1e57bd340bb2
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79234469"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118075"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Vue d’ensemble d’Azure Monitor pour les conteneurs
 
@@ -48,7 +48,7 @@ Grâce à ses différentes fonctionnalités, Azure Monitor pour conteneurs vous 
 
 Les principales différences entre la supervision d’un cluster Windows Server et celle d’un cluster Linux sont les suivantes :
 
-- La métrique Mémoire RSS n’est pas disponible pour le nœud et les conteneurs Windows.
+- Windows ne dispose pas d'une métrique Mémoire RSS et celle-ci n'est donc pas disponible pour le nœud et les conteneurs Windows. La plage de travail est disponible. Apprenez-en davantage sur la [gestion de la mémoire dans Windows](https://docs.microsoft.com/windows/win32/memory/working-set).
 - Les informations de capacité de stockage des disques ne sont pas disponibles pour les nœuds Windows.
 - Les journaux de conteneurs ne sont pas disponibles pour les conteneurs s’exécutant dans les nœuds Windows.
 - La fonctionnalité Données actives (préversion) est prise en charge, sauf pour les journaux de conteneurs Windows.

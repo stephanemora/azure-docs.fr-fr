@@ -2,13 +2,13 @@
 title: Exportation continue des données de télémétrie d’Application Insights | Microsoft Docs
 description: Exportez les données de diagnostic et les données d’utilisation dans le stockage Microsoft Azure et téléchargez-les à partir de là.
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: 7284e6305b1028cbcb62041ff8196d06250f4414
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.date: 05/26/2020
+ms.openlocfilehash: 91bce217b1b8d7c86c7d75ecd4ce6b698019e169
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744862"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84147968"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exporter la télémétrie depuis Application Insights
 Vous souhaitez conserver votre télémétrie plus longtemps que la période de rétention standard ? Ou la traiter d’une façon spécialisée ? L’exportation continue est idéale dans ce cas. Les événements que vous voyez dans le portail Application Insights peuvent être exportés vers le stockage Microsoft Azure au format JSON. À partir de là, vous pouvez télécharger vos données et écrire le code dont vous avez besoin pour les traiter.  
@@ -34,8 +34,6 @@ L’exportation continue **ne prend pas en charge** les fonctionnalités/configu
 
 * [Pare-feu de réseau virtuel/Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security) utilisés conjointement avec le Stockage Blob Azure.
 
-* [Stockage immuable](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) pour le Stockage Blob Azure.
-
 * [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
 ## <a name="create-a-continuous-export"></a><a name="setup"></a> Créez une exportation continue.
@@ -53,7 +51,8 @@ L’exportation continue **ne prend pas en charge** les fonctionnalités/configu
 
 4. Créez ou sélectionnez un conteneur dans votre stockage.
 
-Une fois que vous avez créé l’exportation, elle démarre. Vous n’obtenez que les données qui arrivent après la création de l’exportation.
+> [!NOTE]
+> Une fois votre exportation créée, les données nouvellement ingérées commencent à circuler vers Stockage Blob Azure. L’exportation continue transmet uniquement les nouvelles données de télémétrie créées/ingérées après activation de l’exportation continue. Les données présentes avant l’activation de l’exportation continue ne sont pas exportées, et il n’existe aucun moyen permettant d’exporter rétroactivement des données créées précédemment à l’aide de l’exportation continue.
 
 Il peut y avoir un délai d'environ une heure avant que les données n’apparaissent dans le stockage.
 

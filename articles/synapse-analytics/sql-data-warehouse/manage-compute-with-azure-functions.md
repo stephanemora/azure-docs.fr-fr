@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: aa2cff552b49bceeaf6fd46510bf78384f0e7bfb
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: c69d28d2be6b04286bb04a2ede6eebc69400c777
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631958"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014891"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Utiliser Azure Functions pour gérer les ressources de calcul dans un pool SQL Azure Synapse Analytics
 
@@ -29,7 +29,7 @@ Pour utiliser l’application Azure Functions avec un pool SQL, vous devez cré
 Pour déployer le modèle, vous avez besoin des informations suivantes :
 
 - Nom du groupe de ressources dans lequel se trouve votre instance de pool SQL
-- Nom du serveur logique dans lequel se trouve votre instance de pool SQL
+- Nom du serveur dans lequel se trouve votre instance de pool SQL
 - Nom de votre instance de pool SQL
 - ID de locataire (ID du répertoire) de votre annuaire Azure Active Directory
 - Identifiant d’abonnement
@@ -101,7 +101,7 @@ Actuellement, il n’y a que deux fonctions de mise à l’échelle incluses dan
 
    ![Créer une fonction](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. Sous Langage, sélectionnez *Javascript*, puis sélectionnez *TimerTrigger*.
+2. Sous Langage, sélectionnez *JavaScript*, puis *TimerTrigger*.
 
    ![Créer une fonction](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 
@@ -115,7 +115,7 @@ Actuellement, il n’y a que deux fonctions de mise à l’échelle incluses dan
 
 5. Définissez la variable de l’opération sur le comportement souhaité comme suit :
 
-   ```javascript
+   ```JavaScript
    // Resume the SQL pool instance
    var operation = {
        "operationType": "ResumeDw"

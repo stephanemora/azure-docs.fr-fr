@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: c5d2ad481124f5ae048d010cdf632ee661bbd6ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f108c8b9d86a527764d2c7b8dddc6fb239b00d2
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77649105"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196261"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Résoudre certains problèmes et erreurs courants liés à l’utilisation d’Azure Database Migration Service
 
@@ -32,7 +32,7 @@ Quand vous créez des activités dans un projet Azure Database Migration Service
 
 ## <a name="max-number-of-databases-selected-for-migration"></a>Nombre maximal de bases de données sélectionnées pour la migration
 
-L’erreur suivante se produit quand vous créez une activité dans un projet de migration de base de données vers Azure SQL Database ou vers une instance managée Azure SQL Database :
+L’erreur suivante se produit quand vous créez une activité dans un projet de migration de base de données vers Azure SQL Database ou vers une instance Azure SQL Managed Instance :
 
 * **Erreur** : Erreur de validation des paramètres de migration", "errorDetail":« Plus de '4' objets 'Databases' ont été sélectionnés pour la migration, ce qui dépasse le nombre maximal. »
 
@@ -72,13 +72,13 @@ Vous recevez l’erreur suivante quand vous tentez de démarrer l’instance Azu
 
 ## <a name="error-restoring-database-while-migrating-sql-to-azure-sql-db-managed-instance"></a>Erreur lors de la restauration de la base de données pendant la migration de SQL Server vers une instance managée Azure SQL Database
 
-Quand vous effectuez une migration en ligne de SQL Server vers une instance managée Azure SQL Database, le basculement échoue avec l’erreur suivante :
+Lorsque vous effectuez une migration en ligne de SQL Server vers Azure SQL Managed Instance, le basculement échoue avec l’erreur suivante :
 
 * **Erreur** : L’opération de restauration a échoué pour l’opération avec l’ID 'operationId'. Code 'AuthorizationFailed', Message 'Le client 'clientId' avec l’ID d’objet 'objectId' n’a pas l’autorisation d’effectuer l’action 'Microsoft.Sql/locations/managedDatabaseRestoreAzureAsyncOperation/read' sur l’étendue '/subscriptions/subscriptionId'.'.
 
 | Cause         | Résolution    |
 | ------------- | ------------- |
-| Cette erreur indique que le principal d’application utilisé pour la migration en ligne de SQL Server vers une instance managée Azure SQL Database n’a pas l’autorisation de contribution sur l’abonnement. Certains appels d’API avec Managed Instance requièrent cette autorisation sur l’abonnement pour l’opération de restauration. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Utilisez l’applet de commande PowerShell `Get-AzureADServicePrincipal` en spécifiant la valeur `-ObjectId` indiquée dans le message d’erreur pour obtenir le nom complet de l’ID d’application utilisé.<br><br> Vérifiez les autorisations configurées pour cette application et assurez-vous que cette dernière a le [rôle Contributeur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) au niveau de l’abonnement. <br><br> L’équipe d’ingénierie Azure Database Migration Service travaille sur la restriction de l’accès requis par le rôle contributeur sur l’abonnement. Si vous avez une exigence métier qui n’autorise pas l’utilisation du rôle de contribution, contactez le support Azure pour obtenir de l’aide. |
+| Cette erreur indique que le principal d’application utilisé pour la migration en ligne de SQL Server vers Azure SQL Managed Instance n’a pas l’autorisation de contribution sur l’abonnement. Certains appels d’API avec Managed Instance requièrent cette autorisation sur l’abonnement pour l’opération de restauration. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Utilisez l’applet de commande PowerShell `Get-AzureADServicePrincipal` en spécifiant la valeur `-ObjectId` indiquée dans le message d’erreur pour obtenir le nom complet de l’ID d’application utilisé.<br><br> Vérifiez les autorisations configurées pour cette application et assurez-vous que cette dernière a le [rôle Contributeur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) au niveau de l’abonnement. <br><br> L’équipe d’ingénierie Azure Database Migration Service travaille sur la restriction de l’accès requis par le rôle contributeur sur l’abonnement. Si vous avez une exigence métier qui n’autorise pas l’utilisation du rôle de contribution, contactez le support Azure pour obtenir de l’aide. |
 
 ## <a name="error-when-deleting-nic-associated-with-azure-database-migration-service"></a>Erreur lors de la suppression de la carte d’interface réseau associée à Azure Database Migration Service
 
