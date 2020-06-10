@@ -13,12 +13,12 @@ ms.date: 05/27/2020
 ms.author: dbradish
 ms.reviewer: sethm
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: d6502985c0267fe6636c606e493533daf17f6b56
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: f39d5ca5e153da3d1644aabeb7e48b41d07fe253
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300010"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485143"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Démarrage rapide : Créer un hub de notification Azure avec Azure CLI
 
@@ -112,7 +112,7 @@ Notification Hubs nécessite la version 2.0.67 ou ultérieure d’Azure CLI. Ex
 
 2. Récupérez la liste des espaces de noms.
 
-   Pour voir les informations relatives à votre nouvel espace de noms, utilisez la commande [az notification-hub namespace list](/azure/ext/notification-hub/notification-hub/namespace?view=azure-cli-latest#ext-notification-hub-az-notification-hub-namespace-list).  Le paramètre facultatif `--resource-group` vous permet de voir tous les espaces de noms d’un abonnement.
+   Pour voir les informations relatives à votre nouvel espace de noms, utilisez la commande [az notification-hub namespace list](/cli/azure/ext/notification-hub/notification-hub/namespace?view=azure-cli-latest#ext-notification-hub-az-notification-hub-namespace-list).  Le paramètre facultatif `--resource-group` vous permet de voir tous les espaces de noms d’un abonnement.
 
    ```azurecli
    az notification-hub namespace list --resource-group spnhubrg
@@ -138,7 +138,7 @@ Notification Hubs nécessite la version 2.0.67 ou ultérieure d’Azure CLI. Ex
 
 3. Récupérez la liste des hubs de notification.
 
-   Azure CLI retourne un message de réussite ou d’erreur avec chaque commande exécutée. La possibilité de demander une liste des hubs de notification est cependant rassurante.  La commande [az notification-hub list](/azure/ext/notification-hub/notification-hub?view=azure-cli-latest#ext-notification-hub-az-notification-hub-list) a été conçue à cet effet.
+   Azure CLI retourne un message de réussite ou d’erreur avec chaque commande exécutée. La possibilité de demander une liste des hubs de notification est cependant rassurante.  La commande [az notification-hub list](/cli/azure/ext/notification-hub/notification-hub?view=azure-cli-latest#ext-notification-hub-az-notification-hub-list) a été conçue à cet effet.
 
    ```azurecli
    az notification-hub list --resource-group spnhubrg --namespace-name spnhubns --output table

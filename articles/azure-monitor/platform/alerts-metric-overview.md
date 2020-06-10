@@ -4,12 +4,12 @@ description: Obtenez un aperçu des actions possibles avec les alertes de métri
 ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 310d484fa1c88b2c54918fff84020a3438db9ae0
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 603df6f9b00c9261885937a3d85052b3806ff4f8
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855043"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248819"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendre le fonctionnement des alertes de métrique dans Azure Monitor
 
@@ -26,7 +26,7 @@ Supposons que vous avez créé une règle d’alerte de métrique de seuil stati
 - Ressource cible (ressource Azure à surveiller) : myVM
 - Mesure : Percentage CPU
 - Type de condition : statique
-- Agrégation du temps (statistique exécutée sur des valeurs de mesures brutes ; Les [agrégations de temps prises en charge](metrics-charts.md#changing-aggregation) sont Min, Max, Moy, Total, Nombre) : Average
+- Agrégation du temps (statistique exécutée sur des valeurs de mesures brutes ; Les [agrégations de temps prises en charge](metrics-charts.md#changing-aggregation) sont Min, Max, Moy, Total, Nombre) : Average
 - Période (fenêtre de vérification des valeurs de métrique) : Au cours des 5 dernières minutes
 - Fréquence (fréquence à laquelle l’alerte de métrique vérifie si les conditions sont remplies) : 1 minute
 - Opérateur : Supérieur à
@@ -34,7 +34,7 @@ Supposons que vous avez créé une règle d’alerte de métrique de seuil stati
 
 À partir de la création de la règle d’alerte, l’analyse s’exécute chaque minute. Elle examine les valeurs de métrique des 5 dernières minutes et vérifie si la moyenne de ces valeurs est supérieure à 70. Si la condition est remplie (autrement dit, le pourcentage d’UC moyen pour les 5 dernières minutes est supérieur à 70), la règle d’alerte déclenche une notification d’activation. Si vous avez configuré un e-mail ou une action de webhook dans le groupe d’actions associé à la règle d’alerte, vous recevrez une notification sur les deux.
 
-Si vous utilisez plusieurs conditions dans une seule règle, la règle « ajoute » les conditions ensemble.  Autrement dit, l’alerte se déclenche lorsque toutes les conditions qu’elle réunit sont évaluées comme vraies et résolues lorsque l’une des conditions n’est plus vraie. Exemple de ce type d’alerte : « UC supérieure à 90 % » et « La longueur de la file d’attente comprend plus de 300 éléments ». 
+Si vous utilisez plusieurs conditions dans une seule règle, la règle « ajoute » les conditions ensemble. Autrement dit, une alerte se déclenche lorsque toutes les conditions de la règle correspondante sont évaluées comme vraies et résolues lorsque l’une des conditions n’est plus vraie. Un exemple de ce type de règle d’alerte consiste à surveiller une machine virtuelle Azure et à alerter lorsque le « pourcentage d’UC est supérieur à 90 % » et la « longueur de la file d’attente comprend plus de 300 éléments ».
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>Règle d’alerte avec le type de condition dynamique
 

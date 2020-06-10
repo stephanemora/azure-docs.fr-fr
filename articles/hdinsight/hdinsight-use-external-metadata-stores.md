@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/30/2020
-ms.openlocfilehash: 14d4a3616a1be0964029ddfd8d2697df8e4e8031
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: d956a9c93280ac22c4707f22c0769853f0f36c83
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929330"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015146"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Utiliser des magasins de métadonnées externes dans Azure HDInsight
 
@@ -38,7 +38,7 @@ Par défaut, HDInsight crée un metastore avec chaque type de cluster. Vous pouv
 
 * Vous ne pouvez pas partager le metastore par défaut avec d’autres clusters.
 
-* Le metastore par défaut utilise une base de données Azure SQL de base, qui a une limite de cinq DTU (unités de transaction de base de données).
+* Le metastore par défaut utilise la base de données Azure SQL Database de base, qui présente une limite de cinq DTU (unités de transaction de base de données).
 Ce metastore par défaut est généralement utilisé pour les charges de travail relativement simples. Ces charges de travail n’ont pas besoin de plusieurs clusters et ne nécessitent pas la conservation des métadonnées au-delà du cycle de vie du cluster.
 
 * Pour les charges de travail de production, nous vous recommandons de migrer vers un metastore externe. Pour plus d’informations, consultez la section ci-dessous.
@@ -53,7 +53,7 @@ HDInsight prend également en charge les magasins de métadonnées personnalisé
 
 * Un metastore personnalisé vous permet d’attacher plusieurs clusters et types de cluster à ce metastore. Par exemple, un seul metastore peut être partagé entre les clusters de requête interactive, Hive et Spark dans HDInsight.
 
-* Vous payez le coût d’un metastore (Azure SQL DB), selon le niveau de performance que vous choisissez.
+* Vous payez le coût d’un metastore (Azure SQL Database), selon le niveau de performance que vous choisissez.
 
 * Vous pouvez augmenter l’échelle du metastore en fonction de vos besoins.
 
@@ -65,7 +65,7 @@ HDInsight prend également en charge les magasins de métadonnées personnalisé
 
 Créer ou avoir une base de données Azure SQL Database existante avant de configurer un metastore Hive personnalisé pour un cluster HDInsight.  Pour plus d’informations, consultez [Démarrage rapide : Créer une base de données unique dans Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
 
-Lors de la création du cluster, le service HDInsight doit se connecter au metastore externe et vérifier vos informations d'identification. Configurez des règles de pare-feu Azure SQL Database pour autoriser les services et ressources Azure à accéder au serveur. Activez cette option dans le Portail Azure en sélectionnant **Paramétrer le pare-feu du serveur**. Sélectionnez ensuite **Non** sous **Refuser l’accès au réseau public**, puis **Oui** sous **Autoriser les services et les ressources Azure à accéder à ce serveur** pour la base de données ou le serveur Azure SQL Database. Pour plus d’informations, consultez [Créer et gérer des règles de pare-feu IP](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+Lors de la création du cluster, le service HDInsight doit se connecter au metastore externe et vérifier vos informations d'identification. Configurez des règles de pare-feu Azure SQL Database pour autoriser les services et ressources Azure à accéder au serveur. Activez cette option dans le Portail Azure en sélectionnant **Paramétrer le pare-feu du serveur**. Sélectionnez ensuite **Non** sous **Refuser l’accès au réseau public**, puis **Oui** sous **Autoriser les services et les ressources Azure à accéder à ce serveur** pour Azure SQL Database. Pour plus d’informations, consultez [Créer et gérer des règles de pare-feu IP](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
 
 Les points de terminaison privés pour les magasins SQL ne sont pas pris en charge.
 
@@ -87,7 +87,7 @@ Vous pouvez pointer votre cluster vers une instance Azure SQL Database précéde
 
 * Si vous prévoyez d’utiliser plusieurs clusters HDInsight pour accéder aux données distinctes, utilisez une base de données distincte pour le metastore sur chaque cluster. Si vous partagez un metastore sur plusieurs clusters HDInsight, cela signifie que les clusters utilisent les mêmes métadonnées et fichiers de données utilisateur sous-jacentes.
 
-* Sauvegardez régulièrement votre metastore personnalisé. Azure SQL Database génère automatiquement des sauvegardes, mais la période de conservation des sauvegardes varie. Pour plus d’informations, consultez [En savoir plus sur les sauvegardes automatiques SQL Database](../sql-database/sql-database-automated-backups.md).
+* Sauvegardez régulièrement votre metastore personnalisé. Azure SQL Database génère automatiquement des sauvegardes, mais la période de conservation des sauvegardes varie. Pour plus d’informations, consultez [En savoir plus sur les sauvegardes automatiques SQL Database](../azure-sql/database/automated-backups-overview.md).
 
 * Placez votre metastore et le cluster HDInsight dans la même région. Cette configuration offre des performances optimales et des frais de sortie réseau les plus bas.
 

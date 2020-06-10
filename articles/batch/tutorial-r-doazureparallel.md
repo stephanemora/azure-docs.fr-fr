@@ -5,14 +5,14 @@ ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
 ms.custom: mvc
-ms.openlocfilehash: c9708360df4a7fb711a3d57b39f33c576c75a0d5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dc5c022b4722f844e0b3c117bb5961843865bd55
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117095"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418175"
 ---
-# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Didacticiel : exécuter une simulation de R parallèle avec Azure Batch 
+# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutoriel : Exécuter une simulation de R parallèle avec Azure Batch 
 
 Exécutez vos charges de travail R parallèles à l’échelle à l’aide de [doAzureParallel](https://www.github.com/Azure/doAzureParallel), un package léger R qui vous permet d’utiliser Azure Batch directement à partir de votre session R. Le package doAzureParallel s’appuie sur le package R [foreach](https://cran.r-project.org/web/packages/foreach/index.html) bien connu. doAzureParallel prend chaque itération de la boucle foreach et la soumet sous forme de tâche Azure Batch.
 
@@ -24,7 +24,7 @@ Ce didacticiel vous montre comment déployer un pool Batch et exécuter un trava
 > * Créer un pool Batch comme serveur principal parallèle pour votre session R
 > * Exécuter un exemple de simulation parallèle sur le pool
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Une distribution de [R](https://www.r-project.org/) installée, telle que [Microsoft R Open](https://mran.microsoft.com/open). Utilisez la version 3.3.1 ou ultérieure.
 
@@ -220,7 +220,7 @@ closingPrices_p <- foreach(i = 1:100, .combine='c', .options.azure = opt) %dopar
 end_p <- Sys.time() 
 ```
 
-La simulation distribue les tâches aux nœuds dans le pool Batch. Vous pouvez voir l’activité dans la carte thermique pour le pool dans le portail Azure]. Accédez aux **comptes Batch** > *myBatchAccount*. Cliquez sur **Pools** > *myPoolName*. 
+La simulation distribue les tâches aux nœuds dans le pool Batch. Vous pouvez voir l’activité dans la carte thermique pour le pool dans le portail Azure. Accédez aux **comptes Batch** > *myBatchAccount*. Cliquez sur **Pools** > *myPoolName*. 
 
 ![Carte thermique du pool en cours d’exécution des tâches parallèles R](media/tutorial-r-doazureparallel/pool.png)
 

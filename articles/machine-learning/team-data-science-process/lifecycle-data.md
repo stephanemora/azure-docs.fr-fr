@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3c299e9ec42d63812804b5ff7e50324a2de94200
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85d7159edb1bc8608165264578d77519bf09efc2
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76720501"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195063"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Acquisition de données et phase de présentation du processus Team Data science Process
 
@@ -55,7 +55,7 @@ Le processus TDSP fournit un utilitaire automatisé appelé [IDEAR](https://gith
 Une fois que vous êtes satisfait de la qualité des données nettoyées, l’étape suivante consiste à mieux comprendre les modèles inhérents aux données. Cette analyse des données vous permet de choisir et de développer un modèle prédictif approprié pour votre cible. Recherchez la preuve indiquant à quel point les données sont bien appropriées à la cible. Déterminez ensuite s’il existe des données suffisantes pour passer aux étapes de modélisation suivantes. Là encore, ce processus est souvent itératif. Vous devrez peut-être rechercher de nouvelles sources de données avec des données plus précises ou mieux appropriées pour compléter le jeu de données identifié au cours de la phase précédente. 
 
 ### <a name="set-up-a-data-pipeline"></a>Configurer un pipeline de données
-Outre l’ingestion et le nettoyage initiaux des données, vous devez généralement définir un processus pour noter les nouvelles données ou actualiser les données régulièrement dans le cadre d’un processus de formation continue. Le scoring peut être réalisé avec un pipeline de données ou un workflow. L’article [Déplacement de données à partir d’un serveur SQL local vers Azure SQL Database avec Azure Data Factory](move-sql-azure-adf.md) contient un exemple de configuration d’un pipeline avec [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). 
+Outre l’ingestion et le nettoyage initiaux des données, vous devez généralement définir un processus pour noter les nouvelles données ou actualiser les données régulièrement dans le cadre d’un processus de formation continue. Le scoring peut être réalisé avec un pipeline de données ou un workflow. L’article [Déplacer des données d'une instance SQL Server vers Azure SQL Database avec Azure Data Factory](move-sql-azure-adf.md) contient un exemple de configuration de pipeline avec [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). 
 
 Dans cette étape, vous développez une architecture de la solution du pipeline de données. Vous développez le pipeline parallèlement à l’étape suivante du projet de science des données. Selon les besoins de votre entreprise et les contraintes de vos systèmes existants auxquels cette solution est en cours d’intégration, le pipeline peut être l’une des options suivantes : 
 

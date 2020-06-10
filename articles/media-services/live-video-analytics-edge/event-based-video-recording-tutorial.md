@@ -3,12 +3,12 @@ title: 'Tutoriel : Enregistrement vidéo basé sur les événements et lecture 
 description: Dans ce tutoriel, vous allez apprendre à utiliser Live Video Analytics sur IoT Edge pour effectuer un enregistrement vidéo basé sur les événements et lire cette vidéo dans le cloud.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 92367634a2f5785ecbb102db1e03f3d5f12d744e
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 7ff8502688e2b507b8a576c177948f29c2248be4
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300822"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456604"
 ---
 # <a name="tutorial-event-based-video-recording-to-cloud-and-playback-from-cloud"></a>Tutoriel : Enregistrement vidéo basé sur les événements et lecture vidéo dans le cloud
 
@@ -181,7 +181,7 @@ Pour afficher les événements du module compteur d’objets et du module Live V
 
 1. Sous le nœud GraphTopologySet, modifiez les points suivants :
 
-    `"topologyUrl" : "https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json"`
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json"`
     
 1. Ensuite, sous les nœuds GraphInstanceSet et GraphTopologyDelete, modifiez :
 
@@ -246,7 +246,7 @@ Pour afficher les événements du module compteur d’objets et du module Live V
 1. L’instance de graphe continue à s’exécuter et à enregistrer la vidéo : le simulateur RTSP continue de boucler la vidéo source. Passez en revue les messages comme indiqué dans la section ci-dessous, puis, pour arrêter l’instance, revenez à la fenêtre TERMINAL et appuyez sur « Entrée ». La série d’appels suivante permet de nettoyer les ressources :
 
      * Un appel à GraphInstanceDeactivate désactive l’instance de graphe
-     * Un appel à GraphInstanceDelete supprime l’instance de graphe
+     * Un appel à GraphInstanceDelete supprime l’instance
      * Un appel à GraphTopologyDelete supprime la topologie
      * Un dernier appel à GraphTopologyList indique que la liste est maintenant vide
 

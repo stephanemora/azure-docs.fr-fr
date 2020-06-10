@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b3616a338666dbb10fe7500bad8c1e8239fd2c92
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: ffbfd3214242d8df5fe33faf465bc1da3eb9986d
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561619"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196636"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Tutoriel : Provisionner Azure Data Box Gateway dans Hyper-V
 
@@ -64,8 +64,8 @@ Avant de déployer un appareil, assurez-vous que :
 
 Avant de commencer :
 
-- Passez en revue les exigences de mise en réseau pour déployer Data Box Gateway et configurer le réseau du centre de données conformément à la configuration requise. Pour plus d’informations, consultez la [Configuration requise du réseau pour Data Box Gateway](data-box-gateway-system-requirements.md#networking-port-requirements).
-- Assurez-vous que la bande passante Internet minimale est de 20 Mbits/s pour un fonctionnement optimal de l’appareil.
+* Passez en revue les exigences de mise en réseau pour déployer Data Box Gateway et configurer le réseau du centre de données conformément à la configuration requise. Pour plus d’informations, consultez la [Configuration requise du réseau pour Data Box Gateway](data-box-gateway-system-requirements.md#networking-port-requirements).
+* Assurez-vous que la bande passante Internet minimale est de 20 Mbits/s pour un fonctionnement optimal de l’appareil.
 
 ## <a name="check-the-host-system"></a>Vérifier le système hôte
 
@@ -75,11 +75,17 @@ Pour créer un appareil virtuel, vous avez besoin des éléments suivants :
 * Microsoft Hyper-V Manager sur un client Microsoft Windows connecté à l'hôte.
 * Assurez-vous que le matériel sous-jacent (système hôte) sur lequel vous créez l’appareil virtuel est capable de dédier les ressources suivantes à votre appareil virtuel :
 
-    * Au moins 4 processeurs virtuels.
-    * Au moins 8 Go de RAM.
-    * Une interface réseau connectée au réseau et capable d’acheminer le trafic vers Internet. 
-    * Un disque de système d’exploitation de 250 Go.
-    * Un disque virtuel de 2 To pour les données système.
+  * Au moins 4 processeurs virtuels.
+  * Au moins 8 Go de RAM.
+  * Une interface réseau connectée au réseau et capable d’acheminer le trafic vers Internet.
+  * Un disque de système d’exploitation de 250 Go.
+  * Un disque virtuel de 2 To pour les données système.
+
+## <a name="bitlocker-considerations"></a>Considérations relatives à BitLocker
+
+* Nous vous recommandons d’activer BitLocker sur votre machine virtuelle Data Box Gateway. Par défaut, BitLocker n’est pas activé. Pour plus d'informations, consultez les pages suivantes :
+  * [Paramètres de prise en charge du chiffrement dans le Gestionnaire Hyper-V](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+  * [Prise en charge de BitLocker sur une machine virtuelle](https://kb.vmware.com/s/article/2036142)
 
 ## <a name="provision-a-virtual-device-in-hypervisor"></a>Configurer un appareil virtuel dans l’hyperviseur
 
@@ -136,7 +142,7 @@ Procédez comme suit pour configurer un appareil dans votre hyperviseur.
 
     ![Page Spécifier le nom et l’emplacement](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
 19. Dans la page **Configurer un disque**, sélectionnez l’option **Créer un disque dur virtuel vierge** et spécifiez une taille de **2 To** (ou plus).
-    
+
     Bien que 2 To soit la configuration minimale requise, vous pouvez toujours configurer un disque plus volumineux. Notez que vous ne pouvez pas réduire le disque une fois configuré. Toute tentative de réduction du disque entraîne la perte de toutes les données locales sur l’appareil. L’expansion du disque de données n’est pas prise en charge. Cliquez sur **Suivant**.
 
     ![Page Configurer un disque](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
@@ -148,9 +154,11 @@ Procédez comme suit pour configurer un appareil dans votre hyperviseur.
     ![Page Paramètres](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
 
 ## <a name="start-the-virtual-device-and-get-the-ip"></a>Démarrer l’appareil virtuel et obtenir l’adresse IP
+
 Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.
 
 #### <a name="to-start-the-virtual-device"></a>Pour démarrer l’appareil virtuel
+
 1. Démarrez l’appareil virtuel.
 
    ![Démarrer l’appareil virtuel](./media/data-box-gateway-deploy-provision-hyperv/image18.png)
@@ -159,26 +167,25 @@ Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.
 3. Vous devrez peut-être patienter 10 à 15 minutes pour que l’appareil soit prêt. Un message d'état s'affiche sur la console pour indiquer la progression. Lorsque l'appareil est prêt, sélectionnez **Action**. Appuyez sur `Ctrl + Alt + Delete` pour vous connecter à l’appareil virtuel. L’utilisateur par défaut est *EdgeUser* et le mot de passe par défaut est *Password1*.
 
    ![Se connecter à l’appareil virtuel](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
-   
-6. Les étapes 5 à 7 s’appliquent uniquement lors de l’amorçage dans un environnement non DHCP. Si vous vous trouvez dans un environnement DHCP, ignorez ces étapes. Si vous avez démarré votre appareil dans un environnement non DHCP, vous verrez un message sur l’effet.
-    
-7. Pour configurer le réseau, utilisez la commande `Get-HcsIpAddress` pour répertorier les interfaces réseau activées sur votre appareil virtuel. Si votre appareil possède une seule interface réseau activée, le nom par défaut affecté à cette interface est `Ethernet`.
 
-8. Utilisez l’applet de commande `Set-HcsIpAddress` pour configurer le réseau. Voir l’exemple suivant :
+4. Les étapes 5 à 7 s’appliquent uniquement lors de l’amorçage dans un environnement non DHCP. Si vous vous trouvez dans un environnement DHCP, ignorez ces étapes. Si vous avez démarré votre appareil dans un environnement non DHCP, vous verrez un message sur l’effet.
+
+5. Pour configurer le réseau, utilisez la commande `Get-HcsIpAddress` pour répertorier les interfaces réseau activées sur votre appareil virtuel. Si votre appareil possède une seule interface réseau activée, le nom par défaut affecté à cette interface est `Ethernet`.
+
+6. Utilisez l’applet de commande `Set-HcsIpAddress` pour configurer le réseau. Voir l’exemple suivant :
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
-    
-9. Une fois l'installation initiale terminée et l’appareil démarré, vous verrez le texte de la bannière de l’appareil. Notez l'adresse IP et l'URL affichées dans le texte de la bannière pour gérer l'appareil. Utilisez cette adresse IP pour vous connecter à l’interface utilisateur web de votre appareil virtuel et pour finaliser la configuration et l’activation locales.
+
+7. Une fois l'installation initiale terminée et l’appareil démarré, vous verrez le texte de la bannière de l’appareil. Notez l'adresse IP et l'URL affichées dans le texte de la bannière pour gérer l'appareil. Utilisez cette adresse IP pour vous connecter à l’interface utilisateur web de votre appareil virtuel et pour finaliser la configuration et l’activation locales.
 
    ![Bannière de l’appareil virtuel avec l’adresse IP et l’URL de connexion](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
-      
 
 Si votre appareil n’est pas conforme à la configuration minimale requise, une erreur apparaît dans le texte de bannière. Modifier la configuration de l’appareil afin qu’il dispose des ressources nécessaires à la configuration minimale. Vous pouvez ensuite redémarrer et vous connecter à l'appareil. Reportez-vous à la configuration minimale requise décrite à la section [Vérifier le système hôte](#check-the-host-system).
 
 SI vous rencontrez une autre erreur durant la configuration initiale effectuée avec l’interface utilisateur web locale, reportez-vous aux workflows suivants :
 
-- [Exécutez les tests de diagnostic pour dépanner la configuration de l’interface utilisateur web](data-box-gateway-troubleshoot.md#run-diagnostics).
-- [Générez un package de journaux et affichez les fichiers journaux](data-box-gateway-troubleshoot.md#collect-support-package).
+* [Exécutez les tests de diagnostic pour dépanner la configuration de l’interface utilisateur web](data-box-gateway-troubleshoot.md#run-diagnostics).
+* [Générez un package de journaux et affichez les fichiers journaux](data-box-gateway-troubleshoot.md#collect-support-package).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
