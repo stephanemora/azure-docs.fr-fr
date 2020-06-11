@@ -13,6 +13,7 @@
     - name: Créer un point de terminaison privé - Azure CLI
       href: create-private-endpoint-cli.md
     - name: Créer un point de terminaison privé - Modèle ARM
+      displayName: Resource Manager
       href: create-private-endpoint-template.md
     - name: Créer un service Private Link - Portail
       href: create-private-link-service-portal.md
@@ -21,6 +22,7 @@
     - name: Créer un service Private Link - Azure CLI
       href: create-private-link-service-cli.md
     - name: Créer un service Private Link - Modèle ARM
+      displayName: Resource Manager
       href: create-private-link-service-template.md
 - name: Concepts
   items:
