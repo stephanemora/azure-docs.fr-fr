@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/21/2020
-ms.openlocfilehash: 96e37afd8bf7d59eef4a4c0c831f535faa36d34d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ccdb2b24499c86a54909b2617abd7e9bf294a261
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681447"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220188"
 ---
-# <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Comment exécuter des blocs-notes Jupyter dans votre espace de travail
+# <a name="how-to-run-jupyter-notebooks-in-your-workspace-preview"></a>Guide pratique pour exécuter des bloc-notes Jupyter dans votre espace de travail (préversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Découvrez comment exécuter vos blocs-notes Jupyter directement dans votre espace de travail dans Azure Machine Learning Studio. En plus de la possibilité de lancer [Jupyter](https://jupyter.org/) ou [JupyterLab](https://jupyterlab.readthedocs.io), vous pouvez modifier et exécuter vos blocs-notes sans quitter l’espace de travail.
@@ -49,7 +49,7 @@ Pour créer un bloc-notes :
 1. Nommez le fichier. 
 1. Pour Fichiers Jupyter Notebook, sélectionnez le type de fichier **Bloc-notes Python**.
 1. Sélectionnez un répertoire de fichiers.
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
 > [!TIP]
 > Vous pouvez également créer des fichiers texte.  Sélectionnez le type de fichier **Texte**, puis ajoutez l’extension au nom (par exemple, monfichier.py ou monfichier.txt).  
@@ -147,7 +147,7 @@ Ces actions ne modifient pas l’état du bloc-notes ou les valeurs des variable
 
 Les actions ci-après ont pour effet de réinitialiser l’état du bloc-notes et toutes les variables dans celui-ci.
 
-|Action  |Résultat  |
+|Action  |Résultats  |
 |---------|---------| --------|
 | Modifier le noyau | Le bloc-notes utilise le nouveau noyau. |
 | Changer d’instance de calcul    |     Le bloc-notes utilise automatiquement la nouvelle instance de calcul. |

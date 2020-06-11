@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: b39eb24b5611e36d14b151aaec96941ff52f3dfa
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 401317f6b47c97a76ef2ded603063821a420933a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731694"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84192537"
 ---
 # <a name="introduction-to-azure-security"></a>Présentation de la sécurité Azure
 ## <a name="overview"></a>Vue d’ensemble
@@ -308,7 +308,7 @@ Le chiffrement [TDE (Transparent data encryption)](../../virtual-machines/window
 
 Le service Azure Key Vault (coffre de clés Azure, AKV) est conçu pour optimiser la sécurité et la gestion de ces clés dans un emplacement sécurisé et hautement disponible. Le connecteur SQL Server permet à SQL Server d’utiliser ces clés depuis Azure Key Vault.
 
-Si vous exécutez SQL Server sur des ordinateurs locaux, vous devez suivre la procédure d’accès à Azure Key Vault à partir de votre ordinateur SQL Server local. Mais, pour SQL Server dans des machines virtuelles Azure, vous pouvez gagner du temps à l’aide de la fonctionnalité Azure Key Vault Integration. Avec quelques applets de commande Azure PowerShell pour activer cette fonctionnalité, vous pouvez automatiser la configuration nécessaire pour qu'une machine virtuelle SQL puisse accéder à votre coffre de clés.
+Si vous exécutez SQL Server sur des ordinateurs locaux, vous devez suivre la procédure d’accès à Azure Key Vault à partir de votre instance SQL Server locale. Mais, pour SQL Server dans des machines virtuelles Azure, vous pouvez gagner du temps à l’aide de la fonctionnalité Azure Key Vault Integration. Avec quelques applets de commande Azure PowerShell pour activer cette fonctionnalité, vous pouvez automatiser la configuration nécessaire pour qu'une machine virtuelle SQL puisse accéder à votre coffre de clés.
 
 ### <a name="vm-disk-encryption"></a>Chiffrement de disque de machine virtuelle
 [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) est une nouvelle fonctionnalité qui vous permet de chiffrer vos disques de machine virtuelle IaaS Windows et Linux. Elle utilise la fonctionnalité standard BitLocker de Windows et la fonctionnalité DM-Crypt de Linux pour fournir le chiffrement de volume du système d’exploitation et des disques de données. La solution est intégrée à Azure Key Vault, ce qui vous permet de contrôler et de gérer les clés et clés secrètes de chiffrement de disque dans votre abonnement Key Vault. Elle garantit également que toutes les données sur les disques de vos machines virtuelles sont chiffrées au repos dans votre stockage Azure.

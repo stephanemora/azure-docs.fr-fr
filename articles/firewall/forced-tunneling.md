@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 05/18/2020
+ms.date: 06/01/2020
 ms.author: victorh
-ms.openlocfilehash: cf0af93d95c5af56be6168bc8e4f79d3005e2ec2
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a467aa60b131e47e9251366369b3fae8dd95c004
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649598"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267696"
 ---
 # <a name="azure-firewall-forced-tunneling"></a>Tunneling forcé du pare-feu Azure
 
@@ -31,6 +31,10 @@ Dans cette configuration, *AzureFirewallSubnet* peut désormais inclure des rout
 Par exemple, vous pouvez créer une route par défaut sur *AzureFirewallSubnet* avec votre passerelle VPN comme tronçon suivant pour accéder à votre appareil local. Ou vous pouvez activer la **propagation de la route de la passerelle de réseau virtuel** pour récupérer les routes appropriées sur le réseau local.
 
 ![Propagation de la route de la passerelle de réseau virtuel](media/forced-tunneling/route-propagation.png)
+
+Si vous activez le tunneling forcé, le trafic Internet est « SNATé » vers l'une des adresses IP privées du pare-feu dans AzureFirewallSubnet, ce qui a pour effet de masquer la source à votre pare-feu local.
+
+Si votre organisation utilise une plage d’adresses IP publiques pour les réseaux privés, Pare-feu Azure traduit l’adresse réseau source du trafic en une des adresses IP privées du pare-feu dans AzureFirewallSubnet. Toutefois, vous pouvez configurer Pare-feu Azure pour qu’il n’effectue **pas** une telle traduction. Pour plus d’informations, consultez [Plages d’adresses IP privées SNAT du Pare-feu Azure](snat-private-range.md).
 
 Une fois que vous avez configuré le pare-feu Azure pour prendre en charge le tunneling forcé, vous ne pouvez pas annuler la configuration. Si vous supprimez toutes les autres configurations IP de votre pare-feu, la configuration IP de gestion est également supprimée et le pare-feu est libéré. L’adresse IP publique attribuée à la configuration IP de gestion ne peut pas être supprimée, mais vous pouvez attribuer une autre adresse IP publique.
 
