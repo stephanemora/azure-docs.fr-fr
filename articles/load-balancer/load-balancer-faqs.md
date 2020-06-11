@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 3be8ce241817b3b2fa03976eebe3147c1dc9c877
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 94a2398879007e7ecd6d2f1920157eb4627f33cb
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005152"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014925"
 ---
 # <a name="frequently-asked-questions"></a>Forum aux questions
 
@@ -32,6 +32,9 @@ Consultez la [liste des modèles de démarrage rapide Azure Load Balancer](https
 
 ## <a name="how-are-inbound-nat-rules-different-from-load-balancing-rules"></a>Quelle est la différence entre les règles NAT entrantes et les règles d’équilibrage de charge ?
 Les règles NAT sont utilisées pour spécifier une ressource backend vers laquelle acheminer le trafic. Par exemple, la configuration d’un port d’équilibrage de charge spécifique pour envoyer le trafic RDP vers une machine virtuelle spécifique. Les règles d’équilibrage de charge sont utilisées pour spécifier un pool de ressources backend vers lequel acheminer le trafic, en équilibrant la charge sur chaque instance. Par exemple, une règle d’équilibreur de charge peut acheminer les paquets TCP sur le port 80 de l’équilibreur de charge sur un pool de serveurs Web.
+
+## <a name="what-is-ip-1686312916"></a>Qu’est-ce que l’adresse IP 168.63.129.16 ?
+Adresse IP virtuelle de l’hôte marquée en tant qu’infrastructure Azure Load Balancer d’où proviennent les sondes d’intégrité Azure. Lors de la configuration d’instances backend, elles doivent autoriser le trafic à partir de cette adresse IP pour répondre correctement aux sondes d’intégrité. Cette règle n’interagit pas avec l’accès à votre frontend Load Balancer. Vous pouvez remplacer cette règle si vous n’utilisez pas Azure Load Balancer. Apprenez-en davantage sur les balises de service [ici](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si votre question ne figure pas dans la liste ci-dessus, veuillez envoyer vos commentaires sur cette page avec votre question. Cela créera un problème GitHub pour l’équipe produit afin de s’assurer que toutes les questions des clients reçoivent une réponse.
