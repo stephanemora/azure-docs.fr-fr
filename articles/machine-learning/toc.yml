@@ -128,6 +128,8 @@
           href: concept-data.md
         - name: Ingestion de données
           href: concept-data-ingestion.md
+        - name: Traitement des données
+          href: concept-optimize-data-processing.md
     - name: Apprentissage du modèle
       displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
       href: concept-train-machine-learning-model.md
