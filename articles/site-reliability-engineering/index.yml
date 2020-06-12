@@ -11,12 +11,12 @@ metadata:
   author: dnblankedelman
   ms.author: dnb
   ms.date: 02/18/2020
-  ms.openlocfilehash: 18857c11887ef6934485602d0fcb7aaf2220721e
-  ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+  ms.openlocfilehash: f46fd0f8323b483cdbec072bcda0346d0b4c2ab7
+  ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/28/2020
-  ms.locfileid: "82185079"
+  ms.lasthandoff: 06/10/2020
+  ms.locfileid: "84659868"
 highlightedContent:
   items:
   - title: 'Introduction à l’ingénierie SRE :  Qu’est-ce que l’ingénierie SRE ? (1/3)'
@@ -43,11 +43,13 @@ productDirectory:
       text: Pratiques de déploiement pour une plus grande fiabilité
     - url: https://myignite.techcommunity.microsoft.com/sessions/83001
       text: 'Se préparer à la croissance : planification et adaptation des capacités'
-  - title: Introduction au cours en ligne sur l’ingénierie SRE
+  - title: Cours en ligne sur l’ingénierie SRE
     imageSrc: ./media/index/learn.svg
     links:
     - url: https://docs.microsoft.com/learn/modules/intro-to-site-reliability-engineering/
-      text: Apprendre les bases de l’ingénierie SRE dans un cours en ligne gratuit
+      text: Introduction à l’ingénierie de fiabilité de site
+    - url: https://docs.microsoft.com/learn/paths/improve-reliability-modern-operations/
+      text: Améliorer votre fiabilité avec des pratiques opérationnelles modernes
   - title: Ressources sur l’ingénierie SRE
     imageSrc: ./media/index/reference.svg
     links:
@@ -118,6 +120,9 @@ conceptualContent:
     - url: https://docs.microsoft.com/azure/azure-monitor/azure-monitor-app-hub
       itemType: get-started
       text: Gestion des performances des applications avec Application Insights
+    - url: https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing
+      itemType: get-started
+      text: Suivi distribué avec Azure Monitor
     - url: https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing
       itemType: get-started
       text: Suivi distribué avec Azure Monitor

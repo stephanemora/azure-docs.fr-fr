@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: e2cc04be5a79009f92e275f9de46df60a8e23c8b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d5b4986c24a1db61527e6a9ff7be249f189d6248
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106574"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248547"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>FAQ - Questions générales sur Azure Security Center
 
@@ -36,7 +36,7 @@ Azure Security Center est disponible avec votre abonnement Microsoft Azure et ac
 Azure Security Center surveille les ressources Azure suivantes :
 
 * Machines virtuelles (VM) (y compris [Cloud Services](../cloud-services/cloud-services-choose-me.md))
-* Groupes identiques de machines virtuelles 
+* Groupes identiques de machines virtuelles
 * Réseaux virtuels Azure
 * Containers
 * Service SQL Azure
@@ -59,7 +59,7 @@ Les stratégies de sécurité activées dans Azure Security Center déterminent 
 
 
 ## <a name="who-can-modify-a-security-policy"></a>Qui peut modifier une stratégie de sécurité ?
-Pour modifier une stratégie de sécurité, vous devez avoir le rôle d’administrateur de la sécurité, de propriétaire ou de collaborateur pour l’abonnement concerné.
+Pour modifier une stratégie de sécurité, vous devez avoir le rôle d’**administrateur de la sécurité** ou de **propriétaire** pour l’abonnement concerné.
 
 Pour savoir comment configurer une stratégie de sécurité, consultez [Définition de stratégies de sécurité dans le Centre de sécurité Azure](tutorial-security-policy.md).
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: 615dc1b7bd1a31069a542ebb7ea44693c404cb40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 87932887edd0aac536a2c7fbd25a02d2442f9db9
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79499099"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267628"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence IoT Hub :
 
@@ -60,7 +60,7 @@ Ces deux options de basculement offrent les objectifs de point de récupération
 Une fois l’opération de basculement terminée pour l’IoT Hub, toutes les opérations exécutées à partir des applications principales et de l’appareil sont supposées continuer de fonctionner sans intervention manuelle. Cela signifie que vos messages appareil-à-cloud continuent de fonctionner et que l’intégralité du registre de l’appareil est intacte. Les événements émis via Event Grid peuvent être utilisés sur les mêmes abonnements configurés précédemment tant que ces abonnements Event Grid restent disponibles.
 
 > [!CAUTION]
-> - Le nom et le point de terminaison compatibles Event Hub, de même que le point de terminaison Events intégré à IoT Hub, changent après le basculement, et les groupes de consommateurs configurés sont supprimés (il s’agit d’un bogue qui sera corrigé avant mai 2020). À la réception des messages de télémétrie à partir du point de terminaison intégré à l’aide du client Event Hub ou d’un hôte de processeur d’événements, vous devez [utiliser la chaîne de connexion IoT Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) pour établir la connexion. De cette manière, vos applications principales continueront de fonctionner sans nécessiter d’intervention manuelle après le basculement. Si vous utilisez le nom et le point de terminaison compatibles Event Hub directement dans votre application, vous devrez [reconfigurer le groupe de consommateurs qu’ils utilisent et extraire le nouveau point de terminaison compatible Event Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) après le basculement pour pouvoir poursuivre vos opérations. Si vous utilisez Azure Functions ou Azure Stream Analytics pour connecter le point de terminaison intégré, vous devrez peut-être effectuer un **redémarrage**.
+> - Le nom et le point de terminaison compatibles Event Hub, de même que le point de terminaison Events intégré à IoT Hub, changent après le basculement. À la réception des messages de télémétrie à partir du point de terminaison intégré à l’aide du client Event Hub ou d’un hôte de processeur d’événements, vous devez [utiliser la chaîne de connexion IoT Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) pour établir la connexion. De cette manière, vos applications principales continueront de fonctionner sans nécessiter d’intervention manuelle après le basculement. Si vous utilisez le nom et le point de terminaison compatibles Event Hub directement dans votre application, vous devrez [extraire le nouveau point de terminaison compatible Event Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) après le basculement pour pouvoir poursuivre vos opérations. Si vous utilisez Azure Functions ou Azure Stream Analytics pour connecter le point de terminaison intégré, vous devrez peut-être effectuer un **redémarrage**.
 >
 > - Pour effectuer un routage vers le stockage, nous vous recommandons de répertorier les objets blob ou les fichiers, puis d’exécuter une itération sur ces derniers, afin de garantir que tous les objets blob ou les fichiers seront lus, sans avoir à faire de suppositions concernant la partition. La plage de la partition peut changer pendant un basculement initié par Microsoft ou pendant un basculement manuel. Vous pouvez utiliser l’[API Lister les blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) pour énumérer la liste des objets blob ou l’[API Lister ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) pour lister les fichiers. 
 

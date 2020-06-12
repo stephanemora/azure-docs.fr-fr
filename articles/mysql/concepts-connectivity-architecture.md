@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 6014e98d01755f29da74160fb1ef38ba29a74ba6
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 661cfb4798ef553918ddc238a5388b11a54e23f9
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547495"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298684"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Architecture de connectivité dans Azure Database pour MySQL
 Cet article présente l’architecture de connectivité d’Azure Database pour MySQL, ainsi que la façon dont le trafic est dirigé vers l’instance Azure Database pour MySQL des clients dans Azure et en dehors.
@@ -44,6 +44,7 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 | USA Est | 40.121.158.30, 191.238.6.43  |
 | USA Est 2 |40.79.84.180, 191.239.224.107, 52.177.185.181, 40.70.144.38, 52.167.105.38  |
 | France Centre | 40.79.137.0, 40.79.129.1  |
+| France Sud | 40.79.177.0     |
 | Centre de l’Allemagne | 51.4.144.100     |
 | Nord-Est de l’Allemagne | 51.5.144.179  |
 | Inde Centre | 104.211.96.159     |

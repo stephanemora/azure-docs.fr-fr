@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: ddd34295bfe64fdd336d8b237482b45f02e30201
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 95345ba864d498190186e1a366c8551be97c33f5
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816494"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299661"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Monitor
 
@@ -74,11 +74,17 @@ Par exemple, si vos réseaux virtuels internes VNet1 et VNet2 doivent se connect
 
 Commencez par créer une ressource d’étendue de liaison privée Azure Monitor.
 
-1. Accédez à **Créer une ressource** dans le portail Azure et recherchez **Étendue de liaison privée Azure Monitor**. 
-2. Cliquez sur **Create** (Créer). 
-3. Choisissez un abonnement et un groupe de ressources. 
-4. Donnez un nom à l’AMPLS. Il est préférable d’utiliser un nom qui indique clairement à quelle fin et à quelle limite de sécurité l’étendue sera utilisée afin que personne n’arrête accidentellement les limites de sécurité réseau. Par exemple, « AppServerProdTelem ». 
+1. Accédez à **Créer une ressource** dans le portail Azure et recherchez **Étendue de liaison privée Azure Monitor**.
+
+   ![Rechercher l’étendue de liaison privée Azure Monitor](./media/private-link-security/ampls-find-1c.png)
+
+2. Cliquez sur **Create** (Créer).
+3. Choisissez un abonnement et un groupe de ressources.
+4. Donnez un nom à l’AMPLS. Il est préférable d’utiliser un nom qui indique clairement à quelle fin et à quelle limite de sécurité l’étendue sera utilisée afin que personne n’arrête accidentellement les limites de sécurité réseau. Par exemple, « AppServerProdTelem ».
 5. Cliquez sur **Revoir + créer**. 
+
+   ![Créer une étendue de liaison privée Azure Monitor](./media/private-link-security/ampls-create-1d.png)
+
 6. Laissez le processus de validation se terminer, puis cliquez sur **Créer**.
 
 ## <a name="connect-azure-monitor-resources"></a>Connecter des ressources Azure Monitor
@@ -174,7 +180,7 @@ Pour créer et gérer des étendues de liaison privée, utilisez [az monitor pri
 
 Pour gérer l’accès au réseau, utilisez les indicateurs `[--ingestion-access {Disabled, Enabled}]` et `[--query-access {Disabled, Enabled}]` sur les [espaces de travail Log Analytics ](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) ou les [composants Application Insights](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
 
-## <a name="collect-custom-logs-over-private-link"></a>Collecter des journaux personnalisés via une liaison privée
+## <a name="collect-custom-logs-over-private-link"></a>Collecter des journaux personnalisés sur une liaison privée
 
 Des comptes de stockage sont utilisés dans le processus d’ingestion de journaux personnalisés. Par défaut, des comptes de stockage gérés par le service sont utilisés. Toutefois, pour ingérer des journaux personnalisés via des liaisons privées, vous devez utiliser vos propres comptes de stockage et les associer aux espaces de travail Log Analytics. Pour plus d’informations sur la configuration de ces comptes, utilisez la [ligne de commande](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest).
 
@@ -188,7 +194,7 @@ Les versions les plus récentes des agents Windows et Linux doivent être utilis
 
 **Agent Log Analytics pour Windows**
 
-Utilisez la version 18.20.18038.0 ou une version ultérieure de l’agent Log Analytics.
+Utilisez la version 10.20.18038.0 ou ultérieure de l’agent Log Analytics.
 
 **Agent Log Analytics pour Linux**
 
@@ -201,7 +207,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Pour utiliser les expérience du portail Azure Monitor, comme Application Insights et Log Analytics, vous devez autoriser l’accès au portail Azure et aux extensions Azure Monitor sur les réseaux privés. Ajoutez les [balises de service](../../firewall/service-tags.md) **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor.FirstParty** et **AzureFrontdoor.Frontend** à votre pare-feu.
+Pour utiliser les expérience du portail Azure Monitor, comme Application Insights et Log Analytics, vous devez autoriser l’accès au portail Azure et aux extensions Azure Monitor sur les réseaux privés. Ajoutez les [étiquettes de service](../../firewall/service-tags.md) **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor.FirstParty** et **AzureFrontdoor.Frontend** à votre pare-feu.
 
 ### <a name="programmatic-access"></a>Accès par programme
 
@@ -224,3 +230,6 @@ Pour permettre à l’agent Log Analytics de télécharger des packs de solution
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Règle de trafic sortant
 |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Règle de trafic sortant
 
+## <a name="next-steps"></a>Étapes suivantes
+
+- Découvrir le [stockage privé](private-storage.md)

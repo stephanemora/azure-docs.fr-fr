@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: e2f23f4045f0326ffea14ddeb4d588261872188f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 7c0cc2b4996c1002aae0656234c356c805923811
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743704"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84205124"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Vue d’ensemble de Start/Stop VMs during off-hours
 
@@ -104,7 +104,7 @@ Tous les runbooks parents incluent le paramètre `WhatIf`. Une fois configuré s
 |Runbook | Paramètres | Description|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Appelé par le runbook parent. Ce runbook crée des alertes en fonction des ressources pour le scénario d’arrêt automatique.|
-|AutoStop_CreateAlert_Parent | VMList<br> WhatIf : True ou False  | Crée ou met à jour des règles d’alerte Azure sur des machines virtuelles dans l’abonnement ou les groupes de ressource ciblées. <br> `VMList` est une liste séparée par des virgules des machines virtuelles. Par exemple : `vm1, vm2, vm3`.<br> `WhatIf` active la validation de la logique du runbook sans l’exécuter.|
+|AutoStop_CreateAlert_Parent | VMList<br> WhatIf : True ou False  | Crée ou met à jour des règles d’alerte Azure sur des machines virtuelles dans l’abonnement ou les groupes de ressource ciblées. <br> `VMList` est une liste de machines virtuelles séparées par des virgules (sans espaces), par exemple `vm1,vm2,vm3`.<br> `WhatIf` active la validation de la logique du runbook sans l’exécuter.|
 |AutoStop_Disable | None | Désactive les alertes et la planification par défaut de l’arrêt automatique.|
 |AutoStop_VM_Child | WebHookData | Appelé par le runbook parent. Les règles d’alerte appellent ce runbook pour arrêter une machine virtuelle classique.|
 |AutoStop_VM_Child_ARM | WebHookData |Appelé par le runbook parent. Les règles d’alerte appellent ce runbook pour arrêter une machine virtuelle.  |
@@ -112,7 +112,7 @@ Tous les runbooks parents incluent le paramètre `WhatIf`. Une fois configuré s
 |ScheduledStartStop_Child | VMName <br> Action : Démarrer ou arrêter <br> ResourceGroupName | Appelé par le runbook parent. Exécute une action de démarrage ou d’arrêt pour l’arrêt planifié.|
 |ScheduledStartStop_Child_Classic | VMName<br> Action : Démarrer ou arrêter<br> ResourceGroupName | Appelé par le runbook parent. Exécute une action de démarrage ou d’arrêt pour l’arrêt planifié des machines virtuelles classiques. |
 |ScheduledStartStop_Parent | Action : Démarrer ou arrêter <br>VMList <br> WhatIf : True ou False | Fait démarrer ou arrête toutes les machines virtuelles de l’abonnement. Modifiez les variables `External_Start_ResourceGroupNames` et `External_Stop_ResourceGroupNames` pour une exécution uniquement sur ces groupes de ressources ciblés. Vous pouvez également exclure des machines virtuelles spécifiques en mettant à jour la variable `External_ExcludeVMNames`.|
-|SequencedStartStop_Parent | Action : Démarrer ou arrêter <br> WhatIf : True ou False<br>VMList| Crée des balises nommées **sequencestart** et **sequencestop** sur chaque machine virtuelle pour laquelle vous souhaitez séquencer l’activité de démarrage et d’arrêt. Ces noms de balises respectent la casse. La valeur de la balise doit être un entier positif (1, 2, 3) correspondant à l’ordre du démarrage ou d’arrêt. <br>**Remarque** : Les machines virtuelles doivent se trouver dans des groupes de ressources définis dans les variables `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames` et `External_ExcludeVMNames`. Elles doivent disposer des étiquettes appropriées pour que les actions puissent prendre effet.|
+|SequencedStartStop_Parent | Action : Démarrer ou arrêter <br> WhatIf : True ou False<br>VMList| Crée des balises nommées **sequencestart** et **sequencestop** sur chaque machine virtuelle pour laquelle vous souhaitez séquencer l’activité de démarrage et d’arrêt. Ces noms de balises respectent la casse. La valeur de la balise doit être une liste d’entiers positifs, par exemple `1,2,3`, correspondant à l’ordre du démarrage ou d’arrêt. <br>**Remarque** : Les machines virtuelles doivent se trouver dans des groupes de ressources définis dans les variables `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames` et `External_ExcludeVMNames`. Elles doivent disposer des étiquettes appropriées pour que les actions puissent prendre effet.|
 
 ### <a name="variables"></a>Variables
 
@@ -170,7 +170,7 @@ Pour utiliser la fonctionnalité avec des machines virtuelles classiques, vous a
 Si vous avez plus de 20 machines virtuelles par service cloud, voici quelques recommandations :
 
 * Créez plusieurs planifications avec le runbook parent **ScheduledStartStop_Parent** et en spécifiant 20 machines virtuelles par planification. 
-* Dans les propriétés de planification, utilisez le paramètre `VMList` pour spécifier des noms de machines virtuelles sous forme de liste séparée par des virgules. 
+* Dans les propriétés de planification, utilisez le paramètre `VMList` pour spécifier des noms de machines virtuelles sous forme de liste séparée par des virgules (sans espaces). 
 
 Sinon, si le travail Automation pour cette fonctionnalité s’exécute pendant plus de trois heures, il est momentanément déchargé ou arrêté par la limite de [répartition de charge équilibrée](automation-runbook-execution.md#fair-share).
 

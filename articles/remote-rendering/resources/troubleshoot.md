@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: b6cb9c70de27e40c62d6a7adeece5cb39554c090
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 59dc64c952aab6b37e6a779ab1e7e85b9a8ab4b7
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844560"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018818"
 ---
 # <a name="troubleshoot"></a>Dépanner
 
@@ -29,7 +29,7 @@ Vérifiez que vos pare-feu (sur l’appareil, dans les routeurs, etc.) ne bloque
 * **8266 (TCP+UDP)**  : nécessaire pour le transfert de données
 * **5000 (TCP)** , **5433 (TCP)** , **8443 (TCP)**  : nécessaires pour [ArrInspector](tools/arr-inspector.md)
 
-## <a name="error-disconnected-videoformatnotavailable"></a>Erreur 'Déconnecté : VideoFormatNotAvailable'
+## <a name="error-disconnected-videoformatnotavailable"></a>Erreur : `Disconnected: VideoFormatNotAvailable`
 
 Vérifiez que votre GPU prend en charge le décodage vidéo matériel. Consultez [PC de développement](../overview/system-requirements.md#development-pc).
 
@@ -37,7 +37,7 @@ Si vous travaillez sur un ordinateur portable avec deux GPU, il est possible que
 
 ## <a name="h265-codec-not-available"></a>Codec H265 non disponible
 
-Le serveur peut refuser de se connecter avec une erreur **codec non disponible** pour deux raisons.
+Le serveur peut refuser de se connecter avec une erreur `codec not available` pour deux raisons.
 
 **Le codec H265 n’est pas installé :**
 
@@ -107,7 +107,7 @@ Si ces deux étapes n’ont pas permis de résoudre le problème, il est nécess
 
 Consultez les [limitations de taille de machine virtuelle](../reference/limits.md#overall-number-of-polygons) spécifiques.
 
-**Le modèle ne se trouve pas dans la vue de frustum :**
+**Le modèle ne se trouve pas dans le frustum de l’appareil photo :**
 
 Dans de nombreux cas, le modèle s’affiche correctement, mais il se trouve en dehors du frustum de l’appareil photo. Une raison courante à cela est que le modèle a été exporté avec un tableau croisé dynamique trop décentré, de sorte qu’il est coupé par le plan arrière de découpage de l’appareil photo. Cela permet d’interroger par programmation le cadre englobant du modèle et de visualiser la zone avec Unity sous la forme d’une zone de ligne ou d’imprimer ses valeurs dans le journal de débogage.
 
@@ -142,7 +142,7 @@ Ce cadre englobant peut présenter deux problèmes qui mènent à une géométri
 
 **Le pipeline de rendu Unity n’inclut pas les crochets de rendu :**
 
-Azure Remote Rendering se raccroche au pipeline de rendu Unity pour créer la composition du cadre avec la vidéo et effectuer la reprojection. Pour vérifier que ces crochets existent, ouvrez le menu *Window > Analysis > Frame Debug* (Fenêtre > Analyse > Débogage de frames). Activez-le et vérifiez qu’il existe deux entrées pour `HolographicRemotingCallbackPass` dans le pipeline :
+Azure Remote Rendering se raccroche au pipeline de rendu Unity pour créer la composition du cadre avec la vidéo et effectuer la reprojection. Pour vérifier que ces crochets, ouvrez le menu *:::no-loc text="Window > Analysis > Frame debugger":::* . Activez-le et vérifiez qu’il existe deux entrées pour `HolographicRemotingCallbackPass` dans le pipeline :
 
 ![Débogueur de frames Unity](./media/troubleshoot-unity-pipeline.png)
 

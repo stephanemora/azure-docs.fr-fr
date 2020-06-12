@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 40285c811cd6f407c20c40bf3a90ec5b779a9c18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08a1d655d19b5e7deb81e42ca5bebdfe4f18aeef
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79231137"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84297902"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C : Forum Aux Questions (FAQ)
 
@@ -134,21 +134,20 @@ Pas actuellement. Cette fonctionnalité est sur notre feuille de route. La véri
 
 Procédez comme suit pour supprimer votre locataire Azure AD B2C.
 
-Vous pouvez utiliser l’expérience **Applications** actuelle ou notre nouvelle expérience unifiée **Inscriptions d’applications (préversion)** . [En savoir plus sur la nouvelle expérience](https://aka.ms/b2cappregintro).
+Vous pouvez utiliser notre nouvelle expérience unifiée **Inscriptions d’applications** ou notre expérience héritée **Applications (héritées)** . [En savoir plus sur la nouvelle expérience](https://aka.ms/b2cappregtraining).
 
-#### <a name="applications"></a>[Applications](#tab/applications/)
+#### <a name="app-registrations"></a>[Inscriptions des applications](#tab/app-reg-ga/)
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/) en tant qu’*administrateur d’abonnements*. Utilisez le compte professionnel ou scolaire ou le compte Microsoft que vous avez utilisé pour vous inscrire à Azure.
 1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
 1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
-1. Supprimez tous les **flux d’utilisateurs (stratégies)** dans votre locataire Azure AD B2C.
-1. Supprimez toutes les **applications** inscrites dans votre locataire Azure AD B2C.
-1. Sélectionnez **Azure Active Directory** dans le menu à gauche.
+1. Supprimez tous les **flux d’utilisateurs (stratégies)** dans votre locataire Azure AD B2C.
+1. Sélectionnez **Inscriptions d’applications**, puis sélectionnez l’onglet **Toutes les applications**.
+1. Supprimez toutes les applications que vous avez inscrites.
+1. Supprimez l’application **b2c-extensions-app**.
 1. Sous **Gérer**, sélectionnez **Utilisateurs**.
-1. Sélectionnez chaque utilisateur tour à tour (excluez l’utilisateur *Administrateur d’abonnements* sous lequel vous êtes connecté actuellement). Sélectionnez **Supprimer** en bas de la page, puis **OUI** lorsque vous y êtes invité.
-1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** (ou **Inscriptions d’applications (hérité)** ).
-1. Sélectionnez **Afficher toutes les applications**.
-1. Sélectionnez l’application nommée **b2c-extensions-app**, **Supprimer**, puis **Oui** lorsque vous y êtes invité.
+1. Sélectionnez chaque utilisateur tour à tour (excluez l’utilisateur *Administrateur d’abonnements* sous lequel vous êtes connecté actuellement). Sélectionnez **Supprimer** en bas de la page, puis **Oui** lorsque vous y êtes invité.
+1. Sélectionnez **Azure Active Directory** dans le menu à gauche.
 1. Sous **Gérer**, sélectionnez **Paramètres utilisateur**.
 1. Le cas échéant, sous **Connexions au compte LinkedIn**, sélectionnez **Non**, puis **Enregistrer**.
 1. Sous **Gérer**, sélectionnez **Propriétés**.
@@ -157,18 +156,19 @@ Vous pouvez utiliser l’expérience **Applications** actuelle ou notre nouvelle
 1. Sélectionnez **Azure Active Directory** dans le menu à gauche.
 1. Dans la page **Vue d’ensemble**, sélectionnez **Supprimer le répertoire**. Suivez les instructions à l’écran pour achever le processus.
 
-#### <a name="app-registrations-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
+#### <a name="applications-legacy"></a>[Applications (héritées)](#tab/applications-legacy/)
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/) en tant qu’*administrateur d’abonnements*. Utilisez le compte professionnel ou scolaire ou le compte Microsoft que vous avez utilisé pour vous inscrire à Azure.
 1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
 1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
-1. Supprimez tous les **flux d’utilisateurs (stratégies)** dans votre locataire Azure AD B2C.
-1. Sélectionnez **Inscriptions d’applications (préversion)** , puis sélectionnez l’onglet **Toutes les applications**.
-1. Supprimez toutes les applications que vous avez inscrites.
-1. Supprimez l’application **b2c-extensions-app**.
-1. Sous **Gérer**, sélectionnez **Utilisateurs**.
-1. Sélectionnez chaque utilisateur tour à tour (excluez l’utilisateur *Administrateur d’abonnements* sous lequel vous êtes connecté actuellement). Sélectionnez **Supprimer** en bas de la page, puis **Oui** lorsque vous y êtes invité.
+1. Supprimez tous les **flux d’utilisateurs (stratégies)** dans votre locataire Azure AD B2C.
+1. Supprimez toutes les **applications (héritées)** inscrites dans votre locataire Azure AD B2C.
 1. Sélectionnez **Azure Active Directory** dans le menu à gauche.
+1. Sous **Gérer**, sélectionnez **Utilisateurs**.
+1. Sélectionnez chaque utilisateur tour à tour (excluez l’utilisateur *Administrateur d’abonnements* sous lequel vous êtes connecté actuellement). Sélectionnez **Supprimer** en bas de la page, puis **OUI** lorsque vous y êtes invité.
+1. Sous **Gérer**, sélectionnez **Inscriptions des applications**.
+1. Sélectionnez **Afficher toutes les applications**.
+1. Sélectionnez l’application nommée **b2c-extensions-app**, **Supprimer**, puis **Oui** lorsque vous y êtes invité.
 1. Sous **Gérer**, sélectionnez **Paramètres utilisateur**.
 1. Le cas échéant, sous **Connexions au compte LinkedIn**, sélectionnez **Non**, puis **Enregistrer**.
 1. Sous **Gérer**, sélectionnez **Propriétés**.

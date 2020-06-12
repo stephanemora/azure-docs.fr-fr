@@ -4,23 +4,24 @@ description: Connexion privée à une application web à l’aide d’un point d
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 05/25/2020
+ms.date: 06/02/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 4c48a2fad927812cc45543243b48a2df81acf73b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.custom: fasttrack-edit, references_regions
+ms.openlocfilehash: 15b3f2e48b78036c02ef86446f2ab920f22f7c76
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83846951"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295437"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Utilisation de points de terminaison privés pour application web Azure (préversion)
 
 > [!Note]
 > Avec l’actualisation de la préversion, nous avons publié la fonctionnalité de protection contre l’exfiltration de données.
-> La préversion est disponible dans les régions USA Est et USA Ouest 2 pour toutes les applications web PremiumV2 Windows et Linux, ainsi que toutes les fonctions Premium élastiques. 
+>
+> La préversion est disponible dans toutes les régions publiques pour les applications web PremiumV2 Windows et Linux, ainsi que les fonctions Premium élastiques. 
 
 Vous pouvez utiliser un point de terminaison privé pour votre application web Azure afin de permettre aux clients situés dans votre réseau privé d’accéder de façon sécurisée à l’application via une liaison privée. Le point de terminaison privé utilise une adresse IP de l’espace d’adressage de votre réseau virtuel Azure. Le trafic entre un client de votre réseau privé et l’application web traverse le réseau virtuel et une liaison privée sur le réseau principal de Microsoft, ce qui élimine son exposition à l’Internet public.
 

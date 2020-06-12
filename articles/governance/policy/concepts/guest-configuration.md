@@ -3,16 +3,16 @@ title: Découvrez comment auditer le contenu des machines virtuelles
 description: Découvrez comment Azure Policy utilise l’agent Configuration d’invité pour auditer les paramètres à l’intérieur des machines virtuelles.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6ff24f14281712497798f2c5231a8d98d7d89055
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f37364f62550a76360ea0dbb35b92f8aac67f22f
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684279"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259148"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
-En plus de l’audit et de la [correction](../how-to/remediate-resources.md) des ressources Azure, Azure Policy peut auditer les paramètres internes d’une machine. La validation est effectuée par le client et l’extension de configuration d’invité. L’extension, via le client, valide des paramètres tels que :
+Azure Policy peut auditer les paramètres dans une machine. La validation est effectuée par le client et l’extension de configuration d’invité. L’extension, via le client, valide des paramètres tels que :
 
 - La configuration du système d’exploitation
 - La configuration ou la présence de l’application
@@ -46,8 +46,8 @@ Le tableau suivant affiche une liste des outils locaux utilisés sur chaque syst
 
 |Système d’exploitation|Outil de validation|Notes|
 |-|-|-|
-|Windows|[Configuration d’état souhaité Windows PowerShell](/powershell/scripting/dsc/overview/overview) v2| |
-|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Si Ruby et Python ne sont pas présents sur la machine, ils sont installés par l’extension de configuration d’invité. |
+|Windows|[PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| Chargé dans un dossier utilisé uniquement par Azure Policy. Aucun conflit avec Windows PowerShell DSC. PowerShell Core n’est pas ajouté au chemin d’accès système.|
+|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Installe Chef InSpec version 2.2.61 dans l’emplacement par défaut et est ajouté au chemin d’accès système. Des dépendances pour le package InSpec, y compris Ruby et Python, sont également installées. |
 
 ### <a name="validation-frequency"></a>Fréquence de validation
 
@@ -87,7 +87,7 @@ Les stratégies **DeployIfNotExists** qui ajoutent l’extension à des machines
 
 ## <a name="guest-configuration-definition-requirements"></a>Exigences de définition de la configuration d’invité
 
-Chaque audit exécuté par la configuration d’invité nécessite deux définitions de stratégies : une définition **DeployIfNotExists** et une définition **AuditIfNotExists**.
+Chaque audit exécuté par la configuration d’invité nécessite deux définitions de stratégies : une définition **DeployIfNotExists** et une définition **AuditIfNotExists**. Les définitions de stratégie **DeployIfNotExists** gèrent les dépendances pour effectuer des audits sur chaque machine.
 
 La définition de stratégie **DeployIfNotExists** valide et corrige les éléments suivants :
 

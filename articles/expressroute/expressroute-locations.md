@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 70f90026e4a67fe1f8b1d5f790aed87652975045
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: f45bbd010bca8bbf42be13eeaac327a98f564864
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798616"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298242"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements de peering
 
@@ -84,7 +84,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[AT&amp;T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Prise en charge |Prise en charge |Amsterdam, Chicago, Dallas, Francfort, Londres, Silicon Valley, Singapour, Sydney, Tokyo, Toronto, Washington DC |
 | **[À TOKYO](https://www.attokyo.com/service/cloudsconnection/forazure.html)** | Prise en charge | Prise en charge | Tokyo2 |
 | **[BBIX](https://www.bbix.net/en/service/ix/)** | Prise en charge | Prise en charge | Tokyo |
-| **[BCX](https://www.bcx.co.za/solutions)** |Prise en charge |Prise en charge |Le Cap, Johannesburg|
+| **[BCX](https://www.bcx.co.za/solutions/connectivity/data-networks)** |Prise en charge |Prise en charge |Le Cap, Johannesburg|
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Prise en charge |Prise en charge |Montréal, Toronto, Québec |
 | **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)** |Prise en charge |Prise en charge |Amsterdam, Hong Kong (R.A.S), Johannesbourg, Londres, Newport(Wales), Sao Paulo, Silicon Valley, Singapour, Sydney, Tokyo, Washington DC |
 | **[C3ntro](https://www.c3ntro.com/data1/express-route1.php)** |Prise en charge |Prise en charge |Miami |
@@ -95,9 +95,8 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **China Telecom Global** |Prise en charge |Prise en charge |Hong Kong, Hong Kong2 |
 | **China Unicom Global** |Prise en charge |Prise en charge | Singapore2 |
 | **[Chunghwa Telecom](https://www.cht.com.tw/en/home/cht/about-cht/products-and-services/International/Cloud-Service)** |Prise en charge |Prise en charge |Taipei |
-| **[Claro](https://www.usclaro.com/enterprise-mnc/connectivity/mpls/)** | Prise en charge | Prise en charge | Miami |
 | **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Prise en charge |Prise en charge |Chicago, Dallas, Montréal, Toronto, Vancouver, Washington DC |
-| **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Prise en charge |Prise en charge |Amsterdam, Amsterdam2, Chicago, Dublin, Francfort, Londres, Londres2, Newport, New York, Osaka, Paris, Silicon Valley, Silicon Valley2, Singapour2, Tokyo, Washington DC |
+| **[Colt](https://www.colt.net/direct-connect/azure/)** |Prise en charge |Prise en charge |Amsterdam, Amsterdam2, Chicago, Dublin, Francfort, Londres, Londres2, Newport, New York, Osaka, Paris, Silicon Valley, Silicon Valley2, Singapour2, Tokyo, Washington DC |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Prise en charge |Prise en charge |Chicago, Silicon Valley, Washington DC |
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Prise en charge |Prise en charge |Chicago, Denver, Los Angeles, New York, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2 |
 | **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange/find-a-cloud-service/detail/microsoft-azure)** | Prise en charge |Prise en charge |Amsterdam2, Francfort, Marseille|
@@ -127,13 +126,13 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Prise en charge |Prise en charge |Amsterdam, Chicago, Dallas, Londres, Newport (Pays de Galles), Sao Paulo, Seattle, Silicon Valley, Singapour, Washington DC |
 | **LG CNS** |Prise en charge |Prise en charge |Busan, Séoul |
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |Prise en charge |Prise en charge |Le Cap, Johannesburg |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Prise en charge |Prise en charge |Amsterdam, Atlanta, Auckland, Chicago, Dallas, Denver, Dubaï2, Dublin, Francfort, Genève, Hong Kong (R.A.S), Las Vegas, Londres, Londres2, Los Angeles, Melbourne, Miami, Montréal, New York, Oslo, Perth, Québec, San Antonio, Seattle, Silicon Valley, Singapour, Singapour2, Sydney, Sydney2, Tokyo, Toronto, Washington DC, Zurich |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Prise en charge |Prise en charge |Amsterdam, Atlanta, Auckland, Chicago, Dallas, Denver, Dubaï2, Dublin, Francfort, Genève, Hong Kong (R.A.S), Las Vegas, Londres, Londres2, Los Angeles, Melbourne, Miami, Montréal, New York, Oslo, Perth, Québec, San Antonio, Seattle, Silicon Valley, Singapour, Singapour2, Stavanger, Stockholm, Sydney, Sydney2, Tokyo, Tokyo2, Toronto, Washington DC, Washington DC2, Zurich |
 | **[MTN](https://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** |Prise en charge |Prise en charge |London |
 | **[Neutrona Networks](https://www.neutrona.com/index.php/azure-expressroute/)** |Prise en charge |Prise en charge |Dallas, Los Angeles, Miami, Sao Paulo, Washington DC |
 | **[Next Generation Data](https://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Prise en charge |Prise en charge |Newport (Nouvelle-Galles du Sud) |
 | **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** |Prise en charge |Prise en charge |Melbourne, Perth, Sydney, Sydney2 |
 | **[NTT Communications](https://www.ntt.com/en/services/network/virtual-private-network.html)** |Prise en charge |Prise en charge |Amsterdam, Hong Kong (R.A.S.), Londres, Los Angeles, Osaka, Singapour, Sydney, Tokyo, Washington DC |
-| **[NTT EAST](https://flets.com/cloudgateway/crossconnect/)** |Prise en charge |Prise en charge |Tokyo |
+| **[NTT EAST](https://business.ntt-east.co.jp/service/crossconnect/)** |Prise en charge |Prise en charge |Tokyo |
 | **[NTT Global DataCenters EMEA](https://www.ntt.com/en/services/data-center.html)** |Prise en charge |Prise en charge |Berlin |
 | **[NTT SmartConnect](https://cloud.nttsmc.com/cxc/azure.html)** |Prise en charge |Prise en charge |Osaka |
 | **[Ooredoo Cloud Connect](https://www.ooredoo.qa/portal/OoredooQatar/cloud-connect-expressroute)** |Prise en charge |Prise en charge |Marseille |
@@ -200,7 +199,7 @@ Pour plus d’informations, consultez [ExpressRoute en Chine](http://www.windows
 
 | **Fournisseur de services** | **Microsoft Azure** | **Office 365** | **Emplacements** |
 | --- | --- | --- | --- |
-| **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Prise en charge |Non pris en charge |Francfort |
+| **[Colt](https://www.colt.net/direct-connect/azure/)** |Prise en charge |Non pris en charge |Francfort |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Prise en charge |Non pris en charge |Francfort |
 | **[e-shelter](https://www.e-shelter.de/en/microsoft-expressroutetm)** |Prise en charge |Non pris en charge |Berlin |
 | **Interxion** |Prise en charge |Non pris en charge |Francfort |
@@ -255,7 +254,7 @@ Si vous êtes à distance et que vous n’avez pas de connectivité par fibre ou
 | **[CloudXpress](https://www2.telenet.be/fr/business/produits-services/internet/cloudxpress/)** | Equinix | Amsterdam | 
 | **[CMC Telecom](https://cmctelecom.vn/san-pham/value-added-service-and-it/cmc-telecom-cloud-express-en/)** | Equinix | Singapour | 
 | **[Aptum Technologies](https://aptum.com/services/cloud/managed-azure/)**| Equinix | Montréal, Toronto |
-| **[CoreAzure](http://www.coreazure.com/expressroute/)**| Equinix | London |
+| **[CoreAzure](http://www.coreazure.com/)**| Equinix | London |
 | **[Cox Business](https://www.cox.com/business/networking/cloud-connectivity.html)**| Equinix | Dallas, Silicon Valley, Washington DC |
 | **[Crown Castle](https://fiber.crowncastle.com/solutions/added/cloud-connect)**| Equinix | Atlanta, Chicago, Dallas, Los Angeles, New York, Washington DC |
 | **[Data Foundry](https://www.datafoundry.com/services/cloud-connect)** | Megaport | Dallas |

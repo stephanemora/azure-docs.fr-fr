@@ -1,14 +1,14 @@
 ---
 title: Détails de la structure des définitions de stratégies
 description: Décrit comment les définitions de stratégie permettent d’établir des conventions pour les ressources Azure dans votre organisation.
-ms.date: 04/03/2020
+ms.date: 05/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: d4c1c10dfbf384815c34af8436acdbb45cb8e242
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: de9b3c5242f361c9f0cf7128a5ec32c0e7dce428
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746979"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84205022"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -17,14 +17,15 @@ Apprenez-en davantage sur les [conditions](#conditions).
 
 En définissant des conventions, vous pouvez contrôler les coûts et gérer plus facilement vos ressources. Par exemple, vous pouvez spécifier que seuls certains types de machines virtuelles sont autorisés. Vous pouvez aussi exiger que toutes les ressources soient marquées. Toutes les ressources enfants héritent des stratégies. Une stratégie appliquée à un groupe de ressources s’applique à toutes les ressources appartenant à ce groupe de ressources.
 
-Le schéma de la définition de stratégie se trouve ici : [https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
+Le schéma de la définition de stratégie se trouve ici : [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
 Vous devez utiliser JSON pour créer une définition de stratégie. La définition de stratégie contient des éléments pour :
 
-- mode
-- parameters
 - le nom d’affichage
 - description
+- mode
+- metadata
+- parameters
 - la règle de stratégie
   - évaluation logique
   - effet
@@ -34,7 +35,13 @@ Par exemple, le code JSON suivant illustre une stratégie qui limite les emplace
 ```json
 {
     "properties": {
+        "displayName": "Allowed locations",
+        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
         "mode": "all",
+        "metadata": {
+            "version": "1.0.0",
+            "category": "Locations"
+        },
         "parameters": {
             "allowedLocations": {
                 "type": "array",
@@ -46,8 +53,6 @@ Par exemple, le code JSON suivant illustre une stratégie qui limite les emplace
                 "defaultValue": [ "westus2" ]
             }
         },
-        "displayName": "Allowed locations",
-        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
         "policyRule": {
             "if": {
                 "not": {
@@ -63,7 +68,22 @@ Par exemple, le code JSON suivant illustre une stratégie qui limite les emplace
 }
 ```
 
-Tous les exemples Azure Policy se trouvent dans [Exemples de stratégies](../samples/index.md).
+Les modèles et les éléments intégrés Azure Policy sont disponibles sous [Exemples Azure Policy](../samples/index.md).
+
+## <a name="display-name-and-description"></a>Nom d’affichage et description
+
+**displayName** et **description** permettent de distinguer la définition de stratégie et de préciser son contexte d’utilisation. **displayName** a une longueur maximale de _128_ caractères et **description** a une longueur maximale de _512_ caractères.
+
+> [!NOTE]
+> Lors de la création ou de la mise à jour d’une définition de stratégie, **id**, **type** et **name** sont définis par des propriétés externes non comprises dans le code JSON et qui ne sont pas nécessaires au fichier JSON. La récupération de la définition de stratégie via le SDK permet de retourner les propriétés **id**, **type** et **name** dans le code JSON, mais chacune d’elles correspond à des informations en lecture seule qui sont relatives à la définition de stratégie.
+
+## <a name="type"></a>Type
+
+Bien que la propriété du **type** ne puisse pas être définie, trois valeurs sont retournées par le Kit de développement logiciel (SDK) et visibles dans le portail :
+
+- `Builtin`: Ces définitions de stratégie sont fournies et gérées par Microsoft.
+- `Custom`: Toutes les définitions de stratégie créées par les clients ont cette valeur.
+- `Static`: Indique une définition de stratégie de [conformité réglementaire](./regulatory-compliance.md) avec la **propriété** de Microsoft. Les résultats de conformité pour ces définitions de stratégie sont les résultats des audits tiers sur l’infrastructure Microsoft. Sur le portail Azure, cette valeur est parfois affichée comme étant **managée par Microsoft**. Pour plus d’informations, consultez [Responsabilité partagée dans le cloud](../../../security/fundamentals/shared-responsibility.md).
 
 ## <a name="mode"></a>Mode
 
@@ -82,7 +102,7 @@ Nous vous recommandons de définir **mode** sur `all` dans tous les cas. Toutes 
 
 Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer des stratégies qui appliquent des balises ou des emplacements, car cela empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme non conformes dans les résultats de conformité. Les **groupes de ressources** et les **abonnements** font figure d’exception. Les définitions de stratégie qui appliquent des emplacements ou des balises à un groupe de ressources ou un abonnement doivent définir le **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroups` ou `Microsoft.Resources/subscriptions`. Pour obtenir un exemple, consultez [Modèle : Balises – Exemple 1](../samples/pattern-tags.md). Pour obtenir la liste des ressources qui prennent en charge les étiquettes, consultez [Prise en charge des étiquettes pour les ressources Azure](../../../azure-resource-manager/management/tag-support.md).
 
-### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes" />Modes Fournisseur de ressources (préversion)
+### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes"></a>Modes du fournisseur de ressources (préversion)
 
 Les modes Fournisseur de ressources suivants sont actuellement pris en charge pendant la préversion :
 
@@ -92,6 +112,20 @@ Les modes Fournisseur de ressources suivants sont actuellement pris en charge pe
 
 > [!NOTE]
 > Les modes Fournisseur de ressources prennent uniquement en charge les définitions de stratégie intégrées et ne prennent pas en charge les initiatives en préversion.
+
+## <a name="metadata"></a>Métadonnées
+
+La propriété facultative `metadata` stocke les informations relatives à la définition de stratégie. Les clients peuvent définir toutes les propriétés et valeurs utiles à leur organisation dans `metadata`. Cependant, certaines propriétés _communes_ sont utilisées par Azure Policy et dans les éléments intégrés.
+
+### <a name="common-metadata-properties"></a>Propriétés de métadonnées communes
+
+- `version` (chaîne) : Effectue le suivi des détails sur la version du contenu d’une définition de stratégie.
+- `category` (chaîne) : détermine sous quelle catégorie du portail Azure la définition de stratégie apparaît.
+- `preview` (booléen) : indicateur true ou false permettant de déterminer si la définition de stratégie est en _préversion_.
+- `deprecated` (booléen) : indicateur true ou false permettant de déterminer si la définition de stratégie a été marquée comme _déconseillée_.
+
+> [!NOTE]
+> Le service Azure Policy utilise les propriétés `version`, `preview` et `deprecated` pour transmettre le niveau de changement à la définition ou à initiative et à l’état d’une stratégie intégrée. Le format de `version` est le suivant : `{Major}.{Minor}.{Patch}`. Les états spécifiques, tels que _déprécié_ ou _préversion_, sont ajoutés à la propriété `version` ou à toute autre propriété en tant que valeur **booléenne**. Pour plus d’informations sur la façon dont les versions d’Azure Policy sont intégrées, consultez [Contrôle des versions des éléments intégrés](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
 
 ## <a name="parameters"></a>Paramètres
 
@@ -105,17 +139,11 @@ Les paramètres fonctionnent de manière identique durant la création de strat�
 
 Un paramètre possède les propriétés suivantes qui sont utilisées dans la définition de la stratégie :
 
-- **nom** : Nom de votre paramètre. Utilisé par la fonction de déploiement `parameters` dans le cadre de la règle de stratégie. Pour plus d’informations, consultez [Utilisation d’une valeur de paramètre](#using-a-parameter-value).
+- `name`: Nom de votre paramètre. Utilisé par la fonction de déploiement `parameters` dans le cadre de la règle de stratégie. Pour plus d’informations, consultez [Utilisation d’une valeur de paramètre](#using-a-parameter-value).
 - `type`: Détermine si le paramètre est une **chaîne**, un **tableau**, un **objet**, **booléen**, **entier**, **flottant**, ou **DateHeure**.
 - `metadata`: Définit les sous-propriétés utilisées principalement par le portail Azure pour afficher des informations conviviales :
   - `description`: Explication du rôle du paramètre. Utilisable pour fournir des exemples de valeurs acceptables.
   - `displayName`: Nom convivial du paramètre visible dans le portail.
-  - `version`: (Facultatif) Effectue le suivi des détails sur la version du contenu d’une définition de stratégie.
-
-    > [!NOTE]
-    > Le service Azure Policy utilise les propriétés `version`, `preview` et `deprecated` pour transmettre le niveau de changement à la définition ou à initiative et à l’état d’une stratégie intégrée. Le format de `version` est le suivant : `{Major}.{Minor}.{Patch}`. Les états spécifiques, tels que _déprécié_ ou _préversion_, sont ajoutés à la propriété `version` ou à toute autre propriété en tant que valeur **booléenne**.
-
-  - `category`: (Facultatif) Détermine dans quelle catégorie du portail Azure la définition de stratégie s’affiche.
   - `strongType`: (Facultatif) Utilisé lors de l’affectation de la définition de stratégie via le portail. Fournit une liste prenant en compte le contexte. Pour plus d’informations, voir [strongType](#strongtype).
   - `assignPermissions`: (Facultatif) Définissez l’option sur _True_ pour que le portail Azure crée des attributions de rôles lors de l’attribution de stratégie. Cette propriété est utile si vous souhaitez attribuer des autorisations en dehors de l’étendue d’attribution. Il existe une attribution de rôle par définition de rôle dans la stratégie (ou par définition de rôle dans toutes les stratégies dans l’initiative). La valeur du paramètre doit être une ressource ou une étendue valide.
 - `defaultValue`: (Facultatif) Définit la valeur du paramètre dans une affectation si aucune valeur n’est fournie.
@@ -180,13 +208,6 @@ Si l’emplacement de la définition est l’un ou l’autre élément suivant 
 
 - **Abonnement** : seules les ressources au sein de cet abonnement peuvent être assignées à la stratégie.
 - **Groupe d’administration** : seules les ressources au sein des groupes d’administration enfants et des abonnements enfants peuvent être assignées à la stratégie. Si vous voulez appliquer la définition de stratégie à plusieurs abonnements, l’emplacement doit correspondre à un groupe d’administration comportant ces abonnements.
-
-## <a name="display-name-and-description"></a>Nom d’affichage et description
-
-**displayName** et **description** permettent de distinguer la définition de stratégie et de préciser son contexte d’utilisation. **displayName** a une longueur maximale de _128_ caractères et **description** a une longueur maximale de _512_ caractères.
-
-> [!NOTE]
-> Lors de la création ou de la mise à jour d’une définition de stratégie, **id**, **type** et **name** sont définis par des propriétés externes non comprises dans le code JSON et qui ne sont pas nécessaires au fichier JSON. La récupération de la définition de stratégie via le SDK permet de retourner les propriétés **id**, **type** et **name** dans le code JSON, mais chacune d’elles correspond à des informations en lecture seule qui sont relatives à la définition de stratégie.
 
 ## <a name="policy-rule"></a>Règle de stratégie
 
@@ -288,7 +309,7 @@ Les champs suivants sont pris en charge :
   - Exemples : `tags['Acct.CostCenter']` où **Acct.CostCenter** est le nom de l’étiquette.
 - `tags['''<tagName>''']`
   - Cette syntaxe en crochet prend en charge les noms de balise contenant des apostrophes en appliquant une séquence d’échappement entre apostrophes doubles.
-  - Où **'\<tagName\>'** est le nom de l’étiquette pour laquelle vérifier la condition.
+  - Où **« \<tagName\> »** est le nom de l’étiquette pour laquelle vérifier la condition.
   - Exemple : `tags['''My.Apostrophe.Tag''']` où **'My.Apostrophe.Tag** est le nom de la balise.
 - alias de propriété : pour en obtenir la liste, consultez [Alias](#aliases).
 
@@ -432,7 +453,7 @@ Les propriétés suivantes sont utilisées avec **count** :
 - **count.field** (obligatoire) : contient le chemin du tableau et doit être un alias de tableau. Si le tableau est manquant, l’expression est évaluée à _false_ sans tenir compte de l’expression de condition.
 - **count.where** (facultatif) : l’expression de condition pour évaluer individuellement chaque membre du tableau [alias \[\*\]](#understanding-the--alias) de **count.field**. Si cette propriété n’est pas fournie, tous les membres du tableau avec le chemin « field » sont évalués à _true_. Toute [condition](../concepts/definition-structure.md#conditions) peut être utilisée à l’intérieur de cette propriété.
   Il est possible d’utiliser des [opérateurs logiques](#logical-operators) à l’intérieur de cette propriété pour créer des exigences d’évaluation complexes.
-- **\<condition\>** (obligatoire) : la valeur est comparée au nombre d’éléments qui ont satisfait l’expression de condition **count.where**. Une [condition](../concepts/definition-structure.md#conditions) numérique doit être utilisée.
+- **\<condition\>** (obligatoire) : la valeur est comparée au nombre d’éléments qui ont satisfait l’expression de condition **count.where**. Une [condition](../concepts/definition-structure.md#conditions) numérique doit être utilisée.
 
 #### <a name="count-examples"></a>Exemples de comptage
 
@@ -713,88 +734,9 @@ Cet exemple de règle vérifie toutes les correspondances de **ipRules\[\*\].val
 
 Pour plus d’informations, consultez [l’évaluation de l’alias [\*]](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
-## <a name="initiatives"></a>Initiatives
-
-Les initiatives vous permettent de regrouper en un seul élément plusieurs définitions de stratégies associées pour simplifier les affectations et la gestion. Par exemple, vous pouvez regrouper des définitions de stratégies de balisage associées en une même initiative. Au lieu d’attribuer chaque stratégie individuellement, vous appliquez l’initiative.
-
-> [!NOTE]
-> Une fois qu’une initiative est attribuée, il n’est plus possible de modifier les paramètres à son niveau. Pour cette raison, il est recommandé de définir une **defaultValue** lors de la définition du paramètre.
-
-L’exemple suivant montre comment créer une initiative pour gérer deux balises : `costCenter` et `productName`. Il utilise deux stratégies intégrées pour appliquer la valeur de balise par défaut.
-
-```json
-{
-    "properties": {
-        "displayName": "Billing Tags Policy",
-        "policyType": "Custom",
-        "description": "Specify cost Center tag and product name tag",
-        "parameters": {
-            "costCenterValue": {
-                "type": "String",
-                "metadata": {
-                    "description": "required value for Cost Center tag"
-                },
-                "defaultValue": "DefaultCostCenter"
-            },
-            "productNameValue": {
-                "type": "String",
-                "metadata": {
-                    "description": "required value for product Name tag"
-                },
-                "defaultValue": "DefaultProduct"
-            }
-        },
-        "policyDefinitions": [{
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
-                "parameters": {
-                    "tagName": {
-                        "value": "costCenter"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('costCenterValue')]"
-                    }
-                }
-            },
-            {
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
-                "parameters": {
-                    "tagName": {
-                        "value": "costCenter"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('costCenterValue')]"
-                    }
-                }
-            },
-            {
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
-                "parameters": {
-                    "tagName": {
-                        "value": "productName"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('productNameValue')]"
-                    }
-                }
-            },
-            {
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
-                "parameters": {
-                    "tagName": {
-                        "value": "productName"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('productNameValue')]"
-                    }
-                }
-            }
-        ]
-    }
-}
-```
-
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Voir [Structure d’une définition d’initiative](./initiative-definition-structure.md)
 - Consultez des exemples à la page [Exemples Azure Policy](../samples/index.md).
 - Consultez la page [Compréhension des effets de Policy](effects.md).
 - Découvrez comment [créer des stratégies par programmation](../how-to/programmatically-create.md).

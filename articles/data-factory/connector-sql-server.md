@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/12/2020
-ms.openlocfilehash: 063ac32c98d4eb64b676247c0a16f98fa7d1702d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 05/29/2020
+ms.openlocfilehash: c2a3b40f5ac79d11e0a80ba31c3bbc10f4e82276
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81416685"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299585"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copier des données vers et depuis SQL Server à l’aide d’Azure Data Factory
 
@@ -43,7 +43,7 @@ Plus précisément, ce connecteur SQL Server prend en charge :
 - SQL Server versions 2016, 2014, 2012, 2008 R2, 2008 et 2005.
 - La copie des données à l'aide de l'authentification SQL ou Windows
 - En tant que source, la récupération de données à l’aide d’une requête SQL ou d’une procédure stockée.
-- En tant que récepteur, l'ajout de données à une table de destination ou l'appel d'une procédure stockée avec une logique personnalisée pendant la copie
+- En tant que récepteur, la création automatique de la table de destination si elle n’existe pas, en fonction du schéma source, l’ajout de données à une table ou l’appel d’une procédure stockée avec une logique personnalisée pendant la copie. 
 
 [SQL Server Express LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-express-localdb?view=sql-server-2017) n’est pas pris en charge.
 
@@ -294,14 +294,14 @@ Pour copier des données vers SQL Server, définissez **SqlSink** comme type de 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type du récepteur de l'activité de copie doit être définie sur **SqlSink**. | Oui |
-| writeBatchSize |Nombre de lignes à insérer dans la table SQL *par lot*.<br/>Les valeurs autorisées sont des entiers pour le nombre de lignes. Par défaut, Azure Data Factory détermine de façon dynamique la taille de lot appropriée en fonction de la taille de ligne. |Non |
-| writeBatchTimeout |Cette propriété spécifie le délai d'attente avant expiration de l'opération d'insertion de lot.<br/>Les valeurs autorisées sont celles qui expriment un intervalle de temps. Exemple : « 00:30:00 » pour 30 minutes. Si aucune valeur n’est spécifiée, le délai d’expiration est par défaut « 02:00:00 ». |Non |
 | preCopyScript |Cette propriété spécifie une requête SQL que l’activité de copie doit exécuter avant l’écriture de données dans SQL Server. Elle n'est appelée qu'une seule fois par copie. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. |Non |
-| sqlWriterStoredProcedureName | Nom de la procédure stockée qui définit comment appliquer des données sources dans une table cible. <br/>Cette procédure stockée est *appelée par lot*. Pour les opérations qui ne s’exécutent qu’une seule fois et qui n’ont rien à voir avec les données sources (par exemple, supprimer ou tronquer), utilisez la propriété `preCopyScript`. | Non |
+| tableOption | Spécifie si la table du récepteur doit être créée automatiquement si elle n’existe pas en fonction du schéma source. La création automatique de la table n’est pas prise en charge quand le récepteur spécifie une procédure stockée ou quand une copie intermédiaire est configurée dans l’activité de copie. Les valeurs autorisées sont `none` (par défaut) et `autoCreate`. |Non |
+| sqlWriterStoredProcedureName | Nom de la procédure stockée qui définit comment appliquer des données sources dans une table cible. <br/>Cette procédure stockée est *appelée par lot*. Pour les opérations qui ne s’exécutent qu’une seule fois et qui n’ont rien à voir avec les données sources (par exemple, supprimer ou tronquer), utilisez la propriété `preCopyScript`.<br>Voir l’exemple dans la section [Appel d’une procédure stockée à partir d’un récepteur SQL](#invoke-a-stored-procedure-from-a-sql-sink). | Non |
 | storedProcedureTableTypeParameterName |Nom du paramètre du type de table spécifié dans la procédure stockée.  |Non |
 | sqlWriterTableType |Nom du type de table à utiliser dans la procédure stockée. L'activité de copie rend les données déplacées disponibles dans une table temporaire avec ce type de table. Le code de procédure stockée peut ensuite fusionner les données copiées avec les données existantes. |Non |
 | storedProcedureParameters |Paramètres de la procédure stockée.<br/>Les valeurs autorisées sont des paires de noms et de valeurs. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. | Non |
-| tableOption | Spécifie si la table du récepteur doit être créée automatiquement si elle n’existe pas en fonction du schéma source. La création automatique de la table n’est pas prise en charge quand le récepteur spécifie une procédure stockée ou quand une copie intermédiaire est configurée dans l’activité de copie. Les valeurs autorisées sont `none` (par défaut) et `autoCreate`. |Non |
+| writeBatchSize |Nombre de lignes à insérer dans la table SQL *par lot*.<br/>Les valeurs autorisées sont des entiers pour le nombre de lignes. Par défaut, Azure Data Factory détermine de façon dynamique la taille de lot appropriée en fonction de la taille de ligne. |Non |
+| writeBatchTimeout |Cette propriété spécifie le délai d'attente avant expiration de l'opération d'insertion de lot.<br/>Les valeurs autorisées sont celles qui expriment un intervalle de temps. Exemple : « 00:30:00 » pour 30 minutes. Si aucune valeur n’est spécifiée, le délai d’expiration est par défaut « 02:00:00 ». |Non |
 
 **Exemple 1 : Ajout de données**
 
@@ -328,8 +328,8 @@ Pour copier des données vers SQL Server, définissez **SqlSink** comme type de 
             },
             "sink": {
                 "type": "SqlSink",
-                "writeBatchSize": 100000,
-                "tableOption": "autoCreate"
+                "tableOption": "autoCreate",
+                "writeBatchSize": 100000
             }
         }
     }
@@ -393,12 +393,11 @@ L’ajout de données est le comportement par défaut de ce connecteur de récep
 
 ### <a name="upsert-data"></a>Effectuer un upsert de données
 
-**Option 1 :** Quand vous avez une grande quantité de données à copier, utilisez l’approche suivante pour effectuer un upsert : 
+**Option 1 :** Lorsque vous avez une grande quantité de données à copier, vous pouvez charger en masse tous les enregistrements dans une table de mise en lots à l’aide de l’activité de copie, puis exécuter une activité de procédure stockée pour appliquer une instruction [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15) ou INSERT/UPDATE en une seule fois. 
 
-- Tout d’abord, utilisez une [table temporaire](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=sql-server-2017#temporary-tables) pour charger en bloc tous les enregistrements par le biais de l’activité de copie. Étant donné que les opérations sur des tables temporaires ne sont pas journalisées, vous pouvez charger des millions d’enregistrements en quelques secondes.
-- Exécutez une activité de procédure stockée dans Azure Data Factory pour appliquer une instruction [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) ou INSERT/UPDATE. Utilisez une table temporaire comme source pour effectuer toutes les mises à jour ou insertions sous la forme d’une transaction unique. De cette façon, le nombre d’allers-retours et d’opérations de journalisation est réduit. À la fin de l’activité de procédure stockée, la table temporaire peut être tronquée pour être prête pour le prochain cycle d’upsert.
+Actuellement, l’activité de copie ne prend pas en charge en mode natif le chargement des données dans une table temporaire de base de données. Un moyen avancé permet de le mettre en place en combinant plusieurs activités, reportez-vous à l’[optimisation des scénarios d’upserts en masse SQL Database (en anglais)](https://github.com/scoriani/azuresqlbulkupsert). Vous trouverez ci-dessous un exemple d’utilisation d’une table permanente comme mise en lots.
 
-Par exemple, dans Azure Data Factory, vous pouvez créer un pipeline avec une **activité de copie** chaînée avec une **activité de procédure stockée**. La première activité copie des données à partir de votre magasin source dans une table temporaire de base de données, par exemple **##UpsertTempTable**, comme nom de table dans le jeu de données. La seconde activité appelle ensuite une procédure stockée pour fusionner les données sources de la table temporaire dans la table cible et nettoyer la table temporaire.
+Par exemple, dans Azure Data Factory, vous pouvez créer un pipeline avec une **activité de copie** chaînée avec une **activité de procédure stockée**. La première activité copie des données de votre banque source vers une table de mise en lots SQL Server, par exemple **UpsertStagingTable**, comme nom de table dans le jeu de données. La seconde activité appelle ensuite une procédure stockée pour fusionner les données sources de la table de mise en lots vers la table cible et nettoyer la table de mise en lots.
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
@@ -409,7 +408,7 @@ CREATE PROCEDURE [dbo].[spMergeData]
 AS
 BEGIN
     MERGE TargetTable AS target
-    USING ##UpsertTempTable AS source
+    USING UpsertStagingTable AS source
     ON (target.[ProfileID] = source.[ProfileID])
     WHEN MATCHED THEN
         UPDATE SET State = source.State
@@ -417,11 +416,11 @@ BEGIN
         INSERT ([ProfileID], [State], [Category])
       VALUES (source.ProfileID, source.State, source.Category);
     
-    TRUNCATE TABLE ##UpsertTempTable
+    TRUNCATE TABLE UpsertStagingTable
 END
 ```
 
-**Option 2 :** Vous pouvez également choisir d’[appeler une procédure stockée dans l’activité de copie](#invoke-a-stored-procedure-from-a-sql-sink). Cette approche exécute chaque ligne de la table source au lieu d’utiliser l’insertion en bloc comme approche par défaut dans l’activité de copie, ce qui n’est pas approprié pour les opérations d’upsert à grande échelle.
+**Option 2 :** Vous pouvez choisir d’[appeler une procédure stockée dans l’activité de copie](#invoke-a-stored-procedure-from-a-sql-sink). Cette approche exécute chaque lot (tel que gouverné par la propriété `writeBatchSize`) de la table source au lieu d’utiliser l’insertion en bloc comme approche par défaut dans l’activité de copie.
 
 ### <a name="overwrite-the-entire-table"></a>Remplacer l’intégralité de la table
 
@@ -429,19 +428,13 @@ Vous pouvez configurer la propriété **preCopyScript** dans un récepteur d’a
 
 ### <a name="write-data-with-custom-logic"></a>Écrire des données avec une logique personnalisée
 
-Les étapes permettant d’écrire des données à l’aide d’une logique personnalisée sont semblables à celles décrites dans la section [Effectuer un upsert de données](#upsert-data). Quand vous devez appliquer un traitement supplémentaire avant l’insertion finale des données sources dans la table de destination, à grande échelle, vous pouvez effectuer l’une de ces deux actions : 
-
-- Charger les données dans une table temporaire, puis appeler une procédure stockée. 
-- Appeler une procédure stockée pendant la copie.
+Les étapes permettant d’écrire des données à l’aide d’une logique personnalisée sont semblables à celles décrites dans la section [Effectuer un upsert de données](#upsert-data). Lorsque vous devez appliquer un traitement supplémentaire avant l’insertion finale des données sources dans la table de destination, vous pouvez charger une table de mise en lots puis appeler une activité de procédure stockée ou appeler une procédure stockée dans le récepteur de l’activité de copie pour appliquer les données.
 
 ## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a><a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Appel d'une procédure stockée à partir d'un récepteur SQL
 
-Quand vous copiez des données dans une base de données SQL Server, vous pouvez également configurer et appeler une procédure stockée spécifiée par l’utilisateur avec des paramètres supplémentaires. La fonction de procédure stockée tire parti des [paramètres table](https://msdn.microsoft.com/library/bb675163.aspx).
+Quand vous copiez des données dans une base de données SQL Server, vous pouvez également configurer et appeler une procédure stockée spécifiée par l’utilisateur avec des paramètres supplémentaires sur chaque lot de la table source. La fonction de procédure stockée tire parti des [paramètres table](https://msdn.microsoft.com/library/bb675163.aspx).
 
-> [!TIP]
-> Appeler une procédure stockée traite les données ligne par ligne, et non pas en bloc, ce qui n’est pas recommandé pour la copie à grande échelle. Pour en savoir plus, consultez l’article [Bonnes pratiques de chargement de données dans SQL Server](#best-practice-for-loading-data-into-sql-server).
-
-Vous pouvez utiliser une procédure stockée à la place des mécanismes de copie intégrée. Par exemple, quand vous souhaitez appliquer un traitement supplémentaire avant l’insertion finale de données sources dans la table de destination. Fusionner des colonnes, rechercher des valeurs supplémentaires et insérer des données dans plusieurs tables sont des exemples de traitement supplémentaire.
+Vous pouvez utiliser une procédure stockée à la place des mécanismes de copie intégrée. Par exemple, quand vous souhaitez appliquer un traitement supplémentaire avant l’insertion finale de données sources dans la table de destination. Fusionner des colonnes, rechercher des valeurs supplémentaires et effectuer des insertions dans plusieurs tables sont des exemples de traitement supplémentaire.
 
 L’exemple suivant montre comment utiliser une procédure stockée pour effectuer une opération upsert simple dans une table de la base de données SQL Server. Supposons que les données d’entrée et la table réceptrice **Marketing** ont trois colonnes : **ProfileID**, **State** et **Category**. Effectuez l’opération upsert basée sur la colonne **ProfileID** et appliquez-la uniquement à une catégorie spécifique appelée « ProductA ».
 
@@ -528,7 +521,7 @@ Quand vous copiez des données depuis et vers SQL Server, les mappages suivants
 | Xml |Xml |
 
 >[!NOTE]
-> Pour les types de données mappés avec le type intermédiaire Decimal, Azure Data Factory prend actuellement en charge une précision maximale de 28. Si vous disposez de données qui nécessitent une précision supérieure à 28, pensez à les convertir en chaîne dans une requête SQL.
+> Pour les types de données mappés avec le type intermédiaire Decimal,l’activité de copie prend actuellement en charge une précision maximale de 28. Si vous disposez de données qui nécessitent une précision supérieure à 28, pensez à les convertir en chaîne dans une requête SQL.
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
 
@@ -537,6 +530,24 @@ Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-f
 ## <a name="getmetadata-activity-properties"></a>Propriétés de l’activité GetMetadata
 
 Pour en savoir plus sur les propriétés, consultez [Activité GetMetadata](control-flow-get-metadata-activity.md). 
+
+## <a name="using-always-encrypted"></a>Utilisation d’Always Encrypted
+
+Lorsque vous copiez des données depuis ou vers SQL Server avec [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15), utilisez le [connecteur ODBC générique](connector-odbc.md) et le pilote ODBC SQL Server via le runtime d’intégration auto-hébergé. Ce connecteur SQL Server ne prend pas en charge Always Encrypted pour le moment. 
+
+Plus précisément :
+
+1. Configurez un runtime d’intégration auto-hébergé si vous n’en avez pas. Pour plus d’informations, consultez l’article [Runtime d’intégration autohébergé](create-self-hosted-integration-runtime.md).
+
+2. Téléchargez le pilote ODBC 64 bits pour SQL Server [ici](https://docs.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15) et installez-le sur l’ordinateur du runtime d’intégration. Pour en savoir plus sur le fonctionnement de ce pilote, consultez [Utilisation d’Always Encrypted avec le pilote ODBC pour SQL Server](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-ver15#using-the-azure-key-vault-provider).
+
+3. Créez un service lié avec un type ODBC pour vous connecter à votre base de données SQL. Pour utiliser l’authentification SQL, spécifiez la chaîne de connexion ODBC comme indiqué ci-dessous, puis sélectionnez l’authentification **de base** pour définir le nom d’utilisateur et le mot de passe.
+
+    ```
+    Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>
+    ```
+
+4. Créez le jeu de données et l’activité de copie avec le type ODBC en conséquence. Pour en savoir plus, consultez l’article [Connecteur ODBC](connector-odbc.md).
 
 ## <a name="troubleshoot-connection-issues"></a>Résoudre les problèmes de connexion
 

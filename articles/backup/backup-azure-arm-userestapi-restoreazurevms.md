@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment gérer les opérations de rest
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 4990d815721ddbdde8e6eb6ebf8d6d3b49adc700
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 87e3d75d925968b6521324f5b776cf8df1f6af11
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74173386"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247797"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurer des machines virtuelles avec l’API REST
 

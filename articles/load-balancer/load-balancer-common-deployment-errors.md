@@ -10,12 +10,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.author: anavin
-ms.openlocfilehash: b596e349d789584de07943332ede6f6897a1fd22
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 527f71b1980b5a62d3db94fe89a1bce98142e31a
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658647"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221007"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>Résoudre les erreurs courantes dans des déploiements Azure avec Azure Load Balancer
 
@@ -28,6 +28,7 @@ Cet article décrit certaines erreurs courantes liées au déploiement Azure Loa
 |DifferentSkuLoadBalancersAndPublicIPAddressNotAllowed| La référence SKU d’adresse IP publique et la référence SKU Load Balancer doivent correspondre. Assurez-vous que les références SKU Azure Load Balancer et d’adresse IP publique correspondent. La référence SKU standard est recommandée pour les charges de travail de production. Découvrez-en plus sur les [différences entre les références SKU](./skus.md).  |
 |DifferentSkuLoadBalancerAndPublicIPAddressNotAllowedInVMSS | Les groupes de machines virtuelles identiques sont par défaut des équilibreurs de charge de base quand la référence SKU n’est pas spécifiée ou est déployée sans adresses IP publiques standard. Redéployez le groupe de machines virtuelles identiques avec des adresses IP publiques standard sur les différentes instances pour vous assurer que Standard Load Balancer est sélectionné ou sélectionnez simplement un équilibreur de charge standard lors du déploiement du groupe de machines virtuelles identiques à partir du portail Azure. |
 |MaxAvailabilitySetsInLoadBalancerReached | Le pool de back-ends d’un équilibreur de charge peut contenir au maximum 150 groupes à haute disponibilité. Si vous n’avez pas de groupes à haute disponibilité définis explicitement pour vos machines virtuelles dans le pool de back-ends, chaque machine virtuelle se retrouve dans son propre groupe à haute disponibilité. Ainsi, le déploiement de 150 machines virtuelles autonomes peut impliquer l’existence de 150 groupes à haute disponibilité, la limite étant alors atteinte. Vous pouvez déployer un groupe à haute disponibilité et y ajouter des machines virtuelles comme solution de contournement. |
+|NetworkInterfaceAndLoadBalancerAreInDifferentAvailabilitySets | Pour l’équilibreur de charge de référence SKU de base, l’interface réseau et l’équilibreur de charge doivent se trouver dans le même groupe à haute disponibilité. |
 |RulesOfSameLoadBalancerTypeUseSameBackendPortProtocolAndIPConfig| Vous ne pouvez pas avoir plus d’une règle sur un type d’équilibreur de charge donné (interne, public) avec les mêmes port back-end et protocole référencés par le même groupe de machines virtuelles identiques. Mettez à jour votre règle pour changer cette création de règle en double. |
 |RulesOfSameLoadBalancerTypeUseSameBackendPortProtocolAndVmssIPConfig| Vous ne pouvez pas avoir plus d’une règle sur un type d’équilibreur de charge donné (interne, public) avec les mêmes port back-end et protocole référencés par le même groupe de machines virtuelles identiques. Mettez à jour les paramètres de votre règle pour changer cette création de règle en double. |
 |AnotherInternalLoadBalancerExists| Un seul équilibreur de charge de type interne peut référencer le même ensemble de machines virtuelles/interfaces réseau dans le back-end de l’équilibreur de charge. Mettez à jour votre déploiement pour ne créer qu’un seul équilibreur de charge du même type. |

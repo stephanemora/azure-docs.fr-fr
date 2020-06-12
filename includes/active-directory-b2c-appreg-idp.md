@@ -12,7 +12,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 06/02/2020
 ms.locfileid: "84317648"
 ---
-Pour inscrire une application dans votre locataire Azure AD B2C, vous pouvez utiliser notre nouvelle expérience unifiée **Inscriptions d'applications** ou notre expérience héritée **Applications (héritées)** . [En savoir plus sur la nouvelle expérience](https://aka.ms/b2cappregtraining).
+Pour inscrire une application dans votre locataire Azure AD B2C, vous pouvez utiliser notre nouvelle expérience unifiée **Inscriptions d’applications** ou notre expérience héritée **Applications (héritées)** . [En savoir plus sur la nouvelle expérience](https://aka.ms/b2cappregtraining).
 
 #### <a name="app-registrations"></a>[Inscriptions des applications](#tab/app-reg-ga/)
 

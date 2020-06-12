@@ -5,13 +5,13 @@ services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 05/06/2020
-ms.openlocfilehash: 7f91d8eab2e7a29163dae5ae2a4d34792ddd0cb0
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.date: 05/28/2020
+ms.openlocfilehash: b5c4005c95a88a40a836b9c0f6d1fd01e0417ed0
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005507"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170271"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Appeler, déclencher ou imbriquer des applications logiques à l’aide de points de terminaison HTTPS dans Azure Logic Apps
 
@@ -162,7 +162,7 @@ Lorsque vous souhaitez accepter des valeurs de paramètre par le biais de l’UR
 
    Pour plus d’informations, consultez [Sélectionner la méthode de requête attendue](#select-method).
 
-1. Sous le déclencheur Request, ajoutez l’action dans laquelle vous souhaitez utiliser la valeur de paramètre. Pour cet exemple, ajoutez l’action **Response** (Réponse).
+1. Sous le déclencheur Request, ajoutez l’action dans laquelle vous souhaitez utiliser la valeur de paramètre. Pour cet exemple, ajoutez l’action **Response**.
 
    1. Sous le déclencheur de requête, sélectionnez **Nouvelle étape** > **Ajouter une action**.
    
@@ -214,6 +214,9 @@ Lorsque vous souhaitez accepter des valeurs de paramètre par le biais de l’UR
 
    * 2e position : `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
+> [!NOTE]
+> Si vous souhaitez inclure le code de hachage ou le symbole dièse ( **#** ) dans l’URI, utilisez plutôt cette version encodée : `%25%23`.
+
 <a name="relative-path"></a>
 
 ### <a name="accept-values-through-a-relative-path"></a>Accepter les valeurs via un chemin d’accès relatif
@@ -257,6 +260,9 @@ Lorsque vous souhaitez accepter des valeurs de paramètre par le biais de l’UR
    Le navigateur renvoie une réponse avec le texte suivant : `Postal Code: 123456`
 
    ![Réponse à l’envoi d’une requête vers l’URL de rappel](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
+
+> [!NOTE]
+> Si vous souhaitez inclure le code de hachage ou le symbole dièse ( **#** ) dans l’URI, utilisez plutôt cette version encodée : `%25%23`.
 
 ## <a name="call-logic-app-through-endpoint-url"></a>Appeler une application logique via une URL de point de terminaison
 

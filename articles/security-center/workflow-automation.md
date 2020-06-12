@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 5d947cf41e13abdea9a2fd29f8a740d0c101dc6f
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 9e905e78a835c833abe415d8b76c09ce672f849c
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397909"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300112"
 ---
 # <a name="workflow-automation"></a>Automatisation des workflows
 
@@ -25,15 +25,25 @@ Cet article décrit la fonctionnalité Automatisation des workflows d’Azure Se
 > Si vous avez précédemment accédé à la vue Playbooks (préversion) dans la barre latérale, vous retrouverez les mêmes fonctionnalités regroupées avec les fonctionnalités étendues dans la nouvelle page Automatisation des workflows.
 
 
-## <a name="requirements"></a>Spécifications
 
-* Pour utiliser des workflows Azure Logic Apps, vous devez avoir les autorisations/rôles Logic Apps suivants :
+## <a name="availability"></a>Disponibilité
 
-    * Les autorisations [Opérateur d’application logique](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) sont nécessaires pour lire/déclencher des applications logiques (ce rôle ne permet pas la création ou la modification d’applications logiques ; il sert uniquement à *exécuter* des applications existantes)
+- État de sortie : **Mise à la disposition générale**
+- Rôles et autorisations obligatoires :
+    - **Lecteur** sur l’abonnement contenant la configuration d’exportation
+    - **Rôle d’administrateur de sécurité** sur le groupe de ressources (ou **Propriétaire**)
+    - Doit également disposer d’autorisations en écriture sur la ressource cible
+    - En outre, pour utiliser des workflows Azure Logic Apps, vous devez avoir les autorisations/rôles Logic Apps suivants :
 
-    * Les autorisations [Contributeur d’application logique](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) sont requises pour la création et la modification d’applications logiques
+        * Les autorisations [Opérateur d’application logique](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) sont nécessaires pour lire/déclencher des applications logiques (ce rôle ne permet pas la création ou la modification d’applications logiques ; il sert uniquement à *exécuter* des applications existantes)
 
-* Si vous souhaitez utiliser des connecteurs d’applications logiques, vous pouvez avoir besoin d’informations d’identification supplémentaires pour vous connecter à leurs services respectifs (par exemple, vos instances Outlook/Teams/Slack).
+        * Les autorisations [Contributeur d’application logique](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) sont requises pour la création et la modification d’applications logiques
+
+        * Si vous souhaitez utiliser des connecteurs d’applications logiques, vous pouvez avoir besoin d’informations d’identification supplémentaires pour vous connecter à leurs services respectifs (par exemple, vos instances Outlook/Teams/Slack).
+- Clouds : 
+    - ✔ Clouds commerciaux
+    - ✔ US Gov
+    - ✘ Gov chinois, autres Gov
 
 
 ## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>Créer une application logique et définir le moment de son exécution automatique 

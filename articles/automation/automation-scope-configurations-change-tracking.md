@@ -1,52 +1,44 @@
 ---
-title: Utiliser des configurations d’étendue pour la fonctionnalité Suivi des modifications et inventaire Azure Automation
-description: Cet article explique comment utiliser les configurations d’étendue lorsque vous utilisez Suivi des modifications et inventaire.
+title: Limiter l’étendue du déploiement de Change Tracking and Inventory d’Azure Automation
+description: Cet article explique comment utiliser les configurations d’étendue pour limiter l’étendue du déploiement de Change Tracking and Inventory.
 services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 4fac94cc2f8f378b7e9d8e9485baed6a0ffa838b
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 49655d11858086b16099a1864fd4d2dc5988f02a
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832161"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117430"
 ---
-# <a name="work-with-scope-configurations-for-change-tracking-and-inventory"></a>Utiliser des configurations d’étendue pour la fonctionnalité Suivi des modifications et inventaire
+# <a name="limit-change-tracking-and-inventory-deployment-scope"></a>Limiter l’étendue du déploiement de Change Tracking and Inventory
 
-Cet article explique comment vous pouvez utiliser les configurations d’étendue lors de l’activation de la fonctionnalité [Update Management](automation-update-management.md) sur des machines virtuelles. 
+Cet article explique comment vous pouvez utiliser les configurations d’étendue lors de l’utilisation de la fonctionnalité [Change Tracking and Inventory](change-tracking.md) pour déployer des modifications sur vos machines virtuelles. Pour plus d’informations, consultez [Ciblage des solutions de supervision dans Azure Monitor (préversion)](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting). 
 
-## <a name="sign-in-to-azure"></a>Connexion à Azure
+## <a name="about-scope-configurations"></a>À propos des configurations d’étendues
 
-Connectez-vous au portail Azure sur https://portal.azure.com.
+La configuration d’étendue est un groupe d’une ou plusieurs recherches enregistrées (requêtes) utilisé pour limiter l’étendue de Change Tracking and Inventory à des ordinateurs spécifiques. La configuration d’étendue est utilisée au sein de l’espace de travail Log Analytics pour cibler les ordinateurs à activer. Lorsque vous ajoutez un ordinateur pour recevoir des changements de la fonctionnalité, l’ordinateur est également ajouté à une recherche enregistrée dans l’espace de travail.
 
-## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>Vérifier la configuration de l’étendue
+## <a name="set-the-scope-limit"></a>Définir la limite d’étendue
 
-Update Management utilise une configuration d’étendue au sein de l’espace de travail Log Analytics pour cibler les ordinateurs qui activent Update Management. La configuration d’étendue est un groupe d’une ou plusieurs recherches enregistrées qui est utilisé pour limiter l’étendue de la fonctionnalité à des ordinateurs spécifiques. Pour accéder aux configurations d’étendue :
+Pour limiter l’étendue du déploiement de Change Tracking and Inventory :
 
-1. Dans votre compte Automation, sous **Ressources associées**, sélectionnez **Espace de travail**. 
+1. Dans votre compte Automation, sélectionnez **Espace de travail lié** sous **Ressources connexes**.
 
-2. Choisissez l’espace de travail, sous **Sources de données de l’espace de travail**, sélectionnez **Configurations des étendues**.
+2. Cliquez sur **Accéder à l’espace de travail**.
 
-3. Si la fonctionnalité Update Management n’est pas encore activée pour l’espace de travail sélectionné, la configuration de l’étendue `MicrosoftDefaultScopeConfig-ChangeTracking` est créée. 
+3. Sélectionnez **Configurations d’étendue (préversion)** , sous **Sources de données de l’espace de travail**.
 
-4. Si la fonctionnalité est déjà activée pour l’espace de travail sélectionné, elle n’est pas redéployée et la configuration de l’étendue n’est pas ajoutée à celle-ci. 
+4. Sélectionnez les points de suspension sur la droite de la configuration d’étendue `MicrosoftDefaultScopeConfig-ChangeTracking`, puis cliquez sur **Modifier**. 
 
-5. Sélectionnez les points de suspension dans toutes les configurations d’étendue, puis cliquez sur **Modifier**. 
-
-6. Dans le volet de modification, choisissez **Sélectionner des groupes d’ordinateurs**. Le volet Groupes d’ordinateurs affiche les recherches enregistrées et utilisées pour créer la configuration d’étendue.
-
-## <a name="view-a-saved-search"></a>Afficher une recherche enregistrée
-
-Lorsqu’un ordinateur est ajouté à Suivi des modifications et inventaire, il est également ajouté à une recherche enregistrée dans votre espace de travail. La recherche enregistrée est une requête qui contient les ordinateurs cibles.
-
-1. Accédez à votre espace de travail Log Analytics et sélectionnez **Recherches enregistrées** sous **Général**. La recherche enregistrée utilisée par Update Management est :
+5. Dans le volet de modification, choisissez **Sélectionner des groupes d’ordinateurs**. Le volet Groupes d’ordinateurs affiche les recherches enregistrées et utilisées pour créer la configuration d’étendue. La recherche enregistrée utilisée par Change Tracking and Inventory est :
 
     |Nom     |Category  |Alias  |
     |---------|---------|---------|
     |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 
-2. Sélectionnez la recherche enregistrée pour afficher la requête utilisée pour remplir le groupe. L’image suivante montre la requête et ses résultats :
+6. Sélectionnez la recherche enregistrée pour afficher et modifier la requête utilisée pour remplir le groupe. L’image suivante montre la requête et ses résultats :
 
     ![Recherches enregistrées](media/automation-scope-configurations-change-tracking/logsearch.png)
 

@@ -3,12 +3,12 @@ title: Récupérer des données depuis un serveur de sauvegarde Azure
 description: Récupérez les données que vous avez protégées dans un coffre Recovery Services depuis n’importe quel serveur de sauvegarde Azure inscrit auprès de ce coffre.
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 2a89697899fc244848854978de4b25e79ef6f184
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5531a2a9599465bd5ad3410504cbf341fb6c0c0f
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74173496"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249074"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Récupérer des données depuis Azure Backup Server
 
@@ -83,7 +83,7 @@ Pour récupérer des données depuis un serveur de sauvegarde Azure :
 | 1. |Ce serveur n'est pas enregistré dans le coffre spécifié par les informations d'identification de coffre. |**Cause :** cette erreur apparaît lorsque le fichier des informations d’identification du coffre sélectionné n’appartient pas au coffre Recovery Services associé au serveur de sauvegarde Azure sur lequel la récupération est tentée. <br> **Résolution :** téléchargez le fichier des informations d’identification du coffre Recovery Services pour lequel le serveur de sauvegarde Azure est inscrit. |
 | 2. |Les données récupérables ne sont pas disponibles ou le serveur sélectionné n'est pas un serveur DPM. |**Cause :** aucun autre serveur de sauvegarde Azure n’est inscrit auprès du coffre Recovery Services ou les serveurs n’ont pas encore chargé les métadonnées ou le serveur sélectionné n’est pas un serveur de sauvegarde Azure (utilisant Windows Server ou le Client Windows). <br> **Résolution :** s’il existe d’autres serveurs de sauvegarde Azure inscrits auprès du coffre Recovery Services, assurez-vous que le dernier agent Sauvegarde Azure est installé. <br>S’il existe d’autres serveurs Azure Backup inscrits auprès du coffre Recovery Services, patientez un jour après l’installation pour lancer le processus de récupération. Le travail nocturne chargera les métadonnées de toutes les sauvegardes protégées dans le cloud. Les données seront disponibles pour la récupération. |
 | 3. |Aucun autre serveur DPM n'est inscrit auprès de ce coffre. |**Cause :** aucun autre serveur de sauvegarde Azure n’est enregistré dans le coffre à partir duquel la récupération est tentée.<br>**Résolution :** s’il existe d’autres serveurs de sauvegarde Azure inscrits auprès du coffre Recovery Services, assurez-vous que le dernier agent Sauvegarde Azure est installé.<br>S’il existe d’autres serveurs Azure Backup inscrits auprès du coffre Recovery Services, patientez un jour après l’installation pour lancer le processus de récupération. Le travail nocturne charge les métadonnées de toutes les sauvegardes protégées dans le cloud. Les données seront disponibles pour la récupération. |
-| 4. |La phrase secrète saisie ne correspond pas à la phrase secrète associée au serveur suivant : **\<nom du serveur>** |**Cause :** la phrase secrète de chiffrement utilisée dans le processus de chiffrement des données à partir des données du serveur de sauvegarde Azure en cours de récupération ne correspond pas à la phrase secrète de chiffrement fournie. L'agent ne peut pas déchiffrer les données. Par conséquent, la récupération échoue.<br>**Résolution :** veuillez fournir la phrase secrète de chiffrement associée au serveur de sauvegarde Azure pour lequel les données sont en cours de récupération. |
+| 4. |La phrase secrète de chiffrement fournie ne correspond pas à la phrase secrète associée au serveur suivant : **\<server name>** |**Cause :** la phrase secrète de chiffrement utilisée dans le processus de chiffrement des données à partir des données du serveur de sauvegarde Azure en cours de récupération ne correspond pas à la phrase secrète de chiffrement fournie. L’agent ne peut pas déchiffrer les données, de sorte que la récupération échoue.<br>**Résolution :** veuillez fournir la phrase secrète de chiffrement associée au serveur de sauvegarde Azure pour lequel les données sont en cours de récupération. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

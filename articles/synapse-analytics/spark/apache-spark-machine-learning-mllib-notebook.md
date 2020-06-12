@@ -8,12 +8,12 @@ ms.reviewer: jrasnick, carlrab
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: c2e1dbba61399ee3a4435f4f287b47f4bfd6f872
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: f00df1bc204e4d271f1c903ec50759cba3c56774
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774441"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235888"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Créer une application d’apprentissage automatique avec Apache Spark MLlib et Azure Synapse Analytics
 
@@ -70,48 +70,32 @@ Dans les étapes suivantes, vous allez développer un modèle pour prédire si u
 
 Étant donné que les données brutes sont au format Parquet, vous pouvez utiliser le contexte Spark pour extraire le fichier en mémoire directement en tant que tramedonnées. Le code ci-dessous utilise les options par défaut, mais il est possible de forcer le mappage des types de données et d’autres attributs de schéma si nécessaire.
 
-1. Exécutez les lignes suivantes pour créer une tramedonnées Spark en collant le code dans une nouvelle cellule. La première section attribue des informations d’accès au stockage Azure à des variables. La deuxième section permet à Spark de lire à distance à partir du stockage d’objets blob. La dernière ligne de code lit le format Parquet, mais aucune donnée n’est chargée à ce stade.
+1. Exécutez les lignes suivantes pour créer une tramedonnées Spark en collant le code dans une nouvelle cellule. Cela récupère les données via l’API Open Datasets. L’extraction de toutes ces données génère environ 1,5 milliard de lignes. Selon la taille de votre pool Spark (préversion), les données brutes peuvent être trop volumineuses ou leur exploitation peut prendre trop de temps. Vous pouvez filtrer ces données pour en réduire le volume. L’utilisation de start_date et end_date applique un filtre qui retourne un mois de données.
 
     ```python
-    # Azure storage access info
-    blob_account_name = "azureopendatastorage"
-    blob_container_name = "nyctlc"
-    blob_relative_path = "yellow"
-    blob_sas_token = r""
+    from azureml.opendatasets import NycTlcYellow
 
-    # Allow SPARK to read from Blob remotely
-    wasbs_path = 'wasbs://%s@%s.blob.core.windows.net/%s' % (blob_container_name, blob_account_name, blob_relative_path)
-    spark.conf.set('fs.azure.sas.%s.%s.blob.core.windows.net' % (blob_container_name, blob_account_name),blob_sas_token)
-
-    # SPARK read parquet, note that it won't load any data yet by now
-    df = spark.read.parquet(wasbs_path)
+    end_date = parser.parse('2018-06-06')
+    start_date = parser.parse('2018-05-01')
+    nyc_tlc = NycTlcYellow(start_date=start_date, end_date=end_date)
+    filtered_df = nyc_tlc.to_spark_dataframe()
     ```
 
-2. L’extraction de toutes ces données génère environ 1,5 milliard de lignes. Selon la taille de votre pool Spark (préversion), les données brutes peuvent être trop volumineuses ou leur exploitation peut prendre trop de temps. Vous pouvez filtrer ces données pour en réduire le volume. Si nécessaire, ajoutez les lignes suivantes afin de filtrer les données jusqu’à obtenir environ 2 millions lignes pour une expérience plus réactive. Utilisez ces paramètres pour extraire une semaine de données.
-
-    ```python
-    # Create an ingestion filter
-    start_date = '2018-05-01 00:00:00'
-    end_date = '2018-05-08 00:00:00'
-
-    filtered_df = df.filter('tpepPickupDateTime > "' + start_date + '" and tpepPickupDateTime < "' + end_date + '"')
-    ```
-
-3. L’inconvénient du filtrage simple est que, du point de vue statistique, il peut introduire un biais dans les données. Une autre approche consiste à utiliser l’échantillonnage intégré dans Spark. Le code suivant réduit le jeu de données à environ 2000 lignes, s’il est appliqué après le code ci-dessus. Cette étape d’échantillonnage peut être utilisée à la place du filtre simple ou conjointement avec celui-ci.
+2. L’inconvénient du filtrage simple est que, du point de vue statistique, il peut introduire un biais dans les données. Une autre approche consiste à utiliser l’échantillonnage intégré dans Spark. Le code suivant réduit le jeu de données à environ 2000 lignes, s’il est appliqué après le code ci-dessus. Cette étape d’échantillonnage peut être utilisée à la place du filtre simple ou conjointement avec celui-ci.
 
     ```python
     # To make development easier, faster and less expensive down sample for now
     sampled_taxi_df = filtered_df.sample(True, 0.001, seed=1234)
     ```
 
-4. Il est désormais possible d’examiner les données pour voir ce qui a été lu. Il est généralement préférable d’examiner les données avec un sous-ensemble plutôt qu’avec le jeu complet en fonction de la taille du jeu de données. Le code suivant permet d’afficher les données de deux façons : la première est basique et la deuxième offre une expérience de grille beaucoup plus riche, ainsi que la possibilité de visualiser les données sous forme graphique.
+3. Il est désormais possible d’examiner les données pour voir ce qui a été lu. Il est généralement préférable d’examiner les données avec un sous-ensemble plutôt qu’avec le jeu complet en fonction de la taille du jeu de données. Le code suivant permet d’afficher les données de deux façons : la première est basique et la deuxième offre une expérience de grille beaucoup plus riche, ainsi que la possibilité de visualiser les données sous forme graphique.
 
     ```python
-    sampled_taxi_df.show(5)
-    display(sampled_taxi_df.show(5))
+    #sampled_taxi_df.show(5)
+    display(sampled_taxi_df)
     ```
 
-5. Selon la taille de la taille du jeu de données généré et la nécessité ou non d’expérimenter ou d’exécuter le bloc-notes plusieurs fois, il peut être préférable de mettre en cache le jeu de données localement dans l’espace de travail. Il existe trois façons d’effectuer une mise en cache explicite :
+4. Selon la taille de la taille du jeu de données généré et la nécessité ou non d’expérimenter ou d’exécuter le bloc-notes plusieurs fois, il peut être préférable de mettre en cache le jeu de données localement dans l’espace de travail. Il existe trois façons d’effectuer une mise en cache explicite :
 
    - enregistrer la tramedonnées localement en tant que fichier ;
    - enregistrer la tramedonnées sous la forme d’une table ou d’un affichage temporaires ;

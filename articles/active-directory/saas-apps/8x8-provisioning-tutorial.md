@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 6fc14bd41faf6a86953b82f8a7ea7bd75b746cf9
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: b200aabff1231cdf383d30ad2e671c4b46ca91bb
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83801512"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196205"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Tutoriel : Configurer 8x8 pour l’approvisionnement automatique d’utilisateurs
 
@@ -116,7 +116,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 7. Sélectionnez **Enregistrer**.
 
-8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec 8x8**.
+8. Dans la section **Mappages**, sélectionnez **Provisionner les utilisateurs Azure Active Directory**.
 
 9. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et 8x8. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur 8x8 en vue de mises à jour ultérieures. Si vous choisissez de modifier l’[attribut cible correspondant](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), vous devez vérifier que l’API 8x8 prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 

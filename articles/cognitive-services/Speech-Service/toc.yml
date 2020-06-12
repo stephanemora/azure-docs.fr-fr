@@ -462,6 +462,8 @@
       items:
         - name: "Qu’est-ce que la reconnaissance de l’orateur\_?"
           href: speaker-recognition-overview.md
+        - name: Bases de la Reconnaissance de l’orateur
+          href: speaker-recognition-basics.md
     - name: Informations de référence
       items:
         - name: API REST

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: thweiss
-ms.openlocfilehash: 5629ddfe496ef1abd071ab579c885cbe1adeb344
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d551f05dd0700a93a94c6b836b896a99d7f5d96c
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592091"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267084"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurer des clés gérées par le client pour votre compte Azure Cosmos avec Azure Key Vault
 
@@ -219,6 +219,10 @@ az cosmosdb show \
     -g $resourceGroupName \
     --query keyVaultKeyUri
 ```
+
+## <a name="error-handling"></a>Gestion des erreurs
+
+Lorsque vous utilisez des clés gérées par le client (CMK) dans Azure Cosmos DB, en cas d’erreur, Azure Cosmos DB retourne les détails de l’erreur avec un code de sous-état HTTP dans la réponse. Vous pouvez utiliser ce code de sous-état pour déboguer la cause racine du problème. Pour obtenir la liste des codes de sous-état HTTP pris en charge, consultez l’article [Codes d’état HTTP pour Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 

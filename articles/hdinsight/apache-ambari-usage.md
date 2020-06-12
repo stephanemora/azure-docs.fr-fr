@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2020
-ms.openlocfilehash: 466c170985715be52a90d579c19ca23aefefe2e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe7d6d4e70bc55a6a91d3c1a1b910db4b5469fe6
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77066000"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84197069"
 ---
 # <a name="apache-ambari-usage-in-azure-hdinsight"></a>Utilisation d’Apache Ambari dans Azure HDInsight
 
@@ -56,7 +56,7 @@ Voici la séquence de démarrage des services au moment du démarrage :
 
 ## <a name="ambari-database"></a>Base de données Ambari
 
-HDInsight crée une base de données SQL Azure en coulisses pour servir de base de données pour le serveur Ambari. Le [niveau de service par défaut est S0](../sql-database/sql-database-elastic-pool-scale.md).
+HDInsight crée une base de données dans SQL Database en coulisses afin de servir de base de données pour le serveur Ambari. Le [niveau de service par défaut est S0](../azure-sql/database/elastic-pool-scale.md).
 
 Pour tout cluster avec un nombre de nœuds Worker supérieur à 16 lors de la création du cluster, S2 est le niveau de service de la base de données.
 

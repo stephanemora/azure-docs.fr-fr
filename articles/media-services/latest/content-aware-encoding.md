@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 3ea6c4226a59ba020a477cc5811033ff3dc3c2e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57a8d308955719be0d84b87fb3a23c6f510c2836
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76772093"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234895"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Utiliser la présélection de l’encodage sensible au contenu pour rechercher la valeur optimale de vitesse de transmission pour une résolution donnée
 
@@ -55,9 +55,10 @@ Voici les résultats pour une autre catégorie de contenu source, où l’encode
 
 Vous pouvez créer des transformations qui utilisent cette présélection comme suit. 
 
-> [!TIP]
-> Consultez la section [Étapes suivantes](#next-steps) pour accéder à des didacticiels qui utilisent la transformation des sorties. La ressource de sortie peut être fournie à partir de points de terminaison de streaming Media Services dans des protocoles tels que MPEG-DASH et HLS (comme indiqué dans les didacticiels).
+Consultez la section [Étapes suivantes](#next-steps) pour accéder à des didacticiels qui utilisent la transformation des sorties. La ressource de sortie peut être fournie à partir de points de terminaison de streaming Media Services dans des protocoles tels que MPEG-DASH et HLS (comme indiqué dans les didacticiels).
 
+> [!NOTE]
+> Veillez à utiliser la présélection **ContentAwareEncoding**, et non ContentAwareEncodingExperimental.
 
 ```csharp
 TransformOutput[] output = new TransformOutput[]
@@ -77,7 +78,7 @@ TransformOutput[] output = new TransformOutput[]
 
 > [!NOTE]
 > Les travaux d’encodage à l’aide de la présélection `ContentAwareEncoding` sont facturés en fonction des minutes de sortie. 
-
+  
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Tutoriel : Télécharger, encoder et diffuser des vidéos avec Media Services v3](stream-files-tutorial-with-api.md)

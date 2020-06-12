@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 23057723d46ed5d9203741ab2eb1a15edb5bd510
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 66043ae4f569e4151be829ca361232accb2f0ebd
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681697"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219378"
 ---
 # <a name="azure-security-baseline-for-azure-databricks"></a>Base de référence de sécurité Azure pour Azure Databricks
 
@@ -200,7 +200,7 @@ Pour la journalisation d’audit, Azure Databricks fournit des journaux de diagn
 
 Remarque : Le plan Azure Databricks Premium est nécessaire pour les journaux de diagnostic Azure Databricks
 
-* [Comment activer les paramètres de diagnostic pour le journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
 * [Comment activer les paramètres de diagnostic pour Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs)
 
@@ -296,7 +296,7 @@ Remarque : Le plan Azure Databricks Premium est nécessaire pour les journaux d
 
 ## <a name="identity-and-access-control"></a>Contrôle des accès et des identités
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Contrôle des accès et des identités](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : contrôle des accès et des identités](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1 : Tenir un inventaire des comptes d’administration
 
@@ -404,7 +404,7 @@ Remarque : Le plan Azure Databricks Premium est nécessaire pour les journaux d
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10 : Examiner et rapprocher régulièrement l’accès utilisateur
 
-**Aide** : Azure AD fournit des journaux pour vous aider à découvrir les comptes obsolètes. Par ailleurs, utilisez les révisions d’accès des identités Azure pour gérer efficacement les appartenances aux groupes, les accès aux applications d’entreprise et les attributions de rôles. L’accès des utilisateurs peut être passé en revue régulièrement pour vérifier que seules les utilisateurs appropriés continuent de bénéficier d’un accès. Vous pouvez également implémenter des API SCIM et des journaux de diagnostic Azure Databricks pour vérifier l’accès des utilisateurs. Vous pouvez également utiliser les API SCIM et les journaux de diagnostic Azure Databricks pour vérifier l’accès des utilisateurs.
+**Aide** : Azure AD fournit des journaux pour vous aider à découvrir les comptes obsolètes. Par ailleurs, utilisez les révisions d’accès des identités Azure pour gérer efficacement les appartenances aux groupes, les accès aux applications d’entreprise et les attributions de rôles. L’accès des utilisateurs peut être passé en revue régulièrement pour vérifier que seules les utilisateurs appropriés continuent de bénéficier d’un accès. Vous pouvez également implémenter des API SCIM et des journaux de diagnostic Azure Databricks pour vérifier l’accès des utilisateurs.
 
 De plus, consultez et gérez périodiquement l’accès des utilisateurs dans la console d’administration Azure Databricks.
 
@@ -968,7 +968,7 @@ Pré-analysez les fichiers en cours de chargement vers vos nœuds de cluster Azu
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2 : effectuer des sauvegardes complètes du système et sauvegarder les clés gérées par le client
 
-**Aide** : Sauvegardez dans Azure Key Vault les clés gérées par le client qui sont associées à vos implémentations Azure Databricks. Vous pouvez également utiliser l’API REST et l’interface CLI pour créer une sauvegarde quotidienne des configurations Databricks. Vous pouvez également utiliser l’API REST/l’interface CLI pour créer une sauvegarde quotidienne des configurations Databricks.
+**Aide** : Sauvegardez dans Azure Key Vault les clés gérées par le client qui sont associées à vos implémentations Azure Databricks. Vous pouvez également utiliser l’API REST et/ou l’interface CLI pour créer une sauvegarde quotidienne des configurations Databricks.
 
 * [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
@@ -998,7 +998,7 @@ Pré-analysez les fichiers en cours de chargement vers vos nœuds de cluster Azu
 
 ## <a name="incident-response"></a>Réponse aux incidents
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Réponse aux incidents](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : réponse aux incidents](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1 : Créer un guide de réponse aux incidents
 
@@ -1084,5 +1084,5 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez le [benchmark de sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Apprenez-en davantage sur les [bases de référence de sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Consulter le [benchmark de sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
+- En savoir plus sur les [bases de référence de la sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

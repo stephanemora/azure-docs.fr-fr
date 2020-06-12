@@ -10,24 +10,24 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: scottsta
-ms.openlocfilehash: ed317039e683ef36054d5ace612e09ca75dfa11e
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 9a02a01bb55e63322964b52a5f4d6113b3280360
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837308"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220715"
 ---
-# <a name="sign-in-to-azure-using-email-as-an-alternate-login-id-preview"></a>Se connecter en utilisant un e-mail en guise d’ID de connexion alternatif (préversion)
+# <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Se connecter à Azure Active Directory en utilisant un e-mail en guise d’ID de connexion alternatif (préversion)
 
-De nombreuses organisations souhaitent permettre aux utilisateurs de se connecter à Azure en utilisant les informations d’identification de leur environnement d’annuaire local. En vertu de cette approche, dite d’authentification hybride, les utilisateurs ne doivent se souvenir que d’un seul ensemble d’informations d’identification.
+De nombreuses organisations souhaitent permettre aux utilisateurs de se connecter à Azure Active Directory (Azure AD) en utilisant les informations d’identification de leur environnement d’annuaire local. En vertu de cette approche, dite d’authentification hybride, les utilisateurs ne doivent se souvenir que d’un seul ensemble d’informations d’identification.
 
 Certaines organisations n’ont pas adopté l’authentification hybride pour les raisons suivantes :
 
-* Par défaut, le nom d’utilisateur principal (UPN, User Principal Name) Azure Active Directory (Azure AD) est celui figurant dans l’annuaire local.
-* La modification de l’UPN Azure AD crée une discordance entre les environnements local et Azure, ce qui peut entraîner des problèmes avec certains services et applications.
-* Pour des raisons commerciales ou de conformité, l’organisation ne souhaite pas utiliser l’UPN local pour se connecter à Azure.
+* Par défaut, le nom d’utilisateur principal (UPN, User Principal Name) Azure AD est celui figurant dans l’annuaire local.
+* La modification de l’UPN Azure AD crée une discordance entre les environnements local et Azure AD, ce qui peut entraîner des problèmes avec certains services et applications.
+* Pour des raisons commerciales ou de conformité, l’organisation ne souhaite pas utiliser l’UPN local pour se connecter à Azure AD.
 
-Pour faciliter l’adoption de l’authentification hybride, vous pouvez désormais configurer Azure AD de façon à permettre aux utilisateurs de se connecter à Azure en utilisant une adresse e-mail de votre domaine vérifié en guise d’ID de connexion alternatif. Par exemple, si *Contoso* a été rebaptisé *Fabrikam*, au lieu de continuer à se connecter avec l’UPN `balas@contoso.com` hérité, il est maintenant possible d’utiliser une adresse e-mail en tant qu’ID de connexion alternatif. Pour accéder à une application ou à des services, les utilisateurs se connectent à Azure à l’aide de l’e-mail qui leur est attribué, par exemple, `balas@fabrikam.com`.
+Pour faciliter l’adoption de l’authentification hybride, vous pouvez désormais configurer Azure AD de façon à permettre aux utilisateurs de se connecter en utilisant une adresse e-mail de votre domaine vérifié en guise d’ID de connexion alternatif. Par exemple, si *Contoso* a été rebaptisé *Fabrikam*, au lieu de continuer à se connecter avec l’UPN `balas@contoso.com` hérité, il est maintenant possible d’utiliser une adresse e-mail en tant qu’ID de connexion alternatif. Pour accéder à une application ou à des services, les utilisateurs se connectent à Azure AD à l’aide de l’e-mail qui leur est attribué, par exemple, `balas@fabrikam.com`.
 
 |     |
 | --- |
@@ -36,17 +36,15 @@ Pour faciliter l’adoption de l’authentification hybride, vous pouvez désorm
 
 ## <a name="overview-of-azure-ad-sign-in-approaches"></a>Vue d’ensemble des approches de la connexion à Azure AD
 
-Un nom d’utilisateur principal (UPN) est un identificateur unique pour un compte d’utilisateur dans votre annuaire local et dans Azure AD. Chaque compte d’utilisateur dans un annuaire est représenté par un UPN tel que `balas@contoso.com`. Par défaut, lorsque vous synchronisez un environnement Active Directory Domain Services (AD DS) local avec Azure AD, l’UPN Azure AD défini doit correspondre à l’UPN local.
+Pour se connecter à Azure AD, les utilisateurs entrent un nom qui identifie leur compte de manière unique. Historiquement, vous pouviez uniquement utiliser l’UPN Azure AD en tant que nom de connexion.
 
-Dans de nombreuses organisations, il suffit de définir l’UPN local et l’UPN Azure AD de façon à ce qu’ils correspondent. Quand les utilisateurs se connectent à des applications et services Azure, ils utilisent leur UPN Azure AD. Toutefois, certaines organisations ne peuvent pas utiliser des UPN concordants pour la connexion en raison de stratégies établies ou de problèmes d’interface utilisateur.
+Pour les organisations dont l’UPN local correspond à l’adresse e-mail de connexion préférée de l’utilisateur, cette approche est intéressante. Ces organisations définissent l’UPN Azure AD sur la même valeur que l’UPN local, et les utilisateurs bénéficient d’une expérience de connexion cohérente.
 
-Les organisations qui ne peuvent pas utiliser d’UPN concordants dans Azure AD ont plusieurs options :
+Cela étant, dans certaines organisations, l’UPN local n’est pas utilisé en tant que nom de connexion. Au sein des environnements locaux, vous configurez l’instance AD DS locale pour autoriser la connexion avec un ID de connexion de substitution. La définition de l’UPN Azure AD sur la même valeur que l’UPN local n’est pas possible car Azure AD imposerait aux utilisateurs de se connecter avec cette valeur.
 
-* Une approche consiste à définir l’UPN Azure AD sur une valeur différente en fonction des besoins de l’entreprise, par exemple `balas@fabrikam.com`.
-    * Certains services et applications ne sont cependant pas compatibles avec l’utilisation d’une valeur différente pour l’UPN local et l’UPN Azure AD.
-* Une meilleure approche consiste à s’assurer que les UPN Azure AD et local sont définis sur la même valeur, et à configurer Azure AD pour permettre aux utilisateurs de se connecter à Azure avec leur adresse e-mail en guise d’ID de connexion alternatif.
+La solution de contournement à ce problème consiste à définir l’UPN Azure AD sur l’adresse e-mail que l’utilisateur envisage d’utiliser pour se connecter. Cette approche fonctionne, même si elle donne lieu à des UPN différents entre AD local et Azure AD. Qui plus est, cette configuration n’est pas compatible avec toutes les charges de travail Microsoft 365.
 
-Avec une adresse e-mail en guise d’ID de connexion alternatif, les utilisateurs peuvent toujours se connecter à Azure en entrant leur UPN, mais ils peuvent également se connecter en utilisant leur adresse e-mail. À cette fin, vous définissez une adresse e-mail dans l’attribut *ProxyAddresses* de l’utilisateur dans l’annuaire local. Cet attribut *ProxyAddress* prend en charge une ou plusieurs adresses e-mail.
+Une autre approche consiste à synchroniser les UPN Azure AD et locaux avec la même valeur, puis à configurer Azure AD pour permettre aux utilisateurs de se connecter à Azure AD à l’aide d’une adresse e-mail vérifiée. Pour ce faire, vous définissez une ou plusieurs adresses e-mail dans l’attribut *ProxyAddresses* de l’utilisateur dans le répertoire local. Les valeurs *ProxyAddresses* sont ensuite synchronisées automatiquement avec Azure AD à l’aide d’Azure AD Connect.
 
 ## <a name="synchronize-sign-in-email-addresses-to-azure-ad"></a>Synchroniser les adresses e-mail de connexion sur Azure AD
 

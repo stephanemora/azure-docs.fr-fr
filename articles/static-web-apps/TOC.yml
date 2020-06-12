@@ -33,6 +33,8 @@
       href: add-api.md
     - name: Configuration des paramètres d’application
       href: application-settings.md
+    - name: Configurer des bibliothèques et des frameworks front-end
+      href: front-end-frameworks.md
 - name: Tutoriels
   items:
     - name: Publier à partir d’un générateur de site statique

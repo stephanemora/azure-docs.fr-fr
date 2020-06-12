@@ -6,94 +6,101 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 96b1bd86576f8cf34428eb60e2d3f476312311c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85aaefa12f0cef21e3a367700d1a4899a75e8a90
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226529"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298362"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor
 
 ## <a name="overview"></a>Vue d’ensemble
-Cet article explique comment configurer des alertes de journal à l’aide de l’interface d’alertes dans le portail Azure. La définition d’une règle d’alerte se fait en trois parties :
-- Cible : Ressource Azure spécifique à surveiller
-- Critères : Condition spécifique ou logique qui, une fois détectée (signal), doit déclencher une action
+Cet article explique comment créer et gérer des alertes de journal à l’aide de l’interface d’alertes du Portail Azure. Les règles d’alerte sont définies par trois composants :
+- Cible : une ressource Azure spécifique à analyser.
+- Critères : une condition ou logique dont la validité doit être évaluée. Si la valeur est true, l’alerte se déclenche.  
 - Action : Appel spécifique envoyé au récepteur d’une notification (e-mail, SMS, webhook, etc.)
 
-Le terme **alertes de journal** décrit les alertes où le signal est une requête de journal dans un [espace de travail Log Analytics](../learn/tutorial-viewdata.md) ou [Application Insights](../app/analytics.md). Obtenez plus d’informations sur la fonctionnalité, la terminologie et les types dans [Alertes de journal - Vue d’ensemble](alerts-unified-log.md).
+Le terme **Alerte de journal** décrit les alertes dans le cadre desquelles une requête de journal dans [l’espace de travail Log Analytics](../learn/tutorial-viewdata.md) ou [Application Insights](../app/analytics.md) est évaluée ; une alerte se déclenche si le résultat est true. Obtenez plus d’informations sur la fonctionnalité, la terminologie et les types dans [Alertes de journal - Vue d’ensemble](alerts-unified-log.md).
 
 > [!NOTE]
-> Les données de journal populaires d’[un espace de travail Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) sont désormais également disponibles sur la plateforme de métrique dans Azure Monitor. Pour la vue de détails, consultez [Alerte de métrique pour les journaux d’activité](alerts-metric-logs.md)
+> Vous pouvez également acheminer les données de journal d’un [espace de travail Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) vers la base de données des métriques Azure Monitor. Les alertes de métriques ont [un comportement différent](alerts-metric-overview.md), qui peut être plus adapté en fonction des données que vous utilisez.   Pour savoir ce que sont les journaux et comment les acheminer vers les bases de données de métriques, voir [Créer des alertes de métriques de journaux d’activité dans Azure Monitor](alerts-metric-logs.md).
 
-## <a name="managing-log-alerts-from-the-azure-portal"></a>Gestion des alertes de journal à partir du portail Azure
+## <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Créer une règle d’alerte de journal avec le portail Azure
 
-Vous trouverez ci-après un guide pas à pas sur l’utilisation des alertes de journal à l’aide de l’interface du portail Azure.
-
-### <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Créer une règle d’alerte de journal avec le portail Azure
-
-1. Dans le [portail](https://portal.azure.com/), sélectionnez **Surveiller** et choisissez **Alertes** dans la section SURVEILLER.
+1. Dans le [Portail](https://portal.azure.com/), sélectionnez **Moniteur**. Dans cette section, choisissez **Alertes**.
 
     ![Surveillance](media/alerts-log/AlertsPreviewMenu.png)
 
-1. Cliquez sur le bouton **Nouvelle règle d’alerte** pour créer une alerte dans Azure.
+1. Cliquez sur **Nouvelle règle d’alerte**. 
 
     ![Ajouter une alerte](media/alerts-log/AlertsPreviewOption.png)
 
-1. La section Créer une alerte s’affiche avec les trois parties suivantes : *Définir la condition de l’alerte*, *Définir les détails de l’alerte* et *Définir le groupe d’actions*.
+1. Le volet **Créer une alerte** s’affiche. Il se compose de quatre parties : 
+    - La ressource à laquelle l’alerte s’applique
+    - La condition à vérifier
+    - L’action à exécuter lorsque la condition est remplie
+    - Le nom et la description de l’alerte 
 
     ![Créer une règle](media/alerts-log/AlertsPreviewAdd.png)
 
-1. Définissez la condition d’alerte en utilisant le lien **Sélectionner une ressource**, puis en spécifiant la cible via la sélection d’une ressource. Filtrez en choisissant l’_abonnement_, le _type de ressource_ et la _ressource_ nécessaire.
+1. Définissez la condition d’alerte en utilisant le lien **Sélectionner une ressource**, puis en spécifiant la cible via la sélection d’une ressource. Filtrez en choisissant l’*abonnement*, le *type de ressource* et la *ressource* nécessaire. 
 
-   > [!NOTE]
-   > Pour créer une alerte de journal, avant de continuer, vérifiez le signal de **journal** disponible pour la ressource sélectionnée.
-   >  ![Sélectionner une ressource](media/alerts-log/Alert-SelectResourceLog.png)
+   ![Sélectionner une ressource](media/alerts-log/Alert-SelectResourceLog.png)
 
-1. *Alertes de journal* : Assurez-vous que le **Type de ressource** est une source analytique telle que *Log Analytics* ou *Application Insights* et le type de signal **Journal**. Ensuite, une fois la **ressource** appropriée choisie, cliquez sur le bouton *Terminé*. Utilisez ensuite le bouton **Ajouter des critères** pour afficher la liste des options de signal disponibles pour la ressource et à partir de l’option **Recherche de journal personnalisée** de la liste de signaux pour le service de surveillance des journaux choisi, tel que *Log Analytics* ou *Application Insights*.
+1. Assurez-vous que le **Type de ressource** est une source analytique telle que*Log Analytics* ou *Application Insights*, et que le type de signal est *Journal*. Cliquez sur **Done**. Utilisez ensuite le bouton **Ajouter des critères** pour afficher la liste des options de signal disponibles pour la ressource. Recherchez et choisissez l’option **Recherche de journal personnalisée** pour *Log Analytics* ou *Application Insights*, en fonction de l’emplacement des données associées à vos alertes de journal.
 
    ![Sélectionner une ressource : recherche de journal personnalisée](media/alerts-log/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
    > 
-   > Les listes d’alertes peuvent importer une requête analytique en tant que type de signal : **Journal (requête enregistrée)** , comme indiqué dans l’illustration ci-dessus. Les utilisateurs peuvent donc perfectionner votre requête dans Analytics et l’enregistrer pour l’utiliser ultérieurement dans les alertes. Pour en savoir plus sur l’enregistrement de requêtes, consultez la section relative à [l’utilisation des requêtes de journal dans Azure Monitor](../log-query/log-query-overview.md) ou aux [requêtes partagées dans Application Insights Analytics](../app/app-insights-overview.md).
+   > Les listes d’alertes peuvent importer une requête analytique en tant que type de signal : **Journal (requête enregistrée)** , comme indiqué dans l’illustration ci-dessus. Les utilisateurs peuvent ainsi perfectionner votre requête dans Analytics, puis l’enregistrer pour une utilisation ultérieure dans les alertes. Pour en savoir plus sur l’utilisation des requêtes enregistrées, voir [Vue d’ensemble des requêtes de journal dans Azure Monitor](../log-query/log-query-overview.md) et [Qu’est-ce qu’Azure Application Insight ?](../app/app-insights-overview.md).
 
-1. *Alertes de journal* : Une fois sélectionnée, la requête de génération d’alerte peut être indiquée dans le champ **Requête de recherche**. Si la syntaxe de la requête est incorrecte, le champ affiche un message d’erreur en rouge. Si la syntaxe de la requête est correcte, les données de la requête indiquée sont indiquées à titre de référence sous forme de graphique avec la possibilité d’ajuster la fenêtre de temps entre les six dernières heures et la semaine précédente.
+1. Une fois la sélection effectuée, créez la requête d’alerte dans le champ **Requête de recherche**. Si la syntaxe de la requête est incorrecte, le champ s’affiche en rouge et signale une erreur. 
+
+1. Si la syntaxe est correcte, les données historiques de la requête sont indiquées sous forme de graphique, avec la possibilité d’ajuster la fenêtre de temps entre les six dernières heures et la semaine précédente.
 
     ![Configurer une règle d’alerte](media/alerts-log/AlertsPreviewAlertLog.png)
 
-   > [!NOTE]
-   > 
-   > La visualisation des données historiques n’est possible que si les résultats de la requête comportent des informations temporelles. Si votre requête produit des données synthétisées ou des valeurs de colonnes spécifiques, les mêmes informations sont indiquées sous forme de tracé unique.
-   > Pour les alertes de journal de type Mesure de métriques utilisant Application Insights ou [basculées vers la nouvelle API](alerts-log-api-switch.md), vous pouvez spécifier la variable à utiliser pour regrouper les données à l'aide de l'option **Agréger sur**, comme illustré ci-dessous :
-   > 
-   > ![Option Agréger sur](media/alerts-log/aggregate-on.png)
+   La visualisation des données historiques n’est affichée que si les résultats de la requête comportent des informations temporelles. Si votre requête produit des données synthétisées ou des valeurs de colonnes spécifiques, l’écran affiche un tracé unique.
+  
+   Pour les mesures de métriques utilisant Application Insights ou [l’API Log Analytics](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), vous pouvez spécifier la variable à utiliser pour regrouper les données à l’aide de l’option **Agréger sur**, comme illustré ici : 
+  
+   ![Option Agréger sur](media/alerts-log/aggregate-on.png)
 
-1. *Alertes de journal* : Avec la visualisation en place, la **logique d’alerte** peut être sélectionnée parmi les options proposées de condition, d’agrégation et de seuil. Enfin, dans la logique, spécifiez le moment auquel évaluer la condition indiquée à l’aide de l’option **Période**. Précisez également la fréquence d’exécution de l’alerte en sélectionnant **Fréquence**. Les **alertes de journal** peuvent reposer sur les éléments suivants :
+
+
+1. Choisissez ensuite la condition de **logique d’alerte**, ainsi que l’agrégation et le seuil associés. 
+
+1. Choisissez la période de temps pendant laquelle évaluer la condition spécifiée, à l’aide de l’option **Période**. 
+
+1. Choisissez la fréquence à laquelle l’alerte s’exécute dans **Fréquence**. 
+
+    Les **alertes de journal** peuvent reposer sur les éléments suivants :
     - [Nombre d’enregistrements](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules) : une alerte est créée si le nombre d’enregistrements retournés par la requête est supérieur ou inférieur à la valeur indiquée.
     - [Mesure de métriques](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules) : une alerte est créée si chaque *valeur d’agrégation* dans les résultats dépasse la valeur de seuil indiquée et s’il existe un *regroupement* selon la valeur choisie. Le nombre de violations d’une alerte est le nombre de fois où que le seuil est dépassé pendant la période choisie. Vous pouvez spécifier le nombre total de violations pour obtenir toutes les combinaisons de violations dans les résultats ou les violations consécutives pour exiger que les violations aient lieu dans des échantillons consécutifs.
 
 
-1. Ensuite, définissez un nom pour votre alerte dans le champ **Nom de la règle d’alerte** avec une **description** détaillant les spécificités de l’alerte et une valeur de **gravité** choisie parmi les options fournies. Ces détails sont réutilisés dans l’ensemble des courriers électroniques d’alerte, notifications ou messages Push d’Azure Monitor. En outre, l’utilisateur peut activer immédiatement la règle d’alerte lors de la création via l’option **Activer la règle lors de sa création**.
+1. Cliquez sur **Done**. 
 
-    Pour les **alertes de journal** uniquement, certaines fonctionnalités supplémentaires sont disponibles dans les détails d’alerte :
+1. Définissez un nom pour votre alerte dans le champ **Nom de la règle d’alerte**, avec une **description** détaillant les spécificités de l’alerte et une valeur de **gravité** choisie parmi les options fournies. Ces détails seront réutilisés dans l’ensemble des notifications, messages Push et e-mails d’alerte de Microsoft Azure Monitor. En outre, vous pouvez activer immédiatement la règle d’alerte lors de la création en sélectionnant **Activer la règle lors de sa création**.
 
-    - **Supprimer les alertes** : Quand vous activez la suppression de la règle d’alerte, les actions correspondant à la règle sont désactivées pour une durée définie quand une alerte est créée. La règle est toujours en cours d’exécution et crée des enregistrements d’alerte si les critères sont satisfaits. Cela vous donne le temps de résoudre le problème sans exécuter des actions en double.
+1. Décidez si vous souhaitez **supprimer les alertes** pendant une période donnée.  Quand vous activez la suppression de la règle d’alerte, les actions correspondant à la règle sont désactivées pour une durée définie quand une alerte est créée. La règle continue de s’exécuter et de créer des enregistrements d’alerte si les critères sont satisfaits. Ce paramètre vous donne le temps de résoudre le problème sans exécuter des actions en double.
 
-        ![Supprimer des alertes de journal](media/alerts-log/AlertsPreviewSuppress.png)
+   ![Supprimer des alertes de journal](media/alerts-log/AlertsPreviewSuppress.png)
 
-        > [!TIP]
-        > Spécifiez une valeur Supprimer l’alerte supérieure à la fréquence de l’alerte pour garantir l’arrêt des notifications sans chevauchement
+    > [!TIP]
+    > Spécifiez une valeur Supprimer l’alerte supérieure à la fréquence de l’alerte pour garantir l’arrêt des notifications sans chevauchement.
 
-1. Enfin, le cas échéant, spécifiez le **groupe d’actions** à déclencher pour la règle d’alerte lorsque la condition d’alerte est remplie. Vous pouvez choisir n’importe quel groupe d’actions existant avec l’alerte ou créer un autre groupe d’actions. En fonction du groupe d’actions sélectionné, lors du déclenchement de l’alerte, Azure envoie des courriers électroniques, envoie des SMS, appelle des webhooks, corrige le problème à l’aide de runbooks Azure, envoie un message Push à votre outil ITSM, etc. En savoir plus sur les [groupes d’actions](action-groups.md).
+1. Enfin, le cas échéant, indiquez si la règle d’alerte doit déclencher un ou plusieurs **groupes d’actions** lorsque la condition d’alerte est remplie. Vous pouvez sélectionner un groupe d’actions existant ou en créer un. Les groupes d’actions vous permettent d’envoyer un certain nombre d’actions, telles que l’envoi d’e-mails ou de SMS, l’appel de webhooks, la correction à l’aide de Microsoft Azure Runbooks, la transmission Push vers votre outil ITSM, et bien plus encore. En savoir plus sur les [groupes d’actions](action-groups.md).
 
     > [!NOTE]
-    > Consultez la [limites du service d’abonnement Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md) pour connaître les limites de charges utiles de Runbook déclenchées pour les alertes de journal par le biais de groupes d’actions Azure
+    > Consultez l’article [Limites du service d’abonnement Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md) pour connaître les limites des actions pouvant être effectuées.  
 
-    Pour les **alertes de journal**, certaines fonctionnalités supplémentaires sont disponibles afin de passer outre les actions par défaut :
+    Certaines fonctionnalités supplémentaires sont disponibles pour vous permettre de passer outre les actions par défaut :
 
-    - **E-mail de notification** : substitue *l’objet de l’e-mail* dans le message, envoyé via le groupe d’actions, si une ou plusieurs actions de messagerie existent dans ledit groupe d’actions. Vous ne pouvez pas modifier le corps du message et ce champ n’est **pas** destiné à l’adresse de messagerie.
-    - **Inclure la charge utile JSON personnalisée** : remplace le JSON webhook utilisé par les groupes d’actions, si une ou plusieurs actions de webhook existent dans ledit groupe d’actions. L’utilisateur peut spécifier le format JSON à utiliser pour tous les webhooks configurés dans le groupe d’actions associé ; Pour plus d’informations sur les formats de webhook, voir [Action webhook pour les alertes de journal](../../azure-monitor/platform/alerts-log-webhook.md). L’option d’affichage de Webhook est fournie pour vérifier le format à l’aide d’exemples de données JSON.
+    - **E-mail de notification** : remplace *l’objet de l’e-mail* envoyé via le groupe d’actions. Vous ne pouvez pas modifier le corps du message et ce champ n’est **pas** destiné à l’adresse de messagerie.
+    - **Inclure la charge utile JSON personnalisée** : remplace le JSON de webhook utilisé par les groupes d’actions, si le groupe d’actions contient un type de webhook. Pour plus d’informations sur les formats de webhook, voir [Action webhook pour les alertes de journal](../../azure-monitor/platform/alerts-log-webhook.md). L’option d’affichage de Webhook est fournie pour vérifier le format à l’aide d’exemples de données JSON.
 
         ![Remplacements d’actions pour les alertes de journal](media/alerts-log/AlertsPreviewOverrideLog.png)
 
@@ -305,22 +312,23 @@ L’exemple json ci-dessus peut par exemple être enregistré en tant que sample
 
 L’API Azure Monitor - [Règles de requêtes planifiées](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) est une API REST entièrement compatible avec l’API REST Azure Resource Manager. De plus, les applets de commande PowerShell répertoriées ci-dessous sont disponibles pour tirer parti de l’[API des règles de requêtes planifiées](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
-1. [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule): Applet de commande PowerShell permettant de créer une règle d’alerte de journal.
-1. [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule): Applet de commande PowerShell permettant de mettre à jour une règle d’alerte de journal existante.
-1. [New-AzScheduledQueryRuleSource](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulesource): Applet de commande PowerShell permettant de créer ou mettre à jour un objet spécifiant les paramètres sources pour une alerte de journal. Utilisé comme entrée par l’applet de commande [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) et [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule).
-1. [New-AzScheduledQueryRuleSchedule](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleSchedule) : Applet de commande PowerShell permettant de créer ou mettre à jour un objet spécifiant les paramètres de planification pour une alerte de journal. Utilisé comme entrée par l’applet de commande [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) et [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule).
-1. [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction): Applet de commande PowerShell permettant de créer ou mettre à jour un objet spécifiant les paramètres d’action pour une alerte de journal. Utilisé comme entrée par l’applet de commande [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) et [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule).
-1. [New-AzScheduledQueryRuleAznsActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup): Applet de commande PowerShell permettant de créer ou mettre à jour un objet spécifiant les paramètres des groupes d’actions pour une alerte de journal. Utilisé comme entrée par l’applet de commande [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction).
-1. [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition): Applet de commande PowerShell permettant de créer ou mettre à jour un objet spécifiant les paramètres de condition de déclenchement pour une alerte de journal. Utilisé comme entrée par l’applet de commande [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction).
-1. [New-AzScheduledQueryRuleLogMetricTrigger](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger): Applet de commande PowerShell permettant de créer ou mettre à jour un objet spécifiant les paramètres de condition de déclenchement de métrique pour une [alerte de journal de type mesure métrique](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules). Utilisé comme entrée par l’applet de commande [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition).
-1. [Get-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/get-azscheduledqueryrule): Applet de commande PowerShell permettant de lister les règles d’alerte de journal existantes ou une règle d’alerte de journal spécifique
-1. [Update-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/update-azscheduledqueryrule): Applet de commande PowerShell permettant d’activer ou de désactiver une règle d’alerte de journal
-1. [Remove-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/remove-azscheduledqueryrule) : Applet de commande PowerShell permettant de supprimer une règle d’alerte de journal existante
+- [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule): cmdlet PowerShell permettant de créer une règle d’alerte de journal.
+- [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule): cmdlet PowerShell permettant de mettre à jour une règle d’alerte de journal existante.
+- [New-AzScheduledQueryRuleSource](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulesource): cmdlet PowerShell permettant de créer ou de mettre à jour un objet spécifiant les paramètres sources pour une alerte de journal. Utilisé comme entrée par l’applet de commande [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) et [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule).
+- [New-AzScheduledQueryRuleSchedule](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleSchedule) : cmdlet PowerShell permettant de créer ou de mettre à jour un objet spécifiant les paramètres de planification pour une alerte de journal. Utilisé comme entrée par l’applet de commande [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) et [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule).
+- [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction): cmdlet PowerShell permettant de créer ou de mettre à jour un objet spécifiant les paramètres d’action pour une alerte de journal. Utilisé comme entrée par l’applet de commande [New-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrule) et [Set-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/set-azscheduledqueryrule).
+- [New-AzScheduledQueryRuleAznsActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup): cmdlet PowerShell permettant de créer ou de mettre à jour un objet spécifiant les paramètres des groupes d’actions pour une alerte de journal. Utilisé comme entrée par l’applet de commande [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction).
+- [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition): cmdlet PowerShell permettant de créer ou de mettre à jour un objet spécifiant les paramètres de condition de déclenchement pour une alerte de journal. Utilisé comme entrée par l’applet de commande [New-AzScheduledQueryRuleAlertingAction](https://docs.microsoft.com/powershell/module/az.monitor/New-AzScheduledQueryRuleAlertingAction).
+- [New-AzScheduledQueryRuleLogMetricTrigger](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger): cmdlet PowerShell permettant de créer ou de mettre à jour un objet spécifiant les paramètres de condition de déclenchement de métrique pour une [alerte de journal de type mesure de métriques](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules). Utilisé comme entrée par l’applet de commande [New-AzScheduledQueryRuleTriggerCondition](https://docs.microsoft.com/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition).
+- [Get-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/get-azscheduledqueryrule): cmdlet PowerShell permettant de répertorier les règles d’alerte de journal existantes ou une règle d’alerte de journal spécifique.
+- [Update-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/update-azscheduledqueryrule): cmdlet PowerShell permettant d’activer ou de désactiver une règle d’alerte de journal.
+- [Remove-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/remove-azscheduledqueryrule) : cmdlet PowerShell permettant de supprimer une règle d’alerte de journal existante.
 
 > [!NOTE]
 > Les applets de commande PowerShell ScheduledQueryRules peuvent uniquement gérer l’applet de commande créée par les règles elle-même ou à l’aide d’Azure Monitor - [API de règles de requêtes planifiées](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Les règles d’alerte de journal créées à l’aide de l’[API d’alerte Log Analytics](api-alerts.md) héritée et les modèles hérités d’[alertes et recherches enregistrées Log Analytics](../insights/solutions-resources-searches-alerts.md) peuvent être gérées à l’aide des applets de commande PowerShell ScheduledQueryRules après seulement que l’utilisateur a [changé de préférence d’API pour les alertes Log Analytics](alerts-log-api-switch.md).
 
 Les étapes suivantes illustrent la création d’un exemple de règle d’alerte de journal à l’aide des cmdlets PowerShell scheduleQueryRules.
+
 ```powershell
 $source = New-AzScheduledQueryRuleSource -Query 'Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m), _ResourceId' -DataSourceId "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews"
 

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5825466c099a8c57477f2d9d0420da74ccb2e96d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 195668886a0c1ba9f96939a7e5e3960a6932dee5
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614258"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235894"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Création d’un pool de locataires et d’hôtes
 
@@ -35,6 +35,22 @@ Pour utiliser l’image multisession Windows 10 Entreprise, accédez à la Plac
 ## <a name="creating-windows-virtual-desktop-tenant"></a>Création d’un locataire Windows Virtual Desktop
 
 Cette section décrit les problèmes potentiels lors de la création du locataire Windows Virtual Desktop.
+
+### <a name="error-aadsts650052-the-app-needs-access-to-a-service"></a>Erreur : AADSTS650052 L’application a besoin d’accéder à un service.
+
+Exemple d’erreur brute :
+
+```Error
+AADSTS650052 Message The app needs access to a service(\"{name}\") that your organization
+\"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the 
+configuration of your service subscriptions.650052 Message The app needs access to a service
+(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled. 
+Contact your IT Admin to review the configuration of your service subscriptions.
+```
+
+**Cause :** Consentement non accordé à Windows Virtual Desktop dans l’instance Azure Active Directory.
+
+**Correctif :** [Suivez ce guide](https://docs.microsoft.com/azure/virtual-desktop/virtual-desktop-fall-2019/tenant-setup-azure-active-directory#grant-permissions-to-windows-virtual-desktop) pour donner votre consentement.
 
 ### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Erreur : L’utilisateur n’est pas autorisé à interroger le service de gestion
 

@@ -3,23 +3,23 @@ title: Associer un ASN de pair à un abonnement Azure en utilisant le portail
 titleSuffix: Azure
 description: Associer un ASN de pair à un abonnement Azure en utilisant le portail
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: article
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: ee4fb0708d437c21bea8e77864f210c42b5df019
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 5/18/2020
+ms.author: derekol
+ms.openlocfilehash: 9feefa8801892a668784ed7406f46dba2afd69da
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683964"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266948"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Associer un ASN de pair à un abonnement Azure en utilisant le portail
 
-Avant de soumettre une demande de Peering, vous devez d’abord associer votre NSA à un abonnement Azure en effectuant les étapes ci-dessous.
+En tant que fournisseur d’accès à Internet ou fournisseur Internet Exchange, avant d’envoyer une requête Peering, vous devez d’abord associer votre ASN à un abonnement Azure à l’aide des étapes ci-dessous.
 
-Si vous préférez, vous pouvez suivre ce guide à l’aide d [PowerShell](howto-subscription-association-powershell.md).
+Si vous préférez, vous pouvez suivre ce guide à l’aide de [PowerShell](howto-subscription-association-powershell.md).
 
 ## <a name="create-peerasn-to-associate-your-asn-with-azure-subscription"></a>Créer un PeerAsn pour associer votre NSA à un abonnement Azure
 
@@ -55,8 +55,7 @@ Inscrivez-vous auprès du fournisseur de ressources de Peering dans votre abonne
     > ![Inscription terminée](./media/rp-register-completed.png)
 
 ### <a name="create-peerasn"></a>Créer un PeerAsn
-En tant que fournisseur de services internet ou fournisseur d’échange internet, vous pouvez créer une nouvelle ressource PeerAsn pour associer un numéro de système autonome (NSA) à un abonnement Azure. Vous pouvez associer plusieurs NSA à un abonnement en accédant à la [page Associer un PeerAsn](https://go.microsoft.com/fwlink/?linkid=2129592) pour chaque NSA que vous devez associer.
-
+En tant que fournisseur d’accès à Internet ou fournisseur Internet Exchange, vous pouvez créer une nouvelle ressource PeerAsn pour associer un numéro de système autonome (NSA) à un abonnement Azure sur la page [Associer un NSA homologue](https://go.microsoft.com/fwlink/?linkid=2129592). Vous pouvez associer plusieurs NSA à un abonnement en créant un **PeerAsn** pour chaque NSA que vous devez associer.
 
 1. Dans la page **Associer un NSA d’homologue**, sous l’onglet **Informations de base**, remplissez les champs comme indiqué ci-dessous.
 

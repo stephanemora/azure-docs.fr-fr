@@ -4,12 +4,12 @@ description: Dans cet article, découvrez les fonctionnalités de surveillance e
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: de5a82f5ad1d8113b27c07484f2f08f4cf97c759
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c72c192f3bd12169703b70cbee76599b15eb560
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294937"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247051"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Surveillance des charges de travail de Sauvegarde Azure
 

@@ -8,16 +8,16 @@ ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13a5fc216abc890c19ce3a2d75335431fe2a6799
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41761f8724f1913972298a50d2c35489ddd715b9
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528640"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219045"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrer de la fédération à l’authentification directe pour Azure Active Directory
 
@@ -25,6 +25,9 @@ Cet article décrit comment faire passer les domaines de votre organisation d’
 
 > [!NOTE]
 > Modifier votre méthode d’authentification implique une planification, des tests et de possibles temps d’arrêt. Le [lancement intermédiaire](how-to-connect-staged-rollout.md) fournit un autre moyen de tester et d’effectuer une migration progressive de la fédération vers l’authentification cloud à l’aide de l’authentification directe.
+> 
+> Si vous prévoyez d’utiliser le lancement intermédiaire, n’oubliez pas de désactiver les fonctionnalités de lancement intermédiaire une fois que vous avez terminé le basculement.  Pour davantage d’informations, consultez [Migrer vers l’authentification cloud avec un lancement intermédiaire](how-to-connect-staged-rollout.md)
+
 
 ## <a name="prerequisites-for-migrating-to-pass-through-authentication"></a>Prérequis pour la migration vers l’authentification directe
 

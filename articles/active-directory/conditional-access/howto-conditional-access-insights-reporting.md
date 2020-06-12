@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c4feeca1cbe7eb88aace811829e4d9c2db5f38e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2a2b4864232892f1940de5c8fe46fa23879c92f3
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83641602"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112772"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Insights et rapports sur l’accès conditionnel
 
@@ -98,6 +98,23 @@ Affichez la répartition des utilisateurs (ou connexions) pour chacune des condi
 Vous pouvez également examiner les connexions d’un utilisateur en particulier, en recherchant des connexions en bas du tableau de bord. La requête située sur la gauche affiche les utilisateurs les plus fréquents. La sélection d’un utilisateur va filtrer la requête sur la droite.  
 
 ## <a name="troubleshooting"></a>Dépannage
+
+### <a name="why-are-queries-failing-due-to-a-permissions-error"></a>Pourquoi les requêtes échouent-elles en raison d’une erreur d’autorisation ?
+
+Pour accéder au classeur, vous devez disposer des autorisations Azure AD appropriées, ainsi que des autorisations de l’espace de travail Log Analytics. Pour vérifier si vous disposez des autorisations appropriées pour l’espace de travail, exécutez un exemple de requête Log Analytics :
+
+1. Connectez-vous au **portail Azure**.
+1. Accédez à **Azure Active Directory** > **Journaux**.
+1. Saisissez `SigninLogs` dans la zone de requête et sélectionnez **Exécuter**.
+1. Si la requête ne retourne aucun résultat, votre espace de travail n’a peut-être pas été configuré correctement. 
+
+![Résoudre les échecs de requêtes](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
+
+Pour plus d’informations sur la diffusion en continu des journaux de connexion Azure AD vers un espace de travail Log Analytics, consultez l’article [Intégrer des journaux Azure AD avec aux journaux d’activité Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+
+### <a name="why-is-the-conditional-access-policies-parameter-is-empty"></a>Pourquoi le paramètre des stratégies d’accès conditionnel est-il vide ?
+
+La liste des stratégies est générée en examinant les stratégies évaluées pour l’événement de connexion le plus récent. S’il n’existe aucune connexion récente dans votre locataire, vous devrez peut-être attendre pendant quelques minutes que le classeur charge la liste des stratégies d’accès conditionnel. Cela peut se produire immédiatement après la configuration de Log Analytics ou peut prendre plus de temps si un locataire n’a aucune activité de connexion récente.
 
 ### <a name="why-is-the-workbook-taking-a-long-time-to-load"></a>Pourquoi le chargement du classeur est-il si long ?  
 

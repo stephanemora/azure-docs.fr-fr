@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 6da9517f822c9c157d26a1bda8dab2c694b08b12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54382e74899d2cbb56ccf424b0f39bd874e31630
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75609976"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259369"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Déployer un cluster Azure Service Fabric sur des zones de disponibilité
 Les zones de disponibilité dans Azure constituent une offre à haute disponibilité qui protège vos applications et données contre les pannes des centres de données. Une zone de disponibilité est un emplacement physique unique équipé d’une alimentation, d’un refroidissement et d’une mise en réseau indépendants dans une région Azure.
@@ -140,6 +140,10 @@ Si on les compare à l’utilisation de références SKU de base, Standard Load 
 
 >[!NOTE]
 > Le modèle standard fait référence à un groupe de sécurité réseau (NSG) qui autorise tout le trafic sortant par défaut. Le trafic entrant est limité aux ports qui sont requis pour les opérations de gestion de Service Fabric. Les règles NSG peuvent être modifiées pour répondre à vos besoins.
+
+>[!NOTE]
+> Tout cluster Service Fabric utilisant la référence SLB SKU Standard doit vérifier que chaque type de nœud a une règle autorisant le trafic sortant sur le port 443. Cette opération est nécessaire pour terminer l’installation du cluster, et tout déploiement sans règle de ce type échouera.
+
 
 ### <a name="enabling-zones-on-a-virtual-machine-scale-set"></a>Activation de zones sur un groupe de machines virtuelles identiques
 Pour activer une zone sur un groupe de machines virtuelles identiques, vous devez inclure les trois valeurs suivantes dans la ressource de groupe de machines virtuelles identiques.

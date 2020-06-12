@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: a521ff690f59b6beafd1113b177b43193dc7447e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f739134cd066f4dcc7fdf3da16c6db99a54d6265
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743986"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204937"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Activer Update Management à partir d’un compte Automation
 
@@ -36,10 +36,6 @@ Connectez-vous à Azure sur https://portal.azure.com.
 2. Choisissez l’espace de travail Log Analytics et un compte Automation, puis cliquez sur **Activer** pour activer Update Management. Le configuration prend jusqu’à 15 minutes.
 
     ![Activer Update Management](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
-
-## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>Vérifier la configuration d’étendue
-
-Update Management utilise une configuration d’étendue au sein de l’espace de travail pour cibler les ordinateurs qui activent la fonctionnalité. La configuration d’étendue est un groupe de recherches enregistrées utilisé pour limiter l’étendue de la fonctionnalité à des ordinateurs spécifiques. Pour plus d’informations, consultez [Utiliser des configurations d’étendue pour Update Management](automation-scope-configurations-update-management.md).
 
 ## <a name="enable-azure-vms"></a>Activer les machines virtuelles Azure
 
@@ -73,16 +69,13 @@ Les machines installées manuellement ou celles déjà connectées à votre espa
 
 5. Pour activer la fonctionnalité sur toutes les machines disponibles et les futures machines, sélectionnez **Activer sur toutes les machines disponibles et futures**. Cette option supprime les recherches enregistrées et les configurations d’étendue de l’espace de travail et ouvre la fonctionnalité pour toutes les machines Azure et non-Azure qui envoient des informations à l’espace de travail. Quand cette option est sélectionnée, le bouton **Gérer des machines** est désactivé définitivement, car il n’existe plus aucune configuration d’étendue.
 
-6. Le cas échéant, vous pouvez rajouter les configurations d’étendue en ajoutant à nouveau les recherches enregistrées initiales. Pour plus d’informations, consultez [Utiliser des configurations d’étendue pour Update Management](automation-scope-configurations-update-management.md).
+6. Le cas échéant, vous pouvez rajouter les configurations d’étendue en ajoutant à nouveau les recherches enregistrées initiales. Pour plus d’informations, consultez [Limiter l’étendue du déploiement d’Update Management](automation-scope-configurations-update-management.md).
 
 7. Pour activer la fonctionnalité sur une ou plusieurs machines, sélectionnez **Activer sur les machines sélectionnées**, puis cliquez sur **Ajouter** à côté de chaque machine à activer pour la fonctionnalité. Cette tâche ajoute le nom des machines sélectionnées à la requête de recherche enregistrée de groupe d’ordinateurs pour la fonctionnalité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour utiliser Update Management pour des machines virtuelles, consultez [Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure](automation-tutorial-update-management.md).
-* Pour les configurations d’étendue, consultez [Utiliser des configurations d’étendue pour Update Management](automation-scope-configurations-update-management.md).
-* Si vous n’avez plus besoin de l’espace de travail Log Analytics, consultez les instructions fournies dans [Dissocier un espace de travail d’un compte Automation pour Update Management](automation-unlink-workspace-update-management.md).
-* Pour supprimer des machines virtuelles d’Update Management, consultez [Supprimer des machines virtuelles d’Update Management](automation-remove-vms-from-update-management.md).
 * Pour résoudre les erreurs générales d’Update Management, consultez [Résoudre les problèmes liés à Update Management](troubleshoot/update-management.md).
 * Pour résoudre les problèmes liés à l’agent de mise à jour Windows, consultez [Résoudre les problèmes de l’agent de mise à jour Windows](troubleshoot/update-agent-issues.md).
 * Pour résoudre les problèmes liés à l’agent de mise à jour Linux, consultez [Résoudre les problèmes de l’agent de mise à jour Linux](troubleshoot/update-agent-issues-linux.md).

@@ -8,19 +8,19 @@ ms.topic: troubleshooting
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 196c4f692b425d2fc6592888ba89f2fa6dafd3de
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: c5be26509eccdaebf1b504c1b0b8c7edb35e101c
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612501"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84203853"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Vue d’ensemble du dépannage, commentaires et support
 
 >[!IMPORTANT]
 >Ce contenu s’applique à la mise à jour Printemps 2020 avec des objets Azure Resource Manager Windows Virtual Desktop. Si vous utilisez la version Automne 2019 de Windows Virtual Desktop sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
 >
-> La mise à jour Printemps 2020 de Windows Virtual Desktop est en préversion publique. Cette préversion est fournie sans contrat de niveau de service, et nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. 
+> La mise à jour Printemps 2020 de Windows Virtual Desktop est en préversion publique. Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. 
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Cet article fournit une vue d’ensemble des problèmes que vous pouvez rencontrer lors de la configuration d’un environnement de locataire Windows Virtual Desktop et fournit des moyens de résoudre les problèmes.
@@ -53,6 +53,7 @@ Utilisez le tableau suivant pour identifier et résoudre les problèmes que vous
 | Messages ou erreurs concernant les licences                                                          | Si les problèmes sont liés à une application ou un produit spécifique, contactez l’équipe responsable de ce produit. |
 | Problèmes liés aux méthodes d’authentification tierces | Vérifiez que votre fournisseur tiers prend en charge les scénarios Windows Virtual Desktop en tenant compte des problèmes connus. |
 | Problèmes lors de l’utilisation de Log Analytics pour Windows Virtual Desktop | Pour les problèmes liés au schéma de diagnostics, [ouvrez une demande de support Azure](https://azure.microsoft.com/support/create-ticket/).<br><br>Pour les requêtes, la visualisation ou d’autres problèmes dans Log Analytics, sélectionnez le type de problème approprié sous Log Analytics. |
+| Problèmes liés à l’utilisation des applications M365 | Contactez le centre d’administration M365 grâce à l’une des [options d’aide du centre d’administration M365](/microsoft-365/admin/contact-support-for-business-products/). |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/30/2020
 ms.author: aahi
-ms.openlocfilehash: 81ed10f0b3b2a8042f0766f89bb99d7cad950fca
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 04fb080d09b1945add7340db081ab49dd017731d
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140921"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84637590"
 ---
 > [!NOTE]
 > Pour détecter `PHI`, utilisez le paramètre `domain=phi` et la version du modèle `2020-04-01` ou une version ultérieure.
@@ -40,8 +40,8 @@ Les catégories d’entité suivantes sont retournées lors de l’envoi de dema
 | DateTime | Date | Dates du calendrier. | `2019-10-01` | Également retourné avec `domain=phi`. |
 | Quantité | N/A | Nombres et quantités numériques. | `2019-10-01` |  |
 | Quantité | Age | Ages. | `2019-10-01` | | |
-| Classification internationale des maladies (CIM-10-CM) | N/A | Entités relatives à la Classification internationale des maladies, neuvième révision.   | `2020-04-01` | Également retourné avec `domain=phi`. |
-| Classification internationale des maladies (CIM-10-CM) | N/A | Entités relatives à la Classification internationale des maladies, dixième révision.    | `2020-04-01` | Également retourné avec `domain=phi`. |
+| Classification internationale des maladies (CIM-10-CM) | N/A | Entités relatives à la Classification internationale des maladies, neuvième révision.   | `2020-04-01` | |
+| Classification internationale des maladies (CIM-10-CM) | N/A | Entités relatives à la Classification internationale des maladies, dixième révision.    | `2020-04-01` | |
 
 ## <a name="azure-information"></a>Informations Azure
 

@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: v-grpr
-ms.openlocfilehash: 74828bfd3a110739afc211a530c11c74387b70ed
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 70c37b60d3b01c939b9b06d6b053b526e036904a
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83748778"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266506"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Utilisez l’expédition autogérée pour Azure Data Box Disk dans le portail Azure
 
@@ -43,11 +43,11 @@ Quand passez une commande de Data Box Disk, vous pouvez choisir l’option d’e
 
    ![Expédition autogérée](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
-4. Une fois l’appareil préparé, vous pouvez planifier l’enlèvement. Dans votre commande Azure Data Box Disk, accédez à **Vue d’ensemble** puis sélectionnez **Planifier l’enlèvement**.
+4. Une fois que l’appareil a été préparé et que vous avez reçu une notification par e-mail, vous pouvez planifier un prélèvement. Dans votre commande Azure Data Box Disk, accédez à **Vue d’ensemble** puis sélectionnez **Planifier l’enlèvement**.
 
    ![Commande d’un appareil Data Box à enlever](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-user-pickup-01b.png)
 
-5. Suivez les instructions de **Planifier l’enlèvement pour Azure**. Avant de pouvoir obtenir votre code d’autorisation, vous devez envoyer un e-mail à [adbops@microsoft.com](mailto:adbops@microsoft.com) pour planifier l’enlèvement de l’appareil à partir du centre de données de votre région.
+5. Suivez les instructions dans **Planifier la collecte pour Azure**. Avant de pouvoir obtenir votre code d’autorisation, vous devez envoyer un courrier électronique à [adbops@microsoft.com](mailto:adbops@microsoft.com) pour planifier l’enlèvement de l’appareil à partir du centre de données de votre région.
 
    ![Planifier l’enlèvement](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-user-pickup-02c.png)
 
@@ -57,11 +57,11 @@ Quand passez une commande de Data Box Disk, vous pouvez choisir l’option d’e
 
    Notez ce **code d’autorisation**.
 
-   Conformément aux exigences de sécurité, au moment de la planification de l’enlèvement et du dépôt, il est nécessaire de donner le nom de la personne qui sera présente lors de l’enlèvement et du dépôt.
+   Conformément aux exigences de sécurité, au moment de la planification de l’enlèvement, il est nécessaire de donner le nom de la personne qui sera présente lors de l’enlèvement.
 
-   Vous devez également fournir les informations concernant les personnes qui se rendront au centre de données pour l’enlèvement. Vous ou le point de contact devez posséder une pièce d’identité avec photo approuvée par le gouvernement qui sera validé par le centre de données.
+   Vous devez également fournir des détails sur les personnes qui se rendront au centre de données pour l’enlèvement. Vous ou le point de contact devez posséder une pièce d’identité avec photo approuvée par le gouvernement qui sera validé par le centre de donnée.
 
-   En outre, la personne qui viendra enlever l’appareil doit également avoir le **code d’autorisation**. Le code d’autorisation est validé par le centre de données au moment de l’enlèvement.
+   En outre, la personne qui viendra enlever l’appareil doit également avoir le **code d’autorisation**. Le code d’autorisation pour la collecte ou le dépôt est unique et est validé dans le centre de données.
 
 7. Votre commande passe automatiquement à l’état **Récupérée** une fois l’appareil enlevé au centre de données.
 

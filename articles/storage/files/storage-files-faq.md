@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 8896aba104a99d323b3c39cfaeab6043d1c12f9d
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ac9d9fddc45abbcbe4890d1060dcc2c931c72182
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832008"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84265163"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard. Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -98,10 +98,16 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
   **J’ai créé un fichier directement dans mon partage de fichiers Azure à l’aide de SMB ou dans le portail. Combien de temps faut-il pour que le fichier soit synchronisé vers les serveurs du groupe de synchronisation ?**  
     [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
+
+* <a id="afs-sync-time"></a>
+  **Combien de temps faut-il pour télécharger 1 Tio de données pour Azure File Sync ?**
+  
+    Les performances varient en fonction de vos paramètres d’environnement, de votre configuration et du type de synchronisation (initiale ou continue). Pour plus d’informations, consultez la page [Mesures de performances d’Azure File Sync](storage-files-scale-targets.md#azure-file-sync-performance-metrics).
+
 * <a id="afs-conflict-resolution"></a>**Si le même fichier est modifié sur deux serveurs à peu près au même moment, que se passe-t-il ?**  
     Azure File Sync utilise une stratégie de résolution de conflit simple : nous conservons les modifications apportées aux fichiers modifiés sur deux serveurs en même temps. Le fichier le plus récemment écrit conserve son nom d’origine. Concernant l’ancien fichier, la machine « source » et le numéro de conflit sont ajoutés à son nom, avec le format suivant : 
    
-    \<nom_fichier_sans_extension\>-\<nom_ordinateur\>\[-#\].\<ext\>  
+    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
 
     Par exemple, le premier conflit de CompanyReport.docx deviendra CompanyReport-CentralServer.docx si CentralServer est l’endroit où l’écriture la plus ancienne s’est produite. Le deuxième conflit sera nommé CompanyReport-CentralServer-1.docx. Azure File Sync prend en charge 100 fichiers conflictuels par fichier. Une fois le nombre maximal de fichiers conflictuels atteint, la synchronisation du fichier échoue. Pour qu’elle aboutisse, le nombre de fichiers conflictuels doit être inférieur à 100.
 
@@ -164,7 +170,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 * <a id="ad-support"></a>
 **Azure Files prend-il en charge le contrôle d’accès et l’authentification basée sur l’identité ?**  
     
-    Oui, Azure Files prend en charge le contrôle d’accès et l’authentification basée sur l’identité. Vous pouvez choisir l’une des deux façons d’utiliser le contrôle d’accès basé sur l’identité : Active Directory Domain Services en local (préversion) ou Azure Active Directory Domain Services (Azure AD DS). Active Directory Domain Services (AD DS) en local prend en charge l’authentification à l’aide d’ordinateurs joints au domaine AD, localement ou dans Azure, pour accéder aux partages de fichiers Azure via SMB. L’authentification Azure AD DS sur SMB pour Azure Files tire parti d’Azure AD DS pour permettre aux machines virtuelles Windows jointes à un domaine d’accéder aux partages, répertoires et fichiers à l’aide des informations d’identification Azure AD. Pour plus d’informations, consultez [Vue d’ensemble de la prise en charge de l’authentification basée sur l’identité Azure Files pour l’accès SMB](storage-files-active-directory-overview.md). 
+    Oui, Azure Files prend en charge le contrôle d’accès et l’authentification basée sur l’identité. Vous pouvez choisir l’une des deux façons d’utiliser le contrôle d’accès basé sur l’identité : Active Directory Domain Services en local ou Azure Active Directory Domain Services (Azure AD DS). Active Directory Domain Services (AD DS) en local prend en charge l’authentification à l’aide d’ordinateurs joints au domaine AD, localement ou dans Azure, pour accéder aux partages de fichiers Azure via SMB. L’authentification Azure AD DS sur SMB pour Azure Files tire parti d’Azure AD DS pour permettre aux machines virtuelles Windows jointes à un domaine d’accéder aux partages, répertoires et fichiers à l’aide des informations d’identification Azure AD. Pour plus d’informations, consultez [Vue d’ensemble de la prise en charge de l’authentification basée sur l’identité Azure Files pour l’accès SMB](storage-files-active-directory-overview.md). 
 
     Azure Files offre deux autres façons de gérer le contrôle d’accès :
 
@@ -173,41 +179,6 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
     - Azure File Sync conserve et réplique toutes les listes de contrôle d’accès discrétionnaire, ou listes DACL (qu’elles soient locales ou basées sur Active Directory) sur tous les points de terminaison de serveur avec lesquels il effectue une synchronisation. 
     
     Pour obtenir une représentation complète de tous les protocoles pris en charge sur les services de stockage Azure, vous pouvez consulter la rubrique [Autorisation de l’accès à Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
-
-* <a id="ad-support-devices"></a>
-**L’authentification Azure Active Directory Domain Services (Azure AD DS) pour Azure Files prend-elle en charge l’accès SMB à l’aide des informations d’identification Azure AD à partir d’appareils joints ou inscrit à Azure AD ?**
-
-    Non, ce scénario n’est pas pris en charge.
-
-* <a id="ad-support-rest-apis"></a>
-**Existe-t-il des API REST pour prendre en charge les ACL NTFS de répertoire/fichier Get/Set/Copy ?**
-
-    Oui, nous prenons en charge les API REST qui obtiennent, définissent ou copient des ACL NTFS pour des répertoires ou des fichiers lors de l’utilisation de l’API REST [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (ou version ultérieure).
-
-* <a id="ad-vm-subscription"></a>
-**Puis-je accéder aux partages de fichiers Azure avec des informations d’identification Azure AD à partir d’une machine virtuelle sous un autre abonnement ?**
-
-    Si l’abonnement sous lequel est déployé le partage de fichiers est associé au même locataire Azure AD que le déploiement Azure AD DS auquel la machine virtuelle est jointe, vous pouvez accéder aux partages de fichiers Azure avec les mêmes informations d’identification Azure AD. La limitation est imposée non pas sur l’abonnement, mais sur le locataire Azure AD associé.
-    
-* <a id="ad-support-subscription"></a>
-**Puis-je activer l’authentification Azure AD DS ou AD DS locale pour les partages de fichiers Azure à l’aide d’un locataire Azure AD différent du locataire principal du partage de fichiers Azure ?**
-
-    Non, Azure Files prend uniquement en charge l’intégration d’Azure AD DS ou d’AD DS en local à un locataire Azure AD qui se trouve dans le même abonnement que le partage de fichiers. Un seul abonnement peut être associé à un locataire Azure AD. Cette limitation s’applique à la fois aux méthodes d’authentification Azure AD DS et AD DS en local. Lorsque vous utilisez AD DS en local pour l’authentification, les [informations d’identification AD DS](../../active-directory/hybrid/how-to-connect-install-roadmap.md) doivent être synchronisées avec le compte Azure AD auquel le compte de stockage est associé.
-
-* <a id="ad-linux-vms"></a>
-**L’authentification Azure AD DS ou AD DS en local pour les partages de fichiers Azure prend-elles en charge les machines virtuelles Linux ?**
-
-    Non, l’authentification à partir de machines virtuelles Linux n’est pas prise en charge.
-
-* <a id="ad-aad-smb-afs"></a>
-**Les partages de fichiers gérés par Azure File Sync prennent-ils en charge l’authentification Azure AD DS ou AD DS en local (préversion) ?**
-
-    Oui, vous pouvez activer l’authentification Azure AD DS ou AD DS en local sur un partage de fichiers géré par Azure File Sync. Les modifications apportées aux ACL NTFS de répertoire/fichier sur les serveurs de fichiers locaux seront hiérarchisées vers Azure Files et vice versa.
-
-* <a id="ad-aad-smb-files"></a>
-**Comment puis-je vérifier si j’ai activé l’authentification AD DS sur mon compte de stockage et récupérer les informations du domaine ?**
-
-    Pour obtenir des instructions, consultez [cette page](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account).
     
 * <a id="encryption-at-rest"></a>
 **Comment puis-je m’assurer que mon partage de fichiers Azure est chiffré au repos ?**  
@@ -234,7 +205,37 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
    Azure Files s’exécute sur la même architecture de stockage que d’autres services de stockage dans Stockage Azure. Azure Files applique les mêmes stratégies de conformité des données que celles utilisées dans d’autres services de stockage Azure. Pour plus d’informations sur la conformité des données de stockage Azure, vous pouvez vous référer aux [Offres de conformité du stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings), et accéder au [Centre de gestion de la confidentialité Microsoft](https://microsoft.com/trustcenter/default.aspx).
    
-### <a name="ad-authentication"></a>Authentification AD
+### <a name="ad-ds--azure-ad-ds-authentication"></a>Authentification AD DS et Azure AD DS
+* <a id="ad-support-devices"></a>
+**L’authentification Azure Active Directory Domain Services (Azure AD DS) pour Azure Files prend-elle en charge l’accès SMB à l’aide des informations d’identification Azure AD à partir d’appareils joints ou inscrit à Azure AD ?**
+
+    Non, ce scénario n’est pas pris en charge.
+
+* <a id="ad-vm-subscription"></a>
+**Puis-je accéder aux partages de fichiers Azure avec des informations d’identification Azure AD à partir d’une machine virtuelle sous un autre abonnement ?**
+
+    Si l’abonnement sous lequel est déployé le partage de fichiers est associé au même locataire Azure AD que le déploiement Azure AD DS auquel la machine virtuelle est jointe, vous pouvez accéder aux partages de fichiers Azure avec les mêmes informations d’identification Azure AD. La limitation est imposée non pas sur l’abonnement, mais sur le locataire Azure AD associé.
+    
+* <a id="ad-support-subscription"></a>
+**Puis-je activer l’authentification Azure AD DS ou AD DS locale pour les partages de fichiers Azure à l’aide d’un locataire Azure AD différent du locataire principal du partage de fichiers Azure ?**
+
+    Non, Azure Files prend uniquement en charge l’intégration d’Azure AD DS ou d’AD DS en local à un locataire Azure AD qui se trouve dans le même abonnement que le partage de fichiers. Un seul abonnement peut être associé à un locataire Azure AD. Cette limitation s’applique à la fois aux méthodes d’authentification Azure AD DS et AD DS en local. Lorsque vous utilisez AD DS en local pour l’authentification, les [informations d’identification AD DS](../../active-directory/hybrid/how-to-connect-install-roadmap.md) doivent être synchronisées avec le compte Azure AD auquel le compte de stockage est associé.
+
+* <a id="ad-linux-vms"></a>
+**L’authentification Azure AD DS ou AD DS en local pour les partages de fichiers Azure prend-elles en charge les machines virtuelles Linux ?**
+
+    Non, l’authentification à partir de machines virtuelles Linux n’est pas prise en charge.
+
+* <a id="ad-aad-smb-afs"></a>
+**Les partages de fichiers gérés par Azure File Sync prennent-ils en charge l’authentification Azure AD DS ou AD DS en local ?**
+
+    Oui, vous pouvez activer l’authentification Azure AD DS ou AD DS en local sur un partage de fichiers géré par Azure File Sync. Les modifications apportées aux ACL NTFS de répertoire/fichier sur les serveurs de fichiers locaux seront hiérarchisées vers Azure Files et vice versa.
+
+* <a id="ad-aad-smb-files"></a>
+**Comment puis-je vérifier si j’ai activé l’authentification AD DS sur mon compte de stockage et récupérer les informations du domaine ?**
+
+    Pour obtenir des instructions, consultez [cette page](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account).
+
 * <a id=""></a>
 **Est-ce que l’authentification Azure AD pour Azure Files prend en charge les machines virtuelles Linux ?**
 
@@ -246,12 +247,12 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
     L’authentification AD DS en local d’Azure Files s’intègre uniquement à la forêt du service de domaine sur lequel le compte de stockage est inscrit. Pour prendre en charge l’authentification à partir d’une autre forêt, votre environnement doit disposer d’une approbation de forêt correctement configurée. La façon dont Azure Files s’inscrit dans AD DS est essentiellement la même que celle d’un serveur de fichiers ordinaire, où il crée une identité (compte d’ouverture de session d’ordinateur ou de service) dans AD DS pour l’authentification. La seule différence est que le nom de principal du service qui est inscrit pour le compte de stockage se termine par « file.core.windows.net », ce qui ne correspond pas au suffixe de domaine. Consultez votre administrateur de domaine pour savoir si une mise à jour de votre stratégie de routage DNS est nécessaire pour activer l’authentification de plusieurs forêts en raison du suffixe de domaine différent.
 
 * <a id=""></a>
-**Quelles sont les régions disponibles pour l’authentification AD DS Azure Files (préversion) ?**
+**Quelles sont les régions disponibles pour l’authentification AD DS Azure Files ?**
 
     Pour plus d’informations, consultez la [disponibilité régionale AD DS](storage-files-identity-auth-active-directory-enable.md#regional-availability).
     
 * <a id="ad-aad-smb-afs"></a>
-**Puis-je tirer parti de l’authentification Active Directory (AD) pour Azure Files [préversion] sur des partages de fichiers gérés par Azure File Sync ?**
+**Puis-je tirer parti de l’authentification Active Directory (AD) pour Azure Files sur des partages de fichiers gérés par Azure File Sync ?**
 
     Oui, vous pouvez activer l’authentification AD sur un partage de fichiers géré par Azure File Sync. Les modifications apportées aux ACL NTFS de répertoire/fichier sur les serveurs de fichiers locaux seront hiérarchisées vers Azure Files et vice versa.
 
@@ -264,6 +265,12 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 **Y a-t-il une différence dans la création d’un compte d’ordinateur ou d’un compte de connexion au service pour représenter mon compte de stockage dans Active Directory ?**
 
     La création d’un [compte d’ordinateur](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (par défaut) ou d’un [compte de connexion au service](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) ne présente aucune différence quant à la façon dont l’authentification fonctionne avec Azure Files. Vous pouvez librement choisir votre méthode de représentation d’un compte de stockage en tant qu’identité dans votre environnement AD. La valeur DomainAccountType par défaut définie dans l’applet de commande join-AzStorageAccountForAuth est un compte d’ordinateur. Toutefois, la durée de vie du mot de passe configurée dans votre environnement AD peut être différente pour le compte d’ordinateur ou le compte de connexion au service, et vous devez prendre cela en considération pour [mettre à jour le mot de passe de l’identité de votre compte de stockage dans AD](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#5-update-ad-account-password).
+ 
+* <a id="ad-support-rest-apis"></a>
+**Existe-t-il des API REST pour prendre en charge les ACL Windows de répertoire/fichier Get/Set/Copy ?**
+
+    Oui, nous prenons en charge les API REST qui obtiennent, définissent ou copient des ACL NTFS pour des répertoires ou des fichiers lors de l’utilisation de l’API REST [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (ou version ultérieure). Nous prenons également en charge les ACL Windows persistantes avec les outils REST : [AzCopy v10.4+](https://github.com/Azure/azure-storage-azcopy/releases).
+
 
 ## <a name="on-premises-access"></a>Accès local
 
@@ -282,7 +289,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
     Vous pouvez monter le partage de fichiers à l’aide du protocole SMB si le port 445 (TCP sortant) est ouvert et que votre client prend en charge le protocole SMB 3.0 (par exemple si vous utilisez Windows 10 ou Windows Server 2016). Si le port 445 est bloqué par la stratégie de votre organisation ou par votre fournisseur de services Internet, vous pouvez utiliser Azure File Sync pour accéder à votre partage de fichiers Azure.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Sauvegarde
 * <a id="backup-share"></a>
 **Comment faire pour sauvegarder mon partage de fichiers Azure ?**  
     Vous pouvez utiliser des [instantanés de partage](storage-snapshots-files.md) périodiques pour la protection contre les suppressions accidentelles. Vous pouvez aussi utiliser AzCopy, RoboCopy ou un outil de sauvegarde tiers capable de sauvegarder un partage de fichiers monté. Le service Sauvegarde Azure propose une sauvegarde d’Azure Files. En savoir plus sur la [sauvegarder de partages de fichiers Azure par le service Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-files).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 828f738ff8923dc8194e2449f5fb0be74ef45ad7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70f124a498ff4aa45b5d90f6221fe3d0121e804a
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473555"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221044"
 ---
 # <a name="api-management-authentication-policies"></a>Stratégies d’authentification dans Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -48,16 +48,16 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ### <a name="elements"></a>Éléments
 
-|Name|Description|Obligatoire|
+|Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
 |authentification-basic|Élément racine.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
-|Name|Description|Obligatoire|Default|
+|Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
 |username|Spécifie le nom d’utilisateur associé aux informations d’identification de base.|Oui|N/A|
-|password|Spécifie le mot de passe associé aux informations d’identification de base.|Oui|N/A|
+|mot de passe|Spécifie le mot de passe associé aux informations d’identification de base.|Oui|N/A|
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
@@ -88,13 +88,13 @@ Dans cet exemple, le certificat client est identifié par le nom de ressource.
 
 ### <a name="elements"></a>Éléments  
   
-|Name|Description|Obligatoire|  
+|Nom|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |authentication-certificate|Élément racine.|Oui|  
   
 ### <a name="attributes"></a>Attributs  
   
-|Name|Description|Obligatoire|Default|  
+|Nom|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |thumbprint|Empreinte du certificat client.|`thumbprint` ou `certificate-id` doit être présent.|N/A|  
 |certificate-id|Le nom de ressource du certificat.|`thumbprint` ou `certificate-id` doit être présent.|N/A|  
@@ -135,7 +135,21 @@ Dans cet exemple, le certificat client est identifié par le nom de ressource.
 ```xml  
 <authentication-managed-identity resource="https://database.windows.net/"/> <!--Azure SQL-->
 ```
-  
+
+```xml
+<authentication-managed-identity resource="api://Client_id_of_Backend"/> <!--Your own Azure AD Application-->
+```
+
+#### <a name="use-managed-identity-and-set-header-manually"></a>Utiliser l’identité managée et définir l’en-tête manuellement
+
+```xml
+<authentication-managed-identity resource="api://Client_id_of_Backend"
+   output-token-variable-name="msi-access-token" ignore-error="false" /> <!--Your own Azure AD Application-->
+<set-header name="Authorization" exists-action="override">
+   <value>@("Bearer " + (string)context.Variables["msi-access-token"])</value>
+</set-header>
+```
+
 #### <a name="use-managed-identity-in-send-request-policy"></a>Utiliser Identité managée dans la stratégie d’envoi de requête
 ```xml  
 <send-request mode="new" timeout="20" ignore-error="false">
@@ -147,13 +161,13 @@ Dans cet exemple, le certificat client est identifié par le nom de ressource.
 
 ### <a name="elements"></a>Éléments  
   
-|Name|Description|Obligatoire|  
+|Nom|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |authentication-managed-identity |Élément racine.|Oui|  
   
 ### <a name="attributes"></a>Attributs  
   
-|Name|Description|Obligatoire|Default|  
+|Nom|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |resource|Chaîne. ID d’application de l’API web cible (ressource sécurisée) dans Azure Active Directory.|Oui|N/A|  
 |output-token-variable-name|Chaîne. Nom de la variable de contexte qui recevra la valeur du jeton en tant que type d’objet `string`. |Non|N/A|  

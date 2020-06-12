@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e8328db12bde531c2e27936c09247611ff1a3583
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 29a82c1aed4ea79673b4019270a334eac722bc96
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78190141"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295420"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Types d’applications pouvant être utilisés dans Active Directory B2C
 
@@ -119,9 +119,11 @@ Dans ce flux, l’application exécute des [stratégies](user-flow-overview.md) 
 
 Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans la présence d’un utilisateur doivent également disposer d’un moyen d’accès aux ressources sécurisées, comme les API web. Ces applications peuvent s’authentifier et obtenir des jetons à l’aide de l’identité d’application (plutôt qu’avec l’identité déléguée d’un utilisateur), et à l’aide du flux des informations d’identification du client OAuth 2.0. Le flux d’informations d’identification du client n’est pas le même que celui avec emprunt d’identité, et celui-ci ne doit pas être utilisé pour l’authentification de serveur à serveur.
 
-Même si le flux d’informations d’identification du client n’est pas pris en charge par Azure AD B2C, vous pouvez le configurer à l’aide d’Azure AD. Un locataire Azure AD B2C partage certaines fonctionnalités avec les locataires d’entreprise Azure AD.  Le flux d’informations d’identification du client est pris en charge par la fonctionnalité Azure AD du locataire Azure AD B2C.
+Bien que le flux d’octroi d’informations d’identification du client OAuth 2.0 ne soit pas directement pris en charge par le service d’authentification Azure AD B2C, vous pouvez configurer le flux d’informations d’identification du client à l’aide d’Azure AD et de la plateforme d’identités Microsoft ou du point de terminaison de jeton pour une application dans votre locataire Azure AD B2C. Un locataire Azure AD B2C partage certaines fonctionnalités avec les locataires d’entreprise Azure AD.
 
 Pour configurer le flux d’informations d’identification du client, consultez [Azure Active Directory v2.0 et le flux d’informations d’identification du client OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). Une authentification réussie entraîne la réception d’un jeton mis en forme de telle sorte qu’il peut être utilisé par Azure AD, comme décrit dans la [documentation de référence sur les jetons Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+
+Pour obtenir des instructions sur l’inscription d’une application de gestion, voir [Gérer Azure AD B2C avec Microsoft Graph](microsoft-graph-get-started.md).
 
 #### <a name="web-api-chains-on-behalf-of-flow"></a>Chaînes d’API web (flux On-Behalf-Of)
 

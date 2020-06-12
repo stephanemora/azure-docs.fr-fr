@@ -5,14 +5,14 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: cb3bbf1a7c2e55d152d26c475369f9ccb6fb7d1e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 6eab9b543bfec90c0c338bdc758d690499f083e3
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743981"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204920"
 ---
-# <a name="enable-update-management-from-azure-portal"></a>Activer Update Management à partir de Portail Azure
+# <a name="enable-update-management-from-the-azure-portal"></a>Activer Update Management à partir du portail Azure
 
 Cet article explique comment activer la fonctionnalité [Update Management](automation-update-management.md) pour les machines virtuelles en parcourant le portail Azure. Pour activer des machines virtuelles Azure à grande échelle, vous devez activer une machine virtuelle existante à l’aide d’Update Management. 
 
@@ -48,7 +48,7 @@ Connectez-vous à Azure sur https://portal.azure.com.
 
 4. La liste des machines virtuelles est filtrée pour afficher uniquement celles qui se trouvent dans le même abonnement et le même emplacement. Si vos machines virtuelles se trouvent dans plus de trois groupes de ressources, les trois premiers groupes de ressources sont sélectionnés.
 
-5. Un espace de travail Log Analytics et un compte Automation existants sont sélectionnés par défaut. Si vous souhaitez utiliser un espace de travail Log Analytics et un compte Automation différents, cliquez sur **PERSONNALISÉ** pour les sélectionner sur la page Configuration personnalisée. Lorsque vous choisissez un espace de travail Log Analytics, une vérification est effectuée pour déterminer si ce dernier est lié à un compte Automation. Si un compte Automation lié est trouvé, l’écran suivant s’affiche. Une fois que vous avez terminé, cliquez sur **OK**.
+5. Un espace de travail Log Analytics et un compte Automation existants sont sélectionnés par défaut. Si vous souhaitez utiliser un espace de travail Log Analytics et un compte Automation différents, cliquez sur **PERSONNALISER** pour les sélectionner sur la page Configuration personnalisée. Lorsque vous choisissez un espace de travail Log Analytics, une vérification est effectuée pour déterminer si ce dernier est lié à un compte Automation. Si un compte Automation lié est trouvé, l’écran suivant s’affiche. Une fois que vous avez terminé, cliquez sur **OK**.
 
     ![Sélectionner un espace de travail et un compte](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
@@ -58,14 +58,11 @@ Connectez-vous à Azure sur https://portal.azure.com.
 
 7. Désactivez la case à cocher en regard des machines virtuelles que vous ne souhaitez pas activer. Les machines virtuelles qui ne peuvent pas être activées sont déjà désélectionnées.
 
-8. Cliquez sur **Activer** pour activer la fonctionnalité que vous avez sélectionnée. Le configuration prend jusqu’à 15 minutes.
+8. Cliquez sur **Activer** pour activer la fonctionnalité que vous avez sélectionnée. La configuration prend jusqu’à 15 minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour utiliser Update Management pour des machines virtuelles, consultez [Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure](automation-tutorial-update-management.md).
-* Pour les configurations d’étendue, consultez [Utiliser des configurations d’étendues pour Update Management](automation-scope-configurations-update-management.md).
-* Si vous n’avez plus besoin de l’espace de travail Log Analytics, consultez les instructions fournies dans [Dissocier un espace de travail d’un compte Automation pour Update Management](automation-unlink-workspace-update-management.md).
-* Pour supprimer des machines virtuelles d’Update Management, consultez [Supprimer des machines virtuelles d’Update Management](automation-remove-vms-from-update-management.md).
 * Pour résoudre les erreurs générales d’Update Management, consultez [Résoudre les problèmes liés à Update Management](troubleshoot/update-management.md).
 * Pour résoudre les problèmes liés à l’agent de mise à jour Windows, consultez [Résoudre les problèmes de l’agent de mise à jour Windows](troubleshoot/update-agent-issues.md).
 * Pour résoudre les problèmes liés à l’agent de mise à jour Linux, consultez [Résoudre les problèmes de l’agent de mise à jour Linux](troubleshoot/update-agent-issues-linux.md).

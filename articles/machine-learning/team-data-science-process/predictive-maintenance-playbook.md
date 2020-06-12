@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 301e2be0c8b971a0236de6a8b5c8bd5f278c3aee
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 2961ffb21a1f34ca677e0aede5170689f4e38dca
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686751"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267970"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guide Azure AI pour les solutions de maintenance prédictive
 
@@ -231,7 +231,7 @@ Les spécifications techniques de l’équipement, comme la date de fabrication,
 
 Les efforts de préparation des données présentées jusqu’ici doivent aboutir à une organisation des données comme indiqué ci-dessous. Les données d’apprentissage, de test et de validation doivent avoir ce schéma logique (cet exemple illustre le temps en unités de jours).
 
-| ID d’équipement | Temps | \<Colonnes de fonctionnalités> | Étiquette |
+| ID d’équipement | Temps | \<Feature Columns> | Étiquette |
 | ---- | ---- | --- | --- |
 | A123 |Jour 1 | . . . | . |
 | A123 |Jour 2 | . . . | . |
@@ -427,12 +427,11 @@ La dernière section de ce guide fournit une liste de modèles de solutions de P
 |--:|:------|-------------|
 | 2 | [Échantillon de solution de maintenance prédictive Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Modèle de solution open source illustrant la modélisation Azure Machine Learning et une infrastructure Azure complète pouvant prendre en charge des scénarios de maintenance prédictive dans le contexte de la supervision à distance de l’IoT. |
 | 3 | [Apprentissage profond pour la maintenance prédictive](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure Notebook avec une solution de démonstration de l’utilisation des réseaux LSTM (Long Short-Term Memory) (une classe de réseaux de neurones récurrents) pour une maintenance prédictive, avec un [billet de blog sur cet échantillon](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
-| 4 | [Guide de modélisation de maintenance prédictive dans R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | Guide de modélisation de PdM avec scripts dans R.|
-| 5 | [Maintenance prédictive Azure pour l’aérospatiale](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | Un des premiers modèles de solution de PdM basés sur Azure ML v1.0 pour la maintenance des avions. Ce guide résulte de ce projet. |
-| 6 | [Kit d’outils d’IA Azure pour IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | IA dans IoT Edge avec TensorFlow ; le kit d’outils réunit des modèles Deep Learning dans des conteneurs Docker compatibles Azure IoT Edge et les présente sous forme d’API REST.
-| 7 | [Microsoft Azure IoT – Maintenance prédictive](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite PCS – Solution préconfigurée Modèle de PdM d’avions avec IoT Suite. [Un autre document](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) et [une procédure pas à pas](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) associés au même projet. |
-| 8 | [Modèle de maintenance prédictive avec les services SQL Server R](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | Démonstration du scénario de durée de vie utile résiduelle basée sur les services de R. |
-| 9 | [Guide de modélisation de maintenance prédictive](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | Caractéristique de jeu de données de maintenance d’avions conçue à l’aide de R avec [expériences](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) et [jeux de données](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) et [bloc-notes Azure](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) et [expériences](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)dans AzureML v1.0|
+| 4 | [Maintenance prédictive Azure pour l’aérospatiale](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | Un des premiers modèles de solution de PdM basés sur Azure ML v1.0 pour la maintenance des avions. Ce guide résulte de ce projet. |
+| 5 | [Kit d’outils d’IA Azure pour IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | IA dans IoT Edge avec TensorFlow ; le kit d’outils réunit des modèles Deep Learning dans des conteneurs Docker compatibles Azure IoT Edge et les présente sous forme d’API REST.
+| 6 | [Microsoft Azure IoT – Maintenance prédictive](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite PCS – Solution préconfigurée Modèle de PdM d’avions avec IoT Suite. [Un autre document](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) et [une procédure pas à pas](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) associés au même projet. |
+| 7 | [Modèle de maintenance prédictive avec les services SQL Server R](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | Démonstration du scénario de durée de vie utile résiduelle basée sur les services de R. |
+| 8 | [Guide de modélisation de maintenance prédictive](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | Caractéristique de jeu de données de maintenance d’avions conçue en utilisant R avec des [expériences](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1), des [jeux de données](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) et des notebooks et [expériences](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2) Azure dans AzureML v1.0|
 
 ## <a name="training-resources-for-predictive-maintenance"></a>Ressources de formation pour la maintenance prédictive
 

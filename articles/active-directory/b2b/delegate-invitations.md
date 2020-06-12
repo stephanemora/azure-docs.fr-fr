@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf872991adbf1361a482f6618e57304e33ec1261
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: fa2b5f17af466d5ea2b6e3ba942fafc24cc94713
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591282"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204257"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Permettre une collaboration B2B externe et gérer les utilisateurs autorisés à en inviter d’autres
 
@@ -48,6 +48,9 @@ Par défaut, tous les utilisateurs, notamment les invités, peuvent inviter des 
    - **Les invités peuvent inviter** : pour autoriser les invités à en inviter d’autres, définissez cette stratégie sur **Oui**.
    - **Activer le mot de passe e-mail à usage unique pour les invités (préversion)** : pour en savoir plus sur la fonctionnalité de code secret à usage unique, voir [Authentification par code secret à usage unique d’e-mail (préversion)](one-time-passcode.md).
    - **Restrictions de collaboration** : pour en savoir plus sur la procédure visant à interdire ou autoriser des invitations à des domaines spécifiques, voir [Autoriser ou bloquer des invitations à des organisations spécifiques](allow-deny-list.md).
+   
+   > [!NOTE]
+   > Si **Les membres peuvent inviter** est défini sur **Non** et **Les administrateurs et utilisateurs ayant le rôle d’Inviteur d’invités peuvent inviter** est défini sur **Oui**, les utilisateurs du rôle **Inviteur d’invité** pourront toujours inviter des utilisateurs.
 
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>Affecter le rôle Inviteur d’invités à un utilisateur
 
@@ -66,5 +69,4 @@ Consultez les articles suivants sur Azure AD B2B Collaboration :
 - [Qu'est-ce que la collaboration B2B d'Azure AD ?](what-is-b2b.md)
 - [Ajouter des utilisateurs invités B2B Collaboration sans invitation](add-user-without-invite.md)
 - [Ajout d’un utilisateur B2B Collaboration à un rôle](add-guest-to-role.md)
-
 

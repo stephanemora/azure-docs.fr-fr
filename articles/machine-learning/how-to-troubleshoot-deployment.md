@@ -1,5 +1,5 @@
 ---
-title: Guide de résolution des problèmes liés au déploiement
+title: Résolution des problèmes liés au déploiement Docker
 titleSuffix: Azure Machine Learning
 description: Découvrez comment contourner et résoudre les erreurs courantes de déploiement Docker avec Azure Kubernetes Service et Azure Container Instances à l’aide d’Azure Machine Learning.
 services: machine-learning
@@ -10,31 +10,17 @@ author: clauren42
 ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
-ms.custom: seodec18
-ms.openlocfilehash: d51fd5af5ce553bbe9325154e3f854cdf5410d4d
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: contperfq4
+ms.openlocfilehash: f65b263bb90356a4d739ebc963458cc7e992863c
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873383"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84307943"
 ---
-# <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Résolution des problèmes de déploiement d’Azure Machine Learning, Azure Kubernetes Service et Azure Container Instances
+# <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Résolution des problèmes de déploiement Docker des modèles avec Azure Kubernetes Service et Azure Container Instances 
 
 Découvrez comment contourner et résoudre les erreurs courantes de déploiement Docker avec Azure Container Instances (ACI) et Azure Kubernetes Service (AKS) à l’aide d’Azure Machine Learning.
-
-Lorsque vous déployez un modèle dans Azure Machine Learning, le système effectue une série de tâches.
-
-L’approche recommandée et la plus récente pour le déploiement de modèle consiste à utiliser l’API [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) avec un objet [Environment](how-to-use-environments.md) comme paramètre d’entrée. Dans ce cas, notre service crée une image Docker de base pour vous pendant la phase de déploiement, et monte les modèles requis en un seul appel. Les tâches de déploiement de base sont les suivantes :
-
-1. Inscrire le modèle dans le registre de modèles de l’espace de travail.
-
-2. Définir la configuration de l’inférence :
-    1. Créez un objet [Environment](how-to-use-environments.md) basé sur les dépendances que vous spécifiez dans le fichier yaml de l’environnement, ou utilisez l’un de nos environnements provisionnés.
-    2. Créez une configuration d’inférence (objet InferenceConfig) basée sur l’environnement et le script de notation.
-
-3. Déployer le modèle sur le service Azure Container Instance (ACI) ou Azure Kubernetes Service (AKS).
-
-Découvrez-en plus sur ce processus dans la présentation de la [gestion des modèles](concept-model-management-and-deployment.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -45,6 +31,22 @@ Découvrez-en plus sur ce processus dans la présentation de la [gestion des mod
 * Pour déboguer localement, vous devez avoir une installation opérationnelle de Docker sur votre système local.
 
     Pour vérifier votre installation de Docker, utilisez la commande `docker run hello-world` à partir d’un terminal ou d’une invite de commandes. Pour obtenir des informations sur l’installation de Docker ou sur la résolution des erreurs Docker, consultez la [documentation Docker](https://docs.docker.com/).
+
+## <a name="steps-for-docker-deployment-of-machine-learning-models"></a>Étapes pour le déploiement Docker des modèles Machine Learning
+
+Lorsque vous déployez un modèle dans Azure Machine Learning, le système effectue une série de tâches.
+
+L’approche recommandée pour le modèle de déploiement consiste à utiliser l’API [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) avec un objet [Environment](how-to-use-environments.md) comme paramètre d’entrée. Dans ce cas, le service crée une image Docker de base pendant la phase de déploiement, et monte les modèles requis en un seul appel. Les tâches de déploiement de base sont les suivantes :
+
+1. Inscrire le modèle dans le registre de modèles de l’espace de travail.
+
+2. Définir la configuration de l’inférence :
+    1. Créez un objet [Environment](how-to-use-environments.md) basé sur les dépendances que vous spécifiez dans le fichier yaml de l’environnement, ou utilisez l’un de nos environnements provisionnés.
+    2. Créez une configuration d’inférence (objet InferenceConfig) basée sur l’environnement et le script de notation.
+
+3. Déployer le modèle sur le service Azure Container Instance (ACI) ou Azure Kubernetes Service (AKS).
+
+Découvrez-en plus sur ce processus dans la présentation de la [gestion des modèles](concept-model-management-and-deployment.md).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -124,7 +126,7 @@ service.wait_for_deployment(True)
 print(service.port)
 ```
 
-Notez que, si vous définissez votre propre YAML de spécification Conda, vous devez faire figurer azureml-defaults avec une version supérieure ou égale à 1.0.45 comme dépendance pip. Ce package contient les fonctionnalités nécessaires pour héberger le modèle en tant que service web.
+Si vous définissez votre propre YAML de spécification Conda, vous devez faire figurer azureml-defaults avec une version supérieure ou égale à 1.0.45 comme dépendance pip. Ce package contient les fonctionnalités nécessaires pour héberger le modèle en tant que service web.
 
 À ce stade, vous pouvez travailler avec le service comme d’habitude. Par exemple, le code suivant illustre l’envoi des données au service :
 

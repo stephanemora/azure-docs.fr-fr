@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: martinco
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 86b858b628dc2ed9eac730d4c3f090f4d7d6c7e2
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 66a5bceb5b59c0e1b14577176cfed933e4503f31
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593299"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014432"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planifier une application RH cloud pour l’approvisionnement d’utilisateurs Azure Active Directory
 
@@ -81,17 +81,18 @@ Vous avez également besoin d’une licence valide à un abonnement Azure AD Pre
 
 ### <a name="prerequisites"></a>Prérequis
 
-- Accès administrateur général Azure AD pour configurer l’agent d’approvisionnement Azure AD Connect.
+- [Administrateur d’identités hybrides](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator) Azure AD pour configurer l’agent d’approvisionnement Azure AD Connect.
+- Rôle d’[administrateur d’application](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) Azure AD pour configurer l’application d’approvisionnement dans le portail Azure.
 - Une instance de test et de production de l’application RH cloud.
 - Autorisations d’administrateur dans l’application RH cloud pour créer un utilisateur de l’intégration système et apporter des modifications afin de tester les informations de l’employé.
-- Pour l’approvisionnement d’utilisateurs vers Active Directory, un serveur exécutant Windows Server 2012 ou version ultérieure et doté d’un runtime .NET 4.7.1+ est nécessaire afin d’héberger l’[agent d’approvisionnement Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=847801).
+- Pour l’approvisionnement d’utilisateurs vers Active Directory, un serveur exécutant Windows Server 2012 ou version ultérieure et doté d’un runtime .NET 4.7.1+ est nécessaire afin d’héberger l’agent d’approvisionnement Azure AD Connect.
 - [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) pour la synchronisation des utilisateurs entre Active Directory et Azure AD.
 
 ### <a name="training-resources"></a>Ressources de formation
 
 | **Ressources** | **Lien et description** |
 |:-|:-|
-| Videos | [Présentation de l’attribution d’utilisateurs dans Azure Active Directory](https://youtu.be/_ZjARPpI6NI) |
+| Vidéos | [Présentation de l’attribution d’utilisateurs dans Azure Active Directory](https://youtu.be/_ZjARPpI6NI) |
 | | [Comment déployer l’approvisionnement d’utilisateurs dans Azure Active Directory](https://youtu.be/pKzyts6kfrw) |
 | Tutoriels | [Liste de tutoriels sur l’intégration d’applications SaaS à Azure AD](../saas-apps/tutorial-list.md) |
 | | [Tutoriel : Configurer Workday pour le provisionnement automatique d’utilisateurs](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
@@ -248,7 +249,7 @@ Par défaut, l’attribut de l’application RH cloud qui représente l’ID d�
 
 Vous pouvez définir plusieurs attributs de correspondance et attribuer la priorité de correspondance. Ils sont évalués sur la priorité de correspondance. Dès qu’une correspondance est trouvée, aucun autre attribut correspondant n’est évalué.
 
-Vous pouvez également [personnaliser les mappages d’attributs par défaut](../app-provisioning/customize-application-attributes.md#understanding-attribute-mapping-types), tels que la modification ou la suppression de mappages d’attributs existants. Vous pouvez aussi créer des mappages d’attributs en fonction des besoins de votre organisation. Pour plus d’informations, consultez le tutoriel sur l’application RH cloud (par exemple, [Workday](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)) pour obtenir la liste des attributs personnalisés à mapper.
+Vous pouvez également [personnaliser les mappages d’attributs par défaut](../app-provisioning/customize-application-attributes.md#understanding-attribute-mapping-types), tels que la modification ou la suppression de mappages d’attributs existants. Vous pouvez aussi créer des mappages d’attributs en fonction des besoins de votre organisation. Pour plus d’informations, consultez le tutoriel sur l’application RH cloud (par exemple, [Workday](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration)) pour obtenir la liste des attributs personnalisés à mapper.
 
 ### <a name="determine-user-account-status"></a>Déterminer l’état du compte d’utilisateur
 
@@ -285,7 +286,7 @@ Lorsque vous lancez le processus Entrants-Changements de poste-Sortants, rassemb
 | | Quelles sont les dates d’effet prises en compte pour le traitement du licenciement des utilisateurs ? |
 | | Quel est l’impact des conversions des employés et des travailleurs occasionnels sur les comptes Active Directory existants ? |
 
-En fonction de vos besoins, vous pouvez modifier les mappages pour répondre à vos objectifs d’intégration. Pour plus d’informations, consultez le tutoriel spécifique sur l’application RH cloud (par exemple, [Workday](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)) pour obtenir la liste des attributs personnalisés à mapper.
+En fonction de vos besoins, vous pouvez modifier les mappages pour répondre à vos objectifs d’intégration. Pour plus d’informations, consultez le tutoriel spécifique sur l’application RH cloud (par exemple, [Workday](../saas-apps/workday-inbound-tutorial.md#part-4-configure-attribute-mappings)) pour obtenir la liste des attributs personnalisés à mapper.
 
 ### <a name="generate-a-unique-attribute-value"></a>Générer une valeur d’attribut unique
 
@@ -365,7 +366,9 @@ L’implémentation de l’approvisionnement d’utilisateurs des RH dans le clo
 
 Choisissez l’application RH cloud qui correspond aux exigences de votre solution.
 
-**Workday** : Pour importer des profils de travail depuis Workday dans Active Directory et Azure AD, consultez [Didacticiel : Configurer Workday pour l’attribution automatique d’utilisateurs](../saas-apps/workday-inbound-tutorial.md#planning-your-deployment). Si vous le souhaitez, vous pouvez mettre à jour l’adresse de messagerie et le nom d’utilisateur dans Workday.
+**Workday** : Pour importer des profils de travail depuis Workday dans Active Directory et Azure AD, consultez [Didacticiel : Configurer Workday pour l’attribution automatique d’utilisateurs](../saas-apps/workday-inbound-tutorial.md#planning-your-deployment). Si vous le souhaitez, vous pouvez mettre à jour l’adresse e-mail, le nom d’utilisateur et le numéro de téléphone dans Workday.
+
+**SAP SuccessFactors** : Pour importer des profils de Worker depuis SuccessFactors dans Active Directory et Azure AD, consultez [Didacticiel : Configurer SAP SuccessFactors pour l’approvisionnement automatique d’utilisateurs](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md). Si vous le souhaitez, vous pouvez mettre à jour l’adresse e-mail et le nom d’utilisateur dans SuccessFactors.
 
 ## <a name="manage-your-configuration"></a>Gérer votre configuration
 

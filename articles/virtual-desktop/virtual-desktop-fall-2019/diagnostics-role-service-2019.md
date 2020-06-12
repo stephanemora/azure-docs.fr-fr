@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5d4fb87ae5edd4919923e66336760aadf23d1888
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b1822f6a5bf0d3ac4217a43978dfcc739044e812
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657253"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235564"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identifier et diagnostiquer les problèmes
 
@@ -161,7 +161,7 @@ Le tableau suivant répertorie les erreurs courantes que pourraient rencontrer v
 
 |Code numérique|Code d'erreur|Solution suggérée|
 |---|---|---|
-|-2147467259|ConnectionFailedAdErrorNoSuchMember|L’utilisateur n’est pas membre d’Azure Active Directory. Suivez les instructions du [Centre d’administration Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) pour les ajouter.|
+|-2147467259|ConnectionFailedAdErrorNoSuchMember|L’utilisateur n’est pas membre d’Active Directory. Suivez les instructions du [Centre d’administration Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) pour les ajouter.|
 |-2147467259|ConnectionFailedAdTrustedRelationshipFailure|L’hôte de la session n’est pas correctement joint à Active Directory.|
 |-2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|Les connexions ont échoué car l’hôte de la session est indisponible. Vérifiez l’intégrité de l’hôte de la session.|
 |-2146233088|ConnectionFailedClientDisconnect|Si vous rencontrez souvent cette erreur, assurez-vous que l’ordinateur est connecté au réseau.|
@@ -172,6 +172,7 @@ Le tableau suivant répertorie les erreurs courantes que pourraient rencontrer v
 |8|ConnectionBroken|La connexion entre le client et passerelle ou serveur a été interrompue. Aucune action n’est nécessaire, sauf si cela se produit de manière inattendue.|
 |14|UnexpectedNetworkDisconnect|La connexion au réseau a été perdue. Demandez à l’utilisateur de se reconnecter.|
 |24|ReverseConnectFailed|La machine virtuelle hôte n’a aucune une ligne directe vers la passerelle Bureau à distance. Vérifiez que l’adresse IP de la passerelle peut être résolue.|
+|1322|ConnectionFailedNoMappingOfSIDinAD|L’utilisateur n’est pas membre d’Active Directory. Suivez les instructions du [Centre d’administration Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) pour les ajouter.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

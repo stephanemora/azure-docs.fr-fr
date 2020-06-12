@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/28/2020
 tags: connectors
-ms.openlocfilehash: 0dea516ea6b938b91fc4b9b833979bcecc285339
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: a44e0e9f2427fc5fcb44a78fb0a1798b219f9200
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714965"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249159"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Recevoir des requêtes HTTPS entrantes et y répondre dans Azure Logic Apps
 
@@ -158,6 +158,14 @@ Ce déclencheur intégré crée un point de terminaison HTTPS qui peut être app
       }
       ```
 
+1. Pour vérifier que le corps de la demande de l’appel entrant correspond au schéma spécifié, procédez comme suit :
+
+   1. Dans la barre de titre du déclencheur de requête, sélectionnez le bouton représentant des points de suspension ( **...** ).
+   
+   1. Dans les paramètres du déclencheur, activez la **validation du schéma**, puis sélectionnez **terminé**.
+   
+      Si le corps de la demande de l’appel entrant ne correspond pas à votre schéma, le déclencheur renvoie une `HTTP 400 Bad Request` erreur.
+
 1. Pour spécifier des propriétés supplémentaires, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les paramètres que vous souhaitez ajouter.
 
    | Nom de la propriété | Nom de la propriété JSON | Obligatoire | Description |
@@ -185,6 +193,9 @@ Ce déclencheur intégré crée un point de terminaison HTTPS qui peut être app
    Cette étape génère l’URL à utiliser pour envoyer la requête qui déclenche l’application logique. Pour copier cette URL, sélectionnez l’icône de copie en regard de l’URL.
 
    ![URL à utiliser pour déclencher votre application logique](./media/connectors-native-reqres/generated-url.png)
+
+   > [!NOTE]
+   > Si vous souhaitez inclure le code de hachage ou le symbole dièse ( **#** ) dans l’URI lors d’un appel au déclencheur de requête, utilisez plutôt cette version encodée : `%25%23`
 
 1. Pour déclencher votre application logique, envoyez une requête HTTP à l’URL générée.
 

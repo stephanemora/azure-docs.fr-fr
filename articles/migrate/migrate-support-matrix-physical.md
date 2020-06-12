@@ -3,12 +3,12 @@ title: Prise en charge pour l’évaluation de serveurs physiques dans Azure Mig
 description: Découvrez la prise en charge pour l’évaluation de serveurs physiques à l’aide de l’outil Évaluation de serveur d’Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 31fd676a339a6c82cec84e0f355ac875f68a653c
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 2a6149da95501b106a57466ad923c0480f52e065
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983667"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267918"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Tableau de prise en charge pour l’évaluation de serveurs physiques 
 
@@ -35,7 +35,7 @@ Pour évaluer des serveurs physiques, vous créez un projet Azure Migrate et ajo
 | :-------------------       | :------------------- |
 | **Déploiement de serveur physique**       | Le serveur physique peut être autonome ou déployé dans un cluster. |
 | **autorisations**           | **Windows :** Vous devez avoir le rôle d’administrateur de domaine ou bien d’administrateur local sur chaque serveur Windows à inclure dans la découverte. Le compte d’utilisateur doit être ajouté à ces groupes : Utilisateurs de gestion à distance, Utilisateurs de l’Analyseur de performances et Utilisateurs du Journal des performances. <br/><br/> **Linux :** Vous devez disposer d’un compte racine sur les serveurs Linux que vous souhaitez découvrir. |
-| **Système d’exploitation** | Tous les systèmes d’exploitation serveur [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) et [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) pris en charge par Azure, à l’exception de Windows Server 2003 et de SUSE Linux.<br/><br/> Systèmes d’exploitation clients Windows 10 et Windows 8. |
+| **Système d’exploitation** | Tous les systèmes d’exploitation peuvent être évalués dans une optique de migration. |
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Conditions requises de l’appliance Azure Migrate

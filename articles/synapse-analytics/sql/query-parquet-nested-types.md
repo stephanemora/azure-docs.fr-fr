@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 82edee84317b5d542bf65e29514286f96c18bbcc
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: d5a10e3fe2803c7b9a10abe9bf959a694030cc8c
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744237"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235435"
 ---
 # <a name="query-parquet-nested-types-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Interroger des types imbriqués Parquet à l’aide de SQL à la demande (préversion) dans Azure Synapse Analytics
 
@@ -41,7 +41,9 @@ FROM
 
 ## <a name="access-elements-from-nested-columns"></a>Accéder aux éléments à partir de colonnes imbriquées
 
-La requête suivante lit le fichier *structExample.parquet* et montre comment exposer les éléments d’une colonne imbriquée :
+La requête suivante lit le fichier *structExample.parquet* et montre comment exposer les éléments d’une colonne imbriquée. Vous pouvez référencer une valeur imbriquée de deux façons :
+- Spécification de l’expression de chemin d’accès de valeur imbriquée après la spécification de type.
+- La mise en forme du nom de colonne en tant que chemin d’accès imbriqué à l’aide de «.» pour référencer les champs.
 
 ```sql
 SELECT
@@ -53,15 +55,15 @@ FROM
         FORMAT='PARQUET'
     )
     WITH (
-        -- you can see original n"sted columns values by uncommenting lines below
+        -- you can see original nested columns values by uncommenting lines below
         --DateStruct VARCHAR(8000),
-        [DateStruct.Date] DATE,
+        [DateValue] DATE '$.DateStruct.Date',
         --TimeStruct VARCHAR(8000),
         [TimeStruct.Time] TIME,
         --TimestampStruct VARCHAR(8000),
         [TimestampStruct.Timestamp] DATETIME2,
         --DecimalStruct VARCHAR(8000),
-        [DecimalStruct.Decimal] DECIMAL(18, 5),
+        DecimalValue DECIMAL(18, 5) '$.DecimalStruct.Decimal',
         --FloatStruct VARCHAR(8000),
         [FloatStruct.Float] FLOAT
     ) AS [r];

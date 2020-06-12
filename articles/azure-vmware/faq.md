@@ -4,12 +4,12 @@ description: Apporte des réponses à des questions récurrentes à propos de la
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: c318a17e433f40b17e3dd9e3e95a655ecb48a160
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 1649b5649bd18b7ab53f3cc0196d7dff0f6f5b2c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873317"
+ms.locfileid: "84112683"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Forum aux questions sur la préversion de la solution VMware Azure (AVS)
 
@@ -67,34 +67,7 @@ La solution Azure VMware Solution by CloudSimple ne subit aucune modification. N
 
 Oui, la solution Azure VMware prend en charge la migration à l’aide d’outils VMware bien connus comme HCX. Si la migration vers la nouvelle solution vous intéresse, contactez votre équipe de compte Microsoft pour explorer les options et le support disponible.
 
-<a name="how-to-request-a-quota-increase-for-existing-avs"></a>**Comment demander une augmentation du quota d’hôtes pour une solution Azure VMware existante ?**
 
-Pour demander une augmentation de quota, [envoyez une demande de support](..\azure-portal\supportability\how-to-create-azure-support-request.md). L’équipe de gestion des quotas évalue la demande et l’approuve dans un délai de trois jours ouvrés.  
-
-> [!IMPORTANT]
-> Avant de demander une augmentation de quota, veillez à [inscrire le fournisseur de ressources **Microsoft.AVS**](tutorial-create-private-cloud.md) sur le Portail Azure.  
-> ```azurecli-interactive
-> az provider register -n Microsoft.AVS --subscription <your subscription ID>
-> ```
-> Pour d’autres façons d’inscrire un fournisseur de ressources, consultez [Fournisseurs et types de ressources Azure](https://review.docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types).
-
-1. Sur votre Portail Azure, créez une **Nouvelle demande de support** sous **Aide + Support** et indiquez les informations suivantes pour le ticket :
-   - **Type de problème :** Techniques
-   - **Abonnement :** Votre ID d’abonnement
-   - **Service :**  Azure VMware Solution 
-   - **Résumé :** Augmentation de quota
-   - **Type de problème :** Problèmes de gestion de la capacité
-   - **Sous-type de problème :** Demande client de capacité/quota d’hôtes supplémentaire
-
-1. Dans la Description du ticket de support, indiquez les informations suivantes dans l’onglet Détails :
-   - Nombre de nœuds supplémentaires   
-   - Référence SKU de nœud
-   - Région
-
-   > [!NOTE] 
-   > Par défaut, un minimum de quatre nœuds est accordé.
-
-1. Cliquez sur **Vérifier + Créer** pour envoyer la demande.
 
 ## <a name="compute-network-and-storage"></a>Calcul, réseau et stockage
 
@@ -164,7 +137,7 @@ Non, vous n’êtes pas obligé d’utiliser NSX localement.
 
 **Quelle est la planification de mise à niveau et de mise à jour des logiciels VMware dans un cloud privé ?**
 
-Les mises à niveau de l’offre logicielle groupée de cloud privé sont effectuées de façon à conserver une version unique de l’offre logicielle groupée la plus récente de VMware. Les versions des logiciels de cloud privé peuvent différer des versions les plus récentes des composants logiciels individuels (ESXi, NSX-T, vCenter, VSAN).
+Les mises à niveau de l’offre logicielle groupée de Cloud privé sont effectuées de façon à conserver une version unique de l’offre logicielle groupée la plus récente de VMware. Les versions des logiciels de cloud privé peuvent différer des versions les plus récentes des composants logiciels individuels (ESXi, NSX-T, vCenter, VSAN).
 
 **À quelle fréquence la pile logicielle du cloud privé sera-t-elle mise à jour ?**
 
@@ -233,6 +206,35 @@ Le support d’AVS est fourni par Microsoft. Veuillez noter que, conformément �
 **De quels comptes ai-je besoin pour créer un cloud privé AVS ?**
 
 Vous devez disposer d’un compte Azure dans un abonnement Azure.
+
+<a name="how-to-request-a-quota-increase-for-avs"></a>**Comment faire une requête d’augmentation du quota d’hôtes pour une solution Azure VMware existante ?**
+
+Pour demander une augmentation de quota, [envoyez une demande de support](..\azure-portal\supportability\how-to-create-azure-support-request.md). L’équipe de gestion des quotas évalue la demande et l’approuve dans un délai de trois jours ouvrés.  
+
+> [!IMPORTANT]
+> Avant de faire une requête d’augmentation de quota, veillez à inscrire le fournisseur de ressources **Microsoft.AVS** sur le Portail Azure.  
+> ```azurecli-interactive
+> az provider register -n Microsoft.AVS --subscription <your subscription ID>
+> ```
+> Pour d’autres façons d’inscrire un fournisseur de ressources, consultez [Fournisseurs et types de ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+
+1. Sur votre Portail Azure, créez une **Nouvelle demande de support** sous **Aide + Support** et indiquez les informations suivantes pour le ticket :
+   - **Type de problème :** Techniques
+   - **Abonnement :** Votre ID d’abonnement
+   - **Service :**  Azure VMware Solution 
+   - **Résumé :** Augmentation de quota
+   - **Type de problème :** Problèmes de gestion de la capacité
+   - **Sous-type de problème :** Demande client de capacité/quota d’hôtes supplémentaire
+
+1. Dans la Description du ticket de support, indiquez les informations suivantes dans l’onglet Détails :
+   - Nombre de nœuds supplémentaires   
+   - Référence SKU de nœud
+   - Région
+
+   > [!NOTE] 
+   > Par défaut, un minimum de quatre nœuds est accordé.
+
+1. Cliquez sur **Vérifier + Créer** pour envoyer la demande.
 
 <!-- LINKS - external -->
 [kb2106952]: https://kb.vmware.com/s/article/2106952

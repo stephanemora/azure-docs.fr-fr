@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 05/27/2020
 ms.author: b-juche
-ms.openlocfilehash: aea783b818550b8219e1a0498256280f61f678e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 78af9c12fb54b63e1a94c8b41a7ec2ac5c9b4e27
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70995112"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142144"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Modèle de coût pour Azure NetApp Files 
 
@@ -50,6 +50,8 @@ Le diagramme ci-dessous illustre ces concepts.
 ## <a name="overage-in-capacity-consumption"></a>Dépassement de la consommation de capacité  
 
 Lorsque la capacité totale utilisée d’un pool dépasse la capacité approvisionnée pour ce pool, les écritures de données restent autorisées.  Après la période de grâce (d’une heure), si la capacité utilisée du pool dépasse encore la capacité approvisionnée pour ce pool, la taille du pool est automatiquement augmentée par incréments de 1 Tio jusqu’à ce que la capacité approvisionnée soit supérieure à la capacité totale utilisée.  Par exemple, dans l’illustration ci-dessus, si le volume 3 continue de croître et que la consommation réelle atteint 1,2 Tio, après la période de grâce, le pool est automatiquement redimensionné à 5 Tio.  La capacité approvisionnée pour le pool (5 Tio) dépasse donc la capacité utilisée (4,2 Tio).  
+
+Bien que la taille du pool de capacité augmente automatiquement pour répondre à la demande du volume, elle n’est pas automatiquement réduite quand la taille du volume diminue. Si vous souhaitez réduire la taille du pool de capacité après une diminution de la taille du volume (par exemple, après le nettoyage des données d’un volume), vous devez _manuellement_ réduire la taille du pool de capacité.
 
 ## <a name="manual-changes-of-the-pool-size"></a>Modifications manuelles de la taille d’un pool  
 

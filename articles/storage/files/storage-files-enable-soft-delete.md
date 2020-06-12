@@ -1,23 +1,23 @@
 ---
 title: Activer la suppression réversible - Partages de fichiers Azure
-description: Découvrez comment activer la suppression réversible sur des partages de fichiers Azure pour récupérer des données et empêcher la suppression accidentelle.
+description: Découvrez comment activer la suppression réversible (préversion) sur des partages de fichiers Azure pour récupérer des données et empêcher la suppression accidentelle.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 755ccd266b8a88471bf7dbc0d2deb790f35f3457
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 582a3603ad80ec1312429ed7cbd140d4310fadcb
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83883012"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196198"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Activer la suppression réversible sur les partages de fichiers Azure
 
-Le Stockage Azure offre une fonctionnalité de suppression réversible pour les partages de fichiers, ce qui vous permet de récupérer plus facilement vos données en cas de suppressions malencontreuses par une application ou un autre utilisateur du compte de stockage. Pour en savoir plus sur la suppression réversible, consultez [Empêcher la suppression accidentelle de partages de fichiers Azure](storage-files-prevent-file-share-deletion.md).
+Le Stockage Azure offre une fonctionnalité de suppression réversible pour les partages de fichiers (préversion), ce qui vous permet de récupérer plus facilement vos données en cas de suppressions accidentelles par une application ou un autre utilisateur du compte de stockage. Pour en savoir plus sur la suppression réversible, consultez [Empêcher la suppression accidentelle de partages de fichiers Azure](storage-files-prevent-file-share-deletion.md).
 
 Les sections suivantes montrent comment activer et utiliser la suppression réversible pour les partages de fichiers Azure sur un compte de stockage existant :
 
@@ -97,3 +97,7 @@ Vous pouvez utiliser la commande suivante pour désactiver la suppression réver
 Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName $accountName -EnableShareDeleteRetentionPolicy $false
 ```
 ---
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour en savoir plus sur une autre forme de protection et de récupération des données, consultez notre article [vue d’ensemble des instantanés de partage pour Azure Files](storage-snapshots-files.md).

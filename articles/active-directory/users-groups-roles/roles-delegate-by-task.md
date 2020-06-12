@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de89b7f5a4b14bd4142ea3e9b9c8c0dceabd63dd
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 4837b654e5b538dda6f55eae9b15ddf0c5604693
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779958"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299466"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Rôles d'administrateur par tâche administrateur dans Azure Active Directory
 
@@ -153,7 +153,7 @@ Ajouter des sites SharePoint Online au catalogue | Administrateur général
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
 Affecter une licence | Administrateur d’utilisateurs | 
-Créer un groupe | Administrateur d’utilisateurs | 
+Créer un groupe | Administrateur de groupes | Administrateur d’utilisateurs
 Créer, mettre à jour ou supprimer la révision d’accès d’un groupe ou d’une application | Administrateur d’utilisateurs | 
 Gérer l’expiration des groupes | Administrateur d’utilisateurs | 
 Gérer les paramètres de groupe | Administrateur de groupes | Administrateur d'utilisateurs | 
@@ -164,6 +164,7 @@ Révoquer une licence | Administrateur de licence | Administrateur d’utilisat
 Mettre à jour l’appartenance à un groupe | Propriétaire de groupe ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrateur d’utilisateurs
 Mettre à jour les propriétaires de groupe | Propriétaire de groupe ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrateur d’utilisateurs
 Mettre à jour les propriétés de groupe | Propriétaire de groupe ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrateur d’utilisateurs
+Supprimer un groupe | Administrateur de groupes | Administrateur d’utilisateurs
 
 ## <a name="identity-protection"></a>Identity Protection
 
@@ -273,6 +274,8 @@ Lire toute la configuration | Rôle d’utilisateur par défaut ([consultez la d
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
 Configurer les méthodes d’authentification | Administrateur général | 
+Configurer la protection par mot de passe | Administrateur de sécurité
+Configurer le verrouillage intelligent | Administrateur de sécurité
 Lire toute la configuration | Lecteur général | 
 
 ## <a name="security---conditional-access"></a>Sécurité – Accès conditionnel

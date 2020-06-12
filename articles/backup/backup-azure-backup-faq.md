@@ -3,12 +3,12 @@ title: Réponses à des questions fréquentes
 description: 'Réponses aux questions courantes sur : les fonctionnalités de la sauvegarde Azure, y compris les coffres Recovery Services ce qu’il peut sauvegarder, son fonctionnement, son chiffrement, et ses limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: c82942c17d330eb5f632ef3ce43f00b338ba85f8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 04921cd617a688ebcf31bcec29cf26681914f44b
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196266"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247663"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 
@@ -190,7 +190,7 @@ Non. La récupération est gratuite et le trafic sortant ne vous est pas factur�
 
 Lorsqu’une nouvelle stratégie est appliquée, le planning et la rétention de la nouvelle stratégie sont suivis.
 
-- Si la rétention est étendue, les points de récupération existants sont marqués comme à conserver afin qu’ils soient conformes à la nouvelle stratégie.
+- Si la rétention est étendue, les points de récupération existants sont marqués comme étant à conserver, selon la nouvelle stratégie.
 - Si la rétention est réduite, ils sont marqués comme à nettoyer lors de la prochaine tâche de nettoyage et sont ensuite supprimés.
 
 ## <a name="encryption"></a>Chiffrement
@@ -208,7 +208,7 @@ Oui. Les données dans Azure sont chiffrées au repos.
 
 Microsoft ne déchiffre les données de sauvegarde à aucun moment.
 
-### <a name="what-is-the-minimum-length-of-encryption-the-key-used-to-encrypt-backup-data"></a>Quelle est la longueur minimale de la clé de chiffrement utilisée pour chiffrer les données de sauvegarde ?
+### <a name="what-is-the-minimum-length-of-the-encryption-key-used-to-encrypt-backup-data"></a>Quelle est la longueur minimale de la clé de chiffrement utilisée pour chiffrer les données de sauvegarde ?
 
 La clé de chiffrement doit comporter au moins 16 caractères lorsque vous utilisez l’agent de sauvegarde Azure. Pour les machines virtuelles Azure, il n’existe aucune limite à la longueur des clés utilisées par Azure KeyVault.
 

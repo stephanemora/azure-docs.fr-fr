@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 76a5e12eee7a325a73b3c17dba6c775b6984b89a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 04c02cb493941d101cf230b1ca3dab32aaa7a2fc
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195920"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234554"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Utiliser Log Analytics pour la fonctionnalité de diagnostic
 
@@ -118,6 +118,9 @@ Vous pouvez accéder aux espaces de travail Log Analytics sur le portail Azure o
 
 5. Vous êtes prêt à interroger les diagnostics. Toutes les tables de diagnostics ont un préfixe « WVD ».
 
+>[!NOTE]
+>Pour plus d’informations sur les tables stockées dans les journaux d’activité d’Azure Monitor, consultez la [documentation de référence sur les données d’Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/reference/). Toutes les tables relatives à Windows Virtual Desktop sont étiquetées « WVD ».
+
 ## <a name="cadence-for-sending-diagnostic-events"></a>Cadence d’envoi des événements de diagnostic
 
 Les événements de diagnostic sont envoyés à Log Analytics lorsqu’ils sont terminés.
@@ -180,6 +183,7 @@ WVDFeeds
 Pour rechercher toutes les connexions d’un seul utilisateur : 
 
 ```kusto
+WVDConnections
 |where UserName == "userupn" 
 |take 100 
 |sort by TimeGenerated asc, CorrelationId 
@@ -238,10 +242,32 @@ WVDErrors
 | render barchart 
 ```
 
+Pour rechercher l’occurrence d’une erreur pour tous les utilisateurs :
+
+```kusto
+WVDErrors 
+| where ServiceError =="false" 
+| summarize usercount = count(UserName) by CodeSymbolic 
+| sort by usercount desc
+| render barchart 
+```
+
+Pour interroger les applications que les utilisateurs ont ouvertes, exécutez la requête suivante :
+
+```kusto
+WVDCheckpoints 
+| where TimeGenerated > ago(7d)
+| where Name == "LaunchExecutable"
+| extend App = parse_json(Parameters).filename
+| summarize Usage=count(UserName) by tostring(App)
+| sort by Usage desc
+| render columnchart
+```
 >[!NOTE]
->La table la plus importante pour la résolution des problèmes est WVDErrors. Utilisez cette requête pour déterminer les problèmes qui se produisent pour les activités utilisateur, telles que les connexions ou les flux, quand un utilisateur s’abonne à la liste des applications ou des postes de travail. La table indique les erreurs de gestion ainsi que les problèmes d’inscription de l’hôte.
->
->Pendant la phase de préversion publique, si vous avez besoin d’aide pour résoudre un problème, veillez à fournir l’ID de corrélation (CorrelationID) de l’erreur dans votre demande d’aide. En outre, assurez-vous que la valeur d’erreur de service indique toujours ServiceError = "false". Une valeur « false » signifie que le problème peut être résolu par une tâche d’administration de votre côté. Si ServiceError a pour valeur « true », vous devez faire remonter le problème à Microsoft.
+>- Quand un utilisateur ouvre le Bureau complet, l’utilisation de son application dans la session n’est pas suivie sous la forme de points de contrôle dans la table WVDCheckpoints.
+>- La colonne ResourcesAlias de la table WVDConnections indique si un utilisateur s’est connecté à un bureau complet ou à une application publiée. La colonne affiche uniquement la première application ouverte pendant la connexion. Toutes les applications publiées que l’utilisateur ouvre sont suivies dans WVDCheckpoints.
+>- La table WVDErrors affiche les erreurs de gestion, les problèmes d’inscription de l’hôte et d’autres problèmes qui se produisent lorsque l’utilisateur s’abonne à une liste d’applications ou de bureaux.
+>- WVDErrors vous permet d’identifier les problèmes qui peuvent être résolus par des tâches d’administration. La valeur sur ServiceError indique toujours « false » pour ces types de problèmes. Si ServiceError a pour valeur « true », vous devez faire remonter le problème à Microsoft. Vérifiez que vous fournissez le CorrelationID pour les erreurs que vous escaladez.
 
 ## <a name="next-steps"></a>Étapes suivantes 
 

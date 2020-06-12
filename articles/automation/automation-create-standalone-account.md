@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0734ac0843eec164ad2207020da9dd1a7e9fa429
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 3739f8691a144f183e72af19233f776a24066cbc
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837091"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118795"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Création d’un compte Azure Automation autonome
 
@@ -31,7 +31,7 @@ Grâce à ce compte créé pour vous, vous pouvez rapidement commencer à créer
 Pour créer ou mettre à jour un compte Automation et effectuer les tâches décrites dans cet article, vous devez disposer des privilèges et autorisations suivants :
 
 * Pour créer un compte Automation, votre compte d'utilisateur Azure AD doit être ajouté à un rôle disposant d'autorisations équivalentes à celles du rôle Propriétaire des ressources `Microsoft.Automation`. Pour plus d’informations, voir [Contrôle d’accès en fonction du rôle dans Azure Automation](automation-role-based-access-control.md).
-* Dans le portail Azure, sous **Azure Active Directory** > **GÉRER** > **Paramètres utilisateur**, si **Inscriptions d’applications** a la valeur **Oui**, les utilisateurs non-administrateurs dans votre locataire Azure AD peuvent [inscrire les applications Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Si **Inscriptions des applications** est défini sur **Non**, l’utilisateur qui effectue cette action doit être administrateur général dans Azure AD.
+* Dans le portail Azure, sous **Azure Active Directory** > **GÉRER** > **Paramètres utilisateur**, si **Inscriptions d’applications** a la valeur **Oui**, les utilisateurs non-administrateurs dans votre locataire Azure AD peuvent [inscrire les applications Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Si **Inscriptions des applications** indique **Non**, l’utilisateur qui effectue cette action doit avoir au moins le rôle Développeur d’applications dans Azure AD.
 
 Si vous n’êtes pas membre de l’instance Active Directory de l’abonnement avant de recevoir le rôle d’Administrateur général/Coadministrateur de l’abonnement, vous êtes ajouté à Active Directory en tant qu’invité. Dans ce scénario, le volet Ajouter un compte Automation affiche ce message : `You do not have permissions to create.`
 

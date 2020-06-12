@@ -1,6 +1,6 @@
 ---
 title: Meilleures pratiques d’utilisation du service Route d’Azure Maps | Microsoft Azure Maps
-description: Découvrez comment définir un itinéraire de façon efficace à l’aide du service Route de Microsoft Azure Maps.
+description: Découvrez comment définir un itinéraire efficace pour les véhicules à l’aide du service Route de Microsoft Azure Maps.
 author: philmea
 ms.author: philmea
 ms.date: 03/11/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 85ce29d088b8fbd110988db67776d89346215e5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 24fa4c48f6ca03e4049483a9acfff067d5a6a736
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335416"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266693"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Meilleures pratiques d’utilisation du service Route Azure Maps
 
@@ -56,7 +56,7 @@ Envisagez d’appeler l’API Matrix Routing si votre scénario consiste à :
 
 Voici une comparaison pour illustrer certaines fonctionnalités des API Route Directions et Matrix :
 
-| API Azure Maps | Nombre maximal de requêtes dans la demande | Zones à éviter | Acheminement des camions et véhicules électriques | Étapes et optimisation « Voyageur de commerce » | Points de prise en charge |
+| API Azure Maps | Nombre maximal de requêtes dans la demande | Zones à éviter | Acheminement des camions et véhicules électriques | Étapes et optimisation « Voyageur de commerce » | Points de prise en charge |
 | :--------------: |  :--------------: |  :--------------: | :--------------: | :--------------: | :--------------: |
 | Get Route Directions (Obtenir des directions) | 1 | | X | X | |
 | Post Route Directions (Publier des directions) | 1 | X | X | X | X |

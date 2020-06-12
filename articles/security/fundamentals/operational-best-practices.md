@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 80b8adfc26cd87e0788852e98fddb0fd3f2e8cd5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56132eae03a52af425e00bec93a63a697a2a55e6
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188584"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204733"
 ---
 # <a name="azure-operational-security-best-practices"></a>Bonnes pratiques pour Azure Operational Security
 Cet article fournit un ensemble de meilleures pratiques opérationnelles pour protéger vos données, applications et autres ressources dans Azure.
@@ -215,8 +215,8 @@ Pour plus d’informations, consultez [Didacticiel : Créer et gérer des strat�
 **Bonne pratique** : identifiez les rôles responsables pour surveiller les violations de stratégie et garantir que l’action corrective appropriée est mise en œuvre rapidement.   
 **Détail** : attribuez le rôle de conformité de la surveillance via le [portail Azure](../../governance/policy/how-to/get-compliance-data.md#portal) ou la [ligne de commande](../../governance/policy/how-to/get-compliance-data.md#command-line).
 
-**Bonne pratique** : Azure Policy est une représentation technique des stratégies écrites d’une organisation. Mappez toutes les stratégies Azure aux stratégies organisationnelles pour éviter la confusion et améliorer la cohérence.   
-**Détail** : mappage de document dans la documentation de votre organisation ou dans la définition Azure Policy elle-même en ajoutant une référence à la directive organisationnelle dans la [définition Azure Policy](../../governance/policy/concepts/definition-structure.md#display-name-and-description) ou la description de [l’initiative Azure Policy](../../governance/policy/concepts/definition-structure.md#initiatives).
+**Bonne pratique** : Azure Policy est une représentation technique des stratégies écrites d’une organisation. Mappez toutes les définitions Azure Policy vers des stratégies organisationnelles pour éviter la confusion et améliorer la cohérence.   
+**Détail** : Mappage de document dans la documentation de votre organisation ou dans la définition Azure Policy elle-même en ajoutant une référence à la directive organisationnelle dans la [définition de stratégie](../../governance/policy/concepts/definition-structure.md#display-name-and-description) ou la description de la [définition d’initiative](../../governance/policy/concepts/initiative-definition-structure.md#metadata).
 
 ## <a name="monitor-azure-ad-risk-reports"></a>Surveiller les rapports de risque Azure AD
 La grande majorité des violations de sécurité ont lieu lorsque des cybercriminels parviennent à accéder à un environnement en volant l’identité d’un utilisateur. Détecter les identités compromises n’est pas chose aisée. Azure AD utilise les algorithmes Machine Learning et des modèles heuristiques adaptatifs pour détecter les actions suspectes liées aux comptes de votre utilisateur. Chaque action suspecte détectée est stockée dans un enregistrement appelé [détection d’événement à risque](../../active-directory/reports-monitoring/concept-risk-events.md). Les détections de risques sont enregistrés dans les rapports de sécurité Azure AD. Pour plus d’informations, renseignez-vous sur le [rapport sur la sécurité des utilisateurs courant un risque](../../active-directory/reports-monitoring/concept-user-at-risk.md) et le [rapport de connexions risquées](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).

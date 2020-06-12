@@ -1,18 +1,18 @@
 ---
 title: Ouvrir des ports sur une machine virtuelle avec le Portail Azure
-description: Découvrez comment ouvrir un port et créer un point de terminaison sur votre machine virtuelle Windows à l’aide du portail Azure
+description: Découvrez comment ouvrir un port et créer un point de terminaison sur votre machine virtuelle Windows à l’aide du portail Azure.
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 09/27/2018
+ms.date: 05/27/2020
 ms.author: cynthn
-ms.openlocfilehash: 1844236a77b688819832b3fe0bf6736beea4bfae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 12db42b0edb3d3e27756593f3dfb079804a4145f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81865483"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170031"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Guide d’ouverture de ports vers une machine virtuelle avec le portail Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -25,47 +25,45 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 1. Recherchez et sélectionnez un groupe de ressources pour la machine virtuelle, choisissez **Ajouter**, puis recherchez et sélectionnez **Groupe de sécurité de réseau**.
 
-2. Sélectionnez **Create** (Créer).
+1. Sélectionnez **Create** (Créer).
 
     La fenêtre **Créer un groupe de sécurité réseau** s’ouvre.
 
     ![Créer un groupe de sécurité réseau](./media/nsg-quickstart-portal/create-nsg.png)
 
-2. Entrez un nom pour votre groupe de sécurité réseau. 
+1. Entrez un nom pour votre groupe de sécurité réseau. 
 
-3. Sélectionnez ou créez un groupe de ressources, puis sélectionnez un emplacement.
+1. Sélectionnez ou créez un groupe de ressources, puis sélectionnez un emplacement.
 
-4. Sélectionnez **Créer** pour créer le groupe de sécurité réseau.
+1. Sélectionnez **Créer** pour créer le groupe de sécurité réseau.
 
 ## <a name="create-an-inbound-security-rule"></a>Créer une règle de sécurité de trafic entrant
 
 1. Sélectionnez votre nouveau groupe de sécurité réseau. 
 
-2. Sélectionnez les **règles de sécurité de trafic entrant**, puis **Ajouter**.
+1. Sélectionnez **Règles de sécurité de trafic entrant** dans le menu gauche, puis sélectionnez **Ajouter**.
 
-    ![Ajouter une règle de trafic entrant](./media/nsg-quickstart-portal/add-inbound-rule.png)
+    ![Basculer vers la page Avancé](./media/nsg-quickstart-portal/advanced.png)
 
-3. Sélectionnez **Avancé**. 
+1. Dans la page **Ajouter une règle de sécurité de trafic entrant**, basculez vers **Avancé** depuis **De base** en haut de la page. 
 
-4. Choisissez un **Service** courant dans le menu déroulant, tel que **HTTP**. Vous pouvez aussi sélectionner **Personnalisé** si vous souhaitez indiquer un port spécifique à utiliser. 
+1. Choisissez un **Service** courant dans le menu déroulant, tel que **HTTP**. Vous pouvez aussi sélectionner **Personnalisé** si vous souhaitez indiquer un port spécifique à utiliser. 
 
-5. Si vous le souhaitez, modifiez la **priorité** ou le **nom**. La priorité affecte l’ordre dans lequel les règles sont appliquées : plus la valeur numérique est faible, plus la règle est appliquée précocement.
+1. Si vous le souhaitez, modifiez la **priorité** ou le **nom**. La priorité affecte l’ordre dans lequel les règles sont appliquées : plus la valeur numérique est faible, plus la règle est appliquée précocement.
 
-6. Sélectionnez **Ajouter** pour créer la règle.
+1. Sélectionnez **Ajouter** pour créer la règle.
 
 ## <a name="associate-your-network-security-group-with-a-subnet"></a>Associer votre groupe de sécurité réseau à un sous-réseau
 
 L’étape finale consiste à associer un sous-réseau ou une interface réseau spécifique à votre groupe de sécurité réseau. Pour cet exemple, nous associerons le groupe de sécurité réseau à un sous-réseau. 
 
-1. Sélectionnez **Sous-réseaux**, puis **Associer**.
+1. Sélectionnez **Sous-réseaux** dans le menu gauche, puis sélectionnez **Associer**.
 
-    ![Associer un groupe de sécurité réseau à un sous-réseau](./media/nsg-quickstart-portal/associate-subnet.png)
-
-2. Sélectionnez votre réseau virtuel, puis sélectionnez le sous-réseau approprié.
+1. Sélectionnez votre réseau virtuel, puis sélectionnez le sous-réseau approprié.
 
     ![Association d’un groupe de sécurité réseau à un réseau virtuel](./media/nsg-quickstart-portal/select-vnet-subnet.png)
 
-    Toute machine virtuelle que vous connectez à ce sous-réseau est maintenant accessible sur le port 80.
+1. Lorsque vous avez terminé, sélectionnez **OK**.
 
 ## <a name="additional-information"></a>Informations supplémentaires
 

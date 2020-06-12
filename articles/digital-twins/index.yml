@@ -1,75 +1,81 @@
 ### YamlMime:Landing
 title: Documentation Azure Digital Twins (préversion)
-summary: Découvrez comment utiliser Azure Digital Twins pour connecter les personnes, les lieux et les objets et pour créer des solutions IoT grâce à l’intelligence spatiale. Suivez le guide de démarrage rapide et les didacticiels pour apprendre des concepts détaillés, découvrir comment surveiller un bâtiment intelligent imaginaire et comment créer une solution IoT nouvelle génération qui modélise votre environnement physique.
+summary: Découvrez comment utiliser Azure Digital Twins pour créer une représentation numérique de vos ressources, environnements et systèmes métier visant à créer des solutions IoT nouvelle génération qui modélisent le monde réel.
 metadata:
   title: Documentation Azure Digital Twins (préversion)- Tutoriels, informations de référence sur les API | Microsoft Docs
   description: Découvrez comment utiliser Azure Digital Twins pour connecter des personnes, des lieux et des objets et pour créer des solutions IoT avec l’intelligence spatiale.
-  services: digital-twins
   ms.service: digital-twins
-  ms.subservice: digital-twins
   ms.topic: landing-page
   ms.collection: collection
-  author: KingdomOfEnds
-  ms.author: v-adgera
-  ms.date: 02/07/2020
-  ms.openlocfilehash: e5d66ffb35cb0ce50aa7898cad30bf9fd0bf57ac
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  author: philmea
+  ms.author: philmea
+  ms.date: 02/12/2020
+  ms.openlocfilehash: 93bfe0db668e3aaa78e7f58b715490dfe26fbe7a
+  ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77110575"
+  ms.lasthandoff: 06/09/2020
+  ms.locfileid: "84610030"
 landingContent:
 - title: À propos d’Azure Digital Twins
   linkLists:
   - linkListType: overview
     links:
     - text: Qu’est-ce qu’Azure Digital Twins ?
-      url: about-digital-twins.md
-  - linkListType: concept
-    links:
-    - text: Comprendre le modèle objet Digital Twins et le graphe d’intelligence spatiale
-      url: concepts-objectmodel-spatialgraph.md
-  - linkListType: video
-    links:
-    - text: Introduction à Azure Digital Twins
-      url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Digital-Twins-Introduction
-- title: Bien démarrer
+      url: overview.md
+- title: Bien démarrer avec les tutoriels
   linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Rechercher des salles disponibles
-      url: quickstart-view-occupancy-dotnet.md
   - linkListType: tutorial
     links:
-    - text: Déployer et configurer
-      url: tutorial-facilities-setup.md
-    - text: Approvisionner et surveiller des conditions
-      url: tutorial-facilities-udf.md
-    - text: Notifier avec Logic Apps
-      url: tutorial-facilities-events.md
-    - text: Visualiser des événements avec Time Series Insights
-      url: tutorial-facilities-analyze.md
-- title: Développer avec Azure Digital Twins
+    - text: Coder une application cliente
+      url: tutorial-code.md
+  - linkListType: tutorial
+    links:
+    - text: Explorer les bases avec un exemple d’application cliente
+      url: tutorial-command-line-app.md
+  - linkListType: tutorial
+    links:
+    - text: Connecter une solution de bout en bout
+      url: tutorial-end-to-end.md
+- title: Découvrir
   linkLists:
   - linkListType: concept
     links:
-    - text: Entrée de télémétrie et connectivité des appareils
-      url: concepts-device-ingress.md
-    - text: Traitement des données et fonctions définies par l’utilisateur
-      url: concepts-user-defined-functions.md
+    - text: Modèles personnalisés
+      url: concepts-models.md
+  - linkListType: concept
+    links:
+    - text: Jumeaux numériques et graphe de jumeaux
+      url: concepts-twins-graph.md
+  - linkListType: concept
+    links:
+    - text: Langage de requête
+      url: concepts-query-language.md
+- title: Développer
+  linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Configurer Postman
-      url: how-to-configure-postman.md
-    - text: Créer des fonctions définies par l’utilisateur
-      url: how-to-user-defined-functions.md
+    - text: Utiliser l’interface CLI Azure Digital Twins
+      url: how-to-use-cli.md
+  - linkListType: how-to-guide
+    links:
+    - text: Créer une instance Azure Digital Twins
+      url: how-to-set-up-instance.md
+  - linkListType: how-to-guide
+    links:
+    - text: Authentifier une application cliente
+      url: how-to-authenticate-client.md
 - title: Informations de référence sur l'API
   linkLists:
-  - linkListType: reference
-    links:
-    - text: Bibliothèque de client de fonctions définies par l’utilisateur
-      url: reference-user-defined-functions-client-library.md
   - linkListType: how-to-guide
     links:
-    - text: Utiliser Digital Twins Swagger
-      url: how-to-use-swagger.md
+    - text: Utiliser les API et les kits SDK Azure Digital Twins
+      url: how-to-use-apis-sdks.md
+  - linkListType: how-to-guide
+    links:
+    - text: Créer des kits SDK personnalisés avec AutoRest
+      url: how-to-create-custom-sdks.md
+  - linkListType: reference
+    links:
+    - text: API REST
+      url: https://docs.microsoft.com/rest/api/azure-digitaltwins/

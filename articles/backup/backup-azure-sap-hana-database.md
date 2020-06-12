@@ -3,12 +3,12 @@ title: Sauvegarder une base de données SAP HANA sur Azure avec Sauvegarde Azure
 description: Dans cet article, découvrez comment sauvegarder des bases de données SAP HANA sur des machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 4183c1eca6b1149c5c61ed77c0ca1101c86f8f4f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 20086516dc37538474a31c7735e9b2d3b1a3d5b2
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745426"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248564"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Sauvegarder des bases de données SAP HANA dans des machines virtuelles Azure
 
@@ -25,8 +25,11 @@ Dans cet article, vous allez apprendre à :
 > * Exécuter un travail de sauvegarde à la demande
 
 >[!NOTE]
->**La suppression réversible pour SQL Server dans la machine virtuelle Azure et la suppression réversible pour SAP HANA dans les charges de travail de machine virtuelle Azure** est maintenant disponible en préversion.<br>
->Pour vous inscrire à la version préliminaire, écrivez-nous à l’adresse suivante : AskAzureBackupTeam@microsoft.com
+>[Prenez-en main](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) la sauvegarde SAP HANA en préversion pour RHEL (7.4, 7.6, 7.7 ou 8.1). Pour d’autres questions, écrivez-nous à l’adresse [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+
+>[!NOTE]
+>**La suppression réversible pour SQL Server dans une machine virtuelle Azure et la suppression réversible pour SAP HANA dans les charges de travail de machine virtuelle Azure** sont maintenant disponibles en préversion.<br>
+>Pour vous inscrire à la préversion, écrivez-nous à l’adresse suivante : [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 45aa49de51f42b26c653b15e79c865e3f5647c39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3f9f4db0119b10a2df3a1007f9e5fa710e31f0e2
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74931629"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84113714"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Activité de procédure stockée SQL Server
 > [!div class="op_single_selector" title1="Activités de transformation"]
@@ -114,7 +114,7 @@ Après avoir créé la fabrique de données, vous créez un service lié Azure S
    ![Nouveau magasin de données](media/data-factory-stored-proc-activity/new-data-store.png)
 3. Dans le script JSON, apportez les modifications suivantes :
 
-   1. Remplacez `<servername>` par le nom de votre serveur Azure SQL Database.
+   1. Remplacez `<servername>` par le nom de votre serveur.
    2. Remplacez `<databasename>` par la base de données dans laquelle vous avez créé la table et la procédure stockée.
    3. Remplacez `<username@servername>` par le compte d’utilisateur qui a accès à la base de données.
    4. Remplacez `<password>` par le mot de passe du compte d’utilisateur.

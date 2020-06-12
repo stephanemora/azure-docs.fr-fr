@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 850b06153a25020f36a4c7df1863e5a576495f3b
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 2e563cd0f9a8a25e57312494f1313f895c3b4628
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744156"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267152"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Protection contre les menaces dans Azure Security Center
 
@@ -162,11 +162,15 @@ Pour plus d'informations, consultez les pages suivantes :
 
 ## <a name="threat-protection-for-azure-storage"></a>Protection contre les menaces pour Stockage Azure <a name="azure-storage"></a>
 
-Advanced Threat Protection pour le stockage détecte les tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des comptes de stockage. Cette couche de protection vous permet de traiter efficacement les menaces sans pour autant être un expert en sécurité, et vous aide à gérer des systèmes de supervision de la sécurité.
+Advanced Threat Protection pour le Stockage Azure détecte les tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des comptes de stockage. Cette couche de protection vous permet de traiter efficacement les menaces sans pour autant être un expert en sécurité, et vous aide à gérer des systèmes de supervision de la sécurité. 
 
-La protection avancée contre les menaces pour Stockage Azure est actuellement disponible pour le [Stockage Blob](https://azure.microsoft.com/services/storage/blobs/) uniquement. 
+Des alertes de sécurité sont déclenchées en cas d’activités suspectes sur votre compte de stockage ou si un comportement anormal est détecté. Les activités suspectes peuvent inclure le chargement d’un BLOB suspecté de contenir des programmes malveillants. Les alertes de comportement anormal incluent les modifications apportées au modèle d’accès à un compte de stockage.
 
-Ce service est disponible dans tous les clouds publics et les clouds US Government, mais pas dans d’autres régions de cloud souverain ou de cloud Azure Government.
+Les alertes fournissent des détails sur l’incident qui les a déclenchées, ainsi que des suggestions pour enquêter et contrer les menaces.
+
+La protection contre les menaces pour le Stockage Azure est actuellement disponible pour le [Stockage Blob](https://azure.microsoft.com/services/storage/blobs/). 
+
+Ce service est disponible dans tous les clouds publics et les clouds US Government, mais pas dans d’autres régions de cloud souverain ou de cloud Azure Government. 
 
 Pour plus d’informations sur la tarification, y compris une version d’évaluation gratuite de 30 jours, consultez la [page de tarification d’Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 

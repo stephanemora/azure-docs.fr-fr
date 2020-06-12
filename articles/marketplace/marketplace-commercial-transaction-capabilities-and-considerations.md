@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 6cac7218c8f1fc48734b426c9e041831bf0b1f71
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 8818b06e84f6ffe05398087c4aaeba282adc8b2e
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800052"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298208"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Fonctionnalités de transaction de la place de marché commerciale
 
@@ -53,7 +53,7 @@ Selon l’option Transaction choisie, les frais de licence logicielle se présen
 - **Gratuit** : aucuns frais ne sont facturés pour les licences logicielles.
 - **BYOL (apportez votre propre licence)**  : les frais facturables pour les licences logicielles sont gérés directement entre l’éditeur et le client. Microsoft transmet uniquement les frais d’utilisation de l’infrastructure Azure. Cela s’applique uniquement aux offres Machines virtuelles et Applications Azure.
 - **Paiement à l’utilisation** : des frais de licence logicielle sont facturés à un taux tarifaire par heure et par cœur (processeur virtuel) basé sur l’utilisation de l’infrastructure Azure. Cela s’applique uniquement aux offres Machines virtuelles et Applications Azure.
-- **Tarification par abonnement** : les frais de licence logicielle sont facturés mensuellement ou annuellement selon un tarif fixe ou par poste. Cela s’applique uniquement aux offres Applications SaaS et Applications Azure - Applications gérées.
+- **Tarification par abonnement** : les frais de licence logicielle sont facturés mensuellement ou annuellement selon un tarif fixe ou par poste. Cela s’applique uniquement aux offres Applications SaaS (mensuelle ou annuelle) et Applications Azure - Applications gérées uniquement (mensuelle).
 - **Essai logiciel gratuit** : aucuns frais ne sont facturés pour les licences logicielles pendant une période de 30 ou 90 jours.
 
 ### <a name="free-and-bring-your-own-license-byol-pricing"></a>Options tarifaires Gratuit et BYOL (apportez votre propre licence)

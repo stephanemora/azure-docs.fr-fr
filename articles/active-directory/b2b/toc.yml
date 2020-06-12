@@ -52,6 +52,8 @@
           href: identity-providers.md
         - name: Flux d’utilisateurs d’inscription en libre-service (préversion)
           href: self-service-sign-up-overview.md
+        - name: Connecteurs de l’API d’inscription en libre-service (préversion)
+          href: api-connectors-overview.md
         - name: "Gestion des droits d’utilisation Azure\_AD"
           href: self-service-portal.md
         - name: Limites actuelles
@@ -95,6 +97,10 @@
               href: user-flow-add-custom-attributes.md
             - name: Personnaliser le langage de flux d’utilisateur
               href: user-flow-customize-language.md
+            - name: Ajouter un connecteur d'API
+              href: self-service-sign-up-add-api-connector.md
+            - name: Ajouter un système d’approbation personnalisé
+              href: self-service-sign-up-add-approvals.md
         - name: Gérer les comptes d’invité
           items:
             - name: Ajouter un utilisateur B2B à un rôle
@@ -141,5 +147,5 @@
           href: 'https://azure.microsoft.com/updates/?product=active-directory'
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
-        - name: Videos
+        - name: Vidéos
           href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

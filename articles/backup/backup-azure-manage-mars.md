@@ -4,12 +4,12 @@ description: Découvrez comment gérer et surveiller les sauvegardes de l’agen
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: a88ec4dc9283114e06eed424172dbb958850c2e9
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.openlocfilehash: 0afe83edc638cba4cd14cc27b84a98937175fc86
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82025099"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248598"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gérer les sauvegardes de l’agent Microsoft Azure Recovery Services (MARS) à l’aide du service Sauvegarde Azure
 
@@ -22,7 +22,7 @@ Lorsque vous modifiez une stratégie de sauvegarde, vous pouvez ajouter de nouve
 - **Ajouter des éléments** : utilisez cette option uniquement pour ajouter de nouveaux éléments à sauvegarder. Pour supprimer des éléments existants, utilisez l’option **Supprimer des éléments** ou **Paramètres d’exclusion**.  
 - **Supprimer des éléments** : utilisez cette option pour supprimer des éléments de la sauvegarde.
   - Utilisez **Paramètres d’exclusion** pour supprimer tous les éléments d’un volume au lieu de **Supprimer des éléments**.
-  - L’effacement de toutes les sélections d’un volume entraîne la conservation des anciennes sauvegardes des éléments en fonction des paramètres de conservation au moment de la dernière sauvegarde, sans possibilité de modification.
+  - L’effacement de toutes les sélections d’un volume entraîne la conservation des anciennes sauvegardes des éléments conformément aux paramètres de rétention au moment de la dernière sauvegarde, sans possibilité de modification.
   - La resélection de ces éléments entraîne une première sauvegarde complète et les modifications apportées à la nouvelle stratégie ne sont pas appliquées aux anciennes sauvegardes.
   - La désélection d’un volume entier conserve la sauvegarde précédente sans possibilité de modifier la stratégie de conservation.
 - **Paramètres d’exclusion** : utilisez cette option pour exclure des éléments spécifiques de la sauvegarde.
