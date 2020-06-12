@@ -6,18 +6,18 @@ ms.author: lcozzens
 ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 3ec30aafe63259237a89de6597970b908fb969cf
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: c2812219e689cb42fd871f85300239a10ab0da0e
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773438"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116717"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Autoriser l’accès à Azure App Configuration Azure avec Azure Active Directory
-Azure App Configuration prend en charge l’utilisation d’Azure Active Directory (Azure AD) pour autoriser les requêtes adressées aux instances App Configuration.  Azure AD vous permet d’utiliser le contrôle d’accès en fonction du rôle (RBAC) pour accorder des autorisations à un principal de sécurité.  Un principal de sécurité peut correspondre à un utilisateur ou à un [principal du service d’application](../active-directory/develop/app-objects-and-service-principals.md).  Pour en savoir plus sur les rôles et les attributions de rôles, consultez [Comprendre les différents rôles](../role-based-access-control/overview.md).
+Outre l’utilisation du Hash-based Message Authentication Code (HMAC), Azure App Configuration prend en charge l’utilisation de Azure Active Directory (Azure AD) pour autoriser les requêtes d’instances d’App Configuration.  Azure AD vous permet d’utiliser le contrôle d’accès en fonction du rôle (RBAC) pour accorder des autorisations à un principal de sécurité.  Un utilisateur, une [identité managée](../active-directory/managed-identities-azure-resources/overview.md) ou un [principal du service d’application](../active-directory/develop/app-objects-and-service-principals.md) peuvent être des principaux de sécurité.  Pour en savoir plus sur les rôles et les attributions de rôles, consultez [Comprendre les différents rôles](../role-based-access-control/overview.md).
 
 ## <a name="overview"></a>Vue d’ensemble
-Les requêtes effectuées par un principal de sécurité (un utilisateur ou une application) pour accéder à une ressource App Configuration doivent être autorisées.  Avec Azure AD, l’accès à une ressource est un processus en deux étapes.
+Les requêtes, effectuées par un principal de sécurité pour accéder à une ressource App Configuration, doivent être autorisées. Avec Azure AD, l’accès à une ressource est un processus en deux étapes :
 1. L’identité du principal de sécurité est authentifiée, et un jeton OAuth 2.0 est renvoyé.  Le nom de ressource pour demander un jeton est `https://login.microsoftonline.com/{tenantID}` où `{tenantID}` correspond à l’ID de locataire Azure Active Directory auquel appartient le principal de service.
 2. Le jeton est transmis dans une requête adressée au service App Configuration pour autoriser l’accès à la ressource spécifiée.
 
@@ -35,8 +35,11 @@ Azure fournit les rôles RBAC intégrés suivants pour autoriser l’accès aux 
 
 - **Propriétaire des données App Configuration** : Utilisez ce rôle pour accorder un accès en lecture/écriture/suppression aux données App Configuration. Cela n’accorde pas l’accès à la ressource App Configuration.
 - **Lecteur des données App Configuration** : Utilisez ce rôle pour accorder un accès en lecture aux données App Configuration. Cela n’accorde pas l’accès à la ressource App Configuration.
-- **Collaborateur** : Utilisez ce rôle pour gérer la ressource App Configuration. Alors que les données App Configuration sont accessibles à l’aide de clés d’accès, ce rôle n’accorde pas l’accès aux données à l’aide d’Azure AD.
+- **Collaborateur** : Utilisez ce rôle pour gérer la ressource App Configuration. Alors que les données d’App Configuration sont accessibles à l’aide de clés d’accès, ce rôle n’accorde pas l’accès aux données avec Azure AD.
 - **Lecteur** : Utilisez ce rôle pour accorder un accès en lecture à la ressource App Configuration. Cela n’accorde pas l’accès aux clés d’accès de la ressource ni aux données stockées dans App Configuration.
+
+> [!NOTE]
+> Actuellement, le Portail Azure et l’interface CLI prennent uniquement en charge l’authentification HMAC pour accéder aux données d’App Configuration. L’authentification Azure AD n’est pas prise en charge. Par conséquent, les utilisateurs du Portail Azure et de l’interface CLI requièrent que le rôle de *Contributeur* récupère les clés d’accès de la ressource d’App Configuration. L’octroi des rôles *Lecteur de données d’App Configuration* ou *Propriétaire de données d’App Configuration* n’a aucun impact sur l’accès via le portail et l’interface CLI.
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’utilisation des [identités managées](howto-integrate-azure-managed-service-identity.md) pour gérer votre service App Configuration.

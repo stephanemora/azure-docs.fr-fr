@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2719bba0e88ba3125bd5ba163804e31885b286a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2faadc962b31560e9e2eb10372493a483bf06905
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236857"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84203883"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexeurs dans Recherche cognitive Azure
 
@@ -52,17 +52,17 @@ Les indexeurs analysent les magasins de données sur Azure.
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [SQL Server sur les machines virtuelles Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
-* [Instances managées SQL sur Azure](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
+* [SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
 ## <a name="basic-configuration-steps"></a>Étapes de configuration de base
 Les indexeurs peuvent offrir des fonctionnalités propres à la source de données. À cet égard, certains aspects de la configuration de l’indexeur ou de la source de données varient en fonction du type d’indexeur. Cependant, tous les indexeurs présentent une composition et des exigences de base identiques. Les étapes communes à tous les indexeurs sont décrites ci-dessous.
 
-### <a name="step-1-create-a-data-source"></a>Étape 1 : Création d’une source de données
+### <a name="step-1-create-a-data-source"></a>Étape 1 : Création d'une source de données
 Un indexeur obtient une connexion de source de données à partir d’un objet *source de données*. La définition de source de données fournit une chaîne de connexion et éventuellement des informations d’identification. Appelez l’API REST de [création de source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source) ou la [classe DataSource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource) pour créer la ressource.
 
 Les sources de données sont configurées et gérées indépendamment des indexeurs qui les utilisent. Autrement dit, une source de données peut être utilisée par plusieurs indexeurs pour charger plusieurs index à la fois.
 
-### <a name="step-2-create-an-index"></a>Étape 2 : Création d’un index
+### <a name="step-2-create-an-index"></a>Étape 2 : Création d'un index
 Un indexeur automatise certaines tâches liées à l’ingestion des données, mais la création d’un index n’en fait généralement pas partie. Au préalable, vous devez disposer d’un index prédéfini présentant des champs qui correspondent à ceux de votre source de données externe. Les champs doivent correspondre par nom et type de données. Pour plus d’informations sur la structuration d’un index, consultez l’article [Create an Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Index)(Création d’un index (API REST Recherche cognitive Azure)) ou [Index class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index) (Classe Index). Pour plus d’informations sur les associations de champ, consultez [Mappages de champs dans les indexeurs de Recherche cognitive Azure](search-indexer-field-mappings.md).
 
 > [!Tip]

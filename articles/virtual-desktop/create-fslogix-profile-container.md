@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 06/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 294a59ed94344ecf590eb9b34f991deaaa10db69
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: c2ffd22c8b3e3ca1786e0a1f905cd07d0568fcf2
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607382"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84296355"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Créer un conteneur de profils FSLogix pour un pool d'hôtes à l'aide d'Azure NetApp Files
 
@@ -231,3 +231,5 @@ Cette section est basée sur [Créer un conteneur de profils pour un pool d'hôt
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez utiliser des conteneurs de profils FSLogix pour configurer un partage de profil utilisateur. Pour en savoir plus sur la création de partages de profils utilisateur avec vos nouveaux conteneurs, consultez [Créer un conteneur de profils pour un pool d'hôtes à l'aide d'un partage de fichiers](create-host-pools-user-profile.md).
+
+Vous pouvez également créer un partage de fichiers Azure Files, dans lequel stocker votre profil FSLogix. Pour en savoir plus, voir [Créer un partage de fichiers Azure Files avec un contrôleur de domaine](create-file-share.md).

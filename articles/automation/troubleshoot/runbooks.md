@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1ee6920d1870b7449f4b77394aaf918947f57ea5
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 6ebca3df6971d545234f45551ebd008a4ad90c1d
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744309"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266064"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Résoudre les problèmes de runbook
 
@@ -50,7 +50,7 @@ Lorsque des erreurs surviennent pendant l’exécution de runbooks dans Azure Au
 
 1. Effectuez cette étape si le travail ou l’environnement du runbook sur Runbook Worker hybride ne répond pas.
 
-    Si vous exécutez vos runbooks sur un Runbook Worker hybride plutôt que dans Azure Automation, vous devez peut-être [résoudre les problèmes du worker hybride](https://docs.microsoft.com/azure/automation/troubleshoot/hybrid-runbook-worker).
+    Si vous exécutez vos runbooks sur un Runbook Worker hybride plutôt que dans Azure Automation, vous devez peut-être [résoudre les problèmes du worker hybride](hybrid-runbook-worker.md).
 
 ## <a name="scenario-runbook-fails-with-a-no-permission-or-forbidden-403-error"></a><a name="runbook-fails-no-permission"></a>Scénario : Un runbook échoue avec une erreur 403 Aucune autorisation ou Interdit
 
@@ -64,7 +64,7 @@ Les comptes d’identification n’ont peut-être pas les mêmes autorisations s
 
 ### <a name="resolution"></a>Résolution
 
-Vérifiez que votre compte d’identification dispose des [autorisations nécessaires pour accéder aux ressources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) utilisées dans votre script.
+Vérifiez que votre compte d’identification dispose des [autorisations nécessaires pour accéder aux ressources](../../role-based-access-control/role-assignments-portal.md) utilisées dans votre script.
 
 ## <a name="scenario-sign-in-to-azure-account-failed"></a><a name="sign-in-failed"></a>Scénario : Échec de la connexion au compte Azure
 
@@ -99,7 +99,7 @@ Pour identifiez le problème, suivez ces étapes :
    Connect-AzAccount –Credential $Cred
    ```
 
-1. Si l’authentification échoue localement, cela signifie que vous n’avez pas correctement configuré vos informations d’identification Azure Active Directory (Azure AD). Pour configurer correctement le compte Azure AD, reportez-vous au billet de blog [Authentification auprès d’Azure à l’aide d’Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/).
+1. Si l’authentification échoue localement, cela signifie que vous n’avez pas correctement configuré vos informations d’identification Azure Active Directory (Azure AD). Pour configurer correctement le compte Azure AD, consultez l’article [S’authentifier sur Azure à l’aide d’Azure Active Directory](../automation-use-azure-ad.md).
 
 1. Si cette erreur semble temporaire, essayez d’ajouter la logique de nouvelle tentative à votre routine d’authentification pour renforcer l’authentification.
 
@@ -137,7 +137,7 @@ Run Login-AzureRMAccount to login.
 
 ### <a name="cause"></a>Cause
 
-Cette erreur peut se produire lorsque vous n’utilisez pas un compte d’identification ou quand le compte d’identification a expiré. Pour plus d’informations, consultez [Gérer les comptes d’identification Azure Automation](https://docs.microsoft.com/azure/automation/manage-runas-account).
+Cette erreur peut se produire lorsque vous n’utilisez pas un compte d’identification ou quand le compte d’identification a expiré. Pour plus d’informations, consultez [Gérer les comptes d’identification Azure Automation](../manage-runas-account.md).
 
 Cette erreur a deux causes principales :
 
@@ -274,7 +274,7 @@ Si l’authentification multifacteur est configurée sur votre compte Azure, vou
 
 ### <a name="resolution"></a>Résolution
 
-Pour utiliser un certificat avec les applets de commande des modèles de déploiement Azure Classic, consultez [Création et ajout d’un certificat pour gérer des services Azure](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). Pour utiliser un principal de service avec des applets de commande Azure Resource Manager, reportez-vous à [Création du principal du service à l’aide du portail Azure](../../active-directory/develop/howto-create-service-principal-portal.md) et [Authentification d’un principal du service à l’aide d’Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+Pour utiliser un compte d’identification Classic avec les cmdlets du modèle de déploiement Azure Classic, consultez [Créer un compte d’identification Classic pour gérer les services Azure](../automation-create-standalone-account.md#create-a-classic-run-as-account). Pour utiliser un principal de service avec des applets de commande Azure Resource Manager, reportez-vous à [Création du principal du service à l’aide du portail Azure](../../active-directory/develop/howto-create-service-principal-portal.md) et [Authentification d’un principal du service à l’aide d’Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 ## <a name="scenario-runbook-fails-with-a-task-was-canceled-error-message"></a><a name="task-was-cancelled"></a>Scénario : Le runbook échoue avec le message d’erreur « Une tâche a été annulée »
 
@@ -383,7 +383,7 @@ Add-AzAccount : Object reference not set to an instance of an object
 
 ### <a name="cause"></a>Cause
 
-Cette erreur peut se produire si le runbook n’effectue pas les étapes appropriées avant d’appeler `Add-AzAccount` pour ajouter le compte Automation. Un exemple d’étape nécessaire est la connexion avec un compte d’identification. Pour connaître les opérations correctes à utiliser dans votre runbook, consultez [Exécution d’un runbook dans Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution).
+Cette erreur peut se produire si le runbook n’effectue pas les étapes appropriées avant d’appeler `Add-AzAccount` pour ajouter le compte Automation. Un exemple d’étape nécessaire est la connexion avec un compte d’identification. Pour connaître les opérations correctes à utiliser dans votre runbook, consultez [Exécution d’un runbook dans Azure Automation](../automation-runbook-execution.md).
 
 ## <a name="scenario-object-reference-not-set-to-an-instance-of-an-object"></a><a name="child-runbook-object"></a>Scénario : La référence d’objet n’a pas la valeur d’une instance d’un objet
 
@@ -652,16 +652,16 @@ Les causes possibles de ce problème sont :
 
 #### <a name="not-using-a-run-as-account"></a>N’utilise pas un compte d’identification.
 
-Suivez les instruction de l’[Étape 5 : Ajouter l’authentification pour gérer les ressources Azure](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) pour vous vérifier que vous utilisez un compte d’identification pour accéder à Key Vault.
+Suivez les instruction de l’[Étape 5 : Ajouter l’authentification pour gérer les ressources Azure](../automation-first-runbook-textual-powershell.md#add-authentication-to-manage-azure-resources) pour vous vérifier que vous utilisez un compte d’identification pour accéder à Key Vault.
 
 #### <a name="insufficient-permissions"></a>Autorisations insuffisantes
 
-[Ajoutez des autorisations à Key Vault](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) pour vous assurer que votre compte d’identification dispose d’autorisations suffisantes pour accéder à Key Vault.
+[Ajoutez des autorisations à Key Vault](../manage-runas-account.md#add-permissions-to-key-vault) pour vous assurer que votre compte d’identification dispose d’autorisations suffisantes pour accéder à Key Vault.
 
 ## <a name="recommended-documents"></a>Documents recommandés
 
 * [Exécution d’un runbook dans Azure Automation](../automation-runbook-execution.md)
-* [Démarrage d’un Runbook dans Azure Automation](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
+* [Démarrage d’un Runbook dans Azure Automation](../automation-starting-a-runbook.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

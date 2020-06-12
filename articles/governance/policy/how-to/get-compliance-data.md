@@ -3,12 +3,12 @@ title: Obtenir les données de conformité de la stratégie
 description: Les évaluations et les effets d’Azure Policy déterminent la conformité. Découvrez comment obtenir des détails sur la conformité de vos ressources Azure.
 ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 55f0b471eff15140de0a586fd5d326d9cd913b1a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e4d63355b793f69ccc2ed7aaa44bfb60a3a8440e
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747083"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204835"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtenir les données de conformité des ressources Azure
 
@@ -148,6 +148,9 @@ Le pourcentage de conformité est déterminé en divisant le nombre de ressource
 Le _nombre total de ressources_ est défini comme étant la somme des ressources **conformes**, **non conformes** et **en conflit**. La conformité globale est la somme des ressources distinctes **conformes** divisée par la somme de toutes les ressources distinctes. Dans l’image ci-dessous, il y a 20 ressources distinctes applicables et une seule **non conforme**. La conformité globale des ressources est égale à 95 % (soit 19 sur 20).
 
 :::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Exemple de conformité à la stratégie à partir de la page Conformité" border="false":::
+
+> [!NOTE]
+> La conformité réglementaire dans Azure Policy est une fonctionnalité en version préliminaire. Les propriétés de conformité du Kit de développement logiciel (SDK) et des pages dans le portail sont différentes pour les initiatives activées. Pour plus d’informations, voir [Conformité réglementaire](../concepts/regulatory-compliance.md)
 
 ## <a name="portal"></a>Portail
 

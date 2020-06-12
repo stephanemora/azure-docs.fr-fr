@@ -4,12 +4,12 @@ description: Trouvez des réponses aux questions courantes sur la sauvegarde de 
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: a973761bf16e2d271d718e4a8b29e08624276987
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11657a5dda79fc550f4c07d4020d75c671335da4
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79226001"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248258"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Forum aux questions sur les bases de données SQL Server qui s'exécutent sur une sauvegarde de machines virtuelles Azure
 
@@ -52,7 +52,7 @@ La valeur par défaut de DefaultBackupTasksThreshold est **20**.
  Si cette méthode est utile quand l’application de sauvegarde consomme beaucoup de ressources, SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) offre un moyen plus générique de spécifier des limites quant aux quantités de ressources (processeur, E/S physiques et mémoire) utilisables par les requêtes d’application entrantes.
 
 > [!NOTE]
-> Dans l’expérience utilisateur, vous pouvez planifier autant de sauvegardes que vous le souhaitez à un moment donné, mais elles seront traitées dans une fenêtre glissante de 5, par exemple, comme ci-dessus.
+> Dans l’expérience utilisateur, vous pouvez planifier autant de sauvegardes que vous le souhaitez à un moment donné, mais elles seront traitées dans une fenêtre glissante de 5, par exemple, conformément à l’exemple ci-dessus.
 
 ## <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Puis-je effectuer la sauvegarde complète d’un réplica secondaire ?
 
@@ -92,7 +92,7 @@ Si vous choisissez d'**arrêter la sauvegarde avec suppression des données**, a
 
 ## <a name="if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior"></a>Si je modifie le nom de la base de données après qu'elle a été protégée, comment se comportera-t-elle ?
 
-Une base de données renommée est traitée en tant que nouvelle base de données. Dès lors, le service gèrera cette situation comme si la base de données était introuvable et les sauvegardes échoueront.
+Une base de données renommée est traitée en tant que nouvelle base de données. Le service gèrera donc cette situation comme si la base de données était introuvable et les sauvegardes échoueront.
 
 Vous pouvez sélectionner la base de données renommée et configurer la protection. En cas d'activation de la protection automatique sur l'instance, la base de données renommée sera automatiquement détectée et protégée.
 

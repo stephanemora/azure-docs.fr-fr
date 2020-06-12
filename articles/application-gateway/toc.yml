@@ -30,6 +30,10 @@
       href: tutorial-url-redirect-cli.md
     - name: Mise à l’échelle et redondant dans une zone
       href: tutorial-autoscale-ps.md
+    - name: Complément Ingress Controller pour AKS (Greenfield)
+      href: tutorial-ingress-controller-add-on-new.md
+    - name: Complément Ingress Controller pour AKS (Brownfield)
+      href: tutorial-ingress-controller-add-on-existing.md
 - name: Exemples
   items:
     - name: Azure PowerShell
@@ -136,10 +140,12 @@
               href: application-gateway-configure-ssl-policy-powershell.md
     - name: Entrée pour AKS
       items:
-        - name: Configurer avec une passerelle d’application existante
+        - name: Ingress pour AKS via Helm (Brownfield)
           href: ingress-controller-install-existing.md
-        - name: Configurer avec une nouvelle passerelle d’application
+        - name: Ingress pour AKS via Helm (Greenfield)
           href: ingress-controller-install-new.md
+        - name: Désactiver et réactiver le complément AKS Ingress Controller
+          href: ingress-controller-disable-addon.md
         - name: Activer l’affinité de cookies
           href: ingress-controller-cookie-affinity.md
         - name: Activer la prise en charge de plusieurs espaces de noms

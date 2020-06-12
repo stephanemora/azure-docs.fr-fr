@@ -11,12 +11,12 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 7c09e9d9f93ead6f894c954f647ebe33918cf41d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e80ff74ad1dec25c815a9dd28a04133502b82085
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653015"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84012906"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Supervision de l’utilisation des ressources et de l’activité des requêtes dans Azure Synapse Analytics
 
@@ -49,7 +49,7 @@ Les mesures suivantes sont disponibles dans le Portail Azure pour Synapse SQL. C
 Points importants à prendre en compte lors de l’affichage des métriques et de la définition des alertes :
 
 - La mesure DWU utilisée n’est qu’une **représentation de haut niveau de l’utilisation** dans le pool SQL et n’est pas censée être un indicateur complet de l’utilisation. Pour déterminer s’il faut monter ou diminuer la puissance, prenez en compte tous les facteurs qui peuvent être concernés par la DWU tels que la concurrence, la mémoire, la tempdb et la capacité du cache adaptatif. Nous vous recommandons d’[exécuter votre charge de travail à différents paramètres DWU](sql-data-warehouse-manage-compute-overview.md#finding-the-right-size-of-data-warehouse-units) pour déterminer ce qui fonctionne le mieux pour atteindre vos objectifs stratégiques.
-- Les connexions ayant échoué et réussies sont signalées pour un entrepôt de données particulier, pas pour le serveur logique
+- Les connexions ayant échoué et réussies sont signalées pour un entrepôt de données particulier, pas pour le serveur lui-même.
 - Le pourcentage de mémoire reflète l’utilisation même si l’entrepôt de données est dans un état inactif. Il ne reflète pas la consommation de la mémoire par la charge de travail active. Utilisez et suivez cette métrique ainsi que d’autres (tempdb, cache gen2) pour prendre une décision holistique quant à la nécessité d’effectuer une mise à l’échelle pour accroître la capacité de cache en vue d’améliorer les performances de la charge de travail en fonction de vos besoins.
 
 ## <a name="query-activity"></a>Activité des requêtes

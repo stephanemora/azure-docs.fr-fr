@@ -2,13 +2,13 @@
 title: "Évaluations dans l'outil Azure Migrate : Évaluation de serveur"
 description: "En savoir plus sur les évaluations dans l'outil Azure Migrate : Évaluation de serveur"
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 2f76ea5f195be2914cdcdb4de9e93af38504d66e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/27/2020
+ms.openlocfilehash: bfae3f23dd16b0d1a09b49f56efbca88a7bea08f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81769922"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171002"
 ---
 # <a name="assessments-in-azure-migrate-server-assessment"></a>Les évaluations dans Azure Migrate : Server Assessment
 
@@ -110,7 +110,7 @@ Propriété | Détails
 **Emplacement cible** | Emplacement vers lequel vous souhaitez migrer. Évaluation de serveur prend actuellement en charge les régions Azure cibles suivantes :<br/><br/> Allemagne Centre, Allemagne Nord-Est, Asie Est, Asie Sud-Est, Australie Est, Australie Sud-Est, Brésil Sud, Canada Centre, Canada Est, Chine Est, Chine Nord, Corée Centre, Corée Sud, Europe Nord, Europe Ouest, Inde Centre, Inde Ouest, Inde Sud, Japon Est, Japon Ouest, Royaume-Uni Ouest, Royaume-Uni Sud, US Gov Arizona, US Gov Texas, US Gov Virginie, USA Centre, USA Centre Nord, USA Centre-Ouest, USA Centre Sud, USA Est, USA Est 2, USA Ouest et USA Ouest 2.
 **Disque de stockage cible (dimensionnement tel quel)** | Type de disque à utiliser pour le stockage dans Azure. <br/><br/> Spécifie le disque de stockage cible en tant que disque managé Premium, disque managé SSD Standard ou disque managé HDD Standard.
 **Disque de stockage cible (dimensionnement basé sur les performances)** | Spécifie le type du disque de stockage cible en tant que disque automatique, managé Premium, managé HDD Standard ou managé SSD Standard.<br/><br/> **Automatique** : La recommandation de disque est basée sur les données de performances des disques, c’est-à-dire les IOPS et le débit.<br/><br/>**Premium ou Standard** :  L’évaluation recommande une référence SKU de disque au sein du type de stockage sélectionné.<br/><br/> Si vous souhaitez un contrat de niveau de service (SLA) de machine virtuelle à une seule instance de 99,9 %, envisagez d’utiliser des disques managés Premium. Cette utilisation permet de s’assurer que tous les disques de l’évaluation sont recommandés comme disques managés Premium.<br/><br/> Azure Migrate prend uniquement en charge les disques managés pour l’évaluation de la migration.
-**Azure Reserved Virtual Machine Instances** | Spécifie des [instances réservées](https://azure.microsoft.com/pricing/reserved-vm-instances/) afin que les estimations de coût dans l’évaluation les prennent en compte.<br/><br/> Azure Migrate prend actuellement en charge Azure Reserved VM Instances uniquement pour les offres de paiement à l’utilisation.
+**Azure Reserved VM Instances** | Spécifie des [instances réservées](https://azure.microsoft.com/pricing/reserved-vm-instances/) afin que les estimations de coût dans l’évaluation les prennent en compte.<br/><br/> Si des instances réservées sont sélectionnées, laissez les paramètres par défaut dans la remise (en %) et les propriétés de durée de bon fonctionnement des machines virtuelles.<br/><br/> Azure Migrate prend actuellement en charge Azure Reserved VM Instances uniquement pour les offres de paiement à l’utilisation.
 **Critère de dimensionnement** | Utilisé pour le dimensionnement adéquat de la machine virtuelle Azure.<br/><br/> Utilise le dimensionnement tel quel ou le dimensionnement basé sur les performances.
 **Historique des performances** | Utilisé avec le dimensionnement basé sur les performances. L’historique des performances spécifie la durée utilisée lors de l’évaluation des données de performances.
 **Utilisation en centile** | Utilisé avec le dimensionnement basé sur les performances. L’utilisation en centile spécifie la valeur de centile de l’échantillon de performances utilisé pour le dimensionnement adéquat.
@@ -121,6 +121,8 @@ Propriété | Détails
 **Remise (%)** | Toute remise propre à un abonnement que vous recevez en plus de l’offre Azure. Le paramètre par défaut est 0 %.
 **Durée de fonctionnement de la machine virtuelle** | Durée en jours par mois et heures par jour pour les machines virtuelles Azure qui ne s’exécutent pas en continu. Les estimations de coût sont basées sur cette durée.<br/><br/> Les valeurs par défaut sont de 31 jours par mois et de 24 heures par jour.
 **Azure Hybrid Benefit** | Spécifie si vous disposez de Software Assurance et que vous êtes éligible à [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Si le paramètre a la valeur par défaut « Oui », les tarifs Azure pour les systèmes d’exploitation autres que Windows sont pris en compte pour les machines virtuelles Windows.
+**Abonnement Contrat Entreprise** | Spécifie qu’un abonnement Contrat Entreprise (EA) est utilisé pour l’estimation des coûts. Prend en compte la remise applicable à l’abonnement. <br/><br/> Conserve les paramètres par défaut pour les instances réservées, la remise (en %) et les propriétés de durée de bon fonctionnement des machines virtuelles.
+
 
 [Passez en revue les meilleures pratiques](best-practices-assessment.md) pour la création d’une évaluation avec Évaluation de serveur.
 

@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 70fafa79c87d19d62ef936b286c82813d8e7fe17
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 1dd17d3ac715c2b32f645602203aa2551c91b42a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208514"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195344"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Créer plusieurs points de terminaison de service web à partir d’une expérience avec ML Studio (classique) et PowerShell
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Voici un problème d’apprentissage automatique courant : vous souhaitez créer un grand nombre de modèles ayant le même flux de travail d’apprentissage et utilisant le même algorithme. Mais vous souhaitez qu’ils aient différents jeux de données d’apprentissage comme entrée. Cet article montre comment procéder dans Azure Machine Learning Studio (classique) à l’aide d’une expérience unique.
 
@@ -52,7 +50,7 @@ Notez qu’un module **Web Service Output** a été ajouté au module **Train Mo
 Quand cette expérience est déployée comme service web, le point de terminaison associé à cette sortie retourne le modèle formé au format de fichier .ilearner.
 
 Notez également que vous configurez un paramètre de service web qui définit l’URL utilisée par le module **Import Data**. Cela vous permet d’utiliser le paramètre pour spécifier des jeux de données de formation individuels visant à former le modèle pour chaque emplacement.
-Il existe d’autres façons de procéder. Vous pouvez utiliser une requête SQL avec un paramètre de service web pour obtenir des données à partir d’une base de données SQL Azure. Vous pouvez également utiliser un module **Web Service Input** pour transmettre un jeu de données au service web.
+Il existe d’autres façons de procéder. Vous pouvez utiliser une requête SQL avec un paramètre de service web pour obtenir des données à partir d’une base de données d’Azure SQL Database. Vous pouvez également utiliser un module **Web Service Input** pour transmettre un jeu de données au service web.
 
 ![Un module de modèle entraîné est transmis à un module de sortie du service web](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 

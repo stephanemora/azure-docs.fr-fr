@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/11/2020
-ms.openlocfilehash: bb3f22223bd64c06cfa4a5f6ffabe7b128dff1d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/26/2020
+ms.openlocfilehash: 6496e5c953b3dd5e387a79906b22645ba4a24b4f
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416464"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019977"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considérations de sécurité relatives au déplacement des données dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -51,8 +51,8 @@ Si la conformité Azure vous intéresse et que vous désirez savoir comment Azur
 
 Cet article présente les principes de sécurité à prendre en compte dans les deux scénarios de déplacement de données suivants : 
 
-- **Scénario cloud** : dans ce scénario, votre source et votre destination sont toutes deux accessibles publiquement via Internet. Cela inclut les services de stockage cloud managés comme Stockage Azure, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, les services SaaS tels que Salesforce et les protocoles Web tels que FTP et OData. Recherchez une liste complète des sources de données prises en charge dans [Banques de données et formats pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
-- **Scénario hybride** : dans ce scénario, votre source ou votre destination est derrière un pare-feu ou à l’intérieur d’un réseau d’entreprise local. Ou bien, la banque de données est un réseau ou un réseau virtuel (le plus souvent la source) et n’est pas accessible publiquement. Les serveurs de base de données hébergés sur des machines virtuelles sont également inclus dans ce scénario.
+- **Scénario cloud** : Dans ce scénario, votre source et votre destination sont toutes deux accessibles publiquement via Internet. Cela inclut les services de stockage cloud managés comme Stockage Azure, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, les services SaaS tels que Salesforce et les protocoles Web tels que FTP et OData. Recherchez une liste complète des sources de données prises en charge dans [Banques de données et formats pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+- **Scénario hybride** : Dans ce scénario, votre source ou votre destination se trouve derrière un pare-feu ou à l’intérieur d’un réseau d’entreprise local. Ou bien, la banque de données est un réseau ou un réseau virtuel (le plus souvent la source) et n’est pas accessible publiquement. Les serveurs de base de données hébergés sur des machines virtuelles sont également inclus dans ce scénario.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -64,7 +64,7 @@ Cet article présente les principes de sécurité à prendre en compte dans les 
 - **Stocker les informations d’identification dans Azure Key Vault**. Vous pouvez également stocker les informations d’identification de la banque de données dans [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory récupère les informations d’identification lors de l’exécution d’une activité. Pour plus d’informations, consultez [Store credential in Azure Key Vault](store-credentials-in-key-vault.md) (Stocker les informations d’identification dans Azure Key Vault).
 
 ### <a name="data-encryption-in-transit"></a>Chiffrement des données en transit
-Tous les transferts de données entre les services de déplacement des données dans Data Factory et une banque de données cloud s’effectuent par le biais d’un canal HTTPS ou TLS sécurisé si la banque de données cloud prend en charge HTTPS ou TLS.
+Tous les transferts de données entre les services de déplacement des données dans Data Factory et une banque de données cloud s’effectuent via un canal HTTPS ou TLS sécurisé, si la banque de données cloud prend en charge HTTPS ou TLS.
 
 > [!NOTE]
 > Toutes les connexions à Azure SQL Database et à Azure SQL Data Warehouse doivent être chiffrées (via SSL/TLS) lorsque les données sont en transit depuis et vers la base de données. Lorsque vous créez un pipeline à l’aide de JSON, ajoutez la propriété de chiffrement et définissez sa valeur sur **true** dans la chaîne de connexion. Pour le stockage Azure, vous pouvez utiliser **HTTPS** dans la chaîne de connexion.
@@ -111,7 +111,7 @@ Le canal de commande autorise la communication entre les services de déplacemen
 ### <a name="on-premises-data-store-credentials"></a>Informations d’identification des banques de données locales
 Les informations d’identification peuvent être stockées dans une fabrique de données ou [référencées par une fabrique de données](store-credentials-in-key-vault.md) au moment de l’exécution à partir d’Azure Key Vault. Quand vous stockez des informations d’identification dans une fabrique de données, elles sont toujours chiffrées sur le runtime d’intégration auto-hébergé. 
  
-- **Stocker des informations d’identification localement**. Si vous utilisez directement l’applet de commande **Set-AzDataFactoryV2LinkedService** avec les chaînes de connexion et les informations d’identification incluses dans le JSON, le service lié est chiffré et stocké sur le runtime d’intégration auto-hébergé.  Dans ce cas, les informations d’identification passent par le service back-end Azure, hautement sécurisé, avant d’aboutir à la machine d’intégration auto-hébergée, où elles sont chiffrées et stockées. Le runtime d’intégration auto-hébergé utilise [l’API de protection des données (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) Windows pour chiffrer les données sensibles et les informations d’identification.
+- **Stocker des informations d’identification localement**. Si vous utilisez directement l’applet de commande **Set-AzDataFactoryV2LinkedService** avec les chaînes de connexion et les informations d’identification incluses dans le JSON, le service lié est chiffré et stocké sur le runtime d’intégration auto-hébergé.  Dans ce cas, les informations d’identification passent par le service principal Azure, hautement sécurisé, avant d’aboutir à la machine d’intégration auto-hébergée, où elles sont chiffrées et stockées. Le runtime d’intégration auto-hébergé utilise [l’API de protection des données (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) Windows pour chiffrer les données sensibles et les informations d’identification.
 
 - **Stocker les informations d’identification dans Azure Key Vault**. Vous pouvez également stocker les informations d’identification de la banque de données dans [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory récupère les informations d’identification lors de l’exécution d’une activité. Pour plus d’informations, consultez [Store credential in Azure Key Vault](store-credentials-in-key-vault.md) (Stocker les informations d’identification dans Azure Key Vault).
 
@@ -155,6 +155,12 @@ Les images suivantes décrivent l’utilisation du runtime d’intégration auto
 
 ### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-addresses"></a><a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a> Configurations de pare-feu et configuration de la liste d’autorisation pour les adresses IP
 
+> [!NOTE] 
+> Vous devrez peut-être gérer les ports ou configurer une liste d’autorisation pour les domaines au niveau du pare-feu d’entreprise tel que requis par les sources de données respectives. Ce tableau utilise uniquement Azure SQL Database, Azure SQL Data Warehouse et Azure Data Lake Store comme exemples.
+
+> [!NOTE] 
+> Pour plus d’informations sur les stratégies d’accès aux données par le biais d’Azure Data Factory, consultez [cet article](https://docs.microsoft.com/azure/data-factory/data-access-strategies#data-access-strategies-through-azure-data-factory).
+
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Configuration requise du pare-feu pour un réseau local/privé    
 Dans une entreprise, un pare-feu d’entreprise s’exécute sur le routeur central de l’organisation. Le pare-feu Windows s’exécute en tant que démon sur la machine locale sur laquelle est installé le runtime d’intégration auto-hébergé. 
 
@@ -178,7 +184,7 @@ Certains magasins de données dans le cloud exigent également que autorisiez l�
 
 Les magasins de données cloud suivants exigent que vous autorisiez l’adresse IP de la machine runtime d’intégration auto-hébergé. Il est possible que certains de ces magasins de données ne requièrent pas par défaut la liste d’autorisation. 
 
-- [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
+- [Azure SQL Database](../azure-sql/database/firewall-configure.md) 
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)

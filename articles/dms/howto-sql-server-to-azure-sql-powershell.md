@@ -1,7 +1,7 @@
 ---
-title: 'PowerShell : Migrer SQL Server vers SQL Database'
+title: 'PowerShell : Migrer SQL Server vers SQL Database'
 titleSuffix: Azure Database Migration Service
-description: Apprenez à migrer une instance locale de SQL Server vers Azure SQL Database à l’aide d’Azure PowerShell avec le service Azure Database Migration Service.
+description: Apprenez à migrer une base de données de SQL Server vers Azure SQL Database à l’aide d’Azure PowerShell et Azure Database Migration Service.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: f63f79402b457017257f1762c6ddc7e04c0ee1af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 494ef67938df161915390d9adc74093bafa550f5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77650688"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84192659"
 ---
-# <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>Migrer SQL Server local vers Azure SQL Database à l’aide d’Azure PowerShell
+# <a name="migrate-a-sql-server-database-to-azure-sql-database-using-azure-powershell"></a>Migrer une base de données SQL Server vers Azure SQL Database à l’aide d’Azure PowerShell
 
-Dans cet article, vous allez migrer la base de données **Adventureworks2012** restaurée vers une instance locale de SQL Server 2016 ou ultérieur ou Azure SQL Database, à l’aide de Microsoft Azure PowerShell. Vous pouvez migrer des bases de données à partir d’une instance SQL Server locale vers Azure SQL Database, à l’aide du module `Az.DataMigration`, dans Microsoft Azure PowerShell.
+Dans cet article, vous allez migrer la base de données **Adventureworks2012** restaurée vers une instance locale de SQL Server 2016 ou ultérieur ou Azure SQL Database, à l’aide de Microsoft Azure PowerShell. Vous pouvez migrer des bases de données d’une instance SQL Server vers Azure SQL Database à l’aide du module `Az.DataMigration` dans Microsoft Azure PowerShell.
 
 Dans cet article, vous apprendrez comment :
 > [!div class="checklist"]
@@ -109,7 +109,7 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
   -TrustServerCertificate:$true
 ```
 
-L’exemple suivant montre la création des informations de connexion du serveur Azure SQL Database appelé SQLAzureTarget, à l’aide de l’authentification SQL :
+L’exemple suivant montre la création des informations de connexion pour un serveur appelé SQLAzureTarget à l’aide de l’authentification SQL :
 
 ```powershell
 $targetConnInfo = New-AzDmsConnInfo -ServerType SQL `

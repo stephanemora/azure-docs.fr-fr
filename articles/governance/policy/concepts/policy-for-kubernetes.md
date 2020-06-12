@@ -3,12 +3,12 @@ title: Préversion – Découvrir Azure Policy pour Kubernetes
 description: Découvrez comment Azure Policy utilise Rego et Open Policy Agent pour gérer des clusters exécutant Kubernetes dans Azure ou localement. Ceci est une fonctionnalité en préversion.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0d663d7bf7ce70c605551422f600258943d1efd7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 9969bed9cb7c84faf9736bff2fb8337dc05d1bb0
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828625"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221155"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Comprendre Azure Policy pour les clusters Kubernetes (préversion)
 
@@ -35,6 +35,9 @@ Pour activer et utiliser Azure Policy avec votre cluster Kubernetes, procédez c
    - [Azure Kubernetes Service (AKS)](#install-azure-policy-add-on-for-aks)
    - [Kubernetes compatible avec Azure Arc](#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
    - [Moteur AKS](#install-azure-policy-add-on-for-aks-engine)
+
+   > [!NOTE]
+   > Pour les problèmes courants liés à l’installation, consultez [Résolution des problèmes : module complémentaire Azure Policy](../troubleshoot/general.md#add-on-installation-errors).
 
 1. [Comprendre le langage d’Azure Policy pour Kubernetes](#policy-language)
 

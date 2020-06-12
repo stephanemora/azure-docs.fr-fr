@@ -4,12 +4,12 @@ description: Découvrez le stockage dans AKS (Azure Kubernetes Service), notamme
 services: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 4bb19d7da971a82aef9c0e1fc092cc648ac49c4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 643d25e99bef191bfce77f092a9f2218c891a442
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595992"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171376"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Options de stockage pour les applications dans AKS (Azure Kubernetes Service)
 
@@ -55,10 +55,12 @@ Un volume persistant peut être créé *statiquement* par un administrateur de c
 
 Pour définir différents niveaux de stockage, tels que Premium et Standard, vous pouvez créer une classe de stockage (*StorageClass*). La classe de stockage définit également la stratégie de récupération (*reclaimPolicy*). Cette stratégie de récupération contrôle le comportement de la ressource de stockage Azure sous-jacente quand le pod est supprimé et que le volume persistant n’est peut-être plus nécessaire. La ressource de stockage sous-jacente peut être supprimée ou conservée en vue de son utilisation par un pod futur.
 
-Dans AKS, deux classes de stockage initiales sont créées :
+Dans AKS, 4 classes de stockage initiales sont créées :
 
-- *default* : utilise le stockage Azure Standard pour créer un disque managé. La stratégie de récupération indique que le disque Azure sous-jacent est supprimé quand le volume persistant qui l’a utilisé est supprimé.
+- *default* : utilise le stockage Azure StandardSSD pour créer un disque managé. La stratégie de récupération indique que le disque Azure sous-jacent est supprimé quand le volume persistant qui l’a utilisé est supprimé.
 - *managed-premium* : utilise le stockage Azure Premium pour créer le disque managé. La stratégie de récupération indique à nouveau que le disque Azure sous-jacent est supprimé quand le volume persistant qui l’a utilisé est supprimé.
+- *azurefile* : utilise le stockage Azure Standard pour créer un partage de fichiers Azure. La stratégie de récupération indique que le partage de fichiers Azure sous-jacent est supprimé quand le volume persistant qui l’a utilisé est supprimé.
+- *azurefile-premium* : utilise le stockage Azure Premium pour créer un partage de fichiers Azure. La stratégie de récupération indique que le partage de fichiers Azure sous-jacent est supprimé quand le volume persistant qui l’a utilisé est supprimé.
 
 Si aucune classe de stockage n’est spécifiée pour un volume persistant, la classe de stockage par défaut est utilisée. Quand vous demandez des volumes persistants, veillez à ce qu’ils utilisent le stockage dont vous avez besoin. Vous pouvez créer une classe de stockage pour des besoins supplémentaires à l’aide de `kubectl`. L’exemple suivant utilise la fonctionnalité Disques managés Premium et spécifie que le disque Azure sous-jacent doit être *conservé* quand le pod est supprimé :
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8f9e759372f01d2a1b48562aef2bace1e8435a67
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 16c3676a881dc5dc979891dfd870274581be255b
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81683325"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310383"
 ---
 # <a name="frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ)
 
@@ -115,7 +115,7 @@ Oui, si vous disposez de modules HSM SafeNet Gemalto locaux. Il existe plusieurs
 ### <a name="q-what-operating-systems-are-supported-by-dedicated-hsm-client-software"></a>Q : Quels systèmes d’exploitation les logiciels clients de HSM dédié prennent-ils en charge ?
 
 * Windows, Linux, Solaris, AIX, HP-UX, FreeBSD
-* Virtuel : VMware, hyper-v, Xen, KVM
+* Virtuel : VMware, Hyper-V, Xen, KVM
 
 ### <a name="q-how-do-i-configure-my-client-application-to-create-a-high-availability-configuration-with-multiple-partitions-from-multiple-hsms"></a>Q : Comment configurer mon application cliente pour créer une configuration de haute disponibilité avec plusieurs partitions issues de plusieurs HSM ?
 
@@ -242,7 +242,7 @@ Microsoft n’a pas la possibilité de se connecter aux modules HSM alloués aux
 
 ### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>Q : Que se passe-t-il si j’ai besoin de redémarrer mon module HSM ?
 
-Le module HSM a une option de ligne de commande de redémarrage. Toutefois, nous rencontrons occasionnellement des problèmes de blocage de redémarrage. C’est pourquoi, pour un redémarrage plus sûr, nous vous recommandons d’ouvrir une demande de support auprès de Microsoft pour que l’appareil soit physiquement redémarré. 
+Le module HSM dispose d’une option de redémarrage en ligne de commande. Toutefois, nous rencontrons des problèmes où le redémarrage cesse de répondre par intermittence. C’est pourquoi, pour un redémarrage plus sûr, nous vous recommandons d’ouvrir une demande de support auprès de Microsoft pour que l’appareil soit physiquement redémarré. 
 
 ## <a name="cryptography-and-standards"></a>Chiffrement et standards
 

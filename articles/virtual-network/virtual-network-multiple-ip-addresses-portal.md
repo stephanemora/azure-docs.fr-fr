@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: allensu
-ms.openlocfilehash: 97d78b5bc77fef30bf7e3ad082a70f16a2ec74d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 820e50d9fe60b76639bf74067129e65c7394ff4c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146609"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194210"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Affecter plusieurs adresses IP à une machine virtuelle à l’aide du portail Azure
 
@@ -52,8 +52,8 @@ Vous pouvez ajouter des adresses IP privées et publiques à une interface rése
 
 Procédez comme suit pour ajouter une nouvelle adresse IP privée :
 
-1. Suivez les étapes de la section [Étapes de base](#coreadd) du présent article.
-2. Cliquez sur **Add**. Dans le panneau **Ajouter une configuration IP** qui s’affiche, créez une configuration IP appelée *IPConfig-4*, en lui associant l’adresse *10.0.0.7* à titre d’adresse IP privée *statique*, puis cliquez sur **OK**.
+1. Suivez les étapes de la section [Étapes de base](#coreadd) de cet article et vérifiez que vous êtes dans la section **Configurations IP** de l’interface réseau de la machine virtuelle.  Examinez le sous-réseau indiqué par défaut (par exemple, 10.0.0.0/24).
+2. Cliquez sur **Add**. Dans le volet **Ajouter une configuration IP** qui s’affiche, créez une configuration IP appelée *IPConfig-4* avec une nouvelle adresse IP privée *statique* en sélectionnant un nouveau numéro pour l’octet final, puis cliquez sur **OK**.  (Pour le sous-réseau 10.0.0.0/24, un exemple d’adresse IP est *10.0.0.7*.)
 
     > [!NOTE]
     > Lorsque vous ajoutez une adresse IP statique, vous devez spécifier une adresse valide, non utilisée, sur le sous-réseau auquel la carte réseau est connectée. Si l’adresse IP que vous sélectionnez n’est pas disponible, le portail affiche une croix et vous devez en choisir une autre.

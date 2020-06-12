@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 10ea0002b2e99c4675f56e48a638f3c1cb87e6c0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ab9a02efedb0e002ac13294429c06e39ea18019c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399008"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117469"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurer un environnement de développement pour Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -145,7 +145,7 @@ Lorsque vous utilisez un ordinateur local (qui peut également être une machine
     Exécutez la commande suivante pour créer l’environnement.
 
     ```bash
-    conda create -n myenv python=3.6.5
+    conda create -n myenv python=3.7.7
     ```
 
     Activez ensuite l’environnement.
@@ -154,7 +154,7 @@ Lorsque vous utilisez un ordinateur local (qui peut également être une machine
     conda activate myenv
     ```
 
-    Cet exemple crée un environnement à l’aide de python 3.6.5, mais n’importe quelle sous-version spécifique peut être choisie. La compatibilité du Kit de développement logiciel (SDK) ne peut pas être garantie avec certaines versions principales (versions 3.5 et supérieures recommandées), et il est recommandé d’essayer une autre version/sous-version dans votre environnement Anaconda si vous rencontrez des erreurs. La création de l’environnement prend plusieurs minutes, le temps que les composants et les packages soient téléchargés.
+    Cet exemple crée un environnement à l’aide de Python 3.7.7, mais n’importe quelle sous-version spécifique peut être choisie. La compatibilité du Kit de développement logiciel (SDK) ne peut pas être garantie avec certaines versions principales (versions 3.5 et supérieures recommandées), et il est recommandé d’essayer une autre version/sous-version dans votre environnement Anaconda si vous rencontrez des erreurs. La création de l’environnement prend plusieurs minutes, le temps que les composants et les packages soient téléchargés.
 
 1. Exécutez les commandes suivantes dans votre nouvel environnement pour activer les noyaux IPython spécifiques à l’environnement. Cela permet de s’assurer du comportement d’importation du package et du noyau attendu lors de l’utilisation de Jupyter Notebook dans des environnements Anaconda :
 

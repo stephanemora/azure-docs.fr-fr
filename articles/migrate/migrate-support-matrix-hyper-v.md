@@ -3,12 +3,12 @@ title: Prise en charge de l’évaluation Hyper-V dans Azure Migrate
 description: Découvrez la prise en charge pour l’évaluation de machines virtuelles Hyper-V à l’aide de l’outil Évaluation de serveur d’Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 67fabebf805e38a6bca5dda6e691c263ee235219
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 5ba7e74624f719feb6efbb3fb58dd3375250d649
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744603"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266778"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Tableau de prise en charge pour l’évaluation Hyper-V
 
@@ -44,7 +44,7 @@ Pour configurer l’évaluation d’une machine virtuelle Hyper-V, vous créez u
 
 | **Support**                  | **Détails**               
 | :----------------------------- | :------------------- |
-| **Système d’exploitation** | Tous les systèmes d’exploitation [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) et [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros). |
+| **Système d’exploitation** | Tous les systèmes d’exploitation peuvent être évalués dans une optique de migration.  |
 | **Services d’intégration**       | Les [services d'intégration Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) doivent fonctionner sur les machines virtuelles que vous évaluez afin de capturer les informations du système d'exploitation. |
 
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: 046946bb9d3ce1ae86d49409d024c862d2edb982
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: bd6f04ca7e24e380ad657f967284704ad613375a
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856059"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996395"
 ---
 # <a name="application-gateway-configuration-overview"></a>Présentation de la configuration d’Application Gateway
 
@@ -224,9 +224,7 @@ Quand vous créez une règle, vous choisissez entre le type [*de base* et le typ
 
 #### <a name="order-of-processing-rules"></a>Ordre de traitement des règles
 
-Pour la référence SKU v1, les critères spéciaux des demandes entrantes sont traités dans l’ordre dans lequel les chemins sont listés dans le mappage du chemin d’URL de la règle basée sur un chemin. Si une demande correspond au modèle dans deux chemins ou plus du mappage du chemin, le chemin listé en premier est mappé. Et la demande est transférée au back-end associé à ce chemin.
-
-Pour la référence SKU v2, une correspondance exacte est une priorité plus élevée que l’ordre des chemins dans le mappage du chemin d’URL. Si une demande correspond au modèle dans deux chemins ou plus, elle est transférée au back-end associé au chemin qui correspond exactement à la demande. Si le chemin dans la demande entrante ne correspond pas exactement à un chemin du mappage, les critères spéciaux de la demande sont traités dans l’ordre de la liste du mappage du chemin pour la règle basée sur un chemin.
+Pour la référence SKU v1 et v2, les critères spéciaux des demandes entrantes sont traités dans l’ordre dans lequel les chemins sont listés dans le mappage du chemin d’URL de la règle basée sur un chemin. Si une demande correspond au modèle dans deux chemins ou plus du mappage du chemin, le chemin listé en premier est mappé. Et la demande est transférée au back-end associé à ce chemin.
 
 ### <a name="associated-listener"></a>Écouteur associé
 

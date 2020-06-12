@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b5990f79891a9cbc0d18c3499691a3d7ef309a73
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 15623d622a40fa80889a8704e0b7f19d358a052c
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81678269"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295403"
 ---
 # <a name="azure-active-directory-b2c-enable-custom-attributes-in-a-custom-profile-policy"></a>Azure Active Directory B2C : Activer des attributs personnalisés dans une stratégie de profil personnalisée
 
@@ -49,7 +49,7 @@ Dans cet article, les termes *propriété d’extension*, *attribut personnalis�
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
 1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
-1. Sélectionnez **Inscriptions d’applications (préversion)** , puis sélectionnez **Toutes les applications**.
+1. Sélectionnez **Inscriptions d’applications**, puis sélectionnez **Toutes les applications**.
 1. Sélectionner l’application `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.`.
 1. Copiez les identificateurs suivants dans le Presse-papiers, puis enregistrez-les :
     * **ID de l’application**. Exemple : `11111111-1111-1111-1111-111111111111`.
@@ -59,7 +59,7 @@ Dans cet article, les termes *propriété d’extension*, *attribut personnalis�
 
 Pour activer des attributs personnalisés dans votre stratégie, fournissez l’**ID de l’application** et l’**ID d’objet** de l’application dans les métadonnées du profil technique AAD-Common. Le profil technique *AAD-Common* se trouve dans le profil technique de base [Azure Active Directory](active-directory-technical-profile.md) et prend en charge la gestion des utilisateurs Azure AD. D’autres profils techniques Azure AD incluent AAD-Common pour tirer parti de cette configuration. Remplacez le profil technique AAD-Common dans le fichier d’extension.
 
-1. Ouvrez le fichier d’extensions de votre stratégie. Par exemple <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>.
+1. Ouvrez le fichier d’extensions de votre stratégie. Par exemple <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Recherchez l’élément ClaimsProviders. Ajoutez un nouveau ClaimsProvider à l’élément ClaimsProviders.
 1. Remplacez `ApplicationObjectId` par l’ID d’objet que vous avez enregistré précédemment. Remplacez ensuite `ClientId` par l’ID d’application que vous avez enregistré précédemment dans l’extrait de code ci-dessous.
 

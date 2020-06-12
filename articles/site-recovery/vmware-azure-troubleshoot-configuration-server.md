@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 0383a512dfb7c2bb1ae2422b9ade1e3c7387a70c
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 85021af94c3cc88f45b391690d7481d5498c40a9
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478308"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84246881"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Résoudre les problèmes de serveur de configuration
 
@@ -52,6 +52,8 @@ La machine source s’inscrit auprès du serveur de configuration lorsque vous i
     b. Ouvrez le fichier de Installation_Directory/Vx/bin/uninstall.sh et commentez l’appel de la fonction **stop_services**.
     c. Ouvrez le fichier Installation_Directory/Fx/uninstall et commentez toute la section qui tente d’arrêter le service Fx.
     d. [Désinstallez](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) l’agent de mobilité. Après la désinstallation, redémarrez le système, puis tentez de réinstaller l’agent de mobilité.
+
+8. Assurez-vous que l’authentification multifacteur n’est pas activée pour le compte d’utilisateur. À ce jour, Azure Site Recovery ne prend pas en charge l’authentification multifacteur pour le compte d’utilisateur. Inscrivez le serveur de configuration sans compte d’utilisateur activé pour l’authentification multifacteur.  
 
 ## <a name="installation-failure-failed-to-load-accounts"></a>Échec de l’installation : Échec du chargement des comptes
 
@@ -203,7 +205,7 @@ En général, cela est dû à une erreur avec le port 443. Utilisez les étapes
 
 Pour vérifier que l’agent du serveur cible maître peut créer une session TCP pour l’adresse IP du serveur de configuration, recherchez une trace semblable à ce qui suit dans les journaux d’activité de l’agent du serveur cible maître :
 
-TCP \<Remplacer l’adresse IP par l’adresse IP du serveur CS ici>:52739 \<Remplacer l’adresse IP par l’adresse IP du serveur CS ici>:443 SYN_SENT 
+TCP \<Replace IP with CS IP here>:52739 \<Replace IP with CS IP here>:443 SYN_SENT 
 
 TCP    192.168.1.40:52739     192.168.1.40:443      SYN_SENT  // Remplacer l’adresse IP par l’adresse IP du serveur CS ici
 

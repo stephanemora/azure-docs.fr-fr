@@ -4,12 +4,12 @@ description: Découvrez comment installer l’extension Durable Functions pour A
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 7aa283480d95693e2630e24d5642fc7cb909b34b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: a1d0e428da18d44705f4deaf6da3299957076d87
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848758"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171393"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Créer des fonctions Durable Functions à l’aide du portail Azure
 
@@ -58,7 +58,7 @@ Si vous créez des fonctions Durable Functions JavaScript, vous devez installer 
 
    ![Exécution de la commande npm install dans Kudu](./media/durable-functions-create-portal/kudu-npm-install.png)
    
-5. Enfin, (activez le mode de compatibilité)[https://docs.microsoft.com/en-us/azure/azure-functions/durable/quickstart-js-vscode#enable-compatibility-mode-1 ] en ajoutant un paramètre d’application `FUNCTIONS_V2_COMPATIBILITY_MODE` avec la valeur `true`.
+5. Enfin, [activez le mode de compatibilité](https://docs.microsoft.com/azure/azure-functions/durable/quickstart-js-vscode#enable-compatibility-mode-1) en ajoutant un paramètre d’application `FUNCTIONS_V2_COMPATIBILITY_MODE` avec la valeur `true`.
 
 ## <a name="create-an-orchestrator-function"></a>Créer une fonction d’orchestrateur
 

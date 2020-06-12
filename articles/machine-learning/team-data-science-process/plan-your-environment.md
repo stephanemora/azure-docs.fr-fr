@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b0b811a2b7ed432b7fc5015886b28337ca33424e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2679bc8a9ddf9f748cd0e9d51e1534d120484d0c
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76710314"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267944"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Comment identifier les scénarios et planifier le traitement des données d’analyse avancée
 
@@ -75,7 +75,7 @@ Envisagez d’utiliser Azure Data Factory (ADF) lorsque les données doivent êt
 * scénario hybride impliquant à la fois des ressources locales et de cloud
 * scénario où les données sont traitées, modifiées ou changées par la logique métier au cours de la migration
 
-Pour plus d’informations, référez-vous à [Déplacement de données à partir d’un serveur SQL local vers SQL Azure avec Azure Data Factory](move-sql-azure-adf.md).
+Pour plus d’informations, référez-vous à [Déplacement de données à partir d’une base de données SQL Server vers SQL Azure avec Azure Data Factory](move-sql-azure-adf.md).
 
 ### <a name="how-much-of-the-data-is-to-be-moved-to-azure"></a>Quelle est la quantité de données à déplacer vers Azure ?
 
@@ -145,12 +145,12 @@ Il existe de nombreuses options pour les langages, les environnements de dévelo
 
 ### <a name="what-tools-should-you-use-for-data-analysis"></a>Quels outils devez-vous utiliser pour l’analyse des données ?
 
-* [Microsoft Azure Powershell](/powershell/azure/overview) : un langage de script utilisé pour administrer vos ressources Azure dans un langage de script
+* [Microsoft Azure PowerShell](/powershell/azure/overview) : un langage de script utilisé pour administrer vos ressources Azure dans un langage de script
 * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
 * [Python Tools for Visual Studio](https://aka.ms/ptvsdocs)
-* [Anaconda](https://www.continuum.io/why-anaconda)
+* [Anaconda](https://www.anaconda.com/)
 * [Blocs-notes Jupyter](https://jupyter.org/)
 * [Microsoft Power BI](https://powerbi.microsoft.com)
 

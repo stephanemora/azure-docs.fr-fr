@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: fea444f2e864683d6350e1c08872ec574a36852c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/29/2020
+ms.openlocfilehash: d879429eef68d1bc2448150e2d8eece9cfa35da2
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83646014"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204852"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guide de référence sur l’utilisation des fonctions dans les expressions pour Azure Logic Apps et Power Automate
 
@@ -73,7 +73,7 @@ Les sections suivantes organisent les fonction de langage selon leur objectif g�
 <a name="ordered-by-purpose"></a>
 <a name="string-functions"></a>
 
-## <a name="string-functions"></a>Fonctions de chaînes
+## <a name="string-functions"></a>Fonctions de chaîne
 
 Pour travailler avec des chaînes, vous pouvez utiliser ces fonctions de chaîne, ainsi que certaines [fonctions de collection](#collection-functions). Les fonctions de chaîne sont uniquement utilisables sur des chaînes.
 
@@ -120,6 +120,9 @@ Pour travailler avec des collections, généralement des tableaux, des chaînes 
 ## <a name="logical-comparison-functions"></a>Fonctions de comparaison logiques
 
 Pour travailler avec des conditions, comparer des valeurs et des résultats d’expressions, ou évaluer différents types de logique, vous pouvez utiliser ces fonctions de comparaison logiques. Pour obtenir des informations complètes sur chaque fonction, consultez la [liste alphabétique](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+> [!NOTE]
+> Si vous utilisez des fonctions ou des conditions logiques pour comparer des valeurs, les valeurs NULL sont converties en valeurs de chaînes vides (`""`). Le comportement des conditions diffère lorsque vous procédez à une comparaison à l’aide d’une chaîne vide à la place d’une valeur NULL. Pour plus d’informations, consultez la [fonction string ()](#string). 
 
 | Fonction de comparaison logique | Tâche |
 | --------------------------- | ---- |
@@ -3820,13 +3823,17 @@ string(<value>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Quelconque | Valeur à convertir |
+| <*value*> | Oui | Quelconque | La valeur à convertir. Si cette valeur est null ou prend la valeur null, la valeur est convertie en une valeur de chaîne vide (`""`). <p><p>Par exemple, si vous assignez une variable de chaîne à une propriété inexistante, à laquelle vous pouvez accéder avec l’opérateur `?`, la valeur null est convertie en chaîne vide. Toutefois, la comparaison d’une valeur NULL n’est pas identique à la comparaison d’une chaîne vide. |
 |||||
 
 | Valeur retournée | Type | Description |
 | ------------ | ---- | ----------- |
-| <*string-value*> | String | Version de type chaîne de la valeur spécifiée |
+| <*string-value*> | String | Version de type de la chaîne de la valeur spécifiée. Si le paramètre de cette *valeur* est NULL ou prend la valeur NULL, cette valeur est renvoyée en tant qu’une valeur de chaîne vide (`""`). |
 ||||
+
+
+
+
 
 *Exemple 1*
 

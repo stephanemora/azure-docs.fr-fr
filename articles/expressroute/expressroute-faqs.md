@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 085830ee1c8e7556a7c3390aaf6e638245d20324
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 882a94034831b1c710031031918e70bf3581a4a6
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745756"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266642"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -87,7 +87,6 @@ Si votre circuit ExpressRoute est activé pour le peering Microsoft Azure, vous 
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Power BI : disponible via une communauté régionale Azure, voir [ici](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) pour savoir comment déterminer la région de votre locataire Power BI.
 * Azure Active Directory
-* [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (communauté Services globaux Azure)
 * Adresses IP publiques Azure pour IaaS (machines virtuelles, passerelles de réseau virtuel, équilibreurs de charge, etc.)  
 * La plupart des autres services Azure sont également pris en charge. Vérifiez directement auprès du service que vous souhaitez utiliser s’il est pris en charge.
@@ -96,6 +95,7 @@ Si votre circuit ExpressRoute est activé pour le peering Microsoft Azure, vous 
 
 * CDN
 * Azure Front Door
+* [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * Serveur Multi-Factor Authentication (hérité)
 * Traffic Manager
 
@@ -118,7 +118,7 @@ Si vous voyez le message « Validation nécessaire », collectez le ou les doc
 Les environnements Dynamics 365 et Common Data Service (CDS) sont hébergés dans Azure. Par conséquent, les clients bénéficient de la prise en charge ExpressRoute sous-jacente des ressources Azure. Vous pouvez vous connecter à ses points de terminaison de service si votre filtre de routeur contient les régions Azure où sont hébergés les environnements Dynamics 365/CDS.
 
 > [!NOTE]
-> [ExpressRoute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium) n’est **pas** requis pour la connectivité de Dynamics 365 via Azure ExpressRoute.
+> [ExpressRoute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium) n’est **pas** nécessaire à la connectivité de Dynamics 365 via Azure ExpressRoute si le circuit ExpressRoute est déployé dans la même [région géopolitique ](https://docs.microsoft.com/azure/expressroute/expressroute-locations-providers#expressroute-locations).
 
 ## <a name="data-and-connections"></a>Données et connexions
 

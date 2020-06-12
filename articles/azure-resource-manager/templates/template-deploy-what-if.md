@@ -1,16 +1,16 @@
 ---
 title: Simulation de déploiement de modèle (préversion)
 description: Déterminez les modifications qui seront apportées à vos ressources avant de déployer un modèle Azure Resource Manager.
-author: mumian
+author: tfitzmac
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.author: jgao
-ms.openlocfilehash: 70023f4fa5d44c74c7ce14f3a2c09ff14c9d2f8c
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.date: 05/29/2020
+ms.author: tomfitz
+ms.openlocfilehash: 31ef0f26043c416ff902fe792bae064c63f15b20
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82581189"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84218293"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Opération de simulation de déploiement de modèle ARM (préversion)
 
@@ -396,6 +396,16 @@ Are you sure you want to execute the deployment?
 ```
 
 Vous voyez les modifications attendues et pouvez confirmer que vous souhaitez que le déploiement s’exécute.
+
+## <a name="sdks"></a>Kits SDK
+
+Vous pouvez utiliser l’opération de simulation par le biais des Kits de développement logiciel (SDK) Azure.
+
+* Pour Python, utilisez [what-if (simulation)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.deploymentsoperations?view=azure-python#what-if-resource-group-name--deployment-name--properties--location-none--custom-headers-none--raw-false--polling-true----operation-config-).
+
+* Pour Java, utilisez [DeploymentWhatIf Class](/java/api/com.microsoft.azure.management.resources.deploymentwhatif?view=azure-java-stable).
+
+* Pour .NET, utilisez [DeploymentWhatIf Class](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif?view=azure-dotnet).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

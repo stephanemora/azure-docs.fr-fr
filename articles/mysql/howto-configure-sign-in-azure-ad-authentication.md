@@ -6,16 +6,19 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: 1fa34deaa12400a164602d38b6b2d349a64850c6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9d607f0ad1ab9d9924cd05ce1a66bee34e4ff18d
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652253"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84229863"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Utiliser Azure Active Directory pour l’authentification avec MySQL
 
 Cet article vous détaille les étapes de configuration de l’accès à Azure Active Directory avec Azure Database pour MySQL ainsi que la manière de vous connecter à l’aide d’un jeton Azure AD.
+
+> [!IMPORTANT]
+> L’authentification Azure Active Directory est disponible uniquement pour MySQL 5.7 et versions ultérieures.
 
 ## <a name="setting-the-azure-ad-admin-user"></a>Configuration de l’utilisateur Administrateur Azure AD
 
@@ -54,21 +57,19 @@ Nous avons également testé la plupart des pilotes d’application courants. Vo
 
 Voici les étapes nécessaires à l’authentification d’un utilisateur ou d’une application avec Azure AD :
 
+### <a name="prerequisites"></a>Prérequis
+
+Vous pouvez poursuivre dans Azure Cloud Shell, une machine virtuelle Azure ou sur votre ordinateur local. Assurez-vous que [l’interface Azure CLI est installée](/cli/azure/install-azure-cli).
+
 ### <a name="step-1-authenticate-with-azure-ad"></a>Étape 1 : S’authentifier avec Azure AD
 
-Assurez-vous que [l’interface Azure CLI est installée](/cli/azure/install-azure-cli).
-
-Appelez l’outil Azure CLI pour l’authentification avec Azure AD. Pour ce faire, vous devez fournir votre ID d’utilisateur Azure AD et le mot de passe.
+Commencez par vous authentifier auprès d’Azure AD à l’aide de l’outil Azure CLI. Cette étape n’est pas obligatoire dans Azure Cloud Shell.
 
 ```
 az login
 ```
 
-Cette commande lance une fenêtre de navigateur sur la page d’authentification Azure AD.
-
-> [!NOTE]
-> Vous pouvez également utiliser Azure Cloud Shell pour exécuter ces étapes.
-> N’oubliez pas que lors de la récupération du jeton d’accès Azure AD dans Azure Cloud Shell vous devez appeler explicitement `az login` et vous reconnecter (dans la fenêtre distincte avec un code). Après cette connexion, la commande `get-access-token` fonctionne comme prévu.
+La commande lance une fenêtre de navigateur sur la page d’authentification Azure AD. Pour ce faire, vous devez fournir votre ID d’utilisateur Azure AD et le mot de passe.
 
 ### <a name="step-2-retrieve-azure-ad-access-token"></a>Étape 2 : Récupérer un jeton d’accès Azure AD
 
@@ -76,19 +77,19 @@ Appelez l’outil Azure CLI pour obtenir un jeton d’accès pour l’utilisateu
 
 Exemple (pour le cloud public) :
 
-```shell
+```azurecli-interactive
 az account get-access-token --resource https://ossrdbms-aad.database.windows.net
 ```
 
 La valeur de la ressource ci-dessus doit être spécifiée exactement comme indiqué. Pour les autres clouds, la valeur de la ressource peut être recherchée à l’aide de ce qui suit :
 
-```shell
+```azurecli-interactive
 az cloud show
 ```
 
 Pour Azure CLI version 2.0.71 et les versions ultérieures, la commande peut être spécifiée dans la version plus pratique suivante pour tous les clouds :
 
-```shell
+```azurecli-interactive
 az account get-access-token --resource-type oss-rdbms
 ```
 

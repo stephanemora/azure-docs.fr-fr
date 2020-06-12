@@ -3,12 +3,12 @@ title: Adresse IP statique pour un groupe de conteneurs
 description: Créer un groupe de conteneurs dans un réseau virtuel et utiliser une passerelle d’application Azure pour exposer une adresse IP front-end statique à une application web conteneurisée
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: 5c3a14f93af3ecc614dc296f0a4d2815d7a64a66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a27cf20b7d04fedb0b9e0ab408de24d37f2935c7
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481787"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299160"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Exposer une adresse IP statique pour un groupe de conteneurs
 
@@ -17,7 +17,7 @@ Cet article illustre une façon d’exposer une adresse IP publique statique pou
 Dans cet article, vous utilisez Azure CLI pour créer les ressources de ce scénario :
 
 * Un réseau virtuel Azure.
-* Un groupe de conteneurs déployé [sur le réseau virtuel (préversion)](container-instances-vnet.md) qui héberge une petite application web
+* Un groupe de conteneurs déployé [sur le réseau virtuel](container-instances-vnet.md) qui héberge une petite application web
 * Une passerelle d’application avec une adresse IP front-end publique, un écouteur pour héberger un site web sur la passerelle et une route vers le groupe de conteneurs back-end
 
 Tant que la passerelle d’application s’exécute et que le groupe de conteneurs expose une adresse IP privée stable dans le sous-réseau délégué du réseau, le groupe de conteneurs est accessible à cette adresse IP publique.

@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 05/28/2020
 ms.author: jgao
-ms.openlocfilehash: 24a0891b57f67bfb78cf3699bddbcf8d345ee679
-ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
+ms.openlocfilehash: e3f3301ac78480c4d8ebbf909bafcefa025ff395
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83708004"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168571"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utiliser des scripts de déploiement dans des modèles (Préversion)
 
@@ -60,7 +60,7 @@ La ressource de script de déploiement n'est disponible que dans les régions o�
   read resourceGroupName &&
   echo "Enter the managed identity name:" &&
   read idName &&
-  az identity show -g jgaoidentity1008rg -n jgaouami --query id
+  az identity show -g $resourceGroupName -n $idName --query id
   ```
 
   # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
@@ -166,7 +166,7 @@ Le modèle suivant dispose d’une ressource définie avec le type `Microsoft.Re
 :::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-54" highlight="34-40":::
 
 > [!NOTE]
-> Étant donné que les scripts de déploiement inclus sont placés entre guillemets doubles, les chaînes contenues dans les scripts de déploiement doivent être mises entre guillemets simples. Le caractère d’échappement pour PowerShell est **&#92;** . Vous pouvez également envisager d’utiliser la substitution de chaîne, comme montré dans l’exemple JSON précédent. Regardez la valeur par défaut du paramètre name.
+> Étant donné que les scripts de déploiement inclus sont placés entre guillemets doubles, les chaînes contenues dans les scripts de déploiement doivent être placées en échappement à l’aide de **&#92;** ou mises entre guillemets simples. Vous pouvez également envisager d’utiliser la substitution de chaîne, comme montré dans l’exemple JSON précédent.
 
 Le script accepte un paramètre, et génère la valeur du paramètre. **DeploymentScriptOutputs** s’utilise pour stocker les sorties.  À la section outputs, la ligne **value** montre comment accéder aux valeurs stockées. `Write-Output` s’utilise pour le débogage. Pour savoir comment accéder au fichier de sortie, consultez [Déboguer les scripts de déploiement](#debug-deployment-scripts).  Pour obtenir les descriptions des propriétés, consultez [Exemples de modèles](#sample-templates).
 
@@ -306,7 +306,20 @@ Pour afficher la ressource deploymentScripts dans le portail, sélectionnez **Af
 
 Un compte de stockage et une instance de conteneur sont nécessaires pour l’exécution et la résolution des problèmes d’un script. Vous avez le choix entre les options pour spécifier un compte de stockage existant ; sinon, le compte de stockage et l’instance de conteneur sont automatiquement créés par le service de script. Exigences requises pour l’utilisation d’un compte de stockage existant :
 
-- Les types de comptes de stockage pris en charge sont les comptes à usage général v2 et v1, ainsi que les comptes FileStorage. Seul FileStorage prend en charge la référence (SKU) Premium. Pour plus d’informations, consultez [Types de comptes de stockage](../../storage/common/storage-account-overview.md).
+- Les types de comptes de stockage pris en charge sont les suivants :
+
+    | SKU             | Genre pris en charge     |
+    |-----------------|--------------------|
+    | Premium_LRS     | FileStorage        |
+    | Premium_ZRS     | FileStorage        |
+    | Standard_GRS    | Storage, StorageV2 |
+    | Standard_GZRS   | StorageV2          |
+    | Standard_LRS    | Storage, StorageV2 |
+    | Standard_RAGRS  | Storage, StorageV2 |
+    | Standard_RAGZRS | StorageV2          |
+    | Standard_ZRS    | StorageV2          |
+
+    Ces combinaisons prennent en charge le partage de fichiers.  Pour plus d’informations, consultez[Crée un partage de fichiers Azure](../../storage/files/storage-how-to-create-file-share.md) et [Types de compte de stockage](../../storage/common/storage-account-overview.md).
 - Les règles de pare-feu de compte de stockage ne sont pas encore prises en charge. Pour plus d’informations, consultez [Configurer Pare-feu et réseaux virtuels dans Stockage Azure](../../storage/common/storage-network-security.md).
 - L’identité managée attribuée à l’utilisateur du script de déploiement doit avoir les autorisations nécessaires pour gérer le compte de stockage, y compris la lecture, la création et la suppression des partages de fichiers.
 

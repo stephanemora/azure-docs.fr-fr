@@ -3,12 +3,12 @@ title: Utiliser un serveur de sauvegarde Azure pour sauvegarder des charges de t
 description: Dans cet article, découvrez comment préparer votre environnement à la protection et à la sauvegarde des charges de travail avec le serveur de sauvegarde Microsoft Azure (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: bbe3e21840f094fbd3f34d94e7af64ca98d884df
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 2cf6d88ad37ec1368e53c7213ea771c028a56643
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83735869"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247272"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installer et mettre à niveau Azure Backup Server
 
@@ -186,9 +186,9 @@ Une fois le processus d’extraction terminé, cochez la case pour exécuter le 
 
     Utilisez les valeurs suivantes pour la configuration SSRS :
     * Compte de service : « Utiliser un compte intégré » doit être Service réseau
-    * URL du service web : « Répertoire virtuel » doit être ReportServer_\<NomInstanceSQL>
-    * Base de données : « Nom de la base de données » doit être ReportServer$\<NomInstanceSQL>
-    * URL du portail web : « Répertoire virtuel » doit être Reports_\<NomInstanceSQL>
+    * URL du service web : « Répertoire virtuel » doit être ReportServer_\<SQLInstanceName>
+    * Base de données : databasename doit être ReportServer$\<SQLInstanceName>
+    * URL du portail web : « Répertoire virtuel » doit être Reports_\<SQLInstanceName>
 
     [En savoir plus](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sur la configuration de SSRS.
 

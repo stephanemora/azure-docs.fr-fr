@@ -11,18 +11,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: bfae651dabab9c3ecebc10bbdb553b1d52e3a79a
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 872cab4575b143dea057fe7fd070b433f8d54eb9
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872955"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220336"
 ---
-# <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Synapse Analytics (anciennement Azure SQL Data Warehouse) à l’aide d’Azure Data Factory 
+# <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Synapse Analytics (anciennement Azure SQL Data Warehouse) à l’aide d’Azure Data Factory
 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
-> * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
-> * [Version actuelle](connector-azure-sql-data-warehouse.md)
+>
+> - [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
+> - [Version actuelle](connector-azure-sql-data-warehouse.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -41,11 +42,11 @@ Pour l’activité de copie, ce connecteur Azure Synapse Analytics prend en char
 
 - Copie de données à l’aide de l’authentification SQL et de l’authentification du jeton de l’application Azure Active Directory (Azure AD) avec un principal de service ou l’identité managée pour les ressources Azure.
 - En tant que source, récupération de données à l’aide d’une requête SQL ou d’une procédure stockée.
-- En tant que récepteur, chargement des données à l’aide de [PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse) ou [instruction COPY](#use-copy-statement) (préversion) ou insertion en bloc. Nous vous recommandons d’utiliser PolyBase ou l’instruction COPY (préversion) pour améliorer les performances de copie.
+- En tant que récepteur, chargement des données à l’aide de [PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse) ou [instruction COPY](#use-copy-statement) (préversion) ou insertion en bloc. Nous vous recommandons d’utiliser PolyBase ou l’instruction COPY (préversion) pour améliorer les performances de copie. Le connecteur prend également en charge la création automatique de la table de destination, si celle-ci n’existe pas, en fonction du schéma source.
 
 > [!IMPORTANT]
-> Si vous copiez des données à l’aide d’Azure Data Factory Integration Runtime, configurez un [pare-feu de serveur Azure SQL](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) de façon à ce que les services Azure puissent accéder au serveur.
-> Si vous copiez des données à l’aide d’un runtime d’intégration auto-hébergé, configurez le pare-feu du serveur Azure SQL pour autoriser la plage IP appropriée. Cette plage inclut l’adresse IP de l’ordinateur qui est utilisé pour se connecter à Azure Synapse Analytics.
+> Si vous copiez des données à l’aide d’Azure Data Factory Integration Runtime, configurez une [règle de pare-feu au niveau du serveur](../azure-sql/database/firewall-configure.md) de façon à ce que les services Azure puissent accéder au [serveur SQL logique](../azure-sql/database/logical-servers.md).
+> Si vous copiez des données à l’aide d’un runtime d’intégration auto-hébergé, configurez le pare-feu pour qu’il autorise la plage IP appropriée. Cette plage inclut l’adresse IP de l’ordinateur qui est utilisé pour se connecter à Azure Synapse Analytics.
 
 ## <a name="get-started"></a>Bien démarrer
 
@@ -107,13 +108,13 @@ Pour en savoir plus sur les autres types d’authentification, consultez les sec
         "type": "AzureSqlDW",
         "typeProperties": {
             "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": {
+                "type": "AzureKeyVaultSecret",
+                "store": {
+                    "referenceName": "<Azure Key Vault linked service name>",
+                    "type": "LinkedServiceReference"
+                },
+                "secretName": "<secretName>"
             }
         },
         "connectVia": {
@@ -130,13 +131,13 @@ Pour utiliser l’authentification du jeton d’application Azure AD basée sur 
 
 1. **[Créez une application Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)** dans le portail Azure. Prenez note du nom de l’application et des valeurs suivantes qui définissent le service lié :
 
-    - ID de l'application
-    - Clé de l'application
-    - ID client
+   - ID de l'application
+   - Clé de l'application
+   - ID client
 
-2. **[Provisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** pour votre serveur SQL Azure sur le portail Azure si ce n’est déjà fait. L’administrateur Azure AD peut être un utilisateur Azure AD ou un groupe Azure AD. Si vous accordez au groupe avec identité managée un rôle d’administrateur, ignorez les étapes 3 et 4. L’administrateur a un accès complet à la base de données.
+2. **[Aprovisionnez un administrateur Azure Active Directory](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-database)** pour votre serveur sur le portail Azure, si ce n’est pas déjà fait. L’administrateur Azure AD peut être un utilisateur Azure AD ou un groupe Azure AD. Si vous accordez au groupe avec identité managée un rôle d’administrateur, ignorez les étapes 3 et 4. L’administrateur a un accès complet à la base de données.
 
-3. **[Créez des utilisateurs de base de données autonome](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** pour le principal de service. Connectez-vous à l’entrepôt de données vers lequel ou à partir duquel vous souhaitez copier des données à l’aide d’outils tels que SSMS, avec une identité Azure AD qui a au moins l’autorisation ALTER ANY USER. Exécutez la commande T-SQL suivante :
+3. **[Créez des utilisateurs de base de données autonome](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)** pour le principal de service. Connectez-vous à l’entrepôt de données vers lequel ou à partir duquel vous souhaitez copier des données à l’aide d’outils tels que SSMS, avec une identité Azure AD qui a au moins l’autorisation ALTER ANY USER. Exécutez la commande T-SQL suivante :
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
@@ -149,7 +150,6 @@ Pour utiliser l’authentification du jeton d’application Azure AD basée sur 
     ```
 
 5. **Configurez un service lié Azure Synapse Analytics** dans Azure Data Factory.
-
 
 #### <a name="linked-service-example-that-uses-service-principal-authentication"></a>Exemple de service lié qui utilise l’authentification du principal de service
 
@@ -181,9 +181,9 @@ Une fabrique de données peut être associée à une [identité managée pour le
 
 Pour utiliser l’authentification par identité managée, effectuez les étapes suivantes :
 
-1. **[Provisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** pour votre serveur SQL Azure sur le portail Azure si ce n’est déjà fait. L’administrateur Azure AD peut être un utilisateur Azure AD ou un groupe Azure AD. Si vous accordez au groupe avec identité managée un rôle d’administrateur, ignorez les étapes 3 et 4. L’administrateur a un accès complet à la base de données.
+1. **[Aprovisionnez un administrateur Azure Active Directory](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-database)** pour votre serveur sur le portail Azure, si ce n’est pas déjà fait. L’administrateur Azure AD peut être un utilisateur Azure AD ou un groupe Azure AD. Si vous accordez au groupe avec identité managée un rôle d’administrateur, ignorez les étapes 3 et 4. L’administrateur a un accès complet à la base de données.
 
-2. **[Créer des utilisateurs de base de données autonome](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** pour l’identité managée de Data Factory. Connectez-vous à l’entrepôt de données vers lequel ou à partir duquel vous souhaitez copier des données à l’aide d’outils tels que SSMS, avec une identité Azure AD qui a au moins l’autorisation ALTER ANY USER. Exécutez le code T-SQL suivant. 
+2. **[Créer des utilisateurs de base de données autonome](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)** pour l’identité managée de Data Factory. Connectez-vous à l’entrepôt de données vers lequel ou à partir duquel vous souhaitez copier des données à l’aide d’outils tels que SSMS, avec une identité Azure AD qui a au moins l’autorisation ALTER ANY USER. Exécutez le code T-SQL suivant.
   
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
@@ -195,7 +195,7 @@ Pour utiliser l’authentification par identité managée, effectuez les étapes
     EXEC sp_addrolemember db_owner, [your Data Factory name];
     ```
 
-5. **Configurez un service lié Azure Synapse Analytics** dans Azure Data Factory.
+4. **Configurez un service lié Azure Synapse Analytics** dans Azure Data Factory.
 
 **Exemple :**
 
@@ -217,7 +217,7 @@ Pour utiliser l’authentification par identité managée, effectuez les étapes
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
+Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md).
 
 Les propriétés prises en charge pour le jeu de données Azure Synapse Analytics sont les suivantes :
 
@@ -228,7 +228,7 @@ Les propriétés prises en charge pour le jeu de données Azure Synapse Analytic
 | table | Nom de la table/vue. |Non pour Source, Oui pour Récepteur  |
 | tableName | Nom de la table/vue avec schéma. Cette propriété est prise en charge pour la compatibilité descendante. Pour les nouvelles charges de travail, utilisez `schema` et `table`. | Non pour Source, Oui pour Récepteur |
 
-#### <a name="dataset-properties-example"></a>Exemple de propriétés du jeu de données
+### <a name="dataset-properties-example"></a>Exemple de propriétés du jeu de données
 
 ```json
 {
@@ -358,7 +358,7 @@ Azure Data Factory prend en charge trois manières de charger des données dans 
 
 ![Options de copie du récepteur SQL DW](./media/connector-azure-sql-data-warehouse/sql-dw-sink-copy-options.png)
 
-- [Utiliser PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 
+- [Utiliser PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse)
 - [Utiliser l’instruction COPY (préversion)](#use-copy-statement)
 - Utiliser l’insertion en bloc
 
@@ -399,11 +399,11 @@ Pour copier des données vers Azure SQL Data Warehouse, définissez **SqlDWSink*
 
 L’utilisation de [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) est un moyen efficace de charger de grandes quantités de données dans Azure Synapse Analytics avec un débit élevé. Vous profiterez d’un gain important de débit en utilisant PolyBase au lieu du mécanisme BULKINSERT par défaut. Consultez [Charger 1 To dans Azure Synapse Analytics](v1/data-factory-load-sql-data-warehouse.md) pour obtenir une procédure pas à pas avec un cas d’utilisation.
 
-* Si votre source de données se trouve dans **Blob Azure, Azure Data Lake Storage Gen1 ou Azure Data Lake Storage Gen2**et que le **format est compatible à PolyBase**, vous pouvez utiliser l’activité de copie pour appeler directement PolyBase et permettre à Azure SQL Data Warehouse d’extraire les données à partir de la source. Pour plus d’informations, consultez **[Copie directe à l’aide de PolyBase](#direct-copy-by-using-polybase)** .
-* Si votre magasin de données source et son format ne sont pas pris en charge à l’origine par PolyBase, utilisez plutôt la fonctionnalité **[Copie intermédiaire avec PolyBase](#staged-copy-by-using-polybase)** . La fonctionnalité de copie intermédiaire offre également un meilleur débit. Elle convertit automatiquement les données dans un format compatible avec PolyBase, stocke les données dans le Stockage Blob Azure, puis appelle PolyBase pour charger les données dans SQL Data Warehouse.
+- Si votre source de données se trouve dans **Blob Azure, Azure Data Lake Storage Gen1 ou Azure Data Lake Storage Gen2**et que le **format est compatible à PolyBase**, vous pouvez utiliser l’activité de copie pour appeler directement PolyBase et permettre à Azure SQL Data Warehouse d’extraire les données à partir de la source. Pour plus d’informations, consultez **[Copie directe à l’aide de PolyBase](#direct-copy-by-using-polybase)** .
+- Si votre magasin de données source et son format ne sont pas pris en charge à l’origine par PolyBase, utilisez plutôt la fonctionnalité **[Copie intermédiaire avec PolyBase](#staged-copy-by-using-polybase)** . La fonctionnalité de copie intermédiaire offre également un meilleur débit. Elle convertit automatiquement les données dans un format compatible avec PolyBase, stocke les données dans le Stockage Blob Azure, puis appelle PolyBase pour charger les données dans SQL Data Warehouse.
 
->[!TIP]
->Apprenez-en plus sur les [Bonnes pratiques d’utilisation de PolyBase](#best-practices-for-using-polybase).
+> [!TIP]
+> Apprenez-en plus sur les [Bonnes pratiques d’utilisation de PolyBase](#best-practices-for-using-polybase).
 
 Les paramètres PolyBase suivants sont pris en charge sous `polyBaseSettings` dans l’activité de copie :
 
@@ -432,7 +432,7 @@ Si les critères ne sont pas remplis, Azure Data Factory contrôle les paramètr
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Authentification par clé de compte, l’authentification d’une identité gérée |
 
     >[!IMPORTANT]
-    >Si votre stockage Azure est configuré avec le point de terminaison de service réseau virtuel, vous devez utiliser l’authentification d’identité gérée. Consultez [Impact de l’utilisation des points de terminaison de service de réseau virtuel avec le stockage Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Découvrez les configurations requises dans Data Factory dans les sections [Blob Azure - authentification de l’identité gérée](connector-azure-blob-storage.md#managed-identity) et [Azure Data Lake Storage Gen2 - authentification de l’identité gérée](connector-azure-data-lake-storage.md#managed-identity).
+    >Si votre stockage Azure est configuré avec le point de terminaison de service réseau virtuel, vous devez utiliser l’authentification d’identité gérée. Consultez [Impact de l’utilisation des points de terminaison de service de réseau virtuel avec le stockage Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Découvrez les configurations requises dans Data Factory dans les sections [Blob Azure - authentification de l’identité gérée](connector-azure-blob-storage.md#managed-identity) et [Azure Data Lake Storage Gen2 - authentification de l’identité gérée](connector-azure-data-lake-storage.md#managed-identity).
 
 2. Le **format de données source** est **Parquet**, **ORC**, ou **Texte délimité**, avec les configurations suivantes :
 
@@ -492,7 +492,7 @@ Lorsque vos données sources ne sont pas compatibles en mode natif avec PolyBase
 Pour utiliser cette fonctionnalité, créez un [service lié au Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties) qui fait référence au compte de stockage Azure avec le stockage Blob intermédiaire. Spécifiez ensuite les propriétés `enableStaging` et `stagingSettings` de l’activité de copie comme indiqué dans le code suivant :
 
 >[!IMPORTANT]
->Si votre stockage Azure est configuré avec le point de terminaison de service réseau virtuel, vous devez utiliser l’authentification d’identité gérée. Consultez [Impact de l’utilisation des points de terminaison de service de réseau virtuel avec le stockage Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Découvrez les configurations requises dans Data Factory à partir de [Blob Azure - authentification de l’identité gérée](connector-azure-blob-storage.md#managed-identity).
+>Si votre stockage Azure est configuré avec le point de terminaison de service réseau virtuel, vous devez utiliser l’authentification d’identité gérée. Consultez [Impact de l’utilisation des points de terminaison de service de réseau virtuel avec le stockage Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Découvrez les configurations requises dans Data Factory à partir de [Blob Azure - authentification de l’identité gérée](connector-azure-blob-storage.md#managed-identity).
 
 ```json
 "activities":[
@@ -562,7 +562,7 @@ ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data typ
 ```
 
 La solution consiste à désélectionner l’option « **Utiliser l’option de type par défaut** » (false) dans Récepteur d’activité de copie -> Paramètres de PolyBase. « [USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
-) » est une configuration native PolyBase qui spécifie comment gérer les valeurs manquantes dans les fichiers texte délimités quand PolyBase extrait des données à partir du fichier texte. 
+) » est une configuration native PolyBase qui spécifie comment gérer les valeurs manquantes dans les fichiers texte délimités quand PolyBase extrait des données à partir du fichier texte.
 
 **`tableName` dans Azure Synapse Analytics**
 
@@ -610,7 +610,7 @@ L’utilisation de l’instruction COPY prend en charge la configuration suivant
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | [Texte délimité](format-delimited-text.md)<br/>[Parquet](format-parquet.md)<br/>[ORC](format-orc.md) | Authentification avec clé de compte, authentification avec principal du service, authentification avec identité managée |
 
     >[!IMPORTANT]
-    >Si votre stockage Azure est configuré avec le point de terminaison de service réseau virtuel, vous devez utiliser l’authentification d’identité gérée. Consultez [Impact de l’utilisation des points de terminaison de service de réseau virtuel avec le stockage Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Découvrez les configurations requises dans Data Factory dans les sections [Blob Azure - authentification de l’identité gérée](connector-azure-blob-storage.md#managed-identity) et [Azure Data Lake Storage Gen2 - authentification de l’identité gérée](connector-azure-data-lake-storage.md#managed-identity).
+    >Si votre stockage Azure est configuré avec le point de terminaison de service réseau virtuel, vous devez utiliser l’authentification d’identité gérée. Consultez [Impact de l’utilisation des points de terminaison de service de réseau virtuel avec le stockage Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Découvrez les configurations requises dans Data Factory dans les sections [Blob Azure - authentification de l’identité gérée](connector-azure-blob-storage.md#managed-identity) et [Azure Data Lake Storage Gen2 - authentification de l’identité gérée](connector-azure-data-lake-storage.md#managed-identity).
 
 2. Les paramètres du format sont comme suit :
 
@@ -624,7 +624,7 @@ L’utilisation de l’instruction COPY prend en charge la configuration suivant
       5. `skipLineCount` conserve sa valeur par défaut ou est défini sur 0.
       6. `compression` peut être **sans compression** ou **GZip**.
 
-3. Si votre source est un dossier, `recursive` dans l’activité de copie doit être défini sur true, et `wildcardFilename` doit être `*`. L’instruction COPY récupère tous les fichiers du dossier et de tous ses sous-dossiers, et ignore les dossiers masqués ainsi que les fichiers qui commencent par un trait de soulignement (_) ou un point (.), sauf spécification explicite dans le chemin d’accès. 
+3. Si votre source est un dossier, `recursive` dans l’activité de copie doit être défini sur true, et `wildcardFilename` doit être `*`. 
 
 4. `wildcardFolderPath` , `wildcardFilename` (autre que `*`), `modifiedDateTimeStart`, `modifiedDateTimeEnd` et `additionalColumns` ne sont pas spécifiés.
 
@@ -662,17 +662,17 @@ Les paramètres de l’instruction COPY suivants sont pris en charge sous `allow
             },
             "sink": {
                 "type": "SqlDWSink",
-                "allowCopyCommand": true, 
+                "allowCopyCommand": true,
                 "copyCommandSettings": {
-                    "defaultValues": [ 
-                        { 
-                            "columnName": "col_string", 
-                            "defaultValue": "DefaultStringValue" 
+                    "defaultValues": [
+                        {
+                            "columnName": "col_string",
+                            "defaultValue": "DefaultStringValue"
                         }
                     ],
-                    "additionalOptions": { 
-                        "MAXERRORS": "10000", 
-                        "DATEFORMAT": "'ymd'" 
+                    "additionalOptions": {
+                        "MAXERRORS": "10000",
+                        "DATEFORMAT": "'ymd'"
                     }
                 }
             },
@@ -682,39 +682,28 @@ Les paramètres de l’instruction COPY suivants sont pris en charge sous `allow
 ]
 ```
 
-
-## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
-
-Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
-
-## <a name="getmetadata-activity-properties"></a>Propriétés de l’activité GetMetadata
-
-Pour en savoir plus sur les propriétés, consultez [Activité GetMetadata](control-flow-get-metadata-activity.md). 
-
-## <a name="data-type-mapping-for-azure-sql-data-warehouse"></a>Mappage de type de données pour Azure SQL Data Warehouse
-
 ## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
 
 Lors de la transformation de données dans le flux de données de mappage, vous pouvez lire et écrire dans des tables à partir d’Azure Synapse Analytics. Pour plus d’informations, consultez la [transformation de la source](data-flow-source.md) et la [transformation du récepteur](data-flow-sink.md) dans le flux de données de mappage.
 
 ### <a name="source-transformation"></a>Transformation de la source
 
-Les paramètres spécifiques à Azure Synapse Analytics sont disponibles dans l’onglet **Options de la source** de la transformation de la source. 
+Les paramètres spécifiques à Azure Synapse Analytics sont disponibles dans l’onglet **Options de la source** de la transformation de la source.
 
 **Entrée :** Indiquez si votre source pointe vers une table (ce qui correspond à ```Select * from <table-name>```) ou si vous souhaitez entrer une requête SQL personnalisée.
 
-**Requête** : Si vous sélectionnez Requête dans le champ Entrée, entrez une requête SQL pour votre source. Ce paramètre remplace toute table que vous avez choisie dans le jeu de données. Les clauses **Order By** ne sont pas prises en charge ici, mais vous pouvez définir une instruction SELECT FROM complète. Vous pouvez également utiliser des fonctions de table définies par l’utilisateur. **select * from udfGetData()** est une fonction UDF dans SQL qui retourne une table. Cette requête génère une table source que vous pouvez utiliser dans votre flux de données. L’utilisation de requêtes est également un excellent moyen de réduire les lignes pour les tests ou les recherches. 
+**Requête** : Si vous sélectionnez Requête dans le champ Entrée, entrez une requête SQL pour votre source. Ce paramètre remplace toute table que vous avez choisie dans le jeu de données. Les clauses **Order By** ne sont pas prises en charge ici, mais vous pouvez définir une instruction SELECT FROM complète. Vous pouvez également utiliser des fonctions de table définies par l’utilisateur. **select * from udfGetData()** est une fonction UDF dans SQL qui retourne une table. Cette requête génère une table source que vous pouvez utiliser dans votre flux de données. L’utilisation de requêtes est également un excellent moyen de réduire les lignes pour les tests ou les recherches.
 
-* Exemple SQL : ```Select * from MyTable where customerId > 1000 and customerId < 2000```
+Exemple SQL : ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
 **Taille du lot** : entrez la taille de lot que doivent avoir les lectures créées à partir d’un large volume de données. Dans les flux de données, ADF utilise ce paramètre pour définir la mise en cache en colonnes Spark. Il s’agit d’un champ facultatif qui utilise les valeurs par défaut de Spark s’il est laissé vide.
 
 **Niveaux d’isolement** : La valeur par défaut pour les sources SQL dans le flux de données de mappage est Lecture non validée. Vous pouvez remplacer ici le niveau d’isolement par l’une des valeurs suivantes :
-* Lecture validée
-* Lecture non validée
-* Lecture renouvelée
-* Sérialisable
-* Aucun (ignorer le niveau d’isolement)
+
+- Lecture validée
+- Lecture non validée
+- Lecture renouvelée
+- Sérialisable * - Aucun (ignorer le niveau d’isolement)
 
 ![Niveaux d’isolement](media/data-flow/isolationlevel.png "Niveau d’isolation")
 
@@ -725,9 +714,10 @@ Les paramètres spécifiques à Azure Synapse Analytics sont disponibles dans l�
 **Méthode de mise à jour** : détermine les opérations autorisées sur la destination de votre base de données. Par défaut, seules les insertions sont autorisées. Pour mettre à jour, effectuer un upsert ou supprimer des lignes, une transformation alter-row est requise afin de baliser les lignes relatives à ces actions. Pour les mises à jour, les opérations upsert et les suppressions, une ou plusieurs colonnes clés doivent être définies pour déterminer la ligne à modifier.
 
 **Action table :** Détermine si toutes les lignes de la table de destination doivent être recréées ou supprimées avant l’écriture.
-* Aucune : Aucune action ne sera effectuée sur la table.
-* Recréer : La table sera supprimée et recréée. Obligatoire en cas de création dynamique d’une nouvelle table.
-* Tronquer : Toutes les lignes de la table cible seront supprimées.
+
+- Aucune : Aucune action ne sera effectuée sur la table.
+- Recréer : La table sera supprimée et recréée. Obligatoire en cas de création dynamique d’une nouvelle table.
+- Tronquer : Toutes les lignes de la table cible seront supprimées.
 
 **Activer le mode intermédiaire :** Détermine s’il faut ou non utiliser [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15) lors de l’écriture dans Azure Synapse Analytics
 
@@ -736,6 +726,14 @@ Les paramètres spécifiques à Azure Synapse Analytics sont disponibles dans l�
 **Pré et post-scripts SQL** : Entrez des scripts SQL multilignes qui s’exécutent avant (prétraitement) et après (post-traitement) l’écriture de données dans votre base de données de réception.
 
 ![Pré et post-scripts de traitement SQL](media/data-flow/prepost1.png "Scripts de traitement SQL")
+
+## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
+
+Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
+
+## <a name="getmetadata-activity-properties"></a>Propriétés de l’activité GetMetadata
+
+Pour en savoir plus sur les propriétés, consultez [Activité GetMetadata](control-flow-get-metadata-activity.md).
 
 ## <a name="data-type-mapping-for-azure-synapse-analytics"></a>Mappage de type de données pour Azure Synapse Analytics
 
@@ -775,4 +773,5 @@ Quand vous copiez des données depuis ou vers Azure Synapse Analytics, les mappa
 | varchar                               | String, Char[]                 |
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -9,23 +9,23 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 6acf9301367ae2c6947f6935c43f420d3d7cac65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fb9e12f29c148ea6854dde57456d8cf796cc8c34
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655013"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994066"
 ---
 # <a name="migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrer Azure Active Directory Domain Services depuis le modèle de réseau virtuel classique vers Resource Manager
 
 Azure Active Directory Domain Services (AD DS) prend en charge un unique déplacement des clients utilisant actuellement le modèle de réseau virtuel classique vers le modèle de réseau virtuel Resource Manager. Les domaines managés Azure AD DS qui utilisent le modèle de déploiement Resource Manager offrent des fonctionnalités supplémentaires telles que la stratégie de mot de passe affinée, les journaux d’audit et la protection par verrouillage de compte.
 
-Cet article décrit les avantages et les considérations à prendre en compte pour la migration, ainsi que les étapes nécessaires pour réussir la migration d’une instance Azure AD DS existante.
+Cet article décrit les considérations à prendre en compte pour la migration, ainsi que les étapes nécessaires pour réussir la migration d’une instance Azure AD DS existante. Pour découvrir une partie des avantages, consultez [Avantages de la migration du modèle de déploiement Classic vers le modèle de déploiement Resource Manager dans Azure AD DS][migration-benefits].
 
 > [!NOTE]
 > En 2017, le service Azure AD Domain Services est devenu disponible pour l’hébergement dans un réseau Azure Resource Manager. Depuis lors, nous avons pu créer un service plus sécurisé utilisant les fonctionnalités modernes d’Azure Resource Manager. Étant donné que les déploiements d’Azure Resource Manager remplacent entièrement les déploiements d’Azure Classic, les déploiements de réseau virtuel Classic d’Azure AD DS seront mis hors service le 1er mars 2023.
 >
-> Pour plus d’informations, voir l’[avis de désapprobation officiel](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
+> Pour plus d’informations, consultez l’[annonce de dépréciation officielle](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/).
 
 ## <a name="overview-of-the-migration-process"></a>Vue d’ensemble du processus de migration
 
@@ -40,21 +40,6 @@ Au cours de l’étape de *préparation*, Azure AD DS effectue une sauvegarde du
 Dans l’étape de *migration*, les disques virtuels sous-jacents des contrôleurs de domaine du domaine managé Azure AD DS classique sont copiés en vue de créer les machines virtuelles à l’aide du modèle de déploiement Resource Manager. Le domaine managé Azure AD DS est ensuite recréé, ce qui comprend la configuration DNS et LDAPS. La synchronisation avec Azure AD est redémarrée, et les certificats LDAP sont restaurés. Il n’est pas nécessaire de rattacher des machines à un domaine managé Azure AD DS ; elles continuent d’être jointes au domaine managé et à s’exécuter sans modification.
 
 ![Migration d’Azure AD DS](media/migrate-from-classic-vnet/migration-process.png)
-
-## <a name="migration-benefits"></a>Avantages de la migration
-
-Lorsque vous déplacez un domaine managé Azure AD DS à l’aide de ce processus de migration, vous n’êtes pas obligé de rattacher les machines au domaine managé, ou de supprimer l’instance Azure AD DS pour en créer une entièrement nouvelle. Les machines virtuelles restent jointes au domaine managé Azure AD DS à la fin du processus de migration.
-
-À l’issue de la migration, Azure AD DS fournit de nombreuses fonctionnalités qui sont uniquement disponibles pour les domaines utilisant des réseaux virtuels Resource Manager, par exemple :
-
-* Prise en charge de la stratégie de mot de passe affinée
-* Protection par verrouillage de compte Active Directory
-* Notifications par e-mail des alertes sur le domaine managé AD DS
-* Journaux d’audit avec Azure Monitor
-* Intégration d’Azure Files
-* Intégration de HD Insights
-
-Les domaines managés Azure AD DS utilisant un réseau virtuel Resource Manager vous permettent de rester à jour en profitant des fonctionnalités les plus récentes. La dépréciation de la prise en charge d’Azure AD DS à l’aide des réseaux virtuels classiques est programmée.
 
 ## <a name="example-scenarios-for-migration"></a>Exemples de scénarios de migration
 
@@ -367,6 +352,7 @@ Une fois la migration de votre domaine managé Azure AD DS effectuée vers le mo
 [troubleshoot-sign-in]: troubleshoot-sign-in.md
 [tshoot-ldaps]: tshoot-ldaps.md
 [get-credential]: /powershell/module/microsoft.powershell.security/get-credential
+[migration-benefits]: concepts-migration-benefits.md
 
 <!-- EXTERNAL LINKS -->
 [powershell-script]: https://www.powershellgallery.com/packages/Migrate-Aadds/

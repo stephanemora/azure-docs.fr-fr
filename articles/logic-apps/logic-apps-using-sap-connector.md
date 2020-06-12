@@ -5,16 +5,16 @@ services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: 39ab222f64d964e95b16e043c9cdeccd8170ace3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 557e162d9d7f0238d5554c32cb3ae96885877dbe
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651013"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220501"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Se connecter aux systèmes SAP à partir d’Azure Logic Apps
 
@@ -28,12 +28,12 @@ Cet article explique comment accéder à vos ressources SAP locales à partir d�
 Le connecteur SAP utilise la [bibliothèque NCo (.NET Connector) SAP](https://support.sap.com/en/product/connectors/msnet.html) et fournit les actions suivantes :
 
 * **Envoyer un message à SAP** : envoyer un IDoc sur tRFC, appeler des fonctions BAPI sur RFC ou appeler RFC/tRFC dans des systèmes SAP.
+
 * **Quand un message est reçu de SAP** : recevoir un IDoc sur tRFC, appeler des fonctions BAPI sur tRFC ou appeler RFC/tRFC dans des systèmes SAP.
+
 * **Générer des schémas** : générer des schémas pour les artefacts SAP pour IDoc, BAPI ou RFC.
 
 Pour ces opérations, le connecteur SAP prend en charge l’authentification de base via un nom d’utilisateur et un mot de passe. Le connecteur prend également en charge [Secure Network Communications (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true). SNC peut être utilisé pour l’authentification unique SAP NetWeaver ou pour des fonctionnalités de sécurité supplémentaires fournies par un produit de sécurité externe.
-
-Le connecteur SAP s’intègre aux systèmes SAP locaux via la [passerelle de données locale](../logic-apps/logic-apps-gateway-connection.md). Dans les scénarios d’envoi, par exemple lors de l’envoi d’un message depuis une application logique à un système SAP, la passerelle de données agit comme un client RFC et transfère les demandes reçues de l’application logique à SAP. De même, dans les scénarios de réception, la passerelle de données agit en tant que serveur RFC qui reçoit des demandes de SAP et les transfère à l’application logique.
 
 Cet article explique comment créer des exemples d’applications logiques qui s’intègrent à SAP en couvrant les scénarios d’intégration décrits précédemment. Pour les applications logiques qui utilisent les connecteurs SAP plus anciens, cet article montre comment migrer vos applications logiques vers le connecteur SAP le plus récent.
 
@@ -49,27 +49,121 @@ Pour suivre cet article, vous avez besoin de ces éléments :
 
 * Votre [serveur d’applications SAP](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) ou [serveur de messagerie SAP](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm).
 
-* Téléchargez et installez la dernière [passerelle de données locale](https://www.microsoft.com/download/details.aspx?id=53127) sur n’importe quel ordinateur local. Assurez-vous de configurer votre passerelle dans le portail Azure avant de continuer. La passerelle vous permet d’accéder en toute sécurité aux données et ressources locales. Pour plus d’informations, consultez [Installer une passerelle de données locale pour Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
-
-* Si vous utilisez SNC avec l’authentification unique, assurez-vous que la passerelle s’exécute en tant qu’utilisateur qui est mappé à l’utilisateur SAP. Pour modifier le compte par défaut, sélectionnez **Changer de compte**, puis entrez les informations d’identification de l’utilisateur.
-
-  ![Modifier le compte de passerelle](./media/logic-apps-using-sap-connector/gateway-account.png)
-
-* Si vous activez SNC avec un produit de sécurité externe, copiez la bibliothèque SNC ou les fichiers sur le même ordinateur sur lequel la passerelle est installée. [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos et NTLM sont des exemples de produits SNC.
-
-* Téléchargez et installez la bibliothèque de client SAP la plus récente, actuellement [Connecteur SAP (NCo 3.0) pour Microsoft .NET 3.0.22.0 compilée avec .NET Framework 4.0 - Windows 64 bits (x64)](https://softwaredownloads.sap.com/file/0020000001000932019), sur le même ordinateur que la passerelle de données locale. Installez cette version ou une version ultérieure pour ces raisons :
-
-  * Les versions antérieures du NCo SAP peuvent subir un interblocage quand plusieurs messages IDoc sont envoyés en même temps. Cette situation bloque tous les messages envoyés ultérieurement à la destination SAP, ce qui engendre une expiration des messages.
-  
-  * La passerelle de données locale s’exécute uniquement sur les systèmes 64 bits. Dans le cas contraire, vous obtenez une erreur « image incorrecte », car le service hôte de la passerelle de données ne prend pas en charge les assemblys 32 bits.
-  
-  * Le service hôte de la passerelle de données et l’adaptateur SAP Microsoft utilisent tous deux .NET Framework 4.5. Le NCo SAP pour .NET Framework 4.0 fonctionne avec les processus qui utilisent un runtime .NET 4.0 à 4.7.1. Le NCo SAP pour .NET Framework 2.0 fonctionne avec les processus qui utilisent un runtime .NET 2.0 à 3.5, mais ne fonctionne plus avec la passerelle de données locale la plus récente.
-
 * Le contenu du message que vous pouvez envoyer à votre serveur SAP, comme un exemple de fichier IDoc, doit être au format XML et inclure l’espace de noms pour l’action SAP que vous souhaitez utiliser.
+
+* Pour utiliser le déclencheur **Quand un message est reçu de SAP**, vous devez également effectuer les étapes de configuration suivantes :
+
+  * Configurez les autorisations de sécurité de votre passerelle SAP avec ce paramètre :
+
+    `"TP=Microsoft.PowerBI.EnterpriseGateway HOST=<gateway-server-IP-address> ACCESS=*"`
+
+  * Configurez la journalisation de sécurité de votre passerelle SAP, qui permet de rechercher les erreurs de liste de contrôle d’accès (ACL, access-control list) et n’est pas activée par défaut. Dans le cas contraire, vous recevez l’erreur suivante :
+
+    `"Registration of tp Microsoft.PowerBI.EnterpriseGateway from host <host-name> not allowed"`
+
+    Pour plus d’informations, consultez la rubrique d’aide SAP [Configuration de la journalisation de la passerelle](https://help.sap.com/erp_hcm_ias2_2015_02/helpdata/en/48/b2a710ca1c3079e10000000a42189b/frameset.htm).
+
+<a name="multi-tenant"></a>
+
+### <a name="multi-tenant-azure-prerequisites"></a>Conditions préalables pour une instance Azure mutualisée
+
+Ces conditions préalables s’appliquent lorsque vos applications logiques s’exécutent dans une instance Azure mutualisée et que vous souhaitez utiliser le connecteur SAP managé, qui ne s’exécute pas en mode natif dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Dans le cas contraire, si vous utilisez un ISE de niveau Premium et souhaitez utiliser le connecteur SAP qui s’exécute en mode natif dans l’ISE, consultez [Conditions préalables de l’environnement de service d’intégration (ISE)](#sap-ise).
+
+Le connecteur SAP managé (non-ISE) s’intègre aux systèmes SAP locaux via la [passerelle de données locale](../logic-apps/logic-apps-gateway-connection.md). Par exemple, dans les scénarios d’envoi de messages, lorsqu’un message est envoyé d’une application logique à un système SAP, la passerelle de données agit comme un client RFC et transfère les demandes reçues de l’application logique à SAP. De même, dans les scénarios de réception de messages, la passerelle de données agit en tant que serveur RFC qui reçoit des demandes de SAP et les transfère à l’application logique.
+
+* [Téléchargez et installez la passerelle de données locale](../logic-apps/logic-apps-gateway-install.md) sur votre ordinateur local. Ensuite, [créez une ressource de passerelle Azure](../logic-apps/logic-apps-gateway-connection.md#create-azure-gateway-resource) pour cette passerelle dans le portail Azure. La passerelle vous permet d’accéder en toute sécurité aux données et ressources locales.
+
+  Comme meilleure pratique, nous vous recommandons d’utiliser une version prise en charge de la passerelle de données locale. Microsoft publie une nouvelle version chaque mois. Actuellement, Microsoft prend en charge les six dernières versions. Si vous rencontrez un problème avec votre passerelle, essayez de[la mettre à niveau vers la dernière version](https://aka.ms/on-premises-data-gateway-installer), qui peut inclure des mises à jour pour résoudre votre problème.
+
+* [Téléchargez et installez la dernière bibliothèque de client SAP](#sap-client-library-prerequisites) sur le même ordinateur que la passerelle de données locale.
+
+<a name="sap-ise"></a>
+
+### <a name="integration-service-environment-ise-prerequisites"></a>Conditions préalables pour l’environnement de service d’intégration (ISE)
+
+Ces conditions préalables s’appliquent lorsque vos applications logiques s’exécutent dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) au niveau Premium (et non au niveau du développeur) et que vous souhaitez utiliser le connecteur SAP qui s’exécute en mode natif dans un ISE. Un ISE fournit un accès aux ressources protégées par un réseau virtuel Azure et offre d’autres connecteurs ISE natifs qui permettent aux applications logiques d’accéder directement à des ressources locales sans utiliser la passerelle de données locale.
+
+> [!NOTE]
+> Bien que le connecteur ISE SAP soit visible au sein d’un ISE au niveau du développeur, les tentatives d’installation du connecteur échouent.
+
+1. Si vous ne disposez pas déjà d’un compte de stockage Azure et d’un conteneur d’objets blob, créez ce conteneur à l’aide du [portail Azure](../storage/blobs/storage-quickstart-blobs-portal.md) ou d’[Explorateur Stockage Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
+
+1. [Téléchargez et installez la dernière bibliothèque de client SAP](#sap-client-library-prerequisites) sur votre ordinateur local. Vous devez disposer des fichiers d’assembly suivants :
+
+   * libicudecnumber.dll
+   * rscp4n.dll
+   * sapnco.dll
+   * sapnco_utils.dll
+
+1. Créez un fichier .zip qui comprend ces assemblys et chargez ce package dans votre conteneur d’objets blob dans Stockage Azure.
+
+1. Dans le portail Azure ou Explorateur Stockage Azure, accédez à l’emplacement du conteneur dans lequel vous avez chargé le fichier .zip.
+
+1. Copiez l’URL de cet emplacement, en veillant à inclure le jeton de signature d’accès partagé.
+
+   Dans le cas contraire, le jeton de signature d’accès partagé n’est pas autorisé et le déploiement du connecteur ISE SAP échoue.
+
+1. Avant de pouvoir utiliser le connecteur ISE SAP, vous devez installer et déployer le connecteur dans votre ISE.
+
+   1. Dans le [portail Azure](https://portal.azure.com), recherchez et ouvrez votre ISE.
+   
+   1. Dans le menu ISE, sélectionnez **Connecteurs managés** > **Ajouter**. Dans la liste des connecteurs, recherchez et sélectionnez **SAP**.
+   
+   1. Dans le volet **Ajouter un nouveau connecteur managé**, dans la zone **Package SAP**, collez l’URL du fichier .zip qui contient les assemblys SAP. *Veillez à inclure le jeton de signature d’accès partagé.*
+
+   1. Sélectionnez **Créer** lorsque vous avez terminé.
+
+   Pour plus d’informations, consultez [Ajouter des connecteurs ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment).
+
+1. Si votre instance SAP et votre ISE se trouvent dans des réseaux virtuels différents, vous devez également [associer ces réseaux par Peering](../virtual-network/tutorial-connect-virtual-networks-portal.md) afin que le réseau virtuel de votre ISE soit connecté au réseau virtuel de votre instance SAP.
+
+<a name="sap-client-library-prerequisites"></a>
+
+### <a name="sap-client-library-prerequisites"></a>Conditions préalables pour la bibliothèque de client SAP
+
+* Veillez à installer la dernière version du [connecteur SAP (NCo 3.0) pour Microsoft .NET 3.0.22.0 compilé avec .NET Framework 4.0 – Windows 64 bits (x64)](https://softwaredownloads.sap.com/file/0020000001000932019). Les versions antérieures peuvent entraîner des problèmes de compatibilité. Pour plus d’informations, consultez [les versions de la bibliothèque de client SAP](#sap-library-versions).
+
+* Par défaut, le programme d’installation SAP place les fichiers d’assembly dans le dossier d’installation par défaut. Vous devez copier ces fichiers d’assembly vers un autre emplacement, en fonction de votre scénario, comme suit :
+
+  Pour les applications logiques qui s’exécutent dans un ISE, suivez les étapes décrites dans les [conditions préalables pour l’environnement de service d’intégration](#sap-ise). Pour les applications logiques qui s’exécutent dans une instance Azure mutualisée et utilisent la passerelle de données locale, copiez les fichiers d’assembly du dossier d’installation par défaut vers le dossier d’installation de la passerelle de données. Si vous rencontrez des problèmes avec la passerelle de données, passez en revue les points suivants :
+
+  * Vous devez installer la version 64 bits pour la bibliothèque de client SAP, car la passerelle de données s’exécute uniquement sur des systèmes 64 bits. Dans le cas contraire, vous obtenez une erreur « image incorrecte », car le service hôte de la passerelle de données ne prend pas en charge les assemblys 32 bits.
+
+  * Si votre connexion SAP échoue avec le message d’erreur « Vérifiez vos informations de compte et vos autorisations, puis réessayez », les fichiers d’assembly peuvent se trouver au mauvais emplacement. Veillez à copier les fichiers d’assembly dans le dossier d’installation de la passerelle de données.
+
+    Pour vous aider à résoudre le problèmes, [utilisez la visionneuse du journal de liaison d’assembly .NET](https://docs.microsoft.com/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer), qui vous permet de vérifier que les fichiers d’assembly se trouvent à l’emplacement approprié. Si vous le souhaitez, vous pouvez sélectionner l’option **Inscription du Global Assembly Cache** lors de l’installation de la bibliothèque de client SAP.
+
+<a name="sap-library-versions"></a>
+
+#### <a name="sap-client-library-versions"></a>Versions de la bibliothèque de client SAP
+
+Les versions antérieures du NCo SAP peuvent subir un interblocage quand plusieurs messages IDoc sont envoyés en même temps. Cette situation bloque tous les messages envoyés ultérieurement à la destination SAP, ce qui engendre une expiration des messages.
+
+Voici les relations entre la bibliothèque de client SAP, le .NET Framework, le runtime .NET et la passerelle :
+
+* L’adaptateur SAP Microsoft et le service hôte de la passerelle utilisent tous deux .NET Framework 4.5.
+
+* Le NCo SAP pour .NET Framework 4.0 fonctionne avec les processus qui utilisent un runtime .NET 4.0 à 4.7.1.
+
+* Le NCo SAP pour .NET Framework 2.0 fonctionne avec les processus qui utilisent un runtime .NET 2.0 à 3.5, mais ne fonctionne plus avec la passerelle la plus récente.
+
+### <a name="secure-network-communications-prerequisites"></a>Conditions préalables pour Secure Network Communications
+
+Si vous utilisez la passerelle de données locale avec la couche logicielle Secure Network Communications (SNC) facultative, qui est prise en charge uniquement dans une instance Azure mutualisée, vous devez également configurer ces paramètres :
+
+* Si vous utilisez SNC avec l’authentification unique (SSO), assurez-vous que la passerelle de données s’exécute en tant qu’utilisateur mappé à l’utilisateur SAP. Pour modifier le compte par défaut, sélectionnez **Changer de compte**, puis entrez les informations d’identification de l’utilisateur.
+
+  ![Modifier le compte de la passerelle de données](./media/logic-apps-using-sap-connector/gateway-account.png)
+
+* Si vous activez SNC avec un produit de sécurité externe, copiez la bibliothèque ou les fichiers SNC sur le même ordinateur que celui sur lequel la passerelle de données est installée. [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos et NTLM sont des exemples de produits SNC.
+
+Pour plus d’informations sur l’activation de SNC pour la passerelle de données, consultez [Activer Secure Network Communications](#secure-network-communications).
 
 <a name="migrate"></a>
 
 ## <a name="migrate-to-current-connector"></a>Migrer vers le connecteur actuel
+
+Pour migrer d’un connecteur SAP (non ISE) managé antérieur vers le connecteur SAP managé actuel, procédez comme suit :
 
 1. Si vous ne l’avez pas déjà fait, mettez à jour votre [passerelle de données locale](https://www.microsoft.com/download/details.aspx?id=53127) afin de disposer de la version la plus récente. Pour plus d’informations, consultez [Installer une passerelle de données locale pour Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
 
@@ -88,6 +182,9 @@ Cet exemple utilise une application logique que vous pouvez déclencher à l’a
 ### <a name="add-an-http-request-trigger"></a>Ajouter un déclencheur de requête HTTP
 
 Dans Azure Logic Apps, chaque application logique doit démarrer avec un [déclencheur](../logic-apps/logic-apps-overview.md#logic-app-concepts), qui s’active lorsqu’un événement spécifique se produit ou lorsqu’une condition particulière est remplie. Chaque fois que le déclencheur s’active, le moteur Logic Apps crée une instance d’application logique et lance l’exécution du flux de travail de votre application.
+
+> [!NOTE]
+> Lorsqu’une application logique reçoit des paquets IDoc de SAP, le [déclencheur de requête](https://docs.microsoft.com/azure/connectors/connectors-native-reqres) ne prend pas en charge le schéma XML « brut » généré par la documentation WE60 IDoc de SAP. Toutefois, le schéma XML « brut » est pris en charge pour les scénarios qui envoient des messages d’applications logiques *à* SAP. Vous pouvez utiliser le déclencheur de requête avec le XML IDoc de SAP, mais pas avec IDoc sur RFC. Vous pouvez également transformer le XML au format requis. 
 
 Dans cet exemple, vous allez créer une application logique avec un point de terminaison dans Azure afin de pouvoir envoyer des *requêtes HTTP POST* à votre application logique. Lorsque votre application logique reçoit ces requêtes HTTP, le déclencheur est activé et passe à l’étape suivante de votre flux de travail.
 
@@ -125,9 +222,11 @@ Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-a
 
    1. Entrez un nom pour la connexion.
 
-   1. Dans la section **Passerelle de données**, sous **Abonnement**, sélectionnez d’abord l’abonnement Azure pour la ressource de passerelle que vous avez créée dans le Portail Azure pour l’installation de votre passerelle. 
+   1. Si vous utilisez la passerelle de données, procédez comme suit :
    
-   1. Sous **Passerelle de connexion**, sélectionnez votre ressource de passerelle.
+      1. Dans la section **Passerelle de données**, sous **Abonnement**, sélectionnez d’abord l’abonnement Azure pour la ressource de passerelle de données que vous avez créée dans le portail Azure pour l’installation de votre passerelle de données.
+   
+      1. Sous **Passerelle de connexion**, sélectionnez votre ressource de passerelle de données dans Azure.
 
    1. Continuez à fournir des informations sur la connexion. Pour la propriété **Type de connexion**, suivez l’étape selon que la propriété est définie sur **Serveur d’applications** ou sur **Groupe** :
    
@@ -160,7 +259,7 @@ Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-a
       > [!TIP]
       > Spécifiez la valeur de l’**action SAP** via l’éditeur d’expressions. De cette façon, vous pouvez utiliser la même action pour différents types de messages.
 
-      Pour plus d’informations sur les opérations IDoc, consultez [Schémas de message pour les opérations IDOC](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
+      Pour plus d’informations sur les opérations IDoc, consultez [Schémas de message pour les opérations IDoc](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
    1. Cliquez dans la zone **Message d’entrée** pour afficher la liste du contenu dynamique. Dans cette liste, sous **Lors de la réception d’une demande HTTP**, sélectionnez le champ **Corps**.
 
@@ -239,9 +338,11 @@ Cet exemple utilise une application logique qui se déclenche quand l’applicat
 
    1. Entrez un nom pour la connexion.
 
-   1. Dans la section **Passerelle de données**, sous **Abonnement**, sélectionnez d’abord l’abonnement Azure pour la ressource de passerelle que vous avez créée dans le Portail Azure pour l’installation de votre passerelle. 
+   1. Si vous utilisez la passerelle de données, procédez comme suit :
 
-   1. Sous **Passerelle de connexion**, sélectionnez votre ressource de passerelle.
+      1. Dans la section **Passerelle de données**, sous **Abonnement**, sélectionnez d’abord l’abonnement Azure pour la ressource de passerelle de données que vous avez créée dans le portail Azure pour l’installation de votre passerelle de données.
+
+      1. Sous **Passerelle de connexion**, sélectionnez votre ressource de passerelle de données dans Azure.
 
    1. Continuez à fournir des informations sur la connexion. Pour la propriété **Type de connexion**, suivez l’étape selon que la propriété est définie sur **Serveur d’applications** ou sur **Groupe** :
 
@@ -259,15 +360,15 @@ Cet exemple utilise une application logique qui se déclenche quand l’applicat
 
       Logic Apps configure et teste votre connexion pour vérifier son bon fonctionnement.
 
-1. Spécifiez les paramètres nécessaires en fonction de la configuration de votre système SAP.
+1. Spécifiez les [paramètres nécessaires](#parameters) en fonction de la configuration de votre système SAP.
 
-   Vous pouvez si vous le souhaitez fournir une ou plusieurs actions SAP. Cette liste d’actions spécifie les messages que le déclencheur reçoit de votre serveur SAP via la passerelle de données. Une liste vide spécifie que le déclencheur reçoit tous les messages. Si la liste comporte plus d’un message, le déclencheur reçoit seulement les messages spécifiés dans la liste. Tous les autres messages envoyés depuis votre serveur SAP sont rejetés par la passerelle.
+   Vous pouvez si vous le souhaitez fournir une ou plusieurs actions SAP. Cette liste d’actions spécifie les messages que le déclencheur reçoit de votre serveur SAP. Une liste vide spécifie que le déclencheur reçoit tous les messages. Si la liste comporte plus d’un message, le déclencheur reçoit seulement les messages spécifiés dans la liste. Tous les autres messages envoyés depuis votre serveur SAP sont rejetés.
 
    Vous pouvez sélectionner une action SAP dans le sélecteur de fichiers :
 
    ![Ajouter une action SAP à une application logique](media/logic-apps-using-sap-connector/select-SAP-action-trigger.png)  
 
-   Vous pouvez aussi spécifier une action manuellement :
+   Vous pouvez aussi spécifier une action manuellement :
 
    ![Entrer manuellement une action SAP](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
 
@@ -275,14 +376,24 @@ Cet exemple utilise une application logique qui se déclenche quand l’applicat
 
    ![Exemple de déclencheur qui reçoit plusieurs messages](media/logic-apps-using-sap-connector/example-trigger.png)
 
-   Pour plus d’informations sur l’action SAP, consultez [Schémas de message pour les opérations IDOC](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
+   Pour plus d’informations sur l’action SAP, consultez [Schémas de message pour les opérations IDoc](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
 1. Enregistrez maintenant votre application logique pour commencer à recevoir des messages de votre système SAP. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
 Votre application logique est maintenant prête à recevoir des messages de votre système SAP.
 
 > [!NOTE]
-> Le déclencheur SAP n’est pas un déclencheur d’interrogation : il s’agit d’un déclencheur basé sur un webhook. Le déclencheur est appelé depuis la passerelle seulement s’il existe un message : aucune interrogation n’est donc nécessaire.
+> Le déclencheur SAP n’est pas un déclencheur d’interrogation : il s’agit d’un déclencheur basé sur un webhook. Si vous utilisez la passerelle de données, le déclencheur est appelé depuis la passerelle de données seulement s’il existe un message : aucune interrogation n’est donc nécessaire.
+
+<a name="parameters"></a>
+
+#### <a name="parameters"></a>Paramètres
+
+Avec les entrées de chaîne et de nombre simples, le connecteur SAP accepte les paramètres de table suivants (entrées `Type=ITAB`) :
+
+* Paramètres de direction de table, d’entrée et de sortie, pour les versions SAP antérieures.
+* Modification des paramètres, qui remplacent les paramètres de direction de table pour les versions SAP plus récentes.
+* Paramètres de table hiérarchique
 
 ### <a name="test-your-logic-app"></a>Tester votre application logique
 
@@ -292,11 +403,11 @@ Votre application logique est maintenant prête à recevoir des messages de votr
 
 1. Ouvrez la dernière exécution, qui montre le message envoyé depuis votre système SAP dans la section des sorties du déclencheur.
 
-## <a name="receive-idoc-packets-from-sap"></a>Recevoir des paquets IDOC de SAP
+## <a name="receive-idoc-packets-from-sap"></a>Recevoir des paquets d’IDocs de SAP
 
-Vous pouvez configurer SAP pour [envoyer des IDOC sous forme de paquets](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/en-US/4ab38886549a6d8ce10000000a42189c.html), à savoir sous forme de lots ou de groupes d'IDOC. Pour recevoir des paquets d'IDOC, le connecteur SAP, et plus particulièrement le déclencheur, ne nécessite aucune configuration supplémentaire. Toutefois, pour traiter chacun des éléments d'un paquet d'IDOC après la réception du paquet par le déclencheur, des étapes supplémentaires sont nécessaires afin de diviser le paquet en IDOC individuels.
+Vous pouvez configurer SAP pour [envoyer des IDocs sous forme de paquets](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/en-US/4ab38886549a6d8ce10000000a42189c.html), à savoir sous forme de lots ou de groupes d’IDocs. Pour recevoir des paquets d’IDocs, le connecteur SAP, et plus particulièrement le déclencheur, ne nécessite aucune configuration supplémentaire. Toutefois, pour traiter chacun des éléments d’un paquet d’IDocs après la réception du paquet par le déclencheur, des étapes supplémentaires sont nécessaires afin de fractionner le paquet en IDocs individuels.
 
-Voici un exemple montrant comment extraire des IDOC individuels d'un paquet à l'aide de la [`xpath()`fonction ](./workflow-definition-language-functions-reference.md#xpath) :
+Voici un exemple montrant comment extraire des IDocs individuels d’un paquet à l’aide de la [fonction `xpath()`](./workflow-definition-language-functions-reference.md#xpath) :
 
 1. Avant de commencer, vous devez disposer d'une application logique avec un déclencheur SAP. Si vous n’avez pas encore cette application logique, suivez les étapes précédentes de cette rubrique pour [configurer une application logique avec un déclencheur SAP](#receive-from-sap).
 
@@ -304,23 +415,23 @@ Voici un exemple montrant comment extraire des IDOC individuels d'un paquet à l
 
    ![Ajouter un déclencheur SAP à une application logique](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 
-1. Récupérez l'espace de noms racine à partir de l'IDOC XML que votre application logique reçoit de SAP. Pour extraire cet espace de noms du document XML, ajoutez une étape qui crée une variable de chaîne locale et stocke cet espace de noms à l'aide d'une expression `xpath()` :
+1. Récupérez l’espace de noms racine à partir de l’IDoc XML que votre application logique reçoit de SAP. Pour extraire cet espace de noms du document XML, ajoutez une étape qui crée une variable de chaîne locale et stocke cet espace de noms à l'aide d'une expression `xpath()` :
 
    `xpath(xml(triggerBody()?['Content']), 'namespace-uri(/*)')`
 
-   ![Obtenir l’espace de noms racine à partir d’IDOC](./media/logic-apps-using-sap-connector/get-namespace.png)
+   ![Obtenir l’espace de noms racine à partir d’IDoc](./media/logic-apps-using-sap-connector/get-namespace.png)
 
-1. Pour extraire un IDOC individuel, ajoutez une étape qui crée une variable de tableau et stocke la collection d'IDOC à l'aide d'une autre expression `xpath()` :
+1. Pour extraire un IDoc individuel, ajoutez une étape qui crée une variable de tableau et stocke la collection d’IDocs à l’aide d’une autre expression `xpath()` :
 
    `xpath(xml(triggerBody()?['Content']), '/*[local-name()="Receive"]/*[local-name()="idocData"]')`
 
    ![Récupération de tableau d'éléments](./media/logic-apps-using-sap-connector/get-array.png)
 
-   La variable de tableau rend chaque IDOC disponible pour que votre application logique puisse les traiter individuellement en procédant à une énumération sur la collection. Dans cet exemple, l'application logique transfère chaque IDOC vers un serveur SFTP à l'aide d'une boucle :
+   La variable de tableau rend chaque IDoc disponible pour que votre application logique puisse les traiter individuellement en procédant à une énumération sur la collection. Dans cet exemple, l’application logique transfère chaque IDoc vers un serveur SFTP à l’aide d’une boucle :
 
-   ![Envoyer IDOC au serveur SFTP](./media/logic-apps-using-sap-connector/loop-batch.png)
+   ![Envoyer un IDoc au serveur SFTP](./media/logic-apps-using-sap-connector/loop-batch.png)
 
-   Chaque IDOC doit inclure l'espace de noms racine, ce qui explique pourquoi le contenu du fichier est encapsulé dans un élément `<Receive></Receive` avec l'espace de noms racine avant l'envoi de l'IDOC à l'application située en aval, ou dans ce cas au serveur SFTP.
+   Chaque IDoc doit inclure l’espace de noms racine, ce qui explique pourquoi le contenu du fichier est enveloppé dans un élément `<Receive></Receive` avec l’espace de noms racine avant l’envoi de l’IDoc à l’application située en aval ou, dans ce cas, au serveur SFTP.
 
 Vous pouvez utiliser le modèle de démarrage rapide correspondant à ce modèle en sélectionnant celui-ci dans le concepteur d'applications logiques lorsque vous créez une nouvelle application logique.
 
@@ -363,9 +474,9 @@ Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
    1. Entrez un nom pour la connexion.
 
-   1. Dans la section **Passerelle de données**, sous **Abonnement**, sélectionnez d’abord l’abonnement Azure pour la ressource de passerelle que vous avez créée dans le Portail Azure pour l’installation de votre passerelle. 
+   1. Dans la section **Passerelle de données**, sous **Abonnement**, sélectionnez d’abord l’abonnement Azure pour la ressource de passerelle de données que vous avez créée dans le portail Azure pour l’installation de votre passerelle de données. 
    
-   1. Sous **Passerelle de connexion**, sélectionnez votre ressource de passerelle.
+   1. Sous **Passerelle de connexion**, sélectionnez votre ressource de passerelle de données dans Azure.
 
    1. Continuez à fournir des informations sur la connexion. Pour la propriété **Type de connexion**, suivez l’étape selon que la propriété est définie sur **Serveur d’applications** ou sur **Groupe** :
    
@@ -399,7 +510,7 @@ Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
    ![Afficher deux éléments](media/logic-apps-using-sap-connector/schema-generator-example.png)
 
-   Pour plus d’informations sur l’action SAP, consultez [Schémas de message pour les opérations IDOC](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
+   Pour plus d’informations sur l’action SAP, consultez [Schémas de message pour les opérations IDoc](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
 1. Enregistrez votre application logique. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
@@ -452,12 +563,16 @@ Vous pouvez aussi télécharger ou stocker les schémas générés dans des réf
 
 1. Après une exécution réussie, accédez au compte d’intégration et vérifiez l’existence des schémas générés.
 
+<a name="secure-network-communications"></a>
+
 ## <a name="enable-secure-network-communications"></a>Activer Secure Network Communications
 
-Avant de commencer, vérifiez que vous vous conformez aux [prérequis](#pre-reqs) précédemment listés :
+Avant de commencer, assurez-vous de respecter les [conditions préalables](#pre-reqs) précédemment mentionnées, qui s’appliquent uniquement lorsque vous utilisez la passerelle de données et que vos applications logiques s’exécutent dans une instance Azure mutualisée :
 
-* La passerelle de données locale est installée sur un ordinateur qui se trouve sur le même réseau que votre système SAP.
-* Pour l’authentification unique, la passerelle s’exécute en tant qu’utilisateur qui est mappé à un utilisateur SAP.
+* Assurez-vous que la passerelle de données locale est installée sur un ordinateur qui se trouve dans le même réseau que votre système SAP.
+
+* Pour l’authentification unique (SSO), la passerelle de données s’exécute en tant qu’utilisateur mappé à un utilisateur SAP.
+
 * La bibliothèque SNC qui fournit les fonctions de sécurité supplémentaire est installée sur le même ordinateur que la passerelle de données. [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos et NTLM en sont des exemples.
 
    Pour activer SNC pour vos demandes vers ou depuis le système SAP, cochez la case **Utiliser SNC** dans la connexion SAP et renseignez ces propriétés :
@@ -526,7 +641,7 @@ Lorsque les messages sont envoyés avec l’option**Types sécurisés** activée
 
 ### <a name="confirm-transaction-explicitly"></a>Confirmer une transaction explicitement
 
-Quand vous envoyez des transactions à SAP depuis Logic Apps, cet échange se fait en deux étapes, comme décrit dans le document SAP, [Transactional RFC Server Programs](https://help.sap.com/doc/saphelp_nwpi71/7.1/en-US/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true). Par défaut, l’action **Envoyer à SAP** gère à la fois les étapes de transfert de la fonction et de la confirmation de la transaction dans un même appel. Le connecteur SAP vous donne la possibilité de découpler ces étapes. Vous pouvez envoyer un IDOC et, au lieu de confirmer automatiquement la transaction, vous pouvez utiliser l’action explicite **Confirmer l’ID de transaction**.
+Quand vous envoyez des transactions à SAP depuis Logic Apps, cet échange se fait en deux étapes, comme décrit dans le document SAP, [Transactional RFC Server Programs](https://help.sap.com/doc/saphelp_nwpi71/7.1/en-US/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true). Par défaut, l’action **Envoyer à SAP** gère à la fois les étapes de transfert de la fonction et de la confirmation de la transaction dans un même appel. Le connecteur SAP vous donne la possibilité de découpler ces étapes. Vous pouvez envoyer un IDoc et, au lieu de confirmer automatiquement la transaction, vous pouvez utiliser l’action explicite **Confirmer l’ID de transaction**.
 
 Cette possibilité de découpler la confirmation de l’ID de transaction est utile quand vous ne voulez pas dupliquer les transactions dans SAP, par exemple dans les scénarios où des échecs peuvent se produire pour des raisons comme des problèmes réseau. En confirmant l’ID de transaction séparément, la transaction n’est effectuée qu’une seule fois dans votre système SAP.
 
@@ -534,7 +649,7 @@ Voici un exemple montrant ce modèle :
 
 1. Créez une application logique vide et ajoutez un déclencheur HTTP.
 
-1. À partir du connecteur SAP, ajoutez l’action **Envoyer l’IDOC**. Spécifiez les détails de l’IDOC que vous envoyez à votre système SAP.
+1. À partir du connecteur SAP, ajoutez l’action **Envoyer l’IDOC**. Spécifiez les détails de l’IDoc que vous envoyez à votre système SAP.
 
 1. Pour confirmer explicitement l’ID de transaction dans une étape distincte, dans le champ **Confirmer le TID**, sélectionnez **Non**. Pour le champ facultatif **GUID de l’ID de transaction**, vous pouvez spécifier manuellement la valeur, ou faire en sorte que le connecteur génère et retourne automatiquement ce GUID dans la réponse de l’action Envoyer l’IDOC.
 
@@ -548,7 +663,7 @@ Voici un exemple montrant ce modèle :
 
 ## <a name="known-issues-and-limitations"></a>Problèmes connus et limitations
 
-Voici les problèmes et limitations connus pour le connecteur SAP :
+Voici les problèmes et limitations connus pour le connecteur SAP (non-ISE) managé :
 
 * Le déclencheur SAP ne prend pas en charge les clusters de passerelle de données. Dans certains cas de basculement, le nœud de la passerelle de données qui communique avec le système SAP peut différer du nœud actif, ce qui entraîne un comportement inattendu. Pour les scénarios d’envoi, les clusters de passerelles de données sont pris en charge.
 

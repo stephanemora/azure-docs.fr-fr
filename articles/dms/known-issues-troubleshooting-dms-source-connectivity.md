@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 3eef7476a729c7b83290b9d8d86ba06524bed72b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4421ad4260ff8eada87cdebc031d09922860324f
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297098"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196329"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>Résoudre les erreurs DMS lors de la connexion aux bases de données sources
 
@@ -30,7 +30,7 @@ Le tableau suivant indique les éventuels problèmes liés à la connexion à un
 | Error         | Cause du problème et informations pour sa résolution |
 | ------------- | ------------- |
 | La connexion SQL a échoué. Une erreur liée au réseau ou propre à une instance s’est produite lors de l’établissement d’une connexion à SQL Server. Le serveur est introuvable ou inaccessible. Vérifiez que le nom d’instance est correct et que SQL Server est configuré pour autoriser les connexions à distance.<br> | Cette erreur se produit si le service ne peut pas localiser le serveur source. Pour résoudre ce problème, consultez l’article [Erreur de connexion au serveur SQL Server source lors de l’utilisation d’un port dynamique ou d’une instance nommée](https://docs.microsoft.com/azure/dms/known-issues-troubleshooting-dms#error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance). |
-| **Erreur 53** - La connexion SQL a échoué. (Également pour les codes d’erreur 1, 2, 5, 53, 233, 258, 1225, 11001)<br><br> | Cette erreur se produit si le service ne peut pas se connecter au serveur source. Pour résoudre le problème, consultez les ressources suivantes, puis retentez l’opération. <br><br>  [Guide de l’utilisateur interactif pour la résolution du problème de connectivité](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)<br><br> [Prérequis pour la migration de SQL Server vers Azure SQL Database](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-azure-sql-database) <br><br> [Prérequis pour la migration de SQL Server vers une instance gérée Azure SQL Database](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance) |
+| **Erreur 53** - La connexion SQL a échoué. (Également pour les codes d’erreur 1, 2, 5, 53, 233, 258, 1225, 11001)<br><br> | Cette erreur se produit si le service ne peut pas se connecter au serveur source. Pour résoudre le problème, consultez les ressources suivantes, puis retentez l’opération. <br><br>  [Guide de l’utilisateur interactif pour la résolution du problème de connectivité](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)<br><br> [Prérequis pour la migration de SQL Server vers Azure SQL Database](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-azure-sql-database) <br><br> [Conditions préalables à la migration de SQL Server vers une instance gérée SQL Azure](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance) |
 | **Erreur 18456** - La connexion a échoué.<br> | Cette erreur se produit si le service ne peut pas se connecter à la base de données source avec les informations d’identification T-SQL fournies. Pour résoudre le problème, vérifiez les informations d’identification entrées. Vous pouvez également vous reporter à [MSSQLSERVER_18456](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-2017) ou aux documents de résolution des problèmes listés dans la note sous ce tableau, puis retenter l’opération. |
 | Valeur de nom de compte (AccountName) « {0} » fournie incorrecte. Le format attendu pour AccountName est Nom_domaine\Nom_utilisateur<br> | Cette erreur se produit si l’utilisateur sélectionne l’authentification Windows, mais qu’il fournit le nom d’utilisateur dans un format non valide. Pour résoudre le problème, fournissez le nom d’utilisateur dans le format correct pour l’authentification Windows ou sélectionnez **Authentification SQL**. |
 

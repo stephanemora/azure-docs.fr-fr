@@ -7,17 +7,26 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 6961b7bd94c9b3fe70365055851c488efa2cbeca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 193aa168cff436512dc2044d0986df508fd6bfa9
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480009"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248734"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-flow"></a>Connecteur Azure Monitor Logs pour Logic Apps et Flow
 [Azure Logic Apps](/azure/logic-apps/) et [Power Automate](https://ms.flow.microsoft.com) vous permettent de créer des workflows automatisés utilisant des centaines d’actions pour divers services. Le connecteur Azure Monitor Logs vous permet de générer des workflows qui récupèrent des données à partir d’un espace de travail Log Analytics ou d’une application Application Insights dans Azure Monitor. Cet article décrit les actions incluses dans le connecteur et montre pas à pas comment générer un workflow utilisant ces données.
 
 Par exemple, vous pouvez créer une application logique pour utiliser les données de journal Azure Monitor contenues dans une notification par e-mail en provenance d’Office 365, créer un bogue dans Azure DevOps ou poster un message Slack.  Vous pouvez déclencher un flux de travail à l’aide d’un calendrier ou d’une action d’un service connecté, telle que la réception d’un e-mail ou d’un tweet. 
+
+## <a name="connector-limits"></a>Limites des connecteurs
+Le connecteur de journaux Azure Monitor a les limites suivantes :
+* Taille maximale des données : 16 Mo
+* Taille maximale de la réponse aux requêtes : 100 Mo
+* Nombre maximal d’enregistrements : 500 000
+* Délai d’expiration maximal des requêtes : 110 secondes.
+
+En fonction de la taille de vos données et de la requête que vous utilisez, le connecteur peut atteindre ses limites et échouer. Vous pouvez contourner ce type de situation en ajustant la périodicité du déclencheur pour que le connecteur s’exécute plus fréquemment et interroge moins de données. Vous pouvez utiliser des requêtes qui agrègent vos données pour retourner moins d’enregistrements et de colonnes.
 
 ## <a name="actions"></a>Actions
 Le tableau suivant décrit les actions incluses dans le connecteur Azure Monitor Logs. Les deux vous permettent d’exécuter une requête de journal sur un espace de travail Log Analytics ou une application Application Insights. La différence réside dans la façon dont les données sont retournées.
@@ -57,7 +66,7 @@ Cliquez sur **+ Nouvelle étape** pour ajouter une action qui s’exécute aprè
 
 ![Action Azure Monitor Logs](media/logicapp-flow-connector/select-azure-monitor-connector.png)
 
-Cliquez sur **Azure Log Analytics – Exécuter une requête et visualiser les résultats**.
+Cliquez sur **Azure Log Analytics – Exécuter la requête et visualiser les résultats**.
 
 ![Exécuter une requête et visualiser les résultats](media/logicapp-flow-connector/select-query-action-visualize.png)
 
@@ -109,7 +118,7 @@ Cliquez sur **Enregistrer** puis sur **Exécuter** pour effectuer une série de 
 
 Une fois que l’application logique a terminé, consultez l’e-mail du destinataire que vous avez spécifié.  Il doit avoir reçu un e-mail dont le corps est semblable à ceci :
 
-![Exemple d’e-mail](media/logicapp-flow-connector/sample-mail.png)
+![Exemple de message électronique](media/logicapp-flow-connector/sample-mail.png)
 
 
 

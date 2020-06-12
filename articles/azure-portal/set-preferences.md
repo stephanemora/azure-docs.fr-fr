@@ -9,12 +9,12 @@ ms.date: 12/19/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 7bcfdeec832b14eb53c0dab6cb2f53970d85c804
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3f51c356f4476782bb830b2702a8fe87c79235c
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76310677"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308062"
 ---
 # <a name="set-your-azure-portal-preferences"></a>Définir vos préférences relatives au portail Azure
 
