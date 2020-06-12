@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2020
+ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 84857315e4b6b4375ed5b78520b4c6ff0d66751a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: b696cdf2d54c42d3967041c5d10b1bd9bb5a3065
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684991"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84448680"
 ---
 # <a name="azure-load-balancer-components"></a>Composants Azure Load Balancer
 
@@ -39,6 +39,8 @@ La nature de l’adresse IP détermine le **type** d’équilibreur de charge cr
 
 ![Exemple d’équilibreur de charge hiérarchisé](./media/load-balancer-overview/load-balancer.png)
 
+Load Balancer peut avoir plusieurs adresses IP frontales. En savoir plus sur les [serveurs frontaux multiples](load-balancer-multivip-overview.md).
+
 ## <a name="backend-pool"></a>Pool principal
 
 Groupe de machines virtuelles ou d’instances dans un groupe de machines virtuelles identiques qui distribuent la requête entrante. Pour une mise à l’échelle économique visant à répondre à des volumes élevés de trafic entrant, il est généralement recommandé d’ajouter davantage d’instances au pool de back-ends.
@@ -57,7 +59,7 @@ Vous pouvez définir le seuil de défaillance sur le plan de l’intégrité pou
 - Jusqu’à ce que le délai d’inactivité soit atteint
 - Jusqu’à ce que la machine virtuelle s’arrête
 
-Azure Load Balancer fournit différents types de sondes d’intégrité pour les points de terminaison : TCP, HTTP et HTTPS.
+Azure Load Balancer fournit différents types de sondes d’intégrité pour les points de terminaison : TCP, HTTP et HTTPS. [En savoir plus sur les sondes d’intégrité Load Balancer](load-balancer-custom-probe-overview.md).
 
 L’équilibreur de charge de base ne prend pas en charge les sondes HTTPS. Il ferme toutes les connexions TCP (y compris les connexions établies).
 
@@ -67,15 +69,32 @@ Une règle d’équilibrage de charge sert à définir la manière dont le trafi
 
 Par exemple, si vous souhaitez que le trafic sur le port 80 (ou un autre port) de votre adresse IP front-end soit routé vers le port 80 de toutes vos instances back-end, vous devez utiliser une règle d’équilibrage de charge.
 
+### <a name="high-availability-ports"></a>Ports à haute disponibilité
+
+Une règle Load Balancer configurée avec le protocole All et le port 0. Cela permet de fournir une seule règle pour équilibrer la charge de tous les flux TCP et UDP qui arrivent sur tous les ports d’un Standard Load Balancer interne. La décision d’équilibrage de charge est prise par flux. Cette action est basée sur la connexion à cinq tuples suivante : 
+1. adresse IP source
+2. port source
+3. adresse IP de destination
+4. port de destination
+5. protocol
+
+Les règles d’équilibrage de charge des ports haute disponibilité sont utiles dans les scénarios critiques, comme pour la haute disponibilité et la mise à l’échelle d’appliances virtuelles réseau dans des réseaux virtuels. La fonctionnalité peut également servir quand un grand nombre de ports doit avoir une charge équilibrée.
+
+Pour en savoir plus sur les [ports à haute disponibilité, cliquez ici](load-balancer-ha-ports-overview.md).
+
 ## <a name="inbound-nat-rules"></a>Règles NAT entrantes
 
 Une règle NAT de trafic entrant transfère le trafic entrant envoyé à une combinaison d’adresse IP front-end et de port sélectionnée à une machine virtuelle ou à une instance **spécifique** du pool de back-ends. Ce réacheminement de port est accompli à l’aide de la même distribution basée sur le hachage que l’équilibrage de charge.
 
 Par exemple, si vous souhaitez que les sessions RDP (Remote Desktop Protocol) ou SSH (Secure Shell) séparent les instances de machine virtuelle d’un pool de back-ends, plusieurs points de terminaison internes peuvent être mappés à des ports sur la même adresse IP front-end. Les adresses IP front-end peuvent être utilisées pour administrer à distance vos machines virtuelles sans serveur de rebond supplémentaire.
 
+Les règles NAT de trafic entrant dans le contexte de Virtual Machine Scale Sets (VMSS) sont des pools NAT entrants. En savoir plus sur les [composants Load Balancer et VMSS](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#azure-virtual-machine-scale-sets-with-azure-load-balancer).
+
 ## <a name="outbound-rules"></a>Règles de trafic sortant
 
 Une règle de trafic sortant configure la traduction d’adresses réseau (NAT) du trafic sortant pour toutes les machines virtuelles ou instances identifiées par le pool de back-ends. Les instances du back-end peuvent ainsi communiquer (vers l’extérieur) sur Internet ou vers d’autres points de terminaison.
+
+En savoir plus sur les [connexions sortantes et les règles](load-balancer-outbound-connections.md).
 
 L’équilibreur de charge de base ne prend pas en charge les règles de trafic sortant.
 
@@ -89,9 +108,6 @@ L’équilibreur de charge de base ne prend pas en charge les règles de trafic 
 - En savoir plus sur les [Diagnostics Load Balancer Standard](load-balancer-standard-diagnostics.md).
 - En savoir plus sur la [réinitialisation TCP au terme du délai d’inactivité](load-balancer-tcp-reset.md).
 - Découvrez [Load Balancer Standard avec les règles d’équilibrage de charge des ports HA](load-balancer-ha-ports-overview.md).
-- Découvrez comment utiliser [Load Balancer avec plusieurs configurations IP front-end](load-balancer-multivip-overview.md).
 - En savoir plus sur les [groupes de sécurité réseau](../virtual-network/security-overview.md).
-- Découvrez les [types de sondes](load-balancer-custom-probe-overview.md#types).
 - Découvrez-en plus sur les [limites des équilibreurs de charge](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer).
 - Découvrez l’utilisation du [réacheminement de port](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal).
-- Découvrez-en plus sur les [règles de trafic sortant des équilibreurs de charge](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview).
