@@ -3,12 +3,12 @@ title: FAQ sur la sauvegarde des fichiers Azure
 description: Cet article fournit des réponses à des questions courantes sur la protection de vos partages de fichiers Azure avec le service Sauvegarde Microsoft Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1be509f3b82cece3afb1e728a19da4c4d9526195
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 70ed8594be09ab74478f4703aa632b9ce966b5ee
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836105"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118004"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Questions sur la sauvegarde des fichiers Azure
 
@@ -46,7 +46,7 @@ Vous pouvez protéger les partages de fichiers Azure d’un maximum de 50 compte
 
 Non. Tous les partages de fichiers dans un compte de stockage peuvent uniquement être protégés par le même coffre.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Sauvegarde
 
 ### <a name="what-should-i-do-if-my-backups-start-failing-due-to-the-maximum-limit-reached-error"></a>Que dois-je faire si mes sauvegardes échouent en raison d’une erreur de limite maximale atteinte ?
 
@@ -78,7 +78,7 @@ Tous les instantanés pris par Azure Backup sont accessibles par l’option Voir
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>Quelle est la durée de conservation maximale configurable pour les sauvegardes ?
 
-Consultez la [matrice de prise en charge](azure-file-share-support-matrix.md) pour plus d’informations sur la conservation maximale. Sauvegarde Azure calcule en temps réel le nombre d’instantanée quand vous entrez les valeurs de conservation lors de la configuration de la stratégie de sauvegarde. Dès que le nombre d’instantanés correspondant à vos valeurs de conservation définies dépasse 200, le portail affiche un avertissement vous demandant d’ajuster vos valeurs de conservation. Cela vous évite de dépasser la limite du nombre maximal d’instantanés pris en charge à tout moment par Azure Files pour un partage de fichiers.
+Consultez la [matrice de prise en charge](azure-file-share-support-matrix.md) pour plus d’informations sur la rétention maximale. Sauvegarde Azure calcule en temps réel le nombre d’instantanée quand vous entrez les valeurs de rétention lors de la configuration de la stratégie de sauvegarde. Dès que le nombre d’instantanés correspondant à vos valeurs de rétention définies dépasse 200, le portail affiche un avertissement vous demandant d’ajuster vos valeurs de rétention. Cela vous évite de dépasser la limite du nombre maximal d’instantanés pris en charge à tout moment par Azure Files pour un partage de fichiers.
 
 ### <a name="what-is-the-impact-on-existing-recovery-points-and-snapshots-when-i-modify-the-backup-policy-for-an-azure-file-share-to-switch-from-daily-policy-to-gfs-policy"></a>Quel est l’impact sur les points de récupération et les instantanés existants quand je passe d’une stratégie de sauvegarde quotidienne à une stratégie GFS pour un partage de fichiers Azure ?
 
@@ -95,13 +95,13 @@ Voici un exemple qui montre comment cela fonctionne :
 
 #### <a name="existing-policy-p1"></a>Stratégie existante [P1]
 
-|Type de conservation |Planifier |Conservation  |
+|Type de conservation |Planifier |Rétention  |
 |---------|---------|---------|
 |Quotidien    |    Tous les jours à 20:00    |  100 jours       |
 
 #### <a name="new-policy-modified-p1"></a>Nouvelle stratégie [P1 modifiée]
 
-| Type de conservation | Planifier                       | Conservation |
+| Type de conservation | Planifier                       | Rétention |
 | -------------- | ------------------------------ | --------- |
 | Quotidien          | Tous les jours à 21:00              | 50 jours   |
 | Hebdomadaire         | Dimanche à 21:00              | 3 semaines   |
@@ -129,14 +129,14 @@ Voici un exemple qui montre comment cela fonctionne :
 
 #### <a name="existing-policy-p2"></a>Stratégie existante [P2]
 
-| Type de conservation | Planifier           | Conservation |
+| Type de conservation | Planifier           | Rétention |
 | -------------- | ------------------ | --------- |
 | Quotidien          | Tous les jours à 20:00 | 50 jours   |
 | Hebdomadaire         | Dernier lundi à 20:00  | 3 semaines   |
 
 #### <a name="new-policy-modified-p2"></a>Nouvelle stratégie [P2 modifiée]
 
-| Type de conservation | Planifier               | Conservation |
+| Type de conservation | Planifier               | Rétention |
 | -------------- | ---------------------- | --------- |
 | Quotidien          | Tous les jours à 21:00     | 10 jours   |
 | Hebdomadaire         | Tous les lundis à 21:00      | 2 semaines   |
@@ -157,8 +157,4 @@ Voici un exemple qui montre comment cela fonctionne :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur les autres zones d’Azure Backup, consultez certaines de ces autres FAQ relatives à la sauvegarde :
-
-- [FAQ du coffre Recovery Services](backup-azure-backup-faq.md)
-- [FAQ sur la sauvegarde de la machine virtuelle Azure](backup-azure-vm-backup-faq.md)
-- [FAQ sur l’Agent Azure Backup](backup-azure-file-folder-backup-faq.md)
+- [Résoudre des problèmes lors de la sauvegarde de partages de fichiers Azure](troubleshoot-azure-files.md)

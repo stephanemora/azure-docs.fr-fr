@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: mimckitt
-ms.openlocfilehash: 573bd0797e63fc512e59b0e0882c718e4569111c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e6a8fddc61e05bc2e354d77c9e56c55e354a45b
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262891"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309830"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Vous assurer de manière proactive que vous avez accès à GRUB et sysrq peut vous faire gagner beaucoup de temps
 
@@ -76,7 +76,7 @@ La garantie de pouvoir accéder à la Serial console Azure et à GRUB signifie q
 
 - Échange de disque : peut être automatisé à l’aide de l’un des éléments suivants :
 
-   - [Scripts de récupération Power Shell](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)
+   - [Scripts de récupération PowerShell](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)
    - [Scripts de récupération bash](https://github.com/sribs/azure-support-scripts)
 
 - Méthode héritée
@@ -98,7 +98,7 @@ Dans cet article, nous allons examiner différentes distributions Linux et docum
 La clé sysrq est activée sur certaines distributions Linux plus récentes par défaut, bien que sur d’autres, elle puisse être configurée pour accepter des valeurs uniquement pour certaines fonctions SysRq.
 Sur les distributions plus anciennes, il est possible qu’elle soit complètement désactivée.
 
-La caractéristique SysRq est utile pour redémarrer une machine virtuelle bloquée ou suspendue directement à partir de la Serial console Azure, ce qui permet également d’accéder au menu GRUB. Vous pouvez également redémarrer une machine virtuelle à partir d’une autre fenêtre du portail ou d’une session ssh pour supprimer la connexion à la console actuelle, ce qui a pour conséquence l’expiration des délais d’attente utilisés pour afficher le menu GRUB.
+La caractéristique SysRq est utile pour redémarrer une machine virtuelle bloquée ou qui ne répond pas directement à partir de la console série Azure, ce qui permet également d’accéder au menu GRUB. Vous pouvez également redémarrer une machine virtuelle à partir d’une autre fenêtre du portail ou d’une session ssh pour supprimer la connexion à la console actuelle, ce qui a pour conséquence l’expiration des délais d’attente utilisés pour afficher le menu GRUB.
 La machine virtuelle doit être configurée pour accepter la valeur 1 pour le paramètre kernel, ce qui active toutes les fonctions de sysrq ou 128, qui permet le redémarrage ou mise hors tension
 
 

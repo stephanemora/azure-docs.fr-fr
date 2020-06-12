@@ -3,17 +3,17 @@ title: Guide de démarrage rapide - Explorer les coûts Azure avec l’analyse d
 description: Ce guide de démarrage rapide vous aide à utiliser l’analyse du coût pour explorer et analyser les coûts Azure de votre organisation.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/07/2020
+ms.date: 06/08/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: e63e3ef999db7053609fb098cd2b7583143a2937
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 72c0b55e1ffc300b42181075247ed3efafe2793a
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80874498"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560578"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Démarrage rapide : Explorer et analyser les coûts avec l’analyse du coût
 
@@ -107,8 +107,7 @@ Lorsque la prévision des dépenses est activée, vous ne voyez pas les dépense
 
 En général, attendez-vous à voir des données ou des notifications correspondant aux ressources utilisées dans les 8 à 12 heures suivantes.
 
-
-**Regrouper par** propriétés communes pour ventiler les coûts et d’identifier les principaux contributeurs. Pour regrouper par balises de ressources, par exemple, sélectionnez la clé de balise d’après laquelle vous souhaitez effectuer le regroupement. Les coûts sont ventilés selon la valeur de chaque balise, avec un segment supplémentaire pour les ressources auxquelles cette balise n’a pas été appliquée.
+**Regrouper par** propriétés communes pour ventiler les coûts et d’identifier les principaux contributeurs. Pour regrouper par balises de ressources, par exemple, sélectionnez la clé de balise d’après laquelle vous souhaitez effectuer le regroupement. Les coûts sont ventilés selon la valeur de chaque balise, avec un segment supplémentaire pour les ressources auxquelles cette balise n’a pas été appliquée.  Pour plus d’informations sur les options de regroupement et de filtrage, consultez [Options de filtre et de groupe](https://docs.microsoft.com/azure/cost-management-billing/costs/group-filter).
 
 La plupart des [ressources Azure prennent en charge le balisage](../../azure-resource-manager/management/tag-support.md). Cependant, certaines balises ne sont pas disponibles pour la gestion des coûts et la facturation. Par ailleurs, les étiquettes de groupe de ressources ne sont pas prises en charge. La prise en charge des étiquettes s’applique à l’utilisation signalée *après* l’application de l’étiquette à la ressource. Les étiquettes ne sont pas appliquées rétroactivement pour les cumuls de coûts.
 
@@ -142,42 +141,6 @@ Vous pouvez afficher le jeu de données complet pour n’importe quelle vue. L�
 
 ![Données de l’affichage actuel présentées dans un tableau](./media/quick-acm-cost-analysis/chart-type-table-view.png)
 
-
-## <a name="understanding-grouping-and-filtering-options"></a>Options de regroupement et de filtrage
-
-L’analyse des coûts dispose de nombreuses options de regroupement et de filtrage. Pour visionner une vidéo sur les options de regroupement et de filtrage, regardez la vidéo [Cost Management - Génération de rapports en fonction des dimensions et des balises](https://www.youtube.com/watch?v=2Vx7V17zbmk). Pour regarder d’autres vidéos, consultez la [chaîne YouTube relative à Cost Management](https://www.youtube.com/c/AzureCostManagement).
-
->[!VIDEO https://www.youtube.com/embed/2Vx7V17zbmk]
-
-Le tableau suivant répertorie quelques options courantes de regroupement et de filtrage, et indique à quel moment les utiliser.
-
-| Propriété | Quand l’utiliser | Notes |
-| --- | --- | --- |
-| **Zones de disponibilité** | Décompose les coûts AWS par zone de disponibilité. | S’applique uniquement aux étendues et aux groupes d’administration AWS. Les données Azure n’incluent pas la zone de disponibilité et s’affichent avec le libellé **Non applicable**. |
-| **Période de facturation** | Décompose les coûts PAYG selon le mois où ils ont été (ou seront) facturés. | Utilisez **Période de facturation** pour avoir une représentation précise des frais PAYG facturés. Incluez 2 jours supplémentaires avant et après la période de facturation si vous filtrez sur une plage de dates personnalisée. La limitation aux dates exactes de la période de facturation ne correspondra pas à la facture. Affiche les coûts de toutes les factures de la période de facturation. Utilisez **ID de facture** pour filtrer sur une facture spécifique. S’applique uniquement aux abonnements PAYG, car EA et MCA sont facturés par mois calendaires. Les comptes EA/MCA peuvent utiliser les mois du calendrier dans le sélecteur de dates ou la granularité mensuelle pour atteindre le même objectif. |
-| **Type de dépense** | Pour décomposer selon le type de dépense : utilisation, achat, remboursement ou réservation non utilisée. | Les achats de réservation et les remboursements sont disponibles seulement pour les coûts réels, mais pas pour les coûts amortis. Les coûts liés aux réservations non utilisées s’affichent uniquement lors e la consultation des coûts amortis. |
-| **Département** | Décompose les coûts par département EA. | Disponible uniquement pour EA et les groupes d’administration. Les abonnements PAYG n’ont pas de département et apparaissent avec le libellé **Non applicable** ou **Non affecté**. |
-| **Compte d’inscription** | Pour décomposer les coûts par propriétaire de compte EA. | Disponible seulement pour les comptes, les départements et groupes d’administration EA. Les abonnements PAYG n’ont pas d’inscription EA et apparaissent avec le libellé **Non applicable** ou **Non affecté**. |
-| **Fréquence** | Pour décomposer les coûts selon qu’ils sont uniques, récurrents ou basés sur l’utilisation. | |
-| **ID de facture** | Décompose les coûts par facture émise. | Les frais non facturés n’ont pas encore d’ID de facture, et les coûts EA n’incluent pas les détails de facturation et s’affichent avec le libellé **Non applicable**.  |
-| **Compteur** | Décompose les coûts par compteur d’utilisation. | Les achats et l’utilisation de la Place de marché s’affichent avec le libellé **Non applicable**. Reportez-vous à **Type de frais** pour identifier les achats et à **Type d’éditeur** pour identifier les frais de la Place de marché. |
-| **opération** | Décompose les coûts AWS par opération. | S’applique uniquement aux étendues et aux groupes d’administration AWS. Les données Azure n’incluent pas les opérations et s’affichent avec le libellé **Non applicable** ; utilisez **Compteur** à la place. |
-| **Modèle de tarification** | Décompose les coûts en fonction de l’utilisation à la demande, à la réservation ou ponctuelle. | Les achats apparaissent avec le libellé **OnDemand**. Si vous voyez **Non applicable**, regroupez par **Réservation** pour déterminer si l’utilisation est « Réservation » ou « À la demande », par **Type de frais** pour identifier les achats.
-| **Fournisseur** | Pour décomposer les coûts liés à AWS et liés à Azure. | Disponible uniquement pour les groupes d’administration. |
-| **Type d’éditeur** | Pour décomposer les coûts selon qu’ils proviennent d’AWS, d’Azure ou de la Place de marché. |  |
-| **Réservation** | Pour décomposer les coûts par réservation. | Les utilisations ou les achats qui ne sont pas associés à une réservation s’affichent avec le libellé **Non applicable**. Regroupez par **Type d’éditeur** pour identifier les autres achats Azure, AWS ou Place de marché. |
-| **Ressource** | Pour décomposer les coûts par ressource. | Les achats s’affichent avec le libellé **Non applicable**, car ils s’appliquent au niveau d’un compte de facturation EA/PAYG ou au niveau du profil de facturation MCA, et ne sont pas associés à une ressource spécifique. Regroupez par **Type d’éditeur** pour identifier les autres achats Azure, AWS ou Place de marché. |
-| **Groupe de ressources** | Pour décomposer les coûts par groupe de ressources. | Les achats, les ressources de locataire non associées à des abonnements, les ressources d’abonnement non déployées sur un groupe de ressources et les ressources classiques n’ont pas de groupe de ressources, et ils apparaissent avec le libellé **Autres**, **Services classiques**, **$system**ou **Non applicable**. |
-| **Type de ressource** | Pour décomposer les coûts par type de ressource. | Les achats et les services classiques n’ont pas de type de ressource Azure Resource Manager et apparaissent avec le libellé **Autres**, **Services classiques** ou **Non applicable**. |
-| **Emplacement de la ressource** | Décompose les coûts par emplacement ou par région. | Les achats et l’utilisation de la Place de marché peuvent apparaître avec le libellé **Non affecté**, **Inconnu**, **Non mappé** ou **Non applicable**. |
-| **Nom du service** ou **Catégorie du compteur** | Pour décomposer les coûts par service Azure. | Les achats et l’utilisation de la Place de marché apparaissent avec le libellé **Non applicable** ou **Non affecté**. |
-| **Niveau de service** ou **Sous-catégorie de compteur** | Pour décomposer les coûts par sous-classification du compteur d’utilisation Azure. | Les achats et l’utilisation de la Place de marché apparaissent avec le libellé **Non applicable** ou **Non affecté**. |
-| **Abonnement** | Décompose les coûts par abonnement Azure et par compte AWS lié. | Les achats et les ressources des locataires peuvent apparaître avec le libellé **Non applicable**. |
-| **Tag** | Pour décomposer les coûts par valeur d’étiquette pour une clé d’étiquette spécifique. | Les étiquettes ne sont pas disponibles pour les achats, les ressources des locataires qui ne sont pas associées à des abonnements, les ressources d’abonnement non déployées sur un groupe de ressources et les ressources classiques. Notez que certains services n’incluent pas d’étiquettes dans les données d’utilisation. Pour plus d’informations, consultez [Prise en charge des étiquettes pour chaque type de ressource](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support). |
-
-Pour plus d’informations sur ces termes, consultez [Comprendre les termes utilisés dans le fichier Utilisation et frais Azure](../understand/understand-usage.md).
-
-
 ## <a name="saving-and-sharing-customized-views"></a>Enregistrement et partage des vues personnalisées
 
 Enregistrez des vues personnalisées et partagez-les avec d’autres utilisateurs en épinglant l’analyse des coûts au tableau de bord du portail Azure, ou en copiant un lien dans l’analyse des coûts.
@@ -192,54 +155,12 @@ Pour partager un lien vers l’analyse des coûts, sélectionnez **Partager** en
 
 Pour plus d’informations sur l’octroi de l’accès aux coûts pour chaque étendue prise en charge, consultez [Comprendre et utiliser des étendues](understand-work-scopes.md).
 
-
-
-## <a name="automation-and-offline-analysis"></a>Automatisation et analyse hors connexion
+## <a name="download-usage-data"></a>Télécharger les données sur l’utilisation
 
 Il arrive que vous deviez télécharger les données pour les analyser de manière plus approfondie, pour les fusionner avec vos propres données ou pour les intégrer à vos propres systèmes. Cost Management offre quelques options. Pour commencer, si vous avez besoin d’une synthèse de haut niveau ad hoc, comme vous pouvez en obtenir dans une analyse des coûts, créez la vue dont vous avez besoin. Ensuite, téléchargez-la en sélectionnant **Exporter**, puis **Télécharger les données au format CSV** ou **Télécharger les données vers Excel**. Le téléchargement vers Excel fournit un contexte supplémentaire au sujet de la vue que vous avez utilisée pour générer le téléchargement (comme l’étendue, la configuration des requêtes, le total ou la date de génération).
 
 Si vous avez besoin du jeu de données complet et non agrégé, téléchargez-le à partir du compte de facturation. Ensuite, dans la liste des services dans le volet de navigation gauche du portail, accédez à **Gestion des coûts + facturation**. Sélectionnez éventuellement votre compte de facturation. Accédez à **Utilisation + frais**, puis sélectionnez l’icône **Télécharger** correspondant à la période de facturation souhaitée.
 
-Adoptez une approche similaire pour automatiser la réception des données de coût. Utilisez l’[API Query](/rest/api/cost-management/query) pour une analyse plus approfondie avec un filtrage, un regroupement et une agrégation dynamiques, ou utilisez l’API [UsageDetails](/rest/api/consumption/usageDetails) pour obtenir le jeu de données complet non agrégé. La version en disponibilité générale (GA) de ces API est 2019-01-01. Utilisez **2019-04-01-preview** pour accéder à la préversion de la réservation et aux achats de la Place de marché à l’intérieur de ces API.
-
-Par exemple, vous trouverez ci-dessous une vue agrégée des coûts amortis, répartis selon le type de frais (utilisation, achat ou remboursement), l’éditeur (Azure ou Place de marché), le groupe de ressources (qui sera vide pour les achats) et la réservation (qui sera vide si non applicable).
-
-```
-POST https://management.azure.com/{scope}/providers/Microsoft.CostManagement/query?api-version=2019-04-01-preview
-Content-Type: application/json
-
-{
-  "type": "AmortizedCost",
-  "timeframe": "Custom",
-  "timePeriod": { "from": "2019-04-01", "to": "2019-04-30" },
-  "dataset": {
-    "granularity": "None",
-    "aggregation": {
-      "totalCost": { "name": "PreTaxCost", "function": "Sum" }
-    },
-    "grouping": [
-      { "type": "dimension", "name": "ChargeType" },
-      { "type": "dimension", "name": "PublisherType" },
-      { "type": "dimension", "name": "Frequency" },
-      { "type": "dimension", "name": "ResourceGroup" },
-      { "type": "dimension", "name": "SubscriptionName" },
-      { "type": "dimension", "name": "SubscriptionId" },
-      { "type": "dimension", "name": "ReservationName" },
-      { "type": "dimension", "name": "ReservationId" },
-    ]
-  },
-}
-```
-
-Si vous n’avez pas besoin de l’agrégation et préférez utiliser le jeu de données brut et complet :
-
-```
-GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?metric=AmortizedCost&$filter=properties/usageStart+ge+'2019-04-01'+AND+properties/usageEnd+le+'2019-04-30'&api-version=2019-04-01-preview
-```
-
-Si vous avez besoin que les coûts réels montrent les achats tels qu’ils ont été comptabilisés, définissez **type**/**metric** sur **ActualCost**. Pour plus d’informations sur ces API, consultez la documentation sur les API [Query](/rest/api/cost-management/query) et [UsageDetails](/rest/api/consumption/usageDetails). Notez que les documents publiés concernent la version en disponibilité générale. Cependant, ils peuvent également s’appliquer à la version d’API *2019-04-01-preview*, hormis le nouvel attribut type/metric et les noms de propriétés qui ont été modifié (les noms de propriétés sont abordés plus en détail ci-dessous).
-
-Les API Cost Management fonctionnent sur toutes les étendues des ressources ci-dessus : groupes de ressources, abonnements et groupes d’administration qui sont accessibles via un accès RBAC Azure, comptes de facturation EA (inscriptions), départements et comptes d’inscription accessibles via le portail EA. Pour plus d’informations sur les étendues, et pour savoir comment déterminer votre ID d’étendue ou gérer l’accès, voir [Comprendre et utiliser des étendues](understand-work-scopes.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

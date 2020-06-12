@@ -4,14 +4,14 @@ description: Découvrez comment configurer Azure Private Link pour accéder à u
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/14/2020
+ms.date: 05/27/2020
 ms.author: thweiss
-ms.openlocfilehash: 2c4044fded2d14b8c6a1d92f367de9588b7b2ca3
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: c5b82e8cdea49f8dd761844ff5492df0ad109943
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697885"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116664"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configurer Azure Private Link pour un compte Azure Cosmos
 
@@ -618,9 +618,11 @@ Les situations et résultats suivants sont possibles lorsque vous utilisez Priva
 
 * Si vous ne configurez pas de règles de pare-feu, par défaut, tout le trafic peut accéder à un compte Azure Cosmos.
 
-* Si vous configurez un trafic public ou un point de terminaison de service et que vous créez des points de terminaison privés, différents types de trafic entrant sont alors autorisés par le type de règle de pare-feu correspondant.
+* Si vous configurez un trafic public ou un point de terminaison de service et que vous créez des points de terminaison privés, différents types de trafic entrant sont alors autorisés par le type de règle de pare-feu correspondant. Si un point de terminaison privé est configuré dans un sous-réseau où le point de terminaison de service est également configuré :
+  * le trafic vers le compte de base de données mappé par le point de terminaison privé est routé via un point de terminaison privé,
+  * le trafic vers d’autres comptes de bases de données à partir du sous-réseau est routé via le point de terminaison de service.
 
-* Si vous ne configurez aucun trafic public ni point de terminaison de service et que vous créez des points de terminaison privés, le compte Azure Cosmos est alors uniquement accessible via les points de terminaison privés. Si vous ne configurez aucun trafic public ni point de terminaison de service, après le rejet ou la suppression de tous les points de terminaison privés approuvés, le compte est ouvert sur l’ensemble du réseau.
+* Si vous ne configurez aucun trafic public ni point de terminaison de service et que vous créez des points de terminaison privés, le compte Azure Cosmos est alors uniquement accessible via les points de terminaison privés. Si vous ne configurez aucun trafic public ni point de terminaison de service, après le rejet ou la suppression de tous les points de terminaison privés approuvés, le compte est ouvert sur l’ensemble du réseau à moins que PublicNetworkAccess ne soit défini sur Désactivé (consultez la section ci-dessous).
 
 ## <a name="blocking-public-network-access-during-account-creation"></a>Blocage de l’accès au réseau public pendant la création du compte
 

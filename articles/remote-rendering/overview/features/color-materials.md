@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 7cbcaefcc087c9f1c7c09668a27fbdef9a4802d3
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: af33a777d2d6ef53965c2168ac0abee00f59bc50
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679163"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021379"
 ---
 # <a name="color-materials"></a>Matériaux couleur
 
@@ -22,7 +22,7 @@ Les matériaux de couleur sont plus avantageux à restituer que [les matériaux 
 
 Ces propriétés sont communes à tous les matériaux :
 
-* **albedoColor :** cette couleur est multipliée par d’autres couleurs, telles que les couleurs *albedoMap* ou de *sommet*. Si la propriété *transparency* est activée sur un matériau, le canal alpha est utilisé pour ajuster l’opacité, avec `1` pour entièrement opaque et `0` pour entièrement transparent. Le blanc constitue la valeur par défaut.
+* **albedoColor :** cette couleur est multipliée par d’autres couleurs, telles que les couleurs *albedoMap* ou *:::no-loc text="vertex":::* . Si la propriété *transparency* est activée sur un matériau, le canal alpha est utilisé pour ajuster l’opacité, avec `1` pour entièrement opaque et `0` pour entièrement transparent. Le blanc constitue la valeur par défaut.
 
   > [!NOTE]
   > Étant donné que les matériaux de couleur ne reflètent pas l’environnement, un matériau de couleur entièrement transparent devient invisible. Il en va différemment pour [les matériaux PBR](pbr-materials.md).
@@ -33,15 +33,15 @@ Ces propriétés sont communes à tous les matériaux :
 
 * **textureCoordinateScale** et **textureCoordinateOffset :** l’échelle est multipliée par les coordonnées de la texture UV, le décalage y est ajouté. Peut être utilisée pour étirer et décaler les textures. La valeur par défaut de l’échelle est de (1, 1) et le décalage est de (0, 0).
 
-* **useVertexColor :** si le maillage comprend des couleurs de sommet et que cette option est activée, les couleurs de sommet des maillages sont multipliées par *albedoColor* et *albedoMap*. Par défaut, les couleurs de sommet sont désactivées.
+* **useVertexColor :** si le maillage comprend des couleurs :::no-loc text="vertex"::: et que cette option est activée, la couleur :::no-loc text="vertex"::: des maillages est multipliée par *albedoColor* et *albedoMap*. Par défaut *useVertexColor* est désactivée.
 
-* **isDoubleSided :** si la bilatéralité est définie sur true, les triangles bénéficiant de ce matériau sont rendus même si la caméra regarde vers les faces arrière. Par défaut, cette option est désactivée. Consultez également [Rendu unilatéral](single-sided-rendering.md).
+* **isDoubleSided :** si la bilatéralité est définie sur true, les triangles bénéficiant de ce matériau sont rendus même si la caméra regarde vers les faces arrière. Par défaut, cette option est désactivée. Consultez aussi le [ rendu :::no-loc text="Single-sided":::](single-sided-rendering.md).
 
 ## <a name="color-material-properties"></a>Propriétés des matériaux de couleur
 
 Les propriétés suivantes sont spécifiques aux matériaux de couleur :
 
-* **vertexMix :** cette valeur comprise entre `0` et `1` précise dans quelles proportions la couleur de sommet présente dans un [maillage](../../concepts/meshes.md) contribue à la couleur finale. Avec la valeur par défaut de 1, la couleur de sommet est multipliée par la couleur albedo, complètement. Avec la valeur 0, les couleurs de sommet sont entièrement ignorées.
+* **vertexMix :** cette valeur comprise entre `0` et `1` précise dans quelles proportions la couleur :::no-loc text="vertex"::: dans un [maillage](../../concepts/meshes.md) contribue à la couleur finale. Avec la valeur par défaut de 1, la couleur :::no-loc text="vertex"::: est multipliée complètement par la couleur albedo. Avec la valeur 0, les couleurs :::no-loc text="vertex"::: sont entièrement ignorées.
 
 * **transparencyMode :** contrairement aux [matériaux PBR](pbr-materials.md), les matériaux de couleur se distinguent par différents modes de transparence :
 

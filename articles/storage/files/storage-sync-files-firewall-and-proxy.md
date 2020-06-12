@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a5fc469c3db7da45f818230909026cedf6c71a4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 37c646e2f08745b2a12df41b6310fb5d3834998b
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82101737"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142552"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Paramètres de proxy et de pare-feu d’Azure File Sync
 Azure File Sync connecte vos serveurs locaux à Azure Files, activant des fonctionnalités de synchronisation multisite et de hiérarchisation cloud. Pour cela, un serveur local doit donc être connecté à Internet. Un administrateur informatique doit déterminer la meilleure voie d’accès aux services cloud Azure pour le serveur.
@@ -100,38 +100,39 @@ Le tableau suivant décrit les domaines requis pour la communication :
 | **Infrastructure à clé publique Microsoft** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Une fois que l’agent Azure File Sync est installé, l’URL de l’infrastructure à clé publique est utilisée pour télécharger les certificats intermédiaires qui sont nécessaires pour communiquer avec le service Azure File Sync et le partage de fichiers Azure. L’URL OCSP est utilisée pour vérifier l’état d’un certificat. |
 
 > [!Important]
+> Lorsque le trafic est autorisé vers &ast;.afs.azure.net, il n’est possible que vers le service de synchronisation. Aucun autre service Microsoft n’utilise ce domaine.
 > Quand le trafic vers &ast;.one.microsoft.com est autorisé, la destination du trafic à partir du serveur n’est pas limitée au service de synchronisation. Les sous-domaines incluent de nombreux autres services Microsoft.
 
-Si &ast;.one.microsoft.com est trop vaste, vous pouvez limiter les communications du serveur en autorisant uniquement des instances régionales explicites du service Azure Files Sync. Les instances à définir dépendent de la région du service de synchronisation de stockage où vous avez déployé et inscrit le serveur. Cette région est appelée « URL de point de terminaison principal » dans le tableau ci-dessous.
+Si &ast;.afs.azure.net ou &ast;.one.microsoft.com est trop vaste, vous pouvez limiter les communications du serveur aux seules instances régionales explicites du service Azure Files Sync. Les instances à définir dépendent de la région du service de synchronisation de stockage où vous avez déployé et inscrit le serveur. Cette région est appelée « URL de point de terminaison principal » dans le tableau ci-dessous.
 
 Pour des raisons de récupération d’urgence et de continuité d’activité (BCDR) vous avez peut-être spécifié des partages de vos fichiers Azure dans un compte de stockage globalement redondant (GRS). Si tel est le cas, vos partages de fichiers Azure basculeront vers la région jumelée en cas de panne régionale durable. Azure File Sync utilise les même paires régionales en tant que stockage. Par conséquent, si vous utilisez des comptes de stockage GRS, vous devez activer des URL supplémentaires pour permettre à votre serveur de communiquer avec la région jumelée pour Azure File Sync. Le tableau ci-dessous appelle cela « Région Jumelée ». De plus, il existe une URL du profil de gestionnaire de trafic qui doit être activée également. Ainsi, le trafic réseau peut être à nouveau routé en toute transparence vers la région jumelée en cas de basculement et est appelé « URL de détection » dans le tableau ci-dessous.
 
 | Cloud  | Région | URL de point de terminaison principal | Région jumelée | URL de détection |
 |--------|--------|----------------------|---------------|---------------|
-| Public |Australie Est | https:\//kailani-aue.one.microsoft.com | Sud-Australie Est | https:\//tm-kailani-aue.one.microsoft.com |
-| Public |Sud-Australie Est | https:\//kailani-aus.one.microsoft.com | Australie Est | https:\//tm-kailani-aus.one.microsoft.com |
+| Public |Australie Est | https:\//australiaeast01.afs.azure.net<br>https:\//kailani-aue.one.microsoft.com | Sud-Australie Est | https:\//tm-australiaeast01.afs.azure.net<br>https:\//tm-kailani-aue.one.microsoft.com |
+| Public |Sud-Australie Est | https:\//australiasoutheast01.afs.azure.net<br>https:\//kailani-aus.one.microsoft.com | Australie Est | https:\//tm-australiasoutheast01.afs.azure.net<br>https:\//tm-kailani-aus.one.microsoft.com |
 | Public | Brésil Sud | https:\//brazilsouth01.afs.azure.net | États-Unis - partie centrale méridionale | https:\//tm-brazilsouth01.afs.azure.net |
-| Public | Centre du Canada | https:\//kailani-cac.one.microsoft.com | Est du Canada | https:\//tm-kailani-cac.one.microsoft.com |
-| Public | Est du Canada | https:\//kailani-cae.one.microsoft.com | Centre du Canada | https:\//tm-kailani.cae.one.microsoft.com |
-| Public | Inde centrale | https:\//kailani-cin.one.microsoft.com | Inde Sud | https:\//tm-kailani-cin.one.microsoft.com |
-| Public | USA Centre | https:\//kailani-cus.one.microsoft.com | USA Est 2 | https:\//tm-kailani-cus.one.microsoft.com |
-| Public | Asie Est | https:\//kailani11.one.microsoft.com | Asie Sud-Est | https:\//tm-kailani11.one.microsoft.com |
-| Public | USA Est | https:\//kailani1.one.microsoft.com | USA Ouest | https:\//tm-kailani1.one.microsoft.com |
-| Public | USA Est 2 | https:\//kailani-ess.one.microsoft.com | USA Centre | https:\//tm-kailani-ess.one.microsoft.com |
+| Public | Centre du Canada | https:\//canadacentral01.afs.azure.net<br>https:\//kailani-cac.one.microsoft.com | Est du Canada | https:\//tm-canadacentral01.afs.azure.net<br>https:\//tm-kailani-cac.one.microsoft.com |
+| Public | Est du Canada | https:\//canadaeast01.afs.azure.net<br>https:\//kailani-cae.one.microsoft.com | Centre du Canada | https:\//tm-canadaeast01.afs.azure.net<br>https:\//tm-kailani.cae.one.microsoft.com |
+| Public | Inde centrale | https:\//centralindia01.afs.azure.net<br>https:\//kailani-cin.one.microsoft.com | Inde Sud | https:\//tm-centralindia01.afs.azure.net<br>https:\//tm-kailani-cin.one.microsoft.com |
+| Public | USA Centre | https:\//centralus01.afs.azure.net<br>https:\//kailani-cus.one.microsoft.com | USA Est 2 | https:\//tm-centralus01.afs.azure.net<br>https:\//tm-kailani-cus.one.microsoft.com |
+| Public | Asie Est | https:\//eastasia01.afs.azure.net<br>https:\//kailani11.one.microsoft.com | Asie Sud-Est | https:\//tm-eastasia01.afs.azure.net<br>https:\//tm-kailani11.one.microsoft.com |
+| Public | USA Est | https:\//eastus01.afs.azure.net<br>https:\//kailani1.one.microsoft.com | USA Ouest | https:\//tm-eastus01.afs.azure.net<br>https:\//tm-kailani1.one.microsoft.com |
+| Public | USA Est 2 | https:\//eastus201.afs.azure.net<br>https:\//kailani-ess.one.microsoft.com | USA Centre | https:\//tm-eastus201.afs.azure.net<br>https:\//tm-kailani-ess.one.microsoft.com |
 | Public | Japon Est | https:\//japaneast01.afs.azure.net | OuJapon Est | https:\//tm-japaneast01.afs.azure.net |
 | Public | OuJapon Est | https:\//japanwest01.afs.azure.net | Japon Est | https:\//tm-japanwest01.afs.azure.net |
 | Public | Centre de la Corée | https:\//koreacentral01.afs.azure.net/ | Corée du Sud | https:\//tm-koreacentral01.afs.azure.net/ |
 | Public | Corée du Sud | https:\//koreasouth01.afs.azure.net/ | Centre de la Corée | https:\//tm-koreasouth01.afs.azure.net/ |
 | Public | Centre-Nord des États-Unis | https:\//northcentralus01.afs.azure.net | États-Unis - partie centrale méridionale | https:\//tm-northcentralus01.afs.azure.net |
-| Public | Europe Nord | https:\//kailani7.one.microsoft.com | Europe Ouest | https:\//tm-kailani7.one.microsoft.com |
+| Public | Europe Nord | https:\//northeurope01.afs.azure.net<br>https:\//kailani7.one.microsoft.com | Europe Ouest | https:\//tm-northeurope01.afs.azure.net<br>https:\//tm-kailani7.one.microsoft.com |
 | Public | États-Unis - partie centrale méridionale | https:\//southcentralus01.afs.azure.net | Centre-Nord des États-Unis | https:\//tm-southcentralus01.afs.azure.net |
-| Public | Inde Sud | https:\//kailani-sin.one.microsoft.com | Inde centrale | https:\//tm-kailani-sin.one.microsoft.com |
-| Public | Asie Sud-Est | https:\//kailani10.one.microsoft.com | Asie Est | https:\//tm-kailani10.one.microsoft.com |
-| Public | Sud du Royaume-Uni | https:\//kailani-uks.one.microsoft.com | Ouest du Royaume-Uni | https:\//tm-kailani-uks.one.microsoft.com |
-| Public | Ouest du Royaume-Uni | https:\//kailani-ukw.one.microsoft.com | Sud du Royaume-Uni | https:\//tm-kailani-ukw.one.microsoft.com |
+| Public | Inde Sud | https:\//southindia01.afs.azure.net<br>https:\//kailani-sin.one.microsoft.com | Inde centrale | https:\//tm-southindia01.afs.azure.net<br>https:\//tm-kailani-sin.one.microsoft.com |
+| Public | Asie Sud-Est | https:\//southeastasia01.afs.azure.net<br>https:\//kailani10.one.microsoft.com | Asie Est | https:\//tm-southeastasia01.afs.azure.net<br>https:\//tm-kailani10.one.microsoft.com |
+| Public | Sud du Royaume-Uni | https:\//uksouth01.afs.azure.net<br>https:\//kailani-uks.one.microsoft.com | Ouest du Royaume-Uni | https:\//tm-uksouth01.afs.azure.net<br>https:\//tm-kailani-uks.one.microsoft.com |
+| Public | Ouest du Royaume-Uni | https:\//ukwest01.afs.azure.net<br>https:\//kailani-ukw.one.microsoft.com | Sud du Royaume-Uni | https:\//tm-ukwest01.afs.azure.net<br>https:\//tm-kailani-ukw.one.microsoft.com |
 | Public | Centre-USA Ouest | https:\//westcentralus01.afs.azure.net | USA Ouest 2 | https:\//tm-westcentralus01.afs.azure.net |
-| Public | Europe Ouest | https:\//kailani6.one.microsoft.com | Europe Nord | https:\//tm-kailani6.one.microsoft.com |
-| Public | USA Ouest | https:\//kailani.one.microsoft.com | USA Est | https:\//tm-kailani.one.microsoft.com |
+| Public | Europe Ouest | https:\//westeurope01.afs.azure.net<br>https:\//kailani6.one.microsoft.com | Europe Nord | https:\//tm-westeurope01.afs.azure.net<br>https:\//tm-kailani6.one.microsoft.com |
+| Public | USA Ouest | https:\//westus01.afs.azure.net<br>https:\//kailani.one.microsoft.com | USA Est | https:\//tm-westus01.afs.azure.net<br>https:\//tm-kailani.one.microsoft.com |
 | Public | USA Ouest 2 | https:\//westus201.afs.azure.net | Centre-USA Ouest | https:\//tm-westus201.afs.azure.net |
 | Gouvernement américain | Gouvernement des États-Unis – Arizona | https:\//usgovarizona01.afs.azure.us | Gouvernement des États-Unis – Texas | https:\//tm-usgovarizona01.afs.azure.us |
 | Gouvernement américain | Gouvernement des États-Unis – Texas | https:\//usgovtexas01.afs.azure.us | Gouvernement des États-Unis – Arizona | https:\//tm-usgovtexas01.afs.azure.us |
@@ -142,9 +143,9 @@ Pour des raisons de récupération d’urgence et de continuité d’activité (
 
 **Exemple :** vous déployez un service de synchronisation de stockage dans `"West US"` et inscrivez votre serveur avec celui-ci. Les URL permettant au serveur de communiquer sont dans ce cas :
 
-> - https:\//kailani.one.microsoft.com (point de terminaison principal : USA Ouest)
-> - https:\//kailani1.one.microsoft.com (région jumelée de basculement : USA Est)
-> - https:\//tm-kailani.one.microsoft.com (URL de découverte de la région principale)
+> - https:\//westus01.afs.azure.net (point de terminaison primaire : USA Ouest)
+> - https:\//eastus01.afs.azure.net (région de basculement couplée : USA Est)
+> - https:\//tm-westus01.afs.azure.net (URL de détection de la région primaire)
 
 ### <a name="allow-list-for-azure-file-sync-ip-addresses"></a>Liste verte des adresses IP Azure File Sync
 Azure File Sync prend en charge l’utilisation d’[étiquettes de service](../../virtual-network/service-tags-overview.md), qui représentent un groupe de préfixes d’adresses IP pour un service Azure donné. Vous pouvez utiliser des étiquettes de service pour créer des règles de pare-feu qui permettent la communication avec le service Azure File Sync. L’étiquette de service `StorageSyncService` est utilisée pour Azure File Sync.

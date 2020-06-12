@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab6be101e33fb29f96e2e5ea0fd2e79aa1cf0d09
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: bbdf4c57e1bf6e7f3f581b9a6186567e10743d52
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744690"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221168"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -36,7 +36,7 @@ Lorsqu’un attribut d’un utilisateur ou d’un appareil change, le système �
 
 ## <a name="rule-builder-in-the-azure-portal"></a>Générateur de règles dans le portail Azure
 
-Azure AD fournit un générateur de règles pour créer et mettre à jour plus rapidement vos règles importantes. Le générateur de règles prend en charge la construction jusqu’à cinq expressions. Le générateur de règles facilite la création d’une règle avec quelques expressions simples. Toutefois, il ne peut pas être utilisé pour reproduire chaque règle. Si le générateur de règles ne prend pas en charge la règle que vous souhaitez créer, vous pouvez utiliser la zone de texte.
+Azure AD fournit un générateur de règles pour créer et mettre à jour plus rapidement vos règles importantes. Le générateur de règles prend en charge la construction de jusqu’à cinq expressions. Le générateur de règles facilite la création d’une règle avec quelques expressions simples. Toutefois, il ne peut pas être utilisé pour reproduire chaque règle. Si le générateur de règles ne prend pas en charge la règle que vous souhaitez créer, vous pouvez utiliser la zone de texte.
 
 Voici quelques exemples de règles avancées ou de syntaxe pour lesquelles nous vous recommandons de construire à l’aide de la zone de texte :
 
@@ -384,7 +384,7 @@ Les attributs d’appareil suivants peuvent être utilisés.
  deviceManufacturer | Toute valeur de chaîne. | (device.deviceManufacturer -eq "Samsung")
  deviceModel | Toute valeur de chaîne. | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personnel, Entreprise, Inconnu | (device.deviceOwnership -eq "Company")
- enrollmentProfileName | Profil d’inscription d’appareil Apple, inscription d’appareil : identifiants d’appareil d’entreprise (Android - Kiosk) ou nom de profil Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
+ enrollmentProfileName | Nom du profil d’inscription d’appareil Apple, nom du profil d’inscription d’appareil dédié appartenant à l’entreprise Android Enterprise ou nom du profil Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | Gestion des périphériques mobiles (pour les appareils mobiles).<br>PC (pour les ordinateurs gérés par l’agent PC Intune) | (device.managementType -eq "MDM")
  deviceId | Un ID d’appareil Azure AD valide. | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")

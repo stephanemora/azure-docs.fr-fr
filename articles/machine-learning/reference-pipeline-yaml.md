@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
 ms.date: 11/11/2019
-ms.openlocfilehash: cee6de8fda45c429d0c74a3ecdc966b49e092567
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0bf5a722c611f4d1c5446eb739fdd95b7edbc934
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208497"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170526"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Définir des pipelines d’apprentissage automatique en YAML
 
@@ -26,15 +26,16 @@ Le tableau suivant répertorie les éléments qui sont ou non actuellement pris 
 | Type d’étape | Pris en charge ? |
 | ----- | :-----: |
 | PythonScriptStep | Oui |
+| ParallelRunStep | Oui |
 | AdlaStep | Oui |
 | AzureBatchStep | Oui |
 | DatabricksStep | Oui |
 | DataTransferStep | Oui |
-| AutoMLStep | Non  |
-| HyperDriveStep | Non  |
+| AutoMLStep | Non |
+| HyperDriveStep | Non |
 | ModuleStep | Oui |
-| MPIStep | Non  |
-| EstimatorStep | Non  |
+| MPIStep | Non |
+| EstimatorStep | Non |
 
 ## <a name="pipeline-definition"></a>Définition de pipeline
 
@@ -111,6 +112,7 @@ Les étapes définissent un environnement de calcul, ainsi que les fichiers à e
 | `DatabricsStep` | Ajoute un notebook Databricks, un script Python ou un fichier JAR. Correspond à la classe [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep?view=azure-ml-py). |
 | `DataTransferStep` | Transfère des données entre les options de stockage. Correspond à la classe [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py). |
 | `PythonScriptStep` | Exécute un script Python. Correspond à la classe [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). |
+| `ParallelRunStep` | Exécute un script Python pour traiter de grandes quantités de données de façon asynchrone et en parallèle. Correspond à la classe [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py). |
 
 ### <a name="adla-step"></a>Étape ADLA
 
@@ -358,6 +360,58 @@ pipeline:
             outputs:
                 OutputData:
                     destination: Output4
+                    datastore: workspaceblobstore
+                    bind_mode: mount
+```
+
+### <a name="parallel-run-step"></a>Étape d’exécution parallèle
+
+| Clé YAML | Description |
+| ----- | ----- |
+| `inputs` | Les entrées peuvent être [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py) ou [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
+| `outputs` | Les sorties peuvent être [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) ou [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py). |
+| `script_name` | Nom du script Python (relatif à `source_directory`). |
+| `source_directory` | Répertoire contenant le script, l’environnement Conda, etc. |
+| `parallel_run_config` | Chemin d’accès du fichier `parallel_run_config.yml`. Ce fichier est une représentation YAML de la classe [ParallelRunConfig](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig?view=azure-ml-py). |
+| `allow_reuse` | Détermine si l’étape doit réutiliser les résultats précédents lorsqu’elle est exécutée avec les mêmes paramètres. |
+
+L’exemple suivant contient une étape d’exécution parallèle :
+
+```yaml
+pipeline:
+    description: SamplePipelineFromYaml
+    default_compute: cpu-cluster
+    data_references:
+        MyMinistInput:
+            dataset_name: mnist_sample_data
+    parameters:
+        PipelineParamTimeout:
+            type: int
+            default: 600
+    steps:        
+        Step1:
+            parallel_run_config: "yaml/parallel_run_config.yml"
+            type: "ParallelRunStep"
+            name: "parallel-run-step-1"
+            allow_reuse: True
+            arguments:
+            - "--progress_update_timeout"
+            - parameter:timeout_parameter
+            - "--side_input"
+            - side_input:SideInputData
+            parameters:
+                timeout_parameter:
+                    source: PipelineParamTimeout
+            inputs:
+                InputData:
+                    source: MyMinistInput
+            side_inputs:
+                SideInputData:
+                    source: Output4
+                    bind_mode: mount
+            outputs:
+                OutputDataStep2:
+                    destination: Output5
                     datastore: workspaceblobstore
                     bind_mode: mount
 ```

@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 0feab5c4c03ddce6fb4df2395316484bf35bae81
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 51f583b946d6f5a18325e77cfe12404daab83d22
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772860"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84268035"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Intégration et livraison continues dans Azure Data Factory
 
@@ -570,27 +570,7 @@ N’oubliez pas d’ajouter les scripts Data Factory dans votre pipeline CI/CD a
 
 Si vous n’avez pas configuré Git, vous pouvez accéder aux modèles liés via **Exporter le modèle ARM** dans la liste **Modèle ARM**.
 
-## <a name="exclude-azure-ssis-integration-runtimes-from-cicd"></a>Exclure les runtimes d’intégration Azure-SSIS de CI/CD
-
-Si votre fabrique de développement dispose d’un runtime d’intégration Azure-SSIS, vous pouvez exclure tous les runtimes d’intégration Azure-SSIS du processus CI/CD dans le scénario ci-dessous :
-
-- L’infrastructure Azure-SSIS IR est complexe et varie dans chaque environnement.  
-- Elle est configurée manuellement pour chaque environnement portant le même nom. Sinon, la publication échoue dans le cas d’une activité dépendant d’Azure-SSIS IR.
-
-Pour exclure le runtime d’intégration Azure-SSIS :
-
-1. Ajoutez un fichier publish_config.json au dossier racine dans la branche de collaboration, s’il n’existe pas.
-1. Ajoutez le paramètre ci-dessous à publish_config.json : 
-
-```json
-{
-    " excludeIRs": "true"
-}
-```
-
-Lors de la publication à partir de la branche de collaboration, les runtimes d’intégration Azure-SSIS sont exclus du modèle Resource Manager généré.
-
-## <a name="hotfix-production-branch"></a>Branche de production de correctifs logiciels
+## <a name="hotfix-production-environment"></a>Environnement de production de correctif logiciel
 
 Si vous déployez une fabrique en production et détectez un bogue qui doit être corrigé immédiatement, mais que vous ne pouvez pas déployer la branche de collaboration actuelle, vous devrez peut-être déployer un correctif logiciel. Cette approche est également connue sous le nom de QFE (Quick-Fix Engineering).
 
@@ -631,7 +611,7 @@ Si vous utilisez une intégration Git avec votre fabrique de données, et dispos
 - Par conception, Data Factory n’autorise pas le cherry-picking des validations ni la publication sélective des ressources. Les publications incluent toutes les modifications apportées dans la fabrique de données.
 
     - Les entités Data Factory dépendent les unes des autres. Par exemple, les déclencheurs dépendent des pipelines et les pipelines dépendent des jeux de données et d’autres pipelines. La publication sélective d’un sous-ensemble de ressources peut engendrer des comportements inattendus et des erreurs.
-    - Dans les rares cas où vous avez besoin d’une publication sélective, envisagez d’utiliser un correctif logiciel. Pour plus d’informations, consultez [Branche de production de correctifs logiciels](#hotfix-production-branch).
+    - Dans les rares cas où vous avez besoin d’une publication sélective, envisagez d’utiliser un correctif logiciel. Pour plus d’informations, consultez [Environnement de production de correctif logiciel](#hotfix-production-environment).
 
 -   Vous ne pouvez pas publier à partir de branches privées.
 

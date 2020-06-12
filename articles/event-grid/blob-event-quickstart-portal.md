@@ -9,12 +9,12 @@ ms.date: 06/02/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 3c84bf32f0d7b8b8381747e995f060d7e2dc1c9b
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 8c1627b0a9ae37f7d784c49613eb14b0c851b9b1
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310479"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457046"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Démarrage rapide : Acheminer des événements de stockage Blob vers un point de terminaison web avec le portail Azure
 
@@ -92,12 +92,9 @@ Vous vous abonnez à une rubrique pour communiquer à Event Grid les événement
    ![Sélectionner Webhook](./media/blob-event-quickstart-portal/select-web-hook.png)
 3. Dans la page **Créer un abonnement aux événements**, effectuez les étapes suivantes : 
     1. Entrez un **nom** pour l’abonnement aux événements.
-    2. Entrez un **nom** pour la **rubrique système**. 
+    2. Entrez un **nom** pour la **rubrique système**. Pour en savoir plus sur les rubriques système, consultez [Vue d’ensemble des rubriques système](system-topics.md).
 
        ![Entrez des noms pour l’abonnement aux événements et la rubrique système](./media/blob-event-quickstart-portal/event-subscription-name-system-topic.png)
-
-       > [!NOTE]
-       > Auparavant, lorsque vous créiez un abonnement pour un événement déclenché par des sources Azure, le service Event Grid créait automatiquement une rubrique système avec un nom généré de manière aléatoire. Vous pouvez désormais spécifier un nom pour la rubrique système à l’aide de cette zone de texte. Vous pouvez utiliser cette ressource de rubrique système pour découvrir des métriques et des journaux de diagnostic.
     2. Sélectionnez **Webhook** pour **Type de point de terminaison**. 
 
        ![Sélectionner le type de point de terminaison webhook](./media/blob-event-quickstart-portal/select-web-hook-end-point-type.png)

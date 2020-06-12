@@ -12,12 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 9709cd3b6036b384fd9212a522c191d0695b9bb4
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 764600d61704378b1bc0937dd1399260a1266150
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82161722"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308624"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossaire du développeur de la plateforme d’identité Microsoft
 
@@ -202,7 +202,7 @@ Une instance d’un répertoire Azure AD est désignée sous le nom de client Az
 * l’authentification des comptes utilisateurs et des applications enregistrées
 * les points de terminaison REST requis pour prendre en charge différents protocoles, notamment OAuth2 et SAML, y compris le [point de terminaison d’autorisation](#authorization-endpoint), le [point de terminaison de jeton](#token-endpoint) et le point de terminaison « commun » utilisé par les [applications mutualisées](#multi-tenant-application).
 
-Les locataires Azure AD sont créés avec/associés à des abonnements Azure et Office 365 pendant l’inscription, fournissant des fonctionnalités de gestion des identités et des accès pour l’abonnement. Les administrateurs d’abonnement Azure peuvent également créer d’autres locataires Azure AD via le portail Azure. Pour plus d’informations sur les diverses méthodes permettant d’accéder à un locataire, consultez [Obtention d’un locataire Azure Active Directory][AAD-How-To-Tenant]. Pour plus d’informations sur la relation entre les abonnements et un client Azure AD, consultez [Association des abonnements Azure avec Azure Active Directory][AAD-How-Subscriptions-Assoc].
+Les locataires Azure AD sont créés avec/associés à des abonnements Azure et Office 365 pendant l’inscription, fournissant des fonctionnalités de gestion des identités et des accès pour l’abonnement. Les administrateurs d’abonnement Azure peuvent également créer d’autres locataires Azure AD via le portail Azure. Pour plus d’informations sur les diverses méthodes permettant d’accéder à un locataire, consultez [Obtention d’un locataire Azure Active Directory][AAD-How-To-Tenant]. Pour plus d’informations sur la relation entre les abonnements et un locataire Azure AD et pour obtenir des instructions sur l’association ou l’ajout d’un abonnement à un locataire Azure AD, consultez [Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory][AAD-How-Subscriptions-Assoc].
 
 ## <a name="token-endpoint"></a>point de terminaison de jeton
 

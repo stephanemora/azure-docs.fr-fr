@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 53f255c44cded714440f5d524387c4ea1a20d76a
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 022942778b714d5d66ce6eeb2c29351b11c66e40
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849040"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996242"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ – Question relatives à la collecte de données, aux agents et aux espaces de travail
 
@@ -65,6 +65,14 @@ La localisation de l’espace de travail par défaut dépend de votre région Az
 - Pour les machines virtuelles au Japon, la localisation de l’espace de travail est le Japon
 - Pour les machines virtuelles en Chine, la localisation de l’espace de travail est la Chine
 - Pour les machines virtuelles en Australie, la localisation de l’espace de travail est l’Australie
+
+
+## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Quelles données sont collectées par l’agent Log Analytics ?
+
+Pour obtenir la liste complète des applications et services analysés par l’agent, consultez [Éléments supervisés par Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/monitor-reference#azure-services).
+
+> [!IMPORTANT]
+> Notez que pour certains services, comme Pare-feu Azure, si vous avez activé la journalisation et choisi une ressource bavarde à journaliser (par exemple, en définissant le journal sur *détaillé*), vous pourriez constater des impacts significatifs sur les besoins de stockage de votre espace de travail Log Analytics. 
 
 
 ## <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Puis-je supprimer les espaces de travail par défaut créés par Security Center ?
@@ -201,9 +209,17 @@ Pour supprimer manuellement l’agent :
 
 ## <a name="how-do-i-disable-data-collection"></a>Comment désactiver la collecte des données ?
 
-L’approvisionnement automatique est désactivé par défaut. Vous pouvez désactiver l’approvisionnement automatique à partir des ressources à tout moment en désactivant ce paramètre dans la stratégie de sécurité. L’approvisionnement automatique est fortement recommandé si vous souhaitez obtenir des alertes de sécurité et des recommandations sur les mises à jour système, les vulnérabilités du système d’exploitation et la protection du point de terminaison.
+L’approvisionnement automatique est fortement recommandé si vous souhaitez obtenir des alertes de sécurité et des recommandations sur les mises à jour système, les vulnérabilités du système d’exploitation et la protection du point de terminaison. Par défaut, le provisionnement automatique désactivé.
 
-Pour désactiver la collecte des données, [connectez-vous au Portail Azure](https://portal.azure.com), sélectionnez **Parcourir**, **Centre de sécurité**, puis **Sélectionner une stratégie**. Sélectionnez l’abonnement pour lequel vous souhaitez désactiver l’approvisionnement automatique. Lorsque vous sélectionnez un abonnement, **Stratégie de sécurité - Collecte de données** s’ouvre. Sous **Auto provisioning** (Approvisionnement automatique), sélectionnez **Off** (Désactivé).
+Si vous l’avez activé, mais que vous souhaitez maintenant le désactiver :
+
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez **Centre de sécurité** et sélectionnez **Stratégie de sécurité**.
+
+1. Sélectionnez l’abonnement pour lequel vous souhaitez désactiver le provisionnement automatique.
+
+    **Stratégie de sécurité - Collecte de données** s’ouvre.
+
+1. Sous **Auto provisioning** (Approvisionnement automatique), sélectionnez **Off** (Désactivé).
 
 
 ## <a name="how-do-i-enable-data-collection"></a>Comment activer la collecte des données ?
@@ -233,9 +249,6 @@ Pour collecter les données, chaque machine virtuelle et chaque serveur doivent 
 L’agent utilise une quantité minime de ressources système et n’a donc qu’un faible impact sur les performances. Pour en savoir plus sur l’impact sur les performances, l’agent et l’extension, consultez le [Guide de planification et de fonctionnement](security-center-planning-and-operations-guide.md#data-collection-and-storage).
 
 
-## <a name="where-is-my-data-stored"></a>Où sont stockées mes données ?
-
-Les données collectées à partir de cet agent sont stockées dans un espace de travail Log Analytics existant associé à votre abonnement Azure ou dans un nouvel espace de travail. Pour plus d’informations, consultez [Sécurité des données](security-center-data-security.md).
 
 
 <!--Image references-->

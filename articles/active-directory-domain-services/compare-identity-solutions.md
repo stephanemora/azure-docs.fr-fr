@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 03/30/2020
+ms.date: 06/08/2020
 ms.author: iainfou
-ms.openlocfilehash: 5925e3374634dd4db4bdc6855949dc3880d8de7c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 013b78e0e8ad47e98b1d192bfc48c5c4a4de0163
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655525"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84555141"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Comparer les services Active Directory Domain Services automanagés, Azure Active Directory et les services Azure Active Directory Domain Services managés
 
@@ -31,10 +31,12 @@ Même si les trois solutions d’identité basées sur Active Directory ont un n
     * Pour plus d’informations sur Azure AD, consultez [Qu’est-ce qu’Azure Active Directory ?][whatis-azuread]
 * **Azure Active Directory Domain Services (Azure AD DS)**  : fournit des services de domaine managés avec un sous-ensemble de fonctionnalités AD DS traditionnelles entièrement compatibles, comme la jonction de domaine, la stratégie de groupe, le protocole LDAP et l’authentification Kerberos/NTLM.
     * Azure AD DS s’intègre à Azure AD, qui peut lui-même se synchroniser avec un environnement AD DS local. Cette capacité étend les cas d’usage de l’identité centrale aux applications web traditionnelles qui s’exécutent dans Azure dans le cadre d’une stratégie lift-and-shift.
+    * Pour en savoir plus sur la synchronisation avec Azure AD et en local, consultez [Synchronisation des objets et des informations d’identification dans un domaine managé][synchronization].
 
 Cet article de vue d’ensemble compare la façon dont ces solutions d’identité peuvent fonctionner ensemble ou être utilisées indépendamment, en fonction des besoins de votre organisation.
 
-Pour bien démarrer, [créez un domaine managé Azure AD DS à l’aide du portail Azure][tutorial-create].
+> [!div class="nextstepaction"]
+> [Pour commencer, créez un domaine managé Azure AD DS à l’aide du portail Azure][tutorial-create].
 
 ## <a name="azure-ad-ds-and-self-managed-ad-ds"></a>Azure AD DS et instance AD DS automanagée
 
@@ -45,7 +47,9 @@ Si vous avez des applications et des services qui doivent accéder à des mécan
 
 Avec Azure AD DS, les composants de service de base sont déployés et gérés pour vous par Microsoft en tant qu’expérience de domaine *managé*. Vous ne pouvez pas déployer, gérer, corriger et sécuriser l’infrastructure AD DS pour des composants tels que les machines virtuelles, le système d’exploitation Windows Server ou les contrôleurs de domaine.
 
-Azure AD DS fournit un sous-ensemble plus petit de fonctionnalités à un environnement AD DS automanagé traditionnel, ce qui réduit la complexité de la conception et de la gestion. Par exemple, il n’existe pas de forêts, de domaines, de sites et de liens de réplication Active Directory à concevoir ni à entretenir. Pour les applications et les services qui s’exécutent dans le cloud et qui ont besoin d’accéder à des mécanismes d’authentification traditionnels, tels que Kerberos ou NTLM, Azure AD DS offre une expérience de domaine managé avec charge administrative minimale.
+Azure AD DS fournit un sous-ensemble plus petit de fonctionnalités à un environnement AD DS automanagé traditionnel, ce qui réduit la complexité de la conception et de la gestion. Par exemple, il n’existe pas de forêts, de domaines, de sites et de liens de réplication Active Directory à concevoir ni à entretenir. Vous pouvez toujours [créer des approbations de forêt entre des environnements Azure AD DS et locaux (actuellement en préversion)][create-forest-trust].
+
+Pour les applications et les services qui s’exécutent dans le cloud et qui ont besoin d’accéder à des mécanismes d’authentification traditionnels, tels que Kerberos ou NTLM, Azure AD DS offre une expérience de domaine managé avec charge administrative minimale. Pour plus d’informations, consultez [Concepts de gestion pour les comptes d’utilisateur, les mots de passe et l’administration dans Azure AD DS][administration-concepts].
 
 Lorsque vous déployez et exécutez un environnement AD DS automanagé, vous devez gérer tous les composants d’infrastructure et de répertoire associés. Il existe une surcharge de maintenance supplémentaire avec un environnement AD DS automanagé, mais vous pouvez ensuite effectuer des tâches supplémentaires, telles que l’extension du schéma ou la création d’approbations de forêt.
 
@@ -94,7 +98,7 @@ Les appareils peuvent être joints à Azure AD avec ou sans déploiement hybride
 
 | **Type d’appareil**                                        | **Plateformes d’appareils**             | **Mécanisme**          |
 |:----------------------------------------------------------| -------------------------------- | ---------------------- |
-| Appareils personnels                                          | Windows 10, iOS, Android, Mac OS | Appareils inscrits sur Azure AD    |
+| Appareils personnels                                          | Windows 10, iOS, Android, macOS | Appareils inscrits sur Azure AD    |
 | Appareil appartenant à l’organisation et non joint à AD DS local | Windows 10                       | Appareil joints Azure AD        |
 | Appareil appartenant à l’organisation et joint à AD DS local  | Windows 10                       | Appareils joints Azure AD hybrides |
 
@@ -115,6 +119,8 @@ Avec les appareils joints à Azure AD DS, les applications peuvent utiliser les 
 
 Pour bien démarrer avec l’utilisation d’Azure AD DS, [créez un domaine managé Azure AD DS à l’aide du portail Azure][tutorial-create].
 
+Consultez également les pages [Concepts de gestion pour les comptes d’utilisateur, les mots de passe et l’administration dans Azure AD DS][administration-concepts] et [Synchronisation des objets et des informations d’identification dans un domaine managé][synchronization].
+
 <!-- INTERNAL LINKS -->
 [manage-dns]: manage-dns.md
 [deploy-kcd]: deploy-kcd.md
@@ -124,3 +130,6 @@ Pour bien démarrer avec l’utilisation d’Azure AD DS, [créez un domaine man
 [tutorial-create]: tutorial-create-instance.md
 [whatis-azuread]: ../active-directory/fundamentals/active-directory-whatis.md
 [overview-adds]: /windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview
+[create-forest-trust]: tutorial-create-forest-trust.md
+[administration-concepts]: administration-concepts.md
+[synchronization]: synchronization.md

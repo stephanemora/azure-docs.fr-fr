@@ -8,14 +8,14 @@ ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 4d1fafa131a39ab72f6fc09663c7eb5b06107539
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b344ae50d921c33a5e8ddd344e08ec86179668e9
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644853"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608755"
 ---
-# <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-spark-pools-preview"></a>Tutoriel : Utiliser Azure Toolkit for IntelliJ afin de créer des applications Apache Spark pour les pools Spark (préversion)
+# <a name="tutorial-create-apache-spark-applications-with-intellij-using-synapse-synapse-analytics-workspaces-preview"></a>Tutoriel : Créer des applications Apache Spark avec IntelliJ à l’aide d’Azure Synapse Analytics (préversion pour les espaces de travail)
 
 Ce tutoriel explique comment utiliser le plug-in Azure Toolkit for IntelliJ pour développer des applications Apache Spark, écrites en [Scala](https://www.scala-lang.org/), puis les envoyer directement à un pool Spark (préversion) à partir de l’environnement de développement intégré (IDE) IntelliJ. Vous pouvez utiliser le plug-in de différentes manières :
 

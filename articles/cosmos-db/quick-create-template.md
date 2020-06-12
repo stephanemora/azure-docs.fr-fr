@@ -6,14 +6,14 @@ ms.author: sngun
 tags: azure-resource-manager
 ms.service: cosmos-db
 ms.topic: quickstart
-ms.date: 02/27/2020
+ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: f524a1e1db426b9b9dafb2fb95d77538a34b04ec
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 273305894e05b397d0f48acd7a483a9fdfc247ef
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605462"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324032"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-azure-resource-manager-template"></a>Démarrage rapide : Créer une base de données et un conteneur Azure Cosmos DB avec un modèle Azure Resource Manager
 
@@ -35,9 +35,9 @@ Un abonnement Azure ou un compte d’essai gratuit Azure Cosmos DB
 
 ### <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-create/).
+Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/).
 
-:::code language="json" source="~/quickstart-templates/101-cosmosdb-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
 Trois ressources Azure sont définies dans le modèle :
 
@@ -53,7 +53,7 @@ Vous trouverez d’autres exemples de modèles Azure Cosmos DB dans la [galerie 
 
 1. Cliquez sur l’image ci-après pour vous connecter à Azure et ouvrir un modèle. Le modèle crée un compte, une base de données et un conteneur Azure Cosmos.
 
-   [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-create%2Fazuredeploy.json)
+   [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
 2. Sélectionnez ou entrez les valeurs suivantes.
 
@@ -68,6 +68,9 @@ Vous trouverez d’autres exemples de modèles Azure Cosmos DB dans la [galerie 
     * **Emplacement** : entrez un emplacement où vous voulez créer votre compte Azure Cosmos. Le compte Azure Cosmos peut être au même emplacement que le groupe de ressources.
     * **Région principale** : Région du réplica principal pour le compte Azure Cosmos.
     * **Région secondaire** : Région du réplica secondaire pour le compte Azure Cosmos.
+    * **Niveau de cohérence par défaut** : niveau de cohérence par défaut du compte Azure Cosmos.
+    * **Préfixe d’obsolescence maximale** : nombre maximal de demandes périmées. Requis pour BoundedStaleness.
+    * **Intervalle maximal en secondes** : temps de retard maximal. Requis pour BoundedStaleness.
     * **Nom de la base de données** : Nom de la base de données Azure Cosmos.
     * **Nom du conteneur** : Nom du conteneur Azure Cosmos.
     * **Débit** :  Débit pour le conteneur, la valeur minimale du débit est de 400 RU/s.
@@ -106,7 +109,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous prévoyez d’utiliser les démarrages rapides suivants et des tutoriels, il peut être utile de conserver ces ressources.
-Si vous n’en avez plus besoin, supprimez le groupe de ressources, ce qui va supprimer le compte Azure Cosmos et les ressources associées. Pour supprimer le groupe de ressources à l’aide d’Azure CLI ou d’Azure PowerShell :
+Si vous n’en avez plus besoin, supprimez le groupe de ressources, ce qui va supprimer le compte Azure Cosmos et les ressources associées. Pour supprimer le groupe de ressources avec Azure CLI ou Azure PowerShell :
 
 # <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/CLI)
 

@@ -3,12 +3,12 @@ title: Restrictions concernant le nommage des ressources
 description: Affiche les règles et restrictions concernant le nommage des ressources Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 553d0e33c4b9bc1aa238cf582f37be1e148eea5e
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 73e5f7ce7f5c13a0ce456372d299e49033c7e704
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758892"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170577"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Règles de nommage et restrictions pour les ressources Azure
 
@@ -81,9 +81,9 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
 > | locks | étendue de l’affectation | 1-90 | Caractères alphanumériques, points, traits de soulignement, traits d’union et parenthèses.<br><br>Ne peut pas se terminer par un point. |
-> | policyassignments | étendue de l’affectation | 1-128 (nom d’affichage)<br><br>1-260 (nom de la ressource) | Le nom d’affichage peut contenir n’importe quel caractère.<br><br>Le nom de la ressource ne peut pas contenir `%` et ne peut pas se terminer par un point ou un espace. |
-> | policydefinitions | étendue de la définition | 1-128 (nom d’affichage)<br><br>1-260 (nom de la ressource) | Le nom d’affichage peut contenir n’importe quel caractère.<br><br>Le nom de la ressource ne peut pas contenir `%` et ne peut pas se terminer par un point ou un espace. |
-> | policySetDefinitions | étendue de la définition | 1-128 (nom d’affichage)<br><br>1-260 (nom de la ressource) | Le nom d’affichage peut contenir n’importe quel caractère.<br><br>Le nom de la ressource ne peut pas contenir `%` et ne peut pas se terminer par un point ou un espace.  |
+> | policyAssignments | étendue de l’affectation | 1-128 (nom d’affichage)<br><br>1-64 (nom de la ressource) | Le nom d’affichage peut contenir n’importe quel caractère.<br><br>Le nom de la ressource ne peut pas contenir `%` et ne peut pas se terminer par un point ou un espace. |
+> | policyDefinitions | étendue de la définition | 1-128 (nom d’affichage)<br><br>1-64 (nom de la ressource) | Le nom d’affichage peut contenir n’importe quel caractère.<br><br>Le nom de la ressource ne peut pas contenir `%` et ne peut pas se terminer par un point ou un espace. |
+> | policySetDefinitions | étendue de la définition | 1-128 (nom d’affichage)<br><br>1-64 (nom de la ressource)<br><br>1-24 (nom de la ressource dans l’étendue du groupe d’administration) | Le nom d’affichage peut contenir n’importe quel caractère.<br><br>Le nom de la ressource ne peut pas contenir `%` et ne peut pas se terminer par un point ou un espace.  |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 83f80f893620a225c928be2ad7ad1679b3a9c465
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e3be1f9ec900655f4dae45abd402ff8e6a56e283
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652235"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84147939"
 ---
 # <a name="configure-the-model-conversion"></a>Configurer la conversion de modèle
 
@@ -74,7 +74,7 @@ Le facteur de mise à l’échelle final est appliqué aux vertex géométriques
 Le centrage est important si le modèle source est éloigné de l’origine, car dans ce cas, les problèmes de précision à virgule flottante peuvent entraîner des artefacts de rendu.
 
 * `opaqueMaterialDefaultSidedness` : le moteur de rendu part du principe que les matériaux opaques sont recto verso.
-Si ce n’est pas le comportement prévu, ce paramètre doit être défini sur « SingleSided ». Pour plus d’informations, consultez [Rendu unilatéral](../../overview/features/single-sided-rendering.md).
+Si ce n’est pas le comportement prévu, ce paramètre doit être défini sur « SingleSided ». Pour plus d’informations, consultez [Rendu :::no-loc text="single sided":::](../../overview/features/single-sided-rendering.md).
 
 ### <a name="material-overrides"></a>Remplacements de matériaux
 
@@ -90,7 +90,7 @@ Le moteur de rendu s’attend à ce que les valeurs de couleur soient dans l’e
 Si un modèle est défini à l’aide de l’espace gamma, ces options doivent être définies sur true.
 
 * `gammaToLinearMaterial` : convertir les couleurs de matériau de l’espace gamma en espace linéaire
-* `gammaToLinearVertex` : convertir les couleurs des vertex de l’espace gamma en espace linéaire
+* `gammaToLinearVertex` : convertir les couleurs :::no-loc text="vertex"::: de l’espace gamma en espace linéaire
 
 > [!NOTE]
 > Pour les fichiers FBX, ces paramètres sont définis sur `true` par défaut. Pour tous les autres types de fichiers, la valeur par défaut est `false`.
@@ -127,12 +127,12 @@ Le mode `none` a la surcharge d’exécution la plus basse et des temps de charg
 
 * `axis` : pour remplacer les vecteurs d’unités du système de coordonnées. Les valeurs par défaut sont `["+x", "+y", "+z"]`. En théorie, le format FBX contient un en-tête dans lequel ces vecteurs sont définis, et la conversion utilise ces informations pour transformer la scène. Le format glTF définit également un système de coordonnées fixe. Dans la pratique, certaines ressources contiennent des informations incorrectes dans leur en-tête ou ont été enregistrées avec une convention de système de coordonnées différente. Cette option vous permet de remplacer le système de coordonnées pour compenser cela. Par exemple : `"axis" : ["+x", "+z", "-y"]` va échanger l’axe Z et l’axe Y et maintenir l’orientation du système de coordonnées en inversant le sens de l’axe Y.
 
-### <a name="vertex-format"></a>Format de vertex
+### <a name="no-loc-textvertex-format"></a>Format :::no-loc text="Vertex":::
 
-Il est possible d’ajuster le format de vertex d’un maillage, pour faire des économies de mémoire en sacrifiant la précision. Un encombrement mémoire plus faible vous permet de charger des modèles plus volumineux ou d’obtenir de meilleures performances. Toutefois, en fonction de vos données, le mauvais format peut avoir un impact significatif sur la qualité du rendu.
+Il est possible d’ajuster le format :::no-loc text="vertex"::: d’un maillage, pour faire des économies de mémoire au détriment de la précision. Un encombrement mémoire plus faible vous permet de charger des modèles plus volumineux ou d’obtenir de meilleures performances. Toutefois, en fonction de vos données, le mauvais format peut avoir un impact significatif sur la qualité du rendu.
 
 > [!CAUTION]
-> La modification du format de vertex doit être un dernier recours lorsque les modèles ne sont plus adaptés à la mémoire, ou lors de l’optimisation pour obtenir les meilleures performances possibles. Les modifications peuvent facilement introduire des artefacts de rendu, qui peuvent être aussi bien évidents que subtils. À moins de savoir ce à quoi vous devez prêter attention, il est déconseillé de modifier la valeur par défaut.
+> La modification du format :::no-loc text="vertex"::: ne doit envisagée qu’en dernier recours en cas d’insuffisance de mémoire pour les modèles ou d’optimisation des performances. Les modifications peuvent facilement introduire des artefacts de rendu, qui peuvent être aussi bien évidents que subtils. À moins de savoir ce à quoi vous devez prêter attention, il est déconseillé de modifier la valeur par défaut.
 
 Les ajustements suivants sont possibles :
 
@@ -159,11 +159,11 @@ La section `vertex` suivante dans le fichier `.json` est facultative. Pour chaqu
 
 En forçant un composant sur `NONE`, il est garanti que le maillage de sortie n’a pas le flux respectif.
 
-#### <a name="component-formats-per-vertex-stream"></a>Formats de composant par flux de vertex
+#### <a name="component-formats-per-no-loc-textvertex-stream"></a>Format des composants par flux :::no-loc text="vertex":::
 
 Ces formats sont autorisés pour les composants respectifs :
 
-| Composant vertex | Formats pris en charge (gras = par défaut) |
+| Composant :::no-loc text="Vertex"::: | Formats pris en charge (gras = par défaut) |
 |:-----------------|:------------------|
 |position| **32_32_32_FLOAT**, 16_16_16_16_FLOAT |
 |color0| **8_8_8_8_UNSIGNED_NORMALIZED**, NONE |
@@ -178,7 +178,7 @@ Ces formats sont autorisés pour les composants respectifs :
 
 Les empreintes mémoire des formats sont les suivantes :
 
-| Format | Description | Octets par vertex |
+| Format | Description | Octets par :::no-loc text="vertex"::: |
 |:-------|:------------|:---------------|
 |32_32_FLOAT|précision à virgule flottante complète à deux composants|8
 |16_16_FLOAT|précision à virgule flottante partielle à deux composants|4
@@ -197,11 +197,56 @@ Les empreintes mémoire des formats sont les suivantes :
 
 #### <a name="example"></a>Exemple
 
-Supposons que vous avez un modèle de photogrammétrie qui a une lumière intégrée dans les textures. Pour restituer le modèle, il vous suffit des positions de vertex et des coordonnées de texture.
+Supposons que vous avez un modèle de photogrammétrie qui a une lumière intégrée dans les textures. Les positions :::no-loc text="vertex"::: et les coordonnées de texture suffisent pour restituer le modèle.
 
-Par défaut, le convertisseur doit supposer que vous pouvez utiliser des matériaux PBR sur un modèle à un moment donné, et il génère donc des données `normal`, `tangent` et `binormal` pour vous. Par conséquent, l’utilisation de la mémoire par vertex est de `position` (12 octets) + `texcoord0` (8 octets) + `normal` (4 octets) + `tangent` (4 octets) + `binormal` (4 octets) = 32 octets. Les modèles plus grands de ce type peuvent facilement avoir plusieurs millions de vertex, entraînant des modèles qui peuvent occuper plusieurs gigaoctets de mémoire. Ces grandes quantités de données affectent les performances et vous pourriez même manquer de mémoire.
+Par défaut, le convertisseur doit supposer que vous pouvez utiliser des matériaux PBR sur un modèle à un moment donné, et il génère donc des données `normal`, `tangent` et `binormal` pour vous. Par conséquent, l’utilisation de la mémoire par vertex est de `position` (12 octets) + `texcoord0` (8 octets) + `normal` (4 octets) + `tangent` (4 octets) + `binormal` (4 octets) = 32 octets. Les grands modèles de ce type peuvent facilement comporter plusieurs millions de :::no-loc text="vertices":::, et ainsi occuper plusieurs gigaoctets de mémoire. Ces grandes quantités de données affectent les performances et vous pourriez même manquer de mémoire.
 
-Sachant que vous n’avez jamais besoin d’éclairage dynamique sur le modèle et que vous savez que toutes les coordonnées de texture se trouvent dans la plage `[0; 1]`, vous pouvez définir `normal`, `tangent`et `binormal` sur `NONE`, et `texcoord0` sur la demi-précision (`16_16_FLOAT`), ce qui ne fait que 16 octets par vertex. La réduction de moitié des données de maillage vous permet de charger des modèles plus volumineux et d’améliorer potentiellement les performances.
+Sachant que vous n’avez jamais besoin d’éclairage dynamique sur le modèle et que toutes les coordonnées de texture se trouvent dans la plage `[0; 1]`, vous pouvez définir `normal`, `tangent` et `binormal` sur `NONE` et `texcoord0` sur la demi-précision (`16_16_FLOAT`), ce qui ne fait que 16 octets par :::no-loc text="vertex":::. La réduction de moitié des données de maillage vous permet de charger des modèles plus volumineux et d’améliorer potentiellement les performances.
+
+## <a name="memory-optimizations"></a>Optimisations de mémoire
+
+La consommation de mémoire du contenu chargé peut devenir un goulot d’étranglement sur le système de rendu. Une charge utile trop importante de la mémoire risque de compromettre les performances de rendu ou d’empêcher le modèle de se charger entièrement. Ce paragraphe présente quelques stratégies importantes pour réduire l’empreinte mémoire.
+
+### <a name="instancing"></a>Instanciation
+
+L’instanciation est un concept selon lequel les maillages sont réutilisés de sorte que les différentes parties correspondent à des transformations spatiales distinctes, par opposition à la configuration selon laquelle chaque partie référence sa propre géométrie. L’instanciation a un impact significatif sur l’empreinte mémoire.
+Parmi ses cas d’usage, citons par exemple les vis d’un modèle de moteur ou les chaises dans un modèle architectural.
+
+> [!NOTE]
+> L’instanciation peut améliorer considérablement la consommation de mémoire (et donc les temps de chargement), mais les améliorations obtenues du côté des performances de rendu ne sont pas significatives.
+
+Le service de conversion respecte l’instanciation si les parties concernées sont marquées en conséquence dans le fichier source. Toutefois, la conversion n’effectue pas d’analyse approfondie supplémentaire des données de maillage pour identifier les parties réutilisables. L’outil de création de contenu et son pipeline d’exportation sont donc les critères déterminants d’une configuration d’instanciation appropriée.
+
+Un moyen simple de tester si les informations d’instanciation sont conservées au cours de la conversion consiste à examiner les [statistiques de sortie](get-information.md#example-info-file), et notamment le membre `numMeshPartsInstanced`. Si la valeur de `numMeshPartsInstanced` est supérieure à zéro, cela signifie que les maillages sont partagés entre les instances.
+
+#### <a name="example-instancing-setup-in-3ds-max"></a>Exemple : Configuration de l’instanciation dans 3ds Max
+
+[Autodesk 3ds Max](https://www.autodesk.de/products/3ds-max) possède des modes de clonage d’objets distincts appelés **`Copy`** , **`Instance`** et **`Reference`** qui se comportent différemment en ce qui concerne l’instanciation dans le fichier `.fbx` exporté.
+
+![Clonage dans 3ds Max](./media/3dsmax-clone-object.png)
+
+* **`Copy`**  : Dans ce mode, le maillage est cloné. De ce fait, aucune instanciation n’est utilisée (`numMeshPartsInstanced` = 0).
+* **`Instance`**  : Les deux objets partagent le même maillage. L’instanciation est donc utilisée (`numMeshPartsInstanced` = 1).
+* **`Reference`**  : des modificateurs distincts peuvent être appliqués aux géométries, de sorte que l’exportateur choisit une approche conservatrice et n’utilise pas l’instanciation (`numMeshPartsInstanced` = 0).
+
+
+### <a name="depth-based-composition-mode"></a>Mode de composition basé sur la profondeur
+
+Si la mémoire pose problème, configurez le convertisseur avec le [mode de composition à base de profondeur](../../concepts/rendering-modes.md#depthbasedcomposition-mode). Dans ce mode, la charge utile GPU est distribuée sur plusieurs GPU.
+
+### <a name="decrease-vertex-size"></a>Réduction de la taille de vertex
+
+Comme nous l’avons vu dans la section [Meilleures pratiques pour les modifications de format de composant](configure-model-conversion.md#best-practices-for-component-format-changes), la modification du format de vertex peut réduire l’empreinte mémoire. Toutefois, cette option ne doit être envisagée qu’en dernier recours.
+
+### <a name="texture-sizes"></a>Taille des textures
+
+Selon le type de scénario, la quantité de données de texture peut dépasser la mémoire utilisée pour les données de maillage. Les modèles de photogrammétrie sont des candidats.
+La configuration de la conversion n’offre aucun moyen de réduire automatiquement les textures. Si nécessaire, la diminution des textures doit être effectuée dans une étape de prétraitement côté client. Toutefois, l’étape de conversion sélectionne un [format de compression de texture](https://docs.microsoft.com/windows/win32/direct3d11/texture-block-compression-in-direct3d-11) adapté :
+
+* `BC1` pour les textures de couleur opaque
+* `BC7` pour les textures de couleur source avec canal alpha
+
+Étant donné que le format `BC7` présente deux fois plus d’empreinte mémoire que `BC1`, il est important de vérifier que les textures d’entrée ne fournissent pas inutilement un canal alpha.
 
 ## <a name="typical-use-cases"></a>Études de cas classiques
 
@@ -215,7 +260,7 @@ Certaines classes de cas d’usage sont éligibles à des optimisations spécifi
 
 * Lorsque vous devez déplacer des parties, cela signifie également que vous avez besoin d’une prise en charge des raycasts ou d’autres [requêtes spatiales](../../overview/features/spatial-queries.md), vous pouvez donc choisir ces parties en premier lieu. En revanche, si vous n’envisagez pas de déplacer une partie, il y a de fortes chances que vous n’ayez pas non plus besoin de la faire participer à des requêtes spatiales. Par conséquent, vous pouvez désactiver l’indicateur `generateCollisionMesh`. Ce commutateur a un impact significatif sur les temps de conversion, les temps de chargement, ainsi que les coûts de mise à jour par image.
 
-* Si l’application n’utilise pas de [plans de coupe](../../overview/features/cut-planes.md), l’indicateur `opaqueMaterialDefaultSidedness` doit être désactivé. Le gain de performances est généralement de 20 à 30 %. Les plans de coupe peuvent toujours être utilisés, mais il n’y a pas de face arrière lorsque vous observez les parties internes des objets, ce qui peut donner un aspect contre-intuitif. Pour plus d’informations, consultez [Rendu unilatéral](../../overview/features/single-sided-rendering.md).
+* Si l’application n’utilise pas de [plans de coupe](../../overview/features/cut-planes.md), l’indicateur `opaqueMaterialDefaultSidedness` doit être désactivé. Le gain de performances est généralement de 20 à 30 %. Les plans de coupe peuvent toujours être utilisés, mais il n’y a pas de face arrière lorsque vous observez les parties internes des objets, ce qui peut donner un aspect contre-intuitif. Pour plus d’informations, consultez [Rendu :::no-loc text="single sided":::](../../overview/features/single-sided-rendering.md).
 
 ### <a name="use-case-photogrammetry-models"></a>Cas d’usage Modèles de photogrammétrie
 

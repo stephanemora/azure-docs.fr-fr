@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 4fe1ee3ccf2849943959889838ba0f22fb64bb9a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73762c431c84de01ce3561d586c5a12bfd26ac81
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233801"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310123"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tâches courantes de démarrage dans le service cloud
 Cet article fournit des exemples courants de tâches de démarrage que vous pouvez effectuer dans votre service cloud. Vous pouvez utiliser des tâches de démarrage pour exécuter des opérations avant le démarrage d’un rôle. Parmi les opérations que vous pouvez effectuer figurent l’installation d’un composant, l’enregistrement de composants COM, la définition des clés du Registre ou le démarrage d’un processus de longue durée. 
@@ -483,7 +483,7 @@ Le rôle ne démarre que si le code **errorlevel** de chacune de vos tâches de 
 L’absence d’un `EXIT /B 0` à la fin d’un fichier de commandes de démarrage est une cause courante du non-démarrage des rôles.
 
 > [!NOTE]
-> J’ai remarqué que les fichiers batch imbriqués bloquent parfois lors de l’utilisation du paramètre `/B`. Vous souhaitez peut-être vous assurer que le problème de blocage ne se produit pas si un autre fichier batch appelle votre fichier batch actuel, comme lors de l’utilisation du [wrapper de journal](#always-log-startup-activities). Vous pouvez omettre le paramètre `/B` dans ce cas.
+> J’ai remarqué que les fichiers batch imbriqués cessent parfois de répondre lors de l’utilisation du paramètre `/B`. Vous souhaitez peut-être vous assurer que ce problème ne se produit pas si un autre fichier batch appelle votre fichier batch actuel, comme lors de l’utilisation du [wrapper de journal](#always-log-startup-activities). Vous pouvez omettre le paramètre `/B` dans ce cas.
 > 
 > 
 
@@ -512,6 +512,3 @@ En savoir plus sur le fonctionnement des [tâches](cloud-services-startup-tasks.
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
-
-
-

@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6534e7d3a05434855503a9cbf1e675aa11799984
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 4b1abe8efb4baaf260005df1a4ee5b6d1645715a
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857777"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169217"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Reprise d’activité après sinistre et basculement de compte de stockage
 
@@ -26,8 +26,6 @@ Stockage Azure prend en charge le basculement de compte pour les comptes de stoc
 Le basculement de compte est disponible pour les types de comptes GPv1, GPv2 et de stockage d’objets BLOB avec des déploiements d’Azure Resource Manager. Le basculement de compte est pris en charge pour toutes les régions publiques, mais n’est pas disponible dans les clouds souverains ou nationaux à l’heure actuelle.
 
 Cet article décrit les concepts et les processus impliqués dans un basculement de compte, et explique comment préparer votre compte de stockage pour la reprise avec le moins d’impact possible sur le client. Pour découvrir comment lancer un basculement de compte dans le Portail Azure ou PowerShell, consultez [Lancer un basculement de compte](storage-initiate-account-failover.md).
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -104,6 +102,8 @@ La propriété **Dernière heure de synchronisation** indique l’heure la plus 
 
 En guise de bonne pratique, concevez votre application afin de pouvoir utiliser la dernière heure de synchronisation pour évaluer la perte de données attendue. Par exemple, si vous enregistrez dans le journal toutes les opérations d’écriture, vous pouvez comparer l’heure de vos dernières opérations d’écriture à la dernière heure de synchronisation pour identifier les écritures qui n’ont pas été synchronisées dans la région secondaire.
 
+Pour plus d’informations sur la vérification de la propriété **Heure de la dernière synchronisation**, consultez [Vérification de la propriété Heure de la dernière synchronisation d’un compte de stockage](last-sync-time-get.md).
+
 ### <a name="use-caution-when-failing-back-to-the-original-primary"></a>Faire attention lors de la restauration automatique vers la région primaire
 
 Après le basculement de la région primaire vers la région secondaire, votre compte de stockage est configuré pour être localement redondant dans la nouvelle région primaire. Vous pouvez ensuite configurer à nouveau le compte pour la géo-redondance. Quand le compte est reconfiguré pour la géoredondance après un basculement, la nouvelle région primaire commence immédiatement la copie des données vers la nouvelle région secondaire, qui était la région primaire avant le basculement d’origine. Toutefois, il peut s’écouler un certain temps avant que les données existantes dans la région primaire soient entièrement copiées vers la nouvelle région secondaire.
@@ -175,4 +175,5 @@ Dans des circonstances extrêmes où une région est perdue suite à un sinistre
 
 - [Utilisez la géo-redondance pour concevoir des applications hautement disponibles](geo-redundant-design.md)
 - [Initier un basculement de compte](storage-initiate-account-failover.md)
+- [Vérifier la propriété Heure de la dernière synchronisation pour un compte de stockage](last-sync-time-get.md)
 - [Tutoriel : Générer une application hautement disponible avec le stockage Blob](../blobs/storage-create-geo-redundant-storage.md)

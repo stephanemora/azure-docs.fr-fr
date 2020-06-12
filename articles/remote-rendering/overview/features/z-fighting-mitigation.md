@@ -5,16 +5,16 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 69774c0014aac26c7266620bbe7d06ba37d6023b
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: f4c49be5f5a0f2c89831891dc2640b64fee9fc44
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758807"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022416"
 ---
 # <a name="z-fighting-mitigation"></a>Atténuation du Z-fighting
 
-Lorsque deux surfaces se chevauchent, il n’est pas évident de savoir laquelle doit être affichée au-dessus de l’autre. Le résultat varie même selon le pixel, ce qui génère des artefacts dépendants de la vue. Par conséquent, lorsque la caméra ou le maillage se déplace, ces éléments scintillent franchement. Cet artefact est appelé le *z-fighting*. Pour les applications de réalité augmentée (AR) et de réalité virtuelle (VR), le problème est amplifié, car les casques audiovisuels se déplacent bien évidemment en permanence. Afin d’éviter une gêne pour l’utilisateur, la fonctionnalité d’atténuation du z-fighting est disponible dans Azure Remote Rendering.
+Lorsque deux surfaces se chevauchent, il n’est pas évident de savoir laquelle doit être affichée au-dessus de l’autre. Le résultat varie même selon le pixel, ce qui génère des artefacts dépendants de l’affichage de l’appareil photo. Par conséquent, lorsque la caméra ou le maillage se déplace, ces éléments scintillent franchement. Cet artefact est appelé le *z-fighting*. Pour les applications de réalité augmentée (AR) et de réalité virtuelle (VR), le problème est amplifié, car les casques audiovisuels se déplacent bien évidemment en permanence. Afin d’éviter une gêne pour l’utilisateur, la fonctionnalité d’atténuation du z-fighting est disponible dans Azure Remote Rendering.
 
 ## <a name="z-fighting-mitigation-modes"></a>Modes d’atténuation du z-fighting
 

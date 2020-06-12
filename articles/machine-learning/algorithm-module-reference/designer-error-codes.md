@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: bfb70aaa092cc62fbff87e9e3e327ee7364f8701
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 540c3eace72a1692a927916a48f772047115375f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833811"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167245"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceptions et codes d’erreur du concepteur (préversion)
 
@@ -1106,7 +1106,7 @@ Consultez les articles suivants pour obtenir de l’aide sur les requêtes Hive 
 
  Si un message SQL est généré par l’exception du module, prenez les mesures en fonction de l’erreur signalée. Par exemple, les messages d’erreur contiennent parfois des indications spécifiques sur l’erreur probable :
 + *Aucune colonne ou base de données manquante*, indiquant que vous avez peut-être tapé un nom de colonne incorrect. Si vous êtes sûr que le nom de la colonne est correct, essayez d’utiliser des crochets ou des guillemets pour inclure l’identificateur de colonne.
-+ *Erreur logique SQL près de \<mot-clé SQL\>* , indiquant une erreur de syntaxe probable avant le mot-clé spécifié
++ *Erreur logique SQL près de \<SQL keyword\>* , indiquant une erreur de syntaxe possible avant le mot-clé spécifié
 
   
 |Messages d’exception|
@@ -1500,7 +1500,7 @@ Résolution :
 
 
 ## <a name="error-0159"></a>Erreur 0159
- Une exception se produit si la transmission au répertoire du modèle du module n’est pas valide. 
+ Une exception se produit si le répertoire du modèle du module n’est pas valide. 
 
 |Messages d’exception|
 |------------------------------------------------------------|

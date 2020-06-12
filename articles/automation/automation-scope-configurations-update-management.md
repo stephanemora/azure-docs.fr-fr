@@ -1,52 +1,44 @@
 ---
-title: Utiliser des configurations d’étendue pour Azure Automation Update Management
-description: Cet article explique comment utiliser les configurations d’étendue lorsque vous utilisez Update Management.
+title: Limiter l’étendue du déploiement Update Management d’Azure Automation
+description: Cet article explique comment utiliser les configurations d’étendue pour limiter l’étendue d’un déploiement Update Management.
 services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 23ec49f2d68cf376ef0beb118d8bf69ada7bc0de
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 72065b388f348da1d268f875a10d5b13d2f8cf3b
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832025"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117398"
 ---
-# <a name="work-with-scope-configurations-for-update-management"></a>Utiliser des configurations d’étendue pour Update Management
+# <a name="limit-update-management-deployment-scope"></a>Limiter l’étendue du déploiement Update Management
 
-Cet article explique comment vous pouvez utiliser les configurations d’étendue lors de l’utilisation de la fonctionnalité [Update Management](automation-update-management.md) sur des machines virtuelles. 
+Cet article explique comment vous pouvez utiliser les configurations d’étendue lors de l’utilisation de la fonctionnalité [Update Management](automation-update-management.md) pour déployer des mises à jour et des correctifs sur vos machines virtuelles. Pour plus d’informations, consultez [Ciblage des solutions de supervision dans Azure Monitor (préversion)](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting). 
 
-## <a name="sign-in-to-azure"></a>Connexion à Azure
+## <a name="about-scope-configurations"></a>À propos des configurations d’étendues
 
-Connectez-vous au portail Azure sur https://portal.azure.com.
+La configuration d’étendue est un groupe d’une ou plusieurs recherches enregistrées (requêtes) utilisé pour limiter l’étendue d’Update Management à des ordinateurs spécifiques. La configuration d’étendue est utilisée au sein de l’espace de travail Log Analytics pour cibler les ordinateurs qui activent la fonctionnalité. Lorsque vous ajoutez un ordinateur pour recevoir des mises à jour de Update Management, l’ordinateur est également ajouté à une recherche enregistrée dans l’espace de travail.
 
-## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>Vérifier la configuration de l’étendue
+## <a name="set-the-scope-limit"></a>Définir la limite de l’étendue
 
-Update Management utilise une configuration d’étendue au sein de l’espace de travail Log Analytics pour cibler les ordinateurs qui activent la fonctionnalité. La configuration d’étendue est un groupe d’une ou plusieurs recherches enregistrées qui est utilisé pour limiter l’étendue de la fonctionnalité à des ordinateurs spécifiques. Pour accéder aux configurations d’étendue :
+Pour limiter l’étendue de votre déploiement Update Management :
 
-1. Dans votre compte Automation, sous **Ressources associées**, sélectionnez **Espace de travail**. 
+1. Dans votre compte Automation, sélectionnez **Espace de travail lié** sous **Ressources connexes**.
 
-2. Choisissez l’espace de travail, sous **Sources de données de l’espace de travail**, sélectionnez **Configurations des étendues**.
+2. Cliquez sur **Accéder à l’espace de travail**.
 
-3. Si la fonctionnalité Update Management n’est pas encore activée pour l’espace de travail sélectionné, la configuration de l’étendue `MicrosoftDefaultScopeConfig-Updates` est créée. 
+3. Sélectionnez **Configurations d’étendue (préversion)** , sous**Sources de données de l’espace de travail**.
 
-4. Si la fonctionnalité est déjà activée pour l’espace de travail sélectionné, elle n’est pas redéployée et la configuration de l’étendue n’est pas ajoutée à celle-ci. 
+4. Sélectionnez les points de suspension sur la droite de la configuration d’étendue `MicrosoftDefaultScopeConfig-Updates`, puis cliquez sur **Modifier**. 
 
-5. Sélectionnez les points de suspension dans toutes les configurations d’étendue, puis cliquez sur **Modifier**. 
+5. Dans le volet de modification, développez **Sélectionner des groupes d’ordinateurs**. Le volet Groupes d’ordinateurs affiche les recherches enregistrées et utilisées pour créer la configuration d’étendue. La recherche enregistrée utilisée par Update Management est :
 
-6. Dans le volet de modification, choisissez **Sélectionner des groupes d’ordinateurs**. Le volet Groupes d’ordinateurs affiche les recherches enregistrées et utilisées pour créer la configuration d’étendue.
+    |Nom     |Category  |Alias  |
+    |---------|---------|---------|
+    |MicrosoftDefaultComputerGroup     | Mises à jour        | Updates__MicrosoftDefaultComputerGroup         |
 
-## <a name="view-a-saved-search"></a>Afficher une recherche enregistrée
-
-Lorsqu’un ordinateur est ajouté à Update Management, il est également ajouté à une recherche enregistrée dans votre espace de travail. La recherche enregistrée est une requête qui contient les ordinateurs cibles.
-
-1. Accédez à votre espace de travail Log Analytics et sélectionnez **Recherches enregistrées** sous **Général**. La recherche enregistrée utilisée par Update Management est :
-
-|Nom     |Category  |Alias  |
-|---------|---------|---------|
-|MicrosoftDefaultComputerGroup     | Mises à jour        | Updates__MicrosoftDefaultComputerGroup         |
-
-2. Sélectionnez la recherche enregistrée pour afficher la requête utilisée pour remplir le groupe. L’image suivante montre la requête et ses résultats :
+6. Sélectionnez la recherche enregistrée pour afficher et modifier la requête utilisée pour remplir le groupe. L’image suivante montre la requête et ses résultats :
 
     ![Recherches enregistrées](media/automation-scope-configurations-update-management/logsearch.png)
 

@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 06/01/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 104bf51fb03d88ab0e5efd25ebebb0e3060bc264
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e2737da028d8fea1c31b728c8e9864ad421d08ec
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457924"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309592"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory
 
@@ -42,7 +42,7 @@ Tous vos utilisateurs ont un seul répertoire *accueil* pour authentification. V
 
 Avant de pouvoir associer ou ajouter votre abonnement, effectuez les tâches suivantes :
 
-- Passez en revue la liste suivante de modifications et leurs éventuelles répercussions :
+- Passez en revue la liste suivante des modifications qui se produiront après que vous ayez associé ou ajouté votre abonnement, et la façon dont cela peut vous affecter :
 
   - Les utilisateurs dont le rôle a été attribué à l’aide de RBAC perdront leur accès
   - L’administrateur de services fédérés et le coadministrateur perdront leur accès
@@ -71,13 +71,13 @@ Pour associer un abonnement existant à votre annuaire Azure AD, suivez ces éta
 
     ![Page Changer de répertoire, montrant le nouveau répertoire](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
 
-    Le répertoire est modifié pour l’abonnement et un message de réussite s’affiche.
+    Une fois l’annuaire changé pour l’abonnement, un message de réussite s’affiche.
 
-    ![Message de réussite concernant la modification du répertoire](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
+  1. Sélectionnez **Changer les annuaires** sur la page de l’abonnement pour accéder à votre nouvel annuaire. 
 
-Utilisez **Changer d’annuaire** pour passer à votre nouvel annuaire. Dans certains cas, l’affichage correct dans son intégralité peut prendre plusieurs heures. S’il semble trop long, vérifiez le **Filtre d’abonnement global**. Assurez-vous que l’abonnement déplacé n’est pas masqué. Vous devrez peut-être vous déconnecter du portail Azure et vous reconnecter pour que le nouvel annuaire soit visible.
+      ![Page du sélecteur de répertoire, avec exemples d’informations](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
-![Page du sélecteur de répertoire, avec exemples d’informations](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+      Dans certains cas, l’affichage correct dans son intégralité peut prendre plusieurs heures. S’il semble trop long, vérifiez le **Filtre d’abonnement global**. Assurez-vous que l’abonnement déplacé n’est pas masqué. Vous devrez peut-être vous déconnecter du portail Azure et vous reconnecter pour que le nouvel annuaire soit visible.
 
 La modification du répertoire de l’abonnement est une opération de niveau de service. Elle n’affecte donc pas la propriété de facturation de l’abonnement. L’administrateur du compte peut toujours changer l’administrateur du service depuis le [centre du compte](https://account.azure.com/subscriptions). Pour supprimer le répertoire d’origine, vous devez transférer la propriété de facturation de l’abonnement à un nouvel administrateur du compte. Pour en savoir plus sur le transfert de la propriété de facturation, consultez [Transfert de la propriété d’un abonnement Azure à un autre compte](../../cost-management-billing/manage/billing-subscription-transfer.md).
 

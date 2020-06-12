@@ -3,12 +3,12 @@ title: Prise en charge de la migration VMware dans Azure Migrate
 description: Découvrez la prise en charge de la migration VMware dans Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 666fcc3771dfd4adadeab30fa5d1ec51da5bc038
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: ed51361ca4d605487a5d273505df21780003bdbb
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82743662"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140478"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Tableau de prise en charge pour la migration VMware
 
@@ -27,7 +27,7 @@ Consultez [cet article](server-migrate-overview.md) pour déterminer la méthode
 ## <a name="migration-limitations"></a>Limitations de la migration
 
 - Vous pouvez sélectionner jusqu’à 10 machines virtuelles à la fois pour la réplication. Si vous souhaitez migrer davantage de machines, répliquez-les dans des groupes de 10.
-- Pour la migration sans agent VMware, vous pouvez exécuter jusqu’à 100 réplications simultanément.
+- Pour la migration sans agent VMware, vous pouvez exécuter jusqu’à 300 réplications simultanément.
 
 ## <a name="agentless-vmware-servers"></a>Serveurs VMware sans agent
 
@@ -60,7 +60,7 @@ Consultez [cet article](server-migrate-overview.md) pour déterminer la méthode
 **Cartes réseau associées** | Non pris en charge.
 **IPv6** | Non pris en charge.
 **Disque cible** | Les machines virtuelles peuvent être migrées seulement vers des disques managés (disques durs standard, disques SSD Premium) dans Azure.
-**Réplication simultanée** | 100 machines virtuelles par serveur VCenter Server. Si vous en avez plus, migrez-les par lots de 100.
+**Réplication simultanée** | 300 machines virtuelles par VCenter Server. Si vous en avez plus, migrez-les par lots de 300.
 
 
 ## <a name="agentless-azure-migrate-appliance"></a>Appliance Azure Migrate sans agent 

@@ -7,14 +7,14 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 04/23/2020
+ms.date: 06/04/2020
 ms.author: tamram
-ms.openlocfilehash: 333d9f12ff817a5264183666cd1b858075a93077
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 471a8018a608da818f5961973f23123874c63427
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82176683"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434451"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Démarrage rapide : Créer, télécharger et lister des objets blob avec Azure CLI
 
@@ -77,9 +77,13 @@ az storage account create \
 
 ## <a name="create-a-container"></a>Créez un conteneur.
 
-Les objets blob sont toujours chargés dans un conteneur. Vous pouvez organiser des groupes d’objets blob dans des conteneurs de la même façon que vous organisez vos fichiers dans les dossiers de l’ordinateur.
+Les objets blob sont toujours chargés dans un conteneur. Vous pouvez organiser des groupes d’objets blob dans des conteneurs de la même façon que vous organisez vos fichiers dans les dossiers de l’ordinateur. Créez un conteneur pour stocker des objets blob avec la commande [az storage container create](/cli/azure/storage/container). 
 
-Créez un conteneur pour stocker des objets blob avec la commande [az storage container create](/cli/azure/storage/container). N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
+L’exemple suivant utilise votre compte Azure AD pour autoriser l’opération à créer le conteneur. Avant de créer le conteneur, attribuez-vous le rôle [Contributeur aux données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Même si vous êtes le propriétaire du compte, vous avez besoin d’autorisations explicites pour effectuer des opérations de données sur le compte de stockage. Pour plus d’informations sur l’attribution de rôles RBAC, consultez [Utiliser Azure CLI pour attribuer un rôle RBAC pour l’accès](../common/storage-auth-aad-rbac-cli.md?toc=/azure/storage/blobs/toc.json).  
+
+Vous pouvez également utiliser la clé de compte de stockage pour autoriser l’opération de création du conteneur. Pour plus d’informations sur l’autorisation d’opérations de données avec Azure CLI, consultez [Autoriser l’accès aux données d’objet blob et de file d’attente avec Azure CLI](../common/authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
+
+N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
 
 ```azurecli
 az storage container create \

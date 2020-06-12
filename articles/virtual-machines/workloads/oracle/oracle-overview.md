@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/12/2020
+ms.date: 06/01/2020
 ms.author: borisb
-ms.openlocfilehash: 649d96a158682752e0d4a31bf7ec73eb7c442f0f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d739f9f5c0e1be80005d5f3c6db5aa94ff6cc85d
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660544"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299840"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Vue d’ensemble des applications et des solutions Oracle sur Azure
 
@@ -29,7 +29,9 @@ Exécutez des bases de données Oracle sur l’infrastructure Azure à l’aide 
 
 * Oracle Database 12.1, 12.2 et 18.3 Enterprise Edition 
 
-* Oracle Database 12.1, 12.2 et 18.3 Standard Edition 
+* Oracle Database 12.1, 12.2 et 18.3 Standard Edition
+
+* Oracle Database 19.3
 
 Vous pouvez également configurer Oracle Database sur une image non-Oracle Linux disponible dans Azure, baser une solution sur une image personnalisée que vous créez de toutes pièces dans Azure ou de charger une image personnalisée à partir de votre environnement local.
 
@@ -45,7 +47,7 @@ Exécutez des applications d’entreprise dans Azure sur les systèmes d’explo
 
 * Oracle WebLogic Server 12.1.2
 
-* Oracle Linux avec noyau UEK (Unbreakable Enterprise Kernel) 6.8, 6.9, 6.10, 7.3, 7.4, 7.5 et 7.6 
+* Oracle Linux avec noyau UEK (Unbreakable Enterprise Kernel) 6.8, 6.9, 6.10, 7.3 jusqu’à 7.7, 8.0, 8.1. 
 
 ## <a name="high-availability-and-disaster-recovery-options"></a>Options de haute disponibilité et récupération d’urgence
 
@@ -72,8 +74,7 @@ Exécutez des applications Oracle dans l’infrastructure Azure, connectées à 
 
 Utilisez les modèles Terraform pour configurer l’infrastructure Azure et installer des applications Oracle. 
 
-> [!IMPORTANT]
-> Oracle certifie que ces applications s’exécutent dans Azure lors de l’utilisation de la solution d’interconnexion Azure / Oracle Cloud en mai 2020.
+Depuis mai 2020, les applications Oracle suivantes sont certifiées pour s’exécuter dans Azure lors de l’utilisation de la solution d’interconnexion Azure / Oracle Cloud :
 
 * E-Business Suite
 * JD Edwards EnterpriseOne

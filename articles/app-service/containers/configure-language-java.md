@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ffc7c289fd675a68c8b02af1777fea3d4530e17a
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 63fee90be773f61bfef73e21a272192eea5f789c
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82889492"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167483"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurer une application Java Linux pour Azure App Service
 
@@ -51,6 +51,9 @@ Pour plus d’informations, consultez [Diffuser des journaux dans Cloud Shell](.
 ### <a name="app-logging"></a>Journalisation des applications
 
 Activez [Journal des applications](../troubleshoot-diagnostic-logs.md?toc=/azure/app-service/containers/toc.json#enable-application-logging-windows) via le portail Azure ou [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) pour configurer App Service de sorte à écrire la sortie de console standard de votre application et les flux d’erreur de console standard dans le système de fichiers local ou le service Stockage Blob Azure. La journalisation sur l’instance du système de fichiers App Service locale est désactivée 12 heures après avoir été configurée. Si vous en avez besoin plus longtemps, configurez l’application pour écrire la sortie sur un conteneur de stockage d’objets blob. Vous trouverez vos journaux d’application Java et Tomcat dans le répertoire */home/LogFiles/Application/* .
+
+>[!NOTE]
+>La désactivation au bout de 12 heures de la journalisation dans le système de fichiers App Services local s’applique uniquement aux services App Services Windows. La journalisation du Stockage Blob Azure pour les services App Services Linux ne peut être configurée qu’avec [Azure Monitor (préversion)](/azure/app-service/troubleshoot-diagnostic-logs#send-logs-to-azure-monitor-preview). 
 
 Si votre application utilise [Logback](https://logback.qos.ch/) ou [Log4j](https://logging.apache.org/log4j) pour le traçage, vous pouvez transférer ces traces pour révision vers Azure Application Insights en suivant les instructions de configuration des frameworks de journalisation dans [Exploration des journaux d’activité de traces Java dans Application Insights](/azure/application-insights/app-insights-java-trace-logs).
 

@@ -3,12 +3,12 @@ title: Comprendre le fonctionnement des effets
 description: Les définitions Azure Policy ont différents effets qui déterminent la manière dont la conformité est gérée et rapportée.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6c2dc8303b630eb01de5c3ad9e3504dfec5256bc
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 223acb523b8a7e4bc14d894c0eb6781d147b8923
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746897"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308878"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprendre les effets d’Azure Policy
 
@@ -316,7 +316,7 @@ Exemple : évalue les bases de données SQL Server pour déterminer si transpare
 
 Cet effet peut s’avérer utile pour tester certaines situations ou lorsque la définition de stratégie a paramétré l’effet. Cette flexibilité permet de désactiver une seule affectation plutôt que de désactiver toutes les affectations de cette stratégie.
 
-Une alternative à l’effet Désactivé est **enforcementMode, qui est défini sur l’attribution de stratégie.
+Une alternative à l’effet Désactivé est **enforcementMode**, qui est défini sur l’attribution de stratégie.
 Lorsque **enforcementMode** est _Désactivé_, les ressources sont toujours évaluées. La journalisation, notamment les journaux d’activité, et l’effet de stratégie ne se produisent pas. Pour plus d’informations, consultez [Attribution de stratégie - Mode de mise en conformité](./assignment-structure.md#enforcement-mode).
 
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: c570f988dea894b8106405f4e427edb386a3e74a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5436e50a23b73e1a10cf42b3dd8790c5b0620ac3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75969286"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021889"
 ---
 # <a name="use-case---customer-profiling"></a>Cas d’utilisation - Profilage des utilisateurs
 Azure Data Factory est l’un des nombreux services permettant d’implémenter la solution d’accélérateurs Cortana Intelligence Suite.  Pour plus d’informations sur Cortana Intelligence, consultez [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). Dans ce document, nous décrivons un cas d'utilisation simple pour vous aider à comprendre comment Azure Data Factory permet de résoudre les problèmes d'analyse courants.
@@ -38,7 +38,7 @@ Pour accéder à ce cas d’utilisation simple et l’essayer, il vous suffit d�
 3. Dans le panneau **Exemples de pipelines**, cliquez sur le **Profilage des utilisateurs** que vous souhaitez déployer.
 
     ![Panneau Exemples de pipelines](./media/data-factory-samples/SampleTile.png)
-4. Spécifiez les paramètres de configuration de l’exemple. Par exemple, votre clé et votre nom de compte de stockage Azure, le nom du serveur SQL Azure, la base de données, l’ID d’utilisateur, le mot de passe.
+4. Spécifiez les paramètres de configuration de l’exemple. Par exemple, votre clé et votre nom de compte de stockage Azure, le nom du serveur SQL logique, la base de données, l’ID d’utilisateur et le mot de passe.
 
     ![Panneau Exemple](./media/data-factory-samples/SampleBlade.png)
 5. Une fois que vous avez fini de spécifier les paramètres de configuration, cliquez sur **Créer** pour créer/déployer les exemples de pipelines et les tables/services liés utilisés par les pipelines.

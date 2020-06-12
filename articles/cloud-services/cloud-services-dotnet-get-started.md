@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: f5ebb8874b7e277d15ef89aa419c4d26560a6e76
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dcaa87b8bf37cc0410c052b82014209327d5fe99
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75386729"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310646"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Prise en main des services cloud Azure et d'ASP.NET
 
@@ -152,7 +152,7 @@ Lorsque l'application s'exécute dans le cloud, elle utilise une base de donnée
 8. Cochez **Autoriser les services Azure à accéder au serveur**.
 9. Cliquez sur **Sélectionner** pour le nouveau serveur.
 
-    ![Nouveau serveur SQL Database](./media/cloud-services-dotnet-get-started/newdbserver.png)
+    ![Nouveau serveur](./media/cloud-services-dotnet-get-started/newdbserver.png)
 10. Cliquez sur **Créer**.
 
 ### <a name="create-an-azure-storage-account"></a>Créer un compte de stockage Azure
@@ -530,7 +530,7 @@ Le fichier *Views\Home\Index.cshtml* affiche les liens de catégorie sur la page
 ### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb - AdController.cs
 Dans le fichier *AdController.cs*, le constructeur appelle la méthode `InitializeStorage` pour créer les objets de la bibliothèque cliente Azure Storage, qui fournissent une API pour les objets blob et les files d’attente.
 
-Le code obtient ensuite une référence au conteneur d'objets blob *images* comme vu précédemment dans *Global.asax.cs*. Ce faisant, il définit une [stratégie de nouvelles tentatives](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) par défaut appropriée pour une application web. La stratégie de nouvelles tentatives d'interruption exponentielle par défaut peut suspendre l'application web pendant plus d'une minute en cas de tentatives répétées pour une erreur temporaire. La stratégie de nouvelle tentative spécifiée ici laisse trois secondes après chaque nouvelle tentative, jusqu’à trois.
+Le code obtient ensuite une référence au conteneur d'objets blob *images* comme vu précédemment dans *Global.asax.cs*. Ce faisant, il définit une [stratégie de nouvelles tentatives](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) par défaut appropriée pour une application web. La stratégie de nouvelles tentatives de backoff exponentiel par défaut peut faire que l’application web cesse de répondre pendant plus d’une minute en cas de tentatives répétées pour une erreur temporaire. La stratégie de nouvelle tentative spécifiée ici laisse trois secondes après chaque nouvelle tentative, jusqu’à trois.
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -776,6 +776,3 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Gestion des services cloud](cloud-services-how-to-manage-portal.md)
 * [Stockage Azure](https://docs.microsoft.com/azure/storage/)
 * [Choix d’un fournisseur de services cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
-
-
-

@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 8c85a652cde840336c51e1a5b5459f9dc591e0be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b331ccee183ec101cf3449f12b4f656a1325819
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414690"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118096"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Résoudre les problèmes d’exécution de package dans le runtime d’intégration SSIS
 
@@ -74,10 +74,10 @@ Cette erreur signifie que le disque local est entièrement utilisé dans le nœu
 * Cause possible et action recommandée :
   * Si l’activité SSIS exécute un package à partir du système de fichiers (fichier de package ou fichier projet), cette erreur se produit si le fichier projet, de package ou de configuration n’est pas accessible avec les informations d’identification d’accès au package que vous avez fournies dans l’activité SSIS.
     * Si vous utilisez Azure Files :
-      * Le chemin du fichier doit commencer par \\\\\<nom du compte de stockage\>.file.core.windows.net\\\<chemin du partage de fichiers\>
+      * Le chemin d’accès au fichier doit commencer par \\\\\<storage account name\>. file.core.windows.net\\\<file share path\>
       * Le domaine doit être « Azure »
-      * Le nom d’utilisateur doit être \<nom du compte de stockage\>
-      * Le mot de passe doit être \<clé d’accès du stockage\>
+      * Le nom d’utilisateur doit être \<storage account name\>
+      * Le mot de passe doit être \<storage access key\>
     * Si vous utilisez un fichier local, veillez vérifier si les informations d'identification et les autorisations d’accès au réseau virtuel et au package sont correctement configurées pour que votre runtime d'intégration SSIS Azure puisse accéder à votre partage de fichiers locaux
 
 ### <a name="error-message-the-file-name--specified-in-the-connection-was-not-valid"></a>Message d’erreur : « Le nom de fichier '...' spécifié dans la connexion n’est pas valide »
@@ -95,13 +95,13 @@ Cette erreur se produit quand une exécution de package ne parvient pas à trouv
 
 ### <a name="error-message-the-database-ssisdb-has-reached-its-size-quota"></a>Message d’erreur : « La base de données « SSISDB » a atteint son quota de taille.»
 
-Le fait que la base de données SSISDB créée dans la base de données Azure SQL ou une instance gérée quand vous créez un runtime d’intégration SSIS a atteint son quota constitue une cause possible. Essayez les actions suivantes :
-* Envisagez d’augmenter le nombre de DTU de votre base de données. Vous trouverez des informations détaillées dans [Limites de ressources SQL Database pour un serveur Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
+Le fait que la base de données SSISDB créée dans Azure SQL Database ou SQL Managed Instance a atteint son quota constitue une cause possible. Essayez les actions suivantes :
+* Envisagez d’augmenter le nombre de DTU de votre base de données. Vous trouverez plus d’informations dans les [limites SQL Database pour un serveur logique](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
 * Vérifiez si votre package génère de nombreux journaux. Si c’est le cas, vous pouvez configurer un travail élastique pour nettoyer ces journaux. Pour plus d’informations, consultez [Nettoyer les journaux SSISDB avec les travaux de base de données élastique Azure](how-to-clean-up-ssisdb-logs-with-elastic-jobs.md).
 
 ### <a name="error-message-the-request-limit-for-the-database-is--and-has-been-reached"></a>Message d’erreur : « La limite de requêtes pour la base de données est ... et elle a été atteinte. »
 
-Si de nombreux packages s’exécutent en parallèle dans le runtime d’intégration SSIS, cette erreur peut se produire car SSISDB a atteint sa limite de requêtes. Envisagez d’augmenter le nombre de DTC de SSISDB pour résoudre ce problème. Vous trouverez des informations détaillées dans [Limites de ressources SQL Database pour un serveur Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
+Si de nombreux packages s’exécutent en parallèle dans le runtime d’intégration SSIS, cette erreur peut se produire car SSISDB a atteint sa limite de requêtes. Envisagez d’augmenter le nombre de DTC de SSISDB pour résoudre ce problème. Vous trouverez plus d’informations dans les [limites SQL Database pour un serveur logique](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
 
 ### <a name="error-message-ssis-operation-failed-with-unexpected-operation-status-"></a>Message d’erreur : « L’opération SSIS a échoué avec un état d’opération inattendu : ... »
 

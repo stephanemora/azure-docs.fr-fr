@@ -5,12 +5,12 @@ author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
-ms.openlocfilehash: 4aa1148e544ff3451aa1cb956bc4a5fb932b9611
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 8d42087008f1812bc3713456025ed3be351d0917
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679135"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022178"
 ---
 # <a name="late-stage-reprojection"></a>Reprojection en phase tardive
 
@@ -24,7 +24,7 @@ Les deux modes LSR améliorent la stabilité des hologrammes, bien qu’ils aien
 
 ## <a name="choose-lsr-mode-in-unity"></a>Choisir le mode LSR dans Unity
 
-Dans l’éditeur Unity, accédez à *File > Build Settings*. Sélectionnez *Player Settings* en bas à gauche, puis cochez la case sous *Player > XR Settings > Virtual Reality SDKs > Windows Mixed Reality* si l’option **Enable Depth Buffer Sharing** (Activer le partage du tampon de profondeur) est cochée :
+Dans l’éditeur Unity, accédez à *:::no-loc text="File > Build Settings":::* . Sélectionnez *:::no-loc text="Player Settings":::* en bas à gauche, puis vérifiez sous *:::no-loc text="Player > XR Settings > Virtual Reality SDKs > Windows Mixed Reality":::* si la case **:::no-loc text="Enable Depth Buffer Sharing":::** est cochée :
 
 ![Indicateur d’activation du partage du tampon de profondeur](./media/unity-depth-buffer-sharing-enabled.png)
 

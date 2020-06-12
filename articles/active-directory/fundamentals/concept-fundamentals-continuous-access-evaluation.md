@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3713901dd3dd5d17c4e1ddcef529c663b68f5b43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdf904bb2c0d133ea07cd32274fad5b6601da5d9
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112573"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148121"
 ---
 # <a name="continuous-access-evaluation"></a>Évaluation de l’accès continu
 
@@ -50,13 +50,13 @@ L’évaluation de l’accès continu est implémentée en permettant aux servic
 Avant l’évaluation de l’accès continu, les clients essayaient toujours de relire le jeton d’accès à partir de leur cache tant qu’il n’avait pas expiré. Avec l’EAC, nous introduisons un nouveau cas où un fournisseur de ressources peut rejeter un jeton même s’il n’a pas expiré. Pour informer les clients qu’ils doivent contourner leur cache, même si les jetons mis en cache n’ont pas expiré, nous introduisons un mécanisme appelé **contestation de revendication**. L’EAC requiert une mise à jour du client pour comprendre la constestation de revendication. La dernière version des applications suivantes prend en charge la contestation de revendication :
 
 - Outlook pour Windows 
-- Outlook iOS 
-- Outlook Android 
-- Outlook Mac 
+- Outlook pour iOS 
+- Outlook pour Android 
+- Outlook pour Mac 
 - Teams pour Windows
-- Teams iOS 
-- Teams Android 
-- Teams Mac 
+- Teams pour iOS 
+- Teams pour Android 
+- Teams pour Mac 
 
 ## <a name="token-lifetime"></a>Durée de vie du jeton
 

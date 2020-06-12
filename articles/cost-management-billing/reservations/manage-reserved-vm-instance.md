@@ -5,14 +5,14 @@ ms.service: cost-management-billing
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 06/04/2020
 ms.author: banders
-ms.openlocfilehash: 1084e8687cc709b5e31a9ef2c903638dd3d8f62c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 187bfeb7f9e4be47fb44a1ad0cf97be757865ab9
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019994"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434186"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gérer les réservations pour les ressources Azure
 
@@ -20,6 +20,7 @@ Après avoir acheté une réservation Azure, il se peut que vous deviez l’appl
 
 Si vous avez acheté des instances de machine virtuelle réservées d’Azure, vous pouvez modifier le paramètre d’optimisation de la réservation. La remise sur la réservation peut s’appliquer à des machines virtuelles de la même série, ou vous pouvez réserver de la capacité du centre de données pour une taille de machine virtuelle spécifique. Et, vous devez essayer d’optimiser les réservations afin qu’elles soient entièrement utilisées.
 
+*L’autorisation requise pour gérer une réservation est distincte de l’autorisation d’abonnement.*
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -55,10 +56,9 @@ L’étendue s’applique uniquement aux abonnements individuels MS-AZR-0003P ou
 
 Vous pouvez déléguer la gestion des réservations en ajoutant des utilisateurs aux rôles de l’ordre de réservation ou de la réservation. Par défaut, la personne qui a acheté l’ordre de réservation et l’administrateur de compte disposent tous les deux du rôle de propriétaire sur la réservation et l’ordre de réservation.
 
-Vous pouvez gérer l’accès aux ordres de réservations et réservations, indépendamment des abonnements qui bénéficient de la remise de réservation. Lorsque vous accordez des autorisations de gestion pour une réservation ou un ordre de réservation, cela ne veut pas dire que vous octroyez des autorisations pour la gestion de l’abonnement. De même, si vous accordez des autorisations de gestion d’un abonnement dans les limites de l’étendue de la réservation, vous n’octroyez aucun droit permettant de gérer la réservation ou l’ordre de réservation.
+Vous pouvez gérer l’accès aux ordres de réservations et réservations, *indépendamment des abonnements* qui bénéficient de la remise de réservation. Lorsque vous accordez des autorisations de gestion pour une réservation ou un ordre de réservation, cela ne veut pas dire que vous octroyez des autorisations pour la gestion de l’abonnement. De même, si vous accordez des autorisations de gestion d’un abonnement dans les limites de l’étendue de la réservation, vous n’octroyez aucun droit permettant de gérer la réservation ou l’ordre de réservation.
 
 Pour effectuer un échange ou un remboursement, l’utilisateur doit avoir accès à l’ordre de réservation. Lorsque vous accordez des autorisations à une personne, il convient d’accorder des autorisations pour l’ordre de réservation, pas la réservation.
-
 
 Pour déléguer la gestion de l’accès à une réservation :
 

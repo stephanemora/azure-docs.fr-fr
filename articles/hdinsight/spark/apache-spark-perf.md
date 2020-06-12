@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: f92a351087670ce0b37921a496eabfa883a3b1fc
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 0b152f7882c7d7a3bab762253da0febc0257ceae
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780107"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117961"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Optimiser les travaux Apache Spark dans Azure HDInsight
 
@@ -24,14 +24,14 @@ Les performances de vos tâches Apache Spark dépendent de plusieurs facteurs. C
 
 Les problèmes courants que vous pouvez rencontrer incluent les contraintes de mémoire résultant d’un dimensionnement incorrect des exécuteurs, d’opérations de longue durée et de tâches qui entraînent des opérations cartésiennes.
 
-Il existe également différentes stratégies qui peuvent vous aider à surmonter ces défis, telles que la mise en cache, et l’autorisation de l’asymétrie des données.
+Il existe également plusieurs optimisations qui peuvent vous aider à surmonter ces défis, telles que la mise en cache et l’autorisation de l’asymétrie des données.
 
-Dans chacun des articles suivants, vous trouverez des problèmes et solutions courants pour un aspect de l’optimisation de Spark.
+Dans chacun des articles suivants, vous trouverez des informations sur les différents aspects de l’optimisation de Spark.
 
-* [Optimiser le stockage des données](optimize-data-storage.md)
-* [Optimiser le traitement des données](optimize-data-processing.md)
-* [Optimiser l’utilisation de la mémoire](optimize-memory-usage.md)
-* [Optimiser la configuration de cluster](optimize-cluster-configuration.md)
+* [Optimiser le stockage des données pour Apache Spark](optimize-data-storage.md)
+* [Optimiser le traitement de données pour Apache Spark](optimize-data-processing.md)
+* [Optimiser l’utilisation de la mémoire pour Apache Spark](optimize-memory-usage.md)
+* [Optimiser la configuration de cluster HDInsight pour Apache Spark](optimize-cluster-configuration.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
 ms.custom: designer
-ms.openlocfilehash: 7a756a09e135f664074e64a611755845d8dfb8b7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7dcd2015a669d9640f4163e6decc96689bb4ca7b
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654929"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167058"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Qu’est-ce que le concepteur Azure Machine Learning (préversion) ? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -38,10 +38,10 @@ Le concepteur utilise votre [espace de travail](concept-workspace.md) Azure Mach
 Le concepteur vous donne un canevas visuel permettant de générer, tester et déployer des modèles Machine Learning. À l’aide du concepteur, vous pouvez :
 
 + Glisser-déplacer les [jeux de données](#datasets) et les [modules](#module) sur le canevas.
-+ Connecter les modules ensemble pour former un [brouillon de pipeline](#pipeline-draft).
++ Connecter les modules pour former un [brouillon de pipeline](#pipeline-draft).
 + Envoyer une [exécution de pipeline](#pipeline-run) à l’aide des ressources de calcul de votre espace de travail Azure Machine Learning.
 + Convertir vos **pipelines de formation** en **pipelines d’inférence**.
-+ [Publier](#publish) vos pipelines sur un **point de terminaison de pipeline** REST pour envoyer de nouvelles exécutions de pipeline avec des paramètres et des jeux de données différents.
++ [Publier](#publish) vos pipelines sur un **point de terminaison de pipeline** REST pour envoyer un nouveau pipeline qui s’exécute avec des paramètres et des jeux de données différents.
     + Publier un **pipeline de formation** pour réutiliser un pipeline unique afin d’effectuer l’apprentissage de plusieurs modèles tout en modifiant les paramètres et les jeux de données.
     + Publier un **pipeline d’inférence par lot** pour effectuer des prédictions sur de nouvelles données à l’aide d’un modèle préalablement formé.
 + [Déployer](#deploy) un **pipeline d’inférence en temps réel** vers un point de terminaison en temps réel pour effectuer des prédictions sur de nouvelles données en temps réel.
@@ -50,7 +50,7 @@ Le concepteur vous donne un canevas visuel permettant de générer, tester et d�
 
 ## <a name="pipeline"></a>Pipeline
 
-Un [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) se compose de jeux de données et de modules d’analyse que vous connectez ensemble. Les pipelines ont de nombreuses utilisations : vous pouvez créer un pipeline qui effectue l’apprentissage d’un modèle unique ou un pipeline qui effectue l’apprentissage de plusieurs modèles. Vous pouvez créer un pipeline qui réalise des prédictions en temps réel ou par lot ou un pipeline qui nettoie uniquement les données. Les pipelines vous permettent de réutiliser votre travail et d’organiser vos projets.
+Un [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) se compose de jeux de données et de modules d’analyse qui sont connectés. Les pipelines ont de nombreuses utilisations : vous pouvez créer un pipeline qui effectue l’apprentissage d’un modèle unique ou un pipeline qui effectue l’apprentissage de plusieurs modèles. Il est possible de créer un pipeline qui effectue des prédictions en temps réel ou par lot, ou qui se contente de nettoyer les données. Les pipelines vous permettent de réutiliser votre travail et d’organiser vos projets.
 
 ### <a name="pipeline-draft"></a>Brouillon de pipeline
 
@@ -73,11 +73,11 @@ Les exécutions de pipeline sont regroupées en [expériences](concept-azure-mac
 
 ## <a name="datasets"></a>Groupes de données
 
-Un jeu de données Machine Learning facilite l’accès aux données et l’utilisation de ces dernières. Un certain nombre d’échantillons de jeux de données sont inclus dans le concepteur à expérimenter. Vous pouvez [inscrire](how-to-create-register-datasets.md) plusieurs jeux de données en fonction de vos besoins.
+Un jeu de données Machine Learning facilite l’accès aux données et l’utilisation de ces dernières. Plusieurs exemples de jeux de données sont inclus dans le concepteur à des fins de test. Vous pouvez [inscrire](how-to-create-register-datasets.md) plusieurs jeux de données en fonction de vos besoins.
 
 ## <a name="module"></a>Module
 
-Un module est un algorithme que vous appliquez à vos données. Le concepteur comporte divers modules, allant de fonctions d’entrée des données à des procédures de formation, de notation et de validation.
+Un module est un algorithme que vous appliquez à vos données. Le concepteur comporte plusieurs modules, allant de fonctions d’entrée des données à des processus d’entraînement, de scoring et de validation.
 
 Un module peut comporter un ensemble de paramètres utilisables pour configurer les algorithmes internes du module. Quand vous sélectionnez un module dans le canevas, ses paramètres sont affichés dans le volet Propriétés à droite du canevas. Vous pouvez modifier les paramètres figurant dans ce volet pour affiner votre modèle. Vous pouvez définir les ressources de calcul pour des modules individuels dans le concepteur. 
 
@@ -138,4 +138,3 @@ Vous pouvez convertir des expériences d’interface visuelle et des services We
 
 * Découvrez les principes fondamentaux de l’analytique prédictive et du Machine Learning à l’aide du [Tutoriel : Prédire le prix de voitures avec le concepteur](tutorial-designer-automobile-price-train-score.md)
 * Découvrez comment modifier les [exemples de concepteur](samples-designer.md) pour les adapter à vos besoins.
-

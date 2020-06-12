@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f633c1816e9e2e977c52ab99b66a26f7d2c4d8e2
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: efb873f8e66c3ab71b5b7345d776629fbe603af3
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800764"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193418"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Réplication d’objets pour des objets blob de blocs (préversion)
 
@@ -54,7 +54,7 @@ Quand vous créez une règle de réplication, par défaut, seuls les nouveaux ob
 
 Vous pouvez aussi spécifier un ou plusieurs filtres dans le cadre d’une règle de réplication pour filtrer les objets blob de blocs par préfixe. Lorsque vous spécifiez un préfixe, seuls les objets blob correspondant à ce préfixe dans le conteneur source sont copiés dans le conteneur de destination.
 
-Les conteneurs source et de destination doivent tous les deux exister pour que vous puissiez les spécifier dans une règle. Une fois que vous avez créé la stratégie de réplication, le conteneur de destination bascule en lecture seule. Toute tentative d’écriture dans le conteneur de destination échoue avec le code d’erreur 409 (Conflit). En revanche, vous pouvez appeler l’opération [Définir le niveau du blob](/rest/api/storageservices/set-blob-tier) sur un objet blob dans le conteneur de destination pour le déplacer vers un niveau d’accès différent. Par exemple, vous pouvez déplacer des objets blob dans le conteneur de destination vers le niveau archive pour réduire les coûts.
+Les conteneurs source et de destination doivent tous les deux exister pour que vous puissiez les spécifier dans une règle. Une fois que vous avez créé la stratégie de réplication, le conteneur de destination bascule en lecture seule. Toute tentative d’écriture dans le conteneur de destination échoue avec le code d’erreur 409 (Conflit). En revanche, vous pouvez appeler l’opération [Définir le niveau du blob](/rest/api/storageservices/set-blob-tier) sur un objet blob dans le conteneur de destination pour le déplacer vers le niveau d’archive. Pour plus d’informations sur le niveau d’archive, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](storage-blob-storage-tiers.md#archive-access-tier).
 
 ## <a name="about-the-preview"></a>À propos de la préversion
 
@@ -73,7 +73,9 @@ Pendant la préversion, aucun coût supplémentaire n’est associé à la répl
 
 ### <a name="prerequisites-for-object-replication"></a>Prérequis pour la réplication d’objets
 
-La réplication d’objets nécessite que les fonctionnalités de stockage Azure suivantes soient activées :
+La réplication d’objets nécessite que les fonctionnalités de stockage Azure suivantes soient activées : 
+- [Flux de modification](storage-blob-change-feed.md)
+- [Contrôle de version](versioning-overview.md)
 
 Avant de configurer la réplication d’objets, activez ses prérequis. Le flux de modification doit être activé sur le compte source, et le versioning des objets blob doit être activé à la fois sur le compte source et le compte de destination. Pour plus d’informations sur l’activation de chacune de ces fonctionnalités, consultez ces articles :
 
@@ -157,3 +159,5 @@ Pour poser des questions sur la préversion de la réplication d’objets ou fou
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Configurer la réplication d’objets (préversion)](object-replication-configure.md)
+- [Prise en charge du flux de modification dans Stockage Blob Azure (préversion)](storage-blob-change-feed.md)
+- [Activer et gérer le versioning des objets blob](versioning-enable.md)

@@ -9,12 +9,13 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 01/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 22f6b2aba36e560e9bd335baa92925fe9846c670
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom: tracking-python
+ms.openlocfilehash: 96c95efdc8f2154e0586fec59d1af66496acb101
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77162597"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558969"
 ---
 # <a name="quickstart-send-and-receive-events-with-event-hubs-using-python-azure-eventhub-version-1"></a>Démarrage rapide : Envoyer et recevoir des événements avec Event Hubs en utilisant Python (azure-eventhub version 1)
 Ce guide de démarrage rapide montre comment recevoir des événements d’un hub d’événements et lui en envoyer à l’aide du package Python **azure-eventhub version 1**. 
@@ -47,7 +48,7 @@ Pour créer une application Python qui envoie des événements à un hub d’év
 
 1. Ouvrez votre éditeur Python favori, tel que [Visual Studio Code](https://code.visualstudio.com/).
 2. Créez un nouveau fichier appelé *send.py*. Ce script envoie 100 événements à votre hub d’événements.
-3. Collez le code suivant dans *send.py*, en remplaçant \<namespace>, \<eventhub>, \<AccessKeyName> et \<primary key value> par vos valeurs d’Event Hubs : 
+3. Collez le code suivant dans *send.py*, en remplaçant les Event Hubs \<namespace>, \<eventhub>, \<AccessKeyName>et \<primary key value> par vos valeurs : 
    
    ```python
    import sys
@@ -110,7 +111,7 @@ Félicitations ! Vous venez d’envoyer des messages à un concentrateur d’év
 Pour créer une application Python qui reçoit des événements d’un hub d’événements :
 
 1. Dans votre éditeur Python, créez un fichier appelé *recv.py*.
-2. Collez le code suivant dans *recv.py*, en remplaçant \<namespace>, \<eventhub>, \<AccessKeyName> et \<primary key value> par vos valeurs d’Event Hubs : 
+2. Collez le code suivant dans *recv.py*, en remplaçant les Event Hubs \<namespace>, \<eventhub>, \<AccessKeyName>et \<primary key value> par vos valeurs : 
    
    ```python
    import os

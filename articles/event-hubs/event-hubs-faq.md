@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: e8ae3cbbca926a97bf90f4ac1104d4f082b332fd
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 0ff1f19a30be8c4ca40a980459901fd9224a6626
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835612"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996616"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Forum Aux Questions (FAQ) sur Event Hubs
 
@@ -102,6 +102,24 @@ Si vous utilisez la redondance de zone pour votre espace de noms, vous devez sui
     <name>-s3.servicebus.windows.net
     ```
 3. Exécutez nslookup pour chacun d’eux avec des suffixes s1, s2 et s3 pour obtenir les adresses IP des 3 instances en cours d’exécution dans 3 zones de disponibilité. 
+
+### <a name="where-can-i-find-client-ip-sending-or-receiving-msgs-to-my-namespace"></a>Où puis-je trouver l’adresse IP cliente qui envoie ou reçoit des messages à mon espace de noms ?
+Tout d’abord, activez le [Filtrage IP](event-hubs-ip-filtering.md) sur l’espace de noms. 
+
+Activez ensuite les journaux de diagnostic pour [Événements de connexion au réseau virtuel Event Hubs](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) en suivant les instructions dans [Activer les journaux de diagnostic](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Vous verrez l’adresse IP pour laquelle la connexion est refusée.
+
+```json
+{
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "IPAddress": "1.2.3.4",
+    "Action": "Deny Connection",
+    "Reason": "IPAddress doesn't belong to a subnet with Service Endpoint enabled.",
+    "Count": "65",
+    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
+    "Category": "EventHubVNetConnectionEvent"
+}
+```
 
 ## <a name="apache-kafka-integration"></a>Intégration d’Apache Kafka
 

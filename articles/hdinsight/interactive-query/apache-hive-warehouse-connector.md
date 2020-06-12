@@ -6,17 +6,17 @@ ms.author: nisgoel
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: fdc90ffaf3cef3c594e7d84e32af9ef78fe08b0d
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 05/28/2020
+ms.openlocfilehash: e9438e2e82a6d903b74973fe489b0a67d66c9a72
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849448"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84296950"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Intégrer Apache Spark et Apache Hive à Hive Warehouse Connector dans Azure HDInsight
 
-Apache Hive Warehouse Connector (HWC) est une bibliothèque qui vous permet de travailler plus facilement avec Apache Spark et Apache Hive. Elle prend en charge certaines tâches comme le déplacement de données entre les DataFrames Spark et les tables Hive. De même, elle achemine les données de streaming Spark vers les tables Hive. Hive Warehouse Connector fonctionne comme un pont entre Spark et Hive. Cette bibliothèque prend aussi en charge l’utilisation des langages de programmation Scala, Java et Python à des fins de développement.
+Apache Hive Warehouse Connector (HWC) est une bibliothèque qui vous permet de travailler plus facilement avec Apache Spark et Apache Hive, Elle prend en charge certaines tâches comme le déplacement de données entre les DataFrames Spark et les tables Hive. De même, elle achemine les données de streaming Spark vers les tables Hive. Le connecteur d’entrepôt Hive fonctionne comme un pont entre Spark et Hive. Cette bibliothèque prend aussi en charge l’utilisation des langages de programmation Scala, Java et Python à des fins de développement.
 
 Le connecteur d’entrepôt Hive vous permet de profiter des fonctionnalités uniques de Hive et de Spark afin de créer de puissantes applications Big Data.
 
@@ -93,9 +93,17 @@ En dehors des configurations mentionnées dans la section précédente, ajoutez 
 
     | Configuration | Valeur |
     |----|----|
-    | `spark.sql.hive.hiveserver2.jdbc.url.principal`    | `hive/<headnode-FQDN>@<AAD-Domain>` |
+    | `spark.sql.hive.hiveserver2.jdbc.url.principal`    | `hive/<llap-headnode>@<AAD-Domain>` |
     
-    Remplacez `<headnode-FQDN>` par le nom de domaine complet (FQDN) du nœud principal du cluster Interactive Query. Remplacez `<AAD-DOMAIN>` par le nom d’Azure Active Directory (AAD) auquel le cluster est joint. Utilisez une chaîne en majuscules pour la valeur `<AAD-DOMAIN>`, sinon les informations d’identification ne seront pas trouvées. Si nécessaire, recherchez les noms de domaine dans etc/krb5.conf.
+    * À partir d’un navigateur web, accédez à `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary`, où CLUSTERNAME est le nom de votre cluster Interactive Query. Cliquez sur **HiveServer2 Interactive**. Vous verrez le nom de domaine complet (FQDN) du nœud principal sur lequel LLAP s’exécute, comme indiqué dans la capture d’écran. Remplacez `<llap-headnode>` par cette valeur.
+
+        ![Nœud principal du connecteur d’entrepôt Hive](./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png)
+
+    * Utilisez la [commande ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) pour vous connecter à votre cluster Interactive Query. Recherchez le paramètre `default_realm` dans le fichier `/etc/krb5.conf`. Remplacez `<AAD-DOMAIN>` par cette valeur sous forme de chaîne en majuscules, sinon les informations d’identification ne seront pas trouvées.
+
+        ![Domaine AAD du connecteur d’entrepôt Hive](./media/apache-hive-warehouse-connector/aad-domain.png)
+
+    * Par exemple, `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET`.
     
 1. Enregistrez les modifications et redémarrez les composants si nécessaire.
 

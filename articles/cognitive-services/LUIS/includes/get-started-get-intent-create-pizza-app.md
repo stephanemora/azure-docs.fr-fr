@@ -5,17 +5,17 @@ services: cognitive-services
 author: roy-har
 manager: diberry
 ms.service: cognitive-services
-ms.date: 05/18/2020
+ms.date: 06/03/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
 ms.author: roy-har
-ms.openlocfilehash: 7ab6aa5f830e335a30502207d3a49a528d03f7fd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8e67a6d0c98a3839922a79e9b452465087da1b69
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654278"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418018"
 ---
 1. Sélectionnez [pizza-app-for-luis-v6.json](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-app-for-luis-v6.json) pour afficher la page GitHub du fichier `pizza-app-for-luis.json`.
 1. Cliquez avec le bouton droit ou appuyez longuement sur le bouton **Raw** et sélectionnez **Enregistrer la cible sous** pour enregistrer le fichier `pizza-app-for-luis.json` sur votre ordinateur.
@@ -29,7 +29,7 @@ ms.locfileid: "83654278"
 
 L’application est importée.
 
-Si apparaît une boîte de dialogue **How to create an effective LUIS app** (Comment créer une application LUIS efficace), fermez-la.
+Si la boîte de dialogue **Comment créer une application LUIS efficace** apparaît, fermez-la.
 
 ## <a name="train-and-publish-the-pizza-app"></a>Entraîner et publier l’application de pizza
 
@@ -43,7 +43,7 @@ Votre application de pizza est maintenant prête à être utilisée.
 
 ## <a name="record-the-app-id-prediction-key-and-prediction-endpoint-of-your-pizza-app"></a>Enregistrer l’ID d’application, la clé de prédiction et le point de terminaison de prédiction de votre application de pizza
 
-Pour utiliser votre nouvelle application de pizza, vous aurez besoin de ses ID d’application, clé de prédiction et point de terminaison.
+Pour utiliser votre nouvelle application Pizza, vous avez besoin de ses ID d’application, clé de prédiction et point de terminaison de prédiction.
 
 Pour rechercher ces valeurs :
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3861b981a1083b44e9cc522a01c50cf24f281e91
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 9c2a2d7059e24b37b0f47d0b568a3929f296d8c6
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702036"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560867"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Guide pratique pour utiliser OPENROWSET avec SQL à la demande (préversion)
 
@@ -107,19 +107,19 @@ Vous avez deux possibilités pour les fichiers d’entrée qui contiennent les d
 **'unstructured_data_path'**
 
 L’élément unstructured_data_path qui établit un chemin d’accès aux données peut être un chemin d’accès absolu ou relatif :
-- Un chemin d’accès absolu au format « \<prefix>://\<storage_account_path>/\<storage_path> » permet à un utilisateur de lire directement les fichiers.
+- Un chemin d’accès absolu au format « \<prefix>://\<storage_account_path>/\<storage_path> » permet à un utilisateur de lire directement les fichiers.
 - Chemin relatif au format « < storage_path > » qui doit être utilisé avec le paramètre `DATA_SOURCE` et décrit le modèle de fichier dans l’emplacement <storage_account_path> défini dans `EXTERNAL DATA SOURCE`. 
 
  Vous trouverez ci-dessous les valeurs <storage account path> appropriées qui établiront un lien à votre source de données externe particulière. 
 
 | Source de données externe       | Préfixe | Chemin de compte de stockage                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |
-| Stockage Blob Azure         | https  | \<compte_stockage>.blob.core.windows.net             |
-| Azure Data Lake Store Gen1 | https  | \<compte_stockage>.azuredatalakestore.net/webhdfs/v1 |
-| Azure Data Lake Store Gen2 | https  | \<compte_stockage>.dfs.core.windows.net              |
+| Stockage Blob Azure         | https  | \<storage_account>.blob.core.windows.net             |
+| Azure Data Lake Store Gen1 | https  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
+| Azure Data Lake Store Gen2 | https  | \<storage_account>.dfs.core.windows.net              |
 ||||
 
-'\<compte_stockage>'
+'\<storage_path>'
 
  Spécifie un chemin au sein de votre stockage qui pointe vers le dossier ou le fichier que vous souhaitez lire. Si le chemin pointe vers un conteneur ou un dossier, tous les fichiers sont lus à partir de ce conteneur ou dossier particulier. Les fichiers des sous-dossiers ne sont pas inclus. 
 
@@ -130,7 +130,7 @@ Dans l’exemple ci-dessous, tous les fichiers *csv* sont lus en débutant par *
 Si vous spécifiez l’élément unstructured_data_path comme dossier, une requête SQL à la demande récupère les fichiers de ce dossier. 
 
 > [!NOTE]
-> Contrairement à Hadoop et à PolyBase, SQL à la demande ne retourne pas de sous-dossiers. Par ailleurs, à la différence d’Hadoop et de PloyBase, SQL à la demande retourne les fichiers dont le nom commence par un trait de soulignement (_) ou un point (.).
+> Contrairement à Hadoop et à PolyBase, SQL à la demande ne retourne pas de sous-dossiers. Par ailleurs, à la différence d’Hadoop et de PolyBase, SQL à la demande retourne les fichiers dont le nom commence par un trait de soulignement (_) ou un point (.).
 
 Dans l’exemple ci-dessous, si l’élément unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, une requête SQL à la demande retournera des lignes de mydata.txt et de _hidden.txt. Il ne retournera pas mydata2.txt ni mydata3.txt, car ces fichiers se trouvent dans un sous-dossier.
 
@@ -163,7 +163,7 @@ WITH (
 )
 ```
 
-**\<options_bloc>**
+**\<bulk_options>**
 
 FIELDTERMINATOR ='field_terminator'
 

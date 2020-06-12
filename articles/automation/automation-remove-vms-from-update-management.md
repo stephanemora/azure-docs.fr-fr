@@ -5,20 +5,18 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 26a38c0851643fbd6446acddd99a05abf8d5b26c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 796cf18ae4dbab50eb7f968bda065ae0351f2ae8
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836649"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169404"
 ---
 # <a name="remove-vms-from-update-management"></a>Supprimer des machines virtuelles d’Update Management
 
-## <a name="sign-in-to-azure"></a>Connexion à Azure
-
-Connectez-vous au portail Azure sur https://portal.azure.com.
-
 Lorsque vous avez terminé le déploiement des mises à jour sur les machines virtuelles de votre environnement, vous pouvez les supprimer à l’aide de la fonctionnalité [Update Management](automation-update-management.md).
+
+## <a name="to-remove-your-vms"></a>Pour supprimer vos machines virtuelles
 
 1. Dans votre compte Automation, sélectionnez **Update Management** sous **Gestion des mises à jour**.
 
@@ -28,7 +26,7 @@ Lorsque vous avez terminé le déploiement des mises à jour sur les machines vi
     az vm show -g MyResourceGroup -n MyVm -d
     ```
 
-3. Dans votre espace de travail Log Analytics sous **Général**, accédez aux recherches enregistrées.
+3. Dans votre espace de travail Log Analytics, accédez aux recherches enregistrées de la configuration d’étendue `MicrosoftDefaultScopeConfig-Updates` sous **Général**.
 
 4. Pour la recherche enregistrée `MicrosoftDefaultComputerGroup`, cliquez sur les points de suspension à droite, puis sélectionnez **Modifier**. 
 

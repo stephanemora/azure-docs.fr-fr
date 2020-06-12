@@ -7,25 +7,29 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/27/2020
-ms.openlocfilehash: 9fb34141d19866a2f49ac164e0d89802cf7818c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/07/2020
+ms.openlocfilehash: 19d46c034d56c1c54f8a00f08a7e3e72e758984f
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369664"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488203"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>Démarrage rapide : Utiliser l’Explorateur de recherche pour exécuter des requêtes dans le portail
 
-**L’Explorateur de recherche** est un outil de requête intégré utilisé pour exécuter des requêtes sur un index de recherche dans Recherche cognitive Azure. Cet outil facilite l’apprentissage de la syntaxe des requêtes, le test d’une requête ou d’une expression de filtre, ou la vérification des résultats d’actualisation de l’index en vérifiant l’existence de contenu plus récent.
+**L’Explorateur de recherche** est un outil de requête intégré utilisé pour exécuter des requêtes sur un index de recherche dans Recherche cognitive Azure. Cet outil facilite l’apprentissage de la syntaxe des requêtes, le test d’une requête ou d’une expression de filtre, ou la confirmation de l’actualisation des données en vérifiant si du nouveau contenu existe dans l’index.
 
-Ce guide de démarrage rapide utilise **realestate-us-sample-index** pour illustrer l’Explorateur de recherche. Les requêtes sont formulées à l’aide de [l’API REST Search](https://docs.microsoft.com/rest/api/searchservice/), avec les réponses retournées sous forme de documents JSON.
+Ce guide de démarrage rapide utilise un index existant pour illustrer l’explorateur de recherche. Les requêtes sont formulées à l’aide de [l’API REST Search](https://docs.microsoft.com/rest/api/searchservice/), avec les réponses retournées sous forme de documents JSON.
 
 ## <a name="prerequisites"></a>Prérequis
 
-+ [Créez un service Recherche cognitive Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce guide de démarrage rapide.
+Avant de commencer la lecture cet article, vous devez disposer des éléments suivants :
 
-+ **realestate-us-sample-index** est utilisé pour ce guide de démarrage rapide. Parcourez l’Assistant [**Importer des données**](search-import-data-portal.md) pour générer l’index à partir de l’exemple de source de données intégrée.
++ Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/).
+
++ Service Recherche cognitive Azure. [Créez un service](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce guide de démarrage rapide. 
+
++ *realestate-us-sample-index* est utilisé pour ce guide de démarrage rapide. Utilisez l’Assistant [**Importer des données**](search-import-data-portal.md) pour créer l’index. Dans la première étape, lorsque vous êtes invité à entrer la source de données, choisissez **Exemples** puis sélectionnez la source de données **realestate-us-sample**. Acceptez tous les paramètres par défaut de l’Assistant pour créer l’index.
 
 ## <a name="start-search-explorer"></a>Démarrer l’Explorateur de recherche
 

@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/29/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: c5b86319752fc70e754e34b787bbdc12f18636f0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3317410408754519bcd8b52e78dee4a81b3ab070
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656024"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609486"
 ---
-# <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-analytics-workspace-preview"></a>Démarrage rapide : Liaison d’un espace de travail Power BI à un espace de travail Synapse Analytics (préversion)
+# <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-workspace"></a>Démarrage rapide : Liaison d’un espace de travail Power BI à un espace de travail Synapse
 
 Dans ce guide de démarrage rapide, vous allez apprendre à connecter un espace de travail Power BI à un espace de travail Synapse Analytics pour créer des rapports et des jeux de données Power BI à partir de Synapse Studio (préversion).
 

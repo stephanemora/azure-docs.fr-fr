@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 2143546e10b413d1492b8734d2594de42fd37cf3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c6fb590cbb57e8798bf65d0aa30585ae3db3691d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684404"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021532"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Traiter des jeux de données volumineux à l’aide de Data Factory et de Batch
 > [!NOTE]
@@ -38,8 +38,8 @@ Avec le service Batch, vous définissez des ressources de calcul Azure pour exé
 
  Si vous n’êtes pas familier avec Azure Batch, consultez les articles suivants qui vous aideront à comprendre l’architecture et l’implémentation de la solution décrite dans cet article :   
 
-* [Notions de base d’Azure Batch](../../batch/batch-technical-overview.md)
-* [Aperçu des fonctionnalités d’Azure Batch](../../batch/batch-api-basics.md)
+* [Notions de base d’Azure Batch](../../azure-sql/database/sql-database-paas-overview.md)
+* [Aperçu des fonctionnalités d’Azure Batch](../../batch/batch-service-workflow-features.md)
 
 Si vous le souhaitez, consultez la [documentation Azure Batch](https://docs.microsoft.com/azure/batch/) pour en savoir plus sur Azure Batch.
 
@@ -84,9 +84,9 @@ La liste suivante fournit les étapes de base du processus. La solution inclut d
 ## <a name="implementation-of-the-sample-solution"></a>Implémentation de la solution exemple
 La solution exemple est volontairement simple. Elle vous montre comment utiliser Azure Data Factory et Azure Batch pour traiter des jeux de données. La solution compte le nombre d’occurrences du terme recherché (Microsoft) dans les fichiers d’entrée organisés en une série chronologique. Il renvoie ensuite le nombre dans des fichiers de sortie.
 
-**Temps** : si vous maîtrisez les notions de base d’Azure, d’Azure Data Factory et d’Azure Batch et que vous disposez des éléments requis ci-dessous, cette solution est opérationnelle entre 1 et 2 heures.
+**Durée :** si vous maîtrisez les notions de base d’Azure, d’Azure Data Factory et d’Azure Batch et que vous disposez des éléments requis ci-dessous, cette solution est opérationnelle en 1 à 2 heures.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 #### <a name="azure-subscription"></a>Abonnement Azure
 Si vous n’avez pas d’abonnement Azure, vous pouvez créer rapidement un compte Azure gratuit. Pour plus d’informations, consultez la page [Créez votre compte gratuit Azure dès aujourd’hui](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -155,7 +155,7 @@ Installez Microsoft Visual Studio 2012 ou version ultérieure pour créer l’ac
 ### <a name="create-the-custom-activity"></a>Création de l’activité personnalisée
 L’activité personnalisée d’Azure Data Factory est au cœur de cet exemple de solution. Cette solution exemple utilise Azure Batch pour exécuter l’activité personnalisée. Pour plus d’informations sur le développement d’activités personnalisées et leur utilisation dans des pipelines Azure Data Factory, consultez [Use custom activities in a data factory pipeline (Utiliser des activités personnalisées dans un pipeline Azure Data Factory)](data-factory-use-custom-activities.md).
 
-Pour créer une activité personnalisée .NET utilisable dans un pipeline Azure Data Factory, vous devez créer un projet de bibliothèque de classes .NET, avec une classe qui implémente l’interface IDotNetActivity. Cette interface ne possède qu’une méthode: Execute. Voici la signature de la méthode :
+Pour créer une activité personnalisée .NET utilisable dans un pipeline Azure Data Factory, vous devez créer un projet de bibliothèque de classes .NET, avec une classe qui implémente l’interface IDotNetActivity. Cette interface ne possède qu’une méthode : Execute. Voici la signature de la méthode :
 
 ```csharp
 public IDictionary<string, string> Execute(
@@ -175,7 +175,7 @@ Cette méthode a quelques composants clés qu’il est important de comprendre :
   * **logger**. Il permet d’écrire des commentaires de débogage qui constituent le journal utilisateur du pipeline.
 * La méthode retourne un dictionnaire qui peut être utilisé pour enchaîner ultérieurement des activités personnalisées. Cette fonctionnalité n’étant pas encore implémentée, la méthode ne renvoie qu’un dictionnaire vide.
 
-#### <a name="procedure-create-the-custom-activity"></a>Procédure : Création de l’activité personnalisée
+#### <a name="procedure-create-the-custom-activity"></a>Procédure : Création de l’activité personnalisée
 1. Créez un projet de bibliothèque de classes .NET dans Visual Studio.
 
    a. Démarrez Visual Studio 2012/2013/2015.
@@ -523,7 +523,7 @@ Une tâche est créée pour chaque exécution d’activité. Dans cet exemple, l
 
 La procédure pas à pas suivante fournit des détails supplémentaires.
 
-#### <a name="step-1-create-the-data-factory"></a>Étape 1 : Créer la fabrique de données
+#### <a name="step-1-create-the-data-factory"></a>Étape 1 : Création de la fabrique de données
 1. Une fois connecté au [portail Azure](https://portal.azure.com/), procédez comme suit :
 
    a. Cliquez sur **NOUVEAU** dans le menu de gauche.
@@ -546,7 +546,7 @@ La procédure pas à pas suivante fournit des détails supplémentaires.
 
    ![Page de la fabrique de données](./media/data-factory-data-processing-using-batch/image6.png)
 
-#### <a name="step-2-create-linked-services"></a>Étape 2 : Créer des services liés
+#### <a name="step-2-create-linked-services"></a>Étape 2 : Créez des services liés
 Les services liés relient des magasins de données ou des services de calcul à une fabrique de données. À cette étape, vous liez votre compte de stockage et votre compte Azure Batch à votre fabrique de données.
 
 #### <a name="create-an-azure-storage-linked-service"></a>Créer un service lié Stockage Azure
@@ -578,7 +578,7 @@ Les services liés relient des magasins de données ou des services de calcul à
    d. Entrez l’URI du lot pour la propriété JSON **batchUri** .
 
       > [!IMPORTANT]
-      > L’URL figurant dans le panneau **Compte Batch** est au format suivant : \<nom_du_compte\>.\<région\>.batch.azure.com. Pour la propriété **batchUri** dans le fichier JSON, vous devez supprimer a88"nom_compte."** de l’URL. par exemple `"batchUri": "https://eastus.batch.azure.com"`.
+      > L’URL dans le panneau **Compte Batch** est au format suivant : \<accountname\>.\<region\>.batch.azure.com. Pour la propriété **batchUri** dans le fichier JSON, vous devez supprimer a88"nom_compte."** de l’URL. par exemple `"batchUri": "https://eastus.batch.azure.com"`.
       >
       >
 
@@ -595,7 +595,7 @@ Les services liés relient des magasins de données ou des services de calcul à
 
 1. Sélectionnez **Déployer** dans la barre de commandes pour déployer le service lié.
 
-#### <a name="step-3-create-datasets"></a>Étape 3 : Créer les jeux de données
+#### <a name="step-3-create-datasets"></a>Étape 3 : Créez les jeux de données
 Dans cette étape, vous allez créer des jeux de données pour représenter les données d’entrée et de sortie.
 
 #### <a name="create-the-input-dataset"></a>Créer le jeu de données d’entrée
@@ -793,9 +793,9 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 
    * Le pipeline ne contient qu’une seule activité de type **DotNetActivity**.
    * Le paramètre **AssemblyName** contient le nom de la DLL **MyDotnetActivity.dll**.
-   * Le paramètre **EntryPoint** est défini sur **MyDotNetActivityNS.MyDotNetActivity**. Cela correspond à \<espace_noms\>.\<nom_classe\> dans votre code.
+   * Le paramètre **EntryPoint** est défini sur **MyDotNetActivityNS.MyDotNetActivity**. Il s’agit essentiellement \<namespace\>.\<classname\> dans votre code.
    * **PackageLinkedService** est défini sur **StorageLinkedService**, qui pointe vers le stockage d’objets blob contenant le fichier zip de l’activité personnalisée. Si vous utilisez différents comptes de stockage pour les fichiers d’entrée/sortie et le fichier zip de l’activité personnalisée, vous devez créer un autre service lié Stockage Azure. Cet article suppose que vous utilisiez le même compte de stockage.
-   * Le paramètre **PackageFile** est défini sur **customactivitycontainer/MyDotNetActivity.zip**. Il est au format \<conteneur_du_zip\>/\<nom_du_zip.zip\>.
+   * Le paramètre **PackageFile** est défini sur **customactivitycontainer/MyDotNetActivity.zip**. Il est au format suivant \<containerforthezip\>/\<nameofthezip.zip\>.
    * L’activité personnalisée utilise **InputDataset** comme entrée et **OutputDataset** comme sortie.
    * La propriété **linkedServiceName** de l’activité personnalisée pointe vers **AzureBatchLinkedService**, ce qui indique à Azure Data Factory que l’activité personnalisée doit s’exécuter sur Azure Batch.
    * Le paramètre **concurrency** est important. Si vous utilisez la valeur par défaut (1), même si vous avez plusieurs nœuds de calcul dans le pool Azure Batch, les tranches sont traitées successivement. Par conséquent, vous ne profitez pas de la capacité de traitement en parallèle d’Azure Batch. Si vous réglez **concurrency** sur une valeur plus élevée (par exemple, 2), deux tranches (correspondant à deux tâches dans Azure Batch) peuvent être traitées simultanément. Dans ce cas, les deux machines virtuelles dans le pool Azure Batch sont utilisées. Attribuez une valeur appropriée à la propriété concurrency.
@@ -930,11 +930,11 @@ Le débogage consiste à utiliser quelques techniques de base.
 #### <a name="extend-the-sample"></a>Étendre l’exemple
 Vous pouvez étendre cet exemple pour en savoir plus sur les fonctionnalités Azure Data Factory et Azure Batch. Par exemple, pour traiter des tranches dans une autre plage de temps, procédez comme suit :
 
-1. Ajoutez les sous-dossiers suivants dans `inputfolder` : 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08 et 2015-11-16-09. Placez les fichiers d’entrée dans ces dossiers. Modifiez l’heure de fin pour le pipeline de `2015-11-16T05:00:00Z` à `2015-11-16T10:00:00Z`. Dans la vue **Diagramme**, double-cliquez sur **InputDataset** et vérifiez que les tranches d’entrée sont prêtes. Double-cliquez sur **OuptutDataset** pour voir l’état des tranches de sortie. Si leur état est **Prêt**, vérifiez les fichiers de sortie dans le dossier de sortie.
+1. Ajoutez les sous-dossiers suivants dans `inputfolder` : 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08, and 2015-11-16-09. Placez les fichiers d’entrée dans ces dossiers. Modifiez l’heure de fin pour le pipeline de `2015-11-16T05:00:00Z` à `2015-11-16T10:00:00Z`. Dans la vue **Diagramme**, double-cliquez sur **InputDataset** et vérifiez que les tranches d’entrée sont prêtes. Double-cliquez sur **OuptutDataset** pour voir l’état des tranches de sortie. Si leur état est **Prêt**, vérifiez les fichiers de sortie dans le dossier de sortie.
 
-1. Augmentez ou diminuez la valeur du paramètre **concurrency** pour comprendre comment il affecte les performances de votre solution, en particulier le traitement effectué sur Azure Batch. Pour plus d’informations sur le paramètre **concurrency**, consultez la section « Étape 4 : créer et exécuter le pipeline avec une activité personnalisée ».
+1. Augmentez ou diminuez la valeur du paramètre **concurrency** pour comprendre comment il affecte les performances de votre solution, en particulier le traitement effectué sur Azure Batch. Pour plus d’informations sur le paramètre **concurrency**, consultez « Étape 4 : Créer et exécuter le pipeline avec une activité personnalisée ».
 
-1. Créez un pool avec une valeur **Maximum tasks per VM**(Nombre maximal de tâches par machine virtuelle) supérieure/inférieure. Pour utiliser le pool créé, mettez à jour le service lié Azure Batch dans la solution Data Factory. Pour plus d’informations sur le paramètre **Maximum tasks per VM (Nombre maximal de tâches par machine virtuelle)** , consultez la section « Étape 4 : créer et exécuter le pipeline avec une activité personnalisée ».
+1. Créez un pool avec une valeur **Maximum tasks per VM**(Nombre maximal de tâches par machine virtuelle) supérieure/inférieure. Pour utiliser le pool créé, mettez à jour le service lié Azure Batch dans la solution Data Factory. Pour plus d’informations sur le paramètre **Maximum tasks per VM** (Nombre maximal de tâches par machine virtuelle), consultez « Étape 4 : Créer et exécuter le pipeline avec une activité personnalisée ».
 
 1. Créez un pool Azure Batch avec la fonctionnalité **autoscale**. La mise à l’échelle automatique des nœuds de calcul dans un pool Azure Batch est en fait un ajustement dynamique de la puissance de traitement utilisée par votre application.
 
@@ -956,13 +956,13 @@ Vous pouvez étendre cet exemple pour en savoir plus sur les fonctionnalités Az
 
 1. Dans l’exemple de solution, la méthode **Execute** appelle la méthode **Calculate** qui traite une tranche de données d’entrée pour produire une tranche de données de sortie. Vous pouvez écrire votre propre méthode pour traiter les données d’entrée et remplacer l’appel de la méthode **Calculate** dans la méthode **Execute** par un appel à votre méthode.
 
-### <a name="next-steps-consume-the-data"></a>Étapes suivantes : Consommer les données
+### <a name="next-steps-consume-the-data"></a>Étapes suivantes : Consommer les données
 Après avoir traité des données, vous pouvez les consommer avec des outils en ligne tels que Power BI. Voici des liens pour vous aider à comprendre Power BI et comment l’utiliser dans Azure :
 
 * [Explorer un jeu de données dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
 * [Prise en main de Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started)
 * [Actualisation des données dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
-* [Azure et Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
+* [Azure et Power BI : vue d’ensemble](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## <a name="references"></a>References
 * [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
@@ -972,8 +972,8 @@ Après avoir traité des données, vous pouvez les consommer avec des outils en 
   * [Use custom activities in a Data Factory pipeline (Utilisation des activités personnalisées dans un pipeline Data Factory)](data-factory-use-custom-activities.md)
 * [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
 
-  * [Notions de base d’Azure Batch](../../batch/batch-technical-overview.md)
-  * [Overview of Batch features (Vue d’ensemble des fonctionnalités d’Azure Batch)](../../batch/batch-api-basics.md)
+  * [Notions de base d’Azure Batch](../../azure-sql/database/sql-database-paas-overview.md)
+  * [Vue d’ensemble des fonctionnalités Batch](../../batch/batch-service-workflow-features.md))
   * [Create and manage a Batch account in the Azure portal (Création et gestion d’un compte Azure Batch dans le portail Azure)](../../batch/batch-account-create-portal.md)
   * [Get started with the Batch client library for .NET (Prise en main de la bibliothèque Batch pour .NET)](../../batch/quick-run-dotnet.md)
 

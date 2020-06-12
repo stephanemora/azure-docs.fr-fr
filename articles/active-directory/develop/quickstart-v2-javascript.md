@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: 91a4d10269975152cc62f3f5dc33238a8f6f2e11
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: d0c705ffba84b9d34f8bc3d6e4c06d4bdb90fa21
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890520"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322819"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Démarrage rapide : Connecter des utilisateurs et obtenir un jeton d’accès dans une application SPA JavaScript
 
@@ -92,7 +92,7 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour décou
 >  const msalConfig = {
 >    auth: {
 >      clientId: "Enter_the_Application_Id_Here",
->      authority: "Enter_the_Cloud_Instance_Id_Here_OR_Enter_the_Tenant_Info_Here",
+>      authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here",
 >      redirectUri: "Enter_the_Redirect_Uri_Here",
 >    },
 >    cache: {
@@ -112,7 +112,7 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour décou
 > Où :
 > - *\<Enter_the_Application_Id_Here>* est l’**ID d’application (client)** de l’application que vous avez inscrite.
 > - *\<Enter_the_Cloud_Instance_Id_Here>* est l’instance du cloud Azure. Pour le cloud Azure principal ou mondial, entrez simplement *https://login.microsoftonline.com* . Pour les clouds **nationaux** (par exemple, Chine), consultez [Clouds nationaux](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
-> - *\<Enter_the_Tenant_info_here >* est défini sur une des options suivantes :
+> - *\<Enter_the_Tenant_info_here>* est défini sur l’une des options suivantes :
 >    - Si votre application prend en charge les *Comptes dans cet annuaire organisationnel*, remplacez cette valeur par l’**ID de locataire** ou le **nom du locataire** (par exemple, *contoso.microsoft.com*).
 >    - Si votre application prend en charge les *Comptes dans un annuaire organisationnel*, remplacez cette valeur par **organizations**.
 >    - Si votre application prend en charge les *Comptes dans un annuaire organisationnel et comptes personnels Microsoft*, remplacez cette valeur par **common**. Pour limiter la prise en charge aux *Comptes Microsoft personnels uniquement*, remplacez cette valeur par **consumers**.
@@ -130,8 +130,8 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour décou
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
 >   const graphConfig = {
->     graphMeEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me",
->     graphMailEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me/messages"
+>     graphMeEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me",
+>     graphMailEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me/messages"
 >   };
 >
 >   // Add here scopes for access token to be used at MS Graph API endpoints.
@@ -144,7 +144,7 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour décou
 > [!div renderon="docs"]
 >
 > Où :
-> - *\<Enter_the_Graph_Endpoint_Here>* est le point de terminaison sur lequel les appels d’API seront effectués. Pour le service d’API Microsoft Graph principal ou mondial, entrez simplement `https://graph.microsoft.com`. Pour plus d’informations, consultez [Déploiements sur les clouds nationaux](https://docs.microsoft.com/graph/deployments).
+> - *\<Enter_the_Graph_Endpoint_Here>* est le point de terminaison sur lequel les appels d’API sont effectués. Pour le service d’API Microsoft Graph principal ou mondial, entrez simplement `https://graph.microsoft.com`. Pour plus d’informations, consultez [Déploiements sur les clouds nationaux](https://docs.microsoft.com/graph/deployments).
 >
 > #### <a name="step-4-run-the-project"></a>Étape 4 : Exécuter le projet
 

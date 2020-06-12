@@ -7,12 +7,13 @@ ms.date: 03/24/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: d6c44c81db78fa76eeaf4b7181cca34fb8e81523
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.custom: tracking-python
+ms.openlocfilehash: 30ceed388412f08e31b9c9b0c7ea6fdf2fed143e
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758186"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84607208"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>Tutoriel : Créer et connecter une application cliente à votre application Azure IoT Central (Python)
 
@@ -307,8 +308,9 @@ Vous pouvez voir comment l’appareil répond aux commandes et aux mises à jour
 
 En tant que développeur d’appareils, maintenant que vous avez appris les bases de la création d’un appareil à l’aide de Node.js, les prochaines étapes suggérées sont les suivantes :
 
-- Découvrez comment connecter un appareil réel à IoT Central dans l’article sur les procédures [Connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central](./howto-connect-devkit.md).
-- Lisez [Se connecter à Azure IoT Central](./concepts-get-connected.md) pour en savoir plus sur la façon d’inscrire des appareils auprès d’IoT Central et sur la manière dont IoT Central sécurise les connexions des appareils.
+* Découvrez comment connecter un appareil réel à IoT Central dans l’article sur les procédures [Connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central](./howto-connect-devkit.md).
+* Pour en savoir plus sur le rôle des modèles d’appareils quand vous implémentez votre code d’appareil, consultez [Présentation des modèles d’appareils](./concepts-device-templates.md).
+* Lisez [Se connecter à Azure IoT Central](./concepts-get-connected.md) pour en savoir plus sur la façon d’inscrire des appareils auprès d’IoT Central et sur la manière dont IoT Central sécurise les connexions des appareils.
 
 Si vous préférez suivre l’ensemble des tutoriels IoT Central et en savoir plus sur la création d’une solution IoT Central, consultez :
 

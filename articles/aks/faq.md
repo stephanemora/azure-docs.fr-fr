@@ -3,12 +3,12 @@ title: Forum aux questions sur Azure Kubernetes Service (AKS)
 description: Recherchez des réponses à certaines des questions les plus fréquemment posées sur Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: 767b5b80aab7d98af92f86bf66cc2ff83242ff92
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 136f79df43bcc1730f187980df8726d693390faa
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83677787"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300924"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)
 
@@ -75,11 +75,13 @@ Lorsque vous travaillez avec le groupe de ressources de nœud, n’oubliez pas q
 * Spécifier un autre abonnement pour le groupe de ressources de nœud.
 * Modifier le nom du groupe de ressources de nœud une fois que le cluster a été créé.
 * Spécifier des noms pour les ressources managées au sein du groupe de ressources de nœud.
-* Modifier ou supprimer les balises des ressources managées au sein du groupe de ressources de nœud. (Consultez des informations supplémentaires dans la section suivante.)
+* Modifier ni supprimer les étiquettes des ressources managées créées par Azure au sein du groupe de ressources de nœud. (Consultez des informations supplémentaires dans la section suivante.)
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>Puis-je modifier les balises et d’autres propriétés des ressources AKS dans le groupe de ressources de nœud ?
 
-Si vous modifiez ou supprimez des balises créées par Azure et d’autres propriétés de ressources dans le groupe de ressources de nœud, vous pouvez obtenir des résultats inattendus tels que des erreurs de mise à l’échelle et de mise à niveau. AKS vous permet de créer et modifier des balises personnalisées. Vous souhaiterez peut-être créer ou modifier des balises personnalisées, par exemple, pour affecter une unité commerciale ou un centre de coûts. En modifiant les ressources du groupe de ressources de nœud dans le cluster AKS, vous empêchez d’atteindre l’objectif de niveau de service (SLO). Pour plus d'informations, consultez [AKS offre-t-il un contrat de niveau de service ?](#does-aks-offer-a-service-level-agreement)
+Si vous modifiez ou supprimez des balises créées par Azure et d’autres propriétés de ressources dans le groupe de ressources de nœud, vous pouvez obtenir des résultats inattendus tels que des erreurs de mise à l’échelle et de mise à niveau. AKS vous permet de créer et modifier des balises personnalisées créées par des utilisateurs finaux. Vous souhaiterez peut-être créer ou modifier des balises personnalisées, par exemple, pour affecter une unité commerciale ou un centre de coûts. Pour ce faire, créez des stratégies Azure avec une étendue sur le groupe de ressources managé.
+
+Toutefois, la modification de **balises créées par Azure** sur des ressources sous le groupe de ressources du nœud dans le cluster AKS est une action non prise en charge qui rompt l’objectif de niveau de service (SLO). Pour plus d'informations, consultez [AKS offre-t-il un contrat de niveau de service ?](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Quels sont les contrôleurs d’admission Kubernetes qui sont pris en charge par AKS ? Les contrôleurs d’admission peuvent-ils être ajoutés ou supprimés ?
 

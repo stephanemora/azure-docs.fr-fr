@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 05/20/2020
 ms.author: curtand
-ms.openlocfilehash: 6d6d32a7a340ef4b07138d5ec12c561e958cf739
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 795c68fc063d98bdee6ccf59dba6ee718dc92d03
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739496"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323023"
 ---
 # <a name="microsoft-authenticator-for-android-in-the-public-cloud-in-china"></a>Microsoft Authenticator pour Android dans le cloud public en Chine
 
@@ -44,7 +44,7 @@ Si un utilisateur est déjà parvenu à configurer la connexion par téléphone 
 
 ## <a name="multi-factor-authentication-workaround"></a>Solution de contournement pour l’authentification multifacteur
 
-Au lieu d’utiliser des notifications Push pour l’authentification multifacteur, les utilisateurs peuvent configurer leur authentification multifacteur de façon à recevoir des codes de vérification sur leur appareil, qu’ils peuvent ensuite utiliser pour vérifier leur identité. Ces codes de vérification sont valides pendant 30 secondes, et pour les utiliser les administrateurs doivent faire en sorte que leur locataire effectue la vérification à l’aide de codes de vérification TOTP (Time-based One-Time Password).
+Au lieu d’utiliser des notifications Push pour l’authentification multifacteur, les utilisateurs peuvent [configurer leur application Authenticator de façon à recevoir des codes de vérification](multi-factor-authentication-setup-auth-app.md#set-up-the-microsoft-authenticator-app-to-use-verification-codes) sur leur appareil, qu’ils peuvent ensuite utiliser pour MFA pour vérifier leur identité. Ces codes de vérification sont valides pendant 30 secondes, et pour les utiliser les administrateurs doivent faire en sorte que leur locataire effectue la vérification à l’aide de codes de vérification TOTP (Time-based One-Time Password).
 
 ## <a name="availability"></a>Disponibilité
 

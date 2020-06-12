@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mqtt
-ms.openlocfilehash: a8c5d9479585c0a519d0ad05a4d73f3f15b21287
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 65f441425113d89010cc2d282758c5a042be9300
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758203"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417903"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-nodejs"></a>Tutoriel : Créer et connecter une application cliente à votre application Azure IoT Central (Node.js)
 
@@ -330,8 +330,9 @@ Vous pouvez voir comment l’appareil répond aux commandes et aux mises à jour
 
 En tant que développeur d’appareils, maintenant que vous avez appris les bases de la création d’un appareil à l’aide de Node.js, les prochaines étapes suggérées sont les suivantes :
 
-- Découvrez comment connecter un appareil réel à IoT Central dans l’article sur les procédures [Connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central](./howto-connect-devkit.md).
-- Lisez [Se connecter à Azure IoT Central](./concepts-get-connected.md) pour en savoir plus sur la façon d’inscrire des appareils auprès d’IoT Central et sur la manière dont IoT Central sécurise les connexions des appareils.
+* Découvrez comment connecter un appareil réel à IoT Central dans l’article sur les procédures [Connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central](./howto-connect-devkit.md).
+* Pour en savoir plus sur le rôle des modèles d’appareils quand vous implémentez votre code d’appareil, consultez [Présentation des modèles d’appareils](./concepts-device-templates.md).
+* Lisez [Se connecter à Azure IoT Central](./concepts-get-connected.md) pour en savoir plus sur la façon d’inscrire des appareils auprès d’IoT Central et sur la manière dont IoT Central sécurise les connexions des appareils.
 
 Si vous préférez suivre l’ensemble des tutoriels IoT Central et en savoir plus sur la création d’une solution IoT Central, consultez :
 

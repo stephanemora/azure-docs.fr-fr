@@ -3,45 +3,27 @@ title: Personnalisation de routes définies par l’utilisateur dans Azure Kuber
 description: Découvrez comment définir un route de sortie personnalisée dans Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/16/2020
-ms.openlocfilehash: babfd70a6a9732113531be13073af212a6820557
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 06/05/2020
+ms.openlocfilehash: d62f40fb835bfe6993ad31ddd20cfdea1d9135c2
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83677889"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310867"
 ---
-# <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Personnaliser la sortie du cluster avec une route définie par l’utilisateur (préversion)
+# <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personnaliser la sortie du cluster avec une route définie par l’utilisateur
 
 La sortie d’un cluster AKS peut être personnalisée pour l’adapter à des scénarios spécifiques. Par défaut, AKS provisionne un équilibreur de charge de référence SKU standard à configurer et utiliser pour la sortie. Cependant, la configuration par défaut peut ne pas répondre aux exigences de tous les scénarios si les adresses IP publiques ne sont pas autorisées ou si des tronçons supplémentaires sont nécessaires pour la sortie.
 
 Cet article explique comment personnaliser une route de sortie d’un cluster pour prendre en charge des scénarios réseau personnalisés, comme ceux qui n’autorisent pas les adresses IP publiques et qui nécessitent que le cluster se trouve derrière une appliance virtuelle réseau ().
 
-> [!IMPORTANT]
-> Les fonctionnalités d’évaluation AKS sont en libre-service et sont proposées sur la base d’un abonnement. Les préversions sont fournies *en l’état* et *en fonction des disponibilités*. De plus, elles sont exclues du contrat de niveau de service (SLA) et de la garantie limitée. Les préversions AKS sont, *dans la mesure du possible*, partiellement couvertes par le service clientèle. Par conséquent, ces fonctionnalités ne sont pas destinées à une utilisation en production. Pour plus d’informations, consultez les articles de support suivants :
->
-> * [Stratégies de support AKS](support-policies.md)
-> * [FAQ du support Azure](faq.md)
-
 ## <a name="prerequisites"></a>Prérequis
 * Azure CLI version 2.0.81 ou ultérieure
-* Extension d’Azure CLI Preview version 0.4.28 ou ultérieure
 * Version de l’API `2020-01-01` ou ultérieure
 
-## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Installer la dernière extension Azure CLI AKS en préversion
-Pour définir le type de sortie d’un cluster, vous devez disposer de l’extension Azure CLI AKS Preview version 0.4.18 ou ultérieure. Installez l’extension Azure CLI AKS Preview avec la commande az extension add, puis recherchez toutes les mises à jour disponibles avec la commande az extension update suivante :
-
-```azure-cli
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 ## <a name="limitations"></a>Limites
-* Pendant le période de préversion, `outboundType` peut être défini seulement lors de la création du cluster et ne peut pas être mis à jour après cela.
-* Pendant la période de préversion, `outboundType` les clusters AKS doivent utiliser Azure CNI. Kubenet est configurable : son utilisation nécessite des associations manuelles de la table de routage vers le sous-réseau AKS.
+* OutboundType peut être défini seulement lors de la création du cluster et ne peut pas être mis à jour après cela.
 * La définition de `outboundType` nécessite des clusters AKS avec un `vm-set-type` `VirtualMachineScaleSets` et une `load-balancer-sku` `Standard`.
 * La définition de `outboundType` sur une valeur `UDR` nécessite une route définie par l’utilisateur avec une connectivité de sortie valide pour le cluster.
 * La définition de `outboundType` sur la valeur `UDR` implique que l’adresse IP source en entrée routée vers l’équilibreur de charge puisse **ne pas correspondre** à l’adresse de destination en sortie de la sortie du cluster.
@@ -53,6 +35,9 @@ Un cluster AKS peut être personnalisé avec un `outboundType` unique de type é
 > [!IMPORTANT]
 > Le type de sortie impacte seulement le trafic sortant de votre cluster. Pour plus d’informations, consultez [Configuration des contrôleurs d’entrée](ingress-basic.md).
 
+> [!NOTE]
+> Vous pouvez utiliser votre propre [table de routage][byo-route-table] avec la mise en réseau UDR et kubenet.
+
 ### <a name="outbound-type-of-loadbalancer"></a>Type de sortie loadBalancer
 
 Si `loadBalancer` est défini, AKS effectue automatiquement la configuration suivante. L’équilibreur de charge est utilisé pour la sortie via une adresse IP publique affectée à AKS. Un type de sortie `loadBalancer` prend en charge les services Kubernetes de type `loadBalancer`, qui attendent une sortie de l’équilibreur de charge créé par le fournisseur de ressources AKS.
@@ -60,7 +45,7 @@ Si `loadBalancer` est défini, AKS effectue automatiquement la configuration sui
 La configuration suivante est effectuée par AKS.
    * Une adresse IP publique est provisionnée pour la sortie du cluster.
    * L’adresse IP publique est affectée à la ressource d’équilibreur de charge.
-   * Les pools de back-ends pour l’équilibreur de charge sont configurés pour les nœuds d’agent dans le cluster.
+   * Les pools de back-end pour l’équilibreur de charge sont configurés pour les nœuds d’agent dans le cluster.
 
 Vous trouverez ci-dessous une topologie de réseau déployée dans des clusters AKS par défaut, qui utilise un `outboundType` `loadBalancer`.
 
@@ -173,7 +158,7 @@ az network vnet subnet create \
     --address-prefix 100.64.3.0/24
 ```
 
-## <a name="create-and-setup-an-azure-firewall-with-a-udr"></a>Créer et configurer un pare-feu Azure avec une route définie par l’utilisateur
+## <a name="create-and-set-up-an-azure-firewall-with-a-udr"></a>Créer et configurer un Pare-feu Azure avec une route définie par l’utilisateur
 
 Les règles de trafic entrant et sortant du pare-feu Azure doivent être configurées. L’objectif principal du pare-feu est de permettre aux organisations de configurer des règles de trafic entrant et sortant précises à l’intérieur et à l’extérieur du cluster AKS.
 
@@ -198,7 +183,7 @@ az network firewall create -g $RG -n $FWNAME -l $LOC
 
 L’adresse IP créée précédemment peut maintenant être affectée au front-end du pare-feu.
 > [!NOTE]
-> La configuration de l’adresse IP publique sur le pare-feu Azure peut prendre quelques minutes.
+> La configuration de l’adresse IP publique sur le Pare-feu Azure peut prendre quelques minutes.
 > 
 > Si des erreurs sont reçues à plusieurs reprises sur la commande ci-dessous, supprimez le pare-feu et l’adresse IP publique existants, et provisionnez en même temps l’adresse IP publique et le pare-feu Azure via le portail.
 
@@ -217,7 +202,13 @@ FWPUBLIC_IP=$(az network public-ip show -g $RG -n $FWPUBLICIP_NAME --query "ipAd
 FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurations[0].privateIpAddress" -o tsv)
 ```
 
+> [!Note]
+> Si vous utilisez un accès sécurisé au serveur d’API AKS avec des [plages d’adresses IP autorisées](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), vous devez ajouter l’adresse IP publique du pare-feu dans la plage d’adresses IP autorisées.
+
 ### <a name="create-a-udr-with-a-hop-to-azure-firewall"></a>Créer une route définie par l’utilisateur avec un tronçon vers le pare-feu Azure
+
+> [!IMPORTANT]
+> Le type sortant d’UDR requiert une route pour 0.0.0.0/0 et la destination de tronçon suivant de l’appliance virtuelle réseau (NVA) dans la table de routage.
 
 Azure achemine automatiquement le trafic entre les sous-réseaux, les réseaux virtuels et les réseaux locaux Azure. Si vous souhaitez modifier un routage par défaut d’Azure, vous pouvez le faire en créant une table de routage.
 
@@ -284,7 +275,7 @@ az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NA
 
 ## <a name="deploy-aks-with-outbound-type-of-udr-to-the-existing-network"></a>Déployer AKS avec le type de sortie UDR sur le réseau existant
 
-Un cluster AKS peut maintenant être déployé dans la configuration du réseau virtuel existant. Pour pouvoir définir un type de sortie de cluster sur un routage défini par l’utilisateur, un sous-réseau existant doit être fourni à AKS.
+Un cluster AKS peut maintenant être déployé dans le réseau virtuel existant. Pour pouvoir définir un type de sortie de cluster sur un routage défini par l’utilisateur, un sous-réseau existant doit être fourni à AKS.
 
 ![aks-deploy](media/egress-outboundtype/outboundtype-udr.png)
 
@@ -321,7 +312,7 @@ Enfin, le cluster AKS peut être déployé dans le sous-réseau existant que nou
 SUBNETID="/subscriptions/$SUBID/resourceGroups/$RG/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$AKSSUBNET_NAME"
 ```
 
-Nous allons définir le type de sortie de façon à ce qu’il suive la route définie par l’utilisateur qui existe sur le sous-réseau, ce qui permet à AKS d’ignorer l’installation et le provisionnement d’une adresse IP pour l’équilibreur de charge, qui peut désormais être strictement interne.
+Définissez le type de sortie de façon à ce qu’il suive la route définie par l’utilisateur qui existe sur le sous-réseau, ce qui permet à AKS d’ignorer l’installation et le provisionnement d’une adresse IP pour l’équilibreur de charge, qui peut désormais être strictement interne.
 
 La fonctionnalité AKS pour les [plages d’adresses IP autorisées du serveur d’API](api-server-authorized-ip-ranges.md) peut être ajoutée pour limiter l’accès du serveur d’API au point de terminaison public du pare-feu. La fonctionnalité des plages d’adresses IP autorisées est indiquée dans le diagramme comme étant le groupe de sécurité réseau qui doit être passé pour accéder au plan de contrôle. Quand vous activez la fonctionnalité de plage d’adresses IP autorisées pour limiter l’accès au serveur d’API, vos outils de développement doivent utiliser une jumpbox à partir du réseau virtuel du pare-feu, ou vous devez ajouter tous les points de terminaison de développeur à la plage d’adresses IP autorisées.
 
@@ -345,7 +336,7 @@ az aks create -g $RG -n $AKS_NAME -l $LOC \
 
 ### <a name="enable-developer-access-to-the-api-server"></a>Activer l’accès des développeurs au serveur d’API
 
-En raison de la configuration des plages d’adresses IP autorisées pour le cluster, vous devez ajouter les adresses IP des outils de vos développeurs à la liste de clusters AKS des plages d’adresses IP approuvées pour accéder au serveur d’API. Une autre option est de configurer une jumpbox avec les outils nécessaires à l’intérieur d’un sous-réseau distinct dans le réseau virtuel du pare-feu.
+En raison des plages d’adresses IP autorisées pour le cluster, vous devez ajouter les adresses IP des outils de vos développeurs à la liste de clusters AKS des plages d’adresses IP approuvées pour accéder au serveur d’API. Une autre option est de configurer une jumpbox avec les outils nécessaires à l’intérieur d’un sous-réseau distinct dans le réseau virtuel du pare-feu.
 
 Ajoutez une autre adresse IP aux plages approuvées avec la commande suivante
 
@@ -364,7 +355,7 @@ az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/
  az aks get-credentials -g $RG -n $AKS_NAME
  ```
 
-### <a name="setup-the-internal-load-balancer"></a>Configurer l’équilibreur de charge interne
+### <a name="set-up-the-internal-load-balancer"></a>Configurer l’équilibreur de charge interne
 
 AKS a déployé un équilibreur de charge avec le cluster qui peut être configuré comme [équilibreur de charge interne](internal-lb.md).
 
@@ -542,3 +533,4 @@ Consultez [Guide pratique pour créer, modifier ou supprimer une table de routag
 
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[byo-route-table]: configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet

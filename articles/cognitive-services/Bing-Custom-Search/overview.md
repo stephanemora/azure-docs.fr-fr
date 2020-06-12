@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 12c255f0e4ed11ce8acbd762530604218f8bc12b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 010f2960693a06a50cd15ac3bac2fe35b6c0985f
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448736"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434576"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>Qu’est-ce que l’API Recherche personnalisée Bing ?
 
@@ -29,7 +29,7 @@ L’API Recherche personnalisée Bing vous permet de créer des expériences de 
 |[Expériences personnalisées de recherche d’image](get-images-from-instance.md)     | Autoriser les utilisateurs à rechercher des images dans les domaines et sites web spécifiés dans votre instance de recherche personnalisée.        |        
 |[Expériences personnalisées de recherche de vidéo](get-videos-from-instance.md)     | Autoriser les utilisateurs à rechercher des vidéos dans les domaines et sites web spécifiés dans votre instance de recherche personnalisée.        |    
 |[Partager votre instance de recherche personnalisée](share-your-custom-search.md)     | Modifier et tester en collaboration votre instance de recherche en la partageant avec des membres de votre équipe.        | 
-|[Configurer une interface utilisateur pour vos applications et sites web](hosted-ui.md)     | Modifier et tester en collaboration votre instance de recherche en la partageant avec des membres de votre équipe.        | 
+|[Configurer une interface utilisateur pour vos applications et sites web](hosted-ui.md)     | Fournit une interface utilisateur hébergée que vous pouvez facilement intégrer à vos applications et pages web en tant qu’extrait de code JavaScript.        | 
 ## <a name="workflow"></a>Workflow
 
 Vous pouvez créer une instance de recherche personnalisée par l’intermédiaire du [portail Recherche personnalisée Bing](https://customsearch.ai). Ce portail vous permet de créer une instance de recherche personnalisée qui spécifie les domaines, sites web et pages web que Bing doit utiliser pour ses recherches, et ceux qu’il ne doit pas utiliser. Vous pouvez également utiliser le portail pour afficher un aperçu de l’expérience de recherche, ajuster les classements de recherche que fournit l’API et, au besoin, configurer une interface utilisateur de recherche affichable dans vos applications et vos sites web.

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 0cc7c3b7d8b364e0bcca671efaff2cf324695428
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cdb913434d7aab3ceadbbf19d7a95000abf6776c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79236413"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022008"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Environnements de calcul pris en charge par Azure Data Factory
 > [!NOTE]
@@ -30,7 +30,7 @@ Le tableau suivant fournit une liste d’environnements de calcul qui sont pris 
 | ---------------------------------------- | ---------------------------------------- |
 | [Cluster Azure HDInsight à la demande](#azure-hdinsight-on-demand-linked-service) ou [votre propre cluster HDInsight](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Activités Machine Learning : exécution de lot et mise à jour de ressource](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Activités Machine Learning : exécution par lot et ressource de mise à jour](data-factory-azure-ml-batch-execution-activity.md) |
 | [Service Analytique Azure Data Lake](#azure-data-lake-analytics-linked-service) | [Langage U-SQL du service Analytique Data Lake](data-factory-usql-activity.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Activité de procédure stockée](data-factory-stored-proc-activity.md) |
 
@@ -49,7 +49,7 @@ Microsoft met à jour la liste des versions de HDInsight prises en charge avec l
 Après le 15 décembre 2017 :
 
 - Vous ne pouvez plus créer de clusters HDInsight version 3.3 basé sur Linux (ni des versions antérieures) à l’aide d’un service lié HDInsight à la demande dans Data Factory version 1. 
-- Si les propriétés [**osType** et **Version**](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) ne sont pas spécifiées explicitement dans la définition JSON d’un service lié HDInsight  à la demande Data Factory version 1, la valeur par défaut **Version=3.1, osType=Windows** est remplacée par **Version=\<dernière version HDI par défaut\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning), osType=Linux**.
+- Si les propriétés [**osType** et **Version**](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) ne sont pas spécifiées explicitement dans la définition JSON d’un service lié HDInsight à la demande Data Factory version 1, la valeur par défaut **Version=3.1, osType=Windows** est remplacée par **Version=\<latest HDI default version\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning), osType=Linux**.
 
 Après le 31 juillet 2018 :
 
@@ -130,7 +130,7 @@ Le JSON suivant définit un service lié HDInsight à la demande sous Linux. Dat
 | osType                       | Le type de système d’exploitation. Valeurs autorisées : **Linux** et **Windows**. Si cette valeur n’est pas spécifiée, **Linux** est utilisé.  <br /><br />Nous vous recommandons vivement d’utiliser des clusters HDInsight basés sur Linux. La date de mise hors service de HDInsight sur Windows est le 31 juillet 2018. | Non       |
 | hcatalogLinkedServiceName    | Le nom du service lié SQL Azure pointant vers la base de données HCatalog. Le cluster HDInsight à la demande est créé en utilisant la base de données SQL en tant que metastore. | Non       |
 
-#### <a name="example-linkedservicenames-json"></a>Exemple : JSON LinkedServiceNames
+#### <a name="example-linkedservicenames-json"></a>Exemple : JSON LinkedServiceNames
 
 ```json
 "additionalLinkedServiceNames": [
@@ -153,7 +153,7 @@ Pour la configuration granulaire du cluster HDInsight à la demande, vous pouvez
 | stormConfiguration     | Spécifie les paramètres de configuration Storm (storm-site.xml) pour le cluster HDInsight. | Non       |
 | yarnConfiguration      | Spécifie les paramètres de configuration YARN (yarn-site.xml) pour le cluster HDInsight. | Non       |
 
-#### <a name="example-on-demand-hdinsight-cluster-configuration-with-advanced-properties"></a>Exemple : configuration de cluster HDInsight à la demande avec les propriétés avancées
+#### <a name="example-on-demand-hdinsight-cluster-configuration-with-advanced-properties"></a>Exemple : Configuration de cluster HDInsight à la demande avec les propriétés avancées
 
 ```json
 {
@@ -213,7 +213,7 @@ Si vous voulez créer des nœuds principaux et des nœuds worker de taille D4, s
 
 Si vous définissez une valeur incorrecte pour ces propriétés, le message suivant peut s’afficher :
 
-  Failed to create cluster. (Impossible de créer le cluster.) Exception: Unable to complete the cluster create operation. Operation failed with code ’400’. (L’opération a échoué avec le code « 400 ».) Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. 
+  Failed to create cluster. (Impossible de créer le cluster.) Exception : Impossible de terminer l’opération de création du cluster. Operation failed with code ’400’. Cluster left behind state (État du cluster abandonné) : 'Error' (« Error »). Message : 'PreClusterCreationValidationFailure'. 
   
 Si vous voyez ce message, vérifiez que vous utilisez l’applet de commande et les noms d’API du tableau dans [Tailles des machines virtuelles](../../virtual-machines/linux/sizes.md).  
 
@@ -260,7 +260,7 @@ Vous pouvez créer un service lié HDInsight pour inscrire votre propre cluster 
 | type              | Définissez la propriété de type sur **HDInsight**. | Oui      |
 | clusterUri        | L'URI du cluster HDInsight.        | Oui      |
 | username          | Le nom du compte d’utilisateur à utiliser pour se connecter à un cluster HDInsight existant. | Oui      |
-| password          | Mot de passe du compte d’utilisateur.   | Oui      |
+| mot de passe          | Mot de passe du compte d’utilisateur.   | Oui      |
 | linkedServiceName | Le nom du service lié de stockage faisant référence au stockage blob utilisé par le cluster HDInsight. <p>Actuellement, vous ne pouvez pas spécifier un service lié Data Lake Store pour cette propriété. Si le cluster HDInsight a accès à Data Lake Store, vous pouvez accéder aux données de Data Lake Store à partir de scripts Hive ou Pig. </p> | Oui      |
 
 ## <a name="azure-batch-linked-service"></a>Service lié Azure Batch
@@ -268,7 +268,7 @@ Vous pouvez créer un service lié Batch pour inscrire un pool de machines virtu
 
 Si vous ne savez pas utiliser le service Batch :
 
-* En savoir plus sur les [concepts de base d’Azure Batch](../../batch/batch-technical-overview.md).
+* En savoir plus sur les [concepts de base d’Azure Batch](../../azure-sql/database/sql-database-paas-overview.md).
 * En savoir plus sur l’applet de commande [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx). Utilisez cette applet de commande pour créer un compte Batch. Vous pouvez également créer un compte Batch à l’aide du [portail Azure](../../batch/batch-account-create-portal.md). Pour obtenir des instructions détaillées sur l’utilisation de l’applet de commande, consultez [Utilisation de PowerShell pour gérer un compte Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
 * En savoir plus sur l’applet de commande [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx). Utilisez cette applet de commande pour créer un pool Batch.
 
@@ -289,7 +289,7 @@ Si vous ne savez pas utiliser le service Batch :
 }
 ```
 
-Pour la propriété **accountName**, ajoutez **.\<nom région\>** au nom de votre compte Batch. Par exemple :
+Pour la propriété **accountName**, ajoutez **.\<region name\>** au nom de votre compte Batch. Par exemple :
 
 ```json
 "accountName": "mybatchaccount.eastus"
@@ -366,7 +366,7 @@ Utilisez l’authentification par principal de service en spécifiant les propri
 | servicePrincipalKey | La clé de l’application.           | Oui      |
 | tenant              | Les informations sur le locataire (nom de domaine ou ID de locataire) dans lesquels votre application se trouve. Pour obtenir ces informations, passez la souris sur le coin supérieur droit du portail Azure. | Oui      |
 
-**Exemple : authentification du principal de service**
+**Exemple : Authentification d’un principal de service**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -393,7 +393,7 @@ Pour l’authentification par informations d’identification utilisateur pour D
 | autorisation | Dans l’éditeur Data Factory, sélectionnez le bouton **Autoriser**. Entrez les informations d’identification qui associent l’URL d’autorisation générée automatiquement à cette propriété. | Oui      |
 | sessionID     | L’ID de session OAuth issu de la session d’autorisation OAuth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Ce paramètre est généré automatiquement lorsque vous utilisez Data Factory Editor. | Oui      |
 
-**Exemple : authentification des informations d’identification utilisateur**
+**Exemple : Authentification des informations d’identification utilisateur**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -416,7 +416,7 @@ Le code d’autorisation que vous avez généré en sélectionnant le bouton **A
 
 Vous pouvez rencontrer le message d’erreur suivant lorsque le jeton d’authentification expire : 
 
-  Credential operation error: invalid_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z ».
+  Erreur de l’opération des informations d’identification : invalid_grant - AADSTS70002 : Erreur de validation des informations d’identification. AADSTS70008 : L’autorisation d’accès fournie a expiré ou est révoquée. ID de trace : d18629e8-af88-43c5-88e3-d8419eb1fca1 ID de corrélation : fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Horodatage : 2015-12-15 21:09:31Z
 
 Le tableau suivant présente les délais d’expiration par type de compte d’utilisateur : 
 

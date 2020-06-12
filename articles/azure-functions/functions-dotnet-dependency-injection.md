@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 97e8a34f3b8639990f8de736a8f1f7429ebfd448
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 26816a545cb83e0a3d996a8056b96154830e58b6
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739139"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195509"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utiliser l’injection de dépendances dans .NET Azure Functions
 
@@ -251,7 +251,7 @@ public class HttpTrigger
 Pour plus d’informations sur l’utilisation des options, voir [Modèle Options dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options).
 
 > [!WARNING]
-> Évitez d’essayer de lire les valeurs dans les fichiers comme *local.settings.json* ou *appsettings.{environnement}.json* dans le plan Consommation. Les valeurs lues à partir de ces fichiers associés à des connexions de déclencheurs ne sont pas disponibles à mesure que l’application est mise à l’échelle parce que l’infrastructure d’hébergement n’a pas accès aux informations de configuration.
+> Évitez d’essayer de lire les valeurs dans les fichiers comme *local.settings.json* ou *appsettings.{environnement}.json* dans le plan Consommation. Les valeurs lues à partir de ces fichiers associés à des connexions de déclencheurs ne sont pas disponibles à mesure que l’application est mise à l’échelle parce que l’infrastructure d’hébergement n’a pas accès aux informations de configuration, car le contrôleur de mise à l’échelle crée de nouvelles instances de l’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

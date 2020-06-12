@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.author: cshoe
 ms.date: 3/18/2020
 ms.topic: article
-ms.openlocfilehash: 5abc216e182d7becd9d6f42e0f566ee96d09c2a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f0b738f394c4a544ddb31e25b4570890ccfa9235
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475135"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995868"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>Gestionnaires personnalisés Azure Functions (préversion)
 
@@ -20,9 +20,9 @@ Les gestionnaires personnalisés sont des serveurs web légers qui reçoivent de
 
 Les gestionnaires personnalisés sont particulièrement adaptés dans les cas où vous voulez :
 
-- Implémenter une application Functions dans un autre langage que ceux officiellement pris en charge
-- Implémenter une application Functions dans une version de langage ou un runtime non pris en charge par défaut
-- Bénéficier d’un contrôle précis sur l’environnement d’exécution d’application
+- Implémentez une application de fonction dans un langage qui n’est pas officiellement pris en charge.
+- Implémentez une application de fonction dans une version de langage ou un runtime non pris en charge par défaut.
+- Fournissez un contrôle plus granulaire sur l’environnement d’exécution de l’application de fonction.
 
 Avec les gestionnaires personnalisés, tous les [déclencheurs et liaisons d’entrée et de sortie](./functions-triggers-bindings.md) sont pris en charge via des [bundles d’extension](./functions-bindings-register.md).
 
@@ -443,7 +443,7 @@ Sachant que cet exemple repose sur Node.js, vous devrez peut-être le modifier p
 }
 ```
 
-## <a name="deploying"></a>Déploiement
+## <a name="deploying"></a>Déploiement en cours
 
 Il est possible de déployer un gestionnaire personnalisé pour pratiquement chaque option d’hébergement Azure Functions (voir les [restrictions](#restrictions)). Si votre gestionnaire nécessite des dépendances personnalisées (comme le runtime d’un langage), vous devrez peut-être utiliser un [conteneur personnalisé](./functions-create-function-linux-custom-image.md).
 

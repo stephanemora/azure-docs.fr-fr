@@ -4,16 +4,38 @@ description: Découvrez les nouveautés et les mises à jour récentes du servic
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: ba85b0a4ed30320099388ccb48dd91ad6445efd5
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: db52c8ce5e1b7e25d4af0c570189597e05b86588
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81677242"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331863"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Nouveautés d’Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) vous aide à découvrir, à évaluer et à migrer localement des serveurs, applications et données vers le cloud Microsoft Azure. Cet article synthétise les nouvelles versions et fonctionnalités d’Azure Migrate.
+
+## <a name="update-june-2020"></a>Mise à jour (juin 2020)
+
+Nouvelles versions de l’appliance Azure Migrate.
+
+### <a name="azure-public-cloud"></a>Cloud public Azure
+
+**Scénario*** | **Télécharger** | **SHA256**
+--- | --- | ---
+Hyper-V (8,93 Mo) | [Version la plus récente](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
+VMware (10,9 Go) | [Version la plus récente](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
+Physique (63,1 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
+
+
+### <a name="azure-government"></a>Azure Government
+
+**Scénario*** | **Télécharger** | **SHA256**
+--- | --- | ---
+Hyper-V (63,1 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+VMware (63,1 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
+Physique (63,1 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
+
 
 
 ## <a name="update-april-2020"></a>Mise à jour (avril 2020)
@@ -26,6 +48,7 @@ Azure Migrate prend en charge les déploiements dans Azure Government.
 - [Passez en revue](migrate-support-matrix.md#supported-geographies-azure-government) les zones géographiques et régions prises en charge pour Azure Government.
 - L’[analyse des dépendances basée sur les agents](concepts-dependency-visualization.md#agent-based-analysis) n’est pas prise en charge dans Azure Government.
 - Les fonctionnalités d’évaluation sont prises en charge dans Azure Government, plus spécifiquement l’[analyse des dépendances sans agent](concepts-dependency-visualization.md#agentless-analysis) et la [découverte d’application](how-to-discover-applications.md).
+
 
 ## <a name="update-march-2020"></a>Mise à jour (mars 2020)
 

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/21/2020
+ms.date: 05/25/2020
 ms.author: chmutali
 ms.reviewer: celested
-ms.openlocfilehash: 1ac45d88c0af33114106f36798fd56473d18ea28
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: d1e432ef99a3c83fe06c00b15acbb00c630e1be1
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798038"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014390"
 ---
 # <a name="workday-attribute-reference"></a>Informations de référence sur l’attribut Workday
 
@@ -30,7 +30,7 @@ Le tableau ci-dessous capture la liste des attributs Workday et les expressions 
 :::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-no-version-info.png" alt-text="Aucune information sur la version de Workday":::
 
 
-| \# | Nom                                  | Expression de l’API Workday                                                                                                                                                                                                                                                                                                                                                                                       |
+| \# | Nom de l’attribut Workday                                  | Expression d’API XPATH Workday                                                                                                                                                                                                                                                                                                                                                                                       |
 |----|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1  | Actif                                | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Status\_Data/wd:Active/text\(\)                                                                                                                                                                                                                                                                                                                     |
 | 2  | AddressLine2Data                      | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Position\_Data/wd:Business\_Site\_Summary\_Data/wd:Address\_Data/wd:Address\_Line\_Data\[@wd:Type='ADDRESS\_LINE\_2'\]/text\(\)                                                                                                                                                                                                                             |
@@ -125,7 +125,7 @@ Avant d’activer le travail d’approvisionnement, mettez à jour les **express
 Pour configurer des XPATH supplémentaires, reportez-vous à la section [Didacticiel : Gestion de votre configuration](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration). 
 
 
-| \# | Nom                                  | Expression d’API XPATH Workday                                                                                                                                                                                                                                                                                                                                                |
+| \# | Nom de l’attribut Workday                                  | Expression d’API XPATH Workday                                                                                                                                                                                                                                                                                                                                                |
 |----|---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1  | Actif                                | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Status\_Data/wd:Active/text\(\)                                                                                                                                                                                                                                                                                               |
 | 2  | AddressLine2Data                      | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Business\_Site\_Summary\_Data/wd:Address\_Data/wd:Address\_Line\_Data\[@wd:Type='ADDRESS\_LINE\_2'\]/text\(\)                                                                                                                                                            |
@@ -208,4 +208,44 @@ Pour configurer des XPATH supplémentaires, reportez-vous à la section [Didacti
 | 79 | WorkerType                            | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Worker\_Type\_Reference/wd:ID\[@wd:type="Employee\_Type\_ID"\]/text\(\)                                                                                                                                                                                                 |
 | 80 | WorkSpaceReference                    | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Work\_Space\_\_Reference/@wd:Descriptor                                                                                                                                                                                                                                  |
 
+## <a name="custom-xpath-values"></a>Valeurs XPATH personnalisées
+La table ci-dessous fournit une liste d’autres expressions d’API XPATH personnalisées fréquemment utilisées lors de l’approvisionnement des employés de Workday vers Active Directory ou Azure AD. Testez les expressions de l’API XPATH fournies ici avec votre version de Workday, en vous référant aux instructions capturées dans la section [Tutoriel : Gestion de votre configuration](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration).
+
+Pour ajouter d’autres attributs à la table XPATH à l’avantage des clients qui implémentent cette intégration, laissez un commentaire ci-dessous ou [contribuez](https://docs.microsoft.com/contribute) directement à l’article. 
+
+> [!div class="mx-tdBreakAll"]
+> | \# | Nom de l’attribut Workday  | Version de l’API Workday | Expression d’API XPATH Workday   |
+> |----|-------------------------|---------------------|--------------------------------|
+> | 1  | ID universel  | v30.0+   | wd:Worker/wd:Worker_Data/wd:Universal_ID/text()      |
+> | 2  | User Name     | v30.0+   | wd:Worker/wd:Worker_Data/wd:User_Account_Data/wd:User_Name/text() |
+> | 3  | ID du niveau de gestion  | v30.0+  | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Worker_Job_Data[@wd:Primary_Job=1]/wd:Position_Data/wd:Job_Profile_Summary_Data/wd:Management_Level_Reference/wd:ID[@wd:type="Management_Level_ID"]/text()  |
+> | 4 | Embauche annulée | v30.0+ | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Worker_Status_Data/wd:Hire_Rescinded/text() |
+> | 5 | Groupe d’approvisionnement affecté | v21.1+ | wd:Worker/wd:Worker_Data/wd:Account_Provisioning_Data/wd:Provisioning_Group_Assignment_Data[wd:Status='Assigned']/wd:Provisioning_Group/text() | 
+
+
+## <a name="supported-xpath-functions"></a>Fonctions XPATH prises en charge
+Vous trouverez ci-dessous la liste des fonctions XPATH prises en charge par la [bibliothèque XPATH Microsoft .NET](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256138(v=vs.100)) que vous pouvez utiliser lors de la création de votre expression d’API XPATH. 
+
+* name
+* last
+* position
+* string
+* substring
+* concat
+* substring-after
+* starts-with
+* string-length
+* contains
+* translate
+* normalize-space
+* substring-before
+* boolean
+* true
+* not
+* false
+* nombre
+* ceiling
+* Sum
+* round
+* floor
 

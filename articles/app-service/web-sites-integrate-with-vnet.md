@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 78b49b8b7e17f12d49825390a302e28a61e10d16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b7df06ea7ff07907a292bdcc32e66aafa44ae68
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770838"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170781"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Intégrer votre application à un réseau virtuel Azure
 
@@ -127,7 +127,7 @@ La seule opération que vous pouvez effectuer dans la vue d’application de vot
 
 L’interface utilisateur de l’intégration du réseau virtuel du plan App Service vous montre toutes les intégrations de réseau virtuel utilisées par les applications de votre plan App Service. Pour voir des détails supplémentaires sur chaque réseau virtuel, sélectionnez le réseau virtuel qui vous intéresse. Vous pouvez effectuer deux actions ici pour l’intégration au réseau virtuel avec passerelle obligatoire :
 
-* **Synchroniser le réseau** : L’opération de synchronisation du réseau s’adresse uniquement à la fonctionnalité d’intégration au réseau virtuel dépendante de la passerelle. L’exécution d’une opération de synchronisation du réseau est l’assurance que vos certificats et informations réseau sont synchronisés. Si vous ajoutez ou changez le DNS de votre réseau virtuel, effectuez une opération de synchronisation du réseau. Cette opération redémarre toutes les applications qui utilisent ce réseau virtuel.
+* **Synchroniser le réseau** : L’opération de synchronisation du réseau s’adresse uniquement à la fonctionnalité d’intégration au réseau virtuel dépendante de la passerelle. L’exécution d’une opération de synchronisation du réseau est l’assurance que vos certificats et informations réseau sont synchronisés. Si vous ajoutez ou changez le DNS de votre réseau virtuel, effectuez une opération de synchronisation du réseau. Cette opération redémarre toutes les applications qui utilisent ce réseau virtuel. Cette opération ne fonctionnera pas si l’application et le réseau virtuel utilisés appartiennent à différents abonnements.
 * **Ajouter des routes** : L’ajout de routes achemine le trafic sortant vers votre réseau virtuel.
 
 ### <a name="gateway-required-vnet-integration-routing"></a>Routage dans une intégration au réseau virtuel avec passerelle obligatoire

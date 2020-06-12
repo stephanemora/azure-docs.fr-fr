@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ea44355795f0685f42de1306e979707f34d8f142
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 8f8f5a2f605f8e8b7109267e5223593eb1e2cfb9
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742765"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84264364"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Meilleures pratiques d’utilisation du service Recherche Azure Maps
 
-Le [service Recherche](https://docs.microsoft.com/rest/api/maps/search) Azure Maps comprend des API offrant diverses fonctionnalités. Par exemple, l’API de recherche d’adresse peut rechercher des points d’intérêt (POI) ou des données relatives à un emplacement spécifique. 
+Le [service Search](https://docs.microsoft.com/rest/api/maps/search) d’Azure Maps inclut des API offrant plusieurs fonctionnalités destinées aux développeurs souhaitant rechercher des adresses, des lieux, des listes d’entreprises par nom ou catégorie et d’autres informations d’ordre géographique. Par exemple, [l’API Fuzzy Search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) permet aux utilisateurs de rechercher une adresse ou un point d’intérêt (POI).
 
 Cet article explique comment appliquer des pratiques saines lorsque vous appelez des données à partir du service Recherche Azure Maps. Vous découvrirez comment effectuer les actions suivantes :
 
-* générer des requêtes pour retourner des correspondances pertinentes ;
-* limiter les résultats de recherche ;
-* découvrir les différences entre les types de résultats ;
-* lire la structure de réponse des recherches d’adresse.
+* Générer des requêtes destinées à renvoyer les correspondances pertinentes
+* Limiter les résultats de la recherche
+* Découvrir les différences entre les types de résultats
+* Lire la structure recherche-réponse de l’adresse
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -33,7 +33,7 @@ Pour appeler les API du service Azure Maps, vous avez besoin d’un compte et d�
 Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](./how-to-manage-authentication.md).
 
 > [!TIP]
-> Pour interroger le service Recherche, vous pouvez utiliser l’[ application Postman](https://www.getpostman.com/apps) pour générer des appels REST. Vous pouvez également utiliser l’environnement de développement d’API de votre choix.
+> Pour interroger le service Recherche, vous pouvez utiliser [l’application Postman](https://www.getpostman.com/apps) pour générer des appels d’API REST. Vous pouvez également utiliser l’environnement de développement d’API de votre choix.
 
 ## <a name="best-practices-to-geocode-addresses"></a>Meilleures pratiques pour les adresses géocode
 
@@ -61,7 +61,7 @@ Pour adapter des résultats en fonction de la zone pertinente pour votre utilisa
 
 #### <a name="fuzzy-search-parameters"></a>Paramètres de recherche approximative
 
-Nous vous suggérons d’utiliser l’[API de recherche approximative](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) Azure Maps lorsque vous ne connaissez pas vos entrées utilisateur pour une requête de recherche. L’API combine la recherche de points d’intérêt et le géocodage dans une *recherche de ligne unique* canonique : 
+Nous vous suggérons d’utiliser l’[API de recherche approximative](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) Azure Maps lorsque vous ne connaissez pas vos entrées utilisateur pour une requête de recherche. Par exemple, l’entrée de l’utilisateur peut être une adresse ou le type de point d’intérêt (POI), par exemple *centre commercial*. L’API combine la recherche de points d’intérêt et le géocodage dans une *recherche de ligne unique* canonique : 
 
 * Les paramètres `minFuzzyLevel` et `maxFuzzyLevel` permettent de renvoyer des correspondances pertinentes même lorsque les paramètres de requête ne correspondent pas exactement aux informations que l’utilisateur souhaite. Pour optimiser les performances et réduire les résultats inhabituels, définissez les requêtes de recherche sur les valeurs par défaut `minFuzzyLevel=1` et `maxFuzzyLevel=2`. 
 
@@ -85,7 +85,7 @@ Nous vous suggérons d’utiliser l’[API de recherche approximative](https://d
 
 ### <a name="reverse-geocode-and-filter-for-a-geography-entity-type"></a>Géocode inversé et filtre pour un type d’entité géographique
 
-Lorsque vous effectuez une recherche de géocode inversé dans l’[API de recherche d’adresse inverse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), le service peut retourner des polygones pour des zones administratives. Pour limiter la recherche à des types d’entités géographiques spécifiques, incluez le paramètre `entityType` dans vos demandes. 
+Lorsque vous effectuez une recherche de géocode inversé dans l’[API de recherche d’adresse inverse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), le service peut retourner des polygones pour des zones administratives. Par exemple, vous souhaitez peut-être extraire le polygone de zone pour une ville. Pour limiter la recherche à des types d’entités géographiques spécifiques, incluez le paramètre `entityType` dans vos demandes. 
 
 La réponse obtenue contient l’ID de zone géographique et le type d’entité mis en correspondance. Si vous fournissez plusieurs entités, le point de terminaison renvoie la *plus petite entité disponible*. Vous pouvez utiliser l’ID de géométrie renvoyé pour récupérer la géométrie de la zone géographique par le biais du [service de recherche de polygone](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 
@@ -769,7 +769,7 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 
 * **Plage d’adresses** : Plage de points d’adresse interpolés à partir du début et de la fin de la rue.  
 
-* **Zone géographique** : zones sur une carte représentant des divisions administratives d’un territoire, telles qu’un pays/une région, un État ou une ville. 
+* **Geography** : zones sur une carte représentant des divisions administratives d’un territoire, telles qu’un pays/une région, un État ou une ville. 
 
 * **POI** : points sur une carte qui méritent une attention particulière et pourraient être intéressants.
 

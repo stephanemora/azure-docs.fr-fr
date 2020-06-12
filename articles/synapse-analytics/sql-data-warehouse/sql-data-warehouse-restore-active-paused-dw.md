@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6fa8bd42eb067124ab6ea1db77e2f3d6fba79638
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1d092baacd202bdb4d0bbe98f4119621c9d916b4
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80745217"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020249"
 ---
 # <a name="restore-an-existing-sql-pool"></a>Restaurer un pool SQL existant
 
@@ -24,7 +24,7 @@ Dans cet article, vous allez apprendre à restaurer un pool SQL existant dans Az
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Vérifiez votre capacité de DTU.** Chaque pool est hébergé par un serveur SQL (par exemple, myserver.database.windows.net) qui dispose d’un quota DTU par défaut. Vérifiez que le quota DTU restant sur le serveur SQL est suffisant pour la base de données en cours de restauration. Pour savoir comment calculer la capacité DTU nécessaire ou pour demander davantage de capacité DTU, consultez [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md)(Demander une modification du quota DTU).
+**Vérifiez votre capacité de DTU.** Chaque pool est hébergé par un [serveur SQL logique](../../azure-sql/database/logical-servers.md) (par exemple, myserver.database.windows.net) qui dispose d'un quota de DTU par défaut. Vérifiez que le quota DTU restant sur le serveur est suffisant pour la base de données en cours de restauration. Pour savoir comment calculer la capacité DTU nécessaire ou pour demander davantage de capacité DTU, consultez [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md)(Demander une modification du quota DTU).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -46,19 +46,20 @@ Pour restaurer un pool SQL existant à partir d’un point de restauration, util
 5. Sélectionnez le point de restauration souhaité à l’aide de l’élément RestorePointCreationDate.
 
 6. Restaurez le pool SQL sur le point de restauration souhaité à l’aide de la cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) de PowerShell.
-        1. Pour restaurer le pool SQL sur un autre serveur logique, veillez à spécifier le nom du serveur logique.  Ce serveur logique peut également se trouver dans un groupe de ressources et une région différents.
-        2. Pour effectuer une restauration vers un autre abonnement, utilisez le bouton « Déplacer » pour déplacer le serveur logique vers un autre abonnement.
+
+    1. Pour restaurer le pool SQL sur un autre serveur, veillez à spécifier le nom de l’autre serveur.  Ce serveur peut également se trouver dans un groupe de ressources et une région différents.
+    2. Pour effectuer une restauration sur un autre abonnement, utilisez le bouton « Déplacer » afin de déplacer le serveur vers un autre abonnement.
 
 7. Vérifiez que le pool SQL restauré est en ligne.
 
-8. Une fois la restauration terminée, vous pouvez configurer votre pool SQL restauré en suivant les instructions de la section [Configurer votre base de données après récupération](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
+8. Une fois la restauration terminée, vous pouvez configurer votre pool SQL restauré en suivant les instructions de la section [Configurer votre base de données après récupération](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
 $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
-#$TargetResourceGroupName="<YourTargetResourceGroupName>" # uncomment to restore to a different logical server.
+#$TargetResourceGroupName="<YourTargetResourceGroupName>" # uncomment to restore to a different server.
 #$TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>"  
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
@@ -79,7 +80,7 @@ $PointInTime="<RestorePointCreationDate>"
 # Restore database from a restore point
 $RestoredDatabase = Restore-AzSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $Database.ResourceID
 
-# Use the following command to restore to a different logical server
+# Use the following command to restore to a different server
 #$RestoredDatabase = Restore-AzSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $Database.ResourceTargetGroupName -ServerName $TargetServerName -TargetDatabaseName $NewDatabaseName –ResourceId $Database.ResourceID
 
 # Verify the status of restored database
@@ -95,11 +96,11 @@ $RestoredDatabase.status
 
     ![ Présentation de la restauration](./media/sql-data-warehouse-restore-active-paused-dw/restoring-01.png)
 
-4. Sélectionnez **Points de restauration automatiques** ou **Points de restauration définis par l’utilisateur**. Si le pool SQL n’a pas de points de restauration automatique, patientez quelques heures ou créez un point de restauration défini par l’utilisateur avant la restauration. Pour les points de restauration définis par l’utilisateur, sélectionnez un point existant ou créez-en un nouveau. Pour le **serveur**, vous pouvez choisir un serveur logique dans un groupe de ressources et une région différents ou en créer un nouveau. Après avoir fourni tous les paramètres, cliquez sur**Vérifier + Restaurer**.
+4. Sélectionnez **Points de restauration automatiques** ou **Points de restauration définis par l’utilisateur**. Si le pool SQL n’a pas de points de restauration automatique, patientez quelques heures ou créez un point de restauration défini par l’utilisateur avant la restauration. Pour les points de restauration définis par l’utilisateur, sélectionnez un point existant ou créez-en un nouveau. Pour **Serveur**, vous pouvez choisir un serveur dans un groupe de ressources et une région différents ou en créer un nouveau. Après avoir fourni tous les paramètres, cliquez sur**Vérifier + Restaurer**.
 
     ![Points de restauration automatiques](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Restaurer un pool SQL supprimé](sql-data-warehouse-restore-deleted-dw.md)
-- [Restaurer à partir d’un pool SQL de géosauvegarde](sql-data-warehouse-restore-from-geo-backup.md)
+- [Effectuer une restauration à partir d’un pool SQL de géosauvegarde](sql-data-warehouse-restore-from-geo-backup.md)

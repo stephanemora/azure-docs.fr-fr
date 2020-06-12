@@ -5,16 +5,16 @@ services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 02/27/2020
+ms.date: 06/03/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: subject-armqs
-ms.openlocfilehash: 86dc7a4ed05ceae5c7a641ffef23bd75ec48ceea
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 0cf880411a5c2a8eefd592a01de40b5098f31cda
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605554"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424125"
 ---
 # <a name="route-blob-storage-events-to-web-endpoint-by-using-azure-resource-manager-template"></a>Router des événements de Stockage Blob vers un point de terminaison web en utilisant un modèle Azure Resource Manager
 
@@ -50,7 +50,8 @@ Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles d
 Deux ressources Azure sont définies dans le modèle :
 
 * [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts) : crée un compte Stockage Azure.
-* [ **"Microsoft. Storage/storageAccounts/Providers/eventSubscriptions**](/azure/templates/microsoft.eventgrid/eventsubscriptions) : crée un abonnement Azure Event Grid pour le compte de stockage.
+* [**Microsoft. EventGrid/systemTopics**](/azure/templates/microsoft.eventgrid/systemtopics) : créer une rubrique système avec le nom spécifié pour le compte de stockage. 
+* [**Microsoft. EventGrid/systemTopics/eventSubscriptions**](/azure/templates/microsoft.eventgrid/systemtopics/eventsubscriptions) : créer un abonnement Azure Event Grid pour la rubrique système.
 
 ### <a name="deploy-the-template"></a>Déployer le modèle
 

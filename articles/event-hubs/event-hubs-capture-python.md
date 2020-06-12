@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.custom: seodec18
+ms.custom: seodec18, tracking-python
 ms.date: 01/15/2020
 ms.author: shvija
-ms.openlocfilehash: 6c830cf871c2ae650bb61e8b3712a664e9e405d4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c726b0d11759d30730046e635c701cf23d130dfc
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77187289"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561565"
 ---
 # <a name="quickstart-event-hubs-capture-walkthrough-python-azure-eventhub-version-1"></a>Démarrage rapide : Procédure pas à pas d’Event Hubs Capture : Python (azure-eventhub version 1)
 
@@ -80,7 +80,7 @@ Ce script envoie 200 événements à votre concentrateur d’événements. Ces 
 
 1. Ouvrez votre éditeur Python favori, tel que [Visual Studio Code][Visual Studio Code].
 2. Créez un nouveau fichier appelé *sender.py*. 
-3. Collez le code suivant dans *sender.py*. Substituez vos propres valeurs Event Hubs pour \<namespace>, \<AccessKeyName>, \<primary key value> et \<eventhub>.
+3. Collez le code suivant dans *sender.py*. Indiquez vos propres valeurs pour les Event Hubs \<namespace>, \<AccessKeyName>, \<primary key value> et \<eventhub>.
    
    ```python
    import uuid
@@ -108,7 +108,7 @@ Ce script envoie 200 événements à votre concentrateur d’événements. Ces 
 Ce script lit les fichiers capturés et crée un fichier pour chaque appareil afin d’écrire les données uniquement pour cet appareil.
 
 1. Dans votre éditeur Python, créez un nouveau fichier appelé *capturereader.py*. 
-2. Collez le code suivant dans *capturereader.py*. Remplacez les valeurs enregistrées par vos valeurs de \<storageaccount>, \<storage account access key> et \<storagecontainer>.
+2. Collez le code suivant dans *capturereader.py*. Indiquez vos valeurs enregistrées pour \<storageaccount>, \<storage account access key> et \<storagecontainer>.
    
    ```python
    import os

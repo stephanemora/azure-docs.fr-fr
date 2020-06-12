@@ -3,26 +3,19 @@ title: Vue d’ensemble des versions du runtime Azure Functions
 description: Azure Functions prend en charge plusieurs versions du runtime. Découvrez les différences entre elles et comment choisir celle qui vous convient.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: e90752e89be7e381b06f8a87f76f123f0e4a8e3a
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 0989795d802b21e07ad9fea3bd417f0408df706c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422491"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996718"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Vue d’ensemble des versions du runtime Azure Functions
 
-Les versions principales du runtime Azure Functions sont liées à la version de .NET sur laquelle le runtime est basé. Le tableau suivant renseigne sur la version actuelle du runtime, le niveau de version et la version .NET associée. 
+Azure Functions prend actuellement en charge trois versions de l’hôte du runtime : 1.x, 2.x et 3.x. Les trois versions sont prises en charge pour les scénarios de production.  
 
-| Version du runtime | Niveau de version<sup>1</sup> | Version de .NET | 
-| --------------- | ------------- | ------------ |
-| 3.x | GA | .NET Core 3.1 | 
-| 2.x | GA | .NET Core 2.2 |
-| 1.x | Disponibilité générale<sup>2</sup> | .NET Framework 4.7.2<sup>3</sup> |
-
-<sup>1</sup> Les versions en disponibilité générale sont prises en charge pour les scénarios de production.   
-<sup>2</sup> La version 1.x est en mode de maintenance. Les améliorations sont fournies uniquement dans les versions ultérieures.   
-<sup>3</sup> Prend en charge le développement seulement dans le portail Azure ou localement sur des ordinateurs Windows.
+> [!IMPORTANT]
+> La version 1.x est en mode maintenance et ne prend en charge que le développement dans le Portail Azure ou localement sur des ordinateurs Windows. Les améliorations sont fournies uniquement dans les versions ultérieures. 
 
 Cet article explique en détail certaines différences existant entre les versions, comment vous pouvez créer chaque version et comment les modifier.
 
@@ -30,7 +23,7 @@ Cet article explique en détail certaines différences existant entre les versio
 
 À compter de la version 2.x, le runtime utilise un modèle d’extensibilité de langage, et toutes les fonctions d’une application de fonction doivent partager le même langage. Le langage des fonctions d’une application de fonction est choisi au moment de la création de l’application, et est conservé dans le paramètre [FUNCTIONS\_WORKER\_RUNTIME](functions-app-settings.md#functions_worker_runtime). 
 
-Les langages expérimentaux d’Azure Functions 1.x ne pouvant pas utiliser le nouveau modèle, ils ne sont pas pris en charge dans 2.x. Le tableau suivant montre les langages de programmation actuellement pris en charge dans chaque version du runtime.
+Le tableau suivant montre les langages de programmation actuellement pris en charge dans chaque version du runtime.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 

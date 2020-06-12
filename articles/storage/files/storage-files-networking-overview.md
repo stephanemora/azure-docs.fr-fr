@@ -7,20 +7,20 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7d95cc08595296d697618cbb3ff0025c7c212a1f
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 804e469a01be042b4c299fd608f11426e7274b72
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84296525"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84464808"
 ---
 # <a name="azure-files-networking-considerations"></a>Considérations relatives à la mise en réseau Azure Files 
 Vous pouvez vous connecter à un partage de fichiers Azure de deux manières :
 
 - En accédant au partage directement via les protocoles SMB ou FileREST. Ce modèle d’accès est principalement utilisé pour éliminer autant de serveurs locaux que possible.
-- En créant un cache du partage de fichiers Azure sur un serveur local avec Azure File Sync, puis en accédant aux données du partage de fichiers à partir du serveur local avec le protocole de votre choix (SMB, NFS, FTPS, etc.) en fonction de votre cas d’utilisation. Ce modèle d’accès est pratique car il combine le meilleur des performances locales et de l’échelle du cloud, ainsi que des services pouvant être attachés sans serveur (serverless), tels que Sauvegarde Azure.
+- En créant un cache du partage de fichiers Azure sur un serveur local (ou sur une machine virtuelle Azure) avec Azure File Sync, puis en accédant aux données du partage de fichiers à partir du serveur local avec le protocole de votre choix (SMB, NFS, FTPS, etc.) en fonction de votre cas d’usage. Ce modèle d’accès est pratique car il combine le meilleur des performances locales et de l’échelle du cloud, ainsi que des services pouvant être attachés sans serveur (serverless), tels que Sauvegarde Azure.
 
-Cet article explique comment configurer la mise en réseau lorsque votre cas d’utilisation demande à accéder directement au partage de fichiers Azure au lieu d’utiliser Azure File Sync. Pour plus d’informations sur les considérations relatives à la mise en réseau pour un déploiement d’Azure File Sync, voir [Paramètres de proxy et de pare-feu d’Azure File Sync](storage-sync-files-firewall-and-proxy.md).
+Cet article explique comment configurer la mise en réseau lorsque votre cas d’utilisation demande à accéder directement au partage de fichiers Azure au lieu d’utiliser Azure File Sync. Pour plus d’informations sur les considérations relatives à la mise en réseau pour un déploiement Azure File Sync, consultez [Considérations relatives à la mise en réseau Azure File Sync](storage-sync-files-networking-overview.md).
 
 La configuration réseau des partages de fichiers Azure s’effectue sur le compte de stockage Azure. Un compte de stockage est une construction de gestion qui représente un pool de stockage partagé dans lequel vous pouvez déployer plusieurs partages de fichiers, ainsi que d’autres ressources de stockage, telles que des conteneurs d’objets blob ou des files d’attente. Les comptes de stockage présentent plusieurs paramètres qui permettent sécuriser l’accès réseau à vos partages de fichiers : points de terminaison réseau, paramètres de pare-feu de compte de stockage et chiffrement en transit. 
 

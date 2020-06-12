@@ -4,13 +4,13 @@ description: Découvrez comment configurer un conteneur Python prédéfini pour 
 ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 8a9276f73c1d9bdf0289f41bb59340b29f5a2575
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom: mvc, seodec18, tracking-python
+ms.openlocfilehash: 96f7684176df35e9ac085dd2d7a0c576b7266883
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80046022"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553253"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configurer une application Python Linux pour Azure App Service
 
@@ -131,7 +131,7 @@ Vous pouvez contrôler le comportement de démarrage du conteneur en fournissant
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
 ```
 
-Par exemple, si vous disposez d’une application Flask dont le module principal est *hello.py* et que l’objet d’application Flask dans le fichier est nommé `myapp`, *\<custom-command>* se présentera ainsi :
+Par exemple, si vous disposez d’une application Flask dont le module principal est *hello.py* et que l’objet d’application Flask dans le fichier est nommé `myapp`, *\<custom-command>* est spécifié comme suit :
 
 ```bash
 gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -143,7 +143,7 @@ Si votre module principal est dans un sous-dossier, tel que `website`, précisez
 gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
-Vous pouvez également ajouter à *\<custom-command>* tout argument supplémentaire pour Gunicorn, tel que `--workers=4`. Pour plus d’informations, consultez [Running Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (Exécuter Gunicorn - docs.gunicorn.org).
+Vous pouvez également ajouter à la commande tout argument supplémentaire pour Gunicorn à *\<custom-command>* , tel que `--workers=4`. Pour plus d’informations, consultez [Running Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (Exécuter Gunicorn - docs.gunicorn.org).
 
 Pour utiliser un serveur autre que Gunicorn, tel que [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), vous pouvez remplacer *\<custom-command>* par quelque chose de ce genre :
 
